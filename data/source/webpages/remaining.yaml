@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-08-02
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -17,8 +17,12 @@ works:
     url: "https://tonarinoyj.jp/episode/2551460910044575820"
     platform_name: "ヤンジャン+"
     route: "gigaviewer"
-    chapter_count: 11
+    chapter_count: 12
     chapters:
+      - title: "[第7話 前編] 英雄少女と呪われの銀姫"
+        updated: 2026-08-04
+        author: "アルト/絵本奈央"
+        access_modes: ["free"]
       - title: "[第6話 後編] 英雄少女と呪われの銀姫"
         updated: 2026-07-21
         author: "アルト/絵本奈央"
@@ -78,28 +82,28 @@ works:
     route: "rendered"
     chapter_count: 8
     chapters:
-      - title: "第100話 2,889"
+      - title: "第100話"
         updated: 2026-08-01
         date_basis: rendered
-      - title: "第99話 4,845"
+      - title: "第99話"
         updated: 2026-07-18
         date_basis: rendered
-      - title: "第98話 4,504"
+      - title: "第98話"
         updated: 2026-07-04
         date_basis: rendered
-      - title: "第97話 4,247"
+      - title: "第97話"
         updated: 2026-06-27
         date_basis: rendered
-      - title: "第4話 3,203 3"
+      - title: "第4話"
         updated: 2024-02-03
         date_basis: rendered
-      - title: "第3話 5,238 3"
+      - title: "第3話"
         updated: 2024-01-27
         date_basis: rendered
-      - title: "第2話 5,565 4"
+      - title: "第2話"
         updated: 2024-01-20
         date_basis: rendered
-      - title: "第1話 7,060 8"
+      - title: "第1話"
         updated: 2024-01-15
         date_basis: rendered
   - work_title: "魔王城デート大作戦!"
@@ -107,7 +111,7 @@ works:
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     platform_name: "キミコミ"
     route: "comici"
-    chapter_count: 2
+    chapter_count: 4
     chapters:
       - title: "OPERATION1"
         updated: 2026-07-20
@@ -117,6 +121,14 @@ works:
         updated: 2026-07-27
         author: "涼海来夏"
         access_modes: ["free"]
+      - title: "OPERATION3"
+        updated: 2026-08-03
+        author: "涼海来夏"
+        access_modes: ["free"]
+      - title: "OPERATION4"
+        updated: 2026-08-10
+        author: "涼海来夏"
+        access_modes: ["purchase"]
   - work_title: "雨夜の月"
     author: "くずしろ / 第１−１話　奏音と咲希"
     url: "https://comic-days.com/episode/3269632237276869027"
@@ -495,111 +507,111 @@ works:
       - title: "第１２−３話　悔悟"
         updated: 2022-07-30
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１２−２話　悔悟"
         updated: 2022-07-09
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１２−１話　悔悟"
         updated: 2022-06-25
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１１−２話　将来"
         updated: 2022-06-11
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１１−１話　将来"
         updated: 2022-05-28
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１０−２話　ハードル"
         updated: 2022-05-14
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１０−１話　ハードル"
         updated: 2022-04-30
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第９−３話　贅沢"
         updated: 2022-04-16
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第９−２話　贅沢"
         updated: 2022-04-02
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第９−１話　贅沢"
         updated: 2022-03-12
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "特別編"
         updated: 2022-02-26
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第８−３話　不平等"
         updated: 2022-02-12
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第８−２話　不平等"
         updated: 2022-01-22
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第８−１話　不平等"
         updated: 2022-01-08
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第７−３話　邪魔者"
         updated: 2021-12-25
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第７−２話　邪魔者"
         updated: 2021-12-11
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第７−１話　邪魔者"
         updated: 2021-11-27
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第６−２話　理解者"
         updated: 2021-11-13
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第６−１話　理解者"
         updated: 2021-10-23
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第５−２話　領会"
         updated: 2021-10-09
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第５−１話　領会"
         updated: 2021-09-25
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第４−２話　願い"
         updated: 2021-09-11
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第４−１話　願い"
         updated: 2021-08-28
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第３−２話　聖域"
         updated: 2021-08-14
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第３−１話　聖域"
         updated: 2021-07-24
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第２−２話　鍵"
         updated: 2021-07-10
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第２−１話　鍵"
         updated: 2021-06-26
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１−２話　奏音と咲希"
         updated: 2021-06-12
         author: "くずしろ"
@@ -608,7 +620,7 @@ works:
         updated: 2021-06-12
         author: "くずしろ"
         access_modes: ["free"]
-  - work_title: "病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～"
+  - work_title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     author: "あらた伊里/アトハ/狐印 / 第1話「フィアナ、転生して超健康になる」"
     url: "https://comic-gardo.com/episode/2550912966011803878"
     platform_name: "コミックガルド"
@@ -712,7 +724,7 @@ works:
     url: "https://hanayume.com/series/f3ce082d639de"
     platform_name: "花とゆめ+"
     route: "comici"
-    chapter_count: 29
+    chapter_count: 31
     chapters:
       - title: "#1"
         updated: 2026-04-20
@@ -730,26 +742,32 @@ works:
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#4②"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#5①"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#5②"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#6①"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#6②"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "おまけ"
         updated: 2026-04-20
         author: "瑠夏子"
@@ -758,34 +776,42 @@ works:
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#7②"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#8①"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#8②"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃9①"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃9②"
         updated: 2026-04-27
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃10①"
         updated: 2026-05-04
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃10②"
         updated: 2026-05-11
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "おまけ"
         updated: 2026-05-18
         author: "瑠夏子"
@@ -794,231 +820,59 @@ works:
         updated: 2026-05-25
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃11②"
         updated: 2026-06-01
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃12①"
         updated: 2026-06-08
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃12②"
         updated: 2026-06-15
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃13①"
         updated: 2026-06-22
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃13②"
         updated: 2026-06-29
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃14①"
         updated: 2026-07-06
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃14②"
         updated: 2026-07-13
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃15①"
         updated: 2026-07-20
         author: "瑠夏子"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃15②"
         updated: 2026-07-27
         author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "おまけ"
+        updated: 2026-08-03
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "＃16①"
+        updated: 2026-08-10
+        author: "瑠夏子"
         access_modes: ["purchase"]
-  - work_title: "しゅがー・みーつ・がーる!"
-    url: "https://comic-fuz.com/manga/3108"
-    platform_name: "COMIC FUZ"
-    route: "markup"
-    chapter_count: 61
-    chapters:
-      - title: "第30皿(2)"
-        updated: 2026-06-23
-        date_basis: heuristic
-      - title: "第30皿(1)"
-        updated: 2026-06-09
-        date_basis: heuristic
-      - title: "第29皿(2)"
-        updated: 2026-05-26
-        date_basis: heuristic
-      - title: "第29皿(1)"
-        updated: 2026-05-12
-        date_basis: heuristic
-      - title: "第28皿(2)"
-        updated: 2026-04-28
-        date_basis: heuristic
-      - title: "第28皿(1)"
-        updated: 2026-04-21
-        date_basis: heuristic
-      - title: "第27皿(2)"
-        updated: 2026-03-24
-        date_basis: heuristic
-      - title: "第27皿(1)"
-        updated: 2026-03-10
-        date_basis: heuristic
-      - title: "第26皿(2)"
-        updated: 2026-01-21
-        date_basis: heuristic
-      - title: "第26皿(1)"
-        updated: 2026-01-07
-        date_basis: heuristic
-      - title: "第25皿(2)"
-        updated: 2025-12-23
-        date_basis: heuristic
-      - title: "第25皿(1)"
-        updated: 2025-12-09
-        date_basis: heuristic
-      - title: "第24皿(2)"
-        updated: 2025-10-21
-        date_basis: heuristic
-      - title: "第24皿(1)"
-        updated: 2025-10-07
-        date_basis: heuristic
-      - title: "第23皿(2)"
-        updated: 2025-09-23
-        date_basis: heuristic
-      - title: "第23皿(1)"
-        updated: 2025-09-09
-        date_basis: heuristic
-      - title: "第22皿(2)"
-        updated: 2025-08-26
-        date_basis: heuristic
-      - title: "第22皿(1)"
-        updated: 2025-08-12
-        date_basis: heuristic
-      - title: "第21皿(2)"
-        updated: 2025-07-22
-        date_basis: heuristic
-      - title: "第21皿(1)"
-        updated: 2025-07-08
-        date_basis: heuristic
-      - title: "第20皿(2)"
-        updated: 2025-06-24
-        date_basis: heuristic
-      - title: "第20皿(1)"
-        updated: 2025-06-10
-        date_basis: heuristic
-      - title: "第19皿(2)"
-        updated: 2025-05-27
-        date_basis: heuristic
-      - title: "第19皿(1)"
-        updated: 2025-05-13
-        date_basis: heuristic
-      - title: "第18皿(2)"
-        updated: 2025-03-25
-        date_basis: heuristic
-      - title: "第18皿(1)"
-        updated: 2025-03-11
-        date_basis: heuristic
-      - title: "第17皿(2)"
-        updated: 2025-02-25
-        date_basis: heuristic
-      - title: "第17皿(1)"
-        updated: 2025-02-11
-        date_basis: heuristic
-      - title: "第16皿(2)"
-        updated: 2025-01-21
-        date_basis: heuristic
-      - title: "第16皿(1)"
-        updated: 2025-01-07
-        date_basis: heuristic
-      - title: "第15皿(2)"
-        updated: 2024-12-24
-        date_basis: heuristic
-      - title: "第15皿(1)"
-        updated: 2024-12-10
-        date_basis: heuristic
-      - title: "第14皿(2)"
-        updated: 2024-10-08
-        date_basis: heuristic
-      - title: "第14皿(1)"
-        updated: 2024-10-01
-        date_basis: heuristic
-      - title: "第13皿(2)"
-        updated: 2024-09-24
-        date_basis: heuristic
-      - title: "第13皿(1)"
-        updated: 2024-09-17
-        date_basis: heuristic
-      - title: "第12皿(2)"
-        updated: 2024-09-10
-        date_basis: heuristic
-      - title: "第12皿(1)"
-        updated: 2024-09-03
-        date_basis: heuristic
-      - title: "第11皿(2)"
-        updated: 2024-08-27
-        date_basis: heuristic
-      - title: "第11皿(1)"
-        updated: 2024-08-20
-        date_basis: heuristic
-      - title: "第10皿(2)"
-        updated: 2024-08-13
-        date_basis: heuristic
-      - title: "第10皿(1)"
-        updated: 2024-08-06
-        date_basis: heuristic
-      - title: "第9皿(2)"
-        updated: 2024-07-30
-        date_basis: heuristic
-      - title: "第9皿(1)"
-        updated: 2024-07-23
-        date_basis: heuristic
-      - title: "第8皿(2)"
-        updated: 2024-07-02
-        date_basis: heuristic
-      - title: "第8皿(1)"
-        updated: 2024-06-25
-        date_basis: heuristic
-      - title: "第7皿(2)"
-        updated: 2024-06-18
-        date_basis: heuristic
-      - title: "第7皿(1)"
-        updated: 2024-06-11
-        date_basis: heuristic
-      - title: "第6皿(2)"
-        updated: 2024-06-04
-        date_basis: heuristic
-      - title: "第6皿(1)"
-        updated: 2024-05-28
-        date_basis: heuristic
-      - title: "第5皿(2)"
-        updated: 2024-05-21
-        date_basis: heuristic
-      - title: "第5皿(1)"
-        updated: 2024-05-14
-        date_basis: heuristic
-      - title: "第4皿(2)"
-        updated: 2024-05-07
-        date_basis: heuristic
-      - title: "第4皿(1)"
-        updated: 2024-04-30
-        date_basis: heuristic
-      - title: "第3皿(2)"
-        updated: 2024-04-23
-        date_basis: heuristic
-      - title: "第3皿(1)"
-        updated: 2024-04-16
-        date_basis: heuristic
-      - title: "第2皿(2)"
-        updated: 2024-04-09
-        date_basis: heuristic
-      - title: "第2皿(1)"
-        updated: 2024-04-02
-        date_basis: heuristic
-      - title: "第1皿(2)"
-        updated: 2024-03-26
-        date_basis: heuristic
-      - title: "第1皿(1)"
-        updated: 2024-03-26
-        date_basis: heuristic
-      - title: "第0皿"
-        updated: 2024-03-26
-        date_basis: heuristic
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     author: "空山トキ/五色安未/泉乃せん/伍長 / 第１話　少女と暗殺者の世界"
     url: "https://comic-days.com/episode/2550912964518073379"
@@ -1489,93 +1343,6 @@ works:
         updated: 2023-09-20
         author: "くわばらたもつ"
         access_modes: ["free"]
-  - work_title: "しあわせ鳥見んぐ"
-    url: "https://comic-fuz.com/manga/2474"
-    platform_name: "ニコニコ漫画（きららベース）"
-    route: "markup"
-    chapter_count: 27
-    chapters:
-      - title: "第２７話"
-        updated: 2026-07-30
-        date_basis: heuristic
-      - title: "第２６話"
-        updated: 2025-04-03
-        date_basis: heuristic
-      - title: "第２５話"
-        updated: 2025-03-27
-        date_basis: heuristic
-      - title: "第２４話"
-        updated: 2025-03-20
-        date_basis: heuristic
-      - title: "第２３話"
-        updated: 2025-03-13
-        date_basis: heuristic
-      - title: "第２２話"
-        updated: 2025-03-06
-        date_basis: heuristic
-      - title: "第２１話"
-        updated: 2025-02-27
-        date_basis: heuristic
-      - title: "第２０話"
-        updated: 2025-02-20
-        date_basis: heuristic
-      - title: "第１９話"
-        updated: 2025-02-13
-        date_basis: heuristic
-      - title: "第１８話"
-        updated: 2025-02-06
-        date_basis: heuristic
-      - title: "第１７話"
-        updated: 2025-01-30
-        date_basis: heuristic
-      - title: "第１６話"
-        updated: 2025-01-23
-        date_basis: heuristic
-      - title: "第１５話"
-        updated: 2025-01-16
-        date_basis: heuristic
-      - title: "第１４話"
-        updated: 2025-01-09
-        date_basis: heuristic
-      - title: "第１３話"
-        updated: 2025-01-02
-        date_basis: heuristic
-      - title: "第１２話"
-        updated: 2024-12-26
-        date_basis: heuristic
-      - title: "第１１話"
-        updated: 2024-12-19
-        date_basis: heuristic
-      - title: "第１０話"
-        updated: 2024-12-12
-        date_basis: heuristic
-      - title: "第９話"
-        updated: 2024-12-05
-        date_basis: heuristic
-      - title: "第８話"
-        updated: 2024-11-28
-        date_basis: heuristic
-      - title: "第７話"
-        updated: 2024-11-21
-        date_basis: heuristic
-      - title: "第６話"
-        updated: 2024-11-14
-        date_basis: heuristic
-      - title: "第５話"
-        updated: 2024-11-07
-        date_basis: heuristic
-      - title: "第４話"
-        updated: 2024-10-31
-        date_basis: heuristic
-      - title: "第３話"
-        updated: 2024-10-24
-        date_basis: heuristic
-      - title: "第２話"
-        updated: 2024-10-17
-        date_basis: heuristic
-      - title: "第１話"
-        updated: 2024-10-10
-        date_basis: heuristic
   - work_title: "銀の河に星の城"
     url: "https://flowercomics.jp/title/2780"
     platform_name: "フラコミlike!"
@@ -1594,13 +1361,13 @@ works:
       - title: "Episode.2 -2"
         updated: 2025-12-26
         date_basis: heuristic
-      - title: "Episode.3 -1 0 0"
+      - title: "Episode.3 -1"
         updated: 2026-03-27
         date_basis: heuristic
-      - title: "Episode.3 -2 0 0"
+      - title: "Episode.3 -2"
         updated: 2026-04-24
         date_basis: heuristic
-      - title: "Episode.4 -1 0 0"
+      - title: "Episode.4 -1"
         updated: 2026-07-24
         date_basis: heuristic
   - work_title: "ニセアイホンアイ"
@@ -1608,8 +1375,36 @@ works:
     url: "https://mangatime-square.com/episode/12207421984001577937"
     platform_name: "まんがタイムSquare"
     route: "gigaviewer"
-    chapter_count: 3
+    chapter_count: 10
     chapters:
+      - title: "第10話"
+        updated: 2026-08-06
+        author: "いくたはな"
+        access_modes: ["free"]
+      - title: "第9話"
+        updated: 2026-08-06
+        author: "いくたはな"
+        access_modes: ["free"]
+      - title: "第8話"
+        updated: 2026-08-06
+        author: "いくたはな"
+        access_modes: ["free"]
+      - title: "第7話"
+        updated: 2026-08-06
+        author: "いくたはな"
+        access_modes: ["free"]
+      - title: "第6話"
+        updated: 2026-08-06
+        author: "いくたはな"
+        access_modes: ["free"]
+      - title: "第5話"
+        updated: 2026-08-06
+        author: "いくたはな"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: 2026-08-06
+        author: "いくたはな"
+        access_modes: ["free"]
       - title: "第3話"
         updated: 2026-07-24
         author: "いくたはな"
@@ -1693,241 +1488,17 @@ works:
         updated: 2024-11-22
         author: "U-temo"
         access_modes: ["free"]
-  - work_title: "世界で一番おっぱいが好き!"
-    url: "https://comic-walker.com/detail/KC_000034_S"
-    platform_name: "マンガボックス"
-    route: "markup"
-    chapter_count: 74
-    chapters:
-      - title: "第0話"
-        updated: 2024-10-01
-        date_basis: heuristic
-      - title: "第1話"
-        updated: 2017-08-10
-        date_basis: heuristic
-      - title: "第2話"
-        updated: 2017-12-25
-        date_basis: heuristic
-      - title: "第3話"
-        updated: 2025-08-27
-        date_basis: heuristic
-      - title: "第4話"
-        updated: 2023-09-27
-        date_basis: heuristic
-      - title: "第5話"
-        updated: 2022-03-19
-        date_basis: heuristic
-      - title: "第6話"
-        updated: 2022-03-20
-        date_basis: heuristic
-      - title: "第7話"
-        updated: 2022-03-21
-        date_basis: heuristic
-      - title: "第8話"
-        updated: 2022-03-22
-        date_basis: heuristic
-      - title: "第9話"
-        updated: 2022-03-23
-        date_basis: heuristic
-      - title: "第10話"
-        updated: 2020-01-03
-        date_basis: heuristic
-      - title: "第11話"
-        updated: 2020-01-04
-        date_basis: heuristic
-      - title: "第12話"
-        updated: 2020-01-05
-        date_basis: heuristic
-      - title: "第13話"
-        updated: 2018-07-09
-        date_basis: heuristic
-      - title: "第14話"
-        updated: 2018-08-13
-        date_basis: heuristic
-      - title: "第15話"
-        updated: 2018-09-10
-        date_basis: heuristic
-      - title: "第16話"
-        updated: 2018-10-08
-        date_basis: heuristic
-      - title: "第17話"
-        updated: 2018-10-15
-        date_basis: heuristic
-      - title: "第18話"
-        updated: 2018-10-22
-        date_basis: heuristic
-      - title: "第19話"
-        updated: 2018-10-29
-        date_basis: heuristic
-      - title: "第20話"
-        updated: 2018-11-12
-        date_basis: heuristic
-      - title: "第21話"
-        updated: 2018-12-10
-        date_basis: heuristic
-      - title: "第22話"
-        updated: 2019-01-14
-        date_basis: heuristic
-      - title: "第23話"
-        updated: 2019-02-11
-        date_basis: heuristic
-      - title: "第24話"
-        updated: 2019-03-11
-        date_basis: heuristic
-      - title: "第25話"
-        updated: 2019-03-25
-        date_basis: heuristic
-      - title: "第26話"
-        updated: 2019-06-10
-        date_basis: heuristic
-      - title: "第27話"
-        updated: 2019-07-08
-        date_basis: heuristic
-      - title: "第28話"
-        updated: 2019-08-12
-        date_basis: heuristic
-      - title: "第29話"
-        updated: 2019-09-09
-        date_basis: heuristic
-      - title: "第30話"
-        updated: 2019-10-14
-        date_basis: heuristic
-      - title: "第31話"
-        updated: 2019-11-11
-        date_basis: heuristic
-      - title: "第32話"
-        updated: 2019-12-09
-        date_basis: heuristic
-      - title: "第33話"
-        updated: 2020-01-13
-        date_basis: heuristic
-      - title: "第34話"
-        updated: 2020-02-10
-        date_basis: heuristic
-      - title: "第35話+アフレコレポート"
-        updated: 2020-03-09
-        date_basis: heuristic
-      - title: "第36話"
-        updated: 2020-04-13
-        date_basis: heuristic
-      - title: "第37話"
-        updated: 2020-05-11
-        date_basis: heuristic
-      - title: "第38話"
-        updated: 2020-06-08
-        date_basis: heuristic
-      - title: "第39話"
-        updated: 2020-07-13
-        date_basis: heuristic
-      - title: "第40話"
-        updated: 2020-08-10
-        date_basis: heuristic
-      - title: "第41話"
-        updated: 2020-09-14
-        date_basis: heuristic
-      - title: "第42話"
-        updated: 2020-10-12
-        date_basis: heuristic
-      - title: "第43話"
-        updated: 2020-11-09
-        date_basis: heuristic
-      - title: "第44話"
-        updated: 2020-12-14
-        date_basis: heuristic
-      - title: "第45話"
-        updated: 2021-01-11
-        date_basis: heuristic
-      - title: "第46話"
-        updated: 2021-02-08
-        date_basis: heuristic
-      - title: "第47話"
-        updated: 2021-04-12
-        date_basis: heuristic
-      - title: "第48話"
-        updated: 2021-05-10
-        date_basis: heuristic
-      - title: "第49話"
-        updated: 2021-06-14
-        date_basis: heuristic
-      - title: "第50話"
-        updated: 2021-08-09
-        date_basis: heuristic
-      - title: "第51話"
-        updated: 2021-10-11
-        date_basis: heuristic
-      - title: "第52話"
-        updated: 2021-11-08
-        date_basis: heuristic
-      - title: "第53話"
-        updated: 2021-12-13
-        date_basis: heuristic
-      - title: "第54話"
-        updated: 2022-01-10
-        date_basis: heuristic
-      - title: "第55話"
-        updated: 2022-02-14
-        date_basis: heuristic
-      - title: "第56話"
-        updated: 2022-03-14
-        date_basis: heuristic
-      - title: "第57話"
-        updated: 2022-05-09
-        date_basis: heuristic
-      - title: "第58話"
-        updated: 2022-06-13
-        date_basis: heuristic
-      - title: "第59話"
-        updated: 2022-07-11
-        date_basis: heuristic
-      - title: "第60話"
-        updated: 2022-08-08
-        date_basis: heuristic
-      - title: "第61話"
-        updated: 2022-09-12
-        date_basis: heuristic
-      - title: "第62話"
-        updated: 2022-11-14
-        date_basis: heuristic
-      - title: "第63話"
-        updated: 2022-12-12
-        date_basis: heuristic
-      - title: "第64話"
-        updated: 2023-01-09
-        date_basis: heuristic
-      - title: "第65話"
-        updated: 2023-02-13
-        date_basis: heuristic
-      - title: "第66話"
-        updated: 2023-04-10
-        date_basis: heuristic
-      - title: "第67話"
-        updated: 2023-05-08
-        date_basis: heuristic
-      - title: "第68話"
-        updated: 2023-06-12
-        date_basis: heuristic
-      - title: "第69話"
-        updated: 2023-07-10
-        date_basis: heuristic
-      - title: "第70話"
-        updated: 2023-08-14
-        date_basis: heuristic
-      - title: "第71話"
-        updated: 2023-09-11
-        date_basis: heuristic
-      - title: "第72話"
-        updated: 2023-10-09
-        date_basis: heuristic
-      - title: "最終回"
-        updated: 2023-11-13
-        date_basis: heuristic
   - work_title: "小林さんちのメイドラゴン"
     author: "クール教信者"
     url: "https://comic-action.com/episode/13933686331613879685"
     platform_name: "webアクション"
     route: "gigaviewer"
-    chapter_count: 190
+    chapter_count: 191
     chapters:
+      - title: "第189話 エルマとユタラマ"
+        updated: 2026-08-04
+        author: "クール教信者"
+        access_modes: ["purchase"]
       - title: "第188話 トールと傍観勢"
         updated: 2026-07-07
         author: "クール教信者"
@@ -1935,7 +1506,7 @@ works:
       - title: "第187話 カンナとイルルと姉妹ゲンカ"
         updated: 2026-06-16
         author: "クール教信者"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第186話 トールと監視"
         updated: 2026-06-02
         author: "クール教信者"
@@ -2688,189 +2259,6 @@ works:
         updated: 2020-04-10
         author: "クール教信者"
         access_modes: ["free"]
-  - work_title: "一畳間まんきつ暮らし！"
-    url: "https://comic-fuz.com/manga/1811"
-    platform_name: "ニコニコ漫画（きららベース）"
-    route: "markup"
-    chapter_count: 55
-    chapters:
-      - title: "第５１話"
-        updated: 2026-08-01
-        date_basis: heuristic
-      - title: "第５０話"
-        updated: 2026-07-18
-        date_basis: heuristic
-      - title: "第４９話"
-        updated: 2026-07-11
-        date_basis: heuristic
-      - title: "第４８話"
-        updated: 2026-07-04
-        date_basis: heuristic
-      - title: "第４７話"
-        updated: 2026-06-27
-        date_basis: heuristic
-      - title: "第４６話"
-        updated: 2026-06-20
-        date_basis: heuristic
-      - title: "第４５話"
-        updated: 2026-06-13
-        date_basis: heuristic
-      - title: "第４４話"
-        updated: 2026-06-06
-        date_basis: heuristic
-      - title: "第４３話"
-        updated: 2026-05-30
-        date_basis: heuristic
-      - title: "第４２話"
-        updated: 2026-05-23
-        date_basis: heuristic
-      - title: "第４１話"
-        updated: 2026-05-16
-        date_basis: heuristic
-      - title: "第４０話"
-        updated: 2026-05-09
-        date_basis: heuristic
-      - title: "第３９話"
-        updated: 2026-05-02
-        date_basis: heuristic
-      - title: "第３８話"
-        updated: 2026-04-25
-        date_basis: heuristic
-      - title: "第０話"
-        updated: 2026-04-18
-        date_basis: heuristic
-      - title: "第３７話"
-        updated: 2026-04-11
-        date_basis: heuristic
-      - title: "第３６話"
-        updated: 2026-04-04
-        date_basis: heuristic
-      - title: "第３５話"
-        updated: 2026-03-28
-        date_basis: heuristic
-      - title: "第３４話"
-        updated: 2026-03-21
-        date_basis: heuristic
-      - title: "第３３話"
-        updated: 2026-03-14
-        date_basis: heuristic
-      - title: "第３２話"
-        updated: 2026-03-07
-        date_basis: heuristic
-      - title: "第３１話"
-        updated: 2026-02-28
-        date_basis: heuristic
-      - title: "第３０話"
-        updated: 2026-02-21
-        date_basis: heuristic
-      - title: "第２９話"
-        updated: 2026-02-14
-        date_basis: heuristic
-      - title: "第２８話"
-        updated: 2026-02-07
-        date_basis: heuristic
-      - title: "第２７話"
-        updated: 2026-01-31
-        date_basis: heuristic
-      - title: "第０話"
-        updated: 2026-01-24
-        date_basis: heuristic
-      - title: "第２６話"
-        updated: 2026-01-17
-        date_basis: heuristic
-      - title: "第２５話"
-        updated: 2026-01-10
-        date_basis: heuristic
-      - title: "第２４話"
-        updated: 2026-01-03
-        date_basis: heuristic
-      - title: "第２３話"
-        updated: 2025-12-27
-        date_basis: heuristic
-      - title: "第２２話"
-        updated: 2025-12-20
-        date_basis: heuristic
-      - title: "第２１話"
-        updated: 2025-12-13
-        date_basis: heuristic
-      - title: "第２０話"
-        updated: 2025-12-06
-        date_basis: heuristic
-      - title: "第１９話"
-        updated: 2025-11-29
-        date_basis: heuristic
-      - title: "第１８話"
-        updated: 2025-11-22
-        date_basis: heuristic
-      - title: "第１７話"
-        updated: 2025-11-15
-        date_basis: heuristic
-      - title: "第１６話"
-        updated: 2025-11-08
-        date_basis: heuristic
-      - title: "第１５話"
-        updated: 2025-11-01
-        date_basis: heuristic
-      - title: "第１４話"
-        updated: 2025-10-25
-        date_basis: heuristic
-      - title: "第０話"
-        updated: 2025-10-18
-        date_basis: heuristic
-      - title: "第１３話"
-        updated: 2025-10-11
-        date_basis: heuristic
-      - title: "第１２話"
-        updated: 2025-10-04
-        date_basis: heuristic
-      - title: "第１１話"
-        updated: 2025-09-27
-        date_basis: heuristic
-      - title: "第１０話"
-        updated: 2025-09-20
-        date_basis: heuristic
-      - title: "第９話"
-        updated: 2025-09-13
-        date_basis: heuristic
-      - title: "第８話"
-        updated: 2025-09-06
-        date_basis: heuristic
-      - title: "第７話"
-        updated: 2025-08-30
-        date_basis: heuristic
-      - title: "第６話"
-        updated: 2025-08-23
-        date_basis: heuristic
-      - title: "第５話"
-        updated: 2025-08-16
-        date_basis: heuristic
-      - title: "第４話"
-        updated: 2025-08-09
-        date_basis: heuristic
-      - title: "第３話"
-        updated: 2025-08-02
-        date_basis: heuristic
-      - title: "第２話"
-        updated: 2025-07-26
-        date_basis: heuristic
-      - title: "第１話"
-        updated: 2025-07-26
-        date_basis: heuristic
-      - title: "第０話"
-        updated: 2025-07-26
-        date_basis: heuristic
-  - work_title: "お姉さんは女子小学生に興味があります。"
-    url: "https://manga.nicovideo.jp/comic/31194"
-    platform_name: "竹コミ"
-    route: "markup"
-    chapter_count: 2
-    chapters:
-      - title: "第１話から読む"
-        updated: 2024-03-01
-        date_basis: heuristic
-      - title: "3話 無料"
-        updated: 2018-01-06
-        date_basis: heuristic
   - work_title: "暴走!?サキュバスせんぱい"
     author: "ミナミト"
     url: "https://g-comi.jp/series/5448ec9f6077b"
@@ -2890,22 +2278,27 @@ works:
         updated: 2026-01-23
         author: "ミナミト"
         access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
       - title: "第4話"
         updated: 2026-02-20
         author: "ミナミト"
         access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
       - title: "第5話"
         updated: 2026-03-20
         author: "ミナミト"
         access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
       - title: "第6話"
         updated: 2026-04-17
         author: "ミナミト"
         access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
       - title: "第7話"
         updated: 2026-05-22
         author: "ミナミト"
         access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
       - title: "第8話"
         updated: 2026-06-19
         author: "ミナミト"
@@ -2941,14 +2334,17 @@ works:
         updated: 2026-04-20
         author: "まめ魚"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "6話"
         updated: 2026-04-20
         author: "まめ魚"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "7話"
         updated: 2026-04-26
         author: "まめ魚"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "おまけ"
         updated: 2026-05-10
         author: "まめ魚"
@@ -2957,14 +2353,17 @@ works:
         updated: 2026-05-24
         author: "まめ魚"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "9話"
         updated: 2026-06-07
         author: "まめ魚"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "10話"
         updated: 2026-06-21
         author: "まめ魚"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "おまけ"
         updated: 2026-07-05
         author: "まめ魚"
@@ -2983,18 +2382,18 @@ works:
     route: "markup"
     chapter_count: 2
     chapters:
-      - title: "第90話-1 八尺様リバイバルV"
-        updated: 2026-08-02
+      - title: "第90話-2 八尺様リバイバルV"
+        updated: 2026-08-09
         date_basis: heuristic
       - title: "第1話-1 くねくねハンティングI 作品インフォメーション 『裏世界ピクニック』コミッ"
         updated: 2026-05-12
         date_basis: heuristic
-  - work_title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～"
+  - work_title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
     author: "りんご飴サード,川田暁生"
     url: "https://youngchampion.jp/series/86c1162f34a04"
     platform_name: "チャンピオンクロス"
     route: "comici"
-    chapter_count: 27
+    chapter_count: 28
     chapters:
       - title: "第1話①"
         updated: 2025-11-05
@@ -3012,100 +2411,127 @@ works:
         updated: 2025-12-03
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第2話②"
         updated: 2025-12-10
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第2話③"
         updated: 2025-12-17
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第3話①"
         updated: 2026-01-07
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第3話②"
         updated: 2026-01-14
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第3話③"
         updated: 2026-01-21
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第4話①"
         updated: 2026-02-04
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第4話②"
         updated: 2026-02-11
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第4話③"
         updated: 2026-02-18
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第5話①"
         updated: 2026-03-04
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第5話②"
         updated: 2026-03-11
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第5話③"
         updated: 2026-03-18
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第6話①"
         updated: 2026-04-01
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第6話②"
         updated: 2026-04-08
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第6話③"
         updated: 2026-04-15
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第7話①"
         updated: 2026-05-06
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第7話②"
         updated: 2026-05-13
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第7話③"
         updated: 2026-05-20
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第8話①"
         updated: 2026-06-03
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第8話②"
         updated: 2026-06-10
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第8話③"
         updated: 2026-06-17
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第9話①"
         updated: 2026-07-01
         author: "りんご飴サード,川田暁生"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第9話②"
         updated: 2026-07-08
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第9話③"
         updated: 2026-07-15
         author: "りんご飴サード,川田暁生"
+        access_modes: ["free"]
+      - title: "第10話①"
+        updated: 2026-08-05
+        author: "りんご飴サード,川田暁生"
         access_modes: ["purchase"]
   - work_title: "平良深姉妹はどっちもヤんでる"
-    author: "金子ある"
+    author: "金子ある / #1(1)"
     url: "https://comic-days.com/episode/4856001361274266527"
     platform_name: "マガポケ"
     route: "gigaviewer"
@@ -3466,12 +2892,16 @@ works:
     url: "https://comic-days.com/episode/2550912965415315207"
     platform_name: "コミックDAYS"
     route: "gigaviewer"
-    chapter_count: 34
+    chapter_count: 35
     chapters:
+      - title: "３２冊目：作中に登場した食べ物やグッズの再現って特に嬉しい"
+        updated: 2026-08-06
+        author: "破賀ミチル"
+        access_modes: ["purchase"]
       - title: "３１冊目：己の中のケモノ"
         updated: 2026-07-16
         author: "破賀ミチル"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "3巻発売記念書き下ろし"
         updated: 2026-07-02
         author: "破賀ミチル"
@@ -3483,7 +2913,7 @@ works:
       - title: "２９冊目：好きなままで"
         updated: 2026-06-18
         author: "破賀ミチル"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "２８冊目：階段"
         updated: 2026-06-04
         author: "破賀ミチル"
@@ -3609,8 +3039,52 @@ works:
     url: "https://comic-days.com/episode/12207421983430012575"
     platform_name: "マガポケ"
     route: "gigaviewer"
-    chapter_count: 12
+    chapter_count: 23
     chapters:
+      - title: "２３．　Ｎｅｖｅｒ　Ｓｅｅ　Ｍｅ　Ａｇａｉｎ"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "２２．　水上のガンマン"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "２１．　過ぎ去りし思い出"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "２０．　それが黒魔女"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "１９．　海に沈める"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "１８．　世界が終わるまでは"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "１７．　夜を延ばして"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "１６．　あなたは海の底"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "１５．　サバトとハント"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "１４．　魔法少女たちの百年祭"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
+      - title: "１３．　ＳＬＡＹ！！"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        access_modes: ["purchase"]
       - title: "１２．ハートに火をつけて"
         updated: 2026-05-07
         author: "陣ノ内康暉"
@@ -3678,30 +3152,37 @@ works:
         updated: 2025-10-17
         author: "サスケ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "4話"
         updated: 2025-10-17
         author: "サスケ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "5話"
         updated: 2025-10-17
         author: "サスケ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "6話"
         updated: 2025-10-17
         author: "サスケ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "7話"
         updated: 2025-10-17
         author: "サスケ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "8話"
         updated: 2025-10-17
         author: "サスケ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "9話"
         updated: 2025-10-17
         author: "サスケ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "10話"
         updated: 2025-10-17
         author: "サスケ"
@@ -4313,46 +3794,57 @@ works:
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "5話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "6話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "7話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "8話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "9話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "10話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "11話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "12話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "13話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "14話"
         updated: 2025-10-17
         author: "しのぎあさ"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "15話"
         updated: 2025-10-17
         author: "しのぎあさ"
@@ -4382,10 +3874,14 @@ works:
     url: "https://g-comi.jp/series/58238b3987c11"
     platform_name: "Gコミ"
     route: "comici"
-    chapter_count: 1
+    chapter_count: 2
     chapters:
       - title: "第1話"
         updated: 2026-07-03
+        author: "裏海マユ,ちょきんぎょ。"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: 2026-08-07
         author: "裏海マユ,ちょきんぎょ。"
         access_modes: ["free"]
   - work_title: "銀輪ボイス"
@@ -4407,46 +3903,57 @@ works:
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "4話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "5話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "6話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "7話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "8話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "9話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "10話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "10.5話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "11話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "12話"
         updated: 2025-10-17
         author: "もくふう"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "13話"
         updated: 2025-10-17
         author: "もくふう"
@@ -4486,18 +3993,22 @@ works:
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "2話②"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "3話①"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "3話②"
         updated: 2026-04-20
         author: "瑠夏子"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "4話①"
         updated: 2026-04-20
         author: "瑠夏子"
@@ -4592,74 +4103,92 @@ works:
         updated: 2025-09-13
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "2-②"
         updated: 2025-09-20
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "3-①"
         updated: 2025-09-27
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "3-②"
         updated: 2025-10-04
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "4-①"
         updated: 2025-10-11
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "4-②"
         updated: 2025-10-18
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "5"
         updated: 2025-10-25
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "6"
         updated: 2025-11-01
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "7"
         updated: 2025-11-08
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "8"
         updated: 2025-11-15
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "9-①"
         updated: 2025-11-22
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "9-②"
         updated: 2025-12-06
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "10"
         updated: 2025-12-13
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "11"
         updated: 2025-12-20
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "12"
         updated: 2025-12-27
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "13-①"
         updated: 2026-01-03
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "13-②"
         updated: 2026-01-10
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "14"
         updated: 2026-01-17
         author: "椿木とりか"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "15"
         updated: 2026-01-24
         author: "椿木とりか"
@@ -4700,18 +4229,6 @@ works:
         updated: 2026-04-04
         author: "椿木とりか"
         access_modes: ["purchase"]
-  - work_title: "香原さんのふぇちのーと"
-    url: "https://manga.nicovideo.jp/comic/56509"
-    platform_name: "竹コミ"
-    route: "markup"
-    chapter_count: 2
-    chapters:
-      - title: "第１話から読む"
-        updated: 2022-01-29
-        date_basis: heuristic
-      - title: "3話 無料"
-        updated: 2022-12-08
-        date_basis: heuristic
   - work_title: "フェアウェイの声をきかせて"
     author: "椎葉裕巳"
     url: "https://championcross.jp/series/8178b4fc09df9"
@@ -4735,74 +4252,92 @@ works:
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第5話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第6話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第7話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第8話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第9話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第10話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第11話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第12話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第13話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第14話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第15話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第16話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第17話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第18話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第19話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第20話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第21話"
         updated: 2024-03-15
         author: "椎葉裕巳"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第22話"
         updated: 2024-03-15
         author: "椎葉裕巳"
@@ -4987,426 +4522,6 @@ works:
         updated: 2025-07-06
         author: "椎葉裕巳"
         access_modes: ["purchase"]
-  - work_title: "転生王女と天才令嬢の魔法革命"
-    url: "https://comic-walker.com/detail/KC_003176_S"
-    platform_name: "カドコミ"
-    route: "markup"
-    chapter_count: 138
-    chapters:
-      - title: "第１話"
-        updated: 2020-08-29
-        date_basis: heuristic
-      - title: "第２話"
-        updated: 2024-08-31
-        date_basis: heuristic
-      - title: "第1話"
-        updated: 2020-08-29
-        date_basis: heuristic
-      - title: "第2話①"
-        updated: 2020-09-12
-        date_basis: heuristic
-      - title: "第2話②"
-        updated: 2021-08-31
-        date_basis: heuristic
-      - title: "第2話③"
-        updated: 2021-08-31
-        date_basis: heuristic
-      - title: "第3話①"
-        updated: 2025-12-26
-        date_basis: heuristic
-      - title: "第3話②"
-        updated: 2025-12-26
-        date_basis: heuristic
-      - title: "第4話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第4話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第5話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第5話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第6話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第6話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第6話③"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第7話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第7話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第8話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第8話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第9話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第9話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第10話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第10話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第11話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第11話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第12話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第12話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第13話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第13話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第14話①"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第14話②"
-        updated: 2025-08-15
-        date_basis: heuristic
-      - title: "第15話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第15話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第16話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第16話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第17話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第17話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第18話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第18話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第18話③"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第19話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第19話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第19話③"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第20話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第20話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第20話③"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第21話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第21話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第21話③"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第22話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第22話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第23話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第23話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第23話③"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第24話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第24話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第25話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第25話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第26話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第26話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第26話③"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第27話①"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第27話②"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第27話③"
-        updated: 2025-05-01
-        date_basis: heuristic
-      - title: "第28話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第28話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第28話③"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第29話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第29話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第29話③"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第30話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第30話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第31話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第31話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第31話③"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第32話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第32話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第32話③"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第33話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第33話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第33話③"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第34話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第34話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第35話"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第36話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第36話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第36話③"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第36話④"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第37話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第37話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第37話③"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第38話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第38話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第38話③"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第39話①"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第39話②"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第39話③"
-        updated: 2025-01-27
-        date_basis: heuristic
-      - title: "第40話①"
-        updated: 2024-06-08
-        date_basis: heuristic
-      - title: "第40話②"
-        updated: 2024-06-22
-        date_basis: heuristic
-      - title: "第41話①"
-        updated: 2024-07-13
-        date_basis: heuristic
-      - title: "第41話②"
-        updated: 2024-07-20
-        date_basis: heuristic
-      - title: "第41話③"
-        updated: 2024-07-27
-        date_basis: heuristic
-      - title: "第42話①"
-        updated: 2025-03-01
-        date_basis: heuristic
-      - title: "第42話②"
-        updated: 2025-03-01
-        date_basis: heuristic
-      - title: "第42話③"
-        updated: 2025-03-01
-        date_basis: heuristic
-      - title: "第43話①"
-        updated: 2025-04-05
-        date_basis: heuristic
-      - title: "第43話②"
-        updated: 2025-04-05
-        date_basis: heuristic
-      - title: "第43話③"
-        updated: 2025-04-05
-        date_basis: heuristic
-      - title: "第44話①"
-        updated: 2025-04-26
-        date_basis: heuristic
-      - title: "第44話②"
-        updated: 2025-05-03
-        date_basis: heuristic
-      - title: "第45話①"
-        updated: 2025-05-10
-        date_basis: heuristic
-      - title: "第45話②"
-        updated: 2025-05-17
-        date_basis: heuristic
-      - title: "第45話③"
-        updated: 2025-05-24
-        date_basis: heuristic
-      - title: "第46話①"
-        updated: 2025-06-14
-        date_basis: heuristic
-      - title: "第46話②"
-        updated: 2025-06-21
-        date_basis: heuristic
-      - title: "第46話③"
-        updated: 2025-06-28
-        date_basis: heuristic
-      - title: "第47話①"
-        updated: 2025-07-12
-        date_basis: heuristic
-      - title: "第47話②"
-        updated: 2025-07-19
-        date_basis: heuristic
-      - title: "第47話③"
-        updated: 2025-07-26
-        date_basis: heuristic
-      - title: "第48話①"
-        updated: 2025-09-27
-        date_basis: heuristic
-      - title: "第48話②"
-        updated: 2025-10-04
-        date_basis: heuristic
-      - title: "第49話①"
-        updated: 2025-11-15
-        date_basis: heuristic
-      - title: "第49話➁"
-        updated: 2025-12-06
-        date_basis: heuristic
-      - title: "第50話①"
-        updated: 2025-12-13
-        date_basis: heuristic
-      - title: "第50話➁"
-        updated: 2025-12-20
-        date_basis: heuristic
-      - title: "第50話③"
-        updated: 2026-01-03
-        date_basis: heuristic
-      - title: "第51話①"
-        updated: 2026-01-10
-        date_basis: heuristic
-      - title: "第51話➁"
-        updated: 2026-01-24
-        date_basis: heuristic
-      - title: "第51話③"
-        updated: 2026-02-07
-        date_basis: heuristic
-      - title: "第52話①"
-        updated: 2026-02-14
-        date_basis: heuristic
-      - title: "第52話➁"
-        updated: 2026-02-28
-        date_basis: heuristic
-      - title: "第52話③"
-        updated: 2026-03-07
-        date_basis: heuristic
-      - title: "第53話①"
-        updated: 2026-03-14
-        date_basis: heuristic
-      - title: "第53話➁"
-        updated: 2026-03-21
-        date_basis: heuristic
-      - title: "第53話③"
-        updated: 2026-04-04
-        date_basis: heuristic
-      - title: "最終話①"
-        updated: 2026-04-11
-        date_basis: heuristic
-      - title: "最終話➁"
-        updated: 2026-04-18
-        date_basis: heuristic
-      - title: "最終話③"
-        updated: 2026-05-02
-        date_basis: heuristic
   - work_title: "ナキノン"
     author: "根岸岳春"
     url: "https://heros-web.com/series/696d291fa1769"
@@ -5422,46 +4537,57 @@ works:
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第三話　客"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第四話　伝"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第五話　遊"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第六話　祭"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第七話　殴"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第八話　彼"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第九話　写"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第十話　動"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第十一話　拶"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第十二話　願"
         updated: 2026-05-15
         author: "根岸岳春"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第十三話　宴"
         updated: 2026-05-15
         author: "根岸岳春"
@@ -5633,63 +4759,63 @@ works:
       - title: "第17話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第16話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第15話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第14話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第13話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第12話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第11話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第10話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第9話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第8話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第7話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第6話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第3話"
         updated: 2025-08-08
         author: "伊月クロ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第2話"
         updated: 2025-08-08
         author: "伊月クロ"
@@ -5698,33 +4824,6 @@ works:
         updated: 2025-08-08
         author: "伊月クロ"
         access_modes: ["free"]
-  - work_title: "大崎さんと小森さん"
-    url: "https://comic-walker.com/detail/KC_014277_S"
-    platform_name: "コミックエッセイ劇場"
-    route: "markup"
-    chapter_count: 7
-    chapters:
-      - title: "第1話"
-        updated: 2026-06-17
-        date_basis: heuristic
-      - title: "第2話"
-        updated: 2026-06-24
-        date_basis: heuristic
-      - title: "第3話"
-        updated: 2026-07-01
-        date_basis: heuristic
-      - title: "第4話"
-        updated: 2026-07-08
-        date_basis: heuristic
-      - title: "第5話"
-        updated: 2026-07-15
-        date_basis: heuristic
-      - title: "第6話"
-        updated: 2026-07-22
-        date_basis: heuristic
-      - title: "第7話"
-        updated: 2026-07-29
-        date_basis: heuristic
   - work_title: "セイ少女黙示録 ですぺあ"
     author: "中村汚濁"
     url: "https://bigcomics.jp/series/2c1db177ce231"
@@ -5748,98 +4847,122 @@ works:
         updated: 2025-02-14
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第五幕》共同戦線"
         updated: 2025-02-28
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第六幕》脅威です"
         updated: 2025-03-14
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第七幕》新たなる使徒"
         updated: 2025-03-28
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第八幕》問題児"
         updated: 2025-04-11
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第九幕》はじめてのときめき"
         updated: 2025-04-25
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十幕》終末予報"
         updated: 2025-05-09
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十一幕》異界の番人"
         updated: 2025-05-23
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十二幕》独りよがりな救済者"
         updated: 2025-06-27
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十三幕》漆黒の嵐"
         updated: 2025-07-11
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十四幕》向こう側の景色"
         updated: 2025-07-25
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十五幕》祝福なき箱庭で"
         updated: 2025-08-08
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十六幕》救世主と、救済者たちと"
         updated: 2025-08-22
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十七幕》ぬいぐるみを抱いた少女"
         updated: 2025-09-12
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十八幕》選別と選択"
         updated: 2025-10-10
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第十九幕》サンちゃん"
         updated: 2025-10-24
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第二十幕》綿細工の守護者"
         updated: 2025-11-14
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第二十一幕》幽冥の偽使徒"
         updated: 2025-11-28
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第二十二幕》喪失のあとに"
         updated: 2025-12-12
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第二十三幕》錯綜する戦場"
         updated: 2025-12-26
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第二十四幕》カリン"
         updated: 2026-01-09
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第二十五幕》帰るべき場所"
         updated: 2026-01-23
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第二十六幕》眼帯少女の偽り"
         updated: 2026-02-13
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第二十七幕》六人目の使徒"
         updated: 2026-03-13
         author: "中村汚濁"
         access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "《第二十八幕》楽園追放"
         updated: 2026-03-27
         author: "中村汚濁"

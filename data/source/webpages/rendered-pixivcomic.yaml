@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-08-03
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -21,8 +21,8 @@ works:
     url: "https://comic.pixiv.net/works/10005"
     chapter_count: 2
     chapters:
-      - title: "第53話"
-        updated: 2026-07-02
+      - title: "第54話 4日前UP"
+        updated: 2026-08-06
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話"
@@ -45,14 +45,10 @@ works:
   - work_title: "伽藍の姫-がらんのひめ-"
     author: "こるせ"
     url: "https://comic.pixiv.net/works/10090"
-    chapter_count: 4
+    chapter_count: 3
     chapters:
       - title: "第二十一話 終幕、そして…"
         updated: 2026-07-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第二十話 回帰"
-        updated: 2026-06-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第二話 樹海を越えて"
@@ -215,8 +211,12 @@ works:
   - work_title: "ステラ・ステップ"
     author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
     url: "https://comic.pixiv.net/works/10790"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "Step.14① 夜風に約束"
+        updated: 2026-08-04
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "Step.13② されど花は枯れず"
         updated: 2026-07-07
         access_modes: ["free"]
@@ -397,12 +397,12 @@ works:
     url: "https://comic.pixiv.net/works/11079"
     chapter_count: 4
     chapters:
-      - title: "EPISODE.15 お帰りなさいませお嬢様"
-        updated: 2026-07-08
+      - title: "EPISODE.16 主様のとなりに"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "EPISODE.14 オリヴィア・ノクス・エトワール"
-        updated: 2026-06-08
+      - title: "EPISODE.15 お帰りなさいませお嬢様"
+        updated: 2026-07-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "EPISODE.02 我が家に姫がやってきた"
@@ -416,12 +416,8 @@ works:
   - work_title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
     author: "玉崎たま"
     url: "https://comic.pixiv.net/works/11080"
-    chapter_count: 3
+    chapter_count: 2
     chapters:
-      - title: "第14話 隠れた想いは"
-        updated: 2026-06-08
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "第2話 重大な欠陥"
         updated: 2024-12-08
         access_modes: ["free"]
@@ -435,7 +431,7 @@ works:
     url: "https://comic.pixiv.net/works/11081"
     chapter_count: 4
     chapters:
-      - title: "第16話② 1日前UP"
+      - title: "第16話②"
         updated: 2026-08-01
         access_modes: ["free"]
         date_basis: rendered
@@ -456,7 +452,7 @@ works:
     url: "https://comic.pixiv.net/works/11180"
     chapter_count: 4
     chapters:
-      - title: "第十五織 5日前UP"
+      - title: "第十五織"
         updated: 2026-07-28
         access_modes: ["free"]
         date_basis: rendered
@@ -660,11 +656,11 @@ works:
     url: "https://comic.pixiv.net/works/11800"
     chapter_count: 5
     chapters:
-      - title: "15-② 5日前UP"
+      - title: "15-②"
         updated: 2026-07-28
         access_modes: ["free"]
         date_basis: rendered
-      - title: "15-① 5日前UP"
+      - title: "15-①"
         updated: 2026-07-28
         access_modes: ["free"]
         date_basis: rendered
@@ -718,6 +714,10 @@ works:
     url: "https://comic.pixiv.net/works/12194"
     chapter_count: 6
     chapters:
+      - title: "第20話 決闘スタンバイ(前編)"
+        updated: 2026-08-03
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第19話 生肌魅惑のマーメイド"
         updated: 2026-07-20
         access_modes: ["free"]
@@ -728,10 +728,6 @@ works:
         date_basis: rendered
       - title: "第17話 The next station is"
         updated: 2026-06-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第16話 五等分のアイ！"
-        updated: 2026-06-01
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 男子制服の理由"
@@ -760,7 +756,7 @@ works:
     url: "https://comic.pixiv.net/works/12795"
     chapter_count: 2
     chapters:
-      - title: "第6.5話 5日前UP"
+      - title: "第6.5話"
         updated: 2026-07-28
         access_modes: ["free"]
         date_basis: rendered
@@ -832,7 +828,7 @@ works:
     url: "https://comic.pixiv.net/works/13225"
     chapter_count: 3
     chapters:
-      - title: "第3話 5日前UP"
+      - title: "第3話"
         updated: 2026-07-28
         access_modes: ["free"]
         date_basis: rendered
@@ -849,7 +845,7 @@ works:
     url: "https://comic.pixiv.net/works/13226"
     chapter_count: 3
     chapters:
-      - title: "第3話 5日前UP"
+      - title: "第3話"
         updated: 2026-07-28
         access_modes: ["free"]
         date_basis: rendered
@@ -896,7 +892,7 @@ works:
     url: "https://comic.pixiv.net/works/13345"
     chapter_count: 2
     chapters:
-      - title: "第2片 5日前UP"
+      - title: "第2片"
         updated: 2026-07-28
         access_modes: ["free"]
         date_basis: rendered
@@ -909,8 +905,8 @@ works:
     url: "https://comic.pixiv.net/works/13373"
     chapter_count: 2
     chapters:
-      - title: "第5話 たぬき女にお持ち帰りされた話②"
-        updated: 2026-08-01
+      - title: "第6話 隣にいるのに寂しい話①"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話 たぬき女に迫られる話"
@@ -941,8 +937,12 @@ works:
   - work_title: "晴れた日のドレスコード"
     author: "あげはる"
     url: "https://comic.pixiv.net/works/13425"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "第4話 2日前UP"
+        updated: 2026-08-08
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第3話"
         updated: 2026-07-17
         access_modes: ["free"]
@@ -1052,12 +1052,12 @@ works:
     url: "https://comic.pixiv.net/works/4810"
     chapter_count: 8
     chapters:
-      - title: "第120話"
-        updated: 2026-07-08
+      - title: "第121話 2日前UP"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第119話"
-        updated: 2026-06-08
+      - title: "第120話"
+        updated: 2026-07-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第5話"
@@ -1169,12 +1169,12 @@ works:
     url: "https://comic.pixiv.net/works/5424"
     chapter_count: 8
     chapters:
-      - title: "第41話 うそつき"
-        updated: 2026-07-08
+      - title: "第42話 わたしの恋"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第40話 ママ"
-        updated: 2026-06-08
+      - title: "第41話 うそつき"
+        updated: 2026-07-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第6話 ともだち"
@@ -1219,12 +1219,12 @@ works:
     url: "https://comic.pixiv.net/works/5758"
     chapter_count: 5
     chapters:
-      - title: "第59話 あいさつと、謝罪と、将来と。"
-        updated: 2026-07-08
+      - title: "第60話 放課後と、テストと、音楽と。"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第58話 パーティーと、惚気と、おせっかいと。"
-        updated: 2026-06-08
+      - title: "第59話 あいさつと、謝罪と、将来と。"
+        updated: 2026-07-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3話 放課後、2人の時間。"
@@ -1608,12 +1608,12 @@ works:
     url: "https://comic.pixiv.net/works/7319"
     chapter_count: 4
     chapters:
-      - title: "第56話 利害調整"
-        updated: 2026-07-08
+      - title: "第57話 炎"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第55話 偽りない想い"
-        updated: 2026-06-08
+      - title: "第56話 利害調整"
+        updated: 2026-07-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 最初の勝負①"
@@ -2137,12 +2137,12 @@ works:
     url: "https://comic.pixiv.net/works/9380"
     chapter_count: 4
     chapters:
-      - title: "#24"
-        updated: 2026-07-08
+      - title: "#25 2日前UP"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "#23"
-        updated: 2026-06-08
+      - title: "#24"
+        updated: 2026-07-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "#2"
@@ -2264,7 +2264,7 @@ works:
     url: "https://comic.pixiv.net/works/9913"
     chapter_count: 9
     chapters:
-      - title: "EPISODE 31 4日前UP"
+      - title: "EPISODE 31"
         updated: 2026-07-29
         access_modes: ["free"]
         date_basis: rendered

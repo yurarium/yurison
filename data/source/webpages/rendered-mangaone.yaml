@@ -10,7 +10,7 @@ source: webpages
 platform: mangaone
 platform_name: "マンガワン"
 publisher: "小学館"
-retrieved: 2026-08-03
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -130,14 +130,18 @@ works:
     url: "https://manga-one.com/viewer/225633"
     chapter_count: 10
     chapters:
-      - title: "第14話(前編)"
-        updated: 2026-08-06
+      - title: "第14話(後編)"
+        updated: 2026-08-13
         access_modes: ["purchase"]
         access_note: "released early to paying readers (先読)"
         date_basis: rendered
+      - title: "第14話(前編)"
+        updated: 2026-08-06
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第13話(後編)"
         updated: 2026-07-30
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "第13話(前編)"
         updated: 2026-07-23
@@ -165,10 +169,6 @@ works:
         date_basis: rendered
       - title: "第10話(後編)"
         updated: 2024-04-25
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第10話(前編)"
-        updated: 2024-04-18
         access_modes: ["purchase"]
         date_basis: rendered
   - work_title: "かわいい同盟"

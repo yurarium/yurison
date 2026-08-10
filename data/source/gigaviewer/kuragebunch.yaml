@@ -6,12 +6,13 @@ source: gigaviewer
 platform: kuragebunch
 platform_name: "くらげバンチ"
 publisher: "新潮社"
-retrieved: 2026-08-03
+retrieved: 2026-08-10
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "kuragebunch:episode:12207421984030246278"
+    in_current_window: false
     work_title: "友達からでもいいですか"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -28,6 +29,7 @@ releases:
     free_term_start: "2026-07-31T03:00:00Z"
     advances_narrative: true
   - release_id: "kuragebunch:episode:12207421983906416219"
+    in_current_window: false
     work_title: "ファーストペンギン・レクイエム"
     web_status: "serialised"
     identified_via: "discovery-candidate"

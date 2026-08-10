@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -45,8 +45,12 @@ works:
     title_id: "3068"
     url: "https://pocket.shonenmagazine.com/title/03068"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3068/feed.xml"
-    chapter_count: 25
+    chapter_count: 26
     chapters:
+      - title: "【単行本宣伝話】"
+        updated: 2026-08-06
+        author: "陣ノ内康暉"
+        url: "https://pocket.shonenmagazine.com/title/03068/episode/442134"
       - title: "【23.】Never See Me Again"
         updated: 2026-07-02
         author: "陣ノ内康暉"
@@ -2605,8 +2609,16 @@ works:
     title_id: "3273"
     url: "https://pocket.shonenmagazine.com/title/03273"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3273/feed.xml"
-    chapter_count: 2
+    chapter_count: 4
     chapters:
+      - title: "【第4話】水泡にすら帰さず"
+        updated: 2026-08-07
+        author: "長門知大"
+        url: "https://pocket.shonenmagazine.com/title/03273/episode/442381"
+      - title: "【第3話】手も品も変えるな"
+        updated: 2026-08-07
+        author: "長門知大"
+        url: "https://pocket.shonenmagazine.com/title/03273/episode/442380"
       - title: "【第2話】悪夢にも勝る"
         updated: 2026-07-09
         author: "長門知大"
@@ -4875,8 +4887,12 @@ works:
     title_id: "2328"
     url: "https://pocket.shonenmagazine.com/title/02328"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2328/feed.xml"
-    chapter_count: 111
+    chapter_count: 112
     chapters:
+      - title: "【第102話】最後の一撃"
+        updated: 2026-08-07
+        author: "原作/羽田遼亮 作画/中島零 キャラクター原案/潮一葉 ネーム・構成/赤衣丸歩郎"
+        url: "https://pocket.shonenmagazine.com/title/02328/episode/442035"
       - title: "【第101話】飛行戦闘"
         updated: 2026-07-24
         author: "原作/羽田遼亮 作画/中島零 キャラクター原案/潮一葉 ネーム・構成/赤衣丸歩郎"
@@ -5347,8 +5363,12 @@ works:
     title_id: "3196"
     url: "https://pocket.shonenmagazine.com/title/03196"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3196/feed.xml"
-    chapter_count: 1
+    chapter_count: 2
     chapters:
+      - title: "【第2話】Totsuzen(突然)タンデム!?ドギマギ山頂でぇと"
+        updated: 2026-08-07
+        author: "じぃと"
+        url: "https://pocket.shonenmagazine.com/title/03196/episode/442364"
       - title: "【第1話】ぐっすん！ドキドキ！別れは出会いのシグナル"
         updated: 2026-07-09
         author: "じぃと"

@@ -12,7 +12,7 @@ source: webpages
 platform: news-mynavi-jp
 platform_name: "マイナビニュース"
 publisher: ""
-retrieved: 2026-08-03
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 extraction: markup
@@ -21,14 +21,11 @@ date_confidence: low
 works:
   - work_title: "自動車の妖精 パッソちゃんの恩返し"
     url: "https://news.mynavi.jp/series/carfairy/"
-    chapter_count: 3
+    chapter_count: 2
     chapters:
+      - title: "クイズ 第63回 2気筒エンジンなのにピストンが3つ! このビッグスクーターの名前は?"
+        updated: 2026-08-04
+        date_basis: heuristic
       - title: "クイズ 第62回 バイクのステップに謎の突起物! 何のパーツ?"
         updated: 2026-07-31
-        date_basis: heuristic
-      - title: "相談室 第5回 バイクのエンジンオイルっていつ交換すればいいの? 意外と知らない役割も解説 2"
-        updated: 2026-07-24
-        date_basis: heuristic
-      - title: "相談室 第6回 安いオイルと高いオイル、何が違う? バイクのエンジンオイルの選び方を解説 20"
-        updated: 2026-07-25
         date_basis: heuristic

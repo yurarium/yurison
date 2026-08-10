@@ -6,8 +6,39 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-08-03
+retrieved: 2026-08-10
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "action:episode:12207421983913993746"
+    work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "事案17 バードゾーンサバイブ！②"
+    release_type: "unclassified"
+    date: "2026-08-07"
+    date_basis: "observed"
+    first_seen: "2026-08-10"
+    first_reported: "2026-08-07T03:00:00Z"
+    platform_updated: "2026-08-07T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-action.com/episode/12207421983913993746"
+    author: "中村カンコ"
+    raw_title: "事案17 バードゾーンサバイブ！②"
+    advances_narrative: false
+  - release_id: "action:episode:12207421983913993890"
+    work_title: "小林さんちのメイドラゴン"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第189話 エルマとユタラマ"
+    release_type: "chapter"
+    date: "2026-08-04"
+    date_basis: "observed"
+    first_seen: "2026-08-10"
+    first_reported: "2026-08-04T03:00:00Z"
+    platform_updated: "2026-08-04T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-action.com/episode/12207421983913993890"
+    author: "クール教信者"
+    advances_narrative: true

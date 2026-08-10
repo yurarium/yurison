@@ -41,6 +41,9 @@ from collections import Counter, defaultdict
 
 import yaml
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import series_feeds                                                          # noqa: E402
+
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 ATOM = {"a": "http://www.w3.org/2005/Atom"}
 GIGA = "{https://gigaviewer.com}"
@@ -126,9 +129,13 @@ def yuri_series(html, genre, label):
 
     GigaViewer renders each series as a block containing a title attribute, an optional label, and
     a genre list. Matching is done per block so a genre never leaks across series boundaries.
+
+    The boundary is series_feeds.SERIES_BLOCK. Both readers of this page need it and it used to be
+    written out here alone, which left the other one scanning across blocks and pairing 163 names
+    with the next series' id (§3).
     """
     out = {}
-    for block in re.split(r'(?=<div class="Series_series_)', html):
+    for block in series_feeds.SERIES_BLOCK.split(html):
         m = re.search(r'class="Series_title[^"]*"[^>]*>([^<]+)<', block)
         if not m:
             continue

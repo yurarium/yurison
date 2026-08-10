@@ -2960,6 +2960,84 @@ def budget_rows_with_a_moving_address(ctx):
     return bad
 
 
+def budget_listing_series_with_no_feed_of_their_own(ctx):
+    """Series in a GigaViewer platform's own yuri listing that its last feeds run did not resolve.
+
+    THE BUG THIS COUNTS, found on 2026-08-10. `series_feeds.series_ids` scanned the listing page
+    for a name and then the next thumbnail address, and a series block names itself again on its
+    two buttons AFTER that thumbnail, so from the second entry on every name was paired with the
+    FOLLOWING series' id. 163 of 一迅プラス's 164 works. The run then renamed each work to whatever
+    series the feed it fetched said it was, which made the file self-consistent and the fault
+    invisible: the only trace left was the listing's second entry, たゆたう恋の散り際に, resolving
+    to nothing at all because there was no id left over for it.
+
+    WHY THE COUNT IS TAKEN THIS WAY (§14b). Comparing the two files' TITLES reads zero, because
+    `carry_over` keeps a work an earlier run resolved and the dropped series is still in the file
+    with a stale chapter list. The arithmetic is the part that cannot be covered up: a listing of
+    165 against a run that resolved 164 is one series the pairing lost, whatever the file holds.
+    The listing count comes from `releases.yuri_series`, which reads the same page and never
+    consults the pairing.
+
+    COUNTED, because a listing entry announced before its first chapter resolves an id and returns
+    no episodes, which is the platform being early. Both passes run in the same Stage A against the
+    same page, so the honest value is zero and a rise is the pairing slipping again.
+    """
+    d = ROOT / "data" / "source" / "gigaviewer"
+    if not d.is_dir():
+        return 0
+    short = 0
+    for f in sorted(d.glob("*-series.yaml")):
+        listed = len((_yaml(f, {}) or {}).get("series") or [])
+        if not listed:
+            continue
+        feeds = d / f"{f.name[: -len('-series.yaml')]}-series-feeds.yaml"
+        resolved = int((_yaml(feeds, {}) or {}).get("series_resolved") or 0)
+        short += max(0, listed - resolved)
+    return short
+
+
+def budget_series_names_holding_a_page_title(ctx):
+    """Works a GigaViewer feeds file holds under a name whose round brackets do not close.
+
+    THE RESIDUE OF A FIXED BUG, found while auditing the pairing above. A feed titles itself
+    `一迅プラス（大室家）` and the series is the bracketed part, which `feed_series_name` used to take
+    with a greedy match from the first opener to the last closer. On a platform whose own name is
+    bracketed that ran across the page title:
+
+        Our Feel（アワフィール）| 女性マンガレーベル、第1・3木曜日更新!!（明日の空を見る人よ）
+
+    came out as `アワフィール）| 女性マンガレーベル、第1・3木曜日更新!!（明日の空を見る人よ`. c747b62
+    replaced the match with a scan from the end and left the rows it had already written, and
+    `carry_over` keeps a work no later run re-resolved, so four of them are still in the source
+    layer at the time of writing: three on COMIC ユアーズ and one on OUR FEEL.
+
+    ARITHMETIC ON THE STORED NAME (§14b). A closer standing before its opener is a bracket the
+    parser cut through, and counting them owes `last_bracketed` nothing. Checking with
+    `last_bracketed` would agree with whatever it produced.
+
+    Falls by one for each of these platforms whose feeds are fetched again; the current code reads
+    the same cached feeds correctly. A rise means a bracketed page title is being taken for a work.
+    """
+    openers, closers = {"(", "（"}, {")", "）"}
+    d = ROOT / "data" / "source" / "gigaviewer"
+    if not d.is_dir():
+        return 0
+    n = 0
+    for f in sorted(d.glob("*-series-feeds.yaml")):
+        for w in ((_yaml(f, {}) or {}).get("works") or []):
+            depth, broken = 0, False
+            for ch in str(w.get("work_title") or ""):
+                if ch in openers:
+                    depth += 1
+                elif ch in closers:
+                    depth -= 1
+                    if depth < 0:
+                        broken = True
+                        break
+            n += 1 if broken or depth else 0
+    return n
+
+
 def budget_updates_naming_an_unheld_work(ctx):
     """Feed rows whose work has no record, so the row can offer a reader nothing but the platform.
 
@@ -4518,6 +4596,18 @@ BUDGETS_DEF = [
      "whose address nobody has read yet and which would be minted a second identifier the next "
      "time it updates. Run adapters/gigaviewer/workaddress.py and apply what it writes with "
      "identity.py --attachments."),
+    ("listing series with no feed of their own", budget_listing_series_with_no_feed_of_their_own,
+     "series a GigaViewer platform's own yuri listing names that the last per-series feeds run did "
+     "not resolve. The pairing of a name to a series id is positional and slipped by one on "
+     "2026-08-10, which cost 一迅プラス's second entry its chapter list while every other work came "
+     "out renamed and looking right. Falls to zero on the first run after the fix; a rise means "
+     "the pairing has slipped again, or a platform announced a series before its first chapter."),
+    ("series names holding a page title", budget_series_names_holding_a_page_title,
+     "works a GigaViewer feeds file holds under a name whose round brackets do not close, which is "
+     "what a feed title read with a greedy match leaves behind: the platform's own bracketed name "
+     "and its tagline, with the series trapped at the end. The match was replaced in c747b62 and "
+     "the four rows it had already written are still in the source layer, kept by carry_over. Each "
+     "goes when its platform's feeds are fetched again."),
 ]
 
 

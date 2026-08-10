@@ -10,6 +10,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import fixtures
 import testkit
+import releases
 import series_feeds as sf
 
 
@@ -88,11 +89,45 @@ def main(s):
     # Normalisation is used to compare the listing's name against the feed's.
     s.eq(sf.norm("ＹＵＲＩ"), sf.norm("yuri"), "width and case fold for the comparison")
 
-    # The series id is extracted from a percent-encoded thumbnail URL, which is fragile by nature.
-    html = ('<img src="https://cdn.x.jp/series-sub-thumbnail-vertical-with-logo%2F'
-            'abc123-deadbeef.png"><span>大室家</span>')
-    ids = sf.series_ids(html)
-    s.check(isinstance(ids, (dict, set, list)), "series_ids returns a collection")
+    # ── the listing, and the pairing that was off by one ──────────────────────────────────────
+    #
+    # The series id is not an attribute anywhere on the listing. It appears once per series, inside
+    # the percent-encoded thumbnail address, so the pairing is positional and this is where it went
+    # wrong: 163 of 一迅プラス's 164 works took the NEXT series' id, because a block names itself
+    # again on its 1話へ and 最新話へ buttons and those sit after the thumbnail.
+    #
+    # The three blocks are consecutive entries off the real page, kept whole so the buttons are
+    # still in them. Cut to the thumbnail anchors alone the fixture would pass the broken reader.
+    listing = fixtures.load("gigaviewer/series-listing")
+    ids = sf.series_ids(listing)
+    s.eq(ids, {"君のせいなんだから、責任とってよね。": "2551460909791966658",
+               "たゆたう恋の散り際に": "2551460909671366556",
+               "超深宇宙より愛をこめて": "2550912965923183753"},
+         "each series takes the id out of its own block's thumbnail")
+
+    # THE COUNTER-CASE, PINNED RATHER THAN DESCRIBED. If the buttons ever stop repeating the name,
+    # the assertion above starts passing for a reader that scans across blocks, and this is what
+    # says so.
+    s.eq(listing.count('data-series-name="たゆたう恋の散り際に"'), 3,
+         "a block names its series three times, twice after the thumbnail it belongs to")
+    s.check(listing.index("2551460909791966658") < listing.index("series-series-first")
+            < listing.index("2551460909671366556"),
+            "the first block's thumbnail, then its buttons, then the next block's thumbnail: the "
+            "order that let a scan pair a name with the following series")
+
+    # 一迅プラス's SECOND ENTRY IS THE ONE THAT WENT MISSING. Under the old pairing there was no id
+    # left for it: every name from the second on had taken its neighbour's, so たゆたう恋の散り際に
+    # was never fetched and carry_over went on serving an older run's chapters for it. That is why
+    # the fixture starts at the top of the listing.
+    s.check("たゆたう恋の散り際に" in ids, "the second entry resolves, which it did not before")
+
+    # THE OTHER READER OF THIS PAGE MUST FIND THE SAME SERIES. releases.yuri_series splits on
+    # series_feeds.SERIES_BLOCK and reads title, author and genre out of each block; series_ids
+    # reads the name and the id. Two readers of one page disagreeing by one entry is exactly the
+    # fault above, so they are compared here rather than trusted to stay in step.
+    s.eq(sorted(releases.yuri_series(listing, "百合", "コミック百合姫")), sorted(ids),
+         "both readers of the listing name the same series")
+
     s.check(len(sf.series_ids("<html>nothing</html>")) == 0,
             "a page with no thumbnails yields no ids rather than raising")
 

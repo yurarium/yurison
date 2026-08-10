@@ -164,6 +164,57 @@ for and the reason it stays slow.
     (`Sutefan Sejiku`), both raised by the owner and both written up rather than done.
 21. **Fifteen leftover worktrees**, thirteen unmerged, two holding uncommitted edits.
 
+### Stage F. The common case stops re-verifying what did not change
+
+Added 2026-08-10. Stages A to E bring a cycle to somewhere between 170 and 120 seconds, and the
+floor below that is about 100: `test.py` is 30 seconds for 148 suites, the gate must run the
+invariants once, and a build still compiles 2,564 works. Going under a minute means the loop stops
+re-proving what a change could not have affected.
+
+**WHAT THIS COSTS, STATED BEFORE THE ITEMS.** Today the gate proves the whole tree every run.
+Everything here replaces that with "what changed is sound, and what did not change was sound last
+time". That is a weaker claim and it rests entirely on the read sets being complete. A check whose
+declaration omits something it reads will be skipped when it should have run, and skipped silently,
+which is the shape this project has hit under several other names. The claim is bought back by item
+26, and no item here lands without it.
+
+22. **Test selection from `COVERS`.** Every suite already names its subjects, and `test.py` parses
+    that list to compute untested modules. Inverting the map gives changed file to affected suite. A
+    typical change touches one or two modules. The machinery exists; this is the cheapest item in
+    the plan.
+
+23. **Incremental verification, which brings back an apparatus stage C dropped.** Dependency
+    declarations were removed from stage C because SQL scans are milliseconds, so nothing needed to
+    AVOID recomputing. That is right about recomputation and wrong about skipping: to not run a
+    check you must know what it reads. Each check declares a read set; the gate runs the ones whose
+    inputs moved. This is the largest remaining term, and the one that carries the risk above.
+
+24. **Incremental build, which round one deferred on an argument that has since expired.** The
+    hash-keyed stage cache was held because parsing dominated and storage was going to be the lever.
+    Once the store is load-bearing that reasoning no longer applies, and a build keyed on input
+    digests skips nearly everything for a one-row change.
+
+25. **Concurrency between phases that do not depend on each other.** Given a build, the gate and the
+    tests are independent, and running them together saves the smaller of the two.
+
+26. **A cache-free path, and the scheduled run uses it.** `--full` on the build, the gate and the
+    tests, ignoring every digest, every read set and every selection. This is what makes the weaker
+    in-loop claim defensible: the strong one is bought back on a schedule. The weekly CI job of item
+    13 runs the cache-free path end to end and reports any difference against what the incremental
+    path produced.
+
+    A cache-free option that is never exercised is a cache-free option nobody has checked, so the
+    scheduled run is what exercises it, and its absence is a failure and not a quiet skip.
+
+**Considered and not taken:** one warm process instead of four cold ones, to avoid re-importing the
+analyser and reloading `sudachidict-core` on every invocation. Worth perhaps 5 to 10 seconds and no
+new correctness argument. Recorded here so it is not re-proposed as new.
+
+**What this is expected to reach:** a common-case cycle around 25 to 35 seconds. None of it makes
+the WORST case fast, and that is correct. Editing `check.py` invalidates every check; editing one
+row invalidates almost nothing. A plan promising a flat time under a minute would be promising
+something incrementality does not give.
+
 ## The tracker updates itself
 
 The first round's tracker was hand-edited, and it was wrong twice: a step was marked done that had
@@ -190,7 +241,8 @@ is where a reviewer sees them.
 
 ## What done looks like
 
-A full cycle runs in under two minutes with nothing verified less than it is today. An ingestion of
+A common-case cycle runs in well under a minute and a cache-free one in about two, with the
+scheduled run proving the two agree. An ingestion of
 new source data updates the store and the site without recompiling either, and the equivalence with
 a from-scratch build rests on declared dependencies and focused tests. Every fact the inventory
 lists has one owner. Nothing in the residue list is still a note.

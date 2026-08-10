@@ -68,7 +68,7 @@ stages:
           second. The 39 s I attributed to page generation was check.py --runtime, the fourth run
           of the checks in one cycle. Dropped as effort against eight tenths of a second.
       - id: C7
-        title: A weekly CI rebuild compared against the incremental store, reporting differences
+        title: A weekly CI run of the cache-free path, compared against the incremental result
         state: todo
       - id: C8
         title: The eight researched readings carrying no reasoning
@@ -116,4 +116,23 @@ stages:
         state: todo
       - id: E5
         title: Fifteen leftover worktrees
+        state: todo
+
+  F:
+    title: The common case stops re-verifying what did not change
+    items:
+      - id: F1
+        title: Test selection from COVERS, which every suite already declares
+        state: todo
+      - id: F2
+        title: Incremental verification, each check declaring the inputs it reads
+        state: todo
+      - id: F3
+        title: Incremental build, stages keyed on the digest of their inputs
+        state: todo
+      - id: F4
+        title: The gate and the tests run concurrently, being independent of each other
+        state: todo
+      - id: F5
+        title: A cache-free --full path, which the scheduled CI run exercises end to end
         state: todo

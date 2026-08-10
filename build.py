@@ -117,8 +117,6 @@ def jsonable(o):
 # コミックノヴァ was on this list on the strength of looking similar, and it does not belong: it is
 # 一二三書房's own weekly serialisation, numbered 第N話, which withdraws older chapters with
 # 「公開は終了しました」. That is why our capture of it looks thin, and thin is not promotional.
-PROMO_HOSTS = ("ddnavi.com",)
-
 FINAL_RE = re.compile(r"最終(話|回|幕|エピソード)|[（(＜<〈\[【]\s*完\s*[）)＞>〉\]】]")
 # Announcements and artwork typed as chapters upstream — they are not story instalments.
 # A SEASONAL GREETING IS A CARD, NOT AN INSTALMENT. 作りたい女と食べたい女 posted 暑中見舞い2026
@@ -897,8 +895,6 @@ def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources=
                  for w in (yaml.safe_load(kp.read_text()) or {}).get("works") or []
                  if not (w.get("chapters") or w.get("episodes")) and w.get("status") == "unknown"}
 
-    # Works every one of whose listings is a shop's read-through of a book it sells.
-    promo_only, promo_seen = {}, set()
     # What each source lists for a work, whether or not any of it survived to a release.
     listed = {}
     for f in glob.glob(f"{sources}/**/*.yaml", recursive=True):
@@ -912,9 +908,6 @@ def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources=
             if isinstance(w, dict) and (w.get("chapters") or w.get("episodes")):
                 _nw = norm_work(w.get("work_title") or "")
                 listed.setdefault(_nw, []).extend(w.get("chapters") or w.get("episodes"))
-                _is_promo = any(h in (w.get("url") or "") for h in PROMO_HOSTS)
-                promo_seen.add(_nw)
-                promo_only[_nw] = promo_only.get(_nw, True) and _is_promo
 
     out = {}
     for r in works_out:
@@ -924,9 +917,6 @@ def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources=
         plats = {s.get("platform") for s in (r.get("sources") or [])}
         if nw in shelf and plats <= {"カドコミ"}:
             out[r["work"]] = "a カドコミ shop listing for a work it does not serialise"
-            continue
-        if promo_only.get(nw) and nw in promo_seen:
-            out[r["work"]] = "a book shop's 試し読み read-through, not a serialisation"
             continue
         chs = listed.get(nw) or []
         if not chs:
@@ -4885,19 +4875,6 @@ def main():
             # chapter on that platform invisible: the work read as 158 chapters with nothing paid,
             # and the platform as 96% free. Undated chapters count towards length and access; they
             # simply cannot contribute a first or latest date.
-            # A promotional read-through is not a serialisation. ダ・ヴィンチニュース numbers the
-            # instalments 第1回, 第2回 and one of ours says 全4回連載でお届けします outright: it is a
-            # 試し読み of a finished tankobon. Counted as chapters it gave 三角形の壊し方 eleven
-            # instalments and a run of dates that decided its state.
-            #
-            # Skipped whole rather than kept dateless, because taking the link and dropping the
-            # dates would still list the shop as somewhere the work is published, which is the
-            # claim being retracted. Every work reached this way has a real home elsewhere; the
-            # last one without a home in our data, 百合にはさまる男は死ねばいい!?, is anchored to
-            # comicブースト now. コミックノヴァ is NOT this kind of site and is not listed: it is a
-            # publisher's own weekly serialisation that withdraws its older chapters.
-            if any(h in (w.get("url") or "") for h in PROMO_HOSTS):
-                continue
             chs = list(w.get("chapters") or [])
             # カドコミ dates a not-yet-released chapter 9999-12-31, and コミックFUZ carries 公開予定
             # rows months out. Neither has been published, so neither can be the latest chapter —

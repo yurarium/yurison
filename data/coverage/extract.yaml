@@ -192,19 +192,10 @@ platforms:
   strategy: none
 - platform: ダ・ヴィンチニュース
   host: ddnavi.com
-  work_url: https://ddnavi.com/gyarumeido_akuyakureijo/
-  exclusive_works: 3
-  strategy: markup
-  sample:
-  - title: 試し読み *電子書籍ストアBOOK☆WALKERへ移動します 最新話 ヒロインが首席をとりたい理由は？ それを知ったお嬢様は、彼女の力になると告げる／ギャルメイ
-    date: '2024-09-16'
-  - title: 第1回 ギャルが乙女ゲームの“モブキャラ”に転生！ メイドになって仕える主人は…／ギャルメイドと悪役令嬢① 『ギャルメイドと悪役令嬢 〜おじょーさまのハッピーエ
-    date: '2024-09-07'
-  - title: 第2回 乙女ゲームの世界に転生して悪役令嬢に仕えるメイドに。ゲームでの彼女の結末って…／ギャルメイドと悪役令嬢② 『ギャルメイドと悪役令嬢 〜おじょーさまのハッ
-    date: '2024-09-08'
-  selector:
-    tag: li
-    class: archives-list__item
+  # Not a publication source: see adapters/facts/sources. Recorded so a coverage pass reading
+  # Web漫画アンテナ, which lists this host for works we hold, does not put it forward again.
+  strategy: none
+  excluded: 2026-08-10
 - platform: ファイアCROSS
   host: firecross.jp
   work_url: https://firecross.jp/ebook/series/541

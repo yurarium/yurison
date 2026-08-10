@@ -2170,6 +2170,47 @@ def inv_status_page_shows_no_japanese_of_its_own(ctx):
     return sorted(set(bad))
 
 
+def inv_no_record_comes_from_a_host_that_is_not_a_source(ctx):
+    """Nothing stored may come from a host `facts/sources` says is not a publication source.
+
+    THE FILTER USED TO SIT AFTER THE INGESTION. `build.PROMO_HOSTS` held ddnavi's rows and declined
+    to count them as chapters, which left every later pass carrying the exception and the records
+    on disk regardless. The project owner named the layer: a host we will not publish from should
+    not be ingested. So the target list does not fetch it, and this is what makes that hold.
+
+    IT ALSO WATCHES THE TARGET LIST, because a stored record is downstream of a decision to fetch.
+    A host declared not-a-source that carries a live extraction strategy would refill data/source
+    on the next run, and the next run is where the fault would appear rather than here.
+
+    §14b, WHAT IT REUSES: `facts/sources` for the membership and nothing else. It reads the stored
+    records and the target list, neither of which the fact consults, so a pass that ingested one
+    anyway is caught by the file it wrote.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from facts import sources
+    bad = []
+    for f in sorted((ROOT / "data" / "source").rglob("*.yaml")):
+        try:
+            d = _yaml(f, {})
+        except Exception:                                               # noqa: BLE001
+            continue
+        if not isinstance(d, dict):
+            continue
+        for w in (d.get("works") or []):
+            why = sources.not_a_source(str((w or {}).get("url") or "")) if isinstance(w, dict) else None
+            if why:
+                bad.append(f"{f.relative_to(ROOT)} holds {w.get('work_title')!r} from a host that "
+                           f"is not a publication source: {why}")
+    targets = _yaml(ROOT / "data" / "coverage" / "extract.yaml", {}) or {}
+    for p in (targets.get("platforms") or []):
+        why = sources.not_a_source(str(p.get("host") or ""))
+        if why and p.get("strategy") not in (None, "none", "no-response"):
+            bad.append(f"data/coverage/extract.yaml gives {p.get('host')} strategy "
+                       f"{p.get('strategy')!r}, so the next run would ingest a host that is not a "
+                       f"publication source: {why}")
+    return bad
+
+
 def inv_the_pipeline_runs_from_a_clean_checkout(ctx):
     """Where this repository works on a developer's disk and on no fresh checkout.
 
@@ -2348,6 +2389,8 @@ INVARIANTS = [
      inv_every_japanese_field_has_a_ruling),
     ("the pipeline runs from a clean checkout",
      inv_the_pipeline_runs_from_a_clean_checkout),
+    ("no record comes from a host that is not a source",
+     inv_no_record_comes_from_a_host_that_is_not_a_source),
     ("a rendered file names a platform its targets hold",
      inv_a_rendered_file_names_a_platform_its_targets_hold),
 ]

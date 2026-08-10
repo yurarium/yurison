@@ -235,15 +235,20 @@ def says_of(url, html):
 
 
 def promo_hosts():
-    """The hosts whose instalments are a 試し読み of a finished book rather than a serialisation.
+    """Hosts a lead may not anchor a work to, asked of `facts/sources`.
 
-    Read from `build.py`, which already refuses to count them as chapters, so this pass and the
-    build cannot disagree about what a serialisation is. A lead here would produce an anchor with
-    no row behind it (DEFINITIONS §6: a sample is not web publication).
+    THIS USED TO ASK build.py, which held the list beside a filter that skipped the rows after
+    ingesting them. The rows are not ingested at all now, so the filter is gone and the list lives
+    where the question belongs. A lead here would produce an anchor with no row behind it
+    (DEFINITIONS §6: a sample is not web publication).
+
+    A LEAD ARRIVES BY ANOTHER ROUTE, which is why refusing to ingest a host leaves this needed.
+    Web漫画アンテナ answers a search for 22 of our works with a ddnavi address, and it will go on
+    doing so however little of it we store.
     """
-    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
-    import build
-    return tuple(build.PROMO_HOSTS)
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    from facts import sources
+    return sources.hosts()
 
 
 def leads(doc, skip_hosts=()):

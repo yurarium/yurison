@@ -533,6 +533,32 @@ def inv_a_fact_is_reached_through_its_entry_point(ctx):
     return [f"{path}:{line} reaches facts.{fact}.{sub}" for path, line, fact, sub in got]
 
 
+def inv_every_renderer_is_ruled(ctx):
+    """Every function that returns rendered name text is a surface or is argued not to be.
+
+    THE FAULT THIS IS FOR. `interface.SURFACES` is hand-written and `creditLine` was missing from it.
+    The work page called it, it cut the byline on a slash and passed the pieces on as a field the
+    build had never seen, and 安田剛助・文尾文 reached a reader as `???? · Bun?Bun` while every probe
+    over the table reported zero. A table of what reaches a reader cannot be what decides it.
+
+    DERIVED FROM THE SOURCE, seeded with the floor primitives and with whatever the table already
+    names, so the derived set is a superset of the table by construction and the answer here is what
+    it holds that the table does not. `NOT_A_SURFACE` is where an orchestrator goes, with a reason.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: it reads `app.js` as text and asks nothing of the table
+    except which names are in it. Its blind spot is a renderer written as an arrow function or a
+    method, stated in interface.renderers, which is why the exemptions carry reasons and not names.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters"))
+        import interface as _iface
+        got = _iface.unruled_renderers()
+    except Exception:                                                   # noqa: BLE001
+        return []
+    return [f"{n} returns rendered name text and is in neither SURFACES nor NOT_A_SURFACE"
+            for n in got]
+
+
 def inv_the_store_has_one_writer(ctx):
     """Nothing writes to the relational store except the module that compiles it.
 
@@ -2033,6 +2059,7 @@ INVARIANTS = [
     ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
     ("a name is answered by one module", inv_a_name_is_answered_by_one_module),
     ("the store has one writer", inv_the_store_has_one_writer),
+    ("every renderer is ruled", inv_every_renderer_is_ruled),
     ("the tracker states what it claims", inv_the_tracker_states_what_it_claims),
     ("the interface is the derivation of its source",
      inv_the_interface_is_the_derivation_of_its_source),

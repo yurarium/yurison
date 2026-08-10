@@ -238,6 +238,92 @@ SURFACES = [
 #
 # A `ja` field beside an `en` one is the commonest shape here: the row carries both languages and
 # the interface picks one, so the Japanese side is Japanese on purpose.
+#: What makes a function a name renderer, and the reason this is derived. `SURFACES` above is a
+#: hand-written table, and `creditLine` was missing from it: the work page called it, it cut the
+#: byline on a slash and handed the pieces on as a field the build had never seen, and
+#: `安田剛助・文尾文` reached a reader as `???? · Bun?Bun` while every probe over the table reported
+#: zero. A table of what reaches a reader cannot be the thing that decides what reaches a reader.
+FLOOR_PRIMITIVES = ("floorText", "enFallback", "phraseOf", "workLabel", "workTextOf")
+
+#: A function the derivation finds and that is NOT a surface, each with the reason. An orchestrator
+#: paints a region and calls renderers to fill it; it has no data path of its own, so there is
+#: nothing for a surface row to be about. Anything here that starts RETURNING name text is a
+#: surface, and moving it is the fix rather than editing this line.
+NOT_A_SURFACE = {
+    "renderCat": "paints the catalogue tab and calls the renderers for each field",
+    "renderSeries": "paints the works tab the same way",
+    "renderFeed": "paints the 発売 tab the same way",
+    "renderWorkPage": "paints a work page and calls a renderer per field it shows",
+    "renderPublisherPage": "paints a publisher page the same way",
+    "compactList": "lays out a list of rows, each rendered by the surface for its field",
+    "detailList": "the same for the expanded rows",
+    "recWorkRows": "the rows of works on a record page, each field through its own renderer",
+    "creditText": "the plain-text form of a credit line, used for searching and sorting rather "
+                  "than shown; it goes through the same renderers and adds no name of its own",
+    "creditGapText": "says how many people a shortened byline did not list, which is a count",
+    "personShown": "decides WHETHER a person is listed, and renders nothing itself",
+    "sourceBoth": "a source's name in both languages, which is a citation and not a name in the "
+                  "corpus: the string is the site or shop as it calls itself",
+    "stateLabel": "the words active, finished or paused, which are the interface's own English",
+}
+
+
+def renderers(js=None):
+    """Every function that returns text a naming primitive touched, derived from the source.
+
+    THE SEEDS ARE THE PRIMITIVES AND WHATEVER `SURFACES` ALREADY NAMES, so the derived set is a
+    superset of the table by construction and the interesting answer is what it holds that the table
+    does not. A function counts when it calls a primitive anywhere, or when it RETURNS a call to
+    something that does: an orchestrator calls a renderer and writes the result to the page, and a
+    renderer hands its caller a string.
+
+    §14b, WHAT IT CANNOT SEE: a renderer reached through a variable, a method on an object, or an
+    arrow function assigned to a name. The site writes plain `function` declarations throughout, and
+    a renderer written another way would be invisible here and is why `NOT_A_SURFACE` states its
+    reasons rather than being a list of names.
+    """
+    import re
+    src = js if js is not None else APP_JS.read_text(encoding="utf-8")
+    named = set()
+    for s in SURFACES:
+        e = s.entry
+        named |= set(e) if isinstance(e, (tuple, list)) else {e}
+    seeds = set(FLOOR_PRIMITIVES) | named
+
+    found = [(m.start(), m.group(1)) for m in re.finditer(r"^function ([A-Za-z_$][\w$]*)", src, re.M)]
+    spans = {}
+    for (a, name), (b, _n) in zip(found, found[1:] + [(len(src), None)]):
+        spans[name] = src[a:b]
+
+    def returned(body):
+        return " ".join(body[m.end():m.end() + 500].split(";")[0]
+                        for m in re.finditer(r"\breturn\b", body))
+
+    got = {n for n in spans if n in seeds}
+    for n, b in spans.items():
+        if any(re.search(rf"\b{p}\s*\(", b) for p in FLOOR_PRIMITIVES):
+            got.add(n)
+    changed = True
+    while changed:
+        changed = False
+        for n, b in spans.items():
+            if n in got:
+                continue
+            if any(re.search(rf"\b{re.escape(t)}\s*\(", returned(b)) for t in got):
+                got.add(n)
+                changed = True
+    return got - set(FLOOR_PRIMITIVES)
+
+
+def unruled_renderers(js=None):
+    """`[(name, )]` for every derived renderer neither in `SURFACES` nor argued in `NOT_A_SURFACE`."""
+    named = set()
+    for s in SURFACES:
+        e = s.entry
+        named |= set(e) if isinstance(e, (tuple, list)) else {e}
+    return sorted(renderers(js) - named - set(NOT_A_SURFACE))
+
+
 NOT_A_NAME = {
     # A GATE FINDING IS DIAGNOSTIC OUTPUT, NOT A NAME. check.py reports an example beside a failing
     # invariant so a person can act on it, and an example naming a Japanese work carries that title

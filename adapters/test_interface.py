@@ -408,6 +408,32 @@ def main(s):
              "and so does a preference app.js does not hold, which would otherwise make every "
              "check above vacuous by never selecting English at all")
 
+    # ── the surface table cannot be what decides what reaches a reader ──────────────────────────
+    #
+    # `creditLine` was missing from SURFACES. The work page called it, it cut the byline on a slash
+    # and passed the pieces on as a field the build had never seen, and 安田剛助・文尾文 reached a
+    # reader as `???? · Bun?Bun` while every probe over the table reported zero.
+    JS = """function floorText(s) { return s; }
+function enFallback(s) { return floorText(s); }
+function authorLabel(r) { return enFallback(r.author); }
+function linkedCredits(r) { return authorLabel(r); }
+function creditLine(r) { return linkedCredits(r); }
+function renderCat(rows) { document.body.innerHTML = authorLabel(rows[0]); }
+"""
+    got = interface.renderers(JS)
+    s.check("creditLine" in got,
+            "a function that returns a renderer's output two links away is a renderer")
+    s.check("linkedCredits" in got, "and so is the one between them")
+    s.check("renderCat" not in got,
+            "an orchestrator that calls a renderer and writes the page is not one, or every "
+            "paint function would need a data path it does not have")
+
+    # AND THE REAL TREE IS RULED, which is the claim the invariant makes.
+    s.eq(interface.unruled_renderers(), [],
+         "every renderer in the shipped interface is a surface or is argued not to be")
+    s.check(interface.NOT_A_SURFACE,
+            "and the exemptions carry reasons, since a list of bare names is the table again")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "interface"))

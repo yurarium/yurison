@@ -246,7 +246,14 @@ stages:
         state: todo
       - id: D15
         title: Rendering surfaces derived from the renderer, not listed
-        state: todo
+        state: done
+        note: >-
+          interface.renderers() reads app.js and returns every function that hands its caller text a naming primitive touched; the invariant `every renderer is ruled` requires each to be a surface or to be argued in NOT_A_SURFACE.
+          THE BOUNDARY IS WHAT THE FUNCTION DOES WITH THE STRING. A function counts when it calls a primitive anywhere, or when it RETURNS a call to something that does. Calling everything transitively gives 52 and sweeps in every paint function; asking only for a direct call gives 18 and misses creditLine, which returns linkedCredits, which returns authorLabel. The rule that catches creditLine and leaves renderCat alone is the return.
+          Seeded with the primitives AND with everything SURFACES already names, so the derived set is a superset of the table by construction and the answer is what it holds that the table does not.
+          Thirteen were derived and unlisted, and each now carries a reason: eight paint a region and have no data path of their own, creditText is the searchable form, creditGapText is a count, personShown decides whether to list somebody, sourceBoth is a citation and stateLabel is the interface's own English.
+          test_interface plants the chain that shipped the fault, three links deep, and requires creditLine and linkedCredits found and renderCat left alone.
+          Blind spot stated: a renderer written as an arrow function or a method is invisible, which is why the exemptions carry reasons rather than being a second list of names.
 
   E:
     title: The residue the first round recorded and did not clear

@@ -35,14 +35,23 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 
 #: Phrasings that assert an impossibility. Deliberately narrow: "never" alone is ordinary English
 #: ("a reading is never invented"), so the pattern wants the shape of a claim about the code.
+#:
+#: `never reached` WANTS A COPULA IN FRONT OF IT. Bare, it caught two sentences telling the history
+#: of a fault that was fixed: a fix to the renderer "never reached" what it had already rendered,
+#: and an author "never reached a row". Those are transitive past narrative and not claims about
+#: what the code can do. The self-test keeps both as cases it must leave alone, beside "this branch
+#: is never reached", so the narrowing is held to having lost nothing.
 CLAIMS = re.compile(
     r"\b(should be unreachable|is unreachable|cannot happen|can never happen|never happens|"
-    r"never reached|is impossible|cannot occur|will never|can only ever)\b", re.I)
+    r"(?:is|are|was|were|be|been)\s+never\s+reached|never reachable|"
+    r"is impossible|cannot occur|will never|can only ever)\b", re.I)
 
-#: A gesture at something that could be checked. Loose on purpose.
+#: A gesture at something that could be checked. Loose on purpose. It read `proved` and `proven`
+#: and not `proves`, so two comments that named their evidence in the present tense were reported
+#: as naming nothing; the self-test now writes it that way.
 EVIDENCE = re.compile(
     r"(test_\w+|--self-test|--canary|self_test|canary|invariant|budget|§\s*\d|section \d|"
-    r"\bproved?\b|\bproven\b|\bpinned\b|\bcaught\b)", re.I)
+    r"\bprov(?:e|es|ed|en|ing)\b|\bpinned\b|\bcaught\b)", re.I)
 
 COMMENT = re.compile(r"^\s*(?:#|//|\*|/\*)\s?(.*)$")
 
@@ -106,18 +115,41 @@ def main():
             good = pathlib.Path(d) / "good.py"
             good.write_text("# this should be unreachable, and test_thing.py plants one to prove it\n"
                             "x = 1\n")
+            # PRESENT TENSE COUNTS TOO. `proves` was not in the evidence pattern, so two comments
+            # naming the assertions right below them were reported as naming nothing.
+            good2 = pathlib.Path(d) / "good2.py"
+            good2.write_text("# it can only ever collapse an exact pair, which the four cases\n"
+                             "# below are what proves\n"
+                             "x = 1\n")
             plain = pathlib.Path(d) / "plain.py"
             plain.write_text("# a reading is never invented, which is a rule and not a claim\n"
                              "# about this code being unable to reach a branch\n"
                              "x = 1\n")
             caught = bool(findings([bad]))
-            quiet_ok = not findings([good])
+            quiet_ok = not findings([good]) and not findings([good2])
             # THE REAL FILE THAT PROMPTED THIS, as it was: the exact sentence from kari/app.js.
             real = pathlib.Path(d) / "real.js"
             real.write_text("// a run the build never reached becomes question marks. That last one\n"
                             "// should be unreachable, because the build floors every string every\n"
                             "// surface carries.\n")
             caught_real = bool(findings([real]))
+            # THE NARROWING, HELD TO HAVING LOST NOTHING. The first two are the sentences that
+            # were reported and should not have been; the third is the shape the phrase is for.
+            past = pathlib.Path(d) / "past.py"
+            past.write_text("# a fix to the renderer never reached what it had already rendered,\n"
+                            "# and 縁山 was established by search and then never reached a row\n"
+                            "x = 1\n")
+            branch = pathlib.Path(d) / "branch.py"
+            branch.write_text("# this branch is never reached, because the caller filters first\n"
+                              "x = 1\n")
+            past_quiet = not findings([past])
+            still_caught = bool(findings([branch]))
+        if not past_quiet:
+            print("  self-test FAILED — past narrative was read as a claim about the code")
+            return 1
+        if not still_caught:
+            print("  self-test FAILED — 'is never reached' stopped being caught")
+            return 1
         if not caught:
             print("  self-test FAILED — an unevidenced impossibility was not caught")
             return 1
@@ -130,13 +162,10 @@ def main():
         # THE HARNESS'S WORD FOR IT. This self-test plants a case it must catch and one it must
         # leave alone, so it has already proved it can fail; `CANARY-PROVEN` is how ./test.py
         # --canary hears that, and without it the module counts as unproven forever.
-        # THE HARNESS'S WORD FOR IT. This self-test plants a case it must catch and one it
-        # must leave alone, so it has already proved it can fail. `CANARY-PROVEN` is how
-        # ./test.py --canary hears that; without it the module counts unproven forever.
         if os.environ.get("YURA_CANARY"):
             print("CANARY-PROVEN")
-        print("  self-test passed (2 claims caught including the one that shipped a fault, "
-              "1 evidenced claim left alone)")
+        print("  self-test passed (3 claims caught including the one that shipped a fault, "
+              "2 left alone: an evidenced claim and past narrative)")
         return 0
 
     got = findings()

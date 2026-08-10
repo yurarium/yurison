@@ -132,6 +132,8 @@ def main(s):
 
     # The counter-cases that decide whether the reader may be trusted at all. It can only ever
     # collapse a pair it read EXACTLY onto its neighbour, so a wrong reading keeps both credits.
+    # The four cases below are what proves that, the last of them by handing it a reader that
+    # returns マチガイ for everything.
     s.eq(credits.dedupe("コダマナオコ / サブロウタ", {}, read), "コダマナオコ / サブロウタ",
          "two katakana pen names stay two people with a reader in play")
     s.eq(credits.dedupe("原田重光 / 蘇募ロウ", {}, read), "原田重光 / 蘇募ロウ",

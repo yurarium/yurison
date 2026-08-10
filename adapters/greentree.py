@@ -46,7 +46,13 @@ def _files():
         got += list((SITE / "src").rglob("*.js"))
     # THE TOKEN IS NOT PART OF THE TREE IT VOUCHES FOR. It lives under data/build, which this
     # hashes, so including it meant writing the token invalidated the token.
-    return sorted({p for p in got if p.is_file() and p != TOKEN})
+    #
+    # NOR IS COMPILED BYTECODE. Two .pyc files were tracked from before the ignore rule, so merely
+    # importing build or crossplatform rewrote a file this hashes and the token was refused for a
+    # tree nobody had touched. Over-approximating is right, but only over files a person writes.
+    # The self-test asserts the covered set is free of them, since untracking two is not a rule.
+    return sorted({p for p in got
+                   if p.is_file() and p != TOKEN and p.suffix != ".pyc"})
 
 
 def digest():
@@ -145,9 +151,17 @@ def main():
                     return 1
         finally:
             TOKEN = keep
+        # AND NOTHING A COMPILER WRITES IS IN THE COVERED SET, or a token is refused for a tree
+        # nobody edited. This asks the real set, not a temporary one, because that is where it went
+        # wrong: two .pyc were tracked and every import invalidated the token.
+        bytecode = [f for f in _files() if f.suffix in (".pyc", ".pyo")]
+        if bytecode:
+            print(f"  self-test FAILED — {len(bytecode)} compiled file(s) in the covered set, "
+                  f"first {bytecode[0]}")
+            return 1
         if os.environ.get("YURA_CANARY"):
             print("CANARY-PROVEN")
-        print("  self-test passed (4 refusals caught, a fresh token honoured)")
+        print("  self-test passed (4 refusals caught, no bytecode covered, a fresh token honoured)")
         return 0
 
     if a.write:

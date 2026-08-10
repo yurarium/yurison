@@ -164,7 +164,12 @@ stages:
           A mechanical pass rewrote the duplicates lint own canary into a shared constant, making it correct and useless, and the self-test caught it.
       - id: D9
         title: A lint for a fact with a second home, so the census cannot go stale
-        state: todo
+        state: done
+        note: >-
+          adapters/lint/duplicates.py runs in the gate as the budget `facts with more than one home`, 35 to 12.
+          docs/duplicates-allowed.yaml carries the cases somebody argued, so the number is a list of open ones and not a wall: four record shapes two adapters legitimately both emit, each saying what would make it a divergence again.
+          One entry says plainly that the argument has NOT been made, for the engine registry in editions/capture and editions/engines, because an allow-list that quietly absorbs what you meant to fix is worse than none.
+          Its self-test keeps a literal duplicate on purpose, since a canary is the one place a duplicate belongs.
       - id: D10
         title: title cataloguing, which already has one reader
         state: todo
@@ -189,19 +194,45 @@ stages:
     items:
       - id: E1
         title: Eight comments asserting an impossibility with nothing to prove it
-        state: todo
+        state: done
+        note: >-
+          Eight to zero, and three of the eight were the instrument and not the comment.
+          Two were past narrative caught by a bare `never reached`: a fix to the renderer never reached what it had already rendered, and 縁山 never reached a row.
+          Those are transitive past tense, so the phrase now wants a copula, and the self-test keeps both beside "this branch is never reached" so the narrowing is held to having lost nothing.
+          A third was the evidence pattern reading `proved` and `proven` but not `proves`, which reported two comments that named the assertions directly below them.
+          Of the five real ones, two named the four cases in test_credits that hand the analyser a reader returning マチガイ for every name, and one named the assertion beneath it.
+          TWO WERE WRONG AND WERE CORRECTED RATHER THAN EVIDENCED. `no-print-edition` was called a count that will never fall, but a web serial that later gets a tankōbon leaves it; what is true is that no pass moves it, because the change arrives from a capture finding the printing.
+          The tics CJK exemption said a decorative emoji in our own English would never share a line with Japanese; it now says what the exemption costs, and the self-test pins both sides.
+          Also removed a comment block duplicated verbatim in the claims lint itself.
       - id: E2
         title: Two modules called store
         state: todo
+      - id: E7
+        title: Compiled bytecode was inside the green-tree token's covered set
+        state: done
+        note: >-
+          Two .pyc were tracked from before the ignore rule, so merely importing build or crossplatform rewrote a file the token hashes and it was refused for a tree nobody had touched.
+          Found while triaging the worktrees, every one of which showed as dirty for that reason alone.
+          Untracked, and the covered set now excludes compiled files, which the self-test asserts against the real set rather than a fixture: untracking two files is not a rule.
       - id: E3
         title: The glued-romanisation shape, Uedakyōko
         state: todo
       - id: E4
         title: Kana spelling a name from another language, Sutefan Sejiku
         state: todo
+      - id: E6
+        title: The three branches holding work main never took
+        state: todo
       - id: E5
         title: Fifteen leftover worktrees
-        state: todo
+        state: doing
+        note: >-
+          Triaged, not yet removed: removing a worktree is denied to me here and needs the user to run it.
+          Fourteen worktrees, twenty-one work branches. Eighteen branches are fully contained in main and their worktrees hold nothing but recompiled bytecode drift, so both go.
+          THREE CARRY WORK THAT IS NOT IN MAIN, measured by test-merge rather than assumed: work/ichijinsha holds adapters/ichijinsha.py at 698 lines with its tests and 543 captured source pages, and conflicts with main in check.py alone; work/q10 holds the byline division work and conflicts in credit_identity, pages and build; work/romfallback holds adapters/names/organisations.py and conflicts in creditline, inputs and pass4_analyser.
+          Every other conflict is a generated artefact, so a merge takes main's and rebuilds.
+          Main reached ルミナス＝ブルー by a narrower route, isbd.RULED, so the 一迅社 capture is not superseded and is the one piece here that would cost re-fetching.
+          Merging them is E6 and not this item: it changes what the corpus contains, which does not belong inside tree hygiene.
 
   F:
     title: The common case stops re-verifying what did not change

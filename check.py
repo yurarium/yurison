@@ -4595,7 +4595,8 @@ def self_test():
         # AND THE OTHER DIRECTION, which is the state the fixed FUZ pass produces the first time it
         # runs. A number that can only rise is a number that will never record the remedy, and this
         # one has a remedy: capture the work. Giving a missed target a captured row must take it
-        # out of the count.
+        # out of the count, which the assertion below proves by giving every pass every target and
+        # requiring zero.
         fuz["captured"].add(dropped)
         for p in c["capture_passes"]:
             p["captured"] |= set(p["targets"])

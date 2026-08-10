@@ -170,9 +170,11 @@ SOFT = [
 ]
 
 # Evidence is quoted, not written, and must survive the lint unaltered. The scraped pixiv banner
-# in adapters/render/releases.py carries a ✨ and that character is the point of the citation. A
-# decorative emoji in our own English will never share a line with Japanese, so CJK exempts a line
-# from the emoji rule — narrow enough to be safe, and it fails visibly rather than silently.
+# in adapters/render/releases.py carries a ✨ and that character is the point of the citation, so
+# CJK on a line exempts it from the emoji rule. WHAT THAT COSTS: a decorative emoji we wrote
+# ourselves goes unreported if it shares a line with Japanese. self_test() pins both sides, the
+# quoted 300話以上✨ left alone and a bare emoji still caught, and the exemption is scoped to the one line,
+# so the rest of the file is still read.
 CJK = re.compile(r"[\u3040-\u30ff\u3400-\u9fff\uff00-\uffef]")
 
 # An em dash ALONE between quotes or tags is not prose: it is the glyph for "no value" in a table
@@ -447,6 +449,8 @@ def self_test():
         ("Experts argue that this is so", HARD_RX),
         ("a database of Japanese Yuri manga", CASED_RX),
         ("Yuri works from the 1970s", CASED_RX),
+        # The other side of the CJK exemption at EVIDENCE: our own English still gets caught.
+        ("the release landed on time ✨", HARD_RX),
     ]
     # Counter-cases for the negation rule, which fired on "cannot" until \b was added.
     for text in ("a test cannot be forgotten.", "a notice arrives later", "an option nothing uses"):

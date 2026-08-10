@@ -304,7 +304,9 @@ def main(s):
 
     # THE FOUR SILENCES ARE FOUR ANSWERS. Flattening them to one is what this replaced: a work on a
     # print imprint that dates its other books is unresolved, and a digital-only label is finished
-    # work. Only the second will never gain a date, and the field is how anyone tells them apart.
+    # work. Only the second is complete as it stands, and the field is how anyone tells them apart.
+    # It can still gain a print date, by a capture finding a printing that did not exist when the
+    # row was written, which is a different event from resolving a gap.
     s.ne(b.undated_publication({"date_basis": "no-print-date-stated"})["note"], fp["note"],
          "an unexplained silence does not read as an explained one")
     s.eq(b.undated_publication({"date_basis": "no-print-date-stated"})["venue_type"], "imprint",

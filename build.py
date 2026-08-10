@@ -5903,7 +5903,8 @@ def main():
     # shipped on w01478: the kana fold cannot see it because the name holds a kanji, and the store
     # cannot either because a CREDIT LINE is never fed to the naming pass, so neither half of the
     # field is in it. The analyser reads the name on demand instead. It can only ever collapse a
-    # pair it read exactly onto its neighbour, so a misread name keeps both credits.
+    # pair it read exactly onto its neighbour, so a misread name keeps both credits, which
+    # test_credits.py proves by handing it a reader that returns マチガイ for every name.
     _authstore = (_auth_names if isinstance(_auth_names, dict) else {})
     try:
         _readname = _p4.reader()
@@ -6311,8 +6312,10 @@ def main():
     if undated_works:
         print(f"undated works   : {undated_works} recorded with no attested publication date")
         # WHICH SILENCE, because a total says how far there is to go and nothing about how to get
-        # there. `no-print-edition` is finished work and will never fall; `no-date-attested` is
-        # the one nobody has an answer for and is what a later pass should be aimed at.
+        # there. `no-print-edition` is finished work and no pass will move it: a web serial that
+        # later gets a tankōbon leaves this count, but that arrives from a capture finding the
+        # printing and not from working the gap. `no-date-attested` is the one nobody has an
+        # answer for and is what a later pass should be aimed at.
         for _basis_name, _basis_n in sorted(undated_by_basis.items(), key=lambda kv: -kv[1]):
             print(f"    {_basis_n:5}  {_basis_name}")
     _dtally = delivery.tally(series_rows)

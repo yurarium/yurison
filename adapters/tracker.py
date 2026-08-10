@@ -97,16 +97,29 @@ def _num(cmd):
         return None
 
 
-def residue():
-    """The open counts, measured by running the lints. A number here cannot be claimed lower."""
+def residue(budgets=None):
+    """The open counts, measured by running the lints. A number here cannot be claimed lower.
+
+    `budgets` IS THE NUMBERS A RUN JUST MEASURED, and it exists because of what this cost. The gate
+    regenerates this page, the page ran `mergecheck.py`, and mergecheck runs `check.py --runtime` as
+    a child: every gate was a gate plus a whole second run of the checks, 20 s of the 86, and the
+    child overwrote the report the gate had just written so eight source budgets were published as
+    `value: null`. When a caller has measured them already, comparing against those is not a
+    shortcut; it is the same comparison without the second run.
+    """
     lint = ROOT / "adapters" / "lint"
+    if budgets:
+        sys.path.insert(0, str(lint))
+        import mergecheck
+        disagreeing = len(mergecheck.disagreements(got=dict(budgets)))
+    else:
+        disagreeing = _num([sys.executable, str(lint / "mergecheck.py"), "--quiet"])
     return {
         "impossibilities asserted with no evidence":
             _num([sys.executable, str(lint / "claims.py"), "--quiet"]),
         "reaches past a fact's entry point":
             _num([sys.executable, str(lint / "facts.py"), "--quiet"]),
-        "budgets disagreeing with this tree":
-            _num([sys.executable, str(lint / "mergecheck.py"), "--quiet"]),
+        "budgets disagreeing with this tree": disagreeing,
         "worktrees left open":
             _num(["bash", "-c", "git worktree list | wc -l"]),
     }
@@ -127,9 +140,9 @@ def timings(fast=False):
     return got
 
 
-def measure(fast=False):
+def measure(fast=False, budgets=None):
     """Everything the page shows that is not typed."""
-    return {"facts": facts(), "residue": residue(), "timings": timings(fast),
+    return {"facts": facts(), "residue": residue(budgets), "timings": timings(fast),
             "measured_at": time.strftime("%Y-%m-%d %H:%M")}
 
 

@@ -54,7 +54,15 @@ stages:
         state: todo
       - id: B3
         title: Per-check timings, so the next slow one is visible
-        state: todo
+        state: done
+        note: >-
+          Every check and every phase of a gate is timed and the run says where the seconds went; checks.json records the same numbers under `seconds`.
+          It found two things in its first run that guessing had missed for two rounds.
+          THE GATE WAS RUNNING ITSELF TWICE. Regenerating the tracker runs mergecheck.py, which runs check.py --runtime as a child, so a gate was a gate plus a whole second run: 20.5 s of 86, and the child overwrote the report the gate had just written, which is why eight source budgets were published with value null.
+          The tracker is handed the numbers the gate already measured, and that also lifts mergecheck's own blind spot, since a --runtime child never measures a source budget and `stock phrasing in comments` is the budget it was written for.
+          Writing the report also called every invariant and every budget a second time to fill in the examples; the loop keeps its results now.
+          Gate 86.5 s to 66.7 s, tracker regeneration 20.5 s to 0.4 s.
+          What is left is legible: proving the checks can fail 18.6 s, stock phrasing 12.9 s, content flags 7.6 s, no ruby over bare Latin 4.7 s, and 100 other checks sharing 8.5 s.
 
   C:
     title: The store becomes load-bearing

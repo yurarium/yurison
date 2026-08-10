@@ -27,7 +27,7 @@ BUDGETS RATCHET ONE WAY. Tier-2 numbers are counts with no correct value, only a
 `--gate` tightens the recorded budget to what was actually measured; loosening one requires editing
 docs/budgets.json by hand, which puts the reason in a commit message where it can be argued with.
 """
-import argparse, ast, collections, json, os, pathlib, re, subprocess, sys, unicodedata
+import argparse, ast, collections, json, os, pathlib, re, subprocess, sys, time, unicodedata
 # Named apart from the plain module name because several measures below bind `html` to one
 # rendering they are walking, and a global with the same name reads as that variable.
 import html as html_module
@@ -4783,19 +4783,36 @@ def main():
     if a.deploy_window:
         return deploy_window()
 
-    if a.gate and not self_test():
-        print("\nFAIL: the checks cannot prove they work; refusing to pass anything.")
-        return 3
+    _phase = {}
+    if a.gate:
+        _t0 = time.perf_counter()
+        proved = self_test()
+        _phase["proving the checks can fail"] = time.perf_counter() - _t0
+        if not proved:
+            print("\nFAIL: the checks cannot prove they work; refusing to pass anything.")
+            return 3
 
+    _t0 = time.perf_counter()
     ctx = context()
+    _phase["reading the build"] = time.perf_counter() - _t0
     if not ctx["releases"]:
         print("no build output — run ./build.py first")
         return 0 if a.runtime else 1
 
+    # PER-CHECK TIMINGS, because a total says a cycle is slow and nothing about which check to
+    # look at. Two rounds of this refactor guessed wrong from a total: page generation was blamed
+    # for 39 s that belonged to a fourth run of the checks. The cost is one perf_counter call per
+    # check against checks that take whole seconds, so it is always on rather than behind a flag.
+    timings = {}
+    inv_results = {}
+    budget_values = {}
     failed = []
     print("invariants:")
     for name, fn in INVARIANTS:
+        _t0 = time.perf_counter()
         bad = fn(ctx)
+        timings[name] = time.perf_counter() - _t0
+        inv_results[name] = bad
         if bad:
             failed.append((name, bad))
             print(f"  FAIL  {name}: {len(bad)}")
@@ -4812,7 +4829,10 @@ def main():
     for name, fn, _why in BUDGETS_DEF:
         if skip_source and name in SOURCE_BUDGETS:
             continue
+        _t0 = time.perf_counter()
         n = fn(ctx)
+        timings[name] = time.perf_counter() - _t0
+        budget_values[name] = n
         was = recorded.get(name)
         if was is None:
             tightened[name] = n
@@ -4851,32 +4871,57 @@ def main():
     def _unroot(x):
         return str(x).replace(str(ROOT.parent) + "/", "").replace(str(ROOT) + "/", "")
 
+    _t0 = time.perf_counter()
     (BUILD / "checks.json").write_text(json.dumps({
         "generated": ctx.get("generated") or "",
-        "invariants": [{"name": n, "violations": len(v), "examples": [_unroot(e) for e in v[:5]]}
-                       for n, v in [(n, f(ctx)) for n, f in INVARIANTS]],
+        # ANSWERED ONCE. This comprehension used to call every invariant a SECOND time to write
+        # the report, so `./check.py --gate` ran the whole suite twice: 47 s of checks became 94 s
+        # and the per-check timings are what made it visible. The loop above keeps its results.
+        "invariants": [{"name": n, "violations": len(inv_results[n]),
+                        "examples": [_unroot(e) for e in inv_results[n][:5]]}
+                       for n, _f in INVARIANTS],
         # A budget this run did not measure carries `value: null` and says why, so a reader can
         # tell "nothing to report" from "not asked".
         "budgets": [{"name": n, "means": w, "budget": recorded.get(n),
-                     "value": None if (skip_source and n in SOURCE_BUDGETS) else f(ctx),
+                     "value": budget_values.get(n),
                      **({"not_measured": "source-quality budget; measured at check-in"}
                         if skip_source and n in SOURCE_BUDGETS else {})}
                     for n, f, w in BUDGETS_DEF],
+        # WHICH CHECK COST WHAT, so the next slow one is visible without guessing. Two rounds of
+        # this refactor guessed wrong from a total.
+        "seconds": {n: round(s, 3) for n, s in sorted(timings.items(), key=lambda kv: -kv[1])},
         "note": ("Invariants are statements that are either true or the data is broken. At runtime "
                  "a violation degrades to the fallback named in check.py and is counted here; at "
                  "check-in the same violation blocks. Budgets are counts with no correct value, "
                  "only a direction: they tighten automatically and loosen only by hand."),
     }, ensure_ascii=False, indent=1))
+    _phase["writing the report"] = time.perf_counter() - _t0
+
+    def _report_time():
+        """Where the seconds went, printed last so the tail of the run is inside it."""
+        if not timings:
+            return
+        total = sum(timings.values()) + sum(_phase.values())
+        print(f"\nwhere {total:.0f}s went:")
+        for name, secs in sorted(_phase.items(), key=lambda kv: -kv[1]):
+            print(f"  {secs:6.2f}s  {name}")
+        shown = [x for x in sorted(timings.items(), key=lambda kv: -kv[1]) if x[1] >= 0.2][:10]
+        for name, secs in shown:
+            print(f"  {secs:6.2f}s  {name}")
+        rest = sum(s for n, s in timings.items() if (n, s) not in shown)
+        print(f"  {rest:6.2f}s  the other {len(timings) - len(shown)} checks")
 
     if a.runtime:
         # The show must go on. Violations are reported and counted; the build publishes anyway,
         # having already degraded to the fallback each invariant names.
+        _report_time()
         if failed or loosened:
             print(f"\n{len(failed)} invariant(s) violated, {len(loosened)} budget(s) exceeded — "
                   f"degraded per the stated fallbacks; see docs/STANDING-INSTRUCTIONS.md")
         return 0
 
     if failed or loosened:
+        _report_time()
         print(f"\nNO GO: {len(failed)} invariant(s) violated, {len(loosened)} budget(s) exceeded.")
         for name, was, now in loosened:
             print(f"  {name} rose {was} -> {now}; to accept it, edit docs/budgets.json and say why")
@@ -4885,21 +4930,27 @@ def main():
     # THE TREE THIS PASSED ON, recorded so the pre-push hook need not prove it again. The token
     # over-approximates what the checks read, and refuses itself if the tree moved, if it covers a
     # different set, or if it records a different run. See adapters/greentree.py.
+    _t0 = time.perf_counter()
     try:
         sys.path.insert(0, str(ROOT / "adapters"))
         import greentree
         greentree.write("gate")
     except Exception:                                                   # noqa: BLE001
         pass
+    _phase["the green-tree token"] = time.perf_counter() - _t0
     # AND THE TRACKER IS REGENERATED, so the page cannot be stale while the work moves on. The last
     # round's tracker went out of date because updating it was something to remember; the timings
     # are skipped here because measuring them costs a full cycle.
+    _t0 = time.perf_counter()
     try:
         import tracker
-        tracker.OUT.write_text(tracker.render(tracker.state(), tracker.measure(fast=True)),
-                               encoding="utf-8")
+        tracker.OUT.write_text(
+            tracker.render(tracker.state(), tracker.measure(fast=True, budgets=budget_values)),
+            encoding="utf-8")
     except Exception:                                                   # noqa: BLE001
         pass
+    _phase["regenerating the tracker"] = time.perf_counter() - _t0
+    _report_time()
     return 0
 
 

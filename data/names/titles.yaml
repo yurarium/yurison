@@ -3219,15 +3219,24 @@ names:
     reading_source_kind: analyser
     verified: false
   †でぃすてにぃ・ふれんず†:
-    basis: translated
-    en: †Disteny Friends†
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: でぃすてにぃ deliberately misspells 運命, destiny, in the overwrought chuunibyou register the synopsis's
-      protagonist is written in; kept the misspelling and the dagger symbols rather than correcting or
-      dropping either.
+    basis: official-jp
+    en: †Destiny Friends†
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: †Disteny Friends†
+    en_reviewed: '2026-08-10'
+    en_source: カドコミ
+    en_source_kind: platform
+    en_url: https://comic-walker.com/detail/KC_006751_S
+    note: 'THE WORK PRINTS THE WORD ITSELF. Its lead page on カドコミ shows Destiny in Latin letters, read
+      there by the project owner on 2026-08-10, so the English name is the work''s own and not a rendering
+      of ours. THIS READ †Disteny Friends†, a misspelling we invented to mirror the hiragana affectation:
+      でぃすてにぃ writes 運命 in the overwrought chuunibyou register the protagonist is written in, and the previous
+      entry answered that by misspelling the English to match. Inventing a misspelling is a decision about
+      how a work styles itself, which is the work''s to make, and it had already made it. The dagger symbols
+      stay, since those are on the title as the platform prints it.'
     reading: †ディステニィ・フレンズ†
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -7746,7 +7755,13 @@ names:
     reading_source_kind: analyser
     verified: false
   うらら迷路帖:
-    basis: romaji
+    basis: official-jp
+    en: URARA MEIROCHOU
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: COMIC FUZ
+    en_source_kind: platform
+    en_url: https://comic-fuz.com/manga/412
     furigana_spans:
     - - うらら
       - null
@@ -7754,13 +7769,21 @@ names:
       - めいろ
     - - 帖
       - ちょう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 'THE WORK PRINTS ITS OWN LATIN FORM and that settles it, so no translation of ours is owed.
+      Read off the title art by the project owner on 2026-08-10, the same route that settled †Destiny
+      Friends†. A TRANSLATION WAS CONSIDERED AND IS NOT TAKEN. うらら is the rank an apprentice diviner holds
+      in this setting rather than an ordinary word, and 迷路帖 puns 帖, a register or album, against 迷路町,
+      the town the girls train in, so an English line would have to choose which half of the pun to keep.
+      The work having already published a Latin form makes the question moot: a name the work gives itself
+      outranks anything we would compose. No English-language licence for the manga was found. Sentai
+      Filmworks licensed the anime, which names the anime and not this.'
     reading: ウララ メイロチョウ
-    reading_at: '2026-08-08'
+    reading_at: '2026-08-10'
     reading_basis: stated
+    reading_corroborated:
+    - COMIC FUZ
     reading_pass: 4
-    reading_reviewed: '2026-08-08'
+    reading_reviewed: '2026-08-10'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I029802299
@@ -28076,9 +28099,13 @@ names:
     verified: false
   セッ○スしないと出られない部屋～百合ver.～:
     basis: translated
-    en: The Room You Can't Leave Without Having Se*x ~Yuri Ver.~
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en: The Room You Can't Leave Without Having S*x ~Yuri Ver.~
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Room You Can't Leave Without Having Se*x ~Yuri Ver.~
+    en_reviewed: '2026-08-10'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -28096,9 +28123,14 @@ names:
       - ゆり
     - - ver.～
       - null
-    note: The platform's own title censors with a circle over one kana; mirrored here with an asterisk
+    note: 'The platform''s own title censors with a circle over one kana; mirrored here with an asterisk
       rather than spelling the word out plainly, since the censorship is part of what the title looks
-      like.
+      like. THE ASTERISK HAS TO COVER SOMETHING. This read Se*x, which hides no letter and reads exactly
+      as the word does: the mark sat between two letters instead of replacing one. English elides the
+      vowel, s*x, which is the form a reader recognises as a word held back. Raised by the project owner
+      on 2026-08-10. セッ○ス hides the small ッ, one mora of four, so the source keeps most of the word visible
+      too; what matters is that both spellings withhold a character rather than that they withhold the
+      same one.'
     reading: セッ ○ ス シナイ ト デラレナイ ヘヤ ～ ユリ ver . ～
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -32346,9 +32378,13 @@ names:
     verified: true
   ベーズのドアの向こうには:
     basis: translated
-    en: Beyond Bēzu's Door
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en: Beyond the Baize Door
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Beyond Bēzu's Door
+    en_reviewed: '2026-08-10'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -32358,8 +32394,13 @@ names:
       - む
     - - こうには
       - null
-    note: ベーズ isn't glossed anywhere reachable, a sequel to a maid romance with no plot summary beyond
-      that; kept in transliteration rather than guessed as a specific English word.
+    note: ベーズ IS BAIZE, the felted wool that covers the door between the servants' quarters and the family's
+      rooms in a large British house. The green baize door is the idiom for that boundary, which is why
+      the title takes the definite article. THE SETTING WAS THE EVIDENCE AND THE NOTE ALREADY HELD IT.
+      This read "Beyond Bēzu's Door" and said ベーズ "isn't glossed anywhere reachable, a sequel to a maid
+      romance with no plot summary beyond that". A maid romance is the one setting where that word is
+      a door, so the record wrote down the fact that identified the word and then treated it as an unresolvable
+      name, possessive and all. Identified by the project owner on 2026-08-10.
     reading: ベーズ ノ ドア ノ ムコウ ニ ワ
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -38822,8 +38863,8 @@ names:
       - だ
     - - かれてます！
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: 抱かれる is the passive of holding somebody, and the word carries sleeping with as readily as embracing.
+      も adds that tonight is not the first time.
     reading: コンヤ モ ダカレテマス！
     reading_at: '2026-08-10'
     reading_basis: analyser
@@ -55023,6 +55064,10 @@ names:
       - か
     - - われています
       - null
+    note: 'The catalogue prints the book''s own Latin line beside the Japanese, which settles the ambiguity
+      in 抱かれたい女: the wanting is hers. The bracketed ひと is the work''s own gloss, telling the reader to
+      say 女 as person. JD clips 女子大生 and アラサー is around thirty, both stated in full because the shorthand
+      means nothing in English.'
     reading: 'ダカレタイ ヒト : JDダケド アラサー ジョシ ニ カワレテ イマス'
     reading_at: '2026-08-10'
     reading_basis: stated
@@ -55122,8 +55167,10 @@ names:
       - か
     - - われています〜
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: JD, joshi daigakusei, and アラサー, "around 30", both translated rather than kept as loanwords since
+      neither is established in English the way yuri or senpai are. The synopsis is a college student
+      doing compensated dating for her boyfriend's birthday gift money, whose first client is a married
+      woman who wants to be someone's "mama".
     reading: ダカレタイ オンナ 〜 JDダケド アラサー ジョシ ニ カワレテ イマス 〜
     reading_at: '2026-08-10'
     reading_basis: analyser
@@ -66075,19 +66122,33 @@ names:
     reading_source_kind: analyser
     verified: false
   百合百景:
-    basis: translated
-    en: A Hundred Views of Lilies
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: A hundred scenes of Girls Love
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: A Hundred Views of Lilies
+    en_reviewed: '2026-08-10'
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://rimg.bookwalker.jp/0362832/WYSt3oZAsOZeWLNOG6XDcw__.jpg
     furigana_spans:
     - - 百合
       - ゆり
     - - 百景
       - ひゃっけい
-    note: 百景 is the hundred views of a place, the title of a woodblock series, and it puts the genre's
-      own flower where the place goes.
+    note: THE COVER CARRIES THE WORK'S OWN ENGLISH, read off the cover art by the project owner on 2026-08-10
+      and set small enough to be easy to miss. This had our translation, "A Hundred Views of Lilies",
+      which is what the record composes when nobody has looked at the picture. SET AS THE COVER SETS IT,
+      in sentence case with Girls Love capitalised. House style would title-case it and the work has already
+      chosen; a name a work gives itself is taken as it is given, the same ruling that settled †Destiny
+      Friends† and URARA MEIROCHOU on the same day. OUR READING OF THE ALLUSION WAS RIGHT AND THE WORDS
+      WERE NOT. 百景 is the hundred views of a place, the title of a woodblock series, and this puts the
+      genre where the place goes; the work says scenes rather than views, and names the genre in English
+      rather than reaching for the flower. A DIFFERENT WORK SHARES THE NAME. 百合百景・夜伽 is 犬丸's, published
+      by 黒戌舎, and renders 百合百景 as "A Hundred Views of Yuri". Nothing on this cover names that one, so
+      it is left alone rather than harmonised on an assumption.
     reading: ユリ ヒャッケイ
     reading_at: '2026-08-06'
     reading_basis: analyser

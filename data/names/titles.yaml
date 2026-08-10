@@ -49746,9 +49746,13 @@ names:
     verified: false
   幼馴染は、にゃあと鳴いてスカートのなか:
     basis: translated
-    en: My Childhood Friend Meows, and It's Coming From Under Her Skirt
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
+    en: My Childhood Friend Meows, and She's Inside a Skirt
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: My Childhood Friend Meows, and It's Coming From Under Her Skirt
+    en_reviewed: '2026-08-10'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -49760,9 +49764,16 @@ names:
       - な
     - - いてスカートのなか
       - null
-    note: The synopsis confirms cat ears growing on the estranged childhood friend's head in chapter one;
-      the skirt half of the title likely points to a tail appearing later in the same curse, though that
-      is not yet confirmed on the page read.
+    note: 'The synopsis confirms cat ears growing on the estranged childhood friend''s head in chapter
+      one; the skirt half of the title likely points to a tail appearing later in the same curse, though
+      that is not yet confirmed on the page read. THE JAPANESE DOES NOT SAY WHOSE SKIRT and this rendering
+      used to. It read "It''s Coming From Under Her Skirt", which settled the skirt on the friend and
+      added a sound coming from under it, neither of which the title states: は marks 幼馴染 as the subject
+      of both halves, so the friend meows and the friend is inside a skirt, and スカートのなか is inside rather
+      than under. An indefinite article keeps the question open the way the source does. Raised by the
+      project owner on 2026-08-10 as unnecessarily erotic in its choice of whose skirt. A RENDERING THAT
+      RESOLVES AN AMBIGUITY PICKS A READING FOR THE READER, and picking the erotic one is a claim about
+      the work that its own title declines to make.'
     reading: オサナナジミ ワ、 ニャア ト ナイテ スカート ノ ナカ
     reading_at: '2026-08-05'
     reading_basis: analyser

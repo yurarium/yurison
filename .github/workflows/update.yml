@@ -201,17 +201,30 @@ jobs:
           import json, sys
           rs = json.load(open("data/build/feed.json"))["releases"]
           att = [r for r in rs if r["provenance"] == "attested"]
-          bad = [r for r in att if not (r.get("ep") or "").strip()
-                 or not r.get("author") or not r.get("access_modes")]
-          print(f"attested {len(att)}, incomplete {len(bad)}")
-          # A rendered platform that renames a class does not error — it returns rows with the
-          # field missing and the build accepts them. This is the tripwire for that. The threshold
-          # is a budget, not a target: it was 0 when this was written.
-          if len(bad) > 25:
-              for r in bad[:15]:
+          # A rendered platform that renames a class does not error: it returns rows with the field
+          # missing and the build accepts them. This is the tripwire for that.
+          #
+          # NAMED SEPARATELY, because one of the three is not the same fault. A row with no episode
+          # title or no author is a selector that has moved, and there are none. A row with no
+          # access is usually a platform stating none on the route we read it by: マガポケ has two,
+          # and `magapoke-feeds.yaml` carries access on 0 of its 1,956 chapters while the rendered
+          # route carries it on nearly all of them, so a work reached only by the feed has none.
+          # Counted together, 26 of those were consuming a tripwire set at 25 and would have hidden
+          # the first row that really did lose its title.
+          named = [r for r in att if not (r.get("ep") or "").strip() or not r.get("author")]
+          unpriced = [r for r in att if r.get("ep") and r.get("author") and not r.get("access_modes")]
+          print(f"attested {len(att)}, missing a name {len(named)}, missing access {len(unpriced)}")
+          if len(named) > 3:
+              for r in named[:15]:
                   print("  ", r.get("plat_name"), r["work"][:30], repr(r.get("ep"))[:30])
-              sys.exit(f"{len(bad)} attested rows are missing a field — a selector has probably "
-                       f"moved. See RUNBOOK-github.md section 8.")
+              sys.exit(f"{len(named)} attested rows have no episode title or no author — a selector "
+                       f"has probably moved. See RUNBOOK-github.md section 8.")
+          if len(unpriced) > 60:
+              import collections
+              for p, n in collections.Counter(r.get("plat_name") for r in unpriced).most_common(8):
+                  print(f"   {n:4}  {p}")
+              sys.exit(f"{len(unpriced)} attested rows state no access, which is more than the "
+                       f"route asymmetry accounts for. See RUNBOOK-github.md section 8.")
           PY
 
       # No content scan on this path. The guard's content half looks for real-name strings, and

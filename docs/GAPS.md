@@ -2427,3 +2427,23 @@ full from another route:
 covers the first. The other two are stale strings in `data/coverage/remaining.yaml`, and rewriting
 that file from what the dedicated adapters actually hold would shrink the unreached list honestly.
 That was not done here because it needs all 70 entries checked and only these three were.
+
+## Access is stated by the route and not by the platform. Found 2026-08-10
+
+26 attested rows carry an episode title and an author and no access state. They are not a moved
+selector, which is what the field audit in the update workflow was built to catch, and counting them
+together with that fault had set the audit one row from firing on the wrong thing.
+
+マガポケ is the case that explains it. It reaches us two ways, and `magapoke-feeds.yaml` carries
+access on 0 of its 1,956 chapters while the rendered route carries it on nearly all of them, so a
+work reached only by the feed arrives with none. 31 of its 48 rows have access and 17 do not.
+チャンピオンクロス is 11 of 15. マイナビニュース states none at all on any of its 3.
+
+The audit counts the two separately now. A row with no episode title or no author is a selector that
+has moved and there are none of those, so that tripwire sits at 3 where it can still see the first
+one. A row with no access is measured against the asymmetry above.
+
+**What would close it** is reading マガポケ's access on the feed route, or preferring the rendered
+route for a work both cover. Neither is done here: the first needs the feed to state something it
+does not appear to, and the second is a change to how routes are ranked, which reaches further than
+one platform.

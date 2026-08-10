@@ -193,6 +193,13 @@ platforms:
     name: ちゃおプラス
     host: ciao.shogakukan.co.jp
     atom: https://ciao.shogakukan.co.jp/atom
+    enabled: false
+    note: >-
+      /atom is a 301 to /feed/atom, which is the site's WordPress feed: no xmlns:giga and
+      no entries. This is not a GigaViewer install and no run of that adapter can ever
+      succeed against it. It was recorded here on 2026-08-01 as verified, and every run
+      since has counted it among the degraded platforms that wrote nothing, which is a
+      permanent failure that teaches a reader to skim the list. Re-checked 2026-08-10.
     mode: known-works
     exclusive_works_at_onboarding: 5
     verified: 2026-08-01
@@ -241,6 +248,13 @@ platforms:
     name: 路草
     host: michikusacomics.jp
     atom: https://michikusacomics.jp/atom
+    enabled: false
+    note: >-
+      /atom is a 301 to /feed/atom, which is the site's WordPress feed: no xmlns:giga and
+      no entries. This is not a GigaViewer install and no run of that adapter can ever
+      succeed against it. It was recorded here on 2026-08-01 as verified, and every run
+      since has counted it among the degraded platforms that wrote nothing, which is a
+      permanent failure that teaches a reader to skim the list. Re-checked 2026-08-10.
     mode: known-works
     exclusive_works_at_onboarding: 1
     verified: 2026-08-01

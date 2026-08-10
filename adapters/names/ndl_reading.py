@@ -55,13 +55,14 @@ finding, and it is never an invitation to derive a reading from the characters i
 """
 import re
 import unicodedata
+import htmlbits as _htmlbits                                            # noqa: E402
 
 # The XML tags this reads. Kept as a name each so a changed feed fails visibly rather than by
 # returning an empty list, which is indistinguishable from an artist NDL has never heard of.
 CREATOR = "dc:creator"
 TRANSCRIPTION = "dcndl:creatorTranscription"
 
-_ITEM = re.compile(r"<item>(.*?)</item>", re.S)
+_ITEM = _htmlbits.RSS_ITEM
 # A birth year on the end of a catalogue name. NDL puts a comma before it, `タケシマ, エク, 1974-`;
 # MADB puts a space, `シノハラケンタ 1974-`. Either separator, because this is one rule about
 # cataloguing furniture and two copies of it would drift. The trailing hyphen is what keeps it off

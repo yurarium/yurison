@@ -44,7 +44,8 @@ import kana as _kana                                                            
 from facts import romanisation as _romanisation  # noqa: E402
 from facts import namekey as _namekey                                   # noqa: E402
 
-STYLES = ("macron", "double", "plain")
+# ASKED OF `facts/romanisation`, which owns the styles. This was a third and fourth home.
+STYLES = _romanisation.STYLES
 
 # The scripts an English reader cannot read, spelled as kari/app.js spells the same class, plus the
 # repeat mark.

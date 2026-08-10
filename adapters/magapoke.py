@@ -70,6 +70,7 @@ none is invented: that comes from the rendered page, for the ten-episode window 
 shows it, and the rest of the run is silent about access rather than free.
 """
 import re
+import htmlbits as _htmlbits                                            # noqa: E402
 
 # The page must say it has such a list at all before its shape is trusted.
 KEY = '"episode_id_list"'
@@ -109,7 +110,7 @@ TITLE_ID = re.compile(r"https?://pocket\.shonenmagazine\.com/title/(\d+)")
 # Scoped to <item> deliberately. The channel has a <title>, a <pubDate> and a <link> of its own, and
 # a pattern run over the whole document collects them as a 43rd episode named マガポケ（作品名）
 # dated the same day as the newest chapter. Each item is matched first and its fields only inside it.
-ITEM = re.compile(r"<item>(.*?)</item>", re.S)
+ITEM = _htmlbits.RSS_ITEM
 CHANNEL_TITLE = re.compile(r"<channel>\s*<title>([^<]*)</title>")
 FIELD = {k: re.compile(rf"<{k}[^>]*>([^<]*)</{k}>") for k in
          ("title", "link", "guid", "pubDate", "author")}

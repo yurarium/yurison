@@ -89,6 +89,7 @@ from names.resolver import Fact, HttpCache, Resolver, SourceUnavailable, drive  
 from names.store import NameStore  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import paths
+from facts import namekey as _namekey                                   # noqa: E402
 
 
 # Japanese function words, as they appear in a romanisation. A Latin string carrying several of
@@ -264,7 +265,7 @@ class Wikidata(Resolver):
     """One SPARQL query per batch of names, matched on an exact label or alias (§3.4)."""
 
     name = "wikidata"
-    kinds = ("authors", "titles")
+    kinds = _namekey.RESEARCHABLE_KINDS
     provides = "either"
     # Titles are long — several run past 40 characters — and 120 of them in a URL query string is
     # enough for WDQS to answer 503 rather than parse it. Names are short, so they keep the bigger

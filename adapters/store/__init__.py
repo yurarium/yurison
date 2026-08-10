@@ -22,6 +22,8 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
 
+from facts import namekey as _namekey                                   # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCHEMA = pathlib.Path(__file__).resolve().parent / "schema.sql"
 DB = ROOT / "data" / "store.db"
@@ -197,7 +199,9 @@ def build(path=None):
     # a record; here each claim is a row, so a second opinion is a second ROW and a conflict is data.
     # That is what makes "where do two sources disagree about one name" a query at all.
     import yaml
-    subject_of = {"authors": "credit", "titles": "work", "publishers": "publisher"}
+    # KEYED ON `facts/namekey.KINDS`, so the store's populations and the name store's cannot
+    # drift apart. The values are what each population is a name OF.
+    subject_of = dict(zip(_namekey.KINDS, ("credit", "publisher", "work")))
     ids_for = {"credit": {r["surface"]: r["id"] for r in
                           db.execute("SELECT surface, id FROM credit").fetchall()
                           and [{"surface": s, "id": i} for s, i in

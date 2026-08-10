@@ -43,11 +43,12 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from identity import match_key  # noqa: E402
+import htmlbits as _htmlbits                                            # noqa: E402
 
 # The chapter page's link to its own series feed. Anchored on the href so that the `?free_only=1`
 # variant beside it yields the same id rather than a second one.
 SERIES_LINK = re.compile(r'href="https?://([^/"]+)/(?:atom|rss)/series/(\d+)')
-OG_TITLE = re.compile(r'<meta property="og:title" content="([^"]*)"')
+OG_TITLE = _htmlbits.OG_TITLE
 
 
 def series_id(html):

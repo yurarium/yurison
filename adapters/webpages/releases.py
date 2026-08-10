@@ -25,6 +25,7 @@ import textnorm  # noqa: E402
 from collections import Counter
 
 import yaml
+import htmlbits as _htmlbits                                            # noqa: E402
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 PAUSE = 1.5
@@ -46,7 +47,7 @@ def fetch(url, cache):
 
 
 TRUNCATED = re.compile(r"(?:\.{2,}|\u2026)\s*$")
-OG_TITLE = re.compile(r'<meta[^>]+property="og:title"[^>]+content="([^"]*)"')
+OG_TITLE = _htmlbits.OG_TITLE
 
 
 def carry_over(path, urls):

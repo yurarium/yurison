@@ -26,9 +26,10 @@ aggregator: it is a shop describing its own stock, which is a matter of record.
 """
 import re
 import unicodedata
+import htmlbits as _htmlbits                                            # noqa: E402
 
 SERIES_URL = re.compile(r"https://bookwalker\.jp/series/(\d+)")
-TITLE = re.compile(r"<title>(.*?)</title>", re.S)
+TITLE = _htmlbits.TITLE
 FINISHED = "【完結】"
 
 

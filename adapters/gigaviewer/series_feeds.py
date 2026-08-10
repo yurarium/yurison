@@ -28,6 +28,7 @@ import urllib.error, urllib.request
 from collections import Counter
 
 import yaml
+import htmlbits as _htmlbits                                            # noqa: E402
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 PAUSE = 1.2
@@ -35,7 +36,7 @@ MIN_RESOLVED = 20
 
 SERIES_ID = re.compile(
     r'data-series-name="([^"]+)"(.{0,2000}?)series-sub-thumbnail[^"]*?(?:%2F|/)(\d+)-', re.S)
-ENTRY = re.compile(r"<entry>(.*?)</entry>", re.S)
+ENTRY = _htmlbits.ATOM_ENTRY
 
 
 def fetch(url, cache, max_age_days=1):
@@ -92,7 +93,7 @@ TICKET_RE = re.compile(r"チケットで読む（無料）")
 # 少年ジャンプ+, サンデーうぇぶり and webアクション show no such text on the same probe, so this is not
 # assumed platform-wide: each work is asked, and a platform that never answers gets nothing.
 FREE_ON_RE = re.compile(r"(\d{1,2})月(\d{1,2})日に無料公開予定")
-FEED_TITLE = re.compile(r"<title>([^<]*)</title>")
+FEED_TITLE = _htmlbits.TITLE
 FEED_TITLE_INNER = re.compile(r"[（(](.+)[）)]", re.S)
 
 

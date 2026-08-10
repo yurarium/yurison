@@ -143,13 +143,25 @@ stages:
           BLINDSPOT.md records that a platform using another word is invisible and will be reported as absence.
       - id: D6
         title: Six smaller vocabularies with two homes each
-        state: todo
+        state: done
+        note: >-
+          The remaining small vocabularies given one home.
+          romanisation still had its styles typed in credits.py twice and romfloor.py once, four homes for a fact marked owned.
+          The name kinds and the two a naming pass can research are `facts/namekey.KINDS` and RESEARCHABLE_KINDS, and adapters/store keys its map on them rather than retyping.
       - id: D7
         title: kadokomi work_data, the one exact duplicate function body
-        state: todo
+        state: done
+        note: >-
+          kadokomi/confirm.work_data was byte-identical to kadokomi/releases.work_data, the one exact duplicate body in the tree.
+          confirm asks releases now, so a change to the page lands once.
       - id: D8
         title: Fifteen scraping patterns written twice or more
-        state: todo
+        state: done
+        note: >-
+          adapters/htmlbits.py owns the patterns every web source shares: the document title, og:title, the RSS and Atom wrappers, a link, alt text and a definition pair.
+          Two spellings were in use for the title and two for og:title, and the tolerant form of each keeps what both callers had, so a title broken over a line now reads where one spelling missed it.
+          A selector naming one shop stays with that shop: four of them in a shared file would put four shops HTML somewhere none of them owns.
+          A mechanical pass rewrote the duplicates lint own canary into a shared constant, making it correct and useless, and the self-test caught it.
       - id: D9
         title: A lint for a fact with a second home, so the census cannot go stale
         state: todo

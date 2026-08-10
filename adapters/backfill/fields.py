@@ -28,17 +28,18 @@ import urllib.error, urllib.request
 from collections import Counter, defaultdict
 
 import yaml
+import htmlbits as _htmlbits                                            # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"
 PAUSE = 1.0
 
 ATOM_SERIES = re.compile(r"/atom/series/(\d+)")
-ENTRY = re.compile(r"<entry>(.*?)</entry>", re.S)
-E_TITLE = re.compile(r"<title>([^<]*)</title>")
+ENTRY = _htmlbits.ATOM_ENTRY
+E_TITLE = _htmlbits.TITLE
 E_UPDATED = re.compile(r"<updated>([^<]*)</updated>")
 E_LINK = re.compile(r'<link href="([^"]+)"')
 E_AUTHOR = re.compile(r"<author>\s*<name>([^<]*)</name>", re.S)
-TITLE = re.compile(r"<title>([^<]*)</title>", re.S)
+TITLE = _htmlbits.TITLE
 
 # 作品 | いつでも無料 | フラコミlike! | 空木帆子 — four segments, the platform third and the author
 # last. Requiring the platform name in place is what keeps this from reading any old title tail.

@@ -59,15 +59,14 @@ def fetch(code, cache):
 
 
 def work_data(html):
-    m = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', html, re.S)
-    if not m:
-        return None
-    d = json.loads(m.group(1))
-    for q in d.get("props", {}).get("pageProps", {}).get("dehydratedState", {}).get("queries", []):
-        data = (q.get("state") or {}).get("data")
-        if isinstance(data, dict) and "work" in data:
-            return data
-    return None
+    """The __NEXT_DATA__ payload kadokomi embeds. Defined in `releases.py`, asked here.
+
+    THE ONE EXACT DUPLICATE IN THE TREE, found by the duplicates lint on 2026-08-10. Two files
+    parsed the same script tag with the same expression, so a change to the page would have had
+    to be made twice and the second would have been found by a reader.
+    """
+    from kadokomi.releases import work_data as _wd
+    return _wd(html)
 
 
 def js(v):

@@ -17,8 +17,9 @@ signature adapters/importdates.py looks for, so those dates cannot become the wo
 the state comes from what the shop says instead.
 """
 import re
+import htmlbits as _htmlbits                                            # noqa: E402
 
-OG = re.compile(r'<meta property="og:title" content="([^"]*)"')
+OG = _htmlbits.OG_TITLE
 ROW = re.compile(
     r'<h4 class="title">\s*(.*?)\s*</h4>(.*?)<p class="update-date">\s*([0-9/]+)\s*</p>', re.S)
 FREE = re.compile(r'class="free"')

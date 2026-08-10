@@ -21,6 +21,7 @@ PRESENTED and the record keeps the field intact.
 import re
 import unicodedata
 from facts import script as _script                                     # noqa: E402
+from facts import romanisation as _romanisation                        # noqa: E402
 
 # A control's own label, scraped out of a page and handed over as a credit. Exact matches only: a
 # name containing one of these words is a name, and this is a list of buttons.
@@ -41,7 +42,8 @@ SEPARATORS = re.compile(r"\s*[/／,，、]\s*")
 
 # ASKED OF `facts/script`, which owns which writing system a string is in.
 JAPANESE = _script._SCRIPT
-ROMAJI_STYLES = ("macron", "double", "plain")
+# ASKED OF `facts/romanisation`, which owns the styles. This was a third and fourth home.
+ROMAJI_STYLES = _romanisation.STYLES
 
 RUBY_KANJI = re.compile(r"[一-鿿々]")
 RUBY_KANA = re.compile(r"[ぁ-ゖァ-ヿ]")
@@ -349,7 +351,7 @@ def compose(raw, lookup):
     # bytes were not, so two builds of one tree produced different files: `deployed data matches
     # built` could never settle, and every build carried about 1,500 lines of diff that meant
     # nothing. A build is a function of its inputs and must read like one.
-    ORDER = ("macron", "double", "plain")
+    ORDER = _romanisation.STYLES   # the same styles, asked rather than typed a fifth time
     have = set(got[0].get("romaji") or {})
     for e in got[1:]:
         have &= set(e.get("romaji") or {})

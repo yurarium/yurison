@@ -150,8 +150,12 @@ def main():
             caught = [g for g in got if "macron" in g[1]]
             quiet = [g for g in got if "alpha" in g[1]]
             # AND A REGEX IN TWO HOMES, because the census found fifteen of those.
-            (p / "d.py").write_text('import re\nX = re.compile(r"<title>(.*?)</title>")\n')
-            (p / "e.py").write_text('import re\nY = re.compile(r"<title>(.*?)</title>")\n')
+            # A LITERAL DUPLICATE ON PURPOSE. A mechanical pass over the tree rewrote this fixture
+            # into a shared constant on 2026-08-10, which made the canary correct and therefore
+            # useless. A canary is the one place a duplicate belongs.
+            dup = 'import re\nX = re.compile(r"<dup>(.*?)</dup>")\n'
+            (p / "d.py").write_text(dup)
+            (p / "e.py").write_text(dup.replace("X =", "Y ="))
             rx = [g for g in findings([p / "d.py", p / "e.py"]) if g[0] == "regex"]
         if not caught:
             print("  self-test FAILED — a vocabulary in two homes was not caught")

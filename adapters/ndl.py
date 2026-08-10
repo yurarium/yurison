@@ -24,8 +24,9 @@ work whose author we do not know gets no answer rather than a guess.
 """
 import re
 import unicodedata
+import htmlbits as _htmlbits                                            # noqa: E402
 
-ITEM = re.compile(r"<item>(.*?)</item>", re.S)
+ITEM = _htmlbits.RSS_ITEM
 MANGA = "漫画"
 
 

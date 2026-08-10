@@ -65,13 +65,14 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from names.resolver import Resolver, SourceUnavailable  # noqa: E402
+from facts import namekey as _namekey                                   # noqa: E402
 
 
 class SearchResolver(Resolver):
     """The pass 3 seam. Drop in an API key and a result-reading rule; drive() does the rest."""
 
     name = "search"
-    kinds = ("authors", "titles")
+    kinds = _namekey.RESEARCHABLE_KINDS
     provides = "either"
     batch = 1  # §3.6: one query per name, and the quota is the pacing.
 

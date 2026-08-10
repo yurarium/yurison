@@ -414,6 +414,17 @@ def main(s):
         s.eq([(x[0], x[1]) for x in curate.duplicate_keys(f)], [("titles", "ある話")],
              "a duplicated entry is one finding and its fields are not a second")
 
+        # QUOTED AND UNQUOTED ARE ONE KEY, which YAML knows and this did not. An entry written
+        # `"名.mp3":` beside one written `名.mp3:` passed the check, applied cleanly, reported
+        # success, and vanished into the other one.
+        f.write_text('titles:\n  "ある話":\n    en: One\n  ある話:\n    en: Three\n')
+        s.eq([(x[0], x[1]) for x in curate.duplicate_keys(f)], [("titles", "ある話")],
+             "one quoted and one bare is the same key written twice")
+        f.write_text("titles:\n  'ある話':\n    en: One\n  ある話:\n    en: Three\n")
+        s.eq(len(curate.duplicate_keys(f)), 1, "and single quotes are the same again")
+        f.write_text('titles:\n  "ある話":\n    en: One\n  "べつの話":\n    en: Two\n')
+        s.eq(curate.duplicate_keys(f), [], "while two quoted keys that differ are still two")
+
     dividing_bases_and_donors(s)
 
 

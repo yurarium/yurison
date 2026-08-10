@@ -435,11 +435,19 @@ def duplicate_keys(path=None):
             continue
         key = re.match(r"^  (\S.*?):\s*$", line)
         if key and section:
+            # QUOTED AND UNQUOTED ARE ONE KEY. YAML reads `"惚れた女の遺言.mp3":` and
+            # `惚れた女の遺言.mp3:` as the same name and keeps the later; this compared the raw text
+            # and saw two, so an entry written in one style beside an entry in the other passed the
+            # check and then vanished into the other one. Found on 2026-08-10 when a curated English
+            # name was applied, validated, reported clean, and did not reach the store.
             # KEYED ON THE BLOCK AND NOT ON ITS NAME, because two blocks sharing a name are two
             # blocks. Pooling their fields reports the second `en:` of a duplicated entry as a
             # duplicated field, which is one fault counted twice and named wrongly the second time.
-            entry = (section, key.group(1), n)
-            seen[(section, key.group(1))].append(n)
+            name = key.group(1).strip()
+            if len(name) > 1 and name[0] == name[-1] and name[0] in "\"'":
+                name = name[1:-1]
+            entry = (section, name, n)
+            seen[(section, name)].append(n)
             continue
         field = re.match(r"^    ([A-Za-z_]+):", line)
         if field and entry:

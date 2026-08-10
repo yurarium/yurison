@@ -78,36 +78,51 @@ stages:
         state: todo
 
   D:
-    title: The facts the first round did not reach, and the ones it did not notice
+    title: What the census found, and the facts the first round did not reach
     items:
       - id: D1
-        title: Verify the four already claimed; romanisation's vocabulary has four homes
+        title: A name's comparison key has three incompatible answers across thirteen folds
         state: todo
       - id: D2
-        title: A lint that detects a vocabulary with more than one home
+        title: Six distinct implementations of kata, kana to katakana
         state: todo
       - id: D3
-        title: YURI_TAGS, an unlisted fact with three homes that decides inclusion
+        title: Twelve regexes answering "is this Japanese", three of them disagreeing on kana
         state: todo
       - id: D4
-        title: The name-kind vocabulary, authors/publishers/titles, in two homes
+        title: Three owned facts have copies elsewhere, plus a KANA_SURFACE I duplicated myself
         state: todo
       - id: D5
-        title: title cataloguing, which already has one reader
+        title: YURI_TAGS, three homes, and it decides inclusion
         state: todo
       - id: D6
-        title: imprint, which already has one reader
+        title: Six smaller vocabularies with two homes each
         state: todo
       - id: D7
-        title: work identity
+        title: kadokomi work_data, the one exact duplicate function body
         state: todo
       - id: D8
-        title: dates
+        title: Fifteen scraping patterns written twice or more
         state: todo
       - id: D9
-        title: inclusion
+        title: A lint for a fact with a second home, so the census cannot go stale
         state: todo
       - id: D10
+        title: title cataloguing, which already has one reader
+        state: todo
+      - id: D11
+        title: imprint, which already has one reader
+        state: todo
+      - id: D12
+        title: work identity
+        state: todo
+      - id: D13
+        title: dates
+        state: todo
+      - id: D14
+        title: inclusion
+        state: todo
+      - id: D15
         title: Rendering surfaces derived from the renderer, not listed
         state: todo
 

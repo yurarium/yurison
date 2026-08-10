@@ -148,46 +148,77 @@ for and the reason it stays slow.
 
 ### Stage D. The facts the first round did not reach
 
-16. **Verify the four already claimed before extracting a fifth.** `romanisation` is marked owned
-    on the tracker and its core vocabulary has FOUR homes: `facts/romanisation.STYLES`,
-    `romfloor.STYLES`, `credits.ROMAJI_STYLES`, and a local `ORDER` inside `credits.py`. `romfloor`
-    imports the fact and keeps its own copy anyway; `credits.py` does not import it at all.
+A census was run on 2026-08-10 instead of trusting the inventory. It looks for a vocabulary, a
+dict shape, a regex or a function body with more than one home. What it found is below, worst first.
 
-    This is the blind spot written into `facts/romanisation/BLINDSPOT.md` on the day it was
-    extracted: a second implementation importing nothing passes the import lint. The hazard was
-    documented and then nobody looked for instances. Owned means what the lint can see, and the lint
-    cannot see a tuple typed again.
+16. **A name's comparison key has at least three incompatible answers, and thirteen homes.** There
+    are thirteen distinct functions called `fold`, and on real input they disagree:
 
-17. **A detector, because an inventory somebody wrote by hand is a list nobody checked.** The
-    inventory of ten facts was written in one sitting and never verified, which is the fault stage
-    one had in a different costume. Applying the plan's own test mechanically, a vocabulary written
-    down in more than one module, finds three cases in a minute, and two of them are facts the
-    inventory never listed. A lint makes a fact announce itself.
+    | input | `key.fold` | `identity.fold` | `cmoa.fold` |
+    |---|---|---|---|
+    | `ＮＯＡＨ` | `NOAH` | `noah` | `NOAH` |
+    | `くろば・Ｕ` | `くろば・U` | `くろばu` | `くろば・U` |
+    | `山本 和音` | `山本和音` | `山本和音` | `山本 和音` |
 
-18. **`YURI_TAGS` is an unlisted fact, and it decides inclusion.** `{"百合", "GL", "ガールズラブ"}`
-    is written down in `pixivcomic/releases.py`, `kadokomi/releases.py` and `kadokomi/confirm.py`.
-    What counts as a platform's yuri label is arguably the most consequential fact the database
-    holds, since it decides what is admitted, and it has three homes and no owner.
+    One strips spaces and keeps case, one also lower-cases and drops the interpunct, one keeps the
+    space. The invariant `the interface folds a name key as the build does` pins ONE of them against
+    the browser; the other twelve answer to nobody. Two records that are one person under one fold
+    and two people under another is the identity fault this project keeps meeting, and here is the
+    mechanism.
 
-19. **The name-kind vocabulary is another,** `("authors", "publishers", "titles")` in `curate.py`
-    and `store.py`. Smaller, and the same shape.
+    Some of the thirteen legitimately fold different subjects, so thirteen is an upper bound and the
+    first task is triage. Three incompatible answers to one question is not an upper bound.
 
-20. **Six facts remain from the original inventory:** dates, inclusion, work identity, title
+17. **Six distinct implementations of `kata`,** converting kana to katakana, in `credit_identity`,
+    `names/lexicon`, `facts/division/boundary`, `names/credits`, `names/segmentation` and
+    `names/pass4_analyser`. That is arithmetic and it has six versions.
+
+18. **Twelve regexes answering "is this Japanese",** and at least three of them answer "is this
+    kana" differently: `[ぁ-ゖァ-ヿ]`, `[ぁ-ゖァ-ヺー]`, `[ぁ-ゖァ-ヺヽヾゝゞー]`. The script test
+    decides whether a string reaches the floor, so a disagreement here is a reader-visible one.
+
+19. **Three facts a module already owns have copies elsewhere.** `romanisation`'s styles have four
+    homes, including two inside `credits.py`. `facts/reading`'s attribution keys have three, one of
+    them in `build.py`. `facts/division`'s bases have two, the other in `build.py`. Owned means what
+    the import lint can see, and it cannot see a retyped literal.
+
+    `KANA_SURFACE` is a fourth, and I made it: moving a check into `facts/division/checks.py` this
+    week left the pattern in `check.py` as well.
+
+20. **`YURI_TAGS` decides inclusion and has three homes,** `{"百合", "GL", "ガールズラブ"}` in
+    `pixivcomic/releases`, `kadokomi/releases` and `kadokomi/confirm`.
+
+21. **Smaller vocabularies with two homes each:** the name kinds `authors, publishers, titles`
+    across `curate`, `names/store` and `adapters/store`; the pair `authors, titles` in two naming
+    passes; the reading-claim shape in `madb_reading` and `openbd_reading`; the citation shape in
+    `kadokomi/confirm` and `pixivcomic/releases`; the engine registry in `editions/capture` and
+    `editions/engines`.
+
+22. **`kadokomi/confirm.work_data` and `kadokomi/releases.work_data` are the same function,** the
+    only exact body-level duplicate in the tree.
+
+23. **Fifteen scraping patterns are written twice or more,** each a fact about one platform's HTML:
+    the nicovideo comic URL in three files, the comici episode selectors in two, `og:title` in two
+    pairs, and the RSS item, entry and title patterns across three adapters. Individually small, and
+    a class worth one home.
+
+24. **A lint, because a census run once is a census that goes stale.** The detector above should
+    run in the gate as a counted budget, so a fact with a second home announces itself.
+
+25. **Then the six from the original inventory:** dates, inclusion, work identity, title
     cataloguing, imprint, and rendering surfaces. `title cataloguing` and `imprint` are close, each
     already having a single reader.
 
-21. **Rendering surfaces are derived, not listed.** `interface.py` keeps a hand-written table, and
-    `creditLine` missing from it let `???? · Bun?Bun` reach a reader. A hand-maintained list of what
-    to check will always lag what the renderer does, which is the same argument as item 17 pointed
-    at a different list.
+26. **Rendering surfaces are derived, not listed.** `interface.py` keeps a hand-written table, and
+    `creditLine` missing from it let `???? · Bun?Bun` reach a reader.
 
 ### Stage E. The residue the first round recorded and did not clear
 
-22. **The eight unevidenced impossibilities**, found by the lint decision 8 called for.
-23. **Two modules called `store`**, whichever is on the path first winning.
-24. **The glued-romanisation shape** (`Uedakyōko`) and **the kana that spells a foreign name**
+27. **The eight unevidenced impossibilities**, found by the lint decision 8 called for.
+28. **Two modules called `store`**, whichever is on the path first winning.
+29. **The glued-romanisation shape** (`Uedakyōko`) and **the kana that spells a foreign name**
     (`Sutefan Sejiku`), both raised by the owner and both written up rather than done.
-25. **Fifteen leftover worktrees**, thirteen unmerged, two holding uncommitted edits.
+30. **Fifteen leftover worktrees**, thirteen unmerged, two holding uncommitted edits.
 
 ### Stage F. The common case stops re-verifying what did not change
 
@@ -201,28 +232,28 @@ Everything here replaces that with "what changed is sound, and what did not chan
 time". That is a weaker claim and it rests entirely on the read sets being complete. A check whose
 declaration omits something it reads will be skipped when it should have run, and skipped silently,
 which is the shape this project has hit under several other names. The claim is bought back by item
-30, and no item here lands without it.
+35, and no item here lands without it.
 
-26. **Test selection from `COVERS`.** Every suite already names its subjects, and `test.py` parses
+31. **Test selection from `COVERS`.** Every suite already names its subjects, and `test.py` parses
     that list to compute untested modules. Inverting the map gives changed file to affected suite. A
     typical change touches one or two modules. The machinery exists; this is the cheapest item in
     the plan.
 
-27. **Incremental verification, which brings back an apparatus stage C dropped.** Dependency
+32. **Incremental verification, which brings back an apparatus stage C dropped.** Dependency
     declarations were removed from stage C because SQL scans are milliseconds, so nothing needed to
     AVOID recomputing. That is right about recomputation and wrong about skipping: to not run a
     check you must know what it reads. Each check declares a read set; the gate runs the ones whose
     inputs moved. This is the largest remaining term, and the one that carries the risk above.
 
-28. **Incremental build, which round one deferred on an argument that has since expired.** The
+33. **Incremental build, which round one deferred on an argument that has since expired.** The
     hash-keyed stage cache was held because parsing dominated and storage was going to be the lever.
     Once the store is load-bearing that reasoning no longer applies, and a build keyed on input
     digests skips nearly everything for a one-row change.
 
-29. **Concurrency between phases that do not depend on each other.** Given a build, the gate and the
+34. **Concurrency between phases that do not depend on each other.** Given a build, the gate and the
     tests are independent, and running them together saves the smaller of the two.
 
-30. **A cache-free path, and the scheduled run uses it.** `--full` on the build, the gate and the
+35. **A cache-free path, and the scheduled run uses it.** `--full` on the build, the gate and the
     tests, ignoring every digest, every read set and every selection. This is what makes the weaker
     in-loop claim defensible: the strong one is bought back on a schedule. The weekly CI job of item
     13 runs the cache-free path end to end and reports any difference against what the incremental

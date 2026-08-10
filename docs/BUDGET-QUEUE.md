@@ -254,3 +254,63 @@ number is the fault and not a tolerance.
 
 `adapters/names/store.py` and `adapters/relational/`. Whichever is on the path first wins, which made a
 test import the wrong one. One of them should be renamed.
+
+## How a title's honorifics are rendered. Raised 2026-08-10, held for the owner
+
+**Raised by the project owner**, who called the treatment inconsistent and said it may itself be a
+"nerd configuration" question, since fans differ. Held rather than decided, with the survey below so
+whoever rules has the numbers.
+
+**342 titles are ours to rule on.** A further 32 carry a licensor's English and are not ours to
+change. Among ours, `さん` alone is 64 dropped, 63 kept as `-san` and 16 translated: a coin flip.
+Across every honorific it is 178 dropped, 91 kept hyphenated, 48 translated to Miss, Lady or Sister,
+and 25 kept as an English word (senpai, sensei).
+
+Three policies, any of which beats the present state. Each is stated with what it costs.
+
+**A. Keep every honorific, hyphenated.** `-san`, `-chan`, `-sama`, and `senpai` and `sensei` as
+words. This is what most English-language yuri publishing does now. 116 titles already read this way
+and 226 would move. It also answers the definite-article question the owner raised the same day: an
+honorific carries the definiteness, so `Onee-san Is Interested in Elementary School Girls.` needs no
+`The`.
+
+**B. Drop every honorific, translating the relation where it carries meaning.** The cleanest English
+and what older licensed practice did. 178 titles already read this way and 164 would move. The cost
+is register: お姉さま and お姉ちゃん become one word, and several of these works are about the
+difference.
+
+**C. Follow the licensor where one exists and take A otherwise.** The most defensible bibliographic
+rule, because it never contradicts a published English name. The cost is that the corpus is then
+inconsistent by design, which is the thing being complained about.
+
+**The recommendation is A**, and item 18 below belongs to it.
+
+### Romanise a name, translate a phrase
+
+`重しれー女` ships as `Omoshiree Onna`, a bare romanisation. The owner's ruling: it "admits a
+translation in the ordinary sense". おもしれー女 is a stock line rather than anybody's name, and 重
+stands in for 面 to pun on 重い, a heavy or clinging affection. A rendering that romanises a phrase
+tells an English reader nothing, and this is the same decision as A one step further on: an
+honorific and a stock phrase are both language rather than name.
+
+Whoever applies A should apply it in one pass over all 342 with the rule written into `facts/`, so
+that it stops being decided per title, which is how it came to be decided both ways.
+
+## Titles the owner raised on 2026-08-10 and which are not yet done
+
+Each is confirmed and none is a policy question.
+
+- **深爪さん is rendered two ways.** `Fukazume-san` on `ネイルちゃんと深爪さん。` and on its series
+  row, `Cut-Too-Short-san` on the anthology. One person, one spelling; the pun belongs in the note.
+- **`Café Hitoku-i` has a hyphen with no source.** The analyser split 秘匿異 into 秘匿 and 異 and the
+  romaniser hyphenated across the split. It is キッサヒトクイ, which puns on 人喰い, a title this
+  corpus also holds.
+- **`伽藍の姫 -がらんのひめ-` romanises its own furigana gloss**, giving
+  `Garan no Hime - Garan no Hime -`. The dashes carry the publisher's stated reading, not more title.
+  "Princess of Cathedral" appears only on a scanlation aggregator, which is never an attribution.
+- **お姉さまと巨人 has a licensed English name and the record does not hold it.** Yen Press publish it
+  as *Sister and Giant: A Young Lady Is Reborn in Another World*. The `～` variant carries only our
+  translation, so the licensed name wins there on rank; the `:` variant carries the Japanese
+  publisher's own `MY SISTER AND GIANT`, which outranks a licensor's under the standing ruling.
+- **Two romanisations reach a reader where they should not**, `Senketsu Ōjo, Minagorosu ~ ...` and
+  `Watashi no Megami ga Kyō mo Oseru`, the second on a work that has an English name.

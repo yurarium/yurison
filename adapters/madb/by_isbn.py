@@ -33,6 +33,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 import extract                                                                 # noqa: E402
 import isbn as _isbn                                                           # noqa: E402
+from facts import inclusion as _inclusion                                      # noqa: E402
 
 ROUTE = "isbn-from-capture"
 
@@ -107,7 +108,9 @@ def label_for(vs):
 
 
 # The shelves in use, from DEFINITIONS §2 and measured in data/coverage/retailer-recon.md.
-SHELVES = {"cmoa.jp": "genre 37 (百合・GL)", "bookwalker.jp": "tag 14 (百合)"}
+# ONE HOME FOR WHAT A SHOP'S YURI SHELF IS CALLED (§3). This map and `bwingest.SHELF` each said
+# what bookwalker's shelf is, and the sentence below was written out in both files.
+SHELVES = _inclusion.SHELVES
 
 
 def admitted_by(captures, retrieved):
@@ -126,15 +129,7 @@ def admitted_by(captures, retrieved):
         shop = str(doc.get("source") or "")
         if shop and shop not in shops:
             shops.append(shop)
-    L = ["admitted_by:"]
-    for shop in shops:
-        L += [f"  - comparator: {shop}",
-              f"    shelf: {extract.yaml_str(SHELVES.get(shop, 'yuri shelf'))}",
-              f"    retrieved: {retrieved}",
-              "    note: >-",
-              "      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive",
-              "      and rebuttable, and never a marketing_label (§4)."]
-    return L
+    return _inclusion.admitted_by(shops, retrieved, quote=extract.yaml_str)
 
 
 def owned_elsewhere(out, route=ROUTE):

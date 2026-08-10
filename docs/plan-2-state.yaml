@@ -268,7 +268,14 @@ stages:
           The blind spot is that a term is only as good as the capture assigning it: `no-print-edition` is a fact about what one shop published and is read as a fact about the book.
       - id: D14
         title: inclusion
-        state: todo
+        state: done
+        note: >-
+          adapters/facts/inclusion owns what a shelf admission looks like and the sentence behind it.
+          THE CENSUS FOUND IT BY LOOKING, and it is smaller and more concrete than the item's title suggested: madb/by_isbn and bwingest each emitted the same four keys and the same sentence citing DEFINITIONS §2 and §4, differing only in where the lines wrapped, and each held its own idea of what BOOK☆WALKER's shelf is called.
+          WHAT WAS NOT FOLDED, and the reason is the same argument facts/marketing already makes about itself: whether a work is admitted weighs several signals and is DEFINITIONS §6, the ranking of those signals is classify/credence, and the vocabulary of a platform label is facts/marketing. Folding those into one fact would put a judgement the documents settle into one module.
+          The caller passes its own YAML escaper, because the two routes carry different ones and which is right is a property of the writer.
+          Eleven checks, including a shop nobody has recorded getting the generic phrase rather than a KeyError or another shop's shelf.
+          The blind spot is the one from the corpus rules: a shop that renumbers its tags changes what the record means without changing a word of it, and an absent shelf is not absent stock.
       - id: D15
         title: Rendering surfaces derived from the renderer, not listed
         state: done

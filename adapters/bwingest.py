@@ -23,9 +23,12 @@ which is a fact about the shop's stock.
 import pathlib
 import re
 from names import credits as _credits  # noqa: E402
+from facts import inclusion as _inclusion  # noqa: E402
 
-SHELF = "tag 14 (百合)"
 SHOP = "bookwalker.jp"
+# ONE HOME FOR WHAT A SHOP'S YURI SHELF IS CALLED (§3): this and `madb/by_isbn.SHELVES` each said
+# what bookwalker's shelf is, and each wrote out the sentence explaining what a shelf admits.
+SHELF = _inclusion.shelf_of(SHOP)
 
 # A volume title carrying its own number, where the work has more than one volume: `作品名 3`.
 VOLUME_SUFFIX = re.compile(r"\s*(?:第\s*)?\d+\s*(?:巻)?\s*$")
@@ -253,13 +256,8 @@ def main(argv=None):
                     L.append(f"    {k}: {js(v[k])}")
         # §2's third branch: a licensed retailer's yuri shelf is a comparator, and §4 keeps a
         # shop's shelf out of marketing_label however strong a lead it is.
-        L += ["admitted_by:",
-              f"  - comparator: {js(SHOP)}",
-              f"    shelf: {js(SHELF)}",
-              f"    retrieved: {retrieved}",
-              "    note: >-",
-              "      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).",
-              "      Presumptive and rebuttable, and never a marketing_label (§4).",
+        L += _inclusion.admitted_by([SHOP], retrieved, quote=js)
+        L += [
               "marketing_label: none",
               "marketing_label_basis:",
               "  source: bookwalker",

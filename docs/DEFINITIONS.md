@@ -261,6 +261,17 @@ import stamp and a first-of-the-month standing in for a month-precision record a
 somebody's catalogue rather than about the manga, and each has already produced a wrong answer
 here. An undated work says it is undated.
 
+**And the country is attested, not assumed.** Recorded 2026-08-09, from a measurement rather than a
+decision. Every record wrote `country: JP` from a literal in the build, so the inclusion test read
+as passed on 2,564 works nobody had asked about, and a work whose Japanese edition is a translation
+of a foreign original read exactly like one whose Japanese edition is the original. Every source
+this database reads catalogues the Japanese EDITION and none holds a field for where the work first
+appeared, so the country is now `first_publication.country_basis` on every record, naming what
+established it or why nothing has. The same sentence applies as to the date: an unestablished
+country says so rather than filling the field with the answer. `adapters/facts/origin` is the one
+producer, `data/scope.yaml` carries the rulings, and [GAPS §32](GAPS.md) has what the run found and
+what it leaves for the project owner to settle.
+
 It is also **permanent**. Once a work's publication has been attested, that fact stays in the
 database even if every source that attested it stops carrying the work. Scope is judged on whether
 a work *was* published in Japan, never on whether it is still listed, in print, or online. See

@@ -1911,3 +1911,35 @@ lines:
       note: the only spelling the corpus carries, on a house running no other line here
     spellings:
       - コスモ
+
+  # ── 誠文堂新光社 ────────────────────────────────────────────────────────────────────────────────
+  #
+  # THE FIRST LINE HERE THAT CARRIES `foreign_edition`, and the flag is what makes it worth an
+  # entry: the corpus holds one book on it. `facts/origin` reads the flag and asks somebody to
+  # check the work, and nothing else in the file behaves differently for it.
+  #
+  # CATALOGUED IN THE PUBLISHER FIELD, WHICH IS WHY THE HOUSE IS LISTED TWICE. MADB writes
+  # `G-NOVELS / [発売]誠文堂新光社` and leaves the imprint empty, because the 奥付 splits 発行 from
+  # 発売 and the cataloguer recorded both halves where the publisher goes. So the line's own name is
+  # what the publisher field holds, and a lookup asking only the imprint field reaches nothing.
+  - id: g-novels
+    publishers: [誠文堂新光社, G-NOVELS]
+    name: G-NOVELS
+    foreign_edition: true
+    foreign_edition_basis:
+      source: 誠文堂新光社
+      url: https://www.seibundo-shinkosha.net/book/general/20620/
+      retrieved: 2026-08-10
+      note: >-
+        The publisher's own page for サンストーン vol.1 gives レーベル名 G-NOVELS, credits a
+        翻訳者名 beside the artist, and calls the book a 邦訳化. Everything the same page lists
+        under the line is a foreign comic in Japanese: モンストレス, ウィッチャー, ザ・ボーイズ,
+        アウトキャスト, シーフ・オブ・シーブス and ザ・ビッグガイ. The line brings comics
+        published abroad to Japan, which is the publisher saying what DEFINITIONS §6 asks about.
+    name_basis:
+      source: 誠文堂新光社
+      url: https://www.seibundo-shinkosha.net/book/general/20620/
+      retrieved: 2026-08-10
+      note: the spelling the publisher's own book page prints as レーベル名
+    spellings:
+      - G-NOVELS

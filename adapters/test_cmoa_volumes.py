@@ -49,7 +49,14 @@ def main(s):
     s.eq(rec["first_publication_date"], "2019-01", "出版年月 settles the first volume")
     s.eq(rec["first_publication_basis"], "shop-publication-month",
          "and the basis says which route said so")
-    s.eq(rec["first_publication_country"], "JP", "a print edition from a Japanese publisher")
+    # WHERE, WHICH IS NOT ANSWERED BY THE SHOP BEING JAPANESE. This asserted "JP" against a line
+    # reading `"JP" if date else None`, so it agreed with a constant and tied the country to the
+    # date besides. A Japanese shop sells a Japanese edition of a foreign comic on the same terms as
+    # anything else, and §6 asks where the WORK was first published.
+    s.eq(rec["first_publication_country"], None,
+         "a Japanese print edition establishes no country of first publication")
+    s.eq(rec["first_publication_country_basis"], "japanese-edition-catalogued",
+         "and the row says so, instead of the field asserting the answer")
     s.eq(rec["volumes"][0]["delivered"], "2019-01-11",
          "the distribution date is kept, under a name nothing can mistake for publication")
     s.eq(rec["volumes_found"], 2, "the volumes this page listed")
@@ -76,7 +83,8 @@ def main(s):
          "the event travels with it, so nothing downstream reads it as a printing")
     s.eq(bare["first_publication_followup"], "unclassified",
          "and a row whose page has not been read for its edition sorts to neither pile")
-    s.eq(bare["first_publication_country"], "JP", "a dated row answers where, which §6 asks")
+    s.eq(bare["first_publication_country"], None,
+         "a delivery date says when the shop began selling a file and nothing about where")
     s.eq(bare["first_publication_source"], bare["volumes"][0]["url"],
          "cited to the volume page stating the date, which a catalogue route has none of")
     s.eq(bare["volumes"][0]["delivered"], "2019-01-11",

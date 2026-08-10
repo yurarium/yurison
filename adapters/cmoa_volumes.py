@@ -106,6 +106,7 @@ import delivery                                                                #
 import paths                                                                   # noqa: E402
 import shelfingest                                                             # noqa: E402
 import yaml                                                                    # noqa: E402
+from facts import origin                                                       # noqa: E402
 from madb import isbn_dates                                                    # noqa: E402
 from names import openbd_reading                                               # noqa: E402
 from openbd import enrich                                                      # noqa: E402
@@ -276,10 +277,19 @@ def settle(w):
     # the dataset and the dataset version is recorded with the record.
     first = next((v for v in vols if v.get("volume") == 1), None)
     w["first_publication_source"] = (first or {}).get("printed_source") if date else None
-    # A cmoa publisher is a Japanese company selling a Japanese print edition, so a date from this
-    # route carries JP. The venue is the publisher and NOT the magazine: this shop never names a
-    # magazine, and a tankōbon publisher is not the venue of a serialised work's first chapter.
-    w["first_publication_country"] = "JP" if date else None
+    # THE COUNTRY IS ASKED, NOT ASSUMED. This read `"JP" if date else None`, on the reasoning that a
+    # cmoa publisher is a Japanese company selling a Japanese print edition. Both halves are true
+    # and neither is the question: DEFINITIONS §6 asks where the WORK was first published, and a
+    # Japanese company sells a Japanese edition of a Croatian artist's American comic on exactly the
+    # same terms as it sells anything else. The old line also tied the country to the DATE, so a
+    # work the shop dated was in scope and one it did not was silent about a question the date has
+    # nothing to do with. `facts/origin` answers it from the record's own credit field and the
+    # publisher's line, and answers None where nothing does.
+    w["first_publication_country"], w["first_publication_country_basis"] = origin.country_of(
+        keys=(w.get("shop_id"),), publisher=w.get("publisher"), imprint=w.get("imprint"),
+        creator=w.get("author"))
+    # The venue is the publisher and NOT the magazine: this shop never names a magazine, and a
+    # tankōbon publisher is not the venue of a serialised work's first chapter.
     w["first_publication_venue"] = (w.get("publisher") or None) if date else None
     if basis == blurbdate.BASIS:
         # WHICH PAGE STATES THE DATE. The sentence sits in the description box on the work page,

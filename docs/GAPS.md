@@ -2295,3 +2295,58 @@ entirely: strings the shipped maps spell one way as a publisher and another way 
 is what a self-published work produces. The three are `すたひろ`, filed Sutahiro as a publisher and
 Stu-Hiro as a person; `ガレットワークス`, Galette Works against Garettowākusu; and `ネジ式13番地`,
 Nejishiki 13-banchi against Nejishikijūsanbanchi. None of them moves for this work.
+
+## 32. The inclusion test had never run (2026-08-09)
+
+DEFINITIONS §6 says a work is in scope if its first publication venue was in Japan, that author
+nationality is irrelevant, and that `first_publication` IS the inclusion test. The field carrying
+the answer was the literal `"JP"`, written in `build.py` twice and in `adapters/cmoa_volumes.py`
+once. So 2,564 works asserted Japan, none of them had been asked, and the invariant over the field
+asked whether it was non-empty, which a constant satisfies for ever.
+
+**Why no source can answer it.** Works enter through MADB, openBD, コミックシーモア and
+BOOK☆WALKER, and every one of those catalogues the JAPANESE EDITION. A Japanese edition of a comic
+first published in the United States and a Japanese edition of a comic first published in Tokyo are
+the same shape of record, so the country read off the edition is `JP` for both. The value was
+derived from the one thing that cannot tell the two cases apart, which is STANDING-INSTRUCTIONS
+§14b in its purest form.
+
+`adapters/facts/origin` decides the field now. It reads two signals, a credited translator and a
+publisher's line flagged in `data/names/imprints.yaml` as one that brings comics published abroad
+to Japan, and it treats both as evidence rather than proof: a 現代語訳 of a Japanese classic is
+translated and Japanese, and nothing stops a house putting a Japanese work on any line it runs.
+Neither signal retracts anything. Each asks for a person to read the publisher's page for that
+work, and the answer goes in `data/scope.yaml` with the page cited.
+
+**What the corpus-wide run found.** Nothing attests a first publication country for any work in the
+database. The count is the budget `works whose first publication country is unattested`, at 2,562
+of 2,562 the day it was written, and it can only come down one work at a time: what closes a row is
+a serialisation venue named on a publisher's page, and no bulk catalogue carries one. The two works
+that entered on a foreign line are out, both on the publisher's own words.
+
+**Two out of scope, refused.** `サンストーン` is Stjepan Šejić's Sunstone, and 誠文堂新光社's own
+page gives レーベル名 G-NOVELS, credits 上田香子 as 翻訳者名 and calls the edition a 邦訳化; MADB
+says the same thing in its own notation, crediting 訳. `オルターエゴ` is Ana C. Sánchez's Spanish
+original, and KADOKAWA's own product page calls it スペイン発. Both are held out of everything the
+site serves, by the register a content flag goes into, so all six surfaces are covered by a
+mechanism that has already been made to work.
+
+**A line flag would not have caught the second one, and that is the finding.** KADOKAWA files
+オルターエゴ under MFC, the same general line that carries its ordinary Japanese titles, and our
+record holds exactly that pair. No flag on any imprint reaches it and none ever would. The reachable
+route was the product page, one work at a time, which is why the fact produces candidates and a
+person produces rulings.
+
+**Two more are open.** `落差` and `ON a LEASH ~ 戦場で出会った彼女に囚われて ~` are on BOOK☆WALKER
+under 出版社 SNP, レーベル NETCOMICS, sold by the chapter, credited to romanised Korean names, one of
+them summarised by the shop as running between Seoul and Busan. That is what a licensed webtoon looks
+like and §6 excludes one outright. Nothing publisher-side has been found for SNP or for the label,
+and a shop's label field is not the publisher saying anything, so both are recorded `review` in
+`data/scope.yaml` and stay in the corpus. The budget `scope questions left open` counts them.
+
+**What is being asked of the project owner.** §6 requires the country because it answers the scope
+question, and the honest measurement is that it is unanswered for the whole corpus. The database
+therefore holds 2,562 works whose inclusion test has not run, which was equally true yesterday and
+is now visible. Whether that stands, and for how long, is the owner's call and not a gate's: the
+alternative is refusing every work no publisher page has been read for, which would empty the
+catalogue to spare us a number.

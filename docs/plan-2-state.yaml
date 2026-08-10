@@ -263,7 +263,14 @@ stages:
     items:
       - id: F1
         title: Test selection from COVERS, which every suite already declares
-        state: todo
+        state: done
+        note: >-
+          ./test.py --changed. 26.9 s to 1.1 s when nothing moved, and the cycle is now bounded by the gate alone.
+          A suite is skipped only when its own file, everything it declares in COVERS, and the harness are all byte for byte what they were when it last passed; a failing suite keeps its old key so it runs again.
+          THE TITLE WAS WRONG: two suites declared nothing, so they could never be keyed and always ran, one of them for 6.4 s. adapters/names/test_names.py now names kana, store, pass2_bulk and pass4_analyser.
+          A FIXTURE IS PART OF THE SUBJECT, so any data/fixtures path written in a suite goes into its key, and a path naming a directory expands to its files, since hashing a directory hashes nothing. Proved by touching a captured comicfuz page and watching exactly that one suite come back.
+          AND SO IS THE BUILD, for a suite that reads it. check.py --self-test plants its canaries in the real context, so keyed on check.py alone it would be skipped after a rebuild that changed what the canaries land in; ten suites re-run when data/build moves.
+          --canary and cycle.py --full never use it.
       - id: F2
         title: Incremental verification, each check declaring the inputs it reads
         state: todo

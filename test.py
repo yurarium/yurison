@@ -22,6 +22,7 @@ take the run with it. A process boundary gives all three.
 import argparse
 import ast
 import concurrent.futures
+import json
 import os
 import pathlib
 import re
@@ -140,6 +141,57 @@ def collect():
     return runnables, covered
 
 
+#: What a suite passing is remembered against. `data/cache` is outside `data/build`, which the
+#: green-tree token hashes, so writing this during a run cannot invalidate that token.
+PASSED = ROOT / "data" / "cache" / "tests.json"
+
+
+def freshness(runnables):
+    """`{label: digest}` over each suite's own file and everything it says it covers.
+
+    A SUITE IS SKIPPED ONLY WHEN EVERYTHING IT NAMES IS UNCHANGED, so the question is what it names.
+    `COVERS` is the declaration and a namesake module is the fallback, both of which `subjects()`
+    already answers. `testkit.py` and this file are in every key, because a change to the harness
+    can change any verdict.
+
+A FIXTURE IS PART OF THE SUBJECT. A parser test is a claim about a page somebody captured, so any
+    `data/fixtures/...` path written in the suite goes into its key: editing the captured page and
+    not the parser must still re-run the test.
+
+    WHAT IT CANNOT SEE, and why `--canary` and `cycle.py --full` never use it: a suite that reads a
+    data file or a module it does not name, or builds a fixture path out of pieces. Such a suite
+    passes on a tree where its real subject moved, and the only cure is the full run. A suite that
+    names NOTHING has no key here and is always run.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import filecache
+    harness = [ROOT / "test.py", ROOT / "adapters" / "testkit.py"]
+    got = {}
+    for label, argv in runnables:
+        own = pathlib.Path(argv[1])
+        named = [ROOT / s for s in subjects(own)] if own.name.startswith("test_") else [own]
+        if not named:
+            continue
+        try:
+            text = own.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            text = ""
+        # AND THE BUILD OUTPUT, for a suite that reads it. `check.py --self-test` plants its
+        # canaries in the real context, so its verdict is a function of data/build as much as of
+        # check.py; keyed on its own file alone it would be skipped after a rebuild that changed
+        # what the canaries land in.
+        if "data/build" in text or '"data" / "build"' in text:
+            named += sorted(x for x in (ROOT / "data" / "build").rglob("*")
+                            if x.is_file() and x.name != ".green-tree.json")
+        for m in re.findall(r"data/fixtures/[\w./-]+", text):
+            # A SUITE OFTEN NAMES THE DIRECTORY and reads whatever captures are in it, so a path
+            # that is a directory expands to its files. Hashing the directory itself hashes nothing.
+            at = ROOT / m
+            named += sorted(x for x in at.rglob("*") if x.is_file()) if at.is_dir() else [at]
+        got[label] = filecache.digest([own, *named, *harness])
+    return got
+
+
 def run_one(label, argv, canary, timeout=300):
     env = dict(os.environ)
     env["PYTHONSTARTUP"] = ""
@@ -172,6 +224,9 @@ def main():
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--quiet", action="store_true", help="print the untested count only")
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--changed", action="store_true",
+                    help="run only suites whose own file or declared subjects have moved since "
+                         "they last passed")
     a = ap.parse_args()
 
     runnables, covered = collect()
@@ -193,7 +248,21 @@ def main():
         print(f"\n{len(runnables)} runnable, {len(untested)} modules untested")
         return 0
 
-    print(f"{len(runnables)} suite(s), offline" + (", inverted (canary)" if a.canary else ""))
+    keys, skipped = {}, []
+    if a.changed and not a.canary:
+        keys = freshness(runnables)
+        held = {}
+        if PASSED.exists():
+            try:
+                held = json.loads(PASSED.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                held = {}
+        fresh = [(l, v) for l, v in runnables if keys.get(l) and held.get(l) == keys[l]]
+        skipped = [l for l, _v in fresh]
+        runnables = [(l, v) for l, v in runnables if l not in set(skipped)]
+
+    print(f"{len(runnables)} suite(s), offline" + (", inverted (canary)" if a.canary else "")
+          + (f"; {len(skipped)} unchanged since they last passed" if skipped else ""))
     bad, vacuous, unproven = [], [], []
     with concurrent.futures.ThreadPoolExecutor(max_workers=a.workers) as pool:
         futs = [pool.submit(run_one, l, v, a.canary) for l, v in runnables]
@@ -217,6 +286,25 @@ def main():
                 print(f"  FAIL {label}  rc={rc}  {secs}s")
             if body and rc != 0:
                 print("\n".join(f"         {l}" for l in body.splitlines()))
+
+    if a.changed and not a.canary:
+        # ONLY A SUITE THAT PASSED IS REMEMBERED. A failing one keeps its old key, so it is run
+        # again next time even if nothing moved.
+        held = {}
+        if PASSED.exists():
+            try:
+                held = json.loads(PASSED.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                held = {}
+        ran_bad = set(bad) | set(vacuous)
+        for label, _v in runnables:
+            if label not in ran_bad and keys.get(label):
+                held[label] = keys[label]
+        try:
+            PASSED.parent.mkdir(parents=True, exist_ok=True)
+            PASSED.write_text(json.dumps(held, indent=1), encoding="utf-8")
+        except OSError:
+            pass
 
     print(f"\n{len(runnables) - len(bad) - len(vacuous) - len(unproven)} passed, {len(bad)} failed, "
           f"{len(vacuous)} vacuous, {len(unproven)} unproven; {len(untested)} module(s) untested")

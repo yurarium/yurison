@@ -47,6 +47,11 @@ def plan(full=False):
     if not full:
         # THE TESTS CARRY THE PROOF and this process refuses to report success without them.
         gate += ["--proved-by", "tests"]
+        # AND THEY RUN ONLY WHAT MOVED. `check.py --self-test` is keyed on check.py, on the harness
+        # AND on data/build, because it plants its canaries in the real context; skipping it means
+        # every one of those is byte for byte what it was when the canaries were last all caught.
+        # That is the same claim the green-tree token makes, and `--full` refuses both.
+        tests += ["--changed"]
     return {"gate": gate, "tests": tests}
 
 

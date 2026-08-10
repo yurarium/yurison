@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Regression test for the three decisions that would be expensive to get wrong (NAMES-PLAN).
 
+COVERS = ['adapters/names/kana.py', 'adapters/names/store.py', 'adapters/names/pass2_bulk.py',
+          'adapters/names/pass4_analyser.py']
+
 These are not unit tests for coverage's sake. Each block pins one rule that, if it silently
 regressed, would put a wrong name in front of a reader — and would look right while doing it.
 

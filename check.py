@@ -3664,6 +3664,47 @@ def budget_names_rendered_two_ways(ctx):
     return len(bad)
 
 
+def budget_one_work_named_two_ways_across_its_rows(ctx):
+    """Works whose rows disagree about the English name of the work itself.
+
+    WHAT `one work under two names in a list` DOES NOT ASK. That one counts a work appearing twice
+    in one list; this asks whether two rows that are plainly the same work render the same Japanese
+    phrase two different ways. Seven did: `ネイルちゃんと深爪さん。` said Fukazume-san on two rows and
+    Cut-Too-Short-san on a third, which renames a person rather than rewording a title, and
+    `うらら迷路帖` set its own attested URARA MEIROCHOU beside a macron romanisation of ours.
+
+    GROUPED ON THE SHARED TITLE CORE and not on the fold key, which is the reason nothing caught
+    these. An anthology and the work it collects are two works and not two editions, so they fold
+    apart and always will; what they share is the name at the front of both.
+
+    §14b, WHAT IT REUSES: nothing either producer uses. It reads the shipped rows, cuts each title
+    at its first subtitle mark, and compares the English before the first colon. It consults no
+    basis, no store and no attribution, so a pass that decided wrongly is counted here all the same.
+
+    What it cannot see is two rows whose Japanese titles share no leading phrase, and a subtitle
+    difference is deliberately not counted: `Side Story` after a licensed name is that work's own.
+    """
+    import collections
+    rows = ctx["series"] or []
+
+    def core(s):
+        s = re.split(r"[：:～~【\[（(]| : ", str(s))[0].strip()
+        return re.sub(r"(アンソロジーコミック|アンソロジー|シリーズ|コミック)$", "", s).strip()
+
+    def head(e):
+        e = re.split(r"[:~(]", str(e))[0].strip().rstrip(".")
+        return re.sub(r"\b(the |an? )?anthology comic|\bseries\b|\bside story\b", "",
+                      e, flags=re.I).strip().lower()
+
+    seen = collections.defaultdict(set)
+    for r in rows:
+        en = (r.get("work_en") or {}).get("en")
+        c = core(r.get("work") or "")
+        if en and len(c) >= 4:
+            seen[c].add(head(en))
+    return sum(1 for v in seen.values() if len(v) > 1)
+
+
 def budget_author_names_romanised_as_one_word(ctx):
     """Defined in `adapters/facts/division/checks.py`, beside the thing it checks."""
     from facts import division as _f
@@ -4163,6 +4204,10 @@ BUDGETS_DEF = [
      "strings the shipped maps spell one way as a publisher and another way as a person, which "
      "happens because a self-published work names its own author as its publisher. A rise means a "
      "publisher name was written by hand where the name store already spelt it."),
+    ("one work named two ways across its rows", budget_one_work_named_two_ways_across_its_rows,
+     "works whose rows render the same Japanese phrase two different ways, grouped on the name at "
+     "the front of each rather than on the fold key, which folds an anthology apart from the work "
+     "it collects. A rise means a row was named without looking at what its siblings already say."),
     ("author names romanised as one word", budget_author_names_romanised_as_one_word,
      "people whose Latin name a reader is shown closed up, because the reading behind it states no "
      "word break: 太陽まりい is filed タイヨウマリイ and reads Taiyōmarii where the person is 太陽 "
@@ -4999,6 +5044,31 @@ def self_test():
     if budget_titles_carrying_cataloguing_punctuation(c) != was + 2:
         print("  self-test FAILED — 'titles carrying cataloguing punctuation' did not count "
               "its canaries")
+        ok = False
+
+    # A COUNT THAT READS 0 AND A COUNT THAT CANNOT RISE LOOK IDENTICAL FROM OUTSIDE, and this one
+    # was introduced at 0 because the seven works it found had just been settled. The canary is the
+    # shape those seven had: two rows of one work, agreeing in Japanese up to the subtitle mark and
+    # disagreeing in English before the colon.
+    c = _Scratch(ctx)
+    was = budget_one_work_named_two_ways_across_its_rows(c)
+    c["series"].append({"id": "CANARY1", "work": "カナリアの歌", "work_en": {"en": "The Canary's Song"}})
+    c["series"].append({"id": "CANARY2", "work": "カナリアの歌アンソロジーコミック",
+                        "work_en": {"en": "Canary Song: The Anthology Comic"}})
+    if budget_one_work_named_two_ways_across_its_rows(c) != was + 1:
+        print("  self-test FAILED — 'one work named two ways across its rows' did not count "
+              "its canary")
+        ok = False
+    # AND A SUBTITLE IS NOT A DISAGREEMENT, or every licensed spin-off reads as one. `Side Story`
+    # after a licensed name is that work's own and the count must not move for it.
+    c2 = _Scratch(ctx)
+    base = budget_one_work_named_two_ways_across_its_rows(c2)
+    c2["series"].append({"id": "CANARY3", "work": "カナリアの歌", "work_en": {"en": "The Canary's Song"}})
+    c2["series"].append({"id": "CANARY4", "work": "カナリアの歌 : 番外編",
+                         "work_en": {"en": "The Canary's Song Side Story: Feathers"}})
+    if budget_one_work_named_two_ways_across_its_rows(c2) != base:
+        print("  self-test FAILED — 'one work named two ways across its rows' counted a subtitle "
+              "as a disagreement")
         ok = False
 
     # A PHRASE THAT DID NOT CONSUME THE STORE, counted rather than passed or failed. The canary is

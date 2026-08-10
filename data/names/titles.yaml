@@ -7852,8 +7852,12 @@ names:
     verified: true
   うらら迷路帖アンソロジーコミック:
     basis: translated
-    en: 'Urara Meirochō: The Anthology Comic'
+    en: 'URARA MEIROCHOU: The Anthology Comic'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Urara Meirochō: The Anthology Comic'
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
@@ -7866,8 +7870,12 @@ names:
       - ちょう
     - - アンソロジーコミック
       - null
-    note: うらら is what the town calls its diviners, and 迷路帖 is a coinage on 迷路, a maze, with the 帖 that
-      names a bound book. Both are the setting's own names and are kept.
+    note: 'うらら is what the town calls its diviners, and 迷路帖 is a coinage on 迷路, a maze, with the 帖 that
+      names a bound book. Both are the setting''s own names and are kept.
+
+      2026-08-10: the work''s own record carries URARA MEIROCHOU on basis official-jp, which is the spelling
+      its own art sets. This row rendered the same name Urara Meirochō, a macron romanisation of ours,
+      so one work reached a reader spelled two ways. The attested spelling outranks ours.'
     reading: ウララ メイロチョウ アンソロジーコミック
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -25308,13 +25316,15 @@ names:
     verified: false
   ギャルメイドと悪役令嬢 ～おじょーさまのハッピーエンドしか勝たん！～:
     basis: translated
-    en: The Gal Maid and the Villainess ~Nothing Beats the Young Lady's Happy Ending!~
+    en: The Gyaru Maid and the Villainess ~Nothing Beats My Lady's Happy Ending!~
     en_at: '2026-08-04'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Gyaru Maid to Akuyaku Reijou ~Ojou-sama no Happy End shika Katan!~
-    en_pass: 2
+    - basis: translated
+      source: yurarium
+      value: The Gal Maid and the Villainess ~Nothing Beats the Young Lady's Happy Ending!~
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
@@ -25331,8 +25341,10 @@ names:
       - か
     - - たん！～
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: '2026-08-10: three of this work''s four rows read Gyaru Maid and My Lady''s; this one read Gal
+      Maid and the Young Lady''s. Same phrase, same work, so it takes the wording the rest already carries.
+      Whether ギャル stays gyaru is the subculture-term question the owner is holding, and following the
+      majority here does not settle it.'
     reading: ギャルメイド ト アクヤク レイジョウ   ～ オ ジョー サマ ノ ハッピーエンド シカ カタン！ ～
     reading_at: '2026-08-02'
     reading_basis: analyser
@@ -27721,16 +27733,23 @@ names:
     verified: false
   ステラのまほうアンソロジーコミック:
     basis: translated
-    en: Stella's Magic Anthology Comic
+    en: 'Stella''s Magic: The Anthology Comic'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Stella's Magic Anthology Comic
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
     - - ステラのまほうアンソロジーコミック
       - null
-    note: ステラ is the club the story is built around and stays a name. まほう in kana is magic written softly,
+    note: 'ステラ is the club the story is built around and stays a name. まほう in kana is magic written softly,
       and アンソロジーコミック is borrowed English.
+
+      2026-08-10: the base is Stella''s Magic and this row ran the words together as Stella''s Magic Anthology
+      Comic. Every other anthology row sets the label off after a colon.'
     reading: ステラ ノ マホウ アンソロジーコミック
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -29932,8 +29951,12 @@ names:
     verified: false
   'ネイルちゃんと深爪さん。 : アンソロジーコミック':
     basis: translated
-    en: 'Nail-chan and Cut-Too-Short-san.: An Anthology Comic'
+    en: 'Nail-chan and Fukazume-san.: An Anthology Comic'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Nail-chan and Cut-Too-Short-san.: An Anthology Comic'
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
@@ -29944,8 +29967,12 @@ names:
       - ふかづめ
     - - 'さん。 : アンソロジーコミック'
       - null
-    note: 深爪 is cutting a nail back past where it should stop, so the two names are the two ends of one
-      subject. The full stop after the pair is the title's own.
+    note: '深爪 is cutting a nail back past where it should stop, so the two names are the two ends of one
+      subject. The full stop after the pair is the title''s own.
+
+      2026-08-10: 深爪 is her surname and a surname is spelled one way. Two of this work''s three rows say
+      Fukazume-san and this one said Cut-Too-Short-san, which translates the pun in her name and so renames
+      the person. The pun belongs in a note about her.'
     reading: 'ネイルチャン ト フカヅメサン。   :   アンソロジーコミック'
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -38147,9 +38174,13 @@ names:
     verified: false
   '乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… : 公式アンソロジーコミック : スウィートメモリーズ':
     basis: translated
-    en: 'I Reincarnated as a Villainess in an Otome Game with Nothing but Doom Flags…: The Official Anthology
-      Comic: Sweet Memories'
+    en: 'My Next Life as a Villainess: The Official Anthology Comic: Sweet Memories'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'I Reincarnated as a Villainess in an Otome Game with Nothing but Doom Flags…: The Official
+        Anthology Comic: Sweet Memories'
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
@@ -38176,9 +38207,13 @@ names:
       - こうしき
     - - 'アンソロジーコミック : スウィートメモリーズ'
       - null
-    note: 破滅フラグ is the game term for a trigger that sets a ruinous ending running, and しかない says every
+    note: '破滅フラグ is the game term for a trigger that sets a ruinous ending running, and しかない says every
       one available leads there. 乙女ゲーム is kept as otome game, the label English fandom and English publishers
-      both use for the genre. The ellipsis is the title's own.
+      both use for the genre. The ellipsis is the title''s own.
+
+      2026-08-10: two of this work''s rows carry the licensed My Next Life as a Villainess and this one
+      carried a translation of ours rendering the same Japanese a wholly different way. A licensor''s
+      name outranks one composed here, so the anthology takes it too.'
     reading: 'オトメ ゲーム ノ ハメツ フラグ シカ ナイ アクヤク レイジョウ ニ テンショウ シテ シマッタ…．．   :   コウシキ アンソロジーコミック   :   スウィートメモリーズ'
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -38796,8 +38831,12 @@ names:
     verified: false
   人妻とJK:
     basis: translated
-    en: Married Woman and JK
+    en: The Married Woman and the Schoolgirl
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Married Woman and JK
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
@@ -38806,8 +38845,9 @@ names:
       - ひとづま
     - - とJK
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: '2026-08-10: the series row for this same work already read The Married Woman and the Schoolgirl
+      Series, so the two disagreed about the second half. 14 of the 19 other titles holding JK render
+      it Schoolgirl, which is what the corpus does, so the base takes that.'
     reading: ヒトヅマ ト JK
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -68979,12 +69019,17 @@ names:
     reading_source_kind: analyser
     verified: false
   私の女神が今日も推せる:
-    basis: translated
-    en: My Goddess Is Worth Championing Again Today
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: licensed
+    en: My Goddess is Precious Today, Too
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: My Goddess Is Worth Championing Again Today
+    en_reviewed: '2026-08-10'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/my-goddess-is-precious-today-too/
     furigana_spans:
     - - 私
       - わたし
@@ -69002,8 +69047,13 @@ names:
       - お
     - - せる
       - null
-    note: 推せる is the potential of 推す, the fandom verb for backing somebody publicly, so the sentence says
-      she has given no reason to stop. 今日も adds that this is a daily verdict.
+    note: 'Seven Seas Entertainment''s own catalogue entry, which states the Japanese title as 私の女神が今日も推せる
+      ～これからも、いつまでも～.
+
+      2026-08-10: the record held their name on that row alone, so the 【単話版】 row grafted our translation
+      from this key and the work reached a reader spelled two ways. 川内 is the author of both rows and
+      the ～これからも、いつまでも～ row is the same work under a completed-edition subtitle, so the licensed name
+      governs the work rather than one of its rows.'
     reading: ワタシ ノ メガミ ガ キョウ モ オセル
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -69011,6 +69061,9 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 推せる is the potential of 推す, the fandom verb for backing somebody publicly, so the
+      sentence says she has given no reason to stop. 今日も adds that this is a daily verdict. Kept beside
+      the licensed name for a reader who has asked to see ours.
     verified: false
   私の女神が今日も推せる 【単話版】:
     basis: romaji

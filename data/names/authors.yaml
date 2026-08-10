@@ -3730,12 +3730,19 @@ names:
     verified: true
   すたひろ:
     basis: romaji
-    en: Stu-Hiro
-    en_at: '2026-08-09'
-    en_pass: 2
-    en_source: wikidata
-    en_url: http://www.wikidata.org/entity/Q11269732
-    note: Wikidata English label; word order is the source's, not the author's
+    en: Sutahiro
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Stu-Hiro
+    en_reviewed: '2026-08-10'
+    en_source: read off the name itself
+    en_source_kind: derived
+    note: 'Kana throughout, which is what the publishers map recorded on 2026-08-07. This side was rendering
+      Stu-Hiro, an English styling of すた that no source here attests: nothing states how this artist writes
+      their own name in Latin letters, and until something does, the reading is what the record can say.
+      Worth revisiting if a byline turns up.'
     reading: スタヒロ
     reading_at: '2026-08-06'
     reading_basis: surface
@@ -9214,8 +9221,18 @@ names:
     reading_url: https://api.openbd.jp/v1/get?isbn=9784091254795
     verified: true
   ガレットワークス:
-    basis: romaji
+    basis: official-jp
+    en: Galette Works
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: galetteweb.com
+    en_source_kind: publisher-jp
+    en_url: https://galetteweb.com/about
     entity: company
+    note: The magazine's own site signs itself Copyright GALETTE WORKS, which the publishers map has recorded
+      since 2026-08-07. This side had only Garettowākusu, a romanisation of ours, so a name the house
+      writes in Latin letters was being spelled back into kana and out again. An attested name outranks
+      one composed here.
     reading: ガレットワークス
     reading_at: '2026-08-07'
     reading_basis: surface
@@ -11090,9 +11107,17 @@ names:
     verified: true
   ネジ式１３番地:
     basis: romaji
+    en: Nejishiki 13-banchi
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: read off the name itself
+    en_source_kind: derived
+    en_url: https://comic.k-manga.jp/search/author/59488
     entity: company
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: The same name is this artist's own imprint and the publishers map has rendered it Nejishiki
+      13-banchi since 2026-08-08, while this side carried Nejishikijūsanbanchi, the whole address glued
+      into one word. A house number is said as a whole number and written as digits, which is the publisher
+      entry's argument, and one person is spelled one way.
     reading: ネジシキジュウサンバンチ
     reading_at: '2026-08-08'
     reading_basis: researched

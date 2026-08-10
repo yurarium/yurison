@@ -285,6 +285,16 @@ inconsistent by design, which is the thing being complained about.
 
 **The recommendation is A**, and item 18 below belongs to it.
 
+### One term, three treatments, which is the same fault at a smaller scale
+
+`地雷系` reaches a reader three ways in three titles: `Jirai-kei` hyphenated, `Jiraikei` glued inside
+a mostly romanised line, and `Landmine-Type` translated literally. The owner's note on it is that it
+"has an understandable meaning that could be translated". It names a fashion and personality
+subculture, doll-like and emotionally volatile, and English-language fandom writes both `jirai kei`
+and `landmine girl`, so any of the three is defensible on its own and no two of them are defensible
+together. Whichever policy is chosen above has to name what happens to a subculture term, or this
+recurs under a different word.
+
 ### Romanise a name, translate a phrase
 
 `重しれー女` ships as `Omoshiree Onna`, a bare romanisation. The owner's ruling: it "admits a
@@ -314,3 +324,10 @@ Each is confirmed and none is a policy question.
   publisher's own `MY SISTER AND GIANT`, which outranks a licensor's under the standing ruling.
 - **Two romanisations reach a reader where they should not**, `Senketsu Ōjo, Minagorosu ~ ...` and
   `Watashi no Megami ga Kyō mo Oseru`, the second on a work that has an English name.
+
+- **†でぃすてにぃ・ふれんず† prints its own English.** The work's lead page on カドコミ shows
+  `Destiny` in Latin letters, read there by the owner on 2026-08-10. The record carried
+  `†Disteny Friends†`, a misspelling invented here to mirror the hiragana affectation. How a work
+  styles itself is the work's to decide and it had already decided. Corrected in
+  `data/names/curated.yaml`; the apply was racing three agents writing the same files, so it is
+  recorded here until a clean run lands it.

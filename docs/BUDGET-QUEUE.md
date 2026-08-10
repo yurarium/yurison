@@ -411,3 +411,64 @@ rendering, which is the fault a reader reported the same day about work pages.
 published it with the circles intact, in which case it is a licensed name and outranks any
 house style. No English licence was found on the search made, and the anime's
 convention is not a manga licence.
+
+## What a reader actually sees romanised. Swept 2026-08-10
+
+**Read off the rendered works list and not off `feed/names.json`**, at the owner's instruction. It
+matters: a measurement taken from the data said 26 rows and the interface says 57, and neither list
+is a subset of the other. The reader's view is the subject, so the reader's view is what was swept.
+
+**57 of 3,046 rows show a bare romanisation**, and they are three different problems.
+
+**Eight would gain a real English name from a sibling record.** These are the same work under
+edition or status apparatus. The apparatus makes a different key, so the English attached to the
+base never reaches them.
+
+| Row | Shown now | Available on a sibling |
+|---|---|---|
+| `【完結】冬木先輩と夏井` | `[Kanketsu] Fuyuki Senpai to Natsui` | Fuyuki-senpai and Natsui |
+| `【百合】奴隷扱いの娘が足を舐めて幸せになる(かもしれない)話` | `[Yuri] Dorei Atsukai no Musume…` | A Story About a Girl Treated as a Slave… |
+| `心の声が漏れやすいメイドさん` | `Kokoro no Koe ga Moreyasui Meidosan` | The Maid Whose Thoughts Slip Out |
+| `異世界でも風俗嬢やってみた` | `Isekai Demo Fūzokujō Yattemita` | Call Girl in Another World |
+| `男だけど死神姫の嫁になりました(仮)` | `Otoko Dakedo Shinigamihime no…` | I'm a Man, but I've Become the Reaper Princess… |
+| `志乃と恋` | `Shino to Ren` | Shino and Ren |
+| `花子さんと花子ちゃん` | `Hanako San to Hanako Chan` | Hanako-san and Hanako-chan |
+
+**Twenty-four inherit only another romanisation**, so joining them changes a spelling and not a
+state. Worth doing for consistency, worth nobody's time before the group above.
+
+**Twenty-five have no English anywhere and one has to be written.** Several are well known and some
+are licensed: `ゆゆ式`, `けいおん!`, `うらら迷路帖`. Others are coinages where a romanisation may be
+the right answer. Three carry romanisations that are broken rather than absent, which belongs with
+the analyser work: `豹藤さんは攻略したい` renders `Hyōdōsanhaotoshitai` glued into one word,
+`さろめりっく` renders `Saro Meri Kku`, and `ゆりでなる♡えすぽわーる` renders `Yuri de Naru ♡ e Supo Wāru`.
+
+## Related titles whose English renderings disagree. Swept 2026-08-10
+
+**Asked for by the owner** after 深爪さん was found rendered two ways. Grouping every title by its
+stem and comparing the English gives sixteen pairs. These are the ones where the same phrase is
+rendered two ways, which is the fault; a subtitle adding words is not.
+
+| Work | One record says | The other says |
+|---|---|---|
+| `ネイルちゃんと深爪さん。` | Fukazume-san | Cut-Too-Short-san |
+| `飛野さんのバカ` | **Hino**, You Idiot! | **Tobino**-san, You Idiot |
+| `ギャルメイドと悪役令嬢` | Gyaru Maid | Gal Maid |
+| `恋愛遺伝子XX` | The Romance Gene XX | Love Gene XX |
+| `無力聖女と無能王女` | Useless Princess | Incompetent Princess |
+| `ロンリーガールに花束を` | A Bouquet for the Lonely Girl | Flowers for the Lonely Girl |
+| `悪役令嬢の中の人` | the person in a villainess | The Person Inside the Villainess |
+| `抱かれたい女` | person who wants to be embraced | The Woman Who Wants to Be Held |
+| `私の女神が今日も推せる` | Worth Championing Again Today | is Precious Today, Too |
+
+**`飛野さんのバカ` is the serious one.** 飛野 is read Hino on one record and Tobino on the other, so
+the same person is named two ways rather than described two ways. Everything else here is wording;
+that one is a fact.
+
+**Two are not renderings at all.** `the person in a villainess` and `person who wants to be
+embraced` are lowercase and ungrammatical, which is what a machine translation looks like when
+nothing caught it.
+
+**One is settled by rank and not by argument.** `私の女神が今日も推せる~これからも、いつまでも~` carries a
+licensor's name, so it outranks ours; the base record's `Worth Championing` is ours and stands
+where no licensor has spoken.

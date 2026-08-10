@@ -38,10 +38,18 @@ larger change than it appears and must be done with the byte-comparison harness 
 Until then this lint is the mitigation: it cannot stop the hazard, but it names every place the
 hazard lives, and the budget in docs/budgets.json stops the number growing.
 
+AND THE SAME FAULT AT MODULE SCOPE, which is `--modules`. `adapters/store/` sat beside
+`adapters/names/store.py`, and because the package put `names` on its own sys.path a bare
+`import store` inside it resolved to the NAME store. Nothing warned; whichever directory came
+first won, and the workaround was a comment telling the next reader not to reorder two lines. That
+is the same shape as `warnings` above: a name whose second binding is invisible from the first, and
+silence when it goes wrong. The rename to `adapters/relational` is the fix and this is the guard.
+
 Usage:  shadowing.py [file ...] [--span N] [--max N]
+        shadowing.py --modules       two importable modules answering to one name
 Exit 1 if the count exceeds --max, so it can gate a change if anyone wants it to.
 """
-import argparse, ast, sys
+import argparse, ast, collections, pathlib, re, sys
 
 
 def offenders(path, span):
@@ -65,14 +73,102 @@ def offenders(path, span):
     return sorted(out, key=lambda o: -(o[3] - o[2]))
 
 
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+
+
+#: A directory a module puts on sys.path. `[^)]*` was wrong here and reported nothing at all,
+#: because `Path(__file__)` closes a bracket before `parents[` is reached; the fixture in
+#: test_shadowing.py is what said so.
+_INSERT = re.compile(r'sys\.path\.insert\(.*?parents\[(\d+)\](?P<tail>(?:\s*/\s*"[^"]+")*)')
+
+
+def _reachable(root):
+    """`{directory: {names importable bare from it}}` for every directory the tree puts on the path.
+
+    MEASURED, NOT LISTED. Thirty-odd directories go on sys.path across this tree and the list moves
+    with the code, so reading the inserts is the only way the answer stays true.
+    """
+    out = collections.defaultdict(set)
+    for f in root.rglob("*.py"):
+        if any(x in f.parts for x in (".git", "data", "__pycache__", "node_modules")):
+            continue
+        try:
+            text = f.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+        here = set()
+        for m in _INSERT.finditer(text):
+            try:
+                d = f.resolve().parents[int(m.group(1))]
+            except IndexError:
+                continue
+            for part in re.findall(r'"([^"]+)"', m.group("tail")):
+                d = d / part
+            if d.is_dir():
+                here.add(d)
+        if here:
+            out[frozenset(here)].add(f)
+    return out
+
+
+def collisions(root=None):
+    """`[(name, [paths])]` for a name two modules answer to WHERE BOTH ARE ON ONE PATH.
+
+    THIRTEEN `releases.py` ARE NOT A COLLISION. Each names one platform, a caller writes
+    `gigaviewer.releases` through the `adapters` entry, and the platform's own directory goes on the
+    path only while that platform's code runs. The fault is a name reachable BARE from two
+    directories that some module puts on the path at the same time, which is how a bare
+    `import store` inside `adapters/store` found `adapters/names/store.py`.
+
+    SUITES ARE RUN BY PATH and never imported by name, so two directories may both hold a
+    `test_store.py`. `__init__.py` is read as the name of its directory, since that is the name an
+    importer writes.
+    """
+    root = pathlib.Path(root or ROOT).resolve()
+
+    def bare(d):
+        got = {}
+        for f in d.iterdir():
+            if f.is_dir() and (f / "__init__.py").exists():
+                got[f.name] = f / "__init__.py"
+            elif (f.suffix == ".py" and not f.name.startswith("test_")
+                  and f.name not in ("testkit.py", "__init__.py")):
+                # A directory's own `__init__.py` is its package marker and not a name anyone
+                # imports; counting it made every pair of packages on one path a collision.
+                got[f.stem] = f
+        return got
+
+    found = {}
+    for together in _reachable(root):
+        listing = {d: bare(d) for d in together if d.is_dir()}
+        for a in listing:
+            for b in listing:
+                if a is b:
+                    continue
+                for name in set(listing[a]) & set(listing[b]):
+                    if listing[a][name] != listing[b][name]:
+                        found.setdefault(name, set()).update(
+                            (listing[a][name], listing[b][name]))
+    return sorted((n, sorted(str(p.relative_to(root)) for p in v)) for n, v in found.items())
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("files", nargs="*", default=["build.py"])
+    ap.add_argument("--modules", action="store_true",
+                    help="report importable names two files answer to")
     ap.add_argument("--span", type=int, default=300,
                     help="lines apart before a rebinding counts as out of sight")
     ap.add_argument("--max", type=int, default=None,
                     help="exit 1 if more than this many are found")
     a = ap.parse_args()
+
+    if a.modules:
+        got = collisions()
+        for name, paths in got:
+            print(f"  {name}: {', '.join(paths)}")
+        print(f"{len(got)} name(s) two modules answer to")
+        return 1 if got and a.max is not None and len(got) > a.max else 0
 
     total = 0
     for path in a.files:

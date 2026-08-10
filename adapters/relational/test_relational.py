@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""adapters/store: the schema, and the constraints that replace invariants.
+"""adapters/relational: the schema, and the constraints that replace invariants.
 
-COVERS = ['adapters/store/__init__.py', 'adapters/store/schema.sql']
+COVERS = ['adapters/relational/__init__.py', 'adapters/relational/schema.sql']
 
 EVERY ASSERTION HERE PLANTS A ROW THE SCHEMA MUST REFUSE. A constraint nobody has watched reject
 something is indistinguishable from a column comment, which is the same argument `--self-test` makes
@@ -12,18 +12,19 @@ import sqlite3
 import sys
 import tempfile
 
-# ORDER MATTERS HERE. `adapters/names/store.py` is a different module with the same name, and
-# putting `names` on the path first makes it win. Two modules called store is a collision worth
-# knowing about; until one is renamed, this is the order that resolves the package.
+# THE COLLISION IS GONE AND THE ORDER NO LONGER DECIDES ANYTHING. This package was called `store`
+# beside `adapters/names/store.py`, and because it puts `names` on its own path, a bare
+# `import store` inside it resolved to the NAME store. The path order was the workaround; the rename is
+# the fix, and adapters/lint/shadowing.py is where that class of fault is watched.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import testkit                                                          # noqa: E402
-import store                                                            # noqa: E402
+import relational                                                       # noqa: E402
 
 
 def _fresh():
     d = tempfile.mkdtemp()
-    db = store.load_rulings(store.create(pathlib.Path(d) / "t.db"))
+    db = relational.load_rulings(relational.create(pathlib.Path(d) / "t.db"))
     db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001','T','test')")
     db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','X','person')")
     db.execute("INSERT INTO publisher (id, name) VALUES ('h00001','P')")
@@ -113,7 +114,7 @@ def main(s):
             s.check((b, k) in pairs, f"the attribution table carries {b}/{k}")
 
     # THE QUESTIONS RUN. Each was a script or was unaskable; a broken one would answer nothing.
-    for q, sql in store.QUESTIONS.items():
+    for q, sql in relational.QUESTIONS.items():
         db.execute(sql).fetchone()
     s.check(True, "every standing question is valid SQL against this schema")
 

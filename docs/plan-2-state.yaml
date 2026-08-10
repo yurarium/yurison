@@ -147,7 +147,7 @@ stages:
         note: >-
           The remaining small vocabularies given one home.
           romanisation still had its styles typed in credits.py twice and romfloor.py once, four homes for a fact marked owned.
-          The name kinds and the two a naming pass can research are `facts/namekey.KINDS` and RESEARCHABLE_KINDS, and adapters/store keys its map on them rather than retyping.
+          The name kinds and the two a naming pass can research are `facts/namekey.KINDS` and RESEARCHABLE_KINDS, and adapters/relational keys its map on them rather than retyping.
       - id: D7
         title: kadokomi work_data, the one exact duplicate function body
         state: done
@@ -206,7 +206,15 @@ stages:
           Also removed a comment block duplicated verbatim in the claims lint itself.
       - id: E2
         title: Two modules called store
-        state: todo
+        state: done
+        note: >-
+          Renamed to adapters/relational, which is what its own docstring already called it.
+          THE HAZARD WAS REAL AND MEASURED, not a tidiness complaint: the package puts adapters/names on its own sys.path, so a bare `import store` inside adapters/store resolved to adapters/names/store.py, which I reproduced before touching anything.
+          The workaround in place was a comment asking the next reader not to reorder two lines.
+          Renamed while it had one importer, since stage C makes it load-bearing.
+          The guard is `shadowing.py --modules` and the invariant `a name is answered by one module`, which reads the actual sys.path.insert calls so it reports a name only where two directories are on the path at once.
+          Thirteen platforms hold a releases.py and that is right, so a blanket rule would have been a nine-entry wall; the narrow rule finds one thing, and running it against the tree as it was before the rename finds `store` and nothing else.
+          Two of my own faults on the way, both caught by the fixture rather than by reading: the insert pattern used [^)]* and could never reach past Path(__file__), so it silently reported nothing at all, and counting a directory's own __init__.py made every pair of packages a collision.
       - id: E7
         title: Compiled bytecode was inside the green-tree token's covered set
         state: done

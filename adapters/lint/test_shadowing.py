@@ -55,6 +55,41 @@ def main(s):
     real = shadowing.offenders(str(pathlib.Path(__file__).resolve().parents[2] / "build.py"), 300)
     s.check(isinstance(real, list), "it runs on build.py without raising")
 
+    # ── The same fault at module scope ──────────────────────────────────────────────────────────
+    #
+    # THE TREE THAT SHIPPED IT, rebuilt: a package called `store` that puts a sibling `names` on
+    # the path, where a second `store.py` lives. A bare `import store` inside the package found the
+    # other one, and nothing said so.
+    with tempfile.TemporaryDirectory() as d:
+        root = pathlib.Path(d)
+        (root / "names").mkdir()
+        (root / "store").mkdir()
+        (root / "names" / "store.py").write_text("X = 1\n")
+        (root / "store" / "__init__.py").write_text(
+            'import sys, pathlib\n'
+            'sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))\n'
+            'sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))\n')
+        got = dict(shadowing.collisions(root))
+        s.check("store" in got, "two modules answering to `store` on one path are reported")
+
+    # THE COUNTER-CASE IS THE WHOLE DESIGN. Thirteen platforms each hold a `releases.py` and that
+    # is correct: a caller writes `gigaviewer.releases`, and a platform's own directory reaches the
+    # path only while that platform runs. Reporting those would make the check a wall and the wall
+    # would be switched off.
+    with tempfile.TemporaryDirectory() as d:
+        root = pathlib.Path(d)
+        for platform in ("gigaviewer", "kadokomi"):
+            (root / platform).mkdir()
+            (root / platform / "releases.py").write_text("X = 1\n")
+            (root / platform / "run.py").write_text(
+                'import sys, pathlib\n'
+                'sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))\n')
+        s.eq(shadowing.collisions(root), [],
+             "a per-platform module reached through its package is not a collision")
+
+    # AND THE TREE AS IT STANDS, which is the claim the rename makes.
+    s.eq(shadowing.collisions(), [], "no name in this tree is answered by two modules on one path")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "shadowing"))

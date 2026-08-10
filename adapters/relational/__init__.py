@@ -6,12 +6,12 @@ the facts hold, so deleting the database costs the time of one rebuild. It is no
 
 WHAT IT IS FOR, and it is not speed alone. Five invariants in `check.py` are foreign keys written
 out as Python and run after the damage; two more stop being expressible at all, because a page can
-only list what an edge says. `adapters/store/schema.sql` names each one beside the constraint that
+only list what an edge says. `adapters/relational/schema.sql` names each one beside the constraint that
 replaces it.
 
 Usage:
-    ./adapters/store/__init__.py --build     compile data/build into data/store.db
-    ./adapters/store/__init__.py --ask       run the standing questions and print the answers
+    ./adapters/relational/__init__.py --build     compile data/build into data/relational.db
+    ./adapters/relational/__init__.py --ask       run the standing questions and print the answers
 """
 import argparse
 import json
@@ -26,7 +26,7 @@ from facts import namekey as _namekey                                   # noqa: 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCHEMA = pathlib.Path(__file__).resolve().parent / "schema.sql"
-DB = ROOT / "data" / "store.db"
+DB = ROOT / "data" / "relational.db"
 BUILD = ROOT / "data" / "build"
 
 #: The standing questions, kept beside the schema that makes them one line each. Each was a script

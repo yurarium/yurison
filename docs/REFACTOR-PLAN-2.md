@@ -84,7 +84,7 @@ building the whole database twice and comparing, which is the verification a slo
 for and the reason it stays slow.
 
 7. **Nothing writes to the store except the compiler.** The property that keeps it derived. A check
-   proves the only writer is `adapters/store`, the way the fact lint proves an entry point.
+   proves the only writer is `adapters/relational`, the way the fact lint proves an entry point.
 
 8. **The cascade is gated on OUTPUT change, and never on input change.** This is the whole design
    and it replaces a more elaborate one. Every derivation is a pure function of the store,
@@ -189,7 +189,7 @@ dict shape, a regex or a function body with more than one home. What it found is
     `pixivcomic/releases`, `kadokomi/releases` and `kadokomi/confirm`.
 
 21. **Smaller vocabularies with two homes each:** the name kinds `authors, publishers, titles`
-    across `curate`, `names/store` and `adapters/store`; the pair `authors, titles` in two naming
+    across `curate`, `names/store` and `adapters/relational`; the pair `authors, titles` in two naming
     passes; the reading-claim shape in `madb_reading` and `openbd_reading`; the citation shape in
     `kadokomi/confirm` and `pixivcomic/releases`; the engine registry in `editions/capture` and
     `editions/engines`.

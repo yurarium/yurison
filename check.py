@@ -533,6 +533,34 @@ def inv_a_fact_is_reached_through_its_entry_point(ctx):
     return [f"{path}:{line} reaches facts.{fact}.{sub}" for path, line, fact, sub in got]
 
 
+def inv_a_name_is_answered_by_one_module(ctx):
+    """No importable name resolves to two files that are on sys.path together.
+
+    THE ONE THIS CAUGHT was `store`. `adapters/store/` sat beside `adapters/names/store.py` and put
+    `names` on its own path, so a bare `import store` inside the package found the NAME store.
+    Whichever directory came first won and nothing said so; the workaround was a comment asking the
+    next reader not to reorder two lines. `adapters/relational` is the rename.
+
+    NOT A WALL. Thirteen platforms hold a `releases.py` and that is right, because a caller writes
+    `gigaviewer.releases` and a platform's directory reaches the path only while it runs. The check
+    reads the actual `sys.path.insert` calls, so a name counts only where two directories are on the
+    path at once.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: it reads inserts written as source and would miss a path
+    built at runtime or by an environment variable. test_shadowing.py rebuilds the tree that shipped
+    the fault, so the check is held to catching it rather than to returning zero.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters" / "lint"))
+        import shadowing as _shadowing
+        import importlib
+        importlib.reload(_shadowing)
+        got = _shadowing.collisions()
+    except Exception:                                                   # noqa: BLE001
+        return []
+    return [f"{name}: {', '.join(paths)}" for name, paths in got]
+
+
 def inv_every_japanese_field_has_a_ruling(ctx):
     """Every field the built data carries in Japanese is either a name with a renderer or is not.
 
@@ -1978,6 +2006,7 @@ INVARIANTS = [
      inv_names_reach_a_page_only_through_their_renderer),
     ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both),
     ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
+    ("a name is answered by one module", inv_a_name_is_answered_by_one_module),
     ("the tracker states what it claims", inv_the_tracker_states_what_it_claims),
     ("the interface is the derivation of its source",
      inv_the_interface_is_the_derivation_of_its_source),

@@ -69,7 +69,7 @@ def loosely(s):
 
 
 #: THE POPULATIONS OF NAME THE STORE HOLDS, keyed by the fold above. `curate`, `names/store` and
-#: `adapters/store` each wrote this down, which the duplicates lint found on 2026-08-10.
+#: `adapters/relational` each wrote this down, which the duplicates lint found on 2026-08-10.
 KINDS = ("authors", "publishers", "titles")
 
 #: The two a naming pass can research. A publisher's name is settled from its own page and from the

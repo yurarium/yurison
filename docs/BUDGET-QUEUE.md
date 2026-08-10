@@ -252,5 +252,5 @@ number is the fault and not a tolerance.
 
 ## Two modules are called store
 
-`adapters/names/store.py` and `adapters/store/`. Whichever is on the path first wins, which made a
+`adapters/names/store.py` and `adapters/relational/`. Whichever is on the path first wins, which made a
 test import the wrong one. One of them should be renamed.

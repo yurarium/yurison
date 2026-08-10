@@ -181,8 +181,12 @@ A FIXTURE IS PART OF THE SUBJECT. A parser test is a claim about a page somebody
         # check.py; keyed on its own file alone it would be skipped after a rebuild that changed
         # what the canaries land in.
         if "data/build" in text or '"data" / "build"' in text:
+            # A REPORT ABOUT A RUN IS NOT AN INPUT TO IT. `checks.json` carries per-check timings
+            # that differ every run and the token records the tree, so leaving them in meant every
+            # cycle rewrote the build and re-ran the ten suites that read it, `check.py --self-test`
+            # among them. That is 16 s of a cycle spent proving nothing had changed by changing it.
             named += sorted(x for x in (ROOT / "data" / "build").rglob("*")
-                            if x.is_file() and x.name != ".green-tree.json")
+                            if x.is_file() and x.name not in (".green-tree.json", "checks.json"))
         for m in re.findall(r"data/fixtures/[\w./-]+", text):
             # A SUITE OFTEN NAMES THE DIRECTORY and reads whatever captures are in it, so a path
             # that is a directory expands to its files. Hashing the directory itself hashes nothing.

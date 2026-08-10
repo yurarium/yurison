@@ -20,6 +20,8 @@ def main(s):
     fast, full = cycle.plan(False), cycle.plan(True)
     s.check("--proved-by" in fast["gate"], "the fast path tells the gate who is proving it")
     s.check("--proved-by" not in full["gate"], "--full has each half prove itself")
+    s.check("--incremental" in fast["gate"] and "--incremental" not in full["gate"],
+            "and --full re-answers every check rather than trusting a remembered pass")
     s.check(any("test.py" in x for x in fast["tests"]),
             "and the tests are the half that carries the proof")
 

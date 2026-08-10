@@ -273,7 +273,15 @@ stages:
           --canary and cycle.py --full never use it.
       - id: F2
         title: Incremental verification, each check declaring the inputs it reads
-        state: todo
+        state: done
+        note: >-
+          check.py --incremental. A cycle where nothing moved is 2.0 s, from 372 s when this plan was written.
+          NOT 110 DECLARATIONS. Asking every check to name its inputs is more precise and is a hand-kept list, which is the fault deploy_sensitive exists to avoid, so there are three derived classes: code, data and site. They over-approximate, so a refactor re-runs everything, which is correct; what they buy is the common case of a data update with the code standing still.
+          A PASS IS REMEMBERED AND A FAILURE NEVER IS, so the cache can only hold "this said nothing on exactly these inputs". A budget carries its number and is still compared against the recorded one every run.
+          TWO RUNS WERE INVALIDATING THEMSELVES. The gate regenerates docs/tracker.html, which is tracked and carries the time it ran, so every gate moved the code class and the next re-answered all 110 checks. The same for checks.json under data/build, which carries per-check timings and made every cycle re-run the ten suites that read the build, check.py --self-test among them: 16 s spent proving nothing had changed by changing it.
+          What a run WRITES is not what a run READS, and both are now out of the keys.
+          Nine cases in test_incremental.py hold the keys: every class moves them, two checks never share one, and `site` moves a key only for a check deploy_sensitive derives as reading the deployed tree.
+          Proved end to end by planting an unevidenced impossibility in adapters/greentree.py and watching the incremental gate refuse it.
       - id: F3
         title: Incremental build, stages keyed on the digest of their inputs
         state: todo

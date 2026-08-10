@@ -11109,6 +11109,8 @@ names:
     basis: romaji
     en: Nejishiki 13-banchi
     en_at: '2026-08-08'
+    en_corroborated:
+    - まんが王国
     en_reviewed: '2026-08-08'
     en_source: read off the name itself
     en_source_kind: derived
@@ -30255,6 +30257,15 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033395195
     verified: true
+  泉朝樹:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading_refuted: 'イズミ アサキ is an analyser''s guess, and this surface gives it nothing to guess from:
+      泉朝樹 is kanji throughout, so there is no change of script to put a boundary at, which is what justifies
+      the division on every other analyser reading in this store. It arrived with 見える子ちゃん on 2026-08-10
+      and `check.inv_a_d'
+    verified: false
   波:
     basis: romaji
     furigana_spans:

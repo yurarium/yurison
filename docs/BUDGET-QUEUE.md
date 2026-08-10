@@ -518,3 +518,32 @@ outranks anything composed here.
 
 So the rise is what an improvement looks like from inside this measure. Accepted rather than
 answered, which is the only honest way to move a ratchet upward.
+
+## Eight budgets rose when the first successful update landed. Accepted 2026-08-10
+
+Run 31399575062 is the first run of the update workflow that has ever finished. It fetched, compiled
+and pushed fresh data, and eight budgets moved with it. Each is recorded here because a rise is
+accepted with a reason and never edited away.
+
+**Six are the corpus growing**, which is what a working pipeline does to a deficit measured in works.
+`renderings resting on a mechanical romanisation` 866 to 873, `works showing a romanisation` 148 to
+150, `author readings no source states` 397 to 398, `credit phrases spelling a person otherwise` 4 to
+5, `credit fields an identifier does not cover` 18 to 21, and `one work under two names in a list` 13
+to 14. New works arrive unnamed and unread, which is the state every naming pass exists to reduce.
+`author readings no source states` also carries 泉朝樹, whose analyser reading was refuted the same
+day rather than shipped.
+
+`incomplete attested rows` 13 to 31 is the same class the field audit was re-cut around. All of the
+rise is `access_modes`, and none of it is a row losing its name. マガポケ reaches us two ways and only
+the rendered one states access, so a work reached by the feed alone arrives without it. The audit in
+the workflow now counts the two apart, and the name half sits at 3 where it can still see the first
+one.
+
+`rows with a moving address` 0 to 2 was answered before it was accepted. The check's own docstring
+says the rise is the notice to run `adapters/gigaviewer/workaddress.py`, so it was run: 507 chapter
+pages read, 505 addresses resolved, 841 attachments written to `data/queue/`, which `build.py` picks
+up by glob. The two that remain are `カナリアは綺羅星の夢をみる` and
+`病弱少女、転生して健康な肉体(最強)を手に入れる`, and the pass reported why in its own summary as
+`no-identifier: 2`: both arrived in this run carrying a chapter address and no identifier yet, so
+there is nothing to attach a work address to. They need an identity minted, which is a different
+pass, and the number falls when it runs.

@@ -30564,6 +30564,21 @@ authors:
     reviewed: '2026-08-05'
     reading_note: >-
       コウラ マサオ is a machine guess with nothing behind it. NDL creator empty; `any=高良真生` returns only the 一迅社 anthology volume, which has no creator field, and the per-story 単話 records are not catalogued. No publisher, platform or artist page found that prints a reading. The stored コウラ マサオ is unsupported and 高良 is as often タカラ.
+  泉朝樹:
+    reading_refuted: true
+    reviewed: '2026-08-10'
+    reading_note: >-
+      イズミ アサキ is an analyser's guess, and this surface gives it nothing to guess from: 泉朝樹 is
+      kanji throughout, so there is no change of script to put a boundary at, which is what justifies
+      the division on every other analyser reading in this store. It arrived with 見える子ちゃん on
+      2026-08-10 and `check.inv_a_division_cites_its_source` caught it the same day.
+
+      The reading is doubted as well as the division. 朝樹 is read ともき at least as often as あさき,
+      and a search returns いずみ ともき for this artist from community databases, which may name a
+      lead and may not supply a name (REQUIREMENTS §1). Nothing publisher-side or platform-side has
+      been read here, and NDL's API is closed to us, so what this records is that the stored value
+      is unsupported rather than that another one is right. Izumi Asaki would have reached a reader
+      as a real person's name on the strength of a tokeniser.
   # Pen-name readings from outside sources, not from an analyser.
   #
   # Furigana over a person's name has to rest on something. The analyser had 守姫武士 as

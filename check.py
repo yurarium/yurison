@@ -878,8 +878,8 @@ def inv_scope_rulings_are_accounted_for(ctx):
     itself. This reads the ruling file and the served files and asks nothing of the code that acted
     on either.
 
-    fallback: none. A ruling not reflected in what ships is a standing constraint broken, and the
-    remedy is a build rather than a fetch.
+    fallback: none. A ruling not reflected in what ships is a standing constraint broken, and a
+    build puts it right without anybody fetching anything.
     """
     rulings = ctx["scope_rulings"]
     reported = {r.get("work") for r in ctx["scope_reported"]}

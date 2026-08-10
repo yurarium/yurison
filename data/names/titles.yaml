@@ -1,4 +1,4 @@
-generated: '2026-08-09'
+generated: '2026-08-10'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -12644,7 +12644,8 @@ names:
     reading_basis: researched
     reading_corroborated:
     - series-art
-    reading_note: ''
+    reading_note: 鳥見んぐ writes トリミング on the surface, 鳥見 for トリミ with the okurigana んぐ carrying the rest,
+      so the reading is read off the title rather than inferred behind it. しあわせ is already kana.
     reading_pass: 4
     reading_reviewed: '2026-08-05'
     reading_source: series-art
@@ -30654,7 +30655,8 @@ names:
       value: ヒーローサン ト ガンニョ カンブサン
     reading_corroborated:
     - sevenseasentertainment.com
-    reading_note: ''
+    reading_note: 元女幹部 is 元, former, followed by 女幹部, a female executive, read モト オンナ カンブ. The analyser's
+      ガンニョ takes 元女 as a Sino-Japanese compound, which is not a word.
     reading_pass: 4
     reading_reviewed: '2026-08-05'
     reading_source: sevenseasentertainment.com
@@ -35747,7 +35749,8 @@ names:
     reading_basis: researched
     reading_corroborated:
     - series-art
-    reading_note: ''
+    reading_note: 限目 counts school periods and 七 before it is said ナナ rather than シチ, which is avoided
+      in counting because it is heard as イチ.
     reading_pass: 4
     reading_reviewed: '2026-08-05'
     reading_source: series-art
@@ -50924,11 +50927,9 @@ names:
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: The stored reading had 恋 as こい, love, the plain word; the platform's own page glosses it directly
-      as 恋(レン), the second girl's given name, which happens to be written with the kanji for love. Kept
-      romaji rather than translated, since "Shino and Ren" and "Shino and Love" are both real readings
-      the title is built to hold at once, and choosing either would drop the pun the deliberate ambiguity
-      is making.
+    note: Kept romaji rather than translated, since "Shino and Ren" and "Shino and Love" are both real
+      readings the title is built to hold at once, and choosing either would drop the pun the deliberate
+      ambiguity is making.
     reading: シノ ト レン
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -50936,6 +50937,8 @@ names:
     - basis: analyser
       source: sudachi
       value: シノ ト コイ
+    reading_note: The platform's own page glosses the title as 恋(レン), the second girl's given name written
+      with the kanji for love; the stored reading had こい, the plain word.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
@@ -55658,9 +55661,7 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: Adopted from the anime's English release rather than translated fresh, unlicensed manga marked
-      ours, the same shape as several titles this evening. The stored reading had 明日 as アス, asu, tomorrow;
-      the platform's own episode title spells it 明日（あけび）ちゃん directly, and the series feed gives her full
-      name as 明日小路, Akebi Komichi, both of which the reading now follows.
+      ours, the same shape as several titles this evening.
     reading: アケビ チャン ノ セーラーフク
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -55668,6 +55669,8 @@ names:
     - basis: analyser
       source: sudachi
       value: アスチャン ノ セーラーフク
+    reading_note: The stored reading had 明日 as アス, tomorrow; the platform's own episode title spells it
+      明日（あけび）ちゃん directly, and the series feed gives her full name as 明日小路, Akebi Komichi.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
@@ -58208,11 +58211,9 @@ names:
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: The platform's own synopsis glosses 梓月 directly as あづき, Azuki, correcting the stored analyser
-      reading of シゲツ, Shigetsu. 咲う carries う rather than く, the okurigana for 笑う, to smile, not 咲く, to
-      bloom, which classical diction sometimes writes with 咲; kept as "smiles" on that basis, though "blooms"
-      cannot be ruled out from the title alone. The synopsis is a curse-healer forced to break spells
-      for a haughty noble, ordered to break her own ruler's curse next and initially terrified of her.
+    note: Kept as "smiles" on that basis, though "blooms" cannot be ruled out from the title alone. The
+      synopsis is a curse-healer forced to break spells for a haughty noble, ordered to break her own
+      ruler's curse next and initially terrified of her.
     reading: アズキ ワ テン ニ サキウ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -58220,6 +58221,9 @@ names:
     - basis: analyser
       source: sudachi
       value: シゲツ ワ テン ニ サキ ウ
+    reading_note: The platform's own synopsis glosses 梓月 as あづき, Azuki, correcting the stored analyser
+      reading of シゲツ. 咲う carries う rather than く, the okurigana for 笑う, to smile, not 咲く, to bloom, which
+      classical diction sometimes writes with 咲.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
@@ -61470,7 +61474,8 @@ names:
       value: オウカミ ノ カワ オ カブッタ ヒツジヒメ
     reading_corroborated:
     - sevenseasentertainment.com
-    reading_note: ''
+    reading_note: '狼 is おおかみ. The conflicting オウカミ is a back-conversion artefact: a romanisation writes
+      the long vowel as ou, and turning that back into kana gives オウ where the word is spelled オオ.'
     reading_pass: 2
     reading_reviewed: '2026-08-05'
     reading_source: sevenseasentertainment.com
@@ -61598,11 +61603,9 @@ names:
     en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    note: '獄門撫子 is the protagonist''s name, from a clan of monster-eating exorcists out of Kyoto per the
+    note: 獄門撫子 is the protagonist's name, from a clan of monster-eating exorcists out of Kyoto per the
       platform synopsis (corocoro.jp/title/773); it stays as a name while 此処ニ在リ, a classical declarative
-      meaning "is here" or "stands here", translates as the set phrase it is. The stored reading had doubled
-      the final syllable: 在り already carries the ri sound in its kanji reading あり, so appending the okurigana
-      リ a second time produced Ariri rather than Ari.'
+      meaning "is here" or "stands here", translates as the set phrase it is.
     reading: ゴクモン ナデシコ ココ ニ アリ
     reading_at: '2026-08-03'
     reading_basis: researched
@@ -61610,6 +61613,8 @@ names:
     - basis: analyser
       source: sudachi
       value: ゴクモン ナデシコ ココ ニ アリリ
+    reading_note: 在り already carries the ri sound in its kanji reading あり, so appending the okurigana
+      リ a second time produced Ariri where the reading is Ari.
     reading_pass: 4
     reading_reviewed: '2026-08-03'
     reading_source: yurarium
@@ -62396,6 +62401,10 @@ names:
     - basis: analyser
       source: sudachi
       value: ユカ イトグチ リニューアル
+    reading_note: 由花緒 is a given name, and the stored reading had split it as two ordinary words, 由花,
+      Yuka, plus 緒 read いとぐち, a thread's end; 緒 at the end of a girl's name conventionally reads お, as
+      in 由紀緒 or 美緒, which makes 由花緒 read Yukao as one name. リニューアル is the English loanword renewal, already
+      in the source title.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
@@ -70489,10 +70498,8 @@ names:
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    note: 神崎聖 is described as a 完璧美少女, a perfect beautiful girl, and the stored analyser reading had 聖
-      as Kiyoshi, a reading that leans male; Sei is the far better-attested reading for a female character
-      of this name. -sama is kept rather than dropped, because the title is framing how she is deferred
-      to, matching the synopsis's own "perfect girl" premise.
+    note: -sama is kept rather than dropped, because the title is framing how she is deferred to, matching
+      the synopsis's own "perfect girl" premise.
     reading: セイサマ ノ オモウ ママ ニ
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -70500,6 +70507,9 @@ names:
     - basis: analyser
       source: sudachi
       value: キヨシサマ ノ オモウ ママ ニ
+    reading_note: 神崎聖 is described as a 完璧美少女, a perfect beautiful girl, and the stored analyser reading
+      had 聖 as Kiyoshi, a reading that leans male; Sei is the far better-attested reading for a female
+      character of this name.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
@@ -70839,6 +70849,7 @@ names:
     - basis: analyser
       source: sudachi
       value: フク ワル ウチラ ノ ヒミツゴト !
+    reading_note: 腹を割る is はらをわる, and the analyser had フク, which 腹 reads only inside a Sino-Japanese compound.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
     reading_source: derived
@@ -72580,10 +72591,7 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: 角野兎 is the protagonist's name, kept as a name; the synopsis has her summoned to save a world
-      called Rent Lily that runs on the feeling of "cute". The stored reading split 角/野兎, giving Kaku
-      Yato, "wild hare" read as a compound; 角野 is itself a documented Japanese surname (the actor 角野卓造
-      is Kakuno Takuzō), which is the far more natural segmentation, and 兎 alone reads usagi, its ordinary
-      kun'yomi.
+      called Rent Lily that runs on the feeling of "cute".
     reading: カクノ ウサギ ワ カワイイ ユメ オ ミ ツズケル
     reading_at: '2026-08-04'
     reading_basis: researched
@@ -72591,6 +72599,9 @@ names:
     - basis: analyser
       source: sudachi
       value: カク ヤト ワ カワイイ ユメ ヲ ミ ツヅケル ?
+    reading_note: The stored reading split 角/野兎, giving Kaku Yato, a wild hare read as a compound; 角野
+      is itself a documented Japanese surname, the actor 角野卓造 being Kakuno Takuzō, which is the far more
+      natural segmentation, and 兎 alone reads usagi, its ordinary kun'yomi.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
@@ -74838,10 +74849,8 @@ names:
     en_reviewed: '2026-08-03'
     en_source: yurarium
     en_source_kind: derived
-    note: '陰キャ is the slang antonym of 陽キャ, and both are read on the truncated on''yomi イン/ヨウ rather than
-      the kun''yomi of 陰/陽 alone; the stored reading had カゲ, the plain kun''yomi, which is not how this
-      common compound is said. ギャル stays as "gal", the same loanword English-language anime fandom already
-      uses for the fashion subculture, which is the joke: an introvert dressed as its opposite.'
+    note: 'ギャル stays as "gal", the same loanword English-language anime fandom already uses for the fashion
+      subculture, which is the joke: an introvert dressed as its opposite.'
     reading: インキャ ギャル デモ イキガリタイ
     reading_at: '2026-08-03'
     reading_basis: researched
@@ -74849,6 +74858,9 @@ names:
     - basis: analyser
       source: sudachi
       value: カゲ キャギャル デ モ イキガリタイ！
+    reading_note: 陰キャ is the slang antonym of 陽キャ, and both are read on the truncated on'yomi イン and ヨウ
+      rather than the kun'yomi of 陰 and 陽 alone; the stored reading had カゲ, the plain kun'yomi, which
+      is not how this common compound is said.
     reading_pass: 4
     reading_reviewed: '2026-08-03'
     reading_source: yurarium

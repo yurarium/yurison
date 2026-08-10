@@ -277,8 +277,15 @@ def problems(kind, ja, e):
         # Catching a hiragana yomi here says which line to fix instead of failing the whole build.
         if not KATAKANA.match(e["reading"]):
             out.append(f"{where}: a reading is stored as katakana; got {e['reading']!r}")
-        if rb == "researched" and not ((e.get("reading_note") or e.get("note") or "").strip()):
-            out.append(f"{where}: a researched reading needs a note saying what it rests on")
+        # THE READING'S OWN NOTE, and not the record's. Accepting `note` as a fallback made this
+        # report nothing while thirteen researched readings had no reasoning recorded: their notes
+        # argued for the ENGLISH name, several of them saying only which licensor page states the
+        # Japanese title, which is evidence about a translation and not about a reading. The store's
+        # own CHECK reads `reading_note` alone, refused eight of the rows, and was right. A record
+        # carries nine `reading_*` keys precisely so a claim about one predicate is not settled by
+        # an argument about another.
+        if rb == "researched" and not (e.get("reading_note") or "").strip():
+            out.append(f"{where}: a researched reading needs a reading_note saying what it rests on")
         # THE SAME DEBT THE `en` RULE ABOVE COLLECTS, and it went uncollected for readings. `stated`
         # asserts that a source printed the kana, so there is a page, and a reading published as
         # sourced with nothing behind it is the one thing NAMES-PLAN §1 says must never happen: a

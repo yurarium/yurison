@@ -36,3 +36,17 @@ notice if that enforcement went away.
 The `community-db` row records a decision made and reversed inside one day, 2026-08-09. That
 history is a comment, and a comment cannot warn anybody. A future round that re-argues the same
 point will find the argument written down only if it reads the file it is editing.
+
+## `analyser` is admitted without a ruling
+
+`READING_ATTRIBUTION` answers who may be believed to have stated a reading, and a morphological
+analyser states nothing, so it has no row there. The corpus holds 3,056 readings whose source kind
+is `analyser`, and the relational store will not record a claim whose basis it has never heard of,
+so the pair is admitted by `analyser_pair()`.
+
+That is the loader's old decision moved to where the vocabulary lives, and it is still not a ruling.
+What an analyser's output is worth beside a stated reading belongs to the project owner, the way
+`community-printed` was settled on 2026-08-09. Until then: `STATED_BASES` does not carry it, so
+nothing asks a reader to believe a source said it, and `renderings resting on a mechanical
+romanisation` counts the population. Overturning it is one line, and the budget that moves says how
+much it touched.

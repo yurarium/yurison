@@ -81,11 +81,12 @@ def load_rulings(db):
     # SOURCE_KIND IS EVERY KIND THAT EXISTS; basis_admits_kind is which PAIRS are allowed. Keeping
     # those separate is what lets `analyser` be a real kind that states nothing.
     #
-    # A GAP THE SCHEMA FOUND. 3,056 readings carry `reading_source_kind: analyser` and
-    # READING_ATTRIBUTION has no row for it, because that table answers who may STATE a reading and
-    # an analyser states nothing. The pair is admitted here against the `analyser` BASIS alone, so
-    # a claim cannot say an analyser stated anything. Recorded in facts/reading/BLINDSPOT.md.
-    kinds = {k for b in _rd.bases() for k in _rd.kinds_for(b)} | {"analyser"}
+    # A GAP THE SCHEMA FOUND, and the answer is `facts/reading`'s and not this loader's. 3,056
+    # readings carry `reading_source_kind: analyser` and READING_ATTRIBUTION has no row for it,
+    # because that table answers who may STATE a reading and an analyser states nothing. The pair
+    # was written here, which put a vocabulary decision in the code that reads the data; it is
+    # `_rd.analyser_pair()` now, beside the table it is an exception to.
+    kinds = {k for b in _rd.bases() for k in _rd.kinds_for(b)} | {_rd.analyser_pair()[1]}
     for k in sorted(kinds):
         db.execute("INSERT INTO source_kind (name) VALUES (?)", (k,))
     for b in _rd.bases():
@@ -93,7 +94,7 @@ def load_rulings(db):
             db.execute("INSERT OR IGNORE INTO basis_admits_kind (basis, source_kind) VALUES (?,?)",
                        (b, k))
     db.execute("INSERT OR IGNORE INTO basis_admits_kind (basis, source_kind) VALUES (?,?)",
-               ("analyser", "analyser"))
+               _rd.analyser_pair())
     return db
 
 
@@ -221,7 +222,8 @@ def build(path=None):
                 continue                      # a name the corpus holds no identified subject for
             put("INSERT INTO claim (subject_kind, subject, predicate, value, basis, source,"
                 " source_kind, retrieved, url, note) VALUES (?,?,?,?,?,?,?,?,?,?)",
-                (kind, sid, "reading", r["reading"], r.get("reading_basis") or "analyser",
+                (kind, sid, "reading", r["reading"],
+                 r.get("reading_basis") or _rd.DEFAULT_BASIS,
                  r.get("reading_source"), _kind_of(r), r.get("reading_at"),
                  r.get("reading_url"), r.get("reading_note")),
                 f"claim {kind} {sid}")

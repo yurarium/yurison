@@ -96,6 +96,19 @@ def main(s):
     s.check(not r.may_state("researched", "national-library"),
             "a researched reading is the reviewer's, which is why it owes a note and not a url")
 
+    # THE ANALYSER PAIR, which no attribution table admits and the store still has to hold. It was
+    # written inside the relational loader, so a vocabulary decision sat in the code that reads the
+    # data; the point of it living here is that a reader looking for the rule finds it beside the
+    # table it is an exception to.
+    s.eq(r.analyser_pair(), ("analyser", "analyser"),
+         "an analyser's reading is filed against itself and against no source")
+    s.check("analyser" not in r.bases(),
+            "and it is absent from the table that answers who may STATE a reading")
+    s.check("analyser" not in r.STATED_BASES,
+            "so nothing asks a reader to believe a source said it")
+    s.eq(r.DEFAULT_BASIS, "analyser",
+         "a record with no basis came from the pass that writes a reading without saying where")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

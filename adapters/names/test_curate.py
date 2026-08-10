@@ -255,10 +255,18 @@ def main(s):
     # reasoning behind it is a guess wearing a better label.
     R2 = {"reading": "タマヨミ", "reading_basis": "researched", "source": "pixiv dictionary",
           "source_kind": "community-db", "reviewed": "2026-08-03",
-          "note": "readers write the title たまよみ, and 詠 takes よみ in the lead's name 詠深"}
+          "reading_note": "readers write the title たまよみ, and 詠 takes よみ in the lead's name 詠深"}
     s.eq(curate.problems("titles", "球詠", R2), [], "a researched reading with its reasoning")
-    s.check(curate.problems("titles", "球詠", {k: v for k, v in R2.items() if k != "note"}),
+    s.check(curate.problems("titles", "球詠", {k: v for k, v in R2.items() if k != "reading_note"}),
             "and the same reading with none is refused")
+    # THE READING'S OWN NOTE, AND NOT THE RECORD'S. This accepted `note` as a fallback and so
+    # reported nothing while thirteen researched readings had no reasoning: their notes argued for
+    # the ENGLISH name, several saying only which licensor page states the Japanese title, which is
+    # evidence about a translation. The store's CHECK reads `reading_note` alone and refused eight.
+    s.check(curate.problems("titles", "球詠", dict(
+        {k: v for k, v in R2.items() if k != "reading_note"},
+        note="The licensor's own catalogue entry. An English reader meets the work under this name.")),
+        "a note about the English name is not the reading's reasoning")
     s.check(not curate.problems("titles", "球詠", dict(R2, source_kind="derived")),
             "a reviewer's own reasoning is a source it may rest on")
     s.check(curate.problems("titles", "球詠", dict(R2, source_kind="licensor")),

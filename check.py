@@ -533,6 +533,31 @@ def inv_a_fact_is_reached_through_its_entry_point(ctx):
     return [f"{path}:{line} reaches facts.{fact}.{sub}" for path, line, fact, sub in got]
 
 
+def inv_the_store_has_one_writer(ctx):
+    """Nothing writes to the relational store except the module that compiles it.
+
+    THE PROPERTY THAT KEEPS IT DERIVED. Everything in the store is rebuilt from `data/build` plus
+    the rulings the facts hold, so deleting the database costs one rebuild. That is the whole reason
+    it may be load-bearing, and it lasts exactly as long as one module is the only writer. A pass
+    reaching in to fix one row makes the database a source of truth nobody declared, and the next
+    rebuild throws that row away without saying so.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: nothing but the path. It reads source and asks which
+    files pass a changing statement to a cursor; it does not ask the store what it thinks. Its blind
+    spot is SQL assembled at runtime, stated in adapters/lint/onewriter.py, which is why the rule is
+    also written in the store's own docstring.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters" / "lint"))
+        import onewriter as _ow
+        import importlib
+        importlib.reload(_ow)
+        got = _ow.findings()
+    except Exception:                                                   # noqa: BLE001
+        return []
+    return [f"{path}:{line}: {what}" for path, line, what in got]
+
+
 def inv_a_name_is_answered_by_one_module(ctx):
     """No importable name resolves to two files that are on sys.path together.
 
@@ -2007,6 +2032,7 @@ INVARIANTS = [
     ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both),
     ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
     ("a name is answered by one module", inv_a_name_is_answered_by_one_module),
+    ("the store has one writer", inv_the_store_has_one_writer),
     ("the tracker states what it claims", inv_the_tracker_states_what_it_claims),
     ("the interface is the derivation of its source",
      inv_the_interface_is_the_derivation_of_its_source),

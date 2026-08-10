@@ -112,6 +112,36 @@ READING_ATTRIBUTION = {
 }
 
 
+# WHAT AN ANALYSER IS, WHICH IS NOT AN ATTRIBUTION. `analyser` is the commonest source kind in the
+# corpus, 3,056 readings, and `READING_ATTRIBUTION` above has no row for it because that table
+# answers who may be believed to have STATED a reading and a morphological analyser states nothing.
+# It segments a string and offers a reading for every name it is handed, declining none.
+#
+# THE PAIR HAS TO EXIST SOMEWHERE, because a claim references a basis and a source kind and the
+# store will not hold a row whose basis it has never heard of. It was written in the loader, where a
+# comment recorded the reasoning and the vocabulary decision sat in the code that reads the data
+# rather than in the fact that owns the vocabulary. It is here now, which is the same decision in
+# the place a reader looks for it.
+#
+# THIS IS THE LOADER'S DECISION MADE VISIBLE AND NOT A RULING. What an analyser's output is worth
+# beside a stated reading is the owner's to settle, the way `community-printed` was settled on
+# 2026-08-09. Until then the position is the conservative one: the pair is admitted so the claim can
+# be recorded and queried, `STATED_BASES` does not carry it, so nothing asks a reader to believe a
+# source said it, and `renderings resting on a mechanical romanisation` is where the population is
+# counted. Overturning it is one line here and the budget that moves says how much it touched.
+ANALYSER = "analyser"
+
+#: The basis a reading takes when a record carries none. A record with no stated basis was produced
+#: by the analyser pass, which is the only thing in the pipeline that writes a reading without
+#: saying where it came from.
+DEFAULT_BASIS = ANALYSER
+
+
+def analyser_pair():
+    """`(basis, source_kind)` for a reading a machine segmented, which no attribution table admits."""
+    return (ANALYSER, ANALYSER)
+
+
 # WHICH BASES MEAN A SOURCE STATED THE READING, and it is one. Held here rather than in `check.py`
 # because the table above is what decides it and a check that keeps its own copy has already
 # drifted from this one once: it admitted `community-db` for a researched reading and the copy did

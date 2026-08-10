@@ -974,6 +974,8 @@ titles:
     reading_basis: researched
     reading_source_kind: derived
     reading_note: >-
+      限目 counts school periods and 七 before it is said ナナ rather than シチ, which is avoided in
+      counting because it is heard as イチ.
   世界一可愛い私の幼馴染が隠れてVTuberをしているらしい:
     en: Apparently My Childhood Friend, the Cutest in the World, Is Secretly a VTuber
     basis: translated
@@ -1128,6 +1130,8 @@ titles:
     reading_basis: researched
     reading_source_kind: derived
     reading_note: >-
+      狼 is おおかみ. The conflicting オウカミ is a back-conversion artefact: a romanisation writes the
+      long vowel as ou, and turning that back into kana gives オウ where the word is spelled オオ.
   # --- the rest of the latest tab ------------------------------------------------------------
 
   '#ギャルとギャルの百合':
@@ -1231,6 +1235,8 @@ titles:
     reading_basis: researched
     reading_source_kind: derived
     reading_note: >-
+      鳥見んぐ writes トリミング on the surface, 鳥見 for トリミ with the okurigana んぐ carrying the rest, so the
+      reading is read off the title rather than inferred behind it. しあわせ is already kana.
   ぜんぶ壊して地獄で愛して:
     basis: translated
     en: Break It All, Love Me in Hell
@@ -2018,13 +2024,14 @@ titles:
     reading: ゴクモン ナデシコ ココ ニ アリ
     reading_basis: researched
     reading_source_kind: derived
+    reading_note: >-
+      在り already carries the ri sound in its kanji reading あり, so appending the okurigana リ a
+      second time produced Ariri where the reading is Ari.
     reviewed: '2026-08-03'
     note: >-
-      獄門撫子 is the protagonist's name, from a clan of monster-eating exorcists out of Kyoto per
-      the platform synopsis (corocoro.jp/title/773); it stays as a name while 此処ニ在リ, a classical
-      declarative meaning "is here" or "stands here", translates as the set phrase it is. The stored
-      reading had doubled the final syllable: 在り already carries the ri sound in its kanji reading
-      あり, so appending the okurigana リ a second time produced Ariri rather than Ari.
+      獄門撫子 is the protagonist's name, from a clan of monster-eating exorcists out of Kyoto per the
+      platform synopsis (corocoro.jp/title/773); it stays as a name while 此処ニ在リ, a classical
+      declarative meaning "is here" or "stands here", translates as the set phrase it is.
 
   阿佐ヶ谷サキュバス同人物語:
     en: The Asagaya Succubus Doujin Story
@@ -2404,13 +2411,14 @@ titles:
     reading: インキャ ギャル デモ イキガリタイ
     reading_basis: researched
     reading_source_kind: derived
+    reading_note: >-
+      陰キャ is the slang antonym of 陽キャ, and both are read on the truncated on'yomi イン and ヨウ rather
+      than the kun'yomi of 陰 and 陽 alone; the stored reading had カゲ, the plain kun'yomi, which is
+      not how this common compound is said.
     reviewed: '2026-08-03'
     note: >-
-      陰キャ is the slang antonym of 陽キャ, and both are read on the truncated on'yomi イン/ヨウ rather
-      than the kun'yomi of 陰/陽 alone; the stored reading had カゲ, the plain kun'yomi, which is not
-      how this common compound is said. ギャル stays as "gal", the same loanword English-language
-      anime fandom already uses for the fashion subculture, which is the joke: an introvert dressed
-      as its opposite.
+      ギャル stays as "gal", the same loanword English-language anime fandom already uses for the
+      fashion subculture, which is the joke: an introvert dressed as its opposite.
 
   限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした:
     en: The Only One Who Could Save the Office Worker at Her Limit Was a Stalker Girl with Massive
@@ -2707,13 +2715,14 @@ titles:
     reading: カクノ ウサギ ワ カワイイ ユメ オ ミ ツズケル
     reading_basis: researched
     reading_source_kind: derived
+    reading_note: >-
+      The stored reading split 角/野兎, giving Kaku Yato, a wild hare read as a compound; 角野 is
+      itself a documented Japanese surname, the actor 角野卓造 being Kakuno Takuzō, which is the far
+      more natural segmentation, and 兎 alone reads usagi, its ordinary kun'yomi.
     reviewed: '2026-08-04'
     note: >-
       角野兎 is the protagonist's name, kept as a name; the synopsis has her summoned to save a world
-      called Rent Lily that runs on the feeling of "cute". The stored reading split 角/野兎, giving
-      Kaku Yato, "wild hare" read as a compound; 角野 is itself a documented Japanese surname (the
-      actor 角野卓造 is Kakuno Takuzō), which is the far more natural segmentation, and 兎 alone reads
-      usagi, its ordinary kun'yomi.
+      called Rent Lily that runs on the feeling of "cute".
 
   親友に好きな人ができたらしい:
     en: It Seems My Best Friend Has Fallen for Someone
@@ -2906,12 +2915,14 @@ titles:
     reading: セイサマ ノ オモウ ママ ニ
     reading_basis: researched
     reading_source_kind: derived
+    reading_note: >-
+      神崎聖 is described as a 完璧美少女, a perfect beautiful girl, and the stored analyser reading had 聖
+      as Kiyoshi, a reading that leans male; Sei is the far better-attested reading for a female
+      character of this name.
     reviewed: '2026-08-04'
     note: >-
-      神崎聖 is described as a 完璧美少女, a perfect beautiful girl, and the stored analyser reading
-      had 聖 as Kiyoshi, a reading that leans male; Sei is the far better-attested reading for a
-      female character of this name. -sama is kept rather than dropped, because the title is framing
-      how she is deferred to, matching the synopsis's own "perfect girl" premise.
+      -sama is kept rather than dropped, because the title is framing how she is deferred to,
+      matching the synopsis's own "perfect girl" premise.
 
   羨望と白百合の君へ。:
     en: 'To You, Envy and White Lilies'
@@ -3751,12 +3762,12 @@ titles:
     reading: ユカオ リニューアル
     reading_basis: researched
     reading_source_kind: derived
+    reading_note: >-
+      由花緒 is a given name, and the stored reading had split it as two ordinary words, 由花, Yuka,
+      plus 緒 read いとぐち, a thread's end; 緒 at the end of a girl's name conventionally reads お, as
+      in 由紀緒 or 美緒, which makes 由花緒 read Yukao as one name. リニューアル is the English loanword
+      renewal, already in the source title.
     reviewed: '2026-08-04'
-    note: >-
-      由花緒 is a given name, and the stored reading had split it as two ordinary words, 由花
-      (Yuka) plus 緒 read いとぐち, "a thread's end"; 緒 at the end of a girl's name conventionally
-      reads お, as in 由紀緒 or 美緒, which makes 由花緒 read Yukao as one name rather than a
-      compound. リニューアル is the English loanword renewal, already in the source title.
 
   田所さん:
     en: Tadokoro
@@ -4372,14 +4383,15 @@ titles:
     reading: アズキ ワ テン ニ サキウ
     reading_basis: researched
     reading_source_kind: derived
+    reading_note: >-
+      The platform's own synopsis glosses 梓月 as あづき, Azuki, correcting the stored analyser reading
+      of シゲツ. 咲う carries う rather than く, the okurigana for 笑う, to smile, not 咲く, to bloom, which
+      classical diction sometimes writes with 咲.
     reviewed: '2026-08-04'
     note: >-
-      The platform's own synopsis glosses 梓月 directly as あづき, Azuki, correcting the stored
-      analyser reading of シゲツ, Shigetsu. 咲う carries う rather than く, the okurigana for 笑う, to
-      smile, not 咲く, to bloom, which classical diction sometimes writes with 咲; kept as "smiles"
-      on that basis, though "blooms" cannot be ruled out from the title alone. The synopsis is a
-      curse-healer forced to break spells for a haughty noble, ordered to break her own ruler's curse
-      next and initially terrified of her.
+      Kept as "smiles" on that basis, though "blooms" cannot be ruled out from the title alone.
+      The synopsis is a curse-healer forced to break spells for a haughty noble, ordered to break
+      her own ruler's curse next and initially terrified of her.
 
   来航怪異の音がする ～横濱外来妖対策局～:
     en: 'The Sound of an Arriving Apparition: The Yokohama Foreign Apparition Countermeasures Bureau'
@@ -4664,9 +4676,13 @@ titles:
     reading: アケビ チャン ノ セーラーフク
     reading_basis: researched
     reading_source_kind: derived
+    reading_note: >-
+      The stored reading had 明日 as アス, tomorrow; the platform's own episode title spells it
+      明日（あけび）ちゃん directly, and the series feed gives her full name as 明日小路, Akebi Komichi.
     reviewed: '2026-08-04'
     note: >-
-      Adopted from the anime's English release rather than translated fresh, unlicensed manga marked ours, the same shape as several titles this evening. The stored reading had 明日 as アス, asu, tomorrow; the platform's own episode title spells it 明日（あけび）ちゃん directly, and the series feed gives her full name as 明日小路, Akebi Komichi, both of which the reading now follows.
+      Adopted from the anime's English release rather than translated fresh, unlicensed manga
+      marked ours, the same shape as several titles this evening.
 
   日陰のふたり:
     en: Two in the Shade
@@ -5125,9 +5141,14 @@ titles:
     reading: シノ ト レン
     reading_basis: researched
     reading_source_kind: derived
+    reading_note: >-
+      The platform's own page glosses the title as 恋(レン), the second girl's given name written
+      with the kanji for love; the stored reading had こい, the plain word.
     reviewed: '2026-08-04'
     note: >-
-      The stored reading had 恋 as こい, love, the plain word; the platform's own page glosses it directly as 恋(レン), the second girl's given name, which happens to be written with the kanji for love. Kept romaji rather than translated, since "Shino and Ren" and "Shino and Love" are both real readings the title is built to hold at once, and choosing either would drop the pun the deliberate ambiguity is making.
+      Kept romaji rather than translated, since "Shino and Ren" and "Shino and Love" are both real
+      readings the title is built to hold at once, and choosing either would drop the pun the
+      deliberate ambiguity is making.
 
   心に依りて:
     en: Relying on the Heart
@@ -7077,6 +7098,8 @@ titles:
     reading_basis: researched
     reading_source_kind: derived
     reading_note: >-
+      元女幹部 is 元, former, followed by 女幹部, a female executive, read モト オンナ カンブ. The analyser's ガンニョ
+      takes 元女 as a Sino-Japanese compound, which is not a word.
   ヒロイン.:
     en: Heroine.
     basis: translated
@@ -9781,11 +9804,11 @@ titles:
     reading: "ハラ ワル ウチラ ノ ヒミツゴト !"
     reading_basis: researched
     reading_source_kind: derived
+    reading_note: >-
+      腹を割る is はらをわる, and the analyser had フク, which 腹 reads only inside a Sino-Japanese compound.
     source: derived
     source_kind: derived
     reviewed: '2026-08-04'
-    note: >-
-      腹を割る is はらをわる; ふく is 腹 only in Sino-Japanese compounds.
 
   # --- newly captured from comicブースト -------------------------------------------------------
   #

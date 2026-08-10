@@ -333,6 +333,55 @@ def from_surface(name, reading):
     return respace(ours, tuple(at)) if len(pieces) == len(parts) else None
 
 
+#: WHAT THE ANALYSER HAS TO SAY BEFORE ITS BOUNDARY IS A NAME BOUNDARY. Sudachi tags a morpheme
+#: with its part of speech, and `固有名詞` with `人名` and then `姓` or `名` is it saying THIS IS A
+#: SURNAME and THIS IS A GIVEN NAME. Anything less is a morpheme boundary, which is a different
+#: thing and is why the naive version of this was wrong.
+_SURNAME = ("名詞", "固有名詞", "人名", "姓")
+_GIVEN = ("名詞", "固有名詞", "人名", "名")
+
+
+def from_analyser(reading, morphemes):
+    """`reading` divided where the analyser says a surname ends, or None.
+
+    THE OWNER RAISED `上田香子` RENDERING `Uedakyōko`, 2026-08-09, and the write-up offered two
+    routes. This is neither of them as written, and the data is why.
+
+    THE REJECTED ROUTE was spacing by the surface's own kanji boundary, called arithmetic that
+    states nothing new. It is not: with no space in the surface, mapping 上田|香子 onto the reading
+    means proposing where a KANJI RUN ends, which NAMES-PLAN records two rejected attempts at, and
+    which `from_surface` above is built to avoid. 九羊ボン filed クラムボン is the counter-case.
+
+    THE OTHER ROUTE was teaching the store to hold a partly known reading. That turned out not to be
+    new capability at all: the analyser ALREADY returns the segmentation and the pass discarded it.
+    Sudachi tokenises 上田香子 as 上田/ウエダ and 香子/キョウコ at the moment the reading is produced.
+
+    AND A MORPHEME BOUNDARY IS NOT A NAME BOUNDARY, which is what measuring said before any of this
+    was written. Taking every two-morpheme split gave クロ バ for くろば, ルイ ス for るいす and オ
+    ヒサシブリ for お久しぶり: 118 divisions of which most invent a person. Asking the analyser what
+    it thinks the halves ARE leaves 40, and every one of them is a surname and a given name.
+
+    IT CHECKS ITSELF, like `from_surface`: the morphemes' own readings must concatenate to exactly
+    the stored reading, or the two strings are not each other's and nothing is carried.
+
+    THE CLAIM STAYS WHAT IT WAS. The basis stays `analyser`, which cites no source and is marked
+    wherever it reaches a reader. What changes is the string a reader sees, which is the same shape
+    as the owner's Wikidata ruling: raise the floor on the romanisation, do not overcome the
+    fallback basis.
+    """
+    ours = flat(reading)
+    parts = list(morphemes or ())
+    if len(parts) != 2 or not ours:
+        return None
+    (_s1, r1, pos1), (_s2, r2, pos2) = parts
+    if tuple(pos1[:4]) != _SURNAME or tuple(pos2[:4]) != _GIVEN:
+        return None
+    first, second = kata(r1), kata(r2)
+    if not first or not second or first + second != ours:
+        return None
+    return f"{first} {second}"
+
+
 def wants_boundary(name, record):
     """Whether a KANA name's own kana can take a division from a donor that supplies no kana.
 

@@ -327,7 +327,15 @@ stages:
           Untracked, and the covered set now excludes compiled files, which the self-test asserts against the real set rather than a fixture: untracking two files is not a rule.
       - id: E3
         title: The glued-romanisation shape, Uedakyōko
-        state: todo
+        state: done
+        note: >-
+          上田香子 renders `Ueda Kyōko`. `author names romanised as one word` 1,191 to 1,153.
+          THE WRITE-UP OFFERED TWO ROUTES AND THE ANSWER IS NEITHER AS WRITTEN.
+          Route 2, spacing by the surface's own kanji boundary, was called arithmetic that states nothing new. It is not: with no space in the surface, mapping 上田|香子 onto the reading means proposing where a KANJI RUN ends, which NAMES-PLAN records two rejected attempts at and which boundary.from_surface is built to avoid. 九羊ボン filed クラムボン is the counter-case the write-up itself names.
+          Route 1, teaching the store to hold a partly known reading, turned out not to be new capability: sudachi ALREADY tokenises 上田香子 as 上田/ウエダ and 香子/キョウコ at the moment the reading is produced, and the pass discarded it.
+          AND A MORPHEME BOUNDARY IS NOT A NAME BOUNDARY, which measuring said before anything was written. Every two-morpheme split gives クロ バ for くろば, ルイ ス for るいす, オ ヒサシブリ for お久しぶり: 118 divisions, most inventing a person. Asking the analyser what it thinks the halves ARE, 固有名詞 人名 姓 then 名, leaves 39, and every one is a surname beside a given name.
+          A THIRD DIRECTION CONFIRMED IT: the furigana spans on those records already read 上田/うえだ and 香子/きょうこ. The tree already knew where the surname ends and only the reading string threw it away.
+          The claim stays what it was: reading_boundary_basis analyser, which cites nobody and is marked wherever it reaches a reader. The string improves and nothing behind it moves, which is the owner's Wikidata ruling of the same week in another place.
       - id: E4
         title: Kana spelling a name from another language, Sutefan Sejiku
         state: todo

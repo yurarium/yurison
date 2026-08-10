@@ -218,6 +218,46 @@ def marked_donors(s):
     s.check("reading_boundary_basis" not in store["ヤブウチユウ"],
             "so the record stops claiming a doubt that is no longer there")
 
+    # ── the analyser's own boundary, where it says the halves are a surname and a given name ────
+    #
+    # THE OWNER RAISED `上田香子` RENDERING `Uedakyōko` on 2026-08-09. The write-up proposed spacing
+    # by the surface's kanji boundary, and that is the thing NAMES-PLAN rejected twice: with no
+    # space in the surface it means proposing where a KANJI RUN ends. What the analyser returns is
+    # a segmentation it already made, and the pass was throwing it away.
+    SURNAME = ("名詞", "固有名詞", "人名", "姓")
+    GIVEN = ("名詞", "固有名詞", "人名", "名")
+    s.eq(b.from_analyser("ウエダキョウコ",
+                         [("上田", "ウエダ", SURNAME), ("香子", "キョウコ", GIVEN)]),
+         "ウエダ キョウコ", "a surname and a given name divide")
+
+    # AND A MORPHEME BOUNDARY IS NOT A NAME BOUNDARY, which is the whole narrowing. Every one of
+    # these is a real record the naive version divided: 118 splits of which most invent a person.
+    s.eq(b.from_analyser("クロバ", [("くろ", "クロ", ("名詞", "普通名詞", "一般", "*")),
+                                   ("ば", "バ", ("名詞", "普通名詞", "*", "*"))]),
+         None, "くろば is one pen name and stays one")
+    s.eq(b.from_analyser("ルイス", [("るい", "ルイ", ("名詞", "普通名詞", "一般", "*")),
+                                   ("す", "ス", ("名詞", "普通名詞", "*", "*"))]),
+         None, "and so does るいす")
+    s.eq(b.from_analyser("ユリサン", [("ゆり", "ユリ", ("名詞", "固有名詞", "人名", "名")),
+                                     ("山", "サン", ("名詞", "普通名詞", "一般", "*"))]),
+         None, "a given name beside an ordinary noun is not a pair")
+    s.eq(b.from_analyser("サトウメメコ",
+                         [("さとう", "サトウ", SURNAME), ("メメ", "メメ", GIVEN),
+                          ("子", "コ", GIVEN)]),
+         None, "three morphemes are not a pair either")
+
+    # IT CHECKS ITSELF. The morphemes' readings must concatenate to exactly the stored reading, or
+    # the two strings are not each other's.
+    s.eq(b.from_analyser("ウエダキョウコ",
+                         [("上田", "ウエダ", SURNAME), ("香子", "カオルコ", GIVEN)]),
+         None, "a reading the morphemes do not add up to carries nothing")
+
+    # THE BASIS DOES NOT IMPROVE, which is the owner's Wikidata ruling in another place: the string
+    # a reader sees gets better and the claim behind it does not.
+    from facts import division as _d
+    s.eq(_d.cites_its_source("analyser"), False, "an analyser cites nobody")
+    s.eq(_d.is_marked("analyser"), True, "so a division it supplies stays marked")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

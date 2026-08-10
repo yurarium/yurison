@@ -211,6 +211,32 @@ def main(s):
     s.check("channel" not in (today or {}),
             "specifically the channel, which is the field that went")
 
+    a_recheck_that_compared_nothing(s)
+
+
+def a_recheck_that_compared_nothing(s):
+    """A recheck with no cache to read makes no assertion, and has to say so in its exit code.
+
+    THE RUN THAT SHOWED IT. CI on 2026-08-10 had a cold cache, so all 11 fixtures reported no copy
+    to compare against and the summary read "0 the parser now reads differently". Zero findings and
+    zero comparisons print the same way, and the step is `continue-on-error`, so it passed silently
+    while asserting nothing about any parser.
+    """
+    import os
+    import subprocess
+    import tempfile
+
+    root = pathlib.Path(__file__).resolve().parents[1]
+    with tempfile.TemporaryDirectory() as empty:
+        env = {**os.environ, "YURI_CACHE": empty}
+        r = subprocess.run([sys.executable, str(root / "adapters" / "fixtures.py"), "recheck"],
+                           capture_output=True, text=True, cwd=str(root), env=env, timeout=120)
+        s.eq(r.returncode, 2, "a recheck that could compare nothing exits non-zero")
+        s.check("NOTHING WAS COMPARED" in r.stdout,
+                "and says so, because the count of findings above it reads the same either way")
+        s.check("with no copy to compare against" in r.stdout,
+                "beside the count of how many it could not read")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "fixtures"))

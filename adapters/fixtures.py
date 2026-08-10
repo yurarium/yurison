@@ -572,6 +572,17 @@ def cmd_recheck(a):
             print(f"             {line}")
     print(f"\n{len(names())} fixture(s): {gone} whose blocks are gone, {thinner} the parser now "
           f"reads differently, {unseen} with no copy to compare against")
+    # A RECHECK THAT COMPARED NOTHING IS NOT A CLEAN RECHECK. On 2026-08-10 CI ran this with a cold
+    # cache and every one of the 11 fixtures had no copy to read, so the line above said "0 the
+    # parser now reads differently" and the whole point of the step had not happened. That zero is
+    # indistinguishable from a clean bill, which is the thing `check.UNMEASURED` exists to stop
+    # elsewhere in this project. It says so here instead, and says it in the exit code, because the
+    # workflow step runs `continue-on-error` and a red step is how it reaches a person.
+    if unseen and unseen == len(names()):
+        print("  NOTHING WAS COMPARED. Every fixture names a cache entry this run does not hold, so "
+              "this step made no assertion about any parser. Pass --fetch to read the pages, or run "
+              "it where the caches are warm.")
+        return 2
     return 1 if ((gone or thinner) and a.strict) else 0
 
 

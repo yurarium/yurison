@@ -3442,7 +3442,8 @@ def main():
                 releases.append({
                     "late_discovered": u < wcut,
                     "discovered_on": str(d.get("retrieved", "")) if u < wcut else None,
-                    "id": f"{pid}:{c.get('url') or c.get('title')}", "work": w.get("work_title"),
+                    "id": f"{pid}:{c.get('url') or c.get('title')}",
+                    "work": work_alias(w.get("work_title")),
                     # The platform's own count decides this: a series with one episode is a
                     # one-shot. Confirmation established it and the loop was discarding it.
                     # Subtitle included, as it already is for the gigaviewer sources. pixivコミック

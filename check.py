@@ -2237,6 +2237,42 @@ def inv_no_record_comes_from_a_host_that_is_not_a_source(ctx):
     return bad
 
 
+def budget_works_named_by_a_truncation(ctx):
+    """Shipped rows naming a work under a title a listing cut short.
+
+    A LISTING SHOWS WHAT FITS. 公爵令嬢の籠絡ミッション and 病弱少女、転生して健康な肉体(最強)を手に入れる
+    both have titles longer than the cell they were read from, and the page ended each with three
+    full stops. Both entered the corpus as works of their own and both reached the updates feed,
+    where a reader met a title with its ending sheared off. `data/work-aliases.yaml` had already
+    recorded what each one really is; the release writer for that route was one of the several that
+    read `work_title` straight off the record without asking.
+
+    ASCII DOTS AND NOT `…`, which is the distinction that makes this checkable. A Japanese title
+    trailing off uses the ellipsis character: 乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… is
+    a real title and so is Valentine with…, and 56 strings in the sources end that way. Three
+    ASCII full stops at the end of a Japanese title is a machine running out of room.
+
+    §14b, WHAT IT REUSES: nothing. It reads the shipped rows and matches characters. The alias
+    table is what FIXES this, and a check that read the same table would agree with it about every
+    title in it and stay silent about the one nobody has added yet, which is the case that matters.
+
+    THE ARCHIVE HOLDS THE FLOOR ABOVE ZERO. The context reads the archived monthly feeds along
+    with the current one, and `archives are unchanged` forbids rewriting them: the two rows
+    published under a truncated title in 2026-07 record what was shipped and stay that way. A floor
+    of zero would fail every run for a month over something no edit may touch.
+    The count falls as the archive ages out, and a rise says the writers have gone back to reading
+    `work_title` off a record without asking the alias table.
+    """
+    bad = set()
+    for r in (ctx["series"] or []):
+        if str(r.get("work") or "").endswith("..."):
+            bad.add(str(r.get("work")))
+    for r in (ctx["releases"] or []):
+        if str(r.get("work") or "").endswith("..."):
+            bad.add(str(r.get("work")))
+    return len(bad)
+
+
 def inv_no_source_a_reader_sees_is_an_adapter(ctx):
     """No name in a reader-facing source column is the name of a pass that fetched it.
 
@@ -4474,6 +4510,12 @@ BUDGETS_DEF = [
      "English renderings holding a full-width character and no kana or kanji, which is what "
      "narrowing the invariant to a script let past. Mostly a Latin pen name catalogued in full "
      "width; some are official titles and are correct, so this will not reach zero."),
+    ("works named by a truncation", budget_works_named_by_a_truncation,
+     "distinct work titles in the shipped rows that end in three ASCII full stops, which is a "
+     "listing running out of room rather than a title trailing off: a Japanese title that trails "
+     "off uses …. Falls as the archived feeds holding them age out; a rise means a release writer "
+     "has gone back to reading `work_title` off a record without resolving it against "
+     "data/work-aliases.yaml."),
     ("interface tooltips a reader of Japanese cannot read",
      budget_interface_tooltips_a_reader_of_japanese_cannot_read,
      "title attributes in kari/app.js whose text is an English literal rather than a string built "

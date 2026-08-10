@@ -261,6 +261,13 @@ SELF_STANDING = "〇"
 CATEGORY_WORD = "\u30ad\u30b4\u30a6"
 
 
+#: Marks that take no space in front of them, in both the widths a title reaches this in. A title
+#: is stored full-width and `chapter_en` folds it, so both forms occur and only one was listed.
+CLOSES = "、。，．！？」』）】〉》・…" + ",.!?;:)]}\u2019\u201d"
+#: Marks that take no space after them, same rule.
+OPENS = "「『（【〈《" + "([{\u2018\u201c"
+
+
 def _stands_for_itself(c):
     return unicodedata.category(c)[0] in "PZS" or c.isascii() or c in SELF_STANDING
 
@@ -348,7 +355,17 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
         # kana reading and sailed past a check for empty or unreadable output: 森島 明子 became
         # "Morishima Kigō Akiko" and 100日後に×××する女社長 grew three of them. Punctuation, symbols
         # and separators pass through as themselves whatever the analyser says about them.
-        if surf and all(_stands_for_itself(c) for c in surf):
+        # A MORPHEME WITH NO SURFACE HAS NOTHING TO READ. Sudachi splits `…` into three morphemes:
+        # the first carries the character and a reading of `．`, and the next two carry an EMPTY
+        # surface and a `．` each, which is the analyser spelling out the three dots of the one
+        # character it was given. The surface-first rule below is written `if surf and …`, so the
+        # two empty ones fell past it to the reading branch and each contributed a full-width dot:
+        # `そして…` was read `ソシテ…．．` and romanised `Soshite.....`. 16 phrases shipped with a
+        # trailing `.....` or ` . . .` where the title has an ellipsis. There is no text at a
+        # zero-width span, so there is nothing for it to contribute.
+        if not surf:
+            continue
+        if all(_stands_for_itself(c) for c in surf):
             out.append(surf)
             continue
         # LATIN IS READ AS ITSELF, and Sudachi lowercases it. `ＪＫすぷらっしゅ！` came back with a
@@ -410,11 +427,23 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
             fell_back = True
             out.append("\x01" + sub)
             continue
-        out.append(("\x00" if (glue or surf == "\u30fc") else "")
+        # A LONE SOKUON BELONGS TO THE WORD IN FRONT OF IT, the way a lone ー does. Sudachi hands
+        # back the っ of あやの浮気者っ! as a morpheme of its own, so the reading was `ウワキモノ ッ!`
+        # and the romaniser dropped the ッ, having no consonant to double, and left the space it had
+        # been given behind: `Aya no Uwakimono !`. 14 phrases end that way. It is a mark on a
+        # pronunciation and never a word.
+        out.append(("\x00" if (glue or surf in ("\u30fc", "\u3063", "\u30c3")) else "")
                    + (_sound or READING_OVERRIDE.get(surf) or kata(r))
                    + ("\x02" if surf in PREFIX_GLUE else ""))
     # No space before closing punctuation, and none after an opening one — " , " is not spacing,
     # it is damage.
+    #
+    # THE ASCII FORMS TOO, AND THEY WERE THE ONES THAT MATTERED. The sets below were written with
+    # the full-width marks alone, and `chapter_en` NFKC-folds its input before it gets here, so by
+    # the time a chapter subtitle reached this loop every ！ was a `!` and matched nothing: 526 of
+    # 9,018 phrases shipped with a space in front of a closing mark. `我慢しなくて…いいですか!?` came
+    # out `Gaman Shinakute ... Iidesu Ka ! ?` and `シャネルが勝ったら…` came out `Kattara . . .`,
+    # because NFKC had already turned the ellipsis into three separate full stops.
     got = ""
     for tokn in out:
         if not tokn:
@@ -423,7 +452,7 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
         tokn = tokn.lstrip("\x00").lstrip("\x01").rstrip("\x02")
         if not tokn:
             continue
-        if got and not glue and not (tokn[0] in "、。，．！？」』）】〉》・…" or got[-1] in "「『（【〈《"):
+        if got and not glue and not (tokn[0] in CLOSES or got[-1] in OPENS):
             got += " "
         got += tokn
     got = got.strip()
@@ -1200,6 +1229,13 @@ def latinise(text):
     return re.sub(r"\s{2,}", " ", out).strip()
 
 
+def _misread():
+    """`facts.reading.misread`, imported late for the reason `_roles` is: this module is imported
+    by passes that do not have `adapters` on the path until they add it."""
+    from facts import reading
+    return reading
+
+
 def romanise_ja(tok, modes, text):
     """Romanise a fragment — a chapter subtitle, one name out of a credit line — or return it as it
     came. Uses the same analyser and the same styles, so nothing here can disagree with a title."""
@@ -1208,6 +1244,10 @@ def romanise_ja(tok, modes, text):
         return text
     if not has_japanese(text):
         return latinise(text)        # already Latin words, but maybe Japanese punctuation
+    # A WORD THE ANALYSER READS CONFIDENTLY AND WRONGLY. `facts/reading/misread` holds the ones a
+    # source states differently; every test of the analyser's confidence passes on these, which is
+    # why they need a table rather than a mark.
+    text = _misread().corrected(text)
     r, _unc = analyse_best(tok, text, modes)
     if not r:
         return latinise(text)       # nothing readable; at least fix the punctuation
@@ -1230,12 +1270,21 @@ def renderer_fingerprint():
     """
     import hashlib
     import inspect
-    parts = []
+    parts = [repr(CLOSES), repr(OPENS)]
     # `is_credit_line` IS IN HERE BECAUSE IT PICKS THE RENDERER, and leaving it out was the gap that
     # let `Jei, Katō` stand after the interpunct rule said ジェイ・加藤 is one person. It decides
     # between `credit_en` and `romanise_ja` for every string in the map, so a change to it makes
     # every entry stale exactly as a change to either of those does.
-    for fn in (chapter_en, part_marks, credit_en, romanise_ja, latinise, is_credit_line):
+    # `analyse` AND `analyse_best` ARE IN HERE BECAUSE THEY ARE THE RENDERER. Everything above
+    # delegates the actual reading to them, and neither was hashed: gluing a lone sokuon to the
+    # word in front of it changed 14 phrases and the file went on serving the old ones, which is
+    # precisely the invisible-fix this function exists to prevent. The failure is the same shape as
+    # `is_credit_line`'s and was found the same way, by a fix landing and nothing moving.
+    #
+    # `CLOSES` AND `OPENS` ARE DATA THE RENDERER READS, and a table is as much of the renderer as
+    # the code that consults it: adding the ASCII marks to them changed 500 phrases.
+    for fn in (chapter_en, part_marks, credit_en, romanise_ja, latinise, is_credit_line,
+               analyse, analyse_best):
         try:
             parts.append(inspect.getsource(fn))
         except (OSError, TypeError):

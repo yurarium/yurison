@@ -184,7 +184,7 @@ def _checks():
 #: The submodules, which `__getattr__` must never forward: `from . import vocabulary` reaches the
 #: hook before the submodule is bound on the package, so forwarding it calls the import that called
 #: the hook. `facts/division` records the same trap.
-_SUBMODULES = ("checks", "vocabulary")
+_SUBMODULES = ("checks", "vocabulary", "misread")
 
 
 def __getattr__(name):
@@ -197,9 +197,13 @@ def __getattr__(name):
     if name in _SUBMODULES or name.startswith("__"):
         raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
     import importlib
-    mod = importlib.import_module(".vocabulary", __name__)
-    if hasattr(mod, name):
-        return getattr(mod, name)
+    # BOTH SUBMODULES, in the order they were added. `misread` answers what a word is read where an
+    # analyser reads it wrongly, which is a different question from `vocabulary`'s and belongs to
+    # the same fact: what may be believed about how a name is read.
+    for sub in (".vocabulary", ".misread"):
+        mod = importlib.import_module(sub, __name__)
+        if hasattr(mod, name):
+            return getattr(mod, name)
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 

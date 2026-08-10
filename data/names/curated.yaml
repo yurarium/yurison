@@ -1786,13 +1786,6 @@ titles:
     reviewed: '2026-08-03'
     source: yurarium
     source_kind: derived
-  念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!:
-    basis: translated
-    en: I Finally Got the Body of the Villainess Final Boss!
-    note: ラスボス is glossed over 悪役令嬢, so the two are one thing rather than two.
-    reviewed: '2026-08-03'
-    source: yurarium
-    source_kind: derived
   悪役令嬢のお嫁さま:
     basis: translated
     en: The Villainess's Bride
@@ -3677,29 +3670,32 @@ titles:
       plainly, backed by the synopsis's own tagline, yuri x bondage x spy training fantasy.
 
   百合神さまの言うとおり!:
+    en: As the Yuri God Says!
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-08-10'
+    note: >-
+      百合オタクの死神, a yuri-otaku shinigami named Porero, revives a gal who died falling down stairs
+      on condition she wins over the ojousama she loves, per 百合ナビ's review; 百合神さま, the "yuri
+      god", is the narrative's own nickname for the death god rather than a stated proper name, kept
+      translated rather than as a name for that reason. This entry and 百合拳's held each other's
+      English and each other's note until 2026-08-10: two adjacent keys whose bodies were written
+      one place out, so each was argued for by the other's reasoning.
+
+  百合拳:
     en: Yuri Fist
     basis: translated
     source: yurarium
     source_kind: derived
-    reviewed: '2026-08-04'
+    reviewed: '2026-08-10'
     note: >-
       The synopsis names the character directly, "Lily of the Yuri Fist", who appears wherever yuri
       blooms, hates any man who comes between a yuri pair, and loves all yuri; 拳, fist, is the same
       naming convention as fighting manga like 北斗の拳, and "Yuri Fist" carries it into English the
       same way. Kept as "yuri" rather than "lily" since the character's whole point is the genre
-      self-reference.
-
-  百合拳:
-    en: As the Yuri God Says!
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-04'
-    note: >-
-      百合オタクの死神, a yuri-otaku shinigami named Porero, revives a gal who died falling down stairs
-      on condition she wins over the ojousama she loves, per 百合ナビ's review; 百合神さま, the "yuri
-      god", is the narrative's own nickname for the death god rather than a stated proper name, kept
-      translated rather than as a name for that reason.
+      self-reference. This entry and 百合神さまの言うとおり!'s held each other's English and each
+      other's note until 2026-08-10.
 
   百合ラブスレイブ ふたりだけの放課後:
     en: "Yuri Love Slave: Just the Two of Us After School"
@@ -5186,13 +5182,20 @@ titles:
       The platform's own yomi field confirms the reading straight through. Plain phrase, nothing to protect.
 
   念願の悪役令嬢の身体を手に入れたぞ!:
-    en: 'I Finally Got the Villainess Body I''ve Always Wanted!'
+    en: "I Finally Got the Body of the Villainess Final Boss!"
     basis: translated
     source: yurarium
     source_kind: derived
-    reviewed: '2026-08-04'
+    reviewed: '2026-08-10'
     note: >-
-      The synopsis is a sickly girl reincarnated as an otome game's villainess, delighted just to be healthy, obliviously breaking every flag meant to lead to her own defeat.
+      The synopsis is a sickly girl reincarnated as an otome game's villainess, delighted just to be
+      healthy, obliviously breaking every flag meant to lead to her own defeat. The platform prints
+      ラスボス, final boss, as furigana over 悪役令嬢, so the two are one thing rather than two and the
+      English says which villainess she is. This entry carried
+      'I Finally Got the Villainess Body I've Always Wanted!' until 2026-08-10, when the glossed
+      spelling stopped reaching the catalogue as a title of its own: the release writer for that
+      route now resolves an alias, so the row this was keyed on became the base spelling and the
+      two readings of one title had to be one entry. 念願の is what Finally carries.
 
   忠犬ねーね:
     en: Loyal Dog Nee-Nee
@@ -29800,15 +29803,31 @@ titles:
     reviewed: '2026-08-10'
 
   君が一等星に光るまで:
-    en: "Until You Shine as a First-Magnitude Star"
-    basis: translated
-    source: "yurarium"
-    source_kind: derived
+    en: "The Brightest Star"
+    basis: official-jp
+    source: "COMIC FUZ"
+    source_kind: platform
+    source_url: "https://comic-fuz.com/manga/4133"
     reviewed: '2026-08-10'
     note: >-
-      一等星 is a first-magnitude star, the brightest class the eye sorts stars into, and the phrase
-      is the ordinary Japanese for it rather than a coinage. 光るまで is until you shine, so the
-      title is the wait and not the arrival. The row showed Kimi ga Ittōsei ni Hikaru made.
+      The work's own English, set in script under the logo on its splash art.
+    translation: "Until You Shine as a First-Magnitude Star"
+    translation_note: >-
+      Kept beside the work's own English because the two say different things and EN_ORDER is the
+      reader's to set. 一等星 is a first-magnitude star, the brightest class the eye sorts stars
+      into, and the phrase is the ordinary Japanese for it rather than a coinage. 光るまで is until
+      you shine, so the title is the wait and not the arrival, which The Brightest Star does not
+      carry. The row showed Kimi ga Ittōsei ni Hikaru made until 2026-08-10.
+    reading: "キミ ガ デネブ ニ ヒカル マデ"
+    reading_basis: stated
+    reading_source: "COMIC FUZ"
+    reading_source_kind: platform
+    reading_url: "https://comic-fuz.com/manga/4133"
+    reading_note: >-
+      The logo prints デネブ as furigana over 一等星, so the title is said Deneb where it is written
+      first-magnitude star. Deneb is one such star, in Cygnus, and the gloss is the work naming
+      which one it means. An analyser reads the characters and answered イットウセイ; a title that
+      prints its own reading outranks that, which is the rule 恋する小惑星 already stands on.
 
   # ---- Licensed English names, 2026-08-10. REQUIREMENTS §1's `title_en_official` carve-out:
   # the English licensor is the entity that announces the name, so a licensor's own catalogue is

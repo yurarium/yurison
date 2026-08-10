@@ -202,6 +202,36 @@ def main(s):
     s.eq(p4.digits_for_kanji("十七歳の夏"), "十七歳の夏", "and an age is not a chapter")
     s.eq(p4.kanji_number("x"), None, "a string that is not a number reads as none")
 
+    # AN ELLIPSIS IS ONE CHARACTER AND SUDACHI SPELLS IT OUT. `…` tokenises into three morphemes:
+    # one carrying the character and two carrying an EMPTY surface and a full-width dot each. The
+    # surface-first rule is written `if surf and …`, so the two empty ones fell through to the
+    # reading branch and contributed a dot apiece: `そして…` read `ソシテ…．．` and romanised
+    # `Soshite.....`. There is no text at a zero-width span.
+    try:
+        from sudachipy import Dictionary as _D, SplitMode as _S
+    except ImportError:
+        s.skip("sudachipy absent")
+        return
+    _tk2, _md2 = _D().create(), [_S.C, _S.A]
+    plain2 = lambda x: p4.romanise_ja(_tk2, _md2, x)                        # noqa: E731
+    s.eq(p4.romanise_ja(_tk2, _md2, "そして…"), "Soshite...",
+         "an ellipsis romanises as one ellipsis")
+    s.eq(p4.romanise_ja(_tk2, _md2, "転生してしまった…"), "Tenshō Shite Shimatta...",
+         "and does at the end of a sentence")
+
+    # NO SPACE BEFORE A CLOSING MARK, IN EITHER WIDTH. The spacing sets held the full-width marks
+    # alone while `chapter_en` NFKC-folds its input before it reaches them, so by the time a
+    # subtitle arrived every ！ was a `!` and matched nothing: 526 of 9,018 phrases shipped with a
+    # space in front of a closing mark.
+    s.eq(p4.chapter_en("第34話 我慢しなくて…いいですか!?", plain2), "Ch. 34 Gaman Shinakute... Iidesu Ka!?",
+         "an ASCII closing mark takes no space before it either")
+    s.eq(p4.chapter_en("第18話 シャネルが勝ったら…", plain2), "Ch. 18 Shaneru ga Kattara...",
+         "and an ellipsis NFKC has folded to three dots is not spaced apart")
+
+    # A WORD THE ANALYSER READS CONFIDENTLY AND WRONGLY, corrected before it is asked.
+    s.eq(p4.romanise_ja(_tk2, _md2, "八尺様リバイバルV"), "Hasshakusama Ribaibaru V",
+         "八尺様 is the yōkai はっしゃくさま, not the ヤサカ of 八尺瓊")
+
     # A PLATFORM'S ROW INDEX IS NOT THE WORK'S CHAPTER NUMBER. コミックDAYS prefixes its own row number: "100.第94話しんゆうのたのみ" is row 100 carrying chapter 94, and it rendered
     # "Ch. 100 . Dai 94 Hanashi ...", wrong in the number as well as the romanising.
     s.eq(p4.chapter_en("100.第94話しんゆうのたのみ", plain), "Ch. 94 しんゆうのたのみ",

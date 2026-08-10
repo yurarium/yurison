@@ -338,7 +338,13 @@ stages:
           The claim stays what it was: reading_boundary_basis analyser, which cites nobody and is marked wherever it reaches a reader. The string improves and nothing behind it moves, which is the owner's Wikidata ruling of the same week in another place.
       - id: E4
         title: Kana spelling a name from another language, Sutefan Sejiku
-        state: todo
+        state: doing
+        note: >-
+          ステファン・セジク is Stjepan Šejić, settled from the original publisher, which is the first route the write-up names. サンストーン is 誠文堂新光社's edition of Sunstone, licensed from Image Comics, and Image's own creator page prints the name; the Japanese publisher's page prints no Latin form at all, which is why the romaniser had nothing better to work from.
+          THE FINDING IS A GAP IN THE VOCABULARY AND NOT A MISSING LOOKUP. `curate.ATTRIBUTION` assumes the Japanese name is primary and the English derived: `stated` admits a platform, a Japanese publisher or the artist, and there is no term for the original publisher of a work whose first language is not Japanese. Filed as `licensed` because that is literally the relation, Image having licensed the work to the Japanese publisher, and the entry says where the gap is.
+          THE OTHER THREE ARE NOT THE SAME SHAPE, which is the write-up's own caution proving out: katakana is not evidence of a foreign name. るいす・まくられん is credited beside 楽時たらひ and 東河みそ on Japanese anthologies and is a pen name in hiragana; ブリリアント・ブラウン credits one doujin work; アナ・C・サンチェス credits オルターエゴ. None is settled by research and none should be guessed at.
+          STILL OPEN: the mark. A tooltip saying the kana transliterate a name whose own spelling nobody has found needs a per-name ruling, since no detector can tell a foreign name from a katakana pen name, and that is the shape docs/BUDGET-QUEUE.md carries.
+          TWO WORKS HERE RAISE THE PORNOGRAPHY EXCLUSION and it is the owner's call, not mine: Image markets Sunstone as an erotic BDSM romance, and えろ勉 is a doujin title. Both are already in the corpus; recording an artist's Latin name adds no content either way, and the inclusion question is flagged rather than deepened.
       - id: E6
         title: The three branches holding work main never took
         state: todo

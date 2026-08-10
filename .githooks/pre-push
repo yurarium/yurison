@@ -22,14 +22,27 @@ done
 # Skipped when there is no build output — a docs-only commit should not require a full build — and
 # bypassable with --no-verify, exactly like the guard. CI is the backstop.
 ROOT="$(git rev-parse --show-toplevel)"
-if [ -f "$ROOT/data/build/series.json" ]; then
-  python3 "$ROOT/check.py" --gate --no-tighten || {
-    echo "pre-push: data gate said NO GO. Fix, or --no-verify if you know why." >&2
-    exit 1
-  }
-fi
 
-# The whole suite, discovered and offline. pre-commit runs a fast subset; this is the exposure
-# moment, so it runs everything including the canary pass that proves the suites can fail.
-"$ROOT/test.py" || { echo "pre-push: tests fail. ./test.py to see why." >&2; exit 1; }
-"$ROOT/test.py" --canary >/dev/null || { echo "pre-push: a suite is vacuous. ./test.py --canary" >&2; exit 1; }
+# A TREE ALREADY PROVED IS NOT PROVED AGAIN. The gate and the tests run here and again by hand a
+# minute earlier, about 127 seconds of re-answering. `greentree` records the tree the gate passed
+# on and refuses itself if anything moved, if it covers a different set, or if it records a
+# different run. It hashes every tracked file, all of data/build and the deployed site data, which
+# is an over-approximation on purpose: a token over the wrong set vouches for a stale answer.
+#
+# YURA_NO_TOKEN=1 forces the full path. CI sets it, so the boundary that matters never trusts a
+# token written on somebody's laptop.
+if python3 "$ROOT/adapters/greentree.py" --held gate >/dev/null 2>&1; then
+  echo "pre-push: gate and tests already passed on this exact tree; not repeating them."
+else
+  if [ -f "$ROOT/data/build/series.json" ]; then
+    python3 "$ROOT/check.py" --gate --no-tighten || {
+      echo "pre-push: data gate said NO GO. Fix, or --no-verify if you know why." >&2
+      exit 1
+    }
+  fi
+
+  # The whole suite, discovered and offline. pre-commit runs a fast subset; this is the exposure
+  # moment, so it runs everything including the canary pass that proves the suites can fail.
+  "$ROOT/test.py" || { echo "pre-push: tests fail. ./test.py to see why." >&2; exit 1; }
+  "$ROOT/test.py" --canary >/dev/null || { echo "pre-push: a suite is vacuous. ./test.py --canary" >&2; exit 1; }
+fi

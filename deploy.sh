@@ -52,7 +52,12 @@ python3 adapters/pages.py --site "$SITE/kari"
 # deploy. At that instant the comparison legitimately fails, so the report published alongside the
 # data always claimed five violations that copying had already fixed. A report that is wrong by
 # construction is worse than none: it trains the reader to ignore it.
-python3 check.py --runtime >/dev/null 2>&1 || true
+# ONLY THE INVARIANTS THE COPY CAN CHANGE. This re-ran every check so the published report would
+# not claim violations the copy had already fixed, and that was 37 of the deploy's 39 seconds and
+# the fourth full run of the checks in one cycle. Three invariants read the deployed tree;
+# `check.py --deploy-window` re-answers those and patches checks.json, in about a second. The set
+# is derived from which invariants name SITE, so it cannot drift from a comment.
+python3 check.py --deploy-window >/dev/null 2>&1 || true
 cp data/build/checks.json "$SITE/kari/data/" 2>/dev/null || true
 
 # CACHE-BUST THE SCRIPT AND THE STYLESHEET FROM THEIR OWN CONTENT.

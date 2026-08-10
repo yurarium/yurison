@@ -2531,8 +2531,10 @@ def main():
     ap.add_argument("--regenerate-archive", metavar="YYYY-MM", action="append", default=[],
                     help="rewrite an already-published month. Overrides the write-once rule; "
                          "use when a classification fix must reach an archived month.")
+    ap.add_argument("--checks", action="store_true",
+                    help="run check.py --runtime at the end; skipped by default")
     ap.add_argument("--no-checks", action="store_true",
-                    help="skip check.py --runtime, which is 34 s of the build's 94 s")
+                    help="accepted and ignored; skipping is the default now")
     a = ap.parse_args()
     # Held under a name nothing else uses. `a` is rebound further down main() as a loop variable,
     # so reading a.regenerate_archive at the end of a 2,900-line function got whatever `a` last
@@ -6416,8 +6418,12 @@ def main():
     # NOTHING THAT BLOCKS IS SKIPPED. The pre-commit and pre-push hooks run `check.py --gate`, which
     # ignores this flag entirely, so the fast path exists only between a person and their next
     # keystroke.
-    if "--no-checks" in sys.argv:
-        print("checks          : skipped (--no-checks); checks.json and status.json are stale")
+    # THE DEFAULT IS NOW TO SKIP THEM. The flag existed and went unused, which is a sign the
+    # default was wrong: a build during an edit is run for the data, and the checks that matter at
+    # that moment are run a moment later by the gate. `--checks` asks for them; the hooks run
+    # `check.py --gate`, which ignores both flags, so nothing that blocks is affected.
+    if "--checks" not in sys.argv:
+        print("checks          : skipped (pass --checks to run them; the gate runs them anyway)")
     else:
         try:
             import subprocess as _sp

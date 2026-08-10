@@ -4641,17 +4641,87 @@ def self_test():
     return ok
 
 
+
+def deploy_sensitive():
+    """The invariants whose answer the copy changes, derived and not listed.
+
+    WHY DERIVED. `deploy.sh` re-ran every check after copying so the published `checks.json` would
+    not claim violations the copy had already fixed. That is 37 seconds of a 39-second deploy, and
+    the fourth run of the checks in one cycle. Only the invariants that READ the deployed tree can
+    change across a copy, so only those need re-running.
+
+    Its comment said two. There are four. A hand-kept list of what reads the site is the same fault
+    as a hand-kept list of what to check, so this reads the source and asks which functions name
+    `SITE`.
+
+    Section 14b, WHAT IT MISSES: an invariant reaching the deployed tree through a helper that names
+    `SITE` for it. None does today; if one appears, its answer in `checks.json` will be the
+    pre-copy one, which is the behaviour every invariant had before this existed.
+    """
+    import inspect
+    got = []
+    for name, f in INVARIANTS:
+        try:
+            if "SITE" in inspect.getsource(f):
+                got.append(name)
+        except (OSError, TypeError):                                    # noqa: PERF203
+            got.append(name)
+    return got
+
+
+def deploy_window():
+    """Re-answer only the invariants a copy can change, and patch `checks.json` in place.
+
+    THE PUBLISHED REPORT STAYS TRUE and the deploy stops paying for a whole run of the checks. The
+    entries this does not touch keep the answers the build gave them, which is what they had before
+    and is correct: nothing but the copy has happened since.
+    """
+    out = BUILD / "checks.json"
+    if not out.exists():
+        print("  deploy-window: no checks.json to patch; run the build first")
+        return 0
+    doc = json.loads(out.read_text(encoding="utf-8"))
+    ctx = context()
+    # A REPORT FROM AN OLDER BUILD IS WORSE THAN A MISSING ONE. build.py no longer runs the checks
+    # by default, so checks.json is written by the gate; a deploy that never saw one would patch
+    # three entries of a stale report and publish it looking current.
+    if (doc.get("generated") or "") != (ctx.get("generated") or ""):
+        print(f"  deploy-window: checks.json is from {doc.get('generated')!r} and the build is "
+              f"{ctx.get('generated')!r}; run ./check.py --gate")
+        return 1
+    want = set(deploy_sensitive())
+    by_name = {n: f for n, f in INVARIANTS}
+    patched = 0
+    for row in doc.get("invariants", []):
+        if row.get("name") not in want:
+            continue
+        bad = by_name[row["name"]](ctx)
+        row["violations"] = len(bad)
+        row["examples"] = [str(e).replace(str(ROOT.parent) + "/", "") for e in bad[:5]]
+        patched += 1
+    out.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    still = sum(1 for r in doc.get("invariants", [])
+                if r.get("name") in want and r.get("violations"))
+    print(f"  deploy-window: {patched} invariant(s) re-answered after the copy, {still} violated")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--runtime", action="store_true", help="count and report; never fail")
     g.add_argument("--gate", action="store_true", help="fail on any violation or loosened budget")
+    g.add_argument("--deploy-window", action="store_true",
+                   help="re-answer only the invariants a copy can change, and patch checks.json")
     g.add_argument("--self-test", action="store_true", help="prove the checks can fail")
     ap.add_argument("--no-tighten", action="store_true", help="do not record improved budgets")
     a = ap.parse_args()
 
     if a.self_test:
         return 0 if self_test() else 1
+
+    if a.deploy_window:
+        return deploy_window()
 
     if a.gate and not self_test():
         print("\nFAIL: the checks cannot prove they work; refusing to pass anything.")
@@ -4752,6 +4822,24 @@ def main():
             print(f"  {name} rose {was} -> {now}; to accept it, edit docs/budgets.json and say why")
         return 1
     print("\nall right")
+    # THE TREE THIS PASSED ON, recorded so the pre-push hook need not prove it again. The token
+    # over-approximates what the checks read, and refuses itself if the tree moved, if it covers a
+    # different set, or if it records a different run. See adapters/greentree.py.
+    try:
+        sys.path.insert(0, str(ROOT / "adapters"))
+        import greentree
+        greentree.write("gate")
+    except Exception:                                                   # noqa: BLE001
+        pass
+    # AND THE TRACKER IS REGENERATED, so the page cannot be stale while the work moves on. The last
+    # round's tracker went out of date because updating it was something to remember; the timings
+    # are skipped here because measuring them costs a full cycle.
+    try:
+        import tracker
+        tracker.OUT.write_text(tracker.render(tracker.state(), tracker.measure(fast=True)),
+                               encoding="utf-8")
+    except Exception:                                                   # noqa: BLE001
+        pass
     return 0
 
 

@@ -20,13 +20,28 @@ stages:
     items:
       - id: A1
         title: A green-tree token, hashing what the checks read
-        state: todo
+        state: done
+        note: >-
+          adapters/greentree.py.
+          Hashes every tracked file, all of data/build and the deployed site data and interface: 4,370 files in 0.19 s, so over-approximating costs nothing and being clever is how the set comes to be wrong.
+          Refuses itself if the tree moved, if it covers a different set, or if it records a different run, and it excludes itself from its own hash because writing it invalidated it.
+          Push skips 127 s.
       - id: A2
         title: deploy.sh stops running the checks
-        state: todo
+        state: done
+        note: >-
+          deploy.sh ran every check after copying so the published report would not claim violations the copy had fixed.
+          Three invariants read the deployed tree, derived from which ones name SITE and not from the comment, which said two.
+          check.py --deploy-window re-answers those and patches checks.json.
+          37 s to 1 s; deploy 39 s to 3.7 s.
       - id: A3
         title: A build skips the checks by default
-        state: todo
+        state: done
+        note: >-
+          A build now skips the checks unless --checks is passed.
+          The flag existed and went unused, which was a sign the default was wrong.
+          build.py 79 s to 41.7 s.
+          The hooks run check.py --gate, which ignores both flags.
 
   B:
     title: The expensive checks stop rescanning what has not changed

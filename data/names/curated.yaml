@@ -10015,12 +10015,28 @@ titles:
     reading: オネエサマ ト キョジン ～ オジョウサマ ガ イセカイ テンセイ ～
     reading_basis: researched
     reading_source_kind: derived
-    source: derived
-    source_kind: derived
-    reviewed: '2026-08-04'
     reading_note: >-
       Read from the title. Checked by aligning it against the surface, so every kana run in the
       title is accounted for and the ruby lands on the right characters.
+    en: "Sister and Giant: A Young Lady Is Reborn in Another World"
+    basis: licensed
+    source: "Yen Press"
+    source_kind: licensor
+    # THE LICENSOR'S PAGE IS THE ENGLISH NAME'S. The reading beside it is read off the title and
+    # cites nothing, so an entry-wide `source_url` would have it citing Yen Press for a reading
+    # nobody there states.
+    en_url: "https://yenpress.com/series/sister-and-giant-a-young-lady-is-reborn-in-another-world"
+    reviewed: '2026-08-10'
+    note: >-
+      Yen Press credit Be-con, the author on our record of KADOKAWA's three volumes. This replaces
+      Onee-sama and the Giant ~The Young Lady's Isekai Reincarnation~, which was ours, and a
+      licensor's name outranks one composed here. The `:` variant of this work carries the Japanese
+      publisher's own MY SISTER AND GIANT, which outranks a licensor's in turn.
+    translation: "Onee-sama and the Giant ~The Young Lady's Isekai Reincarnation~"
+    translation_note: >-
+      Our own rendering, which the entry carried as its name until the licensor's was found. It is
+      kept rather than discarded: お姉さま is the address the title uses and Yen Press's Sister drops
+      it, so the two say different things about how the pair speak to each other.
 
   "ハウリング・ブレイズ　葬焔の剣士と不死の魔女":
     reading: ハウリング・ ブレイズ 　 ソウエン ノ ケンシ ト フシ ノ マジョ
@@ -29619,15 +29635,16 @@ titles:
     source_kind: derived
 
 
-  LatteComi コミックアンソロジー【百合】（単話版）（LatteComi）:
-    reading: LatteComi コミック アンソロジー 【ユリ】 （タンワバン） （LatteComi）
+  LatteComi コミックアンソロジー【百合】（単話版）:
+    reading: LatteComi コミック アンソロジー 【ユリ】 （タンワバン）
     reading_basis: researched
     reading_note: >-
       Everything but the two markers is already kana or Latin. 【百合】 is the shop's genre tag, read ユリ.
       単話版 is タンワバン: 単話 is a single instalment sold on its own, which the shops write everywhere, and 話
       in it is ワ rather than the ハナシ an analyser reaches for when the word stands alone. The marker is
       one of the closed set the interface glosses in EDITION_EN, so it is read the same way wherever
-      it appears.
+      it appears. The trailing （LatteComi） came off the title on 2026-08-10: it repeated the name the
+      title already opens with, and only the ニコニコ漫画 route ever carried it.
     reading_source_kind: derived
     source: derived
     source_kind: derived
@@ -30020,6 +30037,184 @@ titles:
     source: derived
     source_kind: derived
     reviewed: '2026-08-10'
+
+  # ---- Licensed English names, 2026-08-10. REQUIREMENTS §1's `title_en_official` carve-out:
+  # the English licensor is the entity that announces the name, so a licensor's own catalogue is
+  # the attesting source for this field and for no other.
+
+  "けいおん!":
+    en: "K-ON!"
+    basis: licensed
+    source: "Yen Press"
+    source_kind: licensor
+    source_url: "https://yenpress.com/series/k-on"
+    reviewed: '2026-08-10'
+    note: >-
+      Yen Press publish the manga as K-ON! and credit kakifly, which is かきふらい, the author on our
+      record of 芳文社's four volumes. The row was showing Keion !, an analyser's romanisation with a
+      space before the mark, for a work whose English name has been in print for years.
+    translation: "Light Music!"
+    translation_note: >-
+      けいおん is 軽音, the school club abbreviation for 軽音楽, light music. The licensed name is what
+      the work is called in English and stands first; this is what the Japanese says, for a reader
+      who has asked to see ours.
+
+
+  # ---- The last of the worklist, 2026-08-10. Five were reading faults reaching a reader as a
+  # name nobody wrote, and the rest are coinages confirmed rather than translated.
+
+  よぬりめ:
+    reading: "ヨヌリメ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Four kana written straight through, stating no division, and the row showed Yo Nurime. The
+      space is the analyser's. よぬりめ is also the name the book is published under and the name
+      this artist is credited by on 一迅社's アルコール百合アンソロジー, so it is a person and not a phrase.
+    en: "Yonurime"
+    basis: romaji
+    note: >-
+      The work carries its maker's name and a romanisation is the whole of it.
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  ゆずせん:
+    reading: "ユズセン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Written straight through in kana with no division stated, and the row showed Yuzu Sen. The
+      shop's own volume title is おまとめゆずせん！, which sets the same four kana as one word again.
+    en: "Yuzusen"
+    basis: romaji
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  うなうさ:
+    reading: "ウナウサ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Four kana written straight through. The row showed Unau Sa, which cuts after the third and
+      leaves サ standing alone, and no reading of the title has a boundary there.
+    en: "Unausa"
+    basis: romaji
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  ハクせつシリーズ:
+    reading: "ハクセツシリーズ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ハクせつ is one word set half in katakana and half in hiragana, which is the same play the
+      volume title わたシノ愛シノお姫サマ runs on the same page. The row showed Haku Setsu Shirīzu,
+      dividing at the change of script, and a change of script is not a word boundary.
+    en: "Hakusetsu Series"
+    basis: romaji
+    note: >-
+      シリーズ is the English word series and is rendered as that word. What it labels is a coinage
+      with no meaning stated anywhere, so the rest stands as it is read.
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  さろめりっく:
+    reading: "サロメリック"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Six kana written straight through, reaching a reader as Saro Meri Kku, which strands っく as a
+      word. 新書館's ひらり、 listing gives the protagonist's name as サロメ, so the title is a coinage
+      built on hers and the whole of it is one word.
+    en: "Saromerikku"
+    basis: romaji
+    note: >-
+      The heroine is サロメ and the ending is invented, so nothing here is a word English holds. A
+      romanisation is the finished name.
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  わくとこまこ:
+    reading: "ワク ト コマコ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Both halves are the leads' names. 小学館's own page names こまこ as the heroine and gives the
+      classmate she draws as 小野寺さん; her given name is わく, so the title is 小野寺わく and こまこ
+      joined by と. The row showed Wakuto Komako, cutting one kana early and making one name of two.
+    en: "Waku and Komako"
+    basis: translated
+    note: >-
+      Two characters joined by と, so the English is the same two names joined by and. The publisher's
+      blurb gives the second lead by surname only, which is why the division had to come from the
+      given name behind it.
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  "いりぺそ　change the world book":
+    reading: "イリペソ change the world book"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      いりぺそ is the two authors' names run together: the book is credited to 紙魚いりこ and ぺそー,
+      giving いり and ぺそ. The English half is already English and is not read out in kana.
+    en: "Iripeso: change the world book"
+    basis: romaji
+    note: >-
+      A duo's joint name, so a romanisation is the answer for the first half, and the second half is
+      the book's own English and keeps its lowercase.
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  のだ:
+    en: "Noda"
+    basis: romaji
+    note: >-
+      Two kana standing as a whole title on an anthology of three artists, with no phrase under it
+      and nothing the publisher glosses. A romanisation is the finished name.
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  ナチュリーズ:
+    en: "Nachurīzu"
+    basis: romaji
+    note: >-
+      A katakana coinage with an English-looking ending that spells no English word, so it is
+      rendered as it is read rather than resolved into one.
+    source: derived
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  "百合色ミュージアム（OrangeVox）":
+    en: "The Yuri-Coloured Museum (OrangeVox)"
+    basis: translated
+    note: >-
+      The base record is already held as The Yuri-Coloured Museum. OrangeVox is the label ニコニコ漫画
+      publishes it under and the publisher on this row, and it reaches the title only on that
+      platform: BOOK☆WALKER holds the same work without it.
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-10'
+
+  "TSロリシリーズ（コスモブルー）":
+    en: "The TS Loli Series (Cosmo Blue)"
+    basis: translated
+    note: >-
+      The base record is already held as The TS Loli Series. コスモブルー is Cosmo Blue, 宙出版's label
+      on ニコニコ漫画, and it appears in no other record we hold: BOOK☆WALKER files the same work
+      under 宙出版 with the imprint ASTRO COMICS and no bracket in the title.
+    source: "yurarium"
+    source_kind: derived
+    reviewed: '2026-08-10'
+
 
 authors:
   アナ・C・サンチェス:

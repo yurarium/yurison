@@ -1625,6 +1625,27 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  LatteComi コミックアンソロジー【百合】（単話版）:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: LatteComi コミック アンソロジー 【ユリ】 （タンワバン）
+    reading_at: '2026-08-08'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: SudachiPy 0.6.11, SudachiDict-core 20260723
+      value: LatteComi   コミック アンソロジー 【ユリ】 （タン ハナシ バン）
+    reading_note: 'Everything but the two markers is already kana or Latin. 【百合】 is the shop''s genre
+      tag, read ユリ. 単話版 is タンワバン: 単話 is a single instalment sold on its own, which the shops write everywhere,
+      and 話 in it is ワ rather than the ハナシ an analyser reaches for when the word stands alone. The marker
+      is one of the closed set the interface glosses in EDITION_EN, so it is read the same way wherever
+      it appears. The trailing （LatteComi） came off the title on 2026-08-10: it repeated the name the
+      title already opens with, and only the ニコニコ漫画 route ever carried it.'
+    reading_reviewed: '2026-08-08'
+    reading_source: derived
+    reading_source_kind: derived
+    verified: false
   LatteComi コミックアンソロジー【百合】（単話版）（LatteComi）:
     basis: romaji
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
@@ -2652,9 +2673,15 @@ names:
     reading_source_kind: analyser
     verified: false
   TSロリシリーズ（コスモブルー）:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: The TS Loli Series (Cosmo Blue)
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'The base record is already held as The TS Loli Series. コスモブルー is Cosmo Blue, 宙出版''s label on
+      ニコニコ漫画, and it appears in no other record we hold: BOOK☆WALKER files the same work under 宙出版 with
+      the imprint ASTRO COMICS and no bracket in the title.'
     reading: TS ロリシリーズ （コスモブルー）
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -7529,14 +7556,19 @@ names:
     verified: false
   いりぺそ　change the world book:
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: イリペソ　change the world book
-    reading_at: '2026-08-08'
+    en: 'Iripeso: change the world book'
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: A duo's joint name, so a romanisation is the answer for the first half, and the second half
+      is the book's own English and keeps its lowercase.
+    reading: イリペソ change the world book
+    reading_at: '2026-08-10'
     reading_basis: researched
-    reading_note: 'いりぺそ is the pair who made it, 紙魚いりこ and ぺそー, and the store holds both readings: シミ
-      イリコ and ペソー. So the kana is イリペソ as one name, where the analyser cut イリペ from ソ.'
-    reading_reviewed: '2026-08-08'
+    reading_note: 'いりぺそ is the two authors'' names run together: the book is credited to 紙魚いりこ and ぺそー,
+      giving いり and ぺそ. The English half is already English and is not read out in kana.'
+    reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
     verified: false
@@ -7738,18 +7770,22 @@ names:
     verified: false
   うなうさ:
     basis: romaji
-    furigana_spans:
-    - - うなうさ
-      - null
+    en: Unausa
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ウナウ サ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_ordinary: true
+    reading: ウナウサ
+    reading_at: '2026-08-10'
+    reading_basis: researched
+    reading_note: Four kana written straight through. The row showed Unau Sa, which cuts after the third
+      and leaves サ standing alone, and no reading of the title has a boundary there.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-10'
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   うみねこには負けない!:
     basis: translated
@@ -8853,14 +8889,34 @@ names:
     reading_source_kind: derived
     verified: false
   お姉さまと巨人 ～お嬢さまが異世界転生～:
+    basis: licensed
+    en: 'Sister and Giant: A Young Lady Is Reborn in Another World'
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Onee-sama and the Giant ~The Young Lady's Isekai Reincarnation~
+    en_reviewed: '2026-08-10'
+    en_source: Yen Press
+    en_source_kind: licensor
+    en_url: https://yenpress.com/series/sister-and-giant-a-young-lady-is-reborn-in-another-world
+    note: Yen Press credit Be-con, the author on our record of KADOKAWA's three volumes. This replaces
+      Onee-sama and the Giant ~The Young Lady's Isekai Reincarnation~, which was ours, and a licensor's
+      name outranks one composed here. The `:` variant of this work carries the Japanese publisher's own
+      MY SISTER AND GIANT, which outranks a licensor's in turn.
     reading: オネエサマ ト キョジン ～ オジョウサマ ガ イセカイ テンセイ ～
-    reading_at: '2026-08-04'
+    reading_at: '2026-08-10'
     reading_basis: researched
+    reading_corroborated:
+    - Yen Press
     reading_note: Read from the title. Checked by aligning it against the surface, so every kana run in
       the title is accounted for and the ruby lands on the right characters.
-    reading_reviewed: '2026-08-04'
-    reading_source: derived
+    reading_reviewed: '2026-08-10'
+    reading_source: Yen Press
     reading_source_kind: derived
+    translation_note: 'Our own rendering, which the entry carried as its name until the licensor''s was
+      found. It is kept rather than discarded: お姉さま is the address the title uses and Yen Press''s Sister
+      drops it, so the two say different things about how the pair speak to each other.'
     verified: false
   'お姉さまと巨人(わたし) : お嬢さまが異世界転生':
     basis: official-jp
@@ -10990,12 +11046,23 @@ names:
     reading_source_kind: analyser
     verified: false
   けいおん!:
-    basis: romaji
+    basis: licensed
+    en: K-ON!
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Light Music!
+    en_reviewed: '2026-08-10'
+    en_source: Yen Press
+    en_source_kind: licensor
+    en_url: https://yenpress.com/series/k-on
     furigana_spans:
     - - けいおん!
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Yen Press publish the manga as K-ON! and credit kakifly, which is かきふらい, the author on our record
+      of 芳文社's four volumes. The row was showing Keion !, an analyser's romanisation with a space before
+      the mark, for a work whose English name has been in print for years.
     reading: ケイオン !
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -11003,6 +11070,9 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: けいおん is 軽音, the school club abbreviation for 軽音楽, light music. The licensed name
+      is what the work is called in English and stands first; this is what the Japanese says, for a reader
+      who has asked to see ours.
     verified: false
   けいおん!shuffle:
     basis: romaji
@@ -12901,18 +12971,23 @@ names:
     verified: false
   さろめりっく:
     basis: romaji
-    furigana_spans:
-    - - さろめりっく
-      - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: サロ メリッ ク
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_ordinary: true
+    en: Saromerikku
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: The heroine is サロメ and the ending is invented, so nothing here is a word English holds. A romanisation
+      is the finished name.
+    reading: サロメリック
+    reading_at: '2026-08-10'
+    reading_basis: researched
+    reading_note: Six kana written straight through, reaching a reader as Saro Meri Kku, which strands
+      っく as a word. 新書館's ひらり、 listing gives the protagonist's name as サロメ, so the title is a coinage
+      built on hers and the whole of it is one word.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-10'
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   ざこのみなさんお大事に:
     basis: translated
@@ -16083,11 +16158,16 @@ names:
     verified: false
   のだ:
     basis: romaji
+    en: Noda
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
     furigana_spans:
     - - のだ
       - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    note: Two kana standing as a whole title on an anthology of three artists, with no phrase under it
+      and nothing the publisher glosses. A romanisation is the finished name.
     reading: ノダ
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -19497,18 +19577,22 @@ names:
     verified: false
   ゆずせん:
     basis: romaji
-    furigana_spans:
-    - - ゆずせん
-      - null
+    en: Yuzusen
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: ユズ セン
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_ordinary: true
+    reading: ユズセン
+    reading_at: '2026-08-10'
+    reading_basis: researched
+    reading_note: Written straight through in kana with no division stated, and the row showed Yuzu Sen.
+      The shop's own volume title is おまとめゆずせん！, which sets the same four kana as one word again.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-10'
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   ゆたさんはままならない!:
     basis: translated
@@ -20455,18 +20539,22 @@ names:
     verified: false
   よぬりめ:
     basis: romaji
-    furigana_spans:
-    - - よぬりめ
-      - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ヨ ヌリメ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_ordinary: true
+    en: Yonurime
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: The work carries its maker's name and a romanisation is the whole of it.
+    reading: ヨヌリメ
+    reading_at: '2026-08-10'
+    reading_basis: researched
+    reading_note: Four kana written straight through, stating no division, and the row showed Yo Nurime.
+      The space is the analyser's. よぬりめ is also the name the book is published under and the name this
+      artist is credited by on 一迅社's アルコール百合アンソロジー, so it is a person and not a phrase.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-10'
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   よめとり!:
     basis: translated
@@ -20729,18 +20817,30 @@ names:
     reading_source_kind: analyser
     verified: false
   わくとこまこ:
-    basis: romaji
-    furigana_spans:
-    - - わくとこまこ
-      - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ワクト コマコ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    basis: translated
+    en: Waku and Komako
+    en_at: '2026-08-10'
+    en_conflicts:
+    - basis: romaji
+      source: derived
+      value: Waku to Komako
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Two characters joined by と, so the English is the same two names joined by and. The publisher's
+      blurb gives the second lead by surname only, which is why the division had to come from the given
+      name behind it.
+    reading: ワク ト コマコ
+    reading_at: '2026-08-10'
+    reading_basis: researched
+    reading_corroborated:
+    - yurarium
+    reading_note: Both halves are the leads' names. 小学館's own page names こまこ as the heroine and gives
+      the classmate she draws as 小野寺さん; her given name is わく, so the title is 小野寺わく and こまこ joined by
+      と. The row showed Wakuto Komako, cutting one kana early and making one name of two.
+    reading_reviewed: '2026-08-10'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   わすれさくら:
     basis: translated
@@ -29601,6 +29701,14 @@ names:
     reading_source: surface
     verified: true
   ナチュリーズ:
+    basis: romaji
+    en: Nachurīzu
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: A katakana coinage with an English-looking ending that spells no English word, so it is rendered
+      as it is read rather than resolved into one.
     reading: ナチュリーズ
     reading_at: '2026-08-05'
     reading_basis: surface
@@ -30073,18 +30181,23 @@ names:
     verified: false
   ハクせつシリーズ:
     basis: romaji
-    furigana_spans:
-    - - ハクせつシリーズ
-      - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ハク セツ シリーズ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_ordinary: true
+    en: Hakusetsu Series
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: derived
+    en_source_kind: derived
+    note: シリーズ is the English word series and is rendered as that word. What it labels is a coinage with
+      no meaning stated anywhere, so the rest stands as it is read.
+    reading: ハクセツシリーズ
+    reading_at: '2026-08-10'
+    reading_basis: researched
+    reading_note: ハクせつ is one word set half in katakana and half in hiragana, which is the same play the
+      volume title わたシノ愛シノお姫サマ runs on the same page. The row showed Haku Setsu Shirīzu, dividing at the
+      change of script, and a change of script is not a word boundary.
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-10'
+    reading_source: derived
+    reading_source_kind: derived
     verified: false
   ハクメイとミコチ:
     basis: licensed
@@ -66502,9 +66615,15 @@ names:
     reading_source_kind: analyser
     verified: false
   百合色ミュージアム（OrangeVox）:
-    basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
+    basis: translated
+    en: The Yuri-Coloured Museum (OrangeVox)
+    en_at: '2026-08-10'
+    en_reviewed: '2026-08-10'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'The base record is already held as The Yuri-Coloured Museum. OrangeVox is the label ニコニコ漫画
+      publishes it under and the publisher on this row, and it reaches the title only on that platform:
+      BOOK☆WALKER holds the same work without it.'
     reading: ユリイロ ミュージアム （OrangeVox）
     reading_at: '2026-08-08'
     reading_basis: researched

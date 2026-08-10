@@ -1762,6 +1762,16 @@ def _inherit_edition_name(work, rec, by_key, by_fold, fold):
     from facts import cataloguing as _cat
     bare = _cat.without_edition_apparatus(work)
     base = by_key.get(bare) or by_fold.get(fold(bare)) if fold(bare) != fold(work) else None
+    # BOTH SIDES STRIPPED THE SAME WAY, or a base carrying a tag its edition also carries is never
+    # met. `without_edition_apparatus` takes the genre tag off as well as the marker, so
+    # `LatteComi コミックアンソロジー【百合】（単話版）` reduced to `LatteComi コミックアンソロジー`
+    # and went looking for it, while the record holding the English is written 【百合】 and all.
+    # Looking the raw form up against raw keys can only work where the base has no apparatus at all.
+    if (not base or not base.get("en")) and fold(bare) != fold(work):
+        want = fold(bare)
+        base = next((v for k, v in by_key.items()
+                     if v.get("en") and fold(_cat.without_edition_apparatus(k)) == want
+                     and fold(k) != fold(work)), base)
     if not base or not base.get("en"):
         # AND THE OTHER DIRECTION, because a name belongs to the WORK and not to whichever record
         # happens to hold it. Three rows were plain titles whose only named record was an edition:

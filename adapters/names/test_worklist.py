@@ -76,6 +76,17 @@ def main(s):
         s.check(not worklist.already_latin("球詠"), "and a title with no Latin letters is not")
         s.check(not worklist.already_latin("Fate/kaleid ライナー"),
                 "nor is one mixing the two, which still owes a rendering of its Japanese")
+
+        # THE MARKS IN THE KANA BLOCKS ARE NOT KANA. `・` is U+30FB, inside the katakana block, so a
+        # range test called 一迅社's own `flower・flower` Japanese and queued it for translation.
+        s.check(worklist.already_latin("flower・flower"),
+                "a separator that lives in the katakana block is punctuation and not a script")
+        # AND A NUMBER IS NOT A ROMANISATION. Demanding a Latin letter filed `2332` as a coinage to
+        # confirm, and there is nothing to confirm: the name is four digits.
+        s.check(worklist.already_latin("2332"), "a title of digits is already written as it is read")
+        s.check(not worklist.already_latin("   "), "and a title of nothing is not a name at all")
+        s.check(not worklist.already_latin("ハクせつシリーズ"),
+                "while katakana beside hiragana is still Japanese and still owes a rendering")
         s.ne(got.get("GIRL FRIENDS"), "compose",
              "and it is not sent to somebody to translate, which is what it was")
 

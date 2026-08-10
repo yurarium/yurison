@@ -686,6 +686,52 @@ def series_addresses(s):
     s.eq(b._person_shown("王月 よう", {"王月よう": {"romaji": {"macron": "Ōzuki Yō"}}}, {}),
          "Ōzuki Yō", "the store is asked with the key credit_parts is keyed on")
 
+    edition_names(s)
+
+
+def edition_names(s):
+    """An edition takes the English of the work it is an edition of, in both directions.
+
+    THIS SHIPPED WITH NO TEST, which is how the asymmetry below survived: the graft stripped the
+    edition and looked the bare form up against keys nobody had stripped.
+    """
+    import unicodedata
+
+    def fold(x):
+        return unicodedata.normalize("NFKC", str(x)).replace(" ", "").lower()
+
+    def graft(work, store):
+        by_fold = {fold(k): v for k, v in store.items()}
+        return b._inherit_edition_name(work, {}, store, by_fold, fold)
+
+    named = {"球詠": {"en": "Tamayomi", "basis": "romaji"}}
+    s.eq(graft("球詠【単話版】", named)["en"], "Tamayomi (single chapters)",
+         "an edition takes its work's English and says which edition it is")
+    s.eq(graft("球詠【単話版】", named)["en_of_edition_from"], "球詠",
+         "and records the title it took it from, so a count can tell the two apart")
+    s.eq(graft("球詠", named), {}, "the plain title itself is left alone")
+
+    # THE OTHER DIRECTION, because a name belongs to the work and not to whichever record holds it.
+    only_edition = {"心の声が漏れやすいメイドさん【単話版】":
+                    {"en": "The Maid Whose Thoughts Slip Out (single chapters)", "basis": "translated"}}
+    got = graft("心の声が漏れやすいメイドさん", only_edition)
+    s.eq(got["en"], "The Maid Whose Thoughts Slip Out",
+         "a plain title takes an edition's name with that edition's own marker removed")
+
+    # BOTH SIDES STRIPPED THE SAME WAY. `without_edition_apparatus` takes the genre tag off as well
+    # as the marker, so an edition reduced to a form its own base never had and went looking for it.
+    # The base is written 【百合】 and all, and the two could not meet.
+    tagged = {"LatteComiコミックアンソロジー【百合】":
+              {"en": "LatteComi Comic Anthology: Yuri", "basis": "translated"}}
+    s.eq(graft("LatteComi コミックアンソロジー【百合】（単話版）", tagged)["en"],
+         "LatteComi Comic Anthology: Yuri (single chapters)",
+         "an edition meets a base that carries a tag the stripper also removes")
+
+    # AND A WORK NOBODY HAS NAMED GRAFTS NOTHING, rather than an empty string a reader would meet.
+    s.eq(graft("球詠【単話版】", {"球詠": {"basis": "romaji"}}), {},
+         "a base with no English of its own hands none across")
+    s.eq(graft("知らない作品【単話版】", named), {}, "and a work with no base at all is left alone")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

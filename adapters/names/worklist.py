@@ -58,13 +58,22 @@ ENGLISH = re.compile(r"\b(the|a|an|of|and|in|is|my|your|with|to|for|who|that|but
 #: punctuation. Listing the marks missed seven more: `She "Falls" in Love` carries quotes,
 #: `YuRe：Log` and `maimaimaimai mind！` carry full-width marks, and `Rouge　caprice` is divided by
 #: an ideographic space. Every one of them was queued for somebody to translate into English.
-JAPANESE = re.compile(r"[ぁ-ゟ゠-ヿ㐀-䶿一-鿿々〆ヵヶ]")
+#: THE MARKS IN THE KANA BLOCKS ARE NOT KANA. `・` is U+30FB, inside the katakana block, and it is
+#: punctuation: `flower・flower` is 一迅社's own Latin name and was queued for translation because a
+#: range test called the separator a script. `〜` and `。「」` are the same case.
+NOT_A_SCRIPT = "・〜～。、「」『』〝〟゛゜〽〄"
+JAPANESE = re.compile(r"[^%s]" % re.escape(NOT_A_SCRIPT) + r"(?<=[ぁ-ゟ゠-ヿ㐀-䶿一-鿿々〆ヵヶ])")
 LATIN = re.compile(r"[A-Za-z]")
 
 
 def already_latin(title):
-    """Whether the work's own name is in Latin letters and no English rendering is owed."""
-    return bool(LATIN.search(title) and not JAPANESE.search(title))
+    """Whether the work's own name needs no English rendering, having no Japanese in it.
+
+    A TITLE OF DIGITS IS ALREADY WRITTEN THE WAY A READER MEETS IT. `2332` carries no Latin letter
+    and no Japanese, and demanding a letter filed it as a coinage to confirm. Its name is four
+    digits and there is nothing to confirm.
+    """
+    return bool(title.strip() and not JAPANESE.search(title))
 
 #: A title this short, in kana, is usually a coinage or a name, and a romanisation is the finished
 #: answer for those. Kept as a hint and never as a verdict.

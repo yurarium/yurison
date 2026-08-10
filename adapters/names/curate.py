@@ -126,7 +126,14 @@ DIVIDING_BASES = tuple(sorted(_division.bases_where("cited")))
 # It carries `translation_note` for the reason `reading_note` is separate from `note`. One entry
 # holds two decisions, the argument for each is its own, and a translation with no argument behind
 # it is the machine translation §5a rules out.
+# `en_source`, `en_url` and `en_source_kind` MIRROR THE READING'S, and they were missing while
+# the reading's existed. The store already lets a claim's own citation outrank the entry's, so the
+# machinery was there and only this file could not reach it: an entry whose English came from a
+# licensor and whose reading was read off the title had one `source_url` between them, and the
+# reading was stamped with the licensor's page. お姉さまと巨人 cited Yen Press for a reading nobody
+# there stated. What was asymmetric was the vocabulary and not the model.
 KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "reviewed", "note",
+        "en_source", "en_url", "en_source_kind",
         "candidate_note", "reading", "reading_basis", "reading_note", "reading_source_kind",
         "reading_source", "reading_url", "reading_boundary", "reading_refuted", "en_refuted",
         "translation", "translation_note",
@@ -265,7 +272,7 @@ def problems(kind, ja, e):
         elif e.get("source_kind") not in table[basis]:
             out.append(f"{where}: basis {basis!r} needs evidence from "
                        f"{' or '.join(table[basis])}, not {e.get('source_kind')!r}")
-        if e.get("source_kind") != "derived" and not e.get("source_url"):
+        if e.get("source_kind") != "derived" and not (e.get("source_url") or e.get("en_url")):
             out.append(f"{where}: an attributed name needs the page it was read from")
     elif e.get("basis"):
         out.append(f"{where}: a candidate carries no basis; it is not yet a claim about the work")
@@ -519,6 +526,7 @@ def apply(store, doc):
             # flattened onto `at` and so could not be told from the day a pass happened to run.
             fact = {k: e.get(k) for k in
                     ("en", "candidate", "basis", "source", "source_kind", "source_url", "note",
+                     "en_source", "en_url", "en_source_kind",
                      "candidate_note", "reading", "reading_basis", "reading_note",
                      "reading_source_kind", "reading_source", "reading_url", "reading_boundary",
                      "transliterates", "reviewed")}

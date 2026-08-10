@@ -2236,6 +2236,51 @@ def inv_the_pipeline_runs_from_a_clean_checkout(ctx):
     return bad
 
 
+def inv_a_rendered_file_names_a_platform_its_targets_hold(ctx):
+    """Every `rendered-<id>.yaml` answers to a platform `render-targets.yaml` still lists.
+
+    THE FAULT THIS WATCHES. `adapters/render/releases.py` names its output after the platform id it
+    was given and stamps the same id inside as `platform:`. Change an id in the targets file and
+    the run writes a NEW file under the new name; the old one keeps its place in
+    `data/source/webpages/`, where `build.py` globs the whole directory and reads it as a platform
+    of its own. Nothing rewrites it, `carry_over` never sees it, and both copies reach a reader.
+
+    It has happened once. Three platforms shared the id `www`, the first label of
+    `www.comic-ryu.jp`, `www.corocoro.jp` and `www.mangabox.me`, and were renamed to `comicryu`,
+    `corocoro` and `mangabox`. `rendered-www.yaml` was left holding コロコロオンライン's ten
+    chapters, and `feed.json` was serving them under `"plat": "www"` with release ids like
+    `www:第10話`, so the next successful Stage C run would have published every one of them twice
+    under two platform ids wearing one name.
+
+    §14b, WHAT IT REUSES: the id in the filename and the id in the file, against the targets file.
+    The writer consults the targets file it is given TODAY, so it always agrees with itself; what
+    is unreachable to it is a file written by an earlier version of that list. So this can fail on
+    something the pipeline produces, which is the whole test.
+
+    NOT PROBED BY `--self-test`: it reads the repository, and a canary planted in `ctx` never
+    arrives (§4). Verified by renaming a live target id and watching the count move.
+
+    fallback: none needed in the build, and none is offered. The remedy is to rename the file to
+    match, which keeps the chapters and lets the next run replace them.
+    """
+    targets = _yaml(ROOT / "data" / "coverage" / "render-targets.yaml", {}) or {}
+    ids = {str(p.get("id")) for p in (targets.get("platforms") or []) if p.get("id")}
+    if not ids:
+        return ["data/coverage/render-targets.yaml names no platform, so nothing here was checked"]
+    bad = []
+    for f in sorted((ROOT / "data" / "source" / "webpages").glob("rendered-*.yaml")):
+        named = f.stem[len("rendered-"):]
+        if named not in ids:
+            bad.append(f"{f.relative_to(ROOT)} answers to a platform id "
+                       f"render-targets.yaml no longer holds, so no run will ever rewrite it "
+                       f"and build.py reads it beside the file that replaced it")
+        stamped = str((_yaml(f, {}) or {}).get("platform") or "")
+        if stamped != named:
+            bad.append(f"{f.relative_to(ROOT)} is named for {named} and stamped {stamped!r}, "
+                       f"so the platform a reader is shown depends on which one is read")
+    return bad
+
+
 INVARIANTS = [
     ("ruby covers its surface", inv_ruby_covers_its_surface),
     ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
@@ -2302,6 +2347,8 @@ INVARIANTS = [
      inv_every_japanese_field_has_a_ruling),
     ("the pipeline runs from a clean checkout",
      inv_the_pipeline_runs_from_a_clean_checkout),
+    ("a rendered file names a platform its targets hold",
+     inv_a_rendered_file_names_a_platform_its_targets_hold),
 ]
 
 

@@ -81,8 +81,16 @@ def modules():
         # A hidden directory is somebody's working space, not part of the project. An agent left
         # .tmp-c2/q.py in the tree mid-run and it counted as an untested module, which failed a
         # budget over a file nobody had written for this repository.
-        if (SKIP_DIRS & set(p.parts) or p.name == "test.py"
-                or any(part.startswith(".") and part not in (".", "..") for part in p.parts)):
+        #
+        # ASKED OF THE PATH BELOW ROOT AND NOT OF THE WHOLE PATH. An agent worktree lives at
+        # `.claude/worktrees/agent-…`, so every file in it has a dot component ABOVE the root it is
+        # the root of, and this rule threw all of them away: `./test.py` run inside a worktree
+        # discovered 0 suites, printed "0 passed, 0 failed" and exited 0. Every agent that ran the
+        # suite there was told its work was green by a run that executed nothing, which is the
+        # thing `0 vacuous` on the line below exists to make impossible.
+        rel = p.relative_to(ROOT) if p.is_relative_to(ROOT) else p
+        if (SKIP_DIRS & set(rel.parts) or p.name == "test.py"
+                or any(part.startswith(".") and part not in (".", "..") for part in rel.parts)):
             continue
         if not has_code(p):
             continue
@@ -236,6 +244,16 @@ def main():
     runnables, covered = collect()
     allmods = {str(p.relative_to(ROOT)) for p in modules()}
     untested = sorted(allmods - covered)
+
+    # A RUNNER THAT FOUND NOTHING HAS NOT PASSED. Discovery returning empty printed
+    # "0 passed, 0 failed" and exited 0, which reads as green everywhere it is used: pre-push, both
+    # workflows, and a person's terminal. `modules without a test` is a budget at zero, so the
+    # repository always holds a test for every module it holds, and `./test.py --list` reports 167
+    # of them today. An empty collection is therefore a broken runner, and it says so.
+    if not runnables:
+        sys.exit(f"no suites found under {ROOT}. Discovery is broken; a run of nothing is not a "
+                 f"pass. Check that this is a checkout of the repository and that modules() can "
+                 f"see it.")
 
     if a.untested or a.quiet:
         if a.quiet:

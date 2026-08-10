@@ -60,6 +60,25 @@ READING_OVERRIDE = {
     "私": "ワタシ",
     "俺": "オレ",
     "僕": "ボク",
+    # 抱く HAS TWO SENSES AND THE DICTIONARY ORDERS THEM THE WRONG WAY ROUND FOR THIS CORPUS.
+    # だく is holding a person; いだく is harbouring a feeling, and is the literary form besides.
+    # SudachiDict returns イダク for every inflection, so 抱かれたい女 was read イダカレタイ, which
+    # is the wrong word for a title about being held, and the project owner reported it on
+    # 2026-08-10. The corpus already disagreed with itself: タダでは抱かれません carries
+    # ダカレマセン, back-converted from a romanisation, beside five records reading イダカレ.
+    #
+    # THE 未然形 ALONE, WHICH IS THE COUNTER-CASE DOING THE WORK. 抱か takes れる, せる or ない and
+    # nothing else, and the passive and causative of the harbouring sense are vanishingly rare while
+    # the passive of the holding sense is ordinary. Every one of the seven occurrences here is
+    # 抱かれ. The citation form 抱く is deliberately NOT in this table, because 元カノに幻想を抱くな
+    # is in this corpus three times and is げんそうをいだく, exactly the sense this entry is not
+    # about, and a lemma-wide rule would have broken it.
+    #
+    # 抱い AND 抱き ARE LEFT ALONE AND THE RESIDUE IS REPORTED RATHER THAN GUESSED (NAMES-PLAN §1).
+    # 「私の彼女を抱いてくれ！」と言われた実録百合漫画 is a person as the object and so is だいて,
+    # and 春にして君を抱き is probably だき, but the surface says neither: 疑問を抱いて is いだいて
+    # and 抱き is also the noun of 抱き枕. Settling those wants a source for each title.
+    "抱か": "ダカ",
 }
 
 
@@ -965,6 +984,33 @@ def segment_reader():
     return read
 
 
+#: A stored reading the register table may take back. `stated`, `surface` and `researched` are a
+#: source's kana or a reviewer's decision, and neither is the analyser's to overrule.
+OVERRULABLE = ("analyser", "back-converted")
+
+
+def overruled(tokenizer, s, reading, mode=None):
+    """Whether this stored reading still holds the analyser's own answer where the table overrules it.
+
+    The test is the presence of the UN-overridden kana in the reading, rather than a comparison with
+    a fresh derivation, and the difference is what keeps this from re-reading the whole store: a
+    record is stale here only because of a decision in `READING_OVERRIDE`, never because
+    SudachiDict moved a token boundary since the reading was written.
+
+    Kana-only, on purpose. 抱き reads ダキ as a noun and イダキ as the verb stem, and neither this
+    nor the table it reads can tell those apart, which is why 抱き is not in the table.
+    """
+    held = kata(str(reading or ""))
+    if not held:
+        return False
+    for m in tokenizer.tokenize(s, mode):
+        want = READING_OVERRIDE.get(m.surface())
+        got = kata(m.reading_form() or "")
+        if want and got and got != want and got in held:
+            return True
+    return False
+
+
 def fill_missing(strings, kind, quiet=False, refresh=False, ruled=None):
     """Give every string a reading if one can be found. Idempotent, offline, safe to call always.
 
@@ -989,10 +1035,36 @@ def fill_missing(strings, kind, quiet=False, refresh=False, ruled=None):
     todo = [s for s in strings
             if s and wants_reading(s, names.get(s) or {}, kind, refresh)
             and has_japanese(s) and not (kind == "authors" and is_credit_line(s, ruled))]
-    if not todo:
-        return 0
     tok = Dictionary().create()
     modes = [SplitMode.C, SplitMode.A]
+    # A CURATED REGISTER DECISION HAS TO REACH WHAT WAS ALREADY READ. `READING_OVERRIDE` is applied
+    # while a reading is being produced, and this function only ever produces one for a record that
+    # has none, so 私 was fixed for every title read after the entry was added and for no title read
+    # before it. 抱かれたい女 was reported the same way: five records held イダカレタイ and the
+    # entry that answers it changed none of them.
+    #
+    # ONLY WHERE THE STORED READING HOLDS THE ANALYSER'S OWN ANSWER for a token this table
+    # overrules, which is the narrow test and not `--refresh`. Re-deriving every analyser reading
+    # would take SudachiDict's drift with it: 163 of 2,663 no longer re-derive identically and four
+    # are worse for it, ケイオン！ シャッフル now reading `Shuffle`. The table is ours and is the one
+    # thing here known to be right, so it is the only thing allowed to invalidate a stored reading.
+    # THE STORE'S KEYS AND NOT THE CALLER'S SET, because staleness is a property of a stored record
+    # and not of what the pipeline happened to see this run. `抱かれたい女～JD…～` is an edition
+    # title that reaches no series row, and scanning only `strings` left it reading イダカレタイ
+    # beside four siblings that had been corrected.
+    #
+    # PRE-FILTERED ON THE SURFACE, so the tokeniser sees a handful of records rather than the whole
+    # store. A token this table overrules cannot be in a reading whose title does not contain the
+    # characters.
+    _done = set(todo)
+    stale = [s for s in names
+             if s and s not in _done
+             and any(w in s for w in READING_OVERRIDE)
+             and (names.get(s) or {}).get("reading_basis") in OVERRULABLE
+             and overruled(tok, s, (names.get(s) or {}).get("reading"), modes[0])]
+    todo += stale
+    if not todo:
+        return 0
     today = str(datetime.date.today())
     added = surfaced = 0
     for s in todo:

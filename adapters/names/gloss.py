@@ -166,15 +166,27 @@ def compose(title, read):
             return None, None
         reading.append(got)
         if ruby is not None:
-            ruby = ruby + list(spans) if _covers(spans, text) else None
+            # COPIED, BECAUSE THE READER CACHES. `pass4_analyser.segment_reader` answers the same
+            # fragment with the same list object, so two titles sharing ` : お` shared one span and
+            # yaml.safe_dump wrote the store full of `&id001` anchors pointing records at each
+            # other's ruby. A span belongs to the record it is stored on.
+            ruby = ruby + [list(x) for x in spans] if _covers(spans, text) else None
     return re.sub(r"\s+", " ", " ".join(reading)).strip(), ruby or None
 
 
 # A reading a stated gloss may replace. Machine work, all of it: the analyser's guess is what the
 # gloss exists to overrule, and the other three are derivations from a string somebody else read.
-# `stated`, `surface` and `researched` are left exactly as they are, so a reviewer's decision and a
-# source's own kana both outlive this pass whatever they say.
+# `surface` and `researched` are left exactly as they are, so a reviewer's decision and a name's own
+# kana both outlive this pass whatever they say.
+#
+# `title-furigana` IS THIS PASS'S OWN OUTPUT AND IT IS ADMITTED FOR THAT REASON. A composed reading
+# is the gloss for the glossed run and the ANALYSER for everything else, so it goes stale exactly
+# when the analyser does: 抱かれたい女(ひと) was composed イダカレタイ ヒト, the ひと came from the
+# publisher and the イダカレタイ came from SudachiDict, and a register correction to the second half
+# could not reach a record filed under `stated`. One producer owns what it wrote (§3), and a
+# `stated` reading from anywhere else is still untouchable below.
 REPLACEABLE = ("analyser", "aligned", "back-converted", "guessed")
+OURS = "title-furigana"
 
 STORE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names" / "titles.yaml"
 
@@ -198,7 +210,7 @@ def fill(names, glossed, read, today):
             continue
         rec = (names or {}).get(title) or {}
         held, basis = rec.get("reading"), rec.get("reading_basis")
-        if held and basis not in REPLACEABLE:
+        if held and basis not in REPLACEABLE and rec.get("reading_source") != OURS:
             if not _same(held, reading):
                 disagreed.append((title, held, reading))
             continue
@@ -235,6 +247,25 @@ def _same(a, b):
     return str(a).replace(" ", "").replace("　", "") == str(b).replace(" ", "").replace("　", "")
 
 
+def self_glossed(names):
+    """`{key: key}` for every stored record whose OWN key prints a reading gloss.
+
+    THE HALF THE PIPELINE WAS MISSING. `build.work_alias` takes a gloss out of a title on the way in
+    and `glossed_titles` hands the pair over, so the PLAIN name is answered by its own brackets. The
+    glossed string also enters the store in its own right, off the bibliographic records, and those
+    keys were read by the analyser with the brackets still in them: 恋する小惑星 (アステロイド) was
+    stored コイ スル ショウワクセイ ( アステロイド ), which is the title's characters plus its own
+    furigana said aloud as a second word. 永久（とこしえ） was read エイキュウ, which is the reading
+    the gloss exists to overrule, and 抱かれたい女(ひと) was read オンナ where the publisher printed
+    ひと. 17 keys carry a gloss and 9 of them were read past it.
+
+    The record is its own source, which is why the key is both halves of the pair: there is no
+    plainer form to attribute it to, and `provenance.SELF_SOURCED` already covers a reading the
+    string itself states.
+    """
+    return {k: k for k in (names or {}) if glosses(k)}
+
+
 def fill_store(glossed, read, path=None, today=None):
     """`fill`, against the store on disk. `(written, disagreed, left)`, and the file is written.
 
@@ -249,10 +280,14 @@ def fill_store(glossed, read, path=None, today=None):
 
     import yaml
     path = pathlib.Path(path or STORE)
-    if not path.exists() or not glossed or not read:
+    if not path.exists() or not read:
         return {}, [], 0
     doc = yaml.safe_load(path.read_text()) or {}
     names = doc.setdefault("names", {})
+    # THE BUILD'S PAIRS AND THE STORE'S OWN KEYS, in one call, because they are one rule asked of
+    # two populations. A caller passing nothing still gets the store's own, so a run that ingested
+    # no glossed title does not leave the glossed keys already on disk unread.
+    glossed = dict(self_glossed(names), **(glossed or {}))
     written, disagreed, left = fill(names, glossed, read, today or str(datetime.date.today()))
     if written:
         path.write_text(yaml.safe_dump(doc, allow_unicode=True, sort_keys=True, width=100))

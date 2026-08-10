@@ -138,9 +138,54 @@ def main(s):
     s.eq(dis2, [], "the curated answer for the counter-case and the rule agree")
     s.eq(left2, 0, "and agreement is not a write")
 
-    s.eq(g.fill_store({}, read), ({}, [], 0), "nothing glossed, nothing to record")
+    # A KEY THAT PRINTS ITS OWN GLOSS IS ITS OWN SOURCE. The build hands over the pairs it stripped
+    # at ingest, and the bibliographic records enter the store under the string WITH the brackets in
+    # it, which nothing was handing over at all: 恋する小惑星 (アステロイド) was stored as
+    # コイ スル ショウワクセイ ( アステロイド ), the characters plus their own furigana read aloud as
+    # a second word. 17 keys carry a gloss and 9 were read past it.
+    own = {"恋する小惑星（アステロイド）": {"reading": "コイ スル ショウワクセイ （アステロイド）",
+                                          "reading_basis": "analyser"}}
+    s.eq(g.self_glossed(own), {"恋する小惑星（アステロイド）": "恋する小惑星（アステロイド）"},
+         "a record whose own key prints a gloss is a pair with itself")
+    s.eq(g.self_glossed({"ふつうの話": {}}), {}, "and a title with no bracket is not one")
+    g.fill(own, g.self_glossed(own), read, "2026-08-10")
+    s.eq(own["恋する小惑星（アステロイド）"]["reading"], "コイ スル アステロイド",
+         "so the bracket is read as the reading it is, not as words of its own")
+
+    # OUR OWN OUTPUT IS RESTATABLE AND NOBODY ELSE'S IS. A composed reading is the gloss for one run
+    # and the ANALYSER for the rest, so a register correction to the rest could not reach a record
+    # this pass had already filed as `stated`. 抱かれたい女(ひと) held イダカレタイ ヒト for that
+    # reason: the ひと was the publisher's and the イダカレタイ was SudachiDict's.
+    mine = {"恋する小惑星": {"reading": "コイ スル ショウワクセイ", "reading_basis": "stated",
+                            "reading_source": g.OURS}}
+    g.fill(mine, {"恋する小惑星": "恋する小惑星（アステロイド）"}, read, "2026-08-10")
+    s.eq(mine["恋する小惑星"]["reading"], "コイ スル アステロイド",
+         "a reading this pass wrote is recomposed when the analyser half of it moves")
+    theirs = {"恋する小惑星": {"reading": "コイ スル ホシ", "reading_basis": "stated",
+                              "reading_source": "https://example.invalid/page"}}
+    _w3, dis3, _l3 = g.fill(theirs, {"恋する小惑星": "恋する小惑星（アステロイド）"}, read,
+                            "2026-08-10")
+    s.eq(theirs["恋する小惑星"]["reading"], "コイ スル ホシ",
+         "and a reading somebody else printed is reported, never rewritten")
+    s.eq([x[0] for x in dis3], ["恋する小惑星"], "which is what the disagreement list is for")
+
+    import tempfile
+    import yaml
+    with tempfile.TemporaryDirectory() as tmp:
+        p = pathlib.Path(tmp) / "titles.yaml"
+        p.write_text(yaml.safe_dump({"names": dict(own)}, allow_unicode=True))
+        s.eq(g.fill_store({}, read, path=p)[0], {},
+             "a store already holding its gloss has nothing left to write")
+        p.write_text(yaml.safe_dump({"names": {"永久（とこしえ）にラーメンを食べる方法": {
+            "reading": "エイキュウ ニ ラーメン ヲ タベル ホウホウ",
+            "reading_basis": "analyser"}}}, allow_unicode=True))
+        s.eq(g.fill_store({}, read, path=p)[0],
+             {"永久（とこしえ）にラーメンを食べる方法": "トコシエ ニ ラーメン ヲ タベル ホウホウ"},
+             "and one that does not is answered without the build handing anything over")
+        s.eq(g.fill_store({}, read, path=pathlib.Path(tmp) / "gone.yaml"), ({}, [], 0),
+             "no store is the documented fallback, not an error")
     s.eq(g.fill_store({"x": "y"}, None), ({}, [], 0),
-         "and no analyser is the documented fallback, not an error")
+         "and no analyser is the documented fallback either")
 
 
 if __name__ == "__main__":

@@ -3726,6 +3726,52 @@ def budget_kana_left_in_a_romanisation(ctx):
     return _rom.CHECKS["kana left in a romanisation"](ctx)
 
 
+GLOSS_IN_TITLE = re.compile(r"([\u4e00-\u9fff\u3005]+)\s?[（(]([\u3041-\u3096\u309d\u309e\u30a1-\u30fa\u30fc\u30fd\u30fe]+)[）)]")
+
+
+def budget_titles_read_past_their_own_gloss(ctx):
+    """Titles that print how a word in them is said, shipped with a reading that ignores it.
+
+    A publisher setting furigana on the line, `抱かれたい女(ひと)`, is STATING the reading of the run
+    before the bracket, and it outranks anything an analyser produces. 17 shipped titles carry one
+    and 9 were read past it in three different ways: the bracket read aloud as words of its own
+    (`コイ スル ショウワクセイ ( アステロイド )`), the gloss dropped and the kanji read off the
+    characters (`永久（とこしえ）` as エイキュウ), and the wrong one of two attested readings chosen
+    for the glossed run (`女` as オンナ where the title prints ひと).
+
+    THE ARITHMETIC, WHICH THE PRODUCER DOES NOT PERFORM (§14b). Both halves are read off the SHIPPED
+    row: the reading has to contain the kana the title prints, and it may not contain a bracket that
+    the title used to set furigana. `names/gloss.py` composes a reading and never afterwards asks
+    whether the result says what the brackets said, so a composition that silently dropped a
+    fragment is counted here.
+
+    WHAT IT SHARES is the pattern for what a gloss looks like, which is `gloss.GLOSS` written for the
+    shipped keys. It therefore cannot see a gloss in a shape neither recognises: a Latin head, which
+    `gloss.py` refuses on purpose because an imprint sits in that position, and `【】`, which labels
+    an edition in this corpus and never a reading.
+
+    ONE LEFT, AND IT IS A CURATED RECORD RATHER THAN A PASS. 念願の悪役令嬢(ラスボス)の身体を… holds
+    a `researched` reading that reads its own bracket aloud, and a build has no standing to overrule
+    a reviewer. It falls when somebody re-states that one.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters" / "names"))
+        import kana
+    except Exception:                                                       # noqa: BLE001
+        return UNMEASURED    # this could not be measured; see UNMEASURED
+    n = 0
+    for ja, v in ((ctx["names_shipped"] or {}).get("titles") or {}).items():
+        rd = v.get("reading")
+        if not rd:
+            continue
+        for _run, kana_gloss in GLOSS_IN_TITLE.findall(str(ja)):
+            said = kana.to_katakana(kana_gloss)
+            if said not in kana.to_katakana(rd).replace(" ", "") or re.search(r"[（(）)]", rd):
+                n += 1
+                break
+    return n
+
+
 def budget_titles_shorter_than_their_own_reading(ctx):
     """Records whose reading states other title information the stored name does not carry.
 
@@ -3949,6 +3995,10 @@ BUDGETS_DEF = [
      "strings the shipped names file offers in place of Japanese that still hold a kana character, "
      "which undoes the one job a romanisation has. A rise means a renderer met a kana it has no "
      "table entry for and printed it."),
+    ("titles read past their own gloss", budget_titles_read_past_their_own_gloss,
+     "titles printing how a word in them is said, shipped with a reading that drops the kana or "
+     "reads the bracket aloud. A publisher's furigana on the line outranks an analyser. A rise "
+     "means a capture route reached the naming passes without the gloss rule."),
     ("titles shorter than their own reading", budget_titles_shorter_than_their_own_reading,
      "MADB records whose stated reading carries ISBD's mark for other title information while the "
      "stored name carries none, so the work is held under a name shorter than the one the "

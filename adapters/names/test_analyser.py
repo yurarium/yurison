@@ -53,6 +53,34 @@ def main(s):
     # and the analyser preferred ワタクシ until told otherwise.
     s.check(isinstance(p4.READING_OVERRIDE, dict), "an override table exists")
     s.check(len(p4.READING_OVERRIDE) > 0, "and it is populated")
+    # 抱かれたい女 WAS READ イダカレタイ, reported 2026-08-10. だく is holding a person and いだく is
+    # harbouring a feeling, and SudachiDict answers イダク for every inflection.
+    s.eq(p4.READING_OVERRIDE.get("抱か"), "ダカ", "the passive stem of 抱く is だか")
+    # AND THE COUNTER-CASE THAT KEPT THE RULE OFF THE LEMMA. 元カノに幻想を抱くな is in this corpus
+    # three times and is げんそうをいだく, which is the sense the entry above is not about.
+    for surface in ("抱く", "抱い", "抱き"):
+        s.eq(p4.READING_OVERRIDE.get(surface), None,
+             f"{surface} is not overridden: 幻想を抱く and 抱き枕 are the words it would break")
+    try:
+        from sudachipy import Dictionary, SplitMode
+        _tk = Dictionary().create()
+        s.eq(p4.analyse(_tk, "抱かれたい女", SplitMode.C), "ダカレタイ オンナ",
+             "so the reported title reads だかれたい")
+        s.eq(p4.analyse(_tk, "元カノに幻想を抱くなバーカ", SplitMode.C),
+             "モトカノ ニ ゲンソウ ヲ イダクナ バーカ",
+             "and the counter-case in the same corpus still reads いだく")
+        # THE TABLE HAS TO REACH WHAT WAS ALREADY READ. It is applied while a reading is produced,
+        # and `fill_missing` only produces one for a record that has none, so five records held
+        # イダカレタイ after the entry existed.
+        s.check(p4.overruled(_tk, "抱かれたい女", "イダカレタイ オンナ", SplitMode.C),
+                "a stored reading holding the analyser's own answer is stale")
+        s.check(not p4.overruled(_tk, "抱かれたい女", "ダカレタイ オンナ", SplitMode.C),
+                "and one already carrying the table's answer is not")
+        s.check(not p4.overruled(_tk, "元カノに幻想を抱くなバーカ",
+                                 "モトカノ ニ ゲンソウ ヲ イダクナ バーカ", SplitMode.C),
+                "a token the table says nothing about never makes a record stale")
+    except ImportError:
+        s.skip("sudachipy absent")
 
     # Credit lines are not titles. 原作／宮澤伊織 was once romanised wholesale, producing
     # "Gensaku Kigō Miyazawa Iori": the role is a label to translate, the name is a name.

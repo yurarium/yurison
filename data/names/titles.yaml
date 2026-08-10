@@ -8825,23 +8825,64 @@ names:
     en_source: mediaarts-db
     en_source_kind: bibliography
     en_url: https://mediaarts-db.artmuseums.go.jp/id/M869334
-    note: 'The parallel title MADB records after '' = '', ending where the subtitle after '' : '' begins.
-      お嬢さまが異世界転生 is the book''s own subtitle and stays with the Japanese name, which is why the English
-      here is the two words and not the whole line.'
+    furigana_spans:
+    - - お
+      - null
+    - - 姉
+      - あね
+    - - さまと
+      - null
+    - - 巨人
+      - わたし
+    - - ' : お'
+      - null
+    - - 嬢
+      - じょう
+    - - さまが
+      - null
+    - - 異世界
+      - いせかい
+    - - 転生
+      - てんしょう
+    reading: 'オ アネサマ ト ワタシ : オジョウサマ ガ イセカイ テンショウ'
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_note: 'the source writes this title お姉さまと巨人(わたし) : お嬢さまが異世界転生, which prints the reading of
+      the run before each bracket'
+    reading_source: title-furigana
     translation_note: The title glosses 巨人 as わたし, so the giant is the narrator, and the publisher's English
       drops both the gloss and the subtitle.
     verified: true
   'お姉さまと巨人(わたし) = MY SISTER AND GIANT : お嬢さまが異世界転生':
     basis: romaji
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: 'オ アネサマ ト キョジン   =   MY   SISTER   AND   GIANT   :   オジョウサマ ガ イセカイ テンショウ'
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    furigana_spans:
+    - - お
+      - null
+    - - 姉
+      - あね
+    - - さまと
+      - null
+    - - 巨人
+      - わたし
+    - - ' = MY SISTER AND GIANT : お'
+      - null
+    - - 嬢
+      - じょう
+    - - さまが
+      - null
+    - - 異世界
+      - いせかい
+    - - 転生
+      - てんしょう
+    reading: 'オ アネサマ ト ワタシ = MY SISTER AND GIANT : オジョウサマ ガ イセカイ テンショウ'
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_note: 'the source writes this title お姉さまと巨人(わたし) = MY SISTER AND GIANT : お嬢さまが異世界転生, which
+      prints the reading of the run before each bracket'
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   お姉さんは女子小学生に興味があります。:
     basis: translated
     en: The Onee-san Is Interested in Elementary School Girls.
@@ -38778,17 +38819,17 @@ names:
     - - も
       - null
     - - 抱
-      - いだ
+      - だ
     - - かれてます！
       - null
-    note: 抱かれる is the passive of holding somebody, and the word carries sleeping with as readily as embracing.
-      も adds that tonight is not the first time.
-    reading: コンヤ モ イダカレテマス！
-    reading_at: '2026-08-06'
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: コンヤ モ ダカレテマス！
+    reading_at: '2026-08-10'
     reading_basis: analyser
     reading_ordinary: true
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   今宵、悪役令嬢の手をとれたら:
@@ -52442,19 +52483,16 @@ names:
     - - する
       - null
     - - 小惑星
-      - しょうわくせい
-    - - ' (アステロイド)'
-      - null
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: コイ スル ショウワクセイ   ( アステロイド )
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_ordinary: true
+      - あすてろいど
+    reading: コイ スル アステロイド
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_note: the source writes this title 恋する小惑星 (アステロイド), which prints the reading of the run before
+      each bracket
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   恋する小惑星（アステロイド）:
     basis: translated
     en: Asteroid in Love
@@ -52468,19 +52506,16 @@ names:
     - - する
       - null
     - - 小惑星
-      - しょうわくせい
-    - - （アステロイド）
-      - null
-    note: Adopted from the anime's own English release rather than translated fresh, unlicensed manga
-      marked ours, the same shape as several titles this evening.
-    reading: コイ スル ショウワクセイ （アステロイド）
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_ordinary: true
+      - あすてろいど
+    reading: コイ スル アステロイド
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_note: the source writes this title 恋する小惑星（アステロイド）, which prints the reading of the run before
+      each bracket
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   恋する狼とミルフィーユ:
     basis: translated
     en: The Wolf in Love and the Mille-feuille
@@ -54973,7 +55008,7 @@ names:
     en_source_kind: derived
     furigana_spans:
     - - 抱
-      - いだ
+      - だ
     - - かれたい
       - null
     - - 女
@@ -54988,12 +55023,8 @@ names:
       - か
     - - われています
       - null
-    note: 'The catalogue prints the book''s own Latin line beside the Japanese, which settles the ambiguity
-      in 抱かれたい女: the wanting is hers. The bracketed ひと is the work''s own gloss, telling the reader to
-      say 女 as person. JD clips 女子大生 and アラサー is around thirty, both stated in full because the shorthand
-      means nothing in English.'
-    reading: 'イダカレタイ ヒト : JDダケド アラサー ジョシ ニ カワレテ イマス'
-    reading_at: '2026-08-08'
+    reading: 'ダカレタイ ヒト : JDダケド アラサー ジョシ ニ カワレテ イマス'
+    reading_at: '2026-08-10'
     reading_basis: stated
     reading_note: 'the source writes this title 抱かれたい女(ひと) : JDだけどアラサー女子に買われています, which prints the reading
       of the run before each bracket'
@@ -55007,17 +55038,32 @@ names:
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    note: 'The catalogue prints the book''s own Latin line beside the Japanese, which settles the ambiguity
-      in 抱かれたい女: the wanting is hers. The bracketed ひと is the work''s own gloss, telling the reader to
-      say 女 as person. JD clips 女子大生 and アラサー is around thirty, both stated in full because the shorthand
-      means nothing in English.'
-    reading: 'イダカレタイ オンナ   :   JDダケド アラサー ジョシ ニ カワレテ イマス'
-    reading_at: '2026-08-07'
-    reading_basis: analyser
+    furigana_spans:
+    - - 抱
+      - だ
+    - - かれたい
+      - null
+    - - 女
+      - ひと
+    - - ' : JDだけどアラサー'
+      - null
+    - - 女子
+      - じょし
+    - - に
+      - null
+    - - 買
+      - か
+    - - われています
+      - null
+    reading: 'ダカレタイ ヒト : JDダケド アラサー ジョシ ニ カワレテ イマス'
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_note: 'the source writes this title 抱かれたい女(ひと) : JDだけどアラサー女子に買われています, which prints the reading
+      of the run before each bracket'
     reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   '抱かれたい女(ひと) = person who wants to be embraced : JDだけどアラサー女子に買われています':
     basis: translated
     en: 'person who wants to be embraced: I''m a University Student and a Woman Pushing Thirty Is Buying
@@ -55026,17 +55072,32 @@ names:
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    note: 'The catalogue prints the book''s own Latin line beside the Japanese, which settles the ambiguity
-      in 抱かれたい女: the wanting is hers. The bracketed ひと is the work''s own gloss, telling the reader to
-      say 女 as person. JD clips 女子大生 and アラサー is around thirty, both stated in full because the shorthand
-      means nothing in English.'
-    reading: 'イダカレタイ オンナ   =   person   who   wants   to   be   embraced   :   JDダケド アラサー ジョシ ニ カワレテ イマス'
-    reading_at: '2026-08-06'
-    reading_basis: analyser
+    furigana_spans:
+    - - 抱
+      - だ
+    - - かれたい
+      - null
+    - - 女
+      - ひと
+    - - ' = person who wants to be embraced : JDだけどアラサー'
+      - null
+    - - 女子
+      - じょし
+    - - に
+      - null
+    - - 買
+      - か
+    - - われています
+      - null
+    reading: 'ダカレタイ ヒト = person who wants to be embraced : JDダケド アラサー ジョシ ニ カワレテ イマス'
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_note: 'the source writes this title 抱かれたい女(ひと) = person who wants to be embraced : JDだけどアラサー女子に買われています,
+      which prints the reading of the run before each bracket'
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   抱かれたい女〜JDだけどアラサー女子に買われています〜:
     basis: translated
     en: The Woman Who Wants to Be Held ~A College Girl, Bought by a Woman in Her Thirties~
@@ -55046,7 +55107,7 @@ names:
     en_source_kind: derived
     furigana_spans:
     - - 抱
-      - いだ
+      - だ
     - - かれたい
       - null
     - - 女
@@ -55061,22 +55122,20 @@ names:
       - か
     - - われています〜
       - null
-    note: JD, joshi daigakusei, and アラサー, "around 30", both translated rather than kept as loanwords since
-      neither is established in English the way yuri or senpai are. The synopsis is a college student
-      doing compensated dating for her boyfriend's birthday gift money, whose first client is a married
-      woman who wants to be someone's "mama".
-    reading: イダカレタイ オンナ 〜 JDダケド アラサー ジョシ ニ カワレテ イマス 〜
-    reading_at: '2026-08-05'
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ダカレタイ オンナ 〜 JDダケド アラサー ジョシ ニ カワレテ イマス 〜
+    reading_at: '2026-08-10'
     reading_basis: analyser
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   抱かれたい女～JDだけどアラサー女子に買われています～:
     basis: romaji
     furigana_spans:
     - - 抱
-      - いだ
+      - だ
     - - かれたい
       - null
     - - 女
@@ -55093,11 +55152,11 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: イダカレタイ オンナ ～ JDダケド アラサー ジョシ ニ カワレテ イマス ～
-    reading_at: '2026-08-04'
+    reading: ダカレタイ オンナ ～ JDダケド アラサー ジョシ ニ カワレテ イマス ～
+    reading_at: '2026-08-10'
     reading_basis: analyser
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   抱き寝ーター:
@@ -60866,16 +60925,26 @@ names:
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    note: The bracketed とこしえ is the work's own gloss on 永久, choosing the old poetic reading over the everyday
-      one. ラーメン is already English.
-    reading: エイキュウ ニ ラーメン ヲ タベル ホウホウ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_ordinary: true
+    furigana_spans:
+    - - 永久
+      - とこしえ
+    - - にラーメンを
+      - null
+    - - 食
+      - た
+    - - べる
+      - null
+    - - 方法
+      - ほうほう
+    reading: トコシエ ニ ラーメン ヲ タベル ホウホウ
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_note: the source writes this title 永久（とこしえ）にラーメンを食べる方法, which prints the reading of the run
+      before each bracket
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   永遠を、愛を誓います。-interlude day-:
     basis: translated
     en: I Vow Eternity, I Vow Love. -interlude day-
@@ -64822,18 +64891,32 @@ names:
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    note: 合コン is the arranged group meeting between two sets of friends, which Japanese has a word for
-      and English does not. ノンケ is not being that way inclined, built from ケ as in 気, and straight is
-      what it comes to. The parenthetical レズ glosses 百合 for the shop's readers and the English lets one
-      word carry both.
-    reading: ユリ ゴウコン ト マヨイコンダ ノンケ ノ ムスメ
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_ordinary: true
+    furigana_spans:
+    - - 百合
+      - れず
+    - - 合
+      - ごう
+    - - コンと
+      - null
+    - - 迷
+      - まよ
+    - - い
+      - null
+    - - 込
+      - こ
+    - - んだノンケの
+      - null
+    - - 娘
+      - むすめ
+    reading: レズ ゴウコン ト マヨイコンダ ノンケ ノ ムスメ
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_note: the source writes this title 百合(レズ)合コンと迷い込んだノンケの娘, which prints the reading of the run
+      before each bracket
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   百合SMでふたりの気持ちはつながりますか?:
     basis: romaji
     furigana_spans:
@@ -66324,20 +66407,19 @@ names:
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
-    - - 監獄
-      - かんごく
-    - - 街
-      - がい
-    - - ' (プリズンタウン) へようこそ!'
+    - - 監獄街
+      - ぷりずんたうん
+    - - へようこそ!
       - null
-    note: The furigana over 監獄街 is プリズンタウン, so the reading of the title is already the English.
-    reading: カンゴクガイ   ( プリズンタウン )   エ ヨウコソ !
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading: プリズンタウン ヘ ヨウコソ !
+    reading_at: '2026-08-10'
+    reading_basis: stated
+    reading_note: the source writes this title 監獄街 (プリズンタウン) へようこそ!, which prints the reading of the run
+      before each bracket
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   監獄街へようこそ!:
     basis: translated
     en: Welcome to Prison Town!

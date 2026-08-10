@@ -296,7 +296,13 @@ def main(s):
     # This returned `venue: None` on 1,209 records whose sources all named a publisher.
     fp = b.undated_publication({"venue": "ナンバーナイン", "date_basis": "no-print-edition"})
     s.eq(fp["venue"], "ナンバーナイン", "the venue the source stated survives having no date")
-    s.eq(fp["country"], "JP", "and so does the country, because WHERE is the inclusion test")
+    # AND THE COUNTRY IS EMPTY UNLESS SOMETHING ATTESTS IT. This asserted "JP", against a line that
+    # read `base.get("first_publication_country") or "JP"`, so the test could only ever agree with
+    # the constant. §6 makes this field the inclusion test and the sources here catalogue the
+    # Japanese EDITION, which is the one thing that cannot tell a translation from an original.
+    s.eq(fp["country"], None, "the country is empty where the caller establishes none")
+    s.eq(fp["country_basis"], "japanese-edition-catalogued",
+         "and the record says the scope test has not run rather than pretending it passed")
     s.eq(fp["date"], None, "the date stays null rather than being filled from anything nearby")
     s.eq(fp["date_basis"], "no-print-edition", "and the record says which silence it is in")
     s.eq(fp["venue_type"], "digital-imprint", "typed from the basis, not guessed from the venue")
@@ -583,6 +589,31 @@ def series_addresses(s):
                             "distributor": "講談社", "imprint": ""})
     s.eq(_gap["publisher_basis"], "not-stated", "an unnamed publisher says which kind of unnamed")
     s.eq(_gap["distributor"], "講談社", "beside the party MADB did name")
+
+    # ── AND THE SHOP THAT ADMITTED THE WORK CAN BE REACHED FROM IT ─────────────────────────────
+    #
+    # `_shop_address` read a shop address out of `marketing_label_basis`, guarded on the one shop
+    # whose records store the label's page and the shop's page at one URL. コミックシーモア
+    # admitted 256 works, holds a page for every one of them, and 230 shipped rows could not reach
+    # it. The guard was right about the fault it was written for and wrong about where the address
+    # lives, so both halves are pinned here.
+    s.eq(b._shop_address({"shop_url": "https://bookwalker.jp/de1/"}),
+         "https://bookwalker.jp/de1/", "a record the shop supplied states its own address")
+    s.eq(b._shop_address({"admitted_by": [{"comparator": "cmoa.jp",
+                                           "shop_url": "https://www.cmoa.jp/title/1132/"}]}),
+         "https://www.cmoa.jp/title/1132/",
+         "and a bibliographic record admitted on a shelf carries the shop's page on the admission")
+    # THE COUNTER-CASE THE OLD GUARD EXISTED FOR, and it has to keep passing: a record from the
+    # national bibliography states its label's basis and no retailer sells anything here. Reading
+    # that field put mediaarts-db.artmuseums.go.jp under a heading reading "Sold at" on 824 works.
+    s.eq(b._shop_address({"marketing_label_basis": {
+             "source": "madb", "url": "https://mediaarts-db.artmuseums.go.jp/id/C1"}}), None,
+         "a catalogue's own page is not a shop, however much it looks like an address")
+    s.eq(b._shop_address({"admitted_by": [{"comparator": "cmoa.jp"}]}), None,
+         "and an admission that names no page produces no link rather than a guessed one")
+    s.eq(b._print_block({"work_id": "C4", "admitted_by": [
+             {"comparator": "cmoa.jp", "shop_url": "https://www.cmoa.jp/title/1132/"}]})["shop_url"],
+         "https://www.cmoa.jp/title/1132/", "and the block a reader is given carries it")
 
     # ── A CREDIT LINE COMPOSED FROM THE STORE, AND THE ROLE BRACKET THAT USED TO FREEZE ONE ────
     #

@@ -31,6 +31,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
 from facts import identity  # noqa: E402
 from facts import dating as _dating  # noqa: E402
+from facts import origin as _origin  # noqa: E402
+from facts import imprint as _imprints  # noqa: E402
 import importdates  # noqa: E402
 import isbndate  # noqa: E402
 from names import credits as _credits  # noqa: E402
@@ -608,7 +610,7 @@ def volume_number(v):
     return int(m.group(1)) if m else None
 
 
-def undated_publication(base):
+def undated_publication(base, country=None, country_basis=_origin.FALLBACK):
     """`first_publication` for a work no source could date, from the record's own account of why.
 
     A WORK THAT EXISTS IS RECORDED WHETHER OR NOT WE CAN DATE IT (DEFINITIONS §6, amended
@@ -641,12 +643,19 @@ def undated_publication(base):
     A ROW DATED THIS WAY IS FLAGGED, since this is the weakest date the database carries.
     `date_followup` is how these are found again, and `delivery.FOLLOWUP_NOTE` says why the count is
     not a queue length.
+
+    THE COUNTRY IS THE CALLER'S, and it used to be `or "JP"`. A row whose source stated no country
+    took Japan from a fallback, on a record whose whole point is that the source stated very little.
+    `facts/origin` decides it for both branches of the caller, so an undated work and a dated one
+    cannot come to different answers about where it was published.
     """
     basis = base.get("date_basis") or "no-date-attested"
     undated = {
         "venue": base.get("venue") or base.get("publisher") or None,
         "date": None,
-        "country": base.get("first_publication_country") or "JP",
+        "country": country,
+        "country_basis": country_basis,
+        "country_note": _origin.note(country_basis),
         "date_basis": basis,
         # ASKED OF THE VOCABULARY, not of whichever capture happens to hold it. This named
         # `bookwalker_volumes` for both, which meant a reader of this line had to know that one
@@ -964,9 +973,51 @@ def content_flags():
     return out
 
 
+def scope_refusals():
+    """Works a §6 scope ruling refuses, keyed like the content-flag register. See data/scope.yaml.
+
+    THE SAME REGISTER AS A CONTENT FLAG, DELIBERATELY. A withheld work already leaves six separate
+    surfaces, and each of the six was found only by looking after the previous fix appeared to have
+    worked (STANDING-INSTRUCTIONS §13). A second mechanism for "this work is not published" would
+    have to rediscover all of them, and would be discovered to have missed one by a reader.
+
+    WHAT MAKES THIS A REFUSAL RATHER THAN A REBUTTAL. `data/rebuttals.yaml` keeps a work whose yuri
+    designation is doubtful, because that is a judgement about a work this database is entitled to
+    hold, and DEFINITIONS §9 argues the cheaper error is to keep it. A work first published outside
+    Japan fails the inclusion test itself, so there is no record to keep doubtfully. The source
+    records stay where they are, unedited, and the reasoning stays in the ruling file.
+    """
+    return {norm_work(r["title"]): r for r in _origin.refusals(_origin.load()) if r.get("title")}
+
+
 def withheld_works():
-    """Only the flags a person has decided to act on. Empty is the normal state."""
-    return {k: v for k, v in content_flags().items() if v["withhold"]}
+    """Works that are not published, and why. Content flags acted on, plus scope refusals.
+
+    Empty is the normal state for the first half and has been for the life of the project.
+    """
+    out = {k: v for k, v in content_flags().items() if v["withhold"]}
+    out.update(scope_refusals())
+    return out
+
+
+def names_a_withheld_work(s, register):
+    """Whether a string names a work the register holds back, bracket and all.
+
+    THE BRACKET IS WHY THIS IS NOT A BARE `norm_work` LOOKUP, and it took a substring check on the
+    built bytes to see it. `data/names/phrases.yaml` holds `オルターエゴ（MFC）` beside `オルターエゴ`,
+    because the BOOK☆WALKER ingest carried the publisher's own imprint bracketed onto 938 titles and
+    the phrase map was written from those strings before the records were corrected
+    (data/corrections.yaml, 2026-08-06). `norm_work` keeps what is inside the brackets, so the bare
+    title was filtered out of names.json and the imprinted one shipped beside it.
+
+    ONE PREDICATE FOR THE THREE MAPS, because they were three copies of `norm_work(k) not in reg`
+    and only one of them was ever tested against a register with anything in it.
+    """
+    n = norm_work(s)
+    if n in register:
+        return True
+    stripped = re.sub(r"[（(【\[][^（()）【\[\]】]*[）)】\]]\s*$", "", str(s or "").strip())
+    return bool(stripped) and stripped != str(s or "").strip() and norm_work(stripped) in register
 
 
 # A title that is BOTH adult-marketed and a collection. Both are required: えっち or セフレ alone
@@ -1365,14 +1416,30 @@ NEEDS_READING = re.compile(r"[一-鿿々A-Za-zＡ-Ｚａ-ｚ0-9０-９]")
 def _shop_address(rec):
     """Where a reader can buy this edition, or None.
 
-    ONLY A RETAILER'S ADDRESS COUNTS. `marketing_label_basis` carries the page a label was read
-    from, and for a record built from the national bibliography that page IS the bibliography:
-    mediaarts-db.artmuseums.go.jp. Taking the field without asking whose it was put the national
-    database under a heading reading "Sold at" on 824 works, which is both wrong and the kind of
-    wrong a reader would believe.
+    A RETAILER'S OWN FIELD, NEVER A LABEL'S BASIS. `marketing_label_basis` carries the page a label
+    was read from, and for a record built from the national bibliography that page IS the
+    bibliography: mediaarts-db.artmuseums.go.jp. Taking the field without asking whose it was put
+    the national database under a heading reading "Sold at" on 824 works, which is both wrong and
+    the kind of wrong a reader would believe.
+
+    THE NARROWING THAT FIXED IT LEFT ONE SHOP WITH A HOME AND THE OTHERS WITHOUT ONE. Guarding on
+    `source == "bookwalker"` made a shop address derivable for exactly the shop whose records happen
+    to store the label basis and the shop page at the same URL, so コミックシーモア admitted 256
+    works, held a page for every one of them, and 231 shipped rows could not reach it. The fault was
+    reading a shop address out of a field that is not one.
+
+    So each record states its own, and this asks for it by name. A record the shop itself supplied
+    carries `shop_url`; a record the bibliography supplied for a work a shop's shelf admitted
+    carries the shop's page on the `admitted_by` entry naming that shop, written by whichever route
+    read the shelf. A record from the bibliography alone has no retailer and gets no link, which is
+    the case the guard above was defending and is still defended.
     """
-    basis = rec.get("marketing_label_basis") or {}
-    return basis.get("url") if basis.get("source") == "bookwalker" else None
+    if rec.get("shop_url"):
+        return rec["shop_url"]
+    for entry in rec.get("admitted_by") or []:
+        if entry.get("shop_url"):
+            return entry["shop_url"]
+    return None
 
 
 def _print_block(rec):
@@ -1889,6 +1956,7 @@ def load_names():
         #
         # KANJI, LATIN AND DIGITS ALL DISQUALIFY. Each of them has to be READ: タイザン5 could end
         # ゴ or ファイブ, and that is a real guess, so it keeps its mark.
+        #
         # AND ORDINARY VOCABULARY IS NOT A GUESS EITHER, ruled by the project owner 2026-08-10:
         # for fundamental kanji, the absence of special information is evidence that they have
         # their obvious readings, in a title. 私 is ワタシ, 体 is カラダ, 風俗 is フウゾク and 百合
@@ -2494,6 +2562,26 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
           "withheld": v["withhold"], "published": (k in _published) and not v["withhold"]}
          for k, v in _flags.items()), key=lambda r: r["title"])
 
+    # WHAT THE INCLUSION TEST ACTUALLY FOUND, over the whole corpus. `by_basis` is the distribution
+    # of `country_basis` across the works list, which is the answer to "how many of these works has
+    # anybody asked where they were first published". The rulings are named in full because two of
+    # them stop a work being published and a count alone cannot be reviewed.
+    _scope_doc = _origin.load()
+    _scope_report = {
+        "by_basis": dict(Counter((w.get("first_publication") or {}).get("country_basis")
+                                 or _origin.FALLBACK for w in works)),
+        "attested": sum(1 for w in works
+                        if _origin.attests((w.get("first_publication") or {}).get("country_basis")
+                                           or _origin.FALLBACK)),
+        "refused": sorted(r.get("title") for r in _origin.refusals(_scope_doc)),
+        "rulings": [{"work": r.get("work"), "title": r.get("title"),
+                     "disposition": r.get("disposition"), "country": r.get("country"),
+                     "country_basis": r.get("country_basis"),
+                     "source": r.get("country_source") or (r.get("evidence") or [{}])[0].get("source")}
+                    for r in (_scope_doc.get("rulings") or [])],
+        "means": {b: _origin.note(b) for b in _origin.bases()},
+    }
+
     cl = Counter(t["disposition"] for t in claim_trace)
     (out / "run.json").write_text(json.dumps(
         {"generated": str(_today),
@@ -2508,6 +2596,13 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
                            "withheld": sum(1 for r in content_flag_rows if r["withheld"]),
                            "published": sum(1 for r in content_flag_rows if r["published"]),
                            "rows": content_flag_rows},
+         # THE SCOPE TEST, REPORTED RATHER THAN ONLY APPLIED. DEFINITIONS §6 is the inclusion test
+         # and until now it ran as the constant "JP", so nothing anywhere said how many works had
+         # actually been asked. Named in full for the same reason the flags above are: a filter
+         # that drops rows silently is unobservable the day it stops working (§13), and this one
+         # drops works. `check.py`'s `scope rulings are accounted for` fails if this block and
+         # data/scope.yaml disagree.
+         "scope": _scope_report,
          # THE WEAKEST DATE THE DATABASE CARRIES, counted where the coverage facts live so that it
          # can be found again when a better source appears. `followup` is NOT a queue length:
          # `no-earlier-record-expected` is finished work under DEFINITIONS §6, since for a doujinshi
@@ -2635,15 +2730,33 @@ def main():
             if _credit.get("work_id") and _credit.get("author"):
                 byline_credit[_credit["work_id"]] = _credit["author"]
 
+    # THE SCOPE TEST, READ ONCE. §6 makes first publication the inclusion test, and `facts/origin`
+    # is what answers it. The imprint registry comes with it because one of the two signals is a
+    # publisher's line: loading it per work would re-read the same file 4,300 times.
+    scope_doc = _origin.load()
+    scope_rulings = _origin.index(scope_doc)
+    imprint_lines = _imprints.load()
+    imprint_lines_idx = _imprints.index(imprint_lines)
+
     undated_works = 0
     undated_by_basis = {}
 
     # Read once, ahead of the loop: 4,300 works would otherwise re-parse two capture files each.
     shelf_cites = shelf_citations()
-    shelf_cited = shelf_paged = 0
+    shelf_cited = shelf_paged = shelf_addressed = 0
+
+    # WORKS §6 REFUSES, DROPPED HERE AND COUNTED. This list is the one surface `withheld_works` has
+    # never reached: the register is applied to the web list, the archives, the feed and the claim
+    # trace, and works.json and index.json are built from `src` before any of that runs. A content
+    # flag has never been acted on, so the gap was invisible; a scope ruling acts on two works today
+    # and both of them are print records, which is exactly the surface that was uncovered.
+    scope_refused = _origin.refused_keys(scope_doc)
+    refused_ids = sorted(k for k in src if k in scope_refused)
 
     works, errors, warnings = [], [], []
     for wid, by_source in sorted(src.items()):
+        if wid in scope_refused:
+            continue
         # THE PRIMARY IS THE BEST RECORD THERE IS, which is not always the bibliography's. A work
         # from a retailer's shelf has no MADB record and never will: BOOK☆WALKER states no ISBN, so
         # nothing keyed on one can reach it. Refusing it here would have meant holding 2,093 fewer
@@ -2671,6 +2784,10 @@ def main():
             "imprint": base.get("imprint", ""),
             "volume_count": base.get("volume_count", 0),
             "grouping": base.get("grouping"),
+            # WHERE THE SHOP THAT SUPPLIED THIS RECORD SELLS IT. Carried as its own field because
+            # `_shop_address` used to reach for `marketing_label_basis` instead, which is a
+            # different fact and only happens to hold this address on one shop's records.
+            **({"shop_url": base["shop_url"]} if base.get("shop_url") else {}),
             "sources": sorted(by_source),
             # WHICH SOURCE HOLDS WHAT, AND WHEN IT WAS READ. `sources` above names them and
             # nothing said when any of them last spoke, so the work page could show a volume count
@@ -2795,6 +2912,17 @@ def main():
                  + [(str(o["published"]), "madb", o.get("published_basis") or "madb-tankobon")
                     for o in (by_source.get("madb-title", {}).get("volumes") or [])
                     if o.get("published")])
+        # WHERE, WHICH IS THE HALF OF THIS BLOCK THAT DECIDES INCLUSION. §6 says the scope test is
+        # first publication and turns on the country, and this line was `"country": "JP"`. Every
+        # source that reaches here catalogues the JAPANESE EDITION, so the constant was reading the
+        # answer off the one thing that cannot tell a Japanese original from a translation of a
+        # foreign one, and 2,564 works asserted Japan without being asked. `facts/origin` answers
+        # it, and answers `None` where nothing attests a country, because a default that states the
+        # answer cannot fail the test it stands for (§14b).
+        _country, _country_basis = _origin.country_of(
+            keys=(wid,), publisher=base.get("publisher"), imprint=base.get("imprint"),
+            creator=base.get("creator"), rulings=scope_rulings,
+            lines=imprint_lines, imprint_index=imprint_lines_idx)
         if dated:
             date, via, basis = min(dated)
             w["first_publication"] = {
@@ -2804,7 +2932,9 @@ def main():
                 "venue": base.get("venue") or base.get("imprint", "") or base.get("publisher", ""),
                 "venue_type": _dating.venue_type(base.get("date_basis"))
                               or "tankobon-imprint",
-                "country": "JP",
+                "country": _country,
+                "country_basis": _country_basis,
+                "country_note": _origin.note(_country_basis),
                 "note": "First known 単行本. Magazine serialisation not attested by current sources.",
             }
         else:
@@ -2813,7 +2943,7 @@ def main():
             # where there is no date of any kind the absence is STATED rather than left empty and
             # never filled with a platform import stamp. `undated_publication` decides which of the
             # two this is and carries the reasoning for both.
-            w["first_publication"] = undated_publication(base)
+            w["first_publication"] = undated_publication(base, _country, _country_basis)
             _fp_undated = w["first_publication"]
             if _fp_undated.get("date_event") == delivery.EVENT:
                 # COUNTED APART FROM THE UNDATED, because it is neither. A row here has a date a
@@ -2864,6 +2994,11 @@ def main():
             w["admitted_by"] = admitted
             shelf_cited += sum(1 for _adm in admitted if _adm.get("url"))
             shelf_paged += sum(1 for _adm in admitted if _adm.get("page"))
+            # AND WHETHER THE SHOP ITSELF CAN BE REACHED, which is a different question from the two
+            # above: those count citations of the SHELF, and this counts works whose row can send a
+            # reader to the shop's page for the book. `budget_shelf_admissions_a_reader_cannot_
+            # follow` is what fails on it; this line is so a build says the number out loud.
+            shelf_addressed += sum(1 for _adm in admitted if _adm.get("shop_url"))
 
         if not w.get("marketing_label") and not w.get("content_tier") and not admitted:
             errors.append(f"{wid}: fails the inclusion test — neither axis set and no comparator "
@@ -2897,18 +3032,30 @@ def main():
     #
     # The guard cannot tell those apart and should not try. It asks for the reason in writing, the
     # same discipline a takedown gets, in data/corrections.yaml.
+    #
+    # AND A SCOPE RULING IS THAT REASON IN WRITING. `data/scope.yaml` names the work, the clause of
+    # DEFINITIONS §6 it fails and the publisher's own page that says so, which is more than a
+    # corrections entry carries. Allowing the fall here rather than asking for the same fall to be
+    # recorded twice keeps one register, so a ruling withdrawn later takes its allowance with it
+    # instead of leaving a stale number authorising a shrink nobody asked for.
     out = pathlib.Path(a.out)
+    # PRINTED EVERY RUN AND NOT ONLY ON THE RUN THAT DROPS THEM. A line that appears once, on the
+    # build where the count falls, and never again is how a refusal becomes invisible the day after
+    # it is made. This is the same argument as the withheld register's (§13).
+    if refused_ids:
+        print(f"out of scope    : {len(refused_ids)} record(s) refused by data/scope.yaml "
+              f"(DEFINITIONS §6): {', '.join(refused_ids)}")
     prev = out / "works.json"
     if prev.exists():
         before = len(json.loads(prev.read_text())["works"])
         if len(works) < before:
-            allowed = 0
+            allowed = len(refused_ids)
             _cor = pathlib.Path("data/corrections.yaml")
             if _cor.exists():
                 _cdoc = yaml.safe_load(_cor.read_text()) or {}
                 for _fix in (_cdoc.get("corrections") or []):
                     if str(_fix.get("build_baseline")) == str(before):
-                        allowed = int(_fix.get("records") or 0)
+                        allowed += int(_fix.get("records") or 0)
                         print(f"correction: {allowed} record(s) retracted, {_fix.get('why')}")
             if before - len(works) > allowed:
                 errors.append(
@@ -2938,8 +3085,12 @@ def main():
     idx = one_row_per_work(idx, works)
     (out / "index.json").write_text(json.dumps(idx, ensure_ascii=False, separators=(",", ":"), default=jsonable))
 
-    if len(works) != len(src):
-        sys.exit(f"VALIDATION: {len(src)} work ids in, {len(works)} out — records lost in merge.")
+    # EVERY ID IN IS AN ID OUT, EXCEPT THE ONES A RULING REFUSED BY NAME. Counting the refusals
+    # rather than exempting the guard keeps it able to catch what it was written for: a record lost
+    # in the merge still fails, because a loss nobody ruled on moves the two sides apart.
+    if len(works) != len(src) - len(refused_ids):
+        sys.exit(f"VALIDATION: {len(src)} work ids in, {len(works)} out, {len(refused_ids)} refused "
+                 f"by a scope ruling — records lost in merge.")
     # ---- Web releases (§5) -------------------------------------------------------------------
     releases, platforms = [], []
     for f in sorted(glob.glob("data/source/gigaviewer/*.yaml")):
@@ -5449,8 +5600,11 @@ def main():
         _out = [r for r in works_out if norm_work(r.get("work")) in _wh]
         works_out = [r for r in works_out if norm_work(r.get("work")) not in _wh]
         if _out:
-            print(f"withheld from works : {len(_out)} work(s) held back pending review: "
-                  + ", ".join(r["work"][:20] for r in _out))
+            # THE REASON IS PRINTED WITH THE TITLE, because the register now holds two kinds and a
+            # line reading "pending review" would say the wrong one about a work refused outright.
+            print(f"withheld from works : {len(_out)} work(s) not published: "
+                  + ", ".join(f"{r['work'][:20]} ({_wh[norm_work(r['work'])]['reason'][:60]})"
+                              for r in _out))
 
     # A shop listing is not a web work. Held out of the web list rather than deleted: the row is
     # still the truth about what カドコミ sells, and status.html counts what was set aside so the
@@ -5994,7 +6148,8 @@ def main():
     # site with only its rows removed. Third path, and the reason each output was checked rather
     # than the first one being taken as proof.
     _wh_names = withheld_works()
-    _title_names = {k: v for k, v in _title_names.items() if norm_work(k) not in _wh_names}
+    _title_names = {k: v for k, v in _title_names.items()
+                    if not names_a_withheld_work(k, _wh_names)}
     _title_folded, _fold_lost = fold_map(_title_names, _fold)
     _auth_folded, _a_lost = fold_map(_auth_names, _fold)
     # Named for what they are rather than reusing a short loop name: `_dropped` is already bound
@@ -6030,7 +6185,7 @@ def main():
         _row_rec = max(_row_cands, key=_fullness)
         for _pr in (r.get("print") or []):
             _cat = _record_title.get(_pr.get("work_id")) or ""
-            if not _cat or norm_work(_cat) in _wh_names:
+            if not _cat or names_a_withheld_work(_cat, _wh_names):
                 continue
             _cat_key = _fold(_cat)
             if _cat_key and _cat_key not in _title_folded:
@@ -6290,7 +6445,7 @@ def main():
                      for k, v in (
              (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
-         ).items() if norm_work(k) not in _wh_names}},
+         ).items() if not names_a_withheld_work(k, _wh_names)}},
         ensure_ascii=False, indent=1, default=jsonable))
 
     # ── the two records that are not works ────────────────────────────────────────────────────
@@ -6349,6 +6504,8 @@ def main():
     if shelf_cited:
         print(f"shelf citations : {shelf_cited} comparator entries cite the shelf the claim is on, "
               f"{shelf_paged} of them the page it was read from")
+        print(f"                  {shelf_addressed} also state the shop's own page for the work, "
+              f"so the admission can be followed to the thing it admitted")
     if undated_works:
         print(f"undated works   : {undated_works} recorded with no attested publication date")
         # WHICH SILENCE, because a total says how far there is to go and nothing about how to get

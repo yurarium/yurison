@@ -15,6 +15,7 @@ title:
   yomi: "ユリ ニ ハサマル オトコ ワ シネバ イイ !?"
 creator: "蓬餅 / ヨモギモチ"
 publisher: "幻冬舎コミックス"
+distributor: "幻冬舎"
 publisher_stated: "[頒布]幻冬舎 / 幻冬舎コミックス"
 publishers:
   - name: "幻冬舎"
@@ -52,12 +53,13 @@ volumes:
     isbn: "9784344855182"
     published: 2024-12-27
 admitted_by:
-  - comparator: cmoa.jp
+  - comparator: "cmoa.jp"
     shelf: "genre 37 (百合・GL)"
     retrieved: 2026-08-05
+    shop_url: "https://www.cmoa.jp/title/268019/"
     note: >-
-      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
-      and rebuttable, and never a marketing_label (§4).
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
 marketing_label: none
 marketing_label_basis:
   source: madb

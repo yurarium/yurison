@@ -12,6 +12,13 @@ promoted here. It supplies an ISBN, an ISBN identifies an edition, and the editi
 from MADB exactly as every other record in this directory does. What enters the source layer is
 the bibliography's answer, not the shop's listing.
 
+AND THE SHOP'S ADDRESS IS NOT THE SHOP'S ANSWER. The record carries the page the admitting shop
+sells the work on, under `admitted_by`, because a comparator named with no address is a citation a
+reader cannot follow. That is a fact about our own act of admission, the same kind as the shelf and
+the date already in that block, and it says nothing about the book. It was missing for as long as
+this route existed: the block was computed once per pass, so it could name the shop and never the
+title, and 230 shipped rows named コミックシーモア with no way to reach it.
+
 WHAT LABEL THESE WORKS CARRY, AND WHY IT IS USUALLY `none`. DEFINITIONS §4 takes only
 publisher-side labelling, and names a shop's genre shelf as never counting toward it: a licensed
 retailer sells the publisher's edition, but what it shelves that edition under is its own decision.
@@ -113,23 +120,67 @@ def label_for(vs):
 SHELVES = _inclusion.SHELVES
 
 
-def admitted_by(captures, retrieved):
-    """The comparator lines for a record, naming the shop and the shelf that admitted the work.
+def read_captures(captures):
+    """`([shop, ...], {isbn: {shop: the page that shop sells the work stating it on}})`.
 
-    §2 admits a work a comparator lists and then requires knowing WHICH comparator, so a reader
-    can tell whether a work is here because a publisher called it yuri or because a shop shelved
-    it there. Written from the capture's own `source` rather than from an argument, so the shop
-    named in the record is the shop the ISBNs came from.
+    THE CAPTURES ARE PARSED ONCE, HERE. `admitted_by` used to open them itself and was called once
+    per pass for that reason; the address it now carries is per work, so the parsing has to come out
+    of the call or a 1,833-work capture gets re-read 296 times. That was already measured: it turned
+    a 17-second pass into one that had to be killed.
+
+    KEYED ON THE ISBN, WHICH IS THE ONLY JOIN THERE IS. The shop stated a number, the number
+    selected a record from the bibliography, and the same number says which of the shop's pages the
+    number was read off. Matching a title back would be a second identifier for a work that already
+    has one, and `citrus+` returning an unrelated 2007 book is what that costs.
     """
     import yaml
 
-    shops = []
+    shops, pages = [], {}
     for p in captures:
         doc = yaml.safe_load(pathlib.Path(p).read_text()) or {}
         shop = str(doc.get("source") or "")
         if shop and shop not in shops:
             shops.append(shop)
-    return _inclusion.admitted_by(shops, retrieved, quote=extract.yaml_str)
+        for w in (doc.get("works") or []):
+            url = str(w.get("url") or "").strip()
+            if not (shop and url):
+                continue
+            for v in (w.get("volumes") or []):
+                got = isbn13(v.get("isbn"))
+                if got:
+                    pages.setdefault(got, {}).setdefault(shop, set()).add(url)
+    return shops, pages
+
+
+def address_of(volumes, pages):
+    """`{shop: url}` for one work: where each shop that stated one of its ISBNs sells it.
+
+    ONE PAGE OR NONE. Five of コミックシーモア's 256 works answer with two title pages, because the
+    shop splits a series the bibliography holds as one work. Either address would be right about
+    part of the work and wrong about the rest, and a reader following it would land on a title whose
+    volumes are not the ones listed beside the link. So a shop naming more than one page names none
+    here and the row keeps no link, which §5 makes a state rather than a gap.
+    """
+    got = {}
+    for v in volumes:
+        for shop, urls in (pages.get(isbn13(extract.flat(v.get("schema:isbn", ""))) or "") or {}).items():
+            got.setdefault(shop, set()).update(urls)
+    return {shop: next(iter(urls)) for shop, urls in got.items() if len(urls) == 1}
+
+
+def admitted_by(shops, retrieved, addresses=None):
+    """The comparator lines for a record, naming the shop, the shelf, and where to reach it.
+
+    §2 admits a work a comparator lists and then requires knowing WHICH comparator, so a reader
+    can tell whether a work is here because a publisher called it yuri or because a shop shelved
+    it there. `shops` comes from the capture's own `source` field, so the shop named in the record
+    is the shop the ISBNs came from.
+
+    AND THE PAGE ON IT. A comparator named with no address is a citation nobody can follow, and
+    that was the state of every work this route wrote: 230 shipped rows said コミックシーモア and
+    offered no way to reach it. `addresses` is `address_of`'s answer for this work.
+    """
+    return _inclusion.admitted_by(shops, retrieved, quote=extract.yaml_str, addresses=addresses)
 
 
 def owned_elsewhere(out, route=ROUTE):
@@ -208,14 +259,22 @@ def main(argv=None):
     for f in out.glob("*.yaml"):
         if f"route: {ROUTE}" in f.read_text():
             f.unlink()
-    # Once, not once per record. Read inside the loop it re-parsed a 1,833-work capture 296 times
-    # and turned a 17-second pass into one that had to be killed.
-    admission = admitted_by(a.capture, a.retrieved)
+    # Parsed once, not once per record. Read inside the loop it re-parsed a 1,833-work capture 296
+    # times and turned a 17-second pass into one that had to be killed.
+    shops, pages = read_captures(a.capture)
+    addressed = 0
     for sid, vs in sorted(by_series.items()):
+        where = address_of(vs, pages)
+        addressed += bool(where)
         (out / f"{extract.work_id(sid)}.yaml").write_text(
             extract.render(sid, vs, series, grouping[sid], a.tag, a.retrieved, ROUTE, labels[sid],
-                           admission))
+                           admitted_by(shops, a.retrieved, where)))
     print(f"written          : {len(by_series)} -> {out}")
+    # THE NUMBER THAT SAYS THE ADMISSION CAN BE FOLLOWED. A shop admitted these works and the
+    # record now says which of its pages each one is on, so `_shop_address` in build.py has a
+    # retailer address to give the reader. A run where this falls well behind the record count has
+    # a capture whose ISBNs no longer join, which is silent everywhere else.
+    print(f"  shop page known: {addressed} of {len(by_series)}")
     return 0
 
 

@@ -35,15 +35,34 @@ SERIES = {"C900": {"schema:identifier": "C900", "schema:name": "ひなちゃん�
 CAPTURE = """source: cmoa.jp
 works:
   - shop_id: "1"
+    url: "https://www.cmoa.jp/title/1/"
     volumes:
       - volume: 1
         isbn: "978-4-06-380702-8"
       - volume: 2
         delivered: "2024-09-10"
   - shop_id: "2"
+    url: "https://www.cmoa.jp/title/2/"
     volumes:
       - volume: 1
         isbn: "9784758070027"
+"""
+
+# THE SAME SHELF LISTING ONE WORK UNDER TWO TITLES, which is the case `address_of` refuses. Five of
+# コミックシーモア's works answer this way: the shop splits a series the bibliography holds whole,
+# so each of its pages is right about part of the work and wrong about the rest.
+SPLIT = """source: cmoa.jp
+works:
+  - shop_id: "3"
+    url: "https://www.cmoa.jp/title/3/"
+    volumes:
+      - volume: 1
+        isbn: "9784063807028"
+  - shop_id: "4"
+    url: "https://www.cmoa.jp/title/4/"
+    volumes:
+      - volume: 1
+        isbn: "978-4-06-380703-5"
 """
 
 
@@ -100,9 +119,38 @@ def main(s):
         # §2 ADMITS THE WORK AND WANTS TO KNOW WHICH COMPARATOR DID IT. Neither axis can carry
         # this: a shop's shelf is not publisher-side, so the label stays `none` and the admission
         # has to be recorded somewhere a reader can see it.
-        adm = by_isbn.admitted_by([cap], "2026-08-05")
+        shops, pages = by_isbn.read_captures([cap])
+        adm = by_isbn.admitted_by(shops, "2026-08-05")
         s.check(any("cmoa.jp" in x for x in adm), "the record names the shop that admitted the work")
         s.check(any("37" in x for x in adm), "and the shelf it was standing on")
+
+        # AND WHERE TO GO AND LOOK. The block used to be computed once for a whole pass, so it could
+        # name the shop and never the title, and 230 shipped rows named コミックシーモア with no
+        # way to reach it. The join is the ISBN, which is the number that selected the record.
+        s.eq(by_isbn.address_of([VOL1, VOL2], pages), {"cmoa.jp": "https://www.cmoa.jp/title/1/"},
+             "the work's own volumes say which of the shop's pages admitted it")
+        s.eq(by_isbn.address_of([VOL3], pages), {"cmoa.jp": "https://www.cmoa.jp/title/2/"},
+             "and a second work resolves to its own page and not to the first one's")
+        s.eq(by_isbn.address_of([{"schema:isbn": "9780000000000"}], pages), {},
+             "a volume the capture states no ISBN for reaches no page, and none is invented")
+        s.check('shop_url: "https://www.cmoa.jp/title/1/"' in "\n".join(
+            by_isbn.admitted_by(shops, "2026-08-05", by_isbn.address_of([VOL1, VOL2], pages))),
+            "and the address reaches the record's own admitted_by entry")
+
+        # ONE PAGE OR NONE. Two of the shop's titles carrying one work's volumes name no single
+        # page for it, and picking either would send a reader to a title whose volumes are not the
+        # ones listed beside the link. §5: the absence is the answer.
+        split = pathlib.Path(d) / "split.yaml"
+        split.write_text(SPLIT)
+        _, two = by_isbn.read_captures([split])
+        s.eq(by_isbn.address_of([VOL1, VOL2], two), {},
+             "a shop listing one work under two titles states no address for it")
+        s.eq(by_isbn.address_of([VOL1], two), {"cmoa.jp": "https://www.cmoa.jp/title/3/"},
+             "though each of those titles is still an answer about the volume it states")
+
+        # THE SHOPS COME FROM THE CAPTURE'S OWN `source`, so the record names the shop the ISBNs
+        # came from rather than whichever one a caller passed.
+        s.eq(shops, ["cmoa.jp"], "the capture says which shop it is")
 
         extract.write(out, {"C900": [VOL1, VOL2]}, {"C900": "series-link"}, SERIES,
                       "1.2.18", "2026-08-05", by_isbn.ROUTE, by_isbn.LABEL_SHELF)

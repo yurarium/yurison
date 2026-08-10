@@ -49,6 +49,35 @@ def main(s):
     quoted = inclusion.admitted_by(["x"], "2026-08-10", quote=lambda v: f"<<{v}>>")
     s.check(any("<<x>>" in l for l in quoted), "the caller escapes its own strings")
 
+    # AND THE SHOP'S OWN PAGE FOR THE WORK, because a comparator named with no address is a
+    # citation a reader cannot follow. 230 shipped rows named コミックシーモア and offered no way
+    # to reach it.
+    addressed = inclusion.admitted_by(["cmoa.jp"], "2026-08-10",
+                                      addresses={"cmoa.jp": "https://www.cmoa.jp/title/1132/"})
+    s.check(any("shop_url: https://www.cmoa.jp/title/1132/" in l for l in addressed),
+            "the entry states where the shop that admitted the work sells it")
+    s.eq(addressed.index("    note: >-"), 5,
+         "and the address stands beside the shelf, above the sentence that says what a shelf means")
+
+    # A SHOP WITH NO ADDRESS WRITES NO FIELD (§5: absence is a state). An entry with no `shop_url`
+    # says the route could not tell which page this work is; an empty one would read as a page.
+    plain = inclusion.admitted_by(["cmoa.jp"], "2026-08-10", addresses={"bookwalker.jp": "x"})
+    s.check(not any("shop_url" in l for l in plain),
+            "an address for another shop puts nothing on this shop's entry")
+    s.check(not any("shop_url" in l for l in
+                    inclusion.admitted_by(["cmoa.jp"], "2026-08-10", addresses={"cmoa.jp": ""})),
+            "and an empty address is not written out as one")
+
+    # TWO SHOPS TAKE THEIR OWN ADDRESSES, which is what makes this a rule rather than one shop's
+    # special case: the field was derivable for exactly one shop before, and that was the fault.
+    pair = inclusion.admitted_by(["bookwalker.jp", "cmoa.jp"], "2026-08-10",
+                                 addresses={"bookwalker.jp": "https://bookwalker.jp/de1/",
+                                            "cmoa.jp": "https://www.cmoa.jp/title/1132/"})
+    s.eq(sum(1 for l in pair if l.strip().startswith("shop_url:")), 2, "one address per shop")
+    s.check(pair.index("    shop_url: https://bookwalker.jp/de1/")
+            < pair.index("  - comparator: cmoa.jp"),
+            "and each address sits under the shop it belongs to, not the next one")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "inclusion"))

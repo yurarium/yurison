@@ -37,18 +37,36 @@ def shelf_of(shop):
     return SHELVES.get(shop, "yuri shelf")
 
 
-def admitted_by(shops, retrieved, quote=str):
+def admitted_by(shops, retrieved, quote=str, addresses=None):
     """The `admitted_by:` YAML block naming each shop and the shelf that admitted the work.
 
     `quote` is the caller's own YAML string escaper, because the two routes carry different ones and
     which escaper is right is a property of the writer rather than of this rule.
+
+    `addresses` is `{shop: that shop's own page for THIS work}`, and it is here because the block
+    was naming a source a reader had no way to reach. コミックシーモア admitted 256 works, holds a
+    page for every one of them, and not one of those works carried a link to it: `madb/by_isbn`
+    computed the block once for a whole pass, so it could name the shop and could not name the
+    title. The shop's page is a fact about our own act of admission, in the same sense the shelf and
+    the date already here are, and it goes in the same block for the same reason.
+
+    NOT THE SHOP'S ANSWER ABOUT THE WORK. The record's title, dates and volumes still come from
+    whatever source the route is built on, which for the ISBN route is the national bibliography.
+    This is an address and states nothing about the book.
+
+    A SHOP WITH NO ADDRESS WRITES NO FIELD. §5: absence is a state, and an entry with no `shop_url`
+    says the route could not tell which page on that shop this work is. An address invented by
+    composing one out of an id would be indistinguishable from one a capture read.
     """
+    addresses = addresses or {}
     lines = ["admitted_by:"]
     for shop in shops:
         lines += [f"  - comparator: {quote(shop)}",
                   f"    shelf: {quote(shelf_of(shop))}",
-                  f"    retrieved: {retrieved}",
-                  "    note: >-"]
+                  f"    retrieved: {retrieved}"]
+        if addresses.get(shop):
+            lines.append(f"    shop_url: {quote(addresses[shop])}")
+        lines.append("    note: >-")
         lines += [f"      {part}" for part in _wrapped(SHELF_NOTE)]
     return lines
 

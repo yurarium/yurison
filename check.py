@@ -851,6 +851,81 @@ def inv_content_flags_are_accounted_for(ctx):
     return bad
 
 
+def inv_scope_rulings_are_accounted_for(ctx):
+    """Every §6 scope ruling is reported, and a work ruled out of scope is nowhere on the site.
+
+    WHY THIS IS AN INVARIANT AND THE COUNTRY IS A BUDGET. The country of an unruled work is a fact
+    somebody has to go and find, so it is a count with a direction. A ruling is a decision already
+    made, and a decision that has been made and does not show up in what ships is the failure
+    STANDING-INSTRUCTIONS §13 is about: `data/source/kadokomi/withheld.yaml` said five works were
+    not published while all five were live, and nothing anywhere disagreed.
+
+    CHECKED ON THE DEPLOYED BYTES BY SUBSTRING, not by field. The withheld register was fixed six
+    times before it was fixed, and each of the six surfaces was found only after the previous fix
+    appeared to have worked. A title reaching the site inside a claim trace, an archived month or a
+    coverage list is as published as one in the works list, and only the bytes see all of them. It
+    already earned its keep: `data/names/phrases.yaml` holds `オルターエゴ（MFC）` beside the bare
+    title, the filter on the names map was a `norm_work` lookup, and the imprinted spelling shipped.
+
+    THE REPORT FILES ARE EXEMPT AND THE REASON MATTERS. `run.json`, `checks.json` and `status.json`
+    are what status.html renders, and status.html is where facts about US belong
+    (STANDING-INSTRUCTIONS §6). A refusal that could not be named there would be a filter nobody can
+    observe, which is the failure this check descends from. The catalogue is what must not carry
+    the work, and that is every other file the site serves.
+
+    §14b, WHAT THIS SEES THAT THE BUILD CANNOT. `build.py` drops these works through
+    `withheld_works`, and a check asking `withheld_works` whether they are dropped would agree with
+    itself. This reads the ruling file and the served files and asks nothing of the code that acted
+    on either.
+
+    fallback: none. A ruling not reflected in what ships is a standing constraint broken, and the
+    remedy is a build rather than a fetch.
+    """
+    rulings = ctx["scope_rulings"]
+    reported = {r.get("work") for r in ctx["scope_reported"]}
+    bad = []
+    for r in rulings:
+        if r.get("work") not in reported:
+            bad.append(f"ruled and not reported anywhere: {r.get('work')} {str(r.get('title'))[:24]}")
+        if r.get("country_basis") not in _origin_bases():
+            bad.append(f"rests on a term the vocabulary does not hold: {r.get('work')}")
+    if not SITE.exists():
+        return bad
+    for r in rulings:
+        title = r.get("title")
+        if r.get("disposition") != "out-of-scope" or not title:
+            continue
+        for f in sorted(SITE.rglob("*.json")):
+            if f.name in REPORT_FILES:
+                continue
+            try:
+                if title in f.read_text(encoding="utf-8", errors="replace"):
+                    bad.append(f"out of scope and published: {f.relative_to(SITE)}: {title[:24]}")
+            except OSError:
+                pass
+    return bad
+
+
+def _plant_a_ruling_on_an_unknown_term(c):
+    """A ruling reported like any other, resting on a `country_basis` nothing defines."""
+    c["scope_rulings"].append({"work": "CANARY", "title": "カナリア",
+                               "disposition": "review", "country_basis": "a-term-nobody-defined"})
+    c["scope_reported"].append({"work": "CANARY", "title": "カナリア"})
+
+
+#: What status.html renders, as against what the catalogue serves. A refusal is named in these and
+#: in none of the others, which is the difference between a control somebody can observe and a
+#: filter that drops rows silently (STANDING-INSTRUCTIONS §13).
+REPORT_FILES = {"run.json", "checks.json", "status.json"}
+
+
+def _origin_bases():
+    """The `country_basis` vocabulary, asked of the module that owns it."""
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from facts import origin as _o
+    return _o.bases()
+
+
 def inv_archives_unchanged(ctx):
     """A published month is written once. That is what protects its dates (REQUIREMENTS §5).
 
@@ -986,15 +1061,25 @@ def inv_undated_works_say_where_and_why(ctx):
     So this asks both questions of every undated work. `no-date-attested` is still legitimate, for
     a source that genuinely said nothing about why, and it is what the fourth branch means.
 
-    fallback: none. This is an invariant because both fields are derivable from records already in
-    hand, so a violation is the build having dropped something rather than a source withholding it.
+    THE COUNTRY CLAUSE WAS TRUE BY CONSTRUCTION AND IS NOW ABOUT THE BASIS. This asked whether
+    `country` held a value while `build.py` wrote the literal `"JP"` into it on every record that
+    reached here, so the clause could not fail on anything the pipeline was able to produce: the
+    check shared the subject's blind spot in the exact shape §14b describes. What is asked instead
+    is `country_basis`, which `facts/origin` fills with a term saying what established the country
+    or why nothing did. An undated work still has to say where, and now it has to say how well it
+    knows, which is a question the constant made unaskable.
+
+    fallback: none. This is an invariant because all three fields are derivable from records already
+    in hand, so a violation is the build having dropped something rather than a source withholding
+    it. An unattested country is NOT a violation and is counted as a budget instead, because the
+    remedy is a publisher's page somebody has to read.
     """
     bad = []
     for w in ctx["works"]:
         fp = w.get("first_publication") or {}
         if fp.get("date"):
             continue
-        missing = [k for k in ("venue", "country", "date_basis") if not fp.get(k)]
+        missing = [k for k in ("venue", "country_basis", "date_basis") if not fp.get(k)]
         if missing:
             bad.append(f"{w.get('work_id')}: undated and states no {', '.join(missing)}")
     return bad
@@ -2072,6 +2157,7 @@ INVARIANTS = [
     ("no build-machine paths in published files", inv_no_absolute_paths_in_published_files),
     ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
     ("content flags are accounted for", inv_content_flags_are_accounted_for),
+    ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for),
     ("archives are unchanged", inv_archives_unchanged),
     ("deployed data matches built", inv_deployed_matches_built),
     ("no refutation of print serials", inv_no_refutation_of_print_serials),
@@ -2561,6 +2647,48 @@ def budget_undated_cmoa_candidates(ctx):
     return _undated_retailer_rows("data/queue/cmoa-volumes.yaml", "cmoa.jp")
 
 
+def budget_shelf_admissions_a_reader_cannot_follow(ctx):
+    """Works a shop's shelf put here whose page offers no way to reach that shop.
+
+    THE RULE. A source named as having admitted a work has to be reachable from the work. Nothing
+    else on a work page asks a reader to take our word for it: every date, every count and every
+    reading cites a page. An admission that cannot be followed is the weakest kind of citation
+    there is, because it invites the check and then gives nowhere to make it.
+
+    230 rows were in that state when this was written, all of them コミックシーモア's. The record
+    behind each is the national bibliography's, correctly, and `admitted_by` named the shop with no
+    address, because `madb/by_isbn` computed that block once for a whole pass and so could not name
+    a title. `build._shop_address` then read a shop address out of `marketing_label_basis` guarded
+    on `source == "bookwalker"`, which made the link derivable for the one shop whose records store
+    both facts at one URL.
+
+    MEASURED ON THE SHIPPED ROW. This reads `series.json` and asks whether the row a reader is
+    given carries a shop address, which owes nothing to either producer: not to the join in
+    `by_isbn.address_of` and not to `_shop_address`. A canary planted in the context is a row like
+    any other, because nothing upstream of here filters on the thing being counted (§14b).
+
+    WHAT IT CANNOT SEE. Whether an address is the RIGHT page. It counts present against absent, and
+    a link to the wrong title on the right shop passes. `unreachable citations` is the check that
+    would answer that one and it has never been pointed at a shop page.
+
+    ITS FLOOR IS NOT ZERO. A shop that splits a series the bibliography holds as one work names two
+    pages for it, and `address_of` writes neither rather than picking. Five of コミックシーモア's
+    works are in that state today. A rise means a route has gone back to admitting a work on a
+    shelf without recording which page of the shop it read.
+    """
+    rows = ctx.get("series")
+    if not rows:
+        return UNMEASURED    # this could not be measured; see UNMEASURED
+    out = 0
+    for r in rows:
+        if not any(e.get("type") == "retailer" for e in (r.get("evidence") or [])):
+            continue
+        editions = r.get("print") or []
+        if editions and not any(p.get("shop_url") for p in editions):
+            out += 1
+    return out
+
+
 def budget_volumes_with_an_isbn_and_no_date(ctx):
     """Volumes a reader is shown that state an ISBN and carry no publication date.
 
@@ -2741,6 +2869,59 @@ def budget_updates_naming_an_unheld_work(ctx):
     sys.path.insert(0, str(ROOT / "adapters"))
     import feedgap
     return len(feedgap.unheld(ctx["releases"], ctx["series"]))
+
+
+def budget_works_whose_country_is_unattested(ctx):
+    """Works whose first publication country nothing attests, which is the inclusion test not run.
+
+    THE CLASS THIS COUNTS. DEFINITIONS §6 makes first publication the scope test and says the
+    country is required because it is what answers the question. The field was the literal "JP" in
+    three places, so every one of 2,564 works asserted Japan and none of them had been asked. This
+    is the same population, counted honestly: a work reaches here because MADB, openBD or a shop
+    catalogues its JAPANESE EDITION, and none of those sources holds a field for where the work
+    first appeared.
+
+    WHAT IT READS, AND WHY THAT IS NOT `facts/origin`'s ANSWER (§14b). It asks the shipped works
+    list whether the field holds a value, which is arithmetic on the rendered result and owes
+    nothing to the module that filled it. A count taken from the vocabulary would agree with the
+    vocabulary; a count of empty fields disagrees with anything that stops filling them.
+
+    WHY A BUDGET AND NOT AN INVARIANT. The remedy is a person reading a publisher's page and
+    recording a serialisation venue, one work at a time. Refusing a build over it would refuse the
+    corpus, and refusing the corpus is a ruling for the project owner rather than for a gate. What
+    the number does is stop the question being invisible: it was 0 while nothing was known, because
+    a constant had answered it.
+
+    IT HAS NO FLOOR THAT ANYBODY CAN STATE. A serialisation venue exists for every serialised work
+    and is written down somewhere for most of them, so this can in principle reach zero. What it
+    cannot do is fall in bulk, which is why it is stated as a deficit.
+    """
+    works = (_load(BUILD / "works.json", {}) or {}).get("works")
+    if works is None:
+        return UNMEASURED    # this could not be measured; see UNMEASURED
+    return sum(1 for w in works if not (w.get("first_publication") or {}).get("country"))
+
+
+def budget_scope_questions_left_open(ctx):
+    """Works a scope signal flagged that nobody has ruled on either way.
+
+    THE CLASS THIS COUNTS. `facts/origin` produces candidates rather than verdicts: a credited
+    translator and a publisher's foreign-comics line are both evidence that a Japanese edition is a
+    translation, and neither is proof, because a 現代語訳 is translated and Japanese and a house may
+    put a Japanese work on any line it likes. `data/scope.yaml` carries `review` for a work somebody
+    has looked at and could not settle, and this counts them.
+
+    IT READS THE REGISTER AND NOT THE BUILD, deliberately. A count taken from the built rows would
+    fall when a work left the corpus for any reason at all, which is the opposite of what the number
+    is for: a question stays open until somebody answers it.
+
+    WHAT SATISFIES IT is a ruling either way, `out-of-scope` or `in-scope`, citing the page that
+    settles it. Falling to zero is reachable and means every flagged work has been read.
+    """
+    doc = _yaml(ROOT / "data" / "scope.yaml", None)
+    if doc is None:
+        return UNMEASURED    # this could not be measured; see UNMEASURED
+    return sum(1 for r in (doc.get("rulings") or []) if r.get("disposition") == "review")
 
 
 def budget_targets_a_capture_wrote_no_row_for(ctx):
@@ -4035,6 +4216,11 @@ BUDGETS_DEF = [
      "works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where "
      "a volume was printed, and 754 of the 1,844 rows come from two digital distributors whose "
      "pages carry neither."),
+    ("shelf admissions a reader cannot follow", budget_shelf_admissions_a_reader_cannot_follow,
+     "works a retailer's yuri shelf admitted whose row offers no page on that retailer, so the "
+     "source named as putting the work here cannot be reached from it. Falls as a route records "
+     "which of the shop's pages it read the work off. Its floor is the works a shop lists under "
+     "two titles where the bibliography holds one, for which no single page is the work's."),
     ("three as an organising shape", budget_structural_triples,
      "lists of exactly three items, and runs of three bold-led paragraphs, in documents that ship "
      "at 1.0. Three reads as rhetoric; four reads as an inventory. When there really are three "
@@ -4053,6 +4239,20 @@ BUDGETS_DEF = [
      "given records, and it reaches zero, since every row counted here names a work to decide "
      "about. A rise means a discovery pass has started reporting updates for works no capture "
      "covers. Rulings already made are in data/queue/unheld-works.yaml and reduce nothing."),
+    ("works whose first publication country is unattested",
+     budget_works_whose_country_is_unattested,
+     "works whose `first_publication.country` is empty, which is DEFINITIONS §6's inclusion test "
+     "not having run. It read 0 until now because build.py wrote the literal \"JP\" on every "
+     "record, so the field asserted the answer and no check on it could fail. Every source here "
+     "catalogues the Japanese EDITION and none states where the work first appeared, so this falls "
+     "one work at a time as a serialisation venue is read off a publisher's page and recorded in "
+     "data/scope.yaml. A rise means the corpus grew, which is expected, and the number to watch is "
+     "the share rather than the count."),
+    ("scope questions left open", budget_scope_questions_left_open,
+     "works a scope signal flagged as a possible translation that nobody has ruled on. A credited "
+     "translator and a publisher's foreign-comics line are evidence and not proof: a 現代語訳 is "
+     "translated and Japanese. Falls as each is settled either way in data/scope.yaml, citing the "
+     "page that settles it, and reaches zero."),
     ("targets a capture wrote no row for", budget_targets_a_capture_wrote_no_row_for,
      "works a platform pass was given as a target and wrote no row for. The pass put each in a "
      "`failed` list, printed it and dropped it, so until now a work asked for and not got left "
@@ -4099,6 +4299,12 @@ def context():
         "status_js": ((SITE_ROOT / "kari" / "app-status.js").read_text()
                       if (SITE_ROOT / "kari" / "app-status.js").exists() else ""),
         "status": _load(BUILD / "status.json", {}) or {},
+        # THE §6 SCOPE RULINGS AND WHAT THE RUN REPORTED OF THEM, both on the context so a canary
+        # can be planted between them. An invariant that opened data/scope.yaml itself could be
+        # shown nothing and would report healthy for the rest of its life.
+        "scope_rulings": (_yaml(ROOT / "data" / "scope.yaml", {}) or {}).get("rulings") or [],
+        "scope_reported": ((_load(BUILD / "run.json", {}) or {}).get("scope") or {}).get("rulings")
+                          or [],
         "series": (_load(BUILD / "series.json", {}) or {}).get("series", []),
         "names": {k: ((_yaml(NAMES / f"{k}.yaml", {}) or {}).get("names") or {})
                   for k in ("titles", "authors")},
@@ -4611,6 +4817,18 @@ def self_test():
         ("a shipped identifier resolves", inv_a_shipped_identifier_resolves,
          lambda c: c["names_shipped"].setdefault("publishers", {}).update(
              {"カナリア社": {"en": "Canary", "id": "h99999"}})),
+        # A RULING NOTHING REPORTS, which is precisely the register that reads as a control and is
+        # not one: data/source/kadokomi/withheld.yaml named five works as not published while all
+        # five were live and no number anywhere disagreed.
+        ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for,
+         lambda c: c["scope_rulings"].append(
+             {"work": "CANARY", "title": "カナリア", "disposition": "out-of-scope",
+              "country_basis": "publisher-states-origin"})),
+        # AND A RULING RESTING ON A TERM THE VOCABULARY DOES NOT HOLD, which is the other way this
+        # file and the module that reads it can come apart: a ruling written against a renamed term
+        # decides nothing and looks decided.
+        ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for,
+         _plant_a_ruling_on_an_unknown_term),
     ]
     ok = True
     for name, fn, plant in probes:
@@ -4668,6 +4886,30 @@ def self_test():
     if budget_bylines_drawn_in_a_spelling_the_field_does_not_write(c) != was + 1:
         print("  self-test FAILED — 'bylines drawn in a spelling the field does not write' did "
               "not count its canary")
+        ok = False
+
+    # AN ADMISSION WITH NOWHERE TO FOLLOW IT TO, and both directions are probed because a count
+    # that reads 5 and a count that cannot rise above 5 look identical from outside (§14b). The
+    # first canary is the shape 230 shipped rows really had: コミックシーモア named as the
+    # comparator, a print block from the bibliography, and no shop address anywhere on the row. The
+    # second is the same row with the address the fix puts there, and it must NOT be counted, which
+    # is the half that would go quiet if the measure stopped looking at `shop_url`.
+    c = _Scratch(ctx)
+    was = budget_shelf_admissions_a_reader_cannot_follow(c)
+    _shelf = {"kind": "shelf", "type": "retailer", "source": "コミックシーモア",
+              "term": "百合・GL", "read": "2026-08-05",
+              "url": "https://www.cmoa.jp/search/genre/37/"}
+    c["series"] = list(c["series"]) + [
+        {"id": "CANARY-UNREACHABLE", "work": "カナリア", "evidence": [_shelf],
+         "print": [{"work_id": "CANARY", "volumes": 1}]}]
+    if budget_shelf_admissions_a_reader_cannot_follow(c) != was + 1:
+        print("  self-test FAILED — 'shelf admissions a reader cannot follow' did not count a "
+              "shelf admission with no page on the shop")
+        ok = False
+    c["series"][-1]["print"][0]["shop_url"] = "https://www.cmoa.jp/title/1132/"
+    if budget_shelf_admissions_a_reader_cannot_follow(c) != was:
+        print("  self-test FAILED — 'shelf admissions a reader cannot follow' counted a row whose "
+              "shop page is on it")
         ok = False
 
     # THE INTERFACE'S OWN COPY OF THE FOLD, changed to what it looked like before the two were held

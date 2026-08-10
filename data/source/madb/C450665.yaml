@@ -27,12 +27,13 @@ volumes:
     isbn: "9784776752929"
     published: 2021-05
 admitted_by:
-  - comparator: cmoa.jp
+  - comparator: "cmoa.jp"
     shelf: "genre 37 (百合・GL)"
     retrieved: 2026-08-05
+    shop_url: "https://www.cmoa.jp/title/217904/"
     note: >-
-      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive
-      and rebuttable, and never a marketing_label (§4).
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
 marketing_label: none
 marketing_label_basis:
   source: madb

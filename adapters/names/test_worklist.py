@@ -44,6 +44,9 @@ def main(s):
             # A phrase nobody has named.
             "犬も歩けば姫に当たる": {"basis": "romaji",
                             "romaji": {"macron": "Inu mo Arukeba Hime ni Ataru"}},
+            "さろめりっく": {"basis": "romaji", "romaji": {"macron": "Saro Meri Kku"}},
+            "レンズのむこう": {"basis": "romaji", "romaji": {"macron": "Renzu no Mukō"}},
+            "イヴとイヴ": {"basis": "romaji", "romaji": {"macron": "Ivu to Ivu"}},
             # And one that is already settled, which must not appear at all.
             "やがて君になる": {"en": "Bloom Into You", "basis": "licensed"},
         }
@@ -64,6 +67,12 @@ def main(s):
              "and it is not sent to somebody to translate, which is what it was")
 
         s.eq(got.get("ナキノン"), "coinage", "a short kana title is a coinage to confirm")
+        s.eq(got.get("さろめりっく"), "broken-romanisation",
+             "kana written straight through, romanised with spaces nobody wrote, is a reading fault")
+        # A PARTICLE IS A STATED DIVISION even with no space around it, and the first version of
+        # that rule called both of these broken. They are right.
+        s.eq(got.get("レンズのむこう"), "compose", "a kana phrase divides at its particle")
+        s.eq(got.get("イヴとイヴ"), "compose", "and so does a pair joined by と")
         s.eq(got.get("犬も歩けば姫に当たる"), "compose", "a phrase nobody has named needs one written")
 
         # EVERY ROUTE IS DOCUMENTED, or the queue tells a reviewer what to do in a name alone.

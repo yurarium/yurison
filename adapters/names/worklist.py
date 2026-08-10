@@ -59,6 +59,15 @@ ALREADY_LATIN = re.compile(r"^[A-Za-z0-9 .,!?&@:'\-+#/♡×~]+$")
 #: answer for those. Kept as a hint and never as a verdict.
 COINAGE = re.compile(r"^[ぁ-ゖァ-ヺー0-9!?♡・\s]{1,8}$")
 
+#: A surface written straight through in kana, stating no division of its own.
+UNDIVIDED_KANA = re.compile(r"^[ぁ-ゖァ-ヺーゝゞヽヾ]+$")
+
+#: A PARTICLE IS A STATED DIVISION even with no space around it. `レンズのむこう` divides at の and
+#: `イヴとイヴ` at と, so `Renzu no Mukō` and `Ivu to Ivu` are right and the first version of the
+#: rule below called both of them broken. A particle has to sit between two other kana to count:
+#: `のだ` opens with one and is a coinage.
+PARTICLE = re.compile(r"[ぁ-ゖァ-ヺー].*?[のとはがをにもでへや].*?[ぁ-ゖァ-ヺー]")
+
 
 def _bare(title):
     """`title` with edition apparatus removed, folded, so a variant meets its base."""
@@ -104,6 +113,14 @@ def rows(build="data/build"):
         shown = ((rec.get("romaji") or {}).get("macron") or "")
         if ALREADY_LATIN.match(ja.strip()):
             route, why = "already-latin", "the work's own name is in Latin letters"
+        # A ROMANISATION THAT DIVIDES A SURFACE STATING NO DIVISION. さろめりっく is seven kana
+        # written straight through and reaches a reader as `Saro Meri Kku`; the spaces are the
+        # analyser's and nobody wrote them. This is not a naming job at all, it is the reading, and
+        # sending it to somebody to translate hides a fault behind a queue.
+        elif (UNDIVIDED_KANA.match(ja.strip()) and " " in shown.strip()
+              and not PARTICLE.search(ja.strip())):
+            route, why = "broken-romanisation", ("the surface states no division and the "
+                                                 "romanisation invents one; this is a reading fault")
         elif sib and sib[0] != ja and ENGLISH.search(sib[1]):
             route, why = "inherit", f"the same work as {sib[0]}, which is {sib[1]!r}"
         elif sib and sib[0] != ja:
@@ -129,6 +146,9 @@ ROUTES = (
                        "not a state, so this is consistency work and it comes last."),
     ("coinage", "Short and in kana. A romanisation is often the finished answer here, so the job "
                 "is to confirm that rather than to translate."),
+    ("broken-romanisation", "The romanisation divides a surface that states no division, so the "
+                            "row shows a name nobody wrote. Belongs with the reading work and not "
+                            "with naming."),
     ("already-latin", "The work's own name is in Latin letters and no English rendering is owed. "
                       "Here so the count is honest about what is left to do."),
 )

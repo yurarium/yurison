@@ -20753,6 +20753,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I029566904
     verified: true
+  安藤いも:
+    basis: romaji
+    furigana_spans:
+    - - 安藤
+      - あんどう
+    - - いも
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: アンドウ イモ
+    reading_at: '2026-08-10'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   安藤優:
     basis: romaji
     furigana_spans:

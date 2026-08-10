@@ -144,5 +144,44 @@ def main(s):
         s.check(hasattr(entry, name), f"the entry point answers {name}, which build.py calls on it")
 
 
+    a_run_that_corrected_nothing_still_writes(s)
+
+
+def a_run_that_corrected_nothing_still_writes(s):
+    """The CLI wrote only when it had shortened a reading, and threw its marks away otherwise.
+
+    `retire_all` sets `reading_boundary` on every division the surface accounts for, whether or not
+    it also took a space out. `main` asked for `changed` before writing, so a run reporting
+    "136 accounted for by the surface, 0 corrected" saved none of them. 安藤いも arrived divided
+    アンドウ イモ, was kept by this pass the same day, and failed `a division cites its source`.
+    """
+    import subprocess
+    import sys as _sys
+    import tempfile
+
+    import yaml as _y
+
+    root = pathlib.Path(__file__).resolve().parents[3]
+    mod = root / "adapters" / "facts" / "division" / "analyser_division.py"
+    rec = {"reading": "アンドウ イモ", "reading_basis": "analyser",
+           "reading_source_kind": "analyser"}
+    with tempfile.TemporaryDirectory() as d:
+        store = pathlib.Path(d) / "authors.yaml"
+        store.write_text(_y.safe_dump({"names": {"安藤いも": dict(rec)}}, allow_unicode=True))
+        r = subprocess.run([_sys.executable, str(mod), "--store", str(store), "--apply"],
+                           capture_output=True, text=True, cwd=str(root), timeout=120)
+        s.eq(r.returncode, 0, "the pass runs against a store it is pointed at")
+        s.check("0 corrected" in r.stdout, "and corrects nothing here, which is the case at issue")
+        got = (_y.safe_load(store.read_text()) or {})["names"]["安藤いも"]
+        s.eq(got.get("reading_boundary"), "the kana in its own surface",
+             "a division the surface accounts for is marked even when nothing was shortened")
+
+        # AND A SECOND RUN LEAVES THE FILE ALONE, which is what comparing the text buys.
+        before = store.read_text()
+        subprocess.run([_sys.executable, str(mod), "--store", str(store), "--apply"],
+                       capture_output=True, text=True, cwd=str(root), timeout=120)
+        s.eq(store.read_text(), before, "and a run with nothing left to say does not rewrite it")
+
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

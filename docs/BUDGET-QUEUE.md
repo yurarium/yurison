@@ -585,3 +585,28 @@ held: the opposite of using new entries to find new things.
 So the walk and the target selection have to change together. Nothing is lost by waiting: the
 carry-forward means no work ever leaves this file, and the window is deep enough while the pipeline
 runs often.
+
+## Seven budgets rose on the first run with discovery working. Accepted 2026-08-10
+
+Run 31407905313 is the first to read the Web漫画アンテナ listing since the parser broke: 400 listings
+over 8 pages from the runner, which also settles that the host was never refusing it. Fresh works
+followed, and with them the deficits counted in works.
+
+`updates naming a work we do not hold` 26 to 29 is the one to read first, because it is the pass
+doing its job. Discovery exists to name works we do not have, and three more are now named.
+
+`renderings resting on a mechanical romanisation` 873 to 876, `works showing a romanisation` 150 to
+151, `titles read by a machine, unmarked` 1474 to 1475, `author readings no source states` 398 to
+399 and `credit fields an identifier does not cover` 21 to 23 are the same arrivals seen from the
+naming side: a work lands unnamed and unread, and every naming pass exists to reduce that.
+
+`incomplete attested rows` 31 to 33 is the マガポケ route asymmetry recorded above, unchanged in
+kind. All of the rise is access, none of it a row losing its name, and the field audit counts the
+two apart.
+
+One invariant went with them and was fixed rather than accepted. 安藤いも arrived divided
+アンドウ イモ, which its own surface accounts for, since it changes script between the kanji and the
+kana exactly as あの冨田 does. `analyser_division.py --apply` writes that mark, and it wrote nothing:
+its CLI asked for a corrected reading before saving, so a run reporting 136 accounted for and 0
+corrected discarded every mark it had just made. It compares the document now, which is what
+`retire_store` beside it already did, and is why the autopilot never hit this.

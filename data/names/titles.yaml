@@ -44195,6 +44195,31 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  君が一等星に光るまで:
+    basis: romaji
+    furigana_spans:
+    - - 君
+      - きみ
+    - - が
+      - null
+    - - 一等星
+      - いっとうせい
+    - - に
+      - null
+    - - 光
+      - ひか
+    - - るまで
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: キミ ガ イットウセイ ニ ヒカル マデ
+    reading_at: '2026-08-10'
+    reading_basis: analyser
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   君だけが光:
     basis: translated
     en: Only You Are Light

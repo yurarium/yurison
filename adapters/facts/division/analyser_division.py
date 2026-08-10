@@ -57,7 +57,12 @@ import pathlib
 import re
 import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+# `adapters/` AND NOT `adapters/facts/`. The import below is `from facts.division import`,
+# so the directory that has to be on the path is the one holding `facts`, and parents[1] is
+# `facts` itself. Imported as part of the package this never showed, because whoever imported
+# it had already put adapters/ on the path; run as the CLI it names in its own docstring it
+# died on `No module named 'facts'` before parsing an argument.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
 
 from facts.division import boundary                                           # noqa: E402
 
@@ -297,7 +302,8 @@ def main(argv=None):
     a = ap.parse_args(argv)
 
     path = pathlib.Path(a.store)
-    doc = yaml.safe_load(path.read_text()) or {}
+    text = path.read_text()
+    doc = yaml.safe_load(text) or {}
     names = doc.get("names") or {}
     asked = [k for k, r in names.items() if asks(r)]
     changed, kept = retire_all(names)
@@ -306,8 +312,17 @@ def main(argv=None):
           f"{glued} of them left whole; {len(kept)} accounted for by the surface")
     for k, (before, after) in sorted(changed.items()):
         print(f"  {k:24} {before}  ->  {after}")
-    if a.apply and changed:
-        path.write_text(yaml.safe_dump(doc, allow_unicode=True, sort_keys=True, width=100))
+    # WRITTEN WHEN THE DOCUMENT MOVED, and not when something was corrected. This asked for
+    # `changed`, so a run that took no space out of any reading threw away every mark it had just
+    # made: `retire_all` sets `reading_boundary` on each division the surface accounts for, whether
+    # or not it also shortened it, and the docstring above says so. 安藤いも arrived on 2026-08-10
+    # with アンドウ イモ, was kept by this pass on the same day, and failed
+    # `a division cites its source` because 136 names were accounted for and 0 corrected.
+    #
+    # `retire_store` next door already compares the text, which is how the autopilot escaped this.
+    written = yaml.safe_dump(doc, allow_unicode=True, sort_keys=True, width=100)
+    if a.apply and written != text:
+        path.write_text(written)
         print(f"written to {path}")
     return 0
 

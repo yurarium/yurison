@@ -1,4 +1,4 @@
-# キミコミ (一迅社) — chapters from server-rendered work pages.
+# キミコミ (キルタイムコミュニケーション) — chapters from server-rendered work pages.
 # Works named by a Tier C yardstick; the platform attests the chapters.
 # This platform applies no 百合 tag, so nothing here establishes marketing_label.
 source: webpages
@@ -6,25 +6,10 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
-  - work_title: "魔王城デート大作戦!"
-    status: "連載中"
-    author: "涼海来夏"
-    url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    chapter_count: 3
-    chapters:
-      - title: "OPERATION1"
-        updated: "2026-07-20"
-        access_modes: ["free"]
-      - title: "OPERATION2"
-        updated: "2026-07-27"
-        access_modes: ["free"]
-      - title: "OPERATION3"
-        updated: "2026-08-03"
-        access_modes: ["purchase"]
   - work_title: "ワインガールズ"
     status: "連載中"
     author: "真田一輝"
@@ -79,6 +64,117 @@ works:
       - title: "熟成16"
         updated: "2026-08-02"
         access_modes: ["purchase"]
+  - work_title: "ロリースイートロリー"
+    status: "完結"
+    author: "ほしあらん"
+    url: "https://kimicomi.com/series/f7db55fffae10"
+    chapter_count: 5
+    chapters:
+      - title: "第1話"
+        updated: "2025-08-22"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2025-09-19"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: "2025-10-31"
+        access_modes: ["purchase"]
+      - title: "第4話"
+        updated: "2026-02-27"
+        access_modes: ["purchase"]
+      - title: "第5話"
+        updated: "2026-04-10"
+        access_modes: ["purchase"]
+  - work_title: "ステラ・ステップ"
+    status: "連載中"
+    author: "りんご水,林星悟,餡こたく"
+    url: "https://kimicomi.com/series/8acb58b98ca8f"
+    chapter_count: 24
+    chapters:
+      - title: "Step.0"
+        updated: "2025-08-22"
+        access_modes: ["free"]
+      - title: "Step.1"
+        updated: "2025-08-22"
+        access_modes: ["free"]
+      - title: "Step.2①"
+        updated: "2025-08-22"
+        access_modes: ["free-timed"]
+      - title: "Step.2②"
+        updated: "2025-08-22"
+        access_modes: ["free-timed"]
+      - title: "Step.3"
+        updated: "2025-08-22"
+        access_modes: ["free-timed"]
+      - title: "Step.4①"
+        updated: "2025-08-22"
+        access_modes: ["free-timed"]
+      - title: "Step.4②"
+        updated: "2025-08-22"
+        access_modes: ["free-timed"]
+      - title: "Step.5①"
+        updated: "2025-08-22"
+        access_modes: ["free-timed"]
+      - title: "Step.5②"
+        updated: "2025-08-22"
+        access_modes: ["free-timed"]
+      - title: "Step.6①"
+        updated: "2025-08-25"
+        access_modes: ["free-timed"]
+      - title: "Step.6②"
+        updated: "2025-09-01"
+        access_modes: ["free-timed"]
+      - title: "Step.7①"
+        updated: "2025-09-15"
+        access_modes: ["free-timed"]
+      - title: "Step.7②"
+        updated: "2025-09-22"
+        access_modes: ["free-timed"]
+      - title: "Step.8"
+        updated: "2025-10-06"
+        access_modes: ["free-timed"]
+      - title: "Step.9"
+        updated: "2025-10-13"
+        access_modes: ["free-timed"]
+      - title: "コミックス第1巻発売のお知らせ"
+        updated: "2025-11-07"
+        access_modes: ["free"]
+      - title: "Step.10①"
+        updated: "2025-11-24"
+        access_modes: ["free-timed"]
+      - title: "Step.10②"
+        updated: "2025-12-08"
+        access_modes: ["free-timed"]
+      - title: "Step.11①"
+        updated: "2026-03-16"
+        access_modes: ["purchase"]
+      - title: "Step.11②"
+        updated: "2026-04-06"
+        access_modes: ["purchase"]
+      - title: "Step.12①"
+        updated: "2026-04-27"
+        access_modes: ["purchase"]
+      - title: "Step.12②"
+        updated: "2026-05-04"
+        access_modes: ["purchase"]
+      - title: "Step.13①"
+        updated: "2026-06-22"
+        access_modes: ["free"]
+      - title: "Step.13②"
+        updated: "2026-07-06"
+        access_modes: ["free"]
+  - work_title: "魔王城デート大作戦!"
+    status: "連載中"
+    author: "涼海来夏"
+    url: "https://kimicomi.com/series/0cd32d6a7efc2"
+    chapter_count: 2
+    chapters:
+      - title: "OPERATION1"
+        updated: "2026-07-20"
+        access_modes: ["free"]
+      - title: "OPERATION2"
+        updated: "2026-07-27"
+        access_modes: ["free"]
   - work_title: "見えてますよ! 愛沢さん"
     status: "連載中"
     author: "棘尾どろしー"
@@ -283,87 +379,6 @@ works:
       - title: "第106-110話（完）"
         updated: "2026-07-13"
         access_modes: ["purchase"]
-  - work_title: "ステラ・ステップ"
-    status: "連載中"
-    author: "りんご水,林星悟,餡こたく"
-    url: "https://kimicomi.com/series/8acb58b98ca8f"
-    chapter_count: 25
-    chapters:
-      - title: "Step.0"
-        updated: "2025-08-22"
-        access_modes: ["free"]
-      - title: "Step.1"
-        updated: "2025-08-22"
-        access_modes: ["free"]
-      - title: "Step.2①"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "Step.2②"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "Step.3"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "Step.4①"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "Step.4②"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "Step.5①"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "Step.5②"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "Step.6①"
-        updated: "2025-08-25"
-        access_modes: ["free-timed"]
-      - title: "Step.6②"
-        updated: "2025-09-01"
-        access_modes: ["free-timed"]
-      - title: "Step.7①"
-        updated: "2025-09-15"
-        access_modes: ["free-timed"]
-      - title: "Step.7②"
-        updated: "2025-09-22"
-        access_modes: ["free-timed"]
-      - title: "Step.8"
-        updated: "2025-10-06"
-        access_modes: ["free-timed"]
-      - title: "Step.9"
-        updated: "2025-10-13"
-        access_modes: ["free-timed"]
-      - title: "コミックス第1巻発売のお知らせ"
-        updated: "2025-11-07"
-        access_modes: ["free"]
-      - title: "Step.10①"
-        updated: "2025-11-24"
-        access_modes: ["free-timed"]
-      - title: "Step.10②"
-        updated: "2025-12-08"
-        access_modes: ["free-timed"]
-      - title: "Step.11①"
-        updated: "2026-03-16"
-        access_modes: ["free-timed"]
-      - title: "Step.11②"
-        updated: "2026-04-06"
-        access_modes: ["purchase"]
-      - title: "Step.12①"
-        updated: "2026-04-27"
-        access_modes: ["purchase"]
-      - title: "Step.12②"
-        updated: "2026-05-04"
-        access_modes: ["purchase"]
-      - title: "Step.13①"
-        updated: "2026-06-22"
-        access_modes: ["purchase"]
-      - title: "Step.13②"
-        updated: "2026-07-06"
-        access_modes: ["free"]
-      - title: "Step.14①"
-        updated: "2026-08-03"
-        access_modes: ["free"]
   - work_title: "人妻とJK"
     status: "連載中"
     author: "焼肉定食"
@@ -571,26 +586,6 @@ works:
       - title: "TARGET.FINAL②"
         updated: "2026-05-11"
         access_modes: ["free"]
-  - work_title: "ロリースイートロリー"
-    author: "ほしあらん"
-    url: "https://kimicomi.com/series/f7db55fffae10"
-    chapter_count: 5
-    chapters:
-      - title: "第1話"
-        updated: "2025-08-22"
-        access_modes: ["free"]
-      - title: "第2話"
-        updated: "2025-09-19"
-        access_modes: ["free"]
-      - title: "第3話"
-        updated: "2025-10-31"
-        access_modes: ["purchase"]
-      - title: "第4話"
-        updated: "2026-02-27"
-        access_modes: ["purchase"]
-      - title: "第5話"
-        updated: "2026-04-10"
-        access_modes: ["purchase"]
   - work_title: "腹ぺここぺ子はニクと棲む!"
     author: "金子ある"
     url: "https://kimicomi.com/series/65ca0e7b80087"

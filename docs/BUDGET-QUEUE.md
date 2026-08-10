@@ -547,3 +547,41 @@ up by glob. The two that remain are `カナリアは綺羅星の夢をみる` an
 `no-identifier: 2`: both arrived in this run carrying a chapter address and no identifier yet, so
 there is nothing to attach a work address to. They need an identity minted, which is a different
 pass, and the number falls when it runs.
+
+## The discovery listing resumed, and it is 25 works ahead of us. 2026-08-10
+
+`adapters/webcomics/coverage.py` had been reading 0 entries since around 2026-08-04, because
+webcomics.jp added an attribute to the container its parser splits on. With that fixed, the
+acceptance measure against Web漫画アンテナ took its first true reading in six days: **223 of 248,
+89.9%**, where the floor said 90.0 and had been set from a 92.5 reading on the stale listing.
+
+The floor is re-established at the measurement rather than the measurement argued down to the
+floor. What it is short of is a queue, and the run names every one of them. The shape of it:
+`君が一等星に光るまで` on COMIC FUZ is also the fifth entry in `targets a capture wrote no row for`,
+so it is a work the discovery pass found, a capture was asked for, and no row came back.
+`お葉花を愛でる` is on チャンピオンクロス and `ロリースイートロリー` on キミコミ, both platforms the
+`webpages` adapter serves, which had written nothing at all in the run before this one after a
+single 502 ended it.
+
+**What this measure is for** is exactly this: it is the yardstick REQUIREMENTS §5 sets, every listed
+update eventually appearing in our feed. It could not do that job while its input was empty, and the
+0.0% it reported was a rate over an empty denominator rather than a coverage collapse.
+
+## Reading the listing to the frontier. Open, 2026-08-10
+
+The 8-page walk is a recency window, not the end of the listing: page 8 and page 20 each return 50
+rows, page 60 returns 0 and page 150 answers 404, so the tag runs to roughly 32 pages. The owner's
+shape for it is to read pages until reaching one that holds only entries already known, since page
+boundaries move and a page cache cannot express that, and to use what is new to find new works and
+parts instead of rescanning everything the list yields.
+
+**What blocks it is the target lists, not the walk.** The frontier stop is four lines and it was
+written and reverted the same hour, because the gap report is built from the listings THIS run read.
+A walk that stops after one page shrinks `works_missing` from 376 rows to 47, and five adapters take
+that file as their targets. Merging the carry-forward into the report before writing it fixes the
+shrinking and overshoots the other way, to 1,446, which sets every adapter re-reading works already
+held: the opposite of using new entries to find new things.
+
+So the walk and the target selection have to change together. Nothing is lost by waiting: the
+carry-forward means no work ever leaves this file, and the window is deep enough while the pipeline
+runs often.

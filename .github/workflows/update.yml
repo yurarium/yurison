@@ -107,18 +107,20 @@ jobs:
       # nicovideo, webpages and generic. This is a dependency, not a report, and it runs first.
       # Web漫画アンテナ stays Tier C throughout: it says a work exists and where, and nothing here
       # becomes a record.
-      # STAGE 0 DOES NOT RUN HERE, and the reason is not ours to work around. webcomics.jp sits
-      # behind Cloudflare, which answers a residential address with the listing and answers this
-      # runner with something that holds no entry at all: every run of this pass, cold cache or
-      # warm, has read 0 listings over 8 pages. Defeating a bot challenge is not a thing this
-      # project does, so the pass cannot succeed here and a step that cannot succeed is the fault
-      # ganganonline taught us to stop shipping. It sat green for weeks because its health check
-      # could not see zero; now that it can, what it reports is that CI is the wrong place for it.
+      # DISCOVERY IS NOT THE BUILD, so this reports and does not block. It reads Web漫画アンテナ, a
+      # Tier C source that says a work exists and attests nothing, and its health check refuses to
+      # WRITE when it distrusts what it read, which leaves the committed coverage files standing.
+      # A refusal costs a run its new candidates and nothing else.
       #
-      # NOTHING IS LOST BY LEAVING IT OUT. `data/coverage/webcomics-works.yaml` is committed and is
-      # what the rest of the run reads, and the pass refused to write over it anyway. Discovery is
-      # a local pass, run by a person on a machine the site will answer, and `docs/GAPS.md` records
-      # that as the standing arrangement.
+      # IT WAS OUT OF THIS WORKFLOW FOR AN HOUR ON 2026-08-10, on my reasoning that the host was
+      # refusing the runner. It was not: webcomics.jp had added an attribute to the container the
+      # parser splits on, and the pass read 0 entries everywhere, including here. Removing the step
+      # would have made a parser fix invisible for as long as nobody ran it by hand.
+      - name: Stage 0 — discovery queue
+        continue-on-error: true
+        run: |
+          python3 adapters/webcomics/coverage.py --out data/coverage \
+            --cache "$CACHE/webcomics-cache" --pages 8 --retrieved "$R" --force
 
       # ── Stage A — feeds, APIs and server-rendered markup. No browser. ────────────────────
       # The commands live in adapters/stage-a.yaml so they can be run by hand exactly as CI runs

@@ -47,7 +47,12 @@ def fetch(n, cache, force=False):
 def parse(html):
     """One dict per entry. Blocks are split on class="entry" so nothing leaks across boundaries."""
     out = []
-    for b in re.split(r'(?=<div class="entry">)', html)[1:]:
+    # SPLIT ON THE TAG, NOT ON ONE SPELLING OF IT. This wanted `<div class="entry">` with the
+    # bracket immediately after the class, and webcomics.jp now writes
+    # `<div class="entry" data-comic-no="203870">`. One added attribute, and every page read as
+    # nothing from 2026-08-04 until it was found on 2026-08-10: 50 entries are on the page, with
+    # entry-title, entry-site, entry-date and the id all where they were.
+    for b in re.split(r'(?=<div\b[^>]*\bclass="entry"[\s>])', html)[1:]:
         title = re.search(r'class="entry-title[^"]*">\s*<a href="([^"]+)"[^>]*>\s*([^<]+?)\s*</a>', b)
         if not title:
             continue
@@ -218,15 +223,24 @@ def main():
          "# Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.",
          "source: webcomics.jp", "role: discovery-only", f"retrieved: {a.retrieved}",
          "record_type: candidate_works", f"works: {len(platforms_of)}", "candidates:"]
-    # CUMULATIVE. The 百合 tag is a rolling list of recent updates, not a catalogue: a work that
-    # stops updating drops off it. Regenerating the candidate list from a fresh read therefore
-    # DELETES works — reading 31 pages instead of 8 lost four, citrus+ among them, and gained none.
-    # Every adapter driven by this file would then stop fetching them, and a work we have held for
-    # months would quietly leave the database because a listing site stopped mentioning it.
+    # CUMULATIVE. The 百合 tag is a hint sheet for where to look for a new series, a one-shot or a
+    # chapter, and not a statement of what exists. A work dropping off it says the aggregator has
+    # stopped mentioning it and nothing else, so nothing here is ever removed: every previous
+    # candidate is carried forward whole, or merged into the fresh row where the walk saw it again.
+    # Removal, if it is ever right, is a decision about the work and belongs somewhere that records
+    # a reason.
     #
-    # A work does not stop existing. Previous candidates are carried forward and merged; nothing is
-    # ever removed here. Removal, if it is ever right, is a decision about the work and belongs
-    # somewhere that records a reason.
+    # THE 8-PAGE WALK IS A RECENCY WINDOW and not the end of the listing. Measured 2026-08-10:
+    # page 8 and page 20 each returned 50 rows, page 60 returned 0 and page 150 answered 404, so
+    # the tag runs to roughly 32 pages and the loop reaches its ceiling well before its end.
+    #
+    # Reading deeper cannot cost a work, because of the paragraph above, and the note that used to
+    # sit here said it could. What deeper reading costs is requests. The shape wanted instead is a
+    # walk that stops at the first page holding nothing new, and it is not written here because it
+    # needs the target lists decoupled from the discovery window first: the gap report below is
+    # built from this run's listings, so a short walk shrinks it from 376 rows to 47, and merging
+    # the carry-forward into it instead takes it to 1,446 and sets every adapter re-reading works
+    # already held. Recorded in docs/BUDGET-QUEUE.md.
     prev = {}
     _pf = out / "webcomics-works.yaml"
     if _pf.exists():

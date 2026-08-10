@@ -6,10 +6,70 @@ platform: bigcomics
 platform_name: "ビッコミ"
 publisher: "小学館"
 engine: comici
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "あくまで!アットホームな職場です。"
+    status: "連載中"
+    author: "たるはる"
+    url: "https://bigcomics.jp/series/cad403cdddf52"
+    chapter_count: 18
+    chapters:
+      - title: "(第1話) 魔界のカニ漁"
+        updated: "2024-12-27"
+        access_modes: ["free"]
+      - title: "(第2話) ただ木を見る仕事"
+        updated: "2025-01-27"
+        access_modes: ["free"]
+      - title: "(第3話) 滅菌浄化バスターズ"
+        updated: "2025-02-27"
+        access_modes: ["free"]
+      - title: "(第4話) 超絶滅危惧種保護(1)"
+        updated: "2025-03-27"
+        access_modes: ["free-timed"]
+      - title: "(第5話) 超絶滅危惧種保護(2)"
+        updated: "2025-04-25"
+        access_modes: ["free-timed"]
+      - title: "(第6話) 呪いの館♡"
+        updated: "2025-06-27"
+        access_modes: ["free-timed"]
+      - title: "(第7話) スライムの仕分け"
+        updated: "2025-07-26"
+        access_modes: ["free-timed"]
+      - title: "(第8話) 色気でワーム釣り"
+        updated: "2025-08-27"
+        access_modes: ["free-timed"]
+      - title: "(第9話) アゲアゲ↑イエティGOGO！"
+        updated: "2025-09-27"
+        access_modes: ["free-timed"]
+      - title: "(第10話) パラサイト・クイーン"
+        updated: "2025-10-27"
+        access_modes: ["free-timed"]
+      - title: "(第11話) ごほうびわんわん"
+        updated: "2025-11-27"
+        access_modes: ["free-timed"]
+      - title: "(第12話) クソガキの夢"
+        updated: "2025-12-27"
+        access_modes: ["free-timed"]
+      - title: "(第13話) 形から入るのは本当に悪いことなのだろうか。"
+        updated: "2026-01-27"
+        access_modes: ["free-timed"]
+      - title: "(第14話) 疑惑の初デート"
+        updated: "2026-03-27"
+        access_modes: ["free-timed"]
+      - title: "(第15話) 吸血と愛"
+        updated: "2026-04-27"
+        access_modes: ["free"]
+      - title: "(第16話) カネノナル樹"
+        updated: "2026-05-27"
+        access_modes: ["free"]
+      - title: "(第17話) ドキッ！　サウナデスマッチ!!"
+        updated: "2026-06-26"
+        access_modes: ["purchase"]
+      - title: "(第18話) 失敗の達人"
+        updated: "2026-07-27"
+        access_modes: ["purchase"]
   - work_title: "酒と鬼は二合まで"
     status: "連載中"
     author: "羽柴実里,zinbei"
@@ -177,66 +237,6 @@ works:
         access_modes: ["free"]
       - title: "第54話"
         updated: "2026-07-15"
-        access_modes: ["purchase"]
-  - work_title: "あくまで!アットホームな職場です。"
-    status: "連載中"
-    author: "たるはる"
-    url: "https://bigcomics.jp/series/cad403cdddf52"
-    chapter_count: 18
-    chapters:
-      - title: "(第1話) 魔界のカニ漁"
-        updated: "2024-12-27"
-        access_modes: ["free"]
-      - title: "(第2話) ただ木を見る仕事"
-        updated: "2025-01-27"
-        access_modes: ["free"]
-      - title: "(第3話) 滅菌浄化バスターズ"
-        updated: "2025-02-27"
-        access_modes: ["free"]
-      - title: "(第4話) 超絶滅危惧種保護(1)"
-        updated: "2025-03-27"
-        access_modes: ["free-timed"]
-      - title: "(第5話) 超絶滅危惧種保護(2)"
-        updated: "2025-04-25"
-        access_modes: ["free-timed"]
-      - title: "(第6話) 呪いの館♡"
-        updated: "2025-06-27"
-        access_modes: ["free-timed"]
-      - title: "(第7話) スライムの仕分け"
-        updated: "2025-07-26"
-        access_modes: ["free-timed"]
-      - title: "(第8話) 色気でワーム釣り"
-        updated: "2025-08-27"
-        access_modes: ["free-timed"]
-      - title: "(第9話) アゲアゲ↑イエティGOGO！"
-        updated: "2025-09-27"
-        access_modes: ["free-timed"]
-      - title: "(第10話) パラサイト・クイーン"
-        updated: "2025-10-27"
-        access_modes: ["free-timed"]
-      - title: "(第11話) ごほうびわんわん"
-        updated: "2025-11-27"
-        access_modes: ["free-timed"]
-      - title: "(第12話) クソガキの夢"
-        updated: "2025-12-27"
-        access_modes: ["free-timed"]
-      - title: "(第13話) 形から入るのは本当に悪いことなのだろうか。"
-        updated: "2026-01-27"
-        access_modes: ["free-timed"]
-      - title: "(第14話) 疑惑の初デート"
-        updated: "2026-03-27"
-        access_modes: ["free-timed"]
-      - title: "(第15話) 吸血と愛"
-        updated: "2026-04-27"
-        access_modes: ["free"]
-      - title: "(第16話) カネノナル樹"
-        updated: "2026-05-27"
-        access_modes: ["free"]
-      - title: "(第17話) ドキッ！　サウナデスマッチ!!"
-        updated: "2026-06-26"
-        access_modes: ["purchase"]
-      - title: "(第18話) 失敗の達人"
-        updated: "2026-07-27"
         access_modes: ["purchase"]
   - work_title: "ハグフレンド(スピリッツ賞・佳作)"
     status: "読み切り"

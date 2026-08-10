@@ -2448,52 +2448,34 @@ route for a work both cover. Neither is done here: the first needs the feed to s
 does not appear to, and the second is a change to how routes are ranked, which reaches further than
 one platform.
 
-## Discovery does not work in CI. Ruled 2026-08-10
+## The discovery queue was dead, and it was one attribute. Fixed 2026-08-10
 
 `adapters/webcomics/coverage.py` reads Web漫画アンテナ's 百合 tag, which REQUIREMENTS §1 names as a
-first-class discovery mechanism. Every run of the update workflow has read 0 listings over 8 pages,
-on a cold cache and a warm one alike.
+first-class discovery mechanism. It had been returning 0 listings over 8 pages on every run.
 
-**What is established, and it is less than it first looked.** `fetch` has no `except`, so a transport
-error or a non-2xx would propagate and end the pass with a traceback. It never did. So the runner
-received a successful response whose body holds no `<div class="entry">`, which is the only string
-`parse` splits on. That is the whole of it. From a developer machine the same address with the same
-user agent returns about 108 KB that parses into entries, and its response carries a Cloudflare
-server header, but nobody has seen what the runner received and the cause is not recorded here as
-known. The refusal now prints the size, the title and whether an entry block is present, so the next
-run of it anywhere says what it read instead of leaving somebody to guess.
+**The cause is one added attribute.** `parse` split the page on the literal `<div class="entry">`,
+with the bracket immediately after the class, and webcomics.jp now writes
+`<div class="entry" data-comic-no="203870">`. Everything else is where it was: 50 entries a page,
+with `entry-title`, `entry-site`, `entry-date` and the id all present. The split now matches the tag
+instead of one spelling of it, and both forms are pinned in `test_coverage.py`.
 
-**Nobody noticed because the pass could not report it.** Its health check refuses to write when page
-1 yields almost nothing, and it sat below an `if not rows: break`, so 1 to 9 entries exited loudly
-and 0 entries left quietly with a success code.
+**Two guesses of mine were wrong on the way**, and the second was worse than the first. I read the
+refusal as the host blocking the runner, on a Cloudflare header seen in MY response, and removed the
+pass from the workflow on that reasoning. What settled it was running the adapter's own `fetch` and
+`parse` against the live page from this machine: HTTP 200, 86,354 characters, zero entry blocks.
+The evidence for the runner theory had been a byte count from curl, which I never parsed. Removing
+the step would have hidden a parser fix behind a manual pass nobody was going to run.
 
-One thing is certain whatever the cause: `fetch` returns the cached file whenever one exists and
-the workflow passed no `--force`, so a cache that once held a bad page is read for ever. The pass
-could not recover on its own even if the host began answering.
+**Nobody noticed for six days** because the pass could not report it. Its health check refuses to
+write when page 1 yields almost nothing, and it sat below an `if not rows: break`, so 1 to 9 entries
+exited loudly and 0 entries left quietly with a success code. The committed coverage files kept the
+good 2026-08-04 data throughout, which is the refusal-to-write working, and is why nothing
+downstream visibly broke.
 
-Whatever is refusing the runner, getting past it is not something this project does, so the pass is
-out of the workflow rather than retried or worked around. A step that cannot succeed is what
-ganganonline had already cost us: it trains a reader to skim the failure list, and the run beside it
-that mattered went unread for a week.
+**What it had cost.** The two files this pass writes are the target list for five of Stage A's
+adapters: `comicfuz` and `webpages` read `webcomics-gap.yaml`, and `kadokomi`, `nicovideo` and
+`generic` read `webcomics-works.yaml`. Frozen, those five went on fetching the works already named
+and could not learn of a new one. The first run after the fix moved `works_missing` from 376 to 355.
 
-**What this costs, and it is more than a list going stale.** The two files this pass writes are the
-target list for five of Stage A's adapters: `comicfuz` and `webpages` read `webcomics-gap.yaml`, and
-`kadokomi`, `nicovideo` and `generic` read `webcomics-works.yaml`. Frozen, those five go on fetching
-the 1,200 works already named and never learn of a new one. Every run stays complete for what the
-corpus holds, and the corpus stops growing by this route.
-
-百合ナビ is the other discovery route and is unaffected, so new works still arrive; what stops is the
-half that Web漫画アンテナ answers for. `data/coverage/webcomics-gap.yaml` is dated 2026-08-04 and the
-successful run left it untouched, which is the pass refusing to write behaving as intended.
-
-Discovery is a local pass now, run by a person on a machine the site answers, and it wants a standing slot in
-whoever's week owns this pipeline:
-
-```
-python3 adapters/webcomics/coverage.py --out data/coverage \
-  --cache ../webcomics-cache --pages 8 --retrieved $(date +%F) --force
-```
-
-百合ナビ is unaffected and remains the other discovery route. `data/coverage/yurinavi-webyuri.yaml`
-is committed and `acceptance.py` still measures against it, which is why that half of the acceptance
-report keeps working while the Web漫画アンテナ half reports that it was not measured.
+The step carries `--force` now. `fetch` returns a cached page whenever one exists, so a cache that
+once held an unparseable page is read for ever, and this pass is cheap enough to re-read.

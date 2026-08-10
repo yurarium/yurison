@@ -6,15 +6,63 @@ platform: hanayume
 platform_name: "花とゆめ+"
 publisher: "白泉社"
 engine: comici
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "運命は役に立たない"
+    status: "連載中"
+    author: "まめ魚"
+    url: "https://hanayume.com/series/ca4ef0eb47ea3"
+    chapter_count: 14
+    chapters:
+      - title: "1話"
+        updated: "2026-04-20"
+        access_modes: ["free"]
+      - title: "2話"
+        updated: "2026-04-20"
+        access_modes: ["free"]
+      - title: "3話"
+        updated: "2026-04-20"
+        access_modes: ["free"]
+      - title: "4話"
+        updated: "2026-04-20"
+        access_modes: ["free"]
+      - title: "5話"
+        updated: "2026-04-20"
+        access_modes: ["free-timed"]
+      - title: "6話"
+        updated: "2026-04-20"
+        access_modes: ["free-timed"]
+      - title: "7話"
+        updated: "2026-04-26"
+        access_modes: ["free-timed"]
+      - title: "おまけ"
+        updated: "2026-05-10"
+        access_modes: ["free"]
+      - title: "8話"
+        updated: "2026-05-24"
+        access_modes: ["free-timed"]
+      - title: "9話"
+        updated: "2026-06-07"
+        access_modes: ["free-timed"]
+      - title: "10話"
+        updated: "2026-06-21"
+        access_modes: ["free-timed"]
+      - title: "おまけ"
+        updated: "2026-07-05"
+        access_modes: ["free"]
+      - title: "11話"
+        updated: "2026-07-19"
+        access_modes: ["free"]
+      - title: "12話"
+        updated: "2026-08-02"
+        access_modes: ["purchase"]
   - work_title: "フレンドガールフレンド"
     status: "連載中"
     author: "瑠夏子"
     url: "https://hanayume.com/series/f3ce082d639de"
-    chapter_count: 30
+    chapter_count: 29
     chapters:
       - title: "#1"
         updated: "2026-04-20"
@@ -102,57 +150,6 @@ works:
         access_modes: ["free"]
       - title: "＃15②"
         updated: "2026-07-27"
-        access_modes: ["purchase"]
-      - title: "おまけ"
-        updated: "2026-08-03"
-        access_modes: ["free"]
-  - work_title: "運命は役に立たない"
-    status: "連載中"
-    author: "まめ魚"
-    url: "https://hanayume.com/series/ca4ef0eb47ea3"
-    chapter_count: 14
-    chapters:
-      - title: "1話"
-        updated: "2026-04-20"
-        access_modes: ["free"]
-      - title: "2話"
-        updated: "2026-04-20"
-        access_modes: ["free"]
-      - title: "3話"
-        updated: "2026-04-20"
-        access_modes: ["free"]
-      - title: "4話"
-        updated: "2026-04-20"
-        access_modes: ["free"]
-      - title: "5話"
-        updated: "2026-04-20"
-        access_modes: ["free-timed"]
-      - title: "6話"
-        updated: "2026-04-20"
-        access_modes: ["free-timed"]
-      - title: "7話"
-        updated: "2026-04-26"
-        access_modes: ["free-timed"]
-      - title: "おまけ"
-        updated: "2026-05-10"
-        access_modes: ["free"]
-      - title: "8話"
-        updated: "2026-05-24"
-        access_modes: ["free-timed"]
-      - title: "9話"
-        updated: "2026-06-07"
-        access_modes: ["free-timed"]
-      - title: "10話"
-        updated: "2026-06-21"
-        access_modes: ["free-timed"]
-      - title: "おまけ"
-        updated: "2026-07-05"
-        access_modes: ["free"]
-      - title: "11話"
-        updated: "2026-07-19"
-        access_modes: ["free"]
-      - title: "12話"
-        updated: "2026-08-02"
         access_modes: ["purchase"]
   - work_title: "魔法使いの作庭/よみきり"
     status: "読み切り"

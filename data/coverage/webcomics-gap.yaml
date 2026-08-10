@@ -5,18 +5,20 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 317
+distinct_works: 318
 works_on_watched_platform: 299
-platforms_total: 54
-platforms_watched: 39
+platforms_total: 53
+platforms_watched: 38
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
-    works: 6
+    works: 7
+  - platform: "きら星ポータル"
+    works: 2
   - platform: "ヤンジャン+"
     works: 2
   - platform: "pixivコミックマガジン"
@@ -25,21 +27,42 @@ platforms_missing:
     works: 1
   - platform: "マンガボックス"
     works: 1
+  - platform: "ちゃおプラス"
+    works: 1
   - platform: "コミックグロウル"
     works: 1
   - platform: "アサコミ"
     works: 1
   - platform: "コミックPASH! neo"
     works: 1
-  - platform: "きら星ポータル"
-    works: 1
   - platform: "ゼロサムオンライン"
     works: 1
-  - platform: "ヤングアニマルWeb"
-    works: 1
-  - platform: "コミックエッセイ劇場"
-    works: 1
 works_missing:
+  - title: "このままモブじゃ終われない!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3700"
+    antenna_id: "203870"
+    tags: ["百合", "サキュバス"]
+  - title: "しゅがー・みーつ・がーる!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3108"
+    antenna_id: "166358"
+    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
+  - title: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/4133"
+    antenna_id: "212772"
+    tags: ["百合"]
+  - title: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3776"
+    antenna_id: "209939"
+    tags: ["百合", "サキュバス"]
+  - title: "百合SMでふたりの気持ちはつながりますか?"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/2391"
+    antenna_id: "102691"
+    tags: ["百合", "フェチ・性癖"]
   - title: "うさぎはかく語りき"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3572"
@@ -55,31 +78,11 @@ works_missing:
     url: "https://comic-fuz.com/manga/3140"
     antenna_id: "138856"
     tags: ["百合", "アイドル"]
-  - title: "このままモブじゃ終われない!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3700"
-    antenna_id: "203870"
-    tags: ["百合", "サキュバス"]
-  - title: "しゅがー・みーつ・がーる!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3108"
-    antenna_id: "166358"
-    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
-  - title: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3776"
-    antenna_id: "209939"
-    tags: ["百合", "サキュバス"]
   - title: "エイティエイトを2でわって"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3423"
     antenna_id: "187224"
     tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
-  - title: "百合SMでふたりの気持ちはつながりますか?"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/2391"
-    antenna_id: "102691"
-    tags: ["百合", "フェチ・性癖"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -140,6 +143,11 @@ works_missing:
     url: "https://feelweb.jp/episode/2550689798763776115"
     antenna_id: "174064"
     tags: ["百合"]
+  - title: "世界をすくってもお腹はすくから"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/58238b3987c11"
+    antenna_id: "211263"
+    tags: ["百合", "ファンタジー", "エルフ・ハーフエルフ", "魔女", "料理・グルメ"]
   - title: "百合フェチLIFE"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/7e3c698bca968"
@@ -160,21 +168,11 @@ works_missing:
     url: "https://g-comi.jp/series/fef424c168c44"
     antenna_id: "210855"
     tags: ["百合", "先輩と後輩", "大学生"]
-  - title: "世界をすくってもお腹はすくから"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/58238b3987c11"
-    antenna_id: "211263"
-    tags: ["百合", "ファンタジー"]
   - title: "多良さんのウワサ"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/f5a28c7f5cc1b"
     antenna_id: "149312"
     tags: ["百合", "現代ファンタジー", "オカルト"]
-  - title: "狙いはキミだけ!"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/192003ee77e21"
-    antenna_id: "206619"
-    tags: ["百合", "女子高生", "恋愛", "読み切り"]
   - title: "魔女とくゅらす"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
@@ -195,11 +193,6 @@ works_missing:
     url: "https://heros-web.com/series/cd04567a696bb"
     antenna_id: "151506"
     tags: ["百合", "完結"]
-  - title: "ボイタボイネ"
-    platform: "MAGCOMI"
-    url: "https://magcomi.com/episode/2551460909687451648"
-    antenna_id: "196439"
-    tags: ["百合"]
   - title: "さかなでは足もつかない"
     platform: "MAGCOMI"
     url: "https://magcomi.com/episode/12207421983866622005"
@@ -214,6 +207,51 @@ works_missing:
     platform: "Seasons"
     url: "https://comic-seasons.com/episode/2551460909766158255"
     antenna_id: "198917"
+    tags: ["百合"]
+  - title: "晴れた日のドレスコード"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13425"
+    antenna_id: "211932"
+    tags: ["百合"]
+  - title: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13373"
+    antenna_id: "211154"
+    tags: ["百合"]
+  - title: "現実世界でも幸せにしてくださいね?"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/11079"
+    antenna_id: "178475"
+    tags: ["百合"]
+  - title: "私の推しは悪役令嬢。"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/7319"
+    antenna_id: "116051"
+    tags: ["百合", "転生", "コミカライズ", "小説家になろう", "令嬢", "アニメ化"]
+  - title: "ささやくように恋を唄う"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/5758"
+    antenna_id: "91186"
+    tags: ["百合", "アニメ化", "女子高生", "音楽"]
+  - title: "私に天使が舞い降りた!"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/4810"
+    antenna_id: "88637"
+    tags: ["百合", "アニメ化", "4コマ"]
+  - title: "きみが死ぬまで恋をしたい"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/5424"
+    antenna_id: "88627"
+    tags: ["百合", "ファンタジー", "アニメ化"]
+  - title: "酒と鬼は二合まで"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/10005"
+    antenna_id: "161448"
+    tags: ["百合", "大学生", "異種族・人外", "現代", "料理・グルメ"]
+  - title: "ステラ・ステップ"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/10790"
+    antenna_id: "173689"
     tags: ["百合"]
   - title: "バカ女26時"
     platform: "pixivコミック"
@@ -250,11 +288,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/11800"
     antenna_id: "188533"
     tags: ["百合"]
-  - title: "カナリアは綺羅星の夢をみる"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/11180"
-    antenna_id: "179429"
-    tags: ["百合"]
   - title: "ぜんぶ壊して地獄で愛して"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/9628"
@@ -265,11 +298,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/9018"
     antenna_id: "145786"
     tags: ["百合", "女子高生", "エロ", "三角関係", "浮気・不倫"]
-  - title: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13373"
-    antenna_id: "211154"
-    tags: ["百合"]
   - title: "かいじゅう色の島"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/5470"
@@ -280,11 +308,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/5364"
     antenna_id: "89009"
     tags: ["日常", "百合", "4コマ"]
-  - title: "ボイタボイネ"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/12194"
-    antenna_id: "194479"
-    tags: ["百合"]
   - title: "怪獣ロマンティクス"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13457"
@@ -300,11 +323,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/13440"
     antenna_id: "211937"
     tags: ["百合", "読み切り"]
-  - title: "晴れた日のドレスコード"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13425"
-    antenna_id: "211932"
-    tags: ["百合"]
   - title: "まるせっせんす"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/12886"
@@ -315,56 +333,11 @@ works_missing:
     url: "https://comic.pixiv.net/works/13400"
     antenna_id: "211076"
     tags: ["百合"]
-  - title: "私の推しは悪役令嬢。"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/7319"
-    antenna_id: "116051"
-    tags: ["百合", "転生", "コミカライズ", "小説家になろう", "令嬢", "アニメ化"]
-  - title: "ささやくように恋を唄う"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/5758"
-    antenna_id: "91186"
-    tags: ["百合", "アニメ化", "女子高生", "音楽"]
-  - title: "私に天使が舞い降りた!"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/4810"
-    antenna_id: "88637"
-    tags: ["百合", "アニメ化", "4コマ"]
-  - title: "きみが死ぬまで恋をしたい"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/5424"
-    antenna_id: "88627"
-    tags: ["百合", "ファンタジー", "アニメ化"]
-  - title: "現実世界でも幸せにしてくださいね?"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/11079"
-    antenna_id: "178475"
-    tags: ["百合"]
   - title: "伽藍の姫-がらんのひめ-"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/10090"
     antenna_id: "162833"
     tags: ["ロボ・人造人間", "百合", "ポストアポカリプス"]
-  - title: "平良深姉妹はどっちもヤんでる"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/9380"
-    antenna_id: "152727"
-    tags: ["百合", "姉妹", "ヤンデレ"]
-  - title: "ステラ・ステップ"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/10790"
-    antenna_id: "173689"
-    tags: ["百合"]
-  - title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/11081"
-    antenna_id: "178209"
-    tags: ["百合"]
-  - title: "酒と鬼は二合まで"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/10005"
-    antenna_id: "161448"
-    tags: ["百合", "大学生", "異種族・人外", "現代", "料理・グルメ"]
   - title: "私だって青春したいですよ、本当は。"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/12809"
@@ -385,11 +358,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/7840"
     antenna_id: "125993"
     tags: ["異種族・人外", "学園", "百合", "完結"]
-  - title: "腹割るウチらの秘密ごと!"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/11664"
-    antenna_id: "186816"
-    tags: ["百合", "運動・筋トレ"]
   - title: "超深宇宙より愛をこめて"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/11521"
@@ -425,26 +393,16 @@ works_missing:
     url: "https://comic-action.com/episode/2550912964909179818"
     antenna_id: "179169"
     tags: ["百合", "妖怪", "現代", "女子高生"]
-  - title: "小林さんちのメイドラゴン"
-    platform: "webアクション"
-    url: "https://comic-action.com/episode/13933686331613879685"
-    antenna_id: "102333"
-    tags: ["アニメ化", "ドラゴン・竜", "社会人", "お色気・微エロ", "メイド", "百合", "現代ファンタジー"]
-  - title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
-    platform: "webアクション"
-    url: "https://comic-action.com/episode/2550912964579811935"
-    antenna_id: "175126"
-    tags: ["百合", "ギャグ・コメディ", "宇宙人"]
-  - title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
-    platform: "がうがうモンスター"
-    url: "https://gaugau.futabanet.jp/list/work/u4FdNLFgU91kEXBufRsVlnzEw"
-    antenna_id: "178261"
-    tags: ["女子高生", "百合"]
   - title: "オカワリいただけただろうか?"
     platform: "がうがうモンスター"
     url: "https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P"
     antenna_id: "179999"
     tags: ["百合", "妖怪", "現代", "女子高生"]
+  - title: "君めく夜に焦がれて"
+    platform: "きら星ポータル"
+    url: "https://kirapo.jp/ambre/titles/kimimeku"
+    antenna_id: "192477"
+    tags: ["百合", "不良・ヤンキー"]
   - title: "ツイてるギャルとミエてる陰キャ"
     platform: "きら星ポータル"
     url: "https://kirapo.jp/meteor/titles/tuimie"
@@ -455,11 +413,6 @@ works_missing:
     url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
     antenna_id: "181056"
     tags: ["百合", "妖怪", "女子高生", "コミカライズ", "ざまぁ", "頭脳戦・心理戦", "現代", "チート"]
-  - title: "英雄少女と呪われの銀姫"
-    platform: "となりのヤングジャンプ"
-    url: "https://tonarinoyj.jp/episode/2551460910044575820"
-    antenna_id: "201286"
-    tags: ["百合", "ファンタジー"]
   - title: "秒速11.2kmでともに"
     platform: "となりのヤングジャンプ"
     url: "https://tonarinoyj.jp/episode/12207421983850437714"
@@ -475,21 +428,116 @@ works_missing:
     url: "https://tonarinoyj.jp/episode/2550912965313547927"
     antenna_id: "184801"
     tags: ["百合"]
-  - title: "ニセアイホンアイ"
-    platform: "まんがタイムSquare"
-    url: "https://mangatime-square.com/episode/12207421984001577937"
-    antenna_id: "212224"
-    tags: ["百合"]
-  - title: "腹割るウチらの秘密ごと!"
-    platform: "まんがタイムSquare"
-    url: "https://mangatime-square.com/episode/12207421983656607506"
-    antenna_id: "207821"
-    tags: ["百合", "4コマ"]
   - title: "ガールミートガール"
     platform: "アサコミ"
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "わたしのために脱ぎなさいっ!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000188_S"
+    antenna_id: "76553"
+    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
+  - title: "堕天使そぷらのちゃんの復讐"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006778_S"
+    antenna_id: "190226"
+    tags: ["百合", "女子高生", "学園"]
+  - title: "真先輩の前ではかっこつけられない!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006747_S"
+    antenna_id: "189542"
+    tags: ["ラブコメ", "百合"]
+  - title: "バカに告白"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006660_S"
+    antenna_id: "188798"
+    tags: ["百合", "学園", "ラブコメ"]
+  - title: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_016753_S"
+    antenna_id: "210354"
+    tags: ["百合"]
+  - title: "ココロメイク コスメティカ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_009488_S"
+    antenna_id: "208982"
+    tags: ["百合"]
+  - title: "彼女のカノジョと不純な初恋"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_009359_S"
+    antenna_id: "208406"
+    tags: ["百合", "恋愛"]
+  - title: "ダメ犬彼女"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006666_S"
+    antenna_id: "189098"
+    tags: ["百合", "学園", "お色気・微エロ", "ラブコメ"]
+  - title: "T.Tラバーズ。"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005506_S"
+    antenna_id: "168136"
+    tags: ["百合"]
+  - title: "悪いが私は百合じゃない"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004432_S"
+    antenna_id: "99613"
+    tags: ["百合", "ギャグ・コメディ", "エロ", "女子高生", "女性向け", "お色気・微エロ", "現代", "同性愛・LGBTQ+", "青春"]
+  - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007220_S"
+    antenna_id: "198866"
+    tags: ["百合"]
+  - title: "妄執女と芥川"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007176_S"
+    antenna_id: "197816"
+    tags: ["百合", "作家"]
+  - title: "作りたい女と食べたい女"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002798_S"
+    antenna_id: "113349"
+    tags: ["料理・グルメ", "百合", "実写化"]
+  - title: "大崎さんと小森さん"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_014277_S"
+    antenna_id: "210131"
+    tags: ["百合"]
+  - title: "君になれたら"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008317_S"
+    antenna_id: "200532"
+    tags: ["百合", "アイドル"]
+  - title: "咲きそめコンプレックス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006662_S"
+    antenna_id: "188908"
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
+  - title: "ユリノコ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005941_S"
+    antenna_id: "176462"
+    tags: ["百合"]
+  - title: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_019658_S"
+    antenna_id: "211658"
+    tags: ["百合", "現代ファンタジー", "バトル"]
+  - title: "創る庭"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007254_S"
+    antenna_id: "198357"
+    tags: ["百合", "不動産", "同人活動"]
+  - title: "ときときチャンネル"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007121_S"
+    antenna_id: "197088"
+    tags: ["百合", "SF", "動画配信者", "シュール", "現代", "同居人・居候", "ギャグ・コメディ", "コミカライズ"]
+  - title: "安達としまむら"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004197_S"
+    antenna_id: "90973"
+    tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
   - title: "怪異部～M県Y市の怪現象について～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006547_S"
@@ -545,26 +593,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019441_S"
     antenna_id: "212575"
     tags: ["百合", "読み切り"]
-  - title: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_016753_S"
-    antenna_id: "210354"
-    tags: ["百合"]
-  - title: "大崎さんと小森さん"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_014277_S"
-    antenna_id: "210131"
-    tags: ["百合"]
-  - title: "彼女のカノジョと不純な初恋"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_009359_S"
-    antenna_id: "208406"
-    tags: ["百合", "恋愛"]
-  - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007220_S"
-    antenna_id: "198866"
-    tags: ["百合"]
   - title: "ホームセンターごと呼び出された私の大迷宮リノベーション!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006431_S"
@@ -580,36 +608,16 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007014_S"
     antenna_id: "195108"
     tags: ["百合"]
-  - title: "堕天使そぷらのちゃんの復讐"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006778_S"
-    antenna_id: "190226"
-    tags: ["百合", "女子高生", "学園"]
-  - title: "バカに告白"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006660_S"
-    antenna_id: "188798"
-    tags: ["百合", "学園", "ラブコメ"]
   - title: "あたし達って付き合ってるよね!?"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_011928_S"
     antenna_id: "210688"
     tags: ["百合", "ラブコメ", "女子高生"]
-  - title: "ココロメイク コスメティカ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_009488_S"
-    antenna_id: "208982"
-    tags: ["百合"]
   - title: "ひとりみです"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006607_S"
     antenna_id: "189099"
     tags: ["百合", "ヒューマンドラマ", "おばあちゃん"]
-  - title: "作りたい女と食べたい女"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_002798_S"
-    antenna_id: "113349"
-    tags: ["料理・グルメ", "百合", "実写化"]
   - title: "猫に白鳥、蛍に小判"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006798_S"
@@ -630,36 +638,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006092_S"
     antenna_id: "178772"
     tags: ["百合", "オムニバス・短編集"]
-  - title: "妄執女と芥川"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007176_S"
-    antenna_id: "197816"
-    tags: ["百合", "作家"]
-  - title: "咲きそめコンプレックス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006662_S"
-    antenna_id: "188908"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "らぶぶいっ!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008372_S"
     antenna_id: "201618"
     tags: ["百合", "お色気・微エロ", "異種族・人外"]
-  - title: "創る庭"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007254_S"
-    antenna_id: "198357"
-    tags: ["百合", "不動産", "同人活動"]
-  - title: "ユリノコ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_005941_S"
-    antenna_id: "176462"
-    tags: ["百合"]
-  - title: "真先輩の前ではかっこつけられない!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006747_S"
-    antenna_id: "189542"
-    tags: ["ラブコメ", "百合"]
   - title: "ケイヤクシマイ"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_001277_S"
@@ -670,21 +653,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_003240_S"
     antenna_id: "128693"
     tags: ["転生", "異種族・人外", "ファンタジー", "チートなし", "残酷・グロテスク", "反社・ヤクザ", "百合", "姉妹"]
-  - title: "安達としまむら"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_004197_S"
-    antenna_id: "90973"
-    tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
   - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002994_S"
     antenna_id: "102702"
     tags: ["学園", "ゲーム・eスポーツ", "令嬢", "女子高生", "百合", "アニメ化", "ギャグ・コメディ", "青春", "動画配信者", "メスガキ"]
-  - title: "ダメ犬彼女"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006666_S"
-    antenna_id: "189098"
-    tags: ["百合", "学園", "お色気・微エロ", "ラブコメ"]
   - title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005942_S"
@@ -695,46 +668,21 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019393_S"
     antenna_id: "211792"
     tags: ["百合", "読み切り"]
-  - title: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_019658_S"
-    antenna_id: "211658"
-    tags: ["百合", "現代ファンタジー", "バトル"]
   - title: "どれが恋かがわからない"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_001190_S"
     antenna_id: "131238"
     tags: ["百合", "大学生", "恋愛"]
-  - title: "わたしのために脱ぎなさいっ!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_000188_S"
-    antenna_id: "76553"
-    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
-  - title: "T.Tラバーズ。"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_005506_S"
-    antenna_id: "168136"
-    tags: ["百合"]
   - title: "オタクサキュバスの才能がありすぎる!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_016705_S"
     antenna_id: "211295"
     tags: ["読み切り", "百合", "サキュバス"]
-  - title: "ときときチャンネル"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007121_S"
-    antenna_id: "197088"
-    tags: ["百合", "SF", "動画配信者", "シュール", "現代", "同居人・居候", "ギャグ・コメディ", "コミカライズ"]
   - title: "崩れる前のわたしでいさせて"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019408_S"
     antenna_id: "211258"
     tags: ["百合", "読み切り"]
-  - title: "君になれたら"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_008317_S"
-    antenna_id: "200532"
-    tags: ["百合", "アイドル"]
   - title: "ぷれいめ～と"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008613_S"
@@ -760,11 +708,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_016898_S"
     antenna_id: "210542"
     tags: ["百合", "エロ", "読み切り"]
-  - title: "悪いが私は百合じゃない"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_004432_S"
-    antenna_id: "99613"
-    tags: ["百合", "ギャグ・コメディ", "エロ", "女子高生", "女性向け", "お色気・微エロ", "現代", "同性愛・LGBTQ+", "青春"]
   - title: "竜人ボディガードとお嬢様"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008416_S"
@@ -825,36 +768,26 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008695_S"
     antenna_id: "206495"
     tags: ["百合"]
-  - title: "夢後のグレイ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006383_S"
-    antenna_id: "183835"
-    tags: ["百合"]
-  - title: "アプリコットファズ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_005629_S"
-    antenna_id: "170022"
-    tags: ["百合", "完結"]
-  - title: "ひきこまり吸血姫の悶々"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/1593"
-    antenna_id: "146334"
-    tags: ["百合", "ギャグ・コメディ", "吸血鬼・ヴァンパイア", "アニメ化"]
   - title: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
     antenna_id: "77857"
     tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
-  - title: "藤髪の魔女"
+  - title: "ひきこまり吸血姫の悶々"
     platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2649"
-    antenna_id: "211625"
-    tags: ["百合"]
+    url: "https://www.ganganonline.com/title/1593"
+    antenna_id: "146334"
+    tags: ["百合", "ギャグ・コメディ", "吸血鬼・ヴァンパイア", "アニメ化"]
   - title: "私がモテないのはどう考えてもお前らが悪い!"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/29"
     antenna_id: "745"
     tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
+  - title: "藤髪の魔女"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/2649"
+    antenna_id: "211625"
+    tags: ["百合"]
   - title: "温室のアトリエ"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2643"
@@ -864,17 +797,27 @@ works_missing:
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
     antenna_id: "194497"
+    tags: ["百合", "犯罪"]
+  - title: "ワインガールズ"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    antenna_id: "205919"
+    tags: ["百合", "擬人化"]
+  - title: "ロリースイートロリー"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/f7db55fffae10"
+    antenna_id: "192717"
+    tags: ["百合"]
+  - title: "ステラ・ステップ"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/8acb58b98ca8f"
+    antenna_id: "193724"
     tags: ["百合"]
   - title: "魔王城デート大作戦!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     antenna_id: "212084"
     tags: ["百合"]
-  - title: "ワインガールズ"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    antenna_id: "205919"
-    tags: ["百合", "擬人化"]
   - title: "見えてますよ! 愛沢さん"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/330f3ad1270c8"
@@ -884,11 +827,6 @@ works_missing:
     platform: "キミコミ"
     url: "https://kimicomi.com/series/a869ecfca8da9"
     antenna_id: "200536"
-    tags: ["百合"]
-  - title: "ステラ・ステップ"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/8acb58b98ca8f"
-    antenna_id: "193724"
     tags: ["百合"]
   - title: "人妻とJK"
     platform: "キミコミ"
@@ -905,6 +843,11 @@ works_missing:
     url: "https://comic-earthstar.com/episode/12207421983715032399"
     antenna_id: "207708"
     tags: ["百合", "読み切り", "異種族・人外", "現代ファンタジー"]
+  - title: "私の好きな人はとても〇〇"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421983805333025"
+    antenna_id: "212438"
+    tags: ["読み切り", "百合"]
   - title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     platform: "コミックDAYS"
     url: "https://comic-days.com/episode/2550912964518073379"
@@ -925,11 +868,6 @@ works_missing:
     url: "https://comic-days.com/episode/12207421983906425557"
     antenna_id: "211796"
     tags: ["百合", "読み切り"]
-  - title: "新刊100億冊ください"
-    platform: "コミックDAYS"
-    url: "https://comic-days.com/episode/2550912965415315207"
-    antenna_id: "187238"
-    tags: ["オタク", "同人活動", "百合", "漫画家・絵描き", "中二病", "ブロ・シスマンス"]
   - title: "下部七花はかく語りき"
     platform: "コミックDAYS"
     url: "https://comic-days.com/episode/12207421983885192770"
@@ -970,11 +908,6 @@ works_missing:
     url: "https://www.comic-essay.com/episode/a1026/"
     antenna_id: "207648"
     tags: ["百合"]
-  - title: "キジとイナサ"
-    platform: "コミックエッセイ劇場"
-    url: "https://www.comic-essay.com/episode/a1006/"
-    antenna_id: "204960"
-    tags: ["百合", "異種族・人外"]
   - title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
@@ -984,11 +917,6 @@ works_missing:
     platform: "コミックグロウル"
     url: "https://comic-growl.com/series/5ec689382839e"
     antenna_id: "116946"
-    tags: ["百合"]
-  - title: "お嬢様、懺悔する。"
-    platform: "コミックトレイル"
-    url: "https://comic-trail.com/episode/2551460909758971055"
-    antenna_id: "167416"
     tags: ["百合"]
   - title: "侵略のプリマステラ!"
     platform: "コミックボーダー"
@@ -1005,16 +933,16 @@ works_missing:
     url: "https://www.corocoro.jp/title/773"
     antenna_id: "182492"
     tags: ["妖怪", "オカルト", "百合"]
+  - title: "高井さんの見える世界"
+    platform: "サンデーうぇぶり"
+    url: "https://www.sunday-webry.com/episode/12207421983909949999"
+    antenna_id: "212937"
+    tags: ["百合", "読み切り"]
   - title: "てくのぱにっくゆにばーす"
     platform: "サンデーうぇぶり"
     url: "https://www.sunday-webry.com/episode/2551460909679507683"
     antenna_id: "195840"
     tags: ["百合", "SF", "ギャグ・コメディ", "ロボ・人造人間", "発明", "大学生", "教師"]
-  - title: "なとりとしずは"
-    platform: "サンデーうぇぶり"
-    url: "https://www.sunday-webry.com/episode/12207421983745504350"
-    antenna_id: "208272"
-    tags: ["百合", "女子高生", "運動系部活"]
   - title: "傷の女"
     platform: "サンデーうぇぶり"
     url: "https://www.sunday-webry.com/episode/12207421983914997657"
@@ -1024,6 +952,11 @@ works_missing:
     platform: "サンデーうぇぶり"
     url: "https://www.sunday-webry.com/episode/12207421983659791816"
     antenna_id: "206749"
+    tags: ["百合", "読み切り"]
+  - title: "予行練習"
+    platform: "ゼノン編集部"
+    url: "https://comic-zenon.com/episode/12207421984039817859"
+    antenna_id: "212964"
     tags: ["百合", "読み切り"]
   - title: "画家の肖像"
     platform: "ゼノン編集部"
@@ -1045,6 +978,16 @@ works_missing:
     url: "https://zerosumonline.com/detail/royaltailor"
     antenna_id: "127784"
     tags: ["ファッション・服飾", "男装", "百合", "生産系"]
+  - title: "お葉花を愛でる"
+    platform: "チャンピオンクロス"
+    url: "https://championcross.jp/series/46c8d0a17ed62"
+    antenna_id: "192556"
+    tags: ["百合"]
+  - title: "ガールズ×ヴァンパイア"
+    platform: "チャンピオンクロス"
+    url: "https://championcross.jp/series/f30e2f58bbbdf"
+    antenna_id: "200285"
+    tags: ["百合", "吸血鬼・ヴァンパイア"]
   - title: "上伊那ぼたん、酔へる姿は百合の花"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/ae4257e66bab5"
@@ -1055,21 +998,11 @@ works_missing:
     url: "https://championcross.jp/series/21fe5b3d50300"
     antenna_id: "199771"
     tags: ["百合", "アイドル"]
-  - title: "ガールズ×ヴァンパイア"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/f30e2f58bbbdf"
-    antenna_id: "200285"
-    tags: ["百合", "吸血鬼・ヴァンパイア"]
   - title: "フェアウェイの声をきかせて"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/8178b4fc09df9"
     antenna_id: "157188"
     tags: ["百合", "スポーツ", "運動系部活", "女子高生", "青春"]
-  - title: "お葉花を愛でる"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/46c8d0a17ed62"
-    antenna_id: "192556"
-    tags: ["百合"]
   - title: "足が大好き足羽さん/読み切り"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/860136c646c03"
@@ -1085,6 +1018,66 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "わたしのために脱ぎなさいっ!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34328"
+    antenna_id: "77574"
+    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
+  - title: "このままモブじゃ終われない!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/67095"
+    antenna_id: "165613"
+    tags: ["百合"]
+  - title: "子供部屋ドラゴン"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72638"
+    antenna_id: "190902"
+    tags: ["ドラゴン・竜", "義理の兄弟姉妹", "ギャグ・コメディ", "4コマ", "百合"]
+  - title: "見える子ちゃん"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/37662"
+    antenna_id: "83290"
+    tags: ["女子高生", "オカルト", "ホラー", "幽霊", "百合"]
+  - title: "人妻とJK"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/51899"
+    antenna_id: "114759"
+    tags: ["百合"]
+  - title: "酒と鬼は二合まで"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/66651"
+    antenna_id: "161383"
+    tags: ["百合", "異種族・人外", "現代", "大学生", "料理・グルメ"]
+  - title: "プロジェクト・ユリフォーミング!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/69335"
+    antenna_id: "178408"
+    tags: ["百合"]
+  - title: "咲きそめコンプレックス"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72944"
+    antenna_id: "188893"
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
+  - title: "私に天使が舞い降りた!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56284"
+    antenna_id: "128039"
+    tags: ["百合", "アニメ化"]
+  - title: "映しちゃダメな顔"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/66620"
+    antenna_id: "161384"
+    tags: ["百合", "エロ"]
+  - title: "ユリノコ"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70137"
+    antenna_id: "176431"
+    tags: ["百合"]
+  - title: "安達としまむら"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/41839"
+    antenna_id: "92017"
+    tags: ["百合", "女子高生", "コミカライズ", "アニメ化"]
   - title: "おちこぼれフルーツタルト"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -1165,16 +1158,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/74044"
     antenna_id: "198457"
     tags: ["百合", "お色気・微エロ", "異種族・人外", "4コマ"]
-  - title: "咲きそめコンプレックス"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/72944"
-    antenna_id: "188893"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
-  - title: "ユリノコ"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/70137"
-    antenna_id: "176431"
-    tags: ["百合"]
   - title: "今日はカノジョがいないから"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/56450"
@@ -1185,16 +1168,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/56012"
     antenna_id: "127171"
     tags: ["百合", "アニメ化"]
-  - title: "平良深姉妹はどっちもヤんでる"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/63799"
-    antenna_id: "151447"
-    tags: ["百合", "姉妹", "ヤンデレ", "メイド"]
-  - title: "安達としまむら"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/41839"
-    antenna_id: "92017"
-    tags: ["百合", "女子高生", "コミカライズ", "アニメ化"]
   - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/47294"
@@ -1230,56 +1203,21 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/77731"
     antenna_id: "207194"
     tags: ["百合", "学園"]
-  - title: "わたしのために脱ぎなさいっ!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/34328"
-    antenna_id: "77574"
-    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
   - title: "どれが恋かがわからない"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/56504"
     antenna_id: "131227"
     tags: ["百合", "大学生"]
-  - title: "このままモブじゃ終われない!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/67095"
-    antenna_id: "165613"
-    tags: ["百合"]
-  - title: "子供部屋ドラゴン"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/72638"
-    antenna_id: "190902"
-    tags: ["ドラゴン・竜", "義理の兄弟姉妹", "ギャグ・コメディ", "4コマ", "百合"]
   - title: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/73060"
     antenna_id: "189012"
     tags: ["百合", "学園", "ラブコメ", "お色気・微エロ", "糖度高め"]
-  - title: "私に天使が舞い降りた!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/56284"
-    antenna_id: "128039"
-    tags: ["百合", "アニメ化"]
-  - title: "映しちゃダメな顔"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/66620"
-    antenna_id: "161384"
-    tags: ["百合", "エロ"]
   - title: "夢でフラれてはじまる百合"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/58368"
     antenna_id: "134462"
     tags: ["百合", "女子高生"]
-  - title: "プロジェクト・ユリフォーミング!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/69335"
-    antenna_id: "178408"
-    tags: ["百合"]
-  - title: "酒と鬼は二合まで"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/66651"
-    antenna_id: "161383"
-    tags: ["百合", "異種族・人外", "現代", "大学生", "料理・グルメ"]
   - title: "人妻教師が教え子の女子高生にドはまりする話"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/74091"
@@ -1310,21 +1248,11 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/70757"
     antenna_id: "183587"
     tags: ["幼なじみ", "4コマ", "百合"]
-  - title: "人妻とJK"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/51899"
-    antenna_id: "114759"
-    tags: ["百合"]
   - title: "伽藍の姫-がらんのひめ-"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/65650"
     antenna_id: "162043"
     tags: ["百合", "ポストアポカリプス", "ロボ・人造人間"]
-  - title: "見える子ちゃん"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/37662"
-    antenna_id: "83290"
-    tags: ["女子高生", "オカルト", "ホラー", "幽霊", "百合"]
   - title: "新米姉妹のふたりごはん"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/18981"
@@ -1335,21 +1263,16 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/68352"
     antenna_id: "169048"
     tags: ["4コマ", "現代", "ギャグ・コメディ", "オタク", "百合"]
-  - title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/70413"
-    antenna_id: "177681"
-    tags: ["百合", "異世界"]
-  - title: "酒と鬼は二合まで"
-    platform: "ビッコミ"
-    url: "https://bigcomics.jp/series/dd9141c4d469c"
-    antenna_id: "165757"
-    tags: ["百合", "大学生", "異種族・人外"]
   - title: "あくまで!アットホームな職場です。"
     platform: "ビッコミ"
     url: "https://bigcomics.jp/series/cad403cdddf52"
     antenna_id: "181048"
     tags: ["ギャグ・コメディ", "仕事", "ファンタジー", "社畜・過重労働者", "悪魔", "百合"]
+  - title: "酒と鬼は二合まで"
+    platform: "ビッコミ"
+    url: "https://bigcomics.jp/series/dd9141c4d469c"
+    antenna_id: "165757"
+    tags: ["百合", "大学生", "異種族・人外"]
   - title: "ハグフレンド(スピリッツ賞・佳作)"
     platform: "ビッコミ"
     url: "https://bigcomics.jp/series/6464eb02d70cd"
@@ -1395,10 +1318,30 @@ works_missing:
     url: "https://flowercomics.jp/title/1409"
     antenna_id: "172525"
     tags: ["百合", "悪役"]
+  - title: "アイ・ヘイ・チュー!"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03273"
+    antenna_id: "209730"
+    tags: ["百合", "ラブコメ", "悪魔"]
+  - title: "ファタールゲーム"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03056"
+    antenna_id: "200175"
+    tags: ["百合", "漫画家・絵描き"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
     antenna_id: "211531"
+    tags: ["百合"]
+  - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/02328"
+    antenna_id: "159062"
+    tags: ["転生", "百合", "猫", "学園", "バトル", "無自覚チート", "ギャグ・コメディ", "悪役令嬢", "乙女ゲーム", "聖女"]
+  - title: "御贖事処 煮るばあな"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03292"
+    antenna_id: "213072"
     tags: ["百合"]
   - title: "アイドラトリィ"
     platform: "マガポケ"
@@ -1410,46 +1353,26 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/02758"
     antenna_id: "188517"
     tags: ["ギャグ・コメディ", "マネー", "百合"]
-  - title: "ファタールゲーム"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03056"
-    antenna_id: "200175"
-    tags: ["百合", "漫画家・絵描き"]
-  - title: "ぜんぶ壊して地獄で愛して"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/02367"
-    antenna_id: "166574"
-    tags: ["百合", "女子高生"]
-  - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/02328"
-    antenna_id: "159062"
-    tags: ["転生", "百合", "猫", "学園", "バトル", "無自覚チート", "ギャグ・コメディ", "悪役令嬢", "乙女ゲーム", "聖女"]
-  - title: "ささやくように恋を唄う"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/01045"
-    antenna_id: "101903"
-    tags: ["百合", "女子高生", "音楽", "アニメ化"]
-  - title: "今日はカノジョがいないから"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/01839"
-    antenna_id: "140928"
-    tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
-  - title: "平良深姉妹はどっちもヤんでる"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/02257"
-    antenna_id: "159431"
-    tags: ["百合", "姉妹", "ヤンデレ"]
-  - title: "GURU"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03068"
-    antenna_id: "199546"
-    tags: ["百合", "魔法少女"]
   - title: "私に天使が舞い降りた!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01052"
     antenna_id: "101434"
     tags: ["4コマ", "百合", "アニメ化", "日常", "女子小学生"]
+  - title: "ささやくように恋を唄う"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/01045"
+    antenna_id: "101903"
+    tags: ["百合", "女子高生", "音楽", "アニメ化"]
+  - title: "ぜんぶ壊して地獄で愛して"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/02367"
+    antenna_id: "166574"
+    tags: ["百合", "女子高生"]
+  - title: "今日はカノジョがいないから"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/01839"
+    antenna_id: "140928"
+    tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
   - title: "怪獣ロマンティクス"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03196"
@@ -1460,11 +1383,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/01646"
     antenna_id: "137359"
     tags: ["百合", "女子高生", "運動系部活", "男装"]
-  - title: "アイ・ヘイ・チュー!"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03273"
-    antenna_id: "209730"
-    tags: ["百合", "ラブコメ", "悪魔"]
   - title: "シュガーガール・ドリップ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/02604"
@@ -1510,16 +1428,11 @@ works_missing:
     url: "https://manga-one.com/manga/27253/chapter/307792"
     antenna_id: "200450"
     tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
-  - title: "うまいものだけ食べて生きます。/読み切り"
-    platform: "ヤングアニマルWeb"
-    url: "https://younganimal.com/series/061d7bbd35a86"
-    antenna_id: "206615"
-    tags: ["百合", "料理・グルメ", "読み切り"]
-  - title: "英雄少女と呪われの銀姫"
+  - title: "ベイビー車中ハッカーズ"
     platform: "ヤンジャン+"
-    url: "https://ynjn.jp/title/27600"
-    antenna_id: "201459"
-    tags: ["百合", "ファンタジー"]
+    url: "https://ynjn.jp/title/16787"
+    antenna_id: "174151"
+    tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行"]
   - title: "バカ女26時"
     platform: "ヤンジャン+"
     url: "https://ynjn.jp/title/12102"
@@ -1530,31 +1443,26 @@ works_missing:
     url: "https://ynjn.jp/title/30352"
     antenna_id: "203570"
     tags: ["百合", "オムニバス・短編集"]
-  - title: "ベイビー車中ハッカーズ"
-    platform: "ヤンジャン+"
-    url: "https://ynjn.jp/title/16787"
-    antenna_id: "174151"
-    tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行"]
-  - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/e95df2815bad1"
-    antenna_id: "171118"
-    tags: ["百合", "女子高生", "コミカライズ"]
   - title: "スカベンジャーズアナザースカイ"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
     antenna_id: "148792"
     tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
-  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/86c1162f34a04"
-    antenna_id: "197348"
-    tags: ["ファンタジー", "令嬢", "百合"]
   - title: "限界OLさんは悪役令嬢さまに仕えたい"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/90af950945671"
     antenna_id: "148787"
     tags: ["召喚", "乙女ゲーム", "百合", "中世ヨーロッパ風", "悪役令嬢", "ファンタジー"]
+  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/86c1162f34a04"
+    antenna_id: "197348"
+    tags: ["ファンタジー", "令嬢", "百合"]
+  - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/e95df2815bad1"
+    antenna_id: "171118"
+    tags: ["百合", "女子高生", "コミカライズ"]
   - title: "乙女のおかず"
     platform: "ヤンマガWeb"
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
@@ -1570,6 +1478,36 @@ works_missing:
     url: "https://comicride.jp/series/b95a6b1493469"
     antenna_id: "165083"
     tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
+  - title: "姫虐が止まらない白桃さん"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2551460910021695025"
+    antenna_id: "200994"
+    tags: ["百合"]
+  - title: "キミが吠えるための歌を、"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203479"
+    antenna_id: "173557"
+    tags: ["百合", "音楽", "青春"]
+  - title: "現実世界でも幸せにしてくださいね?"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204058"
+    antenna_id: "168475"
+    tags: ["百合", "ハーレム"]
+  - title: "映しちゃダメな顔"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965919401763"
+    antenna_id: "152721"
+    tags: ["百合", "エロ", "水商売", "役者・声優"]
+  - title: "陰キャギャルでもイキがりたい!"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923204503"
+    antenna_id: "143559"
+    tags: ["百合", "女子高生"]
+  - title: "小春と湊 わたしのパートナーは女の子"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203373"
+    antenna_id: "139469"
+    tags: ["百合", "エッセイ"]
   - title: "ひなちゃんが生きてるなら"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2551460909885349908"
@@ -1615,11 +1553,6 @@ works_missing:
     url: "https://ichicomi.com/episode/2550912965923203895"
     antenna_id: "145326"
     tags: ["スピンオフ・外伝", "日常", "癒やし・ほっこり", "姉妹", "百合"]
-  - title: "姫虐が止まらない白桃さん"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2551460910021695025"
-    antenna_id: "200994"
-    tags: ["百合"]
   - title: "私の推しは悪役令嬢。"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2550912965923202772"
@@ -1635,46 +1568,16 @@ works_missing:
     url: "https://ichicomi.com/episode/2550912965923203802"
     antenna_id: "126420"
     tags: ["百合", "女子高生", "浮気・不倫", "エロ"]
-  - title: "キミが吠えるための歌を、"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965923203479"
-    antenna_id: "173557"
-    tags: ["百合"]
   - title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2550912965923204144"
     antenna_id: "170303"
     tags: ["百合", "聖女", "王女・姫"]
-  - title: "カナリアは綺羅星の夢をみる"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965923203862"
-    antenna_id: "170302"
-    tags: ["百合", "大正", "性風俗・娼館"]
-  - title: "現実世界でも幸せにしてくださいね?"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965923204058"
-    antenna_id: "168475"
-    tags: ["百合", "ハーレム"]
   - title: "ぜんぶ壊して地獄で愛して"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2550912965923204194"
     antenna_id: "147489"
     tags: ["百合", "女子高生"]
-  - title: "陰キャギャルでもイキがりたい!"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965923204503"
-    antenna_id: "143559"
-    tags: ["百合", "女子高生"]
-  - title: "平良深姉妹はどっちもヤんでる"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965923204071"
-    antenna_id: "143558"
-    tags: ["百合", "姉妹", "ヤンデレ"]
-  - title: "小春と湊 わたしのパートナーは女の子"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965923203373"
-    antenna_id: "139469"
-    tags: ["百合", "エッセイ"]
   - title: "きみが死ぬまで恋をしたい"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2550912965923204442"
@@ -1780,11 +1683,6 @@ works_missing:
     url: "https://ichicomi.com/episode/12207421983774027772"
     antenna_id: "209602"
     tags: ["百合"]
-  - title: "映しちゃダメな顔"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965919401763"
-    antenna_id: "152721"
-    tags: ["百合", "エロ", "水商売", "役者・声優"]
   - title: "夕子先輩は育てられない"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/12207421983742535195"
@@ -1800,6 +1698,21 @@ works_missing:
     url: "https://ichicomi.com/episode/2550912965923203807"
     antenna_id: "166858"
     tags: ["百合", "不良・ヤンキー"]
+  - title: "今年注目のエースちゃん"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/b53a116d9f0e7"
+    antenna_id: "171566"
+    tags: ["百合", "運動系部活", "女子高生", "マイナースポーツ"]
+  - title: "30まで独りだったら一緒に暮らそうって言ったよね?"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/4ad31024142fd"
+    antenna_id: "198990"
+    tags: ["百合", "現代", "同居人・居候"]
+  - title: "百合神さまの言うとおり!"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/5b8e11d2274cc"
+    antenna_id: "189396"
+    tags: ["百合"]
   - title: "狼の皮をかぶった羊姫"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/edb5080d3a3a1"
@@ -1840,11 +1753,6 @@ works_missing:
     url: "https://takecomic.jp/series/ae1cf555c8b01"
     antenna_id: "189230"
     tags: ["百合", "エロ", "女子高生", "教師", "先生と生徒・師弟"]
-  - title: "今年注目のエースちゃん"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/b53a116d9f0e7"
-    antenna_id: "171566"
-    tags: ["百合", "運動系部活", "女子高生", "マイナースポーツ"]
   - title: "ウは宇宙ヤバイのウ!"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/135220287d820"
@@ -1870,16 +1778,6 @@ works_missing:
     url: "https://takecomic.jp/series/e060f5eef826c"
     antenna_id: "165592"
     tags: ["百合"]
-  - title: "百合神さまの言うとおり!"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/5b8e11d2274cc"
-    antenna_id: "189396"
-    tags: ["百合"]
-  - title: "30まで独りだったら一緒に暮らそうって言ったよね?"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/4ad31024142fd"
-    antenna_id: "198990"
-    tags: ["百合", "現代", "同居人・居候"]
   - title: "香原さんのふぇちのーと"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/4e4bb1b935407"
@@ -1890,21 +1788,16 @@ works_missing:
     url: "https://takecomic.jp/series/5a87d01128492"
     antenna_id: "175491"
     tags: ["百合", "学園"]
-  - title: "できそこないの姫君たち"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/21c8e22896612"
-    antenna_id: "206711"
+  - title: "運命は役に立たない"
+    platform: "花とゆめ+"
+    url: "https://hanayume.com/series/ca4ef0eb47ea3"
+    antenna_id: "206126"
     tags: ["百合"]
   - title: "フレンドガールフレンド"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"
     antenna_id: "206108"
     tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
-  - title: "運命は役に立たない"
-    platform: "花とゆめ+"
-    url: "https://hanayume.com/series/ca4ef0eb47ea3"
-    antenna_id: "206126"
-    tags: ["百合"]
   - title: "魔法使いの作庭/よみきり"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/96cd6ffadb9ee"

@@ -6,10 +6,19 @@ platform: g-comi
 platform_name: "Gコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "世界をすくってもお腹はすくから"
+    status: "連載中"
+    author: "裏海マユ,ちょきんぎょ。"
+    url: "https://g-comi.jp/series/58238b3987c11"
+    chapter_count: 1
+    chapters:
+      - title: "第1話"
+        updated: "2026-07-03"
+        access_modes: ["free"]
   - work_title: "百合フェチLIFE"
     status: "連載中"
     author: "館山けーた"
@@ -97,15 +106,6 @@ works:
       - title: "6服目"
         updated: "2026-07-15"
         access_modes: ["purchase"]
-  - work_title: "世界をすくってもお腹はすくから"
-    status: "連載中"
-    author: "裏海マユ,ちょきんぎょ。"
-    url: "https://g-comi.jp/series/58238b3987c11"
-    chapter_count: 1
-    chapters:
-      - title: "第1話"
-        updated: "2026-07-03"
-        access_modes: ["free"]
   - work_title: "多良さんのウワサ"
     status: "連載中"
     author: "窓口基"

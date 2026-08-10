@@ -6,109 +6,10 @@ platform: youngchampion
 platform_name: "ヤングチャンピオン"
 publisher: "秋田書店"
 engine: comici
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
-  - work_title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
-    status: "連載中"
-    author: "右腹,羽田 宇佐,U35"
-    url: "https://youngchampion.jp/series/e95df2815bad1"
-    chapter_count: 31
-    chapters:
-      - title: "第1話①"
-        updated: "2024-06-26"
-        access_modes: ["free"]
-      - title: "第1話②"
-        updated: "2024-06-26"
-        access_modes: ["free"]
-      - title: "第1話③"
-        updated: "2024-06-26"
-        access_modes: ["free"]
-      - title: "第2話①"
-        updated: "2024-06-26"
-        access_modes: ["free"]
-      - title: "第2話②"
-        updated: "2024-06-26"
-        access_modes: ["free-timed"]
-      - title: "第3話①"
-        updated: "2024-07-24"
-        access_modes: ["free-timed"]
-      - title: "第3話②"
-        updated: "2024-07-31"
-        access_modes: ["free-timed"]
-      - title: "第4話①"
-        updated: "2024-08-28"
-        access_modes: ["free-timed"]
-      - title: "第4話②"
-        updated: "2024-09-04"
-        access_modes: ["free-timed"]
-      - title: "第5話①"
-        updated: "2024-10-23"
-        access_modes: ["free-timed"]
-      - title: "第5話②"
-        updated: "2024-10-30"
-        access_modes: ["free-timed"]
-      - title: "第6話①"
-        updated: "2024-12-25"
-        access_modes: ["free-timed"]
-      - title: "第6話②"
-        updated: "2025-01-01"
-        access_modes: ["free-timed"]
-      - title: "第6話③"
-        updated: "2025-01-08"
-        access_modes: ["free-timed"]
-      - title: "第7話①"
-        updated: "2025-02-26"
-        access_modes: ["free-timed"]
-      - title: "第7話②"
-        updated: "2025-03-05"
-        access_modes: ["free-timed"]
-      - title: "第8話①"
-        updated: "2025-03-26"
-        access_modes: ["free-timed"]
-      - title: "第8話②"
-        updated: "2025-04-02"
-        access_modes: ["free-timed"]
-      - title: "第9話"
-        updated: "2025-07-23"
-        access_modes: ["free-timed"]
-      - title: "第10話①"
-        updated: "2025-09-17"
-        access_modes: ["free-timed"]
-      - title: "第10話②"
-        updated: "2025-09-24"
-        access_modes: ["free-timed"]
-      - title: "第11話①"
-        updated: "2025-11-19"
-        access_modes: ["free-timed"]
-      - title: "第11話②"
-        updated: "2025-11-26"
-        access_modes: ["free-timed"]
-      - title: "第12話①"
-        updated: "2025-12-17"
-        access_modes: ["free-timed"]
-      - title: "第12話②"
-        updated: "2025-12-24"
-        access_modes: ["free-timed"]
-      - title: "第13話①"
-        updated: "2026-02-18"
-        access_modes: ["free-timed"]
-      - title: "第13話②"
-        updated: "2026-02-25"
-        access_modes: ["free-timed"]
-      - title: "第14話①"
-        updated: "2026-04-15"
-        access_modes: ["free-timed"]
-      - title: "第14話②"
-        updated: "2026-04-22"
-        access_modes: ["free-timed"]
-      - title: "第15話①"
-        updated: "2026-07-15"
-        access_modes: ["free"]
-      - title: "第15話②"
-        updated: "2026-07-22"
-        access_modes: ["purchase"]
   - work_title: "スカベンジャーズアナザースカイ"
     status: "連載中"
     author: "古部亮"
@@ -379,93 +280,6 @@ works:
       - title: "第48話①"
         updated: "2026-07-22"
         access_modes: ["purchase"]
-  - work_title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～"
-    status: "連載中"
-    author: "りんご飴サード,川田暁生"
-    url: "https://youngchampion.jp/series/86c1162f34a04"
-    chapter_count: 27
-    chapters:
-      - title: "第1話①"
-        updated: "2025-11-05"
-        access_modes: ["free"]
-      - title: "第1話②"
-        updated: "2025-11-05"
-        access_modes: ["free"]
-      - title: "第1話③"
-        updated: "2025-11-05"
-        access_modes: ["free"]
-      - title: "第2話①"
-        updated: "2025-12-03"
-        access_modes: ["free-timed"]
-      - title: "第2話②"
-        updated: "2025-12-10"
-        access_modes: ["free-timed"]
-      - title: "第2話③"
-        updated: "2025-12-17"
-        access_modes: ["free-timed"]
-      - title: "第3話①"
-        updated: "2026-01-07"
-        access_modes: ["free-timed"]
-      - title: "第3話②"
-        updated: "2026-01-14"
-        access_modes: ["free-timed"]
-      - title: "第3話③"
-        updated: "2026-01-21"
-        access_modes: ["free-timed"]
-      - title: "第4話①"
-        updated: "2026-02-04"
-        access_modes: ["free-timed"]
-      - title: "第4話②"
-        updated: "2026-02-11"
-        access_modes: ["free-timed"]
-      - title: "第4話③"
-        updated: "2026-02-18"
-        access_modes: ["free-timed"]
-      - title: "第5話①"
-        updated: "2026-03-04"
-        access_modes: ["free-timed"]
-      - title: "第5話②"
-        updated: "2026-03-11"
-        access_modes: ["free-timed"]
-      - title: "第5話③"
-        updated: "2026-03-18"
-        access_modes: ["free-timed"]
-      - title: "第6話①"
-        updated: "2026-04-01"
-        access_modes: ["free-timed"]
-      - title: "第6話②"
-        updated: "2026-04-08"
-        access_modes: ["free-timed"]
-      - title: "第6話③"
-        updated: "2026-04-15"
-        access_modes: ["free-timed"]
-      - title: "第7話①"
-        updated: "2026-05-06"
-        access_modes: ["free-timed"]
-      - title: "第7話②"
-        updated: "2026-05-13"
-        access_modes: ["free-timed"]
-      - title: "第7話③"
-        updated: "2026-05-20"
-        access_modes: ["free-timed"]
-      - title: "第8話①"
-        updated: "2026-06-03"
-        access_modes: ["free-timed"]
-      - title: "第8話②"
-        updated: "2026-06-10"
-        access_modes: ["free-timed"]
-      - title: "第8話③"
-        updated: "2026-06-17"
-        access_modes: ["free-timed"]
-      - title: "第9話①"
-        updated: "2026-07-01"
-        access_modes: ["free-timed"]
-      - title: "第9話②"
-        updated: "2026-07-08"
-        access_modes: ["free"]
-      - title: "第9話③"
-        updated: "2026-07-15"
-        access_modes: ["purchase"]
   - work_title: "限界OLさんは悪役令嬢さまに仕えたい"
     status: "連載中"
     author: "ネコ太郎"
@@ -675,6 +489,192 @@ works:
         access_modes: ["free"]
       - title: "第38話②"
         updated: "2026-07-08"
+        access_modes: ["purchase"]
+  - work_title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～"
+    status: "連載中"
+    author: "りんご飴サード,川田暁生"
+    url: "https://youngchampion.jp/series/86c1162f34a04"
+    chapter_count: 27
+    chapters:
+      - title: "第1話①"
+        updated: "2025-11-05"
+        access_modes: ["free"]
+      - title: "第1話②"
+        updated: "2025-11-05"
+        access_modes: ["free"]
+      - title: "第1話③"
+        updated: "2025-11-05"
+        access_modes: ["free"]
+      - title: "第2話①"
+        updated: "2025-12-03"
+        access_modes: ["free-timed"]
+      - title: "第2話②"
+        updated: "2025-12-10"
+        access_modes: ["free-timed"]
+      - title: "第2話③"
+        updated: "2025-12-17"
+        access_modes: ["free-timed"]
+      - title: "第3話①"
+        updated: "2026-01-07"
+        access_modes: ["free-timed"]
+      - title: "第3話②"
+        updated: "2026-01-14"
+        access_modes: ["free-timed"]
+      - title: "第3話③"
+        updated: "2026-01-21"
+        access_modes: ["free-timed"]
+      - title: "第4話①"
+        updated: "2026-02-04"
+        access_modes: ["free-timed"]
+      - title: "第4話②"
+        updated: "2026-02-11"
+        access_modes: ["free-timed"]
+      - title: "第4話③"
+        updated: "2026-02-18"
+        access_modes: ["free-timed"]
+      - title: "第5話①"
+        updated: "2026-03-04"
+        access_modes: ["free-timed"]
+      - title: "第5話②"
+        updated: "2026-03-11"
+        access_modes: ["free-timed"]
+      - title: "第5話③"
+        updated: "2026-03-18"
+        access_modes: ["free-timed"]
+      - title: "第6話①"
+        updated: "2026-04-01"
+        access_modes: ["free-timed"]
+      - title: "第6話②"
+        updated: "2026-04-08"
+        access_modes: ["free-timed"]
+      - title: "第6話③"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "第7話①"
+        updated: "2026-05-06"
+        access_modes: ["free-timed"]
+      - title: "第7話②"
+        updated: "2026-05-13"
+        access_modes: ["free-timed"]
+      - title: "第7話③"
+        updated: "2026-05-20"
+        access_modes: ["free-timed"]
+      - title: "第8話①"
+        updated: "2026-06-03"
+        access_modes: ["free-timed"]
+      - title: "第8話②"
+        updated: "2026-06-10"
+        access_modes: ["free-timed"]
+      - title: "第8話③"
+        updated: "2026-06-17"
+        access_modes: ["free-timed"]
+      - title: "第9話①"
+        updated: "2026-07-01"
+        access_modes: ["free-timed"]
+      - title: "第9話②"
+        updated: "2026-07-08"
+        access_modes: ["free"]
+      - title: "第9話③"
+        updated: "2026-07-15"
+        access_modes: ["purchase"]
+  - work_title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
+    status: "連載中"
+    author: "右腹,羽田 宇佐,U35"
+    url: "https://youngchampion.jp/series/e95df2815bad1"
+    chapter_count: 31
+    chapters:
+      - title: "第1話①"
+        updated: "2024-06-26"
+        access_modes: ["free"]
+      - title: "第1話②"
+        updated: "2024-06-26"
+        access_modes: ["free"]
+      - title: "第1話③"
+        updated: "2024-06-26"
+        access_modes: ["free"]
+      - title: "第2話①"
+        updated: "2024-06-26"
+        access_modes: ["free"]
+      - title: "第2話②"
+        updated: "2024-06-26"
+        access_modes: ["free-timed"]
+      - title: "第3話①"
+        updated: "2024-07-24"
+        access_modes: ["free-timed"]
+      - title: "第3話②"
+        updated: "2024-07-31"
+        access_modes: ["free-timed"]
+      - title: "第4話①"
+        updated: "2024-08-28"
+        access_modes: ["free-timed"]
+      - title: "第4話②"
+        updated: "2024-09-04"
+        access_modes: ["free-timed"]
+      - title: "第5話①"
+        updated: "2024-10-23"
+        access_modes: ["free-timed"]
+      - title: "第5話②"
+        updated: "2024-10-30"
+        access_modes: ["free-timed"]
+      - title: "第6話①"
+        updated: "2024-12-25"
+        access_modes: ["free-timed"]
+      - title: "第6話②"
+        updated: "2025-01-01"
+        access_modes: ["free-timed"]
+      - title: "第6話③"
+        updated: "2025-01-08"
+        access_modes: ["free-timed"]
+      - title: "第7話①"
+        updated: "2025-02-26"
+        access_modes: ["free-timed"]
+      - title: "第7話②"
+        updated: "2025-03-05"
+        access_modes: ["free-timed"]
+      - title: "第8話①"
+        updated: "2025-03-26"
+        access_modes: ["free-timed"]
+      - title: "第8話②"
+        updated: "2025-04-02"
+        access_modes: ["free-timed"]
+      - title: "第9話"
+        updated: "2025-07-23"
+        access_modes: ["free-timed"]
+      - title: "第10話①"
+        updated: "2025-09-17"
+        access_modes: ["free-timed"]
+      - title: "第10話②"
+        updated: "2025-09-24"
+        access_modes: ["free-timed"]
+      - title: "第11話①"
+        updated: "2025-11-19"
+        access_modes: ["free-timed"]
+      - title: "第11話②"
+        updated: "2025-11-26"
+        access_modes: ["free-timed"]
+      - title: "第12話①"
+        updated: "2025-12-17"
+        access_modes: ["free-timed"]
+      - title: "第12話②"
+        updated: "2025-12-24"
+        access_modes: ["free-timed"]
+      - title: "第13話①"
+        updated: "2026-02-18"
+        access_modes: ["free-timed"]
+      - title: "第13話②"
+        updated: "2026-02-25"
+        access_modes: ["free-timed"]
+      - title: "第14話①"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "第14話②"
+        updated: "2026-04-22"
+        access_modes: ["free-timed"]
+      - title: "第15話①"
+        updated: "2026-07-15"
+        access_modes: ["free"]
+      - title: "第15話②"
+        updated: "2026-07-22"
         access_modes: ["purchase"]
   - work_title: "おしえごと 同人教師と天才ギャル"
     author: "とみさー"

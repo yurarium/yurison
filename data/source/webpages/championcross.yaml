@@ -6,10 +6,190 @@ platform: championcross
 platform_name: "チャンピオンクロス"
 publisher: "秋田書店"
 engine: comici
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "お葉花を愛でる"
+    status: "連載中"
+    author: "柴田賢志郎"
+    url: "https://championcross.jp/series/46c8d0a17ed62"
+    chapter_count: 40
+    chapters:
+      - title: "第1話"
+        updated: "2025-08-13"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2025-08-13"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: "2025-08-20"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: "2025-09-03"
+        access_modes: ["free"]
+      - title: "第5話"
+        updated: "2025-09-10"
+        access_modes: ["free"]
+      - title: "第6話"
+        updated: "2025-09-17"
+        access_modes: ["free-timed"]
+      - title: "第7話"
+        updated: "2025-09-24"
+        access_modes: ["free-timed"]
+      - title: "第8話"
+        updated: "2025-10-01"
+        access_modes: ["free-timed"]
+      - title: "第9話"
+        updated: "2025-10-08"
+        access_modes: ["free-timed"]
+      - title: "第10話"
+        updated: "2025-10-15"
+        access_modes: ["free-timed"]
+      - title: "第11話"
+        updated: "2025-10-22"
+        access_modes: ["free-timed"]
+      - title: "第12話"
+        updated: "2025-10-22"
+        access_modes: ["free-timed"]
+      - title: "第13話"
+        updated: "2025-10-29"
+        access_modes: ["free-timed"]
+      - title: "第14話"
+        updated: "2025-11-05"
+        access_modes: ["free-timed"]
+      - title: "第15話"
+        updated: "2025-11-12"
+        access_modes: ["free-timed"]
+      - title: "第16話"
+        updated: "2025-11-19"
+        access_modes: ["free-timed"]
+      - title: "第17話"
+        updated: "2025-11-26"
+        access_modes: ["free-timed"]
+      - title: "第18話"
+        updated: "2025-12-03"
+        access_modes: ["free-timed"]
+      - title: "第19話"
+        updated: "2025-12-10"
+        access_modes: ["free-timed"]
+      - title: "第20話"
+        updated: "2025-12-17"
+        access_modes: ["free-timed"]
+      - title: "第21話"
+        updated: "2025-12-24"
+        access_modes: ["free-timed"]
+      - title: "第22話"
+        updated: "2026-01-07"
+        access_modes: ["free-timed"]
+      - title: "第23話"
+        updated: "2026-01-21"
+        access_modes: ["free-timed"]
+      - title: "第24話"
+        updated: "2026-01-28"
+        access_modes: ["free-timed"]
+      - title: "第25話"
+        updated: "2026-02-04"
+        access_modes: ["free-timed"]
+      - title: "第26話"
+        updated: "2026-02-11"
+        access_modes: ["free-timed"]
+      - title: "第27話"
+        updated: "2026-02-18"
+        access_modes: ["free-timed"]
+      - title: "第28話"
+        updated: "2026-02-25"
+        access_modes: ["free-timed"]
+      - title: "第29話"
+        updated: "2026-03-04"
+        access_modes: ["free-timed"]
+      - title: "第30話"
+        updated: "2026-03-18"
+        access_modes: ["free-timed"]
+      - title: "第31話"
+        updated: "2026-03-25"
+        access_modes: ["free-timed"]
+      - title: "第32話"
+        updated: "2026-04-01"
+        access_modes: ["free-timed"]
+      - title: "第33話"
+        updated: "2026-04-08"
+        access_modes: ["free-timed"]
+      - title: "第34話"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "第35話"
+        updated: "2026-04-22"
+        access_modes: ["free-timed"]
+      - title: "第36話"
+        updated: "2026-04-29"
+        access_modes: ["free-timed"]
+      - title: "第37話"
+        updated: "2026-05-06"
+        access_modes: ["free"]
+      - title: "第38話"
+        updated: "2026-05-20"
+        access_modes: ["free"]
+      - title: "第39話"
+        updated: "2026-05-27"
+        access_modes: ["purchase"]
+      - title: "最終話"
+        updated: "2026-06-03"
+        access_modes: ["purchase"]
+  - work_title: "ガールズ×ヴァンパイア"
+    status: "連載中"
+    author: "みかみてれん,千種みのり"
+    url: "https://championcross.jp/series/f30e2f58bbbdf"
+    chapter_count: 16
+    chapters:
+      - title: "第1話"
+        updated: "2025-12-31"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2025-12-31"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: "2026-01-21"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: "2026-02-04"
+        access_modes: ["free-timed"]
+      - title: "第5話"
+        updated: "2026-02-18"
+        access_modes: ["free-timed"]
+      - title: "第6話"
+        updated: "2026-03-04"
+        access_modes: ["free-timed"]
+      - title: "第6.5話"
+        updated: "2026-03-18"
+        access_modes: ["free-timed"]
+      - title: "第7話"
+        updated: "2026-03-25"
+        access_modes: ["free-timed"]
+      - title: "第8話"
+        updated: "2026-04-01"
+        access_modes: ["free-timed"]
+      - title: "第9話"
+        updated: "2026-04-15"
+        access_modes: ["free-timed"]
+      - title: "第10話"
+        updated: "2026-05-06"
+        access_modes: ["free-timed"]
+      - title: "第11話"
+        updated: "2026-05-20"
+        access_modes: ["free-timed"]
+      - title: "第12話"
+        updated: "2026-06-03"
+        access_modes: ["free"]
+      - title: "第13話"
+        updated: "2026-06-17"
+        access_modes: ["free"]
+      - title: "第14話"
+        updated: "2026-07-01"
+        access_modes: ["purchase"]
+      - title: "第15話"
+        updated: "2026-07-15"
+        access_modes: ["purchase"]
   - work_title: "上伊那ぼたん、酔へる姿は百合の花"
     status: "連載中"
     author: "塀"
@@ -286,60 +466,6 @@ works:
       - title: "第13話"
         updated: "2026-07-19"
         access_modes: ["purchase"]
-  - work_title: "ガールズ×ヴァンパイア"
-    status: "連載中"
-    author: "みかみてれん,千種みのり"
-    url: "https://championcross.jp/series/f30e2f58bbbdf"
-    chapter_count: 16
-    chapters:
-      - title: "第1話"
-        updated: "2025-12-31"
-        access_modes: ["free"]
-      - title: "第2話"
-        updated: "2025-12-31"
-        access_modes: ["free"]
-      - title: "第3話"
-        updated: "2026-01-21"
-        access_modes: ["free"]
-      - title: "第4話"
-        updated: "2026-02-04"
-        access_modes: ["free-timed"]
-      - title: "第5話"
-        updated: "2026-02-18"
-        access_modes: ["free-timed"]
-      - title: "第6話"
-        updated: "2026-03-04"
-        access_modes: ["free-timed"]
-      - title: "第6.5話"
-        updated: "2026-03-18"
-        access_modes: ["free-timed"]
-      - title: "第7話"
-        updated: "2026-03-25"
-        access_modes: ["free-timed"]
-      - title: "第8話"
-        updated: "2026-04-01"
-        access_modes: ["free-timed"]
-      - title: "第9話"
-        updated: "2026-04-15"
-        access_modes: ["free-timed"]
-      - title: "第10話"
-        updated: "2026-05-06"
-        access_modes: ["free-timed"]
-      - title: "第11話"
-        updated: "2026-05-20"
-        access_modes: ["free-timed"]
-      - title: "第12話"
-        updated: "2026-06-03"
-        access_modes: ["free"]
-      - title: "第13話"
-        updated: "2026-06-17"
-        access_modes: ["free"]
-      - title: "第14話"
-        updated: "2026-07-01"
-        access_modes: ["purchase"]
-      - title: "第15話"
-        updated: "2026-07-15"
-        access_modes: ["purchase"]
   - work_title: "フェアウェイの声をきかせて"
     status: "完結"
     author: "椎葉裕巳"
@@ -546,132 +672,6 @@ works:
         access_modes: ["purchase"]
       - title: "最終話"
         updated: "2025-07-06"
-        access_modes: ["purchase"]
-  - work_title: "お葉花を愛でる"
-    status: "連載中"
-    author: "柴田賢志郎"
-    url: "https://championcross.jp/series/46c8d0a17ed62"
-    chapter_count: 40
-    chapters:
-      - title: "第1話"
-        updated: "2025-08-13"
-        access_modes: ["free"]
-      - title: "第2話"
-        updated: "2025-08-13"
-        access_modes: ["free"]
-      - title: "第3話"
-        updated: "2025-08-20"
-        access_modes: ["free"]
-      - title: "第4話"
-        updated: "2025-09-03"
-        access_modes: ["free"]
-      - title: "第5話"
-        updated: "2025-09-10"
-        access_modes: ["free"]
-      - title: "第6話"
-        updated: "2025-09-17"
-        access_modes: ["free-timed"]
-      - title: "第7話"
-        updated: "2025-09-24"
-        access_modes: ["free-timed"]
-      - title: "第8話"
-        updated: "2025-10-01"
-        access_modes: ["free-timed"]
-      - title: "第9話"
-        updated: "2025-10-08"
-        access_modes: ["free-timed"]
-      - title: "第10話"
-        updated: "2025-10-15"
-        access_modes: ["free-timed"]
-      - title: "第11話"
-        updated: "2025-10-22"
-        access_modes: ["free-timed"]
-      - title: "第12話"
-        updated: "2025-10-22"
-        access_modes: ["free-timed"]
-      - title: "第13話"
-        updated: "2025-10-29"
-        access_modes: ["free-timed"]
-      - title: "第14話"
-        updated: "2025-11-05"
-        access_modes: ["free-timed"]
-      - title: "第15話"
-        updated: "2025-11-12"
-        access_modes: ["free-timed"]
-      - title: "第16話"
-        updated: "2025-11-19"
-        access_modes: ["free-timed"]
-      - title: "第17話"
-        updated: "2025-11-26"
-        access_modes: ["free-timed"]
-      - title: "第18話"
-        updated: "2025-12-03"
-        access_modes: ["free-timed"]
-      - title: "第19話"
-        updated: "2025-12-10"
-        access_modes: ["free-timed"]
-      - title: "第20話"
-        updated: "2025-12-17"
-        access_modes: ["free-timed"]
-      - title: "第21話"
-        updated: "2025-12-24"
-        access_modes: ["free-timed"]
-      - title: "第22話"
-        updated: "2026-01-07"
-        access_modes: ["free-timed"]
-      - title: "第23話"
-        updated: "2026-01-21"
-        access_modes: ["free-timed"]
-      - title: "第24話"
-        updated: "2026-01-28"
-        access_modes: ["free-timed"]
-      - title: "第25話"
-        updated: "2026-02-04"
-        access_modes: ["free-timed"]
-      - title: "第26話"
-        updated: "2026-02-11"
-        access_modes: ["free-timed"]
-      - title: "第27話"
-        updated: "2026-02-18"
-        access_modes: ["free-timed"]
-      - title: "第28話"
-        updated: "2026-02-25"
-        access_modes: ["free-timed"]
-      - title: "第29話"
-        updated: "2026-03-04"
-        access_modes: ["free-timed"]
-      - title: "第30話"
-        updated: "2026-03-18"
-        access_modes: ["free-timed"]
-      - title: "第31話"
-        updated: "2026-03-25"
-        access_modes: ["free-timed"]
-      - title: "第32話"
-        updated: "2026-04-01"
-        access_modes: ["free-timed"]
-      - title: "第33話"
-        updated: "2026-04-08"
-        access_modes: ["free-timed"]
-      - title: "第34話"
-        updated: "2026-04-15"
-        access_modes: ["free-timed"]
-      - title: "第35話"
-        updated: "2026-04-22"
-        access_modes: ["free-timed"]
-      - title: "第36話"
-        updated: "2026-04-29"
-        access_modes: ["free-timed"]
-      - title: "第37話"
-        updated: "2026-05-06"
-        access_modes: ["free"]
-      - title: "第38話"
-        updated: "2026-05-20"
-        access_modes: ["free"]
-      - title: "第39話"
-        updated: "2026-05-27"
-        access_modes: ["purchase"]
-      - title: "最終話"
-        updated: "2026-06-03"
         access_modes: ["purchase"]
   - work_title: "足が大好き足羽さん/読み切り"
     status: "読み切り"

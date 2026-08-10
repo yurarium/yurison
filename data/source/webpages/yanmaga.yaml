@@ -6,13 +6,13 @@ platform: yanmaga
 platform_name: "ヤンマガWeb"
 publisher: "講談社"
 engine: yanmaga
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "乙女のおかず"
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
       - title: "第１話　乙女のぬくもり"
         updated: "2025-09-23"
@@ -26,6 +26,10 @@ works:
         updated: "2025-09-23"
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/2ed50467765e0dfbc674f60d9a5a58d4"
         access_modes: ["free"]
+      - title: "第３６話　うさぎの国の乙女"
+        updated: "2026-07-07"
+        url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/0602e49c67031544cb79f58aadd3616a"
+        access_modes: ["purchase"]
       - title: "第３７話　乙女たちのブートキャンプ"
         updated: "2026-07-21"
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/5aa9c7c215131cb2fa9490e7f95d5f38"
@@ -35,8 +39,6 @@ works:
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/858fed430526c198bb786291936537cd"
         access_modes: ["purchase"]
       - title: "第３９話　宇宙のひみつ"
-        updated: "2026-08-04"
-        url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/d895fc7298bc7db33498829ef20a3278"
         access_modes: ["purchase"]
   - work_title: "シュガーガール・ドリップ"
     url: "https://yanmaga.jp/comics/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB_%E3%83%89%E3%83%AA%E3%83%83%E3%83%97"

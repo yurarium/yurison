@@ -6,10 +6,142 @@ platform: takecomic
 platform_name: "竹コミ"
 publisher: "竹書房"
 engine: comici
-retrieved: 2026-08-04
+retrieved: 2026-08-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "今年注目のエースちゃん"
+    status: "連載中"
+    author: "ゔぇじたぶる"
+    url: "https://takecomic.jp/series/b53a116d9f0e7"
+    chapter_count: 17
+    chapters:
+      - title: "1話"
+        updated: "2025-10-17"
+        access_modes: ["free"]
+      - title: "2話"
+        updated: "2025-10-17"
+        access_modes: ["free"]
+      - title: "3話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "4話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "5話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "6話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "7話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "8話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "9話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "10話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "11話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "12話"
+        updated: "2025-11-08"
+        access_modes: ["purchase"]
+      - title: "13話"
+        updated: "2025-12-06"
+        access_modes: ["purchase"]
+      - title: "14話"
+        updated: "2026-02-28"
+        access_modes: ["purchase"]
+      - title: "15話"
+        updated: "2026-04-04"
+        access_modes: ["purchase"]
+      - title: "16話"
+        updated: "2026-05-23"
+        access_modes: ["free"]
+      - title: "17話"
+        updated: "2026-07-10"
+        access_modes: ["purchase"]
+  - work_title: "30まで独りだったら一緒に暮らそうって言ったよね?"
+    status: "連載中"
+    author: "くずしろ"
+    url: "https://takecomic.jp/series/4ad31024142fd"
+    chapter_count: 8
+    chapters:
+      - title: "1話"
+        updated: "2025-12-06"
+        access_modes: ["free"]
+      - title: "2話"
+        updated: "2026-01-03"
+        access_modes: ["free"]
+      - title: "3話"
+        updated: "2026-02-07"
+        access_modes: ["free"]
+      - title: "4話"
+        updated: "2026-03-14"
+        access_modes: ["purchase"]
+      - title: "5話"
+        updated: "2026-04-04"
+        access_modes: ["purchase"]
+      - title: "6話"
+        updated: "2026-05-02"
+        access_modes: ["purchase"]
+      - title: "7話"
+        updated: "2026-06-06"
+        access_modes: ["free"]
+      - title: "8話"
+        updated: "2026-07-03"
+        access_modes: ["purchase"]
+  - work_title: "百合神さまの言うとおり!"
+    status: "連載中"
+    author: "橘まなり"
+    url: "https://takecomic.jp/series/5b8e11d2274cc"
+    chapter_count: 13
+    chapters:
+      - title: "1話"
+        updated: "2025-10-17"
+        access_modes: ["free"]
+      - title: "2話"
+        updated: "2025-10-17"
+        access_modes: ["free"]
+      - title: "3話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "4話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "5話"
+        updated: "2025-10-17"
+        access_modes: ["free-timed"]
+      - title: "休載イラスト"
+        updated: "2025-11-21"
+        access_modes: ["free"]
+      - title: "6話"
+        updated: "2025-12-26"
+        access_modes: ["free-timed"]
+      - title: "7話"
+        updated: "2026-01-16"
+        access_modes: ["purchase"]
+      - title: "8話"
+        updated: "2026-02-20"
+        access_modes: ["purchase"]
+      - title: "9話"
+        updated: "2026-03-20"
+        access_modes: ["purchase"]
+      - title: "10話"
+        updated: "2026-04-24"
+        access_modes: ["purchase"]
+      - title: "11話"
+        updated: "2026-05-29"
+        access_modes: ["free"]
+      - title: "12話"
+        updated: "2026-07-03"
+        access_modes: ["purchase"]
   - work_title: "狼の皮をかぶった羊姫"
     status: "連載中"
     author: "ミト"
@@ -955,63 +1087,6 @@ works:
       - title: "13話"
         updated: "2026-07-10"
         access_modes: ["free"]
-  - work_title: "今年注目のエースちゃん"
-    status: "連載中"
-    author: "ゔぇじたぶる"
-    url: "https://takecomic.jp/series/b53a116d9f0e7"
-    chapter_count: 17
-    chapters:
-      - title: "1話"
-        updated: "2025-10-17"
-        access_modes: ["free"]
-      - title: "2話"
-        updated: "2025-10-17"
-        access_modes: ["free"]
-      - title: "3話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "4話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "5話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "6話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "7話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "8話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "9話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "10話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "11話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "12話"
-        updated: "2025-11-08"
-        access_modes: ["purchase"]
-      - title: "13話"
-        updated: "2025-12-06"
-        access_modes: ["purchase"]
-      - title: "14話"
-        updated: "2026-02-28"
-        access_modes: ["purchase"]
-      - title: "15話"
-        updated: "2026-04-04"
-        access_modes: ["purchase"]
-      - title: "16話"
-        updated: "2026-05-23"
-        access_modes: ["free"]
-      - title: "17話"
-        updated: "2026-07-10"
-        access_modes: ["purchase"]
   - work_title: "ウは宇宙ヤバイのウ!"
     status: "連載中"
     author: "宮澤伊織,ぴよぴよ丸,今井哲也"
@@ -1307,81 +1382,6 @@ works:
         updated: "2026-05-08"
         access_modes: ["free"]
       - title: "18話"
-        updated: "2026-07-03"
-        access_modes: ["purchase"]
-  - work_title: "百合神さまの言うとおり!"
-    status: "連載中"
-    author: "橘まなり"
-    url: "https://takecomic.jp/series/5b8e11d2274cc"
-    chapter_count: 13
-    chapters:
-      - title: "1話"
-        updated: "2025-10-17"
-        access_modes: ["free"]
-      - title: "2話"
-        updated: "2025-10-17"
-        access_modes: ["free"]
-      - title: "3話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "4話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "5話"
-        updated: "2025-10-17"
-        access_modes: ["free-timed"]
-      - title: "休載イラスト"
-        updated: "2025-11-21"
-        access_modes: ["free"]
-      - title: "6話"
-        updated: "2025-12-26"
-        access_modes: ["free-timed"]
-      - title: "7話"
-        updated: "2026-01-16"
-        access_modes: ["purchase"]
-      - title: "8話"
-        updated: "2026-02-20"
-        access_modes: ["purchase"]
-      - title: "9話"
-        updated: "2026-03-20"
-        access_modes: ["purchase"]
-      - title: "10話"
-        updated: "2026-04-24"
-        access_modes: ["purchase"]
-      - title: "11話"
-        updated: "2026-05-29"
-        access_modes: ["free"]
-      - title: "12話"
-        updated: "2026-07-03"
-        access_modes: ["purchase"]
-  - work_title: "30まで独りだったら一緒に暮らそうって言ったよね?"
-    status: "連載中"
-    author: "くずしろ"
-    url: "https://takecomic.jp/series/4ad31024142fd"
-    chapter_count: 8
-    chapters:
-      - title: "1話"
-        updated: "2025-12-06"
-        access_modes: ["free"]
-      - title: "2話"
-        updated: "2026-01-03"
-        access_modes: ["free"]
-      - title: "3話"
-        updated: "2026-02-07"
-        access_modes: ["free"]
-      - title: "4話"
-        updated: "2026-03-14"
-        access_modes: ["purchase"]
-      - title: "5話"
-        updated: "2026-04-04"
-        access_modes: ["purchase"]
-      - title: "6話"
-        updated: "2026-05-02"
-        access_modes: ["purchase"]
-      - title: "7話"
-        updated: "2026-06-06"
-        access_modes: ["free"]
-      - title: "8話"
         updated: "2026-07-03"
         access_modes: ["purchase"]
   - work_title: "香原さんのふぇちのーと"

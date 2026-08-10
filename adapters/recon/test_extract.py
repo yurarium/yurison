@@ -22,6 +22,32 @@ def main(s):
     s.check(extract.norm_date("no date here") is None, "text without a date yields none")
     s.check(extract.norm_date(None) is None, "None yields none rather than raising")
 
+    # A JAPANESE PLATFORM WRITING ITS DATES IN ENGLISH, which read as no date at all and cost
+    # 上杉くんは女の子をやめたい every one of its 56 chapters. The strings are ちゃおプラス's own, from
+    # its episode list: <p class="c-episode-item__date">15 Aug 2026</p>.
+    s.eq(extract.norm_date("15 Aug 2026"), "2026-08-15", "a day, an English month and a year")
+    s.eq(extract.norm_date("1 Aug 2026"), "2026-08-01", "a single-digit day is padded")
+    s.eq(extract.norm_date("4 May 2024"), "2024-05-04", "and the three-letter month is the whole word")
+    s.eq(extract.norm_date("18 July 2026"), "2026-07-18", "a month written out is the same month")
+    # THE COUNTER-CASE, and it is the one that decides whether the rule is safe. A month and a year
+    # is not a date, and a date guessed from one would be invented (§6). 全56話 sits beside the
+    # month on the same page, so a rule taking any number before a month name would read a chapter
+    # count as a day.
+    s.check(extract.norm_date("May 2024") is None, "a month and a year with no day is not a date")
+    s.check(extract.norm_date("Aug 2026 全56話") is None, "and a count after the year is not a day")
+    s.check(extract.norm_date("15 Mai 2026") is None, "a month this does not know yields none")
+    s.eq(extract.norm_date("第1話 4 May 2024 2026/07/18"), "2026-07-18",
+         "where a block holds both forms the numeric one wins, as it does on every other platform")
+
+    # One episode item as ちゃおプラス writes it, quoted from the page named above. It states this
+    # one rule and no more: the date is a node of its own, the label is the next node, and the
+    # strategy that walks the blocks now finds both.
+    ciao = ('<li class="c-episode-items__item"><p class="c-episode-item__date">18 Jul 2026</p>'
+            '<h3 class="c-episode-item__ttl">第34話</h3></li>')
+    got, _sel = extract.try_markup(ciao)
+    s.eq([r["date"] for r in got], ["2026-07-18"],
+         "so the markup strategy reads a chapter list dated in English")
+
     # JSON-LD is the best case: the publisher states the structure.
     page = ('<html><script type="application/ld+json">'
             + json.dumps({"@type": "Book", "datePublished": "2026-07-01", "name": "第1話"})

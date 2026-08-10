@@ -325,6 +325,32 @@ def inv_english_mode_has_no_japanese(ctx):
     return sorted(set(bad))
 
 
+def budget_interface_tooltips_a_reader_of_japanese_cannot_read(ctx):
+    """`title="…"` attributes in kari/app.js written in English whatever the language toggle says.
+
+    THE SITE IS BILINGUAL AND ITS TOOLTIPS ARE NOT. 30 of the 32 in the file are English string
+    literals: a Japanese reader who sets 日本語 gets a Japanese page whose explanations are all in
+    English, and those explanations are where the interface accounts for itself. `有料先行` said
+    `18 chapter(s) of this series sit ahead of the free line` to everyone.
+
+    COUNTED RATHER THAN FIXED IN ONE GO, because each one needs Japanese somebody means, and thirty
+    sentences invented at once would be thirty guesses. A budget makes each new tooltip pay for
+    itself and lets the existing ones come down as they are written.
+
+    §14b, WHAT IT REUSES: the shipped file's text, and `T(`/`L(` as the marks of a string that
+    follows the toggle. It consults no list of which tooltips are done, so a tooltip cannot be
+    counted as bilingual by being named somewhere.
+    """
+    src = (ROOT.parent / "yurarium.github.io" / "kari" / "app.js")
+    if not src.exists():
+        return UNMEASURED    # this could not be measured; see UNMEASURED
+    text = src.read_text(encoding="utf-8")
+    # A tooltip is bilingual when its value is built by the translation helpers. Anything else is
+    # a literal, and a literal is one language.
+    return sum(1 for m in re.finditer(r'title="([^"]*)"', text)
+               if "${" not in m.group(1) or not re.search(r"\b[TL]\(", m.group(1)))
+
+
 def budget_interface_reads_outside_an_entry_point(ctx):
     """Reads of a name field in kari/app.js that are excepted rather than going through a renderer.
 
@@ -2211,6 +2237,39 @@ def inv_no_record_comes_from_a_host_that_is_not_a_source(ctx):
     return bad
 
 
+def inv_no_source_a_reader_sees_is_an_adapter(ctx):
+    """No name in a reader-facing source column is the name of a pass that fetched it.
+
+    THE WORK PAGE'S "Other data" TABLE names who told us each fact, and six of its nine names were
+    module names: `ichijinsha` on 726 rows, `kadokomi` on 86, `gigaviewer` on 13, and `webpages`
+    and `comparators` on the rest, sitting beside `BOOK☆WALKER` and `メディア芸術データベース` spelled
+    as themselves. 一迅社 appeared twice on one page under two spellings, once as itself in the
+    classification table and once as its adapter here. It is not a rendering slip: the pass wrote
+    its own name into the data and every later reader of that field carried it.
+
+    §14b, WHAT IT REUSES: the ADAPTER DIRECTORY, read off disk. `build.source_named` holds the map
+    that fixes this, and a check reading that map would agree with it about any name it forgot.
+    The directory listing is what the modules are actually called, and it is written by nothing in
+    the pipeline.
+
+    A NAME THAT IS ALSO A REAL SOURCE'S NAME is not caught here and cannot be: `openBD` is a module
+    and a publisher's own name for itself. The comparison is case-sensitive against the directory
+    spelling, which is lower-case for every adapter, so `openBD` passes and `openbd` would not.
+    """
+    mods = {p.name for p in (ROOT / "adapters").iterdir() if p.is_dir()
+            and not p.name.startswith(("_", "."))}
+    mods |= {p.stem for p in (ROOT / "adapters").glob("*.py")}
+    rows = ctx["series"] or []
+    bad = {}
+    for r in rows:
+        for x in (r.get("sourced_from") or []):
+            name = str((x or {}).get("source") or "")
+            if name in mods:
+                bad.setdefault(name, []).append(r.get("work"))
+    return [f"{len(w)} row(s) name the pass {n!r} where a reader expects a source, e.g. {w[0]!r}"
+            for n, w in sorted(bad.items())]
+
+
 def inv_the_pipeline_runs_from_a_clean_checkout(ctx):
     """Where this repository works on a developer's disk and on no fresh checkout.
 
@@ -2393,6 +2452,8 @@ INVARIANTS = [
      inv_no_record_comes_from_a_host_that_is_not_a_source),
     ("a rendered file names a platform its targets hold",
      inv_a_rendered_file_names_a_platform_its_targets_hold),
+    ("no source a reader sees is an adapter",
+     inv_no_source_a_reader_sees_is_an_adapter),
 ]
 
 
@@ -4413,6 +4474,12 @@ BUDGETS_DEF = [
      "English renderings holding a full-width character and no kana or kanji, which is what "
      "narrowing the invariant to a script let past. Mostly a Latin pen name catalogued in full "
      "width; some are official titles and are correct, so this will not reach zero."),
+    ("interface tooltips a reader of Japanese cannot read",
+     budget_interface_tooltips_a_reader_of_japanese_cannot_read,
+     "title attributes in kari/app.js whose text is an English literal rather than a string built "
+     "by T() or L(), so they stay English when a reader selects 日本語. The tooltips are where the "
+     "interface explains itself, which is the worst place to be monolingual. Falls as each is "
+     "written in both; a rise means a new one was added in one language."),
     ("interface reads outside an entry point",
      budget_interface_reads_outside_an_entry_point,
      "reads of a name-carrying field in kari/app.js that are excepted in entrypoints.SAFE rather "
@@ -5050,6 +5117,12 @@ def self_test():
          lambda c: (c["names_shipped"].setdefault("titles", {}).update(
              {(c["series"][0].get("work") or "CANARY"): {"en": "A Canary In English"}}),
              c["series"][0].pop("work_en", None))),
+        # PLANTED AS THE FAULT ARRIVED, which is how it did arrive: a pass wrote its own module
+        # name into `sourced_from` and every reader of that field carried it to the page. `webpages`
+        # is one of the six that really were there, not a name invented for the probe (§14b).
+        ("no source a reader sees is an adapter", inv_no_source_a_reader_sees_is_an_adapter,
+         lambda c: c["series"][0].setdefault("sourced_from", []).append(
+             {"source": "webpages", "holds": "attribution", "read": "2026-08-10"})),
         ("readings are stored as kana", inv_readings_are_kana,
          lambda c: c["names"]["titles"].update({"カナリア": {"reading": "Kanaria Romaji"}})),
         # BOTH CANARIES ARE RECORDS THE PIPELINE REALLY WROTE, which is §14b's requirement and not

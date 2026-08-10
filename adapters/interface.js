@@ -34,6 +34,12 @@
  *     "names_path": "…/names.json",      instead of `names`, to save serialising 3.8 MB
  *     "prefs": { "LANG": "en", "FURIGANA": false, … },
  *     "calls": [ ["workLabel", {"work": "…"}], … ] }
+ *
+ * A CALL CARRYING MORE THAN ONE ARGUMENT spreads them: `["recWorkRows", rows, {}, {}]` calls
+ * `recWorkRows(rows, {}, {})`. Two elements stays one argument, which is what every existing
+ * caller means and what a renderer taking a single row wants, so a list passed as `arg` is still
+ * that list and not its contents. The three-argument renderers were unreachable otherwise, and
+ * they are where `bilingual()` stacks a row.
  * and a JSON reply on stdout:
  *   { "ok": true, "results": [ {"html": "…", "text": "…"}, … ] }
  */
@@ -168,10 +174,12 @@ function main() {
     results = vm.runInContext(`
       (() => {
         const text = ${TEXT};
-        return __in.calls.map(([fn, arg]) => {
+        return __in.calls.map(call => {
+          const fn = call[0];
+          const args = call.length > 2 ? call.slice(1) : [call[1]];
           const f = (0, eval)(fn);
           if (typeof f !== 'function') throw new Error('kari/app.js has no function ' + fn);
-          const html = String(f(arg) ?? '');
+          const html = String(f(...args) ?? '');
           return { html, text: text(html) };
         });
       })()

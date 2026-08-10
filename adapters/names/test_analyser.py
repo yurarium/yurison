@@ -181,6 +181,27 @@ def main(s):
     s.eq(p4.chapter_en("[#49]Pair", plain), "Ch. 49 Pair",
          "a hash label in half-width brackets too")
 
+    # A BRACKET INSIDE A BRACKET. One class of closing marks let the match end at the first bracket
+    # of any kind, so 【第132話(1)】 stopped inside its own parenthesis and the label reached readers
+    # as `Ch. 132 (1 ]`: an opening round bracket closed by a square one.
+    s.eq(p4.chapter_en("【第132話(1)】", plain), "Ch. 132 (1)",
+         "a part marker in parentheses survives the brackets around the whole label")
+    s.eq(p4.chapter_en("【第100話】（前編）", plain), "Ch. 100 (前編)",
+         "and what follows the wrapper is still what follows it, NFKC-folded like the rest")
+
+    # A CHAPTER NUMBERED IN KANJI IS STILL A NUMBER. NFKC turns ７ into 7 and leaves 七 alone, so
+    # 第七話 missed the structure branch and was romanised whole as `Dai Nana Hanashi`: the word
+    # "chapter" spelled out in Latin as though it were the chapter's name.
+    s.eq(p4.chapter_en("第七話", plain), "Ch. 7", "a chapter numbered in kanji is a chapter")
+    s.eq(p4.chapter_en("第十二話 ためし", plain), "Ch. 12 ためし", "including the teens")
+    s.eq(p4.chapter_en("第二十三話", plain), "Ch. 23", "and the twenties")
+    # AND A WORD THAT HAPPENS TO HOLD THOSE CHARACTERS IS LEFT ALONE, which is what keeps the rule
+    # from eating titles: 千歳 is a name and 十七歳 is an age, neither is a chapter number.
+    s.eq(p4.digits_for_kanji("千歳の話"), "千歳の話",
+         "kanji digits loose in a subtitle are words, not a number")
+    s.eq(p4.digits_for_kanji("十七歳の夏"), "十七歳の夏", "and an age is not a chapter")
+    s.eq(p4.kanji_number("x"), None, "a string that is not a number reads as none")
+
     # A PLATFORM'S ROW INDEX IS NOT THE WORK'S CHAPTER NUMBER. コミックDAYS prefixes its own row number: "100.第94話しんゆうのたのみ" is row 100 carrying chapter 94, and it rendered
     # "Ch. 100 . Dai 94 Hanashi ...", wrong in the number as well as the romanising.
     s.eq(p4.chapter_en("100.第94話しんゆうのたのみ", plain), "Ch. 94 しんゆうのたのみ",

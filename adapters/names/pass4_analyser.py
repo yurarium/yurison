@@ -778,7 +778,55 @@ EXTRA_PAT = re.compile(
 # of what a chapter label is. Where the contents are NOT a chapter the unwrapping is discarded and
 # the name renders exactly as before, which is the fallback: a bracket this does not understand
 # costs nothing.
-WRAPPED_PAT = re.compile(r"^\s*[【（(\[]\s*([^】）)\]]+?)\s*[】）)\]]\s*(.*)$")
+# THE CLOSING BRACKET HAS TO BE THE ONE THAT OPENED. A single class of closers let the match end
+# at the first bracket of any kind, so 【第132話(1)】 stopped inside its own parenthesis: the label
+# came out `Ch. 132 (1` with a stray `】` after it, which reached readers as `Ch. 132 (1 ]`. Each
+# pair is its own branch and its contents exclude only its OWN closer, so a nested bracket is part
+# of the label it sits in.
+WRAPPED_PAT = re.compile(
+    r"^\s*(?:【\s*([^】]+?)\s*】|（\s*([^）]+?)\s*）|\(\s*([^)]+?)\s*\)|\[\s*([^\]]+?)\s*\])"
+    r"\s*(.*)$")
+
+
+# A CHAPTER NUMBERED IN KANJI IS STILL A NUMBER. `CHAPTER_PAT` wants ASCII digits, which NFKC gives
+# it for ７ and not for 七, so 第七話 missed the structure branch entirely and was romanised whole as
+# `Dai Nana Hanashi`: the word "chapter" spelled out in Latin as though it were the chapter's name.
+# Chapter numbers are small, so this reads the everyday 1-999 forms and nothing cleverer.
+_KANJI_DIGIT = {"〇": 0, "零": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
+                "六": 6, "七": 7, "八": 8, "九": 9}
+_KANJI_UNIT = {"十": 10, "百": 100}
+KANJI_NUM = re.compile(r"[〇零一二三四五六七八九十百]+")
+
+
+def kanji_number(s):
+    """`七` -> 7, `十二` -> 12, `二十三` -> 23, or None where it does not read as one."""
+    total = cur = 0
+    seen = False
+    for ch in s:
+        if ch in _KANJI_DIGIT:
+            cur = _KANJI_DIGIT[ch]
+            seen = True
+        elif ch in _KANJI_UNIT:
+            total += (cur or 1) * _KANJI_UNIT[ch]
+            cur = 0
+            seen = True
+        else:
+            return None
+    return (total + cur) if seen else None
+
+
+def digits_for_kanji(n):
+    """`第七話` -> `第7話`, leaving anything that is not a counted number alone.
+
+    ONLY BETWEEN A COUNTER AND ITS MARKER, never loose in a subtitle: 千歳 and 十七歳の hold the same
+    characters and are words. The number has to be introduced by 第 or a hash and followed by one of
+    the counters a chapter wears, which is what makes it structure rather than content.
+    """
+    def sub(m):
+        v = kanji_number(m.group(2))
+        return f"{m.group(1)}{v}{m.group(3)}" if v is not None else m.group(0)
+    return re.sub(r"([第#＃])\s*([〇零一二三四五六七八九十百]+)\s*(話|回|話目|幕|章|夜|日目)",
+                  sub, n)
 
 # A VOLUME, WHICH IS NOT A CHAPTER. 巻 was absent from the counter list above, so ４巻 第３９話 matched
 # the bare-number branch as chapter four and the real chapter fell into the subtitle and was
@@ -812,6 +860,8 @@ def chapter_en(name, romanise_rest):
     for c, d in CIRCLED.items():
         n = n.replace(c, "-" + d)
     n = unicodedata.normalize("NFKC", n).replace("\u2212", "-").replace("\uff0d", "-").strip()
+    # A kanji chapter number becomes a digit before anything tries to read the structure.
+    n = digits_for_kanji(n)
 
     # A leading volume number is taken off the front and put back at the end, so the chapter inside
     # is read as a chapter. Without this "2巻 第26話" came out "Ch. 2 Maki Dai 26Wa": the volume
@@ -845,7 +895,8 @@ def chapter_en(name, romanise_rest):
     # bracket around anything else is left alone and the name renders as it did.
     mw = WRAPPED_PAT.match(n)
     if mw:
-        inner, after = mw.group(1).strip(), mw.group(2).strip()
+        inner = next(g for g in mw.groups()[:4] if g is not None).strip()
+        after = (mw.group(5) or "").strip()
         if CHAPTER_PAT.match(inner) and ("話" in inner or "回" in inner
                                          or re.match(r"^\s*[#＃第]", inner)):
             n = (inner + " " + after).strip()

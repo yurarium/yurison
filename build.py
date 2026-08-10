@@ -118,6 +118,24 @@ def jsonable(o):
 # 一二三書房's own weekly serialisation, numbered 第N話, which withdraws older chapters with
 # 「公開は終了しました」. That is why our capture of it looks thin, and thin is not promotional.
 FINAL_RE = re.compile(r"最終(話|回|幕|エピソード)|[（(＜<〈\[【]\s*完\s*[）)＞>〉\]】]")
+# WHAT THE MARK MEANS, for the English sentence that quotes it. `completed_basis` read "the newest
+# chapter is titled 最終話" on 79 works, which is the evidence for calling a series finished and is
+# unreadable to the reader it was written for. The Japanese is kept because it is the chapter's
+# actual title and the reader may go and look at it; the gloss says what it tells us.
+FINAL_MARK_EN = {"最終話": "final chapter", "最終回": "final episode", "最終幕": "final act",
+                 "最終エピソード": "final episode"}
+
+
+def final_mark_gloss(shown):
+    """`最終話 ("final chapter")`, or the mark alone where it is a bracketed 完.
+
+    A bracketed 完 is already the character for "end" and glossing it as "end" beside itself adds
+    a word and no fact, so it is left to stand.
+    """
+    en = FINAL_MARK_EN.get(shown)
+    return f'{shown} ("{en}")' if en else shown
+
+
 # Announcements and artwork typed as chapters upstream — they are not story instalments.
 # A SEASONAL GREETING IS A CARD, NOT AN INSTALMENT. 作りたい女と食べたい女 posted 暑中見舞い2026
 # and it counted as that work's newest chapter, so the page reported a greeting where a reader
@@ -271,6 +289,43 @@ def host_platforms(platforms):
     return {h: next(iter(n)) for h, n in seen.items() if len(n) == 1}
 
 
+# AN ADAPTER'S MODULE NAME IS NOT A SOURCE'S NAME. `sourced_from` is rendered in the work page's
+# "Other data" table, and six of the nine names in it were the pass that fetched the row rather than
+# the site it came from: a reader met `ichijinsha` on 726 rows, `gigaviewer` on 13, and `webpages`
+# and `comparators` on the rest, beside `BOOK☆WALKER` and `メディア芸術データベース` spelled properly.
+# 一迅社 appeared twice on one page under two spellings, once as itself in the classification table
+# and once as its adapter here.
+#
+# THREE OF THEM NAME ONE SITE and are given that site's name. `gigaviewer` names an ENGINE that a
+# dozen publishers run, and `webpages` and `comparators` name passes that read many hosts, so those
+# cannot be mapped and are resolved from the address the row already carries.
+ADAPTER_IS_NOT_A_SOURCE = {"ichijinsha": "一迅社", "kadokomi": "カドコミ", "comicfuz": "COMIC FUZ"}
+
+#: Passes that read many hosts, so the row's own address is the only thing that can name them.
+GENERIC_ADAPTER = {"gigaviewer", "webpages", "comparators", "generic"}
+
+
+def source_named(key, url=None, owners=None, on=()):
+    """The name a reader should see for a `sourced_from` row's source.
+
+    `on` is the platforms the work runs on. A pass that reads many hosts records no address on
+    every row, and where the work runs in exactly one place that place is where the pass read it:
+    all seven rows left unresolved by the address are on single-platform works. Two platforms and
+    no address is genuinely ambiguous, and the key is left to stand rather than guessed at.
+    """
+    k = str(key or "").strip()
+    if k.lower() in ADAPTER_IS_NOT_A_SOURCE:
+        return ADAPTER_IS_NOT_A_SOURCE[k.lower()]
+    if k.lower() in GENERIC_ADAPTER:
+        # The host is what the reader can go and look at.
+        named = platform_of(url, owners or {})
+        if named:
+            return named
+        only = {p for p in on if p}
+        return next(iter(only)) if len(only) == 1 else k
+    return credence.named(k)
+
+
 def platform_of(url, owners):
     """The platform a URL is on, where that is unambiguous."""
     if not url or "://" not in str(url):
@@ -285,6 +340,21 @@ def _stated_for(work, platform):
     """The schedule a platform states for a work, if it states one."""
     return _STATED.get((norm_work(work or ""), norm_work(platform or "")))
 
+
+
+def _curated_whole_credits():
+    """`{folded credit: ONE}` for every author `curated.yaml` keys on a whole interpunct name."""
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+        # THROUGH THE PACKAGE, not into `facts.credit.interpunct`. The entry point forwards
+        # everything the submodule publishes, and reaching past it is what
+        # `a fact is reached through its entry point` refuses.
+        from facts import credit as _ip
+        doc = yaml.safe_load(pathlib.Path("data/names/curated.yaml").read_text()) or {}
+    except Exception:                                                       # noqa: BLE001
+        return {}
+    return {_ip.key.fold(n): _ip.ONE for n in (doc.get("authors") or {})
+            if "\u30fb" in str(n) or "\uff65" in str(n)}
 
 
 def _interpunct_rulings(fields):
@@ -5276,7 +5346,8 @@ def main():
             # THE PLATFORM IS NAMED. `_completed` is its name now, so the sentence says which site
             # said it. It used to read "the platform marks the serialisation finished", which on a
             # work running in three places left the reader to guess which of the three.
-            row["completed_basis"] = (f"the newest chapter is titled {_fm_shown.group(0)}"
+            row["completed_basis"] = (f"the newest chapter is titled "
+                                      f"{final_mark_gloss(_fm_shown.group(0))}"
                                       if _final
                                       else f"{_completed} marks the serialisation finished")
             # THE SAME EVIDENCE IN THE READER'S LANGUAGE. The site is bilingual and every one of
@@ -5952,6 +6023,9 @@ def main():
     for _basisrow in series_rows:
         _got = list(_basisrow.get("evidence") or [])
         _held = []
+        # Where the work runs, for `source_named` to fall back on when a pass that reads many
+        # hosts recorded no address for the row it wrote.
+        _on_platforms = [_ps.get("platform") for _ps in (_basisrow.get("sources") or [])]
         _labelled = _quoted = False
         for _bp in (_basisrow.get("print") or []):
             _brec = _rec_by_wid.get(_bp.get("work_id"))
@@ -5961,7 +6035,8 @@ def main():
             _got += _from
             _labelled = _labelled or _brec.get("marketing_label") in ("yuri", "gl")
             _quoted = _quoted or any(_x["kind"] == "imprint" for _x in _from)
-            _held += [{"source": credence.named(_bh["source"]), "holds": "volumes",
+            _held += [{"source": source_named(_bh["source"], _bh.get("url"), _owners),
+                       "holds": "volumes",
                        "read": _bh["retrieved"] or None,
                        **({"url": _bh["url"]} if _bh.get("url") else {})}
                       for _bh in (_brec.get("records") or [])]
@@ -5971,7 +6046,8 @@ def main():
             # other source of a date already says so.
             if _bp.get("delivered_from"):
                 _drec = (_brec.get("records") or [{}])[0]
-                _held.append({"source": credence.named(_drec.get("source") or ""),
+                _held.append({"source": source_named(_drec.get("source") or "",
+                                                     _bp.get("shop_url"), _owners),
                               "holds": "delivery-date",
                               "read": _drec.get("retrieved") or None,
                               **({"url": _bp["shop_url"]} if _bp.get("shop_url") else {})})
@@ -5981,7 +6057,8 @@ def main():
             if _basisrow.get("author") and (_brec.get("creator") or _brec.get("authors")):
                 _crec = (_brec.get("records") or [{}])[0]
                 if _crec.get("source"):
-                    _held.append({"source": credence.named(_crec["source"]),
+                    _held.append({"source": source_named(_crec["source"], _crec.get("url"),
+                                                         _owners, _on_platforms),
                                   "holds": "attribution",
                                   "read": _crec.get("retrieved") or None,
                                   **({"url": _crec["url"]} if _crec.get("url") else {})})
@@ -5991,7 +6068,9 @@ def main():
         _asrc = author_src.get(norm_work(_basisrow.get("work") or ""))
         if _basisrow.get("author") and _asrc and not any(
                 _h.get("holds") == "attribution" for _h in _held):
-            _held.append({"source": credence.named(_asrc["source"]), "holds": "attribution",
+            _held.append({"source": source_named(_asrc["source"], _asrc.get("url"), _owners,
+                                                 _on_platforms),
+                          "holds": "attribution",
                           "read": _asrc.get("read") or None,
                           **({"url": _asrc["url"]} if _asrc.get("url") else {})})
         _basisrow["evidence"] = credence.order(_got)
@@ -6067,6 +6146,16 @@ def main():
         # the store held both halves with a registry identifier each because the splitter that
         # filled it had already decided. A rule asking the store would agree with that split.
         _credit_ruled = _interpunct_rulings(credit_fields(idx, works, series_rows, releases))
+        # A NAME SOMEBODY CURATED WHOLE IS ONE PERSON, and that is not the circular question the
+        # note above rules out. The objection there is that the STORE was filled by the splitter,
+        # so asking it back would only echo the split; `curated.yaml` is written by hand, and an
+        # entry keyed on the whole string with a reading and a note is a person having looked. The
+        # corpus settles a ・ from credits recorded apart, and a name nothing else credits leaves it
+        # nothing to work from: アナ・C・サンチェス, ブリリアント・ブラウン and ステファン・セジク are three
+        # foreign names that appear on one work each. The first came out `Ana, C, Sanchesu` against
+        # the store's `Ana C Sanchesu`, and it was invisible only because the phrase cache had been
+        # written before the ruling machinery existed and was never re-derived.
+        _credit_ruled.update(_curated_whole_credits())
         # INSTALLED ONCE, so nothing downstream has to remember to pass it. Of 31 splitter calls in
         # the project, 5 passed the ruling and 26 did not, which is how くろば・Ｕ came to be in the
         # store cut in half with an identifier on each piece.

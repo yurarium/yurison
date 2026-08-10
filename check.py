@@ -2824,59 +2824,47 @@ def budget_credits_that_restate_a_name(ctx):
     return _cr.CHECKS["credits_that_restate_a_name"](ctx)
 
 
-# Every spelling of the sign, deliberately looser than the one the ingest acts on. See the budget
-# below for why the looseness is the whole point.
-EQUALS_ANY = re.compile(r"[=＝゠]")
+# ONE PRODUCER OF THE SIGN (§3). Every spelling of it, deliberately looser than the one the ingest
+# acts on, and owned by `facts/cataloguing` because reading a catalogue's marks is what that fact
+# is. This file held the class and a copy in the fact's own checks went out without ゠ for the
+# length of one commit, which is the fault the census exists to stop.
+def _equals_any():
+    sys.path.insert(0, str(ROOT / "adapters"))
+    sys.path.insert(0, str(ROOT / "adapters" / "facts"))
+    from cataloguing import checks as _cat
+    return _cat.EQUALS_ANY
+
+
+EQUALS_ANY = _equals_any()
 
 
 def budget_titles_carrying_cataloguing_punctuation(ctx):
     """Titles a reader is shown that still hold a catalogue's own punctuation.
 
+    DEFINED IN `adapters/facts/cataloguing/checks.py`, beside the rule it measures. It lived here,
+    which put the rule in one file and the measure of the rule in another, free to disagree about
+    what a mark is.
+
     WHAT IS BEING COUNTED. A bibliography transcribes a title page under ISBD, so a name arrives
     marked up: `恋愛遺伝子XX = The Romance Gene XX` is one work with an English name beside it, and
     `恋愛遺伝子XX : 完全版` is that work reissued. Neither mark is part of what anybody calls the
-    book. `adapters/isbd.py` takes the parallel title off and hands the English on; the ten reissue
-    markers are counted here and not yet lifted off, which is why this number will not be zero
-    before somebody decides where an edition statement should live.
+    book. `facts/cataloguing` takes the parallel title off and hands the English on; the ten reissue
+    markers are counted and not yet lifted off, which is why this will not be zero before somebody
+    decides where an edition statement should live.
 
     THE CLOSED SET IS WHAT KEEPS A SUBTITLE OUT OF THIS COUNT.
     `ギャルメイドと悪役令嬢 : おじょーさま、お世話させていただきます` carries the same colon and the
-    tail is content: it says something about the book that the first six words do not. Counting
-    every colon would put 77 rows here of which 67 are correct, and a number that is mostly noise
-    is one nobody reads. `isbd.edition_statement` is the only thing that can tell the two apart.
+    tail is content. Counting every colon would put 77 rows here of which 67 are correct, and a
+    number that is mostly noise is one nobody reads.
 
-    WHY THIS IS NOT BLIND WHERE THE INGEST IS (§14b). `isbd.areas` acts on ` = ` alone: one sign,
-    spaces both sides, Latin on the right, before any colon. This looks for an equals sign in any
-    spelling, anywhere in the string, whatever surrounds it. So it reports exactly the cases the
-    split refused, which is what it does today: `ルミナス = ブルー` is one name written with a sign
-    in it, `School zone = スクールゾーン` runs the languages the other way round, and
-    `ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+` has two signs and no way to say where the name ends.
-    Each is a deliberate refusal and each stays visible instead of being defined out of the count.
-
-    WHAT IT CANNOT SEE. A title whose apparatus was stripped before it reached this database. A
-    shop writes `シナモン` where the catalogue writes the whole ISBD line, so a work admitted from a
-    shelf can be here under a name nobody had to correct, and nothing in this count says whether
-    that name is the one the publisher printed.
+    WHAT IT CANNOT SEE. A title whose apparatus was stripped before it reached this database, and
+    the rest of what this fact is blind to, which is `facts/cataloguing/BLINDSPOT.md`.
     """
     sys.path.insert(0, str(ROOT / "adapters"))
-    import isbd
-
-    # WHAT A READER IS SHOWN IS THE WORK, and a record is a transcription of one edition. This
-    # counted works.json too, where a MADB record faithfully carries `X : 完全版` for a reissue that
-    # is now filed under the work it reissues, so 13 of 15 were the record layer doing its job
-    # (§5 keeps a source record as it arrived). The work is what carries the name, and where a
-    # publisher states that name it is canonical: an edition files under it.
-    #
-    # A SIGN A PUBLISHER PRINTS IS NOT PUNCTUATION. ルミナス＝ブルー is one name with a fullwidth
-    # sign in it, so `isbd.RULED` holds it and this asks that map before the pattern, which is
-    # otherwise deliberately loose enough to catch every spelling of the mark.
-    bad = 0
-    for title in [str(r.get("work") or "") for r in ctx["series"]]:
-        if title in isbd.RULED:
-            continue
-        if EQUALS_ANY.search(title) or isbd.edition_statement(title):
-            bad += 1
-    return bad
+    sys.path.insert(0, str(ROOT / "adapters" / "facts"))
+    from cataloguing import checks as _cat
+    return _cat.CHECKS["titles carrying cataloguing punctuation"](
+        [r.get("work") for r in ctx["series"]])
 
 # ASKED OF `facts/division`, which owns it. I made this copy myself, moving a check into the fact
 # and leaving the pattern here; the duplicates lint found it the same week.
@@ -3898,7 +3886,7 @@ BUDGETS_DEF = [
      "is'. Never reaches zero, because romanising is right for a coinage."),
     ("titles carrying cataloguing punctuation", budget_titles_carrying_cataloguing_punctuation,
      "titles a reader is shown that still hold a bibliography's own ISBD markup: an equals sign "
-     "in any spelling, or a reissue marker from the closed set adapters/isbd.py holds. A subtitle "
+     "in any spelling, or a reissue marker from the closed set adapters/facts/cataloguing holds. A subtitle "
      "after the same colon is content and is not counted. A rise means a capture route wrote a "
      "catalogue string through as a name."),
     ("works offered twice in a list", budget_works_offered_twice,

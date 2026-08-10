@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-"""isbd.py: taking a catalogue's punctuation off a name without taking the book's subtitle with it.
+"""facts/cataloguing: taking a catalogue's punctuation off a name without taking the book's subtitle with it.
 
-COVERS = ['adapters/isbd.py']
+COVERS = ['adapters/facts/cataloguing/__init__.py',
+          'adapters/facts/cataloguing/checks.py']
 """
 import pathlib
 import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-import testkit
-import isbd as m
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
+import testkit                                                          # noqa: E402
+import cataloguing as m                                                 # noqa: E402
+from cataloguing import checks as c                                     # noqa: E402
 
 
 def main(s):
@@ -133,6 +136,27 @@ def main(s):
     s.check("短編集" not in m.EDITIONS,
             "and a collection is not a reissue, so it stays part of the name")
 
+    # ── the count that lives beside the rule ────────────────────────────────────────────────────
+    #
+    # It was in check.py, which put the rule in one file and the measure of the rule in another.
+    n = c.titles_carrying_cataloguing_punctuation
+    s.eq(n(["\u604b\u611b\u907a\u4f1d\u5b50XX : \u5b8c\u5168\u7248"]), 1,
+         "an edition statement is a catalogue's apparatus and counts")
+    s.eq(n(["\u3042\u308b\u540d\u524d = Another Name"]), 1,
+         "and so does an equals sign in a title nobody has ruled on yet")
+    s.eq(n(["\u30ae\u30e3\u30eb\u30e1\u30a4\u30c9\u3068\u60aa\u5f79\u4ee4\u5b22 : "
+            "\u304a\u3058\u3087\u30fc\u3055\u307e\u3001\u304a\u4e16\u8a71\u3055\u305b"
+            "\u3066\u3044\u305f\u3060\u304d\u307e\u3059"]), 0,
+         "a subtitle after the same colon is content, which is what the closed set buys")
+
+    # A SIGN A PUBLISHER PRINTS IS NOT PUNCTUATION, and RULED is asked of the WHOLE title. Every
+    # entry there was read off a house's own catalogue page, so the answer is a person's and the
+    # pattern's job is the next one nobody has looked up.
+    for ruled in m.RULED:
+        s.eq(n([ruled]), 0, f"a ruled title is not counted: {ruled}")
+    s.eq(n([next(iter(m.RULED)) + " = X"]), 1,
+         "and a ruled title with something appended is a different string, so it is counted again")
+
 
 if __name__ == "__main__":
-    sys.exit(testkit.run(main, "isbd"))
+    sys.exit(testkit.run(main, "cataloguing"))

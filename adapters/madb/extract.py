@@ -14,7 +14,8 @@ from collections import Counter, defaultdict, namedtuple
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-import isbd                                                                    # noqa: E402
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "facts"))
+import cataloguing as isbd                                                     # noqa: E402
 
 # Imprint patterns identifying the 一迅社 百合姫 line. Matched against a normalised schema:brand.
 # MADB spells this at least seven ways; see docs/MADB.md.
@@ -368,7 +369,7 @@ LABEL_IMPRINT = ("yuri",
 
 # THE TITLE A RECORD STATES IS NOT ALWAYS THE WORK'S NAME. MADB transcribes a title page under
 # ISBD, so a name arrives with a 並列タイトル after ` = ` and other title information after ` : `.
-# Reading that notation is `adapters/isbd.py` and is deliberately not repeated here: the imprint
+# Reading that notation is `adapters/facts/cataloguing` and is deliberately not repeated here: the imprint
 # pass, the two ISBN passes and the shop-query pass all write records through `render` below, and
 # a copy of the rule per route would put the same book under four different names the first time
 # one of them was corrected (STANDING-INSTRUCTIONS §3).
@@ -433,7 +434,7 @@ def subtitle(rec):
 def catalogued_name(rec):
     """The record's title as one ISBD line, from the fields MADB split it across.
 
-    `isbd.py` reads a catalogued title and keeps a subtitle; assembling the string it reads is this
+    `facts/cataloguing` reads a catalogued title and keeps a subtitle; assembling the string it reads is this
     module's job, because the split into two fields is MADB's shape and not ISBD's. Everything
     downstream still asks isbd what the name is, so the two marks keep one reader.
 

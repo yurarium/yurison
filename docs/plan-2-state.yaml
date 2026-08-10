@@ -231,7 +231,15 @@ stages:
           Its self-test keeps a literal duplicate on purpose, since a canary is the one place a duplicate belongs.
       - id: D10
         title: title cataloguing, which already has one reader
-        state: todo
+        state: done
+        note: >-
+          adapters/isbd.py is adapters/facts/cataloguing, with an entry point, its own test at 48 checks, its own checks.py and a BLINDSPOT.md.
+          The count moved with the rule: `titles carrying cataloguing punctuation` was measured in check.py while the rule lived in isbd.py, so the two were free to disagree about what a mark is.
+          THEY HAD ALREADY DRIFTED, in two ways found by moving it.
+          The budget's docstring said three titles were deliberate refusals that "stay visible instead of being defined out of the count", and all three are in RULED and have been for some time, so the sentence outlived the work it described.
+          And check.py's EQUALS_ANY spelled the sign three ways including ゠ at U+30A0, the katakana double hyphen used between the halves of a transliterated name, while the copy I moved had two: one file's rule and another file's measure of it, differing by one character.
+          The class has one home now and check.py asks for it.
+          The blind spot is stated: a house that prints a sign is indistinguishable from a cataloguer who transcribed one, and RULED is a list a person grows by reading the publisher's own page.
       - id: D11
         title: imprint, which already has one reader
         state: todo

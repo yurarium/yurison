@@ -117,7 +117,15 @@ stages:
           Its own docstring says what it cannot see, which is most of the problem: a rule written as different code twice is invisible, and the thirteen folds were found by this while their DISAGREEMENT was found by running them.
       - id: D3
         title: Twelve regexes answering "is this Japanese", three of them disagreeing on kana
-        state: todo
+        state: done
+        note: >-
+          facts/script owns four questions that thirty regexes were sharing: has_kana, has_kanji, has_script and has_typography.
+          Measured: the two main "is this Japanese" classes agree on all 6,076 surfaces, so extension A and the compatibility ideographs never bite here; check.JAPANESE differs on 18 and is asking a different question, since ＦＬＯＷＥＲＣＨＩＬＤ is Japanese typography with no Japanese letter.
+          One was simply wrong: ・ sits at U+30FB inside the katakana block, so two kana tests called flower・flower kana.
+          A separator is not a letter.
+          The letter tests span letters and the safety net spans whole blocks, because a miss on an English page is visible to a reader.
+          My own widening spanned Hangul and Yi, because the literal 豈 is U+8C48 and the compatibility block begins at U+F900 with a different character that looks the same; test_interface caught it by asking whether 싱 is Japanese.
+          Five callers converted, 24 narrower patterns left alone as rules about one source each.
       - id: D4
         title: Three owned facts have copies elsewhere, plus a KANA_SURFACE I duplicated myself
         state: done

@@ -40,6 +40,7 @@ import re
 import shutil
 import subprocess
 import sys
+from facts import script as _script                                     # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 HARNESS = pathlib.Path(__file__).resolve().parent / "interface.js"
@@ -72,7 +73,8 @@ APP_JS = SITE_ROOT / "kari" / "app.js"
 # right, which is STANDING-INSTRUCTIONS §3 once more: one fact, two spellings, and the copy nobody
 # could read by eye is the one that drifted. `test_interface.py` pins both ends of each range and
 # pins that Hangul falls outside.
-KANA_KANJI = re.compile("[\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff]")
+# ASKED OF `facts/script`, which owns which writing system a string is in.
+KANA_KANJI = _script._SCRIPT
 # The same scripts plus the CJK punctuation and the full-width and half-width forms, for asking
 # whether a FIELD carries anything Japanese at all. Wider on purpose: a field holding only an
 # ideographic space is still a field somebody has to rule on.

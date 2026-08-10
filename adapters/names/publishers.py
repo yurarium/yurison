@@ -69,6 +69,7 @@ import unicodedata
 
 import yaml
 from facts import namekey as _namekey                                   # noqa: E402
+from facts import script as _script                                     # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
@@ -91,7 +92,8 @@ IMPRINT_ALIAS = {"yurihimecomics": "コミック百合姫", "yurihimecomic": "�
 UMBRELLA = "IDコミックス"
 
 LATIN = re.compile(r"^[\x20-\x7eÀ-ɏ]+$")
-JAPANESE = re.compile(r"[぀-ヿ一-鿿々]")
+# ASKED OF `facts/script`, which owns which writing system a string is in.
+JAPANESE = _script._SCRIPT
 
 
 def publisher_of(s):

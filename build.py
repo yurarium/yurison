@@ -40,6 +40,7 @@ import bylines as _bylines  # noqa: E402
 from classify import credence  # noqa: E402
 from recon import bookwalker_volumes  # noqa: E402
 import delivery  # noqa: E402
+from facts import script as _script                                     # noqa: E402
 
 # REQUIREMENTS §1. A field whose provenance is not here fails the build.
 # Tier A/B attesting sources only. Discovery-only sources (Tier C/D) never appear here — they feed
@@ -1349,7 +1350,8 @@ def catalogued_title(title):
 
 
 # Kana and kanji. A string with none of these needs no reading: it is already Latin.
-JAPANESE_SCRIPT = re.compile(r"[぀-ヿ一-鿿々]")
+# ASKED OF `facts/script`, which owns which writing system a string is in.
+JAPANESE_SCRIPT = _script._SCRIPT
 
 # Characters that have to be READ before they can be romanised. Kana are not among
 # them: hiragana to katakana is a transcription and cannot be a wrong guess.

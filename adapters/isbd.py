@@ -57,9 +57,11 @@ for.
 """
 import re
 from collections import namedtuple
+from facts import script as _script                                     # noqa: E402
 
 # Kana and CJK. A parallel title holding any of it is not an English name.
-JAPANESE = re.compile(r"[぀-ヿ㐀-鿿豈-﫿]")
+# ASKED OF `facts/script`, which owns which writing system a string is in.
+JAPANESE = _script._SCRIPT
 
 # ISBD puts a space on both sides of the mark, which is what tells the punctuation apart from a
 # character inside a name. `2×2=SHINOBUDEN+` and `A:B` carry no ISBD mark at all.

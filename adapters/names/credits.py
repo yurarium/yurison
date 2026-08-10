@@ -20,6 +20,7 @@ PRESENTED and the record keeps the field intact.
 """
 import re
 import unicodedata
+from facts import script as _script                                     # noqa: E402
 
 # A control's own label, scraped out of a page and handed over as a credit. Exact matches only: a
 # name containing one of these words is a name, and this is a list of buttons.
@@ -38,7 +39,8 @@ SPLIT = re.compile(r"\s*/\s*")
 # only ever report what the fix already handles.
 SEPARATORS = re.compile(r"\s*[/／,，、]\s*")
 
-JAPANESE = re.compile(r"[぀-ヿ一-鿿々]")
+# ASKED OF `facts/script`, which owns which writing system a string is in.
+JAPANESE = _script._SCRIPT
 ROMAJI_STYLES = ("macron", "double", "plain")
 
 RUBY_KANJI = re.compile(r"[一-鿿々]")

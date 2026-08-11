@@ -2620,3 +2620,20 @@ What would close it is a credit edge that carries which edition it is from, so a
 say they are on a work through its English edition. That is a schema change to `credit-works.yaml`
 and to the page, and it is the same shape as the question of whether a licensed English edition is
 the same work at all, which the 2026-08-11 merges answered yes to.
+
+## The discovery queue reaches no reader. Noted 2026-08-11
+
+`build.py` prints `queue: 81 unconfirmed candidates` and that is the only place the number appears.
+77 of them are `shop-query-title-only.yaml`, a shop hit whose title agreed with a work we hold and
+whose credit did not, kept because a shop and this database disagreeing about who drew a book is a
+lead about one of them. Each row carries both credits so a person can settle it by looking. The
+other 4 are 百合ナビ announcements awaiting confirmation against the publisher or the platform.
+
+**status.html's outstanding list does not carry either.** It shows `content_tier` 302,
+`english_names` 102, `shelf_rows` 2462, `english_licences` 87 and `data_debts` 48, all through
+`status.outstanding`, which reads some queue files and not these two. So 77 questions each answerable
+by one person looking sit where nobody reading the site would find them.
+
+That is the shape STANDING-INSTRUCTIONS §13 is about, and the same one the CI conclusion has: a
+register that exists and cannot be observed. The work is to add both queues to `outstanding` with
+what settling one involves, which is a change to `adapters/status.py` and to nothing else.

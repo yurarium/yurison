@@ -15,6 +15,30 @@
 # image so a second person can look at the same thing. Promoting one means writing it into
 # data/names/curated.yaml with basis `official-jp`, whose bar is the Japanese publisher or the
 # platform stating it, which is what a key visual is.
+# ── WHAT THE FIRST FULL PASS FOUND, 2026-08-11 ────────────────────────────────────────────────
+#
+# 1,339 web works looked at, 1,205 splash images stored, 442 MB in the cache beside the checkout.
+# Of the works examined by eye so far, nearly every key visual carried something: an official Latin
+# title, a publisher's romanisation, an artist's own spelling of their name, or furigana over the
+# logo. That rate is the argument for finishing the reading.
+#
+# WHERE IT CANNOT REACH, and both have a cause rather than being flaky:
+#
+#   comic-fuz.com, 80 works. Answers 403 to this user agent on every request. `adapters/render/`
+#   renders that platform with a headless browser, but into a cache this pass does not share, so
+#   the DOMs are not on this disk. Pointing at that cache would recover all 80 with no request.
+#
+#   comic.pixiv.net, 39 works. Serves a shell that builds the page in JavaScript, so a plain fetch
+#   states no splash. The render cache holds 200 of its pages and this pass reads them, which is
+#   why the count fell rather than rising; the remainder were never rendered.
+#
+#   15 more across manga-one, ganganonline, corocoro and four others, each a refusal.
+#
+# A PLATFORM CAN STATE THE WRONG PICTURE. magazinepocket puts the EPISODE thumbnail in `og:image`,
+# a crop of one panel with no logo on it, so its images are stored and worth nothing to this. That
+# is not a fault to fix here; it is a platform naming a different thing by the same tag, and the
+# only remedy is knowing which platforms are worth reading.
+
 source: platform artwork
 role: curation-candidates
 record_type: read_from_artwork

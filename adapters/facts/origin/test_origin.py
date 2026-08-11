@@ -123,10 +123,37 @@ def main(s):
     s.check(not any(r["work"] in {x.get("work") for x in reviewed} for r in refused),
             "a work under review is not refused")
     for r in (doc.get("rulings") or []):
+        who = r.get("work") or r.get("imprint")
         s.check(r.get("why") and r.get("evidence"),
-                f"every ruling states why and cites something: {r.get('work')}")
-        s.check(r.get("country_basis") in origin.bases(),
-                f"and rests on a term the vocabulary holds: {r.get('work')}")
+                f"every ruling states why and cites something: {who}")
+        # EITHER QUESTION §6 ASKS. A ruling says where a work was first published or says the work
+        # is not manga, and the two rest on different vocabularies: a term about a country cannot
+        # settle a medium, so accepting either for either would let one excuse the other.
+        s.check(r.get("country_basis") in origin.bases()
+                or r.get("medium_basis") in origin.medium_bases(),
+                f"and rests on a term one of the vocabularies holds: {who}")
+
+    # A RULING OVER A LINE NAMES ITS WORKS, and every one of them has to be reachable, because the
+    # refusal register and the run report are both built by walking them. パルソラ's prose imprint
+    # is ruled once and names eleven; reading the top-level title alone saw none of them.
+    over_a_line = [r for r in (doc.get("rulings") or []) if r.get("works")]
+    s.check(over_a_line, "the file carries at least one ruling naming several works")
+    for r in over_a_line:
+        s.eq(len(origin.members(r)), len(r["works"]),
+             f"every work the {r.get('imprint')} ruling names is expanded")
+        for m in origin.members(r):
+            s.check(m.get("work") and m.get("title"),
+                    "and each carries the identifier and the title a register keys on")
+    s.eq(origin.members({"work": "w1", "title": "x"}), [{"work": "w1", "title": "x"}],
+         "a ruling about one work is its own member, which is every ruling written before this")
+
+    # AND BOTH KINDS REACH THE REFUSAL REGISTER, which is what carries a work off the site.
+    keys = origin.refused_keys(doc)
+    for r in over_a_line:
+        if r.get("disposition") == "out-of-scope":
+            for m in origin.members(r):
+                s.check(m["work"] in keys,
+                        f"a work ruled out on a line is refused by identifier: {m['work']}")
 
 
 if __name__ == "__main__":

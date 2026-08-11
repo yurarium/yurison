@@ -414,8 +414,15 @@ def _ruled_out_of_scope(path=None):
     if not at.exists():
         return ()
     doc = yaml.safe_load(at.read_text(encoding="utf-8")) or {}
-    got = [str((x or {}).get("title") or "") for x in (doc.get("rulings") or [])
-           if str((x or {}).get("disposition") or "") == "out-of-scope"]
+    got = []
+    for x in (doc.get("rulings") or []):
+        if str((x or {}).get("disposition") or "") != "out-of-scope":
+            continue
+        # A RULING MAY NAME A LINE AND NOT A BOOK. A prose imprint is ruled once and names its
+        # eleven works in `works`; reading the top-level title alone saw none of them, and eleven
+        # curated names went on looking like keys that match nothing in the catalogue.
+        for m in (x.get("works") or [x]):
+            got.append(str((m or {}).get("title") or ""))
     return tuple(x for x in got if x)
 
 

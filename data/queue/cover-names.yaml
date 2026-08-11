@@ -212,3 +212,34 @@ candidates:
       name with basis `official-jp` and the reading ガラン ノ ヒメ, so somebody curated this by
       hand before. Recorded because it is the check on the method rather than a finding: reading
       the artwork independently reproduces what careful curation reached.
+  - work: "現実世界でも幸せにしてくださいね？"
+    reading: "リアル"
+    of: "現実世界"
+    kind: title-furigana
+    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183598_cb67c9cb7986fd38ad9f3ce1a84b66e8_1752730099"
+    note: >-
+      THE CLEAREST CORRECTION THIS PASS HAS FOUND. The volume 1 cover prints リアル as ruby down
+      the side of 現実世界, so the publisher reads those four characters as `riaru`, the English
+      word `real`. The store holds げんじつせかい and reads the title
+      `ゲンジツセカイ デ モ シアワセニ シテ クダサイ ネ？`, which is what the characters say and not
+      what the work calls itself.
+      A gloss reading is a thing this project already knows about: `adapters/names/gloss.py` takes
+      one off a title where the platform prints it in brackets in the TEXT, as in
+      念願の悪役令嬢(ラスボス). Here it is printed only as ruby on the artwork, so no amount of
+      reading the markup would have found it.
+  - work: "現実世界でも幸せにしてくださいね？"
+    latin: "Be happy In the real world too, Okay?"
+    kind: official-latin-title
+    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183598_cb67c9cb7986fd38ad9f3ce1a84b66e8_1752730099"
+    note: >-
+      Set vertically beside the logo. The database holds
+      `Make Me Happy in the Real World Too, Won't You?` with basis `translated`.
+  - work: "現実世界でも幸せにしてくださいね？"
+    latin: "SHIBORIKASUKO"
+    kind: author-latin-name
+    of: "しぼりかすこ"
+    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183598_cb67c9cb7986fd38ad9f3ce1a84b66e8_1752730099"
+    note: >-
+      `PRESENTED BY SHIBORIKASUKO`, one word, where the store splits the kana into
+      `Shibori Kasuko` and holds no English name. The split is the analyser's guess at where a pen
+      name divides, and the artist does not divide it.

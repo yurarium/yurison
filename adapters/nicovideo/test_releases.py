@@ -55,6 +55,17 @@ def main(s):
     s.eq(whole["updated"], "2026-07-28", "the work-level 更新 date is read")
     s.eq(whole["started"], "2016-08-13", "and 開始, which is a real serialisation start date")
     s.eq(whole["free_episodes"], 4, "[ 4話 無料 ] states how many episodes are free")
+    s.check("app_only_route" not in whole,
+            "a work a browser can read is not an app-only route")
+
+    # A ROUTE WITH NO BROWSER-READABLE CHAPTER. 満腹百合 is the counter-case that keeps this from
+    # swallowing the ordinary free-trial shape: 4 of its 7 episodes are app-only and 3 are not, so
+    # it IS a web serialisation and must not be marked. 108 works are in that state and only 12
+    # have no readable chapter anywhere.
+    s.check("app_only_route" not in nv.parse(fixtures.load("nicovideo/work-part-app-only")),
+            "a work whose later chapters moved into the app is still a web serialisation")
+    s.check(nv.parse(fixtures.load("nicovideo/work-app-only-route"))["app_only_route"],
+            "a work with no browser-readable episode anywhere is an app-only route")
 
     # THE REAL BLOCK IS NOT ONE LINE. The invented version read
     # `2026年07月16日更新 2025年06月19日開始 [ 5話 無料 ]` as a single run of text. The page puts

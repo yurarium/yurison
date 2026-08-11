@@ -111,29 +111,6 @@ titles:
     source: "yurarium"
     source_kind: derived
     reviewed: '2026-08-10'
-  アイドル総選挙4位だった私が魔王を倒すんですか？（Lilie comics）:
-    reading: "アイドル ソウセンキョ 4イ ダッタ ワタシ ガ マオウ ヲ タオス ンデス カ？ （Lilie comics）"
-    reading_basis: researched
-    reading_source_kind: derived
-    source: "yurarium"
-    source_kind: derived
-    reviewed: '2026-08-08'
-    reading_note: >-
-      Ordinary words throughout and no name in it, so the reading was never the doubtful part. It is
-      recorded because the mark on the page said the reading might be wrong when what was wrong was
-      the ruby derived from it: the anchor を matched the オ inside マオウ, so 魔王 kept マ and 倒 took
-      ウヲタオ. adapters/names/kana.py refuses that placement now.
-  私の女神が今日も推せる 【単話版】:
-    reading: "ワタシ ノ メガミ ガ キョウ モ オセル 【タンワバン】"
-    reading_basis: researched
-    reading_source_kind: derived
-    source: "yurarium"
-    source_kind: derived
-    reviewed: '2026-08-08'
-    reading_note: >-
-      Ordinary words again, and the same defect: the anchor が matched the ガ inside メガミ, so 女神
-      kept メ and 今日 took ミガキョウ. 単話版 is タンワバン, where 話 is ワ in a compound and the
-      analyser gave it the standalone ハナシ.
   笑う門だよ福音さん:
     en: Warau Kadoda yo Fukuinsan
     basis: romaji
@@ -29067,19 +29044,6 @@ titles:
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033056961
 
 
-  ファインダー越しのあの子（Lilie comics）:
-    reading: ファインダーゴシ ノ アノ コ （Lilie comics）
-    reading_basis: researched
-    reviewed: '2026-08-08'
-    source: ndlsearch.ndl.go.jp
-    source_kind: national-library
-    reading_source: ndlsearch.ndl.go.jp
-    reading_source_kind: derived
-    reading_note: >-
-      NDL transcribes the book's title page, so its reading stops where the title proper stops and
-      says nothing about the marker our stored title carries after it. The marker is glossed from the
-      closed set the interface names in EDITION_EN, and the reading of the title itself is the
-      catalogue's. NDL's record is https://ndlsearch.ndl.go.jp/books/R100000002-I030554847.
 
   'ロイヤルテーラー : 王宮の裁縫師':
     reading: 'ロイヤルテーラー : オウキュウ ノ サイホウシ'
@@ -29429,20 +29393,6 @@ titles:
     source_kind: derived
 
 
-  LatteComi コミックアンソロジー【百合】（単話版）:
-    reading: LatteComi コミック アンソロジー 【ユリ】 （タンワバン）
-    reading_basis: researched
-    reading_note: >-
-      Everything but the two markers is already kana or Latin. 【百合】 is the shop's genre tag, read ユリ.
-      単話版 is タンワバン: 単話 is a single instalment sold on its own, which the shops write everywhere, and 話
-      in it is ワ rather than the ハナシ an analyser reaches for when the word stands alone. The marker is
-      one of the closed set the interface glosses in EDITION_EN, so it is read the same way wherever
-      it appears. The trailing （LatteComi） came off the title on 2026-08-10: it repeated the name the
-      title already opens with, and only the ニコニコ漫画 route ever carried it.
-    reading_source_kind: derived
-    source: derived
-    source_kind: derived
-    reviewed: '2026-08-08'
 
 
   flower・flower:
@@ -29984,27 +29934,7 @@ titles:
     source_kind: derived
     reviewed: '2026-08-10'
 
-  "百合色ミュージアム（OrangeVox）":
-    en: "The Yuri-Coloured Museum (OrangeVox)"
-    basis: translated
-    note: >-
-      The base record is already held as The Yuri-Coloured Museum. OrangeVox is the label ニコニコ漫画
-      publishes it under and the publisher on this row, and it reaches the title only on that
-      platform: BOOK☆WALKER holds the same work without it.
-    source: "yurarium"
-    source_kind: derived
-    reviewed: '2026-08-10'
 
-  "TSロリシリーズ（コスモブルー）":
-    en: "The TS Loli Series (Cosmo Blue)"
-    basis: translated
-    note: >-
-      The base record is already held as The TS Loli Series. コスモブルー is Cosmo Blue, 宙出版's label
-      on ニコニコ漫画, and it appears in no other record we hold: BOOK☆WALKER files the same work
-      under 宙出版 with the imprint ASTRO COMICS and no bracket in the title.
-    source: "yurarium"
-    source_kind: derived
-    reviewed: '2026-08-10'
 
 
 authors:

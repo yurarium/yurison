@@ -1,0 +1,90 @@
+agrees_with: adapters/nicovideo/releases.py:parse
+body_sha256: 9dd0670079e4921a6bde3d9c1db1908f257d05ec1c512b550db441931f630265
+cached_as: null
+captured: '2026-08-11'
+format: html
+keep:
+- <title>
+- <div class="meta_info">
+- <div id="episode_list"
+redact: []
+redact_over: 0
+retrieved: '2026-08-11'
+sample: []
+source_bytes: 126650
+source_sha256: 5ec004a4519151bcd11a099a71b45c196fbc65086c04278690a1d144b466701b
+trim:
+- in: <div id="episode_list"
+  keep: <li
+  n: 3
+url: https://manga.nicovideo.jp/comic/82261
+why: '私の女神が今日も推せる 【単話版】. Every rendered episode carries `アプリで読める`, so the
+
+  listing offers no web reading anywhere: it is the phone app selling one chapter
+  at a time of a book
+
+  already published. Its own listing says the content is that of `comicGAGA VOL.1`,
+  and the work
+
+  holds a BOOK☆WALKER volume record independently.
+
+
+  THE HEADER IS KEPT BECAUSE IT IS NOT WHAT DECIDES THIS. `meta_info` states the work-level
+  badge in
+
+  place of the usual `[ N話 無料 ]`, and reading the route off it would be wrong on the
+  108 works whose
+
+  opening chapters a browser can still open. The tiles decide it. Three episodes are
+  enough to show
+
+  they agree.'
+---
+<title>
+      私の女神が今日も推せる 【単話版】 / 川内(著) comicGAGA編集部(編集) おすすめ漫画 - ニコニコ漫画
+  </title>
+<div class="meta_info">
+          2026年06月29日更新
+          2026年06月29日開始
+          <span style="padding-left: 16px">
+            [
+              アプリで読める
+            ]
+          </span>
+                    <span style="padding-left: 16px">
+            <a href="/manga/list?category=%E5%B0%91%E5%B9%B4%E3%83%9E%E3%83%B3%E3%82%AC">
+              [<span class="category">少年マンガ</span>]
+            </a>
+          </span>
+                    <div id="ko_favorite_top">
+            <div class="meta_info__favorite">
+              <a class="btn favorite"
+                 data-bind="click: toggleState, css: {active: favorite}, attr: {title: favorite()? '作品のお気に入りを解除' : '作品をお気に入りに登録', rel: favorite()? 'tooltip' : 'tooltip_remove'}">
+                <span class="icon_watchlist_add"></span>
+                <span class="text" data-bind="text: favorite()? 'お気に入りに追加済み' : '作品をお気に入りに登録'" sheep-class="text">作品をお気に入りに登録</span>
+              </a>
+            </div>
+          </div>
+        </div>
+<div id="episode_list" class=" inner tile_view ">
+                          <ul style="list-style:none">
+                      <li class="episode_item">
+            <div class="episode" data-number="1" data-idx="0"><div class="thumb episode_thumb"><a href="/watch/mg1077639"><img alt="私の女神が今日も推せる 【単話版】（１）" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/20095686q?1781800956" class="lazyload"><span class="mg_status status">22 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg1077639">私の女神が今日も推せる 【単話版】（１）</a></div><div class="body "></div><div class="comment_summary empty_text">(コメントはまだありません)</div><div class="counter">再生:0 | コメント:0</div></div></div>              <span class="selling_label selling_label-selling">
+          アプリで読める
+      </span>
+            </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="2" data-idx="1"><div class="thumb episode_thumb"><a href="/watch/mg1077643"><img alt="私の女神が今日も推せる 【単話版】（２）" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/20095774q?1781800983" class="lazyload"><span class="mg_status status">22 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg1077643">私の女神が今日も推せる 【単話版】（２）</a></div><div class="body "></div><div class="comment_summary empty_text">(コメントはまだありません)</div><div class="counter">再生:0 | コメント:0</div></div></div>              <span class="selling_label selling_label-selling">
+          アプリで読める
+      </span>
+            </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="3" data-idx="2"><div class="thumb episode_thumb"><a href="/watch/mg1077641"><img alt="私の女神が今日も推せる 【単話版】（３）" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/20095685q?1781800956" class="lazyload"><span class="mg_status status">22 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg1077641">私の女神が今日も推せる 【単話版】（３）</a></div><div class="body "></div><div class="comment_summary empty_text">(コメントはまだありません)</div><div class="counter">再生:0 | コメント:0</div></div></div>              <span class="selling_label selling_label-selling">
+          アプリで読める
+      </span>
+            </li>
+<!-- fixture: 6 more <li dropped -->
+
+                    </ul>
+          <div style="clear:both;"></div>
+              </div>

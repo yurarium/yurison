@@ -211,6 +211,17 @@ def parse(html):
         out["episode_count"] = int(n.group(1))
         if n.group(2):
             out["free_episodes"] = int(n.group(1))
+    # A ROUTE NO BROWSER CAN READ. Where every rendered episode carries `アプリで読める` the listing
+    # offers no web reading anywhere: it is the phone app selling an already-published volume one
+    # chapter at a time. Stated here, on the page that shows the tiles, so the two consumers of this
+    # adapter read one answer instead of each deciding for itself.
+    #
+    # `all`, NOT `any`. A work whose opening chapters open in a browser and whose later ones moved
+    # into the app is a web serialisation with some chapters behind an app, and 108 works are in
+    # exactly that state. Only a route with no readable chapter at all is one.
+    _eps = episodes(html)
+    if _eps and all(e.get("app_only") for e in _eps):
+        out["app_only_route"] = True
     fm = re.search(r"\[([^\]]*マンガ)\]", txt)
     if fm:
         out["format"] = fm.group(1).strip()
@@ -328,8 +339,8 @@ def main():
     for w in sorted(works, key=lambda w: w["updated"], reverse=True):
         L.append(f"  - work_title: {js(w['title'])}")
         for k in ("author", "url", "comic_id", "updated", "started", "episode_count",
-                  "free_episodes", "format", "channel", "channel_slug", "latest_episode",
-                  "latest_episode_url"):
+                  "free_episodes", "app_only_route", "format", "channel", "channel_slug",
+                  "latest_episode", "latest_episode_url"):
             if w.get(k) not in (None, ""):
                 L.append(f"    {k}: {js(w[k])}")
     L.append("")

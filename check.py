@@ -990,6 +990,15 @@ def _plant_a_ruling_on_an_unknown_term(c):
     c["scope_reported"].append({"work": "CANARY", "title": "カナリア"})
 
 
+def _plant_an_app_only_route_a_reader_is_sent_to(c):
+    """Both passes agree the route is app-only, and a shipped row still offers it as a source."""
+    u = "https://manga.nicovideo.jp/comic/99998"
+    c["nicovideo_channels"].append({"url": u, "work_title": "カナリア", "app_only_route": True})
+    c["nicovideo_work_chapters"].append(
+        {"url": u, "chapters": [{"title": "カナリア", "app_only": True}]})
+    c["series"].append({"work": "カナリア", "sources": [{"platform": "ニコニコ漫画", "url": u}]})
+
+
 #: What status.html renders, as against what the catalogue serves. A refusal is named in these and
 #: in none of the others, which is the difference between a control somebody can observe and a
 #: filter that drops rows silently (STANDING-INSTRUCTIONS §13).
@@ -2437,6 +2446,48 @@ def inv_no_source_a_reader_sees_is_an_adapter(ctx):
                 bad.setdefault(name, []).append(r.get("work"))
     return [f"{len(w)} row(s) name the pass {n!r} where a reader expects a source, e.g. {w[0]!r}"
             for n, w in sorted(bad.items())]
+
+
+def inv_no_app_only_route_is_published_as_web_reading(ctx):
+    """A listing no browser can open anywhere reaches no reader as a web serialisation.
+
+    THE FAULT. ニコニコ漫画 marks an episode `アプリで読める` on its own tile, meaning the phone app
+    and nowhere a browser goes. The adapter read `[ N話 無料 ]` off the work header instead and
+    called every rendered episode free, so 3,547 of the platform's 6,736 chapters were published as
+    free reading a reader cannot reach. Twelve listings went further: every episode app-only,
+    because the listing is the app selling an already-published volume one chapter at a time. Each
+    of the twelve holds a volume record of its own, and each was presenting that book's chapters as
+    a serialisation, six of them alongside the work's real serialisation on the same platform.
+
+    NOT A RULE ABOUT SELLING CHAPTERS SINGLY. cmoa and BOOK☆WALKER do that and stay in as the
+    purchase routes they are. What is refused is a chapter route with no browser-readable chapter.
+
+    §14b, WHAT IT REUSES: NEITHER PRODUCER'S ANSWER. Two passes decide this independently.
+    `releases.parse` from the episode tiles on the raw page, writing `app_only_route`, and `build`
+    from the stored per-episode `app_only`. This compares them against each other and against what
+    shipped, so a route either of them recognises and the site still publishes is a failure, and
+    the two silently disagreeing is one too.
+    """
+    flagged = {str(w.get("url") or "") for w in (ctx["nicovideo_channels"] or [])
+               if w.get("app_only_route")}
+    stored = {str(w.get("url") or "") for w in (ctx["nicovideo_work_chapters"] or [])
+              if (w.get("chapters") and all(c.get("app_only") for c in w["chapters"]))}
+    out = []
+    for u in sorted(stored - flagged):
+        out.append(f"{u} has no browser-readable episode stored, and the page pass did not say so")
+    for u in sorted(flagged - stored):
+        out.append(f"{u} is flagged an app-only route, and its stored episodes disagree")
+
+    barred = flagged | stored
+    if barred:
+        for r in (ctx["series"] or []):
+            for s in (r.get("sources") or []):
+                if str(s.get("url") or "") in barred:
+                    out.append(f"{r.get('work')!r} publishes {s.get('url')} as a reading source")
+        for rel in (ctx["releases"] or []):
+            if str(rel.get("url") or "") in barred:
+                out.append(f"the feed carries {rel.get('url')} as a {rel.get('web') or 'release'}")
+    return out
 
 
 def inv_the_pipeline_runs_from_a_clean_checkout(ctx):
@@ -5041,6 +5092,10 @@ def context():
         "nicovideo_channels": (_yaml(ROOT / "data" / "source" / "nicovideo" / "nicovideo.yaml",
                                      {}) or {}).get("works") or [],
         "nicovideo_recorded_channels": _nicovideo_recorded_channels(),
+        # The per-episode lists, loaded here for the same reason: the check comparing them against
+        # the work-level flag must be shown a canary in both files.
+        "nicovideo_work_chapters": (_yaml(ROOT / "data" / "source" / "nicovideo" / "works.yaml",
+                                          {}) or {}).get("works") or [],
         # THE RAW TEXT, not the parsed header, for the reason the comments above give and for one
         # more: the check that matters here recomputes the body digest, and it can only do that on
         # bytes nobody has re-serialised on the way in.
@@ -5552,6 +5607,20 @@ def self_test():
         # decides nothing and looks decided.
         ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for,
          _plant_a_ruling_on_an_unknown_term),
+        # THE TWO PASSES THAT DECIDE THIS, COMING APART. The page pass reads the episode tiles and
+        # the build reads the episodes it stored, and a route only one of them recognises is the
+        # shape the fault took: the header said `アプリで読める` and the stored chapters were still
+        # being counted as web reading.
+        ("no app-only route is published as web reading",
+         inv_no_app_only_route_is_published_as_web_reading,
+         lambda c: c["nicovideo_work_chapters"].append(
+             {"url": "https://manga.nicovideo.jp/comic/99999",
+              "chapters": [{"title": "カナリア", "app_only": True}]})),
+        # AND A ROUTE BOTH OF THEM RECOGNISE, STILL SHIPPED. The producers agreeing is not the
+        # property; the property is that no reader is sent to it.
+        ("no app-only route is published as web reading",
+         inv_no_app_only_route_is_published_as_web_reading,
+         _plant_an_app_only_route_a_reader_is_sent_to),
     ]
     ok = True
     for name, fn, plant in probes:

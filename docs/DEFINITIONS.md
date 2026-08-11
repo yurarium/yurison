@@ -333,6 +333,26 @@ the volume existed. They are recorded as print candidates rather than discarded.
 A 試し読み *within* a genuinely serialised work is a different thing: it is one release among
 others, typed `trial`, and does not change the work's status.
 
+### A chapter route no browser can open is not web publication
+
+ニコニコ漫画 marks an episode `アプリで読める`: readable in the phone app and nowhere a browser goes.
+Where **every** episode a listing renders is marked that way, the listing publishes nothing on the
+web. It is the app selling an already-published volume one chapter at a time, and twelve of them
+were presenting a book's chapters as a serialisation, six alongside the work's real serialisation on
+the same platform. Each already held a volume record of its own.
+
+So the route contributes no chapters and no update to the release feed. The **work is unaffected**:
+it is a print or digital work and belongs in the catalogue on that basis, connected to the volume
+releases the listing is an edition of.
+
+**This is not a rule about selling chapters singly.** cmoa and BOOK☆WALKER do that too and stay in
+as the purchase routes they are; `【単話版】` and `【分冊版】` are recorded, not refused. What is
+refused is a chapter route a reader cannot open in a browser at all.
+
+**Asked of the whole route, not the chapter.** A work whose opening chapters open in a browser and
+whose later ones have moved into the app is a web serialisation, and those app chapters are real
+chapters of one. They are simply not free. 108 works are in that state against 12 that are not.
+
 ---
 
 ## 7. Exclusions

@@ -3547,6 +3547,12 @@ def main():
             u = str(w.get("updated") or "")[:10]
             if not u or u < wcut or u > wtoday:
                 continue
+            # AN APP-ONLY ROUTE PUBLISHES NO WEB CHAPTER, so its 更新 date is a store restocking
+            # and not a serialisation update. Twelve listings sell an already-published volume a
+            # chapter at a time inside the phone app, and each would have entered this feed marked
+            # `web: serialised`. The adapter states the fact, having seen the episode tiles.
+            if w.get("app_only_route"):
+                continue
             # "[ N話 無料 ]" means N episodes are free, not that the newest one is. Claiming the
             # update is free on that basis would put paywalled chapters in the free view, so it is
             # only claimed when every episode is free.
@@ -5038,6 +5044,22 @@ def main():
             # and the platform as 96% free. Undated chapters count towards length and access; they
             # simply cannot contribute a first or latest date.
             chs = list(w.get("chapters") or [])
+            # A ROUTE NO BROWSER CAN READ IS NOT A WEB SERIALISATION. A ニコニコ漫画 episode tile
+            # may say `アプリで読める`, and where every rendered episode says it, the listing offers
+            # no web reading at all: it is the phone app selling an already-published volume one
+            # chapter at a time. Twelve works arrived that way, each already holding a volume
+            # record of its own, and each was presenting that book's chapters as a serialisation.
+            #
+            # THIS IS NOT ABOUT CHAPTERWISE SELLING. cmoa and BOOK☆WALKER sell chapters singly too
+            # and stay in as the purchase routes they are; `bwingest.chapterwise` records it. What
+            # is refused here is a chapter route a reader cannot open in a browser at all.
+            #
+            # ASKED OF THE WHOLE ROUTE, NOT THE CHAPTER. The 108 works whose opening chapters open
+            # in a browser and whose later ones moved into the app ARE web serialisations, and
+            # those app chapters are real chapters of one. They are simply not free. Only a route
+            # with no readable chapter anywhere is excluded, which is why this tests `all`.
+            if chs and all(c.get("app_only") for c in chs):
+                continue
             # カドコミ dates a not-yet-released chapter 9999-12-31, and コミックFUZ carries 公開予定
             # rows months out. Neither has been published, so neither can be the latest chapter —
             # left in they sorted the whole index by which series had announced furthest ahead.

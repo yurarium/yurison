@@ -625,8 +625,12 @@ works:
     url: "https://comic-gardo.com/episode/2550912966011803878"
     platform_name: "コミックガルド"
     route: "gigaviewer"
-    chapter_count: 23
+    chapter_count: 24
     chapters:
+      - title: "第11話「フィアナ、無事クエストを達成する」(2)"
+        updated: 2026-08-11
+        author: "あらた伊里/アトハ/狐印"
+        access_modes: ["purchase"]
       - title: "第11話「フィアナ、無事クエストを達成する」(1)"
         updated: 2026-07-28
         author: "あらた伊里/アトハ/狐印"
@@ -634,7 +638,7 @@ works:
       - title: "第10話「フィアナ、初のボス戦に挑む！」(3)"
         updated: 2026-07-14
         author: "あらた伊里/アトハ/狐印"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第10話「フィアナ、初のボス戦に挑む！」(2)"
         updated: 2026-07-07
         author: "あらた伊里/アトハ/狐印"
@@ -646,7 +650,7 @@ works:
       - title: "第9話「フィアナ、ダンジョンを突き進む」(2)"
         updated: 2026-05-26
         author: "あらた伊里/アトハ/狐印"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第9話「フィアナ、ダンジョンを突き進む」(1)"
         updated: 2026-05-12
         author: "あらた伊里/アトハ/狐印"
@@ -3133,6 +3137,28 @@ works:
         updated: 2026-03-08
         author: "陣ノ内康暉"
         access_modes: ["free"]
+  - work_title: "画家の肖像"
+    author: "レオパード・ゲッコー / 読切 画家の肖像"
+    url: "https://comic-zenon.com/episode/12207421983944323781"
+    platform_name: "コミックゼノン"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り"
+        updated: 2026-07-13
+        author: "レオパード・ゲッコー / 読切 画家の肖像"
+        date_basis: heuristic
+  - work_title: "散らないで菊"
+    author: "ぽぽらら / 読切 散らないで菊"
+    url: "https://comic-zenon.com/episode/12207421983944323839"
+    platform_name: "コミックゼノン"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り"
+        updated: 2026-07-13
+        author: "ぽぽらら / 読切 散らないで菊"
+        date_basis: heuristic
   - work_title: "魔性の乙女の役廻り"
     author: "サスケ"
     url: "https://takecomic.jp/series/2706e9d937d5f"
@@ -3389,6 +3415,17 @@ works:
         updated: 2023-04-28
         author: "深海 紺"
         access_modes: ["free"]
+  - work_title: "姫虐が止まらない白桃さん"
+    author: "斉藤りょーパー / 読み切り作品"
+    url: "https://ichicomi.com/episode/2551460910021695025"
+    platform_name: "一迅プラス"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り"
+        updated: 2026-01-14
+        author: "斉藤りょーパー / 読み切り作品"
+        date_basis: heuristic
   - work_title: "今日はカノジョがいないから"
     author: "岩見樹代子 / 第1話「接触」(1)"
     url: "https://comic-days.com/episode/3270296674372407715"
@@ -4229,6 +4266,138 @@ works:
         updated: 2026-04-04
         author: "椿木とりか"
         access_modes: ["purchase"]
+  - work_title: "ガールミートガール"
+    author: "茂木清香"
+    url: "https://asacomi.jp/series/d67c4f256e18f"
+    platform_name: "アサコミ"
+    route: "comici"
+    chapter_count: 26
+    chapters:
+      - title: "#1　あいびき☆ミートガール"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free"]
+      - title: "#2　Let's party!"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free"]
+      - title: "#3　お買い物デート！-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free"]
+      - title: "#3　お買い物デート！-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#4　肉刺子-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#4　肉刺子-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#5　ビーフorチキン？-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#5　ビーフorチキン？-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#6　命短し食せよ乙女-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#6　命短し食せよ乙女-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#7　その他のわたし-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#7　その他のわたし-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#8　肉刺子謝肉祭①-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#8　肉刺子謝肉祭①-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#9　肉刺子謝肉祭②-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#9　肉刺子謝肉祭②-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#10　肉刺子謝肉祭③-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#10　肉刺子謝肉祭③-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#11　異変-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#11　異変-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#12　革命の肉刺子-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#12　革命の肉刺子-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#13　Can you celebrate?-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#13　Can you celebrate?-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["free-timed"]
+        access_note: "共通チケット — one extra free chapter per day, any series"
+      - title: "#14　ガールミートガール-①"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["purchase"]
+      - title: "#14　ガールミートガール-②"
+        updated: 2026-04-15
+        author: "茂木清香"
+        access_modes: ["purchase"]
   - work_title: "フェアウェイの声をきかせて"
     author: "椎葉裕巳"
     url: "https://championcross.jp/series/8178b4fc09df9"
@@ -4522,6 +4691,15 @@ works:
         updated: 2025-07-06
         author: "椎葉裕巳"
         access_modes: ["purchase"]
+  - work_title: "横槍メンゴ新作読切シリーズ"
+    url: "https://ynjn.jp/title/30352"
+    platform_name: "ヤンジャン+"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り"
+        updated: 2026-08-11
+        date_basis: heuristic
   - work_title: "ナキノン"
     author: "根岸岳春"
     url: "https://heros-web.com/series/696d291fa1769"
@@ -4670,6 +4848,15 @@ works:
         updated: 2026-02-18
         author: "餡実ツキ"
         access_modes: ["free"]
+  - work_title: "ツイてるギャルとミエてる陰キャ"
+    url: "https://kirapo.jp/meteor/titles/tuimie"
+    platform_name: "きら星ポータル"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り"
+        updated: 2026-06-17
+        date_basis: heuristic
   - work_title: "ロイヤルテーラー ―王宮の裁縫師―"
     url: "https://zerosumonline.com/detail/royaltailor"
     platform_name: "ゼロサムオンライン"

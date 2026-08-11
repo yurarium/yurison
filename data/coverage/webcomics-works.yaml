@@ -9,7 +9,7 @@ source: webcomics.jp
 role: discovery-only
 retrieved: 2026-08-11
 record_type: candidate_works
-works: 318
+works: 315
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -1039,7 +1039,7 @@ candidates:
   - title: "オカルトタイムズ"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03282"]
-    tags: ["百合"]
+    tags: ["オカルト", "百合"]
   - title: "オカワリいただけただろうか?"
     platforms: ["pixivコミック", "webアクション", "がうがうモンスター"]
     urls: ["https://comic-action.com/episode/2550912964909179818", "https://comic.pixiv.net/works/11565", "https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P"]
@@ -1517,7 +1517,7 @@ candidates:
   - title: "バカに告白"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006660_S"]
-    tags: ["ラブコメ", "学園", "百合"]
+    tags: ["ラブコメ", "学園", "最近のコメント数", "百合"]
   - title: "バカ女26時"
     platforms: ["pixivコミック", "ヤンジャン+"]
     urls: ["https://comic.pixiv.net/works/9913", "https://ynjn.jp/title/12102"]
@@ -2475,8 +2475,8 @@ candidates:
     urls: ["https://comic-walker.com/detail/KC_003150_S"]
   - title: "姫虐が止まらない白桃さん"
     platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/2551460910021695025"]
-    tags: ["百合"]
+    urls: ["https://ichicomi.com/episode/12207421983584564641", "https://ichicomi.com/episode/2551460910021695025"]
+    tags: ["女子高生", "百合"]
   - title: "娘が彼女を連れてきた話"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2532/"]

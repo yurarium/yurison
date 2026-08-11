@@ -9,8 +9,8 @@ retrieved: 2026-08-11
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 318
-works_on_watched_platform: 299
+distinct_works: 315
+works_on_watched_platform: 296
 platforms_total: 53
 platforms_watched: 38
 # ranked by works reachable on NO watched platform
@@ -21,9 +21,9 @@ platforms_missing:
     works: 2
   - platform: "ヤンジャン+"
     works: 2
-  - platform: "pixivコミックマガジン"
-    works: 1
   - platform: "ドリコミ+"
+    works: 1
+  - platform: "pixivコミックマガジン"
     works: 1
   - platform: "マンガボックス"
     works: 1
@@ -143,6 +143,11 @@ works_missing:
     url: "https://feelweb.jp/episode/2550689798763776115"
     antenna_id: "174064"
     tags: ["百合"]
+  - title: "多良さんのウワサ"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/f5a28c7f5cc1b"
+    antenna_id: "149312"
+    tags: ["百合", "現代ファンタジー", "オカルト"]
   - title: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/58238b3987c11"
@@ -168,11 +173,6 @@ works_missing:
     url: "https://g-comi.jp/series/fef424c168c44"
     antenna_id: "210855"
     tags: ["百合", "先輩と後輩", "大学生"]
-  - title: "多良さんのウワサ"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/f5a28c7f5cc1b"
-    antenna_id: "149312"
-    tags: ["百合", "現代ファンタジー", "オカルト"]
   - title: "魔女とくゅらす"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
@@ -208,6 +208,11 @@ works_missing:
     url: "https://comic-seasons.com/episode/2551460909766158255"
     antenna_id: "198917"
     tags: ["百合"]
+  - title: "新米姉妹のふたりごはん"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/3287"
+    antenna_id: "89016"
+    tags: ["料理・グルメ", "女子高生", "実写化", "百合", "レシピ", "義理の兄弟姉妹"]
   - title: "晴れた日のドレスコード"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13425"
@@ -433,6 +438,11 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_019658_S"
+    antenna_id: "211658"
+    tags: ["百合", "現代ファンタジー", "バトル"]
   - title: "わたしのために脱ぎなさいっ!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_000188_S"
@@ -452,7 +462,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006660_S"
     antenna_id: "188798"
-    tags: ["百合", "学園", "ラブコメ"]
+    tags: ["最近のコメント数"]
   - title: "彼氏の女友達がぐいぐい来る(私に)"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_016753_S"
@@ -518,11 +528,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_005941_S"
     antenna_id: "176462"
     tags: ["百合"]
-  - title: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_019658_S"
-    antenna_id: "211658"
-    tags: ["百合", "現代ファンタジー", "バトル"]
   - title: "創る庭"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007254_S"
@@ -933,11 +938,6 @@ works_missing:
     url: "https://www.corocoro.jp/title/773"
     antenna_id: "182492"
     tags: ["妖怪", "オカルト", "百合"]
-  - title: "高井さんの見える世界"
-    platform: "サンデーうぇぶり"
-    url: "https://www.sunday-webry.com/episode/12207421983909949999"
-    antenna_id: "212937"
-    tags: ["百合", "読み切り"]
   - title: "てくのぱにっくゆにばーす"
     platform: "サンデーうぇぶり"
     url: "https://www.sunday-webry.com/episode/2551460909679507683"
@@ -947,16 +947,6 @@ works_missing:
     platform: "サンデーうぇぶり"
     url: "https://www.sunday-webry.com/episode/12207421983914997657"
     antenna_id: "211318"
-    tags: ["百合", "読み切り"]
-  - title: "湾田さんと蛇ノ目さん"
-    platform: "サンデーうぇぶり"
-    url: "https://www.sunday-webry.com/episode/12207421983659791816"
-    antenna_id: "206749"
-    tags: ["百合", "読み切り"]
-  - title: "予行練習"
-    platform: "ゼノン編集部"
-    url: "https://comic-zenon.com/episode/12207421984039817859"
-    antenna_id: "212964"
     tags: ["百合", "読み切り"]
   - title: "画家の肖像"
     platform: "ゼノン編集部"
@@ -1008,16 +998,36 @@ works_missing:
     url: "https://championcross.jp/series/860136c646c03"
     antenna_id: "208957"
     tags: ["百合", "読み切り"]
-  - title: "エルフとひとつ屋根の下"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/72ba4fac7c0f4"
-    antenna_id: "178966"
-    tags: ["百合", "エルフ・ハーフエルフ"]
   - title: "勇者の旅の裏側で"
     platform: "ドリコミ+"
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "ばっどがーる"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/53991"
+    antenna_id: "121994"
+    tags: ["百合", "女子高生", "4コマ", "アニメ化"]
+  - title: "球詠"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/22768"
+    antenna_id: "52268"
+    tags: ["アニメ化", "スポーツ", "百合", "野球", "女子高生"]
+  - title: "彩純ちゃんはレズ風俗に興味があります!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56286"
+    antenna_id: "128026"
+    tags: ["百合", "性風俗・娼館", "エロ"]
+  - title: "陰キャギャルでもイキがりたい!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/65853"
+    antenna_id: "158717"
+    tags: ["百合", "女子高生"]
+  - title: "たゆたう恋の散り際に"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/77731"
+    antenna_id: "207194"
+    tags: ["百合", "学園"]
   - title: "わたしのために脱ぎなさいっ!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/34328"
@@ -1108,11 +1118,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/77287"
     antenna_id: "204961"
     tags: ["百合"]
-  - title: "球詠"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/22768"
-    antenna_id: "52268"
-    tags: ["アニメ化", "スポーツ", "百合", "野球", "女子高生"]
   - title: "ぜんぶ壊して地獄で愛して"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/65189"
@@ -1128,11 +1133,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/56065"
     antenna_id: "127467"
     tags: ["ファンタジー", "百合", "学園", "アニメ化"]
-  - title: "ばっどがーる"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/53991"
-    antenna_id: "121994"
-    tags: ["百合", "女子高生", "4コマ", "アニメ化"]
   - title: "現実世界でも幸せにしてくださいね?"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/70414"
@@ -1198,11 +1198,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/72312"
     antenna_id: "189669"
     tags: ["百合", "ギャグ・コメディ"]
-  - title: "たゆたう恋の散り際に"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/77731"
-    antenna_id: "207194"
-    tags: ["百合", "学園"]
   - title: "どれが恋かがわからない"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/56504"
@@ -1332,7 +1327,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
     antenna_id: "211531"
-    tags: ["百合"]
+    tags: ["百合", "オカルト"]
   - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/02328"
@@ -1402,11 +1397,6 @@ works_missing:
     platform: "マンガよもんが"
     url: "https://www.yomonga.com/titles/2532/"
     antenna_id: "200569"
-    tags: ["百合"]
-  - title: "鬼売れアイドルが今日も私を推してくる"
-    platform: "マンガよもんが"
-    url: "https://www.yomonga.com/titles/2514/"
-    antenna_id: "191062"
     tags: ["百合"]
   - title: "世界で一番おっぱいが好き!"
     platform: "マンガボックス"
@@ -1480,9 +1470,9 @@ works_missing:
     tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
   - title: "姫虐が止まらない白桃さん"
     platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2551460910021695025"
+    url: "https://ichicomi.com/episode/12207421983584564641"
     antenna_id: "200994"
-    tags: ["百合"]
+    tags: ["百合", "女子高生"]
   - title: "キミが吠えるための歌を、"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2550912965923203479"

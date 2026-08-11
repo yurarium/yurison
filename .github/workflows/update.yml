@@ -127,7 +127,22 @@ jobs:
       # them, and so a failure names the adapter that failed instead of vanishing into `|| true`.
       # They run CONCURRENTLY: they address different publishers, each still paces its own host,
       # and eleven adapters no longer queue behind each other's sleep.
+      # ONE ADAPTER MUST NOT COST THE NIGHT (B2). All thirteen commands here are required, and
+      # `run_stage.py` returns 1 if any of them fails, which failed this step and stopped the job
+      # before the compile. So a single publisher changing a feed's shape withheld the other twelve
+      # platforms' updates as well as its own, and the site kept yesterday's everything.
+      #
+      # THE OWNER'S RULE IS WHAT THIS IS SHAPED BY: partially processing new information is an
+      # acceptable failure, publishing a site where existing information is missing in part is not.
+      # An adapter that fails writes nothing, so its source file keeps every row it had and the
+      # compile publishes that platform exactly as it stood. Nothing is lost, only not gained.
+      #
+      # IT IS NOT SWALLOWED. `run_stage.py` names each failing adapter and its stderr, the step
+      # still goes red, the source file's `age_days` climbs on the status page, and `Stage A failed`
+      # below fails the JOB after the data is published rather than instead of it.
       - name: Stage A — feeds and APIs
+        id: stage_a
+        continue-on-error: true
         run: |
           python3 adapters/run_stage.py adapters/stage-a.yaml \
             --retrieved "$R" --cache "$CACHE" --workers 6
@@ -184,16 +199,24 @@ jobs:
           python3 adapters/ledger.py
           python3 adapters/status.py
 
-      - name: Prove the checks can fail
+      # THE ONE CODE-TIER PROOF THIS RUN STILL NEEDS, and the reason it is not the others (B3).
+      # A canary is planted in a context built from TODAY'S corpus, so this asks whether the checks
+      # can still fail against the data that just arrived. A check goes vacuous when the data
+      # changes shape under it, which is a fault the check-in gate cannot see because the corpus it
+      # runs against is yesterday's. `0 vacuous` is the property, and this is where it is at risk.
+      - name: Prove the checks can fail against today's corpus
         run: python3 check.py --self-test
 
-      - name: Unit tests
-        # ./test.py discovers suites rather than naming them, so a new test cannot sit unrun; it
-        # blocks the network in every child, so a test that needs one fails rather than reaching
-        # out from CI; and --canary re-runs everything inverted to show the suites can fail.
-        run: |
-          ./test.py
-          ./test.py --canary
+      # THE UNIT TESTS ARE GONE FROM HERE, and that is B3's answer rather than an omission. This
+      # job fetches data; it does not change code. `./test.py` and `--canary` prove the code in the
+      # tree is sound, the tree is the one `gate.yml` already blocked on at check-in, and nothing
+      # between then and now can have altered it. Running them again asked a question whose answer
+      # was settled, for four minutes a night, and answered it in a job where a failure stops the
+      # data being published — so a flake in a test about credit splitting could withhold a day of
+      # releases that were fetched perfectly well.
+      #
+      # WHAT COVERS THE CODE INSTEAD: `gate.yml`, on every push, blocking, with the site cloned and
+      # the corpus built first so the suites have what they read.
 
       - name: Field audit — a moved selector is silent otherwise
         run: |
@@ -320,3 +343,20 @@ jobs:
           # the site repo's own leak-guard.yml. The public repo keeps its server-side backstop
           # without this workflow doing anything.
           git push
+
+      # THE NIGHT'S VERDICT, AFTER THE DATA IS OUT (B2). Publishing comes first because a fetch
+      # that failed is not a reason to withhold the twelve that did not, and a red run is how
+      # anybody learns a platform stopped answering. Both halves are needed: publish, then say so.
+      #
+      # Stage 0, the fixtures and Stage C are deliberately absent. A discovery pass, a fixture that
+      # has drifted and a browser adapter are all expected to fail sometimes, and a check that
+      # fires on somebody else's release schedule gets switched off rather than obeyed. Stage A is
+      # the one whose failure means a platform we track went unread.
+      - name: Stage A failed, and the data was published first
+        if: ${{ steps.stage_a.outcome == 'failure' }}
+        run: |
+          echo "::error::Stage A reported a failing adapter. The build, the checks and the publish"
+          echo "::error::all ran on the sources that were fetched, so nothing a reader holds is"
+          echo "::error::missing; one or more platforms simply were not read tonight. The adapter"
+          echo "::error::and its stderr are named in the Stage A step above."
+          exit 1

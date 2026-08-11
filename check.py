@@ -6118,6 +6118,9 @@ def main():
                    help="re-answer only the invariants a copy can change, and patch checks.json")
     g.add_argument("--self-test", action="store_true", help="prove the checks can fail")
     ap.add_argument("--no-tighten", action="store_true", help="do not record improved budgets")
+    ap.add_argument("--data-advisory", action="store_true",
+                    help="budgets counting the DATA report rather than block; the source tier, "
+                         "the invariants and any budget that could not be measured still block")
     a = ap.parse_args()
 
     if a.self_test:
@@ -6323,6 +6326,34 @@ def main():
             print(f"\n{len(failed)} invariant(s) violated, {len(loosened)} budget(s) exceeded — "
                   f"degraded per the stated fallbacks; see docs/STANDING-INSTRUCTIONS.md")
         return 0
+
+    # WHICH TIER BLOCKS A PERSON'S PUSH. B3, agreed with the project owner 2026-08-11. A code push
+    # runs this against the corpus that is committed, and the corpus moves under it: the unattended
+    # update commits new source data every night, so a budget counting works can rise with nothing
+    # in the push responsible for it. Five rose that way on 2026-08-11 and each stopped a commit
+    # that was about code, which is a gate reporting on somebody else's change.
+    #
+    # SO THE SOURCE TIER BLOCKS AND THE DATA TIER REPORTS, and `SOURCE_BUDGETS` already draws the
+    # line: those count this repository's own Python and Markdown, which only a push can change.
+    #
+    # INVARIANTS ARE NOT IN THIS. A violated invariant is a broken statement about the data whoever
+    # caused it, and degrading that to a note is how a fault gets published. Nor is a budget that
+    # could not be MEASURED, which says a check failed to run rather than that a count moved.
+    #
+    # NOTHING IS LOST BY REPORTING. The number still reaches `checks.json` and the status page, the
+    # ratchet still holds the recorded value, and `./check.py --gate` run by hand still blocks on
+    # everything, which is where accepting a rise belongs: a person deciding, not a push being
+    # stopped by a fetch that happened overnight.
+    advisory = []
+    if a.data_advisory:
+        advisory = [x for x in loosened if x[0] not in SOURCE_BUDGETS]
+        loosened = [x for x in loosened if x[0] in SOURCE_BUDGETS]
+    if advisory:
+        print(f"\n{len(advisory)} data budget(s) rose. Reported, not blocking: the data these count "
+              f"is not what this push changed.")
+        for name, was, now in advisory:
+            print(f"  {name} rose {was} -> {now}; accept it with ./check.py --gate when you have "
+                  f"looked at why")
 
     if failed or loosened or unmeasured:
         _report_time()

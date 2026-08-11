@@ -96,3 +96,45 @@ from code. Under a blocking gate on `main`, a data drift can block a code push. 
 that `gate.yml` blocks on the code and reports the data budgets, which is the same separation §B3
 argues for one level down. Recorded here because it is a design question and not a defect, and
 because it will be met the first time a data budget moves under the new trigger.
+
+---
+
+## B2 and B3, the separation the tension above predicted. DONE 2026-08-11
+
+**B3, which tier blocks.** `check.py --data-advisory` splits the verdict on `SOURCE_BUDGETS`, the
+set that already declared which budgets count this repository's own Python and Markdown. Those
+block; the ones counting the data report. Invariants are not in the split, because a violated
+invariant is a broken statement whoever caused it, and neither is a budget that could not be
+measured, which says a check failed to run rather than that a count moved. `gate.yml` passes the
+flag; `./check.py --gate` by hand still blocks on everything, which is where accepting a rise
+belongs.
+
+The tension above is what this answers, and it was not theoretical: five budgets rose on 2026-08-11
+from data the update run had fetched, and each stopped a commit that was about code.
+
+**B3, the unit tests are out of the update run.** That job fetches data and does not change code.
+`./test.py` and `--canary` prove the tree is sound, `gate.yml` already blocked on that tree at
+check-in, and nothing between then and now can have altered it. Four minutes a night to re-answer a
+settled question, in a job where a failure withholds the data. A flake in a test about credit
+splitting could have cost a day of releases that were fetched perfectly well.
+
+`check.py --self-test` STAYS, and the distinction is the point. Its canaries are planted in a
+context built from today's corpus, so it asks whether the checks can still fail against the data
+that has just arrived. A check goes vacuous when the data changes shape under it, and the check-in
+gate cannot see that because it runs against yesterday's corpus.
+
+**B2, one adapter must not cost the night.** All thirteen Stage A commands are required and
+`run_stage.py` returns 1 if any fails, which stopped the job before the compile: one publisher
+changing a feed's shape withheld the other twelve platforms' updates too.
+
+Shaped by the owner's rule that partially processing new information is an acceptable failure and
+publishing a site with existing information missing is not. An adapter that fails writes nothing, so
+its source file keeps every row it had and the compile publishes that platform as it stood: nothing
+is lost, only not gained. A partial WRITE is the other half and is already covered, by
+`capturegap.py`, which joins the targets a pass was given against the rows it wrote and owes the
+pass's own counters nothing.
+
+It is not swallowed. The failing adapter and its stderr are named, the step goes red, the source's
+`age_days` climbs on the status page, and a final step fails the job AFTER the publish rather than
+instead of it. Publishing first is the rule; going red is how anybody learns a platform stopped
+answering.

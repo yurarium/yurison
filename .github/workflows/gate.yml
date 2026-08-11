@@ -78,5 +78,14 @@ jobs:
           ./test.py
           ./test.py --canary
 
+      # THE SOURCE TIER BLOCKS AND THE DATA TIER REPORTS (B3). This job runs against the corpus
+      # that is committed, and the unattended update commits new source data every night, so a
+      # budget counting works rises here with nothing in the push responsible: five did so on
+      # 2026-08-11 and each stopped a commit that was about code. The invariants still block, and a
+      # budget that could not be measured still blocks, because neither is a count drifting.
+      #
+      # Accepting a data rise stays a person's job: `./check.py --gate` by hand, with the recorded
+      # value edited and a reason given. Nothing is hidden either way — the number is in
+      # `checks.json` and on the status page whichever tier it is in.
       - name: Gate — all right or no go
-        run: python3 check.py --gate --no-tighten
+        run: python3 check.py --gate --no-tighten --data-advisory

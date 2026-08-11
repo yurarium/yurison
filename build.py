@@ -117,6 +117,13 @@ def jsonable(o):
 # コミックノヴァ was on this list on the strength of looking similar, and it does not belong: it is
 # 一二三書房's own weekly serialisation, numbered 第N話, which withdraws older chapters with
 # 「公開は終了しました」. That is why our capture of it looks thin, and thin is not promotional.
+# HOW MANY DAYS THE UPDATES TAB SHOWS, and the line between news and something we found late.
+# Module level because two callers need it: `write_feed_split` sizes the current window with it, and
+# the feed assembly asks whether a sighting arrived later than the window would have shown the
+# publication, which is what makes a row late-discovered. It was local to the first of those, so the
+# second could not ask and the question was answered by an adapter's own cutoff instead.
+CURRENT_WINDOW_DAYS = 14
+
 FINAL_RE = re.compile(r"最終(話|回|幕|エピソード)|[（(＜<〈\[【]\s*完\s*[）)＞>〉\]】]")
 # WHAT THE MARK MEANS, for the English sentence that quotes it. `completed_basis` read "the newest
 # chapter is titled 最終話" on 79 works, which is the evidence for calling a series finished and is
@@ -2403,7 +2410,6 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
     # print_candidates and web_works are statements about the database as a whole, not about a
     # month, so repeating them in every archive would be both wrong and the very duplication this
     # split exists to remove. They go in meta.json once.
-    CURRENT_WINDOW_DAYS = 14
 
     # Where the published archive stops going back, and why it is not simply "everything we hold".
     #
@@ -4787,20 +4793,62 @@ def main():
     # arrive stamped "discovered today" — a decade of one-shots piled onto one date, drowning the
     # actual news and asserting a discovery event that is an artefact of when we happened to run.
     #
-    # During the initial build a work is recorded against the date it was published, which is the
-    # date the claim gives. `late_discovered` is still computed and still stored, so the rows can be
-    # told apart later and so steady-state behaviour can be restored by flipping this.
-    BOOTSTRAP = True
-    if BOOTSTRAP:
-        for r in releases:
-            r["surfaced"] = False
+    # THE FLAG WAS GLOBAL AND IS NOW A DATE, decided by the project owner 2026-08-11. `BOOTSTRAP`
+    # switched the whole rule off, so `late_discovered` was computed, stored and never acted on, and
+    # a row published in July and first seen in August filed under July as though we had reported it
+    # then. What made the flag necessary was never the rule; it was that the ledger's dates are not
+    # all sightings.
+    #
+    # 3,080 of the ledger's 3,498 entries carry 2026-08-02, the day it was created. Everything the
+    # pipeline already held was stamped with the moment it began remembering, so for those rows
+    # "first seen in August, published in July" says only that the ledger is younger than the data.
+    # Acting on it would move 646 of 850 web releases out of July, and a fresh checkout would then
+    # derive July very nearly empty, which is the opposite of the record it is meant to be.
+    #
+    # So the seed date is not evidence. A sighting ON it is treated as unknown and the row keeps its
+    # publication date; a sighting AFTER it is a sighting the pipeline actually witnessed and the
+    # rule applies in full. The exception expires by itself as the seeded rows age out, and it needs
+    # nobody to remember to flip anything.
+    LEDGER_SEEDED_ON = "2026-08-02"
+
+    # WEB RELEASES ONLY. A printed volume is dated by its publication, and a catalogue reaching us
+    # late says nothing about when the book came out. The ledger is keyed work|episode|platform and
+    # holds web chapters, which is the population this is about.
+    #
+    # COMPUTED HERE AND NOT IN AN ADAPTER, which is the other half of the same fault. The generic
+    # webpage route set `late_discovered` from its own cutoff and every other route left it unset,
+    # so lateness was a property of which adapter happened to fetch a row. The ledger is one answer
+    # for all of them.
+    for r in releases:
+        if not r.get("web"):
+            continue
+        seen_on = ledger.get(
+            f"{norm_work(r['work'])}|{norm_work(r.get('ep') or '')}|{r.get('plat_name') or r.get('plat')}")
+        if not seen_on or seen_on <= LEDGER_SEEDED_ON:
+            continue
+        pub = str(r.get("pub") or "")[:10]
+        # MEASURED IN MONTHS, BECAUSE THE ARCHIVE'S UNIT IS THE MONTH. A day count answers a
+        # different question. 弱った時に効く薬 was published on 31 July and first seen on 7 August,
+        # seven days later and well inside the window, so a day rule calls it ordinary news and
+        # files it under July. July was closed on 1 August and never reopens, so the row has
+        # nowhere to go: a fresh checkout puts it in July and the published July does not have it.
+        # 54 rows were in that state.
+        #
+        # A month boundary is the same question the archive asks. Learned in a later month than it
+        # was published means the month that would have carried it is shut, so it is news now.
+        if pub and seen_on[:7] > pub[:7]:
+            r["late_discovered"] = True
+            r["discovered_on"] = seen_on
+
+    # A WORK WITH OTHER RELEASES IN THE WINDOW IS NOT NEWLY DISCOVERED; only one of its chapters is
+    # old, and surfacing it presents the same work twice, once as news.
     in_window_works = {norm_work(r["work"]) for r in releases if not r.get("late_discovered")}
     for r in releases:
         if r.get("late_discovered") and norm_work(r["work"]) in in_window_works:
             r["late_discovered"] = False
             r["discovered_on"] = None
     for r in releases:
-        r["feed_date"] = (r["pub"] if BOOTSTRAP or not r.get("late_discovered")
+        r["feed_date"] = (r["pub"] if not r.get("late_discovered")
                           else (r.get("discovered_on") or r["pub"]))
     releases.sort(key=lambda r: r["feed_date"], reverse=True)
 

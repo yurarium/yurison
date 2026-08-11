@@ -63,9 +63,14 @@ That is this fault, seen from the gate. See [PLAN-credits-and-gates](PLAN-credit
 
 ## What is settled and needs no further decision
 
-**July stays as it is.** It was largely retconned and the owner has accepted it as a record of what
-was known. Nothing here rewrites it; item 1 changes which month a row is filed in from now on, and
-the 119 move to August rather than July gaining them.
+**The line is drawn around July's ROW SET and around nothing else.** The month was largely
+retconned and the owner has accepted it as the basis it formed on, so which updates sit in July is
+settled: item 1 changes which month a row is filed in from now on, and the 119 move to August
+rather than July gaining them.
+
+**July renders live, like every other month.** Accepting the row set says nothing about how those
+rows are drawn, and a name has a right answer whatever month it appears in. So item 2 applies to
+July as much as to any month after it, and the 573 stale titles in it are in scope.
 
 ## Open
 
@@ -75,7 +80,21 @@ which reads like rendering. Not settled here because nothing turns on it until i
 
 ## Progress
 
-1. `feed_date` from the ledger, every route, web only. NOT STARTED
+1. `feed_date` from the ledger, every route, web only. DONE 2026-08-11
+
+`BOOTSTRAP = True` forced `feed_date = pub` on every row, so the marker was computed, stored and
+never acted on. It is a date now: a sighting ON 2026-08-02, the day the ledger was seeded, is not
+evidence and the row keeps its publication date; a sighting after it is one the pipeline witnessed
+and the rule applies. The exception expires as the seeded rows age out.
+
+Lateness is measured in MONTHS, because the archive's unit is the month. A day rule left 54 rows
+homeless: published 31 July, first seen 7 August, inside the 14-day window so not late, and July
+closed on 1 August and never reopens. A fresh checkout derived July as 681 rows under the old
+behaviour, 659 under a day rule and 606 under this one, against a published 605.
+
+109 rows moved from the archive into the current feed and carry the marker, which is the glut the
+owner accepted. Four budgets rose with them, all because the current feed now has more rows to
+measure.
 2. Archives carry no rendering. NOT STARTED
 
 Section 3 asks for no work. It is written down so that committing the archives is not done by

@@ -88,6 +88,17 @@ COPYRIGHT_MARK = re.compile(r'^\s*(?:[(（]\s*[cCｃＣ]\s*[)）]|[©Ⓒⓒ]️?
 EPISODE = re.compile(r'<li class="episode_item">(.*?)</li>', re.S)
 EP_LINK = re.compile(r'<div class="title"><a href="(/watch/mg\d+)">([^<]*)</a>')
 EP_NUMBER = re.compile(r'data-number="(\d+)"')
+# THE EPISODE'S OWN SELLING LABEL, which says a signed-out reader on the web cannot open it.
+# `私の女神が今日も推せる 【単話版】` renders nine episodes and every one carries
+# `<span class="selling_label selling_label-selling">アプリで読める</span>`: readable in the phone
+# app and nowhere a browser goes. The work-level meta line says `[ アプリで読める ]` in place of the
+# usual `[ N話 無料 ]`.
+#
+# READ PER EPISODE AND NOT OFF THE META LINE, which is the whole point. The header badge is a
+# summary and a work may carry it while still rendering episodes a browser can open, so believing
+# the header would take web-readable chapters away from works that have them. An episode says for
+# itself, and one that says nothing is one the page is offering.
+EP_APP_ONLY = re.compile(r'class="selling_label[^"]*"[^>]*>\s*アプリで読める')
 # The breadcrumb, which is the only element on the page that names the channel THIS work is in.
 # Everything else carrying an /official/ address is navigation to somebody else's.
 PANKUZU = re.compile(r'<ul class="sg_pankuzu">(.*?)</ul>', re.S)
@@ -137,7 +148,8 @@ def episodes(html):
         n = EP_NUMBER.search(b)
         out.append({"title": _text(link.group(2)),
                     "url": "https://manga.nicovideo.jp" + link.group(1),
-                    "number": int(n.group(1)) if n else None})
+                    "number": int(n.group(1)) if n else None,
+                    "app_only": bool(EP_APP_ONLY.search(b))})
     return out
 
 

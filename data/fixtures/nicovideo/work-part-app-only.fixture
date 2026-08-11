@@ -1,0 +1,98 @@
+agrees_with: adapters/nicovideo/releases.py:parse
+body_sha256: f6da039e078d9aea273ece4e94a2c53e92e2fc7470b80273ff7d2b62b95a71a8
+cached_as: null
+captured: '2026-08-11'
+format: html
+keep:
+- <title>
+- <ul class="sg_pankuzu">
+- <div class="meta_info">
+- <div id="episode_list"
+- <small class="copyright">
+redact: []
+redact_over: 0
+retrieved: '2026-08-11'
+sample: []
+source_bytes: 124881
+source_sha256: d9dcde5b4510f0d98f5166ac1f47979ded63b3b1e8b1ea5e79bbca6762878a7c
+trim: []
+url: https://manga.nicovideo.jp/comic/39378
+why: '満腹百合. Its seven episodes split 3 browser-readable and 4 carrying `アプリで読める` on
+
+  their own tile, which is the shape most of this platform is in: the opening chapters
+  read free in a
+
+  browser and the rest moved into the phone app.
+
+
+  THE HEADER IS THE COUNTER-CASE AND NOT PADDING. `meta_info` states the work-level
+  badge, and a rule
+
+  reading app-only off it would call all seven app-only and be wrong about three.
+  The label is read
+
+  per episode because this page shows both answers at once.'
+---
+<title>
+      満腹百合 / 宮部サチ おすすめ漫画 - ニコニコ漫画
+  </title>
+<ul class="sg_pankuzu">
+                        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/manga/" itemprop="url"><span itemprop="title">マンガ</span></a></li>
+                    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/official/comicryu" itemprop="url"><span itemprop="title">[公式] ニコニコCOMICリュウ</span></a></li>
+                    <li class="active" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><span itemprop="title">満腹百合</span></li>
+            </ul>
+<div class="meta_info">
+          2019年03月07日更新
+          2019年02月05日開始
+          <span style="padding-left: 16px">
+            [
+              3話 無料
+            ]
+          </span>
+                    <span style="padding-left: 16px">
+            <a href="/manga/list?category=%E5%B0%91%E5%A5%B3%E3%83%9E%E3%83%B3%E3%82%AC">
+              [<span class="category">少女マンガ</span>]
+            </a>
+          </span>
+                    <div id="ko_favorite_top">
+            <div class="meta_info__favorite">
+              <a class="btn favorite"
+                 data-bind="click: toggleState, css: {active: favorite}, attr: {title: favorite()? '作品のお気に入りを解除' : '作品をお気に入りに登録', rel: favorite()? 'tooltip' : 'tooltip_remove'}">
+                <span class="icon_watchlist_add"></span>
+                <span class="text" data-bind="text: favorite()? 'お気に入りに追加済み' : '作品をお気に入りに登録'" sheep-class="text">作品をお気に入りに登録</span>
+              </a>
+            </div>
+          </div>
+        </div>
+<div id="episode_list" class=" inner tile_view ">
+                          <ul style="list-style:none">
+                      <li class="episode_item">
+            <div class="episode" data-number="1" data-idx="0"><div class="thumb episode_thumb"><a href="/watch/mg374090"><img alt="第1話" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/8917660q" class="lazyload"><span class="mg_status status">22 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg374090">第1話</a></div><div class="body empty_text"></div><div class="comment_summary ">A5は肉の格付けであって、安く売ろうと無料で配ろうとランクが変化するわけじゃない よく...</div><div class="counter">再生:18669 | コメント:82</div></div></div>                        </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="2" data-idx="1"><div class="thumb episode_thumb"><a href="/watch/mg374093"><img alt="第2話" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/8917709q" class="lazyload"><span class="mg_status status">24 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg374093">第2話</a></div><div class="body empty_text"></div><div class="comment_summary ">ホラーかな 食べたら運動しないといけないからね。うんうん。 40はやばいwwwwww カウント26…… </div><div class="counter">再生:12418 | コメント:53</div></div></div>                        </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="3" data-idx="2"><div class="thumb episode_thumb"><a href="/watch/mg374095"><img alt="第3話" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/8917760q" class="lazyload"><span class="mg_status status">24 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg374095">第3話</a></div><div class="body empty_text"></div><div class="comment_summary ">あれ!? なぜか途中で切れているようなんだけどあれっ!???? あれだけ食ったら流石にお腹ぼっ...</div><div class="counter">再生:10487 | コメント:32</div></div></div>                        </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="4" data-idx="3"><div class="thumb episode_thumb"><a href="/watch/mg375835"><img alt="第4話" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/8942007q" class="lazyload"><span class="mg_status status">27 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg375835">第4話</a></div><div class="body empty_text"></div><div class="comment_summary ">うわーw 隠し撮り!悪い!おなかタルタル!! 不安展開か!あやさんが完璧過ぎてイマイチ乗れなか...</div><div class="counter">再生:3294 | コメント:45</div></div></div>              <span class="selling_label selling_label-selling">
+          アプリで読める
+      </span>
+            </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="5" data-idx="4"><div class="thumb episode_thumb"><a href="/watch/mg375836"><img alt="第5話" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/8942056q" class="lazyload"><span class="mg_status status">34 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg375836">第5話</a></div><div class="body empty_text"></div><div class="comment_summary ">表情ソムリエはもういい 子供可愛い♡ そういえばIPS… 綾さん有能すぎる 百合苦手だけど泣...</div><div class="counter">再生:3964 | コメント:26</div></div></div>              <span class="selling_label selling_label-selling">
+          アプリで読める
+      </span>
+            </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="6" data-idx="5"><div class="thumb episode_thumb"><a href="/watch/mg375838"><img alt="第6話" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/8942128q" class="lazyload"><span class="mg_status status">22 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg375838">第6話</a></div><div class="body empty_text"></div><div class="comment_summary ">あやさんが居候で家事をやってくれてたんでしょ。家主はののかで収入源もののか 子供はな...</div><div class="counter">再生:2827 | コメント:20</div></div></div>              <span class="selling_label selling_label-selling">
+          アプリで読める
+      </span>
+            </li>
+                      <li class="episode_item">
+            <div class="episode" data-number="7" data-idx="6"><div class="thumb episode_thumb"><a href="/watch/mg382297"><img alt="第7話" data-original="https://deliver.cdn.nicomanga.jp/thumb/mg_thumb/9036009q" class="lazyload"><span class="mg_status status">32 ページ</span></a></div><div class="description"><div class="title"><a href="/watch/mg382297">第7話</a></div><div class="body empty_text"></div><div class="comment_summary ">え?終わるの? とりあえずデザートを食べてるシーンをカラーでお願いします(;´Д`)ハァハァ ...</div><div class="counter">再生:2418 | コメント:21</div></div></div>              <span class="selling_label selling_label-selling">
+          アプリで読める
+      </span>
+            </li>
+                    </ul>
+          <div style="clear:both;"></div>
+              </div>
+<small class="copyright">©宮部サチ/徳間書店</small>

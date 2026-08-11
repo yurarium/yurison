@@ -9,8 +9,10 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
+import fixtures                                                                # noqa: E402
 import testkit                                                                 # noqa: E402
 import works as W                                                              # noqa: E402
+import releases as nvr                                                          # noqa: E402
 
 # 運命のヤマダダダダダダダダダダ, the worked example of the pass this was written for: 芳文社's
 # printed book, found on a platform 芳文社 does not run.
@@ -40,6 +42,21 @@ def main(s):
          "every rendered episode becomes a chapter")
     s.eq(r["chapters"][0]["access_modes"], ["free"],
          "the rendered episodes are the free ones, which the page states")
+
+    # AN EPISODE THE WEB CANNOT OPEN IS NOT A FREE ONE. An episode tile may carry
+    # `アプリで読める`: readable in the phone app and nowhere a browser goes. Calling those free put
+    # a chapter in the free view a reader cannot reach, on 3,547 of the platform's 6,736 chapters.
+    #
+    # READ PER EPISODE AND NOT OFF THE HEADER. 満腹百合 is the counter-case in one page: the header
+    # states the badge and three of its seven episodes still open in a browser, so a rule reading
+    # the work-level line would be wrong about all three. The fixture keeps both answers.
+    eps = nvr.episodes(fixtures.load("nicovideo/work-part-app-only"))
+    s.eq(len(eps), 7, "every episode is read")
+    s.eq([bool(e["app_only"]) for e in eps], [False] * 3 + [True] * 4,
+         "the opening episodes read free in a browser and the rest are app-only")
+
+    s.check(not any(e["app_only"] for e in nvr.episodes(fixtures.load("nicovideo/work-in-a-channel"))),
+            "a page with no selling label marks nothing app-only")
     s.check(all("updated" not in c for c in r["chapters"]),
             "and none of them carries a date, because the platform states none")
 

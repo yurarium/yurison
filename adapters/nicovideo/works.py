@@ -82,8 +82,18 @@ def record(cid, html):
         # identifier promises not to do. Without them the row keeps the work page, which is a
         # readable page and does not move. Nothing is lost: these chapters carry no date, so they
         # never enter the release feed, and `releases.py` already links the newest episode there.
+        # AN EPISODE THE WEB CANNOT OPEN IS NOT A FREE ONE. `[ N話 無料 ]` is the work's summary
+        # and the episodes it counts may be readable only in the phone app: every one of
+        # 私の女神が今日も推せる 【単話版】's nine says `アプリで読める` on its own tile. Claiming
+        # `free` for those puts a chapter in the free view that a reader cannot reach.
+        #
+        # ASKED OF THE EPISODE. A work carrying the header badge may still render episodes a
+        # browser can open, so reading the summary would take web-readable chapters away from works
+        # that have them.
         "chapters": [{"title": e["title"],
-                      "access_modes": ["free"] if d.get("free_episodes") else []}
+                      "access_modes": ([] if e.get("app_only")
+                                       else (["free"] if d.get("free_episodes") else [])),
+                      **({"app_only": True} if e.get("app_only") else {})}
                      for e in eps],
     }
 
@@ -136,6 +146,12 @@ def write(path, works, retrieved):
             L.append(f"      - title: {js(c['title'])}")
             if c["access_modes"]:
                 L.append(f"        access_modes: {js(c['access_modes'])}")
+            # WRITTEN DOWN RATHER THAN INFERRED FROM AN EMPTY `access_modes`. An episode with no
+            # modes is one we could not read the access of; one marked here is one the platform
+            # says a browser cannot open at all. A later pass that filled the first in from some
+            # other source would otherwise call this chapter free.
+            if c.get("app_only"):
+                L.append("        app_only: true")
         if not w["chapters"]:
             L[-1] = "    chapters: []"
     L.append("")

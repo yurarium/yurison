@@ -2573,3 +2573,28 @@ What would close it is a `document` faithful enough for the painter to run: `que
 answers, elements that hold what is written into them, and a container the result can be read out
 of. That is a larger piece of work than the fix that found it, and it is the piece that would let
 every whole-page surface be checked rather than only the labels.
+
+## One person, two credit identities, where the mechanism cannot say so. Found 2026-08-11
+
+野宮りおん holds `c00627` and `Rion Nomiya` holds `c01650`; 犬井あゆ holds `c00774` and `Ayu Inui`
+holds `c01630`. Each pair is one person. Both creators publish an English edition of their own work
+and the shop credits the romanised name on it, so both spellings are real credit surfaces a source
+wrote, and each has a page of its own.
+
+**The evidence is plain and computable.** `野宮りおん` reads ノミヤ リオン and romanises to
+`Nomiya Rion`; the other surface is `Rion Nomiya`, the same two elements in Western order. `犬井あゆ`
+gives `Inui Ayu` against `Ayu Inui`.
+
+**`credit-rulings.yaml` cannot express it.** That file is keyed on a SHARED READING, which is what
+pairs `相崎うたう` with `アイザキウタウ`, and a Latin surface carries no reading at all. So the pair
+is never proposed, `relation` is never asked, and there is nowhere to write the decision. Nothing
+here is a judgement waiting to be made; the shape the judgement would be written in does not exist.
+
+What would close it is a second pairing rule beside the reading one: a credit whose surface equals
+another credit's romanisation, in either name order. The rulings file would then carry the pair like
+any other and the existing `merge` decision applies unchanged. Left rather than forced, because
+giving the Latin surface a reading purely to make the current file accept it would record evidence
+nobody has.
+
+Found while merging 24 translated editions onto the works they translate, which is what put both
+spellings of each creator on one work.

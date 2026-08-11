@@ -39,15 +39,13 @@
 #   `Hikikomari the Vampire Countess Monmon` beside the logo, which is the thing this pass exists
 #   to find.
 #
-#   manga-one, 6, IS THE ONE THAT DID NOT WORK, and its six pictures are worth nothing. The
-#   addresses this corpus holds for it are CHAPTER pages, whose og:image is a panel crop of about
-#   8 KB. Nothing reaches a series splash from there: `/manga/<id>` answers
-#   お探しのページは見つかりませんでした, the chapter page links back to site navigation and no
-#   series, and the site's search is drawn in the browser rather than served. The remaining route
-#   is the chapter's own interior pages, which are the comic itself and out of bounds for a pass
-#   about covers. The six rows say so, so nobody opens them hoping for a logo.
-#   What would fix it is a series ADDRESS for those six works, which is a coverage question rather
-#   than a fetching one.
+#   manga-one, 6. Its work page is at `/manga/<series>/chapter/<id>`, and the bare `/manga/<id>`
+#   answers page-not-found, which is why the first attempt stored six panel crops of about 8 KB:
+#   the chapter address's own og:image is one frame of the comic. The page is drawn in JavaScript,
+#   so the cover comes off the rendered DOM, the img whose src holds `title_list_single`, picked
+#   out by an alt that is the work's own title. All six replaced.
+#   The first of them opened glosses 妖怪殲滅 as ばけものごろし, the second gloss reading this pass
+#   has turned up, so the six were worth going back for.
 #
 # ONE IS NOT A REFUSAL AND IS NOW SETTLED AS SUCH. 123hon.com answers, and its og:image contains
 # `<?php echo $ContentsData[`, an unrendered template. `urljoin` made a URL of it that urlopen
@@ -264,3 +262,18 @@ candidates:
       `PRESENTED BY SHIBORIKASUKO`, one word, where the store splits the kana into
       `Shibori Kasuko` and holds no English name. The split is the analyser's guess at where a pen
       name divides, and the artist does not divide it.
+  - work: "妖怪殲滅のサイコリリー"
+    reading: "バケモノゴロシ"
+    of: "妖怪殲滅"
+    kind: title-furigana
+    seen_on: "https://app.manga-one.com/secure/1696576595/webp/title_list_single/4287.webp"
+    note: >-
+      The logo prints ばけものごろし as ruby across 妖怪殲滅, so the publisher reads those four
+      characters as `bakemono-goroshi`, monster-killing. The store reads them ヨウカイ センメツ and
+      rubies them 妖怪/ようかい and 殲滅/せんめつ, which is what the characters say and not what the
+      work calls itself. The same class as 現実世界 read as リアル, and the second of its kind this
+      pass has found.
+      It was reached only because the owner supplied the address form: manga-one's work page lives
+      at /manga/<series>/chapter/<id>, the bare /manga/<id> answers page-not-found, and the cover
+      is the img whose src holds `title_list_single`, identified by an alt that is the work's own
+      title.

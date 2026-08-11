@@ -137,3 +137,33 @@ candidates:
       Printed under the Japanese name. The store holds the reading タマサキ タマ and romanises it
       `Tamasaki Tama` in Japanese order with no English name at all; the artist writes it in
       Western order. The reading is confirmed and the order is a fact about how they are called.
+  - work: "或いは、私の名探偵"
+    latin: null
+    kind: examined-no-latin
+    of: "毒田ペパ子"
+    seen_on: "https://cdn.comic-walker.com/integration/cdpf/resources/007014/d067fe36-c034-42f9-9805-153dd97b5077.jpg"
+    note: >-
+      The key visual carries the Japanese logo and the artist's name and no Latin at all, which is
+      recorded so nobody looks at it twice. It does settle one thing: the artist signs it
+      毒田ペパ子 with katakana ペ, which is the spelling `credit-rulings.yaml` kept when it merged
+      毒田ぺパ子 into it on the strength of a shared reading. The artist's own cover agrees with
+      the ruling.
+  - work: "愛したぶんだけ愛してほしいっ！"
+    latin: "AISHITA BUNDAKE AISHITE HOSHII!"
+    kind: publisher-romanisation
+    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183919_2fd1e297f4f9950ae25c83b81968a9db_1752730099"
+    note: >-
+      Printed in caps along the top of the visual by 一迅社, with the Japanese title under it. The
+      database holds NO reading, no romanisation and no English name for this work, so this is the
+      only Latin form of it we have and it comes from the publisher. It also settles the word
+      division: ぶんだけ is one word, `BUNDAKE`, which is where an analyser would most likely have
+      broken it.
+  - work: "愛したぶんだけ愛してほしいっ！"
+    latin: "MANIO"
+    kind: author-latin-name
+    of: "まにお"
+    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183919_2fd1e297f4f9950ae25c83b81968a9db_1752730099"
+    note: >-
+      Printed on the visual's own footer beside ICHIJINSHA. The store derived `Manio` from the kana
+      with basis `romaji`, and the artist writes the same letters, so the derivation is confirmed
+      and only the casing is theirs to settle.

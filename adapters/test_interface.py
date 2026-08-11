@@ -124,17 +124,27 @@ NAMES = {
     # THE DIVISION AS `adapters/names/creditline.py` SHIPS IT. `p` is the people in order with the
     # job on each; the browser divides nothing itself, which is what stopped `credit()` and
     # `creditNames()` being two readers of one notation.
+    # `j` IS THE FIELD'S OWN PUNCTUATION, shipped beside the division so that a composed byline
+    # reads the way the field it replaces read. `names.credits.joiner` decides it; these fixtures
+    # carry what that function answers for each field, and a fixture missing it would let the
+    # composer fall to a comma on a field written with slashes.
     "credit_parts": {
-        "宮澤伊織/水野英多": {"p": [{"n": "宮澤伊織"}, {"n": "水野英多"}]},
-        "[著]仲谷鳰ほか": {"p": [{"n": "仲谷鳰", "r": "著"}, {"etc": 1}]},
-        "紬めめ/ツムギメメ": {"p": [{"n": "紬めめ"}], "drop": [" / ツムギメメ"]},
+        "宮澤伊織/水野英多": {"p": [{"n": "宮澤伊織"}, {"n": "水野英多"}], "j": " / "},
+        "[著]仲谷鳰ほか": {"p": [{"n": "仲谷鳰", "r": "著"}, {"etc": 1}], "j": ", "},
+        "紬めめ/ツムギメメ": {"p": [{"n": "紬めめ"}], "drop": [" / ツムギメメ"], "j": " / "},
         # A BYLINE LONGER THAN A LINE HOLDS, with a ・ the corpus settled as a separator inside it.
         # Six people, and the work page draws four and counts the rest.
         "安田剛助・文尾文/たいぼく/未来電機/郷本/紀ノ上晟一": {
             "p": [{"n": "安田剛助"}, {"n": "文尾文"}, {"n": "たいぼく"}, {"n": "未来電機"},
-                  {"n": "郷本"}, {"n": "紀ノ上晟一"}]},
+                  {"n": "郷本"}, {"n": "紀ノ上晟一"}], "j": " / "},
         # And the same character inside ONE person's name, which the division keeps whole.
-        "くろば・U/仲谷鳰": {"p": [{"n": "くろば・Ｕ"}, {"n": "仲谷鳰"}]},
+        "くろば・U/仲谷鳰": {"p": [{"n": "くろば・Ｕ"}, {"n": "仲谷鳰"}], "j": " / "},
+        # THE DEFAULT ROLE IN EACH NOTATION THE CATALOGUE WRITES IT IN, and one that is not the
+        # default beside them. MADB puts it in a leading bracket and a platform puts it in a
+        # trailing paren, and the analyser's anchored match saw neither.
+        "[著]仲谷鳰": {"p": [{"n": "仲谷鳰", "r": "著"}], "j": ", "},
+        "仲谷鳰(著者)": {"p": [{"n": "仲谷鳰", "r": "著者"}], "j": ", "},
+        "仲谷鳰(漫画)": {"p": [{"n": "仲谷鳰", "r": "漫画"}], "j": ", "},
     },
     "publishers": {"一迅社": {"en": "Ichijinsha", "basis": "official-jp"}},
     "imprints": {"Yurihime comics": {"id": "yurihime", "name": "コミック百合姫"}},
@@ -356,19 +366,50 @@ def main(s):
                             ("credit", "紬めめ / ツムギメメ"),
                             ("roleWord", "キャラクター原案・漫画"),
                             ("roleWord", "校正")])
-    s.eq(credits[0], "[author]Nakatani Nio and others",
-         "the catalogue tab glosses the role, renders the name through the store and says in "
-         "English that the field names some of its contributors")
+    s.eq(credits[0], "Nakatani Nio, and others",
+         "the catalogue tab composes the byline out of the division: the name through the store, "
+         "the default author role elided by the owner's ruling, and the word that says the field "
+         "names some of its contributors kept, because that is a fact about the book")
     s.eq(credits[1], "Nakatani Nio / and others",
          "and the 発売 tab lists the people the build divided out, which is what that tab shows")
     s.eq(credits[2], "Tsumugi Meme",
          "a reading printed beside its own name is taken off an English page, because kana beside "
          "a romanisation is the same name twice in a script the page is not written in")
-    s.eq(credits[3], "character design and art",
+    s.eq(credits[3], "character design and manga",
          "A COMPOUND ROLE IS COMPOSED FROM ITS ATOMS. Listing every combination is what the old "
          "table did at a smaller size, and it is why it held キャラクターデザイン原案 and neither "
          "of its halves")
     s.eq(credits[4], "proofreading", "and an atom the corpus states once is still glossed")
+
+    # ── the default role, which a byline never states and a credit page always does ────────────
+    #
+    # THE BUG THIS PINS. `[著]中村明日美子` reached a reader as `[Cho]Nakamura Asumiko`, because the
+    # analyser held its own twelve-word role table and matched it anchored at the start of a unit,
+    # so a role in a leading bracket never matched and the whole field was romanised as one run.
+    # The counter-case is the second assertion: the same word is the payload on a credit page, where
+    # eliding it leaves an empty cell, so this is not a word removed from the table.
+    roles = iface.labels([("credit", "[著]仲谷鳰"), ("roleWords", ["著"]),
+                          ("credit", "仲谷鳰(著者)"), ("credit", "仲谷鳰(漫画)"),
+                          ("bylineRole", "漫画"), ("bylineRole", "ほか著"),
+                          ("roleWord", "漫画"), ("roleWord", "作画"), ("roleWord", "ネーム"),
+                          ("roleWord", "編纂"), ("roleWord", "編")])
+    s.eq(roles[0], "Nakatani Nio",
+         "the unmarked author is what `[著]` states, so the byline states the name and nothing else")
+    s.eq(roles[1], "author",
+         "AND THE SAME ROLE IS THE PAYLOAD ON A CREDIT PAGE, where the work is the row and the job "
+         "is what the row is saying; eliding it there leaves an empty cell")
+    s.eq(roles[2], "Nakatani Nio", "著者 is the same concept written longer")
+    s.eq(roles[3], "Nakatani Nio (manga)", "and a role that is not the default is stated")
+    s.eq(roles[4], "manga", "a byline role that is not the default comes back glossed")
+    s.eq(roles[5], "and others",
+         "`ほか著` says two things and only one of them elides: the author half goes and the half "
+         "saying there are more contributors stays, because that is a fact about the book")
+    s.eq(roles[6], "manga",
+         "漫画 is making the comic and 作画 is drawing it, and the corpus states both on one book")
+    s.eq(roles[7], "art", "so the two may not share a gloss")
+    s.eq(roles[8], "storyboard", "ネーム is the panel draft a comic is drawn from")
+    s.eq(roles[9], "compiler", "a role names a person")
+    s.eq(roles[10], "editor", "and so does the one beside it")
     ja_credit = iface.with_prefs(LANG="ja").labels([("credit", "[著]仲谷鳰 ほか")])
     s.eq(ja_credit[0], "[著]仲谷鳰 ほか",
          "in Japanese the field is the field, notation and all")

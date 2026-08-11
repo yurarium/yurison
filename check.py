@@ -2028,6 +2028,60 @@ def inv_every_credit_role_has_an_english_gloss(ctx):
             if FLOOR_TOKEN in out or interface.KANA_KANJI.search(out)]
 
 
+def inv_a_byline_never_states_the_default_role(ctx):
+    """A byline names people and the jobs that distinguish them, and never the unmarked author.
+
+    THE OWNER'S RULING. `著`, `著者`, `作` and no role at all are one concept, and `[著]中村明日美子`
+    and `中村明日美子` are the same fact written two ways. A reader meeting `Nakamura Asumiko
+    (author)` on one row and `Nakamura Asumiko` on the next would be reading a distinction the
+    catalogue never made, so the word may not appear on a byline at all.
+
+    AND IT MUST STILL APPEAR ON A CREDIT PAGE, which is why this is an invariant over the OUTPUT
+    rather than an entry removed from the gloss table. That page lists a person's works with the job
+    beside each, the job is the payload, and eliding it leaves an empty cell. Surfaces of category
+    `role` are therefore not scanned; they are the page where the word belongs.
+
+    §14b, WHAT IT SHARES. The words it forbids come from asking the interface which roles elide,
+    which is `bylineRole` answering about itself, so a table that stopped eliding would also stop
+    forbidding. What it cannot share is where those words then turn up: the scan is over the
+    rendered person surfaces, and the renderer that draws them consults no list of forbidden words.
+    A role glossed on a byline through any path at all shows here.
+
+    fallback: none. A role is a closed vocabulary somebody wrote down, so this holds at zero.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import interface
+    roles = _role_vocabulary(ctx)
+    if not roles:
+        return ["no role vocabulary was collected, so nothing here was checked"]
+    try:
+        iface = _interface(ctx)
+        byline = iface.labels([("bylineRole", r) for r in roles])
+        page = iface.labels([("roleWord", r) for r in roles])
+    except interface.Unavailable as e:
+        return [f"the interface could not be run, so nothing here was checked: {e}"]
+    # The English a role has on a credit page and does not have on a byline. Empty for every role
+    # that is not the default, which is what leaves this scanning for three or four words.
+    gone = sorted({p.strip() for r, b, p in zip(roles, byline, page)
+                   if p.strip() and not b.strip()}, key=len, reverse=True)
+    if not gone:
+        return []
+    calls, about = interface.calls_for(_collections(ctx))
+    if not calls:
+        return []
+    bad = []
+    for (surface, value), shown in zip(about, iface.labels(calls)):
+        if surface.category != "person":
+            continue
+        for word in gone:
+            if re.search(r"(?:^|[\s\[\](){}（）/,·、]|\b)" + re.escape(word) + r"(?:$|[\s\[\](){}（）/,·、]|\b)",
+                         shown):
+                bad.append(f"{surface.path}: {value!r} renders as {shown!r}, "
+                           f"which states the default role {word!r}")
+                break
+    return sorted(set(bad))
+
+
 def _notation_left(ctx):
     """`[(surface, value, the notation that survived)]` over every rendering.
 
@@ -2439,6 +2493,7 @@ INVARIANTS = [
     ("every credit role has an English gloss", inv_every_credit_role_has_an_english_gloss),
     ("no cataloguing notation in an English rendering",
      inv_no_cataloguing_notation_in_an_english_rendering),
+    ("a byline never states the default role", inv_a_byline_never_states_the_default_role),
     ("no name is spelled with question marks", inv_no_name_is_spelled_with_question_marks),
     ("status.html shows no Japanese of its own",
      inv_status_page_shows_no_japanese_of_its_own),
@@ -3718,6 +3773,7 @@ def budget_renderings_with_nothing_to_show(ctx):
     authors = shipped.get("authors") or {}
     phrases = shipped.get("phrases") or {}
     parts = shipped.get("credit_parts") or {}
+    floor = shipped.get("floor") or {}
 
     def fold(t):
         # ASKED OF `facts/namekey`, which owns the identity key. check.py held three copies.
@@ -3732,13 +3788,29 @@ def budget_renderings_with_nothing_to_show(ctx):
         e = authors.get(key) or {}
         if e.get("romaji") or e.get("en"):
             continue
-        # `creditFromParts`: a line composes when every person in it has a romanisation of theirs.
-        people = parts.get(key) or []
-        if len(people) > 1 and all((authors.get(fold(p)) or {}).get("romaji") for p in people):
+        # `composedCredit`: a line composes when the build divided the field and every person in it
+        # has something to show. `personShown` ends at the floor, which is total in English, so the
+        # question is whether each part reaches one of the four answers that function offers.
+        #
+        # THIS BRANCH HAD NEVER FIRED. It read `parts.get(key)` as a LIST of names and the shipped
+        # value is `{"p": [{"n": …}], "j": …}`, so `len(people) > 1` counted the record's own keys
+        # and the loop asked the author store about the string "p". Every release row therefore fell
+        # through to the phrase map, and the day the analyser stopped writing phrases for credit
+        # fields this budget rose by 205 rows that render correctly on the page. A measure that
+        # depends on a fallback it never modelled cannot say what its number means.
+        div = parts.get(key) or {}
+        people = [p.get("n") for p in (div.get("p") or []) if p.get("n")]
+        if people and not div.get("part") and all(
+                (authors.get(fold(n)) or {}).get("romaji")
+                or (authors.get(fold(n)) or {}).get("en")
+                or not ja.search(str(n))
+                or floor.get(fold(n)) for n in people):
             continue
         # and the phrase map is the fallback, which only helps where the phrase is not Japanese.
         phrase = str(phrases.get(key) or "")
         if phrase and not ja.search(phrase):
+            continue
+        if floor.get(key):
             continue
         bad += 1
     return bad
@@ -5219,6 +5291,13 @@ def self_test():
          inv_no_cataloguing_notation_in_an_english_rendering,
          lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
              "'著': 'author', '著者': 'author',", "'著者': 'author',")})),
+        # THE ELISION DROPPED FOR ONE SPELLING, which is what a table edited in a hurry looks like.
+        # 著 stops eliding and 578 catalogue bylines state a job the catalogue never distinguished,
+        # while 著者 and 作 go on eliding, so the word this scans for is still derived and the
+        # canary is a real disagreement rather than an empty vocabulary.
+        ("a byline never states the default role", inv_a_byline_never_states_the_default_role,
+         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
+             "const ROLE_ELIDED = { '著': '',", "const ROLE_ELIDED = {")})),
         # THE CANARY IS THE LINE THAT SHIPPED (§14b), planted in the SOURCE the context holds.
         # `creditLine` shortened a long byline by cutting the field on the slash and calling
         # `linkedCredits` with the pieces joined back up, which is a field the build never divided,

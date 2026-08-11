@@ -1273,8 +1273,8 @@ def renderer_fingerprint():
     parts = [repr(CLOSES), repr(OPENS)]
     # `is_credit_line` IS IN HERE BECAUSE IT PICKS THE RENDERER, and leaving it out was the gap that
     # let `Jei, Katō` stand after the interpunct rule said ジェイ・加藤 is one person. It decides
-    # between `credit_en` and `romanise_ja` for every string in the map, so a change to it makes
-    # every entry stale exactly as a change to either of those does.
+    # between writing no phrase at all and `romanise_ja` for every string in the map, so a change to
+    # it makes every entry stale exactly as a change to either of those does.
     # `analyse` AND `analyse_best` ARE IN HERE BECAUSE THEY ARE THE RENDERER. Everything above
     # delegates the actual reading to them, and neither was hashed: gluing a lone sokuon to the
     # word in front of it changed 14 phrases and the file went on serving the old ones, which is
@@ -1283,7 +1283,8 @@ def renderer_fingerprint():
     #
     # `CLOSES` AND `OPENS` ARE DATA THE RENDERER READS, and a table is as much of the renderer as
     # the code that consults it: adding the ASCII marks to them changed 500 phrases.
-    for fn in (chapter_en, part_marks, credit_en, romanise_ja, latinise, is_credit_line,
+    for fn in (chapter_en, part_marks, credit_line_phrase, romanise_ja, latinise,
+               is_credit_line,
                analyse, analyse_best):
         try:
             parts.append(inspect.getsource(fn))
@@ -1347,7 +1348,14 @@ def fill_chapters(names_seen, quiet=False, ruled=None):
         en = chapter_en(x, lambda t: romanise_ja(tok, modes, t))
         if en is None:
             if is_credit_line(x, ruled):
-                en = credit_en(tok, modes, x)
+                # A CREDIT FIELD GETS NO PHRASE. The map held one romanisation of the whole field,
+                # roles and all, written once and never revisited; the interface composes the line
+                # from the shipped division instead, so the names follow the store and the roles
+                # follow the one gloss table. Skipping rather than falling through to `romanise_ja`
+                # is deliberate: that would spell `[著]中村明日美子` as one run, which is the fault
+                # in its worst form rather than a fallback.
+                if not credit_line_phrase(x):
+                    continue
             else:
                 # A CIRCLED DIGIT IS A PART MARKER, and NFKC flattens it into the number beside it:
                 # Step.14① came out "Step.141", which reads as chapter one hundred and forty-one.
@@ -1365,32 +1373,29 @@ def fill_chapters(names_seen, quiet=False, ruled=None):
     return added
 
 
-# Roles as they appear in a Japanese credit line. Translating these and romanising the names is the
-# only reading that produces something an English reader can use: the alternative rendered
-# 原作／宮澤伊織 as "Gensaku / Miyazawa Iori", which names a role nobody outside Japan knows.
-CREDIT_ROLE = {"原作": "story", "作画": "art", "漫画": "manga", "脚本": "script", "構成": "composition",
-               "企画": "concept", "監修": "supervision", "協力": "assistance", "編集": "editor",
-               "キャラクター原案": "character design", "案": "concept", "著": "author"}
-_ROLE_RE = re.compile("(" + "|".join(sorted(CREDIT_ROLE, key=len, reverse=True)) + ")")
+# `CREDIT_ROLE` AND `credit_en` STOOD HERE AND ARE GONE. They were a second role vocabulary: twelve
+# words with English against the 45 the splitter recognises and the 47 the interface glosses, and
+# `_ROLE_RE` matched with `.match()`, anchored at the start of a unit, so a role in a leading bracket
+# or a trailing paren never matched at all. 258 bracketed and 120 trailing credits therefore had the
+# whole field romanised as one run, and a reader met `[Cho]Nakamura Asumiko` and `Kabocha(Cho)`,
+# which name a job in a language nobody outside Japan reads.
+#
+# The credit line is composed in the interface now, from the division `creditline.py` ships and the
+# one gloss table in `kari/src/10-names.js`, so a role is glossed where a name is rendered and the
+# analyser writes no phrase for a credit field at all. `credit_line_phrase` below is what says so.
 
 
-def credit_en(tok, modes, s):
-    """A credit line with its roles translated and its names romanised."""
-    # Split into CREDITS first, then role from name inside each. Splitting on every separator at
-    # once tore 原作／宮澤伊織 into two entries and printed "story, Miyazawa Iori" — a role and a
-    # person listed as if they were two people.
-    out = []
-    for unit in re.split(r"[、,　\s]{1,}|(?<=[)）])\s*", s):
-        unit = unit.strip(" 　")
-        if not unit:
-            continue
-        m = _ROLE_RE.match(unit)
-        if m:
-            role = CREDIT_ROLE[m.group(1)]
-            rest = unit[m.end():].strip("：:／/・ 　")
-            out.append(f"{romanise_ja(tok, modes, rest)} ({role})" if rest else role)
-        else:
-            bits = [b for b in re.split(r"[／/・＆&+]+", unit) if b.strip()]
-            out.append(", ".join(romanise_ja(tok, modes, b.strip()) for b in bits))
-    # Full-width Latin is Japanese typography: Ｂ is not B to a reader of English.
-    return latinise(", ".join(x for x in out if x))
+def credit_line_phrase(_s):
+    """Whether the phrase map may hold a rendering of this credit field. It may not.
+
+    A PHRASE IS WRITTEN ONCE PER STRING AND NEVER REVISITED, which is the whole reason this is a
+    function rather than a deleted branch. The map fixed one rendering of the whole field, so it
+    romanised the roles along with the names and no later correction could reach either. Composing
+    from the division reads the store on every render instead, so a reading sourced tomorrow reaches
+    the byline tomorrow.
+
+    Returning False here rather than dropping the call keeps the decision visible in
+    `renderer_fingerprint`, so the day somebody makes it True again every phrase already written is
+    re-rendered rather than quietly kept.
+    """
+    return False

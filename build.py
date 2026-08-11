@@ -3614,7 +3614,24 @@ def main():
                 releases.append({
                     "late_discovered": u < wcut,
                     "discovered_on": str(d.get("retrieved", "")) if u < wcut else None,
-                    "id": f"{pid}:{c.get('url') or c.get('title')}",
+                    # SCOPED BY THE WORK WHERE THE CHAPTER HAS NO ADDRESS OF ITS OWN. A chapter
+                    # label is not unique on a platform: `第3話` is every work's third chapter, so
+                    # `pixivcomic:第3話` named three works at once and `takecomic:18話` named three
+                    # more. 1,352 of the 5,284 title-keyed chapters in data/source/webpages collide
+                    # this way, and takecomic 425 of its 506.
+                    #
+                    # IT IS NOT A COLLISION IN A NAME ONLY. Two rows sharing `(plat, id)` are ONE
+                    # row to anything keyed that way, and `no published update leaves its month` is
+                    # keyed that way, so a row that genuinely vanished could be masked by its twin
+                    # still being there. The measure could not see the thing it exists to see.
+                    #
+                    # THE WORK'S ADDRESS IS ALREADY THERE, on all 377 works that have title-keyed
+                    # chapters, so this asks for no fetch and no adapter change. The shape matches
+                    # what the platforms with their own ids already produce: `nicovideo:77731:DATE`
+                    # is platform, work, date, and `kadokomi:KC_…_E` is a work-scoped episode code.
+                    "id": (f"{pid}:{c['url']}" if c.get("url")
+                           else f"{pid}:{w.get('url') or norm_work(w.get('work_title') or '')}"
+                                f":{c.get('title')}"),
                     "work": work_alias(w.get("work_title")),
                     # The platform's own count decides this: a series with one episode is a
                     # one-shot. Confirmation established it and the loop was discarding it.

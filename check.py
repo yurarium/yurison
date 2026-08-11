@@ -1055,6 +1055,47 @@ def inv_no_published_update_leaves_its_month(ctx):
     return bad
 
 
+def inv_a_release_id_names_one_release(ctx):
+    """No two releases on a platform share an identifier.
+
+    fallback: none; the rows still publish, and every measure keyed on the pair reads them as one.
+
+    THE FAULT. `build.py` keyed a release on the chapter's own address, or on its TITLE where the
+    platform states no address. A chapter label is not unique on a platform, so `pixivcomic:第3話`
+    named three works at once and `takecomic:18話` named three more. 1,352 of the 5,284 title-keyed
+    chapters in `data/source/webpages` collide that way, takecomic 425 of its own 506, and only 8
+    surfaced in a release window because a collision needs both works to publish the same label
+    within the same fortnight.
+
+    WHY IT IS AN INVARIANT AND NOT A COUNT. Two rows sharing an identifier are ONE row to anything
+    keyed on it, and `no published update leaves its month` is keyed on it: a row that really did
+    vanish could be masked by its twin still being there, so the collision blinds the measure that
+    exists to catch the worse fault. There is no acceptable number of these above zero.
+
+    §14b, WHAT IT REUSES: the shipped rows and nothing that wrote them. It counts pairs in the
+    published files, so a build that starts minting a colliding id fails here whatever the code
+    that minted it believes about uniqueness.
+    """
+    # THE CURRENT FEED COMES FROM `ctx` AND THE ARCHIVES FROM DISK. A check that opens its own file
+    # cannot be shown a canary, and this needs to be probeable, so the live list is taken from the
+    # context that `--self-test` plants in. The months behind it are not on the context and are read
+    # here; a collision minted today appears in the current feed first, which is the half the probe
+    # covers.
+    lists = [("feed.json", ctx["releases"] or [])]
+    lists += [(f.name, (_load(f, {}) or {}).get("releases") or [])
+              for f in sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json"))]
+    seen, bad = {}, []
+    for name, rows in lists:
+        for r in rows:
+            k = (name, r.get("plat"), r.get("id"))
+            prev = seen.get(k)
+            if prev is not None and prev != (r.get("work"), r.get("ep")):
+                bad.append(f"{name}: {r.get('plat')} {r.get('id')!r} is both {prev[0]!r} "
+                           f"{prev[1]!r} and {r.get('work')!r} {r.get('ep')!r}")
+            seen[k] = (r.get("work"), r.get("ep"))
+    return bad[:20]
+
+
 def budget_published_dates_that_moved_in_an_archive(ctx):
     """Rows in a published month whose publication date the rebuild has changed.
 
@@ -2694,6 +2735,7 @@ INVARIANTS = [
     ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
     ("content flags are accounted for", inv_content_flags_are_accounted_for),
     ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for),
+    ("a release id names one release", inv_a_release_id_names_one_release),
     ("no published update leaves its month", inv_no_published_update_leaves_its_month),
     ("deployed data matches built", inv_deployed_matches_built),
     ("no refutation of print serials", inv_no_refutation_of_print_serials),
@@ -5726,6 +5768,13 @@ def self_test():
         # decides nothing and looks decided.
         ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for,
          _plant_a_ruling_on_an_unknown_term),
+        # TWO RELEASES UNDER ONE IDENTIFIER, which is the state `pixivcomic:第3話` was in: three
+        # works' third chapters answering to one string, and every measure keyed on the pair
+        # reading them as one row.
+        ("a release id names one release", inv_a_release_id_names_one_release,
+         lambda c: c["releases"].extend([
+             {"plat": "canary", "id": "canary:第3話", "work": "カナリア", "ep": "第3話"},
+             {"plat": "canary", "id": "canary:第3話", "work": "カナリアふたたび", "ep": "第3話"}])),
         # THE TWO PASSES THAT DECIDE THIS, COMING APART. The page pass reads the episode tiles and
         # the build reads the episodes it stored, and a route only one of them recognises is the
         # shape the fault took: the header said `アプリで読める` and the stored chapters were still

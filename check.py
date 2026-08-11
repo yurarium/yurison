@@ -3643,6 +3643,18 @@ def budget_titles_with_no_translation_of_our_own(ctx):
                and not (v.get("en_forms") or {}).get("translated"))
 
 
+#: Invariants a check-in gate must not assert, because their subject is a DEPLOY that has not
+#: happened. `deployed data matches built` compares `data/build` byte for byte against the deployed
+#: tree, and a gate builds and never copies, so it sits permanently inside the window between a
+#: build and `deploy.sh` that `--deploy-window` exists to patch. It failed on every push ever made
+#: to this repository, on `status.json` alone, which carries `generated` and `since_last.at` and so
+#: differs from a rebuild of itself a second later. A gate finding nobody can act on by changing
+#: the push is a gate reporting on something else.
+#:
+#: `deploy.sh` still answers it after copying, which is the moment the claim is about.
+NOT_ASSERTED_BEFORE_A_DEPLOY = {"deployed data matches built"}
+
+
 SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
                   "facts with more than one home",
                   "impossibilities asserted without evidence",
@@ -6186,6 +6198,28 @@ def main():
         bad = fn(ctx)
         timings[name] = time.perf_counter() - _t0
         inv_results[name] = bad
+        # AN INVARIANT ABOUT THE COPY, ASKED WHERE NOTHING HAS COPIED. `deployed data matches built`
+        # compares `data/build` against the deployed tree, and it is false for the whole window
+        # between a build finishing and `deploy.sh` running, which `deploy_window` exists to patch.
+        # A check-in gate builds and never deploys, so it sits inside that window permanently: the
+        # site it clones is the previously published one, and any push that changes the output makes
+        # this false with nothing in the push responsible.
+        #
+        # IT FAILED ON EVERY PUSH EVER MADE, and on `status.json` alone, which carries `generated`
+        # and `since_last.at` and so differs from a rebuild of itself one second later. That is not
+        # a fault a person can fix by changing the push, which is the test of whether a gate should
+        # be asserting it.
+        #
+        # ONE INVARIANT AND NOT THE FOUR `deploy_sensitive` RETURNS. Three of those read the site
+        # and compare something a copy cannot invent: whether a scope ruling the site reports is
+        # accounted for, whether a published update left its month. They pass in CI and blocking on
+        # them is worth keeping. This one asserts BYTE EQUALITY of a tree nothing has copied into,
+        # which is a different claim, so it is named here rather than taken from a derivation that
+        # answers a different question. Reported where it is skipped, never silently dropped.
+        if bad and a.gate and name in NOT_ASSERTED_BEFORE_A_DEPLOY:
+            print(f"  --    {name}: {len(bad)}, not asserted here; this gate builds and does not "
+                  f"deploy, and deploy.sh answers it after copying")
+            continue
         if bad:
             failed.append((name, bad))
             print(f"  FAIL  {name}: {len(bad)}")

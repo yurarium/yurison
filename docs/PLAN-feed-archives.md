@@ -72,6 +72,18 @@ rather than July gaining them.
 rows are drawn, and a name has a right answer whatever month it appears in. So item 2 applies to
 July as much as to any month after it, and the 573 stale titles in it are in scope.
 
+## The late-discovery badge said the one thing that cannot be true. Fixed 2026-08-11
+
+The updates tab drew `既出` with the publication date beside it and glossed 既出 as `Seen`, so a
+chapter published on 17 June and found today announced itself as `Seen 06-17` on the day it first
+appeared. The releases tab draws the same fact as `公開 2026-06-17` with the tooltip "published
+earlier; it reached this list on 2026-08-11", which is right and always was.
+
+Two renderings of one fact, worded independently, and the one nobody was reading drifted into
+saying something false. It only became visible when item 1 started producing these rows: the badge
+had been unreachable while `BOOTSTRAP` suppressed every late discovery. Glossed `Published` now.
+Worth folding the two into one renderer, which is not done here.
+
 ## Open
 
 Whether `basis`, `conf` and `unverified` on an archived row are history or rendering. They are

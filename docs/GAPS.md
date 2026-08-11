@@ -2526,3 +2526,25 @@ catalogues an anthology's contributors on some records, openBD carries an ONIX c
 and the publisher's own page for a 百合姫 anthology lists the line-up. Nine works, and the route is
 the same one the byline work already uses. Worth doing before the substitution is taken as final:
 `複数の作家` is honest about what we hold and would be a poor answer if the names are a fetch away.
+
+## The byline fallback is only correct for fields the build divided. Found 2026-08-11
+
+`composedCredit` builds an English byline from `credit_parts`, the division the build ships. Where a
+field has no division record the interface falls back to walking the raw string in place, and that
+walk takes the role text out and leaves its punctuation behind:
+
+    玉置こさめ(作) / あおと響(絵)   ->  Tama Oko Same[?]() / Ao To Hibiki[?](art)
+    [著]アンソロジー               ->  []Ansorojī[?]
+    ぐう(作画)水無瀬(原作)riritto  ->  Gū[?](art)Minase[?](story)riritto(character design)
+
+An empty bracket where a role elided, and names glued to the role in front of them.
+
+**No reader can reach it today.** All 2,611 distinct credit fields the build ships were rendered and
+none shows an empty bracket or a glued name, because every one of them has a division record. The
+three strings above were written by hand to probe the fallback, and the first of them came out of
+`phrases.yaml` rather than out of any row.
+
+What would surface it is a field shape the divider does not cover arriving from a new source, which
+is the ordinary way this corpus grows. The fix is for the fallback to drop the punctuation with the
+role it elides, and to join on `joiner()` the way the composed path does. It is left here rather
+than fixed blind at the end of the change that found it.

@@ -31,6 +31,15 @@ def main(s):
     s.eq(nobody.not_a_credit("アンソロジー"), "many-unnamed",
          "the format of a book written where its author goes is not a credit")
     s.eq(nobody.not_a_credit(" アンソロジー "), "many-unnamed", "and surrounding space is not a name")
+    # THE CATALOGUE'S NOTATION IS NOT PART OF WHAT THE FIELD SAYS. MADB writes `[著]アンソロジー` for
+    # the same book BOOK☆WALKER writes `アンソロジー` for, and matching the bare string alone saw one
+    # and missed the other: 乙女ゲームの破滅フラグ…公式アンソロジー kept an empty byline with nothing
+    # saying why, which reads as a book nobody made.
+    for wrapped in ("[著]アンソロジー", "[[著]]アンソロジー", "アンソロジー(著)", "アンソロジー（著）"):
+        s.eq(nobody.not_a_credit(wrapped), "many-unnamed", f"notation stripped: {wrapped}")
+    # AND STRIPPING STOPS AT THE NAME. A pen name is not a role in brackets.
+    s.eq(nobody.not_a_credit("アンソロジー編集部"), None,
+         "a name merely containing the word is left alone, notation or not")
 
     # ── AND THE COUNTER-CASE, which is what keeps this from eating bylines ─────────────────────
     # A pen name may contain the word, and a title certainly may; only the WHOLE field counts.

@@ -6270,7 +6270,16 @@ def main():
                                           _pubq.load_store("data/names/authors.yaml")),
                          "publishers")
     except Exception as e:                      # never let a naming helper break the build
-        print(f"names           : automatic reading pass skipped ({e})")
+        # WITH THE TRACEBACK, because the sentence alone hid the fault it was written for. The
+        # block runs a dozen passes and reports one line each; an exception in any of them skips
+        # every pass after it, and the message named the exception and not the place. The division
+        # retirement stopped running and nothing said so: `斉藤りょーパー` stayed read
+        # `サイトウリ ョー パー`, three spaces an analyser invented in a name nobody had divided,
+        # and `a division cites its source` reported it as a fault in the data.
+        import traceback
+        print(f"names           : automatic reading pass skipped ({e.__class__.__name__}: {e})")
+        print("\n".join(f"                : {l}" for l in
+                        traceback.format_exc().strip().splitlines()[-6:]))
 
     # Attach English names and readings. Keyed on the exact Japanese string the store was built
     # from, so a work or author with no entry simply gets nothing and renders in Japanese (§6).

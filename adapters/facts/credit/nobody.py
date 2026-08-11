@@ -24,6 +24,8 @@ THIS DOES NOT SAY THE CONTRIBUTORS ARE UNKNOWN. It says this source did not name
 source may, and `docs/GAPS.md` carries the follow-up.
 """
 
+import re
+
 #: `surface: (basis, why)`. `basis` is the key the interface renders; `why` is what the string is.
 NOT_A_CREDIT = {
     "アンソロジー": (
@@ -51,14 +53,31 @@ BASIS = {
 }
 
 
+#: MADB's cataloguing notation around the field, which is not part of what the field says. A
+#: catalogue writes `[著]アンソロジー` for the same book a shop writes `アンソロジー` for, and a rule
+#: matching the bare string alone saw one and missed the other: 乙女ゲームの破滅フラグ…公式アンソロジー
+#: came through with an empty byline and nothing saying why, which reads as a book nobody made.
+_ROLE_NOTATION = re.compile(r"^\s*\[+[^\]]*\]+\s*|\s*[（(][^）)]*[）)]\s*$")
+
+
+def _bare(name):
+    """A creator field with its cataloguing notation taken off, for comparison."""
+    s = str(name or "").strip()
+    while True:
+        stripped = _ROLE_NOTATION.sub("", s).strip()
+        if stripped == s:
+            return s
+        s = stripped
+
+
 def not_a_credit(name):
     """The basis a creator field states instead of a person, or None where it names one."""
-    return (NOT_A_CREDIT.get(str(name or "").strip()) or (None, None))[0]
+    return (NOT_A_CREDIT.get(_bare(name)) or (None, None))[0]
 
 
 def reason(name):
     """Why this string is not a credit, or None."""
-    return (NOT_A_CREDIT.get(str(name or "").strip()) or (None, None))[1]
+    return (NOT_A_CREDIT.get(_bare(name)) or (None, None))[1]
 
 
 def surfaces():

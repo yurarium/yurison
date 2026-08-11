@@ -404,6 +404,22 @@ CHAPTER_HEADING = re.compile(
     r"^(?:第\s*)?\d+\s*(?:冊目|巻|話|回|章|夜|幕|限目|時間目|日目)?\s*[.:、,。・]\s*(?!\d)\S")
 
 
+# A ONE-SHOT LABEL, WHICH IS A CHAPTER AND NOT A BYLINE. 一迅プラス and the pages behind
+# `webpages/remaining` write `作者 / 読切 タイトル` in one field, so splitting on the slash gives the
+# person and then the chapter: `斉藤りょーパー / 読み切り作品` and `レオパード・ゲッコー / 読切 画家の肖像`
+# each put a label where the second author goes, and `a division cites its source` reported the
+# label divided as though somebody were named ヨミキリ ガカ ノ ショウゾウ.
+#
+# THE SAME FAULT AS `１冊目：叔母さんは神絵師` AND A DIFFERENT SHAPE. That one numbers itself and is
+# caught by `CHAPTER_HEADING`; these carry no number at all, so the clause that reads a leading
+# digit walks straight past them.
+#
+# THE MARKER MUST BE THE WHOLE CREDIT OR HEAD IT. A pen name containing 読切 further in is left
+# alone, because the marker is what a platform prefixes to a title and not a syllable somebody
+# builds a name out of.
+ONE_SHOT_LABEL = re.compile(r"^(?:読切|読み切り|よみきり)(?:\s|作品|$)")
+
+
 def is_a_person(name):
     """Whether a captured credit could be somebody's name.
 
@@ -425,7 +441,8 @@ def is_a_person(name):
     s = unicodedata.normalize("NFKC", str(name or "")).strip()
     if _nobody().not_a_credit(s) or _nobody().not_a_credit(str(name or "").strip()):
         return False
-    return bool(s) and not NOT_A_PERSON.match(s) and not CHAPTER_HEADING.match(s)
+    return (bool(s) and not NOT_A_PERSON.match(s) and not CHAPTER_HEADING.match(s)
+            and not ONE_SHOT_LABEL.match(s))
 
 
 def _nobody():

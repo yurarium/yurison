@@ -263,7 +263,14 @@ def retire_all(names):
     return changed, kept
 
 
-STORE = pathlib.Path(__file__).resolve().parents[2] / "data" / "names" / "authors.yaml"
+# parents[3] AND NOT parents[2]. This module lives at adapters/facts/division/, so two levels up
+# is `adapters/` and the path resolved to `adapters/data/names/authors.yaml`, which does not exist.
+# `retire_store` documents a missing store as a fallback and not an error, so it returned "nothing
+# changed" on every build, printed nothing, and the pass never ran once: 斉藤りょーパー kept the
+# reading サイトウリ ョー パー, three word breaks an analyser invented inside a name no source
+# divides, and `a division cites its source` reported it as a fault in the data. The same move into
+# `facts/` broke the sys.path line in this file and that one was found the same way.
+STORE = pathlib.Path(__file__).resolve().parents[3] / "data" / "names" / "authors.yaml"
 
 
 def retire_store(path=None):

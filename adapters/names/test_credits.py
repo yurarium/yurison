@@ -108,6 +108,17 @@ def main(s):
     for heading in ("１冊目：叔母さんは神絵師", "1冊目:叔母さんは神絵師", "１．月と太陽の日々",
                     "３１冊目：己の中のケモノ", "第3話・はじまりの日", "12、ひとりの夜"):
         s.check(not credits.is_a_person(heading), f"not a person: {heading}")
+
+    # A ONE-SHOT LABEL WHERE THE SECOND AUTHOR GOES. 一迅プラス writes `作者 / 読切 タイトル` in one
+    # field, so the slash hands the chapter over as a person: `斉藤りょーパー / 読み切り作品` and
+    # `レオパード・ゲッコー / 読切 画家の肖像`. `CHAPTER_HEADING` misses them because they carry no
+    # number, which is the clause it reads.
+    for label in ("読み切り作品", "読切 画家の肖像", "読切 散らないで菊", "よみきり"):
+        s.check(not credits.is_a_person(label), f"a one-shot label is not a person: {label}")
+    # AND THE MARKER HAS TO BE THE WHOLE CREDIT OR HEAD IT, or the rule eats pen names: a name
+    # merely starting with those syllables is somebody's.
+    for real in ("読切り太郎", "斉藤りょーパー", "レオパード・ゲッコー"):
+        s.check(credits.is_a_person(real), f"a person whose name begins alike: {real}")
     # And the counter-case, because a rule keyed on "contains a digit" deletes real people.
     for real in ("タイザン5", "梵辛", "おにぎりパクパク", "Ｍａｇｐｉｅ", "帯屋ミドリ2"):
         s.check(credits.is_a_person(real), f"a person: {real}")

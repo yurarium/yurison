@@ -24566,7 +24566,7 @@ names:
       - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
-    reading: サイトウリ ョー パー
+    reading: サイトウリョーパー
     reading_at: '2026-08-11'
     reading_basis: analyser
     reading_pass: 4
@@ -38938,28 +38938,6 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  読み切り作品:
-    basis: romaji
-    furigana_spans:
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
-      - null
-    - - 作品
-      - さくひん
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ヨミキリ サクヒン
-    reading_at: '2026-08-11'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
-    reading_source_kind: analyser
-    verified: false
   読切:
     basis: romaji
     furigana_spans:
@@ -38972,50 +38950,6 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
-  読切 散らないで菊:
-    basis: romaji
-    furigana_spans:
-    - - 読切
-      - よみきり
-    - - ' '
-      - null
-    - - 散
-      - ち
-    - - らないで
-      - null
-    - - 菊
-      - きく
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ヨミキリ   チラナイデ キク
-    reading_at: '2026-08-11'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
-    reading_source_kind: analyser
-    verified: false
-  読切 画家の肖像:
-    basis: romaji
-    furigana_spans:
-    - - 読切
-      - よみきり
-    - - ' '
-      - null
-    - - 画家
-      - がか
-    - - の
-      - null
-    - - 肖像
-      - しょうぞう
-    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
-      on pen names and coinages
-    reading: ヨミキリ   ガカ ノ ショウゾウ
-    reading_at: '2026-08-11'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   誰がし:

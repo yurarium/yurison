@@ -13,7 +13,28 @@ import testkit
 import net
 
 
+def _binary(s):
+    """Bytes survive a fetch, and a caller reading `.text` is not handed a picture.
+
+    THE FAULT THIS PINS. Everything else here is markup and `_once` decoded UTF-8 with replacement,
+    which is right for a page and destroys a JPEG: every byte outside ASCII becomes U+FFFD and the
+    file is no longer an image. A cover pass that stored those would have cached 400 unreadable
+    files and reported success.
+    """
+    import net as _net
+    png = bytes.fromhex("89504e470d0a1a0a") + b"\x00\xff\xfe\x01 not utf-8 \x80\x81"
+    s.ne(png.decode("utf-8", "replace").encode("utf-8"), png,
+         "the bytes really are destroyed by a decode, or this proves nothing")
+    r = _net.Result(None, 200, "u", None, False, None, "h", 1, png)
+    s.eq(r.raw, png, "raw carries the bytes through a Result")
+    s.eq(r.text, None, "and text is None, so nothing reading text meets an image")
+    s.eq(_net.Result("page", 200, "u", None, False, None, "h").raw, None,
+         "a Result built the old way still constructs, with no bytes on it")
+
+
 def main(s):
+    _binary(s)
+
     # A MOVE is a change of host or path, and nothing else. Comparing raw strings would report a
     # move every time a server added a trailing slash, and then "moved" would mean nothing.
     s.check(not net._differs("https://a.jp/x", "https://a.jp/x/"),

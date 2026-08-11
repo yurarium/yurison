@@ -108,9 +108,13 @@ ANSWERED, ABSENT, REFUSED = "answered", "absent", "refused"
 AGE_FEED = 1
 AGE_LISTING = 14
 
+# `raw` HOLDS BYTES AND `text` HOLDS A PAGE, and they are separate fields rather than one field of
+# two types. A caller reading `.text` gets None for an image instead of a string of replacement
+# characters that looks like a page nobody could parse. Defaulted, so every existing caller and
+# every existing construction of a Result is untouched.
 Result = collections.namedtuple(
-    "Result", "text status final_url moved from_cache error host attempts",
-    defaults=(1,))
+    "Result", "text status final_url moved from_cache error host attempts raw",
+    defaults=(1, None))
 
 _locks = collections.defaultdict(threading.Lock)
 _last = collections.defaultdict(float)
@@ -298,7 +302,7 @@ def cached(url, cache):
                   urllib.parse.urlparse(url).netloc, 0)
 
 
-def fetch(url, cache, max_age_days=AGE_FEED, attempts=ATTEMPTS):
+def fetch(url, cache, max_age_days=AGE_FEED, attempts=ATTEMPTS, binary=False):
     """Fetch one URL, returning a Result. Never raises for an HTTP or network condition.
 
     A caller that only wants the body can read `.text` and check it for None, which is what the
@@ -320,13 +324,15 @@ def fetch(url, cache, max_age_days=AGE_FEED, attempts=ATTEMPTS):
         cache.mkdir(parents=True, exist_ok=True)
         f = cache / cache_key(url)
         if _adopt(cache, url, f) and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
+            if binary:
+                return Result(None, 200, url, None, True, None, host, 0, f.read_bytes())
             return Result(f.read_text(encoding="utf-8", errors="replace"),
                           200, url, None, True, None, host, 0)
 
     result = None
     for attempt in range(1, max(1, attempts) + 1):
         _wait(host)
-        result = _once(url, host, f)._replace(attempts=attempt)
+        result = _once(url, host, f, binary)._replace(attempts=attempt)
         if outcome(result) != REFUSED:
             _forgive(host)
             return result
@@ -338,15 +344,26 @@ def fetch(url, cache, max_age_days=AGE_FEED, attempts=ATTEMPTS):
     return result
 
 
-def _once(url, host, f):
-    """One request, with the outcome recorded and nothing raised."""
+def _once(url, host, f, binary=False):
+    """One request, with the outcome recorded and nothing raised.
+
+    `binary` KEEPS THE BYTES. Everything above decodes UTF-8 with replacement, which is right for
+    every markup source here and destroys an image: a JPEG round-tripped through `replace` is no
+    longer a JPEG. A caller that wants an image gets `.raw` and a `.text` of None, so nothing that
+    reads `.text` can mistake a picture for a page.
+    """
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-            text = r.read().decode("utf-8", "replace")
+            data = r.read()
             final = r.geturl()
             # Compared on the normalised form: a trailing slash or a changed scheme is not a move.
             moved = final if _differs(url, final) else None
+            if binary:
+                if f is not None:
+                    f.write_bytes(data)
+                return Result(None, r.status, final, moved, False, None, host, 1, data)
+            text = data.decode("utf-8", "replace")
             if f is not None:
                 f.write_text(text)
             return Result(text, r.status, final, moved, False, None, host)
@@ -371,7 +388,7 @@ def is_permanent(result):
 
 
 def fetch_many(urls, cache, max_age_days=AGE_FEED, workers=8, on_result=None,
-               attempts=ATTEMPTS):
+               attempts=ATTEMPTS, binary=False):
     """Fetch across hosts concurrently while each host stays strictly serial at its own pause.
 
     Workers bound total concurrency; the per-host lock does the actual rate limiting, so raising
@@ -383,7 +400,8 @@ def fetch_many(urls, cache, max_age_days=AGE_FEED, workers=8, on_result=None,
     if not urls:
         return out
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = {pool.submit(fetch, u, cache, max_age_days, attempts): u for u in urls}
+        futures = {pool.submit(fetch, u, cache, max_age_days, attempts, binary): u
+                   for u in urls}
         for fut in concurrent.futures.as_completed(futures):
             u = futures[fut]
             try:

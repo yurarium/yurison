@@ -1082,9 +1082,33 @@ def inv_a_release_id_names_one_release(ctx):
     # here; a collision minted today appears in the current feed first, which is the half the probe
     # covers.
     lists = [("feed.json", ctx["releases"] or [])]
-    lists += [(f.name, (_load(f, {}) or {}).get("releases") or [])
-              for f in sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json"))]
+    months = sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json"))
+    lists += [(f.name, (_load(f, {}) or {}).get("releases") or []) for f in months]
     seen, bad = {}, []
+
+    # AND IT SAYS SO WHERE IT READ NOTHING. The archive half opens its own files, so it reports
+    # clean when it finds none: point `BUILD` at a directory that does not exist and this returns
+    # no violations, and `--self-test` still passes, because the canary is planted in the current
+    # feed. A directory that moves, a glob that a future month's name does not match, a build that
+    # stops writing the months. Each is silence that looks exactly like a clean answer.
+    #
+    # THE SITE IS WHAT IT COUNTS AGAINST, because the served months are the ones somebody published
+    # and no amount of local breakage can reduce them. Serving more months than the build produced
+    # is the state worth catching. Before the first deploy there is nothing to count against and
+    # this asks nothing at all.
+    #
+    # WHY NOT PUT THE ARCHIVES ON THE CONTEXT and let a canary reach them: they grow by a month for
+    # ever, 1.25 MB and about 600 rows so far, and the context is loaded for all 59 invariants and
+    # 75 budgets whether or not they read it. This project already met that shape once, when
+    # feed.json reached 1.3 MB and every visitor fetched it to draw the first screen. The
+    # assertion catches the same silence at a cost that does not grow.
+    if SITE.exists():
+        served = sorted((SITE / "feed").glob("[0-9]*-[0-9]*.json"))
+        if len(months) < len(served):
+            missing = sorted({f.name for f in served} - {f.name for f in months})
+            bad.append(f"the site serves {len(served)} archived month(s) and the build produced "
+                       f"{len(months)}, so this examined fewer than were published: "
+                       f"{', '.join(missing[:5])}")
     for name, rows in lists:
         for r in rows:
             k = (name, r.get("plat"), r.get("id"))

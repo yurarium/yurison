@@ -77,4 +77,6 @@ which reads like rendering. Not settled here because nothing turns on it until i
 
 1. `feed_date` from the ledger, every route, web only. NOT STARTED
 2. Archives carry no rendering. NOT STARTED
-3. Archives stay derived. NOTHING TO DO, and recorded so it is not done by mistake
+
+Section 3 asks for no work. It is written down so that committing the archives is not done by
+mistake, which is what this session was an hour away from doing.

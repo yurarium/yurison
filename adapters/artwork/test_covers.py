@@ -44,6 +44,23 @@ def _reading(s):
                 f"{u} is a placeholder and is refused")
 
 
+def _not_an_address(s):
+    """A tag holding something that is not a URL reads as no image, not as an unreachable host.
+
+    QUOTED FROM THE CORPUS. 123hon.com serves `og:image` containing `<?php echo $ContentsData[`,
+    an unrendered PHP template, and `urljoin` turned it into a string `urlopen` refused for holding
+    control characters. That surfaced as `unreachable`, which says the host did not answer when it
+    answered perfectly well and simply stated no picture.
+    """
+    php = ('<meta property="og:image" content="<?php echo $ContentsData[\'thumb\']; ?>">')
+    s.check(covers.image_url(php, "https://www.123hon.com/vw/nekomaho/x/") is None,
+            "an unrendered template in the tag is not an address")
+    s.check(covers.image_url('<meta property="og:image" content="a b\nc">', "https://x.jp/") is None,
+            "and neither is a value carrying a newline")
+    s.eq(covers.image_url('<meta property="og:image" content="/i/a.jpg">', "https://x.jp/w/1"),
+         "https://x.jp/i/a.jpg", "while an ordinary relative address still resolves")
+
+
 def _extension(s):
     # THE BYTES DECIDE, NOT THE ADDRESS. A platform commonly serves `cover.jpg?w=640` that is really
     # a WebP, and storing that under .jpg makes a file nothing will open.
@@ -150,6 +167,7 @@ def main(s):
     _rendered_key_matches_the_renderer(s)
 
     _reading(s)
+    _not_an_address(s)
     _extension(s)
     _ordering(s)
     _ledger(s)

@@ -89,6 +89,13 @@ def image_url(html, page_url):
             u = m.group(1).strip()
             if not u or PLACEHOLDER.search(u):
                 return None
+            # A TAG CAN HOLD SOMETHING THAT IS NOT AN ADDRESS. 123hon.com serves its og:image
+            # containing `<?php echo $ContentsData[...`, an unrendered template, and `urljoin` made
+            # a URL out of it that `urlopen` refused for holding control characters. The page is
+            # answering; it is simply not stating a picture, so this reads as no image rather than
+            # as a host that could not be reached.
+            if any(c in u for c in "<>\"'") or any(ord(c) < 0x20 for c in u):
+                return None
             return urllib.parse.urljoin(page_url, u)
     return None
 

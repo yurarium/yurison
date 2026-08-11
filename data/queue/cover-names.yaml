@@ -22,18 +22,28 @@
 # title, a publisher's romanisation, an artist's own spelling of their name, or furigana over the
 # logo. That rate is the argument for finishing the reading.
 #
-# WHERE IT CANNOT REACH, and both have a cause rather than being flaky:
+# WHERE IT COULD NOT REACH, AND HOW EACH WAS ANSWERED, 2026-08-12. Every one of the 134 refusals
+# is now stored, by asking a route the platform itself offers rather than by pushing harder at the
+# one that refused:
 #
-#   comic-fuz.com, 80 works. Answers 403 to this user agent on every request. `adapters/render/`
-#   renders that platform with a headless browser, but into a cache this pass does not share, so
-#   the DOMs are not on this disk. Pointing at that cache would recover all 80 with no request.
+#   comic-fuz.com, 80 works. Answers 403 to this user agent on every request. Its `og:image` was
+#   read in the Browser pane, same-origin and paced at 1.3 s, and the image CDN then served every
+#   one of the 80 to an ordinary fetch. Only the PAGE refuses us; the pictures never did.
 #
-#   comic.pixiv.net, 39 works. Serves a shell that builds the page in JavaScript, so a plain fetch
-#   states no splash. The render cache holds 200 of its pages and this pass reads them, which is
-#   why the count fell rather than rising; the remainder were never rendered.
+#   comic.pixiv.net, 39 works. Serves a shell that builds the page in JavaScript. Recovered with no
+#   browser at all: `bylines.py` already calls that site's own catalogue endpoint, `works/v5/<id>`,
+#   and it states an `image.main_big` which is the unresized original.
 #
-#   15 more across manga-one, ganganonline, corocoro and four others, each a refusal.
+#   ganganonline 4, corocoro 2, manga-one 6, flowercomics 1, ganma 1, all 403, all read the same
+#   way as comic-fuz. manga-one's addresses in this corpus are CHAPTER pages, so its six pictures
+#   are episodes' rather than key visuals, which the ledger says on each row.
 #
+# ONE IS NOT A REFUSAL AND IS NOW SETTLED AS SUCH. 123hon.com answers, and its og:image contains
+# `<?php echo $ContentsData[`, an unrendered template. `urljoin` made a URL of it that urlopen
+# refused for holding control characters, and it surfaced as `unreachable`, which said the host had
+# not answered when it had. `image_url` refuses a value carrying markup or a control character now,
+# so it reads as a page stating no picture, which is what it is.
+
 # A PLATFORM CAN STATE THE WRONG PICTURE. magazinepocket puts the EPISODE thumbnail in `og:image`,
 # a crop of one panel with no logo on it, so its images are stored and worth nothing to this. That
 # is not a fault to fix here; it is a platform naming a different thing by the same tag, and the

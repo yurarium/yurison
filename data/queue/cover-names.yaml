@@ -34,9 +34,20 @@
 #   browser at all: `bylines.py` already calls that site's own catalogue endpoint, `works/v5/<id>`,
 #   and it states an `image.main_big` which is the unresized original.
 #
-#   ganganonline 4, corocoro 2, manga-one 6, flowercomics 1, ganma 1, all 403, all read the same
-#   way as comic-fuz. manga-one's addresses in this corpus are CHAPTER pages, so its six pictures
-#   are episodes' rather than key visuals, which the ledger says on each row.
+#   ganganonline 4, corocoro 2, flowercomics 1, ganma 1, all 403, all read the same way as
+#   comic-fuz, and all four gave a real key visual: ガンガンONLINE's carries the Latin title
+#   `Hikikomari the Vampire Countess Monmon` beside the logo, which is the thing this pass exists
+#   to find.
+#
+#   manga-one, 6, IS THE ONE THAT DID NOT WORK, and its six pictures are worth nothing. The
+#   addresses this corpus holds for it are CHAPTER pages, whose og:image is a panel crop of about
+#   8 KB. Nothing reaches a series splash from there: `/manga/<id>` answers
+#   お探しのページは見つかりませんでした, the chapter page links back to site navigation and no
+#   series, and the site's search is drawn in the browser rather than served. The remaining route
+#   is the chapter's own interior pages, which are the comic itself and out of bounds for a pass
+#   about covers. The six rows say so, so nobody opens them hoping for a logo.
+#   What would fix it is a series ADDRESS for those six works, which is a coverage question rather
+#   than a fetching one.
 #
 # ONE IS NOT A REFUSAL AND IS NOW SETTLED AS SUCH. 123hon.com answers, and its og:image contains
 # `<?php echo $ContentsData[`, an unrendered template. `urljoin` made a URL of it that urlopen

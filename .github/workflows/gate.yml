@@ -56,6 +56,16 @@ jobs:
       - name: Build
         run: python3 build.py
 
+      # AND THE TWO FILES THE CHECKS READ THAT `build.py` DOES NOT WRITE. `status.json` is
+      # `adapters/status.py`'s, and `inv_status_page_shows_no_japanese_of_its_own` reads it: with
+      # the file absent the check returns no violations, so `--self-test` plants its canary and
+      # catches nothing, and the suite fails for having proved nothing rather than for finding
+      # anything. `update.yml` has run these since it was written and this job never had them.
+      - name: The ledger and the status page's data
+        run: |
+          python3 adapters/ledger.py
+          python3 adapters/status.py
+
       - name: Unit tests
         run: |
           ./test.py

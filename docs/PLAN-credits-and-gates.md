@@ -44,13 +44,11 @@ one. 裏世界ピクニック reads `Miyazawa Iori (story) / Mizuno Eita (art) /
 design)`. Joined from `credits` by name, so the answer is carried across rather than derived twice;
 position would agree until a source lists the same people in another order.
 
-Roles render when they sit in the field text and not when the build has them structured, so
-裏世界ピクニック reads `Miyazawa Iori / Mizuno Eita / shirakaba` while its record holds
-原作 / 作画 / キャラクター原案. 497 works carry structured roles.
-
-`credit_parts` ships `{"p": [{"n": …}], "j": " / "}`; it gains `r` per person from the division that
-already produced `credits`. Needs no identifiers and no search change, which is why it was wrong to
-bundle it with the search move.
+What it was: roles rendered where they sat in the field text and not where the build had them
+structured, so 裏世界ピクニック read `Miyazawa Iori / Mizuno Eita / shirakaba` while its record held
+原作 / 作画 / キャラクター原案. `credit_parts` shipped `{"p": [{"n": …}], "j": " / "}` and now carries
+`r` per person. It needed no identifiers and no search change, which is why bundling it with the
+search move was wrong.
 
 ## 3. The byline fallback — DONE 2026-08-11
 
@@ -58,11 +56,11 @@ bundle it with the search move.
 names cannot run together. All 2,611 shipped fields re-rendered afterwards: none malformed, none
 changed.
 
-Where a field has no division record the interface walks the raw string in place, takes the role
-text out and leaves its punctuation: `[著]アンソロジー` renders `[]Ansorojī`, and
-`ぐう(作画)水無瀬(原作)riritto` glues each name to the role before it. All 2,611 distinct credit
-fields the build ships were rendered and none reaches this path, so it is prophylactic. A field
-shape the divider does not cover would surface it, which is the ordinary way this corpus grows.
+What it was: where a field has no division record the interface walks the raw string in place, and
+that walk took the role text out and left its punctuation. `[著]アンソロジー` rendered `[]Ansorojī`
+and `ぐう(作画)水無瀬(原作)riritto` glued each name to the role before it. Prophylactic: no shipped
+field reaches the walk, and a field shape the divider does not cover would, which is the ordinary
+way this corpus grows.
 
 ## 4. Ship the anchors in `credits.json` — NOT STARTED
 

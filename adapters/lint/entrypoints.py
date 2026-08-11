@@ -656,7 +656,7 @@ def _self_test():
         (single_language_findings, "the works list on a record page asks it once",
          "bilingual(() => workLabel(w))}</a>", "workLabel(w)}</a>"),
         (single_language_findings, "the work page byline asks it once",
-         "r.author ? bilingual(() => creditLine(r)) : ''", "r.author ? creditLine(r) : ''"),
+         "r.author ? bilingual(() => creditLine(r))", "r.author ? creditLine(r)"),
         (single_language_findings, "the 発売 row is built for one language",
          '`<div class="relv">${bilingual(row)}</div>`', '`<div class="relv">${row(LANG)}</div>`'),
         (single_language_findings, "the 作品 index row is built for one language",

@@ -170,8 +170,10 @@ def _one_language(s, app):
              "${authorLabel({ author: fact.credit })}"),
             ("the works list on a credit or publisher page",
              "bilingual(() => workLabel(w))}</a>", "workLabel(w)}</a>"),
+            # The tail of this line moved when an anthology's Author row learned to say `Various`
+            # in place of a byline, so the probe matches the wrapper and not what follows it.
             ("the work page byline",
-             "r.author ? bilingual(() => creditLine(r)) : ''", "r.author ? creditLine(r) : ''"),
+             "r.author ? bilingual(() => creditLine(r))", "r.author ? creditLine(r)"),
             ("the 発売 row",
              '`<div class="relv">${bilingual(row)}</div>`',
              '`<div class="relv">${row(LANG)}</div>`'),

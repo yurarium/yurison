@@ -27,7 +27,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "names"))
 
-_SUBMODULES = ("interpunct", "splitter", "checks")
+_SUBMODULES = ("interpunct", "splitter", "checks", "nobody")
 
 #: The corpus's answers about a ・, held here so every splitter sees the same ones. `None` means
 #: nobody has computed them yet, which is different from "computed and empty".
@@ -90,7 +90,10 @@ def __getattr__(name):
     """Anything `interpunct` publishes, reached through the entry point."""
     if name in _SUBMODULES or name.startswith("__"):
         raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-    for mod in (importlib.import_module(".interpunct", __name__), _sp()):
+    # `nobody` LAST, because it answers a question the other two do not ask: whether a creator
+    # field names anybody at all, before the splitter is asked how many.
+    for mod in (importlib.import_module(".interpunct", __name__), _sp(),
+                importlib.import_module(".nobody", __name__)):
         if hasattr(mod, name):
             return getattr(mod, name)
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

@@ -10,7 +10,7 @@
 # the survivor, because an address published once has to keep working.
 #
 # See adapters/credit_identity.py and data/identity/credit-rulings.yaml.
-generated: 2026-08-09
+generated: 2026-08-11
 credits:
   - id: c00001
     credit: "クール教信者"
@@ -7827,8 +7827,11 @@ credits:
       - "credit:NOAH編集部"
   - id: c01868
     credit: "アンソロジー"
-    anchors:
-      - "credit:アンソロジー"
+    anchors: []
+    detached:
+      - anchor: "credit:アンソロジー"
+        basis: "The format of the book written where its author goes, and never a byline. BOOK☆WALKER states it in the creator field of 9 records and GigaViewer of 47; an anthology has many contributors and neither source lists them. `credits.is_a_person` tests how a credit is BUILT, so a word spelled the way a pen name is spelled walked past both of its clauses, and c01868 was minted and published at credit/c01868/ with a person's page around nine anthologies, one of them carrying the role 著. `facts/credit/nobody` refuses the string at the splitter now, and the work rows say 複数の作家 / Various in place of a byline. This withdraws the address that was already published. It names no `to`: the field named nobody, so there is no live credit to send a reader to, and choosing one would file nine anthologies under whoever was chosen."
+        retrieved: 2026-08-11
   - id: c01869
     credit: "江口心"
     anchors:

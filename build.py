@@ -342,6 +342,20 @@ def _stated_for(work, platform):
 
 
 
+def _nobody_credit(value):
+    """The basis a creator field states instead of a person, or None. `{}` on any import failure.
+
+    DEFENSIVE, because this sits in the hot path of every work row and an adapters path that is not
+    set yet would otherwise take the whole build down over a naming refinement.
+    """
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+        from facts import credit as _c
+        return _c.not_a_credit(value)
+    except Exception:                                                       # noqa: BLE001
+        return None
+
+
 def _curated_whole_credits():
     """`{folded credit: ONE}` for every author `curated.yaml` keys on a whole interpunct name."""
     try:
@@ -2897,9 +2911,17 @@ def main():
             "title": catalogued_title(base["title"]),
             # `or` is not enough: a BOOK☆WALKER row whose authors list is empty comes through as
             # " / ", which is truthy and names nobody. See adapters/bylines.credited.
-            "creator": (base.get("creator", "")
-                        if _bylines.credited(base.get("creator", "")) else "")
-                       or byline_credit.get(wid, ""),
+            # A CREATOR FIELD NAMING NO PERSON IS NOT A BYLINE. A shop has nobody to put there for
+            # an anthology and puts the format of the book: `アンソロジー` reached here as a credit,
+            # the registry minted c01868 for it, and credit/c01868/ was published headed アンソロジー
+            # telling a reader in two languages that these are the works naming this person. The
+            # basis travels beside the empty byline so the page can say what the field did say.
+            "creator": ("" if _nobody_credit(base.get("creator", ""))
+                        else ((base.get("creator", "")
+                               if _bylines.credited(base.get("creator", "")) else "")
+                              or byline_credit.get(wid, ""))),
+            **({"creator_basis": _nobody_credit(base.get("creator", ""))}
+               if _nobody_credit(base.get("creator", "")) else {}),
             "publisher": base.get("publisher", ""),
             # Beside the publisher and never in it. The source layer reads the role out of MADB's
             # `[発売]講談社` and these two carry the halves it separated: who delivered the book,
@@ -5228,6 +5250,17 @@ def main():
     # split chapter and the separator is a full-width minus, so requiring digits immediately before
     # 話 would miss exactly the row this guard exists for.
     _BAD_AUTHOR = re.compile(r"第[0-9０-９][0-9０-９\-−‐–—.．]*[話回巻]|更新日|\d{4}[-/年]")
+    # A CREATOR FIELD THAT NAMES NO PERSON, ANSWERED ONCE HERE. A shop puts something in that field
+    # for every book it sells and has nobody to put for an anthology, so BOOK☆WALKER writes
+    # アンソロジー on 9 records and GigaViewer on 47: the FORMAT of the book where its author goes.
+    # It went through the splitter like a byline, `credits.is_a_person` had no shape to refuse a
+    # plain word by, and the registry minted c01868 and published a credit page headed アンソロジー
+    # telling a reader these are the works that name this person.
+    #
+    # DROPPED AND REPLACED, NOT JUST DROPPED. An empty byline says nobody made the book; this book
+    # has many authors and the source declined to list them, which is a different fact and the one
+    # the reader should get. `author_basis` carries it the way `publisher_basis` already carries a
+    # publisher a catalogue does not state, and the interface renders it in the reader's language.
     for row in series.values():
         if row["author"] and _BAD_AUTHOR.search(row["author"]):
             row["author"] = ""
@@ -5827,6 +5860,11 @@ def main():
                 # lists under the plain name, and the ISBD colon marked the edition.
                 "work": work_alias(((_pw2.get("title") or {}).get("ja") or "").strip()),
                 "author": " / ".join(x for x, _job in _cparts),
+                # WHAT THE CREATOR FIELD SAID INSTEAD OF A NAME. A shop has nobody to put there for
+                # an anthology and writes the format of the book, so the byline above is empty and
+                # would read as a book nobody made. This is the only path these rows take: they
+                # carry no chapters, so the serialisation grouping never sees them.
+                **({"author_basis": _pw2["creator_basis"]} if _pw2.get("creator_basis") else {}),
                 **({"credits": [{"name": x, **({"role": j} if j else {})} for x, j in _cparts]}
                    if any(j for _x, j in _cparts) else {}),
                 "chapters": 0, "partial": False, "oneshot": False,

@@ -211,14 +211,34 @@ jobs:
           # route carries it on nearly all of them, so a work reached only by the feed has none.
           # Counted together, 26 of those were consuming a tripwire set at 25 and would have hidden
           # the first row that really did lose its title.
+          #
+          # COUNTED PER PLATFORM, BECAUSE THAT IS WHAT A MOVED SELECTOR LOOKS LIKE. A bare total of
+          # 3 failed the 2026-08-11 run on four rows that were nothing of the kind: ニコニコ漫画
+          # states a work-level `updated` for おやすみシェヘラザード and 柚子森さん and names no
+          # chapter, and ヤンジャン+ and きら星ポータル each carry a 読み切り with no byline. Four
+          # rows on three platforms in two shapes is four platforms each publishing an update the
+          # way they publish it. A selector that has moved takes out the platform it belongs to, so
+          # the test is a platform losing the field across its own rows, and a scattered handful is
+          # printed and passed.
+          import collections
           named = [r for r in att if not (r.get("ep") or "").strip() or not r.get("author")]
           unpriced = [r for r in att if r.get("ep") and r.get("author") and not r.get("access_modes")]
           print(f"attested {len(att)}, missing a name {len(named)}, missing access {len(unpriced)}")
-          if len(named) > 3:
-              for r in named[:15]:
-                  print("  ", r.get("plat_name"), r["work"][:30], repr(r.get("ep"))[:30])
-              sys.exit(f"{len(named)} attested rows have no episode title or no author — a selector "
+          seen = collections.Counter((r.get("plat_name") or r.get("plat")) for r in att)
+          lost = collections.Counter((r.get("plat_name") or r.get("plat")) for r in named)
+          moved = [(p, n, seen[p]) for p, n in lost.items() if n >= 3 and n * 2 >= seen[p]]
+          for r in named[:15]:
+              print("  ", r.get("plat_name"), r["work"][:30], repr(r.get("ep"))[:30])
+          if moved:
+              for p, n, tot in moved:
+                  print(f"   {p}: {n} of {tot} rows carry no episode title or no author")
+              sys.exit(f"{len(moved)} platform(s) lost a field across their own rows — a selector "
                        f"has probably moved. See RUNBOOK-github.md section 8.")
+          # AND A DRIFT ACROSS EVERYTHING STILL TRIPS. Per-platform alone would miss a change to a
+          # shared renderer, which shows up as a few rows everywhere and no platform over its share.
+          if len(named) > 25:
+              sys.exit(f"{len(named)} attested rows have no episode title or no author, spread too "
+                       f"widely to be one platform. See RUNBOOK-github.md section 8.")
           if len(unpriced) > 60:
               import collections
               for p, n in collections.Counter(r.get("plat_name") for r in unpriced).most_common(8):

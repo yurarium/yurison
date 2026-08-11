@@ -2494,3 +2494,35 @@ or classified because no work matches the string.
 
 Not chased here. It wants the まんがタイムSquare capture read beside the adapter that writes it, and
 what is recorded is the shape, so the next reader starts from the fault rather than from the count.
+
+## A shop credits an anthology to "アンソロジー". Substituted 2026-08-11, two things left
+
+BOOK☆WALKER writes `アンソロジー` in the creator field on 9 records and GigaViewer on 47: a shop
+puts something there for every book it sells and has nobody to put for an anthology, so it writes
+the format of the book. The string went through the credit splitter like a byline. `is_a_person`
+tests how a credit is BUILT, digits and punctuation, or a number followed by a sentence, and this
+is a word spelled the way a pen name is spelled, so nothing refused it.
+
+`facts/credit/nobody` refuses it now and the row says `複数の作家 / Various` in place of a byline,
+which is what an English catalogue writes for a book of many hands. An empty Author line would say
+nobody made the book, and these have many.
+
+**The published identifier is still there.** c01868 was minted for the string and
+`credit/c01868/` is a live page headed アンソロジー telling a reader in two languages that these are
+"the works that name this person", listing nine anthologies with the role 著 on one of them.
+Nothing links to it now, and it is reachable by address.
+
+`credit-rulings.yaml` has a `withdraw` decision for exactly this, a string that was never a credit
+holding a published identifier, and it could not express this case: `_withdraw` required `to` to
+name a live credit to send readers to, and there is nobody here to name. The precedent it was
+written for, `１冊目：叔母さんは神絵師`, had one, because the same field really did name a person
+beside the chapter title. This one names nobody at all. Closing it meant deciding what a reader who
+follows a withdrawn address lands on when there is no successor. A withdrawal may now name no `to`:
+the anchor is detached, nothing resolves to the identifier again, and it stays retired and empty.
+
+**Whether the contributors are recorded elsewhere has not been looked for.** The substitution says
+this SOURCE names none of them, which is true and is not the same as saying nobody knows. MADB
+catalogues an anthology's contributors on some records, openBD carries an ONIX contributor list,
+and the publisher's own page for a 百合姫 anthology lists the line-up. Nine works, and the route is
+the same one the byline work already uses. Worth doing before the substitution is taken as final:
+`複数の作家` is honest about what we hold and would be a poor answer if the names are a fetch away.

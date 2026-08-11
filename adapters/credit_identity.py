@@ -290,10 +290,23 @@ def _withdraw(entries, r, retrieved):
     cannot stop the one already minted, because c00268 was published at `credit/c00268/` with a
     person's page around a chapter of 新刊100億冊ください.
 
-    `to` IS REQUIRED AND IS NOT THE SAME CLAIM A MERGE MAKES. It says where a reader who followed
-    the dead address should end up, and for a chapter mistaken for a byline that is the credit the
-    same field really named. Saying the two are one credit would be false, so nothing here lends
-    the withdrawn spelling to anybody: `identity.withdraw` detaches the anchor instead.
+    `to` IS NOT THE SAME CLAIM A MERGE MAKES. It says where a reader who followed the dead address
+    should end up, and for a chapter mistaken for a byline that is the credit the same field really
+    named. Saying the two are one credit would be false, so nothing here lends the withdrawn
+    spelling to anybody: `identity.withdraw` detaches the anchor instead.
+
+    AND SOMETIMES THERE IS NOBODY TO SEND THEM TO. `to` was required, which made this unable to
+    express the case it is most obviously for. BOOK☆WALKER and GigaViewer write `アンソロジー` in the
+    creator field of an anthology, being the format of the book and not a byline at all; c01868 was
+    minted and `credit/c01868/` published, headed アンソロジー and telling a reader these are the
+    works that name this person. The chapter-title precedent had a successor because the same field
+    really did name somebody beside the chapter. This field named nobody, and inventing a successor
+    to satisfy the shape would file nine anthologies under whoever was chosen.
+
+    So a withdrawal with no `to` detaches the anchor and retires the identifier with no successor.
+    The address goes on resolving, to an identifier that now names nobody, which is what
+    `credit identifiers naming nobody` already counts. What a reader sees there is the page for a
+    credit with no works, which is true of it.
     """
     surfaces = [s for s in (r.get("surfaces") or []) if s]
     if len(surfaces) != 1:
@@ -315,10 +328,16 @@ def _withdraw(entries, r, retrieved):
         return entries, (f"{surfaces[0]} holds no identifier, so nothing was published for it and "
                          "there is nothing to withdraw. A string the corpus never minted for is "
                          "settled by the splitter alone.")
-    target = idx.get(anchor(r.get("to") or "")) if r.get("to") else None
+    if not r.get("to"):
+        # NO SUCCESSOR NAMED, which is a statement and not an omission: the string was never a
+        # credit, so there is no live credit it belongs to. The anchor is detached so nothing
+        # resolves to the identifier again, and the identifier stays retired and empty.
+        return identity.detach(entries, anchor(surfaces[0]), r["basis"], retrieved), None
+    target = idx.get(anchor(r["to"]))
     if not target:
-        return entries, (f"a withdrawal of {surfaces[0]} with no live credit to send its readers "
-                         f"to; `to` names {r.get('to')!r}")
+        return entries, (f"a withdrawal of {surfaces[0]} sending its readers to {r.get('to')!r}, "
+                         f"which is not a live credit. Leave `to` out to withdraw with no "
+                         f"successor, which is a different statement and is allowed.")
     if target == wid:
         return entries, f"a withdrawal of {surfaces[0]} into itself"
     return identity.withdraw(entries, wid, target, r["basis"], retrieved), None

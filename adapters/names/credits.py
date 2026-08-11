@@ -402,6 +402,20 @@ def is_a_person(name):
     A WHOLE credit of digits and punctuation is the test, so a person whose name merely contains
     one survives: タイザン5 and 帯屋ミドリ2 are pen names. `CHAPTER_HEADING` covers the other half of
     the same fault, where the chapter carried its title along with its number.
+
+    AND A THIRD REFUSAL THAT IS NOT A SHAPE. Both tests above look at how a string is built, which
+    is why neither could see `アンソロジー`: it is a word, spelled the way a pen name is spelled, and
+    it is the FORMAT of the book written where its author goes. `facts/credit/nobody` holds those,
+    with what each one says instead of a name.
     """
     s = unicodedata.normalize("NFKC", str(name or "")).strip()
+    if _nobody().not_a_credit(s) or _nobody().not_a_credit(str(name or "").strip()):
+        return False
     return bool(s) and not NOT_A_PERSON.match(s) and not CHAPTER_HEADING.match(s)
+
+
+def _nobody():
+    """`facts.credit`, imported late because this module is reached by passes that put `adapters`
+    on the path themselves."""
+    from facts import credit
+    return credit

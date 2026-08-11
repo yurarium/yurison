@@ -197,11 +197,25 @@ def main(s):
         "basis": "chapter 1 of the work, read out of a page title's byline field"}]}, "2026-08-09")
     s.eq((ret8, ref8), (1, []), "a second run finds it already withdrawn rather than reporting a fault")
     s.eq(len(reg8[1]["detached"]), 1, "and records the evidence once")
-    # A WITHDRAWAL WITH NOWHERE TO SEND ITS READERS IS REFUSED. The address was published, so
-    # retiring it into nothing turns a working link into a blank page.
+    # A WITHDRAWAL MAY NAME NO SUCCESSOR, and leaving `to` out says so. It used to be
+    # required, which left the machinery unable to express the case it is most obviously for:
+    # BOOK☆WALKER and GigaViewer write `アンソロジー` in an anthology's creator field, being the
+    # format of the book and no byline at all, and c01868 was minted and published for it. The
+    # chapter-title precedent had a successor because the same field really did name somebody
+    # beside the chapter; that one named nobody, and choosing a successor to satisfy the shape
+    # would have filed nine anthologies under whoever was chosen. The anchor is detached, so
+    # nothing resolves to the identifier again and it stays retired and empty.
     _r9, _n9, _a9, _k9, refused9 = ci.apply_rulings(reg, {"rulings": [{
-        "surfaces": ["おこさまランチ"], "decision": "withdraw", "basis": "not a credit"}]})
-    s.eq(len(refused9), 1, "a withdrawal naming no successor is refused")
+        "surfaces": ["おこさまランチ"], "decision": "withdraw", "basis": "not a credit at all"}]})
+    s.eq(len(refused9), 0, "a withdrawal naming no successor is allowed")
+    s.check(not any("おこさまランチ" in str(e.get("anchors") or []) for e in _r9),
+            "and the anchor is detached, so the string resolves to nobody")
+    # BUT A `to` THAT NAMES NOBODY LIVE IS STILL REFUSED, which is the case leaving it out is not:
+    # one says there is no successor, the other names one that does not exist.
+    _r9b, _n9b, _a9b, _k9b, refused9b = ci.apply_rulings(reg, {"rulings": [{
+        "surfaces": ["おこさまランチ"], "decision": "withdraw", "to": "だれもいない",
+        "basis": "not a credit"}]})
+    s.eq(len(refused9b), 1, "a withdrawal sending readers to a credit that is not live is refused")
     _r10, _n10, _a10, _k10, refused10 = ci.apply_rulings(reg, {"rulings": [{
         "surfaces": ["おこさまランチ", "お子様ランチ"], "decision": "withdraw",
         "to": "お子様ランチ", "basis": "x"}]})

@@ -26,7 +26,7 @@
 # `credits sharing a reading nobody has ruled on`, so a newly sourced reading that puts two credits
 # together arrives as a number that has risen.
 retrieved: 2026-08-09
-count: 85
+count: 86
 rulings:
   - reading: "4kaエンピツ"
     surfaces:
@@ -697,3 +697,7 @@ rulings:
     decision: "withdraw"
     to: "破賀ミチル"
     basis: "This is the first chapter of 新刊100億冊ください and not a person. コミックDAYS prints the newest chapter where a page title puts the author, so the capture read `破賀ミチル / １冊目：叔母さんは神絵師` off one field and the store kept each half as a credit; c00268 was minted for the chapter and published at credit/c00268/ with a person's page around it. The same feed lists the string as chapter 1 of that work. `credits.is_a_person` now refuses a numbered heading followed by a sentence, so the splitter drops it before anything is minted, and this withdraws the address that was already published. It forwards to 破賀ミチル because that is the credit the same field really named, which is where a reader who followed the link was trying to get. The two are not one credit and nothing here says they are: the anchor is detached rather than lent, so the chapter title resolves to nobody."
+  - surfaces:
+      - "アンソロジー"
+    decision: "withdraw"
+    basis: "The format of the book written where its author goes, and never a byline. BOOK☆WALKER states it in the creator field of 9 records and GigaViewer of 47; an anthology has many contributors and neither source lists them. `credits.is_a_person` tests how a credit is BUILT, so a word spelled the way a pen name is spelled walked past both of its clauses, and c01868 was minted and published at credit/c01868/ with a person's page around nine anthologies, one of them carrying the role 著. `facts/credit/nobody` refuses the string at the splitter now, and the work rows say 複数の作家 / Various in place of a byline. This withdraws the address that was already published. It names no `to`: the field named nobody, so there is no live credit to send a reader to, and choosing one would file nine anthologies under whoever was chosen."

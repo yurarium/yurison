@@ -2487,6 +2487,21 @@ def inv_no_app_only_route_is_published_as_web_reading(ctx):
         for rel in (ctx["releases"] or []):
             if str(rel.get("url") or "") in barred:
                 out.append(f"the feed carries {rel.get('url')} as a {rel.get('web') or 'release'}")
+
+    # AND WHAT THE ROUTE SAID SURVIVES WHERE A READER MEETS IT. Excluding the chapters does not
+    # disbelieve the byline, and the first attempt kept the name somewhere nobody looks: the credit
+    # sat in `credits` while `author` stayed empty, so the work page drew no byline at all and
+    # `credit_identity`, which mints from `author`, still could not support the credit page's edge.
+    # A name recorded out of sight is the fault this half is for, not a lesser version of it.
+    for r in (ctx["series"] or []):
+        named = {unicodedata.normalize("NFKC", str(x or "")).replace(" ", "")
+                 for x in re.split(r"\s*/\s*", str(r.get("author") or ""))}
+        for c in (r.get("credits") or []):
+            if c.get("basis") != "named-on-an-app-only-listing":
+                continue
+            if unicodedata.normalize("NFKC", str(c.get("name") or "")).replace(" ", "") not in named:
+                out.append(f"{r.get('work')!r} keeps {c.get('name')!r} from an excluded route "
+                           f"where its byline does not name them")
     return out
 
 
@@ -5621,6 +5636,13 @@ def self_test():
         ("no app-only route is published as web reading",
          inv_no_app_only_route_is_published_as_web_reading,
          _plant_an_app_only_route_a_reader_is_sent_to),
+        # AND THE NAME KEPT WHERE NOBODY LOOKS, which is the state this shipped in for one build:
+        # the credit recorded and the byline empty, so the work page drew nothing.
+        ("no app-only route is published as web reading",
+         inv_no_app_only_route_is_published_as_web_reading,
+         lambda c: c["series"].append(
+             {"work": "カナリア", "author": "",
+              "credits": [{"name": "野宮りおん", "basis": "named-on-an-app-only-listing"}]})),
     ]
     ok = True
     for name, fn, plant in probes:

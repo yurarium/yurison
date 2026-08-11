@@ -349,6 +349,29 @@ def _stated_for(work, platform):
 
 
 
+def _nobody_bases():
+    """Every basis meaning `the source named no person`, asked of the module that owns them.
+
+    Listed nowhere here, because a second copy of a vocabulary is how the two answers this project
+    keeps meeting get made. Empty on an import failure, which makes the caller do nothing rather
+    than clear a basis it cannot identify.
+    """
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+        from facts import credit as _c
+        return set(_c.BASIS)
+    except Exception:                                                       # noqa: BLE001
+        return set()
+
+
+_NOBODY_BASES = _nobody_bases()
+
+
+def _credit_fold(s):
+    """A credit spelling folded for comparison, the way the credit measures fold one."""
+    return unicodedata.normalize("NFKC", str(s or "")).replace(" ", "").replace("　", "")
+
+
 def _nobody_credit(value):
     """The basis a creator field states instead of a person, or None. `{}` on any import failure.
 
@@ -5013,6 +5036,11 @@ def main():
     host_plat = {h: c.most_common(1)[0][0] for h, c in host_plat.items()}
 
     series = {}
+    # WHAT AN UNREADABLE LISTING STILL SAYS. A route excluded below for having no chapter a
+    # browser can open is not thereby a route that says nothing: it names the author. Held aside
+    # here and attached by identity further down, so the statement survives without the listing
+    # becoming a row, a source chip or a serialisation.
+    _app_only_authorship = []
     for _f in sorted(pathlib.Path("data/source").rglob("*.yaml")):
         try:
             _d = yaml.safe_load(_f.read_text())
@@ -5058,7 +5086,26 @@ def main():
             # in a browser and whose later ones moved into the app ARE web serialisations, and
             # those app chapters are real chapters of one. They are simply not free. Only a route
             # with no readable chapter anywhere is excluded, which is why this tests `all`.
+            #
+            # THE CHAPTER ROUTE IS EXCLUDED AND THE AUTHORSHIP STATEMENT IS NOT. Ruled by the
+            # project owner on 2026-08-11. A listing that cannot be read is still a listing that
+            # says who made the work, and for an anthology sold one story at a time it is the only
+            # thing that does: ニコニコ credits the LatteComi 百合 anthology to 野宮りおん where
+            # BOOK☆WALKER writes アンソロジー, which names nobody and `facts/credit/nobody.py`
+            # refuses. Dropping the work here took that name out with the chapters, and
+            # `credit_identity` reads `series.json`, so the credit page kept an edge the corpus no
+            # longer supported. The chapters go; everything the listing says stays.
+            # IT LEAVES BY A DOOR THAT IS NOT THE SERIALISATION DOOR. Emptying the chapters and
+            # letting the work through was tried and is wrong: the row re-formed under the
+            # edition's own title, carrying a ニコニコ source chip and, for the six whose work
+            # serialises there for real, a second one beside it. Whatever carries the authorship
+            # must not put the route back as a place to read. So the route is dropped here exactly
+            # as before, and what it says about who made the work is set aside for `_app_only_by`,
+            # which attaches it to the row identity already gives the listing.
             if chs and all(c.get("app_only") for c in chs):
+                if (w.get("author") or "").strip() and w.get("url"):
+                    _app_only_authorship.append({"url": w["url"], "author": w["author"].strip(),
+                                                 "title": w.get("work_title") or title})
                 continue
             # カドコミ dates a not-yet-released chapter 9999-12-31, and コミックFUZ carries 公開予定
             # rows months out. Neither has been published, so neither can be the latest chapter —
@@ -5982,6 +6029,7 @@ def main():
         print(f"print-only works added to the works list: {_added}"
               + (f"; {_folded} editions folded into a row already held" if _folded else ""))
 
+
         # A WORK IS AS OLD AS THE OLDEST THING WE HOLD ABOUT IT. The row's date came from the
         # platform's own chapters, which is the day the platform posted them and not the day the
         # work first appeared. Where a platform re-serialises a finished title, the two are years
@@ -6290,6 +6338,56 @@ def main():
         # the project, 5 passed the ruling and 26 did not, which is how くろば・Ｕ came to be in the
         # store cut in half with an identifier on each piece.
         _credit_fact.use_rulings(_credit_ruled)
+
+        # THE AUTHORSHIP AN EXCLUDED ROUTE STILL CARRIES. The owner ruled on 2026-08-11 that
+        # excluding a chapter route no browser can open does not disbelieve what the listing says
+        # about who made the work, and that this must not put the route back as a serialisation.
+        # So it creates no row, no source, no chapter and no address, joins on no title, and runs
+        # over rows that already exist, reaching them by the identity the listing already has.
+        #
+        # HERE, AND NOT WHERE THE ROWS ARE BUILT, because `use_rulings` has just run. Written
+        # earlier it had to cut the field itself, and a ・ is the one separator that cannot be cut
+        # without the corpus: 矢立肇・富野由悠季 is two people and くろば・Ｕ is one. Below this line
+        # the entry point knows, so the question is simply asked.
+        #
+        # INTO THE BYLINE, WHICH IS WHERE AUTHORSHIP LIVES. Putting it in `credits` alone was tried
+        # and reached nobody: `linkedCredits` drew '' for the anthology, and `credit_identity`
+        # mints its edges from `author` and reads `credits` for roles only, so the credit page kept
+        # an edge the corpus still did not support. A statement no reader can see and no pass can
+        # find has not survived. It is also what this corpus already does with an anthology:
+        # ゆるゆり コミックアンソロジー carries 16 contributors in its byline. `アンソロジー` was refused
+        # because it names nobody, never because a contributor may not stand there.
+        if _idreg.exists():
+            _ao_credited = 0
+            for _ao in _app_only_authorship:
+                _ao_id = _byanchor.get(identity.web_anchor(_ao["url"], _ao["title"], False))
+                _ao_row = _row_by_id.get(_ao_id) if _ao_id else None
+                if not _ao_row:
+                    continue
+                # NFKC AND NO SPACES, the fold the credit measures use, because the listing writes
+                # 高坂 はしやん where the work's own byline writes 高坂はしやん and they are one person.
+                # Three of the four listings name people the row already names, and without this
+                # they were added a second time.
+                _ao_seen = {_credit_fold(c.get("name")) for c in (_ao_row.get("credits") or [])}
+                _ao_seen |= {_credit_fold(x)
+                             for x in re.split(r"\s*/\s*", str(_ao_row.get("author") or ""))}
+                for _ao_name, _ao_reading, _ao_role in _credit_fact.split_detail(_ao["author"]):
+                    if not _ao_name or _credit_fold(_ao_name) in _ao_seen:
+                        continue
+                    _ao_row["author"] = " / ".join(
+                        [x for x in [str(_ao_row.get("author") or "").strip()] if x] + [_ao_name])
+                    _ao_row.setdefault("credits", []).append(
+                        {"name": _ao_name, **({"role": _ao_role} if _ao_role else {}),
+                         "basis": "named-on-an-app-only-listing"})
+                    # THE SHOP NAMED NOBODY AND SOMEBODY IS NAMED NOW, so the basis standing in for
+                    # the byline stands down. Left in place it renders `Various` over a row with a
+                    # name on it, which is the two-answers state `nobody.py` was written to end.
+                    if _ao_row.get("author_basis") in _NOBODY_BASES:
+                        _ao_row.pop("author_basis", None)
+                    _ao_seen.add(_credit_fold(_ao_name))
+                    _ao_credited += 1
+            if _ao_credited:
+                print(f"credits kept from an excluded app-only route: {_ao_credited}")
         _p4.fill_missing({p for f in credit_fields(idx, works, series_rows, releases)
                           for p in [f] + _credits.split_credits(f)[0] if p}, "authors",
                          ruled=_credit_ruled)

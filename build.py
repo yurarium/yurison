@@ -6544,8 +6544,32 @@ def main():
             continue
         _credit_div[_fold(_cf)] = _cd
         _credit_unaccounted += 1 if _cd.get("part") else 0
+    # A ROLE THE FIELD DOES NOT SPELL OUT. `_divide` reads a role off the field's own text, so
+    # `[作画]蔵王大志 / [原作]影木栄貴` divides with both jobs and `宮澤伊織 / 水野英多 / shirakaba`
+    # divides with none, though the same three people are 原作, 作画 and キャラクター原案 on the same
+    # work. The notation is on the WORK record's creator and the series row carries the stripped
+    # spelling, so the byline a reader meets had no roles on 497 works: 裏世界ピクニック named three
+    # people and said nothing about which of them wrote it.
+    #
+    # JOINED FROM `credits`, WHICH IS THE SAME DIVISION ALREADY SHIPPED, so this carries an answer
+    # across rather than deriving a second one. Matched by name: position would agree until a
+    # source lists the same people in another order, and the names are what both sides are keyed on.
+    _gave_roles = 0
+    for _sr in series_rows:
+        _cs = [c for c in (_sr.get("credits") or []) if c.get("role")]
+        _rec = _credit_div.get(_fold(_sr.get("author") or ""))
+        if not _cs or not _rec or any(x.get("r") for x in _rec["p"]):
+            continue
+        _byname = {c["name"]: c["role"] for c in _cs if c.get("name")}
+        _hit = False
+        for _part in _rec["p"]:
+            _role = _byname.get(_part.get("n"))
+            if _role:
+                _part["r"], _hit = _role, True
+        _gave_roles += 1 if _hit else 0
     print(f"credits         : {len(_credit_div)} field(s) divided for the interface, "
-          f"{_credit_unaccounted} not fully accounted for")
+          f"{_credit_unaccounted} not fully accounted for, "
+          f"{_gave_roles} given the roles their work record states")
 
     # BUILT HERE RATHER THAN BESIDE ITS OWN FILE, because the floor below is asked what a publisher
     # page shows and that answer exists only in this document. The write is further down with the

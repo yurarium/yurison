@@ -8,10 +8,19 @@
 # This one BLOCKS. It runs where a person is present to fix what it finds, which is the whole basis
 # for treating check-in differently from the unattended build.
 name: gate
+# MAIN IS IN, AND NEEDS NO CONDITION TO KEEP THE BOT OUT. This read `branches-ignore: [main]`,
+# reasoned as "main is what the unattended update commits to". That is right about the bot and
+# blind to the difference between the bot and a person: six code pushes to main on 2026-08-11 ran
+# no tests and no gate, only the leak guard, and the twelve budget rises they carried were found by
+# running check.py by hand a day later.
+#
+# A push authenticated with GITHUB_TOKEN does not trigger `on: push` workflows, which update.yml
+# already documents and which was checked rather than trusted: the update run's own commit 4415905
+# triggered nothing at all, while every other commit that day triggered leak-guard. So the
+# unattended update stays out of this gate by construction, and no actor test can drift from it.
 on:
   pull_request:
   push:
-    branches-ignore: [main]     # main is what the unattended update commits to; see update.yml
   workflow_dispatch:
 
 concurrency:

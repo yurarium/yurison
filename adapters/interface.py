@@ -280,6 +280,15 @@ NOT_A_SURFACE = {
     "sourceBoth": "a source's name in both languages, which is a citation and not a name in the "
                   "corpus: the string is the site or shop as it calls itself",
     "stateLabel": "the words active, finished or paused, which are the interface's own English",
+    "bylineRole": "the same role `roleWord` glosses, in the form a byline states it; it decides "
+                  "which atoms of a compound survive the owner's elision of the default author "
+                  "role and asks `roleWord` for every word it keeps",
+    "andOthers": "the words a field uses to say the people it names are some of them, read off the "
+                 "one role table so the byline and the credit page cannot disagree about them",
+    "creditJoiner": "what the field put between two people, shipped beside the division; it "
+                    "chooses punctuation and renders no name",
+    "composedCredit": "a byline composed from the shipped division, every name through "
+                      "`personShown` and every role through `bylineRole`",
 }
 
 

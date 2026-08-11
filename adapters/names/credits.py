@@ -214,8 +214,22 @@ def split_credits_roled(raw):
     from names.inputs import split_credits_detail
     parts = [(n, role) for n, _reading, role in split_credits_detail(s, interpunct=False)
              if n and n not in FURNITURE]
-    joiner = " / " if re.search(r"[/／]", s) else ("、" if "、" in s else ", ")
-    return parts, joiner
+    return parts, joiner(s)
+
+
+def joiner(raw):
+    """What this field puts between two people, for a rendering that has to read like it.
+
+    A composed byline has to be punctuated the way the field it replaces was punctuated, or one row
+    on a tab reads unlike every row around it: a series row writes ` / ` and a releases row writes
+    `, `, as in `おだまさる, 佐島勤, 石田可奈, 森夕`.
+
+    ASKED HERE RATHER THAN WORKED OUT IN THE BROWSER. `kari/src/10-names.js` composes the same line
+    for the reader and needs the same answer, and a second copy of this rule there is the shape §3
+    counts seven shipped bugs from. `build.py` ships it beside the division as `j`.
+    """
+    s = str(raw or "")
+    return " / " if re.search(r"[/／]", s) else ("、" if "、" in s else ", ")
 
 
 def split_credits(raw):

@@ -423,7 +423,11 @@ def credit_parts(ja, store=None, ruled=None):
     parts, drop = creditline._divide(ja or "", store, ruled)
     if not parts:
         return None
-    out = {"p": parts}
+    # WHAT THE FIELD PUTS BETWEEN TWO PEOPLE, so a composed byline reads the way the field it
+    # replaces read. `names.credits.joiner` owns the rule; a copy of it in the browser would be one
+    # punctuation choice with two producers.
+    from names import credits as _credits
+    out = {"p": parts, "j": _credits.joiner(ja or "")}
     if drop:
         # Literal substrings of the field that say the same thing twice: a reading printed beside
         # the name it reads. Taken off an English page, where kana beside a romanisation is a

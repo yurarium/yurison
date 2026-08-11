@@ -167,3 +167,24 @@ candidates:
       Printed on the visual's own footer beside ICHIJINSHA. The store derived `Manio` from the kana
       with basis `romaji`, and the artist writes the same letters, so the derivation is confirmed
       and only the casing is theirs to settle.
+  - work: "アンドロイドは経験人数に入りますか？？"
+    latin: "YAKINIKUTEISHOKU"
+    kind: author-latin-name
+    of: "焼肉定食"
+    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183677_d0d86542f07a4c456d3ea4a2eb9aefbe_1752730099"
+    note: >-
+      Printed `by YAKINIKUTEISHOKU` under the Japanese name on the volume 1 cover. The store holds
+      `Yakiniku Teishoku`, two words, from the reading ヤキニク テイショク; the artist writes it as
+      one. The reading is confirmed and the spacing is theirs. 焼肉定食 credits 11 works here, and
+      credit-rulings.yaml merged ヤキニクテイショク into this spelling on 2026-08-11, so the cover
+      settles both halves of that pair at once.
+  - work: "伽藍の姫 -がらんのひめ-"
+    latin: "Princess of cathedral"
+    kind: official-latin-title
+    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965919360583_ccd771853cbbc5d4dc79a9c71b839f9f_1752730099"
+    note: >-
+      An English line on the volume 2 cover names the work `Princess of cathedral` in quotes, and
+      the furigana -がらんのひめ- is printed under the logo. The database ALREADY holds both, the
+      name with basis `official-jp` and the reading ガラン ノ ヒメ, so somebody curated this by
+      hand before. Recorded because it is the check on the method rather than a finding: reading
+      the artwork independently reproduces what careful curation reached.

@@ -26,7 +26,7 @@ already taken the dangerous cases out.
 
 ---
 
-## 1. `gate.yml` runs on push to `main`, blocking — DONE 2026-08-11
+## 1. `gate.yml` runs on push to `main`, blocking. DONE 2026-08-11
 
 `gate.yml` runs `test.py`, `--canary`, `build.py` and `check.py --gate`. Its trigger was
 `branches-ignore: [main]`, reasoned as "main is what the unattended update commits to". Sound about
@@ -37,7 +37,7 @@ the bot and blind to the difference between the bot and a person: six code pushe
 push` workflows, which `update.yml` already documents and which was verified: the update run's own
 commit `4415905` triggered nothing, while every other commit that day triggered `leak-guard`.
 
-## 2. Roles into `credit_parts` — DONE 2026-08-11
+## 2. Roles into `credit_parts`. DONE 2026-08-11
 
 366 fields were given the roles their work record states, and 90 shipped fields now show at least
 one. 裏世界ピクニック reads `Miyazawa Iori (story) / Mizuno Eita (art) / shirakaba (character
@@ -50,7 +50,7 @@ structured, so 裏世界ピクニック read `Miyazawa Iori / Mizuno Eita / shir
 `r` per person. It needed no identifiers and no search change, which is why bundling it with the
 search move was wrong.
 
-## 3. The byline fallback — DONE 2026-08-11
+## 3. The byline fallback. DONE 2026-08-11
 
 `creditGapText` drops a bracket left empty by a role that elided, and spaces a rendered gap so two
 names cannot run together. All 2,611 shipped fields re-rendered afterwards: none malformed, none
@@ -62,12 +62,12 @@ and `ぐう(作画)水無瀬(原作)riritto` glued each name to the role before 
 field reaches the walk, and a field shape the divider does not cover would, which is the ordinary
 way this corpus grows.
 
-## 4. Ship the anchors in `credits.json` — NOT STARTED
+## 4. Ship the anchors in `credits.json`. NOT STARTED
 
 Each credit gains the spellings it answers for. Re-measure the 257 afterwards; it should fall by
 about 70. Search by any spelling the registry unifies is impossible until this lands.
 
-## 5. Decide minting on the re-measured number — NOT STARTED, owner's call
+## 5. Decide minting on the re-measured number. NOT STARTED, owner's call
 
 Recommendation: mint for the remainder. They are people the corpus credits, and a registry
 population narrower than the corpus is two answers to "who does this database know about". Two
@@ -79,7 +79,7 @@ have one, which is the fault the merge and interpunct machinery exists to preven
 address is expensive to withdraw: `アンソロジー` cost a ruling, a vocabulary and a change to
 `_withdraw` on 2026-08-11.
 
-## 6. Move search onto the registry — NOT STARTED
+## 6. Move search onto the registry. NOT STARTED
 
 `index[].c` becomes identifiers and a query resolves through the registry to `works[]`.
 

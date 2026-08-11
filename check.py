@@ -950,25 +950,36 @@ def inv_scope_rulings_are_accounted_for(ctx):
     rulings = ctx["scope_rulings"]
     reported = {r.get("work") for r in ctx["scope_reported"]}
     bad = []
+    # A RULING MAY NAME A LINE AND NOT A BOOK, and it may answer either question §6 asks. The
+    # country half was the only one anybody had ruled on, so this read `work` and `country_basis`
+    # off every ruling and found None on the first ruling about a medium. Members are expanded here
+    # rather than through `facts/origin`, because the point of this check is that it reads the
+    # ruling file and the served bytes and asks nothing of the code that acted on either.
     for r in rulings:
-        if r.get("work") not in reported:
-            bad.append(f"ruled and not reported anywhere: {r.get('work')} {str(r.get('title'))[:24]}")
-        if r.get("country_basis") not in _origin_bases():
-            bad.append(f"rests on a term the vocabulary does not hold: {r.get('work')}")
+        for m in (r.get("works") or [r]):
+            if m.get("work") not in reported:
+                bad.append(f"ruled and not reported anywhere: {m.get('work')} "
+                           f"{str(m.get('title'))[:24]}")
+        if (r.get("country_basis") not in _origin_bases()
+                and r.get("medium_basis") not in _origin_medium_bases()):
+            bad.append(f"rests on a term no vocabulary holds: "
+                       f"{r.get('work') or r.get('imprint')}")
     if not SITE.exists():
         return bad
     for r in rulings:
-        title = r.get("title")
-        if r.get("disposition") != "out-of-scope" or not title:
-            continue
-        for f in sorted(SITE.rglob("*.json")):
-            if f.name in REPORT_FILES:
+        for m in (r.get("works") or [r]):
+            title = m.get("title")
+            if r.get("disposition") != "out-of-scope" or not title:
                 continue
-            try:
-                if title in f.read_text(encoding="utf-8", errors="replace"):
-                    bad.append(f"out of scope and published: {f.relative_to(SITE)}: {title[:24]}")
-            except OSError:
-                pass
+            for f in sorted(SITE.rglob("*.json")):
+                if f.name in REPORT_FILES:
+                    continue
+                try:
+                    if title in f.read_text(encoding="utf-8", errors="replace"):
+                        bad.append(f"out of scope and published: {f.relative_to(SITE)}: "
+                                   f"{title[:24]}")
+                except OSError:
+                    pass
     return bad
 
 
@@ -990,6 +1001,13 @@ def _origin_bases():
     sys.path.insert(0, str(ROOT / "adapters"))
     from facts import origin as _o
     return _o.bases()
+
+
+def _origin_medium_bases():
+    """The `medium_basis` vocabulary, asked of the module that owns it."""
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from facts import origin as _o
+    return _o.medium_bases()
 
 
 def inv_archives_unchanged(ctx):
@@ -2235,6 +2253,44 @@ def inv_no_record_comes_from_a_host_that_is_not_a_source(ctx):
                        f"{p.get('strategy')!r}, so the next run would ingest a host that is not a "
                        f"publication source: {why}")
     return bad
+
+
+def budget_works_shaped_like_prose(ctx):
+    """Works admitted only by a retailer's shelf that credit an illustrator beside their author.
+
+    DEFINITIONS §6 REFUSES PROSE and nothing enforced it. The rule is written out plainly, "light
+    novels and prose ... it is not manga. It will not be given work records", and the only scope
+    test that ran was about the COUNTRY a work was first published in. Eleven works on パルソラ's
+    コミックノベル「yomuco」, a line of illustrated prose, reached readers with work records, credit
+    pages and a place in the catalogue. One of them was a novelisation of a phone game and said so
+    in its own listing.
+
+    WHAT THE SHAPE IS. An author credited beside an 絵 illustrator is how an illustrated novel is
+    billed; a manga bills 作画 or 漫画. On its own that is weak, so it is paired with the admission:
+    a work no bibliography holds, admitted by a shop shelving it, has nothing behind it but a
+    retailer's category. BOOK☆WALKER filed every one of the eleven under マンガ総合 and tagged each
+    volume マンガ, so the shop's own category cannot be the test.
+
+    A COUNT AND NOT AN INVARIANT, BECAUSE NEITHER SIGNAL PROVES A MEDIUM. An illustrator credit on a
+    manga is possible and a shop-only admission is ordinary for digital-first work. What the pair
+    says is that nobody has checked, which is a question for a person and not a fact to block on.
+    It stands at zero because the eleven are ruled out; a rise is a work to go and look at.
+
+    §14b, WHAT IT REUSES: the shipped rows and the role vocabulary. It does not consult
+    `data/scope.yaml`, so a work the ruling covers is counted absent from the build rather than
+    excused by the file that excused it, and the count cannot be satisfied by editing the ruling.
+    """
+    works = {str(x.get("work_id")): x for x in (ctx["works"] or [])}
+    illustrator = {"\u7d75", "\u30a4\u30e9\u30b9\u30c8", "\u63d2\u7d75"}
+    n = 0
+    for r in (ctx["series"] or []):
+        if not any(c.get("role") in illustrator for c in (r.get("credits") or [])):
+            continue
+        printed = [p for p in (r.get("print") or []) if p.get("work_id")]
+        if printed and all((works.get(str(p["work_id"]), {}).get("sources") or []) == ["bookwalker"]
+                           for p in printed):
+            n += 1
+    return n
 
 
 def budget_works_named_by_a_truncation(ctx):
@@ -4510,6 +4566,11 @@ BUDGETS_DEF = [
      "English renderings holding a full-width character and no kana or kanji, which is what "
      "narrowing the invariant to a script let past. Mostly a Latin pen name catalogued in full "
      "width; some are official titles and are correct, so this will not reach zero."),
+    ("works shaped like prose", budget_works_shaped_like_prose,
+     "works credited to an author beside an illustrator whose only source is a retailer's shelf, "
+     "which is how an illustrated novel is billed and how a work nothing catalogues is admitted. "
+     "DEFINITIONS §6 refuses prose and had no test. A rise is a work somebody should look at "
+     "before it reaches readers with a work record."),
     ("works named by a truncation", budget_works_named_by_a_truncation,
      "distinct work titles in the shipped rows that end in three ASCII full stops, which is a "
      "listing running out of room rather than a title trailing off: a Japanese title that trails "

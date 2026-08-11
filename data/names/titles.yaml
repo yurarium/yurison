@@ -29231,6 +29231,24 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ツイてるギャルとミエてる陰キャ:
+    basis: romaji
+    furigana_spans:
+    - - ツイてるギャルとミエてる
+      - null
+    - - 陰
+      - かげ
+    - - キャ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ツイテル ギャル ト ミエテル カゲ キャ
+    reading_at: '2026-08-11'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   ツインケイク:
     basis: translated
     en: Twin Cake
@@ -49347,6 +49365,18 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  姫虐が止まらない白桃さん:
+    basis: romaji
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ヒメ ギャク ガ トマラナイ ハクトウサン
+    reading_at: '2026-08-11'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   娘が彼女を連れてきた話:
     basis: translated
     en: My Daughter Brought Her Girlfriend Home
@@ -57050,6 +57080,25 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  散らないで菊:
+    basis: romaji
+    furigana_spans:
+    - - 散
+      - ち
+    - - らないで
+      - null
+    - - 菊
+      - きく
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: チラナイデ キク
+    reading_at: '2026-08-11'
+    reading_basis: analyser
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   散り損ないのヒラエス:
     basis: translated
     en: Hiraeth, Who Failed to Scatter
@@ -60481,6 +60530,28 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  横槍メンゴ新作読切シリーズ:
+    basis: romaji
+    furigana_spans:
+    - - 横槍
+      - よこやり
+    - - メンゴ
+      - null
+    - - 新作
+      - しんさく
+    - - 読切
+      - よみきり
+    - - シリーズ
+      - null
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ヨコヤリ メンゴ シンサク ヨミキリ シリーズ
+    reading_at: '2026-08-11'
+    reading_basis: analyser
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   橘館CeLebらいふ:
@@ -64692,6 +64763,25 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  画家の肖像:
+    basis: romaji
+    furigana_spans:
+    - - 画家
+      - がか
+    - - の
+      - null
+    - - 肖像
+      - しょうぞう
+    note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
+      on pen names and coinages
+    reading: ガカ ノ ショウゾウ
+    reading_at: '2026-08-11'
+    reading_basis: analyser
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   畜生モード:

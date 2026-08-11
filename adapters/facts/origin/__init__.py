@@ -103,6 +103,44 @@ BASES = {
     },
 }
 
+#: WHY A WORK IS NOT MANGA, for the OTHER question DEFINITIONS §6 asks. The clause is written out
+#: plainly, "light novels and prose ... it is not manga. It will not be given work records", and
+#: only the country half was ever tested: eleven prose works reached readers with work records and
+#: credit pages. A ruling on medium rests on one of these the way a ruling on country rests on a
+#: term above.
+#:
+#: KEPT SEPARATE FROM `BASES` BECAUSE THEY ANSWER DIFFERENT QUESTIONS. A term saying where a book
+#: was published cannot say what kind of book it is, and a check that accepted either for either
+#: would let a country term excuse a medium ruling.
+MEDIUM_BASES = {
+    "imprint-is-a-prose-line": {
+        "medium": "prose",
+        "note":
+        "The line the work is published on is a prose line, so every work on it is prose. "
+        "パルソラ's コミックノベル「yomuco」 is the case: one of its books says 初ノベライズ in its own "
+        "listing, none of the eleven appears in the Media Arts Database or openBD, and six of them "
+        "credit an author beside an 絵 illustrator, which is how an illustrated novel is billed.",
+    },
+    "listing-states-a-novelisation": {
+        "medium": "prose",
+        "note":
+        "The shop's own copy for the book calls it a novelisation. That is the strongest medium "
+        "evidence a retailer listing can carry, and it is stronger than the category the same shop "
+        "files the book under: BOOK☆WALKER said 初ノベライズ and マンガ総合 on one page.",
+    },
+}
+
+
+def medium_bases():
+    """Every term a ruling on medium may rest on."""
+    return tuple(MEDIUM_BASES)
+
+
+def medium_note(basis):
+    """The sentence explaining a medium term, or None where the term is not one."""
+    return (MEDIUM_BASES.get(basis) or {}).get("note")
+
+
 #: WHAT A RECORD WITH NO SIGNAL AT ALL TAKES. Named rather than left to a `.get` returning None,
 #: because a missing term reads exactly like an answer (`facts/dating` was fixed for this).
 FALLBACK = "japanese-edition-catalogued"
@@ -136,6 +174,25 @@ def load(path=RULINGS):
     return yaml.safe_load(p.read_text()) or {}
 
 
+def members(r):
+    """The works one ruling names, as `{work, title, records}` each.
+
+    A RULING OVER A LINE RATHER THAN A BOOK. Every ruling here used to name one work, because the
+    question was where one book was first published and each answer was its own reading of one
+    publisher's page. The medium question is not like that: パルソラ's コミックノベル「yomuco」 is a
+    prose line, and eleven works arrive on it. Eleven rulings would be one argument copied eleven
+    times, and the twelfth work to appear on the line would silently not be covered by any of them.
+
+    A ruling with no `works` is a ruling about itself, which is every ruling written before this and
+    the shape a single-work answer should keep.
+    """
+    got = (r or {}).get("works")
+    if not got:
+        return [r] if r else []
+    return [{"work": m.get("work"), "title": m.get("title"),
+             "records": list(m.get("records") or [])} for m in got]
+
+
 def index(doc):
     """`{key: ruling}` over every identifier a ruling names.
 
@@ -147,9 +204,10 @@ def index(doc):
     """
     out = {}
     for r in (doc or {}).get("rulings") or []:
-        for key in [r.get("work")] + list(r.get("records") or []):
-            if key:
-                out[str(key)] = r
+        for m in members(r):
+            for key in [m.get("work")] + list(m.get("records") or []):
+                if key:
+                    out[str(key)] = r
     return out
 
 
@@ -172,9 +230,12 @@ def refusals(doc):
     for r in (doc or {}).get("rulings") or []:
         if r.get("disposition") != "out-of-scope":
             continue
-        rows.append({"title": r.get("title"), "work": r.get("work"),
-                     "reason": r.get("why"), "source": r.get("country_source") or "scope ruling",
-                     "withhold": True})
+        for m in members(r):
+            rows.append({"title": m.get("title"), "work": m.get("work"),
+                         "reason": r.get("why"),
+                         "source": r.get("country_source") or r.get("medium_source")
+                                   or "scope ruling",
+                         "withhold": True})
     return rows
 
 

@@ -2713,12 +2713,20 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
                         if _origin.attests((w.get("first_publication") or {}).get("country_basis")
                                            or _origin.FALLBACK)),
         "refused": sorted(r.get("title") for r in _origin.refusals(_scope_doc)),
-        "rulings": [{"work": r.get("work"), "title": r.get("title"),
+        # ONE ROW PER WORK, however many a ruling names. A ruling on a prose LINE names eleven,
+        # and the report is what makes a refusal observable: `scope rulings are accounted for`
+        # blocks on a work ruled and reported nowhere, which is the failure where a register said
+        # five works were unpublished while all five were live.
+        "rulings": [{"work": m.get("work"), "title": m.get("title"),
                      "disposition": r.get("disposition"), "country": r.get("country"),
                      "country_basis": r.get("country_basis"),
-                     "source": r.get("country_source") or (r.get("evidence") or [{}])[0].get("source")}
-                    for r in (_scope_doc.get("rulings") or [])],
-        "means": {b: _origin.note(b) for b in _origin.bases()},
+                     "medium": r.get("medium"), "medium_basis": r.get("medium_basis"),
+                     "source": r.get("country_source") or r.get("medium_source")
+                               or (r.get("evidence") or [{}])[0].get("source")}
+                    for r in (_scope_doc.get("rulings") or [])
+                    for m in _origin.members(r)],
+        "means": {**{b: _origin.note(b) for b in _origin.bases()},
+                  **{b: _origin.medium_note(b) for b in _origin.medium_bases()}},
     }
 
     cl = Counter(t["disposition"] for t in claim_trace)

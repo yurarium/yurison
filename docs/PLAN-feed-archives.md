@@ -84,11 +84,47 @@ saying something false. It only became visible when item 1 started producing the
 had been unreachable while `BOOTSTRAP` suppressed every late discovery. Glossed `Published` now.
 Worth folding the two into one renderer, which is not done here.
 
-## Open
+## Settled 2026-08-11: they are two different families and only one was ever in question
 
-Whether `basis`, `conf` and `unverified` on an archived row are history or rendering. They are
-claims about the evidence at that time, which reads like history, and they attach to the name,
-which reads like rendering. Not settled here because nothing turns on it until item 2 is written.
+The question assumed one set of fields. There are two, and separating them answers it.
+
+**`basis` and `conf` at ROW level are history**, and they have never moved. `basis` is
+observed / bootstrap / heuristic / rendered / platform-stated and `conf` is reported / low; both
+describe the evidence for THIS release event. Measured against the first published July, 547 rows
+survive in both and `basis` changed on 0 of them and `conf` on 0. Nothing needs doing and nothing
+needs freezing: they are stable because their inputs are.
+
+**`basis`, `reading_basis` and `unverified` inside `work_en` and `author_en` are rendering**, and
+they are already re-derived with the name they hang off, which is right. A basis is how we know the
+English name, so a work whose name improves from `romaji` to `official-jp` and keeps a basis saying
+`romaji` would be claiming our evidence is worse than it is. It travels with the name for the same
+reason the name travels: there is a right answer and we converge on it. `unverified` sits on 150
+title renderings and 88 bylines and is the same kind of claim.
+
+## What the question was pointing at, which is the dates
+
+Asking it turned up the thing that does move. Against the first published July: `pub` changed on 16
+rows and `seen` on 374.
+
+`seen` is the ledger being seeded on 2026-08-02, which item 1 above already accounts for.
+
+**The 16 are a correction arriving, not drift.** Every one moved by exactly one day, all on
+GigaViewer platforms. `2793bbe` replaced a naive `[:10]` slice of the feed's UTC stamp with
+`jst_date` on 2026-08-02, and the capture of 2026-08-05 re-read those chapters onto the Japanese
+calendar day they were published on. JST is UTC+9, so anything published between midnight and 09:00
+JST had been filed a day early. Freezing that would have kept a known error in the record for ever.
+
+So the rule `FEATURES-INTERFACE` states, "a romanisation improving is the system working; a
+published date changing is not", is right about drift and too strong about corrections. What it
+wants is that a date moves only with a reason, so it is counted and ratcheted:
+`published dates that moved in an archive`, at 0 today, keyed on `(plat, id, url)`. A correction
+lands, somebody accepts it with the reason, and the floor drops back.
+
+THE KEY IS PART OF THE FINDING. `(plat, id)` is what `no published update leaves its month` uses,
+and it collides: a few adapters build an id out of the chapter title, so `pixivcomic:第3話` is every
+pixivコミック work's third chapter at once. Three rows collided in July and the first version of
+this measure called all three dates that had moved when none had. `(plat, id, url)` is unique across
+all 602.
 
 ## Progress
 

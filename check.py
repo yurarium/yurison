@@ -1055,6 +1055,54 @@ def inv_no_published_update_leaves_its_month(ctx):
     return bad
 
 
+def budget_published_dates_that_moved_in_an_archive(ctx):
+    """Rows in a published month whose publication date the rebuild has changed.
+
+    THE OTHER HALF OF WHAT AN ARCHIVE LOCKS. `no published update leaves its month` asks whether a
+    row is still there and deliberately says nothing about its contents, because the owner ruled on
+    2026-08-11 that a name has a right answer and is not history. That ruling was about NAMES.
+    `FEATURES-INTERFACE` draws the line in the same sentence: "A romanisation improving is the
+    system working; a published date changing is not." Nothing measured the second half.
+
+    IT IS A BUDGET AND NOT AN INVARIANT, and the 16 it opened at are why. Every one of them moved
+    by exactly one day, all on GigaViewer platforms, and they are a CORRECTION arriving rather than
+    drift: `2793bbe` replaced a naive `[:10]` slice of the feed's UTC stamp with `jst_date` on
+    2026-08-02, and the capture five days later re-read those chapters onto the Japanese calendar
+    day they were actually published on. JST is UTC+9, so anything published between midnight and
+    09:00 JST had been filed a day early. Refusing that would freeze a known error into the record.
+
+    So the number says how much of the past a rebuild has rewritten, and it ratchets: a correction
+    lands, somebody accepts it with the reason, and the floor drops back to zero. A date moving
+    with no such reason behind it is drift, and this is what makes it arrive as a number rather
+    than as a discovery years later.
+
+    §14b, WHAT IT REUSES: the served month and the built one, and nothing that wrote either. The
+    check that would share the producer's blind spot is one asking the feed writer whether it
+    changed a date.
+
+    WHAT IT CANNOT SEE: a month the site does not serve yet, which is any month before the first
+    deploy that published it. Those are skipped rather than counted as unchanged.
+    """
+    moved = 0
+    for f in sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json")):
+        live = SITE / "feed" / f.name
+        if not live.exists():
+            continue
+        # THE ADDRESS IS PART OF THE KEY, and it has to be. `(plat, id)` is what the invariant
+        # above uses and it collides: a handful of adapters build an id out of the chapter title,
+        # so `pixivcomic:第3話` is every pixivコミック work's third chapter at once. Three rows
+        # collided in July and this reported all three as dates that had moved when none had.
+        # `(plat, id, url)` is unique across all 602. Where an address itself changes the row
+        # simply goes uncompared, which under-reports rather than inventing a change.
+        was = {(r.get("plat"), r.get("id"), r.get("url")): r.get("pub")
+               for r in (_load(live, {}) or {}).get("releases") or []}
+        for r in (_load(f, {}) or {}).get("releases") or []:
+            k = (r.get("plat"), r.get("id"), r.get("url"))
+            if k in was and was[k] != r.get("pub"):
+                moved += 1
+    return moved
+
+
 def inv_deployed_matches_built(ctx):
     """What the site serves is what the build produced.
 
@@ -4953,6 +5001,9 @@ BUDGETS_DEF = [
      "twice or three times in index.json, which emitted one row per source record and asked "
      "identity nothing. A rise means a collapse stopped running, or a new list shipped without "
      "asking which work a record belongs to."),
+    ("published dates that moved in an archive", budget_published_dates_that_moved_in_an_archive,
+     "a rebuild rewrote the publication date of a row a published month already carried; a name "
+     "improving is the system working and a date changing is not, so each wants a reason"),
     ("one work under two names in a list", budget_one_work_under_two_names,
      "pairs of rows in one list whose titles fold equal and whose credits share a person, which is "
      "one work offered twice under two names. Measured on the shipped rows and never on the "

@@ -42,10 +42,21 @@ Before this the tab downloaded 1.34 MB to render its first screen.
 month minus whatever the window still covers" — makes a file's contents depend on the day the build
 ran, which breaks the write-once rule it exists to serve.
 
-**Archives are written once and never rewritten** (REQUIREMENTS §5). A later run that would produce
-different content warns, naming each differing row, and leaves the file alone. Names are joined onto
-archived rows *at render time* from `feed/names.json` rather than by rewriting them — a romanisation
-improving is the system working; a published date changing is not.
+**An archive locks its row set, not its bytes** (REQUIREMENTS §5). What is history is which updates
+happened in the month. What we called a work at the time is not: a name has a right answer we
+converge on, so a title improving is the system working and an archive showing a name nobody uses is
+simply wrong. The file is therefore rewritten every build and `no published update leaves its month`
+asks the only question that matters, which is whether an update we published stopped being
+published.
+
+It was written once and never rewritten until 2026-08-11, and that froze far more than dates. 602 of
+July's 605 rows had baked a title, a reading and three romaji styles; 573 of those titles were
+spellings the store had since corrected, and no fix could reach them. `球詠` read `Tamaei` where the
+work is `Tamayomi`.
+
+A row's month is decided by the first-seen ledger, so re-deriving cannot move one: a chapter
+published in July and first seen in August belongs to August and is drawn as `既出` with the day it
+was published.
 
 Only 2026-07 onward is archived. Earlier data was bootstrap-imported from platform back-catalogue
 dates, and publishing it as "the updates of June" would assert a history nobody observed.

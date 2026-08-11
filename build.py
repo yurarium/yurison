@@ -2508,12 +2508,19 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
             archived.append((m, "regenerated", len(by_month[m])))
             continue
         if path.exists():
-            # REQUIREMENTS §5, date locking. A published month is a statement about dates that has
-            # already been made; a later run must not quietly revise it. So it is never rewritten —
-            # instead any difference is named here, loudly, where it can be looked at. A divergence
-            # is detectable at all because first-seen.yaml keys a release by (work, episode,
-            # platform) and remembers when we first saw it, so "the same row, dated differently"
-            # can be told apart from "a different row".
+            # RE-DERIVED, AND WHAT IS LOCKED IS THE ROW SET. Decided by the project owner
+            # 2026-08-11. A published month used to be kept byte for byte, which locked its dates
+            # and locked everything else with them: 602 of July's 605 rows baked a title, a reading
+            # and three romaji styles, and 573 of those titles are now spellings the store has
+            # corrected. 球詠 read `Tamaei` where it is `Tamayomi`, and the file could never pick
+            # the fix up. Freezing the bytes made the archive wrong about the one thing it was not
+            # a record of.
+            #
+            # A name has a right answer we converge on and is not history. What IS history is which
+            # updates happened in the month, and that is what stays fixed: the file is rewritten
+            # every build, and `no published update leaves its month` compares the row sets. Item 1
+            # is what makes that safe, because a row's month is now decided by the first-seen
+            # ledger rather than by whichever build happened to write the file first.
             try:
                 old = json.loads(path.read_text()).get("releases") or []
             except (OSError, ValueError) as e:
@@ -2534,13 +2541,15 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
                     if changed:
                         diffs.append(f"    ~ {k}: " + ", ".join(
                             f"{f} {o[k].get(f)!r} -> {n[k].get(f)!r}" for f in changed))
-            if diffs:
+            gone = [d for d in diffs if d.lstrip().startswith("-")]
+            if gone:
                 archive_warnings.append(
-                    f"feed/{m}.json is already published and was NOT rewritten; "
-                    f"{len(diffs)} row(s) differ from what this run would have written:\n"
-                    + "\n".join(diffs[:40])
-                    + (f"\n    … and {len(diffs) - 40} more" if len(diffs) > 40 else ""))
-            archived.append((m, "kept", len(old)))
+                    f"feed/{m}.json is published and {len(gone)} row(s) it holds are no longer "
+                    f"built. A published update does not stop having happened:\n"
+                    + "\n".join(gone[:40])
+                    + (f"\n    … and {len(gone) - 40} more" if len(gone) > 40 else ""))
+            path.write_text(json.dumps(payload, ensure_ascii=False, indent=1, default=jsonable))
+            archived.append((m, "rederived", len(by_month[m])))
         else:
             path.write_text(json.dumps(payload, ensure_ascii=False, indent=1, default=jsonable))
             archived.append((m, "written", len(by_month[m])))

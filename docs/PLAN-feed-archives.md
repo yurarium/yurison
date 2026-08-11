@@ -45,7 +45,7 @@ was wrong.
 
 `work` and `author` stay. They are the key the renderer resolves against rather than a rendering.
 
-## 3. Archives stay derived, and stay out of the repository
+## 3. Archives stay derived, and stay out of the repository. CONFIRMED
 
 With 1 in place, a month is a function of `data/source` and the committed ledger, so a fresh
 checkout reproduces what was published. Nothing needs committing.
@@ -95,7 +95,18 @@ behaviour, 659 under a day rule and 606 under this one, against a published 605.
 109 rows moved from the archive into the current feed and carry the marker, which is the glut the
 owner accepted. Four budgets rose with them, all because the current feed now has more rows to
 measure.
-2. Archives carry no rendering. NOT STARTED
+2. Archives carry no rendering. DONE 2026-08-11, by re-deriving rather than by dropping fields
+
+The plan was to drop `work_en` and `author_en`. That was too small: `work` and `ep` are frozen too
+and are equally subject to naming fixes, so July held titles this session had already corrected.
+`archives are unchanged` was the thing preventing an archive from ever tracking current data.
+
+The owner amended it. An archive locks its ROW SET and not its bytes, the file is rewritten every
+build, and `no published update leaves its month` asks whether an update we published stopped being
+published, keyed on the platform's own id because the title is exactly what may change. July's 573
+stale titles are 0, and the truncated and reversed titles went with them.
+
+Item 1 is what makes this safe: a row's month comes from the ledger, so re-deriving cannot move one.
 
 Section 3 asks for no work. It is written down so that committing the archives is not done by
 mistake, which is what this session was an hour away from doing.

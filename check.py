@@ -1010,16 +1010,39 @@ def _origin_medium_bases():
     return _o.medium_bases()
 
 
-def inv_archives_unchanged(ctx):
-    """A published month is written once. That is what protects its dates (REQUIREMENTS §5).
+def inv_no_published_update_leaves_its_month(ctx):
+    """Every update a published month holds is still built, in that month.
 
-    fallback: keep the published file and warn — build.py already does this; here it is asserted.
+    THE BYTES USED TO BE THE TEST AND THAT WAS THE WRONG THING TO LOCK. A month was written once
+    and never rewritten, on the argument that a published statement about dates must not be quietly
+    revised. It froze far more than dates: 602 of July's 605 rows baked a title, a reading and three
+    romaji styles, and 573 of those titles are spellings the store has since corrected. 球詠 read
+    `Tamaei` where it is `Tamayomi`, and no fix could ever reach it. The owner ruled on 2026-08-11
+    that a name has a right answer we converge on and is not history; what changed then is.
+
+    SO THE ROW SET IS LOCKED AND THE RENDERING IS NOT. The file is rewritten every build and this
+    asks the only question that matters: did an update we published stop being published. A title
+    improving is the system working. An update disappearing is the amnesia REQUIREMENTS §4 exists
+    to prevent.
+
+    KEYED ON THE PLATFORM'S OWN ID, because the work title is exactly what is allowed to change. A
+    handful of adapters build an id out of the chapter title and those rows will churn when a title
+    is corrected, which is a fault in those adapters and is why this reports the row rather than a
+    count.
+
+    §14b, WHAT IT REUSES: the served bytes and the built bytes. It asks nothing of the code that
+    wrote either, so a build that dropped a month entirely fails here rather than agreeing with
+    itself.
     """
     bad = []
     for f in sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json")):
         live = SITE / "feed" / f.name
-        if live.exists() and live.read_bytes() != f.read_bytes():
-            bad.append(f.name)
+        if not live.exists():
+            continue
+        was = {(r.get("plat"), r.get("id")) for r in (_load(live, {}) or {}).get("releases") or []}
+        now = {(r.get("plat"), r.get("id")) for r in (_load(f, {}) or {}).get("releases") or []}
+        for k in sorted(was - now, key=str)[:20]:
+            bad.append(f"{f.name} published {k} and it is no longer built")
     return bad
 
 
@@ -2367,7 +2390,7 @@ def budget_works_named_by_a_truncation(ctx):
     title in it and stay silent about the one nobody has added yet, which is the case that matters.
 
     THE ARCHIVE HOLDS THE FLOOR ABOVE ZERO. The context reads the archived monthly feeds along
-    with the current one, and `archives are unchanged` forbids rewriting them: the two rows
+    with the current one, and a published month keeps its row set: the two rows
     published under a truncated title in 2026-07 record what was shipped and stay that way. A floor
     of zero would fail every run for a month over something no edit may touch.
     The count falls as the archive ages out, and a rise says the writers have gone back to reading
@@ -2557,7 +2580,7 @@ INVARIANTS = [
     ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
     ("content flags are accounted for", inv_content_flags_are_accounted_for),
     ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for),
-    ("archives are unchanged", inv_archives_unchanged),
+    ("no published update leaves its month", inv_no_published_update_leaves_its_month),
     ("deployed data matches built", inv_deployed_matches_built),
     ("no refutation of print serials", inv_no_refutation_of_print_serials),
     ("state agrees with its own date", inv_state_agrees_with_its_own_date),

@@ -701,3 +701,1678 @@ rulings:
       - "アンソロジー"
     decision: "withdraw"
     basis: "The format of the book written where its author goes, and never a byline. BOOK☆WALKER states it in the creator field of 9 records and GigaViewer of 47; an anthology has many contributors and neither source lists them. `credits.is_a_person` tests how a credit is BUILT, so a word spelled the way a pen name is spelled walked past both of its clauses, and c01868 was minted and published at credit/c01868/ with a person's page around nine anthologies, one of them carrying the role 著. `facts/credit/nobody` refuses the string at the splitter now, and the work rows say 複数の作家 / Various in place of a byline. This withdraws the address that was already published. It names no `to`: the field named nobody, so there is no live credit to send a reader to, and choosing one would file nine anthologies under whoever was chosen."
+
+# ── 2026-08-11 ────────────────────────────────────────────────────────────────────────────────
+# 144 pairs settled on evidence the shape does not carry: THE TWO SPELLINGS ARE NAMED ON THE
+# SAME WORK. The header above says the shape proposes and cannot decide, because it cannot see the
+# works and the publishers around a pair. These can: every one of them is two records of one book
+# spelling its author two ways, which is what a source does and not what two artists do.
+#
+# THE COUNTER-CASE IS WHY THE WORKS HAD TO BE ASKED. アキラ / 日明 is a kana-reading like these and
+# was KEPT, because アキラ is among the commonest given names in Japanese and the two credits have
+# no work in common. Of the 152 pairs carrying a deciding shape, 145 share a work and NONE were
+# disjoint, so the test separates the population it was written against rather than passing it all.
+#
+# WHY THEY ARRIVED TOGETHER. All of them appear in `index.json` and in no series row, and the
+# minting pass reads the series rows alone, so the katakana spelling never got an identifier and
+# never could. Nothing is retired here: each is a second spelling attached to a credit that has one.
+  - reading: アオトヒビキ
+    surfaces:
+    - あおと響
+    - アオトヒビキ
+    shape: kana-reading
+    decision: merge
+    keep: あおと響
+    basis: アオトヒビキ and あおと響 share a reading and are named on the same work, w00294 (Citrusコミックアンソロジー). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. あおと響 holds c00160 and アオトヒビキ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: アガリザキユイコ
+    surfaces:
+    - アガリザキユイコ
+    - 東崎惟子
+    shape: kana-reading
+    decision: merge
+    keep: 東崎惟子
+    basis: アガリザキユイコ and 東崎惟子 share a reading and are named on the same work, w00211 (少女星間漂流記). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 東崎惟子 holds c00028 and アガリザキユイコ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: アサキハヤト
+    surfaces:
+    - アサキハヤト
+    - 麻貴早人
+    shape: kana-reading
+    decision: merge
+    keep: 麻貴早人
+    basis: アサキハヤト and 麻貴早人 share a reading and are named on the same work, w00596 (人喰い姫のカヴァリエーレ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 麻貴早人 holds c00709 and アサキハヤト holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: アサノヤグラ
+    surfaces:
+    - アサノヤグラ
+    - 朝野やぐら
+    shape: kana-reading
+    decision: merge
+    keep: 朝野やぐら
+    basis: アサノヤグラ and 朝野やぐら share a reading and are named on the same work, w00153 (灼熱の卓球娘reburn!!). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 朝野やぐら holds c00248 and アサノヤグラ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: アボウサトル
+    surfaces:
+    - アボウサトル
+    - 安房さとる
+    shape: kana-reading
+    decision: merge
+    keep: 安房さとる
+    basis: アボウサトル and 安房さとる share a reading and are named on the same work, w00142 (スロー・ステップ!). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 安房さとる holds c00061 and アボウサトル holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: アマザキスイカ
+    surfaces:
+    - アマザキスイカ
+    - 甘崎水菓
+    shape: kana-reading
+    decision: merge
+    keep: 甘崎水菓
+    basis: アマザキスイカ and 甘崎水菓 share a reading and are named on the same work, w00358 (7日間限定彼女). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 甘崎水菓 holds c00481 and アマザキスイカ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: アマネ
+    surfaces:
+    - あまね
+    - アマネ
+    shape: full-script-flip
+    decision: merge
+    keep: あまね
+    basis: アマネ and あまね share a reading and are named on the same work, w00285 (亜澄ちゃんと胡蝶ちゃん). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. あまね holds c00399 and アマネ holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: アマミアンナ
+    surfaces:
+    - アマミアンナ
+    - 天海杏菜
+    shape: kana-reading
+    decision: merge
+    keep: 天海杏菜
+    basis: アマミアンナ and 天海杏菜 share a reading and are named on the same work, w00584 (ガチ恋カウント2.9). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 天海杏菜 holds c00696 and アマミアンナ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: アメミクロ
+    surfaces:
+    - あめみくろ
+    - アメミクロ
+    shape: full-script-flip
+    decision: merge
+    keep: あめみくろ
+    basis: アメミクロ and あめみくろ share a reading and are named on the same work, w00022 (彼氏の女友達がぐいぐい来る〈私に〉). Two
+      records of one book spell its author two ways, which is the full script flip this shape describes
+      and what a source does rather than what two artists do. あめみくろ holds c00030 and アメミクロ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: アヤノウラスケ
+    surfaces:
+    - アヤノウラスケ
+    - 彩乃浦助
+    shape: kana-reading
+    decision: merge
+    keep: 彩乃浦助
+    basis: アヤノウラスケ and 彩乃浦助 share a reading and are named on the same work, w00051 (バカ女26時). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 彩乃浦助 holds c00114 and アヤノウラスケ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: イガラシジュン
+    surfaces:
+    - イガラシジュン
+    - 五十嵐純
+    shape: kana-reading
+    decision: merge
+    keep: 五十嵐純
+    basis: イガラシジュン and 五十嵐純 share a reading and are named on the same work, w00113 (拝啓、在りし日に咲く花たちへ). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 五十嵐純 holds c00210 and イガラシジュン holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: イヌヤマアム
+    surfaces:
+    - イヌヤマアム
+    - 犬山あむ
+    shape: kana-reading
+    decision: merge
+    keep: 犬山あむ
+    basis: イヌヤマアム and 犬山あむ share a reading and are named on the same work, w00052 (大崎さんと小森さん). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 犬山あむ holds c00032 and イヌヤマアム holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: イルマヒトマ
+    surfaces:
+    - イルマヒトマ
+    - 入間人間
+    shape: kana-reading
+    decision: merge
+    keep: 入間人間
+    basis: イルマヒトマ and 入間人間 share a reading and are named on the same work, w00222 (人妻教師が教え子の女子高生にドはまりする話).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 入間人間 holds c00052 and イルマヒトマ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: イワミキヨコ
+    surfaces:
+    - イワミキヨコ
+    - 岩見樹代子
+    shape: kana-reading
+    decision: merge
+    keep: 岩見樹代子
+    basis: イワミキヨコ and 岩見樹代子 share a reading and are named on the same work, w00056 (Citrusコミックアンソロジー). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 岩見樹代子 holds c00117 and イワミキヨコ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ウサミミキ
+    surfaces:
+    - うさみみき
+    - ウサミミキ
+    shape: full-script-flip
+    decision: merge
+    keep: うさみみき
+    basis: ウサミミキ and うさみみき share a reading and are named on the same work, w00528 (大正忌憚魔女). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. うさみみき holds c00277 and ウサミミキ holds no identifier, so
+      the second spelling is attached to the first rather than anything being retired. Corroborated on 1
+      shared work(s).
+  - reading: ウスイトモミ
+    surfaces:
+    - ウスイトモミ
+    - 臼井ともみ
+    shape: kana-reading
+    decision: merge
+    keep: 臼井ともみ
+    basis: ウスイトモミ and 臼井ともみ share a reading and are named on the same work, w00554 (真夜中ぱんチ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 臼井ともみ holds c00669 and ウスイトモミ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: エモフウ
+    surfaces:
+    - えもふう
+    - エモフウ
+    shape: full-script-flip
+    decision: merge
+    keep: えもふう
+    basis: エモフウ and えもふう share a reading and are named on the same work, w00404 (銀青のプルースト). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. えもふう holds c00533 and エモフウ holds no identifier, so
+      the second spelling is attached to the first rather than anything being retired. Corroborated on 1
+      shared work(s).
+  - reading: オウチカエル
+    surfaces:
+    - オウチカエル
+    - 御家かえる
+    shape: kana-reading
+    decision: merge
+    keep: 御家かえる
+    basis: オウチカエル and 御家かえる share a reading and are named on the same work, w01449 (プロジェクト・ユリフォーミング!). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 御家かえる holds c01195 and オウチカエル holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: オオイシヒビ
+    surfaces:
+    - オオイシヒビ
+    - 大石日々
+    shape: kana-reading
+    decision: merge
+    keep: 大石日々
+    basis: オオイシヒビ and 大石日々 share a reading and are named on the same work, w00594 (よくばれ!人間さん). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 大石日々 holds c00707 and オオイシヒビ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: オガワイッスイ
+    surfaces:
+    - オガワイッスイ
+    - 小川一水
+    shape: kana-reading
+    decision: merge
+    keep: 小川一水
+    basis: オガワイッスイ and 小川一水 share a reading and are named on the same work, w00306 (ツインスター・サイクロン・ランナウェイ).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 小川一水 holds c00417 and オガワイッスイ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: オギシロ
+    surfaces:
+    - おぎしろ
+    - オギシロ
+    shape: full-script-flip
+    decision: merge
+    keep: おぎしろ
+    basis: オギシロ and おぎしろ share a reading and are named on the same work, w00597 (ブラック・ブラック・ロータス). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. おぎしろ holds c00711 and オギシロ holds no identifier, so
+      the second spelling is attached to the first rather than anything being retired. Corroborated on 1
+      shared work(s).
+  - reading: オドロオドロシー
+    surfaces:
+    - オドロオドロシー
+    - 棘尾どろしー
+    shape: kana-reading
+    decision: merge
+    keep: 棘尾どろしー
+    basis: オドロオドロシー and 棘尾どろしー share a reading and are named on the same work, w00114 (見えてますよ!愛沢さん). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 棘尾どろしー holds c00211 and オドロオドロシー holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: オニギリパクパク
+    surfaces:
+    - おにぎりパクパク
+    - オニギリパクパク
+    shape: full-script-flip
+    decision: merge
+    keep: おにぎりパクパク
+    basis: オニギリパクパク and おにぎりパクパク share a reading and are named on the same work, w01472 (運命のヤマダダダダダダダダダダ).
+      Two records of one book spell its author two ways, which is the full script flip this shape describes
+      and what a source does rather than what two artists do. おにぎりパクパク holds c01226 and オニギリパクパク holds no
+      identifier, so the second spelling is attached to the first rather than anything being retired. Corroborated
+      on 1 shared work(s).
+  - reading: オノリン
+    surfaces:
+    - オノリン
+    - 尾野凛
+    shape: kana-reading
+    decision: merge
+    keep: 尾野凛
+    basis: オノリン and 尾野凛 share a reading and are named on the same work, w00223 (メイドさんと百合についてのアンソロジー). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 尾野凛 holds c00335 and オノリン holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: オバタルイ
+    surfaces:
+    - オバタルイ
+    - 小畠泪
+    shape: kana-reading
+    decision: merge
+    keep: 小畠泪
+    basis: オバタルイ and 小畠泪 share a reading and are named on the same work, w00331 (いっそ、恋だったらよかったのに). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 小畠泪 holds c00165 and オバタルイ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: カカトブシ
+    surfaces:
+    - かかとぶし
+    - カカトブシ
+    shape: full-script-flip
+    decision: merge
+    keep: かかとぶし
+    basis: カカトブシ and かかとぶし share a reading and are named on the same work, w00004 (乙女のおかず). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. かかとぶし holds c00038 and カカトブシ holds no identifier, so
+      the second spelling is attached to the first rather than anything being retired. Corroborated on 1
+      shared work(s).
+  - reading: カツラギカナデ
+    surfaces:
+    - カツラギカナデ
+    - 葛城かなで
+    shape: kana-reading
+    decision: merge
+    keep: 葛城かなで
+    basis: カツラギカナデ and 葛城かなで share a reading and are named on the same work, w00031 (君となら、明日を歌えるの). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 葛城かなで holds c00088 and カツラギカナデ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: カネコアル
+    surfaces:
+    - カネコアル
+    - 金子ある
+    shape: kana-reading
+    decision: merge
+    keep: 金子ある
+    basis: カネコアル and 金子ある share a reading and are named on the same work, w00200 (コミックシャイニーシリーズ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 金子ある holds c00312 and カネコアル holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: カワカミシオン
+    surfaces:
+    - カワカミシオン
+    - 川上しをん
+    shape: kana-reading
+    decision: merge
+    keep: 川上しをん
+    basis: カワカミシオン and 川上しをん share a reading and are named on the same work, w00222 (人妻教師が教え子の女子高生にドはまりする話).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 川上しをん holds c00333 and カワカミシオン holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: カワカミダイシロウ
+    surfaces:
+    - カワカミダイシロウ
+    - 河上だいしろう
+    shape: kana-reading
+    decision: merge
+    keep: 河上だいしろう
+    basis: カワカミダイシロウ and 河上だいしろう share a reading and are named on the same work, w00790 (相席いいですか?). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 河上だいしろう holds c00895 and カワカミダイシロウ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: カワダアキオ
+    surfaces:
+    - カワダアキオ
+    - 川田暁生
+    shape: kana-reading
+    decision: merge
+    keep: 川田暁生
+    basis: 'カワダアキオ and 川田暁生 share a reading and are named on the same work, w00177 (公爵令嬢の籠絡ミッション : 魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどうすればいいのですか!).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 川田暁生 holds c00284 and カワダアキオ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).'
+  - reading: カワノアキコ
+    surfaces:
+    - かわのあきこ
+    - カワノアキコ
+    shape: full-script-flip
+    decision: merge
+    keep: かわのあきこ
+    basis: 'カワノアキコ and かわのあきこ share a reading and are named on the same work, w00106 (悪役令嬢ですが、ヒロインに攻略されてますわ!?
+      : アンソロジーコミック). Two records of one book spell its author two ways, which is the full script flip this
+      shape describes and what a source does rather than what two artists do. かわのあきこ holds c00203 and カワノアキコ
+      holds no identifier, so the second spelling is attached to the first rather than anything being retired.
+      Corroborated on 1 shared work(s).'
+  - reading: キョウソレイ
+    surfaces:
+    - キョウソレイ
+    - 教祖れい
+    shape: kana-reading
+    decision: merge
+    keep: 教祖れい
+    basis: キョウソレイ and 教祖れい share a reading and are named on the same work, w00239 (ペアリングギア). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 教祖れい holds c00353 and キョウソレイ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: キリュウスルガ
+    surfaces:
+    - キリュウスルガ
+    - 鬼龍駿河
+    shape: kana-reading
+    decision: merge
+    keep: 鬼龍駿河
+    basis: キリュウスルガ and 鬼龍駿河 share a reading and are named on the same work, w00311 (甘やかせ魔族ども). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 鬼龍駿河 holds c00424 and キリュウスルガ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: クドウエル
+    surfaces:
+    - クドウエル
+    - 工藤える
+    shape: kana-reading
+    decision: merge
+    keep: 工藤える
+    basis: クドウエル and 工藤える share a reading and are named on the same work, w00010 (ミコレイログ). Two records of
+      one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 工藤える holds c00172 and クドウエル holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: クモコ
+    surfaces:
+    - くも子
+    - クモコ
+    shape: kana-reading
+    decision: merge
+    keep: くも子
+    basis: クモコ and くも子 share a reading and are named on the same work, w00238 (「触れたい」は恋の始まり). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. くも子 holds c00349 and クモコ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: クラウチニガツ
+    surfaces:
+    - クラウチニガツ
+    - 臓内ニガツ
+    shape: kana-reading
+    decision: merge
+    keep: 臓内ニガツ
+    basis: クラウチニガツ and 臓内ニガツ share a reading and are named on the same work, w00761 (ケーキも花も宝石も). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 臓内ニガツ holds c00429 and クラウチニガツ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: クリサキキング
+    surfaces:
+    - クリサキキング
+    - 栗崎きんぐ
+    shape: kana-reading
+    decision: merge
+    keep: 栗崎きんぐ
+    basis: クリサキキング and 栗崎きんぐ share a reading and are named on the same work, w00591 (君と夏の音). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 栗崎きんぐ holds c00224 and クリサキキング holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: クロイモリ
+    surfaces:
+    - クロイモリ
+    - 黒イ森
+    shape: kana-reading
+    decision: merge
+    keep: 黒イ森
+    basis: クロイモリ and 黒イ森 share a reading and are named on the same work, w00378 (エリオと電気人形). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 黒イ森 holds c00503 and クロイモリ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: クワバラタモツ
+    surfaces:
+    - くわばらたもつ
+    - クワバラタモツ
+    shape: full-script-flip
+    decision: merge
+    keep: くわばらたもつ
+    basis: クワバラタモツ and くわばらたもつ share a reading and are named on the same work, w00055 (あなたと私の周波数). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. くわばらたもつ holds c00119 and クワバラタモツ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      2 shared work(s).
+  - reading: コウジモロミ
+    surfaces:
+    - コウジモロミ
+    - 糀もろみ
+    shape: kana-reading
+    decision: merge
+    keep: 糀もろみ
+    basis: コウジモロミ and 糀もろみ share a reading and are named on the same work, w00154 (死に戻り王女は生き延びるために百合ハーレムを作ることにした).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 糀もろみ holds c00250 and コウジモロミ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: コサメヒヨリ
+    surfaces:
+    - コサメヒヨリ
+    - 小雨日和
+    shape: kana-reading
+    decision: merge
+    keep: 小雨日和
+    basis: コサメヒヨリ and 小雨日和 share a reading and are named on the same work, w00302 (スウィートヒート!). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 小雨日和 holds c00412 and コサメヒヨリ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: コタマル
+    surfaces:
+    - コタマル
+    - 娘太丸
+    shape: kana-reading
+    decision: merge
+    keep: 娘太丸
+    basis: コタマル and 娘太丸 share a reading and are named on the same work, w00608 (結城友奈は勇者である勇者部びよりParty♪).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 娘太丸 holds c00720 and コタマル holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: コバヤシコテイ
+    surfaces:
+    - コバヤシコテイ
+    - 小林湖底
+    shape: kana-reading
+    decision: merge
+    keep: 小林湖底
+    basis: コバヤシコテイ and 小林湖底 share a reading and are named on the same work, w00117 (ひきこまり吸血姫の悶々). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 小林湖底 holds c00212 and コバヤシコテイ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: コンドウトモヨ
+    surfaces:
+    - コンドウトモヨ
+    - 今東ともよ
+    shape: kana-reading
+    decision: merge
+    keep: 今東ともよ
+    basis: コンドウトモヨ and 今東ともよ share a reading and are named on the same work, w00509 (午前二時は食卓で). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 今東ともよ holds c00621 and コンドウトモヨ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: サクラギレン
+    surfaces:
+    - サクラギレン
+    - 桜木蓮
+    shape: kana-reading
+    decision: merge
+    keep: 桜木蓮
+    basis: サクラギレン and 桜木蓮 share a reading and are named on the same work, w00237 (ひまりのまわり). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 桜木蓮 holds c00348 and サクラギレン holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ササトウゴロウ
+    surfaces:
+    - ササトウゴロウ
+    - 笹塔五郎
+    shape: kana-reading
+    decision: merge
+    keep: 笹塔五郎
+    basis: ササトウゴロウ and 笹塔五郎 share a reading and are named on the same work, w00075 (『人斬り』少女、公爵令嬢の護衛になる).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 笹塔五郎 holds c00150 and ササトウゴロウ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: シイバヒロミ
+    surfaces:
+    - シイバヒロミ
+    - 椎葉裕巳
+    shape: kana-reading
+    decision: merge
+    keep: 椎葉裕巳
+    basis: シイバヒロミ and 椎葉裕巳 share a reading and are named on the same work, w00521 (フェアウェイの声をきかせて). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 椎葉裕巳 holds c00638 and シイバヒロミ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: シノア
+    surfaces:
+    - シノア
+    - 紫のあ
+    shape: kana-reading
+    decision: merge
+    keep: 紫のあ
+    basis: シノア and 紫のあ share a reading and are named on the same work, w00372 (この恋を星には願わない). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 紫のあ holds c00501 and シノア holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: シノツキシノブ
+    surfaces:
+    - シノツキシノブ
+    - 篠月しのぶ
+    shape: kana-reading
+    decision: merge
+    keep: 篠月しのぶ
+    basis: シノツキシノブ and 篠月しのぶ share a reading and are named on the same work, w00569 (フツーと化け物). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 篠月しのぶ holds c00684 and シノツキシノブ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: シバタケンシロウ
+    surfaces:
+    - シバタケンシロウ
+    - 柴田賢志郎
+    shape: kana-reading
+    decision: merge
+    keep: 柴田賢志郎
+    basis: シバタケンシロウ and 柴田賢志郎 share a reading and are named on the same work, w00270 (お葉花を愛でる). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 柴田賢志郎 holds c00378 and シバタケンシロウ holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: シボリカスコ
+    surfaces:
+    - しぼりかすこ
+    - シボリカスコ
+    shape: full-script-flip
+    decision: merge
+    keep: しぼりかすこ
+    basis: シボリカスコ and しぼりかすこ share a reading and are named on the same work, w00168 (現実世界でも幸せにしてくださいね?).
+      Two records of one book spell its author two ways, which is the full script flip this shape describes
+      and what a source does rather than what two artists do. しぼりかすこ holds c00273 and シボリカスコ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: シマザキムジルシ
+    surfaces:
+    - シマザキムジルシ
+    - 島崎無印
+    shape: kana-reading
+    decision: merge
+    keep: 島崎無印
+    basis: シマザキムジルシ and 島崎無印 share a reading and are named on the same work, w00378 (エリオと電気人形). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 島崎無印 holds c00502 and シマザキムジルシ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: シル
+    surfaces:
+    - しる
+    - シル
+    shape: full-script-flip
+    decision: merge
+    keep: しる
+    basis: シル and しる share a reading and are named on the same work, w00155 (お嬢様、懺悔する。). Two records of
+      one book spell its author two ways, which is the full script flip this shape describes and what a
+      source does rather than what two artists do. しる holds c00253 and シル holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ジンノウチコウキ
+    surfaces:
+    - ジンノウチコウキ
+    - 陣ノ内康暉
+    shape: kana-reading
+    decision: merge
+    keep: 陣ノ内康暉
+    basis: ジンノウチコウキ and 陣ノ内康暉 share a reading and are named on the same work, w00218 (GURU). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 陣ノ内康暉 holds c00328 and ジンノウチコウキ holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: スオウ
+    surfaces:
+    - スオウ
+    - 洲央
+    shape: kana-reading
+    decision: merge
+    keep: 洲央
+    basis: スオウ and 洲央 share a reading and are named on the same work, w00416 (崖っぷち令嬢は黒騎士様を惚れさせたい!). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 洲央 holds c00548 and スオウ holds no identifier, so
+      the second spelling is attached to the first rather than anything being retired. Corroborated on 1
+      shared work(s).
+  - reading: スズエ
+    surfaces:
+    - スズエ
+    - 錫江
+    shape: kana-reading
+    decision: merge
+    keep: 錫江
+    basis: スズエ and 錫江 share a reading and are named on the same work, w00520 (修羅の箱庭). Two records of one
+      book spell its author two ways, which is the kana reading this shape describes and what a source does
+      rather than what two artists do. 錫江 holds c00637 and スズエ holds no identifier, so the second spelling
+      is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ソガベシュウジ
+    surfaces:
+    - ソガベシュウジ
+    - 曽我部修司
+    shape: kana-reading
+    decision: merge
+    keep: 曽我部修司
+    basis: ソガベシュウジ and 曽我部修司 share a reading and are named on the same work, w00186 (T.Tラバーズ。). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 曽我部修司 holds c00293 and ソガベシュウジ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ソメチメ
+    surfaces:
+    - そめちめ
+    - ソメチメ
+    shape: full-script-flip
+    decision: merge
+    keep: そめちめ
+    basis: ソメチメ and そめちめ share a reading and are named on the same work, w00416 (ほうかご再テンセイ!). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. そめちめ holds c00547 and ソメチメ holds no identifier, so
+      the second spelling is attached to the first rather than anything being retired. Corroborated on 1
+      shared work(s).
+  - reading: タカノハル
+    surfaces:
+    - タカノハル
+    - タカノ晴
+    shape: kana-reading
+    decision: merge
+    keep: タカノ晴
+    basis: タカノハル and タカノ晴 share a reading and are named on the same work, w00293 (愛でたいセンセイ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. タカノ晴 holds c00407 and タカノハル holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: タチバナマナリ
+    surfaces:
+    - タチバナマナリ
+    - 橘まなり
+    shape: kana-reading
+    decision: merge
+    keep: 橘まなり
+    basis: タチバナマナリ and 橘まなり share a reading and are named on the same work, w00215 (サキュバスイッチ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 橘まなり holds c00325 and タチバナマナリ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: タテヤマケータ
+    surfaces:
+    - タテヤマケータ
+    - 館山けーた
+    shape: kana-reading
+    decision: merge
+    keep: 館山けーた
+    basis: タテヤマケータ and 館山けーた share a reading and are named on the same work, w00019 (リリィズコンプレックス). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 館山けーた holds c00075 and タテヤマケータ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: タナカアヒル
+    surfaces:
+    - たなかあひる
+    - タナカアヒル
+    shape: full-script-flip
+    decision: merge
+    keep: たなかあひる
+    basis: タナカアヒル and たなかあひる share a reading and are named on the same work, w00306 (ツインスター・サイクロン・ランナウェイ).
+      Two records of one book spell its author two ways, which is the full script flip this shape describes
+      and what a source does rather than what two artists do. たなかあひる holds c00416 and タナカアヒル holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: タビレコ
+    surfaces:
+    - たびれこ
+    - タビレコ
+    shape: full-script-flip
+    decision: merge
+    keep: たびれこ
+    basis: タビレコ and たびれこ share a reading and are named on the same work, w00633 (ベイビー車中ハッカーズ). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. たびれこ holds c00747 and タビレコ holds no identifier, so
+      the second spelling is attached to the first rather than anything being retired. Corroborated on 1
+      shared work(s).
+  - reading: タマナニニコ
+    surfaces:
+    - タマナニニコ
+    - 珠奈ににこ
+    shape: kana-reading
+    decision: merge
+    keep: 珠奈ににこ
+    basis: タマナニニコ and 珠奈ににこ share a reading and are named on the same work, w01438 (新人女性漫画家がネットセックスに沼ってVTuberになった話).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 珠奈ににこ holds c01208 and タマナニニコ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: タルハル
+    surfaces:
+    - たるはる
+    - タルハル
+    shape: full-script-flip
+    decision: merge
+    keep: たるはる
+    basis: タルハル and たるはる share a reading and are named on the same work, w00079 (あくまで!アットホームな職場です。). Two
+      records of one book spell its author two ways, which is the full script flip this shape describes
+      and what a source does rather than what two artists do. たるはる holds c00156 and タルハル holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: チグサミノリ
+    surfaces:
+    - チグサミノリ
+    - 千種みのり
+    shape: kana-reading
+    decision: merge
+    keep: 千種みのり
+    basis: チグサミノリ and 千種みのり share a reading and are named on the same work, w00202 (ボーイッシュな彼女に沼ってく！？ 百合アンソロジー).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 千種みのり holds c00286 and チグサミノリ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      2 shared work(s).
+  - reading: チサコ
+    surfaces:
+    - ちさこ
+    - チサコ
+    shape: full-script-flip
+    decision: merge
+    keep: ちさこ
+    basis: チサコ and ちさこ share a reading and are named on the same work, w00232 (おとりよせしまっし！). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. ちさこ holds c00343 and チサコ holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: チルハチンミ
+    surfaces:
+    - チルハチンミ
+    - 散葉ちんみ
+    shape: kana-reading
+    decision: merge
+    keep: 散葉ちんみ
+    basis: チルハチンミ and 散葉ちんみ share a reading and are named on the same work, w00448 (嫌われ魔女令嬢と男装皇子の婚約). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 散葉ちんみ holds c00577 and チルハチンミ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ツキヨルイ
+    surfaces:
+    - ツキヨルイ
+    - 月夜涙
+    shape: kana-reading
+    decision: merge
+    keep: 月夜涙
+    basis: ツキヨルイ and 月夜涙 share a reading and are named on the same work, w00371 (捨てられエルフさんは世界で一番強くて可愛い!).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 月夜涙 holds c00493 and ツキヨルイ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ツチイ
+    surfaces:
+    - ツチイ
+    - 槌居
+    shape: kana-reading
+    decision: merge
+    keep: 槌居
+    basis: ツチイ and 槌居 share a reading and are named on the same work, w00176 (ハルのレジスタ). Two records of one
+      book spell its author two ways, which is the kana reading this shape describes and what a source does
+      rather than what two artists do. 槌居 holds c00282 and ツチイ holds no identifier, so the second spelling
+      is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ツツイイツキ
+    surfaces:
+    - ツツイイツキ
+    - 筒井いつき
+    shape: kana-reading
+    decision: merge
+    keep: 筒井いつき
+    basis: ツツイイツキ and 筒井いつき share a reading and are named on the same work, w00458 (きさらぎ異聞). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 筒井いつき holds c00540 and ツツイイツキ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ツムギメメ
+    surfaces:
+    - ツムギメメ
+    - 紬めめ
+    shape: kana-reading
+    decision: merge
+    keep: 紬めめ
+    basis: ツムギメメ and 紬めめ share a reading and are named on the same work, w00066 (ひなちゃんが生きてるなら). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 紬めめ holds c00139 and ツムギメメ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: デカイルカ
+    surfaces:
+    - でかいるか
+    - デカイルカ
+    shape: full-script-flip
+    decision: merge
+    keep: でかいるか
+    basis: 'デカイルカ and でかいるか share a reading and are named on the same work, w00043 (ガイド役の天使を殴り倒したら、死霊術師になりました
+      : 激カワゴスロリ魔神様、サイコー). Two records of one book spell its author two ways, which is the full script flip
+      this shape describes and what a source does rather than what two artists do. でかいるか holds c00104 and
+      デカイルカ holds no identifier, so the second spelling is attached to the first rather than anything being
+      retired. Corroborated on 1 shared work(s).'
+  - reading: デスヤマハナコ
+    surfaces:
+    - デスヤマハナコ
+    - デス山ハナ子
+    shape: kana-reading
+    decision: merge
+    keep: デス山ハナ子
+    basis: デスヤマハナコ and デス山ハナ子 share a reading and are named on the same work, w00101 (メリーバッドエンド百合アンソロジー).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. デス山ハナ子 holds c00189 and デスヤマハナコ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: トウマ
+    surfaces:
+    - トウマ
+    - 当麻
+    shape: kana-reading
+    decision: merge
+    keep: 当麻
+    basis: トウマ and 当麻 share a reading and are named on the same work, w00067 (パパ活で稼いだ金で私を買うな。). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 当麻 holds c00138 and トウマ holds no identifier, so the second spelling
+      is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: トオノメザ
+    surfaces:
+    - トオノメザ
+    - 遠野めざ
+    shape: kana-reading
+    decision: merge
+    keep: 遠野めざ
+    basis: トオノメザ and 遠野めざ share a reading and are named on the same work, w00051 (バカ女26時). Two records of
+      one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 遠野めざ holds c00113 and トオノメザ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: トキトウセツナ
+    surfaces:
+    - トキトウセツナ
+    - 時任せつな
+    shape: kana-reading
+    decision: merge
+    keep: 時任せつな
+    basis: トキトウセツナ and 時任せつな share a reading and are named on the same work, w00062 (魔法少女ノ魔女裁判). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 時任せつな holds c00129 and トキトウセツナ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: トクナガパン
+    surfaces:
+    - トクナガパン
+    - 徳永パン
+    shape: kana-reading
+    decision: merge
+    keep: 徳永パン
+    basis: トクナガパン and 徳永パン share a reading and are named on the same work, w00080 (モブヘブン). Two records of
+      one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 徳永パン holds c00157 and トクナガパン holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: トミノヨシユキ
+    surfaces:
+    - トミノヨシユキ
+    - 富野由悠季
+    shape: kana-reading
+    decision: merge
+    keep: 富野由悠季
+    basis: トミノヨシユキ and 富野由悠季 share a reading and are named on the same work, w00032 (HGに恋するふたり). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 富野由悠季 holds c01283 and トミノヨシユキ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ドウガトウコウショウジョ
+    surfaces:
+    - ドウガトウコウショウジョ
+    - 動画投稿少女
+    shape: kana-reading
+    decision: merge
+    keep: 動画投稿少女
+    basis: ドウガトウコウショウジョ and 動画投稿少女 share a reading and are named on the same work, w00554 (真夜中ぱんチ). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 動画投稿少女 holds c00670 and ドウガトウコウショウジョ holds no
+      identifier, so the second spelling is attached to the first rather than anything being retired. Corroborated
+      on 1 shared work(s).
+  - reading: ナカムラオダク
+    surfaces:
+    - ナカムラオダク
+    - 中村汚濁
+    shape: kana-reading
+    decision: merge
+    keep: 中村汚濁
+    basis: ナカムラオダク and 中村汚濁 share a reading and are named on the same work, w00282 (セイ少女黙示録ですぺあ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 中村汚濁 holds c00394 and ナカムラオダク holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ナカムラカンコ
+    surfaces:
+    - ナカムラカンコ
+    - 中村カンコ
+    shape: kana-reading
+    decision: merge
+    keep: 中村カンコ
+    basis: 'ナカムラカンコ and 中村カンコ share a reading and are named on the same work, w00020 (ゆりゆりぱにっく : 尊すぎる事案が発生しています).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 中村カンコ holds c00076 and ナカムラカンコ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).'
+  - reading: ナガシロルージュ
+    surfaces:
+    - ナガシロルージュ
+    - 長代ルージュ
+    shape: kana-reading
+    decision: merge
+    keep: 長代ルージュ
+    basis: ナガシロルージュ and 長代ルージュ share a reading and are named on the same work, w00393 (イヴとイヴ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 長代ルージュ holds c00522 and ナガシロルージュ holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: ナガタサンズイ
+    surfaces:
+    - ナガタサンズイ
+    - 永田さんずい
+    shape: kana-reading
+    decision: merge
+    keep: 永田さんずい
+    basis: ナガタサンズイ and 永田さんずい share a reading and are named on the same work, w00094 (ライバルアライバル). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 永田さんずい holds c00177 and ナガタサンズイ holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: ナツクサ
+    surfaces:
+    - ナツクサ
+    - 夏草
+    shape: kana-reading
+    decision: merge
+    keep: 夏草
+    basis: ナツクサ and 夏草 share a reading and are named on the same work, w00128 (ボイタボイネ). Two records of one
+      book spell its author two ways, which is the kana reading this shape describes and what a source does
+      rather than what two artists do. 夏草 holds c00223 and ナツクサ holds no identifier, so the second spelling
+      is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ナツムラトワ
+    surfaces:
+    - ナツムラトワ
+    - 夏村東和
+    shape: kana-reading
+    decision: merge
+    keep: 夏村東和
+    basis: ナツムラトワ and 夏村東和 share a reading and are named on the same work, w00170 (創作百合フェスタアンソロジー). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 夏村東和 holds c00276 and ナツムラトワ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ナナツフジ
+    surfaces:
+    - ななつ藤
+    - ナナツフジ
+    shape: kana-reading
+    decision: merge
+    keep: ななつ藤
+    basis: ナナツフジ and ななつ藤 share a reading and are named on the same work, w00190 (シンデレラコスプレイション). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. ななつ藤 holds c00299 and ナナツフジ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ナナハシラク
+    surfaces:
+    - ナナハシラク
+    - 七橋楽
+    shape: kana-reading
+    decision: merge
+    keep: 七橋楽
+    basis: ナナハシラク and 七橋楽 share a reading and are named on the same work, w00319 (同じクラスの先輩). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 七橋楽 holds c00433 and ナナハシラク holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ニルカジツ
+    surfaces:
+    - ニルカジツ
+    - 煮ル果実
+    shape: kana-reading
+    decision: merge
+    keep: 煮ル果実
+    basis: ニルカジツ and 煮ル果実 share a reading and are named on the same work, w00191 (紗痲). Two records of one
+      book spell its author two ways, which is the kana reading this shape describes and what a source does
+      rather than what two artists do. 煮ル果実 holds c00301 and ニルカジツ holds no identifier, so the second spelling
+      is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ネギシタケハル
+    surfaces:
+    - ネギシタケハル
+    - 根岸岳春
+    shape: kana-reading
+    decision: merge
+    keep: 根岸岳春
+    basis: ネギシタケハル and 根岸岳春 share a reading and are named on the same work, w00287 (ナキノン). Two records of
+      one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 根岸岳春 holds c00401 and ネギシタケハル holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ネコタロウ
+    surfaces:
+    - ネコタロウ
+    - ネコ太郎
+    shape: kana-reading
+    decision: merge
+    keep: ネコ太郎
+    basis: 'ネコタロウ and ネコ太郎 share a reading and are named on the same work, w00201 (ささやくように恋を唄う : 公式コミックアンソロジー).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. ネコ太郎 holds c00313 and ネコタロウ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).'
+  - reading: ノシロリョウ
+    surfaces:
+    - ノシロリョウ
+    - 能代リョウ
+    shape: kana-reading
+    decision: merge
+    keep: 能代リョウ
+    basis: ノシロリョウ and 能代リョウ share a reading and are named on the same work, w00152 (顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 能代リョウ holds c00247 and ノシロリョウ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ハイダコウコウ
+    surfaces:
+    - ハイダコウコウ
+    - 灰田高鴻
+    shape: kana-reading
+    decision: merge
+    keep: 灰田高鴻
+    basis: ハイダコウコウ and 灰田高鴻 share a reading and are named on the same work, w00390 (ちょっと雑な関係のブルース). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 灰田高鴻 holds c00519 and ハイダコウコウ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ハシモトライドン
+    surfaces:
+    - ハシモトライドン
+    - 橋本ライドン
+    shape: kana-reading
+    decision: merge
+    keep: 橋本ライドン
+    basis: ハシモトライドン and 橋本ライドン share a reading and are named on the same work, w00607 (あなたが私を変えたから). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 橋本ライドン holds c00719 and ハシモトライドン holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ハタヒロ
+    surfaces:
+    - ハタヒロ
+    - 波多ヒロ
+    shape: kana-reading
+    decision: merge
+    keep: 波多ヒロ
+    basis: ハタヒロ and 波多ヒロ share a reading and are named on the same work, w00032 (機動戦士ガンダム水星の魔女青春フロンティア).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 波多ヒロ holds c00089 and ハタヒロ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ハチコ
+    surfaces:
+    - はちこ
+    - ハチコ
+    shape: full-script-flip
+    decision: merge
+    keep: はちこ
+    basis: ハチコ and はちこ share a reading and are named on the same work, w00152 (そういう年頃になっちゃった年の差姉妹). Two
+      records of one book spell its author two ways, which is the full script flip this shape describes
+      and what a source does rather than what two artists do. はちこ holds c00246 and ハチコ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ハナカゲアルト
+    surfaces:
+    - ハナカゲアルト
+    - 花影あると
+    shape: kana-reading
+    decision: merge
+    keep: 花影あると
+    basis: ハナカゲアルト and 花影あると share a reading and are named on the same work, w00268 (あんかー百合川柳). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 花影あると holds c00430 and ハナカゲアルト holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ハネダウサ
+    surfaces:
+    - ハネダウサ
+    - 羽田宇佐
+    shape: kana-reading
+    decision: merge
+    keep: 羽田宇佐
+    basis: 'ハネダウサ and 羽田宇佐 share a reading and are named on the same work, w00120 (週に一度クラスメイトを買う話 : ふたりの時間、言い訳の五千円).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 羽田宇佐 holds c00218 and ハネダウサ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).'
+  - reading: ハヤシショウゴ
+    surfaces:
+    - ハヤシショウゴ
+    - 林星悟
+    shape: kana-reading
+    decision: merge
+    keep: 林星悟
+    basis: ハヤシショウゴ and 林星悟 share a reading and are named on the same work, w00008 (ステラ・ステップ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 林星悟 holds c00056 and ハヤシショウゴ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ハンダホトリ
+    surfaces:
+    - ハンダホトリ
+    - 半田畔
+    shape: kana-reading
+    decision: merge
+    keep: 半田畔
+    basis: ハンダホトリ and 半田畔 share a reading and are named on the same work, w00319 (幼馴染は、にゃあと鳴いてスカートのなか).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 半田畔 holds c00434 and ハンダホトリ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: バタッチ
+    surfaces:
+    - ばたっち
+    - バタッチ
+    shape: full-script-flip
+    decision: merge
+    keep: ばたっち
+    basis: バタッチ and ばたっち share a reading and are named on the same work, w00061 (ホームセンターごと呼び出された私の大迷宮リノベーション!).
+      Two records of one book spell its author two ways, which is the full script flip this shape describes
+      and what a source does rather than what two artists do. ばたっち holds c00125 and バタッチ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ヒトトセリン
+    surfaces:
+    - ヒトトセリン
+    - 春夏秋冬鈴
+    shape: kana-reading
+    decision: merge
+    keep: 春夏秋冬鈴
+    basis: ヒトトセリン and 春夏秋冬鈴 share a reading and are named on the same work, w00139 (ぐがぐもぐるてん). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 春夏秋冬鈴 holds c00233 and ヒトトセリン holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ヒヤマユキ
+    surfaces:
+    - ヒヤマユキ
+    - 檜山ユキ
+    shape: kana-reading
+    decision: merge
+    keep: 檜山ユキ
+    basis: ヒヤマユキ and 檜山ユキ share a reading and are named on the same work, w01474 (妄想アカデミズム). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 檜山ユキ holds c01255 and ヒヤマユキ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ピヨピヨマル
+    surfaces:
+    - ぴよぴよ丸
+    - ピヨピヨマル
+    shape: kana-reading
+    decision: merge
+    keep: ぴよぴよ丸
+    basis: ピヨピヨマル and ぴよぴよ丸 share a reading and are named on the same work, w00195 (ウは宇宙ヤバイのウ!). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. ぴよぴよ丸 holds c00306 and ピヨピヨマル holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ファユセ
+    surfaces:
+    - ふぁゆ瀬
+    - ファユセ
+    shape: kana-reading
+    decision: merge
+    keep: ふぁゆ瀬
+    basis: ファユセ and ふぁゆ瀬 share a reading and are named on the same work, w00236 (ほのぼの呪詛ライフ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. ふぁゆ瀬 holds c00347 and ファユセ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: フカウミコン
+    surfaces:
+    - フカウミコン
+    - 深海紺
+    shape: kana-reading
+    decision: merge
+    keep: 深海紺
+    basis: フカウミコン and 深海紺 share a reading and are named on the same work, w00188 (恋より青く). Two records of
+      one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 深海紺 holds c00297 and フカウミコン holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: フカツ
+    surfaces:
+    - フカツ
+    - 深津
+    shape: kana-reading
+    decision: merge
+    keep: 深津
+    basis: フカツ and 深津 share a reading and are named on the same work, w00191 (紗痲). Two records of one book
+      spell its author two ways, which is the kana reading this shape describes and what a source does rather
+      than what two artists do. 深津 holds c00300 and フカツ holds no identifier, so the second spelling is attached
+      to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: フキヤモジ
+    surfaces:
+    - フキヤモジ
+    - 蕗屋文字
+    shape: kana-reading
+    decision: merge
+    keep: 蕗屋文字
+    basis: フキヤモジ and 蕗屋文字 share a reading and are named on the same work, w01448 (保健室の鍵閉めてっ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 蕗屋文字 holds c01224 and フキヤモジ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: フシミダイキ
+    surfaces:
+    - フシミダイキ
+    - 伏見ダイキ
+    shape: kana-reading
+    decision: merge
+    keep: 伏見ダイキ
+    basis: フシミダイキ and 伏見ダイキ share a reading and are named on the same work, w00102 (てくのぱにっくゆにばーす). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 伏見ダイキ holds c00190 and フシミダイキ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: フジモトセツナ
+    surfaces:
+    - フジモトセツナ
+    - 藤本セツナ
+    shape: kana-reading
+    decision: merge
+    keep: 藤本セツナ
+    basis: フジモトセツナ and 藤本セツナ share a reading and are named on the same work, w00077 (先輩。見てらんないです！). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 藤本セツナ holds c00153 and フジモトセツナ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: フジモトレモチ
+    surfaces:
+    - フジモトレモチ
+    - 藤本れもち
+    shape: kana-reading
+    decision: merge
+    keep: 藤本れもち
+    basis: フジモトレモチ and 藤本れもち share a reading and are named on the same work, w00138 (真先輩の前ではかっこつけられない!).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 藤本れもち holds c00232 and フジモトレモチ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ブリオミチル
+    surfaces:
+    - ブリオミチル
+    - 鰤尾みちる
+    shape: kana-reading
+    decision: merge
+    keep: 鰤尾みちる
+    basis: ブリオミチル and 鰤尾みちる share a reading and are named on the same work, w00065 (バクガタリzzZ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 鰤尾みちる holds c00134 and ブリオミチル holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: プラパ
+    surfaces:
+    - ぷらぱ
+    - プラパ
+    shape: full-script-flip
+    decision: merge
+    keep: ぷらぱ
+    basis: プラパ and ぷらぱ share a reading and are named on the same work, w00159 (佐久間巡査と花岡巡査は付き合いはじめた). Two
+      records of one book spell its author two ways, which is the full script flip this shape describes
+      and what a source does rather than what two artists do. ぷらぱ holds c00255 and プラパ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ヘリヤマ
+    surfaces:
+    - ヘリヤマ
+    - 縁山
+    shape: kana-reading
+    decision: merge
+    keep: 縁山
+    basis: ヘリヤマ and 縁山 share a reading and are named on the same work, w00092 (阿佐ヶ谷サキュバス同人物語). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 縁山 holds c00175 and ヘリヤマ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ホクトスイ
+    surfaces:
+    - ホクトスイ
+    - 北斗すい
+    shape: kana-reading
+    decision: merge
+    keep: 北斗すい
+    basis: ホクトスイ and 北斗すい share a reading and are named on the same work, w00409 (たわわなおっぱいにいろいろしたい！ アンソロジーコミック).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 北斗すい holds c00538 and ホクトスイ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      2 shared work(s).
+  - reading: ホシザキコン
+    surfaces:
+    - ホシザキコン
+    - 星崎崑
+    shape: kana-reading
+    decision: merge
+    keep: 星崎崑
+    basis: ホシザキコン and 星崎崑 share a reading and are named on the same work, w00061 (ホームセンターごと呼び出された私の大迷宮リノベーション!).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 星崎崑 holds c00126 and ホシザキコン holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ホンマリョウタ
+    surfaces:
+    - ホンマリョウタ
+    - 本間リョウタ
+    shape: kana-reading
+    decision: merge
+    keep: 本間リョウタ
+    basis: ホンマリョウタ and 本間リョウタ share a reading and are named on the same work, w00186 (T.Tラバーズ。). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 本間リョウタ holds c00292 and ホンマリョウタ holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: ボンカラ
+    surfaces:
+    - ボンカラ
+    - 梵辛
+    shape: kana-reading
+    decision: merge
+    keep: 梵辛
+    basis: ボンカラ and 梵辛 share a reading and are named on the same work, w00023 (くちべた食堂). Two records of one
+      book spell its author two ways, which is the kana reading this shape describes and what a source does
+      rather than what two artists do. 梵辛 holds c00021 and ボンカラ holds no identifier, so the second spelling
+      is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ミカミテレン
+    surfaces:
+    - みかみてれん
+    - ミカミテレン
+    shape: full-script-flip
+    decision: merge
+    keep: みかみてれん
+    basis: ミカミテレン and みかみてれん share a reading and are named on the same work, w00597 (JK小説家っぽい！). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. みかみてれん holds c00285 and ミカミテレン holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ミカンウジ
+    surfaces:
+    - みかん氏
+    - ミカンウジ
+    shape: kana-reading
+    decision: merge
+    keep: みかん氏
+    basis: 'ミカンウジ and みかん氏 share a reading and are named on the same work, w00129 (Avalon Alter～karma～ :
+      Do not pass anyone this crave,because only our sin. : 幸福を求める百合アンソロジー). Two records of one book spell
+      its author two ways, which is the kana reading this shape describes and what a source does rather
+      than what two artists do. みかん氏 holds c00041 and ミカンウジ holds no identifier, so the second spelling
+      is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).'
+  - reading: ミギハラ
+    surfaces:
+    - ミギハラ
+    - 右腹
+    shape: kana-reading
+    decision: merge
+    keep: 右腹
+    basis: ミギハラ and 右腹 share a reading and are named on the same work, w00120 (ミギハラショートショート). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 右腹 holds c00217 and ミギハラ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ミモト
+    surfaces:
+    - みもと
+    - ミモト
+    shape: full-script-flip
+    decision: merge
+    keep: みもと
+    basis: ミモト and みもと share a reading and are named on the same work, w00101 (Distortion). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. みもと holds c00188 and ミモト holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: ミヤザワイオリ
+    surfaces:
+    - ミヤザワイオリ
+    - 宮澤伊織
+    shape: kana-reading
+    decision: merge
+    keep: 宮澤伊織
+    basis: ミヤザワイオリ and 宮澤伊織 share a reading and are named on the same work, w00195 (ウは宇宙ヤバイのウ!). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 宮澤伊織 holds c00043 and ミヤザワイオリ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ミレイチョコ
+    surfaces:
+    - ミレイチョコ
+    - 美鈴ちょこ
+    shape: kana-reading
+    decision: merge
+    keep: 美鈴ちょこ
+    basis: ミレイチョコ and 美鈴ちょこ share a reading and are named on the same work, w00123 (推し恋カプリチオ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 美鈴ちょこ holds c00220 and ミレイチョコ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ムク
+    surfaces:
+    - むく
+    - ムク
+    shape: full-script-flip
+    decision: merge
+    keep: むく
+    basis: ムク and むく share a reading and are named on the same work, w00442 (あなたが私を照らすから。). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. むく holds c00769 and ムク holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: ムトウヤスユキ
+    surfaces:
+    - むとうやすゆき
+    - ムトウヤスユキ
+    shape: full-script-flip
+    decision: merge
+    keep: むとうやすゆき
+    basis: ムトウヤスユキ and むとうやすゆき share a reading and are named on the same work, w00520 (修羅の箱庭). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. むとうやすゆき holds c00636 and ムトウヤスユキ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ムラタシンヤ
+    surfaces:
+    - ムラタシンヤ
+    - 村田真哉
+    shape: kana-reading
+    decision: merge
+    keep: 村田真哉
+    basis: ムラタシンヤ and 村田真哉 share a reading and are named on the same work, w00154 (死に戻り王女は生き延びるために百合ハーレムを作ることにした).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 村田真哉 holds c00251 and ムラタシンヤ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ヤダテハジメ
+    surfaces:
+    - ヤダテハジメ
+    - 矢立肇
+    shape: kana-reading
+    decision: merge
+    keep: 矢立肇
+    basis: ヤダテハジメ and 矢立肇 share a reading and are named on the same work, w00032 (HGに恋するふたり). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 矢立肇 holds c00875 and ヤダテハジメ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ヤトサキハル
+    surfaces:
+    - やとさきはる
+    - ヤトサキハル
+    shape: full-script-flip
+    decision: merge
+    keep: やとさきはる
+    basis: ヤトサキハル and やとさきはる share a reading and are named on the same work, w00340 (#ミカちゃんともなちゃん). Two
+      records of one book spell its author two ways, which is the full script flip this shape describes
+      and what a source does rather than what two artists do. やとさきはる holds c00459 and ヤトサキハル holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ヤナイノブヒコ
+    surfaces:
+    - ヤナイノブヒコ
+    - 柳井伸彦
+    shape: kana-reading
+    decision: merge
+    keep: 柳井伸彦
+    basis: ヤナイノブヒコ and 柳井伸彦 share a reading and are named on the same work, w00154 (死に戻り王女は生き延びるために百合ハーレムを作ることにした).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 柳井伸彦 holds c00252 and ヤナイノブヒコ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ヤマモトマト
+    surfaces:
+    - ヤマモトマト
+    - 山本まと
+    shape: kana-reading
+    decision: merge
+    keep: 山本まと
+    basis: ヤマモトマト and 山本まと share a reading and are named on the same work, w00593 (親友に好きな人ができたらしい). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. 山本まと holds c00706 and ヤマモトマト holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ユアマ
+    surfaces:
+    - ゆあま
+    - ユアマ
+    shape: full-script-flip
+    decision: merge
+    keep: ゆあま
+    basis: ユアマ and ゆあま share a reading and are named on the same work, w00070 (Yrhm百合姫20thアンソロジー). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. ゆあま holds c00141 and ユアマ holds no identifier, so the
+      second spelling is attached to the first rather than anything being retired. Corroborated on 1 shared
+      work(s).
+  - reading: ユウテモ
+    surfaces:
+    - U-temo
+    - ユウテモ
+    shape: kana-reading
+    decision: merge
+    keep: U-temo
+    basis: ユウテモ and U-temo share a reading and are named on the same work, w00105 (オカワリいただけただろうか?). Two
+      records of one book spell its author two ways, which is the kana reading this shape describes and
+      what a source does rather than what two artists do. U-temo holds c00202 and ユウテモ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ユキコ
+    surfaces:
+    - ユキコ
+    - 雪子
+    shape: kana-reading
+    decision: merge
+    keep: 雪子
+    basis: ユキコ and 雪子 share a reading and are named on the same work, w00314 (あの娘と目が合うたび私は　社会人百合アンソロジー).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 雪子 holds c00222 and ユキコ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ヨネダタロウ
+    surfaces:
+    - ヨネダタロウ
+    - 米田タロウ
+    shape: kana-reading
+    decision: merge
+    keep: 米田タロウ
+    basis: ヨネダタロウ and 米田タロウ share a reading and are named on the same work, w00320 (超かぐや姫!). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 米田タロウ holds c00436 and ヨネダタロウ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ヨモギモチ
+    surfaces:
+    - ヨモギモチ
+    - 蓬餅
+    shape: kana-reading
+    decision: merge
+    keep: 蓬餅
+    basis: ヨモギモチ and 蓬餅 share a reading and are named on the same work, w00848 (キスよりも君の音色で目が醒める【単行本版】).
+      Two records of one book spell its author two ways, which is the kana reading this shape describes
+      and what a source does rather than what two artists do. 蓬餅 holds c00952 and ヨモギモチ holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).
+  - reading: ヨルノヒツジグモ
+    surfaces:
+    - ヨルノヒツジグモ
+    - 夜の羊雲
+    shape: kana-reading
+    decision: merge
+    keep: 夜の羊雲
+    basis: ヨルノヒツジグモ and 夜の羊雲 share a reading and are named on the same work, w00211 (少女星間漂流記). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 夜の羊雲 holds c00027 and ヨルノヒツジグモ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: リイチュ
+    surfaces:
+    - りいちゅ
+    - リイチュ
+    shape: full-script-flip
+    decision: merge
+    keep: りいちゅ
+    basis: リイチュ and りいちゅ share a reading and are named on the same work, w00117 (ひきこまり吸血姫の悶々). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. りいちゅ holds c00213 and リイチュ holds no identifier, so
+      the second spelling is attached to the first rather than anything being retired. Corroborated on 1
+      shared work(s).
+  - reading: リンゴアメサード
+    surfaces:
+    - りんご飴サード
+    - リンゴアメサード
+    shape: kana-reading
+    decision: merge
+    keep: りんご飴サード
+    basis: 'リンゴアメサード and りんご飴サード share a reading and are named on the same work, w00177 (公爵令嬢の籠絡ミッション :
+      魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどうすればいいのですか!). Two records of one book spell its author two ways,
+      which is the kana reading this shape describes and what a source does rather than what two artists
+      do. りんご飴サード holds c00283 and リンゴアメサード holds no identifier, so the second spelling is attached to the
+      first rather than anything being retired. Corroborated on 1 shared work(s).'
+  - reading: リンゴスイ
+    surfaces:
+    - りんご水
+    - リンゴスイ
+    shape: kana-reading
+    decision: merge
+    keep: りんご水
+    basis: リンゴスイ and りんご水 share a reading and are named on the same work, w00008 (ステラ・ステップ). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. りんご水 holds c00055 and リンゴスイ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ワタリニフネ
+    surfaces:
+    - ワタリニフネ
+    - 渡りに船
+    shape: kana-reading
+    decision: merge
+    keep: 渡りに船
+    basis: ワタリニフネ and 渡りに船 share a reading and are named on the same work, w00449 (しまいずまい). Two records
+      of one book spell its author two ways, which is the kana reading this shape describes and what a source
+      does rather than what two artists do. 渡りに船 holds c00579 and ワタリニフネ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ンミ
+    surfaces:
+    - んみ
+    - ンミ
+    shape: full-script-flip
+    decision: merge
+    keep: んみ
+    basis: ンミ and んみ share a reading and are named on the same work, w00122 (咲きそめコンプレックス). Two records of
+      one book spell its author two ways, which is the full script flip this shape describes and what a
+      source does rather than what two artists do. んみ holds c00026 and ンミ holds no identifier, so the second
+      spelling is attached to the first rather than anything being retired. Corroborated on 1 shared work(s).
+  - reading: ヴェジタブル
+    surfaces:
+    - ゔぇじたぶる
+    - ヴェジタブル
+    shape: full-script-flip
+    decision: merge
+    keep: ゔぇじたぶる
+    basis: ヴェジタブル and ゔぇじたぶる share a reading and are named on the same work, w00189 (今年注目のエースちゃん). Two records
+      of one book spell its author two ways, which is the full script flip this shape describes and what
+      a source does rather than what two artists do. ゔぇじたぶる holds c00298 and ヴェジタブル holds no identifier,
+      so the second spelling is attached to the first rather than anything being retired. Corroborated on
+      1 shared work(s).

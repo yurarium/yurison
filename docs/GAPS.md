@@ -2598,3 +2598,25 @@ nobody has.
 
 Found while merging 24 translated editions onto the works they translate, which is what put both
 spellings of each creator on one work.
+
+## A credit belongs to a work, and a translated edition has credits of its own. Found 2026-08-11
+
+Merging 24 translated editions onto the works they translate left five translators crediting
+nothing: `Ｏｔｔｅｒｇｅｉｓｔ`, `Ｕｍｉｕｅ`, `ＧｉａｎｔＣａｖｅＭｕｓｈｒｏｏｍ`, `Ｌｉｔｔｌｅ　Ｊｕｓｔｉｃｅｓ` and
+`ＷｅｅｋｌｙＥｖｅｒｙｄａｙ`. Before the merge each held an edition's own row and was credited there;
+after it the work keeps the original's byline, `あとき`, which is right, and the edition's second
+name has nowhere to sit.
+
+**The corpus credits a WORK and has no place for a credit that belongs to one edition of it.**
+`credit_identity.credits_on` takes names from a row's `author` and reads `credits` for roles alone,
+so a name carried anywhere else earns no edge and reaches no page. Writing the translator into the
+byline was tried and reverted within the hour: `あとき / Ｍａｇｐｉｅ` on 地底をゆく says Ｍａｇｐｉｅ
+made the Japanese work, and they did not.
+
+The record states no role either. BOOK☆WALKER writes `あとき / Ｍａｇｐｉｅ` flat, so *translator* is
+an inference from the `【English ver.】` mark on the title rather than something a source says.
+
+What would close it is a credit edge that carries which edition it is from, so a person's page can
+say they are on a work through its English edition. That is a schema change to `credit-works.yaml`
+and to the page, and it is the same shape as the question of whether a licensed English edition is
+the same work at all, which the 2026-08-11 merges answered yes to.

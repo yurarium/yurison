@@ -2286,6 +2286,42 @@ def credit_page_data(rows):
                  "basis": pair.get("basis")}
                 for o in pair.get("credits") or []
                 if o.get("id") and str(o["id"]) != str(c["id"]))
+    # EVERY SPELLING A CREDIT ANSWERS FOR, which is what makes it findable by any of them. A credit
+    # is minted for one spelling and gains others two ways: a source writing the same person twice,
+    # so c00016 holds `鈴木二三江` and `スズキフミエ` on one entry, and a merge, which lends the
+    # retired entry's anchors to its successor.
+    #
+    # SHIPPING ONLY `credit` DROPPED BOTH. `credits.json` carried the surviving spelling and nothing
+    # else, so 70 of the 257 index-row credits that resolved to nothing were people the registry
+    # already knew: `4kaエンピツ`, `お子様ランチ` and `さりいB` are all retired spellings of credits
+    # with pages. Search could not reach them and the shortfall read as an argument for minting 257
+    # new identifiers rather than 187.
+    #
+    # THE ANCHOR IS ALREADY THE FOLD `feed/names.json` IS KEYED UNDER, `credit_key`'s NFKC with
+    # spaces removed, so a consumer looking a raw field up needs no second fold of its own.
+    _by_id = {str(e.get("id")): e for e in entries if e.get("id")}
+
+    def _lives_at(cid):
+        """The live credit an entry's anchors belong to, through however many merges."""
+        seen = set()
+        while cid and cid not in seen:
+            seen.add(cid)
+            nxt = (_by_id.get(cid) or {}).get("merged_into")
+            if not nxt:
+                return cid
+            cid = str(nxt)
+        return cid
+
+    spellings = {}
+    for e in entries:
+        cid = _lives_at(str(e.get("id") or ""))
+        if not cid:
+            continue
+        for a in e.get("anchors") or []:
+            a = str(a)
+            if a.startswith("credit:"):
+                spellings.setdefault(cid, set()).add(a[len("credit:"):])
+
     out = {}
     for e in entries:
         cid = str(e.get("id") or "")
@@ -2295,6 +2331,12 @@ def credit_page_data(rows):
                  for w in edges.get(cid) or [] if str(w.get("id")) in known]
         fact = {"credit": e.get("title"), "shape": _cid.shape_of(e.get("kind")),
                 "works": works}
+        # The credit's own title is what a page is headed with and is spelled as the source wrote
+        # it; the folded form of it belongs here with the rest, so a lookup needs one list.
+        _sp = spellings.get(cid, set()) | {_cid.credit_key(e.get("title") or "")}
+        _sp = sorted(x for x in _sp if x)
+        if _sp:
+            fact["spellings"] = _sp
         if e.get("kind"):
             fact["kind"] = e["kind"]
         if homophones.get(cid):

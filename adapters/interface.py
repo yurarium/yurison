@@ -356,6 +356,15 @@ NOT_A_NAME = {
     "status[].gate.invariants[].examples[]":
         "a gate finding, quoted so a person can act on it. It names the work that failed and must "
         "stay verbatim, because the point of quoting it is that it matches what the data holds.",
+    # THE SPELLINGS A CREDIT ANSWERS FOR, which is a lookup key and not a rendering. `credit` is
+    # what heads the page and goes through `authorLabel`; this list is every other string the same
+    # person is written as, folded the way `feed/names.json` is keyed, so a search can resolve a
+    # raw field to the credit that owns it. Romanising it would defeat what it is for: the whole
+    # value of `アオトヒビキ` sitting here is that it matches the characters a source wrote.
+    "credits[].spellings[]":
+        "every spelling one credit answers for, folded as a lookup key. Search resolves a raw "
+        "credit field through it; nothing renders it, and matching the source's characters is the "
+        "whole of its use.",
     "index[].y": "the yomi, a reading aid shown only in Japanese",
     "series[].completed_basis": "why a run is called finished, in English",
     "series[].completed_basis_ja": "the same sentence in Japanese, shown in Japanese mode",

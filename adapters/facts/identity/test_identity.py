@@ -174,6 +174,20 @@ def main(s):
     s.eq([e.get("merged_into") for e in merged if e["id"] == "w00002"], ["w00001"],
          "and it stays in the file rather than being deleted")
 
+    # A MERGE TARGET THAT IS ITSELF MERGED LATER, which is the ordinary consequence of a second
+    # ruling and not an exotic state. w01234 was retired into w01220, and when the owner ruled that
+    # 捏造トラップ-NTR- and 捏造トラップ are one work, w01220 went into w01095: one step of
+    # resolution left w01234's anchors pointing at an id that no longer has a row.
+    chained = [{"id": "w01234", "merged_into": "w01220", "anchors": ["web:first"]},
+               {"id": "w01220", "merged_into": "w01095", "anchors": ["web:second"]},
+               {"id": "w01095", "anchors": ["web:live"]}]
+    s.eq(ident.index(chained)["web:first"], "w01095",
+         "an anchor twice removed resolves to the work that is still live")
+    s.eq(ident.index(chained)["web:second"], "w01095", "and so does the one once removed")
+    s.eq(ident.survivor(chained, "w01234"), "w01095", "and the walk is asked for directly")
+    s.eq(ident.survivor([{"id": "a", "merged_into": "b"}, {"id": "b", "merged_into": "a"}], "a"),
+         "a", "a cycle nothing should ever write ends the walk rather than hanging the build")
+
     got = ident.propose(WEB, PRINTS)
     s.eq(len(got), 2, "both titles match across the populations")
     s.eq(sorted(e["basis"] for _w, _p, e in got), ["title-and-author", "title-and-author"],

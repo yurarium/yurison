@@ -2824,18 +2824,59 @@ def budget_one_work_under_two_names(ctx):
     sys.path.insert(0, str(ROOT / "adapters"))
     from facts import identity
 
+    titles = (ctx["names_shipped"] or {}).get("titles") or {}
+
+    def keys_for(title):
+        """Every fold this title is reachable under, its own and its Latin renderings'.
+
+        A TITLE FOLD ALONE CANNOT CROSS SCRIPTS, which is the blind spot this closes and it is not
+        a small one. `Free soul` and `フリー・ソウル` are one work by やまじえびね, catalogued once by
+        the bibliography under its Latin title and once by the shop under its Japanese, and the two
+        folds are `freesoul` and `フリソウル`. Nothing about them can ever meet, so the round that
+        closed 53 of these never had this class in view at all: eight pairs, `MURCIELAGO` and
+        `Day In, Day Out` among them, and the owner found the first by eye.
+
+        So the renderings join the key. `フリー・ソウル` is reachable under `freesoul` because that
+        is what this database calls it in English, which is exactly the spelling the other record
+        was catalogued under.
+
+        SHARING A PERSON STILL DECIDES IT. Romaji brings collisions with it, and `ゆりこん` and
+        `ユリコン` are different works that both fold to `yurikon`. The credit test that has always
+        kept the seven 人魚姫 apart keeps these apart too, with nothing new asked of it.
+        """
+        out = {identity.match_key(title)}
+        rec = titles.get(title) or {}
+        for form in [rec.get("en")] + list((rec.get("romaji") or {}).values()):
+            if form:
+                out.add(identity.match_key(form))
+        return {k for k in out if k}
+
     pairs = 0
     for _name, rows in _shipped_lists(ctx):
         by = collections.defaultdict(list)
-        for title, credit in rows:
+        for i, (title, _credit) in enumerate(rows):
             if title:
-                by[identity.match_key(title)].append(credit)
-        for key, credits in by.items():
-            if not key or len(credits) < 2:
+                for key in keys_for(title):
+                    by[key].append(i)
+        # COUNTED ONCE PER PAIR, NOT ONCE PER KEY. A row now carries several keys and two rows
+        # commonly meet under more than one of them: `MURCIÉLAGO -ムルシエラゴ-` shares both a
+        # rendering and a romaji with `MURCIELAGO`. Keying alone would report that pair twice and
+        # the budget would move for a reason that is not a work.
+        who, seen = {}, set()
+        for key, idxs in by.items():
+            if len(idxs) < 2:
                 continue
-            who = [identity.people(c) for c in credits]
-            pairs += sum(1 for i in range(len(who)) for j in range(i + 1, len(who))
-                         if who[i] & who[j])
+            for a in range(len(idxs)):
+                for b in range(a + 1, len(idxs)):
+                    i, j = (idxs[a], idxs[b]) if idxs[a] < idxs[b] else (idxs[b], idxs[a])
+                    if (i, j) in seen:
+                        continue
+                    seen.add((i, j))
+                    for x in (i, j):
+                        if x not in who:
+                            who[x] = identity.people(rows[x][1])
+                    if who[i] & who[j]:
+                        pairs += 1
     return pairs
 
 

@@ -157,11 +157,40 @@ def mint(taken, prefix=PREFIX, width=WIDTH):
     return f"{prefix}{n + 1:0{width}d}"
 
 
+def survivor(entries, wid, _seen=None):
+    """The live id `wid` resolves to, following a merge that was itself later merged.
+
+    A CHAIN IS THE ORDINARY CONSEQUENCE OF A SECOND MERGE. Retiring A into B and later B into C
+    leaves A pointing at B, which no longer exists as a row, and one step of resolution stops
+    there. That is not hypothetical: w01234 was retired into w01220, and when the owner ruled that
+    捏造トラップ-NTR- and 捏造トラップ are one work, w01220 went into w01095 and w01234's anchors
+    were left resolving to a retired id.
+
+    A CYCLE ENDS THE WALK rather than hanging the build. Nothing should ever write one, which is
+    exactly why a loop here would be discovered at the worst moment.
+    """
+    by = entries if isinstance(entries, dict) else {e["id"]: e for e in entries}
+    seen = _seen if _seen is not None else set()
+    while wid not in seen:
+        seen.add(wid)
+        nxt = (by.get(wid) or {}).get("merged_into")
+        if not nxt:
+            return wid
+        wid = nxt
+    return wid
+
+
 def index(entries):
-    """{anchor: id} over live entries. A merged entry lends its anchors to its successor."""
+    """{anchor: id} over live entries. A merged entry lends its anchors to its successor.
+
+    THE SUCCESSOR IS THE LIVE ONE, followed through however many merges stand between. Reading
+    `merged_into` once was right while no merge target had itself been merged, and wrong the first
+    time one was.
+    """
+    by = {e["id"]: e for e in entries}
     out = {}
     for e in entries:
-        target = e.get("merged_into") or e.get("id")
+        target = survivor(by, e["id"])
         for a in e.get("anchors") or []:
             out[a] = target
     return out

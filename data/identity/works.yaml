@@ -7,7 +7,7 @@
 #
 # A merged entry keeps `merged_into` and stays resolvable, because an address published
 # once has to keep working. See adapters/identity.py.
-generated: 2026-08-08
+generated: 2026-08-11
 works:
   - id: w00001
     title: "娘が彼女を連れてきた話"
@@ -466,6 +466,7 @@ works:
       - "web:https://ichicomi.com/episode/12207421983660309352"
       - "madb:madb-t-4448a2f4ec69"
       - "web:https://ichicomi.com/atom/series/2550912965923183647"
+      - "web:https://ichicomi.com/episode/12207421984039246714"
     attached:
       - anchor: "web:https://ichicomi.com/atom/series/2550912965923183647"
         basis: "the chapter page at https://ichicomi.com/episode/12207421983660309352 links its own series feed at https://ichicomi.com/atom/series/2550912965923183647, so the platform places this chapter in series 2550912965923183647, and the og:title there names the work: カナリアは綺羅星の夢をみる - sheepD / 第14話 | 一迅プラス"
@@ -1322,6 +1323,7 @@ works:
     anchors:
       - "web:https://ichicomi.com/episode/12207421983947227383"
       - "web:https://ichicomi.com/atom/series/2550912965923184114"
+      - "madb:madb-t-baa4c71bbb48"
     attached:
       - anchor: "web:https://ichicomi.com/atom/series/2550912965923184114"
         basis: "the chapter page at https://ichicomi.com/episode/12207421983947227383 links its own series feed at https://ichicomi.com/atom/series/2550912965923184114, so the platform places this chapter in series 2550912965923184114, and the og:title there names the work: 無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～ - 玉崎たま / 第19話 | 一迅プラス"
@@ -1570,10 +1572,11 @@ works:
       - "web:https://comic-fuz.com/manga/3397"
       - "madb:madb-t-4efbb9565b50"
   - id: w00203
-    title: "伽藍の姫 -がらんのひめ-"
+    title: "伽藍の姫"
     anchors:
       - "web:https://ichicomi.com/episode/2551460909624506028"
       - "web:https://ichicomi.com/atom/series/2550912965919360583"
+      - "madb:madb-t-011549d102b6"
     attached:
       - anchor: "web:https://ichicomi.com/atom/series/2550912965919360583"
         basis: "the chapter page at https://ichicomi.com/episode/2551460909624506028 links its own series feed at https://ichicomi.com/atom/series/2550912965919360583, so the platform places this chapter in series 2550912965919360583, and the og:title there names the work: 伽藍の姫 -がらんのひめ- - こるせ / 第21話【完結】 | 一迅プラス"
@@ -2747,6 +2750,7 @@ works:
     anchors:
       - "web:https://ichicomi.com/episode/12207421983371759917"
       - "web:https://ichicomi.com/atom/series/12207421983348273909"
+      - "madb:madb-t-6914778f540d"
     attached:
       - anchor: "web:https://ichicomi.com/atom/series/12207421983348273909"
         basis: "the chapter page at https://ichicomi.com/episode/12207421983371759917 links its own series feed at https://ichicomi.com/atom/series/12207421983348273909, so the platform places this chapter in series 12207421983348273909, and the og:title there names the work: 昨日シたのに覚えてないの？ 百合えっち短編集 - 焼肉定食 / 昨日シたのに覚えてないの？ | 一迅プラス"
@@ -3725,6 +3729,7 @@ works:
     anchors:
       - "web:https://ichicomi.com/episode/2550912965923204356"
       - "web:https://ichicomi.com/atom/series/2550912965923183772"
+      - "madb:madb-t-2296bd03ef37"
     attached:
       - anchor: "web:https://ichicomi.com/atom/series/2550912965923183772"
         basis: "the chapter page at https://ichicomi.com/episode/2550912965923204356 links its own series feed at https://ichicomi.com/atom/series/2550912965923183772, so the platform places this chapter in series 2550912965923183772, and the og:title there names the work: 嘘から始まる恋の夏-squall- - ろここ/LYCORIS / 第1話 | 一迅プラス"
@@ -4183,6 +4188,7 @@ works:
     anchors:
       - "web:https://comic-action.com/episode/2550912966035871884"
       - "web:https://comic-action.com/atom/series/13933686331667100482"
+      - "madb:C449662"
     attached:
       - anchor: "web:https://comic-action.com/atom/series/13933686331667100482"
         basis: "the chapter page at https://comic-action.com/episode/2550912966035871884 links its own series feed at https://comic-action.com/atom/series/13933686331667100482, so the platform places this chapter in series 13933686331667100482, and the og:title there names the work: 特別編③ / 彩香ちゃんは弘子先輩に恋してる - Sal Jiang | webアクション"
@@ -4869,7 +4875,7 @@ works:
         basis: "the chapter page at https://tonarinoyj.jp/episode/2550912965159409071 links its own series feed at https://tonarinoyj.jp/atom/series/2550912965159398707, so the platform places this chapter in series 2550912965159398707, and the og:title there names the work: [特別読切] 天使と書いて悪魔と読む。逆もまた然り。 - 松井琳 | となりのヤングジャンプ. https://tonarinoyj.jp/series/2550912965159398707/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-08-07
   - id: w00588
-    title: "恋する小惑星（アステロイド）"
+    title: "恋する小惑星"
     anchors:
       - "web:https://comic-fuz.com/manga/214"
       - "madb:C419177"
@@ -5345,6 +5351,7 @@ works:
     anchors:
       - "web:https://comic.pixiv.net/works/10861"
       - "madb:madb-t-c9f5a9cc2ddd"
+      - "madb:madb-t-5f4cde3ca776"
   - id: w00645
     title: "【今日の10ページ】BREAD NEW DAY"
     anchors:
@@ -5864,6 +5871,7 @@ works:
     title: "抱かれたい女〜JDだけどアラサー女子に買われています〜"
     anchors:
       - "web:https://bigcomics.jp/series/7c900aada4b46"
+      - "madb:madb-t-6c54cd5e15dc"
   - id: w00698
     title: "リリーとキャラメル"
     anchors:
@@ -7825,6 +7833,7 @@ works:
       - "madb:bw-322023"
       - "web:https://comic-days.com/atom/series/3269632237261357938"
       - "web:https://comic-days.com/series/3269632237261357938/first_episode"
+      - "madb:C449208"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/3269632237261357938"
         basis: "the chapter page at https://comic-days.com/episode/3270375685451467169 links its own series feed at https://comic-days.com/atom/series/3269632237261357938, so the platform places this chapter in series 3269632237261357938, and the og:title there names the work: 殺し屋やめたい！ - 外木寸 / 第４３話 | コミックDAYS"
@@ -8246,6 +8255,7 @@ works:
     anchors:
       - "web:https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/7644014acdf84457e8423fa0aca03dce"
       - "web:https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88"
+      - "madb:madb-t-20de56b34516"
     attached:
       - anchor: "web:https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88"
         basis: "the work's own address inside the chapter address https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/7644014acdf84457e8423fa0aca03dce, which ヤンマガWeb serves at https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88: fetched 2026-08-07, HTTP 200, and the page titles itself 『バニーズクエスト』 【無料公開中】 | ヤンマガWeb"
@@ -8517,11 +8527,12 @@ works:
     anchors:
       - "web:https://comic-boost.com/content/01000001"
   - id: w00956
-    title: "セメルパルス semelparous"
+    title: "セメルパルス"
     anchors:
       - "web:https://comic-days.com/episode/3269754496660785248"
       - "web:https://comic-days.com/atom/series/3269754496319979379"
       - "web:https://comic-days.com/series/3269754496319979379/first_episode"
+      - "madb:C437093"
     attached:
       - anchor: "web:https://comic-days.com/atom/series/3269754496319979379"
         basis: "the chapter page at https://comic-days.com/episode/3269754496660785248 links its own series feed at https://comic-days.com/atom/series/3269754496319979379, so the platform places this chapter in series 3269754496319979379, and the og:title there names the work: セメルパルス semelparous - 荻野純 / 第十八話 ゲート | コミックDAYS"
@@ -8864,11 +8875,12 @@ works:
     anchors:
       - "web:https://comic.pixiv.net/works/6767"
   - id: w00987
-    title: "ヴァンピアーズ"
+    title: "ヴァンピアーズ : VAMPEERZ,MY PEER VAMPIRES"
     anchors:
       - "web:https://www.sunday-webry.com/episode/3269754496569396946"
       - "web:https://www.sunday-webry.com/atom/series/3269754496548915366"
       - "web:https://www.sunday-webry.com/series/3269754496548915366/first_episode"
+      - "madb:C433380"
     attached:
       - anchor: "web:https://www.sunday-webry.com/atom/series/3269754496548915366"
         basis: "the chapter page at https://www.sunday-webry.com/episode/3269754496569396946 links its own series feed at https://www.sunday-webry.com/atom/series/3269754496548915366, so the platform places this chapter in series 3269754496548915366, and the og:title there names the work: 3. #2 DEATH (2) / ヴァンピアーズ - アキリ | サンデーうぇぶり"
@@ -9359,6 +9371,9 @@ works:
     title: "捏造トラップ"
     anchors:
       - "madb:C360665"
+      - "madb:madb-t-de1410efb48e"
+      - "web:https://ichicomi.com/episode/2550912965923203939"
+      - "web:https://ichicomi.com/atom/series/2550912965923183864"
   - id: w01096
     title: "立花館To Lieあんぐる"
     anchors:
@@ -9794,6 +9809,8 @@ works:
       - "madb:C436230"
   - id: w01192
     title: "セメルパルス"
+    merged_into: w00956
+    merge_basis: "creator agrees; セメルパルス semelparous carries the Latin spelling beside the katakana and the house lists it as セメルパルス"
     anchors:
       - "madb:C437093"
   - id: w01193
@@ -9848,6 +9865,8 @@ works:
       - "madb:C451659"
   - id: w01202
     title: "伽藍の姫"
+    merged_into: w00203
+    merge_basis: "creator agrees; 伽藍の姫 -がらんのひめ- prints its own reading as a subtitle and the house lists the work as 伽藍の姫"
     anchors:
       - "madb:madb-t-011549d102b6"
   - id: w01203
@@ -9879,10 +9898,14 @@ works:
       - "madb:madb-t-433464a98ea4"
   - id: w01209
     title: "ギャルメイドと悪役令嬢"
+    merged_into: w00644
+    merge_basis: "creator agrees and both hold the same book run; the retired record is madb's ISBD form of the title the shop prints"
     anchors:
       - "madb:madb-t-5f4cde3ca776"
   - id: w01210
     title: "昨日シたのに覚えてないの?"
+    merged_into: w00353
+    merge_basis: "creator agrees and both hold the same book run; the retired record is madb's ISBD form of the title the shop prints"
     anchors:
       - "madb:madb-t-6914778f540d"
   - id: w01211
@@ -9919,6 +9942,8 @@ works:
         retrieved: 2026-08-07
   - id: w01216
     title: "無力聖女と無能王女"
+    merged_into: w00169
+    merge_basis: "creator agrees and both hold the same book run; the retired record is madb's ISBD form of the title the shop prints"
     anchors:
       - "madb:madb-t-baa4c71bbb48"
   - id: w01217
@@ -9941,6 +9966,8 @@ works:
       - "madb:madb-t-dc8ad1c1b98b"
   - id: w01220
     title: "捏造トラップ-NTR-"
+    merged_into: w01095
+    merge_basis: "one work, ruled by the project owner 2026-08-11: the volume runs are complementary, 2 and 4, and -NTR- is the subtitle"
     anchors:
       - "madb:madb-t-de1410efb48e"
       - "web:https://ichicomi.com/episode/2550912965923203939"
@@ -10217,6 +10244,7 @@ works:
     title: null
     anchors:
       - "madb:C338361"
+      - "madb:bw-15279"
   - id: w01269
     title: null
     merged_into: w01103
@@ -10755,6 +10783,8 @@ works:
       - "madb:C433194"
   - id: w01380
     title: null
+    merged_into: w00987
+    merge_basis: "creator agrees; the retired record is the ISBD line carrying the work's Latin subtitle VAMPEERZ, MY PEER VAMPIRES"
     anchors:
       - "madb:C433380"
   - id: w01381
@@ -10940,6 +10970,8 @@ works:
       - "madb:C448892"
   - id: w01415
     title: null
+    merged_into: w00894
+    merge_basis: "creator agrees and both hold the same book run; the retired record is madb's ISBD form of the title the shop prints"
     anchors:
       - "madb:C449208"
   - id: w01416
@@ -10975,6 +11007,8 @@ works:
         retrieved: 2026-08-07
   - id: w01419
     title: null
+    merged_into: w00511
+    merge_basis: "creator agrees and both hold the same book run; the retired record is madb's ISBD form of the title the shop prints"
     anchors:
       - "madb:C449662"
   - id: w01420
@@ -11096,10 +11130,14 @@ works:
         retrieved: 2026-08-07
   - id: w01439
     title: null
+    merged_into: w00930
+    merge_basis: "creator agrees and both hold the same book run; the retired record is madb's ISBD form of the title the shop prints"
     anchors:
       - "madb:madb-t-20de56b34516"
   - id: w01440
     title: null
+    merged_into: w00461
+    merge_basis: "creator agrees and both hold the same book run; the retired record is madb's ISBD form of the title the shop prints"
     anchors:
       - "madb:madb-t-2296bd03ef37"
   - id: w01441
@@ -11192,6 +11230,8 @@ works:
       - "madb:madb-t-6b2470835621"
   - id: w01454
     title: null
+    merged_into: w00697
+    merge_basis: "creator agrees and both hold the same book run; the retired record is madb's ISBD form of the title the shop prints"
     anchors:
       - "madb:madb-t-6c54cd5e15dc"
   - id: w01455
@@ -11286,7 +11326,7 @@ works:
     anchors:
       - "madb:madb-t-e5b1c420f32b"
   - id: w01471
-    title: null
+    title: "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… : 公式アンソロジーコミック : スウィートメモリーズ"
     anchors:
       - "madb:madb-t-e76078baed0d"
   - id: w01472
@@ -11606,6 +11646,8 @@ works:
       - "madb:bw-04ef5ee3-124b-4f92-bc94-1af6da0e556c"
   - id: w01528
     title: null
+    merged_into: w02837
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-055d9aa6-a8e2-456c-ad43-497173caa39c"
   - id: w01529
@@ -11626,6 +11668,8 @@ works:
       - "madb:bw-05f82d74-b645-427e-a504-25d358b89404"
   - id: w01533
     title: null
+    merged_into: w02056
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-068687af-cf40-4239-93a6-ea1c89dea0ba"
   - id: w01534
@@ -11669,6 +11713,7 @@ works:
     title: null
     anchors:
       - "madb:bw-084bffb9-b89d-48e0-8da7-49d8da2e66de"
+      - "madb:bw-9dfe040c-f248-4701-a396-95a9cfa28cd1"
   - id: w01544
     title: null
     anchors:
@@ -11938,6 +11983,8 @@ works:
         retrieved: 2026-08-07
   - id: w01595
     title: null
+    merged_into: w03062
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-11342823-83e7-4310-b499-1da743f19709"
   - id: w01596
@@ -12106,7 +12153,7 @@ works:
     anchors:
       - "madb:bw-13624ccd-c60d-412f-b258-4482b62e490a"
   - id: w01623
-    title: "エデンの処女（おとめ）"
+    title: "エデンの処女"
     anchors:
       - "madb:bw-137953"
       - "web:https://manga.nicovideo.jp/comic/26065"
@@ -12267,6 +12314,8 @@ works:
         retrieved: 2026-08-07
   - id: w01643
     title: null
+    merged_into: w01268
+    merge_basis: "creator agrees and both runs start 2014-04; one record spells the title MURCIELAGO and the other MURCIÉLAGO with its katakana gloss"
     anchors:
       - "madb:bw-15279"
   - id: w01644
@@ -13900,6 +13949,8 @@ works:
       - "madb:bw-279930"
   - id: w01894
     title: null
+    merged_into: w03103
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-279b958e-be6c-40f3-a690-e425e045c369"
   - id: w01895
@@ -14070,6 +14121,7 @@ works:
     title: null
     anchors:
       - "madb:bw-29304aef-522f-4304-beb3-a427d3a62444"
+      - "madb:bw-327fb879-c879-403c-b0a8-fa0c164ccf7e"
   - id: w01913
     title: "1いいねでスカートが0.1㎜短くなるクラスの地味な女の子"
     anchors:
@@ -14152,6 +14204,8 @@ works:
       - "madb:bw-2995cc9a-eb22-4184-ac92-4f7c7d215afe"
   - id: w01927
     title: null
+    merged_into: w03039
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-29b604c6-d2d6-4955-a19a-d30351641837"
   - id: w01928
@@ -14308,6 +14362,8 @@ works:
         retrieved: 2026-08-07
   - id: w01958
     title: null
+    merged_into: w02996
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-308b88c0-1c91-4ed1-abbf-04dae529fe99"
   - id: w01959
@@ -14499,6 +14555,8 @@ works:
       - "madb:bw-327019"
   - id: w01993
     title: null
+    merged_into: w01912
+    merge_basis: "creator agrees, one volume each, same shop and month; the titles differ by the final mark alone"
     anchors:
       - "madb:bw-327fb879-c879-403c-b0a8-fa0c164ccf7e"
   - id: w01994
@@ -14716,6 +14774,8 @@ works:
       - "madb:bw-358773"
   - id: w02028
     title: null
+    merged_into: w02852
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-35a075a1-ed15-4634-bbf2-95387a555855"
   - id: w02029
@@ -14877,6 +14937,8 @@ works:
     title: null
     anchors:
       - "madb:bw-383e40d1-3393-440e-8d38-91360a53b993"
+      - "madb:bw-fc58385c-1ffb-4a28-8b35-1b08b21ab4d6"
+      - "madb:bw-068687af-cf40-4239-93a6-ea1c89dea0ba"
   - id: w02057
     title: null
     anchors:
@@ -14940,6 +15002,8 @@ works:
         retrieved: 2026-08-07
   - id: w02066
     title: null
+    merged_into: w02873
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-38e62fa2-e5bb-4756-9d1b-7621215810e3"
   - id: w02067
@@ -14989,7 +15053,7 @@ works:
     anchors:
       - "madb:bw-394a4a5c-39bb-4f6e-8676-ab92b41c16a2"
   - id: w02074
-    title: null
+    title: "今日、お姉さんとエッチしない？ 百合アンソロジー"
     anchors:
       - "madb:bw-3954ab10-e53a-4bf5-957e-9bf20686eb2e"
       - "web:https://ichicomi.com/episode/12207421984000326426"
@@ -15071,7 +15135,7 @@ works:
     anchors:
       - "madb:bw-3d06e6a5-3335-41ff-8da1-01f9152e3043"
   - id: w02092
-    title: null
+    title: "魔性のメロ女に堕とされる百合アンソロジー"
     anchors:
       - "madb:bw-3d3711b8-c246-4d15-bad4-9b1f1e1df65e"
       - "web:https://ichicomi.com/episode/12207421983882061356"
@@ -15253,6 +15317,7 @@ works:
     title: null
     anchors:
       - "madb:bw-406949"
+      - "madb:bw-472732"
   - id: w02122
     title: "海鳥東月の『でたらめ』な事情"
     anchors:
@@ -15798,6 +15863,8 @@ works:
     anchors:
       - "madb:bw-462356"
       - "web:https://manga.nicovideo.jp/comic/67713"
+      - "madb:bw-86d3b866-e81b-4c69-a751-430c868ad187"
+      - "web:https://manga.nicovideo.jp/comic/82261"
     attached:
       - anchor: "web:https://manga.nicovideo.jp/comic/67713"
         basis: "creator 川内 is named on the platform page"
@@ -15877,6 +15944,8 @@ works:
         retrieved: 2026-08-07
   - id: w02216
     title: null
+    merged_into: w02121
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-472732"
   - id: w02217
@@ -16256,6 +16325,8 @@ works:
       - "madb:bw-4c535b0d-4083-46ca-a8b0-0ad3c899347d"
   - id: w02281
     title: null
+    merged_into: w02977
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-4c9814a4-aa52-45ee-b97a-82763ba782c5"
   - id: w02282
@@ -16272,6 +16343,8 @@ works:
       - "madb:bw-4ce9e053-dad1-471b-9e75-01a5b7c0d7f7"
   - id: w02285
     title: null
+    merged_into: w02855
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-4cee0c08-f2bc-4751-b8d0-9687ee0e7a18"
   - id: w02286
@@ -16321,6 +16394,7 @@ works:
     title: null
     anchors:
       - "madb:bw-4f6c8036-7d68-431f-b4a7-415b5c5c828f"
+      - "madb:bw-dfe6f29c-9419-48a8-922a-ad4f9d222103"
   - id: w02296
     title: null
     anchors:
@@ -16761,6 +16835,8 @@ works:
       - "madb:bw-537007"
   - id: w02375
     title: null
+    merged_into: w02956
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-537089ff-2599-4c75-9564-881990150115"
   - id: w02376
@@ -16964,6 +17040,7 @@ works:
     title: null
     anchors:
       - "madb:bw-553db579-fabb-4a72-ad41-651847bf11be"
+      - "madb:bw-6851e65b-d109-40d9-9f64-69813cdab719"
   - id: w02411
     title: "魔法少女イナバ"
     anchors:
@@ -17004,7 +17081,7 @@ works:
     anchors:
       - "madb:bw-55caa4f0-106f-4e1d-967f-83e822f2395f"
   - id: w02416
-    title: null
+    title: "こみっくがーるずアンソロジーコミック"
     anchors:
       - "madb:bw-56048d69-ade1-4b0c-aa76-36eca0198af5"
   - id: w02417
@@ -17350,7 +17427,7 @@ works:
     anchors:
       - "madb:bw-5f9f6fc3-69fd-4234-8600-2d8a84c7ee88"
   - id: w02491
-    title: null
+    title: "セフレ沼から抜け出せないっ！百合えっちアンソロジー"
     anchors:
       - "madb:bw-5fa86d4a-ad10-4a18-8cbf-c6dbebc872a3"
       - "web:https://ichicomi.com/episode/12207421984000326421"
@@ -17391,6 +17468,7 @@ works:
     title: null
     anchors:
       - "madb:bw-60b413db-bd19-4337-aca1-95737e5d5748"
+      - "madb:C319020"
   - id: w02498
     title: null
     anchors:
@@ -17561,10 +17639,14 @@ works:
       - "madb:bw-68245"
   - id: w02532
     title: null
+    merged_into: w02952
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-684c5f8c-a4cb-4ee8-b001-b6f1fc09dfd4"
   - id: w02533
     title: null
+    merged_into: w02410
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-6851e65b-d109-40d9-9f64-69813cdab719"
   - id: w02534
@@ -17808,6 +17890,8 @@ works:
       - "madb:bw-772b2d57-cee1-4924-bdb4-819cd6942563"
   - id: w02589
     title: null
+    merged_into: w02977
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-77467134-d6dd-46fd-a2e9-faacca786203"
   - id: w02590
@@ -17903,6 +17987,8 @@ works:
       - "madb:bw-7d18c74d-4f9c-4bf3-85cf-93fc78a6f932"
   - id: w02611
     title: null
+    merged_into: w02659
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-7d2215c0-920f-4853-9369-c657d85cd97d"
   - id: w02612
@@ -17942,6 +18028,7 @@ works:
     title: null
     anchors:
       - "madb:bw-7ee12fd2-a4fe-4e8b-8b0f-640cfd2e81ed"
+      - "madb:bw-bee6e263-e3ec-4cd9-bb68-d245c3e6b96a"
   - id: w02619
     title: null
     anchors:
@@ -18129,8 +18216,11 @@ works:
     title: null
     anchors:
       - "madb:bw-86a289b0-abca-476a-a7ac-e5629126e795"
+      - "madb:bw-7d2215c0-920f-4853-9369-c657d85cd97d"
   - id: w02660
     title: "私の女神が今日も推せる 【単話版】"
+    merged_into: w02203
+    merge_basis: "one work, ruled by the project owner 2026-08-11: ～これからも、いつまでも～ is the rearranged and expanded print release of the digital edition, which is the treatment every other reissue here gets"
     anchors:
       - "madb:bw-86d3b866-e81b-4c69-a751-430c868ad187"
       - "web:https://manga.nicovideo.jp/comic/82261"
@@ -18231,7 +18321,7 @@ works:
     anchors:
       - "madb:bw-89a94759-ce00-4f23-ba8c-3492b27ee330"
   - id: w02676
-    title: null
+    title: "ステラのまほうアンソロジーコミック"
     anchors:
       - "madb:bw-89b2ebd2-6284-435b-a80d-81875300eaa7"
   - id: w02677
@@ -18346,6 +18436,8 @@ works:
       - "madb:bw-8fc4e0ba-6db3-4d56-a7f2-c98c4d4e0e50"
   - id: w02701
     title: null
+    merged_into: w02841
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-8ff31911-1fac-49c7-878f-a16d0f241825"
   - id: w02702
@@ -18408,7 +18500,7 @@ works:
     anchors:
       - "madb:bw-91827c19-8f19-499c-aacd-d792563e00ce"
   - id: w02713
-    title: null
+    title: "きみが死ぬまで恋をしたい 公式コミックアンソロジー"
     anchors:
       - "madb:bw-91d8cba0-016c-440d-b321-f6f6efdbd5a7"
   - id: w02714
@@ -18653,6 +18745,7 @@ works:
     title: null
     anchors:
       - "madb:bw-9d28a5fb-0661-4858-9cb7-4848dc20294a"
+      - "madb:bw-9eceb556-2c0c-4a1d-86e4-5f255b49f611"
   - id: w02764
     title: null
     merged_into: w01316
@@ -18677,6 +18770,8 @@ works:
       - "madb:bw-9de4f28b-5c1b-4ab0-baa5-a25fe89cf673"
   - id: w02769
     title: null
+    merged_into: w01543
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-9dfe040c-f248-4701-a396-95a9cfa28cd1"
   - id: w02770
@@ -18698,6 +18793,8 @@ works:
         retrieved: 2026-08-07
   - id: w02772
     title: null
+    merged_into: w02763
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-9eceb556-2c0c-4a1d-86e4-5f255b49f611"
   - id: w02773
@@ -18998,6 +19095,7 @@ works:
     title: null
     anchors:
       - "madb:bw-b33a378e-c4e7-487e-9838-29b9b4c65e46"
+      - "madb:bw-055d9aa6-a8e2-456c-ad43-497173caa39c"
   - id: w02838
     title: null
     anchors:
@@ -19014,6 +19112,7 @@ works:
     title: null
     anchors:
       - "madb:bw-b47f65e8-8101-4810-9ff5-17f955d0a9f1"
+      - "madb:bw-8ff31911-1fac-49c7-878f-a16d0f241825"
   - id: w02842
     title: "キリング・ミー！"
     anchors:
@@ -19063,6 +19162,7 @@ works:
     title: null
     anchors:
       - "madb:bw-b7f29dc5-6e51-415d-8e45-c3fe3c2651e1"
+      - "madb:bw-35a075a1-ed15-4634-bbf2-95387a555855"
   - id: w02853
     title: null
     anchors:
@@ -19075,6 +19175,7 @@ works:
     title: null
     anchors:
       - "madb:bw-b96d855b-9299-4f64-ab5e-4c81e47b760c"
+      - "madb:bw-4cee0c08-f2bc-4751-b8d0-9687ee0e7a18"
   - id: w02856
     title: null
     anchors:
@@ -19085,6 +19186,8 @@ works:
       - "madb:bw-b9eebc9c-f4b6-46e5-9d45-a3489afbf1db"
   - id: w02858
     title: null
+    merged_into: w03082
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-b9fde915-49da-4f38-a694-4b53c6f72038"
   - id: w02859
@@ -19163,6 +19266,7 @@ works:
     title: null
     anchors:
       - "madb:bw-bc57f8ae-737a-4db0-8c75-0f7dc7aeb84c"
+      - "madb:bw-38e62fa2-e5bb-4756-9d1b-7621215810e3"
   - id: w02874
     title: null
     anchors:
@@ -19221,6 +19325,8 @@ works:
       - "madb:bw-bee03ce0-d9c9-4905-8d65-578f23743c64"
   - id: w02888
     title: null
+    merged_into: w02618
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-bee6e263-e3ec-4cd9-bb68-d245c3e6b96a"
   - id: w02889
@@ -19421,7 +19527,7 @@ works:
     anchors:
       - "madb:bw-cc2e3972-9615-423d-9958-513bc89fb4ce"
   - id: w02938
-    title: null
+    title: "うらら迷路帖アンソロジーコミック"
     anchors:
       - "madb:bw-cc319094-17f4-4113-8af0-53739f14beb8"
   - id: w02939
@@ -19438,6 +19544,8 @@ works:
       - "madb:bw-ccdd25cf-5b98-4ab3-8c0f-ad09c55fe56f"
   - id: w02942
     title: null
+    merged_into: w03014
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-cceaa638-c230-4395-a28e-53619922883e"
   - id: w02943
@@ -19480,6 +19588,7 @@ works:
     title: null
     anchors:
       - "madb:bw-cfa39505-7e40-4229-8e8b-ba14298b25c0"
+      - "madb:bw-684c5f8c-a4cb-4ee8-b001-b6f1fc09dfd4"
   - id: w02953
     title: null
     anchors:
@@ -19501,6 +19610,7 @@ works:
     title: null
     anchors:
       - "madb:bw-d03beaba-6102-4dbd-b0db-732a08c4fba8"
+      - "madb:bw-537089ff-2599-4c75-9564-881990150115"
   - id: w02957
     title: null
     anchors:
@@ -19609,6 +19719,8 @@ works:
     title: null
     anchors:
       - "madb:bw-d44ea40b-e314-4f28-b567-0006ff471a5c"
+      - "madb:bw-4c9814a4-aa52-45ee-b97a-82763ba782c5"
+      - "madb:bw-77467134-d6dd-46fd-a2e9-faacca786203"
   - id: w02978
     title: null
     anchors:
@@ -19690,6 +19802,7 @@ works:
     title: null
     anchors:
       - "madb:bw-d7432e40-1f79-4d48-9a48-dd5f9a933d14"
+      - "madb:bw-308b88c0-1c91-4ed1-abbf-04dae529fe99"
   - id: w02997
     title: null
     anchors:
@@ -19764,6 +19877,7 @@ works:
     title: null
     anchors:
       - "madb:bw-dc74b064-7072-466c-b182-c3cd40ec2d43"
+      - "madb:bw-cceaa638-c230-4395-a28e-53619922883e"
   - id: w03015
     title: null
     anchors:
@@ -19830,6 +19944,8 @@ works:
         retrieved: 2026-08-07
   - id: w03029
     title: null
+    merged_into: w02295
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-dfe6f29c-9419-48a8-922a-ad4f9d222103"
   - id: w03030
@@ -19877,6 +19993,7 @@ works:
     title: null
     anchors:
       - "madb:bw-e3168df3-5d54-4dbf-9115-d85e5316a30d"
+      - "madb:bw-29b604c6-d2d6-4955-a19a-d30351641837"
   - id: w03040
     title: null
     anchors:
@@ -19997,6 +20114,7 @@ works:
     title: null
     anchors:
       - "madb:bw-e888bcbf-6fd4-4c2f-8b38-83665061c918"
+      - "madb:bw-11342823-83e7-4310-b499-1da743f19709"
   - id: w03063
     title: null
     anchors:
@@ -20099,6 +20217,7 @@ works:
     title: null
     anchors:
       - "madb:bw-eda73763-ea23-4232-8930-918b7891c8ec"
+      - "madb:bw-b9fde915-49da-4f38-a694-4b53c6f72038"
   - id: w03083
     title: null
     anchors:
@@ -20194,6 +20313,7 @@ works:
     title: null
     anchors:
       - "madb:bw-f354395b-ab39-4cf1-8263-a03359026f89"
+      - "madb:bw-279b958e-be6c-40f3-a690-e425e045c369"
   - id: w03104
     title: null
     anchors:
@@ -20297,7 +20417,7 @@ works:
     anchors:
       - "madb:bw-fa1b13f1-8b65-4988-b7b2-9c16fe58d4de"
   - id: w03129
-    title: null
+    title: "あんハピ♪アンソロジーコミック　吉"
     anchors:
       - "madb:bw-faa4ec44-2e7d-453b-ae4a-328ced9b26e5"
   - id: w03130
@@ -20339,6 +20459,8 @@ works:
         retrieved: 2026-08-07
   - id: w03138
     title: null
+    merged_into: w02056
+    merge_basis: "a translated edition of the same work, sold apart by the same creator; DEFINITIONS binds the work and not the edition"
     anchors:
       - "madb:bw-fc58385c-1ffb-4a28-8b35-1b08b21ab4d6"
   - id: w03139
@@ -20442,6 +20564,8 @@ works:
       - "madb:C297235"
   - id: w03158
     title: null
+    merged_into: w02497
+    merge_basis: "creator agrees and both are one volume first published 2004-08; the bibliography catalogued the work under its Latin title Free soul and the shop under フリー・ソウル"
     anchors:
       - "madb:C319020"
   - id: w03159
@@ -20484,6 +20608,40 @@ works:
     merge_basis: "one title spelled identically on both records and a credit shared between them, which is the same evidence four merges were taken on earlier today"
     anchors:
       - "madb:madb-t-bde72604ee95"
+  - id: w03168
+    title: "横槍メンゴ新作読切シリーズ"
+    anchors:
+      - "web:https://ynjn.jp/title/30352"
+  - id: w03169
+    title: "君が一等星に光るまで"
+    anchors:
+      - "web:https://comic-fuz.com/manga/4133"
+  - id: w03170
+    title: "アイ・ヘイ・チュー"
+    anchors:
+      - "web:https://pocket.shonenmagazine.com/title/03273"
+  - id: w03171
+    title: "カナリアは綺羅星の夢をみる"
+    merged_into: w00063
+    merge_basis: "both claim madb-t-4448a2f4ec69 and the retired entry carries no row of its own"
+    anchors:
+      - "web:https://ichicomi.com/episode/12207421984039246714"
+  - id: w03172
+    title: "画家の肖像"
+    anchors:
+      - "web:https://comic-zenon.com/episode/12207421983944323781"
+  - id: w03173
+    title: "散らないで菊"
+    anchors:
+      - "web:https://comic-zenon.com/episode/12207421983944323839"
+  - id: w03174
+    title: "ツイてるギャルとミエてる陰キャ"
+    anchors:
+      - "web:https://kirapo.jp/meteor/titles/tuimie"
+  - id: w03175
+    title: "姫虐が止まらない白桃さん"
+    anchors:
+      - "web:https://ichicomi.com/episode/2551460910021695025"
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a
@@ -20497,38 +20655,6 @@ works:
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
 related:
-  - a: w00169
-    b: w01216
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-08
-  - a: w00353
-    b: w01210
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-08
-  - a: w00461
-    b: w01440
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-08
-  - a: w00511
-    b: w01419
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-08
-  - a: w00644
-    b: w01209
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-08
-  - a: w00697
-    b: w01454
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-08
-  - a: w00894
-    b: w01415
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-08
-  - a: w00930
-    b: w01439
-    note: "one print record matches both titles and a shared author"
-    retrieved: 2026-08-08
   - a: w00957
     b: w01587
     note: "one print record matches both titles and a shared author"

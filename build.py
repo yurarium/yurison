@@ -25,6 +25,7 @@ import yamlfast  # noqa: F401,E402
 from facts import romanisation as _romanisation  # noqa: E402
 from facts import credit as _credit_fact  # noqa: E402
 from facts import reading as _reading  # noqa: E402
+from facts import script as _script  # noqa: E402
 from facts import division as _division  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
@@ -347,6 +348,14 @@ def _stated_for(work, platform):
     """The schedule a platform states for a work, if it states one."""
     return _STATED.get((norm_work(work or ""), norm_work(platform or "")))
 
+
+
+#: A shop's own mark that a record is an edition in another language, which is a statement about
+#: THIS record rather than about the work. Every one of these was written by BOOK☆WALKER on a
+#: record whose Japanese original this database also holds, and the mark is how the two are told
+#: apart when the edition carries the original title beside its own.
+EDITION_LANGUAGE = re.compile(r"【\s*[Ee]nglish[\s.]*[Vv]er[.．]?\s*】|[（(]\s*英語版\s*[）)]"
+                              r"|【\s*(?:中国語版|繁体字版|簡体字版|韓国語版)\s*】")
 
 
 def _nobody_bases():
@@ -5971,7 +5980,26 @@ def main():
         # each live entry's own anchors, and a retired entry's anchors stay with the retired entry.
         _row_by_id = {_r3["id"]: _r3 for _r3 in series_rows if _r3.get("id")}
         _added = _folded = 0
-        for _pw2 in works:
+        # A TRANSLATED EDITION DOES NOT GET TO NAME THE WORK. The first record seen sets the row's
+        # title and byline, and `works` is sorted by work_id, which was safe while the candidates
+        # for one work differed only in cataloguing. It stopped being safe the moment the English
+        # editions were merged onto their works: `bw-11342823…` sorts before `bw-e888bcbf…`, so
+        # 明けても暮れても took the title and byline of `Day In, Day Out`, and 野宮りおん's own credit
+        # page listed four works whose byline read `Rion Nomiya`.
+        #
+        # THE WORK'S OWN LANGUAGE WINS, because this is a database of Japanese manga and the English
+        # name is rendered from the name store rather than stored on the row. Within one script the
+        # old order stands untouched, which is what keeps a bare shop title ahead of the
+        # bibliography's ISBD form.
+        # ASKED OF THE MARKER FIRST, AND OF THE SCRIPT SECOND. A script test alone is not enough:
+        # `【English Ver.】BEAST MODE-畜生モード` carries the Japanese title as a suffix, so it reads
+        # as a Japanese record and eleven of the merged works kept their edition's title anyway.
+        # The bracket is the shop saying which edition this is, so it is what gets asked.
+        _ordered = sorted(works, key=lambda w: (
+            bool(EDITION_LANGUAGE.search((w.get("title") or {}).get("ja") or "")),
+            not _script.has_script(((w.get("title") or {}).get("ja") or "")),
+            str(w.get("work_id") or "")))
+        for _pw2 in _ordered:
             if _pw2.get("work_id") in _seen_print:
                 continue
             _pid = _byanchor.get("madb:" + str(_pw2.get("work_id")))

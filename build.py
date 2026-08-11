@@ -2240,6 +2240,52 @@ def _rendered(kind, k, rec, render, ids=None, prefix=""):
     return out
 
 
+def credit_spellings():
+    """`{folded spelling: credit id}` for every spelling the registry answers for.
+
+    ONE PRODUCER, SEVERAL CONSUMERS (§3). The credit pages ship this as `spellings`, the works
+    index resolves each row's credit field through it, and `feed/credit-keys.json` is it. Written
+    out separately each time, they would drift apart, and the failure would be a search that finds
+    a person their own page does not list.
+
+    A CREDIT ANSWERS FOR A SPELLING TWO WAYS. Its own entry may hold several anchors, because a
+    source wrote one person twice: c00016 is `鈴木二三江` and `スズキフミエ`. And a merge lends the
+    retired entry's anchors to its successor, following the chain if the successor was later merged
+    on. The key is `credit_key`'s fold, NFKC with spaces removed, which is what `feed/names.json` is
+    keyed under, so a consumer holding a raw credit field needs no fold of its own.
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
+    import credit_identity as _cid
+
+    entries, _doc = _cid.load("data/identity/credits.yaml")
+    by_id = {str(e.get("id")): e for e in entries if e.get("id")}
+
+    def lives_at(cid):
+        seen = set()
+        while cid and cid not in seen:
+            seen.add(cid)
+            nxt = (by_id.get(cid) or {}).get("merged_into")
+            if not nxt:
+                return cid
+            cid = str(nxt)
+        return cid
+
+    out = {}
+    for e in entries:
+        cid = lives_at(str(e.get("id") or ""))
+        if not cid:
+            continue
+        for a in e.get("anchors") or []:
+            a = str(a)
+            if a.startswith("credit:"):
+                out.setdefault(a[len("credit:"):], cid)
+        if not e.get("merged_into"):
+            k = _cid.credit_key(e.get("title") or "")
+            if k:
+                out.setdefault(k, cid)
+    return out
+
+
 def credit_page_data(rows):
     """Everything a credit's page shows that no other shipped file holds.
 
@@ -2286,41 +2332,17 @@ def credit_page_data(rows):
                  "basis": pair.get("basis")}
                 for o in pair.get("credits") or []
                 if o.get("id") and str(o["id"]) != str(c["id"]))
-    # EVERY SPELLING A CREDIT ANSWERS FOR, which is what makes it findable by any of them. A credit
-    # is minted for one spelling and gains others two ways: a source writing the same person twice,
-    # so c00016 holds `鈴木二三江` and `スズキフミエ` on one entry, and a merge, which lends the
-    # retired entry's anchors to its successor.
+    # EVERY SPELLING A CREDIT ANSWERS FOR, which is what makes it findable by any of them. Asked
+    # of `credit_spellings`, which the works index and the shipped search map read too, so the
+    # three cannot disagree about which spellings belong to whom.
     #
-    # SHIPPING ONLY `credit` DROPPED BOTH. `credits.json` carried the surviving spelling and nothing
-    # else, so 70 of the 257 index-row credits that resolved to nothing were people the registry
-    # already knew: `4kaエンピツ`, `お子様ランチ` and `さりいB` are all retired spellings of credits
-    # with pages. Search could not reach them and the shortfall read as an argument for minting 257
-    # new identifiers rather than 187.
-    #
-    # THE ANCHOR IS ALREADY THE FOLD `feed/names.json` IS KEYED UNDER, `credit_key`'s NFKC with
-    # spaces removed, so a consumer looking a raw field up needs no second fold of its own.
-    _by_id = {str(e.get("id")): e for e in entries if e.get("id")}
-
-    def _lives_at(cid):
-        """The live credit an entry's anchors belong to, through however many merges."""
-        seen = set()
-        while cid and cid not in seen:
-            seen.add(cid)
-            nxt = (_by_id.get(cid) or {}).get("merged_into")
-            if not nxt:
-                return cid
-            cid = str(nxt)
-        return cid
-
-    spellings = {}
-    for e in entries:
-        cid = _lives_at(str(e.get("id") or ""))
-        if not cid:
-            continue
-        for a in e.get("anchors") or []:
-            a = str(a)
-            if a.startswith("credit:"):
-                spellings.setdefault(cid, set()).add(a[len("credit:"):])
+    # SHIPPING ONLY `credit` DROPPED THEM ALL. `credits.json` carried the surviving spelling and
+    # nothing else, so 70 of the 257 index-row credits resolving to nothing were people the registry
+    # already knew: `4kaエンピツ`, `お子様ランチ` and `さりいB` are retired spellings of credits with
+    # pages, and search could not reach any of them.
+    _by_credit = {}
+    for _sp, _cid2 in credit_spellings().items():
+        _by_credit.setdefault(_cid2, set()).add(_sp)
 
     out = {}
     for e in entries:
@@ -2333,8 +2355,7 @@ def credit_page_data(rows):
                 "works": works}
         # The credit's own title is what a page is headed with and is spelled as the source wrote
         # it; the folded form of it belongs here with the rest, so a lookup needs one list.
-        _sp = spellings.get(cid, set()) | {_cid.credit_key(e.get("title") or "")}
-        _sp = sorted(x for x in _sp if x)
+        _sp = sorted(x for x in _by_credit.get(cid, set()) if x)
         if _sp:
             fact["spellings"] = _sp
         if e.get("kind"):
@@ -3338,7 +3359,35 @@ def main():
             "l": w.get("marketing_label"), "ct": w.get("content_tier"),
             "g": w.get("grouping")} for w in works]
     idx = one_row_per_work(idx, works)
+
+    # THE CREDITS EACH ROW RESOLVES TO, so a search can reach a person by any spelling the registry
+    # unifies rather than only by the characters this row happens to carry. `c` is the raw creator
+    # field a bibliography wrote and it STAYS, both because it is what the row renders and because
+    # it is the safety property this rests on: where a credit resolves to nothing the raw string is
+    # still searched, so the move strictly gains and never loses a match it had.
+    #
+    # 2,009 distinct credits are named across these rows and 43 resolve to nothing. Those 43 are
+    # mostly the same field's own apparatus, a bibliography writing each name beside its reading:
+    # `育田花 / イクタハナ` is one person and arrives as two credits, and `アサウラ1984-` carries a
+    # life-date fragment. Minting for them would publish an address for a reading (see
+    # docs/PLAN-credits-and-gates.md §5), which is why the raw string is the answer instead.
+    _spell_to_cid = credit_spellings()
+    for _idxrow in idx:
+        _idxcids = []
+        for _idxname, _idxrd, _idxrole in _credit_fact.split_detail(str(_idxrow.get("c") or "")):
+            _idxhit = _spell_to_cid.get(_credit_fold(_idxname))
+            if _idxhit and _idxhit not in _idxcids:
+                _idxcids.append(_idxhit)
+        if _idxcids:
+            _idxrow["ci"] = _idxcids
     (out / "index.json").write_text(json.dumps(idx, ensure_ascii=False, separators=(",", ":"), default=jsonable))
+
+    # AND THE MAP A QUERY IS RESOLVED THROUGH, 45 KB against `credits.json`'s 457. A search needs
+    # spelling to identifier and nothing else: the works hang off `ci` on the rows already loaded,
+    # so the page never fetches the credit records to answer a query about a person.
+    (out / "feed").mkdir(parents=True, exist_ok=True)
+    (out / "feed" / "credit-keys.json").write_text(
+        json.dumps(_spell_to_cid, ensure_ascii=False, separators=(",", ":")))
 
     # EVERY ID IN IS AN ID OUT, EXCEPT THE ONES A RULING REFUSED BY NAME. Counting the refusals
     # rather than exempting the guard keeps it able to catch what it was written for: a record lost

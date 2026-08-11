@@ -62,12 +62,12 @@ and `ぐう(作画)水無瀬(原作)riritto` glued each name to the role before 
 field reaches the walk, and a field shape the divider does not cover would, which is the ordinary
 way this corpus grows.
 
-## 4. Ship the anchors in `credits.json`. NOT STARTED
+## 4. Ship the anchors in `credits.json`. DONE 2026-08-11
 
 Each credit gains the spellings it answers for. Re-measure the 257 afterwards; it should fall by
 about 70. Search by any spelling the registry unifies is impossible until this lands.
 
-## 5. Decide minting on the re-measured number. NOT STARTED, owner's call
+## 5. Decide minting on the re-measured number. DECIDED 2026-08-11: mint nothing
 
 Recommendation: mint for the remainder. They are people the corpus credits, and a registry
 population narrower than the corpus is two answers to "who does this database know about". Two
@@ -79,7 +79,7 @@ have one, which is the fault the merge and interpunct machinery exists to preven
 address is expensive to withdraw: `アンソロジー` cost a ruling, a vocabulary and a change to
 `_withdraw` on 2026-08-11.
 
-## 6. Move search onto the registry. NOT STARTED
+## 6. Move search onto the registry. DONE 2026-08-11
 
 `index[].c` becomes identifiers and a query resolves through the registry to `works[]`.
 
@@ -138,3 +138,39 @@ It is not swallowed. The failing adapter and its stderr are named, the step goes
 `age_days` climbs on the status page, and a final step fails the job AFTER the publish rather than
 instead of it. Publishing first is the rule; going red is how anybody learns a platform stopped
 answering.
+
+---
+
+## What steps 4 to 6 turned out to be
+
+**4 landed as predicted.** Each credit ships `spellings`, every string it answers for, folded the
+way `feed/names.json` is keyed. It took the index-row credits resolving to nothing from 257 to 187,
+against a prediction of "about 70" resolved.
+
+**5's recommendation was wrong, and measuring the population is what showed it.** The recommendation
+on file was to mint for the remainder. 151 of the 187 share a reading with a credit that already
+holds an identifier, so minting would have created second identifiers for people who have one.
+
+They are second spellings because of where they live: all 187 appear in `index.json` and in no
+series row, the minting pass reads the series rows alone, and `index.json`'s `c` is the RAW
+catalogue creator field. A bibliography writes each name beside its own reading, so `育田花 /
+イクタハナ` and `さりいB / サリイ ビー` arrive as two credits apiece.
+
+So 144 pairs were ruled instead, on evidence `credit-rulings.yaml` says the shape cannot carry:
+**the two spellings are named on the same work**. Of the 152 pairs with a deciding shape, 145 share
+a work and none are disjoint. The counter-case is why the works had to be asked: アキラ / 日明 is the
+same shape, was kept, and its two credits have no work in common.
+
+**257 → 187 → 43, and nothing minted.** Of the 43, thirty have a reading nothing answers under,
+seven want a ruling, five have no reading, and one is a translation-services company under
+`[[翻訳協力]]`. Minting from that field would publish an address for a reading, for the life-date
+fragment in `アサウラ1984-`, and for `BPS株式会社`.
+
+**6 rests on that.** `index[].ci` carries the identifiers each row's credit field resolves to, and
+`feed/credit-keys.json` is spelling to identifier, 45 KB against `credits.json`'s 457, so a query
+about a person never fetches the credit records. Searching `アオトヒビキ` returns the 14 works
+credited to `あおと響`; without the map it returns 1.
+
+The safety property is what let it land with 43 unresolved: the raw `c` is still searched first and
+unchanged, so the move strictly gains. Measured rather than argued, across 39 sampled queries run
+with the registry and without: none lost a match.

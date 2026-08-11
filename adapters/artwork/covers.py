@@ -44,6 +44,28 @@ import paths                                                            # noqa: 
 #: Where the images and the ledger live: beside the checkout, never inside it. See the header.
 CACHE = paths.CACHE_ROOT / "covers-cache"
 
+#: A DOM `adapters/render/` already produced, which is the only way to read some platforms. Two
+#: refuse a plain fetch outright: comic-fuz answers 403 to this user agent on every request, and
+#: comic.pixiv.net serves a shell that builds its page in JavaScript, so the markup that comes back
+#: states no splash. Between them that was 52 works of the first 640, and the pictures were already
+#: on this disk. Reading them costs no request at all, which is the politest fetch there is.
+RENDERED = paths.CACHE_ROOT / "render-cache"
+
+
+def rendered(url):
+    """The rendered DOM for this address where one was already made, else None.
+
+    THE KEY IS `render/releases.py`'s, copied deliberately and narrowly. Importing that module
+    would drag a headless browser's dependencies into a pass that only wants to read a file, and
+    the key is one line. What it must not do is DIVERGE, so `test_covers` pins the two together by
+    asking the real function for its answer.
+    """
+    f = RENDERED / (re.sub(r"[^A-Za-z0-9]", "_", url)[-120:] + ".html")
+    try:
+        return f.read_text(encoding="utf-8", errors="replace") if f.exists() else None
+    except OSError:
+        return None
+
 #: A page states its splash in one of these, in this order of preference. `og:image` is what a
 #: platform hands a social card and is the artwork it chose to represent the work, which is exactly
 #: the image with the logo on it. The others are fallbacks that some older platforms still use.
@@ -170,10 +192,23 @@ def run(series, cache=CACHE, minutes=240, limit=None, refresh=False, workers=8, 
             print(f"time budget of {minutes} min reached; stopping cleanly")
             break
         chunk = todo[i:i + batch]
-        pages = net.fetch_many([t[1] for t in chunk], cache / "pages",
-                               max_age_days=30, workers=workers)
+        # A PAGE SOMEBODY ALREADY RENDERED IS NOT FETCHED AGAIN. Asked before the network, so a
+        # platform that refuses this agent or builds its page in JavaScript is answered from the
+        # DOM the browser pass left behind rather than being asked and refused.
+        have = {t[1]: rendered(t[1]) for t in chunk}
+        ask = [t[1] for t in chunk if not have.get(t[1])]
+        pages = net.fetch_many(ask, cache / "pages", max_age_days=30, workers=workers)
         wanted = {}
         for work, page, _latest in chunk:
+            dom = have.get(page)
+            if dom:
+                iu = image_url(dom, page)
+                if iu:
+                    wanted[iu] = (work, page)
+                else:
+                    led.put(page, work=work, state="no-image",
+                            why="the rendered page states no splash")
+                continue
             res = pages.get(page)
             if res is None or res.text is None:
                 state = "gone" if res is not None and net.is_permanent(res) else "unreachable"

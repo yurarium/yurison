@@ -120,7 +120,35 @@ def _ledger_survives_a_kill(s):
                 "the write is atomic, so a kill mid-save leaves the old ledger and no debris")
 
 
+def _rendered_key_matches_the_renderer(s):
+    """The key this reads a rendered DOM under is the one `render/releases.py` wrote it under.
+
+    §3, AND THE ONE LINE IT IS WORTH COPYING. Importing the render module would pull a headless
+    browser's dependencies into a pass that only reads a file. So the key is duplicated, and the
+    duplication is held together HERE by asking the real function what it produces: if that
+    module's naming ever changes, this fails rather than the cover pass quietly re-fetching 52
+    works from hosts that refuse it.
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "_render_rel", pathlib.Path(__file__).resolve().parents[1] / "render" / "releases.py")
+    for url in ("https://comic.pixiv.net/works/10005",
+                "https://comic-fuz.com/manga/3423",
+                "https://x.jp/a?b=1&c=2"):
+        import re as _re
+        mine = _re.sub(r"[^A-Za-z0-9]", "_", url)[-120:]
+        # The renderer builds the same string inline; this is that expression, read off its source
+        # rather than reimplemented, so the test cannot agree with a copy of the bug.
+        src = (pathlib.Path(__file__).resolve().parents[1] / "render" / "releases.py").read_text()
+        line = next(l for l in src.splitlines() if 'key = re.sub' in l)
+        theirs = eval(line.split("=", 1)[1].strip(), {"re": _re, "url": url})   # noqa: S307
+        s.eq(mine, theirs, f"the cover pass and the renderer agree on the cache name for {url}")
+    s.check(spec is not None, "and the renderer is where this expects it")
+
+
 def main(s):
+    _rendered_key_matches_the_renderer(s)
+
     _reading(s)
     _extension(s)
     _ordering(s)

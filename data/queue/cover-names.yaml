@@ -58,222 +58,307 @@
 # is not a fault to fix here; it is a platform naming a different thing by the same tag, and the
 # only remedy is knowing which platforms are worth reading.
 
+# ── HOW A FINDING IS DECIDED, ruled by the project owner 2026-08-12 ──────────────────────────
+#
+# ONE. A title the artwork sets in ALL CAPS is recorded in Initial Caps, unless live text on the
+# page confirms the capitals. A logo shouts; that is typography and not the name. `decision:
+# take-as-title` with `as_recorded` carrying the cased form, and `latin` left as the artwork has it
+# so nobody has to take my word for what it said.
+#
+# TWO. A Latin form that is only the Japanese title TRANSLITERATED is not the title, and is not
+# evidence about romanisation either: our own rules stand, and a publisher writing は as `ha` does
+# not change them. `decision: not-a-title`, kept in full for the owner to review rather than
+# dropped, because the reading it implies may still be worth something.
+#
+# THE SAME TWO QUESTIONS ARISE FOR A PERSON'S NAME and the ruling names the title, so those are
+# marked `not-a-name-spelling` as an EXTENSION rather than assumed. Five are affected and every one
+# is the kana transliterated: KASHIKAZE, TAMA TAMASAKI, MANIO, YAKINIKUTEISHOKU, SHIBORIKASUKO. A
+# name that says something a transliteration cannot keeps its finding: さりいB spells the English
+# name Sally, and よつば◎ますみ。 is printed in Western order.
+
 source: platform artwork
 role: curation-candidates
 record_type: read_from_artwork
 retrieved: 2026-08-11
 candidates:
-  - work: "わたしのために脱ぎなさいっ！"
-    latin: "TAKE OFF YOUR CLOTHES FOR ME!"
-    kind: official-latin-title
-    seen_on: "https://cdn.comic-walker.com/integration/cdpf/resources/000188/3c3cabe5-42c5-4942-b25b-1663afc86f49.jpg"
-    note: >-
-      Set beside the Japanese logo on the key visual, in small caps. The database held no English
-      name for this work at all.
-  - work: "ココロメイク コスメティカ"
-    latin: "cocoromake cosmetica"
-    kind: official-latin-title
-    seen_on: "https://cdn.comic-walker.com/integration/cdpf/resources/009488/4ac0dc1f-e82c-4a8b-8795-d52d5b14d9b7.jpg"
-    note: >-
-      Printed lower case between the two lines of the logo, with a heart between the words. A
-      romanisation of the katakana gives `Kokoro Meiku`; the publisher spells it `cocoromake`,
-      because メイク is the English word `make` and ココロ is spelled with a c. Nothing derivable
-      from the characters would reach it.
-  - work: "カナリアは綺羅星の夢をみる"
-    latin: "kanaria ha kiraboshi no yumewomiru"
-    kind: publisher-romanisation
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183647_c2c1f2c1d92beb22282bf93423077ec8_1752730099"
-    note: >-
-      A romanisation rather than an English name, printed under the logo on the volume 1 cover, and
-      it CONFIRMS what we hold rather than correcting it: the analyser reads 綺羅星 as キラボシ and
-      so does the publisher. Its convention differs from ours, transcribing は as `ha` and を as
-      `wo` where we write the particles as pronounced. The work already carries a translated
-      English name, which outranks a romanisation, so this changes nothing and is recorded because
-      a reading confirmed by the publisher is worth more than one an analyser guessed.
-  - work: "ユリノコ"
-    latin: "YURINOKO"
-    kind: official-latin-title
-    seen_on: "https://cdn.comic-walker.com/integration/cdpf/resources/005941/4759b73a-a7c3-4881-b64f-8a5bd15cf8d2.jpg"
-    note: >-
-      Set as the logo down the full height of the key visual. The database holds `Child of Yuri`
-      with basis `translated`, and a name a work gives itself outranks one composed here, so this
-      displaces it. Worth a second opinion all the same: `Child of Yuri` tells an English reader
-      what the title MEANS and `YURINOKO` tells them what the work is CALLED, and only the second
-      is the publisher's.
-  - work: "ユリノコ"
-    latin: "Masumi Yotsuba"
-    kind: author-latin-name
-    of: "よつば◎ますみ。"
-    seen_on: "https://cdn.comic-walker.com/integration/cdpf/resources/005941/4759b73a-a7c3-4881-b64f-8a5bd15cf8d2.jpg"
-    note: >-
-      Printed `Presented by Masumi Yotsuba` beside the logo. It CONFIRMS what the store already
-      holds for よつば◎ますみ。, including the Western name order, which had been derived rather
-      than sourced. No change; a derived name the publisher agrees with is worth more than one
-      nothing has checked.
-  - work: "ボイタボイネ"
-    latin: "BOITABOINE"
-    kind: official-latin-title
-    tagline: "boyish girl x boyish girl"
-    seen_on: "https://cdn.img.magcomi.com/public/series/thumbnail/2551460909687430106_21c56b9932f849f447c59e5a3623efa9_1761734597"
-    note: >-
-      Under the logo in caps, with the tagline beside it in lower case. The database holds
-      `Boitaboine` with basis `romaji`, which is our own transliteration and the weakest basis
-      there is; the same letters printed by the publisher are `official-jp` and settle the casing.
-      The tagline describes the work rather than naming it, so it is recorded and not proposed as
-      a title.
-  - work: "怪異部～M県Y市の怪現象について～"
-    latin: "Sally B"
-    kind: author-latin-name
-    of: "さりいB"
-    seen_on: "https://cdn.comic-walker.com/integration/cdpf/resources/006547/52614de1-4bde-4481-a915-9823c72b7a31.jpg"
-    note: >-
-      The key visual's copyright line reads `(C)Sally B`. The store holds `SariiB` for さりいB and
-      `Sarii Bi` for サリイビー, both basis `romaji`, and both are wrong in the way that matters:
-      さりい spells the English name Sally, so a transliteration of the kana was never going to
-      reach it. This is the artist's own spelling of their own name, printed by them.
-      It bears on the credit work of 2026-08-11: さりいB and サリイビー are among the 43 credits
-      that resolve to no identifier, and this says what the pair of them is called.
-  - work: "怪異部～M県Y市の怪現象について～"
-    reading: "カイイブ"
-    kind: title-furigana
-    seen_on: "https://cdn.comic-walker.com/integration/cdpf/resources/006547/52614de1-4bde-4481-a915-9823c72b7a31.jpg"
-    note: >-
-      The logo prints かいいぶ as ruby across 怪異部, which CONFIRMS the analyser rather than
-      correcting it: the store reads カイイ ブ. Recorded because a reading the publisher prints and
-      one a machine assembled are different kinds of claim about the same characters, and this work
-      sits among the 1,477 titles whose reading is a machine's.
-  - work: "キミが吠えるための歌を、"
-    latin: "HOWLING SONG FOR HUSKY GIRL"
-    kind: official-latin-title
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923184070_6eb85bf94b1287893a052297584a7a22_1752730099"
-    note: >-
-      Set in caps on the volume 1 cover beside the logo. The database holds
-      `A Song for You to Howl,` with basis `translated`, which is a faithful reading of the
-      Japanese and not what the publisher calls it in English. `HUSKY GIRL` is a pun the Japanese
-      does not carry and that no translation of it would produce.
-  - work: "キミが吠えるための歌を、"
-    latin: "KASHIKAZE"
-    kind: author-latin-name
-    of: "樫風"
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923184070_6eb85bf94b1287893a052297584a7a22_1752730099"
-    note: >-
-      Printed under the Japanese name on the cover. The store holds `Kashikaze` with basis
-      `romaji`, our own transliteration, so this confirms the reading カシカゼ and settles the
-      casing as the artist writes it. 樫風 credits 16 works here, so the spelling reaches a
-      credit page rather than one row.
-  - work: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
-    latin: "HELPLESS SAINT and POWERLESS PRINCESS"
-    kind: official-latin-title
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923184114_181261ca97b5843eb156c12ab77785bb_1752730099"
-    note: >-
-      Set in caps above the Japanese logo on the volume 1 cover. The database holds
-      `The Powerless Saint and the Incompetent Princess: A Zero-Mana Saint's Isekai Nation-Saving
-      Chronicle`, basis `translated`, which renders the subtitle the publisher's own English drops
-      entirely. The publisher names the work in four words and translates neither 魔力ゼロ nor
-      異世界救国記.
-  - work: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
-    latin: "TAMA TAMASAKI"
-    kind: author-latin-name
-    of: "玉崎たま"
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923184114_181261ca97b5843eb156c12ab77785bb_1752730099"
-    note: >-
-      Printed under the Japanese name. The store holds the reading タマサキ タマ and romanises it
-      `Tamasaki Tama` in Japanese order with no English name at all; the artist writes it in
-      Western order. The reading is confirmed and the order is a fact about how they are called.
-  - work: "或いは、私の名探偵"
-    latin: null
-    kind: examined-no-latin
-    of: "毒田ペパ子"
-    seen_on: "https://cdn.comic-walker.com/integration/cdpf/resources/007014/d067fe36-c034-42f9-9805-153dd97b5077.jpg"
-    note: >-
-      The key visual carries the Japanese logo and the artist's name and no Latin at all, which is
-      recorded so nobody looks at it twice. It does settle one thing: the artist signs it
-      毒田ペパ子 with katakana ペ, which is the spelling `credit-rulings.yaml` kept when it merged
-      毒田ぺパ子 into it on the strength of a shared reading. The artist's own cover agrees with
-      the ruling.
-  - work: "愛したぶんだけ愛してほしいっ！"
-    latin: "AISHITA BUNDAKE AISHITE HOSHII!"
-    kind: publisher-romanisation
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183919_2fd1e297f4f9950ae25c83b81968a9db_1752730099"
-    note: >-
-      Printed in caps along the top of the visual by 一迅社, with the Japanese title under it. The
-      database holds NO reading, no romanisation and no English name for this work, so this is the
-      only Latin form of it we have and it comes from the publisher. It also settles the word
-      division: ぶんだけ is one word, `BUNDAKE`, which is where an analyser would most likely have
-      broken it.
-  - work: "愛したぶんだけ愛してほしいっ！"
-    latin: "MANIO"
-    kind: author-latin-name
-    of: "まにお"
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183919_2fd1e297f4f9950ae25c83b81968a9db_1752730099"
-    note: >-
-      Printed on the visual's own footer beside ICHIJINSHA. The store derived `Manio` from the kana
-      with basis `romaji`, and the artist writes the same letters, so the derivation is confirmed
-      and only the casing is theirs to settle.
-  - work: "アンドロイドは経験人数に入りますか？？"
-    latin: "YAKINIKUTEISHOKU"
-    kind: author-latin-name
-    of: "焼肉定食"
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183677_d0d86542f07a4c456d3ea4a2eb9aefbe_1752730099"
-    note: >-
-      Printed `by YAKINIKUTEISHOKU` under the Japanese name on the volume 1 cover. The store holds
-      `Yakiniku Teishoku`, two words, from the reading ヤキニク テイショク; the artist writes it as
-      one. The reading is confirmed and the spacing is theirs. 焼肉定食 credits 11 works here, and
-      credit-rulings.yaml merged ヤキニクテイショク into this spelling on 2026-08-11, so the cover
-      settles both halves of that pair at once.
-  - work: "伽藍の姫 -がらんのひめ-"
-    latin: "Princess of cathedral"
-    kind: official-latin-title
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965919360583_ccd771853cbbc5d4dc79a9c71b839f9f_1752730099"
-    note: >-
-      An English line on the volume 2 cover names the work `Princess of cathedral` in quotes, and
-      the furigana -がらんのひめ- is printed under the logo. The database ALREADY holds both, the
-      name with basis `official-jp` and the reading ガラン ノ ヒメ, so somebody curated this by
-      hand before. Recorded because it is the check on the method rather than a finding: reading
-      the artwork independently reproduces what careful curation reached.
-  - work: "現実世界でも幸せにしてくださいね？"
-    reading: "リアル"
-    of: "現実世界"
-    kind: title-furigana
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183598_cb67c9cb7986fd38ad9f3ce1a84b66e8_1752730099"
-    note: >-
-      THE CLEAREST CORRECTION THIS PASS HAS FOUND. The volume 1 cover prints リアル as ruby down
-      the side of 現実世界, so the publisher reads those four characters as `riaru`, the English
-      word `real`. The store holds げんじつせかい and reads the title
-      `ゲンジツセカイ デ モ シアワセニ シテ クダサイ ネ？`, which is what the characters say and not
-      what the work calls itself.
-      A gloss reading is a thing this project already knows about: `adapters/names/gloss.py` takes
-      one off a title where the platform prints it in brackets in the TEXT, as in
-      念願の悪役令嬢(ラスボス). Here it is printed only as ruby on the artwork, so no amount of
-      reading the markup would have found it.
-  - work: "現実世界でも幸せにしてくださいね？"
-    latin: "Be happy In the real world too, Okay?"
-    kind: official-latin-title
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183598_cb67c9cb7986fd38ad9f3ce1a84b66e8_1752730099"
-    note: >-
-      Set vertically beside the logo. The database holds
-      `Make Me Happy in the Real World Too, Won't You?` with basis `translated`.
-  - work: "現実世界でも幸せにしてくださいね？"
-    latin: "SHIBORIKASUKO"
-    kind: author-latin-name
-    of: "しぼりかすこ"
-    seen_on: "https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183598_cb67c9cb7986fd38ad9f3ce1a84b66e8_1752730099"
-    note: >-
-      `PRESENTED BY SHIBORIKASUKO`, one word, where the store splits the kana into
-      `Shibori Kasuko` and holds no English name. The split is the analyser's guess at where a pen
-      name divides, and the artist does not divide it.
-  - work: "妖怪殲滅のサイコリリー"
-    reading: "バケモノゴロシ"
-    of: "妖怪殲滅"
-    kind: title-furigana
-    seen_on: "https://app.manga-one.com/secure/1696576595/webp/title_list_single/4287.webp"
-    note: >-
-      The logo prints ばけものごろし as ruby across 妖怪殲滅, so the publisher reads those four
-      characters as `bakemono-goroshi`, monster-killing. The store reads them ヨウカイ センメツ and
-      rubies them 妖怪/ようかい and 殲滅/せんめつ, which is what the characters say and not what the
-      work calls itself. The same class as 現実世界 read as リアル, and the second of its kind this
-      pass has found.
-      It was reached only because the owner supplied the address form: manga-one's work page lives
-      at /manga/<series>/chapter/<id>, the bare /manga/<id> answers page-not-found, and the cover
-      is the img whose src holds `title_list_single`, identified by an alt that is the work's own
-      title.
+- work: わたしのために脱ぎなさいっ！
+  latin: TAKE OFF YOUR CLOTHES FOR ME!
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/000188/3c3cabe5-42c5-4942-b25b-1663afc86f49.jpg
+  note: Set beside the Japanese logo on the key visual, in small caps. The database held no English
+    name for this work at all.
+  as_recorded: Take Off Your Clothes For Me!
+  decision: take-as-title
+  why_decided: 'Rule 1: the artwork sets it in caps and no live text on the page confirms that casing,
+    so it is recorded in initial caps. The letters are the publisher''s; the shouting is the logo''s.'
+- work: ココロメイク コスメティカ
+  latin: cocoromake cosmetica
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/009488/4ac0dc1f-e82c-4a8b-8795-d52d5b14d9b7.jpg
+  note: Printed lower case between the two lines of the logo, with a heart between the words. A romanisation
+    of the katakana gives `Kokoro Meiku`; the publisher spells it `cocoromake`, because メイク is the English
+    word `make` and ココロ is spelled with a c. Nothing derivable from the characters would reach it.
+  decision: take-as-title
+  why_decided: 'Neither rule bites: the artwork is not shouting and this is English rather than the
+    Japanese transliterated. BORDERLINE UNDER RULE 2 and flagged for the owner: it is the same words
+    in Latin, so it could be called a transliteration. It is kept as a title because no romanisation
+    of the kana reaches it. ココロメイク gives `Kokoro Meiku`, and the publisher writes `cocoromake` because
+    メイク is the English word make.'
+- work: カナリアは綺羅星の夢をみる
+  latin: kanaria ha kiraboshi no yumewomiru
+  kind: publisher-romanisation
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183647_c2c1f2c1d92beb22282bf93423077ec8_1752730099
+  note: 'A romanisation rather than an English name, printed under the logo on the volume 1 cover, and
+    it CONFIRMS what we hold rather than correcting it: the analyser reads 綺羅星 as キラボシ and so does the
+    publisher. Its convention differs from ours, transcribing は as `ha` and を as `wo` where we write
+    the particles as pronounced. The work already carries a translated English name, which outranks
+    a romanisation, so this changes nothing and is recorded because a reading confirmed by the publisher
+    is worth more than one an analyser guessed.'
+  decision: not-a-title
+  why_decided: 'Rule 2: this is the Japanese title transliterated and not a name the work gives itself,
+    so it is not taken as the title and is not evidence about how to romanise it either. Our own rules
+    stand. Kept for the owner to review.'
+- work: ユリノコ
+  latin: YURINOKO
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/005941/4759b73a-a7c3-4881-b64f-8a5bd15cf8d2.jpg
+  note: 'Set as the logo down the full height of the key visual. The database holds `Child of Yuri`
+    with basis `translated`, and a name a work gives itself outranks one composed here, so this displaces
+    it. Worth a second opinion all the same: `Child of Yuri` tells an English reader what the title
+    MEANS and `YURINOKO` tells them what the work is CALLED, and only the second is the publisher''s.'
+  decision: not-a-title
+  why_decided: 'Rule 2: this is the Japanese title transliterated and not a name the work gives itself,
+    so it is not taken as the title and is not evidence about how to romanise it either. Our own rules
+    stand. Kept for the owner to review.'
+- work: ユリノコ
+  latin: Masumi Yotsuba
+  kind: author-latin-name
+  of: よつば◎ますみ。
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/005941/4759b73a-a7c3-4881-b64f-8a5bd15cf8d2.jpg
+  note: Printed `Presented by Masumi Yotsuba` beside the logo. It CONFIRMS what the store already holds
+    for よつば◎ますみ。, including the Western name order, which had been derived rather than sourced. No change;
+    a derived name the publisher agrees with is worth more than one nothing has checked.
+  decision: take-as-name
+  why_decided: 'Not a transliteration of the kana: さりいB spells the English name Sally and よつば◎ますみ。 is
+    written in Western order, so each says something our own romanisation does not.'
+- work: ボイタボイネ
+  latin: BOITABOINE
+  kind: official-latin-title
+  tagline: boyish girl x boyish girl
+  seen_on: https://cdn.img.magcomi.com/public/series/thumbnail/2551460909687430106_21c56b9932f849f447c59e5a3623efa9_1761734597
+  note: Under the logo in caps, with the tagline beside it in lower case. The database holds `Boitaboine`
+    with basis `romaji`, which is our own transliteration and the weakest basis there is; the same letters
+    printed by the publisher are `official-jp` and settle the casing. The tagline describes the work
+    rather than naming it, so it is recorded and not proposed as a title.
+  decision: not-a-title
+  why_decided: 'Rule 2: this is the Japanese title transliterated and not a name the work gives itself,
+    so it is not taken as the title and is not evidence about how to romanise it either. Our own rules
+    stand. Kept for the owner to review.'
+- work: 怪異部～M県Y市の怪現象について～
+  latin: Sally B
+  kind: author-latin-name
+  of: さりいB
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/006547/52614de1-4bde-4481-a915-9823c72b7a31.jpg
+  note: 'The key visual''s copyright line reads `(C)Sally B`. The store holds `SariiB` for さりいB and
+    `Sarii Bi` for サリイビー, both basis `romaji`, and both are wrong in the way that matters: さりい spells
+    the English name Sally, so a transliteration of the kana was never going to reach it. This is the
+    artist''s own spelling of their own name, printed by them. It bears on the credit work of 2026-08-11:
+    さりいB and サリイビー are among the 43 credits that resolve to no identifier, and this says what the pair
+    of them is called.'
+  decision: take-as-name
+  why_decided: 'Not a transliteration of the kana: さりいB spells the English name Sally and よつば◎ますみ。 is
+    written in Western order, so each says something our own romanisation does not.'
+- work: 怪異部～M県Y市の怪現象について～
+  reading: カイイブ
+  kind: title-furigana
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/006547/52614de1-4bde-4481-a915-9823c72b7a31.jpg
+  note: 'The logo prints かいいぶ as ruby across 怪異部, which CONFIRMS the analyser rather than correcting
+    it: the store reads カイイ ブ. Recorded because a reading the publisher prints and one a machine assembled
+    are different kinds of claim about the same characters, and this work sits among the 1,477 titles
+    whose reading is a machine''s.'
+  decision: reading
+  why_decided: 'Neither rule applies: a reading is not a title.'
+- work: キミが吠えるための歌を、
+  latin: HOWLING SONG FOR HUSKY GIRL
+  kind: official-latin-title
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923184070_6eb85bf94b1287893a052297584a7a22_1752730099
+  note: Set in caps on the volume 1 cover beside the logo. The database holds `A Song for You to Howl,`
+    with basis `translated`, which is a faithful reading of the Japanese and not what the publisher
+    calls it in English. `HUSKY GIRL` is a pun the Japanese does not carry and that no translation of
+    it would produce.
+  as_recorded: Howling Song For Husky Girl
+  decision: take-as-title
+  why_decided: 'Rule 1: the artwork sets it in caps and no live text on the page confirms that casing,
+    so it is recorded in initial caps. The letters are the publisher''s; the shouting is the logo''s.'
+- work: キミが吠えるための歌を、
+  latin: KASHIKAZE
+  kind: author-latin-name
+  of: 樫風
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923184070_6eb85bf94b1287893a052297584a7a22_1752730099
+  note: Printed under the Japanese name on the cover. The store holds `Kashikaze` with basis `romaji`,
+    our own transliteration, so this confirms the reading カシカゼ and settles the casing as the artist
+    writes it. 樫風 credits 16 works here, so the spelling reaches a credit page rather than one row.
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a PERSON, which extends the owner''s rule and is marked as such: this
+    is the kana transliterated, so it settles no spelling our own romanisation does not already reach.
+    The caps are the logo''s. For review with the titles.'
+- work: 無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～
+  latin: HELPLESS SAINT and POWERLESS PRINCESS
+  kind: official-latin-title
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923184114_181261ca97b5843eb156c12ab77785bb_1752730099
+  note: 'Set in caps above the Japanese logo on the volume 1 cover. The database holds `The Powerless
+    Saint and the Incompetent Princess: A Zero-Mana Saint''s Isekai Nation-Saving Chronicle`, basis
+    `translated`, which renders the subtitle the publisher''s own English drops entirely. The publisher
+    names the work in four words and translates neither 魔力ゼロ nor 異世界救国記.'
+  as_recorded: Helpless Saint and Powerless Princess
+  decision: take-as-title
+  why_decided: 'Rule 1: the artwork sets it in caps and no live text on the page confirms that casing,
+    so it is recorded in initial caps. The letters are the publisher''s; the shouting is the logo''s.'
+- work: 無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～
+  latin: TAMA TAMASAKI
+  kind: author-latin-name
+  of: 玉崎たま
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923184114_181261ca97b5843eb156c12ab77785bb_1752730099
+  note: Printed under the Japanese name. The store holds the reading タマサキ タマ and romanises it `Tamasaki
+    Tama` in Japanese order with no English name at all; the artist writes it in Western order. The
+    reading is confirmed and the order is a fact about how they are called.
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a PERSON, which extends the owner''s rule and is marked as such: this
+    is the kana transliterated, so it settles no spelling our own romanisation does not already reach.
+    The caps are the logo''s. For review with the titles.'
+- work: 或いは、私の名探偵
+  latin: null
+  kind: examined-no-latin
+  of: 毒田ペパ子
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/007014/d067fe36-c034-42f9-9805-153dd97b5077.jpg
+  note: 'The key visual carries the Japanese logo and the artist''s name and no Latin at all, which
+    is recorded so nobody looks at it twice. It does settle one thing: the artist signs it 毒田ペパ子 with
+    katakana ペ, which is the spelling `credit-rulings.yaml` kept when it merged 毒田ぺパ子 into it on the
+    strength of a shared reading. The artist''s own cover agrees with the ruling.'
+  decision: noted
+  why_decided: 'Neither rule applies: a reading is not a title.'
+- work: 愛したぶんだけ愛してほしいっ！
+  latin: AISHITA BUNDAKE AISHITE HOSHII!
+  kind: publisher-romanisation
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183919_2fd1e297f4f9950ae25c83b81968a9db_1752730099
+  note: 'Printed in caps along the top of the visual by 一迅社, with the Japanese title under it. The database
+    holds NO reading, no romanisation and no English name for this work, so this is the only Latin form
+    of it we have and it comes from the publisher. It also settles the word division: ぶんだけ is one word,
+    `BUNDAKE`, which is where an analyser would most likely have broken it.'
+  decision: not-a-title
+  why_decided: 'Rule 2: this is the Japanese title transliterated and not a name the work gives itself,
+    so it is not taken as the title and is not evidence about how to romanise it either. Our own rules
+    stand. Kept for the owner to review.'
+- work: 愛したぶんだけ愛してほしいっ！
+  latin: MANIO
+  kind: author-latin-name
+  of: まにお
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183919_2fd1e297f4f9950ae25c83b81968a9db_1752730099
+  note: Printed on the visual's own footer beside ICHIJINSHA. The store derived `Manio` from the kana
+    with basis `romaji`, and the artist writes the same letters, so the derivation is confirmed and
+    only the casing is theirs to settle.
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a PERSON, which extends the owner''s rule and is marked as such: this
+    is the kana transliterated, so it settles no spelling our own romanisation does not already reach.
+    The caps are the logo''s. For review with the titles.'
+- work: アンドロイドは経験人数に入りますか？？
+  latin: YAKINIKUTEISHOKU
+  kind: author-latin-name
+  of: 焼肉定食
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183677_d0d86542f07a4c456d3ea4a2eb9aefbe_1752730099
+  note: Printed `by YAKINIKUTEISHOKU` under the Japanese name on the volume 1 cover. The store holds
+    `Yakiniku Teishoku`, two words, from the reading ヤキニク テイショク; the artist writes it as one. The reading
+    is confirmed and the spacing is theirs. 焼肉定食 credits 11 works here, and credit-rulings.yaml merged
+    ヤキニクテイショク into this spelling on 2026-08-11, so the cover settles both halves of that pair at once.
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a PERSON, which extends the owner''s rule and is marked as such: this
+    is the kana transliterated, so it settles no spelling our own romanisation does not already reach.
+    The caps are the logo''s. For review with the titles.'
+- work: 伽藍の姫 -がらんのひめ-
+  latin: Princess of cathedral
+  kind: official-latin-title
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965919360583_ccd771853cbbc5d4dc79a9c71b839f9f_1752730099
+  note: 'An English line on the volume 2 cover names the work `Princess of cathedral` in quotes, and
+    the furigana -がらんのひめ- is printed under the logo. The database ALREADY holds both, the name with
+    basis `official-jp` and the reading ガラン ノ ヒメ, so somebody curated this by hand before. Recorded
+    because it is the check on the method rather than a finding: reading the artwork independently reproduces
+    what careful curation reached.'
+  decision: take-as-title
+  why_decided: 'Neither rule bites: the artwork is not shouting and this is English rather than the
+    Japanese transliterated.'
+- work: 現実世界でも幸せにしてくださいね？
+  reading: リアル
+  of: 現実世界
+  kind: title-furigana
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183598_cb67c9cb7986fd38ad9f3ce1a84b66e8_1752730099
+  note: 'THE CLEAREST CORRECTION THIS PASS HAS FOUND. The volume 1 cover prints リアル as ruby down the
+    side of 現実世界, so the publisher reads those four characters as `riaru`, the English word `real`.
+    The store holds げんじつせかい and reads the title `ゲンジツセカイ デ モ シアワセニ シテ クダサイ ネ？`, which is what the characters
+    say and not what the work calls itself. A gloss reading is a thing this project already knows about:
+    `adapters/names/gloss.py` takes one off a title where the platform prints it in brackets in the
+    TEXT, as in 念願の悪役令嬢(ラスボス). Here it is printed only as ruby on the artwork, so no amount of reading
+    the markup would have found it.'
+  decision: reading
+  why_decided: 'Neither rule applies: a reading is not a title.'
+- work: 現実世界でも幸せにしてくださいね？
+  latin: Be happy In the real world too, Okay?
+  kind: official-latin-title
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183598_cb67c9cb7986fd38ad9f3ce1a84b66e8_1752730099
+  note: Set vertically beside the logo. The database holds `Make Me Happy in the Real World Too, Won't
+    You?` with basis `translated`.
+  decision: take-as-title
+  why_decided: 'Neither rule bites: the artwork is not shouting and this is English rather than the
+    Japanese transliterated.'
+- work: 現実世界でも幸せにしてくださいね？
+  latin: SHIBORIKASUKO
+  kind: author-latin-name
+  of: しぼりかすこ
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183598_cb67c9cb7986fd38ad9f3ce1a84b66e8_1752730099
+  note: '`PRESENTED BY SHIBORIKASUKO`, one word, where the store splits the kana into `Shibori Kasuko`
+    and holds no English name. The split is the analyser''s guess at where a pen name divides, and the
+    artist does not divide it.'
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a PERSON, which extends the owner''s rule and is marked as such: this
+    is the kana transliterated, so it settles no spelling our own romanisation does not already reach.
+    The caps are the logo''s. For review with the titles.'
+- work: 妖怪殲滅のサイコリリー
+  reading: バケモノゴロシ
+  of: 妖怪殲滅
+  kind: title-furigana
+  seen_on: https://app.manga-one.com/secure/1696576595/webp/title_list_single/4287.webp
+  note: 'The logo prints ばけものごろし as ruby across 妖怪殲滅, so the publisher reads those four characters as
+    `bakemono-goroshi`, monster-killing. The store reads them ヨウカイ センメツ and rubies them 妖怪/ようかい and
+    殲滅/せんめつ, which is what the characters say and not what the work calls itself. The same class as
+    現実世界 read as リアル, and the second of its kind this pass has found. It was reached only because the
+    owner supplied the address form: manga-one''s work page lives at /manga/<series>/chapter/<id>, the
+    bare /manga/<id> answers page-not-found, and the cover is the img whose src holds `title_list_single`,
+    identified by an alt that is the work''s own title.'
+  decision: reading
+  why_decided: 'Neither rule applies: a reading is not a title.'
+- work: この恋、一旦持ち帰らせていただきます！
+  latin: I'll take this love home with me for now!
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/008367/2d706154-e278-4f1a-a1b7-09e0e99b2720.jpg
+  decision: take-as-title
+  why_decided: 'Neither rule bites: set in mixed case, and English rather than the Japanese transliterated.'
+  note: Under the logo in small caps-and-lower. The database holds no English name for this work. 恋
+    carries the ruby こい.
+- work: 崖っぷち令嬢は黒騎士様を惚れさせたい！
+  latin: I want to make Black-Knight fall in love with me!
+  kind: official-latin-title
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965919360887_fa25c060acab821e5ad0cc3710beeb6b_1752730099
+  decision: take-as-title
+  why_decided: 'Neither rule bites: mixed case, and a translation rather than a transliteration.'
+  note: On the volume 1 cover under the number. The credits are stated as 〈漫画〉そめちめ and 〈原作〉洲央, which
+    the row may not divide that way.
+- work: よくばれ! 人間さん
+  latin: HIBI OISHI
+  kind: author-latin-name
+  of: 大石日々
+  seen_on: https://cdn.img.comic-action.com/public/series/thumbnail/2550689798303261490_93aa1e4c2fbaa2c785ff2deb4fbefa23_1710139399
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a person, as an extension: the kana transliterated, so it settles
+    nothing our own romanisation does not reach, and the caps are the logo''s.'
+  note: Printed beside the Japanese name. It is in WESTERN ORDER, which is the one thing a transliteration
+    does not carry, and the same question stands over TAMA TAMASAKI and MASUMI YOTSUBA. Name order is
+    for the owner's review with the rest.

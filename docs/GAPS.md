@@ -2548,3 +2548,28 @@ What would surface it is a field shape the divider does not cover arriving from 
 is the ordinary way this corpus grows. The fix is for the fallback to drop the punctuation with the
 role it elides, and to join on `joiner()` the way the composed path does. It is left here rather
 than fixed blind at the end of the change that found it.
+
+## A work page that throws has no check behind it. Found 2026-08-11
+
+`renderWorkPage` read `r.stated_next.platform` one line under a `(r.stated_next || {})` that
+tolerates the field being absent, behind a test of how many sources the work has, which is a
+different question. Every work with more than one source and no stated next update threw there and
+the page came back with its header, its footer and nothing between: **227 of 3,042 rows**, each one
+reachable by clicking the row, by a shared address, or by a reload. Fixed, and all 3,034 work pages
+were then rendered in the browser to confirm it.
+
+**Nothing guards it.** Every interface check here renders a LABEL, and a label function is handed
+its row and reads nothing else. A page painter looks the work up in `SERIES` instead, which
+`adapters/interface.js` has no way to set, so the one surface that draws a whole page is the one
+surface no check can ask anything of.
+
+Handing the harness `SERIES` was tried and is not enough. With the collection supplied the painter
+returns without throwing even on a row that throws in a browser, and a `throw` planted on the
+offending line is never reached: under the stub DOM the function leaves early. So a check written
+that way passes because the painter does nothing, which is worse than no check. It was written,
+measured, found vacuous and removed rather than left green.
+
+What would close it is a `document` faithful enough for the painter to run: `querySelector` that
+answers, elements that hold what is written into them, and a container the result can be read out
+of. That is a larger piece of work than the fix that found it, and it is the piece that would let
+every whole-page surface be checked rather than only the labels.

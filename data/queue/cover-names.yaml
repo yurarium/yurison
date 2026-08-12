@@ -1022,3 +1022,133 @@ candidates:
   why_decided: A reading is not a title.
   note: Set as 《メンタルアウト》 over 心理掌握 in the logo, which is why the English says Mental Out and not anything
     closer to grasping the psyche. The parent title carries 《インデックス》 over 禁書目録 the same way.
+- work: じょしまん。
+  latin: JOSHI-MAN
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_comic_action_com__ion_com_public_series_thumbnail_13933686331690747508_5fca9a0bb317a8d31a0ad638ade80319_1639719099__ad94d5c16f88ef30.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates じょしまん。 and says nothing in English, so it is neither
+    the title nor an input to our romanisation.
+  note: Set vertically in caps beside the logo. The hyphen splits じょし from まん, which our romanisation
+    has no reason to do.
+- credit: 吉田丸悠
+  latin: Yu Yoshidamaru
+  kind: official-latin-name
+  seen_on: cache://cdn_img_comic_action_com__ion_com_public_series_thumbnail_13933686331690747508_5fca9a0bb317a8d31a0ad638ade80319_1639719099__ad94d5c16f88ef30.jpg
+  decision: take-as-spelling
+  why_decided: Rule 2 is about titles. Mixed case as printed, so rule 1 does not bite either.
+  note: THE NAME-ORDER QUESTION, FIFTH SIGHTING, and given name first again. Printed as by Yu Yoshidamaru
+    along the bottom edge at an angle. 吉田丸悠 reads Yoshidamaru Yuu, so the cover both reorders it and
+    drops the long vowel.
+- work: 犬と仕事は煙に巻けない
+  latin: BUSINESS-BUDDY YURI ANTHOLOGY
+  kind: cover-gloss
+  seen_on: cache://public_img_comic_pximg_net__https___public_img_comic_pximg_net_images_work_main_9156_jpg_20230524120003__61abd0438a5c28df.jpg
+  decision: not-a-title
+  why_decided: It renders お仕事×バディ 百合アンソロジーコミック, which is the volume this work appears in, not 犬と仕事は煙に巻けない.
+  note: THE IMAGE IS THE ANTHOLOGY'S COVER, NOT THE WORK'S. Cached against this work because that is
+    the picture the platform serves for it, so anything Latin on it belongs to the book and has to be
+    kept off the work. Left in the file so the next pass does not meet it fresh and take it.
+- work: ツインスター・サイクロン・ランナウェイ
+  latin: Twinstar Cyclone Runaway
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com__https___cdn_comic_walker_com_integration_cdpf_resources_005969_005969_001_0001_jpg__ba4ff70cc5427e6e.jpg
+  decision: take-as-title
+  why_decided: 'Rule 2 does not bite: ツインスター・サイクロン・ランナウェイ is English in katakana, so the Latin is the
+    source. Title case as printed.'
+  note: Small line under the katakana logo between two ornaments. Our romanisation would give Tsuinsutaa
+    Saikuron Rannauei. The foot of the image carries a rights line naming BUSHIROAD WORKS and 早川書房,
+    which is the licensor and publisher rather than anything of ours.
+- work: ニセアイホンアイ
+  latin: Fake Love / True Love
+  kind: official-latin-title
+  seen_on: cache://cdn_img_mangatime_square_com__are_com_public_series_thumbnail_12207421984001570933_db467c3fd77d0c8254b222ed12c61aac_1785978399__cb57db521ecef155.jpg
+  decision: take-as-title
+  why_decided: 'Title case as printed, so rule 1 leaves it. Rule 2 does not bite: ニセアイ and ホンアイ are
+    Japanese, and Fake Love and True Love render them rather than transliterating them.'
+  note: 'OWNER, THE JOINING IS YOURS TO CALL. The two halves are not one line: Fake Love runs in red
+    script across the top of the cover and True Love across the bottom, with the vertical ニセアイ／ホンアイ
+    between them. The work is carried as ニセアイホンアイ, one word, so the slash here is mine and not the artwork''s.
+    MANGA TIME COMICS at the foot is the imprint.'
+- credit: いくたはな
+  latin: Hana Ikuta
+  kind: official-latin-name
+  seen_on: cache://cdn_img_mangatime_square_com__are_com_public_series_thumbnail_12207421984001570933_db467c3fd77d0c8254b222ed12c61aac_1785978399__cb57db521ecef155.jpg
+  decision: take-as-spelling
+  why_decided: Rule 2 is about titles. Mixed case as printed.
+  note: THE NAME-ORDER QUESTION, SIXTH SIGHTING, given name first again. Set as presented by Hana Ikuta
+    above the kana credit. いくたはな reads Ikuta Hana. Of six covers now, four print Western order and two
+    Japanese.
+- work: 香原さんのふぇちのーと
+  latin: Kaguhara's Fetish Notebook
+  kind: official-latin-title
+  seen_on: cache://cdn_public_comici_jp__tps___cdn_public_comici_jp_series_1646812_20251009173046345DF697C850302CF2CA30827401563D446_webp__cbacc0e277cbf5fb.webp
+  decision: take-as-title
+  why_decided: Title case as printed, so rule 1 leaves it, and it renders 香原さんのふぇちのーと rather than transliterating
+    it.
+  note: Set in two script lines inside the logo. It drops the さん the Japanese carries, which is the
+    ordinary thing to do in English. The spelling Kaguhara agrees with the cover's own furigana.
+- work: 香原さんのふぇちのーと
+  reading: カグハラ
+  of: 香原
+  kind: title-furigana
+  seen_on: cache://cdn_public_comici_jp__tps___cdn_public_comici_jp_series_1646812_20251009173046345DF697C850302CF2CA30827401563D446_webp__cbacc0e277cbf5fb.webp
+  decision: reading
+  why_decided: A reading is not a title.
+  note: Printed as かぐ／はら over 香原 in the logo. Worth having because 香原 is not obliged to read that way,
+    and the English on the same cover spells it Kaguhara.
+- work: 僕らのアイは気持ち悪い
+  latin: Our “Love” Is Disgusting.
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184075_37f955d0cf6786d07b4296ad27b4b59b_1752730099__4073cb5a3514e2fe.png
+  decision: take-as-title
+  why_decided: RULE 1 APPLIES. Set in caps across the foot of the volume 1 cover with nothing confirming
+    them, so it is recorded in initial caps. It renders 僕らのアイは気持ち悪い rather than transliterating it.
+  note: The curly quotes around LOVE are the artwork's own and are kept. They are doing the work アイ
+    does in the Japanese, where the word is written in katakana to hold it at arm's length.
+- credit: 雨水汐
+  latin: Usuishio
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184075_37f955d0cf6786d07b4296ad27b4b59b_1752730099__4073cb5a3514e2fe.png
+  decision: take-as-spelling
+  why_decided: RULE 1 APPLIES to the caps in PRESENTED BY USUISHIO.
+  note: OUR ROMANISATION WOULD NOT REACH THIS EITHER. 雨水 as a surname would give Amamizu or Usui and
+    汐 Shio, in two parts; the cover runs it together as one word, Usuishio, which is how the artist
+    signs. No order question here because there is only one unit.
+- work: 魔女の孫と七人のメイド
+  latin: The Witch's Granddaughter and Seven Maids
+  kind: official-latin-title
+  seen_on: cache://cdn_img_comic_action_com__ion_com_public_series_thumbnail_11341664176597597354_cf337eaf2c77b3300b8435cf0987c57d_1707453722__66dda97ef4eaaf57.jpg
+  decision: take-as-title
+  why_decided: Title case as printed, so rule 1 leaves it, and it renders 魔女の孫と七人のメイド rather than transliterating
+    it.
+  note: Three small lines low on the cover, with and set in italic across the line break. The Japanese
+    counts the maids and the English does not.
+- credit: いくたはな
+  latin: Ikuta Hana
+  kind: official-latin-name
+  seen_on: cache://cdn_img_comic_action_com__ion_com_public_series_thumbnail_11341664176597597354_cf337eaf2c77b3300b8435cf0987c57d_1707453722__66dda97ef4eaaf57.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: 'THIS SETTLES THE NAME-ORDER QUESTION AS A QUESTION ABOUT PUBLISHERS RATHER THAN ABOUT US. Same
+    artist, family name first here, given name first as Hana Ikuta on the ニセアイホンアイ cover, both set as
+    a Presented by line. So the covers do not carry a house convention we could follow even if we wanted
+    to, and the order has to be our decision. OWNER: this is the evidence for that call.'
+- work: 魔法少女にあこがれて
+  latin: I admire magical girls, and ...
+  kind: official-latin-title
+  seen_on: cache://cdn_public_comici_jp__tps___cdn_public_comici_jp_series_1646812_20251009174229349AD2FFB8B43C8EE7B9907E897477F569C_webp__3dcb168e62c9a9b4.webp
+  decision: take-as-title
+  why_decided: Sentence case as printed, so rule 1 leaves it, and it renders 魔法少女にあこがれて rather than
+    transliterating it.
+  note: Inside the logo block under the Japanese. The trailing ellipsis is the artwork's and carries
+    the あこがれて hanging in mid-sentence, so it is kept.
+- work: 葬られたきみへ
+  latin: To You Who Were Buried.
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005851_0b964113_351a_43d6_b011_572f91a292d2_jpg__bf7ac97d42fc2a82.jpg
+  decision: take-as-title
+  why_decided: Title case as printed, so rule 1 leaves it, and it renders 葬られたきみへ rather than transliterating
+    it.
+  note: Letterspaced under the brushed Japanese logo. The full stop is printed. No credit line on this
+    one, contrary to a first reading of the sheet.

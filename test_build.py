@@ -687,6 +687,101 @@ def series_addresses(s):
          "Ōzuki Yō", "the store is asked with the key credit_parts is keyed on")
 
     edition_names(s)
+    print_runs(s)
+
+
+def print_runs(s):
+    """One book run drawn as one run, and a reissue still drawn as two.
+
+    THIS IS THE CASE THAT WAS WRONG. MADB files a run under a second heading whenever the spine
+    changes, so 捏造トラップ holds volumes 1, 2, 3 and 5 and 捏造トラップ : NTR holds 4 and 6.
+    Identity joined them and the index counted six, and the work page still drew `4 volumes from
+    2015` above `2 volumes from 2017`: a work split at a volume the catalogue merely filed
+    elsewhere. Every case below is a real pair of records.
+
+    AND THE COUNTER-CASE FIRST, because the split display is right for the case it was written for.
+    """
+    # ── THE COUNTER-CASE: A REISSUE STAYS TWO RUNS ────────────────────────────────────────────
+    #
+    # citrus is a ten volume run and a four volume 2015 reissue. Their numbering OVERLAPS, which is
+    # what a reissue looks like from the catalogue, and folding them gave `vol. 1, vol. 1, vol. 2,
+    # vol. 2` in one list. Tested before the merge, so a rule that merged everything fails here.
+    _run = lambda wid, ja, nums, src="madb", **kw: dict(                           # noqa: E731
+        {"work_id": wid, "title": {"ja": ja}, "volume_count": len(nums), "sources": [src],
+         "volumes": [{"number": n} for n in nums]}, **kw)
+    _citrus = [_run("C1", "citrus", ["1", "2", "3", "4"], first_publication={"date": "2013-03"}),
+               _run("C2", "citrus", ["1", "2", "3", "4"], first_publication={"date": "2015-08"})]
+    s.eq([[r["work_id"] for r in g] for g in b.print_runs(_citrus)], [["C1"], ["C2"]],
+         "a reissue numbering the same volumes again is a run of its own")
+
+    # AND WHERE THE OVERLAP IS PLAINLY A DUPLICATE, THE ANSWER IS STILL TWO. MADB and BOOK☆WALKER
+    # both hold MURCIÉLAGO volume 1 from スクウェア・エニックス in April 2014: one run described
+    # twice. Merging it on the strength of the differing source was tried and drew a list of 52
+    # rows, `vol. 1 April 2014` beside `vol. 1 25 Apr 2014`, because the two catalogues date one
+    # book at two precisions and the volume dedup can join neither the record nor the date. This
+    # pins the stop, so a later attempt at the duplicate has to answer the dating first.
+    _mur = [_run("C338361", "MURCIELAGO", ["1", "2", "3"]),
+            _run("bw-15279", "MURCIÉLAGO -ムルシエラゴ-", ["1", "2", "3", "4"], src="bookwalker")]
+    s.eq(len(b.print_runs(_mur)), 2,
+         "two catalogues numbering the same volumes stay two runs until their dates are reconciled")
+
+    # ── AND THE CASE UNDER TEST: COMPLEMENTARY NUMBERING IS ONE RUN ───────────────────────────
+    _ntr = [_run("C360665", "捏造トラップ", ["1", "2", "3", "5"],
+                 first_publication={"date": "2015-07"}, publisher="一迅社",
+                 imprint="百合姫コミックス", marketing_label="yuri"),
+            _run("madb-t-de1410efb48e", "捏造トラップ : NTR", ["4", "6"],
+                 first_publication={"date": "2017-05"}, publisher="一迅社",
+                 distributor="講談社", imprint="")]
+    _groups = b.print_runs(_ntr)
+    s.eq(len(_groups), 1, "two headings holding volumes 1,2,3,5 and 4,6 are ONE run of one book")
+    _blk = b.merged_print_block(_groups[0])
+    s.eq(_blk["volumes"], 6, "six volumes, which is the count of DISTINCT numbers and not the sum")
+    s.eq(_blk["first"], "2015-07", "dated from the earliest printing in the run")
+    s.eq(_blk["work_id"], "C360665", "named for the record that speaks for the work")
+    s.eq(_blk["work_ids"], ["C360665", "madb-t-de1410efb48e"],
+         "AND CARRYING BOTH IDENTIFIERS; the volume list is drawn by matching works.json on these, "
+         "so an id dropped here drops volumes 4 and 6 off the page")
+    s.eq(_blk["distributor"], "講談社",
+         "a field the primary record does not state is taken from the record that does")
+    s.eq(_blk["imprint"], "百合姫コミックス", "and one the primary DOES state is its own")
+
+    # THE SUM WOULD HAVE BEEN 5 HERE TOO. スクールゾーン runs 1 to 3 under one heading and 4 to 5
+    # under `School zone = スクールゾーン`, where the sum and the union agree.
+    _sz = [_run("C1", "スクールゾーン", ["1", "2", "3"]),
+           _run("C2", "School zone = スクールゾーン", ["4", "5"])]
+    s.eq(b.merged_print_block(b.print_runs(_sz)[0])["volumes"], 5,
+         "1 to 3 and 4 to 5 is a run of five")
+
+    # A NUMBER IS A NUMBER WHATEVER THE PADDING. 紅殻のパンドラ is numbered `01` to `21` and its
+    # GHOST URN continuation `22` to `25`, so a text comparison would call a reissue numbered `04`
+    # a continuation of a run holding `4` and fold a second printing into the first.
+    _pad = [_run("C1", "紅殻のパンドラ", ["01", "02", "03"]),
+            _run("C2", "紅殻のパンドラ", ["04", "05"])]
+    s.eq(b.merged_print_block(b.print_runs(_pad)[0])["volumes"], 5,
+         "padded and plain numbering continue one another")
+    _reissue = [_run("C1", "作品", ["1", "2", "3"]), _run("C2", "作品", ["01", "02", "03"])]
+    s.eq(len(b.print_runs(_reissue)), 2, "and a padded REPRINT of the same volumes is a run apart")
+
+    # WHICH RECORD SPEAKS FOR THE RUN IS `print_precedence`, THE ORDER THE ROW'S TITLE COMES FROM.
+    # An English edition sorting first would otherwise name a run of a Japanese work, which is the
+    # fault that put `Day In, Day Out` on 明けても暮れても.
+    _en = [_run("bw-1", "Day In, Day Out【English Ver.】", ["1"]),
+           _run("bw-2", "明けても暮れても", ["2"])]
+    s.eq(b.merged_print_block(b.print_runs(_en)[0])["work_id"], "bw-2",
+         "the work's own language names the run, whatever the identifiers sort like")
+
+    # A RECORD THAT NUMBERS NOTHING MAKES NO CLAIM THAT CAN CONFLICT, so it joins rather than
+    # standing alone as an unnumbered heading beside a numbered one.
+    _bare = [_run("C1", "作品", ["1", "2"]), dict(_run("C2", "作品", []), volume_count=1)]
+    s.eq(len(b.print_runs(_bare)), 1, "an unnumbered record joins the run it was filed under")
+    s.eq(b.merged_print_block(b.print_runs(_bare)[0])["volumes"], 2,
+         "and cannot be counted into it, so the largest stated count stands")
+
+    # ONE RECORD IS UNCHANGED APART FROM THE LIST OF IDENTIFIERS, which every reader now goes
+    # through. This is the 470 print rows that were never in question.
+    _one = b.merged_print_block([_ntr[0]])
+    s.eq(_one["volumes"], 4, "a lone record still states its own count")
+    s.eq(_one["work_ids"], ["C360665"], "and answers the id question with a list of one")
 
 
 def edition_names(s):

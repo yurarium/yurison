@@ -47,6 +47,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 from facts import identity                                                             # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "facts"))
 from facts import imprint as _imprints                          # noqa: E402
+from facts import printblock as _printblock                     # noqa: E402
 from names.publishers import publisher_of                                   # noqa: E402
 
 PREFIX = "h"
@@ -94,7 +95,14 @@ def population(rows):
     wanted, seen, edges = [], set(), {}
     for r in rows or ():
         wid = str(r.get("id")) if r.get("id") else None
-        for pr in (r.get("print") or ()):
+        # EVERY RECORD THE BLOCK STANDS FOR, not only the one it shows. A block is a print RUN
+        # and build.py folds together the catalogue records MADB filed that run under
+        # separately, so a house named by a folded record alone stopped being seen here while
+        # the shipped name map went on linking to its address. `facts/printblock` is the one
+        # answer to what a block stands for, and a row count stays what it has always been:
+        # print rows, not works.
+        for pr in (_party for _b in (r.get("print") or ())
+                   for _party in _printblock.parties(_b)):
             for seat in SEATS:
                 raw = str(pr.get(seat) or "").strip()
                 a = anchor(raw)
@@ -143,7 +151,14 @@ def houses(rows, lines, entries):
     out = {}
     for r in rows or ():
         wid = str(r.get("id")) if r.get("id") else None
-        for pr in (r.get("print") or ()):
+        # EVERY RECORD THE BLOCK STANDS FOR, not only the one it shows. A block is a print RUN
+        # and build.py folds together the catalogue records MADB filed that run under
+        # separately, so a house named by a folded record alone stopped being seen here while
+        # the shipped name map went on linking to its address. `facts/printblock` is the one
+        # answer to what a block stands for, and a row count stays what it has always been:
+        # print rows, not works.
+        for pr in (_party for _b in (r.get("print") or ())
+                   for _party in _printblock.parties(_b)):
             for seat in SEATS:
                 raw = str(pr.get(seat) or "").strip()
                 a = anchor(raw)

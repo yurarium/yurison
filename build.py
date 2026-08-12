@@ -32,6 +32,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
 from facts import identity  # noqa: E402
 from facts import dating as _dating  # noqa: E402
+from facts import printblock as _printblock  # noqa: E402
 from facts import origin as _origin  # noqa: E402
 from facts import imprint as _imprints  # noqa: E402
 import importdates  # noqa: E402
@@ -1600,6 +1601,141 @@ def _print_block(rec):
     }
 
 
+def _stated_numbers(rec):
+    """The volume numbers one print record states, as a set. Empty where it numbers nothing.
+
+    A NUMBER IS COMPARED AS A NUMBER, because MADB pads one record and not the next: 紅殻のパンドラ
+    is numbered `01` to `21` and its continuation `22` to `25`. Compared as text, `04` and `4` are
+    two different volumes, and a record that repeats a run under padded numbering would read as a
+    continuation of it and be folded in. Anything that is not a plain integer is compared as it is
+    written, so a `上` or a `3.5` still says what it says.
+    """
+    out = set()
+    for v in rec.get("volumes") or []:
+        n = str(v.get("number") or "").strip()
+        if n:
+            out.add(str(int(n)) if n.isdigit() else n)
+    return out
+
+
+def print_precedence(rec):
+    """The order print records for one work are considered in. One key, several callers (§3).
+
+    THE WORK'S OWN LANGUAGE FIRST, then a real title over an ISBD line, then the identifier. This
+    was written where the print-only rows are folded, for the reason its comment there gives:
+    `明けても暮れても` took the title of `Day In, Day Out` because `bw-1134…` sorts first. The same
+    question is asked when several records are merged into one run, and asking it twice would let
+    the two answers drift.
+    """
+    ja = (rec.get("title") or {}).get("ja") or ""
+    return (bool(EDITION_LANGUAGE.search(ja)), not _script.has_script(ja),
+            str(rec.get("work_id") or ""))
+
+
+def print_runs(recs):
+    """Print records for one work, grouped into the runs a reader should see.
+
+    TWO RECORDS ARE ONE RUN WHERE THEIR NUMBERING DOES NOT OVERLAP, and two runs where it does.
+    That is the whole rule, and both halves of it are load-bearing.
+
+    THE HALF THAT WAS MISSING. MADB files one book run under two headings whenever the spine
+    changes: 捏造トラップ holds volumes 1, 2, 3 and 5, and 捏造トラップ : NTR holds 4 and 6. Identity
+    already joins them, `one_row_per_work` already counts the union and reports the work as six
+    volumes, and the work page still drew two lists headed `4 volumes from 2015` and `2 volumes
+    from 2017`, because every record became a block of its own. The reader was shown a work split
+    at a volume the catalogue simply filed elsewhere. スクールゾーン splits 1 to 3 from 4 and 5 the
+    same way, and 紅殻のパンドラ continues from 21 into 22 to 25 under a subtitle.
+
+    THE HALF THAT WAS ALREADY RIGHT AND MUST STAY. citrus holds a ten volume run and a four volume
+    2015 reissue, and ゆるゆり is 21 volumes in one record and 11 in another. Those numberings
+    OVERLAP, which is what a reissue looks like from the catalogue, and folding them together gave
+    `vol. 1, vol. 1, vol. 2, vol. 2` in one list. `20-app.js` grew the per-run lists to answer
+    exactly that, and this leaves them a run each.
+
+    OVERLAPPING NUMBERING IS LEFT ALONE EVEN WHERE IT IS PLAINLY A DUPLICATE, and that is a
+    deliberate stop rather than an oversight. Ten works are held by MADB and by BOOK☆WALKER at once
+    with the same publisher and the same volume 1: MURCIÉLAGO is drawn as `32 volumes` above
+    `20 volumes`, which is one run described twice. Merging those on the strength of the source
+    they came from was tried and makes the page WORSE, because the two catalogues date the same
+    book at two precisions: the list came out 52 rows long, `vol. 1 April 2014` beside `vol. 1
+    25 Apr 2014`, and the volume dedup cannot join them because neither the record nor the date
+    agrees. Reconciling two catalogues describing one book is its own question and it is not
+    answered here.
+
+    A RECORD THAT NUMBERS NOTHING JOINS THE FIRST GROUP, because it makes no claim that can
+    conflict, and standing it alone would put an unnumbered heading beside a numbered one.
+    """
+    groups = []
+    for rec in sorted(recs or [], key=print_precedence):
+        nums = _stated_numbers(rec)
+        for g in groups:
+            if not nums or not (nums & g["numbers"]):
+                g["recs"].append(rec)
+                g["numbers"] |= nums
+                break
+        else:
+            groups.append({"recs": [rec], "numbers": set(nums)})
+    return [g["recs"] for g in groups]
+
+
+def merged_print_block(recs):
+    """One block for one run, however many catalogue records state it.
+
+    THE PRIMARY RECORD SPEAKS FOR THE RUN and the others fill in what it does not say. Which is
+    primary is `print_precedence`, the same order the row's title comes from, so the block and the
+    title never disagree about which record is the work's own.
+
+    HOW LONG THE RUN IS, on the same arithmetic `one_row_per_work` uses and for the same reason:
+    not the sum, which double-counts a record that overlaps, and not the larger, which is 3 where
+    スクールゾーン runs to 5. The count of DISTINCT numbers the records state. Where any record in
+    the run numbers nothing there is no union to take, and the largest stated count is the floor.
+
+    EVERY IDENTIFIER TRAVELS, in `work_ids`. The block's `work_id` addresses the primary record and
+    a consumer that folded a run into one block cannot then ask about the records it folded: the
+    volumes on a work page are drawn by matching `works.json` on these ids, so dropping one drops
+    its volumes off the page. `work_id` stays for the readers that want one, and is the first of
+    `work_ids`.
+    """
+    ordered = sorted(recs, key=print_precedence)
+    block = _print_block(ordered[0])
+    block["work_ids"] = [r["work_id"] for r in ordered]
+    if len(ordered) == 1:
+        return block
+    numbered = [_stated_numbers(r) for r in ordered]
+    if all(numbered):
+        block["volumes"] = max(len(set().union(*numbered)),
+                               *(r.get("volume_count") or 0 for r in ordered))
+    else:
+        block["volumes"] = max((r.get("volume_count") or 0 for r in ordered), default=None)
+    # THE EARLIEST PRINTING AND THE LATEST, over the whole run. A first date belonging to the
+    # record that happens to sort first is the date of part of a run described as the whole of it.
+    for field, pick in (("first", min), ("last", max), ("delivered_from", min)):
+        seen = [b for b in (_print_block(r).get(field) for r in ordered) if b]
+        if seen:
+            block[field] = pick(seen)
+    # WHAT THE PRIMARY DOES NOT STATE, from the next record that does. A missing publisher is a gap
+    # in one catalogue record and not a fact about the book.
+    for field in ("shop_url", "publisher", "publisher_basis", "distributor", "imprint", "label"):
+        if block.get(field):
+            continue
+        for r in ordered[1:]:
+            got = _print_block(r).get(field)
+            if got:
+                block[field] = got
+                break
+    # AND WHAT THE OTHER RECORDS CALL THE PARTIES TO THE BOOK, WHICH THE BLOCK NO LONGER SHOWS.
+    # Three passes count publisher and imprint names off `series[].print[]` and every one of them
+    # was counting one record per block: 36 line names dropped out of the shipped name map the
+    # moment runs began folding, while the volume rows went on drawing them from their own
+    # works.json records, so `裏サンデー女子部` reached a reader as `????-???[?]`. What a block
+    # SHOWS is a choice about a page and what it STANDS FOR is a fact about the corpus.
+    # `adapters/facts/printblock.py` holds both halves of that and every counting pass reads it.
+    _folded = _printblock.folded_names([block] + [_print_block(r) for r in ordered[1:]])
+    if _folded:
+        block["folded_names"] = _folded
+    return block
+
+
 # WHERE EACH SHOP'S YURI SHELF IS CAPTURED. The key is the name `admitted_by` writes for the
 # comparator and the value is the capture that read it. Declared rather than inferred, because the
 # two captures spell the shop differently in their own `source:` field, `bookwalker.jp` in one and
@@ -2458,7 +2594,8 @@ def publisher_map(names, people, rows):
         # of the corpus a publisher page is most informative about. An entry carrying an id and no
         # `en` renders as the Japanese it always did and is now something a reader can open.
         for _pr in rows:
-            for _blk in (_pr.get("print") or ()):
+            for _blk in (_party for _b in (_pr.get("print") or ())
+                         for _party in _printblock.parties(_b)):
                 for _seat in ("publisher", "distributor"):
                     _nm = str(_blk.get(_seat) or "").strip()
                     _hid = houses.get(_phid.anchor(_nm) or "")
@@ -6083,7 +6220,11 @@ def main():
         # which is how one database came to hold two populations a reader had to notice were the
         # same kind of thing. A work that exists only in print is still a work: it has no chapters
         # and no serialisation state, and the row says so rather than inventing either.
-        _seen_print = {p2["work_id"] for r2 in series_rows for p2 in (r2.get("print") or [])}
+        # EVERY IDENTIFIER THE BLOCKS STAND FOR. This read `work_id` alone, which was the whole set
+        # while a block was one record; a merged run holds several, and the ones it folded would
+        # have been appended again below as blocks of their own.
+        _seen_print = {_id for r2 in series_rows for p2 in (r2.get("print") or [])
+                       for _id in (p2.get("work_ids") or [p2.get("work_id")]) if _id}
         # TWO PRINT RECORDS THAT ARE ONE WORK GET ONE ROW. `--merge` retires an identifier and both
         # records then resolve to the surviving id, but each was still appended here on its own
         # work_id, so the list held the work twice under one id: 13 pairs, every one of them a
@@ -6173,6 +6314,30 @@ def main():
             _added += 1
         print(f"print-only works added to the works list: {_added}"
               + (f"; {_folded} editions folded into a row already held" if _folded else ""))
+
+        # ONE BLOCK PER RUN, NOT PER CATALOGUE RECORD, decided once for every row however its
+        # blocks got there. Both joins above append a block per record, which is right up to the
+        # point where MADB has filed one book run under two headings: 捏造トラップ held volumes 1,
+        # 2, 3 and 5 and 捏造トラップ : NTR held 4 and 6, so a work the index correctly counted as
+        # six volumes was drawn as `4 volumes from 2015` and `2 volumes from 2017`. Deciding it
+        # here rather than at each join is what stops the two joins answering differently.
+        _runs_merged = 0
+        for _r4 in series_rows:
+            _blocks = _r4.get("print") or []
+            for _b in _blocks:
+                _b.setdefault("work_ids", [_b["work_id"]])
+            _recs = [_pw[_b["work_id"]] for _b in _blocks if _b.get("work_id") in _pw]
+            # A block whose record is not to hand is left exactly as it stands. Merging on partial
+            # evidence would state a run length from the records that happened to be loaded.
+            if len(_blocks) < 2 or len(_recs) != len(_blocks):
+                continue
+            _groups = print_runs(_recs)
+            if len(_groups) == len(_blocks):
+                continue
+            _r4["print"] = [merged_print_block(_g) for _g in _groups]
+            _runs_merged += len(_blocks) - len(_groups)
+        if _runs_merged:
+            print(f"catalogue records folded into a print run already shown: {_runs_merged}")
 
 
         # A WORK IS AS OLD AS THE OLDEST THING WE HOLD ABOUT IT. The row's date came from the

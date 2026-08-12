@@ -389,6 +389,18 @@ NOT_A_NAME = {
                                "registry; the field itself is what a page draws",
     "series[].credits[].role": "the job that credit did, for the edge from the work to the "
                                "person; a page reads it back from credits.json",
+    # WHAT A PRINT BLOCK STANDS FOR, BESIDE WHAT IT SHOWS. A block is one print RUN and build.py
+    # folds the catalogue records MADB filed that run under separately, so a run can be published
+    # under a line the block does not show. These are the names of those folded records, carried so
+    # that the passes counting publisher and imprint strings go on seeing every one of them; the
+    # page draws its publisher from the block above, and the volume rows draw theirs from their own
+    # works.json records, which `works[]` rules. Nothing renders this.
+    "series[].print[].folded_names[].publisher": "the house a folded catalogue record names, for "
+                                                 "the census; the block itself is what a page draws",
+    "series[].print[].folded_names[].distributor": "the distributor a folded record names, for the "
+                                                   "census",
+    "series[].print[].folded_names[].imprint": "the line a folded record names, for the census and "
+                                               "for the years that spelling covers",
     "works[].title.yomi": "the reading, a Japanese-side aid",
     "works[].first_publication.venue": "the magazine a work first ran in",
     "works[].first_publication.note": "where the date came from, quoted from the record",

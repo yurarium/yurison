@@ -99,6 +99,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 # is not a separator here either, so `Action comics : comic high's brand` stays one segment, matches
 # nothing, and shows up in the unresolved count. That is the observable path and not a silent one.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "names"))
+from facts import printblock as _printblock                                     # noqa: E402
 from publishers import publisher_of, segments                                   # noqa: E402
 
 REGISTRY = pathlib.Path("data/names/imprints.yaml")
@@ -198,7 +199,13 @@ def census(rows, lines):
     by_line = {}
     unresolved = {}
     for r in rows:
-        for pr in (r.get("print") or []):
+        # EVERY RECORD A BLOCK STANDS FOR. A block is one print RUN and build.py folds together
+        # the catalogue records MADB filed that run under separately, each with its own
+        # spelling of the line and its own years. What years a spelling covers is exactly what
+        # a folded record is evidence about, so reading the shown one alone measured a span
+        # from a record that does not carry the line.
+        for pr in (_party for _b in (r.get("print") or [])
+                   for _party in _printblock.parties(_b)):
             raw = str(pr.get("imprint") or "").strip()
             if not raw:
                 continue
@@ -253,7 +260,13 @@ def dead_spellings(rows, lines):
     idx = index(lines)
     seen = set()
     for r in rows:
-        for pr in (r.get("print") or []):
+        # EVERY RECORD A BLOCK STANDS FOR. A block is one print RUN and build.py folds together
+        # the catalogue records MADB filed that run under separately, each with its own
+        # spelling of the line and its own years. What years a spelling covers is exactly what
+        # a folded record is evidence about, so reading the shown one alone measured a span
+        # from a record that does not carry the line.
+        for pr in (_party for _b in (r.get("print") or [])
+                   for _party in _printblock.parties(_b)):
             raw = str(pr.get("imprint") or "").strip()
             if not raw:
                 continue

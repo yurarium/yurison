@@ -68,7 +68,8 @@ import sys
 import unicodedata
 
 import yaml
-from facts import namekey as _namekey                                   # noqa: E402
+from facts import namekey as _namekey                               # noqa: E402
+from facts import printblock as _printblock                         # noqa: E402
 from facts import script as _script                                     # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
@@ -141,17 +142,25 @@ def corpus_names_from_rows(rows):
     Found by normalising the corpus the way app.js does and asking the shipped map for what came
     back, which is §14b: every measure in the pipeline shared this census, so none of them could
     see it. `publisher keys the interface misses` is that measure, kept.
+
+    EVERY NAME THE BLOCK STANDS FOR, NOT ONLY THE ONE IT SHOWS. build.py draws one block per print
+    RUN and folds together the catalogue records MADB filed that run under separately, so a block
+    shows one imprint where its records name two. The name it stopped showing is still rendered, on
+    the volume rows, which draw the publisher off each record; taken from the shown names alone this
+    census lost 36 of them and they reached the reader unspelled. `facts/printblock.parties` is the
+    one answer to what a block stands for and every pass that counts asks it.
     """
     out = {}
     for r in rows:
         for pr in (r.get("print") or []):
-            for field, norm in NAME_FIELDS:
-                raw = str(pr.get(field) or "").strip()
-                if not raw:
-                    continue
-                slot = out.setdefault((field, raw), {"kind": field, "raw": raw,
-                                                     "shown": norm(raw), "volumes": 0})
-                slot["volumes"] += 1
+            for named in _printblock.parties(pr):
+                for field, norm in NAME_FIELDS:
+                    raw = str(named.get(field) or "").strip()
+                    if not raw:
+                        continue
+                    slot = out.setdefault((field, raw), {"kind": field, "raw": raw,
+                                                         "shown": norm(raw), "volumes": 0})
+                    slot["volumes"] += 1
     return out
 
 

@@ -305,6 +305,20 @@ def main(s):
          "and in Japanese the same row renders as itself, so the preference is really being set "
          "rather than being ignored on a name app.js does not hold")
 
+    # ── A PRINT BLOCK STANDS FOR EVERY RECORD THE BUILD FOLDED INTO IT ──────────────────────
+    #
+    # `build.py` draws one block per RUN and MADB files one run under two headings: 捏造トラップ
+    # holds volumes 1, 2, 3 and 5 and 捏造トラップ : NTR holds 4 and 6. The volume list is built by
+    # matching works.json on the ids a block carries, so an interface that asked a merged block for
+    # `work_id` alone dropped volumes 4 and 6 off the page while the heading above them said six.
+    # Asked of the served file, because this is exactly the pair that has to agree.
+    s.eq(iface.values([("printIds", {"work_id": "C360665",
+                                     "work_ids": ["C360665", "madb-t-de1410efb48e"]})])[0],
+         "C360665,madb-t-de1410efb48e",
+         "the interface reads every record a merged print block was built from")
+    s.eq(iface.values([("printIds", {"work_id": "C338361"})])[0], "C338361",
+         "and a block from a single record still answers with the one it has")
+
     s.eq(iface.values([("foldKey", "4話②＜完＞")])[0], "4話2<完>",
          "the browser's own fold, returned whole. `labels` strips tags and read <完> as an "
          "element, which reported a disagreement with the Python fold that only the harness had")

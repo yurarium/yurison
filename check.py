@@ -4781,10 +4781,19 @@ def budget_publisher_pages_listing_a_work_from_another_house(ctx):
     A house catalogued under two names it was renamed through would land here, which is the case
     worth finding: 角川書店 became KADOKAWA and the older records were not rewritten, so a merge is
     what settles it and an unmerged pair is a house showing half its shelf.
+
+    THE FIELDS OF EVERY RECORD THE BLOCK STANDS FOR, which is still arithmetic and still consults
+    nothing. A block is one print RUN and build.py folds the catalogue records MADB filed that run
+    under separately; six runs are named by a house the shown record does not name, 紅殻のパンドラ's
+    継続 under KADOKAWA where volumes 1 to 21 say 角川書店 among them. Those are print rows of the
+    work, so a page listing the work is right and reading the shown fields alone made six correct
+    pages look like six wrong ones.
     """
     by_work = {}
     for r in ctx["series"]:
-        raw = " ".join(str(pr.get(f) or "") for pr in (r.get("print") or ())
+        raw = " ".join(str(named.get(f) or "")
+                       for pr in (r.get("print") or ())
+                       for named in [pr] + list(pr.get("folded_names") or ())
                        for f in ("publisher", "distributor"))
         by_work[str(r.get("id"))] = unicodedata.normalize("NFKC", raw).replace(" ", "")
     n = 0

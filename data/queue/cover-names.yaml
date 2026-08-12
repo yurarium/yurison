@@ -4431,3 +4431,42 @@ candidates:
   why_decided: Same rights line, same reasoning.
   note: 'The second name in the line, also given name first, with no space after the comma. Same warning:
     the Japanese form is inferred.'
+- work: 銀の河に星の城
+  latin: Castle of stars on a silver river
+  kind: official-latin-title
+  seen_on: cache://img_flowercomics_jp__https___img_flowercomics_jp_title_2780_webp_h_TDPNqiomh4mVQCDx3u7iHw_e_1786752000__4b9831748dc2729f.webp
+  decision: take-as-title
+  why_decided: Sentence case as printed, so rule 1 leaves it, and it renders 銀の河に星の城 rather than transliterating
+    it.
+  note: OWNER, IT IS SPLIT ACROSS THE LOGO AND THE HALVES ARE OUT OF ORDER. Castle of stars on runs
+    above the kanji and a silver river below it, so reading it as one line means going over the title
+    and back under it. Joined here as the grammar demands. The Japanese puts the river first and the
+    English puts the castle first, which is the same inversion the layout performs.
+- work: 銀の河に星の城
+  reading: ギンノカワニホシノシロ
+  of: 銀の河に星の城
+  kind: title-furigana
+  seen_on: cache://img_flowercomics_jp__https___img_flowercomics_jp_title_2780_webp_h_TDPNqiomh4mVQCDx3u7iHw_e_1786752000__4b9831748dc2729f.webp
+  decision: reading
+  why_decided: A reading is not a title.
+  note: 'Each kanji carries its own ruby: ぎん, かわ, ほし, しろ. 河 as かわ rather than が is the useful one, since
+    the two-kanji reading of 銀河 is the galaxy and this title is deliberately not that.'
+- work: 百合のはじまりは奴隷から
+  latin: YURI NO HAJIMARI HA DOREI KARA
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005678_d34c9087_5523_4a9e_8194_81bc88e172c7_jpg__441f9c23f1dece4b.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 百合のはじまりは奴隷から and says nothing in English.
+  note: Two tiny caps lines directly under the hand-lettered logo. は as HA again.
+- work: 今夜は夜雀の屋台で
+  latin: Tonight at the Mystia's Yatai
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_018163_6ebe0134_8b9a_4383_9749_c55f13b357fe_jpg__678952253770d71a.jpg
+  decision: take-as-title
+  why_decided: Title case as printed, so rule 1 leaves it, and it renders 今夜は夜雀の屋台で rather than transliterating
+    it. 夜雀 is Mystia, the night-sparrow youkai of the Touhou games, so the English uses her name where
+    the Japanese uses the species.
+  note: RECORDED AS PRINTED, AND the Mystia's IS UNGRAMMATICAL. English would take either the article
+    or the possessive, not both. Fifth printed slip kept in this pass after Please, bloke my heart!,
+    Decide to Hero or Devil, where is the erf teacher's toilet ? and Lvitsa of Ascention. Yatai is left
+    untranslated the way Jiraike and senpai were, since a yatai is a specific kind of street stall.

@@ -2600,3 +2600,60 @@ candidates:
     as u-temo, all lowercase, up the left edge. Here it is U-temo. So the artist styles the name against
     our capitalisation but is not consistent about the first letter either. Two sightings, two forms,
     and the choice is yours the way the Ikuta Hana order was.
+- work: ウィキッドスポット
+  latin: Wicked Spot
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005923_49d1251a_82bf_49b6_9463_8896ef468467_jpg__fd71f8d7092a0331.jpg
+  decision: take-as-title
+  why_decided: 'Title case as printed, so rule 1 leaves it. Rule 2 does not bite: ウィキッドスポット is the English
+    words in katakana, so the Latin is what they came from. Our romanisation would give Wikiddo Supotto.'
+  note: Set in white directly under the black katakana logo, the two lines reading as one lockup.
+- credit: tMnR
+  latin: tMnR
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183572_34ffcb4bd5082be03a9a68d3a3c4b1f7_1780038434__87fd803e22e40f4d.jpg
+  decision: noted
+  why_decided: The credit is already Latin and the cover prints it as we carry it, so nothing changes.
+  note: 'OWNER, THE CASING IS THE WHOLE NAME. Lowercase t, capital M, lowercase n, capital R, letterspaced
+    under the strapline. Rule 1 is not applied and must not be: there is no romanisation here to correct,
+    and any recasing would destroy the name. Fifth credit in this pass that styles itself, after u-temo,
+    shirainu, tachi and emily.'
+- work: たとえとどかぬ糸だとしても
+  latin: secret crush on my sister
+  kind: cover-gloss
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183572_34ffcb4bd5082be03a9a68d3a3c4b1f7_1780038434__87fd803e22e40f4d.jpg
+  decision: not-a-title
+  why_decided: It renders nothing in たとえとどかぬ糸だとしても, which says even if the thread does not reach. An
+    English line about the story, sitting where a subtitle would.
+  note: OWNER, A BORDERLINE ONE, and closer than most. It is set in the title block rather than in a
+    banner, small and centred above the volume number, which is the strongest position any of these
+    glosses has had. It still says something the Japanese does not. Compare In Student's Meeting and
+    Happy life with my girlfriend, both ruled the same way.
+- work: 上杉くんは女の子をやめたい
+  latin: Uesugi-kun wants to quit being a girl
+  kind: official-latin-title
+  seen_on: cache://cdn_img_www_sunday_webry_com__ebry_com_public_series_thumbnail_2550912964699074885_06103bab8e52a4e2eb6850e006ca552b_1727760784__91777110641070ec.png
+  decision: take-as-title
+  why_decided: Sentence case as printed, so rule 1 leaves it, and it renders 上杉くんは女の子をやめたい rather than
+    transliterating it. The くん is kept as a hyphenated suffix, which is a rendering choice rather than
+    a failure to translate.
+  note: Four tiny lines to the right of the vertical logo, a few pixels tall in the served banner. The
+    strapline キュートすぎる女体化男子の三角関係ラブコメ開幕！ around it is Japanese.
+- credit: 藪内優
+  latin: Yuu Yabuuchi
+  kind: official-latin-name
+  seen_on: cache://cdn_img_www_sunday_webry_com__ebry_com_public_series_thumbnail_2550912964699074885_06103bab8e52a4e2eb6850e006ca552b_1727760784__91777110641070ec.png
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: OWNER, THE JAPANESE FORM IS MY INFERENCE AND NOT THE ARTWORK'S. The banner sets only by Yuu
+    Yabuuchi, with no kana or kanji beside it, so the credit it belongs to has to be confirmed against
+    the work's own record. Given name first, and it keeps both long vowels, which our romanisation also
+    does.
+- work: 百合拳
+  latin: yuriken
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_comic_action_com__tion_com_public_series_thumbnail_2550668105988572945_d09e3a61fd9b3b39850027db4789522a_1708079487__23969cb9eaadc7c1.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 百合拳 and says nothing in English.
+  note: Small lowercase italic under the logo, entirely lowercase so rule 1 has nothing to recase. It
+    agrees with our romanisation. Credit 井上とさず beside it, with no Latin.

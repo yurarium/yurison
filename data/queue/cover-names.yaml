@@ -83,6 +83,18 @@
 # since the katakana is what came FROM the roman spelling rather than the other way round; this
 # settles that they are accepted rather than held.
 #
+# FIVE, ruled 2026-08-12. THE ARTWORK'S ENGLISH IS OFFICIAL EVEN WHERE IT IS POOR ENGLISH. A
+# publisher's own line is the name whether or not it parses: `Please, bloke my heart!` for broke,
+# `where is the erf teacher's toilet ?` for elf, `Lvitsa of Ascention`, `Decide to Hero or Devil`,
+# `falls into a vampire`, `my wish is fall in love until you die.`, `Shall we do rock play
+# beautifully?`, `We can not draw our LOVE.`, `The Leech Don't Leave.`, `Tonight at the Mystia's
+# Yatai`, and the two with articles missing. The reader who wants fluent English is offered machine
+# translation; what this file records is what the book is called. Entries carry `ruled:
+# accepted-as-official-2026-08-12`, and their flags are discharged.
+#
+# THE SAME REASONING DISPOSES OF SPACING. `Selfportrait` is left closed up as the cover sets it,
+# rather than repaired to Self-Portrait, on the ground that a publisher's own form is the name.
+#
 # THE SAME TWO QUESTIONS ARISE FOR A PERSON'S NAME and the ruling names the title, so those are
 # marked `not-a-name-spelling` as an EXTENSION rather than assumed. Five are affected and every one
 # is the kana transliterated: KASHIKAZE, TAMA TAMASAKI, MANIO, YAKINIKUTEISHOKU, SHIBORIKASUKO. A
@@ -756,6 +768,7 @@ candidates:
   latin: Please, bloke my heart!
   kind: official-latin-title
   seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184180_d541eeccad3c09c5340ad4c6597948fa_1752730099__b1ccac90c3acc0e1.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: 'Neither rule bites: mixed case, and English rather than the Japanese transliterated.'
   note: In a speech bubble beside the logo. `bloke` is what the artwork prints and it is almost certainly
@@ -1431,6 +1444,7 @@ candidates:
   latin: The Leech Don't Leave.
   kind: official-latin-title
   seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965979331614_772f5dc89f3fb9e4e8c2a2c7ad9f83e7_1754010333__41cc2a85dcdef38c.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: RULE 1 APPLIES. Set in caps across the middle of the logo with nothing confirming them,
     so initial caps. It renders ヒモ吸血鬼が出ていかない rather than transliterating it.
@@ -2069,6 +2083,7 @@ candidates:
   latin: Decide to Hero or Devil
   kind: official-latin-title
   seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_42367__b3f2267eb2ce4902.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: Title case as printed, so rule 1 leaves it, and it renders 勇者か魔王か選ばせて rather than transliterating
     it.
@@ -3292,6 +3307,7 @@ candidates:
   latin: I Camouflage Marriage with a Junior(♀) Because My Parent is Very Noisy
   kind: official-latin-title
   seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183902_86e93c09e4664c303db4322f0677fed4_1754370570__358daa15d948c7e8.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: Title case as printed, so rule 1 leaves it, and it renders 親がうるさいので後輩(♀)と偽装結婚してみた。 rather
     than transliterating it.
@@ -3663,6 +3679,7 @@ candidates:
   latin: where is the erf teacher's toilet ?
   kind: official-latin-title
   seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_67557__935b56f2fad2e989.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: Entirely lowercase as printed, and rule 1 only recases capitals. It renders エルフ先生のトイレはどこですか？
     rather than transliterating it.
@@ -3998,6 +4015,7 @@ candidates:
   latin: Lvitsa of Ascention
   kind: official-latin-title
   seen_on: cache://cdn_img_comic_days_com__ays_com_public_series_thumbnail_14079602755249409652_ee63f3385a21d0a6e60c9834c29ca351_1699508167__d171637f221c31cb.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: 'Title case as printed, so rule 1 leaves it. Rule 2 does not bite: 頂 is rendered as ascention
     rather than sounded out, and リヴィーツァ is a name spelled from its source.'
@@ -4266,6 +4284,7 @@ candidates:
   latin: Selfportrait
   kind: official-latin-title
   seen_on: cache://cdn_img_comic_days_com__days_com_public_series_thumbnail_2550689798447850065_ac0d20c15cfe6e8e750814ef55dc9a69_1713945203__4f78cbf70f88e4ec.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: 'RULE 1 APPLIES to the caps. Rule 2 does not bite: セルフポートレイト is self-portrait in katakana,
     so the Latin is what it came from. Our romanisation would give Serufu Pooatoreito.'
@@ -4475,6 +4494,7 @@ candidates:
   latin: Tonight at the Mystia's Yatai
   kind: official-latin-title
   seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_018163_6ebe0134_8b9a_4383_9749_c55f13b357fe_jpg__678952253770d71a.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: Title case as printed, so rule 1 leaves it, and it renders 今夜は夜雀の屋台で rather than transliterating
     it. 夜雀 is Mystia, the night-sparrow youkai of the Touhou games, so the English uses her name where
@@ -4506,6 +4526,7 @@ candidates:
   latin: A girl who longed to be a “hero” aims to be a “hero” even if she falls into a vampire
   kind: official-latin-title
   seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_69008__146e79269f655c7a.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: Sentence case as printed, so rule 1 leaves it, and it renders 『英雄』に憧れた少女は吸血鬼に堕ちても『英雄』を目指す
     rather than transliterating it, quotation marks and all.
@@ -4807,6 +4828,7 @@ candidates:
   latin: We can not draw our LOVE.
   kind: official-latin-title
   seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_35994__d20462eb9b48c867.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: 'Not all caps, so rule 1 does not reach it: LOVE is capitalised on its own and the rest
     is sentence case. It renders 私たちは恋を描けない rather than transliterating it.'
@@ -4817,6 +4839,7 @@ candidates:
   latin: Around 30 beauty is fed by plain woman
   kind: official-latin-title
   seen_on: cache://public_img_comic_pximg_net__https___public_img_comic_pximg_net_images_work_main_9560_jpg_20230801184511__8a8439d0732f52e0.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: Sentence case as printed, so rule 1 leaves it, and it renders アラサー美女は地味女に餌付けされる rather
     than transliterating it. アラサー is the Japanese clipping of around thirty, and the English unpacks
@@ -5008,6 +5031,7 @@ candidates:
   latin: Shall we do rock play beautifully?
   kind: official-latin-title
   seen_on: cache://manga_park_com_443__s___manga_park_com_443_static_t_1g98_i_1_kJGXwgw_jpg_P4d2M6Ue1rNXwyseDcBk9emgt99I0BPsvxNurUnGqcQ__94ae170723a7c84e.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: Sentence case in script, so rule 1 leaves it, and it says something in English rather
     than transliterating ロックは淑女の嗜みでして.
@@ -5495,6 +5519,7 @@ candidates:
   latin: The Magical Revolution of Reincarnation Princess and Genius Young Lady
   kind: official-latin-title
   seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_003176_fe5a4398_ea6f_494a_9fdd_0d816d2a9914_jpg__9e329dff3d07465f.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: Title case as printed, so rule 1 leaves it, and it renders 転生王女と天才令嬢の魔法革命 rather than
     transliterating it.
@@ -6165,6 +6190,7 @@ candidates:
   latin: my wish is fall in love until you die.
   kind: official-latin-title
   seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183980_4f3a4c4fd2691262d789571a0c24c0a4_1752730099__62bc8c56d2166af6.jpg
+  ruled: accepted-as-official-2026-08-12
   decision: take-as-title
   why_decided: Entirely lowercase as printed, and rule 1 only recases capitals. It renders きみが死ぬまで恋をしたい
     rather than transliterating it.

@@ -89,7 +89,7 @@ jobs:
       # taking the newest cache with that prefix. GitHub evicts a cache untouched for 7 days.
       - name: Restore fetches and rendered DOMs
         id: cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: .cache
           key: fetch-${{ github.run_id }}
@@ -313,7 +313,7 @@ jobs:
       # is what makes a failed compile cost one run's fetching instead of two.
       - name: Save fetches and rendered DOMs
         if: always()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: .cache
           key: fetch-${{ github.run_id }}

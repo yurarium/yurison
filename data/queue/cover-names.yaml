@@ -6165,3 +6165,24 @@ candidates:
   note: Set as by Aono Nochi under the English, matching the あおのなち credit at the top right. It splits
     the all-kana name into Aono and Nochi, which our romanisation of a running kana string has no way
     to know to do.
+- work: 下部七花はかく語りき
+  reading: シモベ
+  of: 下部
+  kind: title-furigana
+  seen_on: cache://cdn_img_comic_days_com__ays_com_public_series_thumbnail_12207421983885192394_892bcd9a49a3840aef3b9776e525badd_1782975966__bea20fcd6354e4de.jpg
+  decision: reading
+  why_decided: A reading is not a title, and the page carries no Latin.
+  note: AN IRREGULAR SURNAME READING. 下部 as a word is かぶ, the lower part; as this character's surname
+    the narration rubies it しもべ, which is also the word for a servant. Our tables would give Kabu and
+    be wrong. The panel is an interior page rather than a cover, and the credit ruby is doing the work
+    again.
+- work: 清田さんを汚したい
+  latin: Kiyotasan wo kegashitai
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_tonarinoyj_jp__inoyj_jp_public_series_thumbnail_3269754496899350101_70bea538ab9d9f70e8ca3a676676e1ea_1748504710__37ebf1a726f9e387.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 清田さんを汚したい and says nothing in English.
+  note: 'Set in two tiny lines between 清田さんを and 汚したい inside the logo. It writes を as wo, joins the
+    さん onto the surname, and settles two readings: 清田 as Kiyota rather than Seida, and 汚したい as kegashitai
+    rather than yogoshitai, which are different verbs on the same character. THE PAIRED WORK 清田さんは汚されたい!?
+    was read earlier in this pass and its cover gave no Latin, so this one settles the reading for both.'

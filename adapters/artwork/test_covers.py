@@ -175,4 +175,4 @@ def main(s):
 
 
 if __name__ == "__main__":
-    testkit.run(main, __file__)
+    sys.exit(testkit.run(main, __file__))

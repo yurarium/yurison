@@ -714,3 +714,60 @@ candidates:
     is not.'
   note: Set into the logo, `Yuri Yuri` over ゆりゆり and `Panic` over ぱにっく. `Kanko Nakamura` under the artist's
     name.
+- work: きみがわるい！
+  latin: TOGANE SAKURA
+  kind: author-latin-name
+  of: 東金桜
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184587_ee6dfcdd31d07b031423fa6fd117d1ea_1752730099__1f32e3d6e0e2a690.jpg
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a person, as an extension: the name transliterated and set in caps.'
+  note: '`presented by TOGANE SAKURA` at the foot, in Japanese order.'
+- work: ジュリア・イン・ザ・ボックス！
+  latin: Julia in the box!
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360550_2c5cce614f5bc6926d1b98909c192056_1752730099__8aebd60a02ef33c2.jpg
+  decision: take-as-title
+  why_decided: 'Rule 2 does not bite, on the Luminous=Blue ground: ジュリア・イン・ザ・ボックス is an English phrase
+    written as katakana, so the Latin is what it came from. Our romanisation gives `Juria In Za Bokkusu`.
+    Already mixed case.'
+  note: Under the logo in a script face. The artist signs `aotsubaki toto` in lower case under 青椿トト.
+- work: 彼なんかより、私のほうがいいでしょ？
+  latin: Kare nanka yori Watashi no Houga Iidesyo?
+  kind: publisher-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006299_8455fc91_845e_470c_a96a_5cece54942b5_jpg__d8944b5157b47a39.jpg
+  decision: not-a-title
+  why_decided: 'Rule 2: the Japanese title transliterated, and it writes でしょ as `desyo` where our rules
+    give `desho`.'
+  note: Small red text beside the logo.
+- work: 好きです、フッてください！
+  latin: Please, bloke my heart!
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184180_d541eeccad3c09c5340ad4c6597948fa_1752730099__b1ccac90c3acc0e1.jpg
+  decision: take-as-title
+  why_decided: 'Neither rule bites: mixed case, and English rather than the Japanese transliterated.'
+  note: In a speech bubble beside the logo. `bloke` is what the artwork prints and it is almost certainly
+    meant as `broke`, an l-for-r slip of exactly the kind Japanese English makes. Recorded as printed,
+    and flagged, because copying a typo into a name field is its own kind of wrong. The artist is とりいしづく,
+    a credit credit-rulings.yaml settled on 2026-08-11.
+- work: ガールズ イン ザ ヘル
+  latin: Girls in the Hell.
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_boost_com__https___cdn_comic_boost_com_contents_thum_S0159_kv_sp_jpg__7a19c33cfe169def.jpg
+  decision: take-as-title
+  why_decided: 'Rule 2 does not bite, on the Luminous=Blue ground: ガールズ イン ザ ヘル is an English phrase
+    written as katakana, so the Latin is what it came from. Our romanisation gives `Gaaruzu In Za Heru`.
+    Already mixed case.'
+  note: In a script face across the cover, with `Roh Kawai compilation` under it. The full stop is the
+    artwork's own.
+- work: 浪人なんてろくでもない！
+  reading: ロウニン
+  of: 浪人
+  kind: title-furigana
+  seen_on: cache://cdn_img_ichicomi_com__omi_com_public_series_thumbnail_12207421983829236502_2160134676a472b48527d45f7df286f8_1781660114__570a1048aa140214.jpg
+  decision: reading
+  why_decided: 'Neither rule applies: a reading is not a title.'
+  note: THE RUBY IS IN LATIN LETTERS. The logo prints `ROUNIN` above 浪人 where furigana would normally
+    go, so the publisher has used a romanisation as a reading aid. It says ロウニン, which is the ordinary
+    reading, so nothing is corrected; it is recorded because a Latin string in the ruby position is
+    a shape a reading pass could meet and mishandle. `is no good!` is printed under ろくでもない as a gloss
+    rather than a title.

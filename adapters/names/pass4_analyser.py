@@ -86,7 +86,7 @@ READING_OVERRIDE = {
 #:
 #: WHY A SECOND TABLE AND NOT MORE ROWS IN THE FIRST. `READING_OVERRIDE` is consulted per morpheme,
 #: and 陰キャ is never one: Sudachi returns 陰 as カゲ, an ordinary in-dictionary word, then キャ as
-#: out-of-vocabulary. So the only key that could fix it there is 陰, and 陰 alone IS かげ — 陰で,
+#: out-of-vocabulary. So the only key that could fix it there is 陰, and 陰 alone IS かげ: 陰で,
 #: 陰口, 陰ながら. A per-morpheme entry would have to be wrong somewhere to be right here.
 #:
 #: THE PROJECT OWNER REPORTED IT ON 2026-08-12 as `Tsuiteru Gyaru to Mieteru Kage Kya`, from

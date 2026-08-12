@@ -463,3 +463,104 @@ candidates:
     The same artwork settles a credit question: it states 〔漫画〕波多ヒロ, 〔シナリオ〕HISADAKE, 〔原作〕矢立肇・富野由悠季. 矢立肇
     and 富野由悠季 are two of the eight pairs the budget `credit pages listing a work that does not name
     them` counts on w00032, and this is the work naming them.'
+- work: 【今日の10ページ】BREAD NEW DAY
+  latin: BREAD NEW DAY
+  kind: caps-confirmed-by-live-text
+  seen_on: https://cdn.img.magcomi.com/public/series/thumbnail/2550912964518979142_2e120d183b13461f642ef8ff292cf867_1747642240
+  decision: take-as-title
+  why_decided: RULE 1'S EXCEPTION, and the first case of it. The artwork sets BREAD NEW DAY in caps,
+    and the caps are NOT recased, because the platform's own title text for this work is 【今日の10ページ】BREAD
+    NEW DAY. That is live text confirming the capitals, which is exactly what the rule reserves.
+  note: A pun on `brand new day`, and the Latin is part of the Japanese title rather than a name beside
+    it.
+- work: 立花館To Lieあんぐる
+  reading: トライ
+  of: To Lie
+  kind: title-furigana
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183931_95ff176a4e5fd3e1629563b7778c3810_1752730099
+  decision: reading
+  why_decided: 'Neither rule applies: a reading is not a title.'
+  note: THE LATIN INSIDE THE TITLE IS READ AS A JAPANESE WORD. The cover rubies `To Lie` as とらい, which
+    is `try`, so the title puns on 立花館トライアングル. An analyser meeting `To Lie` in a Japanese title has
+    to say something about those five letters and nothing in the markup states this. 立花館 is rubied たちばなかん
+    beside it, which is the ordinary reading.
+- work: 立花館To Lieあんぐる
+  latin: merryhachi
+  kind: author-latin-name
+  of: めりはち
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183931_95ff176a4e5fd3e1629563b7778c3810_1752730099
+  decision: take-as-name
+  why_decided: 'Borderline under rule 2 and kept, on the same ground as cocoromake: めりはち transliterates
+    to `meri hachi`, and the artist spells the first half as the English word `merry`, which no transliteration
+    reaches.'
+  note: Printed `merryhachi presentes` with めりはち above it.
+- work: らぶぶいっ！
+  latin: love BUI
+  kind: logo-gloss
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/008372/d1544141-77f0-481c-a148-91f3fe04c9a5.jpg
+  decision: not-a-title
+  why_decided: 'Rule 2, and a clear case: this is the kana glossed rather than a name the work gives
+    itself. It is recorded because of what it says about the KANA, not as a title.'
+  note: The logo prints `love` inside らぶ and `BUI` above ぶい, so the title is `love` and `V` written
+    as Japanese. A romanisation gives Rabubuitsu, which is right by our rules and says nothing about
+    what the words are. Worth the owner's eye when the romanisation of this title is settled.
+- work: 七限目は忍者修行です！
+  latin: THE SEVENTH PERIOD IS NINJA TRAINING!
+  as_recorded: The Seventh Period Is Ninja Training!
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/007122/b644bbca-683c-46a9-88a8-16e68a6755a8.jpg
+  decision: take-as-title
+  why_decided: 'Rule 1: set in caps under the logo with nothing on the page confirming the casing, so
+    recorded in initial caps. Rule 2 does not bite; it is English rather than the Japanese transliterated.'
+  note: The database holds no English name for this work. The artwork also states MIGCHIP Presents.
+- work: 七限目は忍者修行です！
+  latin: MIGCHIP
+  kind: author-latin-name
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/007122/b644bbca-683c-46a9-88a8-16e68a6755a8.jpg
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a person, as an extension: a transliteration set in caps, so it settles
+    nothing our own romanisation does not reach.'
+  note: Printed `MIGCHIP Presents` in the corner.
+- work: シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～
+  latin: SHADOW ASSASSINS WORLD
+  as_recorded: Shadow Assassins World
+  kind: official-latin-title
+  seen_on: https://cdn.img.comic-days.com/public/series/thumbnail/2550912964454042523_e5574064fc865c81a2a49aa4c7d28e04_1724143414
+  decision: take-as-title
+  why_decided: 'Rule 1: set in caps through the logo with nothing on the page confirming it, so recorded
+    in initial caps. Rule 2 does NOT bite, and the distinction matters: the katakana spells English
+    words, so this is the form they came from rather than the katakana transliterated. Our own romanisation
+    gives `Shadou Asashinzu Waarudo`, which is right by our rules and is not what the work is called.'
+  note: Set between the two lines of the logo. The artwork also states four credits with their jobs,
+    原作 空山トキ, 漫画 五色安未, 構成 泉乃せん and キャラクター原案 伍長, where 五色安未 and 泉乃せん are two of the credits credit-rulings.yaml
+    settled on 2026-08-11.
+- work: ギャルメイドと悪役令嬢 ～おじょーさまのハッピーエンドしか勝たん!～
+  latin: GAL MAID & VILLAINESS
+  as_recorded: Gal Maid & Villainess
+  kind: official-latin-title
+  seen_on: https://public-img-comic.pximg.net/images/work_main/10861.jpg
+  decision: take-as-title
+  why_decided: 'Rule 1: caps on the logo with nothing confirming the casing. Rule 2 does not bite; ギャルメイド
+    is `gal maid` in English and 悪役令嬢 is translated as `villainess`, so this is not the Japanese transliterated.'
+  note: 'Set through the logo on the volume 1 cover. The database holds `The Gyaru Maid and the Villainess:
+    Only a Happy Ending Will Do, My Lady!` with basis translated, which renders the subtitle the publisher''s
+    own English drops. The artist signs 鍵穴, a credit credit-rulings.yaml settled on 2026-08-11.'
+- work: 魔女ってバイト代出ます？
+  latin: MAJYO TTE BAITODAI DEMASU?
+  kind: publisher-romanisation
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2551460909791966662_1eeb1336a62d713a64766f8d93c7c71a_1764131908
+  decision: not-a-title
+  why_decided: 'Rule 2: the Japanese title transliterated, so not taken as the title and not evidence
+    about romanisation. Its spelling is its own: it writes 魔女 as MAJYO where our rules give Majo.'
+  note: Set vertically beside the logo. The logo also rubies 魔女 as まじょ in the speech balloon, the ordinary
+    reading.
+- work: 魔女ってバイト代出ます？
+  latin: PYAA
+  kind: author-latin-name
+  of: ぴゃあ
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2551460909791966662_1eeb1336a62d713a64766f8d93c7c71a_1764131908
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a person, as an extension: the kana transliterated and set in caps.'
+  note: '`Presented By PYAA` at the foot. The same artist signs `cover:Pyaa` in initial caps on 女子校の王子様は私しか眼中にないらしい,
+    so even the artist''s own casing varies between two covers, which is the argument for our rules
+    deciding it.'

@@ -20,11 +20,10 @@ venue: "イースト・プレス"
 completed: false
 volumes:
   - title: "メイドスケーター【電子特典付き】"
-    number: 1
     published: "2024-03-19"
     delivered: "2024-03-19"
   - title: "【最新刊】メイドスケーター ２【電子特典付き】"
-    number: 2
+    number: "2"
     published: "2025-10-07"
     delivered: "2025-10-08"
 admitted_by:
@@ -32,8 +31,8 @@ admitted_by:
     shelf: "tag 14 (百合)"
     retrieved: 2026-08-05
     note: >-
-      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
-      Presumptive and rebuttable, and never a marketing_label (§4).
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
 marketing_label: none
 marketing_label_basis:
   source: bookwalker

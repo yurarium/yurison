@@ -20,27 +20,27 @@ venue: "ナンバーナイン"
 completed: false
 volumes:
   - title: "今日も佳き日(1)"
-    number: 1
+    number: "1"
     delivered: "2025-10-10"
   - title: "今日も佳き日【連載版】 (5)"
-    number: 2
+    number: "5"
     delivered: "2026-02-20"
   - title: "今日も佳き日【連載版】 (6)"
-    number: 3
+    number: "6"
     delivered: "2026-04-29"
   - title: "今日も佳き日【連載版】 (7)"
-    number: 4
+    number: "7"
     delivered: "2026-06-26"
   - title: "【最新刊】今日も佳き日【連載版】 (8)"
-    number: 5
+    number: "8"
     delivered: "2026-07-24"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
     retrieved: 2026-08-05
     note: >-
-      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
-      Presumptive and rebuttable, and never a marketing_label (§4).
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
 marketing_label: none
 marketing_label_basis:
   source: bookwalker

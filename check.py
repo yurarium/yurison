@@ -1464,6 +1464,47 @@ ROLE_NOTATION = re.compile(r"[\[［][^\]］]*[\]］]|[（(]\s*(?:発売|頒布|�
 YURI_TERM_IN_IMPRINT = re.compile(r"百合|ガールズ・?ラブ|yuri", re.I)
 
 
+def inv_a_volume_number_is_the_shop_s_own(ctx):
+    """Every volume number a BOOK☆WALKER record states appears in that volume's own title.
+
+    THE FAULT, WHICH REACHED A READER AND WAS FOUND BY ONE. `bwingest.volumes_of` numbered a volume
+    by its POSITION in the shop's listing, `enumerate`'s index published as the volume number. A
+    shop listing is neither a volume list nor in volume order. BOOK☆WALKER sells 32 products under
+    MURCIÉLAGO, three of them free samples of volumes already in the list, so the corpus published a
+    29 volume series as 32 volumes and volumes 30, 31 and 32 existed in the interface and nowhere
+    else. パロスの剣 lists `【最新刊】…3巻` first, so volume 3 went out as volume 1 and volume 1 as
+    volume 2, each with the other's date beside it. 54 records disagreed with their own titles.
+
+    WHY AN INVARIANT AND NOT A BUDGET. A position published as a volume number is a fault in the
+    pipeline every time. It is not a deficit that shrinks as research is done, and there is no
+    number of them that is acceptable while somebody works through the rest.
+
+    SUBSTRING ARITHMETIC ON TWO SHIPPED FIELDS, per §14b, and this is the point of it. The producer
+    reads the number out of the product title by removing the series name and matching a handful of
+    forms; this asks only whether the number it settled on occurs in that title at all, NFKC-folded
+    so a full-width `１` meets a stored `1`. It shares no rule with `facts/volumenumber`, so a
+    parser that starts reading the wrong thing cannot satisfy it by being consistently wrong.
+
+    §14b, what it cannot see: a number that IS in the title and belongs to something else. The
+    booklet series `『citrus +』小冊子` names its parent work's volume in every title, and a rule
+    that read those would place booklet 1 as volume 5 and pass here. `volumenumber` declines it by
+    requiring the series name, and `test_volumenumber.py` is where that case is pinned.
+
+    fallback: none. A volume the shop does not number carries no number, which is a fact about the
+    listing and is not counted here.
+    """
+    bad = []
+    for rec in ctx["shop_records"]:
+        for v in rec.get("volumes") or ():
+            num = str(v.get("number") or "").strip()
+            if not num:
+                continue
+            title = unicodedata.normalize("NFKC", str(v.get("title") or ""))
+            if num not in title:
+                bad.append(f"{rec.get('work_id')}: volume {num} is not in {title[:44]!r}")
+    return sorted(bad)[:40]
+
+
 def inv_publisher_is_a_name_not_a_role(ctx):
     """A stored publisher must name a publisher, not the role somebody held.
 
@@ -2752,6 +2793,7 @@ INVARIANTS = [
     ("no cataloguing notation in an English rendering",
      inv_no_cataloguing_notation_in_an_english_rendering),
     ("a byline never states the default role", inv_a_byline_never_states_the_default_role),
+    ("a volume number is the shop's own", inv_a_volume_number_is_the_shop_s_own),
     ("no name is spelled with question marks", inv_no_name_is_spelled_with_question_marks),
     ("status.html shows no Japanese of its own",
      inv_status_page_shows_no_japanese_of_its_own),
@@ -5440,6 +5482,7 @@ def context():
         # own file cannot be shown one, and self_test then reports it healthy having exercised
         # nothing.
         "madb_records": _madb_records(),
+        "shop_records": _shop_records(),
         # WHAT EACH CAPTURE PASS WAS TOLD TO READ, BESIDE WHAT IT WROTE. Held as the two
         # collections and not as the answer, so a canary can be planted on either side of the
         # join: a target added, or a captured row taken away, which is the failure itself.
@@ -5532,6 +5575,16 @@ def _madb_records():
     """Every source-layer record the MADB adapter wrote, as parsed documents."""
     out = []
     for f in sorted((ROOT / "data" / "source" / "madb").glob("*.yaml")):
+        doc = _yaml(f, None)
+        if isinstance(doc, dict):
+            out.append(doc)
+    return out
+
+
+def _shop_records():
+    """Every source-layer record the BOOK☆WALKER adapter wrote, as parsed documents."""
+    out = []
+    for f in sorted((ROOT / "data" / "source" / "bookwalker").glob("*.yaml")):
         doc = _yaml(f, None)
         if isinstance(doc, dict):
             out.append(doc)
@@ -5853,6 +5906,17 @@ def self_test():
         ("dates within a row are ordered", inv_dates_within_a_row_are_ordered,
          lambda c: c["series"].append({"id": "CANARY", "work": "CANARY",
                                        "first": "2030-01", "latest": "2020-01"})),
+        # THE FAULT AS IT WAS SHIPPED (§14b): the item's position in the shop's listing, written
+        # into the number field. This is MURCIÉLAGO's third product, a free sample of volume 1,
+        # which the old rule numbered 3 because it came third.
+        ("a volume number is the shop's own", inv_a_volume_number_is_the_shop_s_own,
+         lambda c: c["shop_records"].append({"work_id": "CANARY", "volumes": [
+             {"title": "MURCIÉLAGO -ムルシエラゴ- 1巻【無料お試し版】", "number": "3"}]})),
+        # AND A FULL-WIDTH NUMBER IS THE SAME NUMBER, so the fold is not optional: the shop writes
+        # `さかさまロリポップ　１巻` and a record numbering it 2 must still be caught.
+        ("a volume number is the shop's own", inv_a_volume_number_is_the_shop_s_own,
+         lambda c: c["shop_records"].append({"work_id": "CANARY2", "volumes": [
+             {"title": "さかさまロリポップ　１巻", "number": "2"}]})),
         # The distributor MADB names ahead of the publisher, stored as the publisher.
         ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role,
          lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": "[発売]講談社"})),

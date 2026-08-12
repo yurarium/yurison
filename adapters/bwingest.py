@@ -30,6 +30,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[0]))
 
 from names import credits as _credits  # noqa: E402
 from facts import inclusion as _inclusion  # noqa: E402
+from facts import volumenumber as _volnum  # noqa: E402
 
 SHOP = "bookwalker.jp"
 # ONE HOME FOR WHAT A SHOP'S YURI SHELF IS CALLED (§3): this and `madb/by_isbn.SHELVES` each said
@@ -140,17 +141,30 @@ def chapterwise(title):
     return bool(CHAPTERWISE.search(title or ""))
 
 
-def volumes_of(work):
+def volumes_of(work, series=None):
     """`[{number, published, delivered}]`, dated by the print edition and never by the file.
 
     `delivered` is the day the shop began selling the file and runs years late on a back catalogue,
     so it is recorded and never promoted to a publication date. `printed` is 底本発行日, the print
     edition this file was made from, which is a publication of the work.
+
+    THE NUMBER IS THE ONE THE SHOP WROTE, AND WAS THE ITEM'S POSITION IN THE LISTING. `enumerate`'s
+    index went out as the volume number, and a shop listing is neither a volume list nor in volume
+    order: BOOK☆WALKER sells 32 products under MURCIÉLAGO, three of them free samples of volumes
+    already in it, so the corpus published a 29 volume series as 32 volumes and invented 30, 31 and
+    32. パロスの剣 lists `【最新刊】…3巻` first, so volume 3 went out as volume 1. 54 records
+    disagreed with their own product titles. `facts/volumenumber` reads the title against the
+    series name and answers None where the shop did not say, which the interface already draws.
+
+    A FREE SAMPLE IS NOT A VOLUME and is dropped here, the way `chapterwise` drops 単話 and 分冊版
+    for the same reason: it is a product, and the question is how long the work is.
     """
     out = []
-    for i, v in enumerate(work.get("volumes") or [], 1):
-        row = {"number": i if len(work.get("volumes") or []) > 1 else None,
-               "title": (v.get("title") or "").strip()}
+    for v in work.get("volumes") or []:
+        title = (v.get("title") or "").strip()
+        if _volnum.is_sample(title):
+            continue
+        row = {"number": _volnum.stated(title, series), "title": title}
         if v.get("printed"):
             row["published"] = str(v["printed"])[:10]
         if v.get("delivered"):
@@ -159,12 +173,34 @@ def volumes_of(work):
     return out
 
 
+def _volume_count(vols):
+    """How many volumes these products are: distinct stated numbers, plus the ones nobody numbered.
+
+    THE FIRST VERSION COUNTED DISTINCT NUMBERS ALONE AND WAS WRONG, which the shop said straight
+    away: 魔法少女三十路 lists seven volumes and states a number on one of them, so it came out as
+    one volume where コミックシーモア says seven, and 17 works moved into `works holding fewer
+    volumes than the shop states` on the strength of it. A volume nobody numbered is still a
+    volume; what it lacks is a name for its place in the run.
+
+    WHAT THE DISTINCT COUNT IS FOR is a listing that carries one volume twice, which is why the
+    numbered half is not simply counted either.
+    """
+    stated = {v["number"] for v in vols if v.get("number")}
+    return len(stated) + sum(1 for v in vols if not v.get("number"))
+
+
 def record(work, retrieved):
     """One work as a source record, or None where the capture read nothing about it."""
     title, from_title = strip_imprint(title_of(work), work.get("publisher"), work.get("imprint"))
     if not title:
         return None
-    vols = volumes_of(work)
+    # THE SERIES NAME THE VOLUME TITLES CARRY, which is the shop's own and not the one `title_of`
+    # derives: a series filed as `さかさまロリポップ（まんがタイムKRコミックス）` names its volumes
+    # `さかさまロリポップ　１巻`, so the imprint has to come off before the two can be compared. It
+    # is 3,634 of 4,792 rows that miss otherwise, which is most of them.
+    _series = (work.get("volumes") or [{}])[0].get("series_title")
+    _series, _ = strip_imprint(_series, work.get("publisher"), work.get("imprint"))
+    vols = volumes_of(work, _series)
     # WHAT THE SHOP SELLS ONE CHAPTER AT A TIME IS NOT A SET OF VOLUMES.
     # 付き合ってあげてもいいかな【単話】 lists 133 items and the shop numbers them （１） to （133）:
     # they are chapters sold individually, and calling them 第1巻 to 第133巻 says the work is 133
@@ -189,7 +225,10 @@ def record(work, retrieved):
         "publisher": work.get("publisher"),
         # The shop's own imprint field where it has one, else the label it wrote into the title.
         "imprint": work.get("imprint") or from_title,
-        "volume_count": 0 if by_chapter else len(vols),
+        # HOW MANY VOLUMES, NOT HOW MANY PRODUCTS. The distinct numbers where the shop states
+        # them, because a listing repeats a volume under a second cover; the count of items only
+        # where it states none, which is the best that can be said about a set nobody numbered.
+        "volume_count": 0 if by_chapter else _volume_count(vols),
         "volumes": [] if by_chapter else vols,
         "chapters": vols if by_chapter else [],
         "first_published": min(dated) if dated else None,

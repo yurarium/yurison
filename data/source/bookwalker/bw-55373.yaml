@@ -20,41 +20,31 @@ venue: "新書館"
 completed: false
 volumes:
   - title: "あさがおと加瀬さん。"
-    number: 1
     delivered: "2014-07-11"
   - title: "おべんとうと加瀬さん。"
-    number: 2
     published: "2014-07-29"
     delivered: "2015-07-03"
   - title: "ショートケーキと加瀬さん。"
-    number: 3
     published: "2015-09-24"
     delivered: "2015-11-06"
   - title: "エプロンと加瀬さん。"
-    number: 4
     published: "2017-08-10"
     delivered: "2017-07-28"
   - title: "さくらと加瀬さん。"
-    number: 5
     published: "2018-06-10"
     delivered: "2018-05-18"
   - title: "山田と加瀬さん。（１）"
-    number: 6
     delivered: "2019-07-26"
   - title: "山田と加瀬さん。（２）"
-    number: 7
     published: "2020-12-10"
     delivered: "2020-11-27"
   - title: "山田と加瀬さん。（３）【電子限定おまけ付き】"
-    number: 8
     published: "2022-07-10"
     delivered: "2022-06-25"
   - title: "山田と加瀬さん。（４）【電子限定おまけ付き】"
-    number: 9
     published: "2024-05-10"
     delivered: "2024-04-26"
   - title: "【最新刊】山田と加瀬さん。（５）"
-    number: 10
     published: "2026-01-10"
     delivered: "2025-12-26"
 admitted_by:
@@ -62,8 +52,8 @@ admitted_by:
     shelf: "tag 14 (百合)"
     retrieved: 2026-08-05
     note: >-
-      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
-      Presumptive and rebuttable, and never a marketing_label (§4).
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
 marketing_label: none
 marketing_label_basis:
   source: bookwalker

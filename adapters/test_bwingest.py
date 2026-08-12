@@ -27,6 +27,8 @@ def main(s):
     r = bw.record(work(), "2026-08-06")
     s.eq(r["title"], "初恋姉妹", "the series name is the work's title where the shop groups it")
     s.eq(r["volume_count"], 2, "with as many volumes as the shop showed")
+    s.eq([v["number"] for v in r["volumes"]], ["1", "2"],
+         "numbered as the shop's own product titles number them")
     s.eq(r["first_published"], "2014-02-14",
          "dated by the print edition the file was made from, which is a publication of the work")
 
@@ -108,6 +110,64 @@ def main(s):
          "so a record takes the imprint from the title where the shop states none")
 
     # WHAT A SHOP SELLS ONE CHAPTER AT A TIME IS NOT A SET OF VOLUMES.
+    # ── A POSITION IN A LISTING IS NOT A VOLUME NUMBER ────────────────────────────────────────
+    #
+    # THE FAULT THIS REPLACED, in the record it was found on. BOOK☆WALKER sells 32 products under
+    # MURCIÉLAGO: 29 volumes and 3 free samples of volumes already in the list. The number was the
+    # item's index, so the corpus published a 29 volume series as 32 volumes, invented volumes 30,
+    # 31 and 32, and put every date after the second sample beside the wrong number.
+    mur = bw.record(work(
+        title="MURCIÉLAGO -ムルシエラゴ-",
+        volumes=[{"title": "MURCIELAGO -ムルシエラゴ- 1巻", "series_title": "MURCIÉLAGO -ムルシエラゴ-",
+                  "printed": "2014-04-25"},
+                 {"title": "MURCIÉLAGO -ムルシエラゴ- 1巻【無料お試し版】",
+                  "series_title": "MURCIÉLAGO -ムルシエラゴ-", "delivered": "2026-07-22"},
+                 {"title": "MURCIELAGO -ムルシエラゴ- 2巻", "series_title": "MURCIÉLAGO -ムルシエラゴ-",
+                  "printed": "2014-04-25"},
+                 {"title": "【最新刊】MURCIÉLAGO -ムルシエラゴ- 29巻",
+                  "series_title": "MURCIÉLAGO -ムルシエラゴ-", "delivered": "2026-07-24"}]),
+        "2026-08-06")
+    s.eq([v["number"] for v in mur["volumes"]], ["1", "2", "29"],
+         "the shop's own numbers, and the free sample is not among them")
+    s.eq(mur["volume_count"], 3,
+         "SO THE COUNT IS OF VOLUMES AND NOT OF PRODUCTS; counting items gave 32 for a work with 29")
+    s.check(all("お試し版" not in v["title"] for v in mur["volumes"]),
+            "a free sample is dropped the way 単話 is, because the question is how long the work is")
+
+    # AND THE LISTING IS NOT IN VOLUME ORDER, which is the half of the fault the samples hide.
+    # パロスの剣 lists its newest volume first, so volume 3 went out as volume 1.
+    par = bw.record(work(title="パロスの剣", volumes=[
+        {"title": "【最新刊】パロスの剣　3巻", "series_title": "パロスの剣", "printed": "2016-01-01"},
+        {"title": "パロスの剣　1巻", "series_title": "パロスの剣", "printed": "2014-01-01"},
+        {"title": "パロスの剣　2巻", "series_title": "パロスの剣", "printed": "2015-01-01"}]),
+        "2026-08-06")
+    s.eq([v["number"] for v in par["volumes"]], ["3", "1", "2"],
+         "each volume keeps the number its own title states, whatever order the shop listed it in")
+    s.eq([v["published"] for v in par["volumes"]], ["2016-01-01", "2014-01-01", "2015-01-01"],
+         "so a date stays beside the volume it belongs to")
+
+    # A SERIES FILED UNDER ITS IMPRINT still names its volumes without it, and the two have to meet:
+    # 3,634 of 4,792 rows miss where the imprint is left on the series title.
+    imp = bw.record(work(title="さかさまロリポップ", imprint="まんがタイムKRコミックス", volumes=[
+        {"title": "さかさまロリポップ　１巻",
+         "series_title": "さかさまロリポップ（まんがタイムKRコミックス）", "printed": "2015-01-01"},
+        {"title": "さかさまロリポップ　２巻",
+         "series_title": "さかさまロリポップ（まんがタイムKRコミックス）", "printed": "2016-01-01"}]),
+        "2026-08-06")
+    s.eq([v["number"] for v in imp["volumes"]], ["1", "2"],
+         "the imprint comes off the series name before the volume titles are read against it")
+
+    # AND WHAT THE SHOP DOES NOT NUMBER IS NOT NUMBERED. `百合シリーズ` is a shop umbrella over
+    # differently named books, and giving them 1, 2, 3 would assert a run that does not exist.
+    umb = bw.record(work(title="百合シリーズ", volumes=[
+        {"title": "ドSさんはヤキモチちゃんが大好き", "series_title": "百合シリーズ"},
+        {"title": "ヤキモチちゃんとドSさんのラブらいふ", "series_title": "百合シリーズ"}]),
+        "2026-08-06")
+    s.eq([v["number"] for v in umb["volumes"]], [None, None],
+         "a work the shop numbers nowhere carries no numbers")
+    s.eq(umb["volume_count"], 2,
+         "and the count falls back on how many items there are, which is all that can be said")
+
     # 付き合ってあげてもいいかな【単話】 lists 133 items, numbered （１） to （133） by the shop
     # itself, and calling them 第1巻 to 第133巻 says the work is 133 volumes long.
     s.check(bw.chapterwise("付き合ってあげてもいいかな【単話】"), "単話 is sold one chapter at a time")

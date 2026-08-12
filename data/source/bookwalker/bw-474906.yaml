@@ -20,15 +20,15 @@ venue: "小学館"
 completed: true
 volumes:
   - title: "煙色のまほろば（１）"
-    number: 1
+    number: "1"
     published: "2024-07-03"
     delivered: "2024-06-28"
   - title: "煙色のまほろば（２）"
-    number: 2
+    number: "2"
     published: "2024-12-03"
     delivered: "2024-11-28"
   - title: "【最終巻】煙色のまほろば（３）"
-    number: 3
+    number: "3"
     published: "2025-06-04"
     delivered: "2025-05-30"
 admitted_by:
@@ -36,8 +36,8 @@ admitted_by:
     shelf: "tag 14 (百合)"
     retrieved: 2026-08-05
     note: >-
-      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
-      Presumptive and rebuttable, and never a marketing_label (§4).
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
 marketing_label: none
 marketing_label_basis:
   source: bookwalker

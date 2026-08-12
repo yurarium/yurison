@@ -20,15 +20,15 @@ venue: "芳文社"
 completed: true
 volumes:
   - title: "サキュバスイッチ　１巻"
-    number: 1
+    number: "1"
     published: "2023-09-27"
     delivered: "2023-09-12"
   - title: "サキュバスイッチ　２巻"
-    number: 2
+    number: "2"
     published: "2024-02-24"
     delivered: "2024-02-09"
   - title: "【最終巻】サキュバスイッチ　３巻"
-    number: 3
+    number: "3"
     published: "2024-10-25"
     delivered: "2024-10-10"
 admitted_by:
@@ -36,8 +36,8 @@ admitted_by:
     shelf: "tag 14 (百合)"
     retrieved: 2026-08-05
     note: >-
-      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
-      Presumptive and rebuttable, and never a marketing_label (§4).
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
 marketing_label: none
 marketing_label_basis:
   source: bookwalker

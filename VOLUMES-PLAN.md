@@ -18,7 +18,7 @@ volumes, and the catalogue that actually knows the answer is never asked.
 | | stage | needs |
 |---|---|---|
 | §1 | Measure what the shop says against what we hold | done 2026-08-12 |
-| §2 | Stop publishing a listing position as a volume number | §1, to see what it moves |
+| §2 | Stop publishing a listing position as a volume number | done 2026-08-12 |
 | §3 | One volume row per volume, however many catalogues describe it | §2, for numbers to key on |
 | §4 | Ask コミックシーモア about the works we hold | §3, or it adds a third overlapping set |
 
@@ -107,7 +107,8 @@ test. They are §2's invariant and §3's arithmetic, described in place below.
 
 ## 2. BOOK☆WALKER's volume number is the item's position in a shop listing
 
-Needs §1, so that the 30 works holding more volumes than the shop states can be watched falling.
+**DONE, 2026-08-12.** `adapters/facts/volumenumber/` reads the number the shop wrote, `bwingest`
+uses it, and `a volume number is the shop's own` is an invariant. MURCIÉLAGO is 29 volumes.
 
 ### What is wrong
 
@@ -187,10 +188,54 @@ order is wrong), `bw-84256` なないろ黒蝶 (listing order 1, 3, 2, 4), `bw-3
 
 ### The measure that guards it
 
-**`volumes numbered by a listing position`**, an INVARIANT and not a budget, at 0 from the day this
-lands. A position published as a volume number is a fault in the pipeline every time, not a deficit
-that research reduces. Counted by asking each BOOK☆WALKER volume row whether its number was read
-from the product title or assigned.
+**`a volume number is the shop's own`**, an INVARIANT and not a budget, at 0 from the day it landed.
+A position published as a volume number is a fault in the pipeline every time, not a deficit that
+research reduces.
+
+It asks a dumber question than the name in the plan suggested. "Was this number read or assigned"
+cannot be asked of the data, only of the code that wrote it, and a check that re-ran the reader
+would share its blind spot. What it asks instead is whether the number a record states occurs in
+that volume's own product title at all, NFKC-folded so a full-width `１` meets a stored `1`. Every
+form of the fault fails that test: the sample numbered 3 for coming third, パロスの剣's volume 3
+numbered 1 for being listed first. It is pure substring arithmetic over two shipped fields.
+
+### What landed, and what it moved
+
+| | |
+|---|---|
+| the series title is inside the product title | 94% of 4,792 rows |
+| a number is read from the title | 81% of rows; 719 of 963 records fully numbered |
+| free samples dropped | 29 products |
+
+**The series title turned out to be the evidence, not the pattern.** The plan expected the reader to
+be `bwingest.NUMBERED_OFF` read forwards. It is not, and the difference is what made it work: a
+rule reading digits off the end of a title has to guess whether they are a number or a name, and
+`あやめ14` and `ラブフェロモンNo.5` are names. A product title in a series is the series title with
+something added, so removing the series name leaves exactly the something and there is nothing left
+to guess. `NUMBERED_OFF` stays, because naming a work the shop holds one volume of is a different
+question with different evidence.
+
+The comparison had to be made tolerant of accent, width, case and punctuation before it worked at
+all: BOOK☆WALKER files the series as `MURCIÉLAGO -ムルシエラゴ-` and the volume as `MURCIELAGO
+-ムルシエラゴ- 1巻`. And the imprint has to come off the series title first, which is 3,634 of the
+4,792 rows: a series filed as `さかさまロリポップ（まんがタイムKRコミックス）` names its volumes
+`さかさまロリポップ　１巻`.
+
+**A count of distinct numbers was wrong and the shop said so.** The first version counted distinct
+stated numbers as the volume count, so 魔法少女三十路, which lists seven volumes and numbers one of
+them, came out as one volume against コミックシーモア's seven. 17 works moved the wrong way and
+§1's budget caught it within the hour. A volume nobody numbered is still a volume; what it lacks is
+a name for its place in the run. The count is distinct numbers plus the items carrying none.
+
+| budget | before | after |
+|---|---|---|
+| `works holding more volumes than the shop states` | 30 | **25** |
+| `works whose records number one volume twice` | 20 | **15** |
+| `works holding fewer volumes than the shop states` | 70 | **68** |
+| `volume rows with no publication date` | 2,525 | **2,521** |
+
+MURCIÉLAGO's index row now reads 29. Its work page still draws two runs, 29 volumes and 20, which
+is §3 and is untouched here.
 
 ---
 

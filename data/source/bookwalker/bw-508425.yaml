@@ -20,30 +20,29 @@ venue: "ナンバーナイン"
 completed: true
 volumes:
   - title: "あなたみたいに【連載版】 1巻"
-    number: 1
+    number: "1"
     delivered: "2025-02-01"
   - title: "あなたみたいに【連載版】 2巻"
-    number: 2
+    number: "2"
     delivered: "2025-06-27"
   - title: "あなたみたいに【連載版】 3巻"
-    number: 3
+    number: "3"
     delivered: "2026-04-17"
   - title: "あなたみたいに【連載版】 4巻"
-    number: 4
+    number: "4"
     delivered: "2026-05-14"
   - title: "あなたみたいに 1"
-    number: 5
     delivered: "2026-06-26"
   - title: "【最新刊】あなたみたいに【連載版】 5巻"
-    number: 6
+    number: "5"
     delivered: "2026-07-03"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
     retrieved: 2026-08-05
     note: >-
-      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2).
-      Presumptive and rebuttable, and never a marketing_label (§4).
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
 marketing_label: none
 marketing_label_basis:
   source: bookwalker

@@ -2224,6 +2224,15 @@ def _rendered(kind, k, rec, render, ids=None, prefix=""):
     if entity == "notation":
         return None
     out = render(k, rec, is_person=(kind == "authors" and not entity))
+    # AND THE MARK ITSELF TRAVELS, because the renderer on the other side needs it and this is the
+    # only place that holds it. `10-names.js` has a rule saying an organisation's Latin name is a
+    # string somebody decided rather than its kana spelt out, and it reads `rec.kind`; nothing ever
+    # published a `kind`, and the store calls the field `entity`. So one fact had two names, the
+    # rule could not fire, and 天華百剣プロジェクト shipped as `Tenkahyakkenpurojekuto` beside its own
+    # `en: Tenka Hyakken Project`. Published under the store's name, which is the one that produces
+    # it (§3).
+    if out and entity:
+        out["entity"] = entity
     # THE ADDRESS OF THE RECORD THIS NAME IS. Attached here rather than in `render`, because it is
     # not a rendering: it does not depend on the reader's language, style or name order, and it is
     # the same string in every mode. A title gets none, because a work's identifier is already on

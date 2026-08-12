@@ -122,6 +122,15 @@
 # 雨水汐 signs USUISHIO as one word and usui shio as two. 缶乃 is rubied CANNO and set ©Canno in a
 # rights line, which is resolved in favour of the rights line and noted rather than ruled.
 #
+# EIGHT, ruled 2026-08-12. A JAPANESE WORD LEFT STANDING INSIDE AN OTHERWISE ENGLISH TITLE DOES
+# NOT COST THE LINE ITS PLACE. Rule 2 asks whether a Latin form is ONLY the Japanese transliterated;
+# a line that renders most of itself and keeps one word is not that, whatever the kept word is and
+# whether or not English had one available. Five are affected and the class is now closed: monthly /
+# with garden / with ooya, Zombie Princess & Dakko!, unknown koroshiya san so cute, teku teku secret
+# research, and Hokuriku Triangle. Two of those were taken before the ruling and three were refused,
+# so the file no longer disagrees with itself about ooya against koroshiya, or about Koumakan
+# against Hokuriku.
+#
 # THE SAME TWO QUESTIONS ARISE FOR A PERSON'S NAME and the ruling names the title, so those are
 # marked `not-a-name-spelling` as an EXTENSION rather than assumed. Five are affected and every one
 # is the kana transliterated: KASHIKAZE, TAMA TAMASAKI, MANIO, YAKINIKUTEISHOKU, SHIBORIKASUKO. A
@@ -4727,9 +4736,11 @@ candidates:
     frame. Recorded as the publisher's own English and flagged.
 - work: 北陸とらいあんぐる
   latin: Hokuriku Triangle
-  kind: cover-romanisation
+  kind: official-latin-title
   seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_23660__3d3275f52bccfca5.jpg
-  decision: not-a-title
+  as_recorded: Hokuriku Triangle
+  ruled: taken-as-title-2026-08-12
+  decision: take-as-title
   why_decided: RULE 2 APPLIES, and this is the Elf to hitotsu yanenoshita shape. とらいあんぐる is triangle
     written in hiragana so that word is a source, but 北陸 is the region the whole comic is about and
     it is only sounded out.
@@ -5815,9 +5826,11 @@ candidates:
     of which our romanisation would do differently.
 - work: てくてくっ！秘密リサーチ
   latin: teku teku secret research
-  kind: cover-romanisation
+  kind: official-latin-title
   seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_63696__f0f16774cf934970.jpg
-  decision: not-a-title
+  as_recorded: teku teku secret research
+  ruled: taken-as-title-2026-08-12
+  decision: take-as-title
   why_decided: RULE 2 APPLIES, on the OSHIKOI CAPRICCIO line. 秘密リサーチ becomes secret research, both rendered,
     but てくてくっ is the sound of walking along and it is only sounded out, and it is the half that gives
     the strip its character.

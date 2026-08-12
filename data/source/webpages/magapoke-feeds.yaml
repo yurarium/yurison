@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-08-11
+retrieved: 2026-08-13
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -2911,8 +2911,12 @@ works:
     title_id: "2758"
     url: "https://pocket.shonenmagazine.com/title/02758"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2758/feed.xml"
-    chapter_count: 58
+    chapter_count: 59
     chapters:
+      - title: "【単行本宣伝話】"
+        updated: 2026-08-12
+        author: "ヒロユキ"
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/442507"
       - title: "【第53話】脳筋☆アホアホ☆ガール"
         updated: 2026-08-05
         author: "ヒロユキ"

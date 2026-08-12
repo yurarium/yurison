@@ -6,12 +6,30 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-08-11
+retrieved: 2026-08-13
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984063808660"
+    work_title: "きょうもバレずに過ごせた！"
+    web_status: "serialised"
+    identified_via: "known-work-match"
+    episode_title: "13にちめ：推しのため!?"
+    release_type: "unclassified"
+    date: "2026-08-07"
+    date_basis: "observed"
+    first_seen: "2026-08-13"
+    first_reported: "2026-08-06T15:00:00Z"
+    platform_updated: "2026-08-06T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984063808660"
+    author: "はづき"
+    free_term_start: "2026-08-06T15:00:00Z"
+    raw_title: "13にちめ：推しのため!?"
+    advances_narrative: false
   - release_id: "sunday_webry:episode:12207421983909949999"
+    in_current_window: false
     work_title: "高井さんの見える世界"
     web_status: "serialised"
     identified_via: "discovery-candidate"

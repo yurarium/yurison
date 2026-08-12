@@ -6,7 +6,7 @@ source: gigaviewer
 platform: comic-trail
 platform_name: "コミックトレイル"
 publisher: "白泉社"
-retrieved: 2026-08-11
+retrieved: 2026-08-13
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -14,7 +14,7 @@ releases:
   - release_id: "comic_trail:episode:12207421983905863246"
     work_title: "お嬢様、懺悔する。"
     web_status: "serialised"
-    identified_via: "discovery-candidate"
+    identified_via: "known-work-match"
     episode_title: "第11話〈１〉"
     release_type: "chapter"
     date: "2026-08-07"

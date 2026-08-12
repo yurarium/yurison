@@ -10,7 +10,7 @@
 source: nicovideo
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-11
+retrieved: 2026-08-12
 record_type: web_work_chapters
 identification_mode: known-works
 works_resolved: 337
@@ -7847,10 +7847,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/44519"
     platform_code: "44519"
     started: "2019-10-20"
-    updated: "2026-08-11"
-    episode_count_stated: 106
+    updated: "2026-08-12"
+    episode_count_stated: 107
     partial: true
-    chapter_count: 106
+    chapter_count: 107
     chapters:
       - title: "ロボ1-1"
         access_modes: ["free"]
@@ -8063,6 +8063,8 @@ works:
       - title: "ロボ18-3"
         access_modes: ["free"]
       - title: "ロボ18-4"
+        access_modes: ["free"]
+      - title: "ロボ18-5"
         access_modes: ["free"]
   - work_title: "あなたのためなら女にでも"
     author: "つごもり(著者)"
@@ -12557,7 +12559,7 @@ works:
         app_only: true
       - title: "第17話"
         app_only: true
-      - title: "第18話"
+      - title: "第18話前編"
         access_modes: ["free"]
   - work_title: "海鳥東月の『でたらめ』な事情"
     author: "飴色みそ(著者) 両生類かえる(原作) 甘城なつき(キャラクター原案)"
@@ -13203,10 +13205,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/62230"
     platform_code: "62230"
     started: "2023-02-02"
-    updated: "2026-08-11"
-    episode_count_stated: 16
+    updated: "2026-08-12"
+    episode_count_stated: 17
     rights: ["Sui Kohno"]
-    chapter_count: 26
+    chapter_count: 27
     chapters:
       - title: "第1話　ララのお仕事"
         access_modes: ["free"]
@@ -13259,6 +13261,8 @@ works:
       - title: "第22話　ララと歌②"
         access_modes: ["free"]
       - title: "第23話　ヨンカ①"
+        access_modes: ["free"]
+      - title: "第23話　ヨンカ②"
         access_modes: ["free"]
   - work_title: "イケメン女子とイケメン女子"
     author: "坂本しぐま"

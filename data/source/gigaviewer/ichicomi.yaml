@@ -6,12 +6,13 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-08-11
+retrieved: 2026-08-13
 record_type: web_releases
 identification_mode: genre
 yuri_series_count: 165
 releases:
   - release_id: "ichijinsha:episode:12207421984039246714"
+    in_current_window: false
     work_title: "カナリアは綺羅星の夢をみる"
     web_status: "serialised"
     identified_via: "platform-genre"
@@ -28,6 +29,7 @@ releases:
     free_term_start: "2026-08-06T02:00:00Z"
     advances_narrative: true
   - release_id: "ichijinsha:episode:12207421984039246741"
+    in_current_window: false
     work_title: "平良深姉妹はどっちもヤんでる"
     web_status: "serialised"
     identified_via: "platform-genre"
@@ -44,6 +46,7 @@ releases:
     author: "金子ある"
     advances_narrative: true
   - release_id: "ichijinsha:episode:12207421984039246734"
+    in_current_window: false
     work_title: "平良深姉妹はどっちもヤんでる"
     web_status: "serialised"
     identified_via: "platform-genre"
@@ -60,6 +63,7 @@ releases:
     author: "金子ある"
     advances_narrative: true
   - release_id: "ichijinsha:episode:12207421984039246726"
+    in_current_window: false
     work_title: "平良深姉妹はどっちもヤんでる"
     web_status: "serialised"
     identified_via: "platform-genre"
@@ -76,6 +80,7 @@ releases:
     author: "金子ある"
     advances_narrative: true
   - release_id: "ichijinsha:episode:12207421984039246721"
+    in_current_window: false
     work_title: "平良深姉妹はどっちもヤんでる"
     web_status: "serialised"
     identified_via: "platform-genre"

@@ -103,6 +103,26 @@ def main(s):
     s.eq(vn.designation("レミ咲短編集「you」", "レミ咲短編集「you」"), None,
          "including where the titles differ only in punctuation the fold ignores")
 
+    # THE BRACKET THE SHOP WRITES IN AND THE BRACKET A TITLE WRITES IN ARE DIFFERENT SETS, and
+    # telling them apart is what makes a designation worth showing. BOOK☆WALKER sells 17 ゆるゆり
+    # booklets whose titles all read `ゆるゆり 特装版小冊子電子版` after the leading bracket, so
+    # stripping it as an aside gave a work page seventeen identical rows.
+    s.eq([vn.designation(x, "ゆるゆり　小冊子") for x in
+          ("「おみくじフォトグラフ」ゆるゆり 特装版小冊子電子版",
+           "「お姫様になるまで」ゆるゆり 特装版小冊子電子版")],
+         ["「おみくじフォトグラフ」ゆるゆり 特装版小冊子電子版",
+          "「お姫様になるまで」ゆるゆり 特装版小冊子電子版"],
+         "a title's own bracket is the whole of what tells one booklet from the next")
+    s.eq(vn.designation("【最新刊】「がちゆり」ゆるゆり 特装版小冊子電子版", "ゆるゆり　小冊子"),
+         "「がちゆり」ゆるゆり 特装版小冊子電子版",
+         "while the shop's own bracket comes off, because 【】 is where BOOK☆WALKER writes its marks")
+    s.eq(vn.designation("コミック百合姫 2017年1月号[雑誌]", "コミック百合姫"), "2017年1月号",
+         "and so does its format tag")
+    # AND A NUMBER IS NEVER INSIDE EITHER BRACKET, so reading one still strips both.
+    s.eq(vn.stated("[カラー版]なないろ黒蝶～KillerAngel　〈眼帯の下の紅い目〉3巻",
+                   "[カラー版]なないろ黒蝶～KillerAngel"), "3",
+         "a subtitle in 〈〉 is read past when the question is which volume this is")
+
     # THE SHOP SAYS WHAT A PRODUCT IS AND WE DO NOT INFER IT.
     s.check(vn.is_periodical("コミック百合姫 2017年1月号[雑誌]"),
             "BOOK☆WALKER writes its own word for a magazine and that is what is read")

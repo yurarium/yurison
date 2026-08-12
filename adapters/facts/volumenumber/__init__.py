@@ -40,12 +40,23 @@ a series, and numbering it would put 12 volumes a year into a work's run. It is 
 import re
 import unicodedata
 
-#: A bracketed aside at either end of what is left: `【電子限定特典ペーパー付き】`, `[雑誌]`, and
-#: the 〈…〉 a volume's own subtitle is set in. Round brackets are deliberately absent, because
-#: `（1）` is one of the ways the number itself is written.
-_ASIDE = r"[【\[〈「][^】\]〉」]{0,28}[】\]〉」]"
+#: THE SHOP'S OWN BRACKETS, which BOOK☆WALKER sets its own marks in: `【最新刊】`,
+#: `【電子限定特典ペーパー付き】`, `[雑誌]`. Nothing in one of these is part of what a book is
+#: called.
+_SHOP_ASIDE = r"[【\[][^】\]]{0,28}[】\]]"
+
+#: THE BRACKETS A TITLE USES, which are a different set and are content. `〈眼帯の下の紅い目〉` is a
+#: volume's subtitle and `「おみくじフォトグラフ」` is the whole of what tells one ゆるゆり booklet
+#: from the next: the shop sells 17 of them and every title after the bracket reads
+#: `ゆるゆり 特装版小冊子電子版`. Stripped when a NUMBER is being read, because a number is never
+#: inside one; kept when the designation is what is wanted.
+_TITLE_ASIDE = r"[〈「][^〉」]{0,28}[〉」]"
+
+_ASIDE = f"(?:{_SHOP_ASIDE}|{_TITLE_ASIDE})"
 BRACKET_TAIL = re.compile(rf"\s*{_ASIDE}\s*$")
 BRACKET_HEAD = re.compile(rf"^\s*{_ASIDE}\s*")
+SHOP_TAIL = re.compile(rf"\s*{_SHOP_ASIDE}\s*$")
+SHOP_HEAD = re.compile(rf"^\s*{_SHOP_ASIDE}\s*")
 
 #: An instalment designated by when it came out rather than by where it sits in a run. Nothing is
 #: read out of one of these: see `stated`.
@@ -126,15 +137,25 @@ def beyond_series(title, series):
     return body[where[at + len(want) - 1] + 1:]
 
 
-def _clean(tail):
-    """A tail with the shop's brackets and stranded punctuation off, ready to read or to show."""
+def _strip(tail, head, end):
+    """`tail` with every leading and trailing aside off, and the stranded punctuation with it."""
     tail = unicodedata.normalize("NFKC", tail).strip()
     for _ in range(4):
-        shorter = BRACKET_HEAD.sub("", BRACKET_TAIL.sub("", tail).strip()).strip()
+        shorter = head.sub("", end.sub("", tail).strip()).strip()
         if shorter == tail:
             break
         tail = shorter
     return tail.strip(LEAD).strip()
+
+
+def _clean(tail):
+    """A tail with every aside off, for reading a number out of what is left."""
+    return _strip(tail, BRACKET_HEAD, BRACKET_TAIL)
+
+
+def _shown(tail):
+    """A tail with the SHOP's marks off and the title's own brackets kept, for showing a reader."""
+    return _strip(tail, SHOP_HEAD, SHOP_TAIL)
 
 
 def is_periodical(title):
@@ -192,5 +213,5 @@ def designation(title, series):
     """
     tail = beyond_series(title, series)
     if tail is None:
-        return _clean(str(title or "")) or None
-    return _clean(tail) or None
+        return _shown(str(title or "")) or None
+    return _shown(tail) or None

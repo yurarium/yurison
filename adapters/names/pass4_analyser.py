@@ -1364,7 +1364,7 @@ def renderer_fingerprint():
     return hashlib.sha256("".join(parts).encode("utf-8")).hexdigest()[:16]
 
 
-def fill_chapters(names_seen, quiet=False, ruled=None):
+def fill_chapters(names_seen, quiet=False, ruled=None, credits=True):
     """English for chapter names and credit lines, stored beside titles and authors.
 
     These are the bulk of what remains Japanese on an English page — 202 chapter names against 6
@@ -1415,7 +1415,13 @@ def fill_chapters(names_seen, quiet=False, ruled=None):
     for x in todo:
         en = chapter_en(x, lambda t: romanise_ja(tok, modes, t))
         if en is None:
-            if is_credit_line(x, ruled):
+            # `credits=False` SAYS THE CALLER KNOWS THESE ARE NOT CREDIT FIELDS, and the guess below
+            # is only worth making where they might be. `is_credit_line` answers True for
+            # `Walking the Underground - 地底をゆく` and for `2019年1月号増刊(2018年12月20日発売)`,
+            # which are a volume's designation and a magazine's issue: 158 of them got no phrase at
+            # all and floored, because the skip that protects a real credit field from being
+            # romanised as one run was applied to strings that are not credit fields.
+            if credits and is_credit_line(x, ruled):
                 # A CREDIT FIELD GETS NO PHRASE. The map held one romanisation of the whole field,
                 # roles and all, written once and never revisited; the interface composes the line
                 # from the shipped division instead, so the names follow the store and the roles
@@ -1430,7 +1436,13 @@ def fill_chapters(names_seen, quiet=False, ruled=None):
                 # chapter_en converts them for its own matching and this path never did, so a name
                 # it does not recognise lost the distinction entirely.
                 en = romanise_ja(tok, modes, part_marks(x))
-        if en and en != x:
+        # A RENDERING THAT IS STILL JAPANESE IS NOT A RENDERING, and the map must not hold one.
+        # `kari/app.js`'s `phraseHeld` already refuses an answer carrying kana or kanji, so an
+        # entry like that is a row the interface ignores and `kana left in a romanisation` counts.
+        # `于是秘封由此开始。2 … そして秘封へと至る。2 …-中国語翻訳版` is a Chinese edition of a
+        # Japanese work whose title holds both, and the analyser handed back the same string with
+        # its full stops narrowed, which passed `en != x` and nothing else.
+        if en and en != x and not has_japanese(en):
             names[x] = en
             added += 1
     if added:

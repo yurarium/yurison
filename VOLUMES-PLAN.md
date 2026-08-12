@@ -491,9 +491,29 @@ one. Ruled by the project owner 2026-08-12.
 **One entry point for what a volume row is called.** `volLabel` takes the number where there is one
 and the designation where there is not, because they are the same question, and drawing them
 separately is what let one of them onto the page unrendered. The designation goes through
-`phraseOf`, and `build.py` feeds designations into the analyser pass beside the numbers §3 added:
-571 more phrases, 763 of the 899 Japanese-bearing designations answered from the map and the rest
-floored and marked, which is the treatment every unrenderable phrase already gets.
+`phraseOf`, and `build.py` feeds designations into the analyser pass beside the numbers §3 added.
+**899 of the 901 Japanese-bearing designations are rendered from the phrase map**; the two left are
+Chinese editions of Japanese works whose titles hold both scripts, and they floor and are marked.
+
+Getting there took three findings the owner's reading of the page produced.
+
+**A title's bracket and the shop's bracket are different sets.** The 17 ゆるゆり booklets came out
+with one name between them, because every title after its leading `「…」` reads
+`ゆるゆり 特装版小冊子電子版` and the aside-stripper took the bracket off. BOOK☆WALKER writes its
+own marks in `【】` and `[]`; a title writes in `「」` and `〈〉`. Reading a NUMBER still strips both,
+because a number is never inside either.
+
+**A volume designation is not a credit field, and the pass was guessing that it might be.**
+`fill_chapters` declines to render a credit line, correctly, because romanising `[著]中村明日美子`
+as one run is the fault in its worst form. It decides by asking `is_credit_line`, which answers yes
+to `Walking the Underground - 地底をゆく` and to `2019年1月号増刊(2018年12月20日発売)`, so 158
+designations got no rendering on the strength of a guess about a population they are not in. The
+caller now says which it is.
+
+**A rendering that is still Japanese is not a rendering.** The analyser handed back one Chinese
+title with its full stops narrowed, which passed the `en != x` test and went into the map;
+`kari/app.js` refuses such an answer when reading, so the row was one the interface ignored and
+`kana left in a romanisation` counted. The store now applies the reader's own rule.
 
 **The ruling split in two.** `interface.NOT_DRAWN` is 31 paths, each now a claim about
 `kari/app.js` that `entrypoints.undrawn_findings` verifies. `interface.QUOTED` is the 14 that

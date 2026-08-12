@@ -6748,7 +6748,13 @@ def main():
         _p4.fill_chapters({x for r in releases + series_rows
                            for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
                                      (r.get("author") or "").strip(),
-                                     r.get("work")) if x} | _vol_words, ruled=_credit_ruled)
+                                     r.get("work")) if x}, ruled=_credit_ruled)
+        # ASKED SEPARATELY, BECAUSE A VOLUME'S DESIGNATION IS NEVER A CREDIT FIELD. The set above
+        # holds `r.author`, so the pass has to guess whether a string is a credit line and decline
+        # to render one; `is_credit_line` says yes to
+        # `Walking the Underground - 地底をゆく` and to `2019年1月号増刊(2018年12月20日発売)`, and
+        # 158 designations floored on the strength of a guess about a population they are not in.
+        _p4.fill_chapters(_vol_words, ruled=_credit_ruled, credits=False)
         # WHERE A PERSON'S NAME DOES NOT DIVIDE, and this runs FIRST because the answer it produces
         # is what the pass below is then allowed to ask a real source about. An analyser divides
         # every name it is handed, so のぴやか梢 was read ノ ピ ヤ カ コズエ and shown to an English

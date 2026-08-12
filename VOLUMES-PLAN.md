@@ -2,9 +2,10 @@
 
 Written 2026-08-12 from three faults the project owner found on MURCIÉLAGO, a fourth found on
 コミック百合姫 the day the second fix shipped, and a fifth the third fix caused. All of them are
-classes rather than cases. §1, §2 and §3 are done. What remains is a field drawn without its
-renderer, a volume described twice by two catalogues, and a catalogue that knows the answers and is
-never asked.
+classes rather than cases. §1 to §5 are done. What remains is the dating: the ISBN-keyed
+catalogues are exhausted and 2,514 volume rows carry no date, because the shop that holds most of
+them states no ISBN and nothing keyed on one can reach them. §6 asks the National Diet Library,
+which is keyed on a title, and §7 asks コミックシーモア for what is left.
 
 The sections below are in the order they are to be done, and each one says what it needs from the
 one before it.
@@ -28,7 +29,8 @@ a sequence. Reading it as a sequence is how a magazine came to have 119 volumes.
 | §3 | Carry what a record says about a volume, and read a designation as what it is | done 2026-08-12 |
 | §4 | Render a field before drawing it, and prove a ruling that says nothing draws it | done 2026-08-12 |
 | §5 | One volume row per volume, however many catalogues describe it | done 2026-08-12 |
-| §6 | Ask コミックシーモア about the works we hold | §5, or it adds a third overlapping set |
+| §6 | Ask the National Diet Library, which is free and keyed on a title | §5 |
+| §7 | Ask コミックシーモア for what NDL could not answer | §6, which is cheaper |
 
 §3 was found by a reader looking at コミック百合姫 the day §2 shipped, and it is the general fault
 that page is one instance of: the build carried five of a volume record's fields and dropped the
@@ -43,7 +45,7 @@ not a patch.
 **Measuring comes first, and this is the part that was nearly left out.** Each fix moves a number
 nobody is currently watching, so each can regress into a state that looks exactly like the state it
 fixed. §1 costs little, needs nothing built, and is what makes the repairs provable rather than
-asserted. It is also the fastest way to find out how large §6 really is, and §2's own error was
+asserted. It is also the fastest way to find out how large §7 really is, and §2's own error was
 caught by it within the hour.
 
 ---
@@ -88,7 +90,7 @@ stating how long the work is and neither count is taken.
 | **we hold MORE than cmoa states** | **30** |
 
 The two directions are different faults and are counted apart. Holding fewer is a stale capture,
-which §6 fixes by asking: 冷たくて柔らか is 4 against 7, きみが死ぬまで恋をしたい 9 against 11.
+which §7 fixes by asking: 冷たくて柔らか is 4 against 7, きみが死ぬまで恋をしたい 9 against 11.
 Holding more is §2's fault showing through, a product count published as a volume count:
 **MURCIÉLAGO 32 against 29**, citrus+ 8 against 7, 鎧塚さんをバブらせたい 6 against 4. The ISBN
 route reaches MURCIÉLAGO, which a title fold could not, because cmoa spells it `MURCIELAGO`.
@@ -97,9 +99,9 @@ route reaches MURCIÉLAGO, which a title fold could not, because cmoa spells it 
 
 | budget | opens at | expected floor |
 |---|---|---|
-| `volume rows with no publication date` | 2,525 of 6,153 | falls as §6 collects |
+| `volume rows with no publication date` | 2,525 of 6,153 | falls as §7 collects |
 | `works whose records number one volume twice` | 20 | **10**, see below |
-| `works holding fewer volumes than the shop states` | 70 | falls as §6 collects |
+| `works holding fewer volumes than the shop states` | 70 | falls as §7 collects |
 | `works holding more volumes than the shop states` | 30 | near 0 after §2 |
 
 **The floor of 10 is real books and was found by the canary.** The first version of this plan said
@@ -647,7 +649,99 @@ work moving into `works holding fewer volumes than the shop states`.
 
 ---
 
-## 6. コミックシーモア knows the volumes and is never asked about a work we hold
+## 6. The National Diet Library is free, keyed on a title, and already half-wired
+
+Needs §5. Ruled ahead of コミックシーモア by the project owner 2026-08-12: scraping a shop for an
+ISBN and a date is expensive, and anything NDL can answer should be asked of NDL first.
+
+### Why this is the route, in one measurement
+
+Every volume row that has an ISBN has a date, and every row that has a date has an ISBN. The two
+populations are the same 2,305 rows, which is the whole story: dating is ISBN-keyed, and
+BOOK☆WALKER states no ISBN on any of 5,968 volumes read. **The ISBN-keyed databases are exhausted**
+and the wall is the key, not the catalogue. openBD is asked for every ISBN the corpus holds, the
+MADB bulk release agrees with all 2,286 dates and adds nothing because the corpus was read off
+those records, cmoa's `printed` agrees on all 538 it shares, and the publishers' own pages and
+Books.or.jp took the 49-row residue.
+
+NDL is the one public database with a different key. `adapters/ndl.py` searches by TITLE with author
+agreement and returns `dcndl:volume`, `dcterms:issued`, the ISBN and the publisher per volume, which
+is every field this needs. It is a national library, it is free, and it holds every book published
+in Japan.
+
+| the undated rows a reader can reach | 2,514 |
+|---|---|
+| cmoa holds the work and states no ISBN for it | 1,472 |
+| no catalogue we hold reaches the work | 1,022 |
+| the work has a bibliographic record already | 11 |
+| cmoa states an ISBN | 9 |
+
+The 1,472 are the floor this can reach down to: cmoa states no ISBN for 1,215 of its 1,833 works and the
+top of that list is ナンバーナイン at 580 and クロスフォリオ出版 at 164, digital distributors whose
+books were never printed. No bibliographic database holds a book that has no ISBN. **NDL's
+population is the 1,022**, of which 818 rows across 359 works have a publisher that prints: 芳文社,
+KADOKAWA, アトキンソン and a long tail of circles.
+
+### The pass has been rejecting almost every match, and it is one character
+
+Four probes against the live API, chosen from the works above:
+
+| we hold | NDL writes |
+|---|---|
+| `司馬舞` | `司馬, 舞` |
+| `よしむらかな` | `よしむら, かな` |
+
+`ndl._fold` removes spaces and not the comma, so the author filter answered 0 on every probe that
+had a real match to find. `MURCIÉLAGO -ムルシエラゴ-` returned 20 items including four volumes of
+its own BYPRODUCT spin-off, correctly authored, and every one was thrown away.
+
+That fold is also a private copy of a fact `facts/namekey` owns. `loosely` is the matching key and
+already removes the bracketed apparatus and the interpunct, which are the same judgement: a
+separator a catalogue puts between the family name and the given name. The comma belongs beside
+them, and `ndl.py` should ask rather than keep its own.
+
+### The other quirks the probes found
+
+**NDL rewrites the title into ISBD form.** `アラーニァ : murciélago byproduct`, with the subtitle
+after a colon and the Latin lower-cased. `facts/cataloguing` already owns that split, for MADB, and
+is the module to ask.
+
+**A shop's decorations are not in it.** `【単行本】`, `単話版` and `-ムルシエラゴ-` are BOOK☆WALKER's;
+`bwingest.strip_imprint` and `volumenumber` already take those off, and the title to search with is
+the one the work is held under rather than the one a product is sold under.
+
+**A title search matches every book in Japan.** `わくとこまこ` returned 12 items and
+`MURCIÉLAGO -ムルシエラゴ-` returned a paper on Calakmul's dynastic succession. The author
+agreement is not an optimisation, it is what makes the answer mean anything, which `ndl.volumes`
+already says.
+
+**A record with no ISBN is not a volume record.** `わくとこまこ` returns twelve items numbered 1 to
+11 with no ISBN and no issued date, which is the serialisation rather than the books.
+`ndl.volumes` already drops them.
+
+**The date is written `2022.9`.** It needs normalising to the corpus's form before
+`isbndate.resolve` can compare it with anything.
+
+### The work
+
+1. **Fix the fold and remove the copy.** A comma between name parts joins the interpunct in
+   `namekey.loosely`, with the counter-case tested, and `ndl.py` asks that instead of folding its
+   own. This is the whole of why the route looks empty.
+2. **A volume pass over the 359 printable works**, searched by the work's own title, filtered by
+   author agreement, normalising `2022.9` to `2022-09`.
+3. **Join what comes back by ISBN**, which is what §5's merge is already keyed on, so a dated NDL
+   volume lands beside the shop's row rather than beside it as a second list.
+4. **Then §7 asks cmoa only for what is left**, which is the ordering the owner ruled.
+
+### The measure that guards it
+
+`volume rows with no publication date`, which stands at **2,514** and whose floor is the 1,472 rows
+whose books have no ISBN to be catalogued under. A pass that answers the 818 printable rows takes
+it to about 1,700.
+
+---
+
+## 7. コミックシーモア knows the volumes and is never asked about a work we hold
 
 Needs §5, or it adds a third overlapping volume set to the two already double-counted.
 

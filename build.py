@@ -6735,14 +6735,16 @@ def main():
         # what stays Japanese on an English page.
         # Titles as phrases too, so one whose only Japanese is punctuation (IDOL×IDOL STORY！) is
         # covered; the title store keys on readings and skips those entirely.
-        # AND A VOLUME'S OWN DESIGNATION, which is a phrase for the same reason a chapter name is.
-        # `works[].volumes[].number` had no surface until 2026-08-12, so nothing ever asked what an
-        # English reader saw on those rows, and 7 of them were `前夜`, `難問編` and three 〜編
-        # section titles shown as written. They are structure and a name in exactly the proportions
-        # `chapter_en` was built for.
-        _vol_words = {str(v.get("number") or "").strip()
-                      for w in works for v in (w.get("volumes") or ())
-                      if str(v.get("number") or "").strip()}
+        # AND WHAT A VOLUME ROW IS CALLED, by either name. `works[].volumes[].number` had no
+        # surface until 2026-08-12, so nothing ever asked what an English reader saw on those rows,
+        # and 7 of them were `前夜`, `難問編` and three 〜編 section titles shown as written.
+        # `designation` was worse and newer: 899 rows across 383 works went onto English pages as
+        # written, because the field was ruled as one nothing draws and then drawn. Both are
+        # structure and a name in exactly the proportions `chapter_en` was built for.
+        _vol_words = {str(_vw.get(_vfield) or "").strip()
+                      for _vwk in works for _vw in (_vwk.get("volumes") or ())
+                      for _vfield in ("number", "designation")
+                      if str(_vw.get(_vfield) or "").strip()}
         _p4.fill_chapters({x for r in releases + series_rows
                            for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
                                      (r.get("author") or "").strip(),

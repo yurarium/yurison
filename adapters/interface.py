@@ -160,7 +160,7 @@ SURFACES = [
     # made from the designation and the position the build placed it at together.
     Surface("works[].volumes[]", "volLabel", "record", "value",
             "the label on a volume row: its number, or what the record calls it instead",
-            fields=("number",)),
+            fields=("number", "designation")),
     Surface("works[].creator", "creditNames", "value", "person",
             "the 発売 tab's byline, the credit field split into the people in it"),
     # `publisherChip` IS THE ENTRY POINT FOR ONE HOUSE'S NAME, added when the houses got addresses
@@ -357,7 +357,40 @@ def unruled_renderers(js=None):
     return sorted(renderers(js) - named - set(NOT_A_SURFACE))
 
 
-NOT_A_NAME = {
+#: A field the interface DRAWS verbatim, and why that is right. Kept apart from `NOT_DRAWN` below
+#: because the two are different rulings and only one of them can be checked by looking at the
+#: source: "nothing puts this on a page" is a statement about `kari/app.js`, and
+#: `adapters/lint/entrypoints.py` now holds it. "This is drawn as the source wrote it" is a
+#: judgement about the value, and nothing but a person can make it.
+#:
+#: THE SPLIT EXISTS BECAUSE ONE LIST CARRIED BOTH AND NOTHING TOLD THEM APART. On 2026-08-12 a
+#: volume's `designation` was ruled here on the reasoning that nothing drew it, and the same change
+#: drew it, with `esc`, on 383 works in English mode. Neither guard could see it: both read
+#: `SURFACES`, and this list was never compared against the source at all. Every entry below was
+#: asserted and none was verified.
+QUOTED = {
+    "index[].y": "the yomi, a reading aid, drawn only where `LANG !== 'en'`",
+    "works[].first_publication.venue": "the magazine a work first ran in, drawn as the record "
+                                       "writes it because it is a quotation",
+    "works[].first_publication.note": "where the date came from, quoted from the record",
+    "works[].marketing_label_basis.note": "the publisher's own words, quoted as evidence",
+    "series[].evidence[].source": "the source that holds the evidence, named",
+    "series[].state_claims[].source": "the source making the claim, named",
+    "series[].sourced_from[].source": "the source a field came from, named",
+    "series[].completed_basis": "why a run is called finished, composed in English",
+    "series[].stated_next.cadence": "the cadence a platform states, quoted in a tooltip",
+    "releases[].id": "a chapter identifier a platform assigned, drawn as an identifier",
+    "releases[].channel_name": "a channel's own name, drawn in a tooltip",
+    "releases[].origin_note": "where an imported date came from, drawn in a tooltip",
+    "releases[].ahead_next_ep": "the next chapter held ahead of the free window, in a tooltip",
+    "credits[].homophones[].reading": "a reading, which is the fact the row is about",
+}
+
+#: A field NOTHING DRAWS. Enforced: `entrypoints.undrawn_findings` reports any read of one of these
+#: whose value is escaped into markup or interpolated into a template, which are the two ways a
+#: string becomes part of a page. An entry here is now a claim the source is asked about rather than
+#: a claim about what its author believed.
+NOT_DRAWN = {
     # A GATE FINDING IS DIAGNOSTIC OUTPUT, NOT A NAME. check.py reports an example beside a failing
     # invariant so a person can act on it, and an example naming a Japanese work carries that title
     # verbatim. It is never rendered to a reader as a name and must not be romanised: the point of
@@ -374,19 +407,13 @@ NOT_A_NAME = {
         "every spelling one credit answers for, folded as a lookup key. Search resolves a raw "
         "credit field through it; nothing renders it, and matching the source's characters is the "
         "whole of its use.",
-    "index[].y": "the yomi, a reading aid shown only in Japanese",
-    "series[].completed_basis": "why a run is called finished, in English",
     "series[].completed_basis_ja": "the same sentence in Japanese, shown in Japanese mode",
     "series[].state_basis": "why a row is called active, in English",
     "series[].state_basis_ja": "the same sentence in Japanese, shown in Japanese mode",
-    "series[].evidence[].source": "a source's own name, shown as it names itself",
     "series[].evidence[].term": "the term a source used, quoted rather than translated",
-    "series[].state_claims[].source": "a source's own name",
     "series[].state_claims[].term": "the term a source used",
-    "series[].sourced_from[].source": "a source's own name",
     "series[].sources[].platform": "a platform's own name; platName renders it",
     "series[].stated_next.platform": "a platform's own name",
-    "series[].stated_next.cadence": "the cadence a platform states, quoted",
     "series[].skipped[][]": "chapter identifiers a capture could not read; nothing renders them",
     # THE JOB EACH CREDIT DID, AND THE NAME IT BELONGS TO, carried on the row so the credit
     # registry can hang a role on the edge from a work to a person. The interface never reads
@@ -411,36 +438,20 @@ NOT_A_NAME = {
     "series[].print[].folded_names[].imprint": "the line a folded record names, for the census and "
                                                "for the years that spelling covers",
     "works[].title.yomi": "the reading, a Japanese-side aid",
-    "works[].first_publication.venue": "the magazine a work first ran in",
-    "works[].first_publication.note": "where the date came from, quoted from the record",
-    "works[].marketing_label_basis.note": "the publisher's own words, quoted as evidence",
     "works[].admitted_by[].shelf": "the shop shelf that admitted the work, quoted",
 
-    # WHAT AN INSTALMENT IS CALLED WHERE THAT IS NOT A NUMBER, carried whole and never
-    # parsed. The project owner ruled on 2026-08-12 that `2017年1月号` is a label: a
-    # magazine's naming scheme is not stable across its own life, and コミック百合姫 has run
-    # Vol. 7 Winter 2007 quarterly, then bimonthly, then unnumbered, and only now monthly by
-    # cover date. So it is the same kind of value as the number beside it, shown as the
-    # record writes it, and a reader in English meets it for the reason they meet 上 and 下.
-    "works[].volumes[].designation": "what an instalment is called, quoted from the record",
     "releases[].plat_name": "a platform's own name",
     "releases[].preferred": "a platform's own name",
     "releases[].also_on[]": "a platform's own name",
     "releases[].channel.name": "a channel's own name",
     "releases[].channel.host": "a channel's host, its own name",
     "releases[].channel.origin": "where a channel came from",
-    "releases[].channel_name": "a channel's own name",
     "releases[].access_basis": "why a chapter is free or paid, quoted from the platform",
     "releases[].ahead_ep": "a chapter name held ahead of the free window",
-    "releases[].ahead_next_ep": "the next chapter name held ahead",
-    "releases[].origin_note": "where an imported date came from",
     "releases[].same_title_elsewhere": "a title held by a different work, named for the reader",
-    "releases[].id": "a chapter identifier a platform assigned",
     "releases[].kind_basis": "why a row was called a chapter, quoted from what it was read off",
 
     # ── the record pages ──────────────────────────────────────────────────────────────────────
-    "credits[].homophones[].reading": "the reading the two credits share, which is why they are "
-                                      "held apart; the page names the other credit and not this",
     "credits[].homophones[].basis": "how that reading was arrived at, kept for the ruling file "
                                     "and not drawn",
     # A SPELLING IS A HISTORICAL VARIANT AND IS QUOTED ON PURPOSE. `Yuri-hime comics` is what a
@@ -462,6 +473,10 @@ NOT_A_NAME = {
     "status[].gate.budgets[].means": "what one budget counts, in a sentence that quotes the "
                                      "source or the shop it is about",
 }
+
+#: Both rulings, for the readers that only need to know a path is accounted for.
+NOT_A_NAME = {**NOT_DRAWN, **QUOTED}
+
 
 RENDERING_RECORDS = ("work_en.", "author_en.", "title.en")
 

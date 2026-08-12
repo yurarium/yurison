@@ -574,6 +574,56 @@ def single_language_findings(src, renderers=None, passes_on=None):
     return bad
 
 
+def undrawn_findings(src, undrawn=None):
+    """Every read of a field ruled as one nothing draws, whose value reaches a page.
+
+    THE SECOND HALF OF THIS MODULE'S JOB, AND IT HAD ONLY THE FIRST. `interface.unruled` requires a
+    ruling for every field the data carries Japanese in, and the two answers are a SURFACE, which
+    names the function that renders it, or a path in `interface.NOT_DRAWN`, which says nothing puts
+    it on a page. `findings` above holds the first answer to account. Nothing held the second, so
+    it was asserted 46 times and verified none.
+
+    IT COST 383 WORKS. A volume's `designation` was added on 2026-08-12, ruled here on the
+    reasoning that nothing drew it, and drawn by the same change with `esc`. Neither guard could
+    see it: `English mode has no Japanese` renders the surfaces and this walked the surfaces, and
+    the field was in neither list. `ゆるゆり 特装版小冊子電子版` was on an English page for four
+    hours.
+
+    ESCAPED OR INTERPOLATED, which is the same pair `_refuse_bad_safe` already treats as the
+    definition of reaching a page. A read consumed by anything else is a read for logic: a test, a
+    map key, a comparison, an argument to something that decides rather than draws.
+
+    §14b, what it cannot see. The accessor is the field's last name, so two rulings sharing one
+    name share one answer: `series[].evidence[].source` is QUOTED and `series[].sources[].platform`
+    is NOT_DRAWN, and a third `source` added under a NOT_DRAWN path would be allowed by the first.
+    The fault this exists for is a NEW field name drawn without a renderer, which no other ruling
+    covers, and that is the shape the designation had.
+    """
+    undrawn = interface.NOT_DRAWN if undrawn is None else undrawn
+    by_accessor = {}
+    for path in undrawn:
+        accessor = path.rstrip("[]").split(".")[-1].replace("[]", "")
+        if accessor:
+            by_accessor.setdefault(accessor, []).append(path)
+    # A NAME ALSO RULED AS QUOTED IS NOT ASKED ABOUT, because the quotation is what draws it.
+    for path in interface.QUOTED:
+        accessor = path.rstrip("[]").split(".")[-1].replace("[]", "")
+        by_accessor.pop(accessor, None)
+    toks = tokens(src)
+    if "".join(x[1] for x in toks) != src:
+        return ["the tokeniser did not read kari/app.js back byte for byte, so nothing below can "
+                "be relied on"]
+    bad = []
+    for accessor, pos, consumer in reads(toks, set(by_accessor)):
+        if consumer != "interpolated" and not str(consumer).startswith("through:esc"):
+            continue
+        paths = ", ".join(sorted(by_accessor[accessor]))
+        bad.append(f"line {line_of(src, pos)}: `{accessor}` reaches the page {consumer}, and "
+                   f"{paths} is ruled as a field nothing draws. Either it needs a surface naming "
+                   f"the function that renders it, or it belongs in interface.QUOTED with a reason")
+    return sorted(set(bad))
+
+
 def findings(src, surfaces=None, safe=None):
     """Every read of a name-carrying field that does not go through its entry point."""
     surfaces = interface.SURFACES if surfaces is None else surfaces
@@ -633,10 +683,12 @@ def _self_test():
     the four escapes that actually shipped, written back into a copy of the source.
     """
     src = interface.APP_JS.read_text(encoding="utf-8")
-    ok = not findings(src) and not single_language_findings(src)
+    ok = (not findings(src) and not single_language_findings(src)
+          and not undrawn_findings(src))
     print(f"{'ok' if ok else 'FAIL'}  kari/app.js as it stands: "
           f"{len(findings(src))} read finding(s), "
-          f"{len(single_language_findings(src))} 併記 finding(s)")
+          f"{len(single_language_findings(src))} 併記 finding(s), "
+          f"{len(undrawn_findings(src))} undrawn-and-drawn finding(s)")
     probes = [
         (findings, "the catalogue tab prints index.json's title raw",
          "${workLabel({ work: w.t })}", "${esc(w.t)}"),
@@ -661,6 +713,16 @@ def _self_test():
          '`<div class="relv">${bilingual(row)}</div>`', '`<div class="relv">${row(LANG)}</div>`'),
         (single_language_findings, "the 作品 index row is built for one language",
          "<span>${bilingual(() => `", "<span>${(() => `"),
+        # THE FAULT OF 2026-08-12, WRITTEN BACK AS IT SHIPPED. A volume's designation was ruled a
+        # field nothing draws and drawn with `esc` by the same change. It has a surface now, so the
+        # probe rules it undrawn again and puts the call site back, which is both halves of what
+        # went wrong and is the only probe here that needs the ruling moved as well as the code.
+        (lambda s: undrawn_findings(s, {"works[].volumes[].designation": "nothing draws it"}),
+         "a volume's designation escaped straight into the row",
+         "const lab = volLabel(v);\n      const n = lab\n        ? `<span class=\"voln${v.number "
+         "? '' : ' vdesig'}\">${esc(lab)}</span>` : '';",
+         "const n = v.number ? `<span class=\"voln\">${esc(volLabel(v))}</span>`\n        : "
+         "(v.designation ? `<span class=\"voln vdesig\">${esc(v.designation)}</span>` : '');"),
     ]
     caught = 0
     for rule, what, before, after in probes:
@@ -693,7 +755,11 @@ def main():
     for b in one:
         print(f"  {b}")
     print(f"{len(one)} renderer call(s) that 併記 never reaches")
-    return 1 if bad or one else 0
+    drawn = undrawn_findings(src)
+    for b in drawn:
+        print(f"  {b}")
+    print(f"{len(drawn)} field(s) ruled as undrawn that reach a page")
+    return 1 if bad or one or drawn else 0
 
 
 if __name__ == "__main__":

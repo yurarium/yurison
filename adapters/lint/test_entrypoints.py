@@ -101,6 +101,7 @@ def main(s):
         print("  note: kari/app.js is not beside this repository, so the probes did not run")
         return
     _comparisons(s)
+    undrawn(s)
     app = interface.APP_JS.read_text(encoding="utf-8")
     s.eq(entrypoints.findings(app), [],
          "kari/app.js as it stands puts no name on a page except through its renderer")
@@ -201,6 +202,46 @@ def _comparisons(s):
              "and an argument after a comma is not a comparison, whatever sits before it")):
         got = entrypoints.findings(src, surfaces=ONE, safe={})
         s.eq(len(got) if want else got, want if want else [], f"{why}: {src[:44]}")
+
+
+def undrawn(s):
+    """A field ruled as one nothing draws must not reach a page.
+
+    THE OTHER HALF OF THE MODULE, ADDED AFTER IT COST 383 WORKS. `interface.unruled` requires a
+    ruling for every field the data carries Japanese in, and one of the two answers is "nothing
+    draws this". That answer was asserted 46 times and checked none, so a volume's `designation`
+    was ruled it on 2026-08-12 and drawn with `esc` by the same change, in English mode, with both
+    existing guards green.
+    """
+    RULED = {"works[].volumes[].designation": "nothing draws it"}
+    s.eq(entrypoints.undrawn_findings(
+             "function draw(v) { return `<i>${esc(v.designation)}</i>`; }", RULED) and 1, 1,
+         "a value escaped into markup is a page, and the fault is reported")
+    s.eq(entrypoints.undrawn_findings(
+             "function draw(v) { return `<i>${v.designation}</i>`; }", RULED) and 1, 1,
+         "so is a value interpolated straight into a template")
+
+    # AND A READ FOR LOGIC IS NOT A RENDERING, which is what makes the rule usable at all: these
+    # fields exist to be tested, keyed on and counted, and a check that reported every read would
+    # be answered by deleting the ruling rather than by fixing anything.
+    for src, why in (
+            ("function f(v) { return v.designation ? 1 : 0; }", "a test"),
+            ("function f(v) { return rows.filter(x => x.designation === v.designation); }",
+             "a comparison"),
+            ("function f(v) { m.set(v.designation, v); }", "a map key"),
+            ("function f(v) { return volLabel(v.designation); }", "an argument to a renderer")):
+        s.eq(entrypoints.undrawn_findings(src, RULED), [],
+             f"{why} does not put the value on a page")
+
+    # A PATH ALSO RULED AS QUOTED IS NOT ASKED ABOUT, because a quotation is drawn on purpose. The
+    # two lists together are the whole of the old NOT_A_NAME, so nothing lost a ruling in the split.
+    s.check(not (set(interface.QUOTED) & set(interface.NOT_DRAWN)),
+            "no path is ruled twice, so which answer applies is never a question")
+    s.eq(dict(interface.NOT_A_NAME),
+         {**interface.NOT_DRAWN, **interface.QUOTED},
+         "and the union is what the older readers still see")
+    s.check(all(str(v).strip() for v in interface.NOT_DRAWN.values()),
+            "every undrawn ruling carries the reason somebody wrote for it")
 
 
 def _refuse():

@@ -26,7 +26,7 @@ a sequence. Reading it as a sequence is how a magazine came to have 119 volumes.
 | §1 | Measure what the shop says against what we hold | done 2026-08-12 |
 | §2 | Stop publishing a listing position as a volume number | done 2026-08-12 |
 | §3 | Carry what a record says about a volume, and read a designation as what it is | done 2026-08-12 |
-| §4 | Render a field before drawing it, and prove a ruling that says nothing draws it | nothing; §3 shipped it |
+| §4 | Render a field before drawing it, and prove a ruling that says nothing draws it | done 2026-08-12 |
 | §5 | One volume row per volume, however many catalogues describe it | §3, for fields to merge |
 | §6 | Ask コミックシーモア about the works we hold | §5, or it adds a third overlapping set |
 
@@ -420,7 +420,8 @@ belongs in `docs/GAPS.md` and not in a budget that could never fall.
 
 ## 4. A field ruled as undrawn, and drawn
 
-Needs nothing. **URGENT: the fault is live**, on 383 works, and it was shipped by §3.
+**DONE, 2026-08-12.** The leak is closed and the ruling that hid it is now checked against the
+source. `ゆるゆり 特装版小冊子電子版` reads `Yuru Yuri Tokusō Ban Shōsasshi Denshi Ban`.
 
 ### What is wrong
 
@@ -485,10 +486,40 @@ recorded`, which is the state the owner reported. The render path exists and the
 filled by a pass that already runs, so closing the leak is the shorter road as well as the better
 one. Ruled by the project owner 2026-08-12.
 
+### What landed
+
+**One entry point for what a volume row is called.** `volLabel` takes the number where there is one
+and the designation where there is not, because they are the same question, and drawing them
+separately is what let one of them onto the page unrendered. The designation goes through
+`phraseOf`, and `build.py` feeds designations into the analyser pass beside the numbers §3 added:
+571 more phrases, 763 of the 899 Japanese-bearing designations answered from the map and the rest
+floored and marked, which is the treatment every unrenderable phrase already gets.
+
+**The ruling split in two.** `interface.NOT_DRAWN` is 31 paths, each now a claim about
+`kari/app.js` that `entrypoints.undrawn_findings` verifies. `interface.QUOTED` is the 14 that
+really are drawn as the source wrote them, each carrying why: `index[].y` behind `LANG !== 'en'`,
+the evidence notes, a chapter identifier, four tooltips. `NOT_A_NAME` remains as the union, so the
+readers that only need to know a path is accounted for did not change.
+
+Every one of the 14 turned out to be legitimate, which is worth saying plainly: the audit found one
+leak and it was the new field. What was wrong was not the rulings but that nothing could tell a
+right one from a wrong one.
+
+**The gap is closed by the lint that already existed for the other half.** A read of a `NOT_DRAWN`
+field consumed by `esc` or a template interpolation is a finding, which is the same pair
+`_refuse_bad_safe` has always treated as the definition of reaching a page. `entrypoints.py`'s
+self-test plants this afternoon's fault beside the four historical ones: the ruling moved back and
+the call site restored, both halves of what went wrong.
+
+It cannot tell two rulings apart when they share a field name, since the accessor is the last
+segment: a third `source` under a `NOT_DRAWN` path would be allowed by `evidence[].source` being
+QUOTED. The fault it exists for is a NEW field name drawn without a renderer, which no other ruling
+covers, and that is the shape the designation had.
+
 ### The measure that guards it
 
-`entrypoints.py` is an INVARIANT and not a budget, for the reason it already is one: a field
-reaching a page without its renderer is a fault every time. Item 3 widens what it asserts rather
+`entrypoints.py` is an INVARIANT and not a budget, for the reason it already was one: a field
+reaching a page without its renderer is a fault every time. Item 3 widened what it asserts rather
 than adding a number.
 
 ---

@@ -468,6 +468,12 @@ def inv_names_reach_a_page_only_through_their_renderer(ctx):
     `entrypoints.SAFE` that says which function, which field, what is done with the value, how many
     times, and why.
 
+    AND IT NOW ASKS THE OTHER HALF OF THE QUESTION. A field the data carries Japanese in is ruled
+    either by a surface or by `interface.NOT_DRAWN`, which says nothing puts it on a page. The
+    second answer was asserted and never verified: a volume's `designation` was ruled that way on
+    2026-08-12 and drawn by the same change with `esc`, so 383 works showed Japanese in English
+    mode with both guards green. `entrypoints.undrawn_findings` reads the source for it.
+
     §14b, WHAT IT SHARES: `interface.SURFACES`, which is also what the check above renders through.
     That is the point rather than a cost. The two checks ask different questions of one table, and
     a table naming a field the interface does not render fails this one, while a table missing a
@@ -485,7 +491,7 @@ def inv_names_reach_a_page_only_through_their_renderer(ctx):
         import entrypoints
     except Exception as e:                                                      # noqa: BLE001
         return [f"adapters/lint/entrypoints.py will not import ({e}), so nothing was checked"]
-    return entrypoints.findings(src)
+    return entrypoints.findings(src) + entrypoints.undrawn_findings(src)
 
 
 def inv_a_stated_reading_names_where_it_came_from(ctx):

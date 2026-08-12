@@ -2637,3 +2637,23 @@ by one person looking sit where nobody reading the site would find them.
 That is the shape STANDING-INSTRUCTIONS §13 is about, and the same one the CI conclusion has: a
 register that exists and cannot be observed. The work is to add both queues to `outstanding` with
 what settling one involves, which is a change to `adapters/status.py` and to nothing else.
+
+## Only one magazine can be told from a book. Noted 2026-08-12
+
+A work page headed `収録巻` over 117 issues of コミック百合姫 claims a volume numbering they have
+never had. VOLUMES-PLAN §3 stopped that for the one record where the format is stated: BOOK☆WALKER
+writes `[雑誌]` after each of that magazine's issue titles, `volumenumber.is_periodical` reads it,
+and the heading now says 収録号. Nothing infers the format anywhere else.
+
+**So ガレット is headed as volumes and is a magazine.** Its issues run `No.2` to `No.37` with
+`創刊号` for the first, which is an ordinary run of numbers and looks exactly like a book's.
+まんがタイムきららＭＡＸ and ちゃおデラックスホラー are headed as volumes and are magazines too;
+they carry date-shaped designations, so a rule reading the format out of the designation would find
+them, and it would still miss ガレット while marking anything else that happens to be named by a
+date.
+
+The gap is that no source in the corpus states what a product IS except this one shop on this one
+record. MADB files コミック百合姫 as an imprint on books rather than as a magazine of its own, and
+the shelf captures state a genre. Settling it needs a source that says `magazine`, and until there
+is one the honest position is that an untagged periodical is unmarked, which is the shape
+`categories are not advertised equally` describes: an absent tag is not evidence of absence.

@@ -47,11 +47,17 @@ _ASIDE = r"[【\[〈「][^】\]〉」]{0,28}[】\]〉」]"
 BRACKET_TAIL = re.compile(rf"\s*{_ASIDE}\s*$")
 BRACKET_HEAD = re.compile(rf"^\s*{_ASIDE}\s*")
 
-#: A periodical, which has issues rather than volumes.
-ISSUE = re.compile(r"\d+\s*年\s*\d+\s*月号|創刊号|増刊")
+#: An instalment designated by when it came out rather than by where it sits in a run. Nothing is
+#: read out of one of these: see `stated`.
+ISSUE = re.compile(r"\d+\s*年\s*\d+\s*月号|増刊")
 
-#: Punctuation the series title ended in, left stranded at the front of the tail.
-LEAD = "】]>〉!！?？。、,.:：-‐―ー–—・~〜 　"
+#: BOOK☆WALKER's own word for what a product is. The shop states this and we do not infer it.
+MAGAZINE = re.compile(r"\[雑誌\]|［雑誌］")
+
+#: Punctuation the series title ended in, left stranded at either end of the tail. The fold that
+#: locates the series ignores punctuation, so a title ending in `「you」` leaves its closing bracket
+#: behind. Round brackets are absent on purpose: `（1）` is one of the ways a number is written.
+LEAD = "】]>〉」』!！?？。、,.:：-‐―ー–—・~〜 　"
 
 #: How the shop writes the number, once everything else is off. Ordered longest-first in intent:
 #: `1巻` before a bare `1`, so the counter is consumed rather than left behind.
@@ -63,6 +69,12 @@ FORMS = (
     # A two volume set numbered by word. `works[].volumes[].number` already carries these.
     re.compile(r"^[(（<〈]?\s*([上中下前後])\s*[)）>〉]?$"),
 )
+
+#: 創刊号 IS A POSITION AND NOT A LABEL, ruled by the project owner 2026-08-12 on ガレット, whose
+#: numbering runs `No.2` to `No.37` with its inaugural issue as the only row carrying no number.
+#: The word means the first issue, so reading it restores the sequence rather than interpreting it,
+#: and it belongs beside 上 and 下 as a designation written out.
+FIRST_ISSUE = re.compile(r"^創刊号$")
 
 #: A product that is not a volume: the shop's free sample of one. `【期間限定無料】` is deliberately
 #: absent, because it marks a real volume the shop is giving away for a while.
@@ -114,6 +126,30 @@ def beyond_series(title, series):
     return body[where[at + len(want) - 1] + 1:]
 
 
+def _clean(tail):
+    """A tail with the shop's brackets and stranded punctuation off, ready to read or to show."""
+    tail = unicodedata.normalize("NFKC", tail).strip()
+    for _ in range(4):
+        shorter = BRACKET_HEAD.sub("", BRACKET_TAIL.sub("", tail).strip()).strip()
+        if shorter == tail:
+            break
+        tail = shorter
+    return tail.strip(LEAD).strip()
+
+
+def is_periodical(title):
+    """Whether the shop says this product is a magazine, in its own words.
+
+    STATED, NOT INFERRED. BOOK☆WALKER writes `[雑誌]` after the title of an issue, and that is the
+    only thing in reach that says what a product IS rather than what it is called. A rule reading
+    the format out of a date-shaped designation would call まんがタイムきららＭＡＸ a magazine and
+    still miss ガレット, whose issues are numbered `No.2` to `No.37` and look exactly like a book's.
+    An untagged magazine is therefore not marked, which is a limit worth recording rather than
+    guessing past.
+    """
+    return bool(MAGAZINE.search(str(title or "")))
+
+
 def stated(title, series):
     """The volume number this product title states, as a string, or None.
 
@@ -123,17 +159,38 @@ def stated(title, series):
     tail = beyond_series(title, series)
     if tail is None:
         return None
-    tail = unicodedata.normalize("NFKC", tail).strip()
-    if ISSUE.search(tail):
+    if ISSUE.search(unicodedata.normalize("NFKC", tail)):
         return None
-    for _ in range(4):
-        shorter = BRACKET_HEAD.sub("", BRACKET_TAIL.sub("", tail).strip()).strip()
-        if shorter == tail:
-            break
-        tail = shorter
-    tail = tail.lstrip(LEAD).strip()
+    tail = _clean(tail)
+    if FIRST_ISSUE.match(tail):
+        # THE SHOP'S OWN WORD, NOT THE NUMBER IT MEANS. `創刊号` is a designation written out, the
+        # way `上` and `下` are, and `build.volume_number` is the one place a designation becomes an
+        # integer for sorting. Returning `1` here would put a number in the record that the product
+        # title does not contain, which is exactly what `a volume number is the shop's own` exists
+        # to catch, and it would be right to catch it.
+        return tail
     for form in FORMS:
         m = form.match(tail)
         if m:
             return m.group(1)
     return None
+
+
+def designation(title, series):
+    """What this product is called within its series, where that is not a number. None where the
+    product's title says nothing the work's own title does not.
+
+    A DESIGNATION THAT IS A LABEL IS CARRIED WHOLE AND NOTHING IS DERIVED FROM IT, which is the
+    project owner's ruling of 2026-08-12. `2017年1月号` is what an issue is called. It is not a
+    date, and a magazine's naming scheme is not stable across its own life: コミック百合姫 has run
+    `Vol. 7 Winter 2007` quarterly, then bimonthly, then with no volume number, and only now
+    monthly by cover date. A `Vol. 7` and a `2017年1月号` are not two points on one line, so
+    ordering them or looking for a gap between them would be arithmetic on a fiction.
+
+    THE WHOLE TITLE WHERE IT NAMES SOMETHING ELSE. `メガネさんシリーズ` is a shop umbrella over
+    `お昼のメガネさん` and others, so the product's own name is the whole of what it says.
+    """
+    tail = beyond_series(title, series)
+    if tail is None:
+        return _clean(str(title or "")) or None
+    return _clean(tail) or None

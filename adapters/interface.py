@@ -407,6 +407,13 @@ NOT_A_NAME = {
     "works[].marketing_label_basis.note": "the publisher's own words, quoted as evidence",
     "works[].admitted_by[].shelf": "the shop shelf that admitted the work, quoted",
     "works[].volumes[].number": "a volume number written in words, 上 and 下 among them",
+    # WHAT AN INSTALMENT IS CALLED WHERE THAT IS NOT A NUMBER, carried whole and never
+    # parsed. The project owner ruled on 2026-08-12 that `2017年1月号` is a label: a
+    # magazine's naming scheme is not stable across its own life, and コミック百合姫 has run
+    # Vol. 7 Winter 2007 quarterly, then bimonthly, then unnumbered, and only now monthly by
+    # cover date. So it is the same kind of value as the number beside it, shown as the
+    # record writes it, and a reader in English meets it for the reason they meet 上 and 下.
+    "works[].volumes[].designation": "what an instalment is called, quoted from the record",
     "releases[].plat_name": "a platform's own name",
     "releases[].preferred": "a platform's own name",
     "releases[].also_on[]": "a platform's own name",

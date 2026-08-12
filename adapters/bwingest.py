@@ -165,6 +165,14 @@ def volumes_of(work, series=None):
         if _volnum.is_sample(title):
             continue
         row = {"number": _volnum.stated(title, series), "title": title}
+        # AND WHAT IT IS CALLED WHERE THAT IS NOT A NUMBER. `2017年1月号` is a label and
+        # `お昼のメガネさん` is a whole other name under a shop umbrella; both are what the record
+        # says about this instalment and neither is a position in a run. Carried whole, because
+        # the alternative is a work page counting 119 rows and listing none of them.
+        if not row["number"]:
+            got = _volnum.designation(title, series)
+            if got:
+                row["designation"] = got
         if v.get("printed"):
             row["published"] = str(v["printed"])[:10]
         if v.get("delivered"):
@@ -229,6 +237,11 @@ def record(work, retrieved):
         # them, because a listing repeats a volume under a second cover; the count of items only
         # where it states none, which is the best that can be said about a set nobody numbered.
         "volume_count": 0 if by_chapter else _volume_count(vols),
+        # WHAT THE SHOP SAYS THIS IS. BOOK☆WALKER writes `[雑誌]` after an issue's title, and it
+        # is the only thing in reach that says what a product IS rather than what it is called.
+        # A work page calling 117 issues of コミック百合姫 `収録巻` claims a numbering they have
+        # never had; see `volumenumber.is_periodical` for why nothing here infers it.
+        "periodical": any(_volnum.is_periodical(v.get("title")) for v in vols),
         "volumes": [] if by_chapter else vols,
         "chapters": vols if by_chapter else [],
         "first_published": min(dated) if dated else None,
@@ -321,6 +334,9 @@ def main(argv=None):
         # downstream has to infer it from a volume count of zero.
         if r.get("chapterwise"):
             L += ["chapterwise: true", f"chapter_count: {r['chapter_count']}"]
+        # The shop's own word for what these are, written only where it said so.
+        if r.get("periodical"):
+            L.append("periodical: true")
         if r.get("first_published"):
             L.append(f"first_published: {js(r['first_published'])}")
         else:
@@ -330,7 +346,7 @@ def main(argv=None):
         L.append("volumes:")
         for v in r["volumes"]:
             L.append(f"  - title: {js(v['title'])}")
-            for k in ("number", "published", "delivered"):
+            for k in ("number", "designation", "published", "delivered"):
                 if v.get(k) is not None:
                     L.append(f"    {k}: {js(v[k])}")
         # §2's third branch: a licensed retailer's yuri shelf is a comparator, and §4 keeps a

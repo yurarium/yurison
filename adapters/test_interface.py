@@ -319,6 +319,21 @@ def main(s):
     s.eq(iface.values([("printIds", {"work_id": "C338361"})])[0], "C338361",
          "and a block from a single record still answers with the one it has")
 
+    # ── THE BUILD AND THE PAGE AGREE ON WHAT A VOLUME ROW HAS TO CARRY ──────────────────────
+    #
+    # `volume rows a page counts but cannot list` counts, over works.json, the rows the interface's
+    # own `says` would decline to list, and the two predicates are written out separately on
+    # purpose: one decides what a page draws and the other what the build owes it. They agree only
+    # while they name the same fields, and they stopped agreeing once before: the build carried
+    # five fields and `says` asked for three of them, so コミック百合姫 counted 119 rows and listed
+    # none. Read off the served file, because that is the half that can change without the check
+    # noticing.
+    _app = pathlib.Path(interface.APP_JS).read_text()
+    _says = _app[_app.index("const says = v =>"):][:200]
+    for _field in ("published", "isbn", "number", "designation", "delivered", "editions"):
+        s.check(_field in _says,
+                f"`says` in the served app.js asks for `{_field}`, which the build's budget counts")
+
     s.eq(iface.values([("foldKey", "4話②＜完＞")])[0], "4話2<完>",
          "the browser's own fold, returned whole. `labels` strips tags and read <完> as an "
          "element, which reported a disagreement with the Python fold that only the harness had")

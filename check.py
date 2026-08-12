@@ -3405,6 +3405,40 @@ def budget_volume_rows_with_no_publication_date(ctx):
                for v in (w.get("volumes") or ()) if not v.get("published"))
 
 
+def budget_volume_rows_a_page_counts_but_cannot_list(ctx):
+    """Volume rows the work page counts in its heading and can put nothing on the page for.
+
+    THE SHAPE, FOUND ON コミック百合姫 BY THE PROJECT OWNER. Its page read `Volumes 119` above
+    `119 with no date and nothing else recorded`, and the record held the name and the delivery
+    date of every one of the 117 issues. `build.py` was building a volume row out of five keys and
+    dropping `designation` and `delivered`, so the interface, which lists a row carrying a date, an
+    ISBN or a number, had nothing to list. 1,420 rows across 897 works were in that state and every
+    single one of them had both fields in its source record.
+
+    WHAT IT COUNTS IS THE READER'S QUESTION, not the record's completeness. `volume rows with no
+    publication date` is 2,521 and is a research debt; this is 0 and is a plumbing fault. A row can
+    carry a date and still be listed, and a row can carry no date and still say what it is called
+    and when it went on sale, which is what these 1,420 now do.
+
+    ARITHMETIC OVER THE SHIPPED ROWS, per §14b: it asks the same question the interface's `says`
+    asks, over works.json, without running the interface. That is deliberate duplication of a
+    predicate and not of a rule: `says` decides what a page draws and this decides what the build
+    owes it, and the two agreeing is the property under test.
+
+    IT RATCHETS RATHER THAN BLOCKING, because a source could legitimately state that a volume
+    exists and nothing else. None does today. A rise says a field stopped being carried, which is
+    the fault this was written for.
+
+    fallback: none. A row with nothing on it carries no field saying why.
+    """
+    reachable = {i for r in ctx["series"] for p in (r.get("print") or ())
+                 for i in (p.get("work_ids") or [p.get("work_id")]) if i}
+    return sum(1 for w in ctx["works"] if w.get("work_id") in reachable
+               for v in (w.get("volumes") or ())
+               if not (v.get("published") or v.get("isbn") or v.get("number")
+                       or v.get("designation") or v.get("delivered")))
+
+
 def budget_works_whose_records_number_one_volume_twice(ctx):
     """Works whose print records give the same volume number to two different rows.
 
@@ -5337,6 +5371,13 @@ BUDGETS_DEF = [
      "the rest. No ISBN-keyed enrichment can reach them because BOOK☆WALKER states no ISBN, so "
      "the route is コミックシーモア's per-volume page, which states both. A rise means new undated "
      "works or a capture that stopped dating rows it used to."),
+    ("volume rows a page counts but cannot list",
+     budget_volume_rows_a_page_counts_but_cannot_list,
+     "volume rows the heading counts and the page can show nothing for. It was 1,420 across 897 "
+     "works, every one of which had its own name and a delivery date in the source record while "
+     "the build carried five fields and dropped both. コミック百合姫 was 119 of them. Distinct "
+     "from `volume rows with no publication date`, which is a research debt: this is a row a "
+     "reader is shown nothing about, and a rise means a field stopped being carried."),
     ("works whose records number one volume twice",
      budget_works_whose_records_number_one_volume_twice,
      "works whose print records give one volume number to two rows, so the page draws vol. 1 twice "
@@ -6232,6 +6273,23 @@ def self_test():
     if budget_volume_rows_with_no_publication_date(c2) != 0:
         print("  self-test FAILED — 'volume rows with no publication date' counted a volume no "
               "print block reaches")
+        ok = False
+
+    # THE FAULT AS IT WAS FOUND (§14b): コミック百合姫's issues, carrying their own names and
+    # delivery dates in the record and neither of them on the volume row the build wrote.
+    c = _Scratch(ctx)
+    c["series"] = [{"id": "wCANARY", "work": "カナリア",
+                    "print": [{"work_id": "bwCANARY", "work_ids": ["bwCANARY"], "volumes": 3}]}]
+    c["works"] = [{"work_id": "bwCANARY", "volumes": [{}, {}, {"designation": "2017年1月号"}]}]
+    if budget_volume_rows_a_page_counts_but_cannot_list(c) != 2:
+        print("  self-test FAILED — 'volume rows a page counts but cannot list' did not count the "
+              "rows the build left with nothing on them")
+        ok = False
+    # AND A DELIVERY DATE ALONE IS SOMETHING, which is what 1,420 of them had all along.
+    c["works"] = [{"work_id": "bwCANARY", "volumes": [{"delivered": "2016-11-18"}, {}, {}]}]
+    if budget_volume_rows_a_page_counts_but_cannot_list(c) != 2:
+        print("  self-test FAILED — 'volume rows a page counts but cannot list' counted a row "
+              "carrying the day the shop began selling it")
         ok = False
 
     # MURCIÉLAGO's two records, which number volume 1 twice: MADB at month precision with an ISBN,

@@ -725,14 +725,27 @@ def _recompose_credit(ja, phrase, authors, ruled=None, floor=None, divided=False
 VOLUME_NO = re.compile(r"^\s*(?:第\s*)?(?:v(?:ol)?(?:ume)?\s*\.?\s*)?(\d+)\s*(?:巻)?\s*$", re.I)
 
 
+#: The inaugural issue of a periodical, which is its first. One word, so it is a value and not a
+#: vocabulary; `facts/volumenumber` recognises the same word when reading a product title.
+FIRST_ISSUE = "創刊号"
+
+
 def volume_number(v):
     """The volume's number as a number, or None where it does not state one.
 
     MADB writes it a dozen ways: a bare `1`, `vol. 8`, `vol.2`, `volume 1`, `Volume1`, `volume.2`,
     `Vol. 1`, `v.1`, `第1巻`. 上 and 下 are not numbers, they are how a two-volume set is designated,
     and they answer None here.
+
+    `創刊号` IS A NUMBER WRITTEN OUT, which 上 and 下 are not: it names the first issue and nothing
+    else, so ガレット's inaugural issue sorts and counts as 1 among its `No.2` to `No.37`. Ruled by
+    the project owner 2026-08-12. It is read here rather than at capture, so the record keeps the
+    word the shop printed and `a volume number is the shop's own` stays pure arithmetic.
     """
-    m = VOLUME_NO.match(str(v.get("number") or ""))
+    raw = str(v.get("number") or "").strip()
+    if raw == FIRST_ISSUE:
+        return 1
+    m = VOLUME_NO.match(raw)
     return int(m.group(1)) if m else None
 
 
@@ -1598,6 +1611,11 @@ def _print_block(rec):
         **({"delivered_from": _fp.get("date")} if _delivered else {}),
         "last": rec.get("last_published"),
         "label": rec.get("marketing_label"),
+        # WHAT THE SHOP SAYS THESE ARE. A block of 117 issues of a magazine headed `収録巻` claims
+        # a volume numbering they have never had: コミック百合姫 has run `Vol. 7 Winter 2007`
+        # quarterly, then bimonthly, then unnumbered, and only now monthly by cover date. Stated by
+        # BOOK☆WALKER in its own `[雑誌]` and never inferred here.
+        **({"periodical": True} if rec.get("periodical") else {}),
     }
 
 
@@ -3198,6 +3216,11 @@ def main():
             **({"publisher_basis": base["publisher_basis"]} if base.get("publisher_basis") else {}),
             "imprint": base.get("imprint", ""),
             "volume_count": base.get("volume_count", 0),
+            # WHAT THE SHOP SAYS THIS IS, carried because a work page has to know before it can
+            # call a list of 117 issues anything. Stated by BOOK☆WALKER's own `[雑誌]` and never
+            # inferred; see `volumenumber.is_periodical` for why a date-shaped designation is not
+            # allowed to stand in for it.
+            **({"periodical": True} if base.get("periodical") else {}),
             "grouping": base.get("grouping"),
             # WHERE THE SHOP THAT SUPPLIED THIS RECORD SELLS IT. Carried as its own field because
             # `_shop_address` used to reach for `marketing_label_basis` instead, which is a
@@ -3218,8 +3241,15 @@ def main():
         vols = []
         for v in base.get("volumes") or []:
             o = enrich.get(v.get("isbn", ""), {})
+            # WHAT A RECORD SAYS ABOUT A VOLUME, AND THIS CARRIED FIVE OF IT. `designation` and
+            # `delivered` were dropped here, and they are the only things 1,420 rows have: the
+            # work page counted them and could list none, because the interface asks whether a row
+            # carries a date, an ISBN or a number and those rows carry a name and a delivery date.
+            # コミック百合姫 came out as `119 with no date and nothing else recorded` over 117
+            # issues whose own names and delivery dates were sitting in the source record.
             m = {k: (str(v[k]) if k == "published" else v[k])
-                 for k in ("madb_id", "number", "isbn", "published", "published_basis") if k in v}
+                 for k in ("madb_id", "number", "designation", "isbn", "published",
+                           "published_basis", "delivered") if k in v}
             # WHAT THE SECOND CATALOGUE ADDS TO THIS VOLUME'S DATE. The test here was string
             # equality, so 2013-05 against 2013-05-24 read as a disagreement: the day went into
             # `published_openbd` and the reader went on seeing the month. That is one fact at two

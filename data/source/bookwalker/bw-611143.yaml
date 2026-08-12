@@ -20,6 +20,7 @@ venue: "ナンバーナイン"
 completed: false
 volumes:
   - title: "【最新刊】社会人百合 スゥとアメ いちゃいちゃ編"
+    designation: "いちゃいちゃ編"
     delivered: "2026-08-28"
   - title: "社会人百合 スゥとアメ 2"
     number: "2"
@@ -28,8 +29,10 @@ volumes:
     number: "3"
     delivered: "2026-08-28"
   - title: "社会人百合 スゥとアメ デート編"
+    designation: "デート編"
     delivered: "2026-08-28"
   - title: "社会人百合 スゥとアメ 嫉妬と仲直り編"
+    designation: "嫉妬と仲直り編"
     delivered: "2026-08-28"
 admitted_by:
   - comparator: "bookwalker.jp"

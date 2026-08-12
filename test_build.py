@@ -688,6 +688,26 @@ def series_addresses(s):
 
     edition_names(s)
     print_runs(s)
+    volume_designations(s)
+
+
+def volume_designations(s):
+    """A designation becomes an integer in one place, and only where it names a position.
+
+    `創刊号` IS A NUMBER WRITTEN OUT, ruled by the project owner 2026-08-12 on ガレット, whose
+    issues run `No.2` to `No.37` with the inaugural one as the only row the shop leaves unnumbered.
+    It is read HERE rather than at capture, so the record keeps the word the shop printed and the
+    `a volume number is the shop's own` invariant stays substring arithmetic.
+    """
+    s.eq(b.volume_number({"number": "創刊号"}), 1,
+         "the inaugural issue is the first one, so it sorts and counts as 1")
+    s.eq(b.volume_number({"number": "1"}), 1, "beside the ordinary numbers of the same run")
+    # AND 上 AND 下 ARE NOT NUMBERS, which is the counter-case that keeps this a value and not a
+    # habit of reading Japanese words as integers. A two volume set is designated, not counted.
+    s.eq(b.volume_number({"number": "上"}), None, "上 designates a half and does not number it")
+    s.eq(b.volume_number({"number": "下"}), None, "nor does 下")
+    s.eq(b.volume_number({"number": "2017年1月号"}), None,
+         "and an issue's cover date is a label, from which nothing at all is derived")
 
 
 def print_runs(s):

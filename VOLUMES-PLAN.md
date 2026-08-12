@@ -1,31 +1,42 @@
 # One volume set per work: a plan
 
-Not started. Written 2026-08-12 from three faults the project owner found on MURCIÉLAGO, all of
-which are classes rather than cases. The work page currently shows that work as two runs of 32 and
-20 volumes, numbers its volumes wrongly, invents three that do not exist, and leaves 41% of every
-volume row in the corpus with no date beside it.
+Written 2026-08-12 from three faults the project owner found on MURCIÉLAGO and a fourth found on
+コミック百合姫 the day the second fix shipped, all of them classes rather than cases. §1 and §2 are
+done. What remains is a volume described twice by two catalogues, a volume record whose fields the
+build drops on the floor, and a catalogue that knows the answers and is never asked.
 
 The sections below are in the order they are to be done, and each one says what it needs from the
 one before it.
 
 ## 0. The faults, and why they are one job
 
-**A volume is a thing.** It has a number, a date, sometimes an ISBN, and several catalogues describe
-it. Everything here follows from the corpus not modelling it that way: BOOK☆WALKER's listing
-position is published as the volume's number, two catalogues describing one volume are shown as two
-volumes, and the catalogue that actually knows the answer is never asked.
+**A volume is a thing.** It has a designation, a date, sometimes an ISBN, and several catalogues
+describe it. Everything here follows from the corpus not modelling it that way: BOOK☆WALKER's
+listing position was published as the volume's number, a volume record's own words never reach the
+page, two catalogues describing one volume are shown as two volumes, and the catalogue that knows
+the answer is never asked.
+
+A NUMBER IS ONE KIND OF DESIGNATION AND NOT THE ONLY ONE, which §3 is where the plan learned. A
+volume can be `3`, or `下`, or `2017年1月号`, and the last of those is a label and not a position in
+a sequence. Reading it as a sequence is how a magazine came to have 119 volumes.
 
 | | stage | needs |
 |---|---|---|
 | §1 | Measure what the shop says against what we hold | done 2026-08-12 |
 | §2 | Stop publishing a listing position as a volume number | done 2026-08-12 |
-| §3 | One volume row per volume, however many catalogues describe it | §2, for numbers to key on |
-| §4 | Ask コミックシーモア about the works we hold | §3, or it adds a third overlapping set |
+| §3 | Carry what a record says about a volume, and read a designation as what it is | done 2026-08-12 |
+| §4 | One volume row per volume, however many catalogues describe it | §3, for fields to merge |
+| §5 | Ask コミックシーモア about the works we hold | §4, or it adds a third overlapping set |
+
+§3 was found by a reader looking at コミック百合姫 the day §2 shipped, and it is the general fault
+that page is one instance of: the build carries five of a volume record's fields and drops the two
+that would let a reader see anything about a volume nobody dated.
 
 **Measuring comes first, and this is the part that was nearly left out.** Each fix moves a number
 nobody is currently watching, so each can regress into a state that looks exactly like the state it
 fixed. §1 costs little, needs nothing built, and is what makes the other three provable rather than
-asserted. It is also the fastest way to find out how large §4 really is.
+asserted. It is also the fastest way to find out how large §5 really is, and §2's own error was
+caught by it within the hour.
 
 ---
 
@@ -69,7 +80,7 @@ stating how long the work is and neither count is taken.
 | **we hold MORE than cmoa states** | **30** |
 
 The two directions are different faults and are counted apart. Holding fewer is a stale capture,
-which §4 fixes by asking: 冷たくて柔らか is 4 against 7, きみが死ぬまで恋をしたい 9 against 11.
+which §5 fixes by asking: 冷たくて柔らか is 4 against 7, きみが死ぬまで恋をしたい 9 against 11.
 Holding more is §2's fault showing through, a product count published as a volume count:
 **MURCIÉLAGO 32 against 29**, citrus+ 8 against 7, 鎧塚さんをバブらせたい 6 against 4. The ISBN
 route reaches MURCIÉLAGO, which a title fold could not, because cmoa spells it `MURCIELAGO`.
@@ -78,30 +89,30 @@ route reaches MURCIÉLAGO, which a title fold could not, because cmoa spells it 
 
 | budget | opens at | expected floor |
 |---|---|---|
-| `volume rows with no publication date` | 2,525 of 6,153 | falls as §4 collects |
+| `volume rows with no publication date` | 2,525 of 6,153 | falls as §5 collects |
 | `works whose records number one volume twice` | 20 | **10**, see below |
-| `works holding fewer volumes than the shop states` | 70 | falls as §4 collects |
+| `works holding fewer volumes than the shop states` | 70 | falls as §5 collects |
 | `works holding more volumes than the shop states` | 30 | near 0 after §2 |
 
 **The floor of 10 is real books and was found by the canary.** The first version of this plan said
-the second budget goes to 0 with §3. It does not: citrus really was printed twice, ten volumes in
+the second budget goes to 0 with §4. It does not: citrus really was printed twice, ten volumes in
 2013 and four in 2015, MADB gave it two C-numbers for that reason, and a reader should see both.
 Ten of the twenty are that (citrus, ゆるゆり, five 合本版 omnibuses, a 総集編, and two works under
-two publishers); the other ten are one run described by two catalogues, which is what §3 resolves.
+two publishers); the other ten are one run described by two catalogues, which is what §4 resolves.
 The measure asks the dumber question, whether any two of a work's records number one volume alike,
 and leaves the difference to this paragraph. Asking which catalogue each record came from would
 separate the two populations cleanly, and it is the rule the fix will use, so a measure asking it
 would share the fix's blind spot.
 
-**This also settles a question §3 had left open.** Ten works numbering a volume twice from two
+**This also settles a question §4 had left open.** Ten works numbering a volume twice from two
 different catalogues is the population the cross-catalogue merge was written for and withdrawn
 from, on 2026-08-12, because merging blocks without reconciling volumes drew a 52-row MURCIÉLAGO
-list. Once §3 reconciles the volumes, that withdrawal's reason is gone and the same-catalogue
+list. Once §4 reconciles the volumes, that withdrawal's reason is gone and the same-catalogue
 exception is what keeps citrus apart.
 
 Two further measures belong to the stages that create them and are written in the same change as
 the fix each one guards, which is the rule `./test.py` already enforces for a new module and its
-test. They are §2's invariant and §3's arithmetic, described in place below.
+test. They are §2's invariant and §4's arithmetic, described in place below.
 
 ---
 
@@ -166,7 +177,7 @@ the reasoning for where a trailing number is a number and where it is a name (`�
 there must be one copy of it, not two.
 
 Where the shop states no number, the volume has no number. The interface already handles that
-case ("A VOLUME NOBODY NUMBERED SAYS NOTHING", `20-app.js`), and §3 gives another catalogue the
+case ("A VOLUME NOBODY NUMBERED SAYS NOTHING", `20-app.js`), and §4 gives another catalogue the
 chance to supply one. 196 multi-volume records state no number on any row; several of those are not volume
 sets at all (`bw-217047` bundles three different works under one series id), which is worth knowing
 and is currently hidden behind invented numbering.
@@ -235,13 +246,173 @@ a name for its place in the run. The count is distinct numbers plus the items ca
 | `volume rows with no publication date` | 2,525 | **2,521** |
 
 MURCIÉLAGO's index row now reads 29. Its work page still draws two runs, 29 volumes and 20, which
-is §3 and is untouched here.
+is §4 and is untouched here.
 
 ---
 
-## 3. Two catalogues describing one volume are drawn as two volumes
+## 3. A volume record says more than the build carries, and a designation is not always a number
 
-Needs §2. A volume set cannot be merged on numbers that are positions.
+**DONE, 2026-08-12.** Found on コミック百合姫 by the project owner the day §2 shipped. The page reads
+`収録号 119` over 117 named, dated issues, and 0 rows in the corpus are now counted without being
+listed.
+
+### What is wrong
+
+The magazine's page reads, in full:
+
+```
+VOLUMES 119
+119 with no date and nothing else recorded
+```
+
+§2 stopped publishing the listing position as a volume number, and `volumenumber` declines a
+periodical, so the 119 rows lost the only field they carried. The interface then asks
+`says = v.published || v.isbn || v.number || editions.length`, and a row failing it is counted
+rather than listed.
+
+**§2 removed no true information here.** The page previously read `vol. 1` … `vol. 119`, which was
+the shop's listing order asserted as volume numbers of a magazine, with "no date recorded" beside
+every one. What went was the pretext keeping the rows visible.
+
+WHAT WENT MISSING LONG BEFORE THAT is in `build.py:3221`, which builds a volume row out of five
+keys:
+
+```python
+m = {k: … for k in ("madb_id", "number", "isbn", "published", "published_basis") if k in v}
+```
+
+`title` and `delivered` are dropped there, and the shop states both for all 119 issues. This is not
+a magazine fault:
+
+| | |
+|---|---|
+| volume rows a reader can reach | 6,150 |
+| rows the page counts but cannot list | **1,420**, across 897 works |
+| of those, whose source record states a delivery date | **1,420** |
+| of those, whose source record states the product's own title | **1,420** |
+
+Every silent row in the corpus has two facts in its source record that the build discards.
+コミック百合姫 is the largest single instance, at 119; ゆるゆり 小冊子 has 17 and
+まんがタイムきららＭＡＸ 13.
+
+### What an issue designation is, ruled by the project owner 2026-08-12
+
+**`2017年1月号` IS AN OPAQUE STRING AND IS NOT A DATE.** It is what the issue is called. It is not
+parsed, nothing is derived from it, and no issue is dated by it. The corpus treats it exactly as it
+treats a title.
+
+The reason is that a magazine's designation scheme is not stable across its own run, so nothing
+read out of one form carries to the next. コミック百合姫 has used at least four:
+
+| era | how an issue was designated | schedule |
+|---|---|---|
+| earliest | `Vol. 7 Winter 2007`, a position and a label together | quarterly |
+| then | the same volume numbering | bimonthly |
+| then | no volume number at all | bimonthly |
+| now | `2017年1月号` | monthly |
+
+A `Vol. 7` from 2007 and a `2017年1月号` do not belong to one sequence, so neither ordering nor a
+gap means anything across the join. The label is carried and nothing is derived from it, which is
+all this stage has to do about it: a designation nobody can order is one nobody will try to.
+
+**AND THE DELIVERY DATE IS NOT THE ISSUE'S DATE EITHER.** 2017年1月号 was delivered 2016-11-18;
+2026年9月号 on 2026-07-16. The cover date leads the on-sale date by about six weeks throughout,
+which is the ordinary Japanese magazine convention. It is also the same publisher, 一迅社, whose
+発売日 against 奥付 gap `isbndate.py` already measures and refuses to use as a sharpening. Two facts
+about one issue, and neither is a more precise version of the other. The delivery date travels as
+itself, under its own label, exactly as `delivered_from` already does at the block level.
+
+That is the whole of it: **carry what the record says, and say what it is**. There is nothing to
+parse, which makes this the smallest of the five stages.
+
+### A free issue is not a sample, and this sharpened a rule §2 shipped
+
+`えっちな百合姫【無料版】` and `ほんのり百合姫【無料版】` are two of the 119, and they are whole
+chapters selected from various works rather than the opening pages of one. They are issues that
+happen to be free. §2's `SAMPLE` rule excludes `お試し版` and `試し読み` and deliberately leaves
+`期間限定無料` alone, and this says why that is right in a way the rule did not: what disqualifies a
+product is being **a fragment of a volume**, not being free. The rule needs no change and the count
+of 119 stands, as 117 dated issues and 2 free ones.
+
+### The root fix, which is corpus-wide
+
+**Carry `title` and `delivered` onto the volume row**, and show them where a row would otherwise
+show nothing. That is one line in `build.py` and one predicate in the interface, and it reaches
+1,420 rows across 897 works rather than one magazine. A row's own label is displayed unparsed, which
+is what the owner's ruling above requires and what makes this stage small.
+
+### A position in a sequence, or a label
+
+THE LINE RUNS BETWEEN A DESIGNATION THAT NAMES A POSITION IN A SEQUENCE AND ONE THAT IS A LABEL,
+where this stage first drew it between books and magazines. `3`, `下` and `創刊号`
+are positions and are read as such. `2017年1月号` is a label and is carried whole. A magazine can
+use either, and コミック百合姫 has used both in its own lifetime.
+
+**ガレット settles it, ruled by the project owner 2026-08-12.** Its numbering is consistent, and
+its odd row is `創刊号`, which is Vol. 1 said in words. The corpus holds `No.2` through `No.37`
+numbered and `創刊号` alone unnumbered, so reading it restores the sequence rather than interpreting
+anything: 創刊号 means the inaugural issue, which is the first. It joins `上` and `下` as a
+designation written in words, and `volumenumber.ISSUE`, which currently declines it, is wrong to.
+
+WHICH LEAVES THE PERIODICAL MARK A SMALLER JOB THAN THIS STAGE FIRST GAVE IT. Nothing needs to be
+kept out of ordering or gap-checking by being a magazine, because those key on a number and a label
+is not one. What the mark decides is what the page CALLS the list: `収録巻` over 117 issues of a
+magazine is the wrong word, and it is the wrong word whether or not they are numbered. So ガレット
+is a periodical whose issues are numbered, コミック百合姫 is a periodical whose issues are labelled,
+and the two questions are independent.
+
+The signal is the open question. BOOK☆WALKER tags 117 rows `[雑誌]`, all of them コミック百合姫's,
+which is certain and narrow; a date-shaped designation reaches 141 rows across 5 records, which
+catches まんがタイムきららＭＡＸ and ちゃおデラックスホラー but says nothing about ガレット, whose
+rows look exactly like a book's.
+
+### The measure that guards it
+
+**`volume rows a page counts but cannot list`**, a budget that opened at **1,420** and stands at
+**0**. §1's `volume rows with no publication date` does not cover it: a row can carry a date and
+still show a reader nothing, and 119 of them did.
+
+It counts, over works.json, what the interface's own `says` would decline to list, and the two
+predicates are written out separately on purpose: one decides what a page draws, the other what the
+build owes it. `test_interface.py` reads the served `app.js` and asserts they name the same fields,
+because they stopped agreeing once already and that is how 119 rows went missing.
+
+### What landed
+
+| | |
+|---|---|
+| rows the page counts and cannot list | 1,420 → **0** |
+| issues of コミック百合姫 named and dated | 117, plus the 2 free ones |
+| records the shop tags a magazine | 1, and only that one is marked |
+
+**`創刊号` moved from being declined to being read, and then to being kept as written.** The first
+attempt returned `1`, which put a number in the record that the product title does not contain, and
+`a volume number is the shop's own` caught it inside a minute. The record now keeps the shop's own
+word and `build.volume_number` turns it into 1, which is where `vol. 8` and `第1巻` already become
+integers. ガレット reads `vol. 1` through `vol. 37` with a stated gap at 10 and 11.
+
+The delivery date is shown and says what it is: `on sale 18 Nov 2016` / `配信 2016年11月18日`, in
+its own class, dimmer than a publication date. コミック百合姫's 2017年1月号 was delivered six weeks
+before its cover date, so a delivery date labelled as a printing would be wrong by that much on
+every issue.
+
+**One limit was accepted rather than guessed past** and is recorded in `docs/GAPS.md`: only
+コミック百合姫 is tagged `[雑誌]`, so ガレット, まんがタイムきららＭＡＸ and ちゃおデラックスホラー
+are magazines still headed as volumes. Inferring the format from a date-shaped designation would
+find two of those, miss ガレット, and mark whatever else happens to be named by a date.
+
+### What is out of scope, and is a coverage note rather than a debt
+
+BOOK☆WALKER holds コミック百合姫 from 2017年1月号. The magazine began in 2005, no catalogue in the
+corpus holds the earlier run, and MADB's コミック百合姫 records are books under that imprint rather
+than issues of the magazine. That is a known and probably permanent gap in what is reachable, which
+belongs in `docs/GAPS.md` and not in a budget that could never fall.
+
+---
+
+## 4. Two catalogues describing one volume are drawn as two volumes
+
+Needs §2 for numbers to key on, and §3 for the fields there are to merge.
 
 ### What is wrong
 
@@ -309,9 +480,9 @@ would have caught the 52-row MURCIÉLAGO list without anyone opening the page.
 
 ---
 
-## 4. コミックシーモア knows the volumes and is never asked about a work we hold
+## 5. コミックシーモア knows the volumes and is never asked about a work we hold
 
-Needs §3, or it adds a third overlapping volume set to the two already double-counted.
+Needs §4, or it adds a third overlapping volume set to the two already double-counted.
 
 ### What is wrong
 
@@ -348,7 +519,7 @@ probably smaller set.
 Then make cmoa a source rather than only a queue: a `data/source/cmoa/` record, written by the
 same capture, in the shape the other retailer records already have (`data/source/bookwalker/` is
 the model). Then
-the volume set of a held work can carry cmoa's statement, `print_runs` and the §3 merge treat it as
+the volume set of a held work can carry cmoa's statement, `print_runs` and the §4 merge treat it as
 one more catalogue of the same run, and the reconciliation rules apply to it without a second
 mechanism. Joining is by §1's join, which is why §1's join has to hold.
 

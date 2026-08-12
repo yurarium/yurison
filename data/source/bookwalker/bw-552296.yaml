@@ -20,8 +20,10 @@ venue: "ナンバーナイン"
 completed: false
 volumes:
   - title: "BBB荘 1st Floor"
+    designation: "1st Floor"
     delivered: "2025-10-10"
   - title: "【最新刊】BBB荘 2nd Floor"
+    designation: "2nd Floor"
     delivered: "2025-10-10"
 admitted_by:
   - comparator: "bookwalker.jp"

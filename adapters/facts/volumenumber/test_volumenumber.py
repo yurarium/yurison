@@ -75,10 +75,42 @@ def main(s):
     s.eq(vn.stated("【最新刊】ドSさんはヤキモチちゃんが大好き", "百合シリーズ"), None,
          "a shop umbrella holding differently named books numbers nothing")
 
-    # A PERIODICAL HAS ISSUES AND NOT VOLUMES. Numbering these would put twelve volumes a year into
-    # a work's run.
+    # ── A POSITION IN A SEQUENCE, OR A LABEL ──────────────────────────────────────────────────
+    #
+    # THE LINE THIS MODULE DRAWS, ruled by the project owner 2026-08-12. `2017年1月号` is a LABEL:
+    # a magazine's naming scheme is not stable across its own life, and コミック百合姫 has run
+    # `Vol. 7 Winter 2007` quarterly, then bimonthly, then unnumbered, and only now monthly by
+    # cover date, so a Vol. 7 and a 2017年1月号 are not two points on one line. Nothing is derived
+    # from a label. `創刊号` is a POSITION, said in words.
+    s.eq(vn.stated("コミック百合姫 2017年1月号[雑誌]", "コミック百合姫"), None,
+         "an issue named by its cover date states no volume number")
+    s.eq(vn.designation("コミック百合姫 2017年1月号[雑誌]", "コミック百合姫"), "2017年1月号",
+         "and what it IS called comes back whole, with the shop's format tag off")
+    s.eq(vn.stated("ガレット 創刊号", "ガレット"), "創刊号",
+         "the inaugural issue answers with the shop's own word and not with the number it means")
+    s.check(vn.stated("ガレット 創刊号", "ガレット") in "ガレット 創刊号",
+            "WHICH IS IN THE PRODUCT TITLE, so `a volume number is the shop's own` stays pure "
+            "arithmetic; `build.volume_number` is the one place a designation becomes an integer")
+    s.eq(vn.stated("ガレット No.2", "ガレット"), "2",
+         "and the rest of ガレット runs on ordinary numbers, which is why it is not a label case")
+
+    # A LABEL FOR AN INSTALMENT THAT IS NOT AN ISSUE AT ALL. `メガネさんシリーズ` is a shop umbrella
+    # over separately named books, so the product's own name is the whole of what it says.
+    s.eq(vn.designation("お昼のメガネさん", "メガネさんシリーズ"), "お昼のメガネさん",
+         "a product the series title does not name answers with its own name")
+    s.eq(vn.designation("淡影の甘露", "淡影の甘露"), None,
+         "and a product that IS the work says nothing the work's own title does not")
+    s.eq(vn.designation("レミ咲短編集「you」", "レミ咲短編集「you」"), None,
+         "including where the titles differ only in punctuation the fold ignores")
+
+    # THE SHOP SAYS WHAT A PRODUCT IS AND WE DO NOT INFER IT.
+    s.check(vn.is_periodical("コミック百合姫 2017年1月号[雑誌]"),
+            "BOOK☆WALKER writes its own word for a magazine and that is what is read")
+    s.check(not vn.is_periodical("ガレット No.2"),
+            "ガレット is a magazine and carries no such tag, so it is not marked one: a rule "
+            "inferring the format from a date-shaped name would miss it and mark others wrongly")
+
     s.eq(vn.stated("ガレット 2019年5月号", "ガレット"), None, "a monthly issue is not a volume")
-    s.eq(vn.stated("ガレット 創刊号", "ガレット"), None, "nor is a first issue")
 
     # A NAME THAT ENDS IN DIGITS IS A NAME, and here it is not even a question: the digits are
     # inside the series title, so nothing is left over to read.

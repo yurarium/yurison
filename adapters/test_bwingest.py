@@ -168,6 +168,46 @@ def main(s):
     s.eq(umb["volume_count"], 2,
          "and the count falls back on how many items there are, which is all that can be said")
 
+    # ── WHAT A RECORD SAYS ABOUT AN INSTALMENT THAT IS NOT A NUMBER ───────────────────────────
+    #
+    # コミック百合姫's page read `Volumes 119` above `119 with no date and nothing else recorded`,
+    # over 117 issues whose own names and delivery dates were in the record the whole time. An
+    # issue is designated by its cover date, which is a LABEL: the magazine has run
+    # `Vol. 7 Winter 2007` quarterly, then bimonthly, then unnumbered, and only now monthly, so
+    # nothing is derived from one. Ruled by the project owner 2026-08-12.
+    mag = bw.record(work(title="コミック百合姫", volumes=[
+        {"title": "コミック百合姫 2017年1月号[雑誌]", "series_title": "コミック百合姫",
+         "delivered": "2016-11-18"},
+        {"title": "【最新刊】コミック百合姫 2026年9月号[雑誌]", "series_title": "コミック百合姫",
+         "delivered": "2026-07-16"}]), "2026-08-06")
+    s.eq([v["number"] for v in mag["volumes"]], [None, None],
+         "an issue named by its cover date states no volume number")
+    s.eq([v["designation"] for v in mag["volumes"]], ["2017年1月号", "2026年9月号"],
+         "AND WHAT IT IS CALLED IS CARRIED WHOLE, which is the only thing 119 rows had")
+    s.check(mag["periodical"],
+            "the shop's own `[雑誌]` says what these are, so a page need not call them volumes")
+
+    # AND `創刊号` IS A POSITION SAID IN WORDS, not a label. ガレット runs No.2 to No.37 with its
+    # inaugural issue as the only row the shop leaves unnumbered.
+    gal = bw.record(work(title="ガレット", volumes=[
+        {"title": "ガレット 創刊号", "series_title": "ガレット", "printed": "2018-04-15"},
+        {"title": "ガレット No.2", "series_title": "ガレット", "printed": "2018-04-15"}]),
+        "2026-08-06")
+    s.eq([v["number"] for v in gal["volumes"]], ["創刊号", "2"],
+         "the shop's own word is kept, so the number a record states is always in its own title")
+    s.check(not gal.get("periodical"),
+            "ガレット is a magazine and carries no `[雑誌]`, so nothing here marks it one")
+    s.check("designation" not in gal["volumes"][0],
+            "and a row that states a number needs no label beside it")
+
+    # A PRODUCT THAT IS THE WORK SAYS NOTHING THE WORK'S TITLE DOES NOT, so nothing is invented to
+    # put on the row. What such a row has is the day the shop began selling it.
+    one = bw.record(work(title="淡影の甘露", volumes=[
+        {"title": "淡影の甘露", "series_title": "淡影の甘露", "delivered": "2019-03-01"}]),
+        "2026-08-06")
+    s.check("designation" not in one["volumes"][0], "a lone volume that is the work is not labelled")
+    s.eq(one["volumes"][0]["delivered"], "2019-03-01", "and carries the shop's own date")
+
     # 付き合ってあげてもいいかな【単話】 lists 133 items, numbered （１） to （133） by the shop
     # itself, and calling them 第1巻 to 第133巻 says the work is 133 volumes long.
     s.check(bw.chapterwise("付き合ってあげてもいいかな【単話】"), "単話 is sold one chapter at a time")

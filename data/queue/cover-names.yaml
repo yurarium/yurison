@@ -3085,3 +3085,78 @@ candidates:
   decision: take-as-spelling
   why_decided: Same line, same reasoning.
   note: The second half of the credit pair. Two artists sharing a surname, both set lowercase.
+- work: となりの殺し屋ちゃん
+  latin: Tonari no koroshiya chan
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005269_4569446b_2174_4272_961c_9792782e5241_jpg__173a64bbcfdbc34f.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates となりの殺し屋ちゃん and says nothing in English.
+  note: Letterspaced under the logo. It drops the hyphen most romanisations put before ちゃん and agrees
+    with our own spelling otherwise.
+- work: 悪戯プライバシー
+  latin: ITAZURA PRIVACY
+  kind: cover-romanisation
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_37918__2a96c3ff89327bbb.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES, on the OSHIKOI CAPRICCIO line. プライバシー is privacy in katakana so that
+    word is a source, but 悪戯 is sounded out as ITAZURA and it is the half that says what the title is
+    about.
+  note: Very small letterspaced caps between 悪戯 and プライバシー, inside a ニコニコ漫画 frame. Our romanisation
+    would give Itazura Puraibashii.
+- work: リリーズ【タテスク】
+  latin: Lilies
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_000584_053961e4_dc7d_4d5c_81f7_994026be8844_jpg__5c0fee00ffddde89.jpg
+  decision: take-as-title
+  why_decided: 'RULE 1 APPLIES to the caps. Rule 2 does not bite: リリーズ is lilies in katakana, so the
+    Latin is what it came from. Our romanisation would give Ririizu.'
+  note: Set in small caps directly under the red katakana. The lily is the flower the whole genre is
+    named for, so the English is doing more work here than its two syllables suggest. The 【タテスク】 in
+    our title is the vertical-scroll format tag rather than part of the name.
+- work: 創る庭
+  latin: tsukuru niwa
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_007254_01ecb643_779f_4deb_8393_2c3f151df268_jpg__51febc8ebc48fdf4.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 創る庭 and says nothing in English.
+  note: Letterspaced lowercase directly under the brushed kanji. It agrees with our romanisation. 創る
+    for making is an unusual choice over 作る, which the Latin cannot show.
+- work: 変態祓魔師燈明院牡丹
+  reading: エクソシスト
+  of: 祓魔師
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006123_128bdc7f_a27b_4891_b5bc_d38a9438aa21_jpg__4c379d5c4b4a74e5.jpg
+  decision: reading
+  why_decided: A reading is not a title, so neither rule applies.
+  note: 'THE READING IS AN ENGLISH WORD IN KATAKANA. 祓魔師 is written with the characters for driving
+    out demons and rubied エクソシスト, so it is said exorcist. Nothing in our tables produces that: the characters
+    would give futsumashi or similar. It is the same device as 鬼 rubied オンナ, with the ruby coming from
+    English instead of from Japanese.'
+- work: 変態祓魔師燈明院牡丹
+  reading: トウミョウイン
+  of: 燈明院
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006123_128bdc7f_a27b_4891_b5bc_d38a9438aa21_jpg__4c379d5c4b4a74e5.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: A surname built from temple-lamp characters, rubied とうみょういん. 燈 is the old form of 灯, which our
+    tables may not carry at all.
+- work: 変態祓魔師燈明院牡丹
+  reading: ボタン
+  of: 牡丹
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006123_128bdc7f_a27b_4891_b5bc_d38a9438aa21_jpg__4c379d5c4b4a74e5.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: The given name, rubied ぼたん, the peony. Ordinary as a word and worth confirming as a name.
+- work: Mr.マロウブルー
+  latin: Mr. Mallow blue
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_002578_c09e7d5b_bcd6_440f_82c2_08144277124b_jpg__faae67e5325ff09d.jpg
+  decision: take-as-title
+  why_decided: 'Not all caps, so rule 1 does not reach it: Mr and Mallow are capitalised and blue is
+    not. Rule 2 does not bite: マロウブルー is mallow blue in katakana, so the Latin is what it came from,
+    and the title already carries Mr. in Latin.'
+  note: OWNER, THE LOWERCASE b IS THE ARTWORK'S. Set widely letterspaced under the logo. Mallow blue
+    is the colour of the tea that turns from blue to pink, which the cover art is built around. Our
+    romanisation would give Marou Buruu.

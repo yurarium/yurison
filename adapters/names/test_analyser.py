@@ -82,6 +82,57 @@ def main(s):
     except ImportError:
         s.skip("sudachipy absent")
 
+    # A SECOND TABLE FOR WORDS THE DICTIONARY DOES NOT HOLD, whose reading belongs to the whole word.
+    # Reported 2026-08-12 as `Tsuiteru Gyaru to Mieteru Kage Kya`, from ツイてるギャルとミエてる陰キャ.
+    s.check(isinstance(p4.COMPOUND_READING, dict), "a compound table exists")
+    s.eq(p4.COMPOUND_READING.get("陰キャ"), "インキャ", "陰キャ is いんキャ, not かげキャ")
+    # THE KEY THAT COULD NOT LIVE IN THE PER-MORPHEME TABLE, which is why there are two of them.
+    s.eq(p4.READING_OVERRIDE.get("陰"), None,
+         "陰 alone is not overridden: 陰で, 陰口 and 光と陰 are all かげ")
+    # Longest first, so a longer word beats a shorter one that prefixes it.
+    s.eq(p4.COMPOUND_KEYS, sorted(p4.COMPOUND_READING, key=len, reverse=True),
+         "keys are tried longest first")
+
+    # THE SPLIT IS DONE ON THE STRING, BEFORE THE ANALYSER, and this is the case that forced it.
+    # Sudachi reads 陰キャギャル as 陰 + キャギャル, so no run of whole tokens joins to 陰キャ and a
+    # lookahead over its output finds nothing. Cutting the string first also leaves ギャル a token.
+    s.eq([seg for seg in p4._compound_segments("陰キャギャルでもイキがりたい！")],
+         [("陰キャ", True), ("ギャルでもイキがりたい！", False)],
+         "a compound is cut out of the string whatever the analyser would have done with it")
+    s.eq(p4._compound_segments("光と陰"), [("光と陰", False)],
+         "a string with no compound in it comes back whole")
+    s.eq(p4._compound_segments("陰キャと陽キャ"),
+         [("陰キャ", True), ("と", False), ("陽キャ", True)],
+         "two compounds in one string are both cut out")
+
+    try:
+        from sudachipy import Dictionary, SplitMode
+        _tk = Dictionary().create()
+        s.eq(p4.analyse(_tk, "ツイてるギャルとミエてる陰キャ", SplitMode.C),
+             "ツイテル ギャル ト ミエテル インキャ", "the reported title reads いんキャ")
+        s.eq(p4.analyse(_tk, "陰キャギャルでもイキがりたい！", SplitMode.C),
+             "インキャ ギャル デ モ イキガリタイ！",
+             "and so does the one whose tokens straddle the word")
+        # THE COUNTER-CASES, each an ordinary word this must not touch. A table that fixed one title
+        # and broke three would be worse than the wrong reading it replaced.
+        for src, want in (("陰で笑う", "カゲ デ ワラウ"),
+                          ("陰口をたたく", "カゲグチ ヲ タタク"),
+                          ("光と陰", "ヒカリ ト カゲ"),
+                          ("陰陽師", "オンミョウジ")):
+            s.eq(p4.analyse(_tk, src, SplitMode.C), want, f"{src} is untouched")
+        # A STORED READING ASSEMBLED FROM THE CHARACTERS IS STALE, so the refresh reaches records
+        # written before the table existed. This is the whole of how the fix reaches the corpus.
+        s.check(p4.overruled(_tk, "ツイてるギャルとミエてる陰キャ",
+                             "ツイテル ギャル ト ミエテル カゲ キャ", SplitMode.C),
+                "a reading holding かげ キャ is stale")
+        s.check(not p4.overruled(_tk, "ツイてるギャルとミエてる陰キャ",
+                                 "ツイテル ギャル ト ミエテル インキャ", SplitMode.C),
+                "and one already carrying いんキャ is not")
+        s.check(not p4.overruled(_tk, "光と陰", "ヒカリ ト カゲ", SplitMode.C),
+                "a title the table says nothing about is never stale")
+    except ImportError:
+        s.skip("sudachipy absent")
+
     # Credit lines are not titles. 原作／宮澤伊織 was once romanised wholesale, producing
     # "Gensaku Kigō Miyazawa Iori": the role is a label to translate, the name is a name.
     s.check(p4.is_credit_line("原作／宮澤伊織"), "a credit line is recognised by its role marker")

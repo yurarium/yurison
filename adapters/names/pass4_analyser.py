@@ -81,6 +81,49 @@ READING_OVERRIDE = {
     "抱か": "ダカ",
 }
 
+#: Coinages the dictionary has no entry for, whose reading belongs to the WHOLE WORD and not to its
+#: characters. Keyed on the surface, matched across as many morphemes as the analyser split it into.
+#:
+#: WHY A SECOND TABLE AND NOT MORE ROWS IN THE FIRST. `READING_OVERRIDE` is consulted per morpheme,
+#: and 陰キャ is never one: Sudachi returns 陰 as カゲ, an ordinary in-dictionary word, then キャ as
+#: out-of-vocabulary. So the only key that could fix it there is 陰, and 陰 alone IS かげ — 陰で,
+#: 陰口, 陰ながら. A per-morpheme entry would have to be wrong somewhere to be right here.
+#:
+#: THE PROJECT OWNER REPORTED IT ON 2026-08-12 as `Tsuiteru Gyaru to Mieteru Kage Kya`, from
+#: ツイてるギャルとミエてる陰キャ. 陰キャ is いんキャ, clipped from 陰キャラ, 陰気なキャラクター,
+#: and four other works in this corpus carry it: 陰キャ除霊師とギャルJK, 陰キャギャルでもイキがりたい！,
+#: 陰キャの私が何故かギャルにモテている, and the reported one.
+#:
+#: ATTESTED WORDS ONLY. 陽キャ is here because the corpus states it once, in a page describing
+#: 下部七花はかく語りき. Its ら forms are not, because nothing here writes them, and a table of words
+#: nobody uses is a table nobody can check.
+COMPOUND_READING = {
+    "陰キャ": "インキャ",
+    "陽キャ": "ヨウキャ",
+}
+
+#: Longest first, so a longer word wins over a shorter one that prefixes it.
+COMPOUND_KEYS = sorted(COMPOUND_READING, key=len, reverse=True)
+
+#: Alternation in length order, so the longest word that starts at a position wins: Python's `re`
+#: takes the first alternative that matches, not the longest.
+COMPOUND_RE = re.compile("|".join(re.escape(k) for k in COMPOUND_KEYS)) if COMPOUND_KEYS else None
+
+
+def _compound_segments(s):
+    """`[(text, is_compound), ...]` splitting a string on the words in `COMPOUND_READING`."""
+    if not COMPOUND_RE:
+        return [(s, False)]
+    out, i = [], 0
+    for m in COMPOUND_RE.finditer(s):
+        if m.start() > i:
+            out.append((s[i:m.start()], False))
+        out.append((m.group(0), True))
+        i = m.end()
+    if i < len(s):
+        out.append((s[i:], False))
+    return out or [(s, False)]
+
 
 def analyser_version():
     """Which analyser produced a reading, as the string stored beside it.
@@ -346,7 +389,21 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
     romanised title needs.
     """
     out, fell_back = [], False
-    for m in tokenizer.tokenize(s, mode):
+    # A WORD THE DICTIONARY DOES NOT HOLD IS SPLIT OUT BEFORE THE ANALYSER SEES IT, rather than
+    # matched in its output afterwards. Matching afterwards fails on 陰キャギャルでもイキがりたい！,
+    # where Sudachi returns 陰 and then キャギャル: no run of whole tokens joins to 陰キャ, so a
+    # lookahead over the token stream cannot find the word that is plainly there. Cutting the string
+    # first also gives the rest of the title a better parse, since ギャル is then a token of its own.
+    items = []
+    for text, is_compound in _compound_segments(s):
+        if is_compound:
+            items.append(text)                      # a bare str marks a compound
+        else:
+            items.extend(tokenizer.tokenize(text, mode))
+    for m in items:
+        if isinstance(m, str):
+            out.append(("\x00" if (out and out[-1].endswith("\x02")) else "") + COMPOUND_READING[m])
+            continue
         surf = m.surface()
         r = m.reading_form()
         glue = attaches_left(m.part_of_speech()) or (out and out[-1].endswith("\x02"))
@@ -1083,6 +1140,12 @@ def overruled(tokenizer, s, reading, mode=None):
     held = kata(str(reading or ""))
     if not held:
         return False
+    # A COMPOUND IS ANSWERED WITHOUT THE TOKENISER, because the question is about the whole word.
+    # If the title states one and the stored reading does not carry the word's reading, that reading
+    # was assembled from the characters and is exactly what the table exists to replace.
+    for key, want in COMPOUND_READING.items():
+        if key in str(s or "") and want not in held:
+            return True
     for m in tokenizer.tokenize(s, mode):
         want = READING_OVERRIDE.get(m.surface())
         got = kata(m.reading_form() or "")
@@ -1139,7 +1202,12 @@ def fill_missing(strings, kind, quiet=False, refresh=False, ruled=None):
     _done = set(todo)
     stale = [s for s in names
              if s and s not in _done
-             and any(w in s for w in READING_OVERRIDE)
+             # BOTH TABLES, or a compound title never reaches the check below. Bracketed,
+             # because `and` binds tighter than `or` and the flat form dropped the guards
+             # either side of it. The pre-filter keeps the tokeniser off the whole store; it
+             # decides nothing.
+             and (any(w in s for w in READING_OVERRIDE)
+                  or any(w in s for w in COMPOUND_READING))
              and (names.get(s) or {}).get("reading_basis") in OVERRULABLE
              and overruled(tok, s, (names.get(s) or {}).get("reading"), modes[0])]
     todo += stale

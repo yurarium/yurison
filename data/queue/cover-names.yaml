@@ -2495,3 +2495,108 @@ candidates:
   why_decided: A reading is not a title.
   note: The strapline 極上の応援をキミに。 rubies 応援 as エール, so the word is read as the English yell rather than
     as ouen. That is the title's own pun spelled out, and it is why Anima Yell! and not Anima Ouen.
+- work: 姫虐が止まらない白桃さん
+  reading: シラモモ
+  of: 白桃
+  kind: title-furigana
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2551460909961393303_c0f2ecbe11865369288f7473a961aeb9_1771992798__f3a1cb5717012e3e.jpg
+  decision: reading
+  why_decided: A reading is not a title, and there is no Latin on this page.
+  note: AN IRREGULAR READING WE WOULD HAVE GOT WRONG. 白桃 is はくとう as the fruit and しらもも as this character's
+    surname, and only the ruby says which. It appears twice on the page, over the title and over the
+    character label.
+- work: 姫虐が止まらない白桃さん
+  reading: ヒメギャク
+  of: 姫虐
+  kind: title-furigana
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2551460909961393303_c0f2ecbe11865369288f7473a961aeb9_1771992798__f3a1cb5717012e3e.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: 姫虐 is a coinage rather than a word, princess plus the 虐 of 虐める, so the ruby is the only way
+    to know it reads himegyaku.
+- work: ツイてるギャルとミエてる陰キャ
+  latin: tsuiteru gyaru to mieteru inkya
+  kind: cover-romanisation
+  seen_on: cache://kirapo_jp__https___kirapo_jp_storage_images_title_2000501_ogp_cfde3b9b5e15b700_jpg__ab9b252657bd5804.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates ツイてるギャルとミエてる陰キャ and says nothing in English. ギャル is
+    the Japanese gyaru rather than the English gal, and the cover spells it that way itself.
+  note: Tiny lowercase running down beside the katakana of the logo, broken across the two halves. The
+    title puns ツイてる, being lucky, against ミエてる, seeing things, and the romanisation carries neither.
+    Credit is presented by 深水たろー.
+- work: 其れの手も借りるほど
+  reading: ソレノテモカリルホド
+  of: 其れの手も借りるほど
+  kind: title-furigana
+  seen_on: cache://cdn_img_kuragebunch_com__nch_com_public_series_thumbnail_14079602755594903536_7f530bcf7d141215867ab7bdbd251b7c_1760074701__5ce44ce6610e38a1.jpg
+  decision: reading
+  why_decided: A reading is not a title, and the banner carries no Latin.
+  note: 其 is an old spelling of それ that modern Japanese writes in kana, which is why the whole title
+    is rubied along a diagonal band rather than character by character. The phrase plays on 猫の手も借りたい,
+    so 其れ stands in for the cat.
+- work: 魔王と百合
+  latin: MAOU to YURI
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_004382_e4076b72_3145_40cc_88ae_dcd21368ca80_jpg__0ed3bd5932a9fab9.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 魔王と百合 and says nothing in English, keeping both 魔王
+    and 百合 as sounds.
+  note: Small caps under the logo. Note it sets the particle と in lowercase between two capitalised
+    words, which is a convention our romanisation does not have.
+- work: 魔王と百合
+  latin: the world will perish, if she doesn't choose her companion
+  kind: cover-gloss
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_004382_e4076b72_3145_40cc_88ae_dcd21368ca80_jpg__0ed3bd5932a9fab9.jpg
+  decision: not-a-title
+  why_decided: It renders nothing in 魔王と百合. An English sentence about the plot, set under the romanisation
+    where a strapline goes.
+  note: Recorded so a later pass does not meet it fresh. The cover also labels each character in Latin
+    script, Priestess, Brave, Demon King, Witch, Maid and Princess Knight, which are roles in the picture
+    rather than anything of the work's.
+- credit: なもり
+  latin: Namori
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183988_c582c07d29d7fd96a4d82604a29c121d_1752730099__d229a3d2de19459e.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: SECOND COVER FOR THIS CREDIT AND IT AGREES WITH THE FIRST. ゆるゆり volume 20 set it as PRESENTED
+    BY NAMORI in caps; here it is Namori in initial caps, inside the logo. Both give the same letters,
+    so the spelling is settled and only the casing differed, which is what rule 1 is for.
+- work: 大室家
+  reading: オオムロケ
+  of: 大室家
+  kind: title-furigana
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183988_c582c07d29d7fd96a4d82604a29c121d_1752730099__d229a3d2de19459e.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: Rubied おおむろけ under the logo. 家 as け rather than か or いえ is the family-name suffix, and 大室 keeps
+    its long o, so the ruby settles both.
+- work: 大室家
+  latin: OMRK
+  kind: cover-gloss
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183988_c582c07d29d7fd96a4d82604a29c121d_1752730099__d229a3d2de19459e.jpg
+  decision: not-a-title
+  why_decided: SECOND CASE OF THE YRYR SHAPE. It is the consonants of Oomuroke with the vowels taken
+    out, a nickname rather than a name, and it is neither a translation nor a transliteration.
+  note: Set small inside the logo above volume four. Both instances of this shape so far are by なもり,
+    on ゆるゆり and on its spin-off, so it may be one artist's habit rather than a convention. Published
+    by Ichijinsha and yh COMICS at the foot are the publisher and imprint.
+- work: オカワリいただけただろうか?
+  latin: OKAWARI ITADAKETA DAROUKA?
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_comic_action_com__tion_com_public_series_thumbnail_2550912964905642274_04e2d7eb1d131d0ad7d1091c57a1c210_1731916805__e91854a2a41d08bc.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates オカワリいただけただろうか? and says nothing in English.
+  note: Letterspaced caps along the top edge. It agrees with our romanisation, long vowel in だろうか included.
+- credit: うーても
+  latin: U-temo
+  kind: official-latin-name
+  seen_on: cache://cdn_img_comic_action_com__tion_com_public_series_thumbnail_2550912964905642274_04e2d7eb1d131d0ad7d1091c57a1c210_1731916805__e91854a2a41d08bc.jpg
+  decision: take-as-spelling
+  why_decided: 'Recorded as printed. RULE 1 IS NOT APPLIED HERE, because this is not all caps: the artwork
+    sets U-temo with one capital inside a PRESENTED BY that is fully capitalised, so the small t is
+    deliberate.'
+  note: OWNER, THIS CONTRADICTS THE OTHER COVER AND THAT IS THE POINT. 今日はまだフツーになれない sets the same credit
+    as u-temo, all lowercase, up the left edge. Here it is U-temo. So the artist styles the name against
+    our capitalisation but is not consistent about the first letter either. Two sightings, two forms,
+    and the choice is yours the way the Ikuta Hana order was.

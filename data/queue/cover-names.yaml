@@ -4009,3 +4009,40 @@ candidates:
   note: Set very large in a pale outline face behind the logo and cropped by the frame, so it reads
     in pieces rather than in a line, the same layout 7 days girlfriend used. It writes とおり with a doubled
     o, which our romanisation also does. Credit 弐尉マルコ, named in the Japanese flash with no Latin.
+- work: ひなちゃんが生きてるなら
+  latin: If Only Hina Were Still Alive
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2551460909862285568_7313da0b7d378810ea8025dc23b4f6dd_1780365147__d4f410b233cf98ab.jpg
+  decision: take-as-title
+  why_decided: RULE 1 APPLIES to the caps. It renders ひなちゃんが生きてるなら rather than transliterating it.
+  note: Set vertically in tiny caps down the right of the kana logo on the volume 1 cover, reading top
+    to bottom. The ちゃん goes, as usual, and the Japanese conditional なら becomes If only. volume one under
+    the numeral is lowercase, and the credit is 紬めめ, whose Latin spelling Tsumugi Meme came from the
+    かたわれの女神 cover earlier in this pass.
+- work: 徒花の約束
+  reading: アダバナノヤクソク
+  of: 徒花の約束
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_007123_0f7c3c2a_4147_47bf_a8fe_0adb031cf1e5_jpg__2c073772f9ee775d.jpg
+  decision: reading
+  why_decided: A reading is not a title, and the banner carries no Latin.
+  note: AN IRREGULAR READING. 徒花 is あだばな, a blossom that bears no fruit, where 徒 would ordinarily give
+    と or いたずら. The whole title is rubied in one small line under the logo, and 約束 voices to やくそく unchanged.
+- work: まとう君、ほころぶ私
+  latin: Matou Kimi Hokorobu Watashi
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_feelweb_jp__elweb_jp_public_series_thumbnail_2550689798763768335_a94b01a77a7a3b27a8f63357dc3652a1_1771489770__ef9701e888ad3a1b.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates まとう君、ほころぶ私 and says nothing in English.
+  note: Letterspaced in gold across the top of the volume 1 cover. It drops the comma the Japanese sets
+    between the two halves and keeps the long vowel in まとう.
+- credit: 犬井あゆ
+  latin: Ayu Inui
+  kind: official-latin-name
+  seen_on: cache://cdn_img_feelweb_jp__elweb_jp_public_series_thumbnail_2550689798763768335_a94b01a77a7a3b27a8f63357dc3652a1_1771489770__ef9701e888ad3a1b.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: THIS IS ONE OF THE SPLIT CREDIT IDENTITIES IN docs/GAPS.md. The gap records 犬井あゆ and Ayu Inui
+    as two entries that ought to be one, and here the publisher prints both on one cover, the kanji
+    in a white tab with the Latin directly beside it. That is the evidence the merge needed, and it
+    comes from the artwork rather than from a name table. Given name first.

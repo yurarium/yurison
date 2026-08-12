@@ -5568,3 +5568,42 @@ candidates:
   why_decided: A reading is not a title.
   note: Rubied しんぜん, the ordinary Sino-Japanese reading, which sits oddly beside the Mandarin ruby on
     the next two characters. So one title takes its readings from two languages at once.
+- credit: riritto
+  latin: riritto
+  kind: official-latin-name
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_55266__0317d6fb7fb0a37d.jpg
+  decision: noted
+  why_decided: The credit is already Latin and lowercase, and the cover prints it as such.
+  note: SIXTEENTH LOWERCASE CREDIT. Set as the キャラクター原案 line on a thumbnail inside a ニコニコ漫画 frame, so
+    it is small twice over; the other two credits, 著者 ぐう and 原作 水無瀬, are in kana and kanji. Recorded
+    because the artist's own Latin is the only form given for this one.
+- work: かわいいのなにが悪いの？
+  latin: kawaii no naniga waruino?
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_007022_1e910b29_0c69_420f_b698_662cad520b06_jpg__fa9e1acf6c62a448.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates かわいいのなにが悪いの？ and says nothing in English.
+  note: Two small lowercase lines set vertically between かわいい and 悪いの. It joins the trailing の onto
+    the word before it, giving waruino, which our romanisation would separate.
+- work: 百合ラブスレイブ ふたりだけの放課後
+  latin: Yuri Love Slave
+  kind: official-latin-title
+  seen_on: cache://cdn_public_comici_jp__tps___cdn_public_comici_jp_series_2284912_20250807195904765E146C81E5A2A672023C00A73BD50CDAC_webp__cef4abb4bde898ad.webp
+  decision: take-as-title
+  why_decided: 'RULE 1 APPLIES to the caps. Rule 2 does not bite: ラブスレイブ is the English words in katakana,
+    and 百合 is the genre word English has borrowed whole, so the Latin is the source of all three. Our
+    romanisation would give Yuri Rabu Sureibu.'
+  note: Set very wide in tiny caps across the middle of the logo, one word to each of the three katakana
+    groups. It renders only the main title; the subtitle ふたりだけの放課後 sits below in Japanese with no English
+    of its own.
+- work: セメルパルス semelparous
+  latin: Semelparous
+  kind: official-latin-title
+  seen_on: cache://cdn_img_comic_days_com__days_com_public_series_thumbnail_3269754496319979379_18e8faf0db039a9bc8c5a096bf6ffca3_1648776349__f2d645feee192220.jpg
+  decision: noted
+  why_decided: The work is already carried as セメルパルス semelparous and the artwork prints the same word,
+    so nothing changes except the case.
+  note: OWNER, THE ARTWORK CAPITALISES AND OUR RECORD DOES NOT. Set in a red italic script under the
+    katakana with an initial S. Our title has it lowercase. Rule 1 does not reach a single initial capital,
+    so this is a normalisation question rather than a naming one. Semelparous is the biological term
+    for an organism that breeds once and dies, which is the premise of the book.

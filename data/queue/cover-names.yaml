@@ -2735,3 +2735,99 @@ candidates:
   why_decided: Mixed case as printed, so rule 1 does not bite.
   note: Letterspaced directly under the brushed logo, family name first. It splits いなばみね into two words,
     which our romanisation of an all-kana credit has no way to know to do.
+- work: バズーカを持った天使
+  latin: an angel with a bazooka
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184588_a6c0e0f7b335ab80bc843859e5cdcce1_1752730099__391e02bbb9174cb0.jpg
+  decision: take-as-title
+  why_decided: Entirely lowercase as printed, and rule 1 only recases capitals. It renders バズーカを持った天使
+    rather than transliterating it.
+  note: Set in two small lowercase lines tucked between 持った and 天使 inside the logo. The lowercase is
+    deliberate typography rather than an oversight, since everything else on the page is set formally.
+    Credit is presented by 散葉ちんみ, with no Latin.
+- work: 恋人の下の名前が呼べなくて困ってます
+  latin: I'm having trouble calling my girlfriend by her first name.
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184102_95680ba5da9f951680db6d8e875ff323_1752730099__8abe7758fc2e4610.jpg
+  decision: take-as-title
+  why_decided: Sentence case as printed, so rule 1 leaves it, and it renders 恋人の下の名前が呼べなくて困ってます rather
+    than transliterating it.
+  note: Three tiny lines set at an angle over the logo, a few pixels tall in the served banner and easy
+    to take for texture. The full stop is printed. 下の名前 is the given name, and first name carries it.
+- credit: 友藤みる
+  latin: Miru Tomofuji
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184102_95680ba5da9f951680db6d8e875ff323_1752730099__8abe7758fc2e4610.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: Small line above the kanji credit, given name first. 友藤 could be Tomofuji or Yuufuji from the
+    characters alone, and the cover settles it.
+- credit: ゆあま
+  latin: yuama
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2551460909671366556_3e1fcd470471a27ecc3829da29342acb_1780365178__6d3ee2890fb4f72c.jpg
+  decision: take-as-spelling
+  why_decided: Lowercase as printed, and rule 1 only recases capitals.
+  note: SIXTH SELF-STYLED LOWERCASE CREDIT, after u-temo, shirainu, tachi, emily and tMnR. Set as yuama
+    presents under the English line on the volume 1 cover, where our romanisation would give Yuama.
+- work: たゆたう恋の散り際に
+  latin: Wounds shared between girls
+  kind: cover-gloss
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2551460909671366556_3e1fcd470471a27ecc3829da29342acb_1780365178__6d3ee2890fb4f72c.jpg
+  decision: not-a-title
+  why_decided: It renders nothing in たゆたう恋の散り際に, which is about a wavering love at the moment it scatters.
+    An English line describing the book.
+  note: Two small lines beside the vertical logo, directly above the credit. Recorded so a later pass
+    does not meet it fresh. Compare secret crush on my sister and Happy life with my girlfriend, both
+    ruled the same way.
+- work: ベイビー車中ハッカーズ
+  latin: Baby Shachuhackers
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_tonarinoyj_jp__inoyj_jp_public_series_thumbnail_2550912964606689260_5efaebe1fbd54b39dab23a651ae5c62a_1752197674__7d68d736d06188f1.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES, on the OSHIKOI CAPRICCIO line. ベイビー and ハッカーズ are baby and hackers in
+    katakana, so those are sources, but 車中 is sounded out as Shachu and welded into the middle of an
+    English word. It is the part that says where the story happens, in a car, and it says nothing in
+    English.
+  note: OWNER, A THIN ONE. Set in small type between the two lines of the logo. The coinage is charming
+    and someone may want it as an alias, but Shachu inside an English name is the shape rule 2 exists
+    to stop.
+- work: アンドロイドは地雷系の夢を見る。
+  latin: Android Dreams of Jiraike Girl
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005219_44740286_8962_4359_b693_2eb84448db46_jpg__46afccf1b8bfec38.jpg
+  decision: take-as-title
+  why_decided: 'RULE 1 APPLIES to the caps, with of left lowercase. Rule 2 does not bite, on the Ladies
+    of Koumakan line: everything is rendered except 地雷系, which is kept as Jiraike because it names a
+    subculture English has no word for.'
+  note: Letterspaced caps under the katakana logo. The Japanese nods at Do Androids Dream of Electric
+    Sheep? and the English keeps the nod. Our romanisation would give Andoroido Wa Jiraikei No Yume
+    O Miru, and note the cover writes 地雷系 as JIRAIKE without the final i.
+- credit: ぶりすけ
+  latin: Burisuke
+  kind: official-latin-name
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005219_44740286_8962_4359_b693_2eb84448db46_jpg__46afccf1b8bfec38.jpg
+  decision: take-as-spelling
+  why_decided: RULE 1 APPLIES to the caps in PRESENTED BY BURISUKE.
+  note: Small caps under the kana credit at the top right. Agrees with our romanisation, so it confirms
+    and lifts the basis.
+- work: 恋にミスリード
+  latin: Misread it as LOVE!
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183872_a145befefa66acd587a1c5732cb176b7_1752730099__31313e0e6a36e00f.jpg
+  decision: take-as-title
+  why_decided: 'Not all caps, so rule 1 does not reach it: LOVE is capitalised on its own for emphasis
+    and the rest is sentence case. Rule 2 does not bite either, because ミスリード is mislead in katakana
+    and the English turns it into a verb rather than sounding it out.'
+  note: OWNER, THE JAPANESE AND THE ENGLISH DISAGREE ABOUT THE WORD. ミスリード in Japanese is mislead, and
+    the cover's English says misread. Whether that is a pun on 恋 being read wrong or a slip, it is what
+    the artwork prints, so it stands. Set in small letterspaced italics above the logo, which rubies
+    恋 as こい.
+- credit: tsuke
+  latin: tsuke
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183872_a145befefa66acd587a1c5732cb176b7_1752730099__31313e0e6a36e00f.jpg
+  decision: noted
+  why_decided: The credit is already Latin and lowercase, and the cover prints it as we carry it.
+  note: SEVENTH LOWERCASE CREDIT, after u-temo, shirainu, tachi, emily, tMnR and yuama. Set letterspaced
+    in the black foot band after a Presented By that is in initial caps, so the small t is deliberate.

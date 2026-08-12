@@ -362,3 +362,104 @@ candidates:
   note: Printed beside the Japanese name. It is in WESTERN ORDER, which is the one thing a transliteration
     does not carry, and the same question stands over TAMA TAMASAKI and MASUMI YOTSUBA. Name order is
     for the owner's review with the rest.
+- work: 彩純ちゃんはレズ風俗に興味があります！
+  latin: Itsuki Kuro
+  kind: author-latin-name
+  of: 伊月クロ
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183967_4b99e49de64134b31940e74cfae9bbe8_1752730099
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a person, as an extension: the kana transliterated, in Western order.
+    Our own romanisation reaches the letters.'
+  note: Printed above the Japanese name on the volume 1 cover. No Latin title on this artwork.
+- work: 捨てられエルフさんは世界で一番強くて可愛い！
+  latin: The Abandoned Elf is the strongest and cutest in the world!
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/005624/e7878a4f-84f7-401e-b2b3-bdf084643ad3.jpg
+  decision: take-as-title
+  why_decided: 'Neither rule bites: mixed case, and a translation rather than a transliteration.'
+  note: Set under the logo in two small lines.
+- work: 紅茶の魔女の優雅なる宮廷生活
+  latin: Elegant court life of the tea witch
+  kind: official-latin-title
+  seen_on: https://cdn.img.comic-zenon.com/public/series/thumbnail/3270296674358741660_e01e01be5a208e750e54e09de2e14444_1782192422
+  decision: take-as-title
+  why_decided: 'Neither rule bites: mixed case, and a translation rather than a transliteration.'
+  note: Set in small caps-and-lower above the logo. It names the work without the subtitle the Japanese
+    carries.
+- work: 令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～
+  reading: ブイチューバー
+  of: VTuber
+  kind: title-furigana
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/008429/65633776-328f-4b44-aaf8-90dfff80829e.jpg
+  decision: reading
+  why_decided: 'Neither rule applies: a reading is not a title.'
+  note: The logo prints ブイチューバー as ruby over the Latin letters VTuber, which is the reading of a Latin
+    string inside a Japanese title rather than of kanji. An analyser reading the title has to say something
+    about those six letters and nothing states what.
+- work: 陰キャギャルちゃんでもイキがりたい！
+  latin: INKYA GAL DEMO IKIGARITAI!
+  kind: publisher-romanisation
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183908_64acf3718ee063bfaeb537e2bff75be5_1752730099
+  decision: not-a-title
+  why_decided: 'Rule 2: the Japanese title transliterated, so not a name the work gives itself and not
+    evidence about romanisation. Our own rules stand.'
+  note: Across the foot of the volume 1 cover, with VOLUME ONE and PUBLISHED BY ICHIJINSHA beside it.
+- work: 陰キャギャルちゃんでもイキがりたい！
+  latin: かしわぎつきこ
+  kind: author-spelling-confirmed
+  of: かしわぎつきこ
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183908_64acf3718ee063bfaeb537e2bff75be5_1752730099
+  decision: take-as-name
+  why_decided: 'Not a transliteration: this is which of two Japanese spellings the artist signs.'
+  note: THE COVER SIGNS THE HIRAGANA. credit-rulings.yaml merged かしわぎつきこ and 柏木ツキコ on 2026-08-11 on
+    a shared reading and kept 柏木ツキコ as the surviving spelling; the artist's own cover writes かしわぎつきこ,
+    which is also what the work's byline says. Worth a look at which spelling the credit page should
+    be headed with.
+- work: スロー・ステップ！
+  latin: Throwing Step!
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/006598/a785b612-bc25-40c9-b0a4-a44ff6a76f1e.jpg
+  decision: take-as-title
+  why_decided: 'Neither rule bites, and rule 2 emphatically not: this is the English the katakana came
+    FROM, not the katakana transliterated.'
+  note: THE KATAKANA IS A FALSE FRIEND. スロー romanises to `suroo` and reads as `slow` to anybody sounding
+    it out; the publisher prints `Throwing Step!`, because スロー here is `throw` and the work is about
+    handball. A romanisation would have produced `Suroo Suteppu` and a translation `Slow Step`, and
+    both would be wrong. The database holds no English name at all for it.
+- work: 私の百合はお仕事です！
+  latin: Schwestern in Liebe!
+  kind: official-latin-title
+  language: de
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183893_3cff443deee48826a7156a09c67766bd_1752730099
+  decision: take-as-title
+  why_decided: 'Neither rule bites: initial caps as German requires, and not a transliteration of anything.'
+  note: IT IS GERMAN AND NOT ENGLISH, which is why it is marked with a language. `Sisters in love!`
+    is what it says, and 一迅社 prints it on the volume 1 cover under the logo, so it is a Latin-script
+    name the work gives itself without being an English one. Whether that belongs in an `en` field is
+    the owner's call; the database holds no name for this work at all today. The artist signs 未幡 as
+    `miman`, lower case.
+- work: 女子校の王子様は私しか眼中にないらしい
+  latin: Pyaa
+  kind: cover-artist-latin-name
+  of: ぴゃあ
+  seen_on: https://public-img-comic.pximg.net/images/work_main/9716.jpg
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a person, as an extension: the kana transliterated.'
+  note: '`cover:Pyaa` in the corner beside `Latte Comi girls love anthology`, which is the imprint describing
+    itself rather than naming the work. The logo rubies 眼中 as がんちゅう, the ordinary reading, so nothing
+    is corrected there.'
+- work: 機動戦士ガンダム 水星の魔女 青春フロンティア
+  latin: MOBILE SUIT GUNDAM THE WITCH FROM MERCURY / FRONTIERS IN GLORY DAYS
+  as_recorded: Mobile Suit Gundam The Witch From Mercury / Frontiers In Glory Days
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/006679/246e8fe9-ea72-4db8-bd50-045c98ca09ec.jpg
+  decision: take-as-title
+  why_decided: 'Rule 1: the artwork sets it in caps and nothing on the page confirms that casing, so
+    it is recorded in initial caps. Rule 2 does not bite; this is English and not the Japanese transliterated.'
+  note: 'Under the logo in two lines. The franchise is widely written `Mobile Suit Gundam: The Witch
+    from Mercury` with a colon and lower-case `from`, which is live text SOMEWHERE but not on this artwork,
+    so rule 1 is applied as written and the owner can overrule it from the licensor''s own page.
+
+    The same artwork settles a credit question: it states 〔漫画〕波多ヒロ, 〔シナリオ〕HISADAKE, 〔原作〕矢立肇・富野由悠季. 矢立肇
+    and 富野由悠季 are two of the eight pairs the budget `credit pages listing a work that does not name
+    them` counts on w00032, and this is the work naming them.'

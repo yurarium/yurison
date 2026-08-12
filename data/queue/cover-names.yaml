@@ -6304,3 +6304,24 @@ candidates:
   why_decided: Mixed case as printed, so rule 1 does not bite.
   note: FOURTH COVER FOR THIS ARTIST, and given-name-first for the third time against one family-name-first.
     Set in tiny type directly above the kanji credit. 一迅社 at the foot is the publisher.
+- credit: 苹果知生
+  latin: MELLOGO CHIKI
+  kind: official-latin-name
+  seen_on: cache://public_img_comic_pximg_net__https___public_img_comic_pximg_net_images_work_main_8386_jpg_20260330155248__0a3e4bc45b76a4af.jpg
+  decision: take-as-spelling
+  why_decided: 'RECORDED AS PRINTED, NOT RECASED. Rule 1 recases capitals in artwork, but this is not
+    a romanisation of the kanji beside it: 苹果知生 would give something like Ringo Chio, and MELLOGO is
+    not that, so the caps belong to a name the artist has coined in Latin rather than to a display choice.'
+  note: OWNER, THE TWO HALVES DO NOT MATCH THE KANJI THE SAME WAY. CHIKI is close to 知生 read ちき; MELLOGO
+    corresponds to nothing in 苹果, which is the Chinese-style spelling of apple and reads ringo or heika.
+    So the line may be a handle rather than a reading of the credit. Set in small yellow caps directly
+    above the kanji on the volume cover.
+- work: 角野兎はかわいい夢を見続ける?
+  reading: ウサギ
+  of: 兎
+  kind: title-furigana
+  seen_on: cache://public_img_comic_pximg_net__https___public_img_comic_pximg_net_images_work_main_8386_jpg_20260330155248__0a3e4bc45b76a4af.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: 角野兎 is rubied つの over 角 and うさぎ over 兎, so the surname is Tsuno and the given name Usagi. 兎
+    as a given name would otherwise invite と, and 角 as つの rather than かく is the kun reading.

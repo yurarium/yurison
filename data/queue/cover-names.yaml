@@ -6426,3 +6426,31 @@ candidates:
   why_decided: A reading is not a title.
   note: The 原作 credit is rubied とおいおと. 音 as おと and 遠井 as とおい, so the name reads as the phrase a distant
     sound. Neither half is the reading our tables would reach first.
+- work: いとしこいし
+  latin: Itoshi Koishi
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_ichicomi_com__omi_com_public_series_thumbnail_12207421983773924236_655972cf9f7b62d8aca3894cd09b1681_1779870739__da51486643a65f08.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates いとしこいし and says nothing in English.
+  note: 'Set in a small serif directly under the 1 on the volume cover. IT DOES SETTLE THE WORD BREAK:
+    いとしこいし runs on in kana and the Latin says it is two words, itoshi and koishi, beloved and longed-for,
+    which is the doubling the title is built on. Our romanisation would have no way to know where to
+    split it.'
+- work: 飴色紅茶館歓談
+  latin: Ameiro Kochakan Kandan
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_ichicomi_com__omi_com_public_series_thumbnail_12207421983773924233_654ce02c5d60a85f9e1fdbab0abf8cf6_1779870693__6465d47a6f9296ec.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 飴色紅茶館歓談 and says nothing in English.
+  note: Set in a fine italic in the imprint block at the top left of the volume I cover. It drops the
+    long vowel in 紅茶館, giving Kochakan where our rules give Kouchakan, and it splits the six characters
+    into three words, which is the useful part.
+- credit: 藤枝雅
+  latin: Miyabi Fujieda
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__omi_com_public_series_thumbnail_12207421983773924233_654ce02c5d60a85f9e1fdbab0abf8cf6_1779870693__6465d47a6f9296ec.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: Directly under the romanised title in the same italic, given name first, while the kanji credit
+    runs vertically beside it. 雅 gives Miyabi, the courtly elegance, which is a name reading our tables
+    would reach after が.

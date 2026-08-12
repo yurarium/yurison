@@ -95,6 +95,18 @@
 # THE SAME REASONING DISPOSES OF SPACING. `Selfportrait` is left closed up as the cover sets it,
 # rather than repaired to Self-Portrait, on the ground that a publisher's own form is the name.
 #
+# SIX, ruled 2026-08-12. WHERE A RULE 2 LINE IS THE NAME THE WORLD ALREADY USES, IT IS TAKEN. The
+# test is usage outside the artwork, not what the string is made of. Four are affected and they now
+# agree: Hoshikuzu Telepath, Kiniro Mosaic, Yuyushiki and Mayonaka Punch, all four being the titles
+# their anime carry abroad; Yuyushiki is Crunchyroll's. Rule 2 still governs everything it did
+# before, and the exception is narrow: the name has to be in use, which is a fact from outside this
+# file and cannot be read off a cover.
+#
+# TWO REFUSALS SURVIVE IT BECAUSE THEY FAIL THAT TEST. やがて君になる prints
+# YAGATE-KIMI-NI-NARU. and is published abroad as Bloom Into You; 紅殻のパンドラ prints KOUKAKU NO
+# PANDORA and is published as Pandora in the Crimson Shell. In both the world's name is a different
+# string that the artwork does not carry, so taking the romanisation would not reach it.
+#
 # THE SAME TWO QUESTIONS ARISE FOR A PERSON'S NAME and the ruling names the title, so those are
 # marked `not-a-name-spelling` as an EXTENSION rather than assumed. Five are affected and every one
 # is the kana transliterated: KASHIKAZE, TAMA TAMASAKI, MANIO, YAKINIKUTEISHOKU, SHIBORIKASUKO. A
@@ -3254,9 +3266,11 @@ candidates:
     hyphen is the artwork's. Our romanisation would give Koutsugou Semi Furendo.
 - work: 星屑テレパス
   latin: HOSHIKUZU TELEPATH
-  kind: cover-romanisation
+  kind: official-latin-title
   seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1B7F9X_kO_webp_h_LURmZTnmqZhrkIClzALZgA_e_5000000000__494d4036e00309d2.webp
-  decision: not-a-title
+  as_recorded: Hoshikuzu Telepath
+  ruled: taken-as-title-2026-08-12
+  decision: take-as-title
   why_decided: 'RULE 2 APPLIES on its face, on the OSHIKOI CAPRICCIO line: テレパス is telepath in katakana
     so that word is a source, but 星屑 is stardust sounded out and it carries the image the title turns
     on.'
@@ -5580,9 +5594,11 @@ candidates:
     coming first where the Japanese ends on it. Recorded as printed.
 - work: きんいろモザイク
   latin: kin-iro mosaic
-  kind: cover-romanisation
+  kind: official-latin-title
   seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1xh4b2_5c_webp_h_h9Sgf3d6Da9zY9Ajx6ursQ_e_5000000000__0ca0a0c0b3b256d4.webp
-  decision: not-a-title
+  as_recorded: Kiniro Mosaic
+  ruled: taken-as-title-2026-08-12
+  decision: take-as-title
   why_decided: RULE 2 APPLIES, on the OSHIKOI CAPRICCIO line. モザイク is mosaic in katakana so that word
     is a source, but きんいろ is sounded out and it is the colour the title is about.
   note: 'Set in tiny lowercase between the two lines of the logo, hyphenated as kin-iro. The licensed
@@ -6010,9 +6026,11 @@ candidates:
     the logo badge under the katakana, with the cross the Japanese title also has.
 - work: ゆゆ式
   latin: YUYUSHIKI
-  kind: cover-romanisation
+  kind: official-latin-title
   seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1EStMK_sv_webp_h_mfxHqZqoAe_zSL2TEPTHAg_e_5000000000__1bff9b53b0773ac1.webp
-  decision: not-a-title
+  as_recorded: Yuyushiki
+  ruled: taken-as-title-2026-08-12
+  decision: take-as-title
   why_decided: RULE 2 APPLIES. It transliterates ゆゆ式 and says nothing in English.
   note: Set very small and widely letterspaced along the top edge of the logo blob. The licensed English
     for this series is Yuyushiki, which is this line recased, so refusing it costs the wider world's

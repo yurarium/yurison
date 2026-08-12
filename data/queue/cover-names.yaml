@@ -70,6 +70,19 @@
 # not change them. `decision: not-a-title`, kept in full for the owner to review rather than
 # dropped, because the reading it implies may still be worth something.
 #
+# THREE, ruled 2026-08-12. NAME ORDER FOLLOWS THE PROJECT'S SETTING, whatever the artwork does.
+# Covers print both orders and contradict themselves doing it: いくたはな signs Ikuta Hana on one
+# and Hana Ikuta on two others, 森島明子 signs both ways across four covers, and ボドカン！'s rights
+# line prints one of each in a single line. So an observed order is evidence about SPELLING only.
+# Every `official-latin-name` in this file is to be read as letters, not as sequence.
+#
+# FOUR, ruled 2026-08-12. A LATIN TITLE IN A LANGUAGE OTHER THAN ENGLISH IS STILL THE TITLE. Ten
+# are affected: the French toi et moi and Mémoire, the Latin Lilium Terrarium and prima stella, the
+# Italian Il cavaliere della principessa cannibale, the German schadenliebe, Schwestern in Liebe!
+# and Weg nach innen, the Portuguese saudade, and dreaming renaissance. Rule 2 never reached them,
+# since the katakana is what came FROM the roman spelling rather than the other way round; this
+# settles that they are accepted rather than held.
+#
 # THE SAME TWO QUESTIONS ARISE FOR A PERSON'S NAME and the ruling names the title, so those are
 # marked `not-a-name-spelling` as an EXTENSION rather than assumed. Five are affected and every one
 # is the kana transliterated: KASHIKAZE, TAMA TAMASAKI, MANIO, YAKINIKUTEISHOKU, SHIBORIKASUKO. A
@@ -4466,7 +4479,8 @@ candidates:
   why_decided: Title case as printed, so rule 1 leaves it, and it renders 今夜は夜雀の屋台で rather than transliterating
     it. 夜雀 is Mystia, the night-sparrow youkai of the Touhou games, so the English uses her name where
     the Japanese uses the species.
-  note: RECORDED AS PRINTED, AND the Mystia's IS UNGRAMMATICAL. English would take either the article
+  note: ACCEPTED AS PRINTED BY THE OWNER, 2026-08-12, ungrammatical and all. the Mystia's takes both the
+    article and the possessive where English takes one. English would take either the article
     or the possessive, not both. Fifth printed slip kept in this pass after Please, bloke my heart!,
     Decide to Hero or Devil, where is the erf teacher's toilet ? and Lvitsa of Ascention. Yatai is left
     untranslated the way Jiraike and senpai were, since a yatai is a specific kind of street stall.
@@ -4717,7 +4731,8 @@ candidates:
   decision: not-a-title
   why_decided: It is a blurb rather than a name, four lines of English set under the title in type a
     few pixels tall.
-  note: OWNER, THIS IS RECORDED WITH A HEALTH WARNING. It sits at the very limit of what the banner
+  note: THE TITLE LINE, 2 am at the table, IS CONFIRMED LEGIBLE BY THE OWNER, 2026-08-12. THE BLURB BELOW
+    IT IS NOT, and keeps its health warning. It sits at the very limit of what the banner
     resolves, and my reading of it is partly reconstruction rather than transcription; the shape and
     sense are right and the exact wording may not be. It is kept because it is the only English synopsis
     found in the pass so far and because it spells a character name, Tomomi. Do not lift the wording
@@ -5176,7 +5191,7 @@ candidates:
     It agrees with our romanisation, and it does confirm the word break, ひまり being the girl's name and
     まわり what is around her, which the running kana does not show.
 - work: 星野ヒバナはみつがれる
-  latin: Hoshino Hibana gets rechure.
+  latin: Hoshino Hibana gets tribute.
   kind: official-latin-title
   seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1D3RaT_pq_webp_h_eKH_XlwgedEwzClN5TVy_A_e_5000000000__8181160eaa5399d1.webp
   decision: take-as-title
@@ -6629,3 +6644,13 @@ candidates:
   note: Set in three lowercase lines under the vertical kanji on the volume cover, one phrase to a line,
     at the limit of what the cover holds. The Japanese leads with 今日も and the English ends with today,
     which is the ordinary inversion.
+- work: 隣人/読み切り
+  latin: neighbor
+  kind: official-latin-title
+  seen_on: cache://cdn_public_comici_jp__https___cdn_public_comici_jp_series_2_2024042216492001930438260DC2A0D2029CCB6E3C675ED29_webp__04db257eccd16de7.webp
+  decision: take-as-title
+  why_decided: Entirely lowercase as printed, and rule 1 only recases capitals. It renders 隣人 rather
+    than transliterating it.
+  note: OWNER, IT IS SET INSIDE THE LOGO RATHER THAN UNDER IT. The word sits in the gap between 隣 and
+    人, small and lowercase, so it reads as part of the lettering rather than a caption. neighbor is
+    the American spelling and it is kept, as neighborhood was on となりの吸血鬼さん.

@@ -689,6 +689,77 @@ def series_addresses(s):
     edition_names(s)
     print_runs(s)
     volume_designations(s)
+    volume_merge(s)
+
+
+def volume_merge(s):
+    """One volume list per print run, however many catalogues describe it.
+
+    TWO CATALOGUES DESCRIBING ONE BOOK WERE TWO ROWS. MADB holds MURCIÉLAGO's volume 1 as `2014-04`
+    with an ISBN and BOOK☆WALKER holds it as `2014-04-25` without one, and the page drew both under
+    two headings. 20 works were in that state over 73 volume numbers.
+    """
+    _rec = lambda wid, vols, **kw: dict(                                           # noqa: E731
+        {"work_id": wid, "title": {"ja": "作品"}, "sources": ["madb"],
+         "volume_count": len(vols), "volumes": vols}, **kw)
+
+    # ── ONE FACT AT TWO PRECISIONS IS ONE VOLUME ──────────────────────────────────────────────
+    mad = _rec("C1", [{"number": "1", "isbn": "9784757542907", "published": "2014-04"},
+                      {"number": "2", "isbn": "9784757542914", "published": "2014-04"}])
+    bw = _rec("bw1", [{"number": "1", "published": "2014-04-25"},
+                      {"number": "2", "published": "2014-04-25"},
+                      {"number": "3", "published": "2014-09-25"}], sources=["bookwalker"])
+    s.eq(b.merge_volumes([mad, bw]), 1, "one further record folded into the run")
+    s.eq(len(mad["volumes"]), 3, "and the run is three volumes, not five")
+    s.eq(bw["volumes"], [], "the record that did not lead carries none, so the gather returns one "
+                            "list without the interface having to know a merge happened")
+    s.eq(bw["volume_count"], 0, "and counts none, so the block above cannot take the larger of two "
+                                "numbers describing one run")
+    s.eq(mad["volumes"][0]["published"], "2014-04-25",
+         "THE FINER DATE IS TAKEN, which is `isbndate.resolve` and is not decided again here")
+    s.eq(mad["volumes"][0]["isbn"], "9784757542907", "with the ISBN only one catalogue states")
+    s.eq(mad["volume_count"], 3, "and the count follows the numbering, every row of it numbered")
+
+    # ── A DATE THAT DISAGREES IS A DIFFERENT BOOK ─────────────────────────────────────────────
+    #
+    # 君と綴るうたかた numbers a volume 6 in 2024-03 and another in 2025-01-13, with its own ISBN.
+    # A second printing, which a string comparison cannot choose between, so both rows stand.
+    one = _rec("C1", [{"number": "6", "isbn": "9784758026604", "published": "2024-03"},
+                      {"number": "6", "isbn": "9784758028301", "published": "2025-01-13"}])
+    b.merge_volumes([one])
+    s.eq(len(one["volumes"]), 2, "a second printing years later is not folded into the first")
+
+    # ── AND THE SAME NUMBER ON THE SAME DAY IS ONE VOLUME IN TWO EDITIONS ─────────────────────
+    #
+    # ささやくように恋を唄う holds volumes 9 to 12 twice with different ISBNs and the same date: a
+    # standard and a special edition MADB gives no way to tell apart. `kari/app.js` folded these
+    # and no longer does, because this is the same question asked of one record instead of two.
+    two = _rec("C1", [{"number": "9", "isbn": "AAA", "published": "2021-06"},
+                      {"number": "9", "isbn": "BBB", "published": "2021-06"}])
+    b.merge_volumes([two])
+    s.eq(len(two["volumes"]), 1, "two editions of one volume are one row")
+    s.eq(two["volumes"][0]["editions"], ["AAA", "BBB"], "carrying both ISBNs, which is what the "
+                                                        "reader is owed and what MADB cannot rank")
+
+    # ── WHERE THE NUMBERING IS INCOMPLETE, A ROW COUNT IS NOT A LENGTH ────────────────────────
+    #
+    # 白き乙女の人狼 is five BOOK☆WALKER products with one number among them beside three numbered
+    # MADB volumes. Nothing can say whether an unnumbered row IS one of the numbered ones, so
+    # counting rows made the work eight volumes long where both catalogues say five.
+    part = _rec("C1", [{"number": "1", "published": "2022-11"}], volume_count=3)
+    loose = _rec("bw1", [{"published": "2022-11-30"}, {"published": "2023-05-31"}],
+                 sources=["bookwalker"], volume_count=5)
+    b.merge_volumes([part, loose])
+    s.eq(part["volume_count"], 5,
+         "the largest count a record states about itself stands where the numbering is incomplete")
+
+    # ── AND A RECORD THAT NUMBERS NOTHING AND HOLDS SEVERAL IS ITS OWN RUN ────────────────────
+    issues = _rec("bw1", [{"designation": "2017年1月号"}, {"designation": "2017年2月号"}],
+                  sources=["bookwalker"])
+    numbered = _rec("C1", [{"number": "1"}, {"number": "2"}])
+    s.eq([[r["work_id"] for r in g] for g in b.print_runs([numbered, issues])],
+         [["C1"], ["bw1"]],
+         "so コミック百合姫's issues are never folded into a numbered run they cannot reconcile with")
 
 
 def volume_designations(s):
@@ -734,16 +805,16 @@ def print_runs(s):
     s.eq([[r["work_id"] for r in g] for g in b.print_runs(_citrus)], [["C1"], ["C2"]],
          "a reissue numbering the same volumes again is a run of its own")
 
-    # AND WHERE THE OVERLAP IS PLAINLY A DUPLICATE, THE ANSWER IS STILL TWO. MADB and BOOK☆WALKER
+    # AND THE SAME OVERLAP ACROSS TWO CATALOGUES MEANS THE OPPOSITE THING. MADB and BOOK☆WALKER
     # both hold MURCIÉLAGO volume 1 from スクウェア・エニックス in April 2014: one run described
-    # twice. Merging it on the strength of the differing source was tried and drew a list of 52
-    # rows, `vol. 1 April 2014` beside `vol. 1 25 Apr 2014`, because the two catalogues date one
-    # book at two precisions and the volume dedup can join neither the record nor the date. This
-    # pins the stop, so a later attempt at the duplicate has to answer the dating first.
+    # twice. Merging it was tried on 2026-08-12 and withdrawn, because the two catalogues date one
+    # book at two precisions and the fold drew a 52 row list, `vol. 1 April 2014` beside
+    # `vol. 1 25 Apr 2014`. `merge_volumes` reconciles the volumes before this runs, so the reason
+    # for the withdrawal is gone: the catalogue contradicting ITSELF is what means a second edition.
     _mur = [_run("C338361", "MURCIELAGO", ["1", "2", "3"]),
             _run("bw-15279", "MURCIÉLAGO -ムルシエラゴ-", ["1", "2", "3", "4"], src="bookwalker")]
-    s.eq(len(b.print_runs(_mur)), 2,
-         "two catalogues numbering the same volumes stay two runs until their dates are reconciled")
+    s.eq(len(b.print_runs(_mur)), 1,
+         "two catalogues numbering the same volumes are one run, reconciled volume by volume")
 
     # ── AND THE CASE UNDER TEST: COMPLEMENTARY NUMBERING IS ONE RUN ───────────────────────────
     _ntr = [_run("C360665", "捏造トラップ", ["1", "2", "3", "5"],

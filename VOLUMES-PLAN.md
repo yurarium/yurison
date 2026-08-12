@@ -27,7 +27,7 @@ a sequence. Reading it as a sequence is how a magazine came to have 119 volumes.
 | §2 | Stop publishing a listing position as a volume number | done 2026-08-12 |
 | §3 | Carry what a record says about a volume, and read a designation as what it is | done 2026-08-12 |
 | §4 | Render a field before drawing it, and prove a ruling that says nothing draws it | done 2026-08-12 |
-| §5 | One volume row per volume, however many catalogues describe it | §3, for fields to merge |
+| §5 | One volume row per volume, however many catalogues describe it | done 2026-08-12 |
 | §6 | Ask コミックシーモア about the works we hold | §5, or it adds a third overlapping set |
 
 §3 was found by a reader looking at コミック百合姫 the day §2 shipped, and it is the general fault
@@ -546,7 +546,8 @@ than adding a number.
 
 ## 5. Two catalogues describing one volume are drawn as two volumes
 
-Needs §2 for numbers to key on, and §3 for the fields there are to merge.
+**DONE, 2026-08-12.** MURCIÉLAGO is one list of 29 volumes, each carrying the day-precise date
+BOOK☆WALKER states and the ISBN MADB states.
 
 ### What is wrong
 
@@ -607,10 +608,42 @@ show two runs that are one run described twice (MURCIÉLAGO, 白き乙女の人�
 
 ### The measure that guards it
 
-**`volume rows the interface shows twice`**, the arithmetic STANDING-INSTRUCTIONS §14b wants beside
-§1's count of works numbering a volume twice: count the rows a work page would DRAW, not the records behind them, so a
-merge that folds the blocks and leaves the volumes doubled cannot pass. This is the check that
-would have caught the 52-row MURCIÉLAGO list without anyone opening the page.
+**`volume numbers a page draws twice`**, opening at **5**, the arithmetic STANDING-INSTRUCTIONS
+§14b wants beside §1's count of works numbering a volume twice: it counts the rows a work page
+would DRAW, not the records behind them, so a merge that folds the blocks and leaves the volumes
+doubled cannot pass. That is the check that would have caught the 52 row MURCIÉLAGO list without
+anyone opening the page. Its floor is those 5, each a second printing with its own ISBN whose date
+disagrees, which `merge_volumes` refuses to fold and a reader should see.
+
+### What landed
+
+| budget | before | after |
+|---|---|---|
+| `works whose records number one volume twice` | 15 | **8** |
+| `volume rows with no publication date` | 2,521 | **2,514** |
+| `volume numbers a page draws twice` | new | **5** |
+
+**The rules the merge decides by, each found by a case.** A date at two precisions is one volume,
+through `isbndate.resolve`; a date that disagrees is a second printing and stays its own row, which
+is 君と綴るうたかた's volume 6 in 2024-03 and again in 2025-01-13. The same number on the same day
+is one volume in two editions, which is ささやくように恋を唄う and is the fold `kari/app.js` used to
+do: that code is gone, because doing it in two places would be two producers of `editions` and the
+browser's copy could not see across records anyway.
+
+**A run of one record is still a run**, which is what let the interface stop folding volumes at all.
+
+**Some rules had to be sharpened before the counts came right.** A record holding one unnumbered
+volume claims volume 1, so MADB's two マーメイドライン records are a book and its 2019 reissue rather
+than a two volume work. A record holding SEVERAL unnumbered volumes is its own run, because its
+rows cannot be reconciled with numbered ones: 白き乙女の人狼 came out eight volumes long where both
+catalogues say five. And where a run's numbering is incomplete the row count is not its length, so
+the largest count a record states about itself stands.
+
+**Four budgets rose and were accepted**, all from one cause: 2,551 print blocks where there were
+2,457, because reissues and unnumbered runs are now separated rather than folded together. Three of
+them count per block (`an imprint field repeating its publisher` 341 to 360, `imprint strings that
+reach no line` 16 to 18, `titles read by a machine, unmarked` 1,470 to 1,477) and one is a single
+work moving into `works holding fewer volumes than the shop states`.
 
 ---
 

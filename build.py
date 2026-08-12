@@ -1622,18 +1622,34 @@ def _print_block(rec):
 def _stated_numbers(rec):
     """The volume numbers one print record states, as a set. Empty where it numbers nothing.
 
+    A RECORD WITH ONE UNNUMBERED VOLUME STATES VOLUME 1, which is what a one volume work is. It
+    matters because the overlap test below is how a reissue is told from a continuation: MADB holds
+    マーメイドライン twice, 2008-03 and 2019-07 with different ISBNs, and neither record numbers its
+    single volume. Read as numbering nothing they became one run of two rows and the work was
+    published as two volumes long; read as both claiming volume 1 they are a book and its reissue,
+    which is citrus's shape at a length of one.
+
     A NUMBER IS COMPARED AS A NUMBER, because MADB pads one record and not the next: 紅殻のパンドラ
     is numbered `01` to `21` and its continuation `22` to `25`. Compared as text, `04` and `4` are
     two different volumes, and a record that repeats a run under padded numbering would read as a
     continuation of it and be folded in. Anything that is not a plain integer is compared as it is
     written, so a `上` or a `3.5` still says what it says.
     """
+    vols = rec.get("volumes") or []
     out = set()
-    for v in rec.get("volumes") or []:
+    for v in vols:
         n = str(v.get("number") or "").strip()
         if n:
             out.add(str(int(n)) if n.isdigit() else n)
+    if not out and len(vols) == 1:
+        return {"1"}
     return out
+
+
+def _cataloguer(rec):
+    """Which catalogue this print record came out of. `madb` wherever the bibliography holds it."""
+    src = rec.get("sources") or []
+    return "madb" if "madb" in src else (src[0] if src else "")
 
 
 def print_precedence(rec):
@@ -1670,29 +1686,45 @@ def print_runs(recs):
     `vol. 1, vol. 1, vol. 2, vol. 2` in one list. `20-app.js` grew the per-run lists to answer
     exactly that, and this leaves them a run each.
 
-    OVERLAPPING NUMBERING IS LEFT ALONE EVEN WHERE IT IS PLAINLY A DUPLICATE, and that is a
-    deliberate stop rather than an oversight. Ten works are held by MADB and by BOOK☆WALKER at once
-    with the same publisher and the same volume 1: MURCIÉLAGO is drawn as `32 volumes` above
-    `20 volumes`, which is one run described twice. Merging those on the strength of the source
-    they came from was tried and makes the page WORSE, because the two catalogues date the same
-    book at two precisions: the list came out 52 rows long, `vol. 1 April 2014` beside `vol. 1
-    25 Apr 2014`, and the volume dedup cannot join them because neither the record nor the date
-    agrees. Reconciling two catalogues describing one book is its own question and it is not
-    answered here.
+    THE OVERLAP IS ONLY ASKED OF ONE CATALOGUE, and this is what the qualifier is for. MADB and
+    BOOK☆WALKER both hold MURCIÉLAGO's volume 1, from the same publisher, in the same month; that
+    is one run described twice and it was drawn as two runs of 29 and 20. The catalogue
+    contradicting ITSELF is the thing that means a second edition: MADB gave citrus two C-numbers
+    because the 2015 reissue is a different set of books, and it is the only party in a position to
+    say so. So a record is set apart only from a record of its own catalogue.
 
-    A RECORD THAT NUMBERS NOTHING JOINS THE FIRST GROUP, because it makes no claim that can
-    conflict, and standing it alone would put an unnumbered heading beside a numbered one.
+    THIS WAS TRIED ON 2026-08-12 AND WITHDRAWN, and what changed is `merge_volumes`. Folding the
+    blocks while the volumes stayed per-record drew a 52 row MURCIÉLAGO list, `vol. 1 April 2014`
+    beside `vol. 1 25 Apr 2014`, because the two catalogues date one book at two precisions and
+    nothing reconciled them. That is now done before this runs, so the reason for the withdrawal is
+    gone.
+
+    A RECORD THAT NUMBERS NOTHING AND HOLDS SEVERAL VOLUMES IS ITS OWN RUN, because its rows
+    cannot be reconciled with numbered ones and merging them counts the same books twice.
+    白き乙女の人狼 is five undated BOOK☆WALKER products beside three numbered MADB volumes; folded
+    together the work came out eight volumes long where both catalogues say five. A record holding
+    ONE unnumbered volume is the exception and is read as claiming volume 1, which is what a one
+    volume work is.
     """
     groups = []
     for rec in sorted(recs or [], key=print_precedence):
-        nums = _stated_numbers(rec)
+        nums, cat = _stated_numbers(rec), _cataloguer(rec)
+        # A RECORD LISTING NO VOLUMES AT ALL JOINS, because it makes no claim that can conflict and
+        # standing it alone would put an empty heading beside a numbered one. A record listing
+        # SEVERAL and numbering none of them is the different case: its rows cannot be reconciled.
+        _loose = not nums and (rec.get("volumes") or [])
         for g in groups:
-            if not nums or not (nums & g["numbers"]):
+            if _loose:
+                break
+            if not nums or not (nums & g["numbers"].get(cat, set())):
                 g["recs"].append(rec)
-                g["numbers"] |= nums
+                g["numbers"].setdefault(cat, set()).update(nums)
                 break
         else:
-            groups.append({"recs": [rec], "numbers": set(nums)})
+            groups.append({"recs": [rec], "numbers": {cat: set(nums)}})
+            continue
+        if _loose:
+            groups.append({"recs": [rec], "numbers": {}})
     return [g["recs"] for g in groups]
 
 
@@ -1752,6 +1784,151 @@ def merged_print_block(recs):
     if _folded:
         block["folded_names"] = _folded
     return block
+
+
+def print_records_by_work(works):
+    """`[[record, …], …]`: the print records grouped as identity says they are works.
+
+    ONE PRODUCER OF WHICH RECORDS ARE ONE WORK, which is `data/identity/works.yaml` and its anchor
+    rule, asked here the way `one_row_per_work` asks it. A record identity has not seen yet is a
+    group of its own rather than a guess: joining it to a work is the merge that must not be made
+    by accident, and every record comes back in exactly one group so a caller can walk them all.
+    """
+    reg = pathlib.Path("data/identity/works.yaml")
+    byanchor = (identity.index((yaml.safe_load(reg.read_text()) or {}).get("works") or [])
+                if reg.exists() else {})
+    joined, alone = {}, []
+    for rec in works:
+        wid = byanchor.get(identity.print_anchor(str(rec.get("work_id") or "")))
+        if wid:
+            joined.setdefault(wid, []).append(rec)
+        else:
+            alone.append([rec])
+    return list(joined.values()) + alone
+
+
+def _volume_key(vol, solo=False):
+    """What makes two rows the same volume: the number, as a number where it is one.
+
+    A ROW NOBODY NUMBERED IS ITS OWN, unless its record holds nothing else. `solo` is that: a
+    record with one volume and no number for it is a record whose volume IS the record, so two of
+    them can be the same book and the date rule is then what decides. `フリー・ソウル` is a
+    BOOK☆WALKER row dated 2004-08-07 and a MADB row dated 2004-08, one book at two precisions;
+    `マーメイドライン` is 2008-03 and 2019-07 with different ISBNs, a book and its reissue, and
+    those stay apart. Without the qualifier, コミック百合姫's 119 unnumbered issues would be one.
+    """
+    n = volume_number(vol)
+    if n is not None:
+        return ("n", n)
+    raw = str(vol.get("number") or "").strip()
+    if raw:
+        return ("t", raw)
+    return ("solo",) if solo else None
+
+
+def merge_volumes(recs):
+    """Fold one print run's records into a single volume list, carried by the record that leads it.
+
+    TWO CATALOGUES DESCRIBING ONE BOOK ARE NOT TWO BOOKS. MADB holds MURCIÉLAGO's volume 1 as
+    `2014-04` with an ISBN and BOOK☆WALKER holds it as `2014-04-25` without one, and the work page
+    drew both, headed as two runs of 29 and 20. 20 works number a volume twice, over 73 numbers.
+
+    THE DATE RULE IS `isbndate.resolve` AND IS NOT WRITTEN AGAIN HERE. `2014-04` against
+    `2014-04-25` is one fact at two precisions and the finer form is taken; `2013-05` against
+    `2013-06-02` is two catalogues disagreeing, and the held value stands with the other recorded
+    beside it. That module was measuring exactly this distinction for the MADB and openBD join
+    inside one record, and the question does not change for two records.
+
+    A DELIVERY DATE IS NEVER A CANDIDATE. `cmoa_volumes` measures a worst case of 128 months
+    between the day a shop began selling a file and the day the book was printed, so the earliest
+    delivery is carried as itself and never resolved against a printing.
+
+    WHICH RECORD LEADS IS `print_precedence`, the same order the run's title and block come from,
+    so the volume list and the heading above it cannot disagree about which record speaks. The
+    others keep their identity and their own count and carry no volumes, which is what makes the
+    interface's gather return one list without it having to know a merge happened.
+
+    AND IT RUNS OVER A RUN OF ONE, which is what lets `kari/app.js` stop folding volumes at all.
+    The interface merged two rows sharing a number AND a date into one carrying both ISBNs, for
+    ささやくように恋を唄う, which holds volumes 9 to 12 twice with different ISBNs and the same date:
+    a standard and a special edition of one volume that MADB gives no way to tell apart. That is
+    the same fold as this one asked of one record instead of two, and two producers of `editions`
+    is the shape §3 is about.
+    """
+    ordered = sorted(recs, key=print_precedence)
+    merged, order = {}, []
+    for rec in ordered:
+        _solo = len(rec.get("volumes") or ()) == 1
+        for vol in rec.get("volumes") or ():
+            key = _volume_key(vol, _solo) or ("unnumbered", len(order))
+            if key not in merged:
+                merged[key] = dict(vol)
+                order.append(key)
+                continue
+            held = merged[key]
+            got, how = isbndate.resolve(held.get("published"), vol.get("published"))
+            if how == isbndate.DISAGREES:
+                # A DATE THAT DISAGREES IS A DIFFERENT BOOK, so the row stands on its own. Three
+                # volumes are in that state within a single record: 君と綴るうたかた numbers a 6 in
+                # 2024-03 and another in 2025-01-13, which is a second printing and not a second
+                # ISBN for one. Which catalogue is right is not a question a string comparison
+                # answers (§1), and folding them would answer it by discarding one.
+                key = ("disagrees", len(order))
+                merged[key] = dict(vol)
+                order.append(key)
+                continue
+            if how in isbndate.TAKEN:
+                held["published"] = got
+                for field in ("published_basis", "published_source"):
+                    if vol.get(field):
+                        held[field] = vol[field]
+            # EVERY ISBN THE RUN STATES FOR THIS VOLUME. ささやくように恋を唄う holds volumes 9 to
+            # 12 twice with different ISBNs and the same date, which is a standard and a special
+            # edition of one volume that MADB gives no way to tell apart.
+            if vol.get("isbn"):
+                if not held.get("isbn"):
+                    held["isbn"] = vol["isbn"]
+                else:
+                    seen = held.get("editions") or [held["isbn"]]
+                    if vol["isbn"] not in seen:
+                        held["editions"] = seen + [vol["isbn"]]
+            for field in ("madb_id", "designation", "cover_url", "number", "number_n",
+                          "final_volume", "final_volume_basis"):
+                if not held.get(field) and vol.get(field):
+                    held[field] = vol[field]
+            if vol.get("delivered") and (not held.get("delivered")
+                                         or vol["delivered"] < held["delivered"]):
+                held["delivered"] = vol["delivered"]
+            if vol.get("openbd") == "present":
+                held["openbd"] = "present"
+    ordered[0]["volumes"] = [merged[k] for k in order]
+    # HOW LONG THE RUN IS, and the row count only answers where every row is numbered. BOOK☆WALKER
+    # states a number in 81% of its product titles, so 白き乙女の人狼 is five products with one
+    # number among them beside three numbered MADB volumes: counting rows made it eight volumes
+    # long where both catalogues say five, because nothing can tell whether an unnumbered row IS
+    # one of the numbered ones. Where the numbering is incomplete the largest count a record states
+    # about itself is the safest claim, which is the rule `bwingest` already uses on one record.
+    _rows = [merged[k] for k in order]
+    ordered[0]["volume_count"] = (len(_rows) if all(volume_number(v) is not None for v in _rows)
+                                  else max(r.get("volume_count") or 0 for r in ordered))
+    for rec in ordered[1:]:
+        # A RECORD THAT NOW CARRIES NO VOLUMES COUNTS NONE. Leaving its own count behind made the
+        # block above it take the larger of two numbers describing one run, and 42 works came out
+        # longer than the shop says they are.
+        rec["volumes"], rec["volume_count"] = [], 0
+    # A PRINTING IN THE RUN REFUSES THE DELIVERY DATE, which is `delivery.promote`'s rule reaching
+    # a case it could not see. `Ｓｉｓ［秘密の恋心］` is a BOOK☆WALKER record dated by the day the
+    # shop began selling the file and a MADB record printed in 2012-06, and joining their volumes
+    # put a printed volume under a delivery-dated work. The printed record already holds the right
+    # `first_publication`, computed by the path that knows how, so the run takes it rather than a
+    # third derivation of the same date.
+    if (ordered[0].get("first_publication") or {}).get("date_event") == delivery.EVENT:
+        printed = [r.get("first_publication") or {} for r in ordered[1:]
+                   if (r.get("first_publication") or {}).get("date")
+                   and (r.get("first_publication") or {}).get("date_event") != delivery.EVENT]
+        if printed:
+            ordered[0]["first_publication"] = min(printed, key=lambda f: f["date"])
+    return len(ordered) - 1
 
 
 # WHERE EACH SHOP'S YURI SHELF IS CAPTURED. The key is the name `admitted_by` writes for the
@@ -3515,6 +3692,27 @@ def main():
         if len(errors) > 25:
             print(f"  … and {len(errors)-25} more", file=sys.stderr)
         sys.exit(2)
+
+    # ── ONE VOLUME LIST PER PRINT RUN (VOLUMES-PLAN §5) ───────────────────────────────────────
+    #
+    # Two catalogues describing one book were two rows on the page: MADB holds MURCIÉLAGO's volume
+    # 1 as `2014-04` with an ISBN and BOOK☆WALKER holds it as `2014-04-25` without one, and 20
+    # works were in that state over 73 volume numbers. `merge_volumes` folds a run's records into
+    # one list carried by the record that leads the run, so the interface's gather returns one list
+    # without having to know a merge happened.
+    _vol_merged = _runs_folded = 0
+    # EVERY RUN, INCLUDING A RUN OF ONE RECORD, because the fold within one record is the same
+    # question and `kari/app.js` was answering it separately.
+    for _volwork in print_records_by_work(works):
+        for _volrun in print_runs(_volwork):
+            _volbefore = sum(len(_vr.get("volumes") or ()) for _vr in _volrun)
+            _vol_merged += merge_volumes(_volrun)
+            if len(_volrun) > 1 or _volbefore != sum(len(_vr.get("volumes") or ())
+                                                     for _vr in _volrun):
+                _runs_folded += 1
+    if _runs_folded:
+        print(f"volume lists folded : {_runs_folded} run(s) built from {_vol_merged} further "
+              f"record(s)")
 
     out.mkdir(parents=True, exist_ok=True)
     # EVERY DIRECTORY THIS RUN WRITES INTO, MADE WHERE `out` IS. `feed/` was made by

@@ -3486,6 +3486,41 @@ def budget_works_whose_records_number_one_volume_twice(ctx):
     return n
 
 
+def budget_volume_numbers_a_page_draws_twice(ctx):
+    """Volume numbers a work page would draw more than once inside a single print run.
+
+    THE ARITHMETIC §14b WANTS BESIDE THE MERGE. `works whose records number one volume twice` asks
+    about the RECORDS; this asks about the ROWS a page would draw, which is what a reader sees and
+    is a different question the moment `merge_volumes` folds two records into one list. A merge
+    that folded the blocks and left the volumes doubled would satisfy the first and fail this, and
+    that is precisely the state MURCIÉLAGO was in when the cross-catalogue fold was first tried:
+    one block, 52 rows, `vol. 1 April 2014` beside `vol. 1 25 Apr 2014`.
+
+    ITS FLOOR IS FIVE AND THE FLOOR IS REAL BOOKS. 君と綴るうたかた numbers a volume 6 in 2024-03
+    and another in 2025-01-13, ロンリーガールに逆らえない a 6 in 2023-01 and 2024-05, and three more
+    are that shape: a second printing with its own ISBN, which `merge_volumes` refuses to fold
+    because the dates disagree and a string comparison cannot say which is right. A reader should
+    see both.
+
+    A COUNT OVER THE SHIPPED ROWS, sharing nothing with the code that folds them: it walks the
+    blocks, gathers the volumes of every record each block stands for, and counts the numbers that
+    appear twice.
+
+    fallback: none in the build.
+    """
+    by_work = {w.get("work_id"): w for w in ctx["works"] if w.get("work_id")}
+    n = 0
+    for row in ctx["series"]:
+        for block in row.get("print") or ():
+            seen = collections.Counter(
+                str(v.get("number") or "").strip()
+                for wid in (block.get("work_ids") or [block.get("work_id")]) if wid
+                for v in (by_work.get(wid) or {}).get("volumes") or ()
+                if str(v.get("number") or "").strip())
+            n += sum(1 for c in seen.values() if c > 1)
+    return n
+
+
 def budget_works_holding_fewer_volumes_than_the_shop_states(ctx):
     """Works where コミックシーモア states more volumes than the corpus holds.
 
@@ -5391,6 +5426,13 @@ BUDGETS_DEF = [
      "printed twice and MADB gave it two C-numbers, and a reader should see both. The other ten "
      "are one run described by two catalogues at two precisions, and those go when the volumes "
      "themselves are reconciled. A rise is a new pair worth looking at by hand."),
+    ("volume numbers a page draws twice", budget_volume_numbers_a_page_draws_twice,
+     "volume numbers a work page would draw more than once inside one print run. The measure "
+     "beside `works whose records number one volume twice`, asking about the ROWS a reader sees "
+     "rather than the records behind them, which is a different question once a run's records are "
+     "folded into one list. Its floor is 5: 君と綴るうたかた numbers a volume 6 in 2024-03 and "
+     "another in 2025-01-13, a second printing with its own ISBN that a date comparison cannot "
+     "choose between. A rise means a fold stopped folding."),
     ("works holding fewer volumes than the shop states",
      budget_works_holding_fewer_volumes_than_the_shop_states,
      "works コミックシーモア sells more volumes of than the corpus holds, which is a capture that "
@@ -6279,6 +6321,28 @@ def self_test():
     if budget_volume_rows_with_no_publication_date(c2) != 0:
         print("  self-test FAILED — 'volume rows with no publication date' counted a volume no "
               "print block reaches")
+        ok = False
+
+    # THE STATE MURCIÉLAGO WAS IN when the cross-catalogue fold was first tried and withdrawn: one
+    # block, and the two catalogues' rows for volume 1 both drawn, at two precisions.
+    c = _Scratch(ctx)
+    c["series"] = [{"id": "wCANARY", "work": "カナリア",
+                    "print": [{"work_id": "C1", "work_ids": ["C1", "bw1"], "volumes": 2}]}]
+    c["works"] = [{"work_id": "C1", "volumes": [{"number": "1", "published": "2014-04"},
+                                                {"number": "2", "published": "2014-09"}]},
+                  {"work_id": "bw1", "volumes": [{"number": "1", "published": "2014-04-25"}]}]
+    if budget_volume_numbers_a_page_draws_twice(c) != 1:
+        print("  self-test FAILED — 'volume numbers a page draws twice' did not count a number "
+              "drawn by two of one block's records")
+        ok = False
+    # AND TWO BLOCKS DRAWING A 1 EACH IS A REISSUE, which is two lists under two headings and not
+    # one number drawn twice. citrus is that, and counting it would make the budget unreachable.
+    c["series"] = [{"id": "wCANARY", "work": "カナリア",
+                    "print": [{"work_id": "C1", "work_ids": ["C1"], "volumes": 2},
+                              {"work_id": "bw1", "work_ids": ["bw1"], "volumes": 1}]}]
+    if budget_volume_numbers_a_page_draws_twice(c) != 0:
+        print("  self-test FAILED — 'volume numbers a page draws twice' counted two runs, which "
+              "are two lists and not one list with a number in it twice")
         ok = False
 
     # THE FAULT AS IT WAS FOUND (§14b): コミック百合姫's issues, carrying their own names and

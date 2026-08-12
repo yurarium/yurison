@@ -164,9 +164,9 @@ the reasoning for where a trailing number is a number and where it is a name (`�
 `魔法少女201`, `再録集4`), so the extractor is that rule read forwards instead of backwards, and
 there must be one copy of it, not two.
 
-**Where the shop states no number, the volume has no number.** The interface already handles this
-("A VOLUME NOBODY NUMBERED SAYS NOTHING", `20-app.js`), and §3 gives another catalogue the chance to
-supply one. 196 multi-volume records state no number on any row; several of those are not volume
+Where the shop states no number, the volume has no number. The interface already handles that
+case ("A VOLUME NOBODY NUMBERED SAYS NOTHING", `20-app.js`), and §3 gives another catalogue the
+chance to supply one. 196 multi-volume records state no number on any row; several of those are not volume
 sets at all (`bw-217047` bundles three different works under one series id), which is worth knowing
 and is currently hidden behind invented numbering.
 
@@ -300,8 +300,9 @@ a volume page is worth opening where the work is one we HOLD and the volume has 
 bounded job: 839 pages under the current filter, and the held-work filter is a different and
 probably smaller set.
 
-**Make cmoa a source, not only a queue.** A `data/source/cmoa/` record, written by the same capture,
-in the shape the other retailer records already have (`data/source/bookwalker/` is the model). Then
+Then make cmoa a source rather than only a queue: a `data/source/cmoa/` record, written by the
+same capture, in the shape the other retailer records already have (`data/source/bookwalker/` is
+the model). Then
 the volume set of a held work can carry cmoa's statement, `print_runs` and the §3 merge treat it as
 one more catalogue of the same run, and the reconciliation rules apply to it without a second
 mechanism. Joining is by §1's join, which is why §1's join has to hold.

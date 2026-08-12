@@ -35,10 +35,13 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import isbn as _isbn                                                    # noqa: E402
+import publisher_identity as _phid                                     # noqa: E402
 from facts import namekey                                              # noqa: E402
 
-#: Which seats on a print block name a company. A distributor is a publisher in another seat.
-HOUSE_SEATS = ("publisher", "distributor")
+#: Which seats on a print block name a company, asked of the module that owns the question.
+#: `publisher_identity` mints a house identifier from these two and from nothing else, so a third
+#: copy of the pair here would decide which seats this join reads without either side knowing.
+HOUSE_SEATS = _phid.SEATS
 
 #: A shop row selling something other than the work's volumes. See `counts_volumes`.
 _EDITION = re.compile(r"お試し版|試し読み|分冊版|単話")

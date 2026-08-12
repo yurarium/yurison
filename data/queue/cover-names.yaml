@@ -1365,3 +1365,205 @@ candidates:
   note: Small letterspaced line above the logo. It agrees with our own romanisation, so nothing is lost
     by leaving it out. Credit is 巻舌ひっち, the same artist as はなれないよ on this sheet, with no Latin given
     for the name on either.
+- work: 御羊ちゃんは触りたい
+  reading: オヒツジ
+  of: 御羊
+  kind: title-furigana
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184172_3a7d7feb9162bd41d4316dad978e257e_1752730099__458641e78abc30d7.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: Rubied おひつじ in the logo. 御 as the honorific o and 羊 as hitsuji, run together into a name, is
+    not a reading our tables would produce from the two characters. The cover's own OHITSUJI agrees.
+- work: 御羊ちゃんは触りたい
+  latin: OHITSUJI CHAN HA SAWARITAI
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184172_3a7d7feb9162bd41d4316dad978e257e_1752730099__458641e78abc30d7.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 御羊ちゃんは触りたい and says nothing in English.
+  note: Three lines of small caps to the right of the logo. は as HA again, spelling the character rather
+    than the sound. The reading above is taken; this is not.
+- credit: 坂城
+  latin: Sakaki
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184172_3a7d7feb9162bd41d4316dad978e257e_1752730099__458641e78abc30d7.jpg
+  decision: take-as-spelling
+  why_decided: RULE 1 APPLIES to the caps in PRESENTED BY SAKAKI.
+  note: Above the kanji credit at the foot. 坂城 could read Sakaki or Sakashiro from the characters alone,
+    and the cover settles it.
+- work: かたわれの女神
+  latin: Kataware no Megami
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184265_7c3c58859fdbedbb44fe8a3edd272bac_1752730099__829a01023bb597a1.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates かたわれの女神 and says nothing in English.
+  note: Set small between the two lines of the logo, between two dots. It agrees with our own romanisation,
+    so nothing is lost.
+- credit: 紬めめ
+  latin: Tsumugi Meme
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184265_7c3c58859fdbedbb44fe8a3edd272bac_1752730099__829a01023bb597a1.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite. Rule 2 is about titles.
+  note: Directly under the kanji credit, family name first. Agrees with our romanisation, so the basis
+    lifts. Another data point for the order question, on the Japanese-order side.
+- work: ワンコと距離の測り方
+  latin: wanko to kyori no hakarikata
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360749_b66053acaa5ce497c9de8144cdcee319_1752730099__c3b91df54654533a.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates ワンコと距離の測り方 and says nothing in English.
+  note: Vertical and entirely lowercase down the right of the logo. Rule 1 does not come into it, since
+    the rule recases capitals and this has none. Credit is 住咲ゆづな, given no Latin.
+- work: ヒモ吸血鬼が出ていかない
+  latin: The Leech Don't Leave.
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965979331614_772f5dc89f3fb9e4e8c2a2c7ad9f83e7_1754010333__41cc2a85dcdef38c.jpg
+  decision: take-as-title
+  why_decided: RULE 1 APPLIES. Set in caps across the middle of the logo with nothing confirming them,
+    so initial caps. It renders ヒモ吸血鬼が出ていかない rather than transliterating it.
+  note: ヒモ is a kept man, so leech is the publisher choosing a word rather than translating one, and
+    the ungrammatical don't is theirs too. Both are kept as printed. The full stop is on the artwork.
+- credit: 薬缶
+  latin: Yakan
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965979331614_772f5dc89f3fb9e4e8c2a2c7ad9f83e7_1754010333__41cc2a85dcdef38c.jpg
+  decision: take-as-spelling
+  why_decided: RULE 1 APPLIES to the caps in by YAKAN.
+  note: The kanji credit beside it carries ruby やかん, so the cover gives the reading and the spelling
+    in the same place and they agree.
+- work: 春風のふり
+  latin: Pretending to be a spring breeze
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_007149_0a68e7f4_ec4d_4332_a0aa_d75de996843a_jpg__517503f4c0da5f2e.jpg
+  decision: take-as-title
+  why_decided: Sentence case in script, so rule 1 leaves it, and it renders 春風のふり rather than transliterating
+    it.
+  note: Fine script under the brushed logo, the kind OCR does not see. ふり is the pretence, so the English
+    is close.
+- work: ムショカノジョ
+  latin: MUSYOKANOJO
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_019393_fc739d1e_8d59_427c_ace3_417bddd1b2c7_jpg__e884380c0a680bcc.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates ムショカノジョ and says nothing in English.
+  note: 'WORTH NOTING FOR THE SYSTEM IT USES. Letterspaced caps under the logo, spelling ショ as SYO,
+    which is kunrei rather than the Hepburn our rules follow. Our romanisation gives Mushokanojo. A
+    second reason rule 2 is right: cover Latin is not even consistent about which system it is in.'
+- work: ゲームフレンド
+  latin: Game Friend
+  kind: official-latin-title
+  seen_on: cache://cdn_img_comic_zenon_com__non_com_public_series_thumbnail_12207421983885290253_8a3c653621ca331b154a88e32c17cda2_1782382304__e85bf111a79e0b7c.jpg
+  decision: take-as-title
+  why_decided: 'RULE 1 APPLIES to the caps. Rule 2 does not bite: ゲームフレンド is the English words in katakana,
+    so the Latin is what they came from. Our romanisation would give Geemu Furendo.'
+  note: Letterspaced under the pixel-styled logo, in keeping with the game screen the cover is drawn
+    as.
+- work: 世界をすくってもお腹はすくから
+  latin: Even if We save the world, We'll still be hungry.
+  kind: official-latin-title
+  seen_on: cache://cdn_public_comici_jp__tps___cdn_public_comici_jp_series_3077920_202607021016509893C678DC4D5910B832EB5E24EB93D9F47_webp__1687345fc976dd45.webp
+  decision: take-as-title
+  why_decided: Mixed case as printed, so rule 1 leaves it, and it renders 世界をすくってもお腹はすくから rather than
+    transliterating it.
+  note: Set vertically in three small lines through the middle of the logo. The capitals on We and We'll
+    are the artwork's own and are kept. The Japanese puns on すくう and すく, saving and emptying, which
+    the English lets go. Credits are 漫画 裏海マユ and 原作 ちょきんぎょ。, neither given in Latin.
+- work: トワ・エ・モア
+  latin: toi et moi
+  kind: official-latin-title
+  seen_on: cache://cdn_img_comic_days_com__days_com_public_series_thumbnail_2550689798274437681_2a477429a34b3b77ce66f8a7a4afb76a_1709284081__8734d92f0f2ef29d.jpg
+  decision: take-as-title
+  why_decided: RULE 2 DOES NOT BITE, AND THE REASON IS WORTH SPELLING OUT. トワ・エ・モア is French written
+    in katakana, so toi et moi is the phrase it came from rather than a transliteration of it. Same
+    shape as Luminous=Blue, in French instead of English. Lowercase as printed, and rule 1 only recases
+    capitals.
+  note: 'OWNER: THE FIRST NON-ENGLISH SOURCE TITLE. It means you and me. Our romanisation would give
+    Towa E Moa, which is the katakana sounded out and no use to anyone. If the field this lands in is
+    called `en`, this does not belong in it, the same question the German Schwestern in Liebe! raised.'
+- credit: 仲藤ぬい
+  latin: Nui Nakato
+  kind: official-latin-name
+  seen_on: cache://cdn_img_comic_days_com__days_com_public_series_thumbnail_2550689798274437681_2a477429a34b3b77ce66f8a7a4afb76a_1709284081__8734d92f0f2ef29d.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed. Rule 2 is about titles.
+  note: Set as presented by Nui Nakato under the kana credit, given name first. KCDX BETSUFURE alongside
+    is the imprint, 講談社コミックスDX 別冊フレンド, and not ours.
+- work: エルフとひとつ屋根の下
+  latin: Elf to hitotsu yanenoshita
+  kind: cover-romanisation
+  seen_on: cache://cdn_public_comici_jp__tps___cdn_public_comici_jp_series_1077668_2024102817510661072D43E6550A8F2ACB000D02B40EBF88D_webp__cf3abfed82ffca50.webp
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates エルフとひとつ屋根の下 and says nothing in English, despite opening
+    with the English word Elf.
+  note: A BORDERLINE THAT LANDS ON THE ROMANISATION SIDE. Elf is spelled as the English word rather
+    than as Erufu, so one word of it is a rendering, but と, ひとつ and 屋根の下 are all sounded out and the
+    phrase says nothing. Our rules would give Erufu To Hitotsu Yane No Shita.
+- work: オートクチュールの果たし状/読み切り
+  latin: Haute Couture Challenge
+  kind: official-latin-title
+  seen_on: cache://cdn_public_comici_jp__https___cdn_public_comici_jp_series_2_202406261244230457A0C9149A9038412481641E6A9736B12_webp__d539cd8b922e9fd3.webp
+  decision: take-as-title
+  why_decided: 'Title case in script, so rule 1 leaves it. Rule 2 does not bite: オートクチュール is haute couture
+    in katakana, so that half is the source, and Challenge renders 果たし状 rather than sounding it out.'
+  note: Fine script under the gold logo. Our romanisation would give Ootokuchuuru No Hatashijou. The
+    badge at the left is the チャンピオンクロス imprint.
+- credit: 金田一蓮十郎
+  latin: Renjuro Kindaichi
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184583_d05ff783fee48be9d7b44316e7739342_1752730099__eaf345e33dcb805e.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite. Rule 2 is about titles.
+  note: Set vertically in small type beside the kanji, given name first. 金田一 is a three-character surname,
+    which is the kind of split our romanisation has no way to get right on its own, and 蓮十郎 is Renjuurou
+    with the long vowels the cover drops. The only other Latin is the yuri-hime comics imprint at the
+    foot.
+- work: お菊さんはいちゃ憑きたい
+  latin: okiku-san wa ichatsukitai
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_002468_75ee8a1e_af04_4647_b058_546d77bc4fc6_jpg__1f7dca1ecf4f1a17.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates お菊さんはいちゃ憑きたい and says nothing in English.
+  note: Lowercase under the logo, hyphenating the さん. It writes は as wa, unlike the HA and DEHA covers,
+    which is another reading of how inconsistent cover Latin is.
+- work: お菊さんはいちゃ憑きたい
+  reading: イチャツキタイ
+  of: いちゃ憑きたい
+  kind: title-reading
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_002468_75ee8a1e_af04_4647_b058_546d77bc4fc6_jpg__1f7dca1ecf4f1a17.jpg
+  decision: reading
+  why_decided: A reading is not a title, so neither rule applies. Taken from the cover's own romanisation
+    rather than from ruby.
+  note: THE TITLE IS A PUN AND THE ROMANISATION IS HOW WE KNOW. いちゃつく is to flirt, and the artwork swaps
+    in 憑 for つ, the character for being possessed, because the girl is a ghost. So 憑き reads つき here
+    and the phrase is ichatsukitai, not anything the character would normally give.
+- work: 城下町のダンデライオン
+  latin: castle town dandelion
+  kind: official-latin-title
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1xrouy_9F_webp_h_rGGNIaVO1eZ_nzLW_vDYlg_e_5000000000__31e143b4344939b3.webp
+  decision: take-as-title
+  why_decided: 'It renders 城下町のダンデライオン rather than transliterating it: 城下町 is a castle town and ダンデライオン
+    is dandelion in katakana. Set entirely in lowercase, and rule 1 only recases capitals.'
+  note: OWNER, A CASING CALL THE OTHER WAY UP. Two small lowercase lines set at the angle of the katakana
+    logo, about ten pixels tall in the only image the platform serves, which is why it is worth saying
+    I read them at the limit of the file. This series has an anime and the licensed English is styled
+    Castle Town Dandelion in initial caps, so the artwork and the wider world disagree about the case.
+    Recorded as printed. The band at the right is a COMIC FUZ imprint mark.
+- work: 酒と鬼は二合まで
+  latin: Alcohol and Ogre-girls
+  kind: official-latin-title
+  seen_on: cache://cdn_public_bigcomics_jp__https___cdn_public_bigcomics_jp_series_21_202402291817149361B3ACFCED24B4D1C7B7C631B6EC4C970_webp__7a944b996975a632.webp
+  decision: take-as-title
+  why_decided: Title case as printed, so rule 1 leaves it, and it renders 酒と鬼は二合まで rather than transliterating
+    it.
+  note: 'Letterspaced in two lines below the logo. The English drops 二合まで, the two-measure limit the
+    Japanese sets, and picks up the ruby instead: Ogre-girls is 鬼 read as オンナ.'
+- work: 酒と鬼は二合まで
+  reading: オンナ
+  of: 鬼
+  kind: title-furigana
+  seen_on: cache://cdn_public_bigcomics_jp__https___cdn_public_bigcomics_jp_series_21_202402291817149361B3ACFCED24B4D1C7B7C631B6EC4C970_webp__7a944b996975a632.webp
+  decision: reading
+  why_decided: A reading is not a title.
+  note: AN IRREGULAR READING THE ENGLISH CONFIRMS. 鬼 is rubied オンナ in the logo, so the character for
+    ogre is read as the word for woman. Nothing in our tables produces that, and the cover's own Ogre-girls
+    shows the publisher treating both senses as live at once.

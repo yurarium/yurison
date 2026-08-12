@@ -4920,3 +4920,61 @@ candidates:
   note: Set very wide in tiny caps between the two lines of the hiragana logo, so the Latin and the
     kana interleave. Run together as one word, which at least confirms the title is one compound rather
     than はな and ものがたり separately.
+- work: ダッフルコートアーミー
+  latin: Duffle Coat Army
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005739_a96aadef_d1f5_4086_b3c0_6386518eaf1d_jpg__2888e5490364474b.jpg
+  decision: take-as-title
+  why_decided: 'RULE 1 APPLIES to the caps. Rule 2 does not bite: ダッフルコートアーミー is three English words
+    in katakana, so the Latin is what they came from. Our romanisation would give Daffuru Kooto Aamii.'
+  note: OWNER, THE WEIGHTS ARE UNEVEN AND I HAVE FLATTENED THEM. The band sets DUFFLE light, COAT bold
+    and ARMY light, with no spaces between them, so the word boundaries are carried by weight rather
+    than by spacing. Recorded with ordinary spaces and initial caps. Duffle is the artwork's spelling,
+    against the commoner duffel, and it is kept. The katakana repeats underneath in small type.
+- work: はるい駈歩
+  reading: カケアシ
+  of: 駈歩
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_007198_de401261_5bfe_4349_8728_3c0b300e2dad_jpg__2054fdf2580c9069.jpg
+  decision: reading
+  why_decided: A reading is not a title, and the banner carries no Latin.
+  note: 駈歩 is the canter, a riding term, rubied かけあし. 駈 is a variant of 駆 that our tables may not carry
+    at all, and the compound would otherwise invite くほ from the on readings. A tiny horse silhouette
+    is set between the two characters as part of the logo.
+- work: アプリコットファズ
+  latin: Introvert and extrovert fall into the co-dependent spiral
+  kind: cover-gloss
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005629_ac471a7e_617d_4517_a0ec_90d37ef48e7f_jpg__ee071ce0dda57145.jpg
+  decision: not-a-title
+  why_decided: It renders nothing in アプリコットファズ, which is apricot fuzz. An English sentence describing
+    the pair, set where a strapline goes.
+  note: OWNER, MY READING OF THE FIRST WORD IS INFERRED. The line is set in caps a few pixels tall under
+    the logo and the leading letters are overlapped by the katakana, so INTROVERT is reconstructed from
+    ...OVERT and the sense. Recased here per rule 1 and recorded as a gloss either way. Note the cover
+    gives no Latin for アプリコットファズ itself, which is the one thing it would have been useful for.
+- credit: なぎと
+  latin: Nagito
+  kind: official-latin-name
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005629_ac471a7e_617d_4517_a0ec_90d37ef48e7f_jpg__ee071ce0dda57145.jpg
+  decision: take-as-spelling
+  why_decided: RULE 1 APPLIES to the caps in WRITTEN BY NAGITO.
+  note: Set under the kana credit at the top right. Agrees with our romanisation, so it confirms.
+- work: よわいものクラブ
+  latin: YOWAIMONO CLUB
+  kind: cover-romanisation
+  seen_on: cache://cdn_ak_img_shonenjumpplus_com__lus_com_public_series_thumbnail_17107094911687675139_9036b10bf4aefcc180d5ce805dd7ef34_1772685132__9dbef8bec2e7b7cf.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES, on the OSHIKOI CAPRICCIO line. クラブ is club in katakana so that word is
+    a source, but よわいもの is sounded out and it is the half that says who the club is for.
+  note: Set in a small white tab under the hand-lettered logo. Our romanisation would give Yowai Mono
+    Kurabu.
+- work: 彼女は誰時
+  reading: タレトキ
+  of: 誰時
+  kind: title-furigana
+  seen_on: cache://cdn_ak_img_shonenjumpplus_com__plus_com_public_series_thumbnail_3269754496440339130_c0ecf0b5f41c9a5bf696dc0876764217_1772680200__a2d7f427826f972f.jpg
+  decision: reading
+  why_decided: A reading is not a title, and the cover carries no Latin.
+  note: AN ARCHAIC READING. 誰 is rubied たれ, not だれ, which is the old form surviving in 誰彼時, the hour
+    when you cannot tell who is who. That is the whole point of the title and no modern table would
+    offer たれ.

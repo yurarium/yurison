@@ -3411,6 +3411,49 @@ def budget_volume_rows_with_no_publication_date(ctx):
                for v in (w.get("volumes") or ()) if not v.get("published"))
 
 
+def budget_macron_boundaries_nobody_has_ruled_on(ctx):
+    """Names where our macron says a long vowel, a source spells the pair out, and nobody has read it.
+
+    WHAT THE CLASS IS. おう is a long o inside a morpheme and two vowels across a word boundary, and
+    `kana.py` says plainly that telling those apart needs morphology it does not do. 御家 is 御 + 家,
+    so オウチ is o-uchi and `Ōchi` states a long o nobody says; 井上, ねこうめ and 藪内 are the same
+    shape.
+
+    IT IS A FLAG AND NOT A RULE, ruled by the project owner on 2026-08-12. The whole class was 21
+    names and four of them were faults, which is too few to buy a morphological dependency in the
+    one function every rendering goes through. The four are data in `kana.NOT_LONG`, the other 17
+    are a style and were read and left, and what stops a fifth arriving unnoticed is this number.
+
+    A SOURCE WRITING `ou` FOR `ō` IS A STYLE AND NOT A CORRECTION, which is why the candidates are
+    those whose stated spelling matches our own DOUBLE form: MangaUpdates and Wikidata write the
+    pair out for every long vowel, so agreeing with them says nothing on its own and the reading is
+    what has to be looked at.
+
+    §14b, what it cannot see: a boundary no source disagrees with us about. A name nobody has
+    romanised anywhere is not a candidate here, and never will be.
+
+    fallback: none. `data/queue/macron-boundaries.yaml` carries the rulings; a name absent from it
+    is unread by definition.
+    """
+    import re
+    ruled = {str(c.get("name")) for c in
+             (_yaml(ROOT / "data" / "queue" / "macron-boundaries.yaml", {}) or {}).get(
+                 "candidates", []) if c.get("decision")}
+
+    def parts(s):
+        return sorted(x.lower() for x in re.split(r"\s+", str(s or "").strip()) if x)
+
+    n = 0
+    for name, rec in ((ctx.get("names_shipped") or {}).get("authors") or {}).items():
+        en, romaji = rec.get("en"), rec.get("romaji") or {}
+        mac, dbl = romaji.get("macron"), romaji.get("double")
+        if not en or not mac or ("ō" not in mac.lower() and "ū" not in mac.lower()):
+            continue
+        if parts(en) == parts(dbl) and name not in ruled:
+            n += 1
+    return n
+
+
 def budget_volume_rows_a_page_counts_but_cannot_list(ctx):
     """Volume rows the work page counts in its heading and can put nothing on the page for.
 
@@ -5412,6 +5455,13 @@ BUDGETS_DEF = [
      "the rest. No ISBN-keyed enrichment can reach them because BOOK☆WALKER states no ISBN, so "
      "the route is コミックシーモア's per-volume page, which states both. A rise means new undated "
      "works or a capture that stopped dating rows it used to."),
+    ("macron boundaries nobody has ruled on", budget_macron_boundaries_nobody_has_ruled_on,
+     "names where our macron says a long vowel and a source spells the pair out, which nobody has "
+     "read. Most of the class is a style, because MangaUpdates and Wikidata write ou for ō; what "
+     "hides in it is a pair crossing a word boundary, where 御家's オウチ is o-uchi and `Ōchi` "
+     "states a long o nobody says. Four of 21 were that. The owner ruled on 2026-08-12 that a "
+     "morphology rule is not worth buying for four names, so the four are data in kana.NOT_LONG "
+     "and this is what stops a fifth arriving unnoticed. A rise is a name to read."),
     ("volume rows a page counts but cannot list",
      budget_volume_rows_a_page_counts_but_cannot_list,
      "volume rows the heading counts and the page can show nothing for. It was 1,420 across 897 "
@@ -6321,6 +6371,29 @@ def self_test():
     if budget_volume_rows_with_no_publication_date(c2) != 0:
         print("  self-test FAILED — 'volume rows with no publication date' counted a volume no "
               "print block reaches")
+        ok = False
+
+    # A NAME NOBODY HAS READ, which is the whole job of the measure: the four faults are ruled and
+    # the seventeen styles are ruled, so anything arriving is arriving unread.
+    c = _Scratch(ctx)
+    c["names_shipped"] = {"authors": {"カナリア": {
+        "en": "Kanaria", "romaji": {"macron": "Kanaria", "double": "Kanaria"}}}}
+    if budget_macron_boundaries_nobody_has_ruled_on(c) != 0:
+        print("  self-test FAILED — 'macron boundaries nobody has ruled on' counted a name whose "
+              "romanisation holds no long vowel at all")
+        ok = False
+    c["names_shipped"] = {"authors": {"カナリア": {
+        "en": "Kanaoue", "romaji": {"macron": "Kanaōe", "double": "Kanaoue"}}}}
+    if budget_macron_boundaries_nobody_has_ruled_on(c) != 1:
+        print("  self-test FAILED — 'macron boundaries nobody has ruled on' did not count a "
+              "macron a source spells out")
+        ok = False
+    # AND A NAME ALREADY READ IS NOT COUNTED AGAIN, whichever way it was ruled.
+    c["names_shipped"] = {"authors": {"御家かえる": {
+        "en": "Ouchi Kaeru", "romaji": {"macron": "Ōchi Kaeru", "double": "Ouchi Kaeru"}}}}
+    if budget_macron_boundaries_nobody_has_ruled_on(c) != 0:
+        print("  self-test FAILED — 'macron boundaries nobody has ruled on' counted a name the "
+              "queue already carries a decision for")
         ok = False
 
     # THE STATE MURCIÉLAGO WAS IN when the cross-catalogue fold was first tried and withdrawn: one

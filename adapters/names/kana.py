@@ -315,6 +315,26 @@ def morae(reading):
     return out
 
 
+#: READINGS WHOSE VOWEL PAIR IS NOT A LONG VOWEL, ruled one at a time by the project owner.
+#:
+#: おう is a long o inside a morpheme and two vowels across a boundary, and the module docstring
+#: says telling those apart needs morphology this does not do. It stays that way: on the corpus of
+#: 2026-08-12 the whole class was 21 names and four of them were faults, which is too few to buy a
+#: dependency in the one function every rendering goes through. What replaces the rule is that a
+#: new one cannot arrive unnoticed: `macron boundaries nobody has ruled on` counts the class
+#: against `data/queue/macron-boundaries.yaml`, so an unruled name is a number that moved.
+#:
+#: A doubled spelling is what a boundary looks like written out, which is why the ruling is a set
+#: rather than a table: the `double` style already spells every pair, so a ruled reading is simply
+#: rendered in it.
+NOT_LONG = {
+    "オウチ",      # 御家: 御 + 家, o-uchi. Ōchi states a long o nobody says.
+    "イノウエ",    # 井上: i-no-ue, の between the two vowels of the pair.
+    "ネコウメ",    # ねこうめ: ネコ + ウメ, the pair spans neko|ume.
+    "ヤブウチ",    # 藪内: ヤブ + ウチ. The 優/ユウ beside it is a real long u and is not here.
+}
+
+
 def romanise(reading, style="macron"):
     """Render a kana reading in one of the three styles §8.1 makes a reader preference.
 
@@ -354,6 +374,13 @@ def romanise(reading, style="macron"):
     single letter standing for itself and wrong for a word; `LETTER_NAME` and its one reader in
     `_ruby_worth_printing` are where that distinction lives.
     """
+    # A READING RULED AS NOT HOLDING A LONG VOWEL IS SPELLED OUT, whatever the style asked for.
+    # ASKED OF EACH WORD, because a stored reading is word-divided and only one of its words is
+    # usually the ruled one: 藪内優 is `ヤブウチ ユウ`, where ヤブウチ is two vowels and the ユウ
+    # beside it is a real long u. Matching the whole string left both of them as they were.
+    if style != "double" and any(w in NOT_LONG for w in to_katakana(reading).split()):
+        return " ".join(romanise(w, "double" if w in NOT_LONG else style)
+                        for w in reading.split())
     ms = morae(reading)
     parts, pending_sokuon = [], False
     for idx, m in enumerate(ms):

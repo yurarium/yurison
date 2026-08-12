@@ -13,6 +13,39 @@ import testkit
 import kana
 
 
+
+def not_long(s):
+    """A vowel pair that crosses a word boundary is not a long vowel, name by ruled name.
+
+    おう is a long o inside a morpheme and two vowels across a boundary, and `kana.py` says plainly
+    that telling those apart needs morphology it does not do. The project owner ruled on 2026-08-12
+    that a rule is not worth buying for this: the whole class was 21 names and four were faults.
+    So the four are data and the rest of the class is watched by a budget.
+    """
+    s.eq(kana.romanise("オウチ", "macron"), "ouchi",
+         "御家 is 御 + 家, so Ōchi states a long o nobody says")
+    s.eq(kana.romanise("イノウエ", "macron"), "inoue", "井上 is i-no-ue")
+    s.eq(kana.romanise("ネコウメ", "macron"), "nekoume", "ねこうめ is ネコ + ウメ")
+    s.eq(kana.romanise("ヤブウチ", "macron"), "yabuuchi", "藪内 is ヤブ + ウチ")
+
+    # ASKED OF EACH WORD, because a stored reading is word-divided and usually only one of its
+    # words is the ruled one. Matching the whole string left both of these exactly as they were.
+    s.eq(kana.romanise("ヤブウチ ユウ", "macron"), "yabuuchi yū",
+         "the ruled word is spelled out and the real long u beside it is not")
+    s.eq(kana.romanise("オウチ カエル", "macron"), "ouchi kaeru", "and a given name is untouched")
+
+    # AND THE STYLE IS STILL OBEYED EVERYWHERE ELSE, which is what keeps this a ruling about four
+    # readings rather than a rule about the pair おう. 安藤 really is a long o.
+    s.eq(kana.romanise("アンドウ", "macron"), "andō", "a real long vowel is still written as one")
+    s.eq(kana.romanise("ユウ", "macron"), "yū", "including the 優 that sits beside 藪内 in one name")
+    s.eq(kana.romanise("トウキョウ", "macron"), "tōkyō", "and the case the whole style exists for")
+
+    # A RULED READING IS SPELLED OUT IN EVERY STYLE, because the plain style drops a length that is
+    # not there to drop: `Ochi` loses a syllable of somebody's name.
+    s.eq(kana.romanise("オウチ", "plain"), "ouchi", "the plain style has no length here to remove")
+    s.eq(kana.romanise("オウチ", "double"), "ouchi", "and the doubled style already spelled it")
+
+
 def main(s):
     # Three styles, all derived from the kana and none from each other (NAMES-PLAN §8.1). That is
     # what makes the reader's choice of style possible at render time.
@@ -414,6 +447,8 @@ def main(s):
     for probe in ("ユウリ", "トウキョウ", "オオサカ", "アラサー", "カアサン", "ネエサン"):
         got = [kana.romanise(probe, st) for st in ("macron", "double", "plain")]
         s.eq(len(set(got)), 3, f"the three styles differ on {probe}, which is long")
+
+    not_long(s)
 
 
 if __name__ == "__main__":

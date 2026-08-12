@@ -1,16 +1,7 @@
-note: Names where our macron says a long vowel and a source spells the two vowels out. Every one needs
-  a person, because the two populations look identical from here and only one of them is a fault.
-how_to_decide: 'A SOURCE WRITING `ou` FOR `ō` IS A STYLE AND NOT A CORRECTION. MangaUpdates and Wikidata
-  both write double vowels where this project writes macrons, so `Karintō` against `Karintou` says nothing
-  about either. The style control already offers both.
-
-  WHAT IS A FAULT IS A VOWEL PAIR THAT CROSSES A WORD BOUNDARY, because that is not a long vowel at all.
-  御家 is お + うち, so the reading オウチ is o-uchi and `Ōchi` states a long o nobody says; the same shape is
-  井上 i-no-ue against `Inōe`, 猫梅 neko-ume against `Nekōme` and 藪内 yabu-uchi against `Yabūchi`. The romaniser
-  cannot see a morpheme boundary and never will, so each of these is a reading somebody has to look at.
-
-  Set `decision` to `long-vowel` where our macron is right, or `two-vowels` where the source is, and a
-  pass will apply it.'
+note: 'Names where our macron says a long vowel and a source spells the two vowels out. Read through on
+  2026-08-12: 4 are faults and are ruled in `kana.NOT_LONG`; the other 17 are a style, because MangaUpdates
+  and Wikidata write ou for ō and the `double` setting already renders exactly that. A name arriving here
+  with no `decision` is one nobody has read, which `macron boundaries nobody has ruled on` counts.'
 found: 2026-08-12, from the project owner reading Project Yuriforming!'s credit
 candidates:
 - name: ねこうめ
@@ -19,144 +10,172 @@ candidates:
   reading: ネコウメ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/864f8wt/nekoume
-  decision: null
+  decision: two-vowels
+  why: 'ネコ + ウメ: the pair spans neko|ume'
 - name: ふーみ
   ours: Fūmi
   stated: Fuumi
   reading: フーミ
   stated_source: wikidata
   stated_url: http://www.wikidata.org/entity/Q62085033
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: やぶうち優
   ours: Yabūchi Yū
   stated: Yuu Yabuuchi
   reading: ヤブウチ ユウ
   stated_source: wikidata
   stated_url: http://www.wikidata.org/entity/Q3276552
-  decision: null
+  decision: two-vowels
+  why: 'ヤブ + ウチ: the ウ starts uchi. The Yū from 優 is a real long u and stays'
 - name: イノウエ
   ours: Inōe
   stated: Inoue
   reading: イノウエ
   stated_source: wikidata
   stated_url: http://www.wikidata.org/entity/Q105703973
-  decision: null
+  decision: two-vowels
+  why: '井上, i-no-ue: の sits between the two vowels of the pair'
 - name: サブロウタ
   ours: Saburōta
   stated: Saburouta
   reading: サブロウタ
   stated_source: wikidata
   stated_url: http://www.wikidata.org/entity/Q65239262
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 九郎
   ours: Kurō
   stated: Kurou
   reading: クロウ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/93kag3n/kurou
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 仲藤ぬい
   ours: Nakatō Nui
   stated: NAKATOU Nui
   reading: ナカトウ ヌイ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/ip5s36d/nakatou-nui
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 夏鈴糖
   ours: Karintō
   stated: Karintou
   reading: カリントウ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/hcebo4e/karintou
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 大刃堂寿
   ours: Ōba Dōzu
   stated: OOBA Douzu
   reading: オオバ ドウズ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/l6h1yd4/ooba-douzu
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 大熊らすこ
   ours: Ōkuma Rasuko
   stated: Rasuko Ookuma
   reading: オオクマ ラスコ
   stated_source: wikidata
   stated_url: http://www.wikidata.org/entity/Q113925670
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 安房さとる
   ours: Abō Satoru
   stated: ABOU Satoru
   reading: アボウ サトル
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/wn7z41w/abou-satoru
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 安藤優
   ours: Andō Yū
   stated: ANDOU Yuu
   reading: アンドウ ユウ
   stated_source: null
   stated_url: null
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 当麻
   ours: Tōma
   stated: Touma
   reading: トウマ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/lksh5jd/touma
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 御家かえる
   ours: Ōchi Kaeru
   stated: Ouchi Kaeru
   reading: オウチ カエル
   stated_source: wikidata
   stated_url: http://www.wikidata.org/entity/Q136693253
-  decision: null
+  decision: two-vowels
+  why: '御(オ) + 家: the ウ starts uchi'
 - name: 月足透水
   ours: Tsukiashi Tōmi
   stated: TSUKIASHI Toomi
   reading: ツキアシ トオミ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/xvihpm3/tsukiashi-toomi
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 浜弓場双
   ours: Hamayumiba Sō
   stated: HAMAYUMIBA Sou
   reading: ハマユミバ ソウ
   stated_source: wikidata
   stated_url: http://www.wikidata.org/entity/Q11410412
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 火曜
   ours: Kayō
   stated: Kayou
   reading: カヨウ
   stated_source: wikidata
   stated_url: http://www.wikidata.org/entity/Q16770172
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 琢磨美友
   ours: Takuma Miyū
   stated: TAKUMA Miyuu
   reading: タクマ ミユウ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/94dwraz/takuma-miyuu
-  decision: null
+  decision: long-vowel
+  why: ruled correct as it stands by the project owner, 2026-08-12
 - name: 矢坂しゅう
   ours: Yasaka Shū
   stated: YASAKA Shuu
   reading: ヤサカ シュウ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/rynbcnh/yasaka-shuu
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 花束葬式
   ours: Hanataba Sōshiki
   stated: Hanataba Soushiki
   reading: ハナタバ ソウシキ
   stated_source: mangaupdates
   stated_url: https://www.mangaupdates.com/author/hlokqot/hanataba-soushiki
-  decision: null
+  decision: long-vowel
+  why: a real long vowel inside one morpheme; the source writes it doubled, which is a style
 - name: 蘇募ロウ
   ours: Soborō
   stated: Soborou
   reading: ソボロウ
   stated_source: wikidata
   stated_url: http://www.wikidata.org/entity/Q64821637
-  decision: null
+  decision: long-vowel
+  why: ruled correct as it stands by the project owner, 2026-08-12
+how_to_decide: 'A SOURCE WRITING `ou` FOR `ō` IS A STYLE AND NOT A CORRECTION, so most of this list is
+  not a fault. WHAT IS A FAULT IS A VOWEL PAIR THAT CROSSES A WORD BOUNDARY, because that is not a long
+  vowel at all: 御家 is 御 + 家 so オウチ is o-uchi and `Ōchi` states a long o nobody says, and 井上, ねこうめ and
+  藪内 are the same shape. Set `decision` to `two-vowels` and add the reading to `kana.NOT_LONG`, or to
+  `long-vowel` and leave it. The project owner ruled on 2026-08-12 that a rule reading morpheme boundaries
+  is not worth buying for four names, so this list is how they are settled and the budget is how a new
+  one is noticed.'

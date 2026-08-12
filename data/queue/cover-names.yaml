@@ -4046,3 +4046,51 @@ candidates:
     as two entries that ought to be one, and here the publisher prints both on one cover, the kanji
     in a white tab with the Latin directly beside it. That is the evidence the merge needed, and it
     comes from the artwork rather than from a name table. Given name first.
+- work: ファインダーの先に
+  latin: Finder no sakini
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360557_27e841046c3d5c19255485eb41521080_1752730099__4fd9fd5f0f02be62.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES, on the Elf to hitotsu yanenoshita line. ファインダー is finder in katakana
+    so that word is a source, but の先に is sounded out and it is the whole point of the title, the thing
+    beyond the viewfinder.
+  note: Letterspaced in small script directly above the katakana logo. It joins 先に into one word, sakini,
+    where our romanisation would give saki ni.
+- credit: 仁科
+  latin: nishina
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360557_27e841046c3d5c19255485eb41521080_1752730099__4fd9fd5f0f02be62.jpg
+  decision: take-as-spelling
+  why_decided: Lowercase as printed, and rule 1 only recases capitals.
+  note: TENTH LOWERCASE CREDIT. Set in small lowercase letterspacing directly under the kanji credit
+    at the top right. Our romanisation would give Nishina with a capital. 仁科 could read Nishina or Nika
+    from the characters, so the cover settles the reading as well as the case.
+- work: 君のせいなんだから、責任とってよね。
+  latin: You Started This, So You Better Finish It.
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2551460909791966658_dd2c5edde911af07e6505e235e281e49_1780365117__408240d5ca2ecb88.jpg
+  decision: take-as-title
+  why_decided: Title case as printed, so rule 1 leaves it, and it renders 君のせいなんだから、責任とってよね。 rather
+    than transliterating it.
+  note: Three small lines under the logo on the volume 1 cover, above the credit 当麻. The Japanese lays
+    the blame and then demands responsibility; the English keeps both halves and the comma between them,
+    and the full stop is printed.
+- work: 友達からでもいいですか
+  latin: Can we start as friends?
+  kind: official-latin-title
+  seen_on: cache://cdn_img_kuragebunch_com__nch_com_public_series_thumbnail_12207421984030241994_fe2aebb8e778276a1936f5f648ca0286_1785400036__0cc0a33d4425e532.jpg
+  decision: take-as-title
+  why_decided: Sentence case as printed, so rule 1 leaves it, and it renders 友達からでもいいですか rather than
+    transliterating it.
+  note: Three widely letterspaced lines set between the vertical Japanese, in the same weight as the
+    rest of the design. The Japanese asks whether starting as friends would be acceptable and the English
+    turns it into a plain question.
+- credit: 徳永パン
+  latin: Tokunaga Pan
+  kind: official-latin-name
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006725_c891098d_635b_41f7_9a4d_8fd7e51e0a97_jpg__7cbb232ddb99c49c.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: Set in a blue banner across the top, directly after the kanji and katakana credit, family name
+    first. パン is the borrowed word for bread, so Pan is the source spelling rather than a transliteration
+    of it.

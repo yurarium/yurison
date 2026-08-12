@@ -4585,3 +4585,44 @@ candidates:
   note: Letterspaced very wide above and below the katakana, so the Latin frames the logo rather than
     sitting under it, the 銀の河に星の城 arrangement again. The dagger in our title is the artwork's own cross
     ornament between the two words.
+- work: 泡沫
+  reading: ウタカタ
+  of: 泡沫
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_003696_cc77572e_357f_4108_a4b3_346c36b3c0bf_jpg__67bb7cae47490517.jpg
+  decision: reading
+  why_decided: A reading is not a title, and the tile carries no Latin.
+  note: AN IRREGULAR READING SPLIT ODDLY. 泡沫 is utakata, the froth on water and the thing that does
+    not last, and the artwork rubies うた over 泡 and かた over 沫, splitting a reading that belongs to the
+    pair rather than to either character. Our tables would give あわ and まつ. The strapline names 菅野マナミ
+    and 「ひまわりさん」.
+- work: アクアリウムは踊らない
+  latin: The Aquarium does not dance
+  kind: official-latin-title
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_71182__d7d0991e4907b676.jpg
+  decision: take-as-title
+  why_decided: 'Sentence case as printed, so rule 1 leaves it. Rule 2 does not bite: アクアリウム is aquarium
+    in katakana and 踊らない is rendered rather than sounded out.'
+  note: Letterspaced very fine under the logo, inside a ニコニコ漫画 frame, at the limit of what the thumbnail
+    holds.
+- work: 妄執女と芥川
+  latin: Femme fatale & Akutagawa
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_007176_b32241b1_0e31_4979_a5a7_fa027c8b5df3_jpg__58356d6d8d36031c.jpg
+  decision: take-as-title
+  why_decided: 'Not all caps, so rule 1 does not reach it: Femme takes a capital and fatale does not.
+    Rule 2 does not bite: the ruby says the first word is the French femme fatale, so the Latin is its
+    source, and 芥川 is a name any English rendering spells.'
+  note: A FOURTH FRENCH SIGHTING, after toi et moi, Mémoire and Role of the Femme Fatale, and the second
+    time this particular phrase has turned up. Set vertically in a fine italic to the right of the brushed
+    logo. Akutagawa is the writer, so the English keeps him as he is known.
+- work: 妄執女と芥川
+  reading: ファムファタール
+  of: 妄執女
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_007176_b32241b1_0e31_4979_a5a7_fa027c8b5df3_jpg__58356d6d8d36031c.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: A FOURTH BORROWED WORD ARRIVING AS A READING, and the first that is not English. 妄執女 is a coinage,
+    the woman of obsession, rubied ファムファタール in a red box so it is said femme fatale. Nothing in our
+    tables reaches French from those characters.

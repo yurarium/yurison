@@ -725,6 +725,11 @@ def _recompose_credit(ja, phrase, authors, ruled=None, floor=None, divided=False
 VOLUME_NO = re.compile(r"^\s*(?:第\s*)?(?:v(?:ol)?(?:ume)?\s*\.?\s*)?(\d+)\s*(?:巻)?\s*$", re.I)
 
 
+#: HOW A SET NUMBERED BY WORD RUNS, in order. Which position each word takes depends on which of
+#: them the work uses, so the number is worked out over a run's own volumes rather than read off
+#: this: 上下 is two parts and 上中下 is three, and both spell 下 the same way.
+_PART_WORDS = ("上", "中", "下")
+
 #: The inaugural issue of a periodical, which is its first. One word, so it is a value and not a
 #: vocabulary; `facts/volumenumber` recognises the same word when reading a product title.
 FIRST_ISSUE = "創刊号"
@@ -1905,6 +1910,18 @@ def merge_volumes(recs):
                 held["delivered"] = vol["delivered"]
             if vol.get("openbd") == "present":
                 held["openbd"] = "present"
+    # 上 AND 下 ARE TWO PARTS, NOT PARTS ONE AND THREE. The position of a part word depends on the
+    # SET the work uses: 上中下 is three and 上下 is two, and a table mapping 下 to 3 rendered a two
+    # volume work as `Part 1` and `Part 3`. Absent anything saying otherwise a work with 上 and 下
+    # and no 中 has two parts, which is a fact about this run and can only be settled here, over
+    # the run's own volumes. Ruled by the project owner 2026-08-12.
+    _parts = [v for v in (merged[k] for k in order)
+              if str(v.get("number") or "").strip() in _PART_WORDS]
+    if _parts:
+        _order = [w for w in _PART_WORDS
+                  if any(str(v.get("number") or "").strip() == w for v in _parts)]
+        for _v in _parts:
+            _v["number_n"] = _order.index(str(_v["number"]).strip()) + 1
     ordered[0]["volumes"] = [merged[k] for k in order]
     # HOW LONG THE RUN IS, and the row count only answers where every row is numbered. BOOK☆WALKER
     # states a number in 81% of its product titles, so 白き乙女の人狼 is five products with one
@@ -3721,6 +3738,27 @@ def main():
             for _ndl_rec in _ndl_recs:
                 _ndl_filled += _ndlvol.apply(_ndl_said.get("volumes") or [],
                                              _ndl_rec.get("volumes") or [])
+        # A PRINTING REFUSES A DELIVERY DATE, which is `delivery.promote`'s rule reaching a case it
+        # could not see: a work dated by the day a shop began selling the file, whose volume the
+        # national library says was printed. `merge_volumes` does this where two records join and
+        # this is the same fact arriving from one.
+        for _ndl_rec2 in works:
+            _ndlfp = _ndl_rec2.get("first_publication") or {}
+            if _ndlfp.get("date_event") != delivery.EVENT:
+                continue
+            _ndlprinted = sorted(str(v["published"]) for v in (_ndl_rec2.get("volumes") or ())
+                                 if v.get("published") and v.get("published_source") == "ndl")
+            if _ndlprinted:
+                _ndl_rec2["first_publication"] = {
+                    **{k: v for k, v in _ndlfp.items()
+                       if k not in ("date_event", "date_followup", "date_silence", "date_basis",
+                                    "date_source", "note")},
+                    "date": _ndlprinted[0], "date_basis": "national-library",
+                    "date_source": "ndl",
+                    "note": "The National Diet Library states a printing for a volume of this work, "
+                            "so the day the shop began delivering the file is no longer the "
+                            "earliest publication anybody records.",
+                }
         if _ndl_filled:
             print(f"national library : {_ndl_filled} volume(s) given an ISBN nothing else reached")
 

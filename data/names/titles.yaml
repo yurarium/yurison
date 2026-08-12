@@ -1,4 +1,4 @@
-generated: '2026-08-10'
+generated: '2026-08-12'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -29233,13 +29233,6 @@ names:
     verified: false
   ツイてるギャルとミエてる陰キャ:
     basis: romaji
-    furigana_spans:
-    - - ツイてるギャルとミエてる
-      - null
-    - - 陰
-      - かげ
-    - - キャ
-      - null
     note: reading guessed by a morphological analyser, not stated by any source; analysers are weakest
       on pen names and coinages
     reading: ツイテル ギャル ト ミエテル インキャ
@@ -39382,12 +39375,17 @@ names:
     reading_source_kind: analyser
     verified: false
   今夜は夜雀の屋台で:
-    basis: translated
-    en: Tonight, at the Night Sparrow's Stall
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Tonight at the Mystia's Yatai
+    en_at: '2026-08-12'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Tonight, at the Night Sparrow's Stall
+    en_reviewed: '2026-08-12'
+    en_source: comic-walker
+    en_source_kind: publisher-jp
+    en_url: https://comic-walker.com/
     furigana_spans:
     - - 今夜
       - こんや
@@ -39403,13 +39401,19 @@ names:
       - やたい
     - - で
       - null
-    note: 夜雀 is a yokai, and 屋台 is the cart it runs.
+    note: 'The Latin title printed on the cover, accepted as official by the project owner on 2026-08-12
+      with the reading recorded in data/queue/cover-names.yaml. 夜雀 is Mystia, the night-sparrow youkai
+      of the Touhou games, so the publisher''s English uses her name where the Japanese uses the species,
+      and 屋台 is kept as yatai. Accepted as printed: `the Mystia''s` takes both the article and the possessive
+      where English takes one.'
     reading: コンヤ ワ ヨル スズメ ノ ヤタイデ
     reading_at: '2026-08-05'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: Our own rendering, which stood here until the cover was read. Kept because it says
+      what the Japanese says to a reader who does not know the games.
     verified: false
   今夜も抱かれてます！:
     basis: translated
@@ -77416,19 +77420,6 @@ names:
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 陰
-      - かげ
-    - - キャの
-      - null
-    - - 私
-      - わたし
-    - - が
-      - null
-    - - 何故
-      - なぜ
-    - - かギャルにモテている
-      - null
     note: 陰キャ is the shaded character, the introvert as a school type, set against 陽キャ in the same slang.
       ギャル is the loud made-up style, a subculture with a name of its own. モテる is being popular with a
       group rather than with one person.

@@ -42,7 +42,13 @@ import unicodedata
 
 #: Bracketed apparatus: a role, a gloss, a publisher's note. Not part of a name.
 _BRACKETED = re.compile(r"[（(〔【\[][^）)〕】\]]*[）)〕】\]]")
-_INTERPUNCT = re.compile(r"[・･]")
+#: THE SEPARATOR A CATALOGUE PUTS BETWEEN A FAMILY NAME AND A GIVEN NAME. `・` is how a Japanese
+#: source writes it and `, ` is how a library catalogue does: NDL holds よしむらかな as
+#: `よしむら, かな` and 司馬舞 as `司馬, 舞`. They are one judgement, and separating them meant the
+#: NDL pass rejected almost every match it found, including four correctly authored volumes of
+#: MURCIÉLAGO's own spin-off. A comma inside a name is otherwise vanishingly rare, and `loosely` is
+#: the key that may ask rather than decide, which is where a judgement like this belongs.
+_INTERPUNCT = re.compile(r"[・･]|,\s*|、")
 
 
 def fold(s):
@@ -60,9 +66,10 @@ def fold(s):
 def loosely(s):
     """The matching key: might these be the same ENTITY, seen through two sources?
 
-    `fold` plus the three judgements: case, the bracketed apparatus, and the interpunct. Use it to
-    ASK whether two records might be one, never to decide that they are. A caller that stores this
-    as an identity has merged on a guess.
+    `fold` plus the judgements: case, the bracketed apparatus, and the separator a catalogue puts
+    between the parts of a name, whether it writes that separator `・` or `, `. Use it to ASK
+    whether two records might be one, never to decide that they are. A caller that stores this as
+    an identity has merged on a guess.
     """
     s = _BRACKETED.sub("", unicodedata.normalize("NFKC", str(s or "")))
     return _INTERPUNCT.sub("", s).replace(" ", "").lower()

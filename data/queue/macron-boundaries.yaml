@@ -1,0 +1,162 @@
+note: Names where our macron says a long vowel and a source spells the two vowels out. Every one needs
+  a person, because the two populations look identical from here and only one of them is a fault.
+how_to_decide: 'A SOURCE WRITING `ou` FOR `ō` IS A STYLE AND NOT A CORRECTION. MangaUpdates and Wikidata
+  both write double vowels where this project writes macrons, so `Karintō` against `Karintou` says nothing
+  about either. The style control already offers both.
+
+  WHAT IS A FAULT IS A VOWEL PAIR THAT CROSSES A WORD BOUNDARY, because that is not a long vowel at all.
+  御家 is お + うち, so the reading オウチ is o-uchi and `Ōchi` states a long o nobody says; the same shape is
+  井上 i-no-ue against `Inōe`, 猫梅 neko-ume against `Nekōme` and 藪内 yabu-uchi against `Yabūchi`. The romaniser
+  cannot see a morpheme boundary and never will, so each of these is a reading somebody has to look at.
+
+  Set `decision` to `long-vowel` where our macron is right, or `two-vowels` where the source is, and a
+  pass will apply it.'
+found: 2026-08-12, from the project owner reading Project Yuriforming!'s credit
+candidates:
+- name: ねこうめ
+  ours: Nekōme
+  stated: Nekoume
+  reading: ネコウメ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/864f8wt/nekoume
+  decision: null
+- name: ふーみ
+  ours: Fūmi
+  stated: Fuumi
+  reading: フーミ
+  stated_source: wikidata
+  stated_url: http://www.wikidata.org/entity/Q62085033
+  decision: null
+- name: やぶうち優
+  ours: Yabūchi Yū
+  stated: Yuu Yabuuchi
+  reading: ヤブウチ ユウ
+  stated_source: wikidata
+  stated_url: http://www.wikidata.org/entity/Q3276552
+  decision: null
+- name: イノウエ
+  ours: Inōe
+  stated: Inoue
+  reading: イノウエ
+  stated_source: wikidata
+  stated_url: http://www.wikidata.org/entity/Q105703973
+  decision: null
+- name: サブロウタ
+  ours: Saburōta
+  stated: Saburouta
+  reading: サブロウタ
+  stated_source: wikidata
+  stated_url: http://www.wikidata.org/entity/Q65239262
+  decision: null
+- name: 九郎
+  ours: Kurō
+  stated: Kurou
+  reading: クロウ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/93kag3n/kurou
+  decision: null
+- name: 仲藤ぬい
+  ours: Nakatō Nui
+  stated: NAKATOU Nui
+  reading: ナカトウ ヌイ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/ip5s36d/nakatou-nui
+  decision: null
+- name: 夏鈴糖
+  ours: Karintō
+  stated: Karintou
+  reading: カリントウ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/hcebo4e/karintou
+  decision: null
+- name: 大刃堂寿
+  ours: Ōba Dōzu
+  stated: OOBA Douzu
+  reading: オオバ ドウズ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/l6h1yd4/ooba-douzu
+  decision: null
+- name: 大熊らすこ
+  ours: Ōkuma Rasuko
+  stated: Rasuko Ookuma
+  reading: オオクマ ラスコ
+  stated_source: wikidata
+  stated_url: http://www.wikidata.org/entity/Q113925670
+  decision: null
+- name: 安房さとる
+  ours: Abō Satoru
+  stated: ABOU Satoru
+  reading: アボウ サトル
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/wn7z41w/abou-satoru
+  decision: null
+- name: 安藤優
+  ours: Andō Yū
+  stated: ANDOU Yuu
+  reading: アンドウ ユウ
+  stated_source: null
+  stated_url: null
+  decision: null
+- name: 当麻
+  ours: Tōma
+  stated: Touma
+  reading: トウマ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/lksh5jd/touma
+  decision: null
+- name: 御家かえる
+  ours: Ōchi Kaeru
+  stated: Ouchi Kaeru
+  reading: オウチ カエル
+  stated_source: wikidata
+  stated_url: http://www.wikidata.org/entity/Q136693253
+  decision: null
+- name: 月足透水
+  ours: Tsukiashi Tōmi
+  stated: TSUKIASHI Toomi
+  reading: ツキアシ トオミ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/xvihpm3/tsukiashi-toomi
+  decision: null
+- name: 浜弓場双
+  ours: Hamayumiba Sō
+  stated: HAMAYUMIBA Sou
+  reading: ハマユミバ ソウ
+  stated_source: wikidata
+  stated_url: http://www.wikidata.org/entity/Q11410412
+  decision: null
+- name: 火曜
+  ours: Kayō
+  stated: Kayou
+  reading: カヨウ
+  stated_source: wikidata
+  stated_url: http://www.wikidata.org/entity/Q16770172
+  decision: null
+- name: 琢磨美友
+  ours: Takuma Miyū
+  stated: TAKUMA Miyuu
+  reading: タクマ ミユウ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/94dwraz/takuma-miyuu
+  decision: null
+- name: 矢坂しゅう
+  ours: Yasaka Shū
+  stated: YASAKA Shuu
+  reading: ヤサカ シュウ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/rynbcnh/yasaka-shuu
+  decision: null
+- name: 花束葬式
+  ours: Hanataba Sōshiki
+  stated: Hanataba Soushiki
+  reading: ハナタバ ソウシキ
+  stated_source: mangaupdates
+  stated_url: https://www.mangaupdates.com/author/hlokqot/hanataba-soushiki
+  decision: null
+- name: 蘇募ロウ
+  ours: Soborō
+  stated: Soborou
+  reading: ソボロウ
+  stated_source: wikidata
+  stated_url: http://www.wikidata.org/entity/Q64821637
+  decision: null

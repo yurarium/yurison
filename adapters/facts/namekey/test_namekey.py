@@ -15,6 +15,29 @@ import testkit                                                          # noqa: 
 from facts import namekey as k                                          # noqa: E402
 
 
+def _catalogue_separator(s):
+    """A library writes `姓, 名` where a source writes `姓名`, and that is the interpunct's judgement.
+
+    THE NDL PASS WAS REJECTING ALMOST EVERY MATCH IT FOUND, over one character. It searches by
+    title and keeps only the records whose creator agrees with the author we hold, which is what
+    stops a title search matching every book in Japan; NDL holds よしむらかな as `よしむら, かな`
+    and the comparison said no. Four probes on 2026-08-12 answered 0 after the filter, one of them
+    over four correctly authored volumes of MURCIÉLAGO's own spin-off.
+    """
+    s.eq(k.loosely("よしむらかな"), k.loosely("よしむら, かな"),
+         "a catalogue's comma between the parts of a name is not part of the name")
+    s.eq(k.loosely("司馬舞"), k.loosely("司馬, 舞"), "with or without the space after it")
+    s.eq(k.loosely("仲谷鳰"), k.loosely("仲谷、鳰"), "and the ideographic comma reads the same way")
+    s.eq(k.loosely("くろば・U"), k.loosely("くろば, U"),
+         "which is the same judgement `・` already gets, so a source using either meets the other")
+
+    # AND `fold` IS UNTOUCHED, which is the half that matters. It is the IDENTITY key, and a
+    # judgement that may be wrong belongs in the key that asks rather than the one that decides:
+    # `くろば・Ｕ` and `くろばＵ` are two keys there on purpose, and a comma is no different.
+    s.check(k.fold("司馬舞") != k.fold("司馬, 舞"),
+            "the identity key still keeps them apart, because a wrong join erases somebody")
+
+
 def main(s):
     # WIDTH IS TYPOGRAPHY. The project ruled this when `ＮＯＡＨEditorial Department` reached a
     # reader: full-width Latin is a width and not a spelling.
@@ -53,6 +76,8 @@ def main(s):
     # THE CANONICAL KEY IS THE ONE THE BROWSER USES. `the interface folds a name key as the build
     # does` pins app.js against this, so a change here without a change there fails the gate.
     s.eq(k.fold("（私に）"), "(私に)", "the fold app.js implements is this one")
+
+    _catalogue_separator(s)
 
 
 if __name__ == "__main__":

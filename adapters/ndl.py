@@ -22,9 +22,14 @@ DISAMBIGUATION IS THE HARD PART. A title search for `citrus+` returns two volume
 book from 2007. So a record counts only where the creator agrees with the author we hold, and a
 work whose author we do not know gets no answer rather than a guess.
 """
+import pathlib
 import re
-import unicodedata
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
 import htmlbits as _htmlbits                                            # noqa: E402
+from facts import namekey as _namekey                                   # noqa: E402
 
 ITEM = _htmlbits.RSS_ITEM
 MANGA = "漫画"
@@ -36,8 +41,16 @@ def _tag(item, name):
 
 
 def _fold(s):
-    """Comparison form for an author name: width-folded, spaces removed."""
-    return unicodedata.normalize("NFKC", s or "").replace(" ", "").replace("　", "").lower()
+    """Comparison form for an author name, asked of the module that owns the question.
+
+    THIS WAS A PRIVATE COPY AND IT COST THE WHOLE PASS. It folded width and space and not the comma,
+    and a library catalogue writes `よしむら, かな` where a source writes `よしむらかな`, so the
+    author agreement below rejected almost every record it found: four probes on 2026-08-12
+    answered 0, one of them over four correctly authored volumes of MURCIÉLAGO's own spin-off.
+    `namekey.loosely` is the MATCHING key, it already removes the interpunct and the bracketed
+    apparatus, and a catalogue's comma is that same judgement.
+    """
+    return _namekey.loosely(s)
 
 
 def volumes(xml, author=None):
@@ -66,6 +79,25 @@ def volumes(xml, author=None):
                     "title": _tag(item, "dc:title")})
     out.sort(key=lambda v: (v["issued"], v["volume"]))
     return out
+
+
+#: How NDL writes a publication date: `2022.9`, `2022.12`, sometimes `2022` alone and occasionally
+#: with a day. `openbd.enrich.pubdate` is written for that catalogue's forms and reads `2022.9` as
+#: nothing and `2022.9.15` as `2022-91`, so the shape a source writes is normalised where that
+#: source's quirks are already recorded.
+ISSUED = re.compile(r"^\s*(\d{4})(?:[.\-/](\d{1,2}))?(?:[.\-/](\d{1,2}))?\s*$")
+
+
+def issued_date(text):
+    """`2022.9` as `2022-09`, or `''` where NDL states nothing this can read."""
+    m = ISSUED.match(str(text or ""))
+    if not m:
+        return ""
+    year, month, day = m.group(1), m.group(2), m.group(3)
+    if not month:
+        return year
+    out = f"{year}-{int(month):02d}"
+    return f"{out}-{int(day):02d}" if day else out
 
 
 def run(xml, author=None):

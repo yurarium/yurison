@@ -34,7 +34,36 @@ KOISURU = "<channel>" + "".join([
 ])
 
 
+# THE FORM A LIBRARY WRITES A NAME IN. NDL holds よしむらかな as `よしむら, かな`, which is how
+# every personal name in the catalogue is punctuated, and the author agreement below is the only
+# thing standing between a title search and every book in Japan.
+MURCIELAGO = "<channel>" + "".join([
+    item("Murciélago", "よしむら, かな", "2022.3", "978-4-7575-7835-7", "21",
+         publisher="スクウェア・エニックス"),
+    item("Murciélago", "よしむら, かな", "2023.4", "978-4-7575-8534-8", "23",
+         publisher="スクウェア・エニックス"),
+    # The same search returns the spin-off, correctly authored, and a paper on Calakmul.
+    item("アラーニァ : murciélago byproduct", "よしむら, かな", "2018.6", "978-4-7575-5761-1", "1",
+         publisher="スクウェア・エニックス"),
+    item("カラクムルにおける「王朝交替」について", "佐藤,孝裕", "2019.3", "978-0-0000-0000-1"),
+])
+
+
 def main(s):
+    # ── THE AUTHOR AGREEMENT READS A CATALOGUE'S PUNCTUATION ──────────────────────────────────
+    #
+    # `ndl._fold` folded width and space and not the comma, so this answered nothing at all: four
+    # probes on 2026-08-12 each returned 0 after the filter, one over four correctly authored
+    # volumes. The comparison is `namekey.loosely` now, which owns that judgement.
+    _mur = ndl.volumes(MURCIELAGO, "よしむらかな")
+    s.eq([v["volume"] for v in _mur], ["1", "21", "23"],
+         "a name the catalogue punctuates still agrees with the name we hold")
+    s.eq([v["isbn"] for v in _mur if v["volume"] == "23"], ["978-4-7575-8534-8"],
+         "which is how volume 23 becomes reachable at all; MADB stops at 20")
+    s.check(all("佐藤" not in v["creator"] for v in _mur),
+            "AND THE PAPER ON CALAKMUL IS STILL REFUSED, which is what the agreement is for: a "
+            "title search matches every book in Japan and the filter is not an optimisation")
+
     got = ndl.volumes(KOISURU, "Quro")
     s.eq([v["volume"] for v in got], ["1", "3", "6"], "the manga volumes, oldest first")
     s.eq(got[-1]["issued"], "2024.9", "and the date the last one was issued")

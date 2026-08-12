@@ -1650,12 +1650,22 @@ titles:
     source: yurarium
     source_kind: derived
   今夜は夜雀の屋台で:
-    basis: translated
-    en: Tonight, at the Night Sparrow's Stall
-    note: 夜雀 is a yokai, and 屋台 is the cart it runs.
-    reviewed: '2026-08-03'
-    source: yurarium
-    source_kind: derived
+    basis: official-jp
+    en: "Tonight at the Mystia's Yatai"
+    source: "comic-walker"
+    source_kind: publisher-jp
+    source_url: "https://comic-walker.com/"
+    reviewed: '2026-08-12'
+    note: >-
+      The Latin title printed on the cover, accepted as official by the project owner on
+      2026-08-12 with the reading recorded in data/queue/cover-names.yaml. 夜雀 is Mystia,
+      the night-sparrow youkai of the Touhou games, so the publisher's English uses her name
+      where the Japanese uses the species, and 屋台 is kept as yatai. Accepted as printed:
+      `the Mystia's` takes both the article and the possessive where English takes one.
+    translation: Tonight, at the Night Sparrow's Stall
+    translation_note: >-
+      Our own rendering, which stood here until the cover was read. Kept because it says what
+      the Japanese says to a reader who does not know the games.
   冷たくて 柔らか:
     basis: translated
     en: Cold and Soft

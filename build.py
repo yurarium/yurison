@@ -1786,8 +1786,12 @@ def merged_print_block(recs):
     return block
 
 
-def print_records_by_work(works):
+def print_records_by_work(works, keyed=False):
     """`[[record, …], …]`: the print records grouped as identity says they are works.
+
+    `keyed` asks for `{identity id: [record, …]}` instead, for a caller that holds an answer
+    ADDRESSED to a work rather than one derived from its records. The records identity has not seen
+    are absent from that form, which is right: an answer about a work is about a work.
 
     ONE PRODUCER OF WHICH RECORDS ARE ONE WORK, which is `data/identity/works.yaml` and its anchor
     rule, asked here the way `one_row_per_work` asks it. A record identity has not seen yet is a
@@ -1804,7 +1808,7 @@ def print_records_by_work(works):
             joined.setdefault(wid, []).append(rec)
         else:
             alone.append([rec])
-    return list(joined.values()) + alone
+    return joined if keyed else list(joined.values()) + alone
 
 
 def _volume_key(vol, solo=False):
@@ -3692,6 +3696,33 @@ def main():
         if len(errors) > 25:
             print(f"  … and {len(errors)-25} more", file=sys.stderr)
         sys.exit(2)
+
+    # ── WHAT THE NATIONAL LIBRARY STATES ABOUT A VOLUME NO ISBN COULD REACH (VOLUMES-PLAN §6) ──
+    #
+    # Every row holding an ISBN holds a date and every row holding a date holds an ISBN, because
+    # dating is ISBN-keyed and BOOK☆WALKER states none on any of 5,968 volumes read. NDL is keyed
+    # on a title instead, so it reaches them: MADB holds MURCIÉLAGO to volume 20 and NDL to 28.
+    # Applied before the merge below, so a filled ISBN is one the run's fold can key on.
+    _ndl_doc = pathlib.Path("data/queue/ndl-volumes.yaml")
+    if _ndl_doc.exists():
+        import ndl_volumes as _ndlvol
+        # KEYED ON THE IDENTITY THE CAPTURE RECORDED, not on the title it searched with: a title is
+        # what NDL was asked and an identity is what the answer is about, and `トワ・エ・モア` is one
+        # title over two unrelated works.
+        _ndl_held = {}
+        for _entry in ((yaml.safe_load(_ndl_doc.read_text()) or {}).get("works") or {}).values():
+            if _entry.get("id"):
+                _ndl_held[_entry["id"]] = _entry
+        _ndl_filled = 0
+        for _ndl_wid, _ndl_recs in print_records_by_work(works, keyed=True).items():
+            _ndl_said = _ndl_held.get(_ndl_wid)
+            if not _ndl_said:
+                continue
+            for _ndl_rec in _ndl_recs:
+                _ndl_filled += _ndlvol.apply(_ndl_said.get("volumes") or [],
+                                             _ndl_rec.get("volumes") or [])
+        if _ndl_filled:
+            print(f"national library : {_ndl_filled} volume(s) given an ISBN nothing else reached")
 
     # ── ONE VOLUME LIST PER PRINT RUN (VOLUMES-PLAN §5) ───────────────────────────────────────
     #

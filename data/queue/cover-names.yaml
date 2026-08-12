@@ -3215,3 +3215,53 @@ candidates:
   note: Small italic running vertically down the right of the kanji. It writes を as wo, spelling the
     character rather than the sound, where our rules give o. 喰べたい uses 喰 rather than 食, which no romanisation
     can show.
+- work: 好都合セミフレンド
+  latin: Convenient Semi-friend.
+  kind: official-latin-title
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1BguRB_l7_webp_h_aLFoaDzXgxK3AAwRBkgQ1g_e_5000000000__d1df4279594f4679.webp
+  decision: take-as-title
+  why_decided: Title case as printed, so rule 1 leaves it, and it renders 好都合セミフレンド rather than transliterating
+    it. セミフレンド is already semi-friend in katakana, so that half is the source.
+  note: Small italic serif set between 好都合 and セミフレンド in the logo. The full stop is printed and the
+    hyphen is the artwork's. Our romanisation would give Koutsugou Semi Furendo.
+- work: 星屑テレパス
+  latin: HOSHIKUZU TELEPATH
+  kind: cover-romanisation
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1B7F9X_kO_webp_h_LURmZTnmqZhrkIClzALZgA_e_5000000000__494d4036e00309d2.webp
+  decision: not-a-title
+  why_decided: 'RULE 2 APPLIES on its face, on the OSHIKOI CAPRICCIO line: テレパス is telepath in katakana
+    so that word is a source, but 星屑 is stardust sounded out and it carries the image the title turns
+    on.'
+  note: OWNER, THIS ONE NEEDS YOUR EYE AND MAY BE AN EXCEPTION. Unlike the other half-and-half cases,
+    Hoshikuzu Telepath is the name this series is licensed and broadcast under abroad, so refusing it
+    leaves us without the name the wider world uses. Rule 2 as written does not care where a string
+    ended up, only what it is, and by that test it is refused. Recorded in full so you can overrule.
+- work: 夢後のグレイ
+  reading: ボウゴ
+  of: 夢後
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006383_ebba9ee5_c1b7_4f3c_b4ce_242b0c378cf8_jpg__898c6284bcc4de0c.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: AN IRREGULAR READING. 夢後 is a coinage, after the dream, and 夢 as ぼう is the on reading that almost
+    never surfaces outside compounds like 夢中. Rubied ぼうご under the kanji, and the cover's own romanisation
+    agrees.
+- work: 夢後のグレイ
+  latin: bougo no grey
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006383_ebba9ee5_c1b7_4f3c_b4ce_242b0c378cf8_jpg__898c6284bcc4de0c.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. グレイ is grey in katakana so that word is a source, but 夢後 is sounded out
+    and is where the coinage lives.
+  note: Set in lowercase letterspaced type under the logo, between two rules. Recorded because the reading
+    above was taken from it.
+- work: 薪窯のパンドラ
+  latin: MAKIGAMA NO PANDORA
+  kind: cover-romanisation
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1AZMlL_kw_webp_h_3LSKILbdZ_9evHvfh7kmWA_e_5000000000__997c74e34ae9bbab.webp
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. パンドラ is Pandora in katakana so that word is a source, but 薪窯 is the wood-fired
+    oven the whole comic is about and it is only sounded out.
+  note: Small caps between two ornaments under the logo. It voices 窯 to がま in the compound, which is
+    right and which our romanisation would have to be told. The strapline rubies 本格 as ほんかく and 漫画 as
+    まんが.

@@ -152,6 +152,15 @@ SURFACES = [
             "the catalogue tab's credit line, roles and people in one string"),
     Surface("works[].title.ja", ("workLabel", "workTextOf"), "row:work", "title",
             "the 発売 tab labels a volume row from the bibliographic record's title"),
+    # WHAT A VOLUME ROW CALLS ITSELF, WHICH NOTHING ASKED THE RENDERER ABOUT. `volLabel` renders
+    # this on the work page and on the 発売 tab, and it had no surface, so `English mode has no
+    # Japanese` never ran over it. ガレット's `創刊号` reached an English page as itself, above
+    # `vol. 2`, and the ruling in NOT_A_NAME below was carrying the field on the strength of 上 and
+    # 下 being rendered, which they are and it was not. Asked of the RECORD, because the label is
+    # made from the designation and the position the build placed it at together.
+    Surface("works[].volumes[]", "volLabel", "record", "value",
+            "the label on a volume row: its number, or what the record calls it instead",
+            fields=("number",)),
     Surface("works[].creator", "creditNames", "value", "person",
             "the 発売 tab's byline, the credit field split into the people in it"),
     # `publisherChip` IS THE ENTRY POINT FOR ONE HOUSE'S NAME, added when the houses got addresses
@@ -406,7 +415,7 @@ NOT_A_NAME = {
     "works[].first_publication.note": "where the date came from, quoted from the record",
     "works[].marketing_label_basis.note": "the publisher's own words, quoted as evidence",
     "works[].admitted_by[].shelf": "the shop shelf that admitted the work, quoted",
-    "works[].volumes[].number": "a volume number written in words, 上 and 下 among them",
+
     # WHAT AN INSTALMENT IS CALLED WHERE THAT IS NOT A NUMBER, carried whole and never
     # parsed. The project owner ruled on 2026-08-12 that `2017年1月号` is a label: a
     # magazine's naming scheme is not stable across its own life, and コミック百合姫 has run

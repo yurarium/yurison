@@ -204,6 +204,20 @@ the sources, not just the build: they are the record, and the diff is how a bad 
 Use a bot identity and a message naming the run, so a scheduled commit is distinguishable from a
 hand edit at a glance.
 
+### Push the SITE repo first when `kari/app.js` changes
+
+`gate.yml` clones `yurarium.github.io` at its default branch and runs the suite against the app.js
+it finds there, because `adapters/interface.py` evaluates the file GitHub Pages serves rather than a
+copy. So a change that touches both repositories has a window: push `yurison` first and the gate
+tests today's Python against yesterday's JavaScript.
+
+It is not theoretical. On 2026-08-12 the pipeline was pushed first and the gate failed on
+`says in the served app.js asks for designation`, a check whose whole point is that the two halves
+agree. The site had the new `says` a minute later and a re-run was green.
+
+Push the site repo, wait for its own workflows to accept it, then push `yurison`. A gate failure of
+this shape is the ordering and not a fault, and re-running it after the site lands is the fix.
+
 ## 6. Schedule
 
 Daily is right. The feed window is 60 days and most platforms update weekly, so hourly would be

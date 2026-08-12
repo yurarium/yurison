@@ -120,7 +120,9 @@ NAMES = {
         "くろば・U": {"reading": "クロバユー", "basis": "romaji", "id": "c00909",
                   "romaji": {"macron": "Kuroba U", "double": "Kuroba U", "plain": "Kuroba U"}},
     },
-    "phrases": {"第1話": "Ch. 1"},
+    # `難問編` IS A VOLUME'S NAMED PART and it is in the phrase map for the same reason a chapter
+    # name is: the build feeds volume designations through the analyser pass that renders one.
+    "phrases": {"第1話": "Ch. 1", "難問編": "Nanmon Hen"},
     # THE DIVISION AS `adapters/names/creditline.py` SHIPS IT. `p` is the people in order with the
     # job on each; the browser divides nothing itself, which is what stopped `credit()` and
     # `creditNames()` being two readers of one notation.
@@ -318,6 +320,37 @@ def main(s):
          "the interface reads every record a merged print block was built from")
     s.eq(iface.values([("printIds", {"work_id": "C338361"})])[0], "C338361",
          "and a block from a single record still answers with the one it has")
+
+    # ── WHAT A VOLUME ROW CALLS ITSELF, THROUGH THE FUNCTION THAT DRAWS IT ──────────────────
+    #
+    # THREE FAULTS IN ONE ROW, all of them because `volLabel` was handed the designation and not
+    # the row. ガレット's `創刊号` is its first issue, and the build says so in `number_n`: the
+    # page reported `no catalogue record for volume 1` above a list that opens with it, sorted it
+    # below vol. 37, and showed an English reader the Japanese. The field had no surface until
+    # 2026-08-12, so `English mode has no Japanese` had never asked.
+    s.eq(iface.values([("volLabel", {"number": "創刊号", "number_n": 1})])[0], "vol. 1",
+         "a designation the build placed in the run is said in the reader's language")
+    s.eq(iface.with_prefs(LANG="ja").values(
+             [("volLabel", {"number": "創刊号", "number_n": 1})])[0], "創刊号",
+         "and in Japanese it keeps the word the shop printed")
+    s.eq(iface.values([("volLabel", {"number": "3"})])[0], "vol. 3",
+         "an ordinary number needs no placing")
+    s.eq(iface.values([("volLabel", {"number": "上"})])[0], "part 1",
+         "上 and 下 are placed by their own rule, which is older and stays")
+    # A NAMED PART IS A PHRASE, and shown as written it put seven rows of Japanese on an English
+    # page. `build.py` feeds these through the same analyser pass a chapter name goes through.
+    s.eq(iface.values([("volLabel", {"number": "難問編"})])[0], "Nanmon Hen",
+         "a section title is rendered the way a chapter name is, from the same map")
+
+    # AND IT SORTS WHERE THE BUILD PUT IT. `創刊号` went below `vol. 37`, because a designation the
+    # two older rules cannot read is the pile of things with no place in the run, and this one has
+    # a place. Asked of the comparator itself, which is what `rows.sort` is handed.
+    s.check(float(iface.values([("byVolume", {"number": "創刊号", "number_n": 1},
+                                             {"number": "2", "number_n": 2})])[0]) < 0,
+            "the first issue sorts before volume 2")
+    s.check(float(iface.values([("byVolume", {"number": "37", "number_n": 37},
+                                             {"number": "創刊号", "number_n": 1})])[0]) > 0,
+            "and volume 37 sorts after it, which is the way round the page had it")
 
     # ── THE BUILD AND THE PAGE AGREE ON WHAT A VOLUME ROW HAS TO CARRY ──────────────────────
     #

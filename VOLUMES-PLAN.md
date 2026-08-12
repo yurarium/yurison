@@ -669,18 +669,34 @@ agreement and returns `dcndl:volume`, `dcterms:issued`, the ISBN and the publish
 is every field this needs. It is a national library, it is free, and it holds every book published
 in Japan.
 
-| the undated rows a reader can reach | 2,514 |
-|---|---|
-| cmoa holds the work and states no ISBN for it | 1,472 |
-| no catalogue we hold reaches the work | 1,022 |
-| the work has a bibliographic record already | 11 |
-| cmoa states an ISBN | 9 |
+**THE POPULATION IS THE ROWS WITH NO ISBN AND NOT THE ROWS WITH NO DATE**, which is a correction
+the project owner made on 2026-08-12 by asking whether NDL holds MURCIÉLAGO's later volumes. It
+does: `Murciélago` volumes 1 to 28, with an ISBN and an issued date on every one, where MADB stops
+at 20. This plan had scoped NDL at 818 rows by asking which UNDATED rows no catalogue reaches, and
+three filters that were each defensible alone threw most of the population away between them.
 
-The 1,472 are the floor this can reach down to: cmoa states no ISBN for 1,215 of its 1,833 works and the
-top of that list is ナンバーナイン at 580 and クロスフォリオ出版 at 164, digital distributors whose
-books were never printed. No bibliographic database holds a book that has no ISBN. **NDL's
-population is the 1,022**, of which 818 rows across 359 works have a publisher that prints: 芳文社,
-KADOKAWA, アトキンソン and a long tail of circles.
+| | rows | works |
+|---|---|---|
+| volume rows with no ISBN | **3,733** | |
+| no bibliographic record for the work | 3,710 | 1,541 |
+| the catalogue knows the work and stops short | 23 | 8 |
+
+An ISBN is worth more than a date, because it is the key every other enrichment needs: openBD,
+the MADB 単行本 dataset and `isbndate.resolve` are all keyed on one, and 3,733 rows can reach none
+of them. Supplying the ISBN opens all of those at once.
+
+The 23 are small in count and are the case that found the error: a running series whose
+bibliographic record lags the shop. MURCIÉLAGO's volumes 21 to 29 are 9 of them, and NDL has 21 to
+28 catalogued.
+
+WHAT IS STILL A FLOOR. cmoa states no ISBN for 1,215 of its 1,833 works, led by ナンバーナイン at
+580 and クロスフォリオ出版 at 164, digital distributors whose books were never printed. No
+bibliographic database holds a book with no ISBN, and NDL will not either. What was wrong was
+treating "cmoa reaches this work" as evidence about NDL, which it is not.
+
+AND NDL LAGS THE NEWEST VOLUME. MURCIÉLAGO's 29th was delivered 2026-07-24 and the catalogue holds
+to 28, 2026-01. A pass that ran monthly would pick each one up a few months late, which is the
+ordinary state of a national library and not a reason to prefer a shop.
 
 ### The pass has been rejecting almost every match, and it is one character
 
@@ -727,17 +743,20 @@ already says.
 1. **Fix the fold and remove the copy.** A comma between name parts joins the interpunct in
    `namekey.loosely`, with the counter-case tested, and `ndl.py` asks that instead of folding its
    own. This is the whole of why the route looks empty.
-2. **A volume pass over the 359 printable works**, searched by the work's own title, filtered by
-   author agreement, normalising `2022.9` to `2022-09`.
+2. **A volume pass over the works whose rows carry no ISBN**, searched by the work's own title,
+   filtered by author agreement, normalising `2022.9` to `2022-09`. NDL returns `dcndl:volume` as
+   well, which is the volume NUMBER: that answers the 19% of BOOK☆WALKER product titles §2 cannot
+   read a number out of, and the counting question §7 was going to cmoa for.
 3. **Join what comes back by ISBN**, which is what §5's merge is already keyed on, so a dated NDL
    volume lands beside the shop's row rather than beside it as a second list.
 4. **Then §7 asks cmoa only for what is left**, which is the ordering the owner ruled.
 
 ### The measure that guards it
 
-`volume rows with no publication date`, which stands at **2,514** and whose floor is the 1,472 rows
-whose books have no ISBN to be catalogued under. A pass that answers the 818 printable rows takes
-it to about 1,700.
+`volume rows with no publication date`, which stands at **2,514**, and a new companion counting
+**volume rows with no ISBN**, at **3,733**. The second is the one that measures this pass: an ISBN
+answers the date through openBD and MADB by itself, so a row that gains one usually gains both.
+Their shared floor is the books that have no ISBN to be catalogued under.
 
 ---
 

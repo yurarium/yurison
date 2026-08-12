@@ -3314,6 +3314,138 @@ def budget_undated_cmoa_candidates(ctx):
     return _undated_retailer_rows("data/queue/cmoa-volumes.yaml", "cmoa.jp")
 
 
+def _shop_counts(ctx):
+    """`[(series_row, shop_row)]` for every work exactly one コミックシーモア row speaks about.
+
+    ONE JOIN, THREE BUDGETS. `adapters/shopjoin.py` owns which shop row is about which work and
+    why; the three measures below differ only in what they then compare, and each deriving its own
+    join is the shape STANDING-INSTRUCTIONS §3 warns about.
+    """
+    import shopjoin
+    rows = [w for w in ctx["cmoa_capture"] if w.get("volumes_stated")]
+    idx = shopjoin.index(ctx["series"], ctx["works"])
+    by_id = {r.get("id"): r for r in ctx["series"] if r.get("id")}
+    return [(by_id[rid], row) for rid, row in shopjoin.joined(rows, idx).items() if rid in by_id]
+
+
+def _our_volumes(row):
+    """How long this work's longest print run is, as the interface states it."""
+    return max(((p.get("volumes") or 0) for p in (row.get("print") or ())), default=0)
+
+
+def budget_volume_rows_with_no_publication_date(ctx):
+    """Volume rows a reader can reach that carry no publication date at all.
+
+    2,525 OF 6,153, AND EVERY ONE OF THEM FROM BOOK☆WALKER. The shop states 底本発行日 for the
+    volumes whose print edition it recorded and nothing for the rest, so a work page lists
+    `vol. 27  no date recorded` under a heading that counts it. MADB's rows are dated without
+    exception, which is what makes the split worth counting rather than a general lament about
+    coverage.
+
+    THE ROUTE OUT IS AN ISBN AND BOOK☆WALKER HAS NONE. `isbndate.py` measures this: no BOOK☆WALKER
+    volume of 5,968 read states one, so every ISBN-keyed enrichment in the pipeline is unable to
+    reach exactly this population. コミックシーモア's per-volume page states both the ISBN and
+    出版年月, which is why VOLUMES-PLAN §4 is the stage that moves this number.
+
+    A count, so it ratchets. A rise means new undated works, or a capture that stopped dating rows
+    it used to date.
+
+    §14b, what it cannot see: a row dated WRONGLY. `first date precedes its editions` and
+    `dates within a row are ordered` are the checks for that, and a plausible wrong date passes all
+    three.
+
+    fallback: none. A volume with no date carries no field saying why, which is itself the state
+    this counts.
+    """
+    reachable = {i for r in ctx["series"] for p in (r.get("print") or ())
+                 for i in (p.get("work_ids") or [p.get("work_id")]) if i}
+    return sum(1 for w in ctx["works"] if w.get("work_id") in reachable
+               for v in (w.get("volumes") or ()) if not v.get("published"))
+
+
+def budget_works_whose_records_number_one_volume_twice(ctx):
+    """Works whose print records give the same volume number to two different rows.
+
+    THE WORK PAGE DRAWS BOTH. MADB holds MURCIÉLAGO's volume 1 as `2014-04` with an ISBN and
+    BOOK☆WALKER holds it as `2014-04-25` without one, so the page shows `vol. 1` twice and heads
+    the two lists as though they were two print runs. 20 works are in that state over 73 volume
+    numbers.
+
+    ITS FLOOR IS 10 AND THE FLOOR IS REAL BOOKS. citrus was printed twice, ten volumes in 2013 and
+    four in 2015, and MADB gave it two C-numbers for that reason; ゆるゆり, five 合本版 omnibuses
+    and a 総集編 are the rest. A reissue really does number a volume 1 twice and a reader really
+    should see both, which is why this counts collisions rather than forbidding them. Ten of the
+    twenty are that. The other ten are one run described by two catalogues, which is what
+    VOLUMES-PLAN §3 resolves by reconciling the volumes themselves, so the number to expect after
+    that stage is 10 and not 0.
+
+    WHY IT DOES NOT ASK WHICH CATALOGUE EACH RECORD CAME FROM, which would separate the two
+    populations here. That is precisely the rule the fix will use to decide what to merge, and a
+    measure sharing the fix's rule shares the fix's blind spot (§14b). This asks the dumber
+    question and lets the docstring carry the difference.
+
+    ARITHMETIC OVER THE SHIPPED VOLUME NUMBERS, per §14b: it asks the works list what numbers each
+    record states and counts collisions, so it shares nothing with the code that decides which
+    records belong to one run.
+
+    fallback: none in the build.
+    """
+    by_work = {w.get("work_id"): w for w in ctx["works"] if w.get("work_id")}
+    n = 0
+    for r in ctx["series"]:
+        seen, twice = set(), False
+        for wid in (i for p in (r.get("print") or ()) for i in (p.get("work_ids") or
+                                                                [p.get("work_id")]) if i):
+            nums = {str(int(str(v["number"]))) for v in (by_work.get(wid) or {}).get("volumes") or ()
+                    if str(v.get("number") or "").strip().isdigit()}
+            twice = twice or bool(nums & seen)
+            seen |= nums
+        n += 1 if twice else 0
+    return n
+
+
+def budget_works_holding_fewer_volumes_than_the_shop_states(ctx):
+    """Works where コミックシーモア states more volumes than the corpus holds.
+
+    A CAPTURE THAT HAS FALLEN BEHIND, counted so it is visible. 冷たくて柔らか is 4 against 7 and
+    きみが死ぬまで恋をしたい 9 against 11: the shop has been selling volumes nothing here has read.
+    82 works are in that state. It falls as VOLUMES-PLAN §4 collects, and it rises whenever a
+    series publishes a volume ahead of the next capture, which is ordinary and is exactly what a
+    reader would want to know about.
+
+    COUNTED APART FROM THE OTHER DIRECTION, which is `works holding more volumes than the shop
+    states` below. One number over both would let a fixed over-count hide a new under-count, and
+    they have different causes and different fixes.
+
+    THE SHOP IS TIER C AND THIS IS NOT AN ASSERTION THAT IT IS RIGHT (DEFINITIONS §5). It is two
+    parties disagreeing about a countable thing, which is worth a person's attention either way.
+
+    fallback: none. A work no shop row reaches is not counted, which `shopjoin` decides and
+    documents.
+    """
+    return sum(1 for ours, theirs in _shop_counts(ctx)
+               if _our_volumes(ours) < theirs["volumes_stated"])
+
+
+def budget_works_holding_more_volumes_than_the_shop_states(ctx):
+    """Works where the corpus holds more volumes than コミックシーモア states.
+
+    MOSTLY PRODUCTS COUNTED AS VOLUMES, which is the fault VOLUMES-PLAN §2 fixes. MURCIÉLAGO is 32
+    against 29 because BOOK☆WALKER lists three free sample editions among its 32 products and the
+    ingest counts every product; citrus+ is 8 against 7 for the same kind of reason. 30 works are
+    in that state, and the number should fall to near nothing once a volume number is read from the
+    product title instead of assigned from its position in a listing.
+
+    WHAT IS LEFT AFTERWARDS IS THE INTERESTING POPULATION: a work where the corpus really does hold
+    a volume the shop does not sell, or a shop that has delisted one. Neither is a fault, and both
+    are worth looking at, which is why this does not aim at zero.
+
+    fallback: none, as above.
+    """
+    return sum(1 for ours, theirs in _shop_counts(ctx)
+               if _our_volumes(ours) > theirs["volumes_stated"])
+
+
 def budget_shelf_admissions_a_reader_cannot_follow(ctx):
     """Works a shop's shelf put here whose page offers no way to reach that shop.
 
@@ -5152,6 +5284,37 @@ BUDGETS_DEF = [
      "works through it. Its floor is high and known: cmoa states an ISBN or an 出版年月 only where "
      "a volume was printed, and 754 of the 1,844 rows come from two digital distributors whose "
      "pages carry neither."),
+    # ── THE VOLUME MEASURES (VOLUMES-PLAN §1) ────────────────────────────────────────────────
+    #
+    # Four numbers that were wrong on the day they were first looked at and that nothing was
+    # watching. They are here before the fixes they measure, so each of §2, §3 and §4 of that plan
+    # can be shown to move the number it claims to move rather than asserted to.
+    ("volume rows with no publication date", budget_volume_rows_with_no_publication_date,
+     "volume rows a reader can reach that state no publication date, all of them BOOK☆WALKER's: "
+     "the shop states 底本発行日 for the volumes whose print edition it recorded and nothing for "
+     "the rest. No ISBN-keyed enrichment can reach them because BOOK☆WALKER states no ISBN, so "
+     "the route is コミックシーモア's per-volume page, which states both. A rise means new undated "
+     "works or a capture that stopped dating rows it used to."),
+    ("works whose records number one volume twice",
+     budget_works_whose_records_number_one_volume_twice,
+     "works whose print records give one volume number to two rows, so the page draws vol. 1 twice "
+     "and heads the halves as two runs. Its floor is 10 and the floor is real books: citrus was "
+     "printed twice and MADB gave it two C-numbers, and a reader should see both. The other ten "
+     "are one run described by two catalogues at two precisions, and those go when the volumes "
+     "themselves are reconciled. A rise is a new pair worth looking at by hand."),
+    ("works holding fewer volumes than the shop states",
+     budget_works_holding_fewer_volumes_than_the_shop_states,
+     "works コミックシーモア sells more volumes of than the corpus holds, which is a capture that "
+     "has fallen behind. The shop is Tier C and this asserts only that two parties disagree about "
+     "a countable thing. A rise is ordinary, and is what a series publishing ahead of the next "
+     "capture looks like."),
+    ("works holding more volumes than the shop states",
+     budget_works_holding_more_volumes_than_the_shop_states,
+     "the other direction, counted apart so a fixed over-count cannot hide a new under-count. "
+     "Mostly products counted as volumes: BOOK☆WALKER lists free sample editions among a series' "
+     "items and the ingest numbers every item, which is how MURCIÉLAGO came to have 32 volumes "
+     "where the shop and the bibliography both say 29. Should fall to near nothing once a volume "
+     "number is read from the product title; what is left is a work the shop has delisted from."),
     ("shelf admissions a reader cannot follow", budget_shelf_admissions_a_reader_cannot_follow,
      "works a retailer's yuri shelf admitted whose row offers no page on that retailer, so the "
      "source named as putting the work here cannot be reached from it. Falls as a route records "
@@ -5979,6 +6142,83 @@ def self_test():
             ok = False
     else:
         print("  self-test FAILED — no joined work in the registry to plant a canary on")
+        ok = False
+
+    # ── THE VOLUME MEASURES, EACH PLANTED AS THE FAULT ARRIVED (§14b) ────────────────────────
+    #
+    # Every canary below is the shape a real record had on 2026-08-12, not one invented to make a
+    # counter move. The collections are REPLACED rather than appended to, so each probe answers a
+    # number rather than a delta, for the reason the paragraph above gives.
+    c = _Scratch(ctx)
+    c["series"] = [{"id": "wCANARY", "work": "カナリア",
+                    "print": [{"work_id": "bwCANARY", "work_ids": ["bwCANARY"], "volumes": 3}]}]
+    # BOOK☆WALKER's own shape: 底本発行日 on the volumes whose print edition it recorded, and
+    # nothing on the rest, which is every undated row in the corpus.
+    c["works"] = [{"work_id": "bwCANARY", "volumes": [{"number": 1, "published": "2014-04-25"},
+                                                      {"number": 2}, {"number": 3}]}]
+    if budget_volume_rows_with_no_publication_date(c) != 2:
+        print("  self-test FAILED — 'volume rows with no publication date' did not count the two "
+              "rows BOOK☆WALKER left undated")
+        ok = False
+    # AND A ROW NO READER CAN REACH IS NOT COUNTED, which is the other half of the rule: works.json
+    # holds records no print block stands for, and counting those would report a debt nobody owes.
+    c2 = _Scratch(ctx)
+    c2["series"] = []
+    c2["works"] = c["works"]
+    if budget_volume_rows_with_no_publication_date(c2) != 0:
+        print("  self-test FAILED — 'volume rows with no publication date' counted a volume no "
+              "print block reaches")
+        ok = False
+
+    # MURCIÉLAGO's two records, which number volume 1 twice: MADB at month precision with an ISBN,
+    # BOOK☆WALKER at day precision without one.
+    c = _Scratch(ctx)
+    c["series"] = [{"id": "wCANARY", "work": "カナリア",
+                    "print": [{"work_id": "C1", "work_ids": ["C1", "bw1"], "volumes": 2}]}]
+    c["works"] = [{"work_id": "C1", "volumes": [{"number": "1", "published": "2014-04"}]},
+                  {"work_id": "bw1", "volumes": [{"number": 1, "published": "2014-04-25"}]}]
+    if budget_works_whose_records_number_one_volume_twice(c) != 1:
+        print("  self-test FAILED — 'works whose records number one volume twice' did not count "
+              "two catalogues numbering one volume")
+        ok = False
+    # AND RECORDS THAT DIVIDE A RUN BETWEEN THEM ARE NOT A COLLISION. 捏造トラップ holds volumes
+    # 1, 2, 3 and 5 under one heading and 4 and 6 under another, which is the case `print_runs`
+    # folds into one run, and a measure that counted it would never reach its floor.
+    c["works"] = [{"work_id": "C1", "volumes": [{"number": "1"}, {"number": "2"}]},
+                  {"work_id": "bw1", "volumes": [{"number": "3"}]}]
+    if budget_works_whose_records_number_one_volume_twice(c) != 0:
+        print("  self-test FAILED — 'works whose records number one volume twice' counted two "
+              "records that divide a run between them")
+        ok = False
+
+    # THE TWO DIRECTIONS OF THE SHOP DISAGREEMENT, on one work joined by a shared ISBN. 32 against
+    # 29 is MURCIÉLAGO as shipped; the other direction is 冷たくて柔らか at 4 against 7.
+    for stated, over, under in ((3, 1, 0), (29, 0, 1)):
+        c = _Scratch(ctx)
+        c["series"] = [{"id": "wCANARY", "work": "カナリア",
+                        "print": [{"work_id": "C1", "work_ids": ["C1"], "publisher": "一迅社",
+                                   "volumes": 5}]}]
+        c["works"] = [{"work_id": "C1", "volumes": [{"number": "1", "isbn": "9784757542907"}]}]
+        c["cmoa_capture"] = [{"shop_id": "CANARY", "shelf_title": "カナリア",
+                              "volumes_stated": stated,
+                              "volumes": [{"volume": 1, "isbn": "9784757542907"}]}]
+        if budget_works_holding_more_volumes_than_the_shop_states(c) != over:
+            print(f"  self-test FAILED — 'works holding more volumes than the shop states' did "
+                  f"not answer {over} where the shop says {stated} and the corpus holds 5")
+            ok = False
+        if budget_works_holding_fewer_volumes_than_the_shop_states(c) != under:
+            print(f"  self-test FAILED — 'works holding fewer volumes than the shop states' did "
+                  f"not answer {under} where the shop says {stated} and the corpus holds 5")
+            ok = False
+    # A SAMPLE EDITION IS NOT A DISAGREEMENT, which is the fault that made this measure wrong
+    # before `shopjoin.counts_volumes` existed: `まんがの作り方【お試し版】` carries the work's ISBN
+    # and holds one volume, and read as the work's length it turned an agreement into 8 against 1.
+    c["cmoa_capture"] = [{"shop_id": "CANARY", "shelf_title": "カナリア【お試し版】",
+                          "volumes_stated": 1,
+                          "volumes": [{"volume": 1, "isbn": "9784757542907"}]}]
+    if budget_works_holding_more_volumes_than_the_shop_states(c) != 0:
+        print("  self-test FAILED — 'works holding more volumes than the shop states' read a free "
+              "sample's length as the work's")
         ok = False
 
     # A PAIR THE REGISTRY HAS NOT JOINED, which is the only kind this one can see. Two rows folding

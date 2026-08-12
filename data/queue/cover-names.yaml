@@ -620,3 +620,97 @@ candidates:
   why_decided: 'Rule 1: letter-spaced caps under the logo with nothing on the page confirming the casing.
     Rule 2 does not bite; it is English rather than the kana transliterated.'
   note: The database holds no English name for this work. The artist is credited サスケ in the corner.
+- work: 幕末女子高生 鬼と夜明け
+  latin: Oni to Yoake
+  kind: publisher-romanisation
+  seen_on: https://public-img-comic.pximg.net/images/work_main/9011.jpg
+  decision: not-a-title
+  why_decided: 'Rule 2: the Japanese title transliterated, so not taken as the title and not evidence
+    about romanisation.'
+  note: Letter-spaced across the middle of the cover, with `Hana Ikuta` under it. The artist's name
+    is rubied いくたはな at the top left, so the artwork states the reading of the name and then romanises
+    it in Western order. Both fall under the extension.
+- work: 祖母ドル ～余命わずかのおばあちゃん、若返って孫とアイドルになる～
+  latin: SOBODOL
+  kind: publisher-romanisation
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/005928/7f97b1b8-e74c-45ff-8364-8108d6f0b270.jpg
+  decision: not-a-title
+  why_decided: 'Rule 2: 祖母ドル transliterated, `sobo` plus `dol`, so not a name the work gives itself.
+    Rule 1 would have recased it in any event.'
+  note: Small caps above the logo. Read from a contact sheet rather than the full image, which is enough
+    for six letters set large.
+- work: 遠山えま百合集　センセイとの時間。
+  latin: Ema Toyama
+  kind: author-latin-name
+  of: 遠山えま
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360581_f7ce999da3f6227c3ec0e1e3294674a0_1752730099__5703035dfded410a.png
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a person, as an extension: the name transliterated, in Western order.'
+  note: '`Presented by Ema Toyama` beside the Japanese name. No Latin title.'
+- work: 偏愛至上主義～岩見樹代子作品集～
+  latin: Henai Shijyousyugi
+  kind: publisher-romanisation
+  seen_on: cache://cdn_img_ichicomi_com__omi_com_public_series_thumbnail_12207421983829236503_ee9218ac40525d31060087d4a3918b1d_1781660719__461e9583a10a3f82.jpg
+  decision: not-a-title
+  why_decided: 'Rule 2: the Japanese title transliterated. Its spelling is its own again, writing 主義
+    as `syugi` and 至上 as `shijyou`, where our rules give `shugi` and `shijou`.'
+  note: Small above the logo, the same house style as 溺愛理想主義 by the same artist.
+- work: 恋愛遺伝子XX 完全版
+  latin: Create the Law for Us To Inherit Our Species of Female Kind
+  kind: official-latin-tagline
+  seen_on: cache://cdn_img_ichicomi_com__omi_com_public_series_thumbnail_12207421983773946275_7ad0dbf32f27865771039b3aa7f61413_1780372696__e5581116f4625112.jpg
+  decision: take-as-title
+  why_decided: 'Neither rule bites: mixed case, and English rather than the Japanese transliterated.
+    Marked a TAGLINE rather than a title because it is a sentence about the work and the logo''s own
+    short form is `L.G.D.H` above it, so the owner may want neither in an `en` field.'
+  note: Across the foot of the 完全版 cover, with `L.G.D.H` set at the top. The artwork credits 作画 蔵王大志
+    and 原作 影木栄貴.
+- work: ルミナス＝ブルー
+  latin: Luminous=Blue
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183992_70e25c8483b18a5865957b8904d19e2e_1752730099__809b76585ae5f6e6.jpg
+  decision: take-as-title
+  why_decided: 'Rule 2 does not bite, on the Shadow Assassins World ground: ルミナス and ブルー are the English
+    words `luminous` and `blue` written as katakana, so the Latin is what they came from. Our romanisation
+    gives `Ruminasu Buruu`, which is right by our rules and is not what the work is called. Already
+    in initial caps.'
+  note: Letter-spaced across the cover with `Kiyoko Iwami` under it, above the Japanese name 岩見樹代子.
+    The equals sign is the publisher's own.
+- work: ドロップアウト・サキュバス！
+  latin: Drop out Succubus!
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184524_ff9c441c82bcb2a2c5647ab257deec06_1752730099__c13553d356162054.jpg
+  decision: take-as-title
+  why_decided: 'Rule 2 does not bite, on the Luminous=Blue ground: ドロップアウト and サキュバス are the English
+    `drop out` and `succubus` written as katakana, so the Latin is what they came from. Our romanisation
+    gives `Doroppuauto Sakyubasu`. Already mixed case.'
+  note: Under the logo, with a heart between the words. `presented by Chinmi Chiriha` at the side.
+- work: 可愛原先輩はかわいいがすき！
+  latin: KAWAIHARA SENPAI HA KAWAII GA SUKI!
+  kind: publisher-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006194_57fcb5c8_43e0_48ba_984f_b32594a78e32_jpg__474d879a83ed794d.jpg
+  decision: not-a-title
+  why_decided: 'Rule 2: the Japanese title transliterated, and it writes は as `ha` where our rules write
+    the particle as it is said.'
+  note: Small caps beside the logo. The logo also rubies 可愛原 as かわいはら, which is a surname built from
+    the characters for `cute` and is exactly where a reading goes wrong.
+- work: 可愛原先輩はかわいいがすき！
+  latin: Ceramic
+  kind: author-latin-name
+  of: せらみっく
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006194_57fcb5c8_43e0_48ba_984f_b32594a78e32_jpg__474d879a83ed794d.jpg
+  decision: take-as-name
+  why_decided: 'Rule 2 does not bite: せらみっく is the English word `ceramic` written in kana, so `Ceramic`
+    is what it came from rather than a transliteration, which would give `Seramikku`.'
+  note: '`Presented by Ceramic` under the Japanese name.'
+- work: ゆりゆりぱにっく～尊すぎる事案が発生しています!～
+  latin: Yuri Yuri Panic
+  kind: publisher-romanisation
+  seen_on: cache://cdn_img_comic_action_com__tion_com_public_series_thumbnail_2550912964579611664_d3e084221f8fadf99fc2695a9800ea5b_1725531479__48ca248537cf6b4b.jpg
+  decision: not-a-title
+  why_decided: 'Rule 2: the Japanese title transliterated, and `panic` is ぱにっく written back as the English
+    it came from, so the line is half transliteration and half source word. Not taken as the title;
+    the owner may want to look, because the second half is the Luminous=Blue case and the first half
+    is not.'
+  note: Set into the logo, `Yuri Yuri` over ゆりゆり and `Panic` over ぱにっく. `Kanko Nakamura` under the artist's
+    name.

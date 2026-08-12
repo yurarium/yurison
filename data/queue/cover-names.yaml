@@ -107,6 +107,21 @@
 # PANDORA and is published as Pandora in the Crimson Shell. In both the world's name is a different
 # string that the artwork does not carry, so taking the romanisation would not reach it.
 #
+# SEVEN, ruled 2026-08-12. A CREDIT'S CASING AS READ OFF THE ARTWORK IS THE AUTHOR'S PREFERRED
+# USAGE, unless another cover contradicts it. Rule 1 no longer recases a credit whose casing is
+# EVIDENCE of a preference: a name set in capitals or in lowercase INSIDE an otherwise mixed-case
+# line, or a name that was never kana. Eight are restored to the artwork's own form: KORUSE, TOWA
+# MATSUMURA, TORIISHIZUKU, YAKAN, AGEHARU, YUKIKO, FLOWERCHILD, MIKANUJI. The nineteen credits
+# already lowercase by their owners stand as they were.
+#
+# RULE 1 STILL GOVERNS A LINE THAT IS CAPITALS THROUGHOUT, since PRESENTED BY OKAMI says nothing
+# about a preference; the whole band shouts and that is the face rather than the name. Twenty-three
+# credits stay recased on that ground.
+#
+# THREE CREDITS ARE CONTRADICTED AND KEEP THEIR FLAGS. うーても signs u-temo once and U-temo twice.
+# 雨水汐 signs USUISHIO as one word and usui shio as two. 缶乃 is rubied CANNO and set ©Canno in a
+# rights line, which is resolved in favour of the rights line and noted rather than ruled.
+#
 # THE SAME TWO QUESTIONS ARISE FOR A PERSON'S NAME and the ruling names the title, so those are
 # marked `not-a-name-spelling` as an EXTENSION rather than assumed. Five are affected and every one
 # is the kana transliterated: KASHIKAZE, TAMA TAMASAKI, MANIO, YAKINIKUTEISHOKU, SHIBORIKASUKO. A
@@ -976,9 +991,11 @@ candidates:
     Japanese rather than translating it, and the foot strip extends it to Keep the END just a little
     longer.
 - credit: こるせ
-  latin: Koruse
+  latin: KORUSE
   kind: official-latin-name
   seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923184233_cc2de14109bcdc09e4bc6d3e151d3e68_1752730099__3bd21eca467c377c.jpg
+  as_recorded: KORUSE
+  ruled: casing-as-read-2026-08-12
   decision: take-as-spelling
   why_decided: RULE 1 APPLIES to the caps in presented by KORUSE.
   note: Agrees with our own romanisation of こるせ, so it confirms rather than corrects, and lifts the
@@ -1222,9 +1239,11 @@ candidates:
     where 腹 is the large character. Our rules would give Hara Waru Uchira No Himitsu Goto and would
     not know to shout the first word.
 - credit: 夏村東和
-  latin: Towa Matsumura
+  latin: TOWA MATSUMURA
   kind: official-latin-name
   seen_on: cache://cdn_img_mangatime_square_com__are_com_public_series_thumbnail_12207421983530024812_26e466bc3892b4bdb7f6e955ddab53fd_1785142643__7e716d958e9a9c7b.jpg
+  as_recorded: TOWA MATSUMURA
+  ruled: casing-as-read-2026-08-12
   decision: take-as-spelling
   why_decided: RULE 1 APPLIES to the caps in presented by TOWA MATSUMURA. Rule 2 is about titles and
     does not reach a credit line.
@@ -1322,9 +1341,11 @@ candidates:
     than the sound, where our rules give dewa. That disagreement is the kind of thing rule 2 keeps out
     of the romanisation.
 - credit: とりいしづく
-  latin: Toriishizuku
+  latin: TORIISHIZUKU
   kind: official-latin-name
   seen_on: cache://public_img_comic_pximg_net__ttps___public_img_comic_pximg_net_images_work_main_dxOp3miEwRYZztZNz2u3_12026_jpg_20260216132521__6813a690b76f94e6.jpg
+  as_recorded: TORIISHIZUKU
+  ruled: casing-as-read-2026-08-12
   decision: take-as-spelling
   why_decided: RULE 1 APPLIES to the caps in presented by TORIISHIZUKU.
   note: SECOND SIGHTING OF THIS CREDIT. とりいしづく also drew 好きです、フッてください！, the Please, bloke my heart!
@@ -1463,9 +1484,11 @@ candidates:
   note: ヒモ is a kept man, so leech is the publisher choosing a word rather than translating one, and
     the ungrammatical don't is theirs too. Both are kept as printed. The full stop is on the artwork.
 - credit: 薬缶
-  latin: Yakan
+  latin: YAKAN
   kind: official-latin-name
   seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965979331614_772f5dc89f3fb9e4e8c2a2c7ad9f83e7_1754010333__41cc2a85dcdef38c.jpg
+  as_recorded: YAKAN
+  ruled: casing-as-read-2026-08-12
   decision: take-as-spelling
   why_decided: RULE 1 APPLIES to the caps in by YAKAN.
   note: The kanji credit beside it carries ruby やかん, so the cover gives the reading and the spelling
@@ -1854,9 +1877,11 @@ candidates:
   note: Two small script lines left of the logo. 映す is to show on a screen, so the English is slightly
     wider than the Japanese, which is the publisher's choice and stands.
 - credit: FLOWERCHILD
-  latin: Flowerchild
+  latin: FLOWERCHILD
   kind: official-latin-name
   seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360561_4c419bedbb02b19fc3093b7fedebcaad_1752730099__2f4987d5fff0ae11.jpg
+  as_recorded: FLOWERCHILD
+  ruled: casing-as-read-2026-08-12
   decision: take-as-spelling
   why_decided: RULE 1 APPLIES to the caps in Presented by FLOWERCHILD.
   note: OWNER, CHECK THIS ONE AGAINST THE ARTIST'S OWN STYLING. The credit is already Latin rather than
@@ -2952,9 +2977,11 @@ candidates:
     at the foot reads アケガタユウ in Japanese order. Both orders on one cover again, as on 貞松龍壱 and 山本まと.
     FUJI ISM on a T-shirt in the illustration is set dressing.
 - credit: あげはる
-  latin: Ageharu
+  latin: AGEHARU
   kind: official-latin-name
   seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360574_04cf42e132a8d0cfb3019d1cc2262f6d_1752730099__0ed8657300233e88.jpg
+  as_recorded: AGEHARU
+  ruled: casing-as-read-2026-08-12
   decision: take-as-spelling
   why_decided: RULE 1 APPLIES to the caps in by AGEHARU.
   note: Set directly under the kana credit on the read-through opening page. Agrees with our romanisation,
@@ -4184,9 +4211,11 @@ candidates:
   note: Letterspaced small caps directly under the kana logo. It agrees with our romanisation and splits
     the phrase into three words where the kana runs on.
 - credit: 雪子
-  latin: Yukiko
+  latin: YUKIKO
   kind: official-latin-name
   seen_on: cache://cdn_comic_boost_com__https___cdn_comic_boost_com_contents_thum_S0155_kv_sp_jpg__0ab9607213eb4de6.jpg
+  as_recorded: YUKIKO
+  ruled: casing-as-read-2026-08-12
   decision: take-as-spelling
   why_decided: RULE 1 APPLIES to the caps in YUKIKO.
   note: Set between the two kanji of the credit at the top right, which is an unusual place for it.
@@ -5197,9 +5226,11 @@ candidates:
     digits are carried straight through.
 - work: 性別不明な殺し屋さんがカワイすぎる。
   latin: unknown koroshiya san so cute
-  kind: cover-romanisation
+  kind: official-latin-title
   seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1C2D5Q_mE_webp_h_LXLghDwRG70AVyDLH91qFA_e_5000000000__bf75f9e49e251ec5.webp
-  decision: not-a-title
+  as_recorded: unknown koroshiya san so cute
+  ruled: taken-as-title-2026-08-12
+  decision: take-as-title
   why_decided: RULE 2 APPLIES, on the OSHIKOI CAPRICCIO line, and it is a mixture rather than either
     thing. 性別不明 becomes unknown and カワイすぎる becomes so cute, both rendered; but 殺し屋さん stays as koroshiya
     san, sounded out, and that is the noun the title is about.
@@ -6555,9 +6586,11 @@ candidates:
     Kurea is the useful part: our romanisation would give Kurea and lose the French name entirely. If
     the owner wants a character-name field one day, this is the spelling for it.'
 - credit: 雪子
-  latin: Yukiko
+  latin: YUKIKO
   kind: official-latin-name
   seen_on: cache://public_img_comic_pximg_net__https___public_img_comic_pximg_net_images_work_main_5364_jpg_20191113174952__d0f993c6c87bdffd.jpg
+  as_recorded: YUKIKO
+  ruled: casing-as-read-2026-08-12
   decision: take-as-spelling
   why_decided: RULE 1 APPLIES to the caps in YUKIKO Presents.
   note: SECOND COVER FOR THIS CREDIT AND IT AGREES WITH THE FIRST. おねだりしてみて gave YUKIKO between the
@@ -6628,9 +6661,11 @@ candidates:
     is set in Latin but the name after it, すいみん, is not.'
 - work: ときときチャンネル
   latin: TOKITOKI CHANNEL
-  kind: cover-romanisation
+  kind: official-latin-title
   seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_007121_e97b37ea_a432_4913_bab6_1b3ba9e81a77_jpg__2f93485a4881a000.jpg
-  decision: not-a-title
+  as_recorded: Tokitoki Channel
+  ruled: taken-as-title-2026-08-12
+  decision: take-as-title
   why_decided: RULE 2 APPLIES, narrowly. チャンネル is channel in katakana so that word is a source, but
     ときとき is sounded out and it is the coinage the title turns on, a play on ときどき, now and then.
   note: OWNER, THIS IS THIN AND IT MAY BELONG WITH Mayonaka Punch. Letterspaced small caps between とき

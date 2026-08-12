@@ -6137,3 +6137,31 @@ candidates:
   why_decided: Mixed case as printed, so rule 1 does not bite.
   note: Set as presented by Sakuragi Ren in tiny type under the English, family name first. 蓮 gives
     Ren, the lotus, which is a name reading our tables would reach for after はす.
+- work: 後宮の花詠み仙女
+  latin: koukyu no hanayomi senjo
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_004364_0e3cc3b1_0ca9_4a6b_94b4_a831d9704d23_jpg__4d2369997a06da9d.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 後宮の花詠み仙女 and says nothing in English.
+  note: 'Set vertically in tiny gold lowercase down the right of the title block, following the line
+    of the kanji. IT SETTLES TWO READINGS: 花詠み as hanayomi, where 詠 is よみ rather than えい, and 仙女 as
+    senjo rather than sennyo, which is the commoner reading of those characters.'
+- work: きみが死ぬまで恋をしたい
+  latin: my wish is fall in love until you die.
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183980_4f3a4c4fd2691262d789571a0c24c0a4_1752730099__62bc8c56d2166af6.jpg
+  decision: take-as-title
+  why_decided: Entirely lowercase as printed, and rule 1 only recases capitals. It renders きみが死ぬまで恋をしたい
+    rather than transliterating it.
+  note: RECORDED AS PRINTED, AND is fall in love IS NOT ENGLISH. It wants to be to fall in love or is
+    to fall in love. Eighth printed slip kept in this pass. Set in three fine lowercase lines between
+    the kana of the vertical title on the volume 1 cover, with the full stop printed.
+- credit: あおのなち
+  latin: Aono Nochi
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183980_4f3a4c4fd2691262d789571a0c24c0a4_1752730099__62bc8c56d2166af6.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: Set as by Aono Nochi under the English, matching the あおのなち credit at the top right. It splits
+    the all-kana name into Aono and Nochi, which our romanisation of a running kana string has no way
+    to know to do.

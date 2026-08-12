@@ -3666,3 +3666,92 @@ candidates:
   why_decided: RULE 2 APPLIES. It transliterates ふりだしにおちる！ and says nothing in English.
   note: Set in tiny lowercase threaded between the hand-drawn kana of the logo rather than in a line,
     hyphenated where our romanisation would space. Inside a ニコニコ漫画 frame, so small twice over.
+- work: かっさい！
+  latin: KASSAI
+  kind: cover-romanisation
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_73403__2c021f9dfdef26fe.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates かっさい！ and says nothing in English.
+  note: Tiny caps set above the kana logo, inside a ニコニコ漫画 frame. It agrees with our romanisation.
+- work: にーにといっしょ！
+  latin: NIINI TO ISSHO!
+  kind: cover-romanisation
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_53995__afb65397031aa09d.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates にーにといっしょ！ and says nothing in English.
+  note: Small caps along the foot of the logo, inside a ニコニコ漫画 frame, at the edge of legibility. It
+    writes the long vowel of にーに as a doubled i, which our romanisation also does.
+- work: おとりよせしまっし！
+  latin: OTORIYOSE-SHIMASSHI!
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_003118_e041395e_4efa_48ce_8955_8980ab6b8ae8_jpg__220a2615f479f6ba.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates おとりよせしまっし！ and says nothing in English.
+  note: Small caps beside a parcel mark under the logo, hyphenated where our romanisation would space.
+    しまっし is Kanazawa dialect for let's do it, which the Latin sounds out and does not explain.
+- work: ほうかご再テンセイ！
+  latin: HOUKAGO SAI TENSEI!
+  kind: cover-romanisation
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1yI28g_g5_webp_h_XazcvOwHxdgU3XjR2IoHCw_e_5000000000__5994055e5b9b7611.webp
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates ほうかご再テンセイ！ and says nothing in English.
+  note: Letterspaced caps in the white logo tab at the lower right. It keeps the long vowel as ou, and
+    it reads 再 as さい, which is the only thing here our romanisation would have had to guess at. The
+    rest of the banner is Japanese.
+- work: お姉さまと巨人 ～お嬢さまが異世界転生～
+  latin: My Sister and Giant
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_003240_666a85d6_b07b_4d2d_a595_2097f180d542_jpg__eb7768e0fa8e30f6.jpg
+  decision: take-as-title
+  why_decided: RULE 1 APPLIES to the caps, with and left lowercase. It renders お姉さまと巨人 rather than transliterating
+    it.
+  note: Letterspaced under the logo, above the subtitle's own English line. The Japanese rubies 巨人 as
+    わたし, so the giant is the narrator; the English keeps the giant and drops the joke.
+- work: お姉さまと巨人 ～お嬢さまが異世界転生～
+  latin: A young lady is reborn in another world.
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_003240_666a85d6_b07b_4d2d_a595_2097f180d542_jpg__eb7768e0fa8e30f6.jpg
+  decision: take-as-title
+  why_decided: Sentence case as printed, so rule 1 leaves it, and it renders the subtitle ～お嬢さまが異世界転生～
+    rather than transliterating it.
+  note: Directly under the main English, in smaller type. Recorded separately because the Japanese sets
+    them apart too, with the subtitle in wave dashes. How they join is the owner's call, as with Howling
+    Blaze.
+- work: お姉さまと巨人 ～お嬢さまが異世界転生～
+  reading: ワタシ
+  of: 巨人
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_003240_666a85d6_b07b_4d2d_a595_2097f180d542_jpg__eb7768e0fa8e30f6.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: 巨人 is rubied わたし in the logo, so the word for giant is read as the word for me. A rhetorical
+    ruby, the same device as 令嬢 rubied あなた, and it tells you who the giant is before you open the book.
+- work: 白月光プロジェクト～あの時の彼女を取り戻す～【タテスク】
+  latin: Moonlight Project
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005213_90eba646_3e45_4835_bbe9_fbfdeba37a88_jpg__101e7d0140379ba8.jpg
+  decision: take-as-title
+  why_decided: 'RULE 1 APPLIES to the caps. Rule 2 does not bite: プロジェクト is project in katakana and
+    白月光 is rendered as moonlight rather than sounded out.'
+  note: Very small caps under the subtitle, at the limit of the banner's resolution. 白月光 is a Chinese
+    idiom for the unattainable first love, which moonlight carries only literally.
+- work: 白月光プロジェクト～あの時の彼女を取り戻す～【タテスク】
+  latin: ANO TOKI NO KANOJO WO TORIMODOSU
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_005213_90eba646_3e45_4835_bbe9_fbfdeba37a88_jpg__101e7d0140379ba8.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES to the second line. It transliterates the subtitle ～あの時の彼女を取り戻す～ and says
+    nothing in English.
+  note: ONE COVER DOING BOTH THINGS AT ONCE, like 春の埋み火. The title gets an English rendering and the
+    subtitle gets a transliteration, stacked one above the other in the same face. It writes を as WO,
+    the character rather than the sound.
+- work: 蝶乃センパイは泳がせたい！
+  latin: Chono Senpai wants me to swim!
+  kind: official-latin-title
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1CvEk6_nP_webp_h_jyTPh8MKNJOu2bm4ABDZWQ_e_5000000000__64aaca08541d5733.webp
+  decision: take-as-title
+  why_decided: Sentence case as printed, so rule 1 leaves it, and it renders 蝶乃センパイは泳がせたい！ rather than
+    transliterating it. Senpai is kept as the untranslatable it is, on the Jiraike line.
+  note: Set in script inside wave dashes under the logo. It settles 蝶乃 as Chono, which the characters
+    alone would not give. Credit is 東雲もづく, the same artist as 汗フェチ半田さんは味わいたい earlier in this pass. The
+    wave dashes are the artwork's framing rather than part of the name, so they are dropped.

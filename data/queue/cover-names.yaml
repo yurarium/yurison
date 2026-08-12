@@ -5423,3 +5423,44 @@ candidates:
   why_decided: Mixed case as printed, so rule 1 does not bite.
   note: Set in tiny type directly above the kana credit on the volume cover, family name first. たまむし
     is the jewel beetle, and the cover keeps it as one word rather than splitting it.
+- work: やがて君になる
+  latin: YAGATE-KIMI-NI-NARU.
+  kind: cover-romanisation
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_18284__5e8a6e50b5b1d879.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates やがて君になる and says nothing in English.
+  note: 'OWNER, THE LICENSED ENGLISH IS SOMETHING ELSE AGAIN. Set in tiny caps in square brackets under
+    the logo, hyphenated between every word, which is a shape our romanisation would never produce.
+    The series is published abroad as Bloom Into You, which is neither this nor a translation of the
+    Japanese, and the cover does not print it. So refusing the romanisation loses nothing here: the
+    name the world uses is simply not on this image.'
+- work: 欠けた月とドーナッツ
+  latin: missing moon and doughnuts
+  kind: official-latin-title
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_56192__c81f43ae5aa7feae.jpg
+  decision: take-as-title
+  why_decided: Entirely lowercase as printed, and rule 1 only recases capitals. It renders 欠けた月とドーナッツ
+    rather than transliterating it.
+  note: Two tiny lowercase lines under the kanji credit, inside a ニコニコ漫画 frame. doughnuts is the artwork's
+    spelling, against the American donuts, and it is kept. The licensed English for this series is The
+    Moon on a Rainy Night, which is a different work by the same artist, so do not let the two cross.
+- credit: 雨水汐
+  latin: usui shio
+  kind: official-latin-name
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_56192__c81f43ae5aa7feae.jpg
+  decision: take-as-spelling
+  why_decided: Lowercase as printed, and rule 1 only recases capitals.
+  note: THIS CONTRADICTS THE OTHER COVER FOR THE SAME CREDIT AND THE OWNER SHOULD SEE BOTH. 僕らのアイは気持ち悪い
+    prints PRESENTED BY USUISHIO, one word in caps; this one prints written by usui shio, two words
+    in lowercase. Same artist, same three characters, and the covers disagree on both the spacing and
+    the case. Fifteenth lowercase credit.
+- work: ニニンがシノブ伝ぷらす
+  latin: 2×2=SHINOBUDEN+
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_003297_1bd91869_65b9_4a18_ad9f_2ae9f55d17dc_jpg__e09e8936d537905f.jpg
+  decision: not-a-title
+  why_decided: 'RULE 2 APPLIES to the word: SHINOBUDEN transliterates シノブ伝 and says nothing in English.'
+  note: A SHAPE NOTHING ELSE IN THE PASS HAS. The line reads 2×2=SHINOBUDEN+, turning ニニン, two people,
+    into the arithmetic 2×2 and carrying the ぷらす of the Japanese title through as a plus sign. So it
+    is a rebus rather than a romanisation or a rendering, and the only English in it is a multiplication.
+    Refused, and recorded in full because it is the sort of string a search alias would want.

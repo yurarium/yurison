@@ -5464,3 +5464,57 @@ candidates:
     into the arithmetic 2×2 and carrying the ぷらす of the Japanese title through as a plus sign. So it
     is a rebus rather than a romanisation or a rendering, and the only English in it is a multiplication.
     Refused, and recorded in full because it is the sort of string a search alias would want.
+- work: 毎月庭つき大家つき
+  latin: monthly / with garden / with ooya
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_003838_5515d50f_5b23_41cd_8493_52d6b871019c_jpg__74fb283579a48595.jpg
+  decision: take-as-title
+  why_decided: Entirely lowercase as printed, and rule 1 only recases capitals. It renders 毎月庭つき大家つき
+    phrase by phrase, keeping the three-part shape the Japanese has.
+  note: OWNER, ooya IS LEFT IN ROMAJI AND THE SLASHES ARE THE ARTWORK'S. Set in three lines in a typewriter
+    face, each of the last two opening with a slash exactly as printed. 大家 is the landlady, an ordinary
+    English word the cover chose not to use, so this sits close to the unknown koroshiya san line that
+    rule 2 refused. It is taken because the rest of the phrase is genuinely rendered rather than sounded
+    out, but the two belong together in any review.
+- work: 転生王女と天才令嬢の魔法革命
+  latin: The Magical Revolution of Reincarnation Princess and Genius Young Lady
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_003176_fe5a4398_ea6f_494a_9fdd_0d816d2a9914_jpg__9e329dff3d07465f.jpg
+  decision: take-as-title
+  why_decided: Title case as printed, so rule 1 leaves it, and it renders 転生王女と天才令嬢の魔法革命 rather than
+    transliterating it.
+  note: RECORDED AS PRINTED, AND THE ARTICLES ARE MISSING. English wants the before Reincarnation Princess
+    and the before Genius Young Lady. Set vertically in three fine italic lines against the magic circle.
+    The licensed English is The Magical Revolution of the Reincarnated Princess and the Genius Young
+    Lady, which supplies exactly those articles, so the cover is an earlier or looser form of the same
+    name.
+- work: 紅殻のパンドラ
+  latin: KOUKAKU NO PANDORA
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_000291_3fe409ca_9a11_4a25_8fe8_75cf15ba2a03_jpg__ff9e6b794fd723e5.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES, on the OSHIKOI CAPRICCIO line. パンドラ is Pandora and a source, but 紅殻 is
+    the crimson shell the title is built on and it is only sounded out.
+  note: Set vertically in tiny caps down the left of the logo. It keeps the long vowel as ou. The Japanese
+    plays on 攻殻機動隊, and the licensed English is Pandora in the Crimson Shell, which renders what this
+    romanisation spells.
+- work: ギャングスタガールズ
+  latin: GANGSTA Girls
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_001433_1b043e19_766a_4674_ab1a_463e9f204d97_jpg__d6ffeb8d21b49e87.jpg
+  decision: take-as-title
+  why_decided: 'Not all caps, so rule 1 does not reach it: GANGSTA is capitalised and Girls is a script
+    initial cap. Rule 2 does not bite: ギャングスタガールズ is the English in katakana, so the Latin is what it
+    came from. Our romanisation would give Gyangusuta Gaaruzu.'
+  note: THE LATIN IS THE LOGO HERE AND THE KATAKANA IS THE GLOSS, which is the reverse of nearly every
+    other cover in the pass. GANGSTA is set in gold serif caps and Girls in a pink script beneath, with
+    the katakana small under both. Gangsta is the artwork's spelling, without the r, and it is kept.
+- work: ギャングスタガールズ
+  reading: ギャングスタガールズ
+  of: GANGSTA Girls
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_001433_1b043e19_766a_4674_ab1a_463e9f204d97_jpg__d6ffeb8d21b49e87.jpg
+  decision: reading
+  why_decided: A reading is not a title.
+  note: A TENTH LATIN STRING TOLD HOW TO SAY ITSELF. Set in small katakana directly under the Girls
+    of the logo.

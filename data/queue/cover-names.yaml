@@ -4750,3 +4750,41 @@ candidates:
   why_decided: RULE 2 APPLIES. It transliterates 世界征服はまた明日 and says nothing in English.
   note: Letterspaced small caps under the logo, inside a ニコニコ漫画 frame and at the limit of the thumbnail.
     It writes は as WA, the sound rather than the character, and runs また明日 together as one word.
+- credit: ちさこ
+  latin: chisako
+  kind: official-latin-name
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_49652__48593d690a646294.jpg
+  decision: take-as-spelling
+  why_decided: Lowercase as printed, and rule 1 only recases capitals.
+  note: THIRTEENTH LOWERCASE CREDIT. Set as presented by chisako under the kana credit at the top left,
+    inside a ニコニコ漫画 frame. Our romanisation would give Chisako. There is also a romanisation of the
+    title under the logo, three or four pixels tall, which does not resolve at this size; rule 2 would
+    refuse it in any case.
+- work: 下請け魔法少女リリカ
+  latin: Magical Subcontractor Ririka
+  kind: official-latin-title
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_001611_7cbcc1f2_c803_4452_a03c_9bf4e1010ccf_jpg__09ef2296442e0324.jpg
+  decision: take-as-title
+  why_decided: 'Title case in script, so rule 1 leaves it. Rule 2 does not bite: 下請け魔法少女 is rendered
+    as Magical Subcontractor rather than sounded out, and リリカ is a name any English rendering spells.'
+  note: OWNER, IT IS SPLIT AROUND THE LOGO. Magical Subcontractor arcs over the kanji and Ririka sits
+    under the katakana in a separate cartouche, so joining them is my reading of the layout rather than
+    a line on the page. The Japanese is 下請け, the subcontractor a bigger firm farms work out to, and
+    the English keeps the joke exactly.
+- work: ふらちな倫理ちゃん
+  latin: furachi na RINRIchan
+  kind: cover-romanisation
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_47808__53a59ed1773c082a.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates ふらちな倫理ちゃん and says nothing in English.
+  note: Letterspaced under the logo, with the name in caps and the rest lowercase, the same convention
+    Constable SAKUMA used for a surname. 倫理 is ethics and the girl is called Rinri, which is the title's
+    pun and which the romanisation cannot carry.
+- work: かみねぐしまい
+  latin: KAMINEGUSHIMAI
+  kind: cover-romanisation
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_63675__7f9470e9e87cc69a.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates かみねぐしまい and says nothing in English.
+  note: Tiny caps under the logo inside a platform frame. Run together as one word, where our romanisation
+    would have no way to know whether to split it at all, so the cover at least confirms it is one.

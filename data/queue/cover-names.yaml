@@ -6055,3 +6055,46 @@ candidates:
   why_decided: A reading is not a title, and the banner carries no Latin.
   note: Rubied あまいろ over the credit beside the vertical title. 甘色 is a coinage, sweet plus colour, and
     色 as いろ rather than しょく is the kun reading, so the ruby settles a name our tables would guess at.
+- work: 修羅の箱庭
+  latin: Shura no hakoniwa
+  kind: cover-romanisation
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_006812_ec474cf3_44d5_41b5_a084_e5182b43296e_jpg__583d60f4a8304a98.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 修羅の箱庭 and says nothing in English.
+  note: Set in a letterspaced serif between two chevrons under the logo, with the kana ruby above it,
+    so the reading is given twice. 箱庭 is the miniature garden and 修羅 the Buddhist realm of strife, neither
+    of which the Latin carries.
+- work: 人喰い姫のカヴァリエーレ
+  latin: Il cavaliere della principessa cannibale
+  kind: official-latin-title
+  seen_on: cache://cdn_img_comic_zenon_com__enon_com_public_series_thumbnail_4856001361222609125_a2cf6afbb6d9f0d7627ea6fa61d11c55_1782192422__8cf49faf5612f767.png
+  decision: take-as-title
+  why_decided: 'Sentence case as printed, so rule 1 leaves it. RULE 2 DOES NOT BITE, on the toi et moi
+    ground: カヴァリエーレ is the Italian cavaliere in katakana, so the Latin is what it came from, and the
+    rest of the line is Italian too rather than a transliteration of the Japanese.'
+  note: 'A TENTH EUROPEAN BORROWING AND THE FIRST FULL SENTENCE IN ONE. The whole title is given in
+    Italian, not just the borrowed word: it renders 人喰い姫の as della principessa cannibale. So this is
+    the third non-English source title after the French toi et moi and the Latin Lilium Terrarium, and
+    by far the longest. Note the ヴァ in the katakana, marking the foreign v. Set in a fine italic in
+    two lines under the katakana logo.'
+- work: 私の推しは悪役令嬢。メイドキッチン
+  latin: I'm in Love with the Villainess MAID'S KITCHEN
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360590_e44cd09adc4aeeb799092b57548b2ccd_1754016787__5cbbc1ea07c006d5.jpg
+  decision: take-as-title
+  why_decided: The first line is title case and the second is caps, so rule 1 reaches only the second
+    half, and recasing it would break the pairing the artwork sets up. Recorded as printed, both lines.
+    It renders 私の推しは悪役令嬢。メイドキッチン rather than transliterating it.
+  note: OWNER, THE TWO LINES ARE SET IN DIFFERENT CASES AND I HAVE KEPT BOTH. The parent series title
+    is in title case and the spin-off's own subtitle is in caps beneath it, which is a hierarchy rather
+    than an inconsistency. The parent's line matches the cover of 私の推しは悪役令嬢。 read earlier in this pass,
+    so the licensed English is confirmed twice.
+- credit: tsuke
+  latin: tsuke
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360590_e44cd09adc4aeeb799092b57548b2ccd_1754016787__5cbbc1ea07c006d5.jpg
+  decision: noted
+  why_decided: The credit is already Latin and lowercase, and the cover prints it letterspaced as ｔｓｕｋｅ.
+  note: EIGHTEENTH LOWERCASE CREDIT, and not the same person as the tsuke who drew 恋にミスリード, which the
+    record will need to keep apart. The other credits are 原作 いのり。, whose full stop is part of the name,
+    and キャラクターデザイン原案 花ヶ田.

@@ -1,9 +1,10 @@
 # One volume set per work: a plan
 
-Written 2026-08-12 from three faults the project owner found on MURCIÉLAGO and a fourth found on
-コミック百合姫 the day the second fix shipped, all of them classes rather than cases. §1 and §2 are
-done. What remains is a volume described twice by two catalogues, a volume record whose fields the
-build drops on the floor, and a catalogue that knows the answers and is never asked.
+Written 2026-08-12 from three faults the project owner found on MURCIÉLAGO, a fourth found on
+コミック百合姫 the day the second fix shipped, and a fifth the third fix caused. All of them are
+classes rather than cases. §1, §2 and §3 are done. What remains is a field drawn without its
+renderer, a volume described twice by two catalogues, and a catalogue that knows the answers and is
+never asked.
 
 The sections below are in the order they are to be done, and each one says what it needs from the
 one before it.
@@ -25,17 +26,24 @@ a sequence. Reading it as a sequence is how a magazine came to have 119 volumes.
 | §1 | Measure what the shop says against what we hold | done 2026-08-12 |
 | §2 | Stop publishing a listing position as a volume number | done 2026-08-12 |
 | §3 | Carry what a record says about a volume, and read a designation as what it is | done 2026-08-12 |
-| §4 | One volume row per volume, however many catalogues describe it | §3, for fields to merge |
-| §5 | Ask コミックシーモア about the works we hold | §4, or it adds a third overlapping set |
+| §4 | Render a field before drawing it, and prove a ruling that says nothing draws it | nothing; §3 shipped it |
+| §5 | One volume row per volume, however many catalogues describe it | §3, for fields to merge |
+| §6 | Ask コミックシーモア about the works we hold | §5, or it adds a third overlapping set |
 
 §3 was found by a reader looking at コミック百合姫 the day §2 shipped, and it is the general fault
-that page is one instance of: the build carries five of a volume record's fields and drops the two
-that would let a reader see anything about a volume nobody dated.
+that page is one instance of: the build carried five of a volume record's fields and dropped the
+two that would let a reader see anything about a volume nobody dated.
+
+§4 IS §3'S OWN FAULT AND IT IS LIVE. The field §3 added is drawn with `esc` and reaches no
+renderer, so 383 works show Japanese in English mode, and neither of the two guards that exist to
+make that impossible could see it: both read the surface table, and the ruling §3 gave the field
+says nothing draws it. That is a ruling nothing verifies, which makes §4 a structural repair and
+not a patch.
 
 **Measuring comes first, and this is the part that was nearly left out.** Each fix moves a number
 nobody is currently watching, so each can regress into a state that looks exactly like the state it
-fixed. §1 costs little, needs nothing built, and is what makes the other three provable rather than
-asserted. It is also the fastest way to find out how large §5 really is, and §2's own error was
+fixed. §1 costs little, needs nothing built, and is what makes the repairs provable rather than
+asserted. It is also the fastest way to find out how large §6 really is, and §2's own error was
 caught by it within the hour.
 
 ---
@@ -80,7 +88,7 @@ stating how long the work is and neither count is taken.
 | **we hold MORE than cmoa states** | **30** |
 
 The two directions are different faults and are counted apart. Holding fewer is a stale capture,
-which §5 fixes by asking: 冷たくて柔らか is 4 against 7, きみが死ぬまで恋をしたい 9 against 11.
+which §6 fixes by asking: 冷たくて柔らか is 4 against 7, きみが死ぬまで恋をしたい 9 against 11.
 Holding more is §2's fault showing through, a product count published as a volume count:
 **MURCIÉLAGO 32 against 29**, citrus+ 8 against 7, 鎧塚さんをバブらせたい 6 against 4. The ISBN
 route reaches MURCIÉLAGO, which a title fold could not, because cmoa spells it `MURCIELAGO`.
@@ -89,30 +97,30 @@ route reaches MURCIÉLAGO, which a title fold could not, because cmoa spells it 
 
 | budget | opens at | expected floor |
 |---|---|---|
-| `volume rows with no publication date` | 2,525 of 6,153 | falls as §5 collects |
+| `volume rows with no publication date` | 2,525 of 6,153 | falls as §6 collects |
 | `works whose records number one volume twice` | 20 | **10**, see below |
-| `works holding fewer volumes than the shop states` | 70 | falls as §5 collects |
+| `works holding fewer volumes than the shop states` | 70 | falls as §6 collects |
 | `works holding more volumes than the shop states` | 30 | near 0 after §2 |
 
 **The floor of 10 is real books and was found by the canary.** The first version of this plan said
-the second budget goes to 0 with §4. It does not: citrus really was printed twice, ten volumes in
+the second budget goes to 0 with §5. It does not: citrus really was printed twice, ten volumes in
 2013 and four in 2015, MADB gave it two C-numbers for that reason, and a reader should see both.
 Ten of the twenty are that (citrus, ゆるゆり, five 合本版 omnibuses, a 総集編, and two works under
-two publishers); the other ten are one run described by two catalogues, which is what §4 resolves.
+two publishers); the other ten are one run described by two catalogues, which is what §5 resolves.
 The measure asks the dumber question, whether any two of a work's records number one volume alike,
 and leaves the difference to this paragraph. Asking which catalogue each record came from would
 separate the two populations cleanly, and it is the rule the fix will use, so a measure asking it
 would share the fix's blind spot.
 
-**This also settles a question §4 had left open.** Ten works numbering a volume twice from two
+**This also settles a question §5 had left open.** Ten works numbering a volume twice from two
 different catalogues is the population the cross-catalogue merge was written for and withdrawn
 from, on 2026-08-12, because merging blocks without reconciling volumes drew a 52-row MURCIÉLAGO
-list. Once §4 reconciles the volumes, that withdrawal's reason is gone and the same-catalogue
+list. Once §5 reconciles the volumes, that withdrawal's reason is gone and the same-catalogue
 exception is what keeps citrus apart.
 
 Two further measures belong to the stages that create them and are written in the same change as
 the fix each one guards, which is the rule `./test.py` already enforces for a new module and its
-test. They are §2's invariant and §4's arithmetic, described in place below.
+test. They are §2's invariant and §5's arithmetic, described in place below.
 
 ---
 
@@ -177,7 +185,7 @@ the reasoning for where a trailing number is a number and where it is a name (`�
 there must be one copy of it, not two.
 
 Where the shop states no number, the volume has no number. The interface already handles that
-case ("A VOLUME NOBODY NUMBERED SAYS NOTHING", `20-app.js`), and §4 gives another catalogue the
+case ("A VOLUME NOBODY NUMBERED SAYS NOTHING", `20-app.js`), and §5 gives another catalogue the
 chance to supply one. 196 multi-volume records state no number on any row; several of those are not volume
 sets at all (`bw-217047` bundles three different works under one series id), which is worth knowing
 and is currently hidden behind invented numbering.
@@ -246,7 +254,7 @@ a name for its place in the run. The count is distinct numbers plus the items ca
 | `volume rows with no publication date` | 2,525 | **2,521** |
 
 MURCIÉLAGO's index row now reads 29. Its work page still draws two runs, 29 volumes and 20, which
-is §4 and is untouched here.
+is §5 and is untouched here.
 
 ---
 
@@ -410,7 +418,82 @@ belongs in `docs/GAPS.md` and not in a budget that could never fall.
 
 ---
 
-## 4. Two catalogues describing one volume are drawn as two volumes
+## 4. A field ruled as undrawn, and drawn
+
+Needs nothing. **URGENT: the fault is live**, on 383 works, and it was shipped by §3.
+
+### What is wrong
+
+`kari/src/20-app.js` draws a volume's designation like this:
+
+```js
+: (v.designation ? `<span class="voln vdesig">${esc(v.designation)}</span>` : '');
+```
+
+`esc()` straight into the markup, through no renderer. 899 of the 987 designation rows hold
+Japanese, across 383 works and 845 distinct strings, and every one of them is on an English page.
+`ゆるゆり 特装版小冊子電子版` is how the project owner found it.
+
+### Why both guards were blind, which is the part that matters
+
+The structure is meant to make this impossible. `interface.unruled` forces a decision on every
+field the data carries Japanese in, and the decision has two answers: a **Surface**, which names
+the function that renders the field, or **NOT_A_NAME**, which says nothing draws it. A Surface is
+then held two ways, by `English mode has no Japanese` running the real renderer over every value
+and by `adapters/lint/entrypoints.py` proving that `kari/app.js` never puts the field on a page any
+other way.
+
+Both of those read `interface.SURFACES`. **A NOT_A_NAME path is never compared against app.js at
+all**, so the second answer is asserted and never verified. The ruling and the check share the
+author's belief, which is STANDING-INSTRUCTIONS §14b in the one place the project had assumed it
+was safe. `entrypoints.py`'s own docstring states the assumption without noticing it: "a field the
+build writes and the interface never reads is not a leak", which is true and establishes nothing.
+
+**AND IT IS NOT ONE FIELD.** Asking the entrypoints tokeniser which NOT_A_NAME values are escaped
+into markup or interpolated returns twelve:
+
+| what they are | fields |
+|---|---|
+| deliberate verbatim quotes | `first_publication.note`, `marketing_label_basis.note`, `evidence[].source`, `state_claims[].source` |
+| a Japanese-side aid | `index[].y` |
+| values that carry no Japanese | `releases[].id`, `channel_name`, `completed_basis`, `cadence` |
+| a leak | `works[].volumes[].designation` |
+
+NOT_A_NAME is carrying two different rulings in one list: *nothing draws this* and *this is drawn
+verbatim on purpose*. Only the prose in each entry tells them apart, and prose is not enforcement.
+
+### The work
+
+1. **Close the leak.** Render the designation through `phraseOf`, which is where `volLabel` already
+   sends a named part, and feed designations into `fill_chapters` the way §3 fed volume numbers.
+   The analyser answers usefully on a sample: `#1 るっく・あっと・みー/…` comes out
+   `Ch. 1 Ru Kku Atto Mī / …` and `2017年1月号` comes out `2017 Nen 1 Gatsu Gō`. About 845 entries,
+   all derived, so it is a build run rather than research.
+2. **Split the ruling vocabulary.** `NOT_DRAWN` for a field nothing puts on a page, `QUOTED` for one
+   drawn verbatim on purpose with its reason and the language it is drawn in. Re-file the 46
+   existing paths; the twelve above are the ones needing a decision rather than a move.
+3. **Enforce the second half.** `entrypoints.py` gains the job it never had: a `NOT_DRAWN` field
+   whose read is consumed by `esc` or a template interpolation is a finding. `QUOTED` gets the
+   narrower check that it is drawn only where its reason says.
+4. **Prove the hole is shut by reopening it.** The canary is `esc(v.designation)` restored, planted
+   in `entrypoints.py`'s self-test beside the four historical faults it already replants.
+
+### Why it is not reverted
+
+Reverting §3's designation display would put 383 works back to `N with no date and nothing else
+recorded`, which is the state the owner reported. The render path exists and the phrase map is
+filled by a pass that already runs, so closing the leak is the shorter road as well as the better
+one. Ruled by the project owner 2026-08-12.
+
+### The measure that guards it
+
+`entrypoints.py` is an INVARIANT and not a budget, for the reason it already is one: a field
+reaching a page without its renderer is a fault every time. Item 3 widens what it asserts rather
+than adding a number.
+
+---
+
+## 5. Two catalogues describing one volume are drawn as two volumes
 
 Needs §2 for numbers to key on, and §3 for the fields there are to merge.
 
@@ -480,9 +563,9 @@ would have caught the 52-row MURCIÉLAGO list without anyone opening the page.
 
 ---
 
-## 5. コミックシーモア knows the volumes and is never asked about a work we hold
+## 6. コミックシーモア knows the volumes and is never asked about a work we hold
 
-Needs §4, or it adds a third overlapping volume set to the two already double-counted.
+Needs §5, or it adds a third overlapping volume set to the two already double-counted.
 
 ### What is wrong
 
@@ -519,7 +602,7 @@ probably smaller set.
 Then make cmoa a source rather than only a queue: a `data/source/cmoa/` record, written by the
 same capture, in the shape the other retailer records already have (`data/source/bookwalker/` is
 the model). Then
-the volume set of a held work can carry cmoa's statement, `print_runs` and the §4 merge treat it as
+the volume set of a held work can carry cmoa's statement, `print_runs` and the §5 merge treat it as
 one more catalogue of the same run, and the reconciliation rules apply to it without a second
 mechanism. Joining is by §1's join, which is why §1's join has to hold.
 

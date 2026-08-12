@@ -4479,3 +4479,23 @@ candidates:
   note: 'Letterspaced caps directly under the two kanji. IT DOES SETTLE A READING, though: 浮雲 is ukigumo
     with the kun readings and fuun with the on ones, and the cover says ukigumo, voicing 雲 to ぐも in
     the compound.'
+- work: 推しが武道館いってくれたら死ぬ
+  latin: OSHI GA BUDOKAN ITTEKURETARA SHINU
+  kind: cover-romanisation
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_45194__072ab1d423f86b0a.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 推しが武道館いってくれたら死ぬ and says nothing in English.
+  note: Two small caps lines under the 推しが of the logo, inside a ニコニコ漫画 frame. It drops the long vowel
+    in 武道館, giving BUDOKAN where our rules give Buudoukan, and BUDOKAN is how the hall is written in
+    English anyway.
+- work: 『英雄』に憧れた少女は吸血鬼に堕ちても『英雄』を目指す
+  latin: A girl who longed to be a “hero” aims to be a “hero” even if she falls into a vampire
+  kind: official-latin-title
+  seen_on: cache://deliver_cdn_nicomanga_jp__https___deliver_cdn_nicomanga_jp_ogp_images_comics_69008__146e79269f655c7a.jpg
+  decision: take-as-title
+  why_decided: Sentence case as printed, so rule 1 leaves it, and it renders 『英雄』に憧れた少女は吸血鬼に堕ちても『英雄』を目指す
+    rather than transliterating it, quotation marks and all.
+  note: RECORDED AS PRINTED, AND falls into a vampire IS NOT ENGLISH. 堕ちる is to fall or be reduced to
+    something, so falls into being a vampire is the sense; the cover drops the being. Sixth printed
+    slip kept in this pass. Set in two lines a few pixels tall under the logo, inside a ニコニコ漫画 frame,
+    so it is small twice over and took a full-resolution look to read at all.

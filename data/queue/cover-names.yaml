@@ -564,3 +564,59 @@ candidates:
   note: '`Presented By PYAA` at the foot. The same artist signs `cover:Pyaa` in initial caps on 女子校の王子様は私しか眼中にないらしい,
     so even the artist''s own casing varies between two covers, which is the argument for our rules
     deciding it.'
+- work: サボりなら保健室でどうぞ？
+  latin: Wanna skip school in the infirmary?
+  kind: official-latin-title
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/2550912965923183926_37f7d342fd1fad75c94f4719e19f495a_1752730099
+  decision: take-as-title
+  why_decided: 'Neither rule bites: mixed case, and English rather than the Japanese transliterated.'
+  note: Across the middle of the volume 1 cover, with `Presented by Aoto Hibiki` under it. The artist
+    is あおと響, whose two spellings credit-rulings.yaml merged on 2026-08-11.
+- work: 真先輩の前ではかっこつけられない！
+  latin: I can't be cool in front of Makoto senpai
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/006747/308399de-8937-4232-9ea3-73fd21747cf9.jpg
+  decision: take-as-title
+  why_decided: 'Neither rule bites: a script face in mixed case, and English rather than the Japanese
+    transliterated.'
+  note: Set diagonally through the logo. The database holds no English name for this work.
+- work: 真先輩の前ではかっこつけられない！
+  reading: マコト
+  of: 真
+  kind: title-furigana
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/006747/308399de-8937-4232-9ea3-73fd21747cf9.jpg
+  decision: reading
+  why_decided: 'Neither rule applies: a reading is not a title.'
+  note: The logo rubies 真 as まこと, and the English printed beside it spells the same name Makoto, so
+    the artwork states the reading twice over. 真 alone is commonly シン, so a character's name is exactly
+    where an analyser would go wrong.
+- work: 溺愛理想主義～岩見樹代子作品集～
+  latin: Dekiai Risousyugi
+  kind: publisher-romanisation
+  seen_on: https://cdn.img.ichicomi.com/public/series/thumbnail/12207421983829236504_1b6a9109baae4cb3fcc76b48a14987c7_1781660828
+  decision: not-a-title
+  why_decided: 'Rule 2: the Japanese title transliterated, so not taken as the title and not evidence
+    about romanisation. Its own spelling differs from ours anyway, writing 主義 as `syugi` where our rules
+    give `shugi`.'
+  note: Small above the logo, with `Presented by 岩見樹代子` at the foot. The subtitle 作品集 says this is a
+    collection of that artist's work.
+- work: わたくし、負けませんので。 政略結婚は令嬢のたしなみ
+  latin: Shinjo Hazime
+  kind: author-latin-name
+  of: 新城一
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/008654/236ae9b4-ddbc-4e73-9837-8a5e93c6ae98.jpg
+  decision: not-a-name-spelling
+  why_decided: 'Rule 2 applied to a person, as an extension: the name transliterated. Its spelling is
+    its own and differs from ours, writing はじめ as `Hazime` where our rules give `Hajime`, which is the
+    kind of variation the rule says not to follow.'
+  note: 'Above the Japanese name, in Japanese order for once. The artwork states three credits with
+    jobs: 漫画 新城一, 原作 二三夏一, キャラクター原案 久賀フーナ. No Latin title on this one.'
+- work: きょうはなにしよう？
+  latin: WHAT SHOULD WE DO TODAY?
+  as_recorded: What Should We Do Today?
+  kind: official-latin-title
+  seen_on: https://cdn.comic-walker.com/integration/cdpf/resources/008653/df499056-25b8-486f-a91e-09a05f45d88b.jpg
+  decision: take-as-title
+  why_decided: 'Rule 1: letter-spaced caps under the logo with nothing on the page confirming the casing.
+    Rule 2 does not bite; it is English rather than the kana transliterated.'
+  note: The database holds no English name for this work. The artist is credited サスケ in the corner.

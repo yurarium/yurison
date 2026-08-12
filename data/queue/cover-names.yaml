@@ -5122,3 +5122,23 @@ candidates:
     of the logo, so reading it at all took a full-resolution look. It writes を as wo and は as wa in
     the same string, which is the first cover to be inconsistent within one line. 天国のような監禁生活!? across
     the foot is a strapline.
+- work: 恋する小惑星
+  reading: アステロイド
+  of: 小惑星
+  kind: title-furigana
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1xjnxp_9b_webp_h_U8Ay1KJ8Oik4H4xKT7Ugzg_e_5000000000__653731a929f708cc.webp
+  decision: reading
+  why_decided: A reading is not a title, and the banner carries no Latin.
+  note: A SEVENTH BORROWED READING. 小惑星 would read しょうわくせい; the ruby says アステロイド, so the word is spoken
+    as the English asteroid. Same device as 祓魔師 read exorcist and 人狼 read werewolf. The licensed English
+    for this series is Asteroid in Love, which agrees with the ruby rather than with the characters,
+    though this banner does not print it.
+- work: 姫と女勇者が結ばれるための12の聖行為
+  latin: HIMETO ONNAYUSHA GA MUSUBARERU TAME NO 12 NO SEIKOUI
+  kind: cover-romanisation
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1xjnwE_5x_webp_h_27DXFBe2_vhKH7TH0QJipQ_e_5000000000__3eecd10cc7d5d785.webp
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 姫と女勇者が結ばれるための12の聖行為 and says nothing in English.
+  note: Two letterspaced caps lines under the logo. It joins 姫と into HIMETO, running the particle onto
+    the noun, and drops the long vowel in 女勇者, giving ONNAYUSHA where our rules give Onna Yuusha. The
+    digits are carried straight through.

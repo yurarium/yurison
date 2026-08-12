@@ -1825,3 +1825,140 @@ candidates:
     in caps deliberately, the way うーても sets u-temo in lowercase. Recased here for consistency with the
     rule, and flagged because the rule was written for titles found in artwork rather than for names
     that were never Japanese.
+- work: 影と花
+  latin: The Shadow and Flower
+  kind: official-latin-title
+  seen_on: cache://cdn_img_comic_action_com__tion_com_public_series_thumbnail_4856001361003854805_b179f08bf0847b6a74d32dc71b511268_1677643066__b7880cc478dc77bf.jpg
+  decision: take-as-title
+  why_decided: Title case as printed, so rule 1 leaves it, and it renders 影と花 rather than transliterating
+    it.
+  note: Letterspaced in white directly under the red brushed logo. The Japanese has no article and the
+    English adds one, which is ordinary.
+- credit: いくたはな
+  latin: Hana Ikuta
+  kind: official-latin-name
+  seen_on: cache://cdn_img_comic_action_com__tion_com_public_series_thumbnail_4856001361003854805_b179f08bf0847b6a74d32dc71b511268_1677643066__b7880cc478dc77bf.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: 'THIRD COVER FOR THIS CREDIT AND THE TALLY IS NOW TWO TO ONE. Hana Ikuta here and on ニセアイホンアイ,
+    Ikuta Hana on 魔女の孫と七人のメイド. So the publisher leans to given-name-first for this artist but has printed
+    both, which leaves the earlier conclusion standing: there is no convention to follow and the order
+    is ours to decide.'
+- work: 宵子の肖像
+  reading: ヨイコ
+  of: 宵子
+  kind: title-furigana
+  seen_on: cache://cdn_comicnettai_com__https___cdn_comicnettai_com_9_c2b3fc5aa6547df94ec500f29b54c231_books_30_yoiko2_jpg__de2352f0e425cfcd.jpg
+  decision: reading
+  why_decided: A reading is not a title, and there is no Latin on this banner at all.
+  note: Set in small katakana beside the yellow logo. 宵 is not a common name character and would not
+    give Yoi without being told, so the ruby is doing real work. The banner is otherwise Japanese throughout.
+- work: 溺れて、愛毒
+  latin: Be addicted to love toxic.....
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183713_f292f0826f0c7f20e36b4f71be69fd35_1752730099__02e9ac5d8641db77.jpg
+  decision: take-as-title
+  why_decided: 'Sentence case as printed, so rule 1 leaves it, and it renders 溺れて、愛毒 rather than transliterating
+    it: 溺れて is to drown in something and 愛毒 is the love-poison the title coins.'
+  note: OWNER, THE PUNCTUATION IS ODD AND IT IS THE ARTWORK'S. Five full stops, printed as shown, along
+    the top edge. The same phrase runs vertically down the right in script as Be addicted to Love toxic
+    with a capital L and no stops, so the cover does not agree with itself. Recorded from the horizontal
+    setting, which is the fuller one.
+- credit: まこもとたる
+  latin: Makomototaru
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183713_f292f0826f0c7f20e36b4f71be69fd35_1752730099__02e9ac5d8641db77.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed, so rule 1 does not bite.
+  note: A grey script line under the kana credit, low contrast and partly crossed by a rule in the artwork.
+    Agrees with our romanisation, so it confirms.
+- credit: 餡実ツキ
+  latin: Anmi Tsuki
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912966047837743_987506bce5001edbe406acac2646ff50_1756355501__f4ac8ea0cc7bfec7.jpg
+  decision: take-as-spelling
+  why_decided: Mixed case as printed. Rule 2 is about titles.
+  note: Small line under 餡実ツキ on the read-through opening page, family name first. 餡 is the sweet bean
+    paste and gives an, which is not the reading our tables would reach for first in a name.
+- work: 晴れ晴れ日和
+  reading: ハレバレビヨリ
+  of: 晴れ晴れ日和
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_000848_6400eeb3_9eb1_4209_9742_0832e34d9005_jpg__62c5ce60a3c7975a.jpg
+  decision: reading
+  why_decided: A reading is not a title, and the banner carries no Latin.
+  note: Each kana in its own circle along a dotted rule under the logo. 日和 reads びより here with the voicing
+    rather than ひより, which is the ordinary compound behaviour but worth having recorded rather than
+    assumed.
+- work: ギャル推しJKはギャルになりたい
+  latin: GAL OSHI JK HA GAL NI NARITAI
+  kind: cover-romanisation
+  seen_on: cache://public_img_comic_pximg_net__https___public_img_comic_pximg_net_images_work_main_11397_jpg_20260318162356__63fb13e120ba203f.jpg
+  decision: not-a-title
+  why_decided: 'RULE 2 APPLIES. It transliterates ギャル推しJKはギャルになりたい and says nothing in English, GAL
+    included: ギャル is the Japanese use of the word and 推し and なりたい are simply sounded out.'
+  note: Four small caps lines under the JK of the logo. は as HA once more. GAL LOVE inside a heart lower
+    down is decoration on the art rather than a name. The credit is Presented by みなみ, with no Latin
+    for it.
+- work: ゆめぐりゆりめぐり
+  latin: YUMEGURI YURIMEGURI
+  kind: cover-romanisation
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965923183755_281a688afbff285944a28d901e3acb45_1752730099__add5a626099d3859.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates ゆめぐりゆりめぐり and says nothing in English.
+  note: Small caps under the kana logo on the volume 1 cover. It splits the run into two words where
+    the Japanese sets it as one, which is the only thing it adds. PRESENTED BY is set in Latin but the
+    name after it, はづき, is not, so there is no spelling to take.
+- work: 私の知ってるお姉さん
+  latin: A Lady I Know
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360615_418937a4a4ece6bd2626fb28c0404c60_1752730099__c04d9b10d5efa11e.jpg
+  decision: take-as-title
+  why_decided: RULE 1 APPLIES to the caps. It renders 私の知ってるお姉さん rather than transliterating it.
+  note: Reversed out of a small black bar above the vertical logo. お姉さん is the older woman rather than
+    a sister here, and lady is the publisher's reading of that.
+- credit: 乙川灯
+  latin: Akari Otokawa
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360615_418937a4a4ece6bd2626fb28c0404c60_1752730099__c04d9b10d5efa11e.jpg
+  decision: take-as-spelling
+  why_decided: RULE 1 APPLIES to the caps in PRESENTED BY AKARI OTOKAWA.
+  note: Under the kanji credit at the foot, given name first. 灯 gives Akari, which is a name reading
+    rather than the everyday one, and 乙川 could be Otsukawa from the characters alone. GIRL MEETS LADY
+    letterspaced down the logo is a tagline.
+- work: 好きな人が指輪をつけてきた
+  latin: Someone you love is wearing a ring
+  kind: official-latin-title
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360579_ba20d939e4c09c70ff25b5e46dcc7680_1752730099__92a49c08ed219cea.jpg
+  decision: take-as-title
+  why_decided: Sentence case as printed, so rule 1 leaves it, and it renders 好きな人が指輪をつけてきた rather than
+    transliterating it.
+  note: Small script set at an angle across the top of the logo block on the read-through opening page.
+    The Japanese is the moment of noticing and the English keeps it.
+- credit: しらいぬ
+  latin: shirainu
+  kind: official-latin-name
+  seen_on: cache://cdn_img_ichicomi_com__comi_com_public_series_thumbnail_2550912965919360579_ba20d939e4c09c70ff25b5e46dcc7680_1752730099__92a49c08ed219cea.jpg
+  decision: take-as-spelling
+  why_decided: Lowercase as printed, and rule 1 only recases capitals.
+  note: SECOND CREDIT IN THIS PASS THAT STYLES ITSELF LOWERCASE, after u-temo. Set directly under the
+    kana credit in the debut banner. Our romanisation would capitalise it to Shirainu, so recording
+    it as printed is the difference between the artist's styling and ours.
+- work: 親友に好きな人ができたらしい
+  latin: SHINYU NI SUKINAHITO GA DEKITA RASHII
+  kind: cover-romanisation
+  seen_on: cache://public_img_comic_pximg_net__https___public_img_comic_pximg_net_images_work_main_11352_jpg_20260305185735__77ac35e91d24e9e0.jpg
+  decision: not-a-title
+  why_decided: RULE 2 APPLIES. It transliterates 親友に好きな人ができたらしい and says nothing in English.
+  note: Three letterspaced caps lines at the top right, above a rule, with the credit under it. It drops
+    the long vowel in 親友, giving SHINYU where our rules give Shinyuu, and runs 好きな人 together as one
+    word.
+- credit: 山本まと
+  latin: Mato Yamamoto
+  kind: official-latin-name
+  seen_on: cache://public_img_comic_pximg_net__https___public_img_comic_pximg_net_images_work_main_11352_jpg_20260305185735__77ac35e91d24e9e0.jpg
+  decision: take-as-spelling
+  why_decided: RULE 1 APPLIES to the caps in MATO YAMAMOTO.
+  note: Under the rule in the same block, given name first, while the kanji credit lower down reads
+    山本まと in Japanese order. Both orders on the same cover again, as with 貞松龍壱. Liluct Comics and Hugピクシブシリーズ
+    at the foot are the imprint and series line.

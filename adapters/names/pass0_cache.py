@@ -42,6 +42,7 @@ import collections
 import pathlib
 import re
 import sys
+import unicodedata
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
@@ -147,15 +148,42 @@ def platform_handles(host_pages, host_handles):
     return out
 
 
+def needs_no_romanising(name):
+    """Whether every letter in the surface is already a Latin one, so the string the platform
+    printed is the English name too.
+
+    ASKED OF THE LETTERS, NOT OF THE BUCKET. This read `script_class(ja) == "latin"`, which is one
+    of five buckets and answers a narrower question than the rule wants. `2332` is a work
+    BOOK☆WALKER sells under that title: no kanji, no kana, and no Latin letter either, so it fell
+    into `other`, got no record at all, and was the last row keeping `works without English` off
+    zero. Digits and punctuation carry no reading, so a title made of them is finished as it
+    stands.
+
+    AND ASKING ONLY FOR THE ABSENCE OF JAPANESE IS TOO WIDE, which the first version of this did.
+    `싱글벙글환상향` and four other Korean pen names sit in the same `other` bucket as `2332`, and
+    Hangul romanises: recording one as its own English would publish a name in a script the reader
+    asked not to see and claim on the record that no romanisation was involved. What a digit and a
+    Latin letter have in common is that neither is waiting to be read, and a letter in any other
+    script is.
+
+    `mixed` STAYS OUT for the same reason. Kana beside Latin still has to be read before it can be
+    spelled, so any Japanese at all sends a name on to the later passes.
+    """
+    for ch in str(name or ""):
+        if unicodedata.category(ch).startswith("L") and "LATIN" not in unicodedata.name(ch, ""):
+            return False
+    return True
+
+
 def run(store, authors, titles, cache_root, verbose=False):
     stats = collections.Counter()
 
-    # 1. Latin surfaces. Nothing to look up: the platform printed the author's own rendering, so it
-    #    is `stated` and verified. There is no kana reading and there should not be one — a Latin
-    #    pen name is not a transliteration of anything (§1).
+    # 1. Surfaces with no Japanese in them. Nothing to look up: the platform printed the author's
+    #    own rendering, so it is `stated` and verified. There is no kana reading and there should
+    #    not be one — a Latin pen name is not a transliteration of anything (§1).
     for kind, names in (("authors", authors), ("titles", titles)):
         for ja in names:
-            if kana.script_class(ja) != "latin":
+            if not needs_no_romanising(ja):
                 continue
             if store.records[kind].get(ja, {}).get("en"):
                 continue
@@ -167,9 +195,16 @@ def run(store, authors, titles, cache_root, verbose=False):
                          # English name rather than anyone's rendering of it.
                          basis="stated" if kind == "authors" else "official-jp",
                          source_kind="platform",
-                         script="latin",
+                         # SAID ONLY WHERE IT IS TRUE. `openbd_reading.unsettled` reads this field
+                         # as "no reading is owed", and a title made of digits owes none either;
+                         # writing `latin` on one would answer that question with a claim about
+                         # the script that is simply false. Absent says the same thing to every
+                         # reader that asks the surface instead.
+                         **({"script": "latin"} if kana.has_latin(ja) else {}),
                          source="surface",
-                         note="already Latin on the platform's own page; no romanisation involved",
+                         note="already Latin on the platform's own page; no romanisation involved"
+                              if kana.has_latin(ja) else
+                              "no Japanese on the platform's own page; no romanisation involved",
                          **{"pass": 0})
             stats[f"{kind}-latin"] += 1
         store.maybe_compact()

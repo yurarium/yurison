@@ -47,6 +47,28 @@ def main(s):
     s.eq(p0.CACHE_HOST.findall("KC_000031_S.html"), [],
          "a filename carrying no host yields none, and the directory stands in")
 
+    # ── WHICH SURFACES NEED NO LOOKING UP AT ALL ──────────────────────────────────────────────
+    #
+    # The rule used to ask `script_class(ja) == "latin"`, which is a bucket rather than the
+    # question. `2332` is a work BOOK☆WALKER sells under that title and it holds no kanji, no kana
+    # and no Latin letter, so it landed in `other`, got no record, and was the last row keeping
+    # `works without English` off zero.
+    s.check(p0.needs_no_romanising("Distortion"), "a Latin title is already its own English")
+    s.check(p0.needs_no_romanising("2332"), "and so is a title made of digits, which has no reading to find")
+    s.check(p0.needs_no_romanising("Girl@Girl"), "punctuation inside it changes nothing")
+    s.check(not p0.needs_no_romanising("球詠"), "kanji has to be read before it can be spelled")
+    s.check(not p0.needs_no_romanising("ゆゆ式"), "and so does kana")
+    # THE COUNTER-CASE THAT NARROWED THE RULE. The first version asked only whether the surface
+    # held Japanese, which admitted five Korean pen names sitting in the same `other` bucket as
+    # `2332`. Hangul romanises, so recording one as its own English would publish a name in the
+    # script the reader asked not to see and claim on the record that no romanising was involved.
+    s.check(not p0.needs_no_romanising("싱글벙글환상향"),
+            "Hangul is a letter waiting to be read, which is what separates it from a digit")
+    # THE COUNTER-CASE THAT KEEPS THE RULE HONEST. `mixed` is kana beside Latin, and the kana half
+    # still owes a reading, so a surface with any Japanese in it goes to the later passes.
+    s.check(not p0.needs_no_romanising("Vチューバー"),
+            "Latin beside kana is not a finished name; the kana half still has to be read")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "names.pass0_cache"))

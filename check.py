@@ -4043,8 +4043,16 @@ def budget_titles_with_no_translation_of_our_own(ctx):
     # title as well as the platform's, so a work whose subtitle a cataloguer wrote after a colon has
     # two entries pointing at one record; counting keys read that as two titles needing a
     # translation. The alias carries `alias_of` for exactly this.
-    return sum(1 for v in titles.values()
-               if isinstance(v, dict) and not v.get("alias_of")
+    #
+    # AND A TITLE WITH NO JAPANESE IN IT IS NOT IN THE POPULATION. `Distortion`, `GIRL FRIENDS` and
+    # 94 others are the work's own title as the Japanese platform printed it, which `pass0_cache`
+    # records `official-jp` because that is exactly what it is. There is no second form to write:
+    # a translation of `Distortion` is `Distortion`, and the romanisation a reader falls through to
+    # is the same string again, so the control this budget protects is already answered for them.
+    # Counting them would put 96 items into a queue nobody can ever work off, which makes the
+    # number stop meaning what its name says.
+    return sum(1 for k, v in titles.items()
+               if isinstance(v, dict) and not v.get("alias_of") and JAPANESE.search(str(k))
                and set(v.get("en_forms") or {}) & {"official-jp", "licensed"}
                and not (v.get("en_forms") or {}).get("translated"))
 

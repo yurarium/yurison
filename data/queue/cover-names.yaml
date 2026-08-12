@@ -3755,3 +3755,65 @@ candidates:
   note: Set in script inside wave dashes under the logo. It settles 蝶乃 as Chono, which the characters
     alone would not give. Credit is 東雲もづく, the same artist as 汗フェチ半田さんは味わいたい earlier in this pass. The
     wave dashes are the artwork's framing rather than part of the name, so they are dropped.
+- work: 白と黒～Black & White～
+  latin: Black & White
+  kind: caps-confirmed-by-live-text
+  seen_on: cache://cdn_public_comici_jp__ttps___cdn_public_comici_jp_series_816768_20241002191551589F79BC435B406A8F9CA48365F294DCB3D_webp__419f030424c963c0.webp
+  decision: noted
+  why_decided: The work is carried as 白と黒～Black & White～ and the artwork prints the same words in the
+    same initial caps, so nothing changes.
+  note: Set vertically in a fine script between 白 and 黒, framed by hyphens where our title uses wave
+    dashes. That is a punctuation difference in the platform's own transcription rather than a naming
+    one. COMIC リュエル at the top left is the magazine.
+- work: けいおん！Ｓｈｕｆｆｌｅ
+  latin: K-ON! Shuffle
+  kind: official-latin-title
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1z91bO_hG_webp_h_7zDeBIeMTwACOkxEkrl2yQ_e_5000000000__1f21a30ac866861c.webp
+  decision: take-as-title
+  why_decided: 'Not all caps, so rule 1 does not reach it: K-ON! is set in capitals and Shuffle is not.
+    Rule 2 does not bite, since けいおん is itself a clipping of 軽音楽 that the licensed English has long
+    spelled K-ON!.'
+  note: Small in the logo mark at the top right, above the kana. Our title is けいおん！Ｓｈｕｆｆｌｅ with the
+    Shuffle in fullwidth Latin, so this is the same name in halfwidth; whether we normalise the width
+    is a separate question from what the work is called.
+- work: けいおん！Ｓｈｕｆｆｌｅ
+  reading: シャッフル
+  of: Shuffle
+  kind: title-furigana
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1z91bO_hG_webp_h_7zDeBIeMTwACOkxEkrl2yQ_e_5000000000__1f21a30ac866861c.webp
+  decision: reading
+  why_decided: A reading is not a title.
+  note: A SEVENTH LATIN STRING TOLD HOW TO SAY ITSELF, after escape into the light, SHWD, IDOL×IDOL
+    STORY!, citrus+, Killer♡Twinkle and DOUBLE HELIX BLOSSOM. Set in katakana beside the Shuffle in
+    the logo.
+- work: 推しVが教え子で私がママで！？
+  latin: Oshi V ga Oshiego de Watashi ga Mama de!?
+  kind: cover-romanisation
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1xsA9__9k_webp_h_sBGYjmb1IrRpqcgChJTpTQ_e_5000000000__8e5427f76c32a2a0.webp
+  decision: not-a-title
+  why_decided: 'RULE 2 APPLIES. It transliterates 推しVが教え子で私がママで！？ and says nothing in English: V is
+    already Latin in the Japanese title, and everything around it is sounded out.'
+  note: 'Two small lines in the right of the logo plate. The logo also rubies V as ブイ, so the letter
+    is said as its name. Same shape as OL Vtuber & Oshi JKchan, and refused for the same reason: taking
+    it would put oshi and oshiego into an English name.'
+- work: アフタヌーンティーはいかがですか？ 私と先輩の、不純で一途なふたり暮らし
+  reading: カノジョ
+  of: 先輩
+  kind: title-furigana
+  seen_on: cache://cdn_comic_walker_com___cdn_comic_walker_com_integration_cdpf_resources_007220_f79dc72e_44c3_472b_89fb_677e7b487dbf_jpg__9453568d3dbf8706.jpg
+  decision: reading
+  why_decided: A reading is not a title, and the banner carries no Latin.
+  note: 先輩 is rubied カノジョ, so the word for senior is read as the word for girlfriend. The same rhetorical
+    device as 鬼 read オンナ and 巨人 read わたし, and the third of them in this pass. The title 私と先輩の、不純で一途なふたり暮らし
+    therefore says girlfriend where it writes senior.
+- work: Ｇｏｏｄ　ｎｉｇｈｔ！　Ａｎｇｅｌ
+  reading: グッドナイトエンジェル
+  of: Good night! Angel
+  kind: title-furigana
+  seen_on: cache://img_comic_fuz_com__https___img_comic_fuz_com_c_1xh4b2_2M_webp_h_RRoUBkJsX7c_LAZIwtvuDg_e_5000000000__2cef7fdb55a5cb45.webp
+  decision: reading
+  why_decided: A reading is not a title. The title itself is already Latin and the logo prints it in
+    the same case we carry, in halfwidth where our record uses fullwidth.
+  note: AN EIGHTH LATIN TITLE TOLD HOW TO SAY ITSELF. Set in katakana directly under the logo. Note
+    the gloss drops the exclamation mark entirely, running グッドナイト straight into エンジェル, which is what
+    Killer♡Twinkle's gloss did with its heart.

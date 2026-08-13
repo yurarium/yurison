@@ -187,6 +187,15 @@ def load_rulings(db):
     # one alone, so `('translated','derived')` read as forbidden 2,767 times while `facts/reading`
     # admits it on its first line. `stated` means a different document for a reading than for an
     # English name, which is why the predicate is part of the key rather than a note beside it.
+    # HOW MUCH EACH KIND OF EVIDENCE IS WORTH, asked of the module that decides it. The rank, the
+    # party type and the clause each was read out of are one fact per KIND, not per row.
+    sys.path.insert(0, str(ROOT / "adapters" / "classify"))
+    from classify import credence as _cred_mod
+    for _k, _rank in _cred_mod.RANK.items():
+        db.execute("INSERT OR IGNORE INTO credence_kind (name, rank, type, rule) VALUES (?,?,?,?)",
+                   (_k, _rank, _cred_mod.TYPE[_k], _cred_mod.RULE[_k]))
+    for _h in ("volumes", "delivery-date", "attribution"):
+        db.execute("INSERT OR IGNORE INTO holding (name) VALUES (?)", (_h,))
     for b in _rd.bases():
         for k in _rd.kinds_for(b):
             db.execute("INSERT OR IGNORE INTO basis_admits_kind (basis, predicate, source_kind)"
@@ -940,6 +949,28 @@ def build(path=None, quarantine=False, at=None, source=None):
                     (wid, cl["source"], cl.get("says"), cl.get("term"), cl.get("url"),
                      cl.get("read")), f"state_claim {wid}")
     counts["work_state"] = db.execute("SELECT count(*) FROM work_state").fetchone()[0]
+
+    # WHY A WORK IS FILED AS YURI, AND WHAT ELSE WAS READ FOR IT. Two lists kept apart on purpose:
+    # a volume count says nothing about whether a work is yuri, and running them together would make
+    # the classification look better supported than it is.
+    for _k, r in _rows("series", "series", source):
+        wid = r.get("id")
+        if wid not in held_work:
+            continue
+        for ev in (r.get("evidence") or []):
+            if ev.get("kind") and ev.get("source") and ev.get("term"):
+                put("INSERT INTO evidence (work, kind, source, term, url, page, read)"
+                    " VALUES (?,?,?,?,?,?,?)",
+                    (wid, ev["kind"], ev["source"], ev["term"], ev.get("url"), ev.get("page"),
+                     ev.get("read")), f"evidence {wid} {ev['kind']}")
+        for i, ph in enumerate(r.get("sourced_from") or []):
+            if ph.get("source") and ph.get("holds"):
+                put("INSERT INTO provenance (work, seq, source, holds, url, read)"
+                    " VALUES (?,?,?,?,?,?)",
+                    (wid, i, ph["source"], ph["holds"], ph.get("url"), ph.get("read")),
+                    f"provenance {wid} {i}")
+    counts["evidence"] = db.execute("SELECT count(*) FROM evidence").fetchone()[0]
+    counts["provenance"] = db.execute("SELECT count(*) FROM provenance").fetchone()[0]
     counts["state_claim"] = db.execute("SELECT count(*) FROM state_claim").fetchone()[0]
 
     # EDITIONS. `works.json` is keyed by the RECORD identifier a catalogue or a shop issued, and

@@ -392,6 +392,55 @@ CREATE TABLE work_presentation (
   note       TEXT
 );
 
+-- ── why a work is filed as yuri, and what else was read for it ─────────────────────────────────
+--
+-- HOW MUCH A PIECE OF EVIDENCE IS WORTH IS A PROPERTY OF ITS KIND, which is why the rank and the
+-- party type are here rather than on 2,492 rows. `classify/credence` states all three and the file
+-- writes the rule once per kind for the same reason.
+CREATE TABLE credence_kind (
+  name TEXT PRIMARY KEY,
+  rank INTEGER NOT NULL UNIQUE,
+  type TEXT NOT NULL,
+  rule TEXT NOT NULL
+);
+
+-- ONE ROW PER SOURCE THAT SPEAKS TO WHETHER THE WORK IS YURI. The term is a QUOTATION: `百合・GL`
+-- and an imprint name are visibly different claims and a reader weighs them without help, so the
+-- page prints the source's own word and translates none of it.
+CREATE TABLE evidence (
+  id     INTEGER PRIMARY KEY,
+  work   TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  kind   TEXT NOT NULL REFERENCES credence_kind(name),
+  source TEXT NOT NULL,
+  term   TEXT NOT NULL,
+  -- THE ADDRESS THE CLAIM IS ON, never the address of the thing claimed about: for a shelf row that
+  -- is the shop's 百合 listing and not its page for the book, and `page` says which page of that
+  -- listing the work was read from.
+  url    TEXT,
+  page   INTEGER,
+  read   TEXT CHECK (read IS NULL OR read GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR read GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
+);
+
+-- STRONGEST FIRST AND NO ROW TWICE, which is `credence.order`'s key and is what this refuses.
+CREATE UNIQUE INDEX evidence_one ON evidence (work, kind, source, term);
+
+-- WHAT WE HOLD OF A WORK, which a classification says nothing about. Volume counts, dates and
+-- bylines are read from sources that speak to none of `evidence` above, and running the two
+-- together would make the classification look better supported by padding it with rows answering a
+-- different question.
+CREATE TABLE holding (name TEXT PRIMARY KEY);
+
+CREATE TABLE provenance (
+  id     INTEGER PRIMARY KEY,
+  work   TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  seq    INTEGER NOT NULL,
+  source TEXT NOT NULL,
+  holds  TEXT NOT NULL REFERENCES holding(name),
+  url    TEXT,
+  read   TEXT CHECK (read IS NULL OR read GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR read GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  UNIQUE (work, seq)
+);
+
 -- ── the strings a reader is shown ───────────────────────────────────────────────────────────────
 --
 -- A CLAIM IS ABOUT A NAME AND NOT ABOUT A THING, which STORE-PLAN §5 is where the schema stopped

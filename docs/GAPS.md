@@ -2787,3 +2787,39 @@ the harder question of a work's own length to whatever can source it.
 it calls it. Whether a work page states instalments, chapters, both, or neither is an interface
 decision that can only be made once there is something true to state, and it should be settled
 where interface decisions are settled rather than folded into a schema change.
+
+## A platform can carry one work as several listings, and nothing says which continue. Found 2026-08-13
+
+STORE-PLAN §4 keyed an offer on its address after `(work, platform)` refused 11 rows. That is right
+about what a platform PRESENTS and silent about what the listings mean. 10 pairs exist:
+
+    田所さん                  ニコニコ漫画    119 and 16
+    不器用ビンボーダンス       ニコニコ漫画    100, 100 and 67
+    転生王女と天才令嬢の魔法革命  カドコミ       144 and 4
+    やがて君になる             ニコニコ漫画    46 and 3
+
+**THE TITLES SETTLE ONE OF THEM.** ニコニコ's own pages read `田所さん` at comic/41133 and
+`田所さん（２）` at comic/55102: one work, a first run and a second, listed apart. So the corpus
+holds two offers where a reader would say one serialisation continued.
+
+**THE HUNDRED-PART THEORY WAS TESTED AND DOES NOT HOLD.** 不器用ビンボーダンス reads 100, 100 and
+67, which looks like a cap. Only 3 offers in the whole corpus state exactly 100, two of them that
+work's, and 田所さん runs 119 on the same platform. Whatever splits that work into three, a listing
+limit of 100 is not it, and its three pages are not in the capture cache so nothing here can say
+what does. Recorded because the number was suggestive and the conclusion did not follow from it.
+
+**THE MODEL IS RIGHT AND THE RULING IS THE OWNER'S, 2026-08-13:** mirroring the site's own
+breakdown is fine, PROVIDED every listing is represented. So `offer` keyed on its address stands,
+and joining three listings into one run is not wanted. Nothing needs merging.
+
+**WHICH MOVES THE GAP FROM MERGING TO COMPLETENESS.** The fault to fear is a listing we do not
+hold: a capture that finds comic/41035 and misses comic/70296 understates the work by 67
+instalments, and every count downstream is quietly short. Nothing verifies that the listings held
+for a work are all of them, because that needs the platform's own index of what it carries under
+one title, and no capture asks for it.
+
+**AND THE NEWEST LISTING IS THE LIVE ONE.** 不器用ビンボーダンス is still updating in the third of
+its three, so a work's state belongs to its most recent listing rather than to the longest or the
+first. 470 of the 471 ニコニコ offers state no latest date, so nothing in `offer` can currently
+say which listing is the live one; the work's state is decided elsewhere and this table cannot
+corroborate it.

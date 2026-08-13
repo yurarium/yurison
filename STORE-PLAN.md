@@ -267,9 +267,15 @@ runs the cache-free cycle, which is the reconciliation this plan depends on.
 ## 9. The maintenance pass, and what it works from
 
 **WHAT THIS SECTION IS.** The unattended run populates what it can and sets aside what it cannot.
-This is the process that deals with the residue afterwards, run on the project owner's instruction.
-It says what the pass reads and what it does with each class of thing. It deliberately says nothing
-about when it runs.
+This is the process that deals with the residue afterwards. It says what the pass reads, what it
+does with each class of thing, and what it may not touch. It deliberately says nothing about when
+it runs.
+
+**THE PASS IS EXPECTED TO RUN UNATTENDED TOO, which is what bounds its authority.** It changes DATA
+and RULINGS: a curated name, an identity join, a scope refusal, a decision recorded in a queue file.
+It does not change the code that collects, ingests or compiles. An unattended pass editing an
+adapter would be altering what the next capture MEANS, unreviewed, on the strength of one row it
+could not admit. That is the one thing a maintenance run must not be able to do.
 
 **WHAT IT READS, in this order, because each earlier one can create work for the later ones.**
 
@@ -292,16 +298,38 @@ about when it runs.
   is unclaimed, `--merge` where it already carries an id of its own, and the registry refuses the
   wrong one of those, which is how the operation is chosen rather than guessed.
 
-  RULE ON IT. The data is right and the model is wrong, and the honest answer is a schema change
-  or a ruling in `facts/`. §1a says it outright: a constraint routinely violated has become a
-  filter, and quarantine that grows every day means the model is asserting something the data does
-  not support.
+  RULE ON IT, WHERE THE RULING IS DATA. Out of scope is `data/scope.yaml`, a doubtful designation is
+  a rebuttal, a name is `curated.yaml`. Each carries its reasoning where the next pass finds it
+  rather than in a commit message.
 
-  REFUSE IT. The data is out of scope or wrong, which is `data/scope.yaml` or a rebuttal, and the
-  reasoning is recorded where the next pass will find it rather than in a commit message.
+  DEFER IT, WHERE THE ANSWER IS A CHANGE TO THE PIPELINE. A requirement nobody wrote down, a source
+  that changed shape, a bug in an adapter, a model asserting something the data does not support.
+  This is a legitimate finding and the commonest one worth having, and it is not the maintenance
+  pass's to act on. Document it and stop.
 
 Every quarantined row leaves by one of those four doors. An empty quarantine emptied by deletion
 looks exactly like one emptied by work, which is the whole reason to write the doors down.
+
+**AN EARLIER DRAFT OF THIS SECTION GOT THE THIRD DOOR WRONG, and the mistake is worth keeping.** It
+said the answer to a wrong model was "a schema change or a ruling in `facts/`", which is code, so a
+pass forbidden to touch the pipeline was being told to change it. Splitting the door in two is what
+the boundary above actually requires: a ruling that is data the pass makes, and a ruling that is
+code it defers.
+
+**WHAT A DEFERRAL HAS TO CONTAIN to be worth more than a note saying something is wrong.** The
+quarantined row itself and the constraint that refused it, the capture or adapter it came from, how
+many rows share the shape, and what the pass believes is happening. Enough that a later session,
+directed at it, can reproduce the case without rediscovering it.
+
+It goes to `docs/GAPS.md` for a class, which is what that file is for and what it already
+holds for six findings from 2026-08-13. A queue file where the deferral is a list of rows rather
+than an argument. Neither is the build, so writing to them stays inside the boundary.
+
+**AND THE COUNT MUST NOT SETTLE.** A deferral leaves the row in quarantine, so §1a's budget keeps
+counting it, which is correct: nothing has been resolved. What that means in practice is that a
+pipeline fault shows up as a number that stops falling, and a pass that deferred everything looks
+exactly like a pass that did nothing. So the deferral is recorded where a person reads it, and the
+budget is what makes the silence visible.
 
 **BUDGETS THAT MOVED.** A rise is accepted with a recorded reason and never edited away, and the
 reason has to be established rather than assumed. The method that works is to put the new inputs

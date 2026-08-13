@@ -42,6 +42,7 @@ below moves one domain to the other side of that line.
 | | stage | needs |
 |---|---|---|
 | §1 | Measure what travels around the store | nothing |
+| §1a | Somewhere for what a constraint refuses | before anything refuses |
 | §2 | Fill the two tables that were designed and never written | §1 |
 | §3 | Volumes, editions and the print run | §2 |
 | §4 | Releases and the per-platform offer | §3 |
@@ -66,6 +67,50 @@ adding tables, because it is asked of what the site SERVES rather than of what t
 **WHAT IT CANNOT SEE, §14b.** A field derivable in principle and not in fact, because the emitter
 still reads the JSON. That is why §6 stands as its own section: derivability is the measure and
 emission is the proof, and this budget only asks the first.
+
+## 1a. Somewhere for what a constraint refuses
+
+**THE RULE THIS PROTECTS, stated by the project owner 2026-08-13.** An update runs unattended and
+must go on running, populating whatever it can. Data that cannot be merged or represented
+consistently is surfaced so that a person, or somebody working on their instruction, can deal with
+it afterwards. Nothing about moving to a relational store may weaken that.
+
+**THE PLAN AS FIRST WRITTEN BROKE IT IN TWO PLACES.** §4 said a release naming a work we do not hold
+"stops being a budget and starts being a refused insert", and §3 said a constraint makes a fault
+"unstateable". Both are right where a person is present and wrong at 00:37 JST. A refused insert in
+an unattended run either fails the job or drops the row silently, and the second is worse because
+nothing says it happened.
+
+**THE PROJECT ALREADY ANSWERS THIS AND THE ANSWER HAS TO SURVIVE.** `data/queue` holds 35 files
+that exist to be worked by hand. `check.py --runtime` counts and reports and never fails while
+`--gate` fails, which is the same split one layer up. `update.yml` marks five steps
+`continue-on-error` on purpose. What changes under this plan is only that a schema refuses at
+INSERT time, before any report could be written, which is earlier and harder than a check that runs
+afterwards.
+
+**WHAT TO BUILD.** The loader attempts the insert, catches the integrity error, and writes the row
+to a quarantine table carrying the constraint that refused it, the source record it came from, and
+when. The run continues. Nothing is lost and nothing is admitted.
+
+**THIS KEEPS "NO DATA TRAVELS AROUND THE STORE" TRUE IN THE STRONG SENSE.** Even the data that could
+not be modelled is IN the store, in a table of its own, rather than in a file beside it or in a log
+nobody reads. A queue file remains the right place for a DECISION somebody has to make; the
+quarantine is the record of what the compiler could not admit, and the two are different things.
+
+**HOW IT IS MEASURED.** A budget counting quarantined rows, which ratchets like every other. It is
+the number that tells a bad week of captures from a wrong model, and keeping that distinction
+visible is why it must be counted and watched.
+
+**THE FAILURE MODE TO WATCH, and it is why this section exists rather than a paragraph in §3.** A
+constraint that is routinely violated has stopped being a constraint and become a filter. Quarantine
+makes an unattended run survivable; a quarantine that grows every day means the schema is asserting
+something the data does not support, and the honest response is to change the model rather than to
+keep filtering. Without the budget those two look identical from outside.
+
+**RECONCILIATION COMPARES QUARANTINES TOO.** §7's weekly rebuild sets a fresh compile beside an
+incrementally updated store. If it compares only admitted rows, an incremental path that quietly
+discarded what a rebuild keeps would pass. So the quarantine is part of what must agree, and a
+difference in it is a divergence exactly as much as a difference in `work`.
 
 ## 2. Fill the two tables that were designed and never written
 
@@ -95,8 +140,10 @@ deadline set by a schema.
 exists, a date with its basis and its source, and the record each fact came from. `claim` already
 holds that shape for other facts and is the pattern to follow rather than a second one to invent.
 
-One constraint is worth having here on its own. `volumes with an isbn and no date` is a zero budget today,
-enforced by a check. As a schema constraint it becomes unstateable.
+One constraint is worth having here on its own. `volumes with an isbn and no date` is a zero budget
+today, enforced by a check. As a schema constraint it becomes unstateable in the admitted tables,
+which is what §1a's quarantine is for: an unattended run that meets one records the row and carries
+on rather than failing or dropping it.
 
 ## 4. Releases and the per-platform offer
 
@@ -105,8 +152,10 @@ holds, what it charges for, and when it last updated. `schema.sql`'s own comment
 properties of the platform's offer and not of the work, which is a relational statement already.
 
 **WHAT BECOMES EXPRESSIBLE.** A release belongs to a work and to a platform, both by foreign key, so
-a release naming a work we do not hold stops being a budget and starts being a refused insert.
-`updates naming a work we do not hold` is 18 today.
+a release naming a work we do not hold is refused rather than counted. `updates naming a work we do
+not hold` is 18 today, and those 18 are the reason §1a comes first: this is the commonest way a
+capture arrives faster than the corpus can admit it, so it is the case the quarantine will carry
+most often and the one that must never cost an unattended run its other work.
 
 ## 5. Renderings, which are derived from a source that stays where it is
 

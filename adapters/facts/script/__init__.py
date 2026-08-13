@@ -20,17 +20,17 @@ AND ONE OF THEM WAS SIMPLY WRONG. `[ぁ-ゖァ-ヿ]` treats `・` as kana, becau
 U+30FB inside the katakana block. `flower・flower` and `百合百景・夜伽` came back as containing kana
 under two of the three kana tests. A separator is not a letter.
 """
-import re
+import re as _re
 
 #: Kana, and nothing that merely lives in the kana blocks. `ー` and `ヿ` are letters here, the first
 #: because it carries a mora and the second because it is a katakana ligature; `・` is not, because
 #: it separates. That distinction is the whole of `facts/credit`'s
 #: interpunct rule and it has to hold here too.
-_KANA = re.compile(r"[ぁ-ゖァ-ヺヽヾゝゞーヿ]")
+_KANA = _re.compile(r"[ぁ-ゖァ-ヺヽヾゝゞーヿ]")
 
 #: Han, with the iteration mark and CJK extension A. The corpus holds one ext-A character, 多㐂, and
 #: a test that missed it would say that name has no kanji.
-_KANJI = re.compile(r"[一-鿿㐀-䶿々\uf900-\ufaff]")
+_KANJI = _re.compile(r"[一-鿿㐀-䶿々\uf900-\ufaff]")
 
 #: Either. This is what most callers mean by "is this Japanese".
 #: THE SAFETY NET SPANS WHOLE BLOCKS, where the letter tests above span letters. `has_script` is
@@ -38,11 +38,11 @@ _KANJI = re.compile(r"[一-鿿㐀-䶿々\uf900-\ufaff]")
 #: is a reader seeing Japanese where they asked for English, so it takes the hiragana and katakana
 #: blocks entire, unassigned slots and all. `test_interface` pins the block boundaries for exactly
 #: this reason and caught it when the class was narrowed to assigned characters.
-_SCRIPT = re.compile(r"[\u3040-\u30ff一-鿿㐀-䶿々\uf900-\ufaff]")
+_SCRIPT = _re.compile(r"[\u3040-\u30ff一-鿿㐀-䶿々\uf900-\ufaff]")
 
 #: Script, or the punctuation and widths a Japanese text uses. A different question: it is true of
 #: `ＦＬＯＷＥＲＣＨＩＬＤ`, which holds no Japanese letter at all.
-_TYPOGRAPHY = re.compile(r"[\u3040-\u30ff一-鿿㐀-䶿々\uf900-\ufaff　-〿＀-￯]")
+_TYPOGRAPHY = _re.compile(r"[\u3040-\u30ff一-鿿㐀-䶿々\uf900-\ufaff　-〿＀-￯]")
 
 
 def has_kana(s):
@@ -73,3 +73,18 @@ def is_all_kana(s):
     """Whether every character is kana, allowing the spacing and separators a name carries."""
     t = str(s or "")
     return bool(t) and all(has_kana(c) or c in "・･ 　" for c in t)
+
+
+#: Characters that have to be READ before they can be romanised. Kana are not among them: hiragana
+#: to katakana is a transcription and cannot be a wrong guess, so a surface already in kana was not
+#: read and nothing about it was guessed. 331 records carried the unverified mark for a reading that
+#: was a transcription of themselves.
+#:
+#: KANJI, LATIN AND DIGITS ALL DISQUALIFY. Each of them has to be read: タイザン5 could end ゴ or
+#: ファイブ, and that is a real guess, so it keeps its mark.
+NEEDS_READING = _re.compile(r"[一-鿿々A-Za-zＡ-Ｚａ-ｚ0-9０-９]")
+
+
+def needs_reading(text):
+    """Whether romanising this string means READING it, rather than transcribing it."""
+    return bool(NEEDS_READING.search(str(text or "")))

@@ -496,19 +496,23 @@ CREATE TABLE name_record (
   uncertain      INTEGER NOT NULL DEFAULT 0 CHECK (uncertain IN (0, 1)),
   ordinary       INTEGER NOT NULL DEFAULT 0 CHECK (ordinary  IN (0, 1)),
   transliterates TEXT,
-  -- WHOSE ANSWER THE SHIPPED ENTRY IS, §6. Where several spellings fold together the compiler picks
-  -- the record that says the most, `fold_map`, and that judgement is the compiler's: an emitter
-  -- ranking them again would be the second implementation §3 refuses. So the answer is a row here.
-  renders        INTEGER NOT NULL DEFAULT 0 CHECK (renders IN (0, 1)),
+  -- WHAT KIND OF THING THE CREDIT IS, where the name store says. `notation` is the one that answers
+  -- NOTHING: `はいむらきよたか(キャラクターデザイン)` is a person with a role welded on, the store
+  -- holds the person separately, and the RENDERING is withheld so a lookup reaches the person. The
+  -- record stays and is marked, which is what lets the withholding be counted rather than silent.
+  entity         TEXT,
+  -- WHOSE ANSWER THE SHIPPED ENTRY IS IS NOT A COLUMN, and the attempt is worth recording. Where
+  -- several spellings fold together the file shows one, chosen by `names/fold` for saying the most.
+  -- Stored here the answer was WRONG: the rule ranks the RENDERED entries and this table holds the
+  -- records, so a record whose rendering is withheld, or whose ruby the reading contradicts, scored
+  -- for fields the reader never sees and won folds it does not win. The rule is one function and
+  -- both callers ask it, which is what §3 wants; what it is asked ABOUT has to be the same thing.
   UNIQUE (kind, spelling),
   FOREIGN KEY (surface, kind) REFERENCES surface (id, kind) ON DELETE CASCADE
 );
 
 CREATE INDEX name_record_surface ON name_record (surface);
 
--- ONE RECORD PER FOLD IS THE ONE THE FILE SHOWS. A partial index, because every other record of the
--- same fold is a 0 and there may be many of those.
-CREATE UNIQUE INDEX name_record_renders ON name_record (surface) WHERE renders = 1;
 
 CREATE UNIQUE INDEX names_edge ON names
   (surface, coalesce(work, ''), coalesce(credit, ''), coalesce(publisher, ''));
@@ -636,6 +640,12 @@ CREATE TABLE claim (
   -- fullest, and that entry could not be emitted from a heap: the reading, the English, the marks
   -- and the citation all have to come from the SAME record or the entry contradicts itself.
   record       INTEGER REFERENCES name_record(id) ON DELETE CASCADE,
+  -- WHETHER THE RECORD STATES THIS BASIS OR INHERITED IT. A division whose record says nothing
+  -- about where its answer came from takes the READING's basis, which `facts/division` says is
+  -- right: a cited basis gave the division with the reading. But the two are then indistinguishable
+  -- in this column, and the interface marks a division only where the record answered for it, so
+  -- 771 names would carry a mark 20 of them earned.
+  basis_stated INTEGER NOT NULL DEFAULT 0 CHECK (basis_stated IN (0, 1)),
 
   -- AND A NOTE THAT IS EMPTY IS NOT A NOTE. Every presence constraint in this file was satisfied
   -- by `''` until §5f: a researched claim with an empty note, a work with an empty title and a

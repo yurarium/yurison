@@ -23,6 +23,19 @@ already excludes from the measure, and the second is documentation addressed to 
 file. They are arguments here rather than columns.
 """
 import json
+import pathlib
+import re
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
+from facts import division as _division                                 # noqa: E402
+from facts import script as _script                                     # noqa: E402
+from names import provenance as _prov                                   # noqa: E402
+try:
+    import pass4_analyser as _p4                                        # noqa: E402
+except Exception:                                                       # noqa: BLE001
+    _p4 = None
 
 
 #: The sentence at the head of `credits.json`, addressed to a reader of the file. It is not data
@@ -453,3 +466,142 @@ def as_text(payload):
 def as_compact(payload):
     """The same, for the files written without indentation because a browser loads them on sight."""
     return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+
+
+#: The sentence at the head of `feed/names.json`.
+NAMES_NOTE = ("English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
+              "feed rows at render time so archived months — which are never rewritten — still "
+              "show current names.")
+
+
+def _entry(db, rec_id, surface, kind, spelling):
+    """One name record as the interface gets it, or None where it should not answer a lookup.
+
+    THE FIELDS ARE IN THE ORDER `render` WRITES THEM, because the file is compared and a dict comes
+    out in insertion order. What each one is and why it is withheld where it is withheld is on that
+    function; nothing is decided again here.
+
+    THE CLAIMS COME FROM ONE RECORD AND THAT IS THE WHOLE POINT OF `claim.record`. An entry is one
+    record's account of a name: its reading, its English, its marks and its citation. Assembled from
+    whichever record of the fold happened to hold each field, it would ship a name nobody wrote.
+    """
+    got = db.execute(
+        "SELECT verified, uncertain, ordinary, transliterates, entity FROM name_record"
+        " WHERE id = ?", (rec_id,)).fetchone()
+    if not got:
+        return None
+    verified, uncertain, ordinary, transliterates, entity = got
+    if entity == "notation":
+        return None
+    person = kind == "author" and not entity
+
+    live = {}
+    forms = {}
+    for (predicate, value, basis, source, source_kind, retrieved, reviewed, url, isbn, note, gone,
+         stated) in db.execute(
+             "SELECT predicate, value, basis, source, source_kind, retrieved, reviewed, url,"
+             " isbn, note, displaced, basis_stated FROM claim WHERE record = ?"
+             " ORDER BY displaced, id", (rec_id,)):
+        if predicate == "english" and basis in ("official-jp", "licensed", "translated"):
+            forms.setdefault(basis, value)
+        if not gone and predicate not in live:
+            live[predicate] = (value, basis, source, source_kind, retrieved, reviewed, url, isbn,
+                               note, stated)
+
+    out = {}
+    reading = live.get("reading")
+    if reading:
+        out["reading"] = reading[0]
+        ruby = [[text, read] for text, read in db.execute(
+            "SELECT text, reading FROM ruby WHERE surface = ? ORDER BY seq", (surface,))]
+        if ruby:
+            out["ruby"] = ruby
+        styles = {s: v for s, v in db.execute(
+            "SELECT style, value FROM romanisation WHERE surface = ?", (surface,))}
+        if styles:
+            out["romaji"] = {k: styles[k] for k in ("macron", "double", "plain") if k in styles}
+        # UNDIVIDED IS NOT A COLUMN ANYWHERE and this is why it does not need to be: it is the
+        # reading and whether the credit is a person, and `facts/division` owns where a name parts.
+        division = live.get("division")
+        if person and not _division.cuts(reading[0]):
+            out["undivided"] = True
+        elif person and division and division[9]:
+            # AND ONLY WHERE THE RECORD ANSWERED FOR THE DIVISION. A division that states no basis
+            # of its own takes the reading's, which is right and is not a statement about where the
+            # parting point came from, so marking it would put a mark on 771 names 20 of them
+            # earned. `claim.basis_stated` is the difference.
+            out["division_basis"] = division[1]
+    if transliterates:
+        out["transliterates"] = transliterates
+    english = live.get("english")
+    if english:
+        out["en"] = _latin(english[0])
+    if english and english[1]:
+        out["basis"] = english[1]
+    elif reading and not english:
+        out["basis"] = "romaji"
+    if forms:
+        out["en_forms"] = forms
+    if reading and reading[1]:
+        out["reading_basis"] = reading[1]
+    for claim, which, key in ((reading, "reading", "reading_cite"),
+                              (english, "en", "en_cite")):
+        cite = _cite(claim, which)
+        if cite:
+            out[key] = cite
+    # THE MARK SAYS THE READING MIGHT BE WRONG, so it is drawn only where something was GUESSED.
+    # Every clause is `render`'s, because a second reading of when to doubt a name is a second
+    # answer: a surface already in kana was transcribed rather than read, ordinary vocabulary in a
+    # title is not a coinage, and a researched or stated reading is somebody's answer already.
+    mechanical = spelling and not _script.needs_reading(spelling)
+    plain = ordinary and reading and reading[1] == "analyser"
+    if (verified == 0 and not mechanical and not plain
+            and (not reading or reading[1] not in ("researched", "stated"))):
+        out["unverified"] = True
+    if uncertain:
+        out["uncertain"] = True
+    if out and entity:
+        out["entity"] = entity
+    # THE ADDRESS OF THE RECORD THIS NAME IS, which is not a rendering: it does not depend on the
+    # reader's language, style or name order. A title gets none, because a work's identifier is
+    # already on its own row. A name the registry credits nothing is a state and not a gap.
+    if out and kind == "author":
+        got = db.execute("SELECT credit FROM names WHERE surface = ? AND credit IS NOT NULL"
+                         " ORDER BY credit", (surface,)).fetchone()
+        if got:
+            out["id"] = got[0]
+    return out or None
+
+
+#: A source's convention for showing both names at once, `HINO Arashi (日野アラシ)`. The bracketed
+#: part is not part of the name and it puts Japanese back on an English page.
+_BOTH_NAMES = re.compile(r"[（(][ぁ-ヿ一-鿿\s]+[)）]\s*$")
+
+
+def _latin(en):
+    """An English name as the file carries it: punctuation an English reader can read.
+
+    ONE PRODUCER OF THE TRANSFORM, `names/pass4_analyser.latinise`, which normalises the typography
+    and touches no letter. The store holds what the name record says, which is the claim; this is
+    the same string spelled for the page it is going on, and `render` does exactly this much to it.
+    """
+    if not en:
+        return en
+    if _BOTH_NAMES.search(en):
+        en = re.sub(r"\s*[（(][^)）]*[)）]\s*$", "", en)
+    return _p4.latinise(en) if _p4 else en
+
+
+def _cite(claim, which):
+    """What a reader can go and check, ASKED OF `names/provenance` and not decided here.
+
+    Which claims owe a document, which addresses may be shown, and what an ISBN standing in for a
+    closed route looks like are all that module's, and a second copy of any of them would be the
+    one that disagrees. This rebuilds the record shape it takes and asks.
+    """
+    if not claim:
+        return None
+    value, basis, source, source_kind, _retrieved, reviewed, url, _isbn, _note, _st = claim
+    return _prov.cite({which: value, _prov.BASIS_FIELD[which]: basis, f"{which}_source": source,
+                       f"{which}_source_kind": source_kind, f"{which}_reviewed": reviewed,
+                       f"{which}_url": url}, which)

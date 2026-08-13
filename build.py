@@ -1488,7 +1488,9 @@ JAPANESE_SCRIPT = _script._SCRIPT
 
 # Characters that have to be READ before they can be romanised. Kana are not among
 # them: hiragana to katakana is a transcription and cannot be a wrong guess.
-NEEDS_READING = re.compile(r"[一-鿿々A-Za-zＡ-Ｚａ-ｚ0-9０-９]")
+# ASKED OF `facts/script`, which owns which writing system a string is in, because §6 needs the
+# store to draw the unverified mark on the same rule the build draws it on.
+NEEDS_READING = _script.NEEDS_READING
 
 
 def _shop_address(rec):

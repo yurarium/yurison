@@ -156,5 +156,37 @@ def main(s):
              "and every field of every record, parsed")
 
 
+    # ── ONE NAME RECORD AS THE INTERFACE GETS IT, which `feed/names.json` is 6,000 of ──────────
+    #
+    # THE FILE IS NOT EMITTED YET and this is the piece it is built out of, so what is asserted is
+    # that an entry comes out of the TABLES and says what the record says. The map itself waits on
+    # a claim being able to belong to two records, which STORE-PLAN §6 carries.
+    # THE RENDERINGS ARE THEIR OWN LOAD, because the compiler cannot hand the map over until it has
+    # emitted the two files the map is assembled from. A rebuild reads the shipped one, which is
+    # what this does.
+    shipped_names = BUILD / "feed" / "names.json"
+    if shipped_names.exists():
+        relational.renderings(db, json.loads(shipped_names.read_text(encoding="utf-8")))
+    got_n = None
+    for rid, sid, kind, spelling in db.execute(
+            "SELECT id, surface, kind, spelling FROM name_record WHERE kind = 'author'"
+            " ORDER BY id"):
+        entry = emit._entry(db, rid, sid, kind, spelling)
+        if entry and entry.get("reading") and entry.get("romaji"):
+            got_n = entry
+            break
+    s.check(got_n, "a name record renders out of the store")
+    s.eq(sorted(got_n["romaji"]), ["double", "macron", "plain"],
+         "in the reader's three styles, from `romanisation` and not from a string")
+    s.check(got_n.get("reading_basis"),
+            "and it says how the reading was arrived at, which is the claim's own basis")
+    s.check(not any(emit._entry(db, rid, sid, k, sp)
+                    for rid, sid, k, sp in db.execute(
+                        "SELECT id, surface, kind, spelling FROM name_record"
+                        " WHERE entity = 'notation'")),
+            "A NAME WITH A ROLE WELDED ON ANSWERS NOTHING, because the store holds the person "
+            "separately and a lookup on the raw field has to reach them")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

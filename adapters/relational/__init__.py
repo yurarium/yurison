@@ -24,7 +24,6 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
 
 from facts import namekey as _namekey
-from names import fold as _foldmod                                     # noqa: E402
 from relational import delta as _delta                                  # noqa: E402
 from relational import delta                                            # noqa: E402
 from facts import reading as _reading                                   # noqa: E402
@@ -635,12 +634,6 @@ def build(path=None, quarantine=False, at=None, source=None):
         if not path.exists():
             continue
         rows = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("names", {})
-        # WHOSE ANSWER THE SHIPPED ENTRY IS, §6. `feed/names.json` holds one entry per FOLD and 112
-        # author spellings fold onto another's key, so the file shows one record's account of the
-        # name and the store has to know which. `names/fold` is the one producer of that choice and
-        # `build.py` asks the same function, which is what keeps the store's answer and the file's
-        # from being two answers.
-        _chosen = set(_foldmod.fold_map(rows, _namekey.fold)[2].values())
         for name, r in rows.items():
             if not isinstance(r, dict):
                 continue
@@ -654,14 +647,11 @@ def build(path=None, quarantine=False, at=None, source=None):
             # THE JUDGEMENT BELONGS TO THE RECORD THAT WAS JUDGED, §5h. These were columns on the
             # FOLD and two spellings folding together overwrote each other, losing 14 rulings.
             put("INSERT INTO name_record (kind, spelling, surface, verified, uncertain, ordinary,"
-                " transliterates) VALUES (?,?,?,?,?,?,?)",
+                " transliterates, entity) VALUES (?,?,?,?,?,?,?,?)",
                 (surface_kind[f], name, sid,
                  None if r.get("verified") is None else int(bool(r["verified"])),
                  int(bool(r.get("reading_uncertain"))), int(bool(r.get("reading_ordinary"))),
-                 r.get("transliterates")), f"name_record {f} {name}")
-            if name in _chosen:
-                db.execute("UPDATE name_record SET renders = 1 WHERE kind = ? AND spelling = ?",
-                           (surface_kind[f], name))
+                 r.get("transliterates"), r.get("entity")), f"name_record {f} {name}")
             # AND THE CLAIMS BELOW BELONG TO IT, §6. Hung off the fold alone they arrived in one
             # heap wherever two spellings fold together, and the entry a reader is shown has to
             # come from one record or it contradicts itself.
@@ -765,14 +755,15 @@ def build(path=None, quarantine=False, at=None, source=None):
                 # whether to put it in front of a reader is §6's question about a page, and a store
                 # that dropped it would be answering a display question with a missing fact.
                 put("INSERT INTO claim (surface, kind, predicate, value, basis, source,"
-                    " source_kind, url, isbn, note, record)"
-                    " VALUES (?,?,'division',?,?,?,?,?,?,?,?)",
+                    " source_kind, url, isbn, note, record, basis_stated)"
+                    " VALUES (?,?,'division',?,?,?,?,?,?,?,?,?)",
                     (sid, surface_kind[f], divided or r.get("reading") or "", basis,
                      r.get("reading_source") if lends else None,
                      _kind_of(r) if lends else None,
                      (cited.get("url") or r.get("reading_url")) if lends else None,
                      cited.get("isbn"),
-                     r.get("reading_boundary") or r.get("reading_note"), rec_id),
+                     r.get("reading_boundary") or r.get("reading_note"), rec_id,
+                     int(bool(r.get("reading_boundary_basis")))),
                     f"claim division {f} {name}")
     counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
     counts["name_record"] = db.execute("SELECT count(*) FROM name_record").fetchone()[0]

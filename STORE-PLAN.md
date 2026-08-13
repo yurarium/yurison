@@ -1155,8 +1155,31 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   spellings that fold onto another's key put their answers in one heap. An entry is one record's
   account of a name, its reading, its English, its marks and its citation together, and one
   assembled from whichever record held each field would ship a name nobody ever wrote down.
-  `names/fold` holds the rule that picks the record and `name_record.renders` is its answer stored,
-  so the compiler and the emitter ask one function rather than ranking the records twice.
+  `names/fold` holds the rule that picks the record, so the compiler and the emitter ask one function
+  rather than ranking the records twice.
+
+  STORING THAT ANSWER WAS TRIED AND IS WRONG, which is worth the sentence. `name_record.renders` was
+  a column saying which record the shipped entry is rendered from, filled by asking `fold_map` at
+  load time, and it disagreed with the file on a handful of folds: the rule ranks the RENDERED
+  entries and the loader has only the records, so a record whose rendering is withheld, or whose
+  ruby its reading contradicts, scores for fields no reader ever sees. One function, asked about two
+  different things, is two answers. The emitter renders first and folds after, which is the order
+  `build.py` has always used.
+
+  WHERE THE EMITTER STANDS, measured against the shipped file rather than described. `_entry` builds
+  one record's rendering out of `claim`, `name_record`, `ruby` and `romanisation`, and the author
+  map comes back with the right 2,575 keys and 9 rows differing. Every one of those is the same
+  fault: two records folding onto one surface state the same claim, the loader deduped it as one
+  row because the claim identity is `(surface, predicate, value, basis, source)`, and the row now
+  belongs to whichever record was read first. 邪武丸 is the winner of its fold and its reading sits
+  on the other record, so the entry comes out with no reading at all. A claim is made BY a record
+  and a duplicate is two records making one claim, so the fix is an edge table rather than a column,
+  and that is the next step.
+
+  AND THE TITLE MAP OWES TWO MORE THINGS. 13 keys it emits are titles of WITHHELD works, which the
+  build filters against a register the store does not hold; 18 it does not emit are the catalogued
+  spellings `build.py` keys onto the record of the work they name, which is `surface.alias_of` and
+  is in the store already. Neither is a modelling gap in what a name IS.
 
   `index.json` MOVED 2026-08-13, along with `feed/credit-keys.json`, which is `credit_spelling`
   written down. The index took four corrections that byte equality found and nothing else would

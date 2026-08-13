@@ -409,8 +409,30 @@ def main():
         for k, v in counts.items():
             print(f"  {k:14} {v}")
         print(f"  {'refused':14} {len(refused)}")
-        for what, why in refused[:6]:
+        for what, why in refused[:12]:
             print(f"      {what}: {why}")
+        # A FULL REBUILD REFUSES NOTHING, AND THIS IS WHAT STOPS QUARANTINE BECOMING AN EXCUSE.
+        #
+        # STORE-PLAN §1a gives an UNATTENDED update somewhere to put a row it cannot admit, so the
+        # run continues. The risk the project owner named on 2026-08-13 is that the same mechanism
+        # becomes a reason not to integrate data that should be integrated: a refusal is easier to
+        # set aside than to understand.
+        #
+        # §2 IS THE EVIDENCE THAT THE RISK IS REAL. 382 volumes were refused on the citation CHECK
+        # and every one of them was this loader reading only the volume when the work record named
+        # the page its date came from. Not one was data that could not be represented. A quarantine
+        # would have absorbed all 382 and the rule would still be wrong.
+        #
+        # SO THE TWO PATHS ANSWER DIFFERENTLY, which is the same split `--runtime` and `--gate`
+        # already make. A rebuild runs where somebody is present, on every pull request and in the
+        # weekly equivalence job, and it FAILS on a refusal: the loader is wrong until shown
+        # otherwise. The incremental path runs at 00:37 with nobody watching and quarantines
+        # instead. Locked in on 2026-08-13 while the count was 0, because a rule adopted when the
+        # number is already zero costs nothing to keep and everything to regain.
+        if refused:
+            print(f"\nFAIL: a full rebuild refused {len(refused)} row(s). Suspect the loader "
+                  f"before the data: every refusal §2 met was the loader.")
+            return 1
     if a.ask:
         db = sqlite3.connect(DB)
         for q, n in ask(db).items():

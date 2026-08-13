@@ -136,6 +136,31 @@ incrementally updated store. If it compares only admitted rows, an incremental p
 discarded what a rebuild keeps would pass. So the quarantine is part of what must agree, and a
 difference in it is a divergence exactly as much as a difference in `work`.
 
+**A FULL REBUILD REFUSES NOTHING, AND THAT IS WHAT STOPS THIS BECOMING AN EXCUSE.** The project
+owner named the risk on 2026-08-13: the existence of a quarantine must not become a reason to leave
+data unintegrated. A refusal is always easier to set aside than to understand.
+
+§2 IS THE EVIDENCE THAT THE RISK IS REAL, and it happened before any quarantine existed to tempt
+anybody. 382 volumes were refused on the citation constraint. Every one was the loader reading only
+the volume when the work's own record named the page its date came from. **Not one was data that
+could not be represented.** A quarantine would have absorbed all 382, the number would have looked
+like honest work, and the rule would still be wrong today.
+
+So the two paths answer differently, which is the split `--runtime` and `--gate` already make one
+layer up. A REBUILD runs where somebody is present, on every pull request and in the weekly
+equivalence job, and it FAILS on a refusal: the loader is wrong until shown otherwise. The
+INCREMENTAL path runs at 00:37 with nobody watching, and quarantines so the run continues.
+
+`relational --build` exits non-zero on any refusal as of 2026-08-13, locked in while the count was
+0. A rule adopted when the number is already zero costs nothing to keep and a great deal to regain,
+and `gate.yml` already builds the store on every pull request, so nothing new has to run for it to
+bite.
+
+**WHAT THIS MEANS FOR A ROW IN QUARANTINE.** It is there because an unattended run met it and had
+nowhere else to put it. The next rebuild will refuse it and fail, so it cannot be left: either the
+loader learns it, the model changes, or §9 records a ruling that makes it representable. The
+quarantine holds a row for hours, and it is a shock absorber rather than a shelf.
+
 ## 2. Fill the two tables that were designed and never written
 
 **FIND OUT WHY FIRST.** `edition` has seven columns including `isbn`, `volume`, `dated` and `cite`,

@@ -11,7 +11,7 @@ The sections are in the order they are to be done, and each says what it needs f
 |---|---|---|---|
 | §1 | Run the name passes as part of the update | done 2026-08-13 | 96 works had no English for want of this |
 | §2 | A claim about a reading stops occupying the English's slot | done 2026-08-13 | 196 titles, 1,337 authors |
-| §5 | Two capture faults on the credit field | nothing | 4 rows |
+| §5 | Two capture faults on the credit field | §5a done 2026-08-13 | 4 rows |
 | §3 | Fetch the episode lists we never asked for | §1, §2, §5 | 53 works |
 | §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
 | §4 | Join a translated edition to the work it translates | nothing | 28 products, 7 unjoined |
@@ -251,6 +251,19 @@ An author is absent where the platform states one. `ツイてるギャルとミ�
 `©深水たろー／COMICメテオ`. `横槍メンゴ新作読切シリーズ` from ヤンジャン+ is the other, and there the
 artist's name is in the work's own title. 2 rows of 983 in the feed window, so the class is small and
 the fix is per-adapter.
+
+**§5a DONE 2026-08-13.** `credits.people_only` asks each credit in a field rather than the field.
+Every refusal `is_a_person` makes anchors at the start of a string, so a field opening with a real
+name passed whatever followed it, and `ONE_SHOT_LABEL` had been written for this exact string and
+was being asked the wrong question. It also rescues a name the old rule discarded: `金子ある / #1(1)`
+failed as a whole and the capture dropped the field entire, losing a real person to keep out a
+chapter number. The two rows already on disk heal on the next Stage C run, since a source record is
+stored as fetched and never hand-edited.
+
+§5b is not done. きら星ポータル states `著者：深水たろー` in the page body and titles its page
+`作品 / 誌名 - サイト`, with no `|` for the title-reading rule to anchor on, so the author is not
+absent from the page and is absent from the row. Reading a body credit is a new extraction rule per
+page shape rather than a correction to an existing one, which is why it is separated here.
 
 **HOW BOTH ARE PROVED.** `incomplete attested rows` already counts a release missing a chapter name,
 an author or an access state, and stood at 37 on 2026-08-13. Neither of these fault classes moves it,

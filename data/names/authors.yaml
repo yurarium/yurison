@@ -10223,8 +10223,6 @@ names:
   コミックニュータイプ(編):
     basis: romaji
     entity: notation
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
     reading_refuted: 'コミック ニュータイプ ( ヘン ) is an analyser reading the magazine''s editorial credit as though
       it were a person, brackets and all: 編 marks the editor of the volume and the name in front of it
       is カドカワ''s magazine コミックニュータイプ. A magazine''s editorial department has no personal name to read,
@@ -18007,7 +18005,7 @@ names:
       - よう
     - - 也
       - なり
-    reading: フルカワ ヨウナリ
+    reading: フルカワヨウナリ
     reading_at: '2026-08-13'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
@@ -20623,7 +20621,7 @@ names:
       - むき
     - - 都
       - と
-    reading: ムキ ト
+    reading: ムキト
     reading_at: '2026-08-13'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
@@ -25365,7 +25363,7 @@ names:
       - とき
     - - 一二
       - いちに
-    reading: トキ イチニ
+    reading: トキイチニ
     reading_at: '2026-08-13'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
@@ -30051,8 +30049,6 @@ names:
     verified: true
   泉朝樹:
     basis: romaji
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
     reading_refuted: 'イズミ アサキ is an analyser''s guess, and this surface gives it nothing to guess from:
       泉朝樹 is kanji throughout, so there is no change of script to put a boundary at, which is what justifies
       the division on every other analyser reading in this store. It arrived with 見える子ちゃん on 2026-08-10
@@ -33568,6 +33564,7 @@ names:
     reading: コウベ イチゴ
     reading_at: '2026-08-13'
     reading_basis: analyser
+    reading_boundary: the kana in its own surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
     reading_pass: 4
@@ -38049,7 +38046,7 @@ names:
       - かどかわ
     - - 青羽
       - あおば
-    reading: カドカワ アオバ
+    reading: カドカワアオバ
     reading_at: '2026-08-13'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
@@ -39679,8 +39676,6 @@ names:
     en_pass: 2
     en_source: mangaupdates
     en_source_kind: community-db
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
     reading_refuted: チン タクミ ヨウ reads a Chinese name as though it were Japanese, one character at a time,
       and it mixes on-yomi with kun-yomi across all three. カドコミ credits the work to 星期一回収日 and 陳巧蓉（巧ミャオ）,
       so the platform itself glosses the name in katakana as ミャオ rather than as anything the analyser
@@ -41032,8 +41027,6 @@ names:
     verified: true
   高良真生:
     basis: romaji
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
     reading_refuted: コウラ マサオ is a machine guess with nothing behind it. NDL creator empty; `any=高良真生`
       returns only the 一迅社 anthology volume, which has no creator field, and the per-story 単話 records
       are not catalogued. No publisher, platform or artist page found that prints a reading. The stored

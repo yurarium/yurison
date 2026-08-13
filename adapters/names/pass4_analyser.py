@@ -154,6 +154,25 @@ def analyser_version():
 # Read once. It cannot change under a running process, and a reading is stamped with it per name.
 ANALYSER = analyser_version()
 
+#: WHAT THIS PASS SAYS ABOUT A READING, AND IT GOES IN `reading_note`. It used to be assigned to
+#: `note`, which is the slot that says why the ENGLISH is what it is, and it overwrote whatever was
+#: already there. 196 titles held a curated English name with this sentence where its argument
+#: should have been: `#We're the Strongest`, `A 14-Gram Escape` and `4:30, at the Laundromat` were
+#: all translated by somebody who wrote down why, and the store said none of it.
+#:
+#: `adapters/names/curate.py` explains why the two fields exist apart, and it is the same reason:
+#: one entry can carry two decisions, and 55 of 60 reading corrections landed on titles that
+#: already had a curated translation with its own argument.
+#:
+#: `setdefault` RATHER THAN ASSIGNMENT. A reading somebody has already reasoned about in
+#: `reading_note` outranks a sentence about SudachiDict, and this pass is the weakest voice in the
+#: store: NAMES-PLAN §5d admits it precisely because it labels itself a guess.
+#:
+#: `facts/reading/vocabulary` quotes this sentence as the justification for the unverified mark, so
+#: it is load-bearing where it belongs and was only ever misfiled.
+ANALYSER_CAVEAT = ("reading guessed by a morphological analyser, not stated by any source; "
+                   "analysers are weakest on pen names and coinages")
+
 
 def is_kana_ch(c):
     return "\u3040" <= c <= "\u30ff"
@@ -776,8 +795,7 @@ def main():
             if uncertain or unrecognised_compound(tok, s, modes[0]):
                 rec["reading_uncertain"] = True
             rec.setdefault("basis", "romaji")
-            rec["note"] = ("reading guessed by a morphological analyser, not stated by any source; "
-                           "analysers are weakest on pen names and coinages")
+            rec.setdefault("reading_note", ANALYSER_CAVEAT)
             added += 1
 
         print(f"{kind}: {len(todo)} without a reading -> {added} guessed, {skipped} left alone")
@@ -1261,8 +1279,7 @@ def fill_missing(strings, kind, quiet=False, refresh=False, ruled=None):
         if uncertain or unrecognised_compound(tok, s, modes[0]):
             rec["reading_uncertain"] = True
         rec.setdefault("basis", "romaji")
-        rec["note"] = ("reading guessed by a morphological analyser, not stated by any source; "
-                       "analysers are weakest on pen names and coinages")
+        rec.setdefault("reading_note", ANALYSER_CAVEAT)
         added += 1
     if added:
         doc["names"] = names

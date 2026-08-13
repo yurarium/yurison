@@ -10,7 +10,7 @@ The sections are in the order they are to be done, and each says what it needs f
 | | stage | needs | measured today |
 |---|---|---|---|
 | §1 | Run the name passes as part of the update | done 2026-08-13 | 96 works had no English for want of this |
-| §2 | A claim about a reading stops occupying the English's slot | nothing | 196 titles, 1,337 authors |
+| §2 | A claim about a reading stops occupying the English's slot | done 2026-08-13 | 196 titles, 1,337 authors |
 | §5 | Two capture faults on the credit field | nothing | 4 rows |
 | §3 | Fetch the episode lists we never asked for | §1, §2, §5 | 53 works |
 | §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
@@ -106,6 +106,18 @@ curated English keeps the curated argument, which it never had.
 sentence in `note` was doing double duty legitimately. It still belongs in `reading_note`, and the
 English's slot should then be empty rather than wrong, which is the honest state and is what §1's
 budget will show as work to do.
+
+**DONE 2026-08-13.** Both write sites now offer `ANALYSER_CAVEAT` to `reading_note` with
+`setdefault`, so a reading somebody has already reasoned about outranks a sentence about
+SudachiDict. The sweep moved 1,693 records, 341 titles and 1,337 authors and 15 publishers, and
+1,000 of them turned out to hold a real reading argument already, which was kept: `#うちらが最強`
+keeps `陰キャ is いんキャ, an established coinage from 陰気なキャラ` and simply loses the misfiled
+sentence. 693 records carry the caveat in its own slot now and 0 carry it in `note`.
+
+359 titles now hold a curated English name with no argument beside it, which is the honest state
+the counter-case above predicted. Each is work somebody can do. Re-running the pass adds
+nothing back. The test asks the module's own source, because both write sites need a tokenizer and
+a store to reach and what must never return is the assignment itself.
 
 ## 3. Fetch the episode lists we never asked for
 

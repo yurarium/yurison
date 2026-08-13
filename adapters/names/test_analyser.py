@@ -394,5 +394,27 @@ def main(s):
     s.eq(p1.surface_fields("東雲水生", "authors"), None,
          "and a name with kanji is not this rule's business")
 
+    # ── THE CAVEAT GOES IN THE READING'S SLOT ─────────────────────────────────────────────────
+    #
+    # This pass says one thing about every name it touches, and it used to say it in `note`, which
+    # is where the argument for an ENGLISH name lives. 196 titles held a curated translation with a
+    # sentence about SudachiDict where its reasoning should have been, and 1,693 records carried it
+    # in total. `reading_note` is the slot, and `curate.py` spells out why the two exist apart.
+    #
+    # ASKED OF THE SOURCE, because the two write sites sit deep inside functions that need a
+    # tokenizer and a store to reach. What must never come back is an assignment putting this
+    # sentence into `note`, and that is a statement about the text of the module.
+    src = pathlib.Path(p4.__file__).read_text(encoding="utf-8")
+    s.check("analysers are weakest on pen names and coinages" in p4.ANALYSER_CAVEAT,
+            "the sentence is named once and not typed at each site")
+    s.eq(src.count('rec["note"] = '), 0,
+         "no site assigns the English's note, which is what put a reading's doubt in it")
+    s.eq(src.count('rec.setdefault("reading_note", ANALYSER_CAVEAT)'), 2,
+         "both write sites offer it to the reading's own slot")
+    # AND IT DEFERS. A reading somebody has already reasoned about outranks a sentence about an
+    # analyser, and NAMES-PLAN §5d admits this pass precisely because it labels itself a guess.
+    s.check('rec["reading_note"] = ' not in src,
+            "offered with setdefault, so an argument already written there survives")
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "pass4_analyser"))

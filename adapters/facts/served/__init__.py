@@ -156,9 +156,11 @@ def served(build="data/build"):
 #: thing to keep in step with the schema, which is the fault `_input_keys` refuses in `check.py`.
 #: Each section of STORE-PLAN adds the prefixes it has modelled, so the list grows once per domain.
 #:
-#: THE SPINE, PLUS WHAT §2 FILLED AND §3 MODELLED. `edition` holds 6,108 rows and `work_publisher`
-#: 2,661, so a volume's ISBN, number, designation, date, kind and the basis that date rests on are
-#: all answerable, and so is which house and line a work is published under.
+#: THE SPINE, PLUS WHAT §2 FILLED AND §3 MODELLED. `volume` holds 6,108 rows, `edition` 6,920 and
+#: `work_publisher` 2,661, so a volume's ISBN, number and designation are answerable, and so is each
+#: dated event about it with the basis that date rests on, and which house and line it is published
+#: under. §5b is why those are two tables: 812 volumes state a printing and a delivery that differ,
+#: and one row per book could hold only one of them.
 STORE_ANSWERS = (
     "index.json:id",
     "index.json:t",

@@ -34,14 +34,14 @@ def main(s):
         db = _db(d)
 
         # INSERT. A work gains a credit, and exactly the derivations reading that table move.
-        assert delta.write(db, "work_credit", {"work": "w00001", "credit": "c00001"}, {"role": "art", "seq": 0})
+        assert delta.write(db, "work_credit", {"work": "w00001", "credit": "c00001"}, {"role": "art"})
         moved, passes = delta.converge(db, {"work_credit"})
         s.check("works naming nobody" in moved, "a work that now names somebody changes the count")
         s.eq(passes, 1, "and it settles in one pass")
 
         # THE SAME WRITE AGAIN IS A NO-OP, which is the whole design in one assertion.
         s.check(not delta.write(db, "work_credit", {"work": "w00001", "credit": "c00001"},
-                                {"role": "art", "seq": 0}),
+                                {"role": "art"}),
                 "a write producing the value already there changes nothing")
         s.eq(delta.converge(db, {"work_credit"})[0], [],
              "so nothing downstream is recomputed into a new answer")
@@ -49,7 +49,7 @@ def main(s):
         # UPDATE. The role moves; no derivation here reads it, so the cascade is empty even though
         # an input plainly changed. Gating on input change is the failure this avoids.
         s.check(delta.write(db, "work_credit", {"work": "w00001", "credit": "c00001"},
-                            {"role": "story", "seq": 0}),
+                            {"role": "story"}),
                 "a real change to a row is a change")
         s.eq(delta.converge(db, {"work_credit"})[0], [],
              "an input that moved without moving any answer cascades nothing")
@@ -66,8 +66,8 @@ def main(s):
 
         # MERGE. Two credits turn out to be one person: the rows naming the second are repointed
         # and the second is dropped. `credits named by more than one work` is what should move.
-        db.execute("INSERT INTO work_credit (work, credit, role, seq) VALUES ('w00001','c00001','art',0)")
-        db.execute("INSERT INTO work_credit (work, credit, role, seq) VALUES ('w00002','c00002','art',0)")
+        db.execute("INSERT INTO work_credit (work, credit, role) VALUES ('w00001','c00001','art')")
+        db.execute("INSERT INTO work_credit (work, credit, role) VALUES ('w00002','c00002','art')")
         delta.recompute(db)
         s.eq(delta.value(db, "credits named by more than one work"), [[0]],
              "two credits on one work each, so neither is named twice")

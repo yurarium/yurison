@@ -48,7 +48,7 @@ below moves one domain to the other side of that line.
 | §4 | Releases and the per-platform offer | done 2026-08-13 |
 | §5 | Renderings, which are derived from a source that stays where it is | done 2026-08-13 |
 | §5a | The constraints that do not fire | done 2026-08-13 |
-| §5b | A row nothing can address twice | §5a |
+| §5b | A row nothing can address twice | done 2026-08-13 |
 | §5d | A name is an identity here, and it must not be | §5a; before §5c's title join |
 | §5c | What the store says it holds and does not | §5a |
 | §5e | The domains still outside the store | §5c |
@@ -491,9 +491,16 @@ retraction can be expressed. Re-running a name pass would multiply claims rather
 "Updated incrementally to the extent possible" is not reachable while the table carrying most of
 the corpus has no row anyone can address a second time.
 
-The candidate key is the claim's own content: its surface, its predicate, its value and its basis,
-with a source where one basis can carry two. Establishing which of those actually distinguishes two
-claims is the work of this section, and the ten duplicate groups are the cases to start from.
+**DONE 2026-08-13. A CLAIM IS ITS NAME, WHAT IS SAID ABOUT IT, THE ANSWER, THE BASIS AND THE
+SOURCE.** Two rows agreeing on all five are one claim said twice, and 51 were, most of them because
+112 author spellings fold onto another's key: `BUNBUN` and `ＢＵＮＢＵＮ` reach one surface and
+repeat each other, and a conflicts list also carries values the live claim already holds. Two
+SOURCES giving the same answer stay two rows, because `claims resting on a community database`
+counts them separately and should. The index coalesces the source, since 20 claims name none and a
+NULL in a unique index constrains nothing, which is the trap `work_credit` was in.
+
+The loader skips a duplicate rather than leaving the index to absorb it. A loader relying on a
+constraint to swallow what it knowingly emits is the `INSERT OR IGNORE` of §2 again.
 
 **`work_credit`'s PRIMARY KEY CONSTRAINS NOTHING.** All 4,165 rows have `role IS NULL`, SQLite
 permits NULLs in a rowid table's primary key, and so the same edge inserts three times running. The
@@ -507,6 +514,13 @@ works rather than each WORK's credits. 2,222 edges carry `seq = 0` and 185 of th
 more than one credit have the same seq on every edge, so byline order cannot be recovered. It also
 sits outside the key, so it cannot break the tie it was meant to break.
 
+**DONE 2026-08-13, AND `seq` IS GONE RATHER THAN CORRECTED.** A column holding a wrong answer is
+worse than no column, and the right answer is not on this route: `credits.json` writes its works
+list as `{"id": "w00205"}`, while 631 name-and-role pairs sit on `series[].credits[]` and are
+reachable only by joining a NAME to a credit identifier. Both the roles and the order arrive with
+§5d. The key is a unique index over `coalesce(role, '')`, which is the same intent the primary key
+had and which fires.
+
 **A VOLUME HAS NO IDENTITY EXCEPT ITS ISBN**, and that is why `edition` cannot hold both events for
 one book while its own comment says the two events are the point. 812 volumes state a printing date
 and a delivery date that differ. Holding both needs two rows, `isbn UNIQUE` refuses the second, and
@@ -519,6 +533,23 @@ The comment also cites `a delivery date never stands beside a printing` as the P
 are different events. That invariant says a work dated from a shop's 配信開始日 holds no publication
 date from anywhere else, which is a rule about one work's date field and not about two rows. The
 citation is doing work it cannot do and needs replacing along with the key.
+
+**DONE 2026-08-13. THE BOOK AND THE EVENT ARE TWO TABLES.** `volume` is the thing on a shelf, 6,108
+of them, and `edition` is something that happened to it on a date, 6,920, keyed `(volume, kind)`.
+The 812 extra rows are exactly the volumes that state two dates, so nothing is discarded any more.
+
+  THERE IS NO KEY ON A VOLUME BEYOND ITS ISBN AND THE DATA IS WHY. 92 rows share a work, a position
+  and a designation with another, 40 of them holding no ISBN at all. 13 works carry a reissue, so
+  w00174 legitimately holds volume 2 twice at different ISBNs, and a UNIQUE over the three would
+  refuse a real thing this project holds. The surrogate id is the honest answer.
+
+  ONE CONSTRAINT WAS LOST AND IS RECORDED RATHER THAN ABSORBED. `CHECK (isbn IS NULL OR dated IS
+  NOT NULL)` had both facts on one row and no CHECK reaches across two tables, so it is the standing
+  question `volumes with an isbn and no date`, which `check.py` has held at 0 since §3.
+
+  AND ONE QUESTION BECAME ASKABLE THAT NEVER WAS. `books a shop delivered before they were printed`
+  answers 552. Nothing could ask it while the store held one event per book, and
+  `adapters/cmoa_volumes.py` had measured the same shape from the capture side and left it there.
 
 ## 5c. What the store says it holds and does not
 

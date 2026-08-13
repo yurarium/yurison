@@ -77,6 +77,21 @@ DERIVATIONS = {
     # A CYCLE IS THE ONE THING A CHECK CANNOT SAY. `alias_of <> id` stops a name pointing at itself
     # and nothing in SQL stops two pointing at each other, so this is the owner's "support querying
     # to verify logical constraints that cannot be so expressed", written out.
+    # §5b MOVED THE ISBN AND THE DATE INTO SEPARATE TABLES, so `CHECK (isbn IS NULL OR dated IS NOT
+    # NULL)` had nowhere to live: no CHECK reaches across two tables. `check.py` has held this at 0
+    # since §3 and the store now asks it too, which is a weaker guarantee stated rather than lost.
+    "volumes with an isbn and no date": {
+        "sql": "SELECT count(*) FROM volume v WHERE v.isbn IS NOT NULL AND NOT EXISTS "
+               "(SELECT 1 FROM edition e WHERE e.volume = v.id AND e.dated IS NOT NULL)",
+        "reads": ("volume", "edition")},
+    # A BOOK CANNOT BE PRINTED AFTER THE SHOP DELIVERED IT, and holding both events is what made the
+    # question askable at all. Reported rather than refused, because a delivery preceding a printing
+    # is a real thing on this corpus and the pair is worth watching rather than blocking.
+    "books a shop delivered before they were printed": {
+        "sql": "SELECT count(*) FROM edition p JOIN edition d ON d.volume = p.volume "
+               "WHERE p.kind = 'printing' AND d.kind = 'shop-delivery' "
+               "AND p.dated IS NOT NULL AND d.dated IS NOT NULL AND d.dated < p.dated",
+        "reads": ("edition",)},
     "aliases pointing in a circle": {
         "sql": "SELECT count(*) FROM surface a JOIN surface b ON a.alias_of = b.id "
                "WHERE b.alias_of = a.id",

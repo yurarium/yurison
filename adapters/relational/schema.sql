@@ -77,13 +77,27 @@ CREATE TABLE imprint (
 -- another, so a role column on `credit` would be wrong for one of them. This was worked out in the
 -- credit extraction and the schema is where it becomes impossible to get wrong.
 
+-- THE KEY WAS `(work, credit, role)` AND IT CONSTRAINED NOTHING. SQLite permits NULLs in a rowid
+-- table's primary key, every one of the 4,165 rows has `role IS NULL`, and so the same edge inserted
+-- three times running. A unique index over `coalesce(role, '')` is the same intent that fires.
+--
+-- THE ROLES ARE IN THE CORPUS AND NOT ON THIS ROUTE. `credits.json` writes its works list as
+-- `{"id": "w00205"}` with no role in it, so the column has been empty since it was written. 631
+-- name-and-role pairs sit on `series[].credits[]`, reachable only by joining a NAME to a credit
+-- identifier, which is what §5d builds. Until then the column is honestly empty.
+--
+-- `seq` IS GONE, AND ITS ABSENCE IS TRUER THAN ITS VALUE WAS. It was documented as "the order the
+-- field wrote them in" and the loader numbered each CREDIT's works rather than each WORK's credits,
+-- so 2,222 edges carried 0 and 185 of the 375 works with more than one credit had the same number on
+-- every edge. Byline order lives in `series[].credits[]` with the roles and arrives with them.
 CREATE TABLE work_credit (
+  id     INTEGER PRIMARY KEY,
   work   TEXT NOT NULL REFERENCES work(id)   ON DELETE CASCADE,
   credit TEXT NOT NULL REFERENCES credit(id) ON DELETE RESTRICT,
-  role   TEXT,                                  -- 著, 原作, 作画 … NULL where the field states none
-  seq    INTEGER NOT NULL,                      -- the order the field wrote them in
-  PRIMARY KEY (work, credit, role)
+  role   TEXT                                   -- 著, 原作, 作画 … NULL where the field states none
 );
+
+CREATE UNIQUE INDEX work_credit_edge ON work_credit (work, credit, coalesce(role, ''));
 
 CREATE TABLE work_publisher (
   work      TEXT NOT NULL REFERENCES work(id)      ON DELETE CASCADE,
@@ -266,6 +280,21 @@ CREATE TABLE claim (
   FOREIGN KEY (basis, predicate) REFERENCES basis_for_predicate (basis, predicate)
 );
 
+-- WHAT IDENTIFIES A CLAIM, WHICH IT HAD NOTHING OF. Ten groups of rows were byte-identical on all
+-- eleven non-id columns, so `delta.write` had no key to address one by and neither an upsert nor a
+-- retraction could be expressed. That is what stood between this store and STORE-PLAN §7, since the
+-- table holding most of the corpus could be inserted into and never changed.
+--
+-- WHAT IT IS: the name, what is being said about it, the answer, on what basis, and by whom. Two
+-- rows agreeing on all five are one claim said twice, and 51 of those existed, every one a
+-- conflicts list carrying a value the live claim already held. Two sources giving the same answer
+-- on the same basis stay two rows, because "which claims rest on a community database" counts them
+-- separately and should.
+--
+-- `coalesce(source, '')` BECAUSE 20 CLAIMS NAME NONE, and a NULL in a unique index constrains
+-- nothing, which is the same trap `work_credit` was in.
+CREATE UNIQUE INDEX claim_identity ON claim
+  (surface, predicate, value, basis, coalesce(source, ''));
 CREATE INDEX claim_surface ON claim (surface, predicate);
 CREATE INDEX claim_basis   ON claim (basis);
 CREATE INDEX claim_source  ON claim (source_kind);
@@ -344,29 +373,49 @@ CREATE TABLE basis_admits_kind (
   FOREIGN KEY (basis, predicate) REFERENCES basis_for_predicate (basis, predicate)
 );
 
--- ── where a work was published, and when ────────────────────────────────────────────────────────
--- A PRINTING AND A DELIVERY ARE DIFFERENT EVENTS, which `a delivery date never stands beside a
--- printing` says in Python. The kind is on the row, so the question is a WHERE clause.
+-- ── the books, and the events that dated them ───────────────────────────────────────────────────
+--
+-- A PRINTING AND A DELIVERY ARE DIFFERENT EVENTS ABOUT THE SAME BOOK, and until §5b this table
+-- could hold only one of them. 812 volumes state a printing date and a shop delivery date that
+-- differ; holding both took two rows, `isbn UNIQUE` refused the second, and dropping the ISBN from
+-- it left nothing tying the two together. So the loader's `if/elif` keeping the printing and
+-- discarding the delivery was forced by the shape rather than chosen, and the comment here cited
+-- `a delivery date never stands beside a printing` as its authority, which is an invariant about
+-- one WORK's date field and says nothing about two rows.
+--
+-- SO THE BOOK AND THE EVENT ARE TWO TABLES. `volume` is the thing on a shelf and `edition` is
+-- something that happened to it on a date, which is what `kind` was always describing.
 
-CREATE TABLE edition (
+CREATE TABLE volume (
   id      INTEGER PRIMARY KEY,
   work    TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   isbn    TEXT UNIQUE,
 
-  -- WHAT A VOLUME IS CALLED AND WHERE IT SITS ARE TWO FACTS, and this table held only the second.
-  -- `volume` is a position in a run and an integer answers it. A DESIGNATION is the word the
-  -- publisher uses: `上`, `創刊号`, `2017年1月号`. 983 volumes carry one, no integer can hold it,
-  -- and STORE-PLAN §3 is where the schema stopped pretending otherwise.
+  -- WHAT A VOLUME IS CALLED AND WHERE IT SITS ARE TWO FACTS. `volume` is a position in a run and
+  -- an integer answers it. A DESIGNATION is the word the publisher uses: `上`, `創刊号`,
+  -- `2017年1月号`. 983 volumes carry one and no integer can hold it, which is STORE-PLAN §3.
   --
-  -- NEITHER IS REQUIRED AND NEITHER EXCLUDES THE OTHER. A volume may have both in principle:
-  -- `build.volume_number` reads 創刊号 as the first issue, so a designation can acquire a position.
-  -- No row carries both today and that is left as an observation rather than written in as a
-  -- CHECK, because a constraint on an accident refuses the first correct row that meets it.
+  -- NEITHER IS REQUIRED AND NEITHER EXCLUDES THE OTHER. `build.volume_number` reads 創刊号 as the
+  -- first issue, so a designation can acquire a position.
   volume       INTEGER CHECK (volume IS NULL OR volume >= 0),
-  designation  TEXT,
+  designation  TEXT
 
-  dated   TEXT,
+  -- THERE IS NO KEY HERE BEYOND THE ISBN AND THAT IS THE DATA'S DOING, not an omission. 92 rows
+  -- share a work, a position and a designation with another, 40 of them holding no ISBN at all:
+  -- 13 works carry a reissue, so w00174 legitimately holds volume 2 twice at different ISBNs, and
+  -- for the 40 nothing in the corpus distinguishes the two records. A UNIQUE over the three would
+  -- refuse a reissue, which is a real thing this project holds.
+);
+
+CREATE INDEX volume_work ON volume (work);
+
+-- A DATED EVENT ABOUT ONE BOOK. One of each kind per volume, so a printing and a delivery sit
+-- beside each other and neither displaces the other.
+CREATE TABLE edition (
+  id      INTEGER PRIMARY KEY,
+  volume  INTEGER NOT NULL REFERENCES volume(id) ON DELETE CASCADE,
   kind    TEXT NOT NULL CHECK (kind IN ('printing', 'shop-delivery', 'serialisation')),
+  dated   TEXT,
 
   -- WHAT KIND OF EVIDENCE THE DATE RESTS ON, following `claim`'s pattern rather than reusing its
   -- table: `claim` is scoped to what a NAME is, by its own CHECK on predicate. A closed set,
@@ -378,13 +427,16 @@ CREATE TABLE edition (
   cite    TEXT,
   CHECK (dated IS NULL OR cite IS NOT NULL),
 
-  -- AN ISBN IS A KEY INTO EVERY DATED REGISTRY THERE IS, so a volume holding one and no date means
-  -- nobody asked. `volumes with an isbn and no date` has been a ZERO budget and is now unstateable;
-  -- locked in 2026-08-13 while the count was 0, which is the only time it is free to adopt.
-  CHECK (isbn IS NULL OR dated IS NOT NULL)
+  UNIQUE (volume, kind)
 );
 
-CREATE INDEX edition_work ON edition (work, kind);
+-- AN ISBN IS A KEY INTO EVERY DATED REGISTRY THERE IS, so a volume holding one and no date means
+-- nobody asked. That was `CHECK (isbn IS NULL OR dated IS NOT NULL)` while both facts sat on one
+-- row, and no CHECK can reach across two tables, so it is a standing question now:
+-- `volumes with an isbn and no date`, which `check.py` has held at 0 since §3 and `delta` asks of
+-- the store. The constraint is weaker and the loss is recorded rather than absorbed.
+
+CREATE INDEX edition_volume ON edition (volume, kind);
 
 -- ── what a platform offers, and what it published ──────────────────────────────────────────────
 --

@@ -253,8 +253,8 @@ def build(path=None):
             wid = w.get("id") if isinstance(w, dict) else w
             role = w.get("role") if isinstance(w, dict) else None
             if cid and wid:
-                put("INSERT OR IGNORE INTO work_credit (work, credit, role, seq) VALUES (?,?,?,?)",
-                    (wid, cid, role, i), f"edge {cid}->{wid}")
+                put("INSERT OR IGNORE INTO work_credit (work, credit, role) VALUES (?,?,?)",
+                    (wid, cid, role), f"edge {cid}->{wid}")
     counts["work_credit"] = db.execute("SELECT count(*) FROM work_credit").fetchone()[0]
 
     # ── the names, and what is claimed about each ────────────────────────────────────────────────
@@ -266,7 +266,7 @@ def build(path=None):
     subject_ids = {"credit": {s: i for s, i in db.execute("SELECT surface, id FROM credit")},
                    "work": {t: i for i, t in db.execute("SELECT id, title FROM work")},
                    "publisher": {n: i for i, n in db.execute("SELECT id, name FROM publisher")}}
-    surfaces = {}
+    surfaces, seen_claims = {}, set()
 
     def surface_id(kind, ja, subject_kind=None, subject=None, **cols):
         """The row for one string, made once. `subject` is looked up where a kind can carry one."""
@@ -351,6 +351,16 @@ def build(path=None):
                     if not value or not basis:
                         continue
                     cited = _prov.cite(claim, cite) or {}
+                    # ONE CLAIM SAID TWICE IS ONE CLAIM, and §5b's key is what made that sayable.
+                    # 112 author spellings fold to another's key, `BUNBUN` and `ＢＵＮＢＵＮ` among
+                    # them, so two records reach one surface and repeat each other; a conflicts
+                    # list also carries values the live claim already holds. Skipped here rather
+                    # than left to the index, because a loader that relies on a constraint to
+                    # absorb what it knowingly emits is the `INSERT OR IGNORE` of §2 again.
+                    ident = (sid, predicate, value, basis, claim.get(f"{cite}_source") or "")
+                    if ident in seen_claims:
+                        continue
+                    seen_claims.add(ident)
                     put("INSERT INTO claim (surface, predicate, value, basis, source, source_kind,"
                         " retrieved, reviewed, url, isbn, note) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                         (sid, predicate, value, basis, claim.get(f"{cite}_source"),
@@ -524,14 +534,18 @@ def build(path=None):
         # `records: [{source: madb, url: .../id/C418820}]`, and the work_id IS that page's id.
         of_work = next((r.get("url") for r in (w.get("records") or []) if r.get("url")), None)
         for v in (w.get("volumes") or []):
-            # WHAT KIND OF EVENT THE DATE IS, which the schema asks for and the corpus states in
-            # which field carries it: a printing is dated by a catalogue, a delivery by a shop.
+            # BOTH EVENTS, NOT WHICHEVER ONE FITS. A volume states a printing date, a delivery
+            # date, or both, and 812 state two that differ. The `if/elif` that used to stand here
+            # kept the printing and dropped the delivery, which looked like a choice and was the
+            # shape: `edition` held one row per book with `isbn UNIQUE`, so the second event had
+            # nowhere to go. §5b split the book from the event and both are held now.
+            events = []
             if v.get("published"):
-                kind, dated = "printing", v["published"]
-            elif v.get("delivered"):
-                kind, dated = "shop-delivery", v["delivered"]
-            else:
-                kind, dated = "printing", None
+                events.append(("printing", v["published"]))
+            if v.get("delivered") and v.get("delivered") != v.get("published"):
+                events.append(("shop-delivery", v["delivered"]))
+            if not events:
+                events.append(("printing", None))
             # AND WHERE A READER CAN GO AND SEE IT. `CHECK (dated IS NULL OR cite IS NOT NULL)` is
             # the schema refusing a date nobody can check, which is the same rule
             # `per-book dates cite their page` states for the shop capture.
@@ -546,6 +560,12 @@ def build(path=None):
                      else None) or
                     of_work or
                     (shop if v.get("delivered") else None))
+            # THE BOOK FIRST, ONCE, AND THEN WHAT HAPPENED TO IT.
+            if not put("INSERT INTO volume (work, isbn, volume, designation) VALUES (?,?,?,?)",
+                       (wid, v.get("isbn"), v.get("number_n"), v.get("designation")),
+                       f"volume {wid} {v.get('isbn') or v.get('designation') or '?'}"):
+                continue
+            vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
             # A PLAIN INSERT, DELIBERATELY. `OR IGNORE` here swallowed 382 volumes on the first
             # run and reported `refused 0`, because SQLite treats the conflict as handled and
             # raises nothing for `put` to catch. A constraint that quietly drops a row is worse
@@ -553,16 +573,20 @@ def build(path=None):
             # WHAT THE DATE RESTS ON. Stated where the volume says so, derived from the same
             # evidence the citation uses where it does not, and NULL where nothing names it: a
             # basis nobody can point at is worth less than an admitted silence.
-            basis = (v.get("published_basis")
-                     or ("madb-tankobon" if v.get("madb_id") else None)
-                     or ("openbd-registration" if v.get("openbd") == "present" and v.get("isbn")
-                         else None)
-                     or ("shop-delivery" if kind == "shop-delivery" else None))
-            put("INSERT INTO edition (work, isbn, volume, designation, dated, kind, dated_basis,"
-                " cite) VALUES (?,?,?,?,?,?,?,?)",
-                (wid, v.get("isbn"), v.get("number_n"), v.get("designation"), dated, kind,
-                 basis, cite),
-                f"edition {wid} {v.get('isbn') or v.get('designation') or v.get('number') or '?'}")
+            for kind, dated in events:
+                basis = (v.get("published_basis")
+                         or ("madb-tankobon" if v.get("madb_id") else None)
+                         or ("openbd-registration" if v.get("openbd") == "present" and v.get("isbn")
+                             else None)
+                         or ("shop-delivery" if kind == "shop-delivery" else None))
+                # A DELIVERY'S BASIS IS THE SHOP, whatever the printing beside it rests on.
+                if kind == "shop-delivery":
+                    basis = "shop-delivery"
+                put("INSERT INTO edition (volume, dated, kind, dated_basis, cite)"
+                    " VALUES (?,?,?,?,?)",
+                    (vol, dated, kind, basis, cite if kind == "printing" else (shop or cite)),
+                    f"edition {kind} {wid} {v.get('isbn') or v.get('designation') or '?'}")
+    counts["volume"] = db.execute("SELECT count(*) FROM volume").fetchone()[0]
     counts["edition"] = db.execute("SELECT count(*) FROM edition").fetchone()[0]
 
     # ── what a platform offers, and what it published ───────────────────────────────────────────

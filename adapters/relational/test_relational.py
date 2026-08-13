@@ -45,10 +45,21 @@ def main(s):
 
     # AN EDGE NAMING NOBODY IS REFUSED. `every credit identifier resolves` and `a shipped identifier
     # resolves` are Python that runs after the damage; here the row cannot be written.
-    _refuses(s, db, "INSERT INTO work_credit VALUES ('w00001','c99999',NULL,0)", (),
+    _refuses(s, db, "INSERT INTO work_credit (work,credit) VALUES ('w00001','c99999')", (),
              "an edge to a credit that does not exist is refused")
-    _refuses(s, db, "INSERT INTO work_credit VALUES ('w99999','c00001',NULL,0)", (),
+    _refuses(s, db, "INSERT INTO work_credit (work,credit) VALUES ('w99999','c00001')", (),
              "an edge to a work that does not exist is refused")
+
+    # §5b: AND THE SAME EDGE TWICE. `PRIMARY KEY (work, credit, role)` permitted NULLs, every one of
+    # the 4,165 rows has a NULL role, so the key degenerated and one edge inserted three times.
+    db.execute("INSERT INTO work_credit (work,credit) VALUES ('w00001','c00001')")
+    _refuses(s, db, "INSERT INTO work_credit (work,credit) VALUES ('w00001','c00001')", (),
+             "one work names one person once, which the old key could not say")
+    db.execute("INSERT INTO work_credit (work,credit,role) VALUES ('w00001','c00001','原作')")
+    s.eq(db.execute("SELECT count(*) FROM work_credit").fetchone()[0], 2,
+         "and the same person in a second role on the same work is a second edge")
+    s.check("seq" not in [r[1] for r in db.execute("pragma table_info(work_credit)")],
+            "`seq` is gone: it was documented as byline order and numbered the wrong thing")
 
     # ONE ROW PER IDENTIFIER, and one identifier per name.
     _refuses(s, db, "INSERT INTO work (id, title, admitted_by) VALUES ('w00001','other','t')", (),
@@ -80,13 +91,25 @@ def main(s):
              " VALUES (1,'reading','ヨミ','stated','national-library',NULL)", (),
              "a stated claim with no address is refused")
     db.execute("INSERT INTO claim (surface,predicate,value,basis,source_kind,url)"
-               " VALUES (1,'reading','ヨミ','stated','national-library','https://x')")
+               " VALUES (1,'reading','ヨミA','stated','national-library','https://x')")
     s.check(True, "and one with an address is accepted")
     # SELF-SOURCED NEEDS NO ADDRESS, because a kana surface reads as itself and there is nothing to
     # point at. Two title-furigana claims were refused until the loader said `derived`.
     db.execute("INSERT INTO claim (surface,predicate,value,basis,source_kind)"
-               " VALUES (1,'reading','ヨミ','stated','derived')")
+               " VALUES (1,'reading','ヨミB','stated','derived')")
     s.check(True, "a self-sourced stated claim needs no address")
+
+    # §5b: WHAT IDENTIFIES A CLAIM. It had nothing, so `delta.write` could not address a row twice
+    # and neither an upsert nor a retraction was expressible, which is what stood between this store
+    # and §7. Ten groups were byte-identical on all eleven non-id columns.
+    _refuses(s, db, "INSERT INTO claim (surface,predicate,value,basis,source_kind)"
+                    " VALUES (1,'reading','ヨミB','stated','derived')", (),
+             "the same claim said twice is one claim")
+    db.execute("INSERT INTO claim (surface,predicate,value,basis,source,source_kind,url)"
+               " VALUES (1,'reading','ヨミA','stated','openBD','publisher-jp','https://y')")
+    s.eq(db.execute("SELECT count(*) FROM claim WHERE value = 'ヨミA'").fetchone()[0], 2,
+         "TWO SOURCES AGREEING STAY TWO ROWS, which is what `claims resting on a community "
+         "database` counts and why the source is part of the key")
 
     # A BASIS OR A KIND NOBODY HAS RULED ON IS REFUSED, which is the drift this replaces: the
     # vocabulary has one home and a foreign key has no second copy to disagree with.
@@ -109,10 +132,11 @@ def main(s):
         s.eq(got[b], (int(_div.cites_its_source(b)), int(_div.may_donate(b)),
                       int(_div.is_marked(b)), int(_div.counted_uncited(b))),
              f"the basis table agrees with facts/division about {b}")
-    pairs = {(b, k) for b, k in db.execute("SELECT basis, source_kind FROM basis_admits_kind")}
+    pairs = {(b, p_, k) for b, p_, k
+             in db.execute("SELECT basis, predicate, source_kind FROM basis_admits_kind")}
     for b in _rd.bases():
         for k in _rd.kinds_for(b):
-            s.check((b, k) in pairs, f"the attribution table carries {b}/{k}")
+            s.check((b, "reading", k) in pairs, f"the attribution table carries {b}/{k}")
 
     # THE QUESTIONS RUN. Each was a script or was unaskable; a broken one would answer nothing.
     for q, sql in relational.QUESTIONS.items():
@@ -130,75 +154,68 @@ def main(s):
     db.execute("INSERT INTO imprint (publisher, name) VALUES ('h00001', 'まんがタイムKR')")
     imp = db.execute("SELECT id FROM imprint").fetchone()[0]
 
-    # A DATE NOBODY CAN FOLLOW IS REFUSED, which is the whole of what `edition` adds. The rule is
-    # the same one `per-book dates cite their page` states for the shop capture, moved to where it
-    # cannot be reported after the fact because the row never lands.
-    try:
-        db.execute("INSERT INTO edition (work, dated, kind) VALUES ('w00001', '2018-08', 'printing')")
-        s.check(False, "a dated edition with no citation must not be accepted")
-    except sqlite3.IntegrityError:
-        s.check(True, "a date with no page behind it is refused rather than counted")
-    db.execute("INSERT INTO edition (work, dated, kind, cite) VALUES"
-               " ('w00001', '2018-08', 'printing', 'madb:M309963')")
-    s.eq(db.execute("SELECT count(*) FROM edition").fetchone()[0], 1,
-         "and the same row with a citation is admitted")
+    # ── §5b SPLIT THE BOOK FROM THE EVENT, AND THAT IS WHAT THESE NOW ASSERT ─────────────────
+    #
+    # 812 volumes state a printing date and a shop delivery date that differ, and `edition` held one
+    # row per book with `isbn UNIQUE`, so the second event had nowhere to go. The loader's `if/elif`
+    # keeping the printing and dropping the delivery was forced by the shape, not chosen.
+    db.execute("INSERT INTO volume (work, isbn) VALUES ('w00001','9784778320614')")
+    vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    db.execute("INSERT INTO edition (volume, dated, kind, cite) VALUES"
+               " (?, '2009-08', 'printing', 'madb:M400412')", (vol,))
+    db.execute("INSERT INTO edition (volume, dated, kind, cite) VALUES"
+               " (?, '2014-03', 'shop-delivery', 'https://shop/x')", (vol,))
+    s.eq(db.execute("SELECT count(*) FROM edition WHERE volume = ?", (vol,)).fetchone()[0], 2,
+         "one book holds a printing and a delivery, which it could not before")
+    _refuses(s, db, "INSERT INTO edition (volume, dated, kind, cite) VALUES"
+                    " (?, '2015-01', 'printing', 'madb:M2')", (vol,),
+             "and one of each kind, so a second printing of one book is refused")
 
-    # AN EDITION OF A WORK NOBODY HOLDS. The foreign key is what makes this unstateable rather than
-    # a number somebody reads later.
-    try:
-        db.execute("INSERT INTO edition (work, kind) VALUES ('w99999', 'printing')")
-        s.check(False, "an edition may not name a work the store does not hold")
-    except sqlite3.IntegrityError:
-        s.check(True, "an edition of an unheld work is refused by the foreign key")
+    # A DATE NOBODY CAN FOLLOW IS REFUSED, the rule `per-book dates cite their page` states for the
+    # shop capture, moved to where it cannot be reported after the fact because the row never lands.
+    _refuses(s, db, "INSERT INTO edition (volume, dated, kind) VALUES (?, '2018-08', 'serialisation')",
+             (vol,), "a date with no page behind it is refused rather than counted")
 
-    # ONE ISBN IS ONE BOOK. Dated, because §3 made an ISBN without a date unstateable and this
-    # assertion is about the ISBN rather than about the date.
-    db.execute("INSERT INTO edition (work, isbn, dated, cite, kind) VALUES"
-               " ('w00001','9784778320614','2008-05','madb:M309963','printing')")
-    try:
-        db.execute("INSERT INTO edition (work, isbn, dated, cite, kind) VALUES"
-                   " ('w00001','9784778320614','2008-05','madb:M309963','printing')")
-        s.check(False, "two editions must not share one ISBN")
-    except sqlite3.IntegrityError:
-        s.check(True, "an ISBN already held is refused, so one ISBN is one book")
+    # A VOLUME OF A WORK NOBODY HOLDS, and an event on a volume nobody holds.
+    _refuses(s, db, "INSERT INTO volume (work) VALUES ('w99999')", (),
+             "a volume may not name a work the store does not hold")
+    _refuses(s, db, "INSERT INTO edition (volume, kind) VALUES (99999, 'printing')", (),
+             "and an event may not name a volume that does not exist")
+
+    # ONE ISBN IS ONE BOOK, which is now a statement about the book rather than about an event.
+    _refuses(s, db, "INSERT INTO volume (work, isbn) VALUES ('w00001','9784778320614')", (),
+             "an ISBN already held is refused, so one ISBN is one book")
 
     # AND THE KIND IS A CLOSED SET, so a date's meaning cannot be invented per row.
-    try:
-        db.execute("INSERT INTO edition (work, kind) VALUES ('w00001', 'guessed')")
-        s.check(False, "an edition kind outside the set must be refused")
-    except sqlite3.IntegrityError:
-        s.check(True, "printing, shop-delivery and serialisation are the only kinds there are")
+    _refuses(s, db, "INSERT INTO edition (volume, kind) VALUES (?, 'guessed')", (vol,),
+             "printing, shop-delivery and serialisation are the only kinds there are")
 
     # ── WHAT §3 ADDED: A VOLUME IS CALLED SOMETHING, AND ITS DATE RESTS ON SOMETHING ──────────
     #
     # `volume` is a position and an integer answers it. 983 volumes are called `上`, `創刊号` or
     # `2017年1月号`, which no integer holds, and the column for that did not exist until §3.
-    db.execute("INSERT INTO edition (work, designation, kind) VALUES ('w00001', '創刊号', 'printing')")
-    s.eq(db.execute("SELECT designation FROM edition WHERE designation IS NOT NULL").fetchone()[0],
+    db.execute("INSERT INTO volume (work, designation) VALUES ('w00001', '創刊号')")
+    s.eq(db.execute("SELECT designation FROM volume WHERE designation IS NOT NULL").fetchone()[0],
          "創刊号", "a volume carries the word it is called, not a number standing in for it")
 
-    # AN ISBN IS A KEY INTO EVERY DATED REGISTRY THERE IS, so holding one and no date means nobody
-    # asked. The budget was 0 and is now unstateable.
-    try:
-        db.execute("INSERT INTO edition (work, isbn, kind) VALUES ('w00001','9784088900000','printing')")
-        s.check(False, "an ISBN with no date must not be accepted")
-    except sqlite3.IntegrityError:
-        s.check(True, "an ISBN with no date is refused: the registries it keys into all state one")
-    db.execute("INSERT INTO edition (work, isbn, dated, cite, kind) VALUES"
-               " ('w00001','9784088900000','2019-01','madb:M1','printing')")
-    s.check(True, "and the same ISBN with a date and a citation is admitted")
+    # AN ISBN AND NO DATE IS NO LONGER A CHECK, because no CHECK reaches across two tables. It is a
+    # standing question the store answers, which is weaker, and saying so is the point.
+    s.check("volumes with an isbn and no date" in relational.QUESTIONS,
+            "the constraint §3 adopted became a question §5b can still ask")
+    s.eq(db.execute(relational.QUESTIONS["volumes with an isbn and no date"]).fetchone()[0], 0,
+         "and the volume above holds a date, so nothing answers to it here")
+    db.execute("INSERT INTO volume (work, isbn) VALUES ('w00001','9784088900000')")
+    s.eq(db.execute(relational.QUESTIONS["volumes with an isbn and no date"]).fetchone()[0], 1,
+         "while an ISBN nobody dated is found, which is what the CHECK used to refuse")
 
     # A BASIS NOBODY CAN NAME IS A BASIS NOBODY CAN WEIGH.
-    try:
-        db.execute("INSERT INTO edition (work, dated, cite, kind, dated_basis) VALUES"
-                   " ('w00001','2019-01','madb:M2','printing','somebody said so')")
-        s.check(False, "a date basis outside the set must be refused")
-    except sqlite3.IntegrityError:
-        s.check(True, "the four bases a volume date can rest on are the only ones there are")
+    _refuses(s, db, "INSERT INTO edition (volume, dated, cite, kind, dated_basis) VALUES"
+                    " (?, '2019-01','madb:M2','serialisation','somebody said so')", (vol,),
+             "the four bases a volume date can rest on are the only ones there are")
     # AND SILENCE IS ALLOWED, because 1,219 volumes state no basis and an admitted silence beats
     # a basis invented to satisfy a column.
-    db.execute("INSERT INTO edition (work, dated, cite, kind) VALUES"
-               " ('w00001','2019-02','madb:M3','printing')")
+    db.execute("INSERT INTO edition (volume, dated, cite, kind) VALUES"
+               " (?, '2019-02','madb:M3','serialisation')", (vol,))
     s.check(True, "a date with no stated basis is admitted rather than given one")
 
     # ── §4: WHAT A PLATFORM OFFERS, AND WHAT IT PUBLISHED ─────────────────────────────────────
@@ -384,7 +401,7 @@ def main(s):
              "and so is one too short to be an identifier this project issues")
 
     # A VOLUME BEFORE THE FIRST ONE.
-    _refuses(s, db, "INSERT INTO edition (work, volume, kind) VALUES ('w00001',-5,'printing')", (),
+    _refuses(s, db, "INSERT INTO volume (work, volume) VALUES ('w00001',-5)", (),
              "a negative volume number is refused")
 
     # `romanisation` WAS DECLARED LEGAL AND MADE UNSTATEABLE by the composite key, which is a schema

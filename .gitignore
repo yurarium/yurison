@@ -20,7 +20,11 @@ data/names/.journal/
 # consequence worth knowing: titles.json is read by ADAPTERS, so a fresh clone must build once
 # before it can fetch. The committed copy used to hide that ordering.
 data/build/
-data/store.db
+# THE STORE IS DERIVED AND IS NOT COMMITTED, which `adapters/relational/__init__.py` states as the
+# reason it is allowed to be load-bearing: deleting it costs one rebuild and nothing else. Listing
+# it here does not untrack it, and it WAS tracked from before these lines existed, so four commits
+# carry a 2.2 MB binary and one of them is from 2026-08-13. `git rm --cached` on that date is what
+# made the rule true. `data/store.db` was the name before the rename and its file is deleted.
 data/relational.db
 data/relational-rebuilt.db
 

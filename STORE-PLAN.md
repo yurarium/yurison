@@ -49,6 +49,8 @@ below moves one domain to the other side of that line.
 | §5 | Renderings, which are derived from a source that stays where it is | §4 |
 | §6 | The compiler writes the store; the JSON is emitted from it | per domain, as each lands |
 | §7 | Incremental on every update, reconciled weekly | §6 |
+| §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
+| §9 | The maintenance pass, and what it works from | §1a |
 
 ## 1. Measure what travels around the store
 
@@ -219,3 +221,110 @@ that decision becomes more important rather than less.
 
 **Whether `data/build` disappears.** It may survive as an emitted artefact for as long as anything
 finds it useful, including the checks. What matters is that nothing produces it except the store.
+
+## 8. Turn the schedule on
+
+**WHAT RUNS TODAY.** `equivalence.yml` is scheduled, `cron: "17 4 * * 1"`, Monday and away from
+everything else. `gate.yml` and `leak-guard.yml` run on push and on pull request. `update.yml` has
+its `schedule:` block **commented out**, with three crons written and disabled:
+
+    # - cron: "37 15 * * *"   00:37 JST, after the midnight batch. The most valuable single run.
+    # - cron: "07 3 * * *"    12:07 JST, catching the 11:00 and 12:00 clusters together.
+    # - cron: "17 10 * * *"   19:17 JST, the small evening tail plus a retry margin.
+
+The times are already reasoned: measured from 10,216 dated feed entries, 98% of releases land in
+three hours JST, and each cron sits 30 minutes behind a cluster and off the hour because everything
+at :00 queues behind the rest of GitHub. None of that needs revisiting.
+
+**THE CONDITIONS ARE DECIDED AND THREE OF THEM ARE MET.** `TODO-github-setup.md` §C lists what must
+hold before the schedule goes on, and this plan does not get to relax them.
+
+| condition | state |
+|---|---|
+| per-host parallelism in Stage A | met: `run_stage.py` drives `stage-a.yaml` concurrently |
+| a clean run with the browser stage | not confirmed |
+| `SITE_DEPLOY_KEY` set, so publishing works | not confirmed; the step warns and exits 0 without it |
+| a re-measured cost | not done since the concurrency change |
+
+**THE COST IS THE ONE THAT DECIDES IT.** `yurison` is private, so Actions bills against 2,000 free
+minutes a month, GitHub rounds every run up to a whole minute, and run COUNT matters as much as run
+length. Stage A took 2,285s when it ran serially, which was roughly 1,800 minutes a month before the
+browser stage. Concurrency should have changed that substantially and nobody has measured it. Three
+crons a day is 90 runs a month before anything else, so the measurement decides whether it is three
+crons, one, or the most valuable one alone.
+
+This section sits late rather than first for one reason. A nightly job that half-succeeds trains you to
+ignore its failures, which `TODO-github-setup.md` says in those words. Under this plan the store is
+the compiled form, so an unattended failure is a day with no compile at all rather than a day with
+stale JSON. §1a's quarantine is what makes an unattended run survivable, and §7's reconciliation is
+what proves the incremental path has not drifted. Turning the schedule on before both hold would be
+automating something that cannot yet fail safely.
+
+**WHAT TO CHANGE, when the conditions hold.** Uncomment the block, keeping whichever crons the
+re-measured cost supports. `equivalence.yml` needs nothing: it is already scheduled and already
+runs the cache-free cycle, which is the reconciliation this plan depends on.
+
+## 9. The maintenance pass, and what it works from
+
+**WHAT THIS SECTION IS.** The unattended run populates what it can and sets aside what it cannot.
+This is the process that deals with the residue afterwards, run on the project owner's instruction.
+It says what the pass reads and what it does with each class of thing. It deliberately says nothing
+about when it runs.
+
+**WHAT IT READS, in this order, because each earlier one can create work for the later ones.**
+
+  §1a's quarantine, which holds rows the compiler could not admit. Newest first.
+
+  The budgets that moved since the last pass, from `docs/budgets.json` and the gate's report.
+
+  `data/queue`, 35 files today, each a decision somebody has to make: `identity-review.yaml`,
+  `macron-boundaries.yaml`, `shop-query-title-only.yaml`, `bw-review.yaml` and the rest.
+
+  `docs/GAPS.md`, for the classes nobody has closed.
+
+**A QUARANTINED ROW HAS EXACTLY FOUR OUTCOMES, and naming them is the point of writing this down.**
+
+  ADMIT IT. The data is right and the corpus was missing something it needed, usually a work the
+  capture reached before anything admitted it. Add what is missing and the row inserts.
+
+  JOIN IT. The data describes something already held under another identifier, which is what most
+  of `updates naming a work we do not hold` turns out to be. `identity --attach` where the address
+  is unclaimed, `--merge` where it already carries an id of its own, and the registry refuses the
+  wrong one of those, which is how the operation is chosen rather than guessed.
+
+  RULE ON IT. The data is right and the model is wrong, and the honest answer is a schema change
+  or a ruling in `facts/`. §1a says it outright: a constraint routinely violated has become a
+  filter, and quarantine that grows every day means the model is asserting something the data does
+  not support.
+
+  REFUSE IT. The data is out of scope or wrong, which is `data/scope.yaml` or a rebuttal, and the
+  reasoning is recorded where the next pass will find it rather than in a commit message.
+
+Every quarantined row leaves by one of those four doors. An empty quarantine emptied by deletion
+looks exactly like one emptied by work, which is the whole reason to write the doors down.
+
+**BUDGETS THAT MOVED.** A rise is accepted with a recorded reason and never edited away, and the
+reason has to be established rather than assumed. The method that works is to put the new inputs
+aside and rebuild: if the number returns to what it was, the rise is the new rows and not a defect.
+A rise nobody can explain is a fault until somebody explains it.
+
+**THE NAMING WORK, which is the largest recurring item.** New works arrive with no English, and
+Stage E's passes reach only what a machine can settle: a title already in Latin, a reading the kana
+state outright, an analyser's guess marked as one. What is left needs a person, and the precedence
+is the project's own: an official English title the work carries outranks a licensor's, which
+outranks a translation of ours, which outranks a romanisation. A romanisation is the finished
+answer for a coinage and a poor one for a phrase.
+
+The entries go in `data/names/curated.yaml`, which is the source, with the argument in the note,
+and reach the store through `curate.py --apply`. `works without English` is 0 and can only rise;
+`works showing a romanisation` never reaches zero and falls by deciding titles one at a time.
+
+**THE OTHER RECURRING ITEMS.** Readings nobody has settled, interpunct credits nobody has ruled on,
+macron boundaries, shop leads that reached no bibliography record, and translated editions whose
+base work the corpus does not hold. Each has a queue file, and the discipline is the same: decide
+it, record why, and let the number fall because the work was done.
+
+**HOW A PASS ENDS.** Rebuild, gate, tests, deploy, push both repositories in that order, and read
+what the site actually serves. Where `kari/app.js` has changed, the site repository goes
+first, because `gate.yml` clones the site at its default branch and would otherwise test today's
+Python against yesterday's JavaScript.

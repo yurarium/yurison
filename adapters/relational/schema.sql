@@ -212,6 +212,53 @@ CREATE TABLE identity_ruling_surface (
   PRIMARY KEY (ruling, spelling)
 );
 
+-- ── whether a work is still running, and on whose word ─────────────────────────────────────────
+--
+-- THE DISAGREEMENT RULE APPLIED TO SOMETHING OTHER THAN A NAME, which is what §5e found the model
+-- could not say. Every one of the 3,040 works carries a state, 948 name what it rests on, and 271
+-- hold competing source claims about whether the work is running, each with a source, a term, a
+-- date and a page. `claim` is scoped to names by its own CHECK, so the store had one shape for one
+-- kind of disagreement and none for this.
+CREATE TABLE work_state (
+  work  TEXT PRIMARY KEY REFERENCES work(id) ON DELETE CASCADE,
+  -- WHAT THE INTERFACE DRAWS. `print` and `oneshot` describe a work with no serialisation to be
+  -- running; `active`, `slow` and `dormant` are thresholds over the release feed; `completed` is a
+  -- source saying so and `unknown` is the admitted silence.
+  state TEXT NOT NULL CHECK (state IN
+          ('print', 'oneshot', 'unknown', 'completed', 'active', 'dormant', 'slow')),
+  -- WHY, IN THE PROJECT'S OWN WORDS: `the newest chapter is titled 最終話`. Prose, and it is prose
+  -- in the corpus, so `state_claim` beside it is where the queryable form lives.
+  basis TEXT
+);
+
+CREATE TABLE state_claim (
+  id     INTEGER PRIMARY KEY,
+  work   TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  source TEXT NOT NULL,
+  -- WHAT THE SOURCE SAYS AND THE WORD IT USED. `says` is the reading we take, `term` is what the
+  -- page printed, and keeping both is what lets a later reader disagree with the reading.
+  says   TEXT,
+  term   TEXT,
+  url    TEXT,
+  read   TEXT
+);
+
+CREATE UNIQUE INDEX state_claim_one ON state_claim (work, source, coalesce(says, ''));
+
+-- HOW A WORK IS PRESENTED, AND WHETHER IT IS PRESENTED AT ALL. `marketing_label` is publisher-side
+-- labelling under DEFINITIONS §4, which is a different question from the shelf a work was admitted
+-- on, and `visibility` is the §13 register: `rebutted` and `marginal`.
+CREATE TABLE work_presentation (
+  work       TEXT PRIMARY KEY REFERENCES work(id) ON DELETE CASCADE,
+  label      TEXT,
+  visibility TEXT CHECK (visibility IS NULL OR visibility IN ('rebutted', 'marginal')),
+  -- HOW THE LABEL WAS ARRIVED AT, which the corpus states as a source, a page, a date and a note.
+  source     TEXT,
+  url        TEXT,
+  retrieved  TEXT,
+  note       TEXT
+);
+
 -- ── the strings a reader is shown ───────────────────────────────────────────────────────────────
 --
 -- A CLAIM IS ABOUT A NAME AND NOT ABOUT A THING, which STORE-PLAN §5 is where the schema stopped
@@ -289,6 +336,15 @@ CREATE TABLE names (
            WHEN 'publisher' THEN publisher IS NOT NULL AND work   IS NULL AND credit    IS NULL
            ELSE 0 END),
   FOREIGN KEY (surface, kind) REFERENCES surface (id, kind) ON DELETE CASCADE
+);
+
+-- THE BYLINE AS A WORK PRINTS IT. 3,399 credit-line surfaces exist and nothing connected one to the
+-- work it appeared on, and the fix is an edge rather than a column on `surface`, because one line
+-- appears on many works. `credit_division` holds how it divides; this holds where it was seen.
+CREATE TABLE work_byline (
+  work    TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  surface INTEGER NOT NULL REFERENCES surface(id) ON DELETE CASCADE,
+  PRIMARY KEY (work, surface)
 );
 
 CREATE UNIQUE INDEX names_edge ON names

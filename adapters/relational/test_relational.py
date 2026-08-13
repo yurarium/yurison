@@ -385,6 +385,41 @@ def main(s):
     s.eq(db.execute("SELECT count(*) FROM surface WHERE folded = 'あ／い'").fetchone()[0], 2,
          "and one string is a title and a credit line at once, which is what the kind is for")
 
+    # ── §5e: THE DISAGREEMENT RULE APPLIED TO SOMETHING OTHER THAN A NAME ─────────────────────
+    #
+    # Every one of the 3,040 works carries a state and 271 hold competing source claims about
+    # whether the work is running. `claim` is scoped to names by its own CHECK, so the store had
+    # one shape for one kind of disagreement and none for this.
+    db.execute("INSERT INTO work_state (work, state, basis) VALUES"
+               " ('w00001','completed','the newest chapter is titled 最終話')")
+    db.execute("INSERT INTO state_claim (work, source, says, term, url) VALUES"
+               " ('w00001','カドコミ','running','ongoing','https://comic-walker.com/x')")
+    db.execute("INSERT INTO state_claim (work, source, says, term) VALUES"
+               " ('w00001','ニコニコ漫画','finished','完結')")
+    s.eq(db.execute("SELECT count(*) FROM state_claim WHERE work='w00001'").fetchone()[0], 2,
+         "two sources disagreeing about whether a work is running are two rows")
+    _refuses(s, db, "INSERT INTO work_state (work, state) VALUES ('w00002','running')", (),
+             "and the states are the seven the interface draws, not an eighth invented per row")
+    _refuses(s, db, "INSERT INTO work_state (work, state) VALUES ('w00001','print')", (),
+             "one work is in one state")
+
+    # THE §13 REGISTER, and publisher-side labelling, which are different questions from the shelf
+    # a work was admitted on.
+    _refuses(s, db, "INSERT INTO work_presentation (work, visibility) VALUES ('w00001','hidden')",
+             (), "a visibility outside the register is refused")
+    db.execute("INSERT INTO work_presentation (work, label, visibility, source) VALUES"
+               " ('w00001','yuri','marginal','madb')")
+    s.eq(db.execute("SELECT label FROM work_presentation").fetchone()[0], "yuri",
+         "and a label the publisher applied is held with where it came from")
+
+    # THE BYLINE AS A WORK PRINTS IT. One line appears on many works, so it is an edge.
+    db.execute("INSERT INTO surface (kind, folded) VALUES ('credit-line','原作あ／作画い')")
+    line0 = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    db.execute("INSERT INTO work_byline (work, surface) VALUES ('w00001', ?)", (line0,))
+    db.execute("INSERT INTO work_byline (work, surface) VALUES ('w00002', ?)", (line0,))
+    s.eq(db.execute("SELECT count(*) FROM work_byline WHERE surface = ?", (line0,)).fetchone()[0],
+         2, "one byline reaches two works, which a column on the surface could not say")
+
     # ── §5c: WHAT THE STORE SAID IT HELD AND DID NOT ──────────────────────────────────────────
     #
     # `admitted_by` WAS A NOT NULL HOLDING THE WORD `'unstated'` ON ALL 3,040 ROWS, because the

@@ -51,7 +51,7 @@ below moves one domain to the other side of that line.
 | §5b | A row nothing can address twice | done 2026-08-13 |
 | §5d | A name is an identity here, and it must not be | done 2026-08-13 |
 | §5c | What the store says it holds and does not | done 2026-08-13 |
-| §5e | The domains still outside the store | §5c |
+| §5e | The domains still outside the store | opened 2026-08-13; the rest is §6's queue |
 | §6 | The compiler writes the store; the JSON is emitted from it | §5e |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
@@ -715,6 +715,23 @@ one line can appear on many works. The reissue RUN a printing belongs to, which 
 81 volumes listing two ISBNs under one record cannot say the two are one book twice. And 30 volumes
 whose number is a string with no integer in it, `難問編` and `上巻`, carrying neither a number nor a
 designation.
+
+**OPENED 2026-08-13, WITH THE STATE AND THE BYLINE MODELLED.** `work_state` 3,040, `state_claim`
+271, `work_presentation` 2,461 and `work_byline` 3,018, none refused.
+
+  THE DISAGREEMENT RULE NOW REACHES SOMETHING OTHER THAN A NAME. 271 works hold competing source
+  claims about whether they are running, each with a source, the term the page printed and the
+  reading we took from it. Keeping both the term and the reading is what lets a later reader
+  disagree with the reading rather than with the source.
+
+  THE BYLINE IS AN EDGE, which is where the review's suggestion and this plan part company: it
+  counted the byline among what `surface`'s CASE check wrongly forbids, and forbidding it is right,
+  because one line appears on many works and a column could only ever hold the first.
+
+**WHAT IS LEFT IS §6's QUEUE AND IT IS 369 PATHS.** The admission evidence went in §5c, and what
+remains is mostly the feed's own months, `feed/meta.json`, the interface's thresholds and the
+per-source `evidence` and `sourced_from` arrays. None of it is a modelling question of the kind
+§5a to §5e were: each is a shape to move, and §6 moves them one domain at a time as it emits.
 
 ## What this plan does not adopt from the review
 

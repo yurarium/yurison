@@ -167,6 +167,14 @@ STORE_ANSWERS = (
     "series.json:series[].id",
     "series.json:series[].work",
     "series.json:series[].first",
+    # §5e: whether a work is running, and on whose word.
+    "series.json:series[].state",
+    "series.json:series[].state_basis",
+    "series.json:series[].state_claims",
+    "series.json:series[].completed_basis",
+    "series.json:series[].author",
+    "works.json:works[].marketing_label",
+    "works.json:works[].marketing_label_basis",
     "works.json:works[].work_id",
     # §5c: the grounds a work was admitted on, and what a source says its run is.
     "works.json:works[].admitted_by",

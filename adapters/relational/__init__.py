@@ -591,6 +591,17 @@ def build(path=None):
     counts["romanisation"] = db.execute("SELECT count(*) FROM romanisation").fetchone()[0]
     counts["ruby"] = db.execute("SELECT count(*) FROM ruby").fetchone()[0]
 
+    # WHERE A BYLINE WAS SEEN, §5e. 3,399 credit-line surfaces existed and nothing connected one to
+    # the work it appeared on. One line appears on many works, so it is an edge and not a column.
+    for _k, r in _rows("series", "series"):
+        wid, field = r.get("id"), r.get("author")
+        if wid and field:
+            sid = surface_id("credit-line", field)
+            if sid is not None:
+                put("INSERT OR IGNORE INTO work_byline (work, surface) VALUES (?,?)",
+                    (wid, sid), f"byline {wid}")
+    counts["work_byline"] = db.execute("SELECT count(*) FROM work_byline").fetchone()[0]
+
     for folded, r in entries("credit_parts"):
         sid = surface_id("credit-line", folded)
         if sid is None:
@@ -659,6 +670,25 @@ def build(path=None):
             put("INSERT INTO work_publisher (work, publisher, imprint) VALUES (?,?,?)",
                 (wid, pid, _imprint(pid, imp)), f"work_publisher {wid}->{pid}")
     counts["work_publisher"] = db.execute("SELECT count(*) FROM work_publisher").fetchone()[0]
+
+    # ── whether a work is running, and the byline it prints, §5e ────────────────────────────────
+    for _k, r in _rows("series", "series"):
+        wid = r.get("id")
+        if not wid or r.get("state") is None:
+            continue
+        put("INSERT INTO work_state (work, state, basis) VALUES (?,?,?)",
+            (wid, r["state"], r.get("state_basis") or r.get("completed_basis")),
+            f"work_state {wid}")
+        # THE COMPETING CLAIMS, which are the disagreement rule applied to something other than a
+        # name: 271 works hold a source, a term, a date and a page each.
+        for cl in (r.get("state_claims") or []):
+            if isinstance(cl, dict) and cl.get("source"):
+                put("INSERT OR IGNORE INTO state_claim (work, source, says, term, url, read)"
+                    " VALUES (?,?,?,?,?,?)",
+                    (wid, cl["source"], cl.get("says"), cl.get("term"), cl.get("url"),
+                     cl.get("read")), f"state_claim {wid}")
+    counts["work_state"] = db.execute("SELECT count(*) FROM work_state").fetchone()[0]
+    counts["state_claim"] = db.execute("SELECT count(*) FROM state_claim").fetchone()[0]
 
     # EDITIONS. `works.json` is keyed by the RECORD identifier a catalogue or a shop issued, and
     # `edition.work` is a `w` identifier, so the print blocks supply the bridge: `work_ids` names
@@ -747,6 +777,14 @@ def build(path=None):
             continue
         if w.get("explicit_content"):
             db.execute("UPDATE work SET explicit_content = 1 WHERE id = ?", (wid,))
+        # HOW IT IS PRESENTED, AND WHETHER IT IS. `marketing_label` is publisher-side labelling
+        # under DEFINITIONS §4 and `visibility` is the §13 register.
+        mb = w.get("marketing_label_basis") if isinstance(w.get("marketing_label_basis"), dict) else {}
+        if w.get("marketing_label") or w.get("visibility"):
+            put("INSERT OR IGNORE INTO work_presentation (work, label, visibility, source, url,"
+                " retrieved, note) VALUES (?,?,?,?,?,?,?)",
+                (wid, w.get("marketing_label"), w.get("visibility"), mb.get("source"),
+                 mb.get("url"), mb.get("retrieved"), mb.get("note")), f"presentation {wid}")
         for g in (w.get("admitted_by") or []):
             if isinstance(g, dict):
                 put("INSERT INTO admission (work, comparator, shelf, shop_url, url, retrieved,"

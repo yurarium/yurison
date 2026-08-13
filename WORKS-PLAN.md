@@ -113,7 +113,7 @@ dates and 6 only through a GigaViewer Atom feed. They include
 and `見える子ちゃん`, which are not obscure. A reader meets each of them on the releases page, follows
 nothing, and the work is absent from every list the site draws.
 
-**§3a. THE SIX ARE MECHANICAL.** A GigaViewer Atom record carries the episode title, the date, the
+§3a, the six, are mechanical. A GigaViewer Atom record carries the episode title, the date, the
 author and the URL for every release, which is what a row is made of. They assemble from what is
 already on disk.
 
@@ -124,10 +124,27 @@ series row's shape assumes a chapter list, and the chapter count, the access mod
 tally and both the first and latest date all read that list. Those 47 rows would carry an episode
 count and no chapters.
 
-The row should exist and say plainly that the platform attests the work rather than its contents,
-which is the move `provenance` already makes elsewhere. What needs deciding is what the work page
-draws where the chapter list goes, and whether a chapterless row is allowed into counts that are
-currently statements about chapters. **Settle §3b before building §3a**, so one shape serves both.
+**THE RECOMMENDATION, 2026-08-13.** Keep `chapters` at 0 and let it stay literally true, since it
+counts chapters we hold. Carry the platform's own instalment count in a field of its own, with
+`free_episodes` beside it. Setting `chapters` to `episode_count` is the move to refuse: every reader
+of that field treats it as what we hold, including the free-view tally, the access modes and the `+`
+suffix whose tooltip reads "the platform lists more chapters than we hold; this is what we have".
+A row where the field meant something else would be invisible to all of them and would inflate the
+free-view count with works nobody here has read a chapter of.
+
+Nothing else needs inventing. The record states the author, `started`, `updated`, `episode_count`,
+`free_episodes` and a readable URL, so `first`, `latest` and `state` all derive from stated facts,
+and the interface already prints `3 listed of 90` rather than a bare number that would claim a total
+it lacks. A work-level row is the limiting case of something the shape already models.
+
+**BUILD §3a FIRST.** The six GigaViewer works carry real chapters, so they prove the admission path
+with no new field, and §3b then adds only the chapterless case to a route already working.
+
+Three consequences to expect. `works without English` leaves zero unless §1 has run, because 48 of
+these works have no English in the store for exactly the reason §1 names. Admission has to go
+through identity rather than making a work per title, since 3 of them are edition variants of works
+already held, in the shapes `（Lilie comics）` and `【連載版】`. And any budget counting access per
+chapter should skip a row holding no chapters rather than report it as a gap.
 
 The 170 are a different question and stay out of this section. They hold chapter records and are
 held out by the app-only rule, the catch-all resolver rule or the scope test, each of which is

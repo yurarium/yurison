@@ -86,6 +86,20 @@ def split_whole(credit):
     return _sp().split_authors(credit, interpunct=False)
 
 
+def roles():
+    """Every job a byline can state, as the splitter knows them.
+
+    THROUGH THE ENTRY POINT, which is why this exists rather than `splitter.ROLES` being read from
+    outside. `adapters/relational` keys `credit_part_role` on this set and reached the submodule to
+    get it; `a fact is reached through its entry point` refused that, correctly.
+
+    THE BRACKETED FORM IS ONE OF THEM. `コミック` is a role only inside brackets, which is a rule
+    about where it may appear rather than about whether it is a job somebody did.
+    """
+    sp = _sp()
+    return tuple(sp.ROLES) + tuple(sp.BRACKET_ROLES)
+
+
 def __getattr__(name):
     """Anything `interpunct` publishes, reached through the entry point."""
     if name in _SUBMODULES or name.startswith("__"):

@@ -163,20 +163,20 @@ def main(s):
     db.execute("INSERT INTO volume (work, record, seq) VALUES ('w00001', 'C000001', 0)")
     vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
     db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784778320614', ?)", (vol,))
-    db.execute("INSERT INTO edition (volume, dated, kind, cite) VALUES"
-               " (?, '2009-08', 'printing', 'madb:M400412')", (vol,))
-    db.execute("INSERT INTO edition (volume, dated, kind, cite) VALUES"
-               " (?, '2014-03', 'shop-delivery', 'https://shop/x')", (vol,))
+    db.execute("INSERT INTO edition (volume, dated, kind, source, cite) VALUES"
+               " (?, '2009-08', 'printing', 'madb', 'madb:M400412')", (vol,))
+    db.execute("INSERT INTO edition (volume, dated, kind, source, cite) VALUES"
+               " (?, '2014-03', 'shop-delivery', 'shop', 'https://shop/x')", (vol,))
     s.eq(db.execute("SELECT count(*) FROM edition WHERE volume = ?", (vol,)).fetchone()[0], 2,
          "one book holds a printing and a delivery, which it could not before")
-    _refuses(s, db, "INSERT INTO edition (volume, dated, kind, cite) VALUES"
-                    " (?, '2015-01', 'printing', 'madb:M2')", (vol,),
+    _refuses(s, db, "INSERT INTO edition (volume, dated, kind, source, cite) VALUES"
+                    " (?, '2015-01', 'printing', 'madb', 'madb:M2')", (vol,),
              "and one of each kind, so a second printing of one book is refused")
 
     # A DATE NOBODY CAN FOLLOW IS REFUSED, the rule `per-book dates cite their page` states for the
     # shop capture, moved to where it cannot be reported after the fact because the row never lands.
     _refuses(s, db, "INSERT INTO edition (volume, dated, kind) VALUES (?, '2018-08', 'serialisation')",
-             (vol,), "a date with no page behind it is refused rather than counted")
+             (vol,), "a date that names no source is refused rather than counted")
 
     # A VOLUME OF A WORK NOBODY HOLDS, and an event on a volume nobody holds.
     _refuses(s, db, "INSERT INTO volume (work, record, seq) VALUES ('w99999', 'C000002', 0)", (),
@@ -219,13 +219,13 @@ def main(s):
          "while an ISBN nobody dated is found, which is what the CHECK used to refuse")
 
     # A BASIS NOBODY CAN NAME IS A BASIS NOBODY CAN WEIGH.
-    _refuses(s, db, "INSERT INTO edition (volume, dated, cite, kind, dated_basis) VALUES"
-                    " (?, '2019-01','madb:M2','serialisation','somebody said so')", (vol,),
+    _refuses(s, db, "INSERT INTO edition (volume, dated, source, cite, kind, dated_basis) VALUES"
+                    " (?, '2019-01','madb','madb:M2','serialisation','somebody said so')", (vol,),
              "the four bases a volume date can rest on are the only ones there are")
     # AND SILENCE IS ALLOWED, because 1,219 volumes state no basis and an admitted silence beats
     # a basis invented to satisfy a column.
-    db.execute("INSERT INTO edition (volume, dated, cite, kind) VALUES"
-               " (?, '2019-02','madb:M3','serialisation')", (vol,))
+    db.execute("INSERT INTO edition (volume, dated, source, cite, kind) VALUES"
+               " (?, '2019-02','madb','madb:M3','serialisation')", (vol,))
     s.check(True, "a date with no stated basis is admitted rather than given one")
 
     # ── §4: WHAT A PLATFORM OFFERS, AND WHAT IT PUBLISHED ─────────────────────────────────────
@@ -464,6 +464,58 @@ def main(s):
     _refuses(s, db, "INSERT INTO volume (work, record, seq) VALUES ('w00001','C000900',0)", (),
              "so one record cannot state the same position twice")
 
+    # ── §5j: A VOCABULARY WITH ONE HOME, AND A KEY INTO IT ────────────────────────────────────
+    #
+    # EACH OF THESE WAS FREE TEXT. A CHECK written in the schema would have been a SECOND home for
+    # the vocabulary, so in every case the ruling moved into `facts/` first and the key followed.
+    from facts import dating as _dating
+    from facts import identity as _ident
+    from facts import serialisation as _ser
+    from facts import credit as _credit
+    for table, names in (("work_state_kind", _ser.STATES), ("state_saying", _ser.SAYS),
+                         ("release_kind", _ser.RELEASE_KINDS),
+                         ("anchor_scheme", _ident.ANCHOR_SCHEMES),
+                         ("ruling_shape", _ident.RULING_SHAPES),
+                         ("volume_basis", _dating.VOLUME_BASES)):
+        held = {r[0] for r in db.execute(f"SELECT name FROM {table}")}
+        s.eq(sorted(held), sorted(names),
+             f"{table} is the fact that states it, asked rather than restated")
+    _refuses(s, db, "INSERT INTO work_state (work, state) VALUES ('w00002','running')", (),
+             "a state no fact states is refused")
+    _refuses(s, db, "INSERT INTO work_anchor (scheme, address, work) VALUES"
+                    " ('ftp','x','w00001')", (), "and an anchor scheme nobody has ruled on")
+
+    # `hiatus` HAS NO ROWS AND IS IN THE VOCABULARY ANYWAY. `build.py` writes it where a run has
+    # skipped two consecutive slots, and a set assembled from the rows the corpus happens to hold
+    # would refuse the first work that went on one. Reading the PRODUCERS is what found it.
+    s.check("hiatus" in _ser.STATES, "a state the compiler can write is a state the store admits")
+    db.execute("INSERT INTO work_state (work, state) VALUES ('w00002','hiatus')")
+    s.check(True, "so a work going on hiatus is admitted rather than refused")
+
+    # A FIELD MAY STATE SEVERAL JOBS AT ONCE, and a multi-valued column is the one shape a
+    # relational store may not keep. 11 of the 39 role strings are a phrase joining atoms.
+    s.check("企画・監修" not in _credit.roles() and "企画" in _credit.roles()
+            and "監修" in _credit.roles(),
+            "`企画・監修` is two jobs the splitter knows and one string the field wrote")
+    db.execute("INSERT INTO credit_part (surface, seq, name, role) VALUES (?,1,'あ','企画・監修')",
+               (line,))
+    for atom in ("企画", "監修"):
+        db.execute("INSERT INTO credit_part_role (surface, seq, role) VALUES (?,1,?)",
+                   (line, atom))
+    s.eq(db.execute("SELECT count(*) FROM credit_part_role WHERE surface = ?", (line,)).fetchone()[0],
+         2, "so the phrase is kept as written and the jobs are held as rows")
+    _refuses(s, db, "INSERT INTO credit_part_role (surface, seq, role) VALUES (?,1,'そうさ')",
+             (line,), "and a job the splitter does not know is refused")
+
+    # ── §5k: A DATE SAYS IT IS A DATE ─────────────────────────────────────────────────────────
+    _refuses(s, db, "INSERT INTO work (id,title,first_publication) VALUES"
+                    " ('w00021','T','yesterday afternoon')", (),
+             "a date written in prose is refused, which it was not")
+    db.execute("INSERT INTO work (id,title,first_publication) VALUES ('w00022','T','2024-03')")
+    db.execute("INSERT INTO work (id,title,first_publication) VALUES ('w00023','T','2024-03-05')")
+    s.eq(db.execute("SELECT count(*) FROM work WHERE first_publication IS NOT NULL").fetchone()[0],
+         2, "while a partial date and a whole one are both admitted, which the corpus holds")
+
     # ── §1a: WHAT THE COMPILER COULD NOT ADMIT ────────────────────────────────────────────────
     #
     # An update runs unattended and must go on running. A refused row either fails the job or is
@@ -505,7 +557,12 @@ def main(s):
     db.execute("INSERT INTO state_claim (work, source, says, term, url) VALUES"
                " ('w00001','カドコミ','running','ongoing','https://comic-walker.com/x')")
     db.execute("INSERT INTO state_claim (work, source, says, term) VALUES"
-               " ('w00001','ニコニコ漫画','finished','完結')")
+               " ('w00001','ニコニコ漫画','completed','完結')")
+    # §5j: THE READING IS A CLOSED SET AND THE PLATFORM'S OWN WORD IS NOT. `完結` and `finished`
+    # are what two platforms print; `completed` is what we take them to mean.
+    _refuses(s, db, "INSERT INTO state_claim (work, source, says) VALUES"
+                    " ('w00002','コミッククリア','finished')", (),
+             "a reading outside the vocabulary is refused, and the platform's word is kept beside it")
     s.eq(db.execute("SELECT count(*) FROM state_claim WHERE work='w00001'").fetchone()[0], 2,
          "two sources disagreeing about whether a work is running are two rows")
     _refuses(s, db, "INSERT INTO work_state (work, state) VALUES ('w00002','running')", (),
@@ -539,10 +596,15 @@ def main(s):
     # records. A NOT NULL whose every value is the word for null reports as filled.
     s.check("admitted_by" not in [r[1] for r in db.execute("pragma table_info(work)")],
             "the placeholder column is gone and the grounds are a table")
-    db.execute("INSERT INTO admission (work, comparator, shelf, note) VALUES"
-               " ('w00001','cmoa.jp','genre 37 (百合・GL)','DEFINITIONS §2, presumptive')")
-    s.eq(db.execute("SELECT shelf FROM admission").fetchone()[0], "genre 37 (百合・GL)",
-         "and a work is admitted on grounds that name the comparator and the shelf")
+    db.execute("INSERT INTO admission (work, comparator, note) VALUES"
+               " ('w00001','cmoa.jp','DEFINITIONS §2, presumptive')")
+    # §5j: THE SHELF IS THE COMPARATOR'S, NOT THE ROW'S. It was a second column repeating one pair
+    # across 1,867 rows, which is a functional dependency on the comparator rather than on the row.
+    s.eq(db.execute("SELECT c.shelf FROM admission a JOIN comparator c ON c.name = a.comparator")
+         .fetchone()[0], "genre 37 (百合・GL)",
+         "a work is admitted on a comparator, and the shelf is the comparator's own")
+    _refuses(s, db, "INSERT INTO admission (work, comparator) VALUES ('w00002','someshop.jp')", (),
+             "and a comparator no fact states is refused")
     _refuses(s, db, "INSERT INTO admission (work) VALUES ('w99999')", (),
              "grounds for a work nobody holds are refused")
 
@@ -551,12 +613,17 @@ def main(s):
     # discard a disagreement. How many are HELD is `count(volume)`, which is the other side of it.
     s.check("volume_count" not in [r[1] for r in db.execute("pragma table_info(work)")],
             "a count a source states is not a property of the work")
-    db.execute("INSERT INTO volume_claim (work, volumes, source) VALUES ('w00001',6,'cmoa.jp')")
-    db.execute("INSERT INTO volume_claim (work, volumes, source) VALUES ('w00001',5,'bookwalker')")
+    db.execute("INSERT INTO volume_claim (work, record, volumes, source) VALUES"
+               " ('w00001','C000100',6,'cmoa.jp')")
+    db.execute("INSERT INTO volume_claim (work, record, volumes, source) VALUES"
+               " ('w00001','bw-100',5,'cmoa.jp')")
     s.eq(db.execute("SELECT count(*) FROM volume_claim WHERE work='w00001'").fetchone()[0], 2,
-         "two sources disagreeing about the run are two rows, which is the rule everywhere else")
-    _refuses(s, db, "INSERT INTO volume_claim (work, volumes) VALUES ('w00001',-1)", (),
-             "and a negative run is refused")
+         "TWO RECORDS OF ONE CATALOGUE DISAGREEING ABOUT THE RUN ARE TWO ROWS, which the old key "
+         "could not hold: it keyed on a column that was the source 329 times and the record 2,244")
+    _refuses(s, db, "INSERT INTO volume_claim (work, record, volumes) VALUES ('w00001','C000100',4)",
+             (), "and one record states one count")
+    _refuses(s, db, "INSERT INTO volume_claim (work, record, volumes) VALUES ('w00001','C000101',-1)",
+             (), "while a negative run is refused")
 
     # WHICH ANSWER THE RECORD STANDS BEHIND. 638 surfaces carried a `verified` flag beside two or
     # more readings, and nothing said which one a person ruled on.

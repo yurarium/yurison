@@ -113,6 +113,20 @@ BASES = {
 #: leaves this, which is the only case the term was ever true of.
 FALLBACK = "no-date-attested"
 
+#: WHAT A SINGLE VOLUME'S DATE RESTS ON, which is a different question from `BASES` above and was
+#: written inline in `adapters/relational/schema.sql` as a CHECK. `BASES` says why a WORK has no
+#: date it can state; this says which registry gave the date one BOOK carries, and the two overlap
+#: on the word `shop-delivery` while meaning different things by it.
+#:
+#: A CLOSED SET, because a basis nobody can name is a basis nobody can weigh. 1,215 volumes state
+#: none and are admitted saying so, since an admitted silence beats a basis invented for a column.
+VOLUME_BASES = ("national-library", "openbd-registration", "madb-tankobon", "shop-delivery")
+
+
+def volume_bases():
+    """Every kind of evidence one volume's date can rest on."""
+    return VOLUME_BASES
+
 
 def bases():
     """Every term the field can hold."""

@@ -22,6 +22,12 @@
 
 PRAGMA foreign_keys = ON;
 
+-- A DATE SAYS IT IS A DATE, §5k. Thirteen columns across ten tables were unconstrained TEXT and
+-- `'yesterday afternoon'` inserted into any of them. Every value is well formed today, including
+-- the partial `YYYY-MM` that `edition.dated` and `work.first_publication` carry beside whole dates,
+-- so the shape is free to adopt, which is the only time a constraint is. Written per column rather
+-- than as a domain, because SQLite has none and a shared function would be a second home.
+
 -- ── the things that have identity ───────────────────────────────────────────────────────────────
 -- OPAQUE IDS, because a name is not an identity. Two artists share a pen name, one artist changes
 -- theirs, and a work is reissued under a title its author never used. `w#####`, `c#####`, `h#####`
@@ -30,12 +36,15 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE work (
   id                TEXT PRIMARY KEY CHECK (id GLOB 'w[0-9][0-9][0-9][0-9][0-9]'),
   title             TEXT NOT NULL CHECK (title <> ''),
-  first_publication TEXT,                       -- ISO 8601, whole or partial
+  first_publication TEXT CHECK (first_publication IS NULL OR first_publication GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR first_publication GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),  -- ISO 8601, whole or partial
   -- A LIST HOLDING NULL MAKES A CHECK PASS ON EVERYTHING, since `x IN (a, b, NULL)` answers NULL
   -- for an x that matches neither and a CHECK passes on NULL. `'banana'` inserted here for as long
   -- as this column has existed. Every comparable column omits it; §5a is where this one did.
   first_event       TEXT CHECK (first_event IS NULL OR first_event IN ('publication', 'shop-delivery')),
-  explicit_content  INTEGER NOT NULL DEFAULT 0 CHECK (explicit_content IN (0, 1))
+  -- NULLABLE, BECAUSE LOOKED AND FALSE IS NOT THE SAME AS NEVER LOOKED. It was NOT NULL DEFAULT 0
+  -- and 0 on every row, of which 2,459 are a record stating false and 579 have no record at all.
+  -- STANDING-INSTRUCTIONS §5: absence is a state and gets its own value.
+  explicit_content  INTEGER CHECK (explicit_content IN (0, 1))
 
   -- `volume_count` AND `admitted_by` WERE COLUMNS HERE AND BOTH HELD A PLACEHOLDER ON EVERY ROW.
   -- The loader read them from `series.json`, which carries neither: the grounds are on
@@ -53,34 +62,51 @@ CREATE TABLE work (
 
 -- WHY A WORK IS HERE AT ALL. DEFINITIONS §2 admits one on stated grounds: a licensed retailer's
 -- yuri shelf is a comparator, presumptive and rebuttable. 1,887 grounds across 1,816 works.
+-- WHOSE SHELF ADMITS A WORK, AND WHICH SHELF IT IS. `facts/inclusion.SHELVES` states the pair and
+-- `admission` held both, so the shelf was functionally dependent on the comparator rather than on
+-- the row: the same two strings repeated across 1,867 rows. §5j made it a table, which is where the
+-- ruling already lived, and the column a foreign key.
+CREATE TABLE comparator (
+  name  TEXT PRIMARY KEY,
+  shelf TEXT NOT NULL
+);
+
 CREATE TABLE admission (
   id         INTEGER PRIMARY KEY,
   work       TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
-  comparator TEXT,
-  shelf      TEXT,
+  comparator TEXT REFERENCES comparator(name),
   shop_url   TEXT,
   url        TEXT,
-  retrieved  TEXT,
+  retrieved  TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   note       TEXT
 );
 
 -- ADDRESSABLE, for the reason `volume` is. §5c added this table and §5g gave it a key.
 CREATE UNIQUE INDEX admission_one ON admission
-  (work, coalesce(comparator, ''), coalesce(shelf, ''), coalesce(url, ''));
+  (work, coalesce(comparator, ''), coalesce(url, ''));
 
 CREATE INDEX admission_work ON admission (work);
 
 -- HOW MANY VOLUMES A SOURCE SAYS THERE ARE, which is not how many we hold and is why both exist.
+-- A COLUMN THAT MEANT TWO THINGS, §5i. `source` held a source on 329 rows and a RECORD identifier
+-- on 2,244, because the loader fell back to the record when no claim named a source, and the unique
+-- index keyed on it. So two records from one catalogue stating one count were two rows rather than
+-- the one disagreement this table exists to hold, and "which sources disagree about this run" could
+-- not be asked at all.
+--
+-- THE CLAIM BELONGS TO THE RECORD THAT MAKES IT, so that is the key, and `source` says who the
+-- record got it from where it says.
 CREATE TABLE volume_claim (
   id         INTEGER PRIMARY KEY,
   work       TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  record     TEXT NOT NULL,
   volumes    INTEGER NOT NULL CHECK (volumes >= 0),
   source     TEXT,
   provenance TEXT,
-  retrieved  TEXT
+  retrieved  TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
 );
 
-CREATE UNIQUE INDEX volume_claim_one ON volume_claim (work, volumes, coalesce(source, ''));
+CREATE UNIQUE INDEX volume_claim_one ON volume_claim (record);
 
 CREATE TABLE credit (
   id      TEXT PRIMARY KEY CHECK (id GLOB 'c[0-9][0-9][0-9][0-9][0-9]'),
@@ -106,9 +132,11 @@ CREATE TABLE imprint (
   -- THE LINE'S OWN NAME FOR ITSELF, which `facts/imprint`'s registry keys on and the site links by:
   -- `manga-time-kr-comics`. Several spellings reach one line, so this is not unique here.
   slug      TEXT,
-  -- A LINE INSIDE A LINE. 裏少年サンデーコミックス sits under 少年サンデーコミックス, and the
-  -- registry states the parent by name rather than by id.
-  parent    TEXT,
+  -- A LINE INSIDE A LINE. 裏少年サンデーコミックス sits under 少年サンデーコミックス. The registry
+  -- states the parent by NAME and this column repeated it, 23 of them with one that resolved to
+  -- nothing. §5j: a parent is an imprint, so it is a foreign key into the table it already sits in.
+  parent    INTEGER REFERENCES imprint(id) ON DELETE SET NULL,
+  CHECK (parent IS NULL OR parent <> id),
   UNIQUE (publisher, name)
 );
 
@@ -175,7 +203,7 @@ CREATE TABLE quarantine (
   -- WHICH CAPTURE OR RECORD IT CAME FROM, in the loader's own words, so the deferral §9 writes can
   -- name the adapter without rediscovering it.
   came_from  TEXT,
-  at         TEXT NOT NULL
+  at         TEXT NOT NULL CHECK (at IS NULL OR at GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR at GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
 );
 
 CREATE INDEX quarantine_target ON quarantine (target);
@@ -207,7 +235,7 @@ CREATE TABLE superseded (
 -- holds only once retired identifiers are resolved through `superseded`, which is why that table
 -- loads first.
 CREATE TABLE work_anchor (
-  scheme  TEXT NOT NULL,
+  scheme  TEXT NOT NULL REFERENCES anchor_scheme(name),
   address TEXT NOT NULL,
   work    TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   PRIMARY KEY (scheme, address)
@@ -239,7 +267,7 @@ CREATE TABLE identity_ruling (
   -- WHAT WAS RULED ON, as the registry writes it: a reading two spellings share, or the shape of
   -- the difference between them.
   reading  TEXT,
-  shape    TEXT,
+  shape    TEXT REFERENCES ruling_shape(name),
   -- WHICH SPELLING THE RULING IS FILED UNDER, which is what identifies it. Two `withdraw` rulings
   -- carry no reading and no survivor and are told apart by what they were about, so the parent has
   -- to say. It is the same relation `credit.surface` has to `credit_spelling`: a filing spelling
@@ -274,8 +302,7 @@ CREATE TABLE work_state (
   -- WHAT THE INTERFACE DRAWS. `print` and `oneshot` describe a work with no serialisation to be
   -- running; `active`, `slow` and `dormant` are thresholds over the release feed; `completed` is a
   -- source saying so and `unknown` is the admitted silence.
-  state TEXT NOT NULL CHECK (state IN
-          ('print', 'oneshot', 'unknown', 'completed', 'active', 'dormant', 'slow')),
+  state TEXT NOT NULL REFERENCES work_state_kind(name),
   -- WHY, IN THE PROJECT'S OWN WORDS: `the newest chapter is titled 最終話`. Prose, and it is prose
   -- in the corpus, so `state_claim` beside it is where the queryable form lives.
   basis TEXT
@@ -287,10 +314,10 @@ CREATE TABLE state_claim (
   source TEXT NOT NULL,
   -- WHAT THE SOURCE SAYS AND THE WORD IT USED. `says` is the reading we take, `term` is what the
   -- page printed, and keeping both is what lets a later reader disagree with the reading.
-  says   TEXT,
+  says   TEXT REFERENCES state_saying(name),
   term   TEXT,
   url    TEXT,
-  read   TEXT
+  read   TEXT CHECK (read IS NULL OR read GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR read GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
 );
 
 CREATE UNIQUE INDEX state_claim_one ON state_claim (work, source, coalesce(says, ''));
@@ -300,12 +327,14 @@ CREATE UNIQUE INDEX state_claim_one ON state_claim (work, source, coalesce(says,
 -- on, and `visibility` is the §13 register: `rebutted` and `marginal`.
 CREATE TABLE work_presentation (
   work       TEXT PRIMARY KEY REFERENCES work(id) ON DELETE CASCADE,
-  label      TEXT,
+  -- NULL WHERE THE PUBLISHER APPLIED NONE, rather than the string `none`, which 2,127 rows held.
+  -- A word standing for absence is the fault §5 names, and it also makes `label IS NOT NULL` lie.
+  label      TEXT CHECK (label IS NULL OR label <> 'none'),
   visibility TEXT CHECK (visibility IS NULL OR visibility IN ('rebutted', 'marginal')),
   -- HOW THE LABEL WAS ARRIVED AT, which the corpus states as a source, a page, a date and a note.
   source     TEXT,
   url        TEXT,
-  retrieved  TEXT,
+  retrieved  TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   note       TEXT
 );
 
@@ -482,8 +511,19 @@ CREATE TABLE credit_part (
   surface INTEGER NOT NULL REFERENCES credit_division(surface) ON DELETE CASCADE,
   seq     INTEGER NOT NULL,
   name    TEXT NOT NULL,
+  -- THE PHRASE THE FIELD WROTE, which may state several jobs at once. `credit_part_role` is the
+  -- same fact as rows, and this is kept for the same reason `state_claim.term` is: what a source
+  -- actually said outlives our reading of it.
   role    TEXT,
   PRIMARY KEY (surface, seq)
+);
+
+CREATE TABLE credit_part_role (
+  surface INTEGER NOT NULL,
+  seq     INTEGER NOT NULL,
+  role    TEXT NOT NULL REFERENCES role(name),
+  PRIMARY KEY (surface, seq, role),
+  FOREIGN KEY (surface, seq) REFERENCES credit_part (surface, seq) ON DELETE CASCADE
 );
 
 -- A SUBSTRING SAYING THE SAME THING TWICE: a reading printed beside the name it reads. Taken off an
@@ -526,10 +566,10 @@ CREATE TABLE claim (
   basis        TEXT NOT NULL REFERENCES basis(name),
   source       TEXT,                            -- who said so, in their own words
   source_kind  TEXT REFERENCES source_kind(name),
-  retrieved    TEXT,                            -- ISO 8601 date the answer was obtained
+  retrieved    TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),  -- ISO 8601 the answer was obtained
   -- WHEN A PERSON LOOKED AT IT, which is a different date from the one above and is the one a
   -- citation shows. `provenance.PARTS` names both and the loader kept only the first.
-  reviewed     TEXT,
+  reviewed     TEXT CHECK (reviewed IS NULL OR reviewed GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR reviewed GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   url          TEXT,
   -- AN ISBN IS A CITATION WHERE A URL IS NOT. openBD answers by ISBN and its only address is an API
   -- query, which is not a page to send a reader to; the book it names is something they can act on.
@@ -632,6 +672,25 @@ CREATE TABLE basis_for_predicate (
 CREATE TABLE source_kind (
   name TEXT PRIMARY KEY
 );
+
+-- ── the vocabularies §5j gave a home to ────────────────────────────────────────────────────────
+--
+-- EACH OF THESE WAS FREE TEXT AND EACH IS NOW A FOREIGN KEY, filled from the `facts/` module that
+-- states it. A CHECK written here would have been a SECOND home for the vocabulary, which is the
+-- fault `check.STATES_A_READING` demonstrated by drifting from `curate.READING_ATTRIBUTION` before
+-- this store existed, so in every case the ruling moved first and the key followed it.
+CREATE TABLE work_state_kind (name TEXT PRIMARY KEY);      -- facts/serialisation.STATES
+CREATE TABLE state_saying   (name TEXT PRIMARY KEY);       -- facts/serialisation.SAYS
+CREATE TABLE release_kind   (name TEXT PRIMARY KEY);       -- facts/serialisation.RELEASE_KINDS
+CREATE TABLE anchor_scheme  (name TEXT PRIMARY KEY);       -- facts/identity.ANCHOR_SCHEMES
+CREATE TABLE ruling_shape   (name TEXT PRIMARY KEY);       -- facts/identity.RULING_SHAPES
+CREATE TABLE volume_basis   (name TEXT PRIMARY KEY);       -- facts/dating.VOLUME_BASES
+
+-- WHAT JOB A BYLINE STATES. `facts/credit/splitter.ROLES` is the closed set and the interface holds
+-- a gloss for every one of them, which an invariant proves. A field may state SEVERAL at once,
+-- `企画・監修`, so `credit_part.role` keeps the phrase the field wrote and `credit_part_role` holds
+-- the atoms: a multi-valued column is the one shape a relational store may not keep.
+CREATE TABLE role (name TEXT PRIMARY KEY);
 
 -- A SOURCE THAT IS THE NAME ITSELF. `surface` means the name is already kana and nothing was looked
 -- up; `title-furigana` means the title prints how a word in it is read. `provenance.SELF_SOURCED`
@@ -744,17 +803,24 @@ CREATE TABLE edition (
   id      INTEGER PRIMARY KEY,
   volume  INTEGER NOT NULL REFERENCES volume(id) ON DELETE CASCADE,
   kind    TEXT NOT NULL CHECK (kind IN ('printing', 'shop-delivery', 'serialisation')),
-  dated   TEXT,
+  dated   TEXT CHECK (dated IS NULL OR dated GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR dated GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
 
   -- WHAT KIND OF EVIDENCE THE DATE RESTS ON, following `claim`'s pattern rather than reusing its
   -- table: `claim` is scoped to what a NAME is, by its own CHECK on predicate. A closed set,
   -- because a basis nobody can name is a basis nobody can weigh.
-  dated_basis  TEXT CHECK (dated_basis IS NULL OR dated_basis IN
-                 ('national-library', 'openbd-registration', 'madb-tankobon', 'shop-delivery')),
+  dated_basis  TEXT REFERENCES volume_basis(name),
 
-  -- A DATE WITH NO PAGE BEHIND IT is what `per-book dates cite their page` refuses.
+  -- WHO SAYS SO, AND WHERE, WHICH ARE TWO FACTS AND WERE ONE COLUMN. `cite` packed a scheme and an
+  -- identifier into one string three ways: 3,635 urls, 2,375 `madb:C418820`, and 906 that were the
+  -- bare word `ndl`, which names a source and locates nothing. `work_anchor` splits exactly this
+  -- into a scheme and an address and gets a key out of it, so the file disagreed with itself.
+  --
+  -- A DATE NAMES ITS SOURCE, ALWAYS. That is `per-book dates cite their page` as a constraint, and
+  -- it is the half every row can satisfy. Whether the source also gives a page a reader can open is
+  -- `dates cited to something that is not a page`, which counts the 906 rather than refusing them.
+  source  TEXT,
   cite    TEXT,
-  CHECK (dated IS NULL OR coalesce(cite, '') <> ''),
+  CHECK (dated IS NULL OR coalesce(source, '') <> ''),
 
   UNIQUE (volume, kind)
 );
@@ -809,10 +875,10 @@ CREATE TABLE offer (
   free       INTEGER NOT NULL DEFAULT 0 CHECK (free       >= 0),
   free_timed INTEGER NOT NULL DEFAULT 0 CHECK (free_timed >= 0),
   priced     INTEGER NOT NULL DEFAULT 0 CHECK (priced     >= 0),
-  latest     TEXT,
+  latest     TEXT CHECK (latest IS NULL OR latest GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR latest GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   -- THE PLATFORM LISTS MORE THAN WE HOLD, which the interface already draws as `90+`.
   partial    INTEGER NOT NULL DEFAULT 0 CHECK (partial IN (0, 1)),
-  retrieved  TEXT,
+  retrieved  TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   UNIQUE (work, platform, url)
 );
 
@@ -838,10 +904,10 @@ CREATE TABLE release (
   -- THE PLATFORM'S OWN LABEL FOR THE INSTALMENT: `第72話`, `読切`, `最終話`, `#1(1)`. It is not a
   -- chapter number and must not be read as one.
   instalment TEXT,
-  published  TEXT,
+  published  TEXT CHECK (published IS NULL OR published GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR published GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   url        TEXT,
-  kind       TEXT,
-  first_seen TEXT
+  kind       TEXT REFERENCES release_kind(name),
+  first_seen TEXT CHECK (first_seen IS NULL OR first_seen GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR first_seen GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
 );
 
 CREATE INDEX release_work ON release (work, published);

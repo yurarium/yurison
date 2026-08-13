@@ -55,9 +55,9 @@ below moves one domain to the other side of that line.
 | §5f | The constraints that still do not fire | done 2026-08-13 |
 | §5g | A row §7 can address, and a quarantine that survives | done 2026-08-13 |
 | §5h | A judgement belongs to the record that was judged | done 2026-08-13 |
-| §5i | A column that means two things | before §6 |
-| §5j | A vocabulary with one home, and a key into it | a home in `facts/` first |
-| §5k | A date says it is a date | free while every value is well formed |
+| §5i | A column that means two things | done 2026-08-13 |
+| §5j | A vocabulary with one home, and a key into it | done 2026-08-13 |
+| §5k | A date says it is a date | done 2026-08-13 |
 | §6 | The compiler writes the store; the JSON is emitted from it | §5e |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
@@ -913,6 +913,13 @@ record at all, so looked-and-false and never-looked are one value. `work_present
 the string `none` on 2,127 rows, which makes `label IS NOT NULL` lie about what is known.
 STANDING-INSTRUCTIONS §5 is the rule both break: absence is a state and gets its own value.
 
+**DONE 2026-08-13.** `volume_claim` is keyed on the record that makes the claim and `source` says
+where that record got it, so two records of one catalogue disagreeing about a run are two rows.
+`edition` splits into `source` and `cite`, and the constraint asks the half every row can satisfy:
+a date names its source, always. `dates cited to something that is not a page` counts the 906 that
+name one and locate nothing. `explicit_content` is nullable, so the 579 works with no record read as
+unknown rather than as false, and `label` holds NULL where the publisher applied none.
+
 ## 5j. A vocabulary with one home, and a key into it
 
 **NINE COLUMNS HOLD A CLOSED SET AS FREE TEXT**, and the schema is not what blocks them. A CHECK here
@@ -929,15 +936,37 @@ first, and the key follows it.
   file as a CHECK where `basis` gets a table with columns, and `facts/dating` is NOT its home: that
   module's `BASES` is a different vocabulary, about why a work has no date, overlapping on one word.
 
-**ONE NEEDS NO NEW HOME AND IS THE FIRST WORK.** `imprint.parent` is an imprint written as a name, 23
+One needs no new home and is the first work. `imprint.parent` is an imprint written as a name, 23
 of them with one that resolves to nothing, and it should be a foreign key into the table it is
-already sitting in.
+already sitting in. Done: 41 of the 42 lines carrying a parent now resolve to one, and the
+forty-second is `集英社ホームコミックス`, which matches no imprint at all and the key refuses to
+invent.
 
 **AND ONE IS A NORMALISATION, WHICH THE VOCABULARY WAS HIDING.** `admission.comparator` and `admission.shelf`
 are the same fact twice: `facts/inclusion.SHELVES` states
 `{cmoa.jp: genre 37 (百合・GL), bookwalker.jp: tag 14 (百合)}`, the 1,867 rows match it exactly, and
 the shelf is functionally dependent on the comparator rather than on the row. A `comparator` table
 filled from the fact makes the column a foreign key and takes `shelf` off `admission` altogether.
+
+**DONE 2026-08-13, AND THE HOME CAME FIRST IN EVERY CASE.** `facts/serialisation` is a new module
+owning the state a work is in, the reading we take from a platform, and the kind of event a release
+records; `facts/identity` gained the anchor schemes and the ruling shapes; `facts/dating` gained what
+a single volume's date rests on, which its existing `BASES` is not. `build.py` READS the serialisation
+constants rather than restating them, which is what makes it a home and not a second copy, and the
+store's foreign keys are where the two are made to agree.
+
+  `hiatus` WAS FOUND BY READING THE PRODUCERS RATHER THAN THE ROWS. `build.py` writes it where a run
+  has skipped two consecutive slots and no work meets that today, so a vocabulary assembled from the
+  corpus would have refused the first work that went on one. A constraint refusing correct data is
+  the failure this whole section is against.
+
+  A ROLE PHRASE IS SEVERAL JOBS AND WAS ONE COLUMN. 11 of the 39 strings join atoms the splitter
+  knows, `企画・監修`, so `credit_part.role` keeps what the field wrote and `credit_part_role` holds
+  1,038 atoms as rows. A multi-valued column is the one shape a relational store may not keep.
+
+  AND THE FACT'S ENTRY POINT IS THE ONLY WAY IN. Reading `facts/credit/splitter.ROLES` from the
+  loader was refused by `a fact is reached through its entry point`, correctly, so `facts/credit`
+  gained a `roles()` accessor and the invariant is what found it.
 
 ## 5k. A date says it is a date
 
@@ -949,6 +978,9 @@ Every value is well formed today, including the partial `YYYY-MM` that `edition.
 `work.first_publication` carry beside whole dates, so the format is free to adopt, which is the only
 time a constraint is. It is the cheapest item in the plan and it is a section of its own only
 because it touches ten tables.
+
+**DONE 2026-08-13**, and the partial form is admitted alongside the whole one, which is what the
+corpus holds. `'yesterday afternoon'` is refused.
 
 ## What this plan does not adopt from the review
 

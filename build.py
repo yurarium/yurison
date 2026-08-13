@@ -26,6 +26,7 @@ from facts import romanisation as _romanisation  # noqa: E402
 from facts import credit as _credit_fact  # noqa: E402
 from facts import reading as _reading  # noqa: E402
 from facts import script as _script  # noqa: E402
+from facts import serialisation as _ser  # noqa: E402
 from facts import division as _division  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
@@ -3908,7 +3909,7 @@ def main():
                     continue
                 releases.append({
                     "id": f"comicfuz:{c.get('chapter_id')}", "work": w.get("work_title"),
-                    "ep": c.get("title"), "type": "chapter", "adv": True,
+                    "ep": c.get("title"), "type": _ser.CHAPTER, "adv": True,
                     "web": "serialised", "pub": u, "seen": str(d.get("retrieved", "")),
                     "basis": "bootstrap", "conf": "reported", "why": "", "moved": "",
                     "url": (f"https://comic-fuz.com/manga/viewer/{c['chapter_id']}"
@@ -3953,7 +3954,7 @@ def main():
                     continue
                 releases.append({
                     "id": f"comicfuz-free:{c.get('chapter_id')}", "work": w.get("work_title"),
-                    "ep": c.get("title"), "type": "access-change", "adv": False,
+                    "ep": c.get("title"), "type": _ser.ACCESS_CHANGE, "adv": False,
                     "web": "serialised", "pub": str(c["access_changed_on"]),
                     "seen": str(d.get("retrieved", "")), "basis": "observed",
                     "conf": "reported", "why": "", "moved": "", "url": w.get("url"),
@@ -3997,7 +3998,7 @@ def main():
                                       in oneshot_works else None),
                     "id": f"kadokomi:{c.get('code')}", "work": w.get("work_title"),
                     "ep": (c.get("title") or "") + (f" {c['subtitle']}" if c.get("subtitle") else ""),
-                    "type": "chapter", "adv": True, "web": "serialised", "pub": u,
+                    "type": _ser.CHAPTER, "adv": True, "web": "serialised", "pub": u,
                     "seen": str(d.get("retrieved", "")), "basis": "bootstrap",
                     "conf": "reported", "why": "", "moved": "",
                     # Deep-link to the chapter where the platform exposes one. Verified pattern:
@@ -4085,7 +4086,7 @@ def main():
                     # 1 かくして二人は出会った. The field was populated, so nothing flagged it.
                     "ep": (c.get("title") or "")
                           + (f" {c['subtitle']}" if c.get("subtitle") else ""),
-                    "type": "oneshot" if w.get("is_oneshot") else "chapter", "adv": True,
+                    "type": _ser.ONESHOT if w.get("is_oneshot") else _ser.CHAPTER, "adv": True,
                     "web": "serialised", "pub": u, "seen": str(d.get("retrieved", "")),
                     # A heuristically-parsed date is not the same kind of fact as one a platform
                     # states, and saying so is the whole price of the generic extractor. Carried
@@ -4146,7 +4147,7 @@ def main():
                 "id": f"nicovideo:{w.get('comic_id')}:{u}", "work": w.get("work_title"),
                 # The newest episode named on the work page is the one the 更新 date refers to.
                 "ep": w.get("latest_episode") or "",
-                "type": "chapter" if w.get("latest_episode") else "unclassified",
+                "type": _ser.CHAPTER if w.get("latest_episode") else _ser.UNCLASSIFIED,
                 "adv": True, "web": "serialised",
                 "pub": u, "seen": str(d.get("retrieved", "")),
                 "basis": "observed", "conf": "reported",
@@ -6056,21 +6057,21 @@ def main():
             # case: pixivコミック lists 37 chapters against the 3 we hold, so the row read `unknown`
             # while BOOK☆WALKER tagged all four volumes 完結. Reaching the review only through the
             # `else` made a short capture able to suppress the better evidence.
-            row["state"] = "unknown"
+            row["state"] = _ser.UNKNOWN
             row["state_basis"] = (
                 f"{_sl['n']} chapters are listed on the platform and we hold {row['chapters']}, "
                 f"none of them the newest, so nothing here says when this last updated")
         elif not row["latest"]:
-            row["state"] = "unknown"
+            row["state"] = _ser.UNKNOWN
         elif row["oneshot"]:
-            row["state"] = "oneshot"
+            row["state"] = _ser.ONESHOT
             # THE REASON TRAVELS WITH THE STATE, like every other state on this row. The interface
             # already reads `state_basis` for its Basis line, so putting the sentence here needs
             # nothing of the interface and gives 読切 the same accountability 完結 has had.
             row["state_basis"] = row.get("oneshot_basis")
             row["state_basis_ja"] = row.get("oneshot_basis_ja")
         elif _final or _completed:
-            row["state"] = "completed"
+            row["state"] = _ser.COMPLETED
             # Quoting what was actually found. The pattern accepts 最終話 and a bracketed 完
             # alike, and a basis naming the wrong one is a citation to something the page does
             # not say.
@@ -6110,11 +6111,12 @@ def main():
             age = (_today - datetime.date.fromisoformat(_newest)).days
             row["age_days"] = age
             if len(_after) >= 2 and age <= HIATUS_FRESH_DAYS:
-                row["state"] = "hiatus"
+                row["state"] = _ser.HIATUS
                 row["state_basis"] = (f"{len(_after)} consecutive skipped slots since the last "
                                       f"chapter, newest {_after[-1]}")
             else:
-                row["state"] = "active" if age <= 45 else ("slow" if age <= 365 else "dormant")
+                row["state"] = (_ser.ACTIVE if age <= 45 else
+                                (_ser.SLOW if age <= 365 else _ser.DORMANT))
                 # SILENCE IS NOT A BASIS ON ITS OWN, and until now dormant carried none at all:
                 # 150 works asserted it with nothing behind them. Saying what it rests on makes the
                 # weakness visible instead of leaving it implied.
@@ -6166,7 +6168,7 @@ def main():
                 # of them. Where there is one, the tag is stale and the work speaks for itself.
                 _rev = reviewed.get(norm_work(row.get("work") or ""))
                 if _rev and _rev.get("verdict") in _comp.ENDED:
-                    row["state"] = "completed"
+                    row["state"] = _ser.COMPLETED
                     # THE READER'S LANGUAGE FIRST WHERE THE REVIEW WROTE ONE. Every sentence in
                     # this register is Japanese, so this field has been handing Japanese to an
                     # English page since it was written. `basis_en` is required of a oneshot
@@ -6188,13 +6190,13 @@ def main():
                     continue
                 _shop = shop_completed.get(norm_work(row.get("work") or ""))
                 if _shop:
-                    row["state"] = "completed"
+                    row["state"] = _ser.COMPLETED
                     row["completed_basis"] = (
                         f"BOOK☆WALKER lists this series as 完結 ({_shop.get('url')})")
                     continue
                 _seen = completion_claims.get(norm_work(row.get("work") or ""))
                 if _seen and row["latest"] <= str(_seen)[:10]:
-                    row["state"] = "completed"
+                    row["state"] = _ser.COMPLETED
                     row["completed_basis"] = (
                         f"the comparator lists this work as 完結, seen {_seen}, and no chapter has "
                         f"appeared since; the newest we hold is {row['latest']}")
@@ -6341,7 +6343,7 @@ def main():
         # arithmetic over these dates.
         if (_state in ("active", "slow", "dormant")
                 and all(r.get("dates_imported") for r in rows)):
-            _state = "unknown"
+            _state = _ser.UNKNOWN
             _state_basis = ("every chapter we hold arrived on the day a platform imported the "
                             "series, so nothing here says when it last published")
         if _state in ("active", "slow", "dormant") and _merged_latest:

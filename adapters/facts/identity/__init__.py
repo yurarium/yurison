@@ -36,6 +36,17 @@ from names.inputs import split_authors  # noqa: E402
 # which kind it is holding: `index`, `assign`, `attach` and `merge` read `id`, `anchors` and
 # `merged_into` and never look at the letter, so generalising meant parameterising one function
 # rather than writing a second scheme that would drift from this one's rules about a contested anchor.
+#: HOW A WORK IS REACHED. An anchor is a scheme and an address, and the two schemes are a
+#: bibliography record and a page on the web. `adapters/relational` keys `work_anchor` on the pair
+#: and the scheme is a foreign key into this.
+ANCHOR_SCHEMES = ("madb", "web")
+
+#: WHAT KIND OF DIFFERENCE A RULING IS ABOUT, as `data/identity/credit-rulings.yaml` writes it.
+#: `kana-reading` is one spelling written in kana; a script flip is the same spelling with its kana
+#: converted wholesale, whole or in part; `unrelated` is a ruling that two spellings are not one
+#: person at all.
+RULING_SHAPES = ("kana-reading", "full-script-flip", "partial-script-flip", "unrelated")
+
 WIDTH = 5
 PREFIX = "w"
 

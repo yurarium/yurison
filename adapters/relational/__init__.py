@@ -16,6 +16,7 @@ Usage:
 import argparse
 import json
 import pathlib
+import re
 import sqlite3
 import sys
 
@@ -27,6 +28,10 @@ from relational import delta as _delta                                  # noqa: 
 from relational import delta                                            # noqa: E402
 from facts import reading as _reading                                   # noqa: E402
 from names import provenance as _prov                                   # noqa: E402
+
+#: HOW A ROLE PHRASE DIVIDES, which `facts/credit/splitter.ROLE_PHRASE` already writes as the
+#: separators a field puts between two jobs.
+_ROLE_SEP = re.compile(r"[\s\u3000・･/／]+")
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCHEMA = pathlib.Path(__file__).resolve().parent / "schema.sql"
@@ -159,6 +164,25 @@ def load_rulings(db):
         db.execute("INSERT INTO source_kind (name) VALUES (?)", (k,))
     for s in _prov.SELF_SOURCED:
         db.execute("INSERT INTO self_sourced (source) VALUES (?)", (s,))
+    # WHOSE SHELF ADMITS A WORK, ASKED OF THE FACT THAT STATES IT. `admission` held the comparator
+    # and its shelf on every row, which is one pair repeated 1,867 times.
+    from facts import inclusion as _inc
+    for shop, shelf in _inc.SHELVES.items():
+        db.execute("INSERT INTO comparator (name, shelf) VALUES (?,?)", (shop, shelf))
+    # THE VOCABULARIES §5j GAVE A HOME TO, each asked of the fact that states it. A list written out
+    # here instead would be the second copy every one of these was moved to avoid.
+    from facts import dating as _dating
+    from facts import identity as _ident
+    from facts import serialisation as _ser
+    from facts import credit as _credit
+    for table, names in (("work_state_kind", _ser.STATES), ("state_saying", _ser.SAYS),
+                         ("release_kind", _ser.RELEASE_KINDS),
+                         ("anchor_scheme", _ident.ANCHOR_SCHEMES),
+                         ("ruling_shape", _ident.RULING_SHAPES),
+                         ("volume_basis", _dating.VOLUME_BASES),
+                         ("role", _credit.roles())):
+        for n in names:
+            db.execute(f"INSERT OR IGNORE INTO {table} (name) VALUES (?)", (n,))
     # BOTH ATTRIBUTION TABLES, SCOPED BY THE CLAIM EACH ANSWERS FOR. This was filled from the reading
     # one alone, so `('translated','derived')` read as forbidden 2,767 times while `facts/reading`
     # admits it on its first line. `stated` means a different document for a reading than for an
@@ -279,7 +303,8 @@ def build(path=None, quarantine=False, at=None):
         put("INSERT OR IGNORE INTO work (id, title, first_publication, first_event,"
             " explicit_content) VALUES (?,?,?,?,?)",
             (wid, r.get("work") or "", r.get("first"), r.get("first_event"),
-             int(bool(r.get("explicit_content")))), f"work {wid}")
+             int(bool(r["explicit_content"])) if r.get("explicit_content") is not None else None),
+            f"work {wid}")
     counts["work"] = db.execute("SELECT count(*) FROM work").fetchone()[0]
 
     for cid, r in _rows("credits", "credits"):
@@ -710,9 +735,16 @@ def build(path=None, quarantine=False, at=None):
         " VALUES (?,'credit-line',?,?)",
             (sid, r.get("j") or "", int(bool(r.get("part")))), f"division {folded}")
         for i, part in enumerate(r.get("p") or []):
-            if part.get("n"):
-                put("INSERT OR IGNORE INTO credit_part (surface, seq, name, role)"
-                    " VALUES (?,?,?,?)", (sid, i, part["n"], part.get("r")), f"part {folded} {i}")
+            if not part.get("n"):
+                continue
+            put("INSERT OR IGNORE INTO credit_part (surface, seq, name, role)"
+                " VALUES (?,?,?,?)", (sid, i, part["n"], part.get("r")), f"part {folded} {i}")
+            # A FIELD MAY STATE SEVERAL JOBS AT ONCE, `企画・監修`, and a multi-valued column is the
+            # one shape a relational store may not keep. The separators are the splitter's own.
+            for atom in _ROLE_SEP.split(str(part.get("r") or "")):
+                if atom:
+                    put("INSERT OR IGNORE INTO credit_part_role (surface, seq, role)"
+                        " VALUES (?,?,?)", (sid, i, atom), f"role {folded} {i} {atom}")
         for text in (r.get("drop") or []):
             put("INSERT OR IGNORE INTO credit_dropped (surface, text) VALUES (?,?)",
                 (sid, text), f"dropped {folded}")
@@ -724,7 +756,10 @@ def build(path=None, quarantine=False, at=None):
     for folded, r in entries("imprints"):
         surface_id("imprint", folded)
         for house in (r.get("publishers") or []):
-            db.execute("UPDATE imprint SET slug = ?, parent = ? WHERE name = ? AND publisher ="
+            # A PARENT IS AN IMPRINT OF THE SAME HOUSE, resolved here rather than stored as a name.
+            db.execute("UPDATE imprint SET slug = ?, parent = (SELECT p.id FROM imprint p WHERE"
+                       " p.name = ? AND p.publisher = imprint.publisher AND p.id <> imprint.id)"
+                       " WHERE name = ? AND publisher ="
                        " (SELECT id FROM publisher WHERE name = ?)",
                        (r.get("id"), r.get("parent"), r.get("name"), house))
     counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
@@ -894,9 +929,17 @@ def build(path=None, quarantine=False, at=None):
                 if (vol, kind) in held_event:
                     continue
                 held_event.add((vol, kind))
-                put("INSERT INTO edition (volume, dated, kind, dated_basis, cite)"
-                    " VALUES (?,?,?,?,?)",
-                    (vol, dated, kind, basis, cite if kind == "printing" else (shop or cite)),
+                # WHO SAYS SO, AND WHERE, SEPARATELY. The old single column held `ndl` on 906
+                # rows, which names a source and locates nothing; an address locates and names at
+                # once, so it fills both.
+                where = cite if kind == "printing" else (shop or cite)
+                who = (v.get("published_source") if kind == "printing" else None) or (
+                    "madb" if str(where or "").startswith("madb:") else None) or (
+                    "shop" if kind == "shop-delivery" else None) or where
+                put("INSERT INTO edition (volume, dated, kind, dated_basis, source, cite)"
+                    " VALUES (?,?,?,?,?,?)",
+                    (vol, dated, kind, basis, who,
+                     where if str(where or "").startswith(("http", "madb:", "openbd:")) else None),
                     f"edition {kind} {wid} {v.get('isbn') or v.get('designation') or '?'}")
     # ── the grounds, and what a source says the run is, §5c ──────────────────────────────────────
     #
@@ -911,18 +954,20 @@ def build(path=None, quarantine=False, at=None):
         wid = of_record.get(w.get("work_id"))
         if not wid:
             continue
-        if w.get("explicit_content"):
-            db.execute("UPDATE work SET explicit_content = 1 WHERE id = ?", (wid,))
+        # LOOKED AND FALSE, WHICH THE COLUMN COULD NOT SAY WHILE IT DEFAULTED TO 0.
+        db.execute("UPDATE work SET explicit_content = ? WHERE id = ?",
+                   (int(bool(w.get("explicit_content"))), wid))
         # HOW IT IS PRESENTED, AND WHETHER IT IS. `marketing_label` is publisher-side labelling
         # under DEFINITIONS §4 and `visibility` is the §13 register.
         mb = w.get("marketing_label_basis") if isinstance(w.get("marketing_label_basis"), dict) else {}
         # VISIBILITY IS ON THE SERIES ROW AND §5e READ IT HERE, which is `admitted_by`'s fault
         # again: `build.py` puts it there from `data/rebuttals.yaml` and `works.json` never carries
         # one, so the §13 register the comment names was empty on all 2,461 rows.
-        if w.get("marketing_label") or visible.get(wid):
+        if (w.get("marketing_label") and w.get("marketing_label") != "none") or visible.get(wid):
             put("INSERT OR IGNORE INTO work_presentation (work, label, visibility, source, url,"
                 " retrieved, note) VALUES (?,?,?,?,?,?,?)",
-                (wid, w.get("marketing_label"), visible.get(wid), mb.get("source"),
+                (wid, w.get("marketing_label") if w.get("marketing_label") != "none" else None,
+                 visible.get(wid), mb.get("source"),
                  mb.get("url"), mb.get("retrieved"), mb.get("note")), f"presentation {wid}")
         for g in (w.get("admitted_by") or []):
             if not isinstance(g, dict):
@@ -934,18 +979,21 @@ def build(path=None, quarantine=False, at=None):
             if ident in seen_grounds:
                 continue
             seen_grounds.add(ident)
-            put("INSERT INTO admission (work, comparator, shelf, shop_url, url, retrieved,"
-                " note) VALUES (?,?,?,?,?,?,?)",
-                (wid, g.get("comparator"), g.get("shelf"), g.get("shop_url"), g.get("url"),
+            put("INSERT INTO admission (work, comparator, shop_url, url, retrieved,"
+                " note) VALUES (?,?,?,?,?,?)",
+                (wid, g.get("comparator"), g.get("shop_url"), g.get("url"),
                  g.get("retrieved"), g.get("note")), f"admission {wid}")
         # A COUNT A SOURCE STATES, AND 72 WORKS HAVE RECORDS THAT DISAGREE, which is why this is a
         # row with its source beside it rather than a column that would have to pick one.
         claimed = w.get("completed_claim") if isinstance(w.get("completed_claim"), dict) else {}
         n = claimed.get("volumes") if claimed.get("volumes") is not None else w.get("volume_count")
         if isinstance(n, int):
-            put("INSERT OR IGNORE INTO volume_claim (work, volumes, source, provenance, retrieved)"
-                " VALUES (?,?,?,?,?)",
-                (wid, n, claimed.get("source") or w.get("work_id"), claimed.get("provenance"),
+            # THE RECORD MAKES THE CLAIM AND THE SOURCE IS WHERE IT GOT IT. §5i: these were one
+            # column, so a record identifier stood in for a source 2,244 times and the key could
+            # not tell two records of one catalogue apart.
+            put("INSERT INTO volume_claim (work, record, volumes, source, provenance, retrieved)"
+                " VALUES (?,?,?,?,?,?)",
+                (wid, w.get("work_id"), n, claimed.get("source"), claimed.get("provenance"),
                  claimed.get("retrieved")), f"volume_claim {wid}")
     counts["admission"] = db.execute("SELECT count(*) FROM admission").fetchone()[0]
     counts["volume_claim"] = db.execute("SELECT count(*) FROM volume_claim").fetchone()[0]

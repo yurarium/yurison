@@ -1204,11 +1204,21 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   table of its own, and without it the emitter puts the title and its English rendering on the
   public site with only the work's rows removed.
 
-  WHAT IS LEFT: `publishers` comes back with 370 of its 386 keys and 1 entry differing, and the 16
-  missing are imprint spellings on print rows whose publisher field is empty. `print_party` holds a
-  row per SEAT and a seat with no name is no row, so those blocks reach the census with their line
-  and without their house. The `imprints` section is not written. Then the file itself, and the
-  direct path deleted in the same change.
+  EVERY SECTION NOW COMES BACK WITH THE FILE'S OWN KEYS, and 11 entries of about 27,000 differ.
+  `imprints` reads the resolution off the print parties, where `facts/imprint.resolve` made it at
+  load time, so the emitter matches no spelling itself. `publishers` needed the imprints first: a
+  LINE'S OWN NAME is a name, and `MFC キューンシリーズ` was once in the map under a key nothing asks
+  for, so 35 rows showed the line in Japanese in English-only mode.
+
+  AND A SEAT IS NOT A SEAT'S NAME. The census was being handed every print party as though it were a
+  publisher, so seven houses that only ever DISTRIBUTE were counted as publishing.
+
+  THE 11 THAT DIFFER ARE ONE FAULT AND IT IS THE CLAIM'S KEY. Five are a `reading_cite` whose
+  `reviewed` is a day earlier than the file's. Two records state one reading, the claim is
+  identified by `(surface, predicate, value, basis, source)` so it is ONE row, and the row keeps the
+  first record's dates. What each record says it read and WHEN is not part of what the claim is: it
+  is what that record can show for it, so it belongs on `claim_record` rather than on `claim`.
+  Moving it is the last thing between this file and being emitted.
 
   `index.json` MOVED 2026-08-13, along with `feed/credit-keys.json`, which is `credit_spelling`
   written down. The index took four corrections that byte equality found and nothing else would

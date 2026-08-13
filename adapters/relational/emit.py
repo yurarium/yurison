@@ -25,6 +25,7 @@ file. They are arguments here rather than columns.
 import json
 import pathlib
 import re
+import unicodedata
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
@@ -34,6 +35,7 @@ from facts import script as _script                                     # noqa: 
 from names import provenance as _prov                                   # noqa: E402
 from names import fold as _fold                                         # noqa: E402
 from names import publishers as _pubmod                                 # noqa: E402
+from facts import imprint as _impmod                                    # noqa: E402
 from facts import namekey as _namekey                                   # noqa: E402
 try:
     import pass4_analyser as _p4                                        # noqa: E402
@@ -477,6 +479,26 @@ NAMES_NOTE = ("English renderings and readings, keyed by NFKC-folded title/autho
               "show current names.")
 
 
+def names(db, generated):
+    """`feed/names.json`, from `surface`, `name_record`, `claim`, `romanisation` and `ruby`.
+
+    PARSED EQUALITY IS THE STANDARD, like `works.json` and for a plainer reason: a fact object here
+    is SHARED between the two keys that reach it, the catalogued spelling and the shown one, so what
+    the file holds is one object written twice and key order inside it follows whichever slot was
+    filled first.
+
+    THE JUDGEMENTS ARE ALL SOMEBODY ELSE'S. Which record answers for a fold is `names/fold`, which
+    house a spelling names is `names/publishers`, which line it names was decided when the print
+    parties were loaded, and what a claim may show for itself is `names/provenance`. This assembles.
+    """
+    people = _map(db, "author")
+    return {"generated": generated, "note": NAMES_NOTE,
+            "titles": _map(db, "title"), "authors": people,
+            "publishers": _publishers(db, people), "imprints": _imprints(db),
+            "credit_parts": _divisions(db),
+            "floor": _romaji(db, "floor"), "phrases": _romaji(db, "phrase")}
+
+
 def _map(db, kind):
     """One population's entries, keyed by the fold the site joins on.
 
@@ -561,8 +583,41 @@ def _parties(db):
     `facts/printblock.parties` yields and what the publisher census has to see. So each party is
     given its own block here rather than a block being rebuilt around it.
     """
-    return [{"print": [{"publisher": pub, "imprint": imp}]} for pub, imp in db.execute(
-        "SELECT publisher_raw, imprint_raw FROM print_party ORDER BY id")]
+    return [{"print": [{seat: pub, "imprint": imp}]} for seat, pub, imp in db.execute(
+        "SELECT seat, publisher_raw, imprint_raw FROM print_party ORDER BY id")]
+
+
+def _imprints(db):
+    """`imprints`: which line a catalogued imprint string names, keyed by the string and its fold.
+
+    THE RESOLUTION IS ALREADY MADE. `facts/imprint.resolve` decided which line each catalogued
+    spelling names when the print parties were loaded, so this reads the answer off the edge and
+    matches nothing itself. A spelling the registry does not answer for is absent, which is a state
+    and not a gap: the interface keeps showing the catalogued string.
+
+    ONLY STRINGS THE CORPUS CARRIES. A map holding every spelling in the registry would answer for
+    strings no row has, and `imprint spellings no row carries` would have nothing to measure.
+    """
+    houses = {}
+    for name, house in db.execute(
+            "SELECT i.name, p.name FROM imprint i JOIN publisher p ON p.id = i.publisher"
+            " ORDER BY i.id"):
+        houses.setdefault(name, []).append(house)
+    out = {}
+    for raw, name, slug, parent, adult in db.execute(
+            "SELECT DISTINCT y.imprint_raw, i.name, i.slug, i.parent_name, i.adult"
+            " FROM print_party y JOIN imprint i ON i.id = y.imprint"
+            " WHERE y.imprint_raw IS NOT NULL ORDER BY y.id"):
+        fact = {"id": slug, "name": name}
+        if parent:
+            fact["parent"] = parent
+        fact["publishers"] = houses.get(name) or []
+        if adult:
+            fact["adult"] = True
+        for key in (raw, _impmod.match_key(raw)):
+            if key:
+                out.setdefault(key, fact)
+    return out
 
 
 def _publishers(db, people):
@@ -593,6 +648,20 @@ def _publishers(db, people):
             # is written to: two keys legitimately answer for one house, and one of them naming a
             # different house would be a link pointing away from the name beside it.
             out[key] = dict(fact, id=got)
+    # AND A LINE'S OWN NAME IS A NAME. `MFC キューンシリーズ` was in the map under a key nothing
+    # asks for, so 35 rows showed the line in Japanese in English-only mode: the skip has to ask
+    # what the reader's lookup asks, which is the string and its NFKC form and not a fold that
+    # removes spaces.
+    for fact in {id(v): v for v in _imprints(db).values()}.values():
+        name = fact.get("name")
+        if not name or name in out or unicodedata.normalize("NFKC", name) in out:
+            continue
+        one = _pubmod.render(store, people, {("imprint", name): {
+            "kind": "imprint", "raw": name, "shown": name, "volumes": 1}})
+        rendered = one.get(name) or one.get(_namekey.fold(name))
+        if rendered:
+            out.setdefault(name, rendered)
+            out.setdefault(_namekey.fold(name), rendered)
     for row in rows:
         for party in row["print"]:
             name = str(party.get("publisher") or "").strip()

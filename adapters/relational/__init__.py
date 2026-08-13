@@ -447,6 +447,10 @@ def build(path=None, quarantine=False, at=None, source=None):
                        " (SELECT id FROM publisher WHERE name = ?)",
                        (line.get("id"), line.get("parent"), line.get("parent"), line.get("name"),
                         _phid_mod.publisher_of(house)))
+            db.execute("UPDATE imprint SET adult = 1 WHERE name = ? AND publisher ="
+                       " (SELECT id FROM publisher WHERE name = ?)",
+                       (line.get("name"), _phid_mod.publisher_of(house))
+                       ) if line.get("adult") else None
     counts["publisher"] = db.execute("SELECT count(*) FROM publisher").fetchone()[0]
     counts["imprint"] = db.execute("SELECT count(*) FROM imprint").fetchone()[0]
 

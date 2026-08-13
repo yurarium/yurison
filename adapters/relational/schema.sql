@@ -157,6 +157,9 @@ CREATE TABLE imprint (
   -- name to keep only the key would have taken a fact off the page to satisfy a constraint, which
   -- §6 caught by emitting the file and finding one house short of what the compiler wrote.
   parent_name TEXT,
+  -- WHETHER THE LINE IS SOLD AS ADULT, which the registry states and DEFINITIONS §7 turns on. Two
+  -- lines say it, and a map that dropped the flag would put them beside every other line.
+  adult     INTEGER NOT NULL DEFAULT 0 CHECK (adult IN (0, 1)),
   CHECK (parent IS NULL OR parent <> id),
   UNIQUE (publisher, name)
 );

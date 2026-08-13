@@ -47,10 +47,27 @@ below moves one domain to the other side of that line.
 | §3 | Volumes, editions and the print run | done 2026-08-13 |
 | §4 | Releases and the per-platform offer | done 2026-08-13 |
 | §5 | Renderings, which are derived from a source that stays where it is | done 2026-08-13 |
-| §6 | The compiler writes the store; the JSON is emitted from it | per domain, as each lands |
-| §7 | Incremental on every update, reconciled weekly | §6 |
+| §5a | The constraints that do not fire | first: everything below assumes they do |
+| §5b | A row nothing can address twice | §5a |
+| §5c | What the store says it holds and does not | §5a |
+| §5d | A name is an identity here, and it must not be | §5b |
+| §5e | The domains still outside the store | §5c |
+| §6 | The compiler writes the store; the JSON is emitted from it | §5e |
+| §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
+
+**WHERE §5a TO §5e CAME FROM.** An agent with no part in writing any of this reviewed
+`schema.sql` on 2026-08-13, given the domain, the owner's intent above and the standing
+instructions, and deliberately not given this plan, the refusal counts, or any account of why a
+table is shaped as it is. It rebuilt the store and probed the constraints with real inserts. Every
+figure below was then re-measured here before being written down, because a review taken on trust
+is a second opinion nobody checked.
+
+It found the identity spine, the surface and claim split, and the decompositions sound. What it
+found wrong divides into constraints that never run, tables no row can be addressed in twice,
+columns filled with a placeholder, and an identity built on a spelling. Those are §5a to §5d. §5e
+is what it found the model cannot say at all.
 
 ## 1. Measure what travels around the store
 
@@ -167,6 +184,22 @@ INCREMENTAL path runs at 00:37 with nobody watching, and quarantines so the run 
 0. A rule adopted when the number is already zero costs nothing to keep and a great deal to regain,
 and `gate.yml` already builds the store on every pull request, so nothing new has to run for it to
 bite.
+
+**IT HAS NOT BEEN BUILT, AND §5's REVIEW IS WHERE THAT STOPPED BEING FREE.** The table does not
+exist. Nothing has needed it, because every run so far has been a full rebuild with somebody
+present, which is the path that FAILS on a refusal by design. Two constraints will now meet correct
+data the moment an unattended run has one: `CHECK (isbn IS NULL OR dated IS NOT NULL)` was locked
+while the count was 0, and the budget it replaced says in its own docstring that its floor is not
+zero, since openBD holds no record at all for 245 of the corpus's 2,321 ISBNs. An announced volume
+carries an ISBN before any registry states a date. `edition`'s inability to hold a printing and a
+delivery for one book, §5b, is the other.
+
+Neither is a reason to relax a constraint. Both are reasons the quarantine has to exist before §7
+turns an unattended run loose, and its absence is now the gap rather than a plan for one.
+
+**AND THE SCHEMA FILE IS NOT THE WHOLE SCHEMA.** `derivation` is created by `delta.ensure` and
+`_tables` excludes it by name, so a reader of `schema.sql` cannot tell what the database holds. The
+quarantine must not arrive the same way.
 
 **WHAT THIS MEANS FOR A ROW IN QUARANTINE.** It is there because an unattended run met it and had
 nowhere else to put it. The next rebuild will refuse it and fail, so it cannot be left: either the
@@ -370,7 +403,197 @@ an answer to what it asked, and only a table with one row per fold shows the pai
 `data reaching the site around the store` falls 520 to 391, and `feed/names.json` from 87 paths to
 2, both of them the file's own datestamp and note.
 
-## 6. The compiler writes the store; the JSON is emitted from it
+## 5a. The constraints that do not fire
+
+**THIS IS FIRST BECAUSE EVERY SECTION BEFORE IT CLAIMED SOMETHING THAT IS NOT TRUE OUTSIDE THE
+LOADER.** `PRAGMA foreign_keys = ON` is line 23 of `schema.sql` and it is a PER-CONNECTION setting.
+`executescript` applies it to the connection doing the build and to nothing else, and SQLite does
+not store it in the file. A plain `sqlite3.connect('data/relational.db')` reports 0 and accepts
+`INSERT INTO work_credit VALUES ('w-nope','c-nobody','x',0)` without complaint. `ask`, `equivalent`
+and `delta.write` all open exactly that way.
+
+So the header's claim that five `check.py` invariants have become foreign keys holds for a full
+rebuild and for nothing else, and §7's incremental path is precisely where it does not hold. It is
+the same shape as the fault §2 met: a constraint that quietly does not apply reads as coverage.
+The fix is that one place opens this database and turns the pragma on, and nothing else calls
+`sqlite3.connect` directly.
+
+**A CHECK THAT PASSES ON EVERYTHING.** `work.first_event` reads `CHECK (first_event IN
+('publication', 'shop-delivery', NULL))`. A comparison against a list holding NULL answers NULL for
+anything not matching, and a CHECK passes on NULL, so `'banana'` inserts. `edition.kind`,
+`claim.predicate`, `surface.kind` and `credit.kind` all omit the NULL and all constrain properly;
+this column is the one exception and it has asserted nothing since the day it was written.
+
+**A TABLE THAT READS AS ENFORCEMENT AND IS DECORATION**, which is §13 caught in my own schema.
+`basis_admits_kind` carries the ruling on which evidence each basis admits, its comment calls it
+"that ruling as a table instead of as a Python dict", and no foreign key or check anywhere reaches
+it. 4,749 of the 10,597 claims that carry a source kind hold a pair it forbids, led by
+`('translated','derived')` at 2,767. Either the pairs become a constraint on `claim`, which means
+first establishing whether the 4,749 are wrong or the table is, or the table stops pretending. It
+may not stay as it is.
+
+**AND ONE VALUE THE SCHEMA DECLARES LEGAL AND MAKES UNSTATEABLE.** `claim.predicate` admits
+`'romanisation'` and `basis_for_predicate` holds no romanisation row, so the composite foreign key
+refuses every such claim. The enum and the key contradict each other. §5 decided a romanisation is
+a function of the reading and belongs in its own table, which is right, and the predicate should
+have gone at the same time.
+
+**THE WEAKER CHECKS, AS ONE BATCH.** `edition.volume` accepts a negative number. Dates are
+unconstrained TEXT and `'yesterday afternoon'` inserts. `release.kind` carries five values and no
+CHECK while every comparable column has one. `id GLOB 'w[0-9]*'` refuses `'wanted'` and admits
+`'w1garbage'`. Two-step alias cycles are accepted, against 18 alias rows. None of these has
+admitted a wrong row yet, which is the argument for adopting them now rather than later.
+
+## 5b. A row nothing can address twice
+
+**THE LARGEST TABLE HAS NO KEY, AND THAT IS WHAT BLOCKS §7.** Ten groups of `claim` rows are
+byte-identical on all eleven non-id columns. No subset of columns identifies a claim, so
+`delta.write`'s split into a key and its values has nothing to key on, and neither an upsert nor a
+retraction can be expressed. Re-running a name pass would multiply claims rather than replace them.
+"Updated incrementally to the extent possible" is not reachable while the table carrying most of
+the corpus has no row anyone can address a second time.
+
+The candidate key is the claim's own content: its surface, its predicate, its value and its basis,
+with a source where one basis can carry two. Establishing which of those actually distinguishes two
+claims is the work of this section, and the ten duplicate groups are the cases to start from.
+
+**`work_credit`'s PRIMARY KEY CONSTRAINS NOTHING.** All 4,165 rows have `role IS NULL`, SQLite
+permits NULLs in a rowid table's primary key, and so the same edge inserts three times running. The
+section header above it reads "the edges, which are where roles live" and the role is empty corpus
+wide, because `credits.json` writes its works list as `{"id": "w00205"}` with no role in it. Either
+the roles are elsewhere and this column should be filled from there, or they are not held at all
+and the comment is describing an intention.
+
+`seq` is documented as "the order the field wrote them in" and the loader numbers each CREDIT's
+works rather than each WORK's credits. 2,222 edges carry `seq = 0` and 185 of the 375 works with
+more than one credit have the same seq on every edge, so byline order cannot be recovered. It also
+sits outside the key, so it cannot break the tie it was meant to break.
+
+**A VOLUME HAS NO IDENTITY EXCEPT ITS ISBN**, and that is why `edition` cannot hold both events for
+one book while its own comment says the two events are the point. 812 volumes state a printing date
+and a delivery date that differ. Holding both needs two rows, `isbn UNIQUE` refuses the second, and
+dropping the ISBN from the second leaves nothing tying it to the first. `(work, volume)` cannot
+serve either, because 13 works carry a reissue and w00174 legitimately holds volume 2 twice at
+different ISBNs. So the loader's choice to keep the printing and discard the delivery is forced by
+the shape and was never a decision.
+
+The comment also cites `a delivery date never stands beside a printing` as the Python saying these
+are different events. That invariant says a work dated from a shop's 配信開始日 holds no publication
+date from anywhere else, which is a rule about one work's date field and not about two rows. The
+citation is doing work it cannot do and needs replacing along with the key.
+
+## 5c. What the store says it holds and does not
+
+**THREE COLUMNS ON `work` ARE SATISFIED BY A PLACEHOLDER.** `admitted_by TEXT NOT NULL` reads
+`'unstated'` on all 3,040 rows, and its comment says a row with no grounds is a work nobody decided
+to include. The grounds exist: `works.json` carries a structured `admitted_by` on 1,887 records
+with a comparator, a shelf, a url, a date and a note citing DEFINITIONS §2. The loader reads the
+field from `series.json`, which has no such key. `volume_count` is NULL on all 3,040 for the same
+reason and `explicit_content` is 0 on all of them. A NOT NULL whose every value is the word for
+null is worse than a nullable column, because it reports as filled.
+
+**55 WORKS CARRY NO NAME AT ALL**, found here while checking the review's collision figure rather
+than reported by it. Every one has its folded title in `feed/names.json`. The loader resolves a
+name to a work by exact match against `work.title`, and NFKC folds `！` to `!`, so
+`一畳間まんきつ暮らし！` never matches the raw title it came from. Indexing the subjects by the same
+fold the table is keyed on resolves all 55 and is a change to one dictionary.
+
+**869 NAMES WHOSE PARTING POINT THE CORPUS STATES ARE RECORDED AS HAVING NONE.** §5 argued that
+`undivided` needed no column because the store holds the reading and whether the credit is a
+person, which is everything the flag is computed from. That is wrong. The flag turns on whether a
+parting point is STATED: 680 authors carry `reading_boundary` and 276 carry `reading_family` or
+`reading_given`, 889 between them, and the store holds 20 division claims because the loader demands
+a `reading_boundary_basis` that 660 records write as prose. Either the column comes back or the
+division claims are loaded from the fields that state one.
+
+**`verified` SITS ON THE NAME WHILE THE CLAIMS DISAGREE.** 638 surfaces carry a non-NULL `verified`
+and two or more distinct reading values, so the flag cannot say which reading a person ruled on.
+That is the flattening `claim` was introduced to end, reintroduced one table over.
+
+**A CITATION THAT CITES NOTHING SATISFIES `edition`'s CHECK.** 915 rows cite the literal string
+`'ndl'`, and 2,818 cite a series-level page, one of them shared by 119 volumes. The check the
+comment names, `per-book dates cite their page`, is about per-book pages specifically, and 3,733 of
+the 6,108 dated rows carry a citation that does not witness the date. `cite = 'nonsense'` inserts.
+
+**`imprint` IS KEYED ON A SPELLING AND A LINE IS IDENTIFIED BY ITS SLUG.** 906 of 2,661
+`work_publisher` rows carry no imprint, because the print blocks spell one line as `Yuri-hime
+comics`, `Yurihime comics` and `IDコミックス　／　Yurihime comics` and the loader matches by exact
+name. 125 of 306 imprint rows have no slug. 47 work and publisher pairs have more than one print
+block and 15 name different imprints, of which the loader keeps the first without counting the
+rest. `parent` is free text and one value resolves to no imprint.
+
+## 5d. A name is an identity here, and it must not be
+
+**THIS IS THE ONE THAT NEEDS A RULING BEFORE IT NEEDS CODE.** `schema.sql` opens by saying a name is
+not an identity, that two artists share a pen name and one artist changes theirs. Then
+`surface UNIQUE (kind, folded)` makes the folded name the identity of a title, and `credit.surface
+UNIQUE` makes a spelling the identity of a person.
+
+What that costs today. Two title folds collide, `百合漫画短編集` and `GirlsLove`, and in each case
+one work takes the English and the reading while the other gets neither. 220 credits carry a second
+spelling in `credits.json`, the store keeps one, and every alternate sits in `surface` as an author
+name resolving to nobody, so a byline written `スズキフミエ` never reaches `c00016`.
+
+**AND THERE IS NO PERSON FOR A MERGE TO SURVIVE.** `credits.json` records 12 `homophones`, which
+are reasoned rulings that two credits sharing a reading are different people, with the evidence
+written out. Nothing in the schema can hold a ruling of that kind. `delta.KINDS` names `merge` and
+`divide`, and its own docstring names "two credits turn out to be one person" as a common delta,
+against a model where a credit is a spelling and there is nothing underneath it to merge into.
+
+The shape this points at is an entity with an opaque identifier, spellings hanging off it, and a
+name resolving to the entity rather than being it. That is a larger change than any other in this
+plan and it touches the identity registry, so it is written down here and not started. What this
+section delivers first is the measurement and the ruling: whether a person is a thing this project
+holds, or whether a credit remains a spelling and the 220 alternates become an alias edge.
+
+## 5e. The domains still outside the store
+
+**§1's BUDGET IS 391 AND THESE ARE MOST OF IT.** §6 emits the JSON from the store, and it cannot
+emit a field the store has no table for, so this section is what stands between §5 and §6.
+
+A work's STATE, which is on all 3,040 rows: `print`, `oneshot`, `unknown`, `completed`, `active`,
+`dormant`, `slow`, with `state_basis` on 948. 271 works carry `state_claims`, and those are
+competing source claims about whether a work is running, each with a source, a term, a date and a
+url. That is the disagreement rule applied to something other than a name, and `claim` is scoped to
+names by its own CHECK, so the model has one answer for one kind of disagreement and none for this.
+
+Admission EVIDENCE, on 2,276 works, 92 of them with more than one. `work.admitted_by` is a single
+text column standing where a table belongs, which is the same fault as §5c's placeholder seen from
+the other side.
+
+VISIBILITY on 6 works, `rebutted` and `marginal`, which is the register DEFINITIONS §13 describes.
+`marketing_label` on 351. The BYLINE as a work prints it: 3,399 credit-line surfaces exist and
+nothing connects one to the work it appeared on, and the fix is an edge and not a column, because
+one line can appear on many works. The reissue RUN a printing belongs to, which has no identity, so
+81 volumes listing two ISBNs under one record cannot say the two are one book twice. And 30 volumes
+whose number is a string with no integer in it, `難問編` and `上巻`, carrying neither a number nor a
+designation.
+
+## What this plan does not adopt from the review
+
+Recorded because a rejected finding that leaves no trace is indistinguishable from one nobody read.
+
+**`work.volume_count` IS NOT A SECOND COPY OF `count(edition)`.** The review reads it as
+denormalisation and would drop it. It is the count a source STATES, and the editions held are what
+we have found; `works holding fewer volumes than the shop states` is 70 and `works holding more` is
+25, and both budgets exist because the two numbers differ and the difference is the finding. It
+should be filled and named for what it is rather than removed.
+
+**`edition.kind = 'serialisation'` HAVING NO ROWS IS NOT A DEFECT.** An enum member nothing has
+produced yet refuses nothing and asserts nothing false, which is a different thing from §13's
+control that nobody consumes. `claim.predicate = 'romanisation'` is adopted in §5a for the opposite
+reason: there the value is declared legal and made unstateable by another constraint, and a schema
+contradicting itself is a fault whatever the row count.
+
+**`claim.value` STAYS UNNORMALISED.** The review is right that 84 of the 998 disagreements the
+standing question reports are one answer written two ways, `BUNBUN` against `ＢＵＮＢＵＮ`. The
+value a source gave is what a claim is FOR, and folding it on the way in would lose the thing being
+recorded. The question is what should compare folds, and the fix belongs in the query.
+
+**THE `surface` CASE CHECK IS RIGHT AND STAYS.** The review counts the byline and the imprint among
+what the check forbids from reaching a subject. Forbidding it is correct: one credit line appears on
+many works and one imprint spelling reaches many houses, so a column could only ever hold the first.
+§5e carries the edge that is actually missing.
 
 **PER DOMAIN, AS EACH LANDS, and never as a cutover.** When a domain is modelled, `build.py` writes
 it to the store, the JSON for it is emitted FROM the store, and the direct path is deleted. Then
@@ -380,6 +603,11 @@ The site's format is not this plan's question. The emitter may write the same JS
 fetches today, or something narrower, or the site may one day query the store directly. What this
 plan fixes is that the data reaches the site THROUGH the store. Everything about presentation stays
 free to evolve behind that line, which is the whole reason the line is worth drawing.
+
+**IT CANNOT START ON A DOMAIN §5e HAS NOT MODELLED.** An emitter cannot write a field the store has
+no table for, and a work's state, its admission evidence and its byline are all in that position.
+§1's budget standing at 391 is the list, and it is the same list because the budget asks what the
+site is served rather than what the store holds.
 
 **WHAT MUST NOT HAPPEN.** A domain half-migrated, where the store holds it and the JSON is still
 written directly. That is two producers of one fact, which is the fault this project names most
@@ -393,10 +621,16 @@ OUTPUT change and never on input change, so a write producing the value already 
 nothing. Its correctness is by construction, since a pure derivation plus an idempotent write means
 the fixed point a delta converges to is the fixed point a rebuild produces.
 
-**IT HAS NO PRODUCTION CALLER.** Nothing outside its own tests has ever applied a delta. So this
+Nothing outside its own tests has ever applied a delta, so it has no production caller. This
 section is not about writing the updater; it is about an update run applying what it captured
 through `delta.write` rather than recompiling, and about the failure modes that only appear when
 real captures drive it.
+
+**AND IT CANNOT BEGIN UNTIL §5b.** `delta.write` addresses a row by a key and `claim` has none, so
+the table holding most of the corpus can be inserted into and never updated or retracted. §5a is
+the other precondition and is easy to miss for the same reason it went unnoticed for a month: the
+incremental path opens the database with a bare connect, foreign keys are off on that connection,
+and an updater writing a dangling reference would be told nothing.
 
 Reconciliation is the point and it already exists. `equivalence.yml` rebuilds from source and
 sets the result beside a store that has only ever been updated, because every focused test of the

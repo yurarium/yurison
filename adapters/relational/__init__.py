@@ -601,6 +601,16 @@ def build(path=None, quarantine=False, at=None, source=None):
     counts["work_credit"] = db.execute("SELECT count(*) FROM work_credit").fetchone()[0]
 
 
+    # WHICH WORKS ARE NOT PUBLISHED, from the ruling that refuses them. A withheld work leaves six
+    # separate surfaces and each was found only by looking after the previous fix appeared to have
+    # worked; the name map is one of them, so the register has to reach the store that emits it.
+    from facts import origin as _origin_mod
+    for _ref in _origin_mod.refusals(_origin_mod.load()):
+        if _ref.get("title"):
+            put("INSERT OR IGNORE INTO withheld (title, reason) VALUES (?,?)",
+                (_ref["title"], _ref.get("reason") or _ref.get("why")), f"withheld {_ref['title']}")
+    counts["withheld"] = db.execute("SELECT count(*) FROM withheld").fetchone()[0]
+
     # ── the names, and what is claimed about each ────────────────────────────────────────────────
     #
     # ONE PRODUCER OF A `surface` ROW (§3), and it is `surface_id` below. Two loaders need those

@@ -493,6 +493,14 @@ def _map(db, kind):
             rendered[spelling] = entry
     out = _fold.fold_map(rendered, _namekey.fold)[0]
 
+    # A WITHHELD WORK'S TITLE MUST NOT SHIP EITHER. The register refuses the WORK, and this map is
+    # keyed by the folded title and is published, so leaving it here would put the name and its
+    # English rendering on the public site with only the work's rows removed. Third path of six,
+    # and the reason each output was checked rather than the first one being taken as proof.
+    if kind == "title":
+        refused = {_namekey.fold(x) for x, in db.execute("SELECT title FROM withheld")}
+        out = {k: v for k, v in out.items() if k not in refused}
+
     # A CATALOGUED SPELLING OF A TITLE IS THE SAME TITLE, and the store says which by holding the
     # alias. A cataloguer writes a subtitle after an ISBD colon where a platform writes it inside
     # 〜 〜, so eight works were rendered in English everywhere the series row is read and in

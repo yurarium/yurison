@@ -219,6 +219,16 @@ CREATE TABLE work_publisher (
 -- A QUARANTINE THAT GROWS EVERY DAY MEANS THE SCHEMA IS ASSERTING SOMETHING THE DATA DOES NOT
 -- SUPPORT, and the honest response then is to change the model rather than to keep filtering.
 -- `rows the store could not admit` is what tells a bad week of captures from a wrong model.
+-- A WORK THIS DATABASE DOES NOT PUBLISH, AND WHY. DEFINITIONS §6 refuses prose and works first
+-- published outside the scope, and a content flag can withhold one too. The register is not a list
+-- of works we hold: there is no `work` row for any of them, which is exactly why it has to be a
+-- table of its own. Their NAMES are still in `data/names/*.yaml`, and `feed/names.json` filters
+-- them out, so an emitter with no register ships the title of a work the site refuses to carry.
+CREATE TABLE withheld (
+  title  TEXT PRIMARY KEY,
+  reason TEXT
+);
+
 CREATE TABLE quarantine (
   id         INTEGER PRIMARY KEY,
   -- WHERE IT WAS GOING, WHAT REFUSED IT, AND WHAT IT WAS. The row is kept as the loader had it, so

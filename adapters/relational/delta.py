@@ -81,9 +81,10 @@ DERIVATIONS = {
     # NULL)` had nowhere to live: no CHECK reaches across two tables. `check.py` has held this at 0
     # since §3 and the store now asks it too, which is a weaker guarantee stated rather than lost.
     "volumes with an isbn and no date": {
-        "sql": "SELECT count(*) FROM volume v WHERE v.isbn IS NOT NULL AND NOT EXISTS "
+        "sql": "SELECT count(*) FROM volume v WHERE EXISTS "
+               "(SELECT 1 FROM volume_isbn i WHERE i.volume = v.id) AND NOT EXISTS "
                "(SELECT 1 FROM edition e WHERE e.volume = v.id AND e.dated IS NOT NULL)",
-        "reads": ("volume", "edition")},
+        "reads": ("volume", "volume_isbn", "edition")},
     # A BOOK CANNOT BE PRINTED AFTER THE SHOP DELIVERED IT, and holding both events is what made the
     # question askable at all. Reported rather than refused, because a delivery preceding a printing
     # is a real thing on this corpus and the pair is worth watching rather than blocking.

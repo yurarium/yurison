@@ -160,8 +160,9 @@ def main(s):
     # 812 volumes state a printing date and a shop delivery date that differ, and `edition` held one
     # row per book with `isbn UNIQUE`, so the second event had nowhere to go. The loader's `if/elif`
     # keeping the printing and dropping the delivery was forced by the shape, not chosen.
-    db.execute("INSERT INTO volume (work, isbn) VALUES ('w00001','9784778320614')")
+    db.execute("INSERT INTO volume (work) VALUES ('w00001')")
     vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784778320614', ?)", (vol,))
     db.execute("INSERT INTO edition (volume, dated, kind, cite) VALUES"
                " (?, '2009-08', 'printing', 'madb:M400412')", (vol,))
     db.execute("INSERT INTO edition (volume, dated, kind, cite) VALUES"
@@ -183,9 +184,15 @@ def main(s):
     _refuses(s, db, "INSERT INTO edition (volume, kind) VALUES (99999, 'printing')", (),
              "and an event may not name a volume that does not exist")
 
-    # ONE ISBN IS ONE BOOK, which is now a statement about the book rather than about an event.
-    _refuses(s, db, "INSERT INTO volume (work, isbn) VALUES ('w00001','9784778320614')", (),
-             "an ISBN already held is refused, so one ISBN is one book")
+    # ONE ISBN IS ONE BOOK AND ONE BOOK MAY CARRY SEVERAL. 81 volumes list two, a regular printing
+    # and a special edition, which `volume.isbn UNIQUE` could say only half of.
+    db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784757540248', ?)", (vol,))
+    s.eq(db.execute("SELECT count(*) FROM volume_isbn WHERE volume = ?", (vol,)).fetchone()[0], 2,
+         "one book carries a second ISBN for its other printing")
+    db.execute("INSERT INTO volume (work) VALUES ('w00001')")
+    other = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    _refuses(s, db, "INSERT INTO volume_isbn (isbn, volume) VALUES ('9784778320614', ?)", (other,),
+             "and an ISBN already held is refused, so the half that matters is unweakened")
 
     # AND THE KIND IS A CLOSED SET, so a date's meaning cannot be invented per row.
     _refuses(s, db, "INSERT INTO edition (volume, kind) VALUES (?, 'guessed')", (vol,),
@@ -205,7 +212,9 @@ def main(s):
             "the constraint §3 adopted became a question §5b can still ask")
     s.eq(db.execute(relational.QUESTIONS["volumes with an isbn and no date"]).fetchone()[0], 0,
          "and the volume above holds a date, so nothing answers to it here")
-    db.execute("INSERT INTO volume (work, isbn) VALUES ('w00001','9784088900000')")
+    db.execute("INSERT INTO volume (work) VALUES ('w00001')")
+    undated = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784088900000', ?)", (undated,))
     s.eq(db.execute(relational.QUESTIONS["volumes with an isbn and no date"]).fetchone()[0], 1,
          "while an ISBN nobody dated is found, which is what the CHECK used to refuse")
 

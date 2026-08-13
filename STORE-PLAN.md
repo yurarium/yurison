@@ -51,7 +51,7 @@ below moves one domain to the other side of that line.
 | §5b | A row nothing can address twice | done 2026-08-13 |
 | §5d | A name is an identity here, and it must not be | done 2026-08-13 |
 | §5c | What the store says it holds and does not | done 2026-08-13 |
-| §5e | The domains still outside the store | opened 2026-08-13; the rest is §6's queue |
+| §5e | The domains still outside the store | done 2026-08-13; the residue is §6's queue |
 | §6 | The compiler writes the store; the JSON is emitted from it | §5e |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
@@ -738,6 +738,15 @@ designation.
   THE BYLINE IS AN EDGE, which is where the review's suggestion and this plan part company: it
   counted the byline among what `surface`'s CASE check wrongly forbids, and forbidding it is right,
   because one line appears on many works and a column could only ever hold the first.
+
+  ONE ISBN IS ONE BOOK AND ONE BOOK MAY CARRY SEVERAL, which `volume.isbn UNIQUE` could say only
+  half of. 81 volumes list two, a regular printing and a special edition, and the store kept one.
+  `volume_isbn` is keyed on the ISBN, so the half that matters is unweakened, and 3,371 are held
+  against 3,290 before.
+
+  A NUMBER THAT IS A WORD IS A DESIGNATION. 28 volumes are called `難問編`, `沼編` or `上巻` and
+  carried neither a position nor a designation, so the store held nothing about what they are
+  called. `build.volume_number` producing no integer is the signal that the string is a name.
 
 **WHAT IS LEFT IS §6's QUEUE AND IT IS 369 PATHS.** The admission evidence went in §5c, and what
 remains is mostly the feed's own months, `feed/meta.json`, the interface's thresholds and the

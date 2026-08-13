@@ -606,7 +606,6 @@ CREATE TABLE basis_admits_kind (
 CREATE TABLE volume (
   id      INTEGER PRIMARY KEY,
   work    TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
-  isbn    TEXT UNIQUE,
 
   -- WHAT A VOLUME IS CALLED AND WHERE IT SITS ARE TWO FACTS. `volume` is a position in a run and
   -- an integer answers it. A DESIGNATION is the word the publisher uses: `上`, `創刊号`,
@@ -625,6 +624,17 @@ CREATE TABLE volume (
 );
 
 CREATE INDEX volume_work ON volume (work);
+
+-- ONE ISBN IS ONE BOOK AND ONE BOOK MAY CARRY SEVERAL, which `volume.isbn UNIQUE` could say only
+-- half of. 81 volumes list two: a regular printing and a special edition of the same book, which
+-- the corpus holds as `editions` and the store kept one of. The key is the ISBN, so the half that
+-- matters is unweakened, and the foreign key is what lets a book have more than one.
+CREATE TABLE volume_isbn (
+  isbn   TEXT PRIMARY KEY,
+  volume INTEGER NOT NULL REFERENCES volume(id) ON DELETE CASCADE
+);
+
+CREATE INDEX volume_isbn_volume ON volume_isbn (volume);
 
 -- A DATED EVENT ABOUT ONE BOOK. One of each kind per volume, so a printing and a delivery sit
 -- beside each other and neither displaces the other.
@@ -649,7 +659,7 @@ CREATE TABLE edition (
 
 -- AN ISBN IS A KEY INTO EVERY DATED REGISTRY THERE IS, so a volume holding one and no date means
 -- nobody asked. That was `CHECK (isbn IS NULL OR dated IS NOT NULL)` while both facts sat on one
--- row, and no CHECK can reach across two tables, so it is a standing question now:
+-- row, and no CHECK can reach across three tables, so it is a standing question now:
 -- `volumes with an isbn and no date`, which `check.py` has held at 0 since §3 and `delta` asks of
 -- the store. The constraint is weaker and the loss is recorded rather than absorbed.
 

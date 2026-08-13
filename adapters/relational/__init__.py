@@ -770,11 +770,24 @@ def build(path=None, quarantine=False, at=None):
                     of_work or
                     (shop if v.get("delivered") else None))
             # THE BOOK FIRST, ONCE, AND THEN WHAT HAPPENED TO IT.
-            if not put("INSERT INTO volume (work, isbn, volume, designation) VALUES (?,?,?,?)",
-                       (wid, v.get("isbn"), v.get("number_n"), v.get("designation")),
-                       f"volume {wid} {v.get('isbn') or v.get('designation') or '?'}"):
+            # A NUMBER THAT IS A WORD IS A DESIGNATION. 28 volumes are called `難問編`, `沼編` or
+            # `上巻`, carry no integer position, and carried no designation either, so the store
+            # held nothing at all about what they are called. `build.volume_number` produced no
+            # integer for them, which is the signal that the string is a name and not a position.
+            designation = v.get("designation")
+            if not designation and v.get("number_n") is None and v.get("number"):
+                designation = str(v["number"])
+            if not put("INSERT INTO volume (work, volume, designation) VALUES (?,?,?)",
+                       (wid, v.get("number_n"), designation),
+                       f"volume {wid} {v.get('isbn') or designation or '?'}"):
                 continue
             vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+            # EVERY ISBN THE BOOK CARRIES. 81 volumes list two, a regular printing and a special
+            # edition, and the store kept one of them.
+            for isbn in dict.fromkeys([v["isbn"]] if v.get("isbn") else []).keys() | set(
+                    v.get("editions") or []):
+                put("INSERT INTO volume_isbn (isbn, volume) VALUES (?,?)", (isbn, vol),
+                    f"isbn {isbn}")
             # A PLAIN INSERT, DELIBERATELY. `OR IGNORE` here swallowed 382 volumes on the first
             # run and reported `refused 0`, because SQLite treats the conflict as handled and
             # raises nothing for `put` to catch. A constraint that quietly drops a row is worse

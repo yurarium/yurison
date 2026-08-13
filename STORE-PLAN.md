@@ -58,7 +58,7 @@ below moves one domain to the other side of that line.
 | §5i | A column that means two things | done 2026-08-13 |
 | §5j | A vocabulary with one home, and a key into it | done 2026-08-13 |
 | §5k | A date says it is a date | done 2026-08-13 |
-| §6 | The compiler writes the store; the JSON is emitted from it | §5e |
+| §6 | The compiler writes the store; the JSON is emitted from it | mechanism done 2026-08-13; per domain, `credits.json` moved |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
@@ -1076,6 +1076,44 @@ free to evolve behind that line, which is the whole reason the line is worth dra
 no table for. A work's state, its admission evidence and its byline were all in that position when
 §5e was written and none of them is now. §1's budget standing at 369 is what is left, and it is the
 same list because the budget asks what the site is served rather than what the store holds.
+
+**THE MECHANISM, DONE 2026-08-13, AND THE FIRST DOMAIN THROUGH IT.** `relational.build` takes the
+compiler's own rows through a `source` argument, so `build.py` hands its structures in and the store
+stops being downstream of the files it is meant to replace. `adapters/relational/emit.py` reads a
+file back out of the tables. `credits.json` is the first domain: `credit_page_data` is deleted and
+the file is what the store says.
+
+**BYTE EQUALITY IS THE PROOF AND IT IS ONLY AVAILABLE WHILE BOTH EXIST**, which is the whole reason
+this plan refuses a cutover. `test_emit.py` compares the emitted text against what the compiler
+wrote, and the first comparison found two faults the store had taken on in §5h. 130 credits had
+their RAW title filed as a spelling where the registry answers for the FOLD of it, so `二三　夏一`
+shipped beside `二三夏一`; and `アンソロジー`, whose spelling was withdrawn and whose folded title
+the registry still answers for, was being dropped. Neither is visible from either side alone.
+
+**AND THE MOVE FILLED A COLUMN §5b HAD GIVEN UP ON.** `work_credit.role` was 4,165 NULLs and §5b
+concluded the roles were not on that route, on the strength of one letter: `credits.json` writes
+`roles`, plural, and the loader asked for `role`. 568 edges state one, an edge naming two jobs is
+two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for all along.
+
+**WHAT EACH REMAINING DOMAIN NEEDS**, which is the queue and is 357 paths.
+
+  `publishers.json` and the print half of `series.json` want the same thing, a table of PRINT ROWS:
+  a work, a house, the imprint spelling as catalogued, the label, the span and the volume count.
+  `facts/imprint.census` measures the years each spelling covers off those rows, and a house's
+  `rows` and a line's `rows` are counts of them. Neither file can be emitted until they are held.
+
+  `feed/current.json` and the archived months carry a RENDERING per row, `work_en` and `author_en`,
+  which the store already answers and which the feed holds a copy of. What is not modelled is the
+  release row's own reasoning: `basis`, `why`, `conf`, `provenance`, `kind_basis`, the `ahead_*`
+  block and the access-mode history.
+
+  `feed/meta.json` is the run's own report on the platforms, and much of it, `print_candidates`,
+  `lapsed`, `samples_dropped`, describes what the CAPTURE did rather than what the corpus holds.
+  Whether it belongs in `served.CORPUS` at all is worth asking before it is modelled.
+
+  `index.json` is a projection of works for the search, and `works.json` needs first-publication
+  country and venue, the records a work is made of, and the per-volume cover and final-volume
+  claims.
 
 **WHAT MUST NOT HAPPEN.** A domain half-migrated, where the store holds it and the JSON is still
 written directly. That is two producers of one fact, which is the fault this project names most

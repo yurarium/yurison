@@ -217,17 +217,23 @@ def _kind_of(record, claim="reading"):
     return record.get(f"{claim}_source_kind")
 
 
-def _rows(name, key):
+def _rows(name, key, source=None):
     """The rows of a built collection as `(id_or_None, row)` pairs.
+
+    `source` IS THE COMPILER'S OWN ROWS, WHICH IS WHAT §6 REVERSES. Reading `data/build` makes this
+    store downstream of the artefact it is meant to replace, so `build.py` hands its structures
+    straight in and the files stop being on the path at all.
 
     A COLLECTION KEYED BY ID IS NOT A LIST, and flattening it to `.values()` threw the identifier
     away. `credits.json` is a dict whose KEY is `c00001`, which sent me to the identity registry for
     something I already had.
     """
-    p = BUILD / f"{name}.json"
-    if not p.exists():
-        return []
-    d = json.loads(p.read_text(encoding="utf-8"))
+    d = (source or {}).get(name)
+    if d is None:
+        p = BUILD / f"{name}.json"
+        if not p.exists():
+            return []
+        d = json.loads(p.read_text(encoding="utf-8"))
     got = d.get(key) if isinstance(d, dict) else d
     if isinstance(got, dict):
         return list(got.items())
@@ -268,7 +274,7 @@ def _target_of(sql):
     return "?"
 
 
-def build(path=None, quarantine=False, at=None):
+def build(path=None, quarantine=False, at=None, source=None):
     """Compile `data/build` into the store. Returns `(db, counts, refused)`.
 
     REFUSED ROWS ARE THE POINT AND ARE COUNTED, not swallowed. A row the schema will not accept is
@@ -281,6 +287,10 @@ def build(path=None, quarantine=False, at=None):
     and fails on a refusal: the loader is wrong until shown otherwise, and it has been every time so
     far. `at` is the date to stamp a quarantined row with, passed in rather than read from the clock
     so a rebuild is reproducible.
+
+    `source` IS §6. With it the compiler hands its own rows in and this store is built from them
+    rather than from the files it wrote, which is the direction the whole plan turns on. Without
+    it, `data/build` is read, which is what a rebuild and the weekly reconciliation do.
     """
     db = load_rulings(create(path))
     counts, refused = {}, []
@@ -296,7 +306,7 @@ def build(path=None, quarantine=False, at=None):
             return False
 
     seen_credit = {}
-    for _k, r in _rows("series", "series"):
+    for _k, r in _rows("series", "series", source):
         wid = r.get("id")
         if not wid or not str(wid).startswith("w"):
             continue
@@ -307,7 +317,7 @@ def build(path=None, quarantine=False, at=None):
             f"work {wid}")
     counts["work"] = db.execute("SELECT count(*) FROM work").fetchone()[0]
 
-    for cid, r in _rows("credits", "credits"):
+    for cid, r in _rows("credits", "credits", source):
         surface = r.get("credit")
         if not cid or not surface:
             continue
@@ -315,11 +325,11 @@ def build(path=None, quarantine=False, at=None):
             refused.append((f"credit {cid}", f"surface already held by {seen_credit[surface]}"))
             continue
         seen_credit[surface] = cid
-        put("INSERT INTO credit (id, surface, kind) VALUES (?,?,?)",
-            (cid, surface, r.get("shape") or "unknown"), f"credit {cid}")
+        put("INSERT INTO credit (id, surface, kind, registered) VALUES (?,?,?,?)",
+            (cid, surface, r.get("shape") or "unknown", r.get("kind")), f"credit {cid}")
     counts["credit"] = db.execute("SELECT count(*) FROM credit").fetchone()[0]
 
-    for _k, r in _rows("publishers", "publishers"):
+    for _k, r in _rows("publishers", "publishers", source):
         pid, nm = r.get("id"), r.get("name")
         if not pid or not nm:
             continue
@@ -335,13 +345,18 @@ def build(path=None, quarantine=False, at=None):
 
     # THE EDGE, WHICH IS WHERE THE FOREIGN KEYS EARN THEIR PLACE. A credit identifier naming nobody
     # is refused here rather than counted later.
-    for cid, r in _rows("credits", "credits"):
-        for i, w in enumerate(r.get("works") or []):
+    for cid, r in _rows("credits", "credits", source):
+        for w in (r.get("works") or []):
             wid = w.get("id") if isinstance(w, dict) else w
-            role = w.get("role") if isinstance(w, dict) else None
-            if cid and wid:
-                put("INSERT OR IGNORE INTO work_credit (work, credit, role) VALUES (?,?,?)",
-                    (wid, cid, role), f"edge {cid}->{wid}")
+            # `roles`, PLURAL, AND THE COLUMN WAS EMPTY BECAUSE THIS ASKED FOR `role`. §5b read the
+            # 4,165 NULLs and concluded the roles were not on this route, on the strength of one
+            # letter. 568 edges state one or more, and an edge naming two jobs is two rows, which
+            # is what `(work, credit, coalesce(role, ''))` was keyed for all along.
+            roles = w.get("roles") if isinstance(w, dict) else None
+            for role in (roles or [None]):
+                if cid and wid:
+                    put("INSERT OR IGNORE INTO work_credit (work, credit, role) VALUES (?,?,?)",
+                        (wid, cid, role), f"edge {cid}->{wid}")
     counts["work_credit"] = db.execute("SELECT count(*) FROM work_credit").fetchone()[0]
 
     # ── the identity registry, §5d ───────────────────────────────────────────────────────────────
@@ -402,14 +417,13 @@ def build(path=None, quarantine=False, at=None):
     counts["work_anchor"] = db.execute("SELECT count(*) FROM work_anchor").fetchone()[0]
 
     held_credit, spelt = {r[0] for r in db.execute("SELECT id FROM credit")}, {}
-    # THE FILING SPELLING IS A SPELLING TOO. 131 credits' own `credit.surface` was absent from
-    # this table, so "every spelling that reaches one person" needed two tables unioned to answer,
-    # which the loader did at `by_subject` and nothing else knew.
-    for s, cid in db.execute("SELECT surface, id FROM credit").fetchall():
-        if s and spelt.get(s) != cid:
-            spelt[s] = cid
-            put("INSERT INTO credit_spelling (spelling, credit) VALUES (?,?)", (s, cid),
-                f"spelling {s}")
+    # A CREDIT ANSWERS FOR THE FOLD OF ITS OWN TITLE AS WELL AS FOR ITS ANCHORS, which is
+    # `credit_spellings`'s second clause and applies to a live entry only. §5h put the RAW title in
+    # instead, and 130 credits are titled with a full-width space the fold removes, `二三　夏一`
+    # against `二三夏一`, so the store held 130 spellings the registry does not answer for and §6's
+    # emitter wrote them into `credits.json`. Comparing bytes against the file build.py produces is
+    # what caught it, which is the whole reason §6 keeps both while a domain moves.
+    import credit_identity as _cid
     for c in (_yaml("credits").get("credits") or []):
         cid = _live(c.get("id"))
         if cid not in held_credit:
@@ -421,6 +435,12 @@ def build(path=None, quarantine=False, at=None):
             spelt[spelling] = cid
             put("INSERT INTO credit_spelling (spelling, credit) VALUES (?,?)",
                 (spelling, cid), f"spelling {spelling}")
+        if not c.get("merged_into"):
+            k = _cid.credit_key(c.get("credit") or c.get("title") or "")
+            if k and spelt.get(k) is None:
+                spelt[k] = cid
+                put("INSERT INTO credit_spelling (spelling, credit) VALUES (?,?)", (k, cid),
+                    f"spelling {k}")
     counts["credit_spelling"] = db.execute("SELECT count(*) FROM credit_spelling").fetchone()[0]
 
     # THE RULINGS, which are what make a merge and a divide safe to repeat.
@@ -718,7 +738,7 @@ def build(path=None, quarantine=False, at=None):
 
     # WHERE A BYLINE WAS SEEN, §5e. 3,399 credit-line surfaces existed and nothing connected one to
     # the work it appeared on. One line appears on many works, so it is an edge and not a column.
-    for _k, r in _rows("series", "series"):
+    for _k, r in _rows("series", "series", source):
         wid, field = r.get("id"), r.get("author")
         if wid and field:
             sid = surface_id("credit-line", field)
@@ -793,13 +813,13 @@ def build(path=None, quarantine=False, at=None):
     # THE IMPRINT A WORK IS PUBLISHED UNDER lives on the print block rather than on the publisher,
     # because one house runs several lines and a work sits on one of them.
     work_imprint = {}
-    for _k, r in _rows("series", "series"):
+    for _k, r in _rows("series", "series", source):
         wid = r.get("id")
         for blk in (r.get("print") or []):
             if wid and blk.get("publisher") and blk.get("imprint"):
                 work_imprint.setdefault((wid, blk["publisher"]), blk["imprint"])
     pub_name = {i: n for i, n in db.execute("SELECT id, name FROM publisher")}
-    for _k, r in _rows("publishers", "publishers"):
+    for _k, r in _rows("publishers", "publishers", source):
         pid = r.get("id")
         for wid in (r.get("works") or []):
             imp = work_imprint.get((wid, pub_name.get(pid)))
@@ -808,7 +828,7 @@ def build(path=None, quarantine=False, at=None):
     counts["work_publisher"] = db.execute("SELECT count(*) FROM work_publisher").fetchone()[0]
 
     # ── whether a work is running, and the byline it prints, §5e ────────────────────────────────
-    for _k, r in _rows("series", "series"):
+    for _k, r in _rows("series", "series", source):
         wid = r.get("id")
         if not wid or r.get("state") is None:
             continue
@@ -831,14 +851,14 @@ def build(path=None, quarantine=False, at=None):
     # every record a series row's run is made of.
     of_record, shop_of, held_isbn, held_event = {}, {}, {}, set()
     seen_grounds = set()
-    for _k, r in _rows("series", "series"):
+    for _k, r in _rows("series", "series", source):
         wid = r.get("id")
         for blk in (r.get("print") or []):
             for rec in (blk.get("work_ids") or []):
                 of_record.setdefault(rec, wid)
                 if blk.get("shop_url"):
                     shop_of.setdefault(rec, blk["shop_url"])
-    for _k, w in _rows("works", "works"):
+    for _k, w in _rows("works", "works", source):
         wid = of_record.get(w.get("work_id"))
         if not wid:
             continue                          # a record no series row's run names
@@ -948,9 +968,9 @@ def build(path=None, quarantine=False, at=None):
     # `volume_count` was NULL on all of them, while `works.json` held structured grounds on 1,887
     # records. `explicit_content` is filled from the same place and is False on every one, which is
     # now a measured answer rather than a column default.
-    visible = {r.get("id"): r.get("visibility") for _k, r in _rows("series", "series")
+    visible = {r.get("id"): r.get("visibility") for _k, r in _rows("series", "series", source)
                if r.get("visibility")}
-    for _k, w in _rows("works", "works"):
+    for _k, w in _rows("works", "works", source):
         wid = of_record.get(w.get("work_id"))
         if not wid:
             continue
@@ -1005,7 +1025,7 @@ def build(path=None, quarantine=False, at=None):
     # STORE-PLAN §4. A platform is named rather than slugged: six display names carry two capture
     # slugs each, so keying on `plat` would split コミックDAYS into two platforms.
     held = {r[0] for r in db.execute("SELECT id FROM work")}
-    for _k, r in _rows("series", "series"):
+    for _k, r in _rows("series", "series", source):
         for o in (r.get("sources") or []):
             if o.get("platform"):
                 put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (o["platform"],),
@@ -1021,7 +1041,7 @@ def build(path=None, quarantine=False, at=None):
                 f"platform {rel['plat_name']}")
     counts["platform"] = db.execute("SELECT count(*) FROM platform").fetchone()[0]
 
-    for _k, r in _rows("series", "series"):
+    for _k, r in _rows("series", "series", source):
         wid = r.get("id")
         if wid not in held:
             continue
@@ -1043,7 +1063,7 @@ def build(path=None, quarantine=False, at=None):
     # An exact title match resolves 944 of 974; these two resolve 971, and the 3 left carry no
     # identifier at all. Suspecting the rule before the data is what §2 taught, twice.
     by_fold = {}
-    for _k, r in _rows("series", "series"):
+    for _k, r in _rows("series", "series", source):
         if r.get("id") in held and r.get("work"):
             by_fold.setdefault(_namekey.fold(r["work"]), r["id"])
     seen_rel = set()

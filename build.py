@@ -2648,96 +2648,6 @@ def credit_spellings():
     return out
 
 
-def credit_page_data(rows):
-    """Everything a credit's page shows that no other shipped file holds.
-
-    WHAT IT ANSWERS, and why the interface cannot. "What else is this person named on" needs the
-    credit field SPLIT, which is `inputs.split_credits_detail`'s job and exists only in Python;
-    doing it in the browser would be a second splitter, and the two would disagree about who a
-    work is by. So the edges ship, derived by the registry module that already owns them.
-
-    WHAT SHAPE OF PAGE EACH RECORD MAY HAVE. 20 of these credits are not people. 円谷プロダクション
-    is a company, 「真夜中ぱんチ」製作委員会 a committee, and 電撃G'sマガジン is a magazine, which
-    DEFINITIONS treats as a place where yuri is published rather than as a party to a work. `shape`
-    carries that, so the renderer can head a page with what the credit is instead of assuming a
-    person and printing a reading, a name order and a romanisation for a limited company.
-
-    `homophones` IS THE INFORMATION HUNG BESIDE A CREDIT, which is what the owner's ruling means by
-    ancillary: seven pairs share a reading and were examined and kept apart, and a page for either
-    should be able to say the other exists. It is never a merge and never replaces one with the
-    other.
-
-    A RETIRED IDENTIFIER SHIPS TOO, in `merged`, for the reason the works list ships one: a page
-    asked for a retired id has to land on the record that survived it rather than on nothing.
-    """
-    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
-    import credit_identity as _cid
-
-    entries, doc = _cid.load("data/identity/credits.yaml")
-    edges = {}
-    for f in ["data/identity/credit-works.yaml"]:
-        if pathlib.Path(f).exists():
-            for row in (yaml.safe_load(pathlib.Path(f).read_text()) or {}).get("credits") or []:
-                edges[str(row.get("id"))] = row.get("works") or []
-    # WHICH WORKS THE READER MAY BE SHOWN, taken from the rows that ship rather than from the edge
-    # file. A work withheld on content grounds leaves the works list and its identifier stops being
-    # served, so an edge naming it would put a withdrawn title on a person's page. That is
-    # STANDING-INSTRUCTIONS §13's rule about checking every surface, and this is a new surface.
-    known = {str(r.get("id")) for r in rows if r.get("id")}
-    homophones = {}
-    for pair in (doc or {}).get("homophones") or []:
-        for c in pair.get("credits") or []:
-            if not c.get("id"):
-                continue
-            homophones.setdefault(str(c["id"]), []).extend(
-                {"id": str(o.get("id")), "credit": o.get("credit"), "reading": pair.get("reading"),
-                 "basis": pair.get("basis")}
-                for o in pair.get("credits") or []
-                if o.get("id") and str(o["id"]) != str(c["id"]))
-    # EVERY SPELLING A CREDIT ANSWERS FOR, which is what makes it findable by any of them. Asked
-    # of `credit_spellings`, which the works index and the shipped search map read too, so the
-    # three cannot disagree about which spellings belong to whom.
-    #
-    # SHIPPING ONLY `credit` DROPPED THEM ALL. `credits.json` carried the surviving spelling and
-    # nothing else, so 70 of the 257 index-row credits resolving to nothing were people the registry
-    # already knew: `4kaエンピツ`, `お子様ランチ` and `さりいB` are retired spellings of credits with
-    # pages, and search could not reach any of them.
-    _by_credit = {}
-    for _sp, _cid2 in credit_spellings().items():
-        _by_credit.setdefault(_cid2, set()).add(_sp)
-
-    out = {}
-    for e in entries:
-        cid = str(e.get("id") or "")
-        if not cid or e.get("merged_into"):
-            continue
-        works = [{"id": str(w.get("id")), **({"roles": list(w["roles"])} if w.get("roles") else {})}
-                 for w in edges.get(cid) or [] if str(w.get("id")) in known]
-        fact = {"credit": e.get("title"), "shape": _cid.shape_of(e.get("kind")),
-                "works": works}
-        # The credit's own title is what a page is headed with and is spelled as the source wrote
-        # it; the folded form of it belongs here with the rest, so a lookup needs one list.
-        _sp = sorted(x for x in _by_credit.get(cid, set()) if x)
-        if _sp:
-            fact["spellings"] = _sp
-        if e.get("kind"):
-            fact["kind"] = e["kind"]
-        if homophones.get(cid):
-            fact["homophones"] = homophones[cid]
-        out[cid] = fact
-    return {"generated": str(datetime.date.today()),
-            "note": "One record per credit, with the works it is named on and the role on each "
-                    "edge. Addresses are opaque and minted: a credit read three ways in a day "
-                    "would have broken a name-shaped one twice. Fetched only when a credit page "
-                    "is opened.",
-            "count": len(out), "credits": out,
-            # A CHAIN IS NOT FOLLOWED HERE. `identity.index` already resolves an anchor
-            # through however many merges, and the interface follows this map the way it follows
-            # the works one, so A into B into C lands on C in the browser exactly as it does in
-            # the forwarder. Shipping the raw pairs keeps the two agreeing.
-            "merged": _cid.retired(entries)}
-
-
 def publisher_page_data(rows):
     """Everything a house's page shows: its lines, the years each spelling covers, and its works.
 
@@ -7323,10 +7233,30 @@ def main():
     print(f"imprints        : {_imp_lines} line(s) answering {len(_imp_shipped)} key(s) in "
           f"feed/names.json")
 
-    # BUILT BEFORE THE NAME MAP IS WRITTEN, because the credit registry holds spellings no feed
-    # row does and each of them needs a division shipped beside the rest. The file itself is
-    # written further down with the other record page.
-    _credits_shipped = credit_page_data(series_rows)
+    # ── THE COMPILER WRITES THE STORE, AND THE FILE COMES OUT OF IT. STORE-PLAN §6 ────────────
+    #
+    # THE DIRECTION REVERSES HERE FOR THE FIRST DOMAIN. `credit_page_data` used to assemble this
+    # from the registry and hand it to three consumers, and `adapters/relational` then loaded the
+    # store from the FILE it wrote, which made the store downstream of the artefact it is meant to
+    # replace. Now the rows go into the store and `emit.credits` reads them back out, so there is
+    # one producer of what a credit page shows and the JSON is what the store says.
+    #
+    # BUILT BEFORE THE NAME MAP IS WRITTEN, because the credit registry holds spellings no feed row
+    # does and each needs a division shipped beside the rest. The file is written further down with
+    # the other record page, out of this same value.
+    #
+    # PROVED BY BYTE EQUALITY WHILE BOTH EXISTED. `test_emit.py` compares the emitted text against
+    # what `credit_page_data` produced, and the comparison caught two faults the store had taken on
+    # in §5h: 130 credits whose raw title was filed as a spelling the registry does not answer for,
+    # and one whose spelling was withdrawn. An emitter that is ALMOST right is a second producer.
+    import relational as _rel
+    from relational import emit as _emit
+    _store_db, _store_counts, _store_refused = _rel.build(
+        source={"series": {"series": series_rows}, "works": {"works": works}})
+    if _store_refused:
+        print(f"store refused {len(_store_refused)} row(s): "
+              f"{_store_refused[0][0]}: {_store_refused[0][1]}")
+    _credits_shipped = _emit.credits(_store_db, str(_today))
 
     # THE DIVISION OF EVERY CREDIT FIELD A READER CAN MEET. Computed here because it needs the
     # author store, which is what tells a reading printed beside a name from a second artist.

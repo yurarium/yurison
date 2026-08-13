@@ -192,6 +192,11 @@ STORE_ANSWERS = (
     "works.json:works[].volumes[].published_source",
     "works.json:works[].volumes[].isbn_source",
     "works.json:works[].volumes[].madb_id",
+    # §6: `credits.json` IS EMITTED FROM THE STORE, so every path in it is answered by definition
+    # rather than by declaration. `emit.credits` is the only thing that writes the file and
+    # `test_emit` compares it byte for byte against what the compiler used to produce.
+    "credits.json:count", "credits.json:generated", "credits.json:note",
+    "credits.json:credits", "credits.json:credits{}", "credits.json:merged", "credits.json:merged{}",
     "credits.json:credits{}.id",
     "credits.json:credits{}.name",
     "publishers.json:publishers{}.id",

@@ -115,7 +115,12 @@ CREATE TABLE credit (
   -- so a query can ask how many works name no person without re-deciding it. The vocabulary is the
   -- one the corpus actually uses: I guessed a wider one first and 64 rows were refused for holding
   -- the right answer.
-  kind    TEXT NOT NULL CHECK (kind IN ('person', 'organisation', 'venue', 'unknown'))
+  kind    TEXT NOT NULL CHECK (kind IN ('person', 'organisation', 'venue', 'unknown')),
+  -- WHAT THE REGISTRY CALLED IT, WHICH IS FINER THAN THE SHAPE A PAGE NEEDS. `desk`, `project`,
+  -- `company`, `studio`, `committee`, `magazine`, `school`: 24 credits state one, and `kind` above
+  -- is the four-way answer a renderer asks for. §6 needs both, because `credits.json` ships both
+  -- and an emitter cannot invent the finer one back out of the coarser.
+  registered TEXT
 );
 
 CREATE TABLE publisher (
@@ -243,9 +248,14 @@ CREATE TABLE work_anchor (
 
 CREATE INDEX work_anchor_work ON work_anchor (work);
 
--- EVERY SPELLING THAT REACHES ONE PERSON. `credits.yaml` holds 2,473 across 2,255 credits and 220
--- carry more than one, so `credit.surface UNIQUE` was keeping one and discarding the rest: a byline
--- written `スズキフミエ` never reached `c00016`, whose kept spelling is `鈴木二三江`.
+-- EVERY SPELLING THE REGISTRY RESOLVES TO ONE PERSON. `credits.yaml` holds 2,473 across 2,255
+-- credits and 220 carry more than one, so `credit.surface UNIQUE` was keeping one and discarding
+-- the rest: a byline written `スズキフミエ` never reached `c00016`, whose kept spelling is `鈴木二三江`.
+--
+-- A CREDIT'S OWN TITLE IS NOT NECESSARILY IN HERE, and 130 are not. `二三　夏一` is titled with a
+-- full-width space the registry folds out, so the spelling that reaches it is `二三夏一`. §5h read
+-- the absence as a gap and put the titles in, which made this table disagree with the one producer
+-- of the answer. `credit.surface` is what a page is headed with; this is what finds it.
 CREATE TABLE credit_spelling (
   spelling TEXT PRIMARY KEY,
   credit   TEXT NOT NULL REFERENCES credit(id) ON DELETE CASCADE

@@ -1172,14 +1172,29 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   fault: two records folding onto one surface state the same claim, the loader deduped it as one
   row because the claim identity is `(surface, predicate, value, basis, source)`, and the row now
   belongs to whichever record was read first. 邪武丸 is the winner of its fold and its reading sits
-  on the other record, so the entry comes out with no reading at all. A claim is made BY a record
-  and a duplicate is two records making one claim, so the fix is an edge table rather than a column,
-  and that is the next step.
+  on the other record, so the entry came out with no reading at all. A claim is made BY a record and
+  a duplicate is two records making one claim, so `claim_record` is an edge and the column is gone.
+
+  THE AUTHOR MAP IS NOW 2,575 KEYS WITH 6 FIELDS DIFFERING, and the titles 7. Five of the six are a
+  `reading_cite` whose `reviewed` date is a day earlier than the file's, which is the same dedupe
+  seen from the other side: two records state one reading on different days, the claim identity does
+  not include the date, and the surviving row keeps the first record's. That is a question about what
+  identifies a claim rather than a fault in the emitter, and it is worth asking before it is fixed.
 
   AND THE TITLE MAP OWES TWO MORE THINGS. 13 keys it emits are titles of WITHHELD works, which the
   build filters against a register the store does not hold; 18 it does not emit are the catalogued
   spellings `build.py` keys onto the record of the work they name, which is `surface.alias_of` and
   is in the store already. Neither is a modelling gap in what a name IS.
+
+  AND `basis` IS A PROPERTY OF THE RECORD RATHER THAN OF ITS ENGLISH NAME, which the store had wrong.
+  2,571 of the 2,575 author records state one and 689 hold an English name, so on most of them the
+  field says only that the Latin a reader gets is our romanisation; filed as part of the english
+  CLAIM it existed on the 689 and vanished on the rest. It is a column on `name_record` now, and
+  fixing it took the two maps from 24 differing fields to 13.
+
+  WHAT IS LEFT BEFORE THE FILE CAN MOVE: the publishers and imprints maps, which are keyed by the
+  CORPUS's spellings rather than by the store's, and `floor`, `phrases` and `credit_parts`, which are
+  rows in `romanisation` and `credit_part` already.
 
   `index.json` MOVED 2026-08-13, along with `feed/credit-keys.json`, which is `credit_spelling`
   written down. The index took four corrections that byte equality found and nothing else would

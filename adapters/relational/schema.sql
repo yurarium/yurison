@@ -501,6 +501,11 @@ CREATE TABLE name_record (
   -- holds the person separately, and the RENDERING is withheld so a lookup reaches the person. The
   -- record stays and is marked, which is what lets the withholding be counted rather than silent.
   entity         TEXT,
+  -- HOW THE RECORD WOULD HAVE ITS ENGLISH MADE, which is not the same as having one. 2,571 of the
+  -- 2,575 author records state a `basis` and 689 hold an English name, so on most of them the field
+  -- says only that the Latin a reader gets is our romanisation. As part of the english CLAIM it
+  -- existed on the 689 and vanished on the rest, and the shipped entry carries it either way.
+  basis          TEXT,
   -- WHOSE ANSWER THE SHIPPED ENTRY IS IS NOT A COLUMN, and the attempt is worth recording. Where
   -- several spellings fold together the file shows one, chosen by `names/fold` for saying the most.
   -- Stored here the answer was WRONG: the rule ranks the RENDERED entries and this table holds the
@@ -691,6 +696,19 @@ CREATE TABLE claim (
 -- nothing, which is the same trap `work_credit` was in.
 CREATE UNIQUE INDEX claim_identity ON claim
   (surface, predicate, value, basis, coalesce(source, ''));
+-- WHICH RECORDS MAKE A CLAIM, WHICH IS MANY AND WAS A COLUMN. §6. Two spellings folding onto one
+-- surface state the same reading, and a claim is identified by its surface and its content, so the
+-- second is not a second claim: it is the same claim, made twice. The column then held whichever
+-- record was read first, and 邪武丸, which wins its fold, had its reading filed against the record
+-- that loses it. The entry the site shows came out with no reading at all.
+CREATE TABLE claim_record (
+  claim  INTEGER NOT NULL REFERENCES claim(id)       ON DELETE CASCADE,
+  record INTEGER NOT NULL REFERENCES name_record(id) ON DELETE CASCADE,
+  PRIMARY KEY (claim, record)
+);
+
+CREATE INDEX claim_record_record ON claim_record (record);
+
 CREATE INDEX claim_surface ON claim (surface, predicate);
 CREATE INDEX claim_basis   ON claim (basis);
 CREATE INDEX claim_source  ON claim (source_kind);

@@ -615,7 +615,7 @@ def build(path=None, quarantine=False, at=None, source=None):
     #
     # A FOLD MAY REACH TWO WORKS and both are recorded. `百合漫画短編集` names w01990 and w02284.
     surface_id = _surfacer(db)
-    seen_claims = set()
+    seen_claims = {}
 
     # ONE ROW IS ONE CLAIM. The store holds a reading and its provenance as nine `reading_*` keys on
     # a record; here each claim is a row, so a second opinion is a second ROW and a conflict is data.
@@ -647,11 +647,12 @@ def build(path=None, quarantine=False, at=None, source=None):
             # THE JUDGEMENT BELONGS TO THE RECORD THAT WAS JUDGED, §5h. These were columns on the
             # FOLD and two spellings folding together overwrote each other, losing 14 rulings.
             put("INSERT INTO name_record (kind, spelling, surface, verified, uncertain, ordinary,"
-                " transliterates, entity) VALUES (?,?,?,?,?,?,?,?)",
+                " transliterates, entity, basis) VALUES (?,?,?,?,?,?,?,?,?)",
                 (surface_kind[f], name, sid,
                  None if r.get("verified") is None else int(bool(r["verified"])),
                  int(bool(r.get("reading_uncertain"))), int(bool(r.get("reading_ordinary"))),
-                 r.get("transliterates"), r.get("entity")), f"name_record {f} {name}")
+                 r.get("transliterates"), r.get("entity"), r.get("basis")),
+                f"name_record {f} {name}")
             # AND THE CLAIMS BELOW BELONG TO IT, §6. Hung off the fold alone they arrived in one
             # heap wherever two spellings fold together, and the entry a reader is shown has to
             # come from one record or it contradicts itself.
@@ -694,10 +695,15 @@ def build(path=None, quarantine=False, at=None, source=None):
                     # list also carries values the live claim already holds. Skipped here rather
                     # than left to the index, because a loader that relies on a constraint to
                     # absorb what it knowingly emits is the `INSERT OR IGNORE` of §2 again.
+                    # ONE CLAIM SAID TWICE IS ONE CLAIM AND TWO RECORDS SAYING IT ARE TWO EDGES.
+                    # Skipping the second outright filed the claim against whichever record was
+                    # read first, so the record the file renders from could be missing the reading
+                    # it states.
                     ident = (sid, predicate, value, basis, claim.get(f"{cite}_source") or "")
                     if ident in seen_claims:
+                        put("INSERT OR IGNORE INTO claim_record (claim, record) VALUES (?,?)",
+                            (seen_claims[ident], rec_id), f"claim edge {f} {name}")
                         continue
-                    seen_claims.add(ident)
                     put("INSERT INTO claim (surface, kind, predicate, value, basis, source,"
                         " source_kind, retrieved, reviewed, url, isbn, note, displaced, record)"
                         " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
@@ -713,6 +719,10 @@ def build(path=None, quarantine=False, at=None, source=None):
                          # flag with no way to say which one a person ruled on, 638 times.
                          int(i > 0), rec_id),
                         f"claim {predicate} {f} {name}" + (f" [{i}]" if i else ""))
+                    seen_claims[ident] = db.execute(
+                        "SELECT last_insert_rowid()").fetchone()[0]
+                    put("INSERT OR IGNORE INTO claim_record (claim, record) VALUES (?,?)",
+                        (seen_claims[ident], rec_id), f"claim edge {f} {name}")
             # WHERE A NAME PARTS, AND ONLY WHERE SOMETHING SAYS WHAT THAT RESTS ON. 680 records
             # hold a boundary and 660 of them state their source as PROSE: `the kana in its own
             # surface`, `the National Diet Library's author heading on record R100000002-…`. Prose
@@ -739,8 +749,9 @@ def build(path=None, quarantine=False, at=None, source=None):
                 # state one division between them.
                 ident = (sid, "division", divided or r.get("reading") or "", basis, "")
                 if ident in seen_claims:
+                    put("INSERT OR IGNORE INTO claim_record (claim, record) VALUES (?,?)",
+                        (seen_claims[ident], rec_id), f"claim edge division {name}")
                     continue
-                seen_claims.add(ident)
                 # A CITED BASIS GAVE THE DIVISION WITH THE READING, which is what
                 # `facts/division.cites_its_source` means and what a catalogue printing `美鈴, ちょこ`
                 # does. So the division carries the reading's own citation. §5c wrote none at all,
@@ -765,6 +776,9 @@ def build(path=None, quarantine=False, at=None, source=None):
                      r.get("reading_boundary") or r.get("reading_note"), rec_id,
                      int(bool(r.get("reading_boundary_basis")))),
                     f"claim division {f} {name}")
+                seen_claims[ident] = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+                put("INSERT OR IGNORE INTO claim_record (claim, record) VALUES (?,?)",
+                    (seen_claims[ident], rec_id), f"claim edge division {name}")
     counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
     counts["name_record"] = db.execute("SELECT count(*) FROM name_record").fetchone()[0]
     counts["claim"] = db.execute("SELECT count(*) FROM claim").fetchone()[0]

@@ -481,16 +481,16 @@ def _entry(db, rec_id, surface, kind, spelling):
     out in insertion order. What each one is and why it is withheld where it is withheld is on that
     function; nothing is decided again here.
 
-    THE CLAIMS COME FROM ONE RECORD AND THAT IS THE WHOLE POINT OF `claim.record`. An entry is one
+    THE CLAIMS COME FROM ONE RECORD AND THAT IS THE WHOLE POINT OF `claim_record`. An entry is one
     record's account of a name: its reading, its English, its marks and its citation. Assembled from
     whichever record of the fold happened to hold each field, it would ship a name nobody wrote.
     """
     got = db.execute(
-        "SELECT verified, uncertain, ordinary, transliterates, entity FROM name_record"
+        "SELECT verified, uncertain, ordinary, transliterates, entity, basis FROM name_record"
         " WHERE id = ?", (rec_id,)).fetchone()
     if not got:
         return None
-    verified, uncertain, ordinary, transliterates, entity = got
+    verified, uncertain, ordinary, transliterates, entity, en_basis = got
     if entity == "notation":
         return None
     person = kind == "author" and not entity
@@ -500,7 +500,8 @@ def _entry(db, rec_id, surface, kind, spelling):
     for (predicate, value, basis, source, source_kind, retrieved, reviewed, url, isbn, note, gone,
          stated) in db.execute(
              "SELECT predicate, value, basis, source, source_kind, retrieved, reviewed, url,"
-             " isbn, note, displaced, basis_stated FROM claim WHERE record = ?"
+             " isbn, note, displaced, basis_stated FROM claim"
+             " WHERE id IN (SELECT claim FROM claim_record WHERE record = ?)"
              " ORDER BY displaced, id", (rec_id,)):
         if predicate == "english" and basis in ("official-jp", "licensed", "translated"):
             forms.setdefault(basis, value)
@@ -536,10 +537,8 @@ def _entry(db, rec_id, surface, kind, spelling):
     english = live.get("english")
     if english:
         out["en"] = _latin(english[0])
-    if english and english[1]:
-        out["basis"] = english[1]
-    elif reading and not english:
-        out["basis"] = "romaji"
+    if en_basis:
+        out["basis"] = en_basis
     if forms:
         out["en_forms"] = forms
     if reading and reading[1]:

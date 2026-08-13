@@ -278,12 +278,23 @@ def main(s):
         s.check(True, "and the platform is a foreign key, so it cannot be invented per row")
 
     # WORK TO PUBLISHER, and the imprint it is published under.
-    db.execute("INSERT INTO work_publisher (work, publisher, imprint) VALUES ('w00001','h00001',?)",
-               (imp,))
+    db.execute("INSERT INTO work_publisher (work, publisher, seat, imprint) VALUES"
+               " ('w00001','h00001','publisher',?)", (imp,))
     s.eq(db.execute("SELECT imprint FROM work_publisher").fetchone()[0], imp,
          "a work carries the line it is published on, not merely the house")
+    # §6: AND THE SEAT, because a house that only distributed the book did not publish it. §2 read
+    # this edge off a works list that counted any seat, so 193 distributor edges sat here as though
+    # they had.
+    db.execute("INSERT INTO work_publisher (work, publisher, seat) VALUES"
+               " ('w00001','h00001','distributor')")
+    s.eq(db.execute("SELECT count(*) FROM work_publisher WHERE work='w00001'").fetchone()[0], 2,
+         "one house in two seats on one work is two edges and says which is which")
+    _refuses(s, db, "INSERT INTO work_publisher (work, publisher, seat) VALUES"
+                    " ('w00001','h00001','printer')", (),
+             "and a seat outside the pair is refused")
     try:
-        db.execute("INSERT INTO work_publisher (work, publisher) VALUES ('w00001', 'h99999')")
+        db.execute("INSERT INTO work_publisher (work, publisher, seat) VALUES"
+                   " ('w00001','h99999','publisher')")
         s.check(False, "a work may not be published by a house the store does not hold")
     except sqlite3.IntegrityError:
         s.check(True, "and a publisher nobody holds is refused by the foreign key")

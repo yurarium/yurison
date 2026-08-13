@@ -205,6 +205,11 @@ STORE_ANSWERS = (
     "credits.json:credits", "credits.json:credits{}", "credits.json:merged", "credits.json:merged{}",
     "credits.json:credits{}.id",
     "credits.json:credits{}.name",
+    # §6: `publishers.json` IS EMITTED FROM THE STORE, so every path in it is answered by
+    # definition. `emit.publishers` is the only thing that writes it.
+    "publishers.json:count", "publishers.json:generated", "publishers.json:note",
+    "publishers.json:merged", "publishers.json:merged{}",
+    "publishers.json:publishers", "publishers.json:publishers{}",
     "publishers.json:publishers{}.id",
     "publishers.json:publishers{}.name",
     # §4: what a platform offers of a work, and what it published.

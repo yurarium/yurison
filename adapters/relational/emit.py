@@ -96,6 +96,98 @@ def credits(db, generated):
                 "SELECT id, credit FROM superseded WHERE credit IS NOT NULL ORDER BY id")}}
 
 
+#: The sentence at the head of `publishers.json`.
+PUBLISHERS_NOTE = ("One record per publishing house, holding the imprint lines it runs with the "
+                   "spellings each line is catalogued under and the years those cover. Publishers "
+                   "and distributors share one namespace: the seat is on the edge to the book.")
+
+
+def publishers(db, generated):
+    """`publishers.json`, from `publisher`, `imprint`, `print_row` and `print_party`.
+
+    NO JUDGEMENT IS LEFT IN HERE AND THAT IS THE POINT. Which house a catalogued spelling names and
+    which line an imprint string names were both decided by the compiler and written onto
+    `print_party`, so this counts rows and spans years and decides nothing. An emitter that resolved
+    a spelling for itself would be the second implementation §3 refuses, and it would be the one
+    that disagrees, because the registry is where the rulings live.
+
+    A ROW IS A PARTY AND A WORK IS A WORK. A house's `rows` counts the seats it holds on print rows
+    and its `works` counts the works behind them, which is why a work with two editions under one
+    line contributes two rows and one work.
+
+    A SPELLING NO LINE ANSWERS FOR IS SHOWN AS ITSELF. `imprint` is NULL on those parties, and the
+    file keys them by the spelling with `resolved: false`, because a page hiding them would report a
+    house as having fewer lines than its books say it has.
+    """
+    # THE ORDER IS THE ROWS' AND NOT THE TABLE'S. A house appears in this file when its first print
+    # row does, so iterating `publisher` by id would reorder every house and every works list.
+    house = {}
+    name_of = {i: n for i, n in db.execute("SELECT id, name FROM publisher")}
+
+    line_name = {i: (n, p) for i, p, n in db.execute("SELECT id, publisher, name FROM imprint")}
+    line_parent = {i: p for i, p in db.execute("SELECT id, parent_name FROM imprint")}
+
+    for hid, seat, wid, imp, imp_raw, first, last in db.execute(
+            "SELECT p.publisher, p.seat, r.work, p.imprint, p.imprint_raw, p.first, p.last"
+            " FROM print_party p JOIN print_row r ON r.id = p.print_row"
+            " ORDER BY p.id"):
+        if hid is None:
+            continue
+        fact = house.setdefault(hid, {"id": hid, "name": name_of.get(hid), "rows": 0,
+                                      "works": [], "seats": [], "lines": {}})
+        fact["rows"] += 1
+        if seat not in fact["seats"]:
+            fact["seats"].append(seat)
+        if wid and wid not in fact["works"]:
+            fact["works"].append(wid)
+        # THE LINE BELONGS TO THE PUBLISHER'S SEAT. A house that only shipped the book did not put
+        # its own line on it.
+        if seat != "publisher" or not imp_raw:
+            continue
+        key = str(imp) if imp else f"?{imp_raw}"
+        slot = fact["lines"].setdefault(key, {
+            "id": None, "name": imp_raw, "parent": None, "resolved": False,
+            "rows": 0, "works": [], "spellings": {}})
+        if imp:
+            nm, _pub = line_name[imp]
+            slot.update({"id": _slug(db, imp), "name": nm, "resolved": True,
+                         "parent": line_parent.get(imp)})
+        slot["rows"] += 1
+        if wid and wid not in slot["works"]:
+            slot["works"].append(wid)
+        spell = slot["spellings"].setdefault(imp_raw, {"raw": imp_raw, "rows": 0,
+                                                       "years": [None, None]})
+        spell["rows"] += 1
+        _span(spell["years"], first, last)
+
+    out = {}
+    for hid, fact in house.items():
+        fact["lines"] = sorted(fact["lines"].values(), key=lambda x: (-x["rows"], x["name"]))
+        for line in fact["lines"]:
+            line["spellings"] = sorted(line["spellings"].values(), key=lambda x: -x["rows"])
+        out[hid] = fact
+    return {"generated": generated, "note": PUBLISHERS_NOTE, "count": len(out), "publishers": out,
+            "merged": {i: w for i, w in db.execute(
+                "SELECT id, publisher FROM superseded WHERE publisher IS NOT NULL ORDER BY id")}}
+
+
+def _slug(db, imprint_id):
+    got = db.execute("SELECT slug FROM imprint WHERE id = ?", (imprint_id,)).fetchone()
+    return got[0] if got else None
+
+
+def _span(years, first, last):
+    """Extend a `[from, to]` pair by a row's own dates, as `facts/imprint` measures a span."""
+    for value in (first, last):
+        if not value:
+            continue
+        y = str(value)[:4]
+        if not years[0] or y < years[0]:
+            years[0] = y
+        if not years[1] or y > years[1]:
+            years[1] = y
+
+
 def as_text(payload):
     """The file as `build.py` writes one, so a comparison is of bytes and not of parsed objects."""
     return json.dumps(payload, ensure_ascii=False, indent=1)

@@ -75,6 +75,30 @@ def main(s):
     s.eq(got["merged"], want["merged"],
          "and the map is the registry's, which is where a merge is actually recorded")
 
+    # ── THE SECOND DOMAIN: `publishers.json` ─────────────────────────────────────────────────
+    houses = BUILD / "publishers.json"
+    if not houses.exists():
+        s.check(False, "the build must be present for this file to be compared against one")
+        return
+    want_h = json.loads(houses.read_text(encoding="utf-8"))
+    got_h = emit.publishers(db, want_h["generated"])
+    s.eq(emit.as_text(got_h), emit.as_text(want_h),
+         "`publishers.json` emitted from the store is what the compiler wrote, byte for byte")
+    s.check(source and "publishers" not in source,
+            "and the store was built with no `publishers.json` among its inputs either")
+
+    # WHAT BYTE EQUALITY WOULD HAVE MISSED HERE, and did until each was chased down. The parties
+    # were built from an unordered `SELECT id, record`, which SQLite served from the unique index on
+    # `record`, so every works list came out in a sequence with nothing to do with the compiler's.
+    # A line's years were measured off the BLOCK's dates where `parties` says each folded record
+    # states its own. And `imprint.parent` as a foreign key dropped the one parent that resolves to
+    # no line, which a publisher page shows.
+    first = next(iter(got_h["publishers"].values()))
+    s.eq(first["works"][:3], next(iter(want_h["publishers"].values()))["works"][:3],
+         "a house's works are in the order its print rows are, not the order a table scan gives")
+    s.check(any(l.get("parent") for h in got_h["publishers"].values() for l in h["lines"]),
+            "a line inside a line names its parent, including the one that resolves to no line")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

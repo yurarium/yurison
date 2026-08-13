@@ -141,6 +141,12 @@ CREATE TABLE imprint (
   -- states the parent by NAME and this column repeated it, 23 of them with one that resolved to
   -- nothing. §5j: a parent is an imprint, so it is a foreign key into the table it already sits in.
   parent    INTEGER REFERENCES imprint(id) ON DELETE SET NULL,
+  -- AND THE NAME THE REGISTRY STATED, because a parent need not be a line the registry carries.
+  -- §5j made this a foreign key and 41 of the 42 resolved; the forty-second is
+  -- `集英社ホームコミックス`, which matches no imprint, and a publisher page shows it. Dropping the
+  -- name to keep only the key would have taken a fact off the page to satisfy a constraint, which
+  -- §6 caught by emitting the file and finding one house short of what the compiler wrote.
+  parent_name TEXT,
   CHECK (parent IS NULL OR parent <> id),
   UNIQUE (publisher, name)
 );
@@ -172,11 +178,16 @@ CREATE TABLE work_credit (
 
 CREATE UNIQUE INDEX work_credit_edge ON work_credit (work, credit, coalesce(role, ''));
 
+-- WHICH HOUSE, AND IN WHICH SEAT. §2 read this off `publishers.json`'s `works` list, which counts a
+-- house named in ANY seat, so a distributor sat here as though it had published the book. §6 builds
+-- it from `print_party`, where the seat is on the row, and the seat comes with it: dropping the
+-- distributor edges would have lost 193 facts to make a column tidier.
 CREATE TABLE work_publisher (
   work      TEXT NOT NULL REFERENCES work(id)      ON DELETE CASCADE,
   publisher TEXT NOT NULL REFERENCES publisher(id) ON DELETE RESTRICT,
+  seat      TEXT NOT NULL CHECK (seat IN ('publisher', 'distributor')),
   imprint   INTEGER REFERENCES imprint(id)         ON DELETE SET NULL,
-  PRIMARY KEY (work, publisher)
+  PRIMARY KEY (work, publisher, seat)
 );
 
 -- ── what the compiler could not admit ──────────────────────────────────────────────────────────
@@ -226,11 +237,12 @@ CREATE INDEX quarantine_target ON quarantine (target);
 -- works and 5 spellings reach two credits, and every one is a retired id sitting beside its
 -- survivor. `series.json:merged` carries 151 of them and `credits.json:merged` 6.
 CREATE TABLE superseded (
-  id     TEXT PRIMARY KEY,
-  work   TEXT REFERENCES work(id)   ON DELETE CASCADE,
-  credit TEXT REFERENCES credit(id) ON DELETE CASCADE,
+  id        TEXT PRIMARY KEY,
+  work      TEXT REFERENCES work(id)      ON DELETE CASCADE,
+  credit    TEXT REFERENCES credit(id)    ON DELETE CASCADE,
+  publisher TEXT REFERENCES publisher(id) ON DELETE CASCADE,
   -- EXACTLY ONE SURVIVOR, and it is a real foreign key rather than a string nobody checks.
-  CHECK ((work IS NULL) <> (credit IS NULL))
+  CHECK (((work IS NOT NULL) + (credit IS NOT NULL) + (publisher IS NOT NULL)) = 1)
 );
 
 -- WHERE A WORK WAS FOUND, which is how this project identifies one. `works.yaml` holds 5,400 of
@@ -885,6 +897,35 @@ CREATE TABLE print_row_record (
   record    TEXT NOT NULL,
   PRIMARY KEY (print_row, record)
 );
+
+-- A SEAT ON A PRINT ROW, WHICH IS WHAT A PUBLISHER PAGE COUNTS. `facts/printblock.parties` says a
+-- block names a publisher and may name a distributor, and each is a party with its own spelling of
+-- the house and of the line. A house's `rows` counts parties and its `works` counts works, which is
+-- why the two are different numbers.
+--
+-- THE RESOLUTION IS THE COMPILER'S AND ONLY THE ANSWER IS HERE. `publisher_identity.anchor` decides
+-- which house a spelling names and `facts/imprint.resolve` which line, so an emitter grouping these
+-- rows re-decides nothing: that is STORE-PLAN §3's rule for the whole plan, and it is what lets
+-- `publishers.json` be an aggregation with no judgement left in it.
+CREATE TABLE print_party (
+  id            INTEGER PRIMARY KEY,
+  print_row     INTEGER NOT NULL REFERENCES print_row(id) ON DELETE CASCADE,
+  seat          TEXT NOT NULL CHECK (seat IN ('publisher', 'distributor')),
+  publisher_raw TEXT,
+  publisher     TEXT REFERENCES publisher(id) ON DELETE SET NULL,
+  imprint_raw   TEXT,
+  -- NULL WHERE NO LINE ANSWERS FOR THE SPELLING, which `imprint strings that reach no line` counts
+  -- and a page shows as itself rather than dropping or inventing one.
+  imprint       INTEGER REFERENCES imprint(id) ON DELETE SET NULL,
+  -- THE PARTY'S OWN DATES AND NOT THE BLOCK'S. `facts/printblock.parties` says each folded record
+  -- states its own, and a line's span is measured from the record that CARRIES the line rather than
+  -- from whichever record happened to name the run. Taking the block's moved one span by a year.
+  first         TEXT CHECK (first IS NULL OR first GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR first GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  last          TEXT CHECK (last IS NULL OR last GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR last GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
+);
+
+CREATE INDEX print_party_row ON print_party (print_row);
+CREATE INDEX print_party_publisher ON print_party (publisher);
 
 -- ── what a platform offers, and what it published ──────────────────────────────────────────────
 --

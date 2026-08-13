@@ -346,17 +346,28 @@ def build(path=None, quarantine=False, at=None, source=None):
             (cid, surface, _cid_mod.shape_of(r.get("kind")), r.get("kind")), f"credit {cid}")
     counts["credit"] = db.execute("SELECT count(*) FROM credit").fetchone()[0]
 
-    for _k, r in _rows("publishers", "publishers", source):
-        pid, nm = r.get("id"), r.get("name")
-        if not pid or not nm:
+    # FROM THE REGISTRIES, FOR THE THIRD TIME AND THE LAST. `publishers.json` is emitted by §6, so
+    # loading these from it would make the file its own input, which is the fault CI caught on
+    # `credits.json` and which then took every retired credit forwarder off the site. The rule this
+    # settles into: a table behind a file the store EMITS is loaded from the source that file was
+    # compiled from, never from the file.
+    import publisher_identity as _phid_mod
+    from facts import imprint as _imp_mod
+    for e in (_yaml("publishers").get("publishers") or []):
+        pid, raw = e.get("id"), e.get("publisher")
+        if not pid or not raw or e.get("merged_into"):
             continue
-        if put("INSERT OR IGNORE INTO publisher (id, name) VALUES (?,?)", (pid, nm),
-               f"publisher {pid}"):
-            for line in (r.get("lines") or r.get("seats") or []):
-                nmm = line.get("name") if isinstance(line, dict) else line
-                if nmm:
-                    put("INSERT OR IGNORE INTO imprint (publisher, name) VALUES (?,?)",
-                        (pid, nmm), f"imprint {nmm}")
+        put("INSERT OR IGNORE INTO publisher (id, name) VALUES (?,?)",
+            (pid, _phid_mod.publisher_of(raw)), f"publisher {pid}")
+    # A LINE BELONGS TO THE HOUSES THE REGISTRY NAMES, and `data/names/imprints.yaml` is where that
+    # is stated rather than in the file a publisher page is drawn from.
+    _by_name = {n: i for i, n in db.execute("SELECT id, name FROM publisher")}
+    for line in _imp_mod.load(ROOT / "data" / "names" / "imprints.yaml"):
+        for house in (line.get("publishers") or []):
+            hid = _by_name.get(_phid_mod.publisher_of(house))
+            if hid and line.get("name"):
+                put("INSERT OR IGNORE INTO imprint (publisher, name) VALUES (?,?)",
+                    (hid, line["name"]), f"imprint {line['name']}")
     counts["publisher"] = db.execute("SELECT count(*) FROM publisher").fetchone()[0]
     counts["imprint"] = db.execute("SELECT count(*) FROM imprint").fetchone()[0]
 
@@ -383,10 +394,11 @@ def build(path=None, quarantine=False, at=None, source=None):
                         .get("merged") or {}).items() if (BUILD / "series.json").exists() else ()):
         survivor[gone] = kept
         retired.append((gone, "work"))
-    for e in (_yaml("credits").get("credits") or []):
-        if e.get("merged_into") and e.get("id"):
-            survivor[str(e["id"])] = str(e["merged_into"])
-            retired.append((str(e["id"]), "credit"))
+    for f, col in (("credits", "credit"), ("publishers", "publisher")):
+        for e in (_yaml(f).get(f) or []):
+            if e.get("merged_into") and e.get("id"):
+                survivor[str(e["id"])] = str(e["merged_into"])
+                retired.append((str(e["id"]), col))
 
     def _live(i):
         """An identifier with every retirement followed. `merged` records one hop at a time."""
@@ -816,11 +828,12 @@ def build(path=None, quarantine=False, at=None, source=None):
         surface_id("imprint", folded)
         for house in (r.get("publishers") or []):
             # A PARENT IS AN IMPRINT OF THE SAME HOUSE, resolved here rather than stored as a name.
-            db.execute("UPDATE imprint SET slug = ?, parent = (SELECT p.id FROM imprint p WHERE"
+            db.execute("UPDATE imprint SET slug = ?, parent_name = ?,"
+                       " parent = (SELECT p.id FROM imprint p WHERE"
                        " p.name = ? AND p.publisher = imprint.publisher AND p.id <> imprint.id)"
                        " WHERE name = ? AND publisher ="
                        " (SELECT id FROM publisher WHERE name = ?)",
-                       (r.get("id"), r.get("parent"), r.get("name"), house))
+                       (r.get("id"), r.get("parent"), r.get("parent"), r.get("name"), house))
     counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
 
     # ── the two tables the schema declared and nothing ever wrote ───────────────────────────────
@@ -831,40 +844,6 @@ def build(path=None, quarantine=False, at=None, source=None):
     # held no rows, which is a schema asserting something nothing had ever tested against data.
     # STORE-PLAN §2.
 
-    # WORK TO PUBLISHER, read off `publishers.json`'s own `works` list, which IS the edge. Going by
-    # way of the print blocks would have rebuilt a join the publisher pass has already made.
-    # KEYED ON THE FOLD AS WELL AS THE SPELLING, §5c. The print blocks write one line as
-    # `Yuri-hime comics`, `Yurihime comics` and `IDコミックス　／　Yurihime comics`, and an exact
-    # match on the name left 906 of 2,661 rows with no imprint at all. The registry's own slug is
-    # what identifies a line; folding the spelling is what reaches it from a print block.
-    imprint_id = {}
-    for i, pub, nm in db.execute("SELECT id, publisher, name FROM imprint"):
-        imprint_id[(pub, nm)] = i
-        imprint_id.setdefault((pub, _namekey.fold(nm).lower()), i)
-
-    def _imprint(pid, name):
-        if not name:
-            return None
-        got = imprint_id.get((pid, name))
-        if got is not None:
-            return got
-        return imprint_id.get((pid, _namekey.fold(str(name)).lower()))
-    # THE IMPRINT A WORK IS PUBLISHED UNDER lives on the print block rather than on the publisher,
-    # because one house runs several lines and a work sits on one of them.
-    work_imprint = {}
-    for _k, r in _rows("series", "series", source):
-        wid = r.get("id")
-        for blk in (r.get("print") or []):
-            if wid and blk.get("publisher") and blk.get("imprint"):
-                work_imprint.setdefault((wid, blk["publisher"]), blk["imprint"])
-    pub_name = {i: n for i, n in db.execute("SELECT id, name FROM publisher")}
-    for _k, r in _rows("publishers", "publishers", source):
-        pid = r.get("id")
-        for wid in (r.get("works") or []):
-            imp = work_imprint.get((wid, pub_name.get(pid)))
-            put("INSERT INTO work_publisher (work, publisher, imprint) VALUES (?,?,?)",
-                (wid, pid, _imprint(pid, imp)), f"work_publisher {wid}->{pid}")
-    counts["work_publisher"] = db.execute("SELECT count(*) FROM work_publisher").fetchone()[0]
 
     # ── the print rows a run is made of, §6 ─────────────────────────────────────────────────────
     #
@@ -872,10 +851,13 @@ def build(path=None, quarantine=False, at=None, source=None):
     # and a line's are counts of these rows, and `facts/imprint.census` measures the years a
     # spelling covers from them, so neither file can be emitted while they are only in the JSON.
     pub_id = {n: i for i, n in db.execute("SELECT id, name FROM publisher")}
+    print_block = {}
     for _k, r in _rows("series", "series", source):
         wid = r.get("id")
         for blk in (r.get("print") or []):
             rec = blk.get("work_id")
+            if rec:
+                print_block[rec] = blk
             if not wid or not rec:
                 continue
             if not put("INSERT INTO print_row (work, record, publisher, publisher_raw,"
@@ -892,6 +874,63 @@ def build(path=None, quarantine=False, at=None, source=None):
                 put("INSERT OR IGNORE INTO print_row_record (print_row, record) VALUES (?,?)",
                     (pid, other), f"print record {other}")
     counts["print_row"] = db.execute("SELECT count(*) FROM print_row").fetchone()[0]
+
+    # THE SEATS ON EACH ROW, WITH THE JUDGEMENT ALREADY MADE. `publisher_identity.anchor` decides
+    # which house a spelling names and `facts/imprint.resolve` which line, and both run HERE so the
+    # emitter groups rows without re-deciding anything. That is §3's rule for the whole plan: the
+    # judgement stays in the compiler and what moves is where the answer is written.
+    import publisher_identity as _phid
+    from facts import imprint as _imp
+    from facts import printblock as _pblk
+    _lines = _imp.load(ROOT / "data" / "names" / "imprints.yaml")
+    _lidx = _imp.index(_lines)
+    _house_of = {}
+    for _e in (_yaml("publishers").get("publishers") or []):
+        if _e.get("merged_into") or not _e.get("id"):
+            continue
+        for _a in (_e.get("anchors") or []):
+            _house_of.setdefault(str(_a), str(_e["id"]))
+    _imprint_id = {}
+    for _i, _pub, _nm in db.execute("SELECT id, publisher, name FROM imprint"):
+        _imprint_id[(_pub, _nm)] = _i
+    # `ORDER BY id` BECAUSE AN UNORDERED SELECT IS NOT INSERTION ORDER. `SELECT id, record` is
+    # covered entirely by the unique index on `record`, so SQLite scans that instead of the table
+    # and hands the rows back in record order. The parties then came out in a sequence that had
+    # nothing to do with the compiler's, and every works list in `publishers.json` was reordered.
+    for pid, rec in db.execute("SELECT id, record FROM print_row ORDER BY id").fetchall():
+        blk = print_block.get(rec)
+        if blk is None:
+            continue
+        for party in _pblk.parties(blk):
+            for seat in _phid.SEATS:
+                raw = str(party.get(seat) or "").strip()
+                if not raw:
+                    continue
+                hid = _house_of.get(_phid.anchor(raw) or "")
+                imp_raw = str(party.get("imprint") or "").strip()
+                line = _imp.resolve(_phid.publisher_of(party.get("publisher") or ""),
+                                    imp_raw, _lidx) if imp_raw else None
+                put("INSERT INTO print_party (print_row, seat, publisher_raw, publisher,"
+                    " imprint_raw, imprint, first, last) VALUES (?,?,?,?,?,?,?,?)",
+                    (pid, seat, raw, hid, imp_raw or None,
+                     _imprint_id.get((hid, (line or {}).get("name"))) if line else None,
+                     party.get("first"), party.get("last")),
+                    f"print party {rec} {seat}")
+    counts["print_party"] = db.execute("SELECT count(*) FROM print_party").fetchone()[0]
+
+    # WORK TO PUBLISHER, OFF THE PRINT PARTIES. §2 read it from `publishers.json`'s own `works`
+    # list, on the reasoning that going by way of the print blocks would rebuild a join the
+    # publisher pass had already made. §6 emits that file, so reading it here would make it its own
+    # input; and the reasoning no longer holds, because `print_party` already carries the join the
+    # publisher pass made. The edge is the same edge, derived from the rows rather than from a file.
+    for wid, pid, seat, imp in db.execute(
+            "SELECT r.work, p.publisher, p.seat, max(p.imprint) FROM print_party p"
+            " JOIN print_row r ON r.id = p.print_row"
+            " WHERE p.publisher IS NOT NULL GROUP BY r.work, p.publisher, p.seat"
+            " ORDER BY r.work, p.publisher, p.seat"):
+        put("INSERT OR IGNORE INTO work_publisher (work, publisher, seat, imprint)"
+            " VALUES (?,?,?,?)", (wid, pid, seat, imp), f"work_publisher {wid}->{pid}")
+    counts["work_publisher"] = db.execute("SELECT count(*) FROM work_publisher").fetchone()[0]
 
     # ── whether a work is running, and the byline it prints, §5e ────────────────────────────────
     for _k, r in _rows("series", "series", source):

@@ -2648,35 +2648,6 @@ def credit_spellings():
     return out
 
 
-def publisher_page_data(rows):
-    """Everything a house's page shows: its lines, the years each spelling covers, and its works.
-
-    WHAT A PUBLISHER PAGE SHOWS THAT NOTHING ELSE CAN, which is the reason it exists at all: which
-    of a house's imprints are yuri lines. 百合姫コミックス carries 354 rows and a house with one
-    book somebody shelved as yuri carries one, and that difference is visible only when the lines
-    are counted side by side under the company that runs them.
-
-    ONE PRODUCER. `publisher_identity.houses` assembles it from `imprints.census`, which is the
-    only thing that decides which line a catalogued string names. The interface renders what comes
-    out and derives no span of its own, so the page and the registry report cannot disagree about
-    when a spelling was in use.
-    """
-    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters"))
-    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "names"))
-    sys.path.insert(0, str(pathlib.Path(__file__).parent / "adapters" / "facts"))
-    import imprint as _imp
-    import publisher_identity as _phid
-
-    entries, _doc = _phid.load("data/identity/publishers.yaml")
-    facts = _phid.houses(rows, _imp.load(pathlib.Path("data/names/imprints.yaml")), entries)
-    return {"generated": str(datetime.date.today()),
-            "note": "One record per publishing house, holding the imprint lines it runs with the "
-                    "spellings each line is catalogued under and the years those cover. Publishers "
-                    "and distributors share one namespace: the seat is on the edge to the book.",
-            "count": len(facts), "publishers": facts,
-            "merged": _phid.retired(entries)}
-
-
 def publisher_map(names, people, rows):
     """`{key: {en, basis}}` for the interface, keyed by the catalogued string AND by the shown one.
 
@@ -7306,7 +7277,10 @@ def main():
     # BUILT HERE RATHER THAN BESIDE ITS OWN FILE, because the floor below is asked what a publisher
     # page shows and that answer exists only in this document. The write is further down with the
     # other record page.
-    _houses_shipped = publisher_page_data(series_rows)
+    # THE SECOND DOMAIN OUT OF THE STORE, §6. `publisher_page_data` resolved every spelling to a
+    # house and every imprint string to a line and counted the rows; `print_party` holds what it
+    # decided, so the emitter counts and spans and decides nothing.
+    _houses_shipped = _emit.publishers(_store_db, str(_today))
 
     # ── THE FLOOR UNDER AN ENGLISH PAGE ───────────────────────────────────────────────────────
     #

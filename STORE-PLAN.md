@@ -1090,6 +1090,13 @@ their RAW title filed as a spelling where the registry answers for the FOLD of i
 shipped beside `二三夏一`; and `アンソロジー`, whose spelling was withdrawn and whose folded title
 the registry still answers for, was being dropped. Neither is visible from either side alone.
 
+**A DOMAIN CANNOT BE ITS OWN INPUT, AND CI FOUND THAT WITHIN THE HOUR.** The store's `credit` and
+`work_credit` tables were loaded from `credits.json`, which is the file this domain now emits, so on
+a clean checkout the store built empty and emitted empty. The local tree still had yesterday's file
+to read, which is exactly the shape of blindness §14b is about. Both tables come from
+`data/identity/` now, where `credit_spelling`, `superseded` and `identity_ruling` have been read
+from since §5d, and deleting `data/build/credits.json` and rebuilding produces the file in full.
+
 **AND THE MOVE FILLED A COLUMN §5b HAD GIVEN UP ON.** `work_credit.role` was 4,165 NULLs and §5b
 concluded the roles were not on that route, on the strength of one letter: `credits.json` writes
 `roles`, plural, and the loader asked for `role`. 568 edges state one, an edge naming two jobs is

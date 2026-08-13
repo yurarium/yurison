@@ -305,6 +305,13 @@ def build(path=None, quarantine=False, at=None, source=None):
                 quarantine_row(db, sql, args, what, e, at)
             return False
 
+    import yaml
+    IDENT = ROOT / "data" / "identity"
+
+    def _yaml(name):
+        f = IDENT / f"{name}.yaml"
+        return (yaml.safe_load(f.read_text(encoding="utf-8")) or {}) if f.exists() else {}
+
     seen_credit = {}
     for _k, r in _rows("series", "series", source):
         wid = r.get("id")
@@ -317,16 +324,26 @@ def build(path=None, quarantine=False, at=None, source=None):
             f"work {wid}")
     counts["work"] = db.execute("SELECT count(*) FROM work").fetchone()[0]
 
-    for cid, r in _rows("credits", "credits", source):
-        surface = r.get("credit")
-        if not cid or not surface:
+    # FROM THE REGISTRY AND NOT FROM `credits.json`, WHICH THIS STORE NOW EMITS. §6 moved that file
+    # to `emit.credits`, and loading the tables behind it from the file would make the file its own
+    # input: a clean checkout has no `credits.json` until the store writes one, so the store would
+    # build empty and emit empty. CI found that within the hour, on a run where the local tree still
+    # had yesterday's file to read.
+    #
+    # `data/identity/credits.yaml` IS THE SOURCE ANYWAY, and `credit_spelling`, `superseded` and
+    # `identity_ruling` have been read from it since §5d. This brings the last two tables of the
+    # domain onto the same footing.
+    import credit_identity as _cid_mod
+    for r in (_yaml("credits").get("credits") or []):
+        cid, surface = r.get("id"), r.get("credit")
+        if not cid or not surface or r.get("merged_into"):
             continue
         if surface in seen_credit:
             refused.append((f"credit {cid}", f"surface already held by {seen_credit[surface]}"))
             continue
         seen_credit[surface] = cid
         put("INSERT INTO credit (id, surface, kind, registered) VALUES (?,?,?,?)",
-            (cid, surface, r.get("shape") or "unknown", r.get("kind")), f"credit {cid}")
+            (cid, surface, _cid_mod.shape_of(r.get("kind")), r.get("kind")), f"credit {cid}")
     counts["credit"] = db.execute("SELECT count(*) FROM credit").fetchone()[0]
 
     for _k, r in _rows("publishers", "publishers", source):
@@ -345,31 +362,10 @@ def build(path=None, quarantine=False, at=None, source=None):
 
     # THE EDGE, WHICH IS WHERE THE FOREIGN KEYS EARN THEIR PLACE. A credit identifier naming nobody
     # is refused here rather than counted later.
-    for cid, r in _rows("credits", "credits", source):
-        for w in (r.get("works") or []):
-            wid = w.get("id") if isinstance(w, dict) else w
-            # `roles`, PLURAL, AND THE COLUMN WAS EMPTY BECAUSE THIS ASKED FOR `role`. §5b read the
-            # 4,165 NULLs and concluded the roles were not on this route, on the strength of one
-            # letter. 568 edges state one or more, and an edge naming two jobs is two rows, which
-            # is what `(work, credit, coalesce(role, ''))` was keyed for all along.
-            roles = w.get("roles") if isinstance(w, dict) else None
-            for role in (roles or [None]):
-                if cid and wid:
-                    put("INSERT OR IGNORE INTO work_credit (work, credit, role) VALUES (?,?,?)",
-                        (wid, cid, role), f"edge {cid}->{wid}")
-    counts["work_credit"] = db.execute("SELECT count(*) FROM work_credit").fetchone()[0]
-
     # ── the identity registry, §5d ───────────────────────────────────────────────────────────────
     #
     # THE STORE HAS NEVER READ THIS AND THE ENTITY WAS ALWAYS THERE. `data/identity/` holds the
     # spellings that reach a person, the addresses that reach a work, and the rulings behind both.
-    import yaml
-    IDENT = ROOT / "data" / "identity"
-
-    def _yaml(name):
-        f = IDENT / f"{name}.yaml"
-        return (yaml.safe_load(f.read_text(encoding="utf-8")) or {}) if f.exists() else {}
-
     # THE MERGE MAP FIRST, because an anchor may still name a retired identifier and one address
     # reaching two works would refuse. `merged` is a map from the retired id to its survivor.
     survivor, retired = {}, []
@@ -470,6 +466,38 @@ def build(path=None, quarantine=False, at=None, source=None):
         _ruling("homophone", "credit", r,
                 [x.get("credit") for x in (r.get("credits") or []) if isinstance(x, dict)])
     counts["identity_ruling"] = db.execute("SELECT count(*) FROM identity_ruling").fetchone()[0]
+
+    # THE EDGES COME FROM THE REGISTRY TOO, for the same reason. A work the store does not hold is
+    # refused by the foreign key, which is the rule `credit_page_data` applied by filtering against
+    # the shipped rows and is why that filter could go.
+    held_work_ids = {x[0] for x in db.execute("SELECT id FROM work")}
+    for r in (_yaml("credit-works").get("credits") or []):
+        cid = r.get("id")
+        for w in (r.get("works") or []):
+            wid = w.get("id") if isinstance(w, dict) else w
+            # A WORK THE STORE DOES NOT HOLD IS NOT ON A PERSON'S PAGE. The registry keeps an edge
+            # to a work withheld on content grounds and to one merged away, and `credit_page_data`
+            # filtered both against the shipped rows.
+            #
+            # THE RETIRED ID IS NOT FOLLOWED, AND THAT IS A FAITHFUL COPY OF A FAULT. Resolving it
+            # through `superseded` adds 5 edges, because a credit named on a work that was later
+            # merged keeps pointing at the retired identifier and the filter then drops it. So a
+            # work merge silently takes credit edges with it. §6 emits what the compiler produced
+            # and proves it byte for byte; changing what a page shows is a separate change with its
+            # own reason, and docs/GAPS.md carries the 5.
+            if wid not in held_work_ids:
+                continue
+            # `roles`, PLURAL, AND THE COLUMN WAS EMPTY BECAUSE THIS ASKED FOR `role`. §5b read the
+            # 4,165 NULLs and concluded the roles were not on this route, on the strength of one
+            # letter. 568 edges state one or more, and an edge naming two jobs is two rows, which
+            # is what `(work, credit, coalesce(role, ''))` was keyed for all along.
+            roles = w.get("roles") if isinstance(w, dict) else None
+            for role in (roles or [None]):
+                if cid and wid:
+                    put("INSERT OR IGNORE INTO work_credit (work, credit, role) VALUES (?,?,?)",
+                        (wid, cid, role), f"edge {cid}->{wid}")
+    counts["work_credit"] = db.execute("SELECT count(*) FROM work_credit").fetchone()[0]
+
 
     # ── the names, and what is claimed about each ────────────────────────────────────────────────
     #

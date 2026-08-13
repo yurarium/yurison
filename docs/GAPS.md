@@ -2958,3 +2958,21 @@ So the adapter was taken out of `platform` and left in the key of the table that
 event captured twice by two routes would be two rows and the key would not stop it. Measured, that
 has not happened: no url appears under two routes, and `(platform, work, instalment, published)` is
 unique across all 961 rows. Recorded because the comment is false today and the cost is latent.
+
+## A work merge takes credit edges with it. Found 2026-08-13
+
+STORE-PLAN §6 moved `credits.json` to the store and the edge count came out 5 higher than the file
+the compiler wrote. The cause is a chain nothing follows. `data/identity/credit-works.yaml` names a
+credit's works by the identifier they had when the edge was recorded, and `credit_page_data` filtered
+those against the works that ship. So when a work is merged, its retired identifier stops shipping,
+the filter drops the edge, and the person's page loses a work it is named on.
+
+Two of the merges are §5f's own, `w01603` into `w01245` and `w02055` into `w01463`, which is how this
+surfaced: resolving each retired identifier through `superseded` adds the 5 edges back.
+
+**THE STORE COPIES THE FAULT ON PURPOSE, FOR NOW.** §6's discipline is that a domain moves by
+emitting what the compiler produced and proving it byte for byte, because an emitter that produces
+something ALMOST the same is a second producer with a bug. Changing what a credit page shows is a
+separate change with its own reason, and it wants a decision: whether an edge recorded against a
+retired identifier follows the merge, or whether the registry should be rewritten when a merge lands
+so the edge names the survivor directly. The second is tidier and touches a file people edit by hand.

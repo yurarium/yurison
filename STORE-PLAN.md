@@ -49,8 +49,8 @@ below moves one domain to the other side of that line.
 | §5 | Renderings, which are derived from a source that stays where it is | done 2026-08-13 |
 | §5a | The constraints that do not fire | first: everything below assumes they do |
 | §5b | A row nothing can address twice | §5a |
+| §5d | A name is an identity here, and it must not be | §5a; before §5c's title join |
 | §5c | What the store says it holds and does not | §5a |
-| §5d | A name is an identity here, and it must not be | §5b |
 | §5e | The domains still outside the store | §5c |
 | §6 | The compiler writes the store; the JSON is emitted from it | §5e |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
@@ -534,17 +534,50 @@ one work takes the English and the reading while the other gets neither. 220 cre
 spelling in `credits.json`, the store keeps one, and every alternate sits in `surface` as an author
 name resolving to nobody, so a byline written `スズキフミエ` never reaches `c00016`.
 
-**AND THERE IS NO PERSON FOR A MERGE TO SURVIVE.** `credits.json` records 12 `homophones`, which
-are reasoned rulings that two credits sharing a reading are different people, with the evidence
-written out. Nothing in the schema can hold a ruling of that kind. `delta.KINDS` names `merge` and
-`divide`, and its own docstring names "two credits turn out to be one person" as a common delta,
-against a model where a credit is a spelling and there is nothing underneath it to merge into.
+**THE ENTITY ALREADY EXISTS AND THIS STORE HAS NEVER READ IT.** The review reasoned from the schema
+and concluded there is nothing underneath a credit to merge into, and the first draft of this
+section accepted that and asked for a ruling on whether a person is a thing this project holds.
+The ruling was made long ago and `data/identity/` is where it lives. DEFINITIONS §4 states it
+outright: identity is a human judgement, declared and not inferred.
 
-The shape this points at is an entity with an opaque identifier, spellings hanging off it, and a
-name resolving to the entity rather than being it. That is a larger change than any other in this
-plan and it touches the identity registry, so it is written down here and not started. What this
-section delivers first is the measurement and the ruling: whether a person is a thing this project
-holds, or whether a credit remains a spelling and the 220 alternates become an alias edge.
+  `credits.yaml` holds 2,255 credits with 2,473 `credit:` anchors between them, and 220 of them
+  carry more than one. The anchors ARE the spellings, so `credit.id` has been an entity all along
+  and the loader took one spelling off `credits.json` and made it the key.
+
+  `works.yaml` holds 3,240 works with 5,400 anchors, `madb:` and `web:` addresses rather than
+  titles, 1,308 with more than one. The project identifies a work by where it was found. Resolving
+  a name to a work by matching `work.title`, which is what the loader does, is a join this project
+  does not make anywhere else, and §5c's 55 nameless works and this section's two colliding folds
+  are both symptoms of it.
+
+  `credit-rulings.yaml` holds 230 decisions, 220 merges and 7 keeps and 2 withdrawals and one that
+  is not a credit at all, each with the surfaces, the shape and the reasoning. `credits.yaml` holds
+  7 homophones, which are rulings that two credits sharing a reading are different people.
+  `distinct-titles.yaml` is the same instrument for works and is empty, with a header explaining
+  that date-span disjointness was tried, flagged 57 pairs and was wrong about every one.
+
+**SO THIS IS A LOADING PROBLEM AND NOT A MODELLING ONE.** Four tables, and none of them invents
+anything: the spellings that reach a credit, the addresses that reach a work, an edge from a name
+to what it names, and the rulings. `PRIMARY KEY (scheme, address)` on the anchors is the real
+identity constraint and it is checkable, which nothing in the store currently is.
+
+**THE MERGE MAP COMES FIRST, AND IT IS ALREADY MEASURED.** 158 addresses reach two works today and
+5 spellings reach two credits, and every one is a retired identifier sitting beside its survivor.
+`series.json:merged` carries 151 of those and `credits.json:merged` 6. That map is unmodelled, it
+is two of the 391 paths §1 still counts, and until the store holds it the anchor constraint would
+refuse 163 rows that are correct. It is the same map that was miscounted as 151 separate fields
+until the morning of 2026-08-13.
+
+**WHAT IS ACTUALLY LEFT TO DECIDE**, once the loading is done, is narrow. Which spelling a credit
+shows when it has several, for which `credit-rulings.yaml` already carries a `keep` field. Whether
+a homophone ruling belongs in the same table as a merge, since one says two identifiers are one and
+the other says they are two. And whether `credit-rulings.yaml`'s stated `count` of 86 against 230
+entries in its own list is a stale field or a different population, which has to be settled before
+anything loads it.
+
+**AND THE RULINGS ARE WHAT MAKE §7 SAFE.** `delta.KINDS` names `merge` and `divide`. A store that
+can merge two identifiers and holds no record that somebody ruled them apart will merge them again
+on the next run, and the 7 homophones are exactly the cases where the evidence says do not.
 
 ## 5e. The domains still outside the store
 

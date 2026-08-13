@@ -1313,6 +1313,17 @@ names:
     en_source_kind: derived
     note: ガンガン is kana and スクウェア・エニックス spells it gangan in its own addresses.
     verified: false
+  ガンガンコミックスjoker:
+    basis: romaji
+    reading: ガンガン コミックス joker
+    reading_at: '2026-08-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   ガンガンコミックスonline:
     basis: romaji
     en: Gangan Comics online
@@ -2245,6 +2256,14 @@ names:
     en_source_kind: derived
     note: The same line as MFコミックス　フラッパーシリーズ, catalogued without the MFコミックス front.
     verified: false
+  フレックスコミックス:
+    basis: romaji
+    reading: フレックスコミックス
+    reading_at: '2026-08-13'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   フロンティアワークス:
     basis: official-jp
     en: Frontier Works

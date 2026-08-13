@@ -1,0 +1,66 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C447737
+route: shop-query
+grouping: title-match
+madb_id: C447737
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C447737
+record_type: manga_book_series
+title:
+  ja: "ぬるめた"
+  yomi: "ヌルメタ"
+creator: "[著]こかむも"
+publisher: "芳文社"
+imprint: "Kirara menu"
+volume_count: 6
+first_published: 2021-02
+last_published: 2026-02-23
+volumes:
+  - madb_id: M829357
+    number: "1"
+    isbn: "9784832272460"
+    published: 2021-02
+  - madb_id: M861527
+    number: "2"
+    isbn: "9784832273443"
+    published: 2022-02
+  - madb_id: M880772
+    number: "3"
+    isbn: "9784832274358"
+    published: 2023-02
+  - madb_id: M947710
+    number: "4"
+    isbn: "9784832295193"
+    published: 2024-02
+  - madb_id: M1035739
+    number: "5"
+    isbn: "9784832296060"
+    published: 2025-02-17
+  - madb_id: M1108417
+    number: "6"
+    isbn: "9784832296923"
+    published: 2026-02-23
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/284597/list/"
+  serialisation: "COMIC FUZ"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C447737
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

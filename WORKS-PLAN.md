@@ -13,7 +13,7 @@ The sections are in the order they are to be done, and each says what it needs f
 | §2 | A claim about a reading stops occupying the English's slot | done 2026-08-13 | 196 titles, 1,337 authors |
 | §5 | Two capture faults on the credit field | done 2026-08-13 | 4 rows |
 | §3 | Fetch the episode lists we never asked for | done 2026-08-13 | 53 works |
-| §6 | Ask the shops about a work, not only their yuri shelf | wired 2026-08-13, run going | 560 to ask about |
+| §6 | Ask the shops about a work, not only their yuri shelf | done 2026-08-13 | 560 to ask about |
 | §4 | Join a translated edition to the work it translates | done 2026-08-13 | 28 products, 7 unjoined |
 
 **THE NUMBERS ARE THE ORDER THEY WERE FOUND IN, and the table above is the order to do them in.**
@@ -400,6 +400,26 @@ It reads the previous build's `series.json`, because Stage A runs before Compile
 today is asked about tomorrow, which costs nothing when hundreds are still unasked; the name passes
 sit in Stage E for the opposite reason, since a name is wanted for the work that arrived in the same
 run.
+
+**RUN TO THE END, 2026-08-13.** 52 works were outstanding rather than the 560 this section guessed
+at, because 639 had already been asked by hand; the pass now holds 691 works and 204 creator
+agreements. The bibliography then agreed on 113 of the 187 leads, writing **110 works and 465
+volumes**, with 121 joins applied through `identity --attachments`. 74 leads reached no
+bibliography record, and the pass names them rather than dropping them: 34 where the shop states a
+print date MADB has not catalogued, and 40 where the shop states none, which is a digital-only run
+and no print at all.
+
+**A THIRD PASS WITH NO CALLER TURNED UP DOING IT.** `volumes with an isbn and no date` is a ZERO
+budget and it went to 1, because an ISBN is a key into registries that state a date and one of the
+new volumes had never been looked up. `adapters/openbd/enrich.py` closes exactly that and was not
+wired either. It is now, and it supplied 1,936 dates, taking the budget back to 0. Counting §1's
+name passes and this section's own shop query, three passes were found on one day that existed,
+worked, and had nothing calling them.
+
+Nine budgets rose and are recorded, all of them the one cause: 110 works and 465 volumes arrive with
+names, credits and imprints nobody has resolved. `one work under two names in a list` stayed at 3
+throughout, because the joins went through identity rather than minting a work per title, which is
+what §3 learned the hard way.
 
 **THE COUNTER-CASE TO TEST.** A title search on a shop returns the wrong book, which is exactly why
 the NDL pass refuses to accept a record without agreeing on the author. The same guard applies here

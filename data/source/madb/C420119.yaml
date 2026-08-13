@@ -1,0 +1,93 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C420119
+route: shop-query
+grouping: title-match
+madb_id: C420119
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C420119
+record_type: manga_book_series
+title:
+  ja: "見える子ちゃん"
+  yomi: "ミエルコチャン"
+creator: "[著]泉朝樹"
+publisher: "KADOKAWA"
+imprint: "MFC"
+volume_count: 13
+first_published: 2019-04
+last_published: 2026-03-11
+volumes:
+  - madb_id: M823986
+    number: "4"
+    isbn: "9784040648989"
+  - madb_id: M527249
+    number: "1"
+    isbn: "9784040656588"
+    published: 2019-04
+  - madb_id: M812701
+    number: "2"
+    isbn: "9784040640921"
+    published: 2019-10
+  - madb_id: M818160
+    number: "3"
+    isbn: "9784040644981"
+    published: 2020-03
+  - madb_id: M845800
+    number: "5"
+    isbn: "9784046802576"
+    published: 2021-03
+  - madb_id: M855670
+    number: "6"
+    isbn: "9784046807151"
+    published: 2021-10
+  - madb_id: M867287
+    number: "7"
+    isbn: "9784046812193"
+    published: 2022-03
+  - madb_id: M876869
+    number: "8"
+    isbn: "9784046817723"
+    published: 2022-10
+  - madb_id: M929451
+    number: "9"
+    isbn: "9784046822406"
+    published: 2023-05
+  - madb_id: M965394
+    number: "10"
+    isbn: "9784046828798"
+    published: 2024-02
+  - madb_id: M1061296
+    number: "12"
+    isbn: "9784046844705"
+    published: 2025-03-05
+  - madb_id: M1087960
+    number: "13"
+    isbn: "9784046850997"
+    published: 2025-10-01
+  - madb_id: M1111991
+    number: "14"
+    isbn: "9784046856975"
+    published: 2026-03-11
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/200720/list/"
+  serialisation: "ニコニコ漫画"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C420119
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

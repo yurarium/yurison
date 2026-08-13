@@ -11193,6 +11193,24 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  きみとボドゲが作りたい!:
+    basis: romaji
+    furigana_spans:
+    - - きみとボドゲが
+      - null
+    - - 作
+      - つく
+    - - りたい!
+      - null
+    reading: キミ ト ボドゲ ガ ツクリタイ!
+    reading_at: '2026-08-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   きみとボドゲが作りたい！:
     basis: romaji
     en: Kimi to Board Game ga Tsukuritai!
@@ -29880,6 +29898,32 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  'チートイーター : 異世界召喚尽く滅ぶべし':
+    basis: romaji
+    furigana_spans:
+    - - 'チートイーター : '
+      - null
+    - - 異世界
+      - いせかい
+    - - 召喚
+      - しょうかん
+    - - 尽
+      - ことごと
+    - - く
+      - null
+    - - 滅
+      - ほろ
+    - - ぶべし
+      - null
+    reading: 'チート イーター  :   イセカイ ショウカン コトゴトク ホロブベシ'
+    reading_at: '2026-08-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   チートイーター異世界召喚尽く滅ぶべし:
     basis: romaji
     furigana_spans:
@@ -32995,6 +33039,18 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  フルボイス!:
+    basis: romaji
+    reading: フルボイス!
+    reading_at: '2026-08-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   フルボイス！:
     basis: translated
     en: Full Voice!
@@ -44509,6 +44565,31 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  口に出しても宜しいですか?:
+    basis: romaji
+    furigana_spans:
+    - - 口
+      - くち
+    - - に
+      - null
+    - - 出
+      - だ
+    - - しても
+      - null
+    - - 宜
+      - よろ
+    - - しいですか?
+      - null
+    reading: クチ ニ ダシテ モ ヨロシイデス カ?
+    reading_at: '2026-08-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   口に出しても宜しいですか？:
@@ -65478,6 +65559,51 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  田舎エッチ～田舎のエッチな女の子と過ごすひと夏のエッチな思い出～アンソロジーコミック:
+    basis: romaji
+    furigana_spans:
+    - - 田舎
+      - いなか
+    - - エッチ～
+      - null
+    - - 田舎
+      - いなか
+    - - のエッチな
+      - null
+    - - 女
+      - おんな
+    - - の
+      - null
+    - - 子
+      - こ
+    - - と
+      - null
+    - - 過
+      - す
+    - - ごすひと
+      - null
+    - - 夏
+      - なつ
+    - - のエッチな
+      - null
+    - - 思
+      - おも
+    - - い
+      - null
+    - - 出
+      - で
+    - - ～アンソロジーコミック
+      - null
+    reading: イナカ エッチ ～ イナカ ノ エッチナ オンナノコ ト スゴス ヒトナツ ノ エッチナ オモイデ ～ アンソロジー コミック
+    reading_at: '2026-08-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   由花緒リニューアル:
     basis: translated
     en: Yukao's Renewal
@@ -75823,6 +75949,31 @@ names:
     reading_source: yurarium
     reading_source_kind: derived
     verified: false
+  見える子ちゃん公式アンソロジーコミック:
+    basis: romaji
+    furigana_spans:
+    - - 見
+      - み
+    - - える
+      - null
+    - - 子
+      - こ
+    - - ちゃん
+      - null
+    - - 公式
+      - こうしき
+    - - アンソロジーコミック
+      - null
+    reading: ミエル コチャン コウシキ アンソロジー コミック
+    reading_at: '2026-08-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   見てはいけない 淫情の懺悔:
     basis: translated
     en: 'You Must Not Look: A Confession of Lust'
@@ -80066,6 +80217,22 @@ names:
     reading_reviewed: '2026-08-04'
     reading_source: derived
     reading_source_kind: derived
+    verified: false
+  魔女まじょs-witch:
+    basis: romaji
+    furigana_spans:
+    - - 魔女
+      - まじょ
+    - - まじょs-witch
+      - null
+    reading: マジョ マジョ s - witch
+    reading_at: '2026-08-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
     verified: false
   魔女ケイリーのポーション店:
     basis: translated

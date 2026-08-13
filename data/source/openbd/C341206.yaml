@@ -1,7 +1,7 @@
 # Derived from openBD. Raw payloads are NOT committed — openBD forbids transferring
 # use rights to third parties (REQUIREMENTS §3). No synopsis text is stored (§2).
 source: openbd
-retrieved: 2026-08-08
+retrieved: 2026-08-13
 work_id: C341206
 record_type: volume_enrichment
 volumes:
@@ -65,9 +65,17 @@ volumes:
     openbd: present
     published: 2015-02
     published_basis: openbd-registration
+  - isbn: "9784758079754"
+    openbd: present
+    published: 2019-09
+    published_basis: openbd-registration
   - isbn: "9784758079747"
     openbd: present
     published: 2019-09
+    published_basis: openbd-registration
+  - isbn: "9784758021159"
+    openbd: present
+    published: 2020-06
     published_basis: openbd-registration
   - isbn: "9784758021142"
     openbd: present
@@ -77,6 +85,14 @@ volumes:
     openbd: present
     published: 2021-01
     published_basis: openbd-registration
+  - isbn: "9784758021982"
+    openbd: present
+    published: 2021-01
+    published_basis: openbd-registration
+  - isbn: "9784758022873"
+    openbd: present
+    published: 2021-09
+    published_basis: openbd-registration
   - isbn: "9784758022866"
     openbd: present
     published: 2021-09
@@ -85,11 +101,21 @@ volumes:
     openbd: present
     published: 2022-01
     published_basis: openbd-registration
+  - isbn: "9784758023412"
+    openbd: present
+    published: 2022-01
+    published_basis: openbd-registration
+  - isbn: "9784758024822"
+    openbd: present
+    published: 2023-01
+    published_basis: openbd-registration
   - isbn: "9784758024815"
     openbd: present
     published: 2023-01
     published_basis: openbd-registration
   - isbn: "9784758028196"
+    openbd: present
+  - isbn: "9784758028202"
     openbd: present
   - isbn: "9784758029834"
     openbd: present

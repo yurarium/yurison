@@ -1,0 +1,66 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.18"
+retrieved: 2026-08-07
+work_id: C450512
+route: shop-query
+grouping: title-match
+madb_id: C450512
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C450512
+record_type: manga_book_series
+title:
+  ja: "くっ殺せの姫騎士となり、百合娼館で働くことになりました。"
+  yomi: "クッ コロセ ノ ヒメ キシ ト ナリ 、 ユリ ショウカン デ ハタラク コトニ ナリマシタ 。"
+creator: "ひな姫"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 6
+first_published: 2021-08
+last_published: 2025-04-02
+volumes:
+  - madb_id: M851032
+    number: "1"
+    isbn: "9784801973565"
+    published: 2021-08
+  - madb_id: M868289
+    number: "2"
+    isbn: "9784801975996"
+    published: 2022-04
+  - madb_id: M880860
+    number: "3"
+    isbn: "9784801979611"
+    published: 2023-01
+  - madb_id: M946147
+    number: "4"
+    isbn: "9784801981911"
+    published: 2023-11
+  - madb_id: M1062341
+    number: "5"
+    isbn: "9784801986121"
+    published: 2025-04-02
+  - madb_id: M1062330
+    number: "SP"
+    isbn: "9784801986138"
+    published: 2025-04-02
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/311273/list/"
+  serialisation: "ニコニコ漫画"
+  retrieved: 2026-08-07
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C450512
+  retrieved: 2026-08-07
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

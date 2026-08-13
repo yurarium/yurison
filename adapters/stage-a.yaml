@@ -89,6 +89,16 @@ commands:
            --series, data/build/series.json, --cache, "{CACHE}/shopquery-cache",
            --retrieved, "{R}"]
 
+  # THE DATE AN ISBN IS A KEY TO. `volumes with an isbn and no date` is a ZERO budget, and a volume
+  # holding an ISBN and no date is a lookup nobody has done rather than a fact nobody holds. The
+  # shop query above brings in printed works, so it brings in ISBNs, and one arrived undated the
+  # first time it ran. This pass is the one that closes that and it was not wired either, which
+  # makes three passes found on 2026-08-13 that existed and had no caller. WORKS-PLAN section 6.
+  - id: openbd
+    optional: true
+    argv: [adapters/openbd/enrich.py, --works, data/source/madb, --out, data/source/openbd,
+           --madb-cache, "{CACHE}/madb-cache/1.2.18", --fetch, --retrieved, "{R}"]
+
   - id: webpages
     optional: true
     argv: [adapters/webpages/releases.py, --gap, data/coverage/webcomics-gap.yaml,

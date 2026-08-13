@@ -1451,7 +1451,7 @@ works:
       - "madb:bw-352987"
       - "madb:madb-t-7b2d8fe1fda0"
   - id: w00185
-    title: "田所さん（２）"
+    title: "田所さん"
     anchors:
       - "web:https://kimicomi.com/series/a869ecfca8da9"
       - "madb:C436703"
@@ -20603,6 +20603,11 @@ works:
     title: "ぬるめた"
     anchors:
       - "web:https://comic-fuz.com/manga/2389"
+      - "madb:C447737"
+    attached:
+      - anchor: "madb:C447737"
+        basis: "ぬるめた lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/284597/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03160
     title: "けいおん!"
     anchors:
@@ -20780,9 +20785,18 @@ works:
     anchors:
       - "web:https://manga.nicovideo.jp/comic/31194"
   - id: w03194
-    title: "見える子ちゃん"
+    title: "見える子ちゃん公式アンソロジーコミック"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/37662"
+      - "madb:C420119"
+      - "madb:madb-t-225ba27270ec"
+    attached:
+      - anchor: "madb:C420119"
+        basis: "見える子ちゃん lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/200720/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
+      - anchor: "madb:madb-t-225ba27270ec"
+        basis: "見える子ちゃん lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/200720/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03195
     title: "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）"
     anchors:
@@ -20791,10 +20805,20 @@ works:
     title: "性別不明な中性僕っ子とお姉さん"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/56977"
+      - "madb:madb-t-eb2a5136ec5e"
+    attached:
+      - anchor: "madb:madb-t-eb2a5136ec5e"
+        basis: "性別不明な中性僕っ子とお姉さん lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03197
     title: "チートイーター異世界召喚尽く滅ぶべし"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/54924"
+      - "madb:madb-t-11756f7aae2b"
+    attached:
+      - anchor: "madb:madb-t-11756f7aae2b"
+        basis: "チートイーター異世界召喚尽く滅ぶべし lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/345743/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03198
     title: "同居人に片思いしてる百合漫画"
     anchors:
@@ -20803,6 +20827,11 @@ works:
     title: "くっ殺せの姫騎士となり、百合娼館で働くことになりました。"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/57356"
+      - "madb:C450512"
+    attached:
+      - anchor: "madb:C450512"
+        basis: "くっ殺せの姫騎士となり、百合娼館で働くことになりました。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/311273/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03200
     title: "きたない君がいちばんかわいい"
     merged_into: w00943
@@ -20829,14 +20858,29 @@ works:
     title: "ときめけ魔法幼女ココピュア"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/61103"
+      - "madb:madb-t-fb2534625bf9"
+    attached:
+      - anchor: "madb:madb-t-fb2534625bf9"
+        basis: "ときめけ魔法幼女ココピュア lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/406672/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03206
     title: "ハッピーアワーガールズ"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/40721"
+      - "madb:C437789"
+    attached:
+      - anchor: "madb:C437789"
+        basis: "ハッピーアワーガールズ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/255116/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03207
     title: "おかしなエルフと女子高生"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/60390"
+      - "madb:madb-t-69d9fd2916b3"
+    attached:
+      - anchor: "madb:madb-t-69d9fd2916b3"
+        basis: "おかしなエルフと女子高生 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/415744/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03208
     title: "まほまほ ~魔法少女と魔法使い~"
     anchors:
@@ -20849,6 +20893,11 @@ works:
     title: "ずぼら先輩とまじめちゃん"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/50615"
+      - "madb:C450859"
+    attached:
+      - anchor: "madb:C450859"
+        basis: "ずぼら先輩とまじめちゃん lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/311619/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03211
     title: "Qyootie Q! -麒麟娘と婚約事情-"
     merged_into: w00425
@@ -20859,6 +20908,11 @@ works:
     title: "きみとボドゲが作りたい！"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/72637"
+      - "madb:madb-t-8e3ee288c76e"
+    attached:
+      - anchor: "madb:madb-t-8e3ee288c76e"
+        basis: "きみとボドゲが作りたい！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03213
     title: "田所さん（２）"
     merged_into: w00185
@@ -20895,10 +20949,20 @@ works:
     title: "神絵師のおしごと"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/68352"
+      - "madb:madb-t-f1445efc0df4"
+    attached:
+      - anchor: "madb:madb-t-f1445efc0df4"
+        basis: "神絵師のおしごと lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/514083/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03221
     title: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/73060"
+      - "madb:madb-t-393f3fb3fb1a"
+    attached:
+      - anchor: "madb:madb-t-393f3fb3fb1a"
+        basis: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03222
     title: "押しかけ女房、コドモ付き！"
     anchors:
@@ -20907,6 +20971,11 @@ works:
     title: "口に出しても宜しいですか？"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/53293"
+      - "madb:madb-t-6ce6170b666b"
+    attached:
+      - anchor: "madb:madb-t-6ce6170b666b"
+        basis: "口に出しても宜しいですか？ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/336608/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03224
     title: "桃色カンパネラ"
     anchors:
@@ -20915,6 +20984,11 @@ works:
     title: "ごきげんよう、一局いかが?"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/59722"
+      - "madb:madb-t-627a9018671b"
+    attached:
+      - anchor: "madb:madb-t-627a9018671b"
+        basis: "ごきげんよう、一局いかが? lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/409502/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03226
     title: "タイムトラベル少女 ～ミライのサキ～"
     anchors:
@@ -20927,18 +21001,38 @@ works:
     title: "おちこぼれフルーツタルト"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/53909"
+      - "madb:C362208"
+    attached:
+      - anchor: "madb:C362208"
+        basis: "おちこぼれフルーツタルト lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/67624/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03229
     title: "ポンポコタヌキとへっぽこ王子"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/53993"
+      - "madb:madb-t-3f3ba7bfa307"
+    attached:
+      - anchor: "madb:madb-t-3f3ba7bfa307"
+        basis: "ポンポコタヌキとへっぽこ王子 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03230
     title: "魔女まじょS-WITCH"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/69333"
+      - "madb:madb-t-ad16e7c499c6"
+    attached:
+      - anchor: "madb:madb-t-ad16e7c499c6"
+        basis: "魔女まじょS-WITCH lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03231
     title: "フルボイス！"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/70759"
+      - "madb:madb-t-b275661fc683"
+    attached:
+      - anchor: "madb:madb-t-b275661fc683"
+        basis: "フルボイス！ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/544702/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03232
     title: "十字トンボは空を飛ばない"
     anchors:
@@ -20951,6 +21045,11 @@ works:
     title: "ゆらめきラグーン"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/54613"
+      - "madb:madb-t-3bd12cdb3511"
+    attached:
+      - anchor: "madb:madb-t-3bd12cdb3511"
+        basis: "ゆらめきラグーン lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/358408/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03235
     title: "MOJI の百合"
     anchors:
@@ -20959,6 +21058,11 @@ works:
     title: "エンドロールの後には最高の旅を"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/68902"
+      - "madb:madb-t-4e2bc5982bb8"
+    attached:
+      - anchor: "madb:madb-t-4e2bc5982bb8"
+        basis: "エンドロールの後には最高の旅を lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/481620/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03237
     title: "ケーキも花も宝石も"
     merged_into: w00761
@@ -20973,10 +21077,20 @@ works:
     title: "犬窪ノアとなかよしするまで"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/69545"
+      - "madb:madb-t-d3b36388a1b9"
+    attached:
+      - anchor: "madb:madb-t-d3b36388a1b9"
+        basis: "犬窪ノアとなかよしするまで lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/506428/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
   - id: w03240
     title: "田舎エッチ ～田舎のエッチな女の子と過ごすひと夏のエッチな思い出～ アンソロジーコミック"
     anchors:
       - "web:https://manga.nicovideo.jp/comic/69622"
+      - "madb:madb-t-9335056ecba8"
+    attached:
+      - anchor: "madb:madb-t-9335056ecba8"
+        basis: "田舎エッチ ～田舎のエッチな女の子と過ごすひと夏のエッチな思い出～ アンソロジーコミック lists no collected volume on its own platform page, and bookwalker.jp answers the author query with , whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
+        retrieved: 2026-08-07
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a

@@ -353,6 +353,58 @@ def main(s):
     s.eq(db.execute("SELECT count(*) FROM surface WHERE folded = 'あ／い'").fetchone()[0], 2,
          "and one string is a title and a credit line at once, which is what the kind is for")
 
+    # ── §5a: THE CONSTRAINTS THAT DID NOT FIRE ────────────────────────────────────────────────
+    #
+    # THE PRAGMA IS PER-CONNECTION AND THE FILE DOES NOT REMEMBER IT. `schema.sql` line 23 applied
+    # to the loader's connection and to nothing else, so `ask`, `equivalent` and `delta.write` each
+    # ran with the keys off and a dangling edge inserted. This is the assertion that the one opener
+    # turns them on, and it is a test about a CONNECTION rather than about a row.
+    import tempfile as _tf
+    _p = pathlib.Path(_tf.mkdtemp()) / "fk.db"
+    relational.create(_p).close()
+    reopened = relational.open_db(_p)
+    s.eq(reopened.execute("PRAGMA foreign_keys").fetchone()[0], 1,
+         "a store reopened after the build has its foreign keys on")
+    _refuses(s, reopened, "INSERT INTO work_credit VALUES ('w99999','c99999',NULL,0)", (),
+             "so an edge naming nobody is refused on a fresh connection, not only during a build")
+
+    # A LIST HOLDING NULL MAKES A CHECK PASS ON EVERYTHING. `'banana' IN ('publication', NULL)` is
+    # NULL, and a CHECK passes on NULL, so this column constrained nothing until §5a.
+    s.check(db.execute("SELECT 'banana' IN ('publication','shop-delivery',NULL)").fetchone()[0]
+            is None, "the SQL behind it: a comparison against a list holding NULL answers NULL")
+    _refuses(s, db, "INSERT INTO work (id,title,admitted_by,first_event) "
+                    "VALUES ('w00009','T','t','banana')", (),
+             "a first event outside the pair is refused now that the NULL is out of the list")
+
+    # AN IDENTIFIER HAS A WIDTH AND NOT ONLY A PREFIX. `w[0-9]*` admitted `w1garbage`, and it
+    # admitted the short ids `test_delta.py` had been planting since it was written.
+    _refuses(s, db, "INSERT INTO work (id,title,admitted_by) VALUES ('w1garbage','T','t')", (),
+             "an identifier with rubbish after the digits is refused")
+    _refuses(s, db, "INSERT INTO work (id,title,admitted_by) VALUES ('w1','T','t')", (),
+             "and so is one too short to be an identifier this project issues")
+
+    # A VOLUME BEFORE THE FIRST ONE.
+    _refuses(s, db, "INSERT INTO edition (work, volume, kind) VALUES ('w00001',-5,'printing')", (),
+             "a negative volume number is refused")
+
+    # `romanisation` WAS DECLARED LEGAL AND MADE UNSTATEABLE by the composite key, which is a schema
+    # contradicting itself. It is out of the enum, so the contradiction is gone rather than hidden.
+    _refuses(s, db, "INSERT INTO claim (surface,predicate,value,basis) "
+                    "VALUES (?,'romanisation','Yuri','translated')", (orphan,),
+             "a romanisation is not a claim about a name and the predicate no longer pretends")
+
+    # THE ATTRIBUTION TABLE IS SCOPED BY THE CLAIM IT ANSWERS FOR, and was filled from the reading
+    # side alone, so `('translated','derived')` read as forbidden 2,767 times.
+    pairs = {(b, p_, k) for b, p_, k in
+             db.execute("SELECT basis, predicate, source_kind FROM basis_admits_kind")}
+    s.check(("translated", "english", "derived") in pairs,
+            "a translation of ours rests on derived evidence, which the English table admits")
+    s.check(("translated", "reading", "derived") not in pairs,
+            "and the same basis says nothing about a reading, which is why the predicate is keyed")
+    for b in _rd.en_bases():
+        for k in _rd.en_kinds_for(b):
+            s.check((b, "english", k) in pairs, f"the English attribution carries {b}/{k}")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

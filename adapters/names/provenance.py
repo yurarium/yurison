@@ -180,6 +180,45 @@ def cite(record, claim="reading"):
     return out or None
 
 
+def unadmitted(names, claim="reading"):
+    """Records whose source kind is not one their basis admits, as `(name, basis, kind)`.
+
+    A THIRD DISAGREEMENT BETWEEN A CLAIM AND ITS CITATION, and `faults` above holds the other two.
+    Those ask whether a document is owed and whether one is held. This asks whether the document
+    held is of a kind the basis admits at all, which `facts/reading`'s two attribution tables rule
+    on and nothing has ever checked.
+
+    WHAT IT FINDS, measured rather than imagined, and it is 105 records. 102 are English
+    romanisations attributed to a community database, where `ATTRIBUTION` admits `derived` for
+    `romaji` and nothing else; the project owner ruled on 2026-08-09 that Wikidata may raise the
+    floor on a romanisation, and the table predates the ruling. 2 are publisher names on
+    `official-jp` citing the national library, which that basis does not admit. 1 is a kana surface
+    citing a platform. Each is a pair the other two shapes cannot see, because every field is
+    populated and only the PAIR is wrong.
+
+    THE RULE HAS ONE HOME AND IT IS NOT HERE. `kinds_for` answers for a reading and `en_kinds_for`
+    for an English name, both in `facts/reading`, and `adapters/relational` asks the same two.
+
+    A BASIS NOBODY HAS RULED ON IS NOT A FAULT. `en_kinds_for('stated')` is empty because the
+    English attribution table has no row for it, and 194 names rest on it; counting those here would
+    report a gap in the vocabulary as a defect in the data. docs/GAPS.md carries that ruling.
+    """
+    from facts import reading as _rd
+    ask = _rd.en_kinds_for if claim == "en" else _rd.kinds_for
+    out = []
+    for ja, record in sorted((names or {}).items()):
+        record = record or {}
+        basis, kind = basis_of(record, claim), record.get(f"{claim}_source_kind")
+        if not record.get(claim) or not basis or not kind:
+            continue
+        if record.get(f"{claim}_source") in SELF_SOURCED:
+            continue                      # the name states itself; `cite` already says `derived`
+        admits = ask(basis)
+        if admits and kind not in admits:
+            out.append((ja, basis, kind))
+    return out
+
+
 def is_address(value):
     """Whether a string is an address at all.
 

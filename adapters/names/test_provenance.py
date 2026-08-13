@@ -13,6 +13,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 import testkit  # noqa: E402
+from facts import reading as _rd  # noqa: E402
 from names import provenance  # noqa: E402
 from names.store import NameStore  # noqa: E402
 
@@ -235,6 +236,48 @@ def main(s):
         s.eq(st.records["titles"]["#ふれない"]["en"], "#Not Touching",
              "while the other claim in the same record is untouched")
         st.close()
+
+    # ── THE THIRD DISAGREEMENT: THE EVIDENCE IS OF A KIND THE BASIS DOES NOT ADMIT ────────────
+    #
+    # `faults` asks whether a document is owed and whether one is held. Both are satisfied by a
+    # record whose fields are all populated and whose PAIR is wrong, which is what a citation
+    # outliving its claim looks like once a later pass rewrites the basis beside it.
+    # THE REAL POPULATION, 102 of the 105: a romanisation of ours credited to a community database.
+    # `ATTRIBUTION` admits `derived` for `romaji` and nothing else, and the project owner ruled on
+    # 2026-08-09 that Wikidata may raise the floor on a romanisation. The table predates the ruling.
+    floor_raised = {"en": "Sasakuma", "basis": "romaji", "en_source": "wikidata",
+                    "en_source_kind": "community-db"}
+    s.eq([b for _n, b, _k in provenance.unadmitted({"x": floor_raised}, "en")], ["romaji"],
+         "a romanisation credited to a community database is found")
+    s.eq(provenance.faults({"x": floor_raised}, "en"), [],
+         "AND THE OTHER TWO SHAPES CANNOT SEE IT, which is why this is a third question: every "
+         "field is populated and only the pair is wrong")
+    s.eq(provenance.unadmitted({"x": dict(floor_raised, en_source_kind="derived")}, "en"), [],
+         "the same record with the kind its basis admits is not a fault")
+
+    # A BASIS NOBODY HAS RULED ON IS NOT A FAULT IN THE DATA. `back-converted` is in
+    # `division.BASES`, `READING_ATTRIBUTION` has never carried a row for it, and 22 readings rest
+    # on it; counting those would report a gap in the vocabulary as a defect in the corpus.
+    s.eq(_rd.kinds_for("back-converted"), (),
+         "the reading table rules on no kind for `back-converted`, which docs/GAPS.md carries")
+    s.eq(provenance.unadmitted({"x": {"reading": "ヨミ", "reading_basis": "back-converted",
+                                      "reading_source_kind": "community-db"}}), [],
+         "so a reading resting on it is left alone rather than counted against the data")
+
+    # THE NAME STATING ITSELF OWES NOTHING. `cite` already answers `derived` for these, and the
+    # kind recorded beside them is whatever the source pass wrote.
+    s.eq(provenance.unadmitted({"x": {"en": "CONTINUE?", "basis": "official-jp",
+                                      "en_source": "surface",
+                                      "en_source_kind": "platform"}}, "en"), [],
+         "a title already in Latin is its own English and is exempt")
+
+    # AND THE TWO TABLES ARE DIFFERENT, which is the whole reason `en_kinds_for` exists beside
+    # `kinds_for`. `translated` admits derived evidence as an English name and is not a reading
+    # basis at all.
+    s.eq(_rd.en_kinds_for("translated"), ("derived",), "an English basis answers from one table")
+    s.eq(_rd.kinds_for("translated"), (), "and the reading table has never heard of it")
+    s.check(all(_rd.en_kinds_for(b_) for b_ in _rd.en_bases()),
+            "every English basis is ruled on, which is what makes `back-converted` the gap it is")
 
 
 if __name__ == "__main__":

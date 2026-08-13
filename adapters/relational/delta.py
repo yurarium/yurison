@@ -50,6 +50,37 @@ DERIVATIONS = {
         "sql": "SELECT count(*) FROM (SELECT surface FROM claim "
                "GROUP BY surface, predicate HAVING count(DISTINCT value) > 1)",
         "reads": ("claim",)},
+    # §5a. THE TABLE WAS READ BY NOTHING, which is what made it decoration rather than a ruling.
+    # A composite key on `claim` is where this ends up, and it may not go on while 105 rows would be
+    # refused. 102 of them are English romanisations citing a community database, which is the
+    # owner's ruling of 2026-08-09 that Wikidata may raise the floor on a romanisation meeting a
+    # table written before it. The constraint is adopted when this reaches 0.
+    #
+    # TWO EXEMPTIONS, AND EACH IS A TABLE LOOKUP RATHER THAN A VOCABULARY WRITTEN INTO SQL. A basis
+    # with no admitted kind at all has not been ruled on, and counting it would report a gap in the
+    # vocabulary as a defect in the data; `back-converted` is in `division.BASES`, has no reading
+    # attribution row, and 22 readings rest on it. A self-sourced claim owes no document because the
+    # evidence is the name, and `_kind_of` says `derived` for it, which is true and loses the reason;
+    # 327 claims are in that state and every one is a name already written in its own script.
+    #
+    # WITH BOTH, THIS AND `provenance.unadmitted` ANSWER 105 OVER THE SAME CORPUS BY DIFFERENT
+    # ROUTES, one over the store and one over `data/names`. §14b: neither shares the other's blind
+    # spot, and the weekly rebuild is where a divergence would show.
+    "claims whose evidence their basis does not admit": {
+        "sql": "SELECT count(*) FROM claim c WHERE c.source_kind IS NOT NULL "
+               "AND c.source NOT IN (SELECT source FROM self_sourced) "
+               "AND EXISTS (SELECT 1 FROM basis_admits_kind a WHERE a.basis = c.basis "
+               "AND a.predicate = c.predicate) AND NOT EXISTS "
+               "(SELECT 1 FROM basis_admits_kind a WHERE a.basis = c.basis "
+               "AND a.predicate = c.predicate AND a.source_kind = c.source_kind)",
+        "reads": ("claim", "basis_admits_kind", "self_sourced")},
+    # A CYCLE IS THE ONE THING A CHECK CANNOT SAY. `alias_of <> id` stops a name pointing at itself
+    # and nothing in SQL stops two pointing at each other, so this is the owner's "support querying
+    # to verify logical constraints that cannot be so expressed", written out.
+    "aliases pointing in a circle": {
+        "sql": "SELECT count(*) FROM surface a JOIN surface b ON a.alias_of = b.id "
+               "WHERE b.alias_of = a.id",
+        "reads": ("surface",)},
     "names nothing in the corpus is identified by": {
         "sql": "SELECT count(*) FROM surface WHERE kind IN ('title', 'author', 'publisher') "
                "AND work IS NULL AND credit IS NULL AND publisher IS NULL",

@@ -28,10 +28,13 @@ PRAGMA foreign_keys = ON;
 -- are the project's existing identifiers and they carry no meaning on purpose.
 
 CREATE TABLE work (
-  id                TEXT PRIMARY KEY CHECK (id GLOB 'w[0-9]*'),
+  id                TEXT PRIMARY KEY CHECK (id GLOB 'w[0-9][0-9][0-9][0-9][0-9]'),
   title             TEXT NOT NULL,
   first_publication TEXT,                       -- ISO 8601, whole or partial
-  first_event       TEXT CHECK (first_event IN ('publication', 'shop-delivery', NULL)),
+  -- A LIST HOLDING NULL MAKES A CHECK PASS ON EVERYTHING, since `x IN (a, b, NULL)` answers NULL
+  -- for an x that matches neither and a CHECK passes on NULL. `'banana'` inserted here for as long
+  -- as this column has existed. Every comparable column omits it; §5a is where this one did.
+  first_event       TEXT CHECK (first_event IS NULL OR first_event IN ('publication', 'shop-delivery')),
   volume_count      INTEGER CHECK (volume_count IS NULL OR volume_count >= 0),
   explicit_content  INTEGER NOT NULL DEFAULT 0 CHECK (explicit_content IN (0, 1)),
   -- WHY THIS WORK IS HERE AT ALL. DEFINITIONS section 6 admits a work on stated grounds, and a row
@@ -40,7 +43,7 @@ CREATE TABLE work (
 );
 
 CREATE TABLE credit (
-  id      TEXT PRIMARY KEY CHECK (id GLOB 'c[0-9]*'),
+  id      TEXT PRIMARY KEY CHECK (id GLOB 'c[0-9][0-9][0-9][0-9][0-9]'),
   surface TEXT NOT NULL UNIQUE,                 -- the name as a source writes it
   -- A PERSON, AN ORGANISATION, A VENUE. `entities` decides and `credits.json` records the decision,
   -- so a query can ask how many works name no person without re-deciding it. The vocabulary is the
@@ -50,7 +53,7 @@ CREATE TABLE credit (
 );
 
 CREATE TABLE publisher (
-  id   TEXT PRIMARY KEY CHECK (id GLOB 'h[0-9]*'),
+  id   TEXT PRIMARY KEY CHECK (id GLOB 'h[0-9][0-9][0-9][0-9][0-9]'),
   name TEXT NOT NULL UNIQUE
 );
 
@@ -224,7 +227,12 @@ CREATE TABLE credit_dropped (
 CREATE TABLE claim (
   id           INTEGER PRIMARY KEY,
   surface      INTEGER NOT NULL REFERENCES surface(id) ON DELETE CASCADE,
-  predicate    TEXT NOT NULL CHECK (predicate IN ('reading', 'division', 'english', 'romanisation')),
+  -- `romanisation` WAS HERE AND WAS UNSTATEABLE. §5 gave it a table of its own, because it is a
+  -- function of the reading and rests on no source, and `basis_for_predicate` has no row for it, so
+  -- the composite key below refused every claim the enum declared legal. A schema contradicting
+  -- itself is a fault whatever the row count, which is why this went in §5a and `serialisation`,
+  -- an edition kind nothing has produced yet, did not.
+  predicate    TEXT NOT NULL CHECK (predicate IN ('reading', 'division', 'english')),
   value        TEXT NOT NULL,
 
   -- HOW WE CAME BY IT. `facts/reading` and `facts/division` rule on which basis admits which kind,
@@ -302,10 +310,38 @@ CREATE TABLE source_kind (
   name TEXT PRIMARY KEY
 );
 
+-- A SOURCE THAT IS THE NAME ITSELF. `surface` means the name is already kana and nothing was looked
+-- up; `title-furigana` means the title prints how a word in it is read. `provenance.SELF_SOURCED`
+-- rules on both and `_kind_of` normalises them to the kind `derived`, which is true and which threw
+-- away the reason. 138 claims then read as resting on evidence their basis does not admit, because
+-- nothing left in the row said the evidence is the name. Held as a table so the question can be
+-- asked in SQL without a second copy of the vocabulary.
+CREATE TABLE self_sourced (
+  source TEXT PRIMARY KEY
+);
+
+-- WHICH EVIDENCE A BASIS ADMITS, SCOPED BY THE CLAIM IT STANDS BEHIND. `facts/reading` holds two
+-- attribution tables, one for readings and one for English names, and this was filled from the
+-- reading one alone. So 4,749 of the 10,597 claims carrying a source kind held a pair it forbade,
+-- 2,767 of them `('translated','derived')`, which the ENGLISH table admits and this table had never
+-- been told about. Loading both takes it to 1,227.
+--
+-- IT IS NOT A FOREIGN KEY YET, AND 105 ROWS ARE WHY. 102 are English romanisations citing a
+-- community database, where `ATTRIBUTION` admits `derived` for `romaji` and nothing else; the
+-- project owner ruled on 2026-08-09 that Wikidata may raise the floor on a romanisation, and the
+-- table was written before that. 2 are publisher names on `official-jp` citing the national
+-- library, and 1 is a kana surface citing a platform. `claims whose evidence their basis does not
+-- admit` counts them, and the composite key goes on `claim` when it reaches 0, which is the only
+-- time a constraint is free to adopt.
+--
+-- WHAT THIS FIXES TODAY IS §13. A table nothing consumes reads as a control that is working, and
+-- until now nothing read this one at all.
 CREATE TABLE basis_admits_kind (
   basis       TEXT NOT NULL REFERENCES basis(name)       ON DELETE CASCADE,
+  predicate   TEXT NOT NULL,
   source_kind TEXT NOT NULL REFERENCES source_kind(name) ON DELETE CASCADE,
-  PRIMARY KEY (basis, source_kind)
+  PRIMARY KEY (basis, predicate, source_kind),
+  FOREIGN KEY (basis, predicate) REFERENCES basis_for_predicate (basis, predicate)
 );
 
 -- ── where a work was published, and when ────────────────────────────────────────────────────────
@@ -326,7 +362,7 @@ CREATE TABLE edition (
   -- `build.volume_number` reads 創刊号 as the first issue, so a designation can acquire a position.
   -- No row carries both today and that is left as an observation rather than written in as a
   -- CHECK, because a constraint on an accident refuses the first correct row that meets it.
-  volume       INTEGER,
+  volume       INTEGER CHECK (volume IS NULL OR volume >= 0),
   designation  TEXT,
 
   dated   TEXT,

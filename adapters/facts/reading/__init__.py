@@ -212,6 +212,8 @@ CHECKS = {
     "readings_are_kana": lambda ctx, _n="readings_are_kana": getattr(_checks(), _n)(ctx),
     "reading_can_show_its_source": lambda ctx, _n="reading_can_show_its_source": getattr(_checks(), _n)(ctx),
     "uncertain_readings": lambda ctx, _n="uncertain_readings": getattr(_checks(), _n)(ctx),
+    "claims_whose_evidence_their_basis_does_not_admit":
+        lambda ctx: _checks().claims_whose_evidence_their_basis_does_not_admit(ctx),
     "author_readings_no_source_states": lambda ctx, _n="author_readings_no_source_states": getattr(_checks(), _n)(ctx),
     "publisher_readings_nobody_has_settled": lambda ctx, _n="publisher_readings_nobody_has_settled": getattr(_checks(), _n)(ctx),
     "titles_read_by_a_machine_unmarked": lambda ctx, _n="titles_read_by_a_machine_unmarked": getattr(_checks(), _n)(ctx),
@@ -246,3 +248,20 @@ def en_rank(basis):
 def en_ranks():
     """The whole table, for a caller that wants the mapping."""
     return dict(_EN_RANK)
+
+
+def en_kinds_for(basis):
+    """The source kinds an ENGLISH basis admits, or an empty tuple for one nobody has ruled on.
+
+    THE COMPANION TO `kinds_for`, WHICH ANSWERS FOR A READING. Both tables have been here since the
+    English side was written and only the reading one had a way to ask, so `adapters/relational`
+    filled its attribution table from readings alone and reported 4,749 claims resting on a pair it
+    forbade. 2,767 of them were `('translated','derived')`, which `ATTRIBUTION` admits on its first
+    reading. A table nobody can query is a table that gets restated.
+
+    EVERY ENGLISH BASIS HAS A ROW HERE, which is what separates this table from the reading one:
+    `back-converted` sits in `division.BASES` and `READING_ATTRIBUTION` has never ruled on it, so 22
+    readings rest on a basis nothing can check. That gap is real and is recorded in docs/GAPS.md.
+    This side has no such hole, and a caller inventing a row for either is what the accessor stops.
+    """
+    return tuple(ATTRIBUTION.get(basis, ()))

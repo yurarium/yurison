@@ -97,6 +97,35 @@ def reading_can_show_its_source(ctx):
     return bad
 
 
+def claims_whose_evidence_their_basis_does_not_admit(ctx):
+    """Records whose source kind is not one their basis admits, over every name population.
+
+    A THIRD WAY A CLAIM AND ITS CITATION DISAGREE, and `reading_can_show_its_source` above holds the
+    other two. Those ask whether a document is owed and whether one is held; this asks whether the
+    document held is of a KIND the basis admits, which the two attribution tables in `facts/reading`
+    rule on and nothing has ever consulted. It passes both of the others, because every field is
+    populated and only the pair is wrong: 102 of the 105 are English romanisations citing a
+    community database, which is the owner's 2026-08-09 ruling that Wikidata may raise the floor on
+    a romanisation, meeting a table written before it.
+
+    IT IS COUNTED, because 105 records are in this state today and each needs a naming pass to
+    settle rather than a line of code.
+
+    §14b, THE SECOND ROUTE. `adapters/relational` asks the same question of the compiled store,
+    reading `basis_admits_kind` and `self_sourced` rather than the records, and answers 105 as well.
+    The rule has one home in `facts/reading`; what differs is the representation each walks, so a
+    loader that dropped rows would show up as a divergence rather than as agreement.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        from names import provenance
+    except Exception:                                                       # noqa: BLE001
+        return 0
+    return sum(len(provenance.unadmitted(ctx["names"].get(kind) or {}, claim))
+               for kind in ("titles", "authors", "publishers")
+               for claim in ("reading", "en"))
+
+
 def uncertain_readings(ctx):
     return sum(1 for kind in ("titles", "authors")
                for v in (ctx["names"].get(kind) or {}).values() if v.get("reading_uncertain"))

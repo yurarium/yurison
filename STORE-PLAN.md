@@ -47,7 +47,7 @@ below moves one domain to the other side of that line.
 | §3 | Volumes, editions and the print run | done 2026-08-13 |
 | §4 | Releases and the per-platform offer | done 2026-08-13 |
 | §5 | Renderings, which are derived from a source that stays where it is | done 2026-08-13 |
-| §5a | The constraints that do not fire | first: everything below assumes they do |
+| §5a | The constraints that do not fire | done 2026-08-13 |
 | §5b | A row nothing can address twice | §5a |
 | §5d | A name is an identity here, and it must not be | §5a; before §5c's title join |
 | §5c | What the store says it holds and does not | §5a |
@@ -418,31 +418,69 @@ the same shape as the fault §2 met: a constraint that quietly does not apply re
 The fix is that one place opens this database and turns the pragma on, and nothing else calls
 `sqlite3.connect` directly.
 
-**A CHECK THAT PASSES ON EVERYTHING.** `work.first_event` reads `CHECK (first_event IN
+One column carried a check that passed on everything. `work.first_event` read `CHECK (first_event IN
 ('publication', 'shop-delivery', NULL))`. A comparison against a list holding NULL answers NULL for
-anything not matching, and a CHECK passes on NULL, so `'banana'` inserts. `edition.kind`,
+anything not matching, and a CHECK passes on NULL, so `'banana'` inserted. `edition.kind`,
 `claim.predicate`, `surface.kind` and `credit.kind` all omit the NULL and all constrain properly;
-this column is the one exception and it has asserted nothing since the day it was written.
+this column was the one exception and had asserted nothing since the day it was written.
 
 **A TABLE THAT READS AS ENFORCEMENT AND IS DECORATION**, which is §13 caught in my own schema.
 `basis_admits_kind` carries the ruling on which evidence each basis admits, its comment calls it
 "that ruling as a table instead of as a Python dict", and no foreign key or check anywhere reaches
 it. 4,749 of the 10,597 claims that carry a source kind hold a pair it forbids, led by
-`('translated','derived')` at 2,767. Either the pairs become a constraint on `claim`, which means
-first establishing whether the 4,749 are wrong or the table is, or the table stops pretending. It
-may not stay as it is.
+`('translated','derived')` at 2,767.
 
-**AND ONE VALUE THE SCHEMA DECLARES LEGAL AND MAKES UNSTATEABLE.** `claim.predicate` admits
+**DONE 2026-08-13, AND THE 4,749 WERE THREE FAULTS OF MINE STACKED ON ONE REAL ONE.** The table was
+filled from the READING attribution alone, and `facts/reading` holds two: the English one admits
+`('translated','derived')` on its first line. Loading both, scoped by predicate, leaves 1,227.
+
+  A DISPLACED CLAIM WAS WEARING THE LIVE CLAIM'S CITATION, which §5 did and this found. A
+  conflicts entry holds `basis`, `source` and `value` and no more, and the loader built each one
+  from the whole record, so 333 English and 598 reading conflicts were admitted holding the live
+  claim's page, kind, dates and note. That is one entry with two claims and one citation between
+  them, which is the exact fault `provenance` exists to catch. Fixing it leaves 454.
+
+  A BASIS NOBODY HAS RULED ON IS NOT A DEFECT IN THE DATA. `back-converted` is in `division.BASES`,
+  owes a document by `provenance.SOURCED`, and `READING_ATTRIBUTION` has never carried a row for
+  it, so 22 readings rest on a basis nothing can admit or refuse. That is a gap in the vocabulary
+  and it is in docs/GAPS.md.
+
+  A NAME THAT STATES ITSELF OWES NOTHING, and the store had thrown away the reason. `_kind_of`
+  normalises a self-sourced claim to the kind `derived`, which is true and which leaves nothing in
+  the row saying the evidence is the name itself; 327 claims then read as unadmitted. `self_sourced`
+  is now a table filled from `provenance.SELF_SOURCED`, so the question can be asked in SQL without
+  a second copy of the vocabulary.
+
+**WHAT IS LEFT IS 105 AND IT IS A REAL FINDING.** 102 are English romanisations citing a community
+database: `ATTRIBUTION` admits `derived` for `romaji` and nothing else, and the project owner ruled
+on 2026-08-09 that Wikidata may raise the floor on a romanisation. The table was written before the
+ruling and the data now disagrees with it 102 times. 2 are publisher names on `official-jp` citing
+the national library, and 1 is a kana surface citing a platform.
+
+**AND THE TWO ROUTES AGREE EXACTLY**, which is what makes the number worth anything. `check.py`
+counts it over `data/names` and the store counts it over `claim` joined to `basis_admits_kind` and
+`self_sourced`, both answering 105 with the rule owned once by `facts/reading`. Neither shares the
+other's blind spot, so a loader dropping rows would show as a divergence rather than as agreement.
+The composite key goes on `claim` when the count is 0.
+
+**AND ONE VALUE THE SCHEMA DECLARED LEGAL AND MADE UNSTATEABLE.** `claim.predicate` admitted
 `'romanisation'` and `basis_for_predicate` holds no romanisation row, so the composite foreign key
-refuses every such claim. The enum and the key contradict each other. §5 decided a romanisation is
-a function of the reading and belongs in its own table, which is right, and the predicate should
-have gone at the same time.
+refused every such claim. §5 decided a romanisation is a function of the reading and belongs in its
+own table, which is right, and the predicate should have gone at the same time. It has now.
+`edition.kind = 'serialisation'` stays, and the difference is that an enum member nothing has
+produced yet refuses nothing and asserts nothing false.
 
-**THE WEAKER CHECKS, AS ONE BATCH.** `edition.volume` accepts a negative number. Dates are
-unconstrained TEXT and `'yesterday afternoon'` inserts. `release.kind` carries five values and no
-CHECK while every comparable column has one. `id GLOB 'w[0-9]*'` refuses `'wanted'` and admits
-`'w1garbage'`. Two-step alias cycles are accepted, against 18 alias rows. None of these has
-admitted a wrong row yet, which is the argument for adopting them now rather than later.
+**THE WEAKER CHECKS, AS ONE BATCH, ALL ADOPTED WHILE NOTHING VIOLATED THEM.** `edition.volume` took
+a negative number and now will not. `id GLOB 'w[0-9]*'` refused `'wanted'` and admitted
+`'w1garbage'`; it is the full five digits now, and it immediately caught `test_delta.py`, which had
+been planting `w1` and `c1` since it was written. A two-step alias cycle is the one thing no CHECK
+can say, so `aliases pointing in a circle` is a standing question instead, which is the owner's
+"support querying to verify logical constraints that cannot be so expressed" in its first use.
+
+**`release.kind` IS LEFT UNCONSTRAINED ON PURPOSE.** Its five values are written in `build.py` and
+nowhere else, so a CHECK here would be their second home, which is the fault every ruling table in
+this schema exists to prevent. The vocabulary needs a `facts/` module first, and that is pipeline
+work under §9's boundary.
 
 ## 5b. A row nothing can address twice
 

@@ -2895,12 +2895,22 @@ Both are derivable from what the store holds, since the base title and the surfa
 and neither is a name anybody curated. Recorded because §1's budget measures derivability and this
 is the residue that only emission can settle, which is STORE-PLAN §6.
 
-## `stated` is an English basis with no attribution row. Found 2026-08-13
+## A basis nothing has ruled on, and a ruling the table predates. Found 2026-08-13, corrected
 
-`facts/reading._EN_RANK` ranks five bases and `ATTRIBUTION` states the evidence four of them
-demand. `stated` is in the first and not the second, so 194 author names and 4 titles rest on a
-basis that says a source printed the English and names no kind of source that may. Every one of
-the 194 is a name already written in Latin whose source is its own surface, which is why nothing
-has complained: the claim is true and the vocabulary has no row for it. Either `stated` belongs in
-`ATTRIBUTION` with `derived`, or those records belong on a basis that means "the name is already
-Latin". A ruling, and `facts/reading` is where it goes.
+**WHAT THIS ENTRY FIRST SAID WAS WRONG AND THE CORRECTION IS THE ENTRY.** It claimed `stated` is an
+English basis with no attribution row, on the strength of `ATTRIBUTION` being read too quickly.
+`ATTRIBUTION` carries all five English bases including `stated`, and the 194 records it named are
+self-sourced titles already written in Latin, which owe no document at all. STORE-PLAN §5a found
+the error by asserting it in a test and watching the test fail.
+
+The gap that is real is `back-converted`. It sits in `facts/division.BASES`, `provenance.SOURCED`
+lists it among the bases that owe a document, and `READING_ATTRIBUTION` has never carried a row for
+it. So 22 readings rest on a basis nothing can say anything about: no kind of source is admitted for
+it, which means no kind can be refused either. Either it is ruled on or it stops being a basis.
+
+**AND ONE RULING THE TABLE PREDATES.** `ATTRIBUTION` admits `derived` for `romaji` and nothing
+else, and the project owner ruled on 2026-08-09 that Wikidata may be used to raise the floor on a
+romanisation. 102 English names now rest on `romaji` with a `community-db` source, which is that
+ruling carried out, against a table written before it. `claims whose evidence their basis does not
+admit` counts those 102 along with 2 publisher names on `official-jp` citing the national library
+and 1 kana surface citing a platform. The composite key goes on `claim` when the number is 0.

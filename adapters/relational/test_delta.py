@@ -21,10 +21,10 @@ from relational import delta                                            # noqa: 
 
 def _db(d):
     db = delta.ensure(relational.load_rulings(relational.create(pathlib.Path(d) / "t.db")))
-    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w1','T','test')")
-    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w2','U','test')")
-    db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c1','X','person')")
-    db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c2','Y','person')")
+    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001','T','test')")
+    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00002','U','test')")
+    db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','X','person')")
+    db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00002','Y','person')")
     delta.recompute(db)
     return db
 
@@ -34,13 +34,13 @@ def main(s):
         db = _db(d)
 
         # INSERT. A work gains a credit, and exactly the derivations reading that table move.
-        assert delta.write(db, "work_credit", {"work": "w1", "credit": "c1"}, {"role": "art", "seq": 0})
+        assert delta.write(db, "work_credit", {"work": "w00001", "credit": "c00001"}, {"role": "art", "seq": 0})
         moved, passes = delta.converge(db, {"work_credit"})
         s.check("works naming nobody" in moved, "a work that now names somebody changes the count")
         s.eq(passes, 1, "and it settles in one pass")
 
         # THE SAME WRITE AGAIN IS A NO-OP, which is the whole design in one assertion.
-        s.check(not delta.write(db, "work_credit", {"work": "w1", "credit": "c1"},
+        s.check(not delta.write(db, "work_credit", {"work": "w00001", "credit": "c00001"},
                                 {"role": "art", "seq": 0}),
                 "a write producing the value already there changes nothing")
         s.eq(delta.converge(db, {"work_credit"})[0], [],
@@ -48,7 +48,7 @@ def main(s):
 
         # UPDATE. The role moves; no derivation here reads it, so the cascade is empty even though
         # an input plainly changed. Gating on input change is the failure this avoids.
-        s.check(delta.write(db, "work_credit", {"work": "w1", "credit": "c1"},
+        s.check(delta.write(db, "work_credit", {"work": "w00001", "credit": "c00001"},
                             {"role": "story", "seq": 0}),
                 "a real change to a row is a change")
         s.eq(delta.converge(db, {"work_credit"})[0], [],
@@ -56,23 +56,23 @@ def main(s):
 
         # DELETE. The input disappears and the count has to notice.
         before = delta.value(db, "works naming nobody")
-        s.check(delta.drop(db, "work_credit", {"work": "w1", "credit": "c1"}),
+        s.check(delta.drop(db, "work_credit", {"work": "w00001", "credit": "c00001"}),
                 "the row was there and is gone")
         s.check("works naming nobody" in delta.converge(db, {"work_credit"})[0],
                 "a deleted input moves the answer that rested on it")
         s.ne(delta.value(db, "works naming nobody"), before, "and the recorded answer moved back")
-        s.check(not delta.drop(db, "work_credit", {"work": "w1", "credit": "c1"}),
+        s.check(not delta.drop(db, "work_credit", {"work": "w00001", "credit": "c00001"}),
                 "deleting what is already gone is not a change")
 
         # MERGE. Two credits turn out to be one person: the rows naming the second are repointed
         # and the second is dropped. `credits named by more than one work` is what should move.
-        db.execute("INSERT INTO work_credit (work, credit, role, seq) VALUES ('w1','c1','art',0)")
-        db.execute("INSERT INTO work_credit (work, credit, role, seq) VALUES ('w2','c2','art',0)")
+        db.execute("INSERT INTO work_credit (work, credit, role, seq) VALUES ('w00001','c00001','art',0)")
+        db.execute("INSERT INTO work_credit (work, credit, role, seq) VALUES ('w00002','c00002','art',0)")
         delta.recompute(db)
         s.eq(delta.value(db, "credits named by more than one work"), [[0]],
              "two credits on one work each, so neither is named twice")
-        db.execute("UPDATE work_credit SET credit = 'c1' WHERE credit = 'c2'")
-        db.execute("DELETE FROM credit WHERE id = 'c2'")
+        db.execute("UPDATE work_credit SET credit = 'c00001' WHERE credit = 'c00002'")
+        db.execute("DELETE FROM credit WHERE id = 'c00002'")
         moved, _p = delta.converge(db, {"work_credit", "credit"})
         s.check("credits named by more than one work" in moved,
                 "a merge makes one credit answer for two works, and the count says so")
@@ -80,14 +80,14 @@ def main(s):
 
         # DIVIDE, the opposite: one credit was two people. A wrong join erases a person and a wrong
         # split invents one, so both directions have to be reachable and both have to be noticed.
-        db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c3','Y','person')")
-        db.execute("UPDATE work_credit SET credit = 'c3' WHERE work = 'w2'")
+        db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00003','Y','person')")
+        db.execute("UPDATE work_credit SET credit = 'c00003' WHERE work = 'w00002'")
         moved, _p = delta.converge(db, {"work_credit", "credit"})
         s.check("credits named by more than one work" in moved, "dividing moves it back")
         s.eq(delta.value(db, "credits named by more than one work"), [[0]], "to none")
 
         # RETRACT. A claim is withdrawn rather than corrected, which leaves no row to look at.
-        db.execute("INSERT INTO surface (kind, folded, work) VALUES ('title','ゆり','w1')")
+        db.execute("INSERT INTO surface (kind, folded, work) VALUES ('title','ゆり','w00001')")
         db.execute("INSERT INTO claim (surface, predicate, value, basis, source, source_kind)"
                    " VALUES (1,'reading','ヨミ','surface','x','derived')")
         db.execute("INSERT INTO claim (surface, predicate, value, basis, source, source_kind)"
@@ -139,13 +139,13 @@ def main(s):
         a, b = _db(da), _db(db2)
         s.eq(relational._table_digests(a), relational._table_digests(b),
              "two stores built the same way digest the same")
-        b.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w3','V','test')")
+        b.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00003','V','test')")
         s.ne(relational._table_digests(a)["work"], relational._table_digests(b)["work"],
              "and one extra row moves the digest of its table alone")
         s.eq(relational._table_digests(a)["credit"], relational._table_digests(b)["credit"],
              "leaving every other table where it was")
         rows = relational._first_differing_rows(a, b, "work")
-        s.check(any("w3" in r for r in rows), "the report names the row and not the count")
+        s.check(any("w00003" in r for r in rows), "the report names the row and not the count")
         s.check(any(r.startswith("only in a rebuild") for r in rows),
                 "and says which side it is missing from")
 

@@ -40,14 +40,41 @@ BUILD = ROOT / "data" / "build"
 QUESTIONS = {name: spec["sql"] for name, spec in _delta.DERIVATIONS.items()}
 
 
+def open_db(path=None):
+    """A connection to an existing store, with the foreign keys ON.
+
+    THE ONE OPENER, AND §5a IS THE WHOLE REASON IT EXISTS. `PRAGMA foreign_keys = ON` sits at the
+    top of `schema.sql`, and it is a PER-CONNECTION setting that SQLite does not store in the file.
+    `executescript` applied it to the connection doing the build and to nothing else, so every other
+    reader of this database ran with the keys OFF: `ask`, `equivalent` and `delta.write` each opened
+    with a bare `sqlite3.connect` and got 0.
+
+    WHAT THAT COST. `INSERT INTO work_credit VALUES ('w-nope','c-nobody','x',0)` was accepted on any
+    such connection. The header of `schema.sql` claims five `check.py` invariants have become
+    foreign keys; that held for a full rebuild and held nowhere else, and §7's incremental path is
+    exactly where it did not hold. It is the shape §2 met with `INSERT OR IGNORE`: a constraint that
+    quietly does not apply reads as coverage.
+
+    So nothing in this package calls `sqlite3.connect` directly any more. `adapters/lint/onewriter`
+    already refuses a second writer; this is the same argument about a second OPENER.
+    """
+    db = sqlite3.connect(pathlib.Path(path or DB))
+    db.execute("PRAGMA foreign_keys = ON")
+    return db
+
+
 def create(path=None):
     """A fresh database with the schema applied. Replaces any existing file."""
     p = pathlib.Path(path or DB)
     p.parent.mkdir(parents=True, exist_ok=True)
     if p.exists():
         p.unlink()
-    db = sqlite3.connect(p)
+    db = open_db(p)
     db.executescript(SCHEMA.read_text(encoding="utf-8"))
+    # `executescript` COMMITS AND THE PRAGMA SURVIVES IT, since it is connection state rather than a
+    # statement in a transaction. Asserted rather than assumed, because everything below rests on it.
+    if not db.execute("PRAGMA foreign_keys").fetchone()[0]:
+        raise RuntimeError("foreign keys are off on a freshly created store")
     return db
 
 
@@ -110,12 +137,22 @@ def load_rulings(db):
              | {_rd.analyser_pair()[1]})
     for k in sorted(kinds):
         db.execute("INSERT INTO source_kind (name) VALUES (?)", (k,))
+    for s in _prov.SELF_SOURCED:
+        db.execute("INSERT INTO self_sourced (source) VALUES (?)", (s,))
+    # BOTH ATTRIBUTION TABLES, SCOPED BY THE CLAIM EACH ANSWERS FOR. This was filled from the reading
+    # one alone, so `('translated','derived')` read as forbidden 2,767 times while `facts/reading`
+    # admits it on its first line. `stated` means a different document for a reading than for an
+    # English name, which is why the predicate is part of the key rather than a note beside it.
     for b in _rd.bases():
         for k in _rd.kinds_for(b):
-            db.execute("INSERT OR IGNORE INTO basis_admits_kind (basis, source_kind) VALUES (?,?)",
-                       (b, k))
-    db.execute("INSERT OR IGNORE INTO basis_admits_kind (basis, source_kind) VALUES (?,?)",
-               _rd.analyser_pair())
+            db.execute("INSERT OR IGNORE INTO basis_admits_kind (basis, predicate, source_kind)"
+                       " VALUES (?,'reading',?)", (b, k))
+    for b in _rd.en_bases():
+        for k in _rd.en_kinds_for(b):
+            db.execute("INSERT OR IGNORE INTO basis_admits_kind (basis, predicate, source_kind)"
+                       " VALUES (?,'english',?)", (b, k))
+    db.execute("INSERT OR IGNORE INTO basis_admits_kind (basis, predicate, source_kind)"
+               " VALUES (?,'reading',?)", _rd.analyser_pair())
     return db
 
 
@@ -288,8 +325,24 @@ def build(path=None):
                 # EVERY FORM WE HOLD AND NOT ONLY THE LIVE ONE. A displaced claim is kept rather
                 # than discarded (§1), and `en_conflicts` is where the store keeps it; as rows they
                 # are what the site ships as `en_forms` and no second shape is needed for them.
-                held = [r] + [dict(r, **{cite: c.get("value"),
-                                         _prov.BASIS_FIELD[cite]: c.get("basis")})
+                #
+                # A DISPLACED CLAIM BRINGS ITS OWN PROVENANCE AND NOTHING ELSE, which §5 got wrong
+                # by building each conflict from the live record. It carries `basis`, `source` and
+                # `value` and no more, so 333 English and 598 reading conflicts were admitted
+                # holding the LIVE claim's page, kind, dates and note. That is one entry with two
+                # claims and one citation between them, which is the exact fault `provenance` was
+                # written for, reintroduced one layer down. §5a found it by asking whether each
+                # claim's evidence is of a kind its basis admits.
+                #
+                # THE RECORD'S OWN NOTE TRAVELS WITH IT AND NOTHING ELSE DOES. A conflicts entry
+                # has no room for one, and `researched` demands the reasoning, so 4 displaced
+                # readings refused. The reasoning does exist: it is in the record's `note`, where
+                # the reviewer wrote why the earlier answer was replaced. Carrying that is not the
+                # borrowing this comment warns about, because a note explains the record while a
+                # url, a kind and a date each assert a specific document for a specific claim.
+                held = [r] + [{cite: c.get("value"), _prov.BASIS_FIELD[cite]: c.get("basis"),
+                               f"{cite}_source": c.get("source"),
+                               "note": r.get("note") or r.get(f"{cite}_note")}
                               for c in (r.get(f"{cite}_conflicts") or []) if isinstance(c, dict)]
                 for i, claim in enumerate(held):
                     value = claim.get(cite)
@@ -598,7 +651,7 @@ def equivalent(db=None):
     hide the fault until the next divergence, which is later and harder.
     """
     if db is None:
-        db = sqlite3.connect(DB)
+        db = open_db()
     delta.ensure(db)
     # THE RECORDED ANSWER, not a fresh one. A wrong `reads` declaration leaves a derivation that was
     # never recomputed, so its digest never moved and the store still reports yesterday's number.
@@ -706,7 +759,7 @@ def main():
                   f"before the data: every refusal §2 met was the loader.")
             return 1
     if a.ask:
-        db = sqlite3.connect(DB)
+        db = open_db()
         for q, n in ask(db).items():
             print(f"  {n:7}  {q}")
     return 0

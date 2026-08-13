@@ -74,6 +74,13 @@ KANA_ANY = re.compile(r"[ぁ-ゖァ-ヺヽヾゝゞー]")
 KANA = re.compile(r"^[぀-ヿ\s・ー]*$")
 
 
+def _namekey_kinds():
+    """The name populations, asked of `facts/namekey` rather than typed here again."""
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from facts import namekey
+    return namekey.KINDS
+
+
 def _load(p, default=None):
     try:
         return json.loads(pathlib.Path(p).read_text())
@@ -4244,6 +4251,24 @@ def budget_kana_names_with_no_stated_division(ctx):
 
 
 
+def budget_claims_whose_evidence_their_basis_does_not_admit(ctx):
+    """Records whose source kind is not one their basis admits. STORE-PLAN \u00a75a.
+
+    THE THIRD WAY A CLAIM AND ITS CITATION DISAGREE. `reading can show its source` asks whether a
+    document is owed and whether one is held; this asks whether the document held is of a KIND the
+    basis admits, which satisfies the other two: every field is populated and only the pair is
+    wrong. 102 of the 105 are English romanisations citing a community database, which is the
+    owner's ruling of 2026-08-09 that Wikidata may raise the floor on a romanisation, meeting a
+    table written before it.
+
+    THE RULE HAS ONE HOME, `facts/reading`'s two attribution tables, and `basis_admits_kind` in the
+    store is filled from the same two. When this reaches 0 the composite key goes on `claim` and the
+    state stops being expressible; adopting it now would refuse 105 rows the corpus holds.
+    """
+    from facts import reading as _rd
+    return _rd.CHECKS["claims_whose_evidence_their_basis_does_not_admit"](ctx)
+
+
 def budget_author_readings_no_source_states(ctx):
     """Defined in `adapters/facts/reading/checks.py`, beside the rulings it applies."""
     from facts import reading as _rd
@@ -5329,6 +5354,11 @@ BUDGETS_DEF = [
      "coverage deficit and not a fault count: こかむも is printed Kokamumo by its own publisher and "
      "belongs in this number as much as Igarashiyumiko did. It falls only when a source states a "
      "division, which `a division cites its source` is what enforces, and it never reaches zero."),
+    ("claims whose evidence their basis does not admit",
+     budget_claims_whose_evidence_their_basis_does_not_admit,
+     "records whose source kind is not one their basis admits, which is a citation outliving the "
+     "claim it was written for. STORE-PLAN \u00a75a: the composite key goes on `claim` when this "
+     "reaches 0. The store answers the same question over its own tables and agrees."),
     ("author readings no source states", budget_author_readings_no_source_states,
      "author names a reader meets as a romanisation carrying the unverified mark, because the "
      "reading behind the romanisation is a morphological analyser's and nobody else's. A coverage "
@@ -5649,8 +5679,11 @@ def context():
         "scope_reported": ((_load(BUILD / "run.json", {}) or {}).get("scope") or {}).get("rulings")
                           or [],
         "series": (_load(BUILD / "series.json", {}) or {}).get("series", []),
+        # EVERY POPULATION `facts/namekey` NAMES, and publishers were missing from it. Nothing
+        # walks this dict wholesale; each check names the kinds it wants, so the third key costs
+        # the readers nothing and it is what lets a publisher's claims be checked at all.
         "names": {k: ((_yaml(NAMES / f"{k}.yaml", {}) or {}).get("names") or {})
-                  for k in ("titles", "authors")},
+                  for k in _namekey_kinds()},
         "names_shipped": _load(BUILD / "feed" / "names.json", {}),
         "cmoa_capture": _capture_works("data/queue/cmoa-volumes.yaml"),
         "identity": (_yaml(ROOT / "data" / "identity" / "works.yaml", {}) or {}).get("works") or [],

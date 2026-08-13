@@ -12,7 +12,7 @@ The sections are in the order they are to be done, and each says what it needs f
 | §1 | Run the name passes as part of the update | done 2026-08-13 | 96 works had no English for want of this |
 | §2 | A claim about a reading stops occupying the English's slot | done 2026-08-13 | 196 titles, 1,337 authors |
 | §5 | Two capture faults on the credit field | done 2026-08-13 | 4 rows |
-| §3 | Fetch the episode lists we never asked for | code done, 25 merges queued | 53 works |
+| §3 | Fetch the episode lists we never asked for | done 2026-08-13 | 53 works |
 | §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
 | §4 | Join a translated edition to the work it translates | done 2026-08-13 | 28 products, 7 unjoined |
 
@@ -204,13 +204,25 @@ for. Most are IDENTICAL titles: `私を喰べたい、ひとでなし` beside it
 They are works the corpus already holds, arriving again from ニコニコ under an identifier of their
 own because nothing joined the new row to the held work.
 
-`adapters/serialisation/promote.py` already rules on this exact case and the rule is what blocks
-the data: where the serialisation is already in the corpus under an identifier of its own, it is a
-MERGE done by hand with `--merge`, because retiring an address that has been published is not
-something a pass does in bulk (RUNBOOK §11). So §3's remaining step is 25 hand merges, and they are
-enumerated in `data/queue/work-merges.yaml` with the shared credit and both platform lists on each
-pair, so the work is listed rather than rediscovered. §4's two merges are what one of these looks
-like done properly.
+`adapters/serialisation/promote.py` rules on this exact case: where the serialisation is already in
+the corpus under an identifier of its own it is a MERGE done by hand with `--merge`, because
+retiring an address that has been published is not something a pass does in bulk (RUNBOOK §11).
+
+**DONE 2026-08-13, on the project owner's authority to merge.** `--attach` was tried first, since
+the discovery case retires nothing, and the registry refused all but one of them with the reason
+that settles it: the addresses already held identifiers of their own, which is the merge case
+exactly. 22 merges and 1 attachment later, `one work under two names in a list` is back to 3, its
+value before any of this.
+
+The refusal is worth keeping in view. `--attach` says it "refuses an anchor another work holds,
+because that would be a merge", and that guard is what told me which operation this was; guessing
+would have produced 22 wrong joins.
+
+One consequence was not foreseen. Merging changed which spelling a surviving work carries:
+`Qyootie Q! ―麒麟娘と婚約事情―` became `Qyootie Q! -麒麟娘と婚約事情-`, the way ニコニコ writes it, and
+the curated English was keyed on the em-dash form, so it named a work nothing held. `test_curate`
+caught it. The entry is re-keyed with a note; a merge can move a title and anything keyed on the
+old spelling goes with it.
 
 **THE SIX GIGAVIEWER WORKS ARE NOT DONE.** `series_feeds.py` runs for ichicomi alone, because only
 platforms declaring `series_pages` do work without `--candidates`, so reaching コミックゼノン and

@@ -7,7 +7,7 @@
 #
 # A merged entry keeps `merged_into` and stays resolvable, because an address published
 # once has to keep working. See adapters/identity.py.
-generated: 2026-08-11
+generated: 2026-08-13
 works:
   - id: w00001
     title: "娘が彼女を連れてきた話"
@@ -86,6 +86,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_003258_S"
       - "madb:C449102"
+      - "web:https://manga.nicovideo.jp/comic/49677"
   - id: w00015
     title: "一畳間まんきつ暮らし！"
     anchors:
@@ -293,6 +294,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_004464_S"
       - "madb:madb-t-916c6b30470e"
+      - "web:https://manga.nicovideo.jp/comic/54592"
   - id: w00043
     title: "ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～"
     anchors:
@@ -856,6 +858,7 @@ works:
       - "web:https://comic-walker.com/detail/KC_006092_S"
       - "madb:bw-515912"
       - "madb:madb-t-181d80dc0fce"
+      - "web:https://manga.nicovideo.jp/comic/70738"
   - id: w00114
     title: "見えてますよ! 愛沢さん"
     anchors:
@@ -1141,6 +1144,7 @@ works:
     anchors:
       - "web:https://takecomic.jp/series/0d7dee548d547"
       - "madb:C434760"
+      - "web:https://manga.nicovideo.jp/comic/40675"
   - id: w00152
     title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
     anchors:
@@ -1435,6 +1439,11 @@ works:
       - "web:https://comic-walker.com/detail/KC_000188_S"
       - "madb:bw-182075"
       - "madb:C418096"
+      - "web:https://manga.nicovideo.jp/comic/34328"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/34328"
+        basis: "ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/34328 under the same title as the work already held, and 九郎 is credited on both. Found when WORKS-PLAN section 3 widened the episode-list worklist: the work arrived a second time with no identifier of its own, which is the discovery case adapters/serialisation/promote.py describes, so the address is attached and nothing is retired. Ruled 2026-08-13."
+        retrieved: 2026-08-13
   - id: w00184
     title: "どれが恋かがわからない"
     anchors:
@@ -1442,10 +1451,12 @@ works:
       - "madb:bw-352987"
       - "madb:madb-t-7b2d8fe1fda0"
   - id: w00185
-    title: "田所さん"
+    title: "田所さん（２）"
     anchors:
       - "web:https://kimicomi.com/series/a869ecfca8da9"
       - "madb:C436703"
+      - "web:https://manga.nicovideo.jp/comic/41133"
+      - "web:https://manga.nicovideo.jp/comic/55102"
   - id: w00186
     title: "T.Tラバーズ。"
     anchors:
@@ -1728,6 +1739,7 @@ works:
       - "madb:C447301"
       - "web:https://comic-walker.com/detail/KC_010238_S"
       - "madb:madb-t-8e43062655eb"
+      - "web:https://manga.nicovideo.jp/comic/49048"
   - id: w00226
     title: "犬も歩けば姫に当たる"
     anchors:
@@ -3072,6 +3084,7 @@ works:
     anchors:
       - "web:https://kimicomi.com/series/a5503338d0099"
       - "madb:madb-t-935fe5e12633"
+      - "web:https://manga.nicovideo.jp/comic/56753"
   - id: w00388
     title: "ぽかぽかたいわん！"
     anchors:
@@ -3379,6 +3392,7 @@ works:
     anchors:
       - "web:https://takecomic.jp/series/2ff377e5bc873"
       - "madb:C421881"
+      - "web:https://manga.nicovideo.jp/comic/31194"
     attached:
       - anchor: "madb:C421881"
         basis: "お姉さんは女子小学生に興味があります。 lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/148804/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
@@ -3419,10 +3433,11 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_007045_S"
   - id: w00425
-    title: "Qyootie Q! ―麒麟娘と婚約事情―"
+    title: "Qyootie Q! -麒麟娘と婚約事情-"
     anchors:
       - "web:https://kimicomi.com/series/22386346e628c"
       - "madb:madb-t-dd5eb4e59b11"
+      - "web:https://manga.nicovideo.jp/comic/62786"
   - id: w00426
     title: "推しとの百合はありえない！"
     anchors:
@@ -4189,6 +4204,7 @@ works:
       - "web:https://comic-action.com/episode/2550912966035871884"
       - "web:https://comic-action.com/atom/series/13933686331667100482"
       - "madb:C449662"
+      - "web:https://manga.nicovideo.jp/comic/48640"
     attached:
       - anchor: "web:https://comic-action.com/atom/series/13933686331667100482"
         basis: "the chapter page at https://comic-action.com/episode/2550912966035871884 links its own series feed at https://comic-action.com/atom/series/13933686331667100482, so the platform places this chapter in series 13933686331667100482, and the og:title there names the work: 特別編③ / 彩香ちゃんは弘子先輩に恋してる - Sal Jiang | webアクション"
@@ -4498,6 +4514,7 @@ works:
       - "web:https://magcomi.com/episode/2550912965503774095"
       - "madb:madb-t-a1ddfa432faf"
       - "web:https://magcomi.com/atom/series/4856001361097102289"
+      - "web:https://manga.nicovideo.jp/comic/62763"
     attached:
       - anchor: "web:https://magcomi.com/atom/series/4856001361097102289"
         basis: "the chapter page at https://magcomi.com/episode/2550912965503774095 links its own series feed at https://magcomi.com/atom/series/4856001361097102289, so the platform places this chapter in series 4856001361097102289, and the og:title there names the work: 姉になりたい義姉VS百合になりたい義妹 - 森 / 最終話 | マグコミ"
@@ -4833,10 +4850,11 @@ works:
       - "web:https://comic-walker.com/detail/KC_001602_S"
       - "madb:madb-t-094e4dd70724"
   - id: w00584
-    title: "ガチ恋カウント2.9"
+    title: "ガチ恋カウント２.９"
     anchors:
       - "web:https://comic.pixiv.net/works/11188"
       - "madb:madb-t-436eee31dfe1"
+      - "web:https://manga.nicovideo.jp/comic/70504"
   - id: w00585
     title: "最果てのセレナード"
     anchors:
@@ -5170,6 +5188,7 @@ works:
       - "web:https://comic-action.com/episode/2550912964668507941"
       - "madb:madb-t-c8ef6b31b5a9"
       - "web:https://comic-action.com/atom/series/14079602755364365918"
+      - "web:https://manga.nicovideo.jp/comic/65506"
     attached:
       - anchor: "web:https://comic-action.com/atom/series/14079602755364365918"
         basis: "the chapter page at https://comic-action.com/episode/2550912964668507941 links its own series feed at https://comic-action.com/atom/series/14079602755364365918, so the platform places this chapter in series 14079602755364365918, and the og:title there names the work: 第18話 シャネルが勝ったら… / アウトサイダーパラダイス - 涼川りん | webアクション"
@@ -5644,6 +5663,7 @@ works:
     anchors:
       - "web:https://comic.pixiv.net/works/10792"
       - "madb:madb-t-7f5dc0c22b55"
+      - "web:https://manga.nicovideo.jp/comic/65234"
   - id: w00674
     title: "脱いでもいいよね？"
     anchors:
@@ -6036,6 +6056,7 @@ works:
       - "web:https://shonenjumpplus.com/atom/series/17106371853064301974"
       - "web:https://shonenjumpplus.com/series/17106371853064301974/first_episode"
       - "madb:madb-t-7adcf0662ce3"
+      - "web:https://manga.nicovideo.jp/comic/65870"
     attached:
       - anchor: "web:https://shonenjumpplus.com/atom/series/17106371853064301974"
         basis: "the chapter page at https://shonenjumpplus.com/episode/17107094914966150623 links its own series feed at https://shonenjumpplus.com/atom/series/17106371853064301974, so the platform places this chapter in series 17106371853064301974, and the og:title there names the work: [第37話]魔法少女201 - むちゃ | 少年ジャンプ＋"
@@ -6516,6 +6537,7 @@ works:
     anchors:
       - "web:https://comic-walker.com/detail/KC_001294_S"
       - "madb:madb-t-824613f3b8dd"
+      - "web:https://manga.nicovideo.jp/comic/67186"
   - id: w00762
     title: "ごめんね柳子"
     anchors:
@@ -6557,6 +6579,7 @@ works:
     anchors:
       - "web:https://comic.pixiv.net/works/10012"
       - "madb:madb-t-1ef804f147fa"
+      - "web:https://manga.nicovideo.jp/comic/66358"
   - id: w00767
     title: "閻魔様のいうとおり"
     anchors:
@@ -7857,6 +7880,7 @@ works:
       - "web:https://comic-action.com/episode/316112896905994453"
       - "madb:C447858"
       - "web:https://comic-action.com/atom/series/13933686331613280400"
+      - "web:https://manga.nicovideo.jp/comic/48142"
     attached:
       - anchor: "web:https://comic-action.com/atom/series/13933686331613280400"
         basis: "the chapter page at https://comic-action.com/episode/316112896905994453 links its own series feed at https://comic-action.com/atom/series/13933686331613280400, so the platform places this chapter in series 13933686331613280400, and the og:title there names the work: 最終話 / 百合オタに百合はご法度です!? - U-temo | webアクション"
@@ -8237,6 +8261,7 @@ works:
     anchors:
       - "web:https://comic.pixiv.net/works/8412"
       - "madb:madb-t-92346806ba06"
+      - "web:https://manga.nicovideo.jp/comic/58620"
   - id: w00929
     title: "ウチらのっぺらぼう"
     anchors:
@@ -8412,6 +8437,7 @@ works:
       - "madb:C434611"
       - "web:https://comic-days.com/episode/3269754496777379299"
       - "web:https://pocket.shonenmagazine.com/title/01645"
+      - "web:https://manga.nicovideo.jp/comic/56015"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/01645"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/01645/episode/340627, which is the same serialisation at an address that does not change when it publishes"
@@ -8581,6 +8607,7 @@ works:
       - "web:https://comic-action.com/episode/3269754496647988085"
       - "madb:C447526"
       - "web:https://comic-action.com/atom/series/13933686331690747508"
+      - "web:https://manga.nicovideo.jp/comic/49140"
     attached:
       - anchor: "web:https://comic-action.com/atom/series/13933686331690747508"
         basis: "the chapter page at https://comic-action.com/episode/3269754496647988085 links its own series feed at https://comic-action.com/atom/series/13933686331690747508, so the platform places this chapter in series 13933686331690747508, and the og:title there names the work: 最終話 女子ふたり、エロ漫画を描く。 / じょしまん。 - 吉田丸悠 | webアクション"
@@ -10241,7 +10268,7 @@ works:
     anchors:
       - "madb:C336402"
   - id: w01268
-    title: null
+    title: "MURCIELAGO"
     anchors:
       - "madb:C338361"
       - "madb:bw-15279"
@@ -14938,7 +14965,7 @@ works:
         basis: "creator 矢坂しゅう is named on the platform page"
         retrieved: 2026-08-07
   - id: w02056
-    title: null
+    title: "【中国語版】容易害羞的灵梦小姐-はずかしがりやの霊夢さん"
     anchors:
       - "madb:bw-383e40d1-3393-440e-8d38-91360a53b993"
       - "madb:bw-fc58385c-1ffb-4a28-8b35-1b08b21ab4d6"
@@ -17469,7 +17496,7 @@ works:
     anchors:
       - "madb:bw-6098db79-e0d5-4a52-a177-239f386597f5"
   - id: w02497
-    title: null
+    title: "Free soul"
     anchors:
       - "madb:bw-60b413db-bd19-4337-aca1-95737e5d5748"
       - "madb:C319020"
@@ -18217,7 +18244,7 @@ works:
     anchors:
       - "madb:bw-86884912-ac44-44fe-a51f-34faa2eb0d48"
   - id: w02659
-    title: null
+    title: "【English Ver.】 UNCONNECTED MARKETEERS ET CETERA-虹龍洞えとせとら"
     anchors:
       - "madb:bw-86a289b0-abca-476a-a7ac-e5629126e795"
       - "madb:bw-7d2215c0-920f-4853-9369-c657d85cd97d"
@@ -19096,7 +19123,7 @@ works:
     anchors:
       - "madb:bw-b2e66d6e-9806-404d-947f-d45a2e6f4e27"
   - id: w02837
-    title: null
+    title: "【English ver.】Walking the Underground - 地底をゆく"
     anchors:
       - "madb:bw-b33a378e-c4e7-487e-9838-29b9b4c65e46"
       - "madb:bw-055d9aa6-a8e2-456c-ad43-497173caa39c"
@@ -19113,7 +19140,7 @@ works:
     anchors:
       - "madb:bw-b4371cda-9d21-4f79-88c3-d46323eec2a0"
   - id: w02841
-    title: null
+    title: "【English ver.】To You Who Came to the Underground-地底へと至る君へ"
     anchors:
       - "madb:bw-b47f65e8-8101-4810-9ff5-17f955d0a9f1"
       - "madb:bw-8ff31911-1fac-49c7-878f-a16d0f241825"
@@ -19163,7 +19190,7 @@ works:
     anchors:
       - "madb:bw-b7eccf9c-00a2-42c9-bd61-39b19f8b66cc"
   - id: w02852
-    title: null
+    title: "【English ver.】Jealousy Notebook-嫉妬手帳"
     anchors:
       - "madb:bw-b7f29dc5-6e51-415d-8e45-c3fe3c2651e1"
       - "madb:bw-35a075a1-ed15-4634-bbf2-95387a555855"
@@ -19176,7 +19203,7 @@ works:
     anchors:
       - "madb:bw-b8b49d32-b25d-4002-bc11-550180be05cf"
   - id: w02855
-    title: null
+    title: "【English ver.】Hate but Love These Goddamn Animals-かわいくてにくいあんちくしょう"
     anchors:
       - "madb:bw-b96d855b-9299-4f64-ab5e-4c81e47b760c"
       - "madb:bw-4cee0c08-f2bc-4751-b8d0-9687ee0e7a18"
@@ -19267,7 +19294,7 @@ works:
         basis: "creator 箕田海道 is named on the platform page"
         retrieved: 2026-08-07
   - id: w02873
-    title: null
+    title: "The Day Tomorrow Comes"
     anchors:
       - "madb:bw-bc57f8ae-737a-4db0-8c75-0f7dc7aeb84c"
       - "madb:bw-38e62fa2-e5bb-4756-9d1b-7621215810e3"
@@ -19589,7 +19616,7 @@ works:
     anchors:
       - "madb:bw-cf6197e5-d8b5-4977-a042-9c2874ed33a9"
   - id: w02952
-    title: null
+    title: "Curiosity Killed the Cat"
     anchors:
       - "madb:bw-cfa39505-7e40-4229-8e8b-ba14298b25c0"
       - "madb:bw-684c5f8c-a4cb-4ee8-b001-b6f1fc09dfd4"
@@ -19611,7 +19638,7 @@ works:
         basis: "creator 志真 is named on the platform page"
         retrieved: 2026-08-07
   - id: w02956
-    title: null
+    title: "【English ver.】Betrayal is the Sweetest Nectar - 裏切りは甘露の蜜"
     anchors:
       - "madb:bw-d03beaba-6102-4dbd-b0db-732a08c4fba8"
       - "madb:bw-537089ff-2599-4c75-9564-881990150115"
@@ -19720,7 +19747,7 @@ works:
     anchors:
       - "madb:bw-d3f27ac8-7b84-4395-9d01-2284440ba061"
   - id: w02977
-    title: null
+    title: "【English Ver.】Memories of a Blink-またたきの記憶"
     anchors:
       - "madb:bw-d44ea40b-e314-4f28-b567-0006ff471a5c"
       - "madb:bw-4c9814a4-aa52-45ee-b97a-82763ba782c5"
@@ -19803,7 +19830,7 @@ works:
     anchors:
       - "madb:bw-d6a9a0cf-3ce2-4796-b7a4-45f69a093129"
   - id: w02996
-    title: null
+    title: "【English Ver.】BEAST MODE-畜生モード"
     anchors:
       - "madb:bw-d7432e40-1f79-4d48-9a48-dd5f9a933d14"
       - "madb:bw-308b88c0-1c91-4ed1-abbf-04dae529fe99"
@@ -19878,7 +19905,7 @@ works:
     anchors:
       - "madb:bw-dc3071d6-97b3-47f2-93a4-89c856737230"
   - id: w03014
-    title: null
+    title: "【English ver.】Gossamer Butterfly-あえかなる蝶"
     anchors:
       - "madb:bw-dc74b064-7072-466c-b182-c3cd40ec2d43"
       - "madb:bw-cceaa638-c230-4395-a28e-53619922883e"
@@ -19994,7 +20021,7 @@ works:
         basis: "creator しぐま is named on the platform page"
         retrieved: 2026-08-07
   - id: w03039
-    title: null
+    title: "That Room"
     anchors:
       - "madb:bw-e3168df3-5d54-4dbf-9115-d85e5316a30d"
       - "madb:bw-29b604c6-d2d6-4955-a19a-d30351641837"
@@ -20115,7 +20142,7 @@ works:
     anchors:
       - "madb:bw-e8748e2e-1647-40f2-a05f-9f07dea9e1d3"
   - id: w03062
-    title: null
+    title: "Day In, Day Out"
     anchors:
       - "madb:bw-e888bcbf-6fd4-4c2f-8b38-83665061c918"
       - "madb:bw-11342823-83e7-4310-b499-1da743f19709"
@@ -20218,7 +20245,7 @@ works:
         basis: "creator よっしゃあっ is named on the platform page"
         retrieved: 2026-08-07
   - id: w03082
-    title: null
+    title: "【English ver.】Chalk-White Promise-白亜の約束"
     anchors:
       - "madb:bw-eda73763-ea23-4232-8930-918b7891c8ec"
       - "madb:bw-b9fde915-49da-4f38-a694-4b53c6f72038"
@@ -20314,7 +20341,7 @@ works:
     anchors:
       - "madb:bw-f1fbeb94-ef82-4781-9558-692406ffc3b3"
   - id: w03103
-    title: null
+    title: "Honey Latte Girl"
     anchors:
       - "madb:bw-f354395b-ab39-4cf1-8263-a03359026f89"
       - "madb:bw-279b958e-be6c-40f3-a690-e425e045c369"
@@ -20646,6 +20673,310 @@ works:
     title: "姫虐が止まらない白桃さん"
     anchors:
       - "web:https://ichicomi.com/episode/2551460910021695025"
+  - id: w03176
+    title: "私を喰べたい、ひとでなし"
+    merged_into: w00014
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/49677 under the same title as w00014 already holds, and 苗川采 is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/49677"
+  - id: w03177
+    title: "忍者と殺し屋のふたりぐらし"
+    merged_into: w00042
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/54592 under the same title as w00042 already holds, and ハンバガ is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/54592"
+  - id: w03178
+    title: "拝啓、在りし日に咲く花たちへ"
+    merged_into: w00113
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/70738 under the same title as w00113 already holds, and 五十嵐純 is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/70738"
+  - id: w03179
+    title: "魔法少女にあこがれて"
+    merged_into: w00151
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/40675 under the same title as w00151 already holds, and 小野中彰大 is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/40675"
+  - id: w03180
+    title: "田所さん"
+    merged_into: w00185
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/41133 under the same title as w00185 already holds, and tatsubon is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/41133"
+  - id: w03181
+    title: "転生王女と天才令嬢の魔法革命"
+    merged_into: w00225
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/49048 under the same title as w00225 already holds, and きさらぎゆり is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/49048"
+  - id: w03182
+    title: "タコと天使たち"
+    merged_into: w00387
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/56753 under the same title as w00387 already holds, and kentookayama is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/56753"
+  - id: w03183
+    title: "彩香ちゃんは弘子先輩に恋してる"
+    merged_into: w00511
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/48640 under the same title as w00511 already holds, and saljiang is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/48640"
+  - id: w03184
+    title: "姉になりたい義姉VS百合になりたい義妹"
+    merged_into: w00546
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/62763 under the same title as w00546 already holds, and 森 is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/62763"
+  - id: w03185
+    title: "ガチ恋カウント２.９"
+    merged_into: w00584
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/70504 under the same title as w00584 already holds, and 天海杏菜 is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/70504"
+  - id: w03186
+    title: "アウトサイダーパラダイス"
+    merged_into: w00623
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/65506 under the same title as w00623 already holds, and 涼川りん is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/65506"
+  - id: w03187
+    title: "魔法少女201"
+    merged_into: w00716
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/65870 under the same title as w00716 already holds, and むちゃ is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/65870"
+  - id: w03188
+    title: "しかばね少女と愛が重い聖騎士の討伐学園ライフ"
+    merged_into: w00766
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/66358 under the same title as w00766 already holds, and 日野アラシ is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/66358"
+  - id: w03189
+    title: "百合オタに百合はご法度です!?"
+    merged_into: w00896
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/48142 under the same title as w00896 already holds, and utemo is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/48142"
+  - id: w03190
+    title: "少女たちの痕にくちづけを"
+    merged_into: w00928
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/58620 under the same title as w00928 already holds, and 春花あや is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/58620"
+  - id: w03191
+    title: "両片想いな双子姉妹"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/48388"
+  - id: w03192
+    title: "じょしまん。"
+    merged_into: w00960
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/49140 under the same title as w00960 already holds, and 吉田丸悠 is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/49140"
+  - id: w03193
+    title: "お姉さんは女子小学生に興味があります。"
+    merged_into: w00418
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/31194 under the same title as w00418 already holds, and 柚木涼太 is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/31194"
+  - id: w03194
+    title: "見える子ちゃん"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/37662"
+  - id: w03195
+    title: "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/47265"
+  - id: w03196
+    title: "性別不明な中性僕っ子とお姉さん"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/56977"
+  - id: w03197
+    title: "チートイーター異世界召喚尽く滅ぶべし"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/54924"
+  - id: w03198
+    title: "同居人に片思いしてる百合漫画"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/55537"
+  - id: w03199
+    title: "くっ殺せの姫騎士となり、百合娼館で働くことになりました。"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/57356"
+  - id: w03200
+    title: "きたない君がいちばんかわいい"
+    merged_into: w00943
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/56015 under the same title as w00943 already holds, and まにお is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/56015"
+  - id: w03201
+    title: "センゲンス"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/44969"
+  - id: w03202
+    title: "異種族女子に○○する話"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/39303"
+  - id: w03203
+    title: "河島さんは面倒くさい。"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/41670"
+  - id: w03204
+    title: "はぴちゅ！"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/50087"
+  - id: w03205
+    title: "ときめけ魔法幼女ココピュア"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/61103"
+  - id: w03206
+    title: "ハッピーアワーガールズ"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/40721"
+  - id: w03207
+    title: "おかしなエルフと女子高生"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/60390"
+  - id: w03208
+    title: "まほまほ ~魔法少女と魔法使い~"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/39341"
+  - id: w03209
+    title: "ゆりでなる♥えすぽわーる"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/42275"
+  - id: w03210
+    title: "ずぼら先輩とまじめちゃん"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/50615"
+  - id: w03211
+    title: "Qyootie Q! -麒麟娘と婚約事情-"
+    merged_into: w00425
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/62786 under the same title as w00425 already holds, and しおバタ is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/62786"
+  - id: w03212
+    title: "きみとボドゲが作りたい！"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/72637"
+  - id: w03213
+    title: "田所さん（２）"
+    merged_into: w00185
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/55102 under the same title as w00185 already holds, and tatsubon is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/55102"
+  - id: w03214
+    title: "不死犠コネクト"
+    merged_into: w00673
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/65234 under the same title as w00673 already holds, and shimazaki is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/65234"
+  - id: w03215
+    title: "とにも角にも鹿姫さん。"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/34652"
+  - id: w03216
+    title: "サキュバスの後輩に堕とされたくない先輩"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/45363"
+  - id: w03217
+    title: "JCがサキュバスに先祖返りした話"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/46293"
+  - id: w03218
+    title: "迷えるJCがキスをたしなむ話"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/52402"
+  - id: w03219
+    title: "ここに住みたい"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/59477"
+  - id: w03220
+    title: "神絵師のおしごと"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/68352"
+  - id: w03221
+    title: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/73060"
+  - id: w03222
+    title: "押しかけ女房、コドモ付き！"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/67280"
+  - id: w03223
+    title: "口に出しても宜しいですか？"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/53293"
+  - id: w03224
+    title: "桃色カンパネラ"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/74044"
+  - id: w03225
+    title: "ごきげんよう、一局いかが?"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/59722"
+  - id: w03226
+    title: "タイムトラベル少女 ～ミライのサキ～"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/77287"
+  - id: w03227
+    title: "JSがキスする"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/52677"
+  - id: w03228
+    title: "おちこぼれフルーツタルト"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/53909"
+  - id: w03229
+    title: "ポンポコタヌキとへっぽこ王子"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/53993"
+  - id: w03230
+    title: "魔女まじょS-WITCH"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/69333"
+  - id: w03231
+    title: "フルボイス！"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/70759"
+  - id: w03232
+    title: "十字トンボは空を飛ばない"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/71834"
+  - id: w03233
+    title: "子供部屋ドラゴン"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/72638"
+  - id: w03234
+    title: "ゆらめきラグーン"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/54613"
+  - id: w03235
+    title: "MOJI の百合"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/62269"
+  - id: w03236
+    title: "エンドロールの後には最高の旅を"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/68902"
+  - id: w03237
+    title: "ケーキも花も宝石も"
+    merged_into: w00761
+    merge_basis: "One work under two identifiers. ニコニコ漫画 carries this serialisation at https://manga.nicovideo.jp/comic/67186 under the same title as w00761 already holds, and 臓内ニガツ is credited on both. The address arrived when WORKS-PLAN section 3 widened the episode-list worklist, and the assignment minted an identifier for it before anything joined it to the work, which is the case adapters/serialisation/promote.py rules is a merge taken by hand. Ruled 2026-08-13."
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/67186"
+  - id: w03238
+    title: "すき焼き定食なんかキライだ"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/68328"
+  - id: w03239
+    title: "犬窪ノアとなかよしするまで"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/69545"
+  - id: w03240
+    title: "田舎エッチ ～田舎のエッチな女の子と過ごすひと夏のエッチな思い出～ アンソロジーコミック"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/69622"
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a
@@ -20663,3 +20994,7 @@ related:
     b: w01587
     note: "one print record matches both titles and a shared author"
     retrieved: 2026-08-07
+  - a: w00961
+    b: w03202
+    note: "one print record matches both titles and a shared author"
+    retrieved: 2026-08-13

@@ -1207,3 +1207,66 @@ def feed(db, rows=None):
         return out
     held = {r["id"]: r for r in out}
     return [held[i] for i in rows if i in held]
+
+
+def meta(db, generated, window_days, archive_from, archive_months, samples_dropped):
+    """`feed/meta.json`: what the run saw of each platform, and what it has not confirmed yet.
+
+    THE ARGUMENTS ARE THE RUN'S OWN REPORT ON ITSELF, which is why they are arguments. How wide the
+    window is, which months are archived and how many promotional samples were set aside describe
+    what this build did rather than what the corpus holds, and `served.CORPUS` already excludes
+    `run.json` and `checks.json` on exactly that reasoning. What IS in the store is everything the
+    census learned: the platforms, how far each listing has fallen behind, and the two queues.
+
+    THE QUEUES ARE PUBLISHED BECAUSE A READER CAN CHECK THEM. DEFINITIONS §2 admits a work on stated
+    grounds, and a queued row is those grounds waiting for the confirmation that makes it a record.
+    """
+    platforms = [{"id": slug, "name": name, "publisher": pub, "series": series,
+                  "retrieved": retrieved}
+                 for name, slug, pub, series, retrieved in db.execute(
+                     "SELECT name, slug, publisher, series, retrieved FROM platform"
+                     " WHERE census_seq IS NOT NULL ORDER BY census_seq")]
+    works = []
+    for (wid, title, url, platform, status, label, marketing, lsource, lurl, lret, lnote, tier,
+         fsource, fsignal, furl, oneshot) in db.execute(
+            "SELECT id, title, url, platform, status, label, marketing_label, label_source,"
+            " label_url, label_retrieved, label_note, content_tier, found_source, found_signal,"
+            " found_url, oneshot FROM web_work ORDER BY id"):
+        works.append({
+            "title": title, "url": url, "platform": platform, "status": status,
+            "tags": [t for t, in db.execute(
+                "SELECT tag FROM web_work_tag WHERE web_work = ? ORDER BY seq", (wid,))],
+            "label": label,
+            "authors": [{"name": n, "role": r} for n, r in db.execute(
+                "SELECT name, role FROM web_work_credit WHERE web_work = ? ORDER BY seq", (wid,))],
+            "marketing_label": marketing,
+            "marketing_label_basis": {"source": lsource, "url": lurl, "retrieved": lret,
+                                      "note": lnote},
+            "content_tier": tier,
+            "discovered_via": {"source": fsource, "signal": fsignal, "url": furl},
+            "oneshot": bool(oneshot)})
+    return {
+        "platforms": platforms,
+        # WORKS A COMPARATOR REPORTS AS UPDATING THAT THE PLATFORM'S OWN HISTORY CONTRADICTS. The
+        # table is the platform census and a contradiction is a row in it; none stands today, which
+        # is a state and not an omission.
+        "contradicted": [],
+        "print_candidates": [{"work_title": w, "author": a, "sample_count": n, "sample_url": u,
+                              "label": lab, "status": st, "platform": p}
+                             for w, a, n, u, lab, st, p in db.execute(
+                                 "SELECT work_title, author, sample_count, sample_url, label,"
+                                 " status, platform FROM print_candidate ORDER BY id")],
+        "web_works": works,
+        "samples_dropped": samples_dropped,
+        "platform_meta": {name: {"rank": rank, "overlap": overlap}
+                          for name, rank, overlap in db.execute(
+                              "SELECT name, rank, overlap FROM platform"
+                              " WHERE meta_seq IS NOT NULL ORDER BY meta_seq")},
+        "lapsed": [{"work": w, "platform": p, "latest_chapter": n, "behind_by": b, "status": st}
+                   for w, p, n, b, st in db.execute(
+                       "SELECT work, platform, latest_chapter, behind_by, status"
+                       " FROM lapsed_listing ORDER BY rowid")],
+        "archive_months": archive_months,
+        "archive_from": archive_from,
+        "window_days": window_days,
+        "generated": generated}

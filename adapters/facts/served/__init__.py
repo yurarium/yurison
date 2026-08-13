@@ -263,6 +263,19 @@ STORE_ANSWERS = (
     "feed/current.json:to", "feed/current.json:generated",
     "feed/2026-07.json:releases", "feed/2026-07.json:month", "feed/2026-07.json:generated",
     "feed/current.json:releases[]", "feed/2026-07.json:releases[]",
+    # §6: `feed/meta.json` IS EMITTED FROM THE STORE as of 2026-08-13, which closes the section.
+    # What the emitter is HANDED rather than asked for is the run's own report on itself: how wide
+    # the window is, which months are archived and how many promotional samples were set aside all
+    # describe what a build did rather than what the corpus holds, which is the same reasoning that
+    # keeps `run.json` and `checks.json` out of this measure. Everything the census LEARNED is in
+    # the store: the platforms, how far each listing has fallen behind, and the two queues.
+    "feed/meta.json:platforms", "feed/meta.json:platforms[]",
+    "feed/meta.json:contradicted", "feed/meta.json:print_candidates",
+    "feed/meta.json:print_candidates[]", "feed/meta.json:web_works", "feed/meta.json:web_works[]",
+    "feed/meta.json:samples_dropped", "feed/meta.json:platform_meta",
+    "feed/meta.json:platform_meta{}", "feed/meta.json:lapsed", "feed/meta.json:lapsed[]",
+    "feed/meta.json:archive_months", "feed/meta.json:archive_from",
+    "feed/meta.json:window_days", "feed/meta.json:generated",
     # §5: THE RENDERINGS. A name is a `surface` row keyed by the fold the feed joins on, what is
     # claimed about it is a `claim` row, and what a reader is shown in Latin is a `romanisation` or
     # a `ruby` row. The three name maps take the same paths because they are the same shape.

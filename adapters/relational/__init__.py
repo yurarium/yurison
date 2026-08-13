@@ -1299,7 +1299,61 @@ def build(path=None, quarantine=False, at=None, source=None):
         if rel.get("plat_name"):
             put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (rel["plat_name"],),
                 f"platform {rel['plat_name']}")
+    # THE CENSUS BEHIND `feed/meta.json`, which is what the run saw of each platform. The rows come
+    # from the compiler because they are the capture's own answer; a rebuild reads nothing here and
+    # the columns stay NULL, which is the truthful state for a store built without a capture.
+    meta = (source or {}).get("meta") or {}
+    for _i, p_ in enumerate(meta.get("platforms") or []):
+        if p_.get("name"):
+            put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (p_["name"],),
+                f"platform {p_['name']}")
+            db.execute("UPDATE platform SET slug = ?, publisher = ?, series = ?, retrieved = ?,"
+                       " census_seq = ? WHERE name = ?",
+                       (p_.get("id"), p_.get("publisher"), p_.get("series"), p_.get("retrieved"),
+                        _i, p_["name"]))
+    for _i, (name, m) in enumerate((meta.get("platform_meta") or {}).items()):
+        put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (name,), f"platform {name}")
+        db.execute("UPDATE platform SET rank = ?, overlap = ?, meta_seq = ? WHERE name = ?",
+                   (m.get("rank"), m.get("overlap"), _i, name))
+    for l_ in (meta.get("lapsed") or []):
+        if l_.get("work") and l_.get("platform"):
+            put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (l_["platform"],),
+                f"platform {l_['platform']}")
+            put("INSERT OR IGNORE INTO lapsed_listing (work, platform, latest_chapter, behind_by,"
+                " status) VALUES (?,?,?,?,?)",
+                (l_["work"], l_["platform"], l_.get("latest_chapter"), l_.get("behind_by"),
+                 l_.get("status")), f"lapsed {l_['work'][:20]}")
+    for c_ in (meta.get("print_candidates") or []):
+        put("INSERT INTO print_candidate (work_title, author, platform, label, sample_count,"
+            " sample_url, status) VALUES (?,?,?,?,?,?,?)",
+            (c_.get("work_title"), c_.get("author"), c_.get("platform"), c_.get("label"),
+             c_.get("sample_count"), c_.get("sample_url"), c_.get("status")),
+            f"print candidate {str(c_.get('work_title'))[:20]}")
+    for w_ in (meta.get("web_works") or []):
+        basis = w_.get("marketing_label_basis") or {}
+        found = w_.get("discovered_via") or {}
+        if not put("INSERT INTO web_work (title, url, platform, status, label, marketing_label,"
+                   " label_source, label_url, label_retrieved, label_note, content_tier,"
+                   " found_source, found_signal, found_url, oneshot)"
+                   " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                   (w_.get("title"), w_.get("url"), w_.get("platform"), w_.get("status"),
+                    w_.get("label"), w_.get("marketing_label"), basis.get("source"),
+                    basis.get("url"), basis.get("retrieved"), basis.get("note"),
+                    w_.get("content_tier"), found.get("source"), found.get("signal"),
+                    found.get("url"), _flag(w_, "oneshot")),
+                   f"web work {str(w_.get('title'))[:20]}"):
+            continue
+        wwid = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+        for i, tag in enumerate(w_.get("tags") or []):
+            put("INSERT OR IGNORE INTO web_work_tag (web_work, seq, tag) VALUES (?,?,?)",
+                (wwid, i, tag), f"web work tag {i}")
+        for i, cr in enumerate(w_.get("authors") or []):
+            put("INSERT OR IGNORE INTO web_work_credit (web_work, seq, name, role)"
+                " VALUES (?,?,?,?)", (wwid, i, cr.get("name"), cr.get("role")),
+                f"web work credit {i}")
     counts["platform"] = db.execute("SELECT count(*) FROM platform").fetchone()[0]
+    counts["lapsed_listing"] = db.execute("SELECT count(*) FROM lapsed_listing").fetchone()[0]
+    counts["web_work"] = db.execute("SELECT count(*) FROM web_work").fetchone()[0]
 
     for _k, r in _rows("series", "series", source):
         wid = r.get("id")

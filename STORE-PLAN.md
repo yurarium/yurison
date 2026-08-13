@@ -58,7 +58,7 @@ below moves one domain to the other side of that line.
 | §5i | A column that means two things | done 2026-08-13 |
 | §5j | A vocabulary with one home, and a key into it | done 2026-08-13 |
 | §5k | A date says it is a date | done 2026-08-13 |
-| §6 | The compiler writes the store; the JSON is emitted from it | 5 files emitted 2026-08-13; `feed/names.json` is the keystone the rest wait on |
+| §6 | The compiler writes the store; the JSON is emitted from it | DONE 2026-08-13. Every corpus file is emitted from the store and the budget is 0 |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
@@ -1176,9 +1176,16 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   much a piece of evidence is worth belongs to its KIND, so the rank, the party type and the clause
   each was read out of are `credence_kind` and not 2,366 copies.
 
-  `feed/meta.json` is the run's own report on the platforms, and much of it, `print_candidates`,
-  `lapsed`, `samples_dropped`, describes what the CAPTURE did rather than what the corpus holds.
-  Whether it belongs in `served.CORPUS` at all is worth asking before it is modelled.
+  `feed/meta.json` MOVED 2026-08-13 AND CLOSED THE SECTION. The scoping question it carried is
+  answered by the shape rather than by an argument: what the emitter is HANDED is the run's report
+  on ITSELF, how wide the window is, which months are archived and how many promotional samples were
+  set aside, which is the same reasoning that keeps `run.json` and `checks.json` out of this
+  measure. Everything the census LEARNED is in the store: the platforms, how far each listing has
+  fallen behind, and the two queues of what has been noticed and not confirmed.
+
+  A CENSUS KEEPS ITS OWN ORDER, which two platforms sharing a rank make underivable from the numbers
+  in it, so `census_seq` and `meta_seq` are columns. A table this store fills from several
+  directions has no insertion order to fall back on.
 
   `feed/names.json` IS THE KEYSTONE AND WAS NOT ON THE QUEUE, which measuring the rest found. It
   carries 2 unanswered paths of the 278, so the budget calls it modelled and says nothing about the
@@ -1300,6 +1307,21 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
 written directly. That is two producers of one fact, which is the fault this project names most
 often. The budget in §1 does not catch it, which is why the direct path is deleted in the same
 change that adds the emission.
+
+**THE SECTION IS DONE, 2026-08-13, AND THE BUDGET IS 0.** Every one of the ten corpus files the site
+fetches is written out of the tables, and `data reaching the site around the store` fell 707 to 0
+over the section. The number is what makes the claim checkable: it counts the paths a READER is
+served rather than the tables the store holds, so it cannot be satisfied by modelling something and
+leaving the file to be written beside it.
+
+The move itself is the argument for having done it this way. Nine faults that
+neither side could see alone: a credit registry that emptied on a clean checkout, an unordered
+SELECT served from an index, 130 credits filed under a spelling the registry does not answer for,
+two volume rows folded into one, a claim heap shared between the records that made it, furigana over
+the wrong spelling of a name, a byline that said `and others` and lost it, a forwarder pointing at a
+retired identifier, and seven houses that only ever distribute counted as publishing. Byte or parsed
+equality against what the compiler wrote is what caught every one, and it is available only while
+both producers exist, which is the whole reason this section refused a cutover.
 
 ## 7. Incremental on every update, reconciled weekly
 

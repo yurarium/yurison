@@ -2760,21 +2760,27 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
             path.write_text(json.dumps(payload, ensure_ascii=False, indent=1, default=jsonable))
             archived.append((m, "written", len(by_month[m])))
 
-    (feed_dir / "meta.json").write_text(json.dumps(
-        {"platforms": platforms,
-         # Works a comparator reports as updating that the platform's own full chapter history
-         # contradicts. Recorded rather than silently dropped: they are not coverage we lack.
-         "contradicted": contradicted_works,
-         "print_candidates": print_candidates, "web_works": web_works,
-         "samples_dropped": len(samples),
-         "platform_meta": plat_meta, "lapsed": lapsed,
-         # Newest first: the interface offers these as "earlier updates", and the most recent
-         # month is the one most likely to be wanted.
-         "archive_months": [m for m, _s, _n in sorted(archived, reverse=True)],
-         "archive_from": ARCHIVE_FROM_MONTH,
-         "window_days": CURRENT_WINDOW_DAYS,
-         "generated": str(_today)},
-        ensure_ascii=False, indent=1, default=jsonable))
+    # ── the run's report on the platforms, out of the store ──────────────────────────────────
+    #
+    # WHAT IT IS HANDED RATHER THAN ASKED FOR is the run's own report on ITSELF: how wide the window
+    # is, which months are archived and how many promotional samples were set aside describe what
+    # this build did rather than what the corpus holds, which is the same reasoning that keeps
+    # `run.json` and `checks.json` out of the measured population. Everything the census LEARNED is
+    # in the store.
+    _meta_payload = {"platforms": platforms, "contradicted": contradicted_works,
+                     "print_candidates": print_candidates, "web_works": web_works,
+                     "platform_meta": plat_meta, "lapsed": lapsed}
+    if store is None:
+        (feed_dir / "meta.json").write_text(json.dumps(
+            {**_meta_payload, "samples_dropped": len(samples),
+             "archive_months": [m for m, _s, _n in sorted(archived, reverse=True)],
+             "archive_from": ARCHIVE_FROM_MONTH, "window_days": CURRENT_WINDOW_DAYS,
+             "generated": str(_today)}, ensure_ascii=False, indent=1, default=jsonable))
+    else:
+        from relational import emit as _e
+        (feed_dir / "meta.json").write_text(_e.as_text(_e.meta(
+            store, str(_today), CURRENT_WINDOW_DAYS, ARCHIVE_FROM_MONTH,
+            [m for m, _s, _n in sorted(archived, reverse=True)], len(samples))))
 
     print(f"feed split      : current {len(current_rows)} rows "
           f"({window_from}..{_today}, {CURRENT_WINDOW_DAYS}d)"
@@ -7057,7 +7063,12 @@ def main():
     _store_db, _store_counts, _store_refused = _rel.build(
         source={"series": {"series": series_rows}, "works": {"works": works},
                 # THE FEED'S OWN ROWS, so the store is not reading back the files it emits.
-                "releases": releases})
+                "releases": releases,
+                # AND THE CENSUS THE RUN MADE OF THE PLATFORMS, which is the rest of
+                # `feed/meta.json`: what each platform lists, how far a listing has fallen behind,
+                # and the two queues of what has been noticed and not yet confirmed.
+                "meta": {"platforms": platforms, "platform_meta": plat_meta, "lapsed": lapsed,
+                         "print_candidates": print_candidates, "web_works": web_works}})
     if _store_refused:
         print(f"store refused {len(_store_refused)} row(s): "
               f"{_store_refused[0][0]}: {_store_refused[0][1]}")

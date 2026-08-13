@@ -1302,7 +1302,85 @@ CREATE INDEX print_party_publisher ON print_party (publisher);
 -- `sundaywebry` and `backfill`, 一迅プラス as `ichicomi` and `claim-resolved`. Six names carry two
 -- slugs each, so keying on the slug would split one platform into two.
 CREATE TABLE platform (
-  name TEXT PRIMARY KEY
+  name TEXT PRIMARY KEY,
+  -- THE CAPTURE ROUTE'S OWN NAME, which `release.plat_slug` also carries: six display names carry
+  -- two slugs each, so this is the slug the census filed the platform under and not an identity.
+  slug      TEXT,
+  publisher TEXT,
+  -- HOW MANY SERIES THE CENSUS COUNTED, which is what it saw and not what the corpus holds.
+  series    INTEGER,
+  retrieved TEXT,
+  -- WHERE THE PLATFORM SITS AMONG THE OTHERS AND HOW MUCH OF ITS LIST WE ALREADY HAVE.
+  rank      INTEGER,
+  overlap   REAL,
+  -- WHERE EACH SAT IN THE CENSUS THE RUN WROTE. Two platforms can share a rank, so the order the
+  -- census reports is not derivable from the numbers in it, and a table this store fills from
+  -- several directions has no insertion order to fall back on.
+  census_seq INTEGER,
+  meta_seq   INTEGER
+);
+
+-- A LISTING THAT HAS STOPPED KEEPING UP, which is a fact about the LISTING and not about the work:
+-- pixivコミック renders six chapters of a run that is ten further on. Recorded rather than silently
+-- corrected, because it is the evidence for how far a route can be trusted.
+CREATE TABLE lapsed_listing (
+  work           TEXT NOT NULL,
+  platform       TEXT NOT NULL REFERENCES platform(name) ON DELETE CASCADE,
+  latest_chapter INTEGER,
+  behind_by      INTEGER,
+  status         TEXT,
+  PRIMARY KEY (work, platform)
+);
+
+-- A BOOK A SAMPLE POINTS AT. A promotional 試し読み is not a release (REQUIREMENTS §5), and the
+-- thing it advertises is a printed volume nobody has confirmed yet, so the sample is set aside and
+-- what it is a sample OF is queued here.
+CREATE TABLE print_candidate (
+  id           INTEGER PRIMARY KEY,
+  work_title   TEXT NOT NULL,
+  author       TEXT,
+  platform     TEXT,
+  label        TEXT,
+  sample_count INTEGER,
+  sample_url   TEXT,
+  status       TEXT
+);
+
+-- A WORK A PLATFORM PUBLISHES THAT THE CORPUS DOES NOT HOLD YET, with the grounds it was noticed
+-- on. The queue is published because a reader can check it: DEFINITIONS §2 admits a work on stated
+-- grounds and these are the grounds, waiting for the confirmation that turns them into a record.
+CREATE TABLE web_work (
+  id         INTEGER PRIMARY KEY,
+  title      TEXT NOT NULL,
+  url        TEXT,
+  platform   TEXT,
+  status     TEXT,
+  label      TEXT,
+  marketing_label TEXT,
+  label_source TEXT,
+  label_url  TEXT,
+  label_retrieved TEXT,
+  label_note TEXT,
+  content_tier TEXT,
+  found_source TEXT,
+  found_signal TEXT,
+  found_url  TEXT,
+  oneshot    INTEGER CHECK (oneshot IN (0, 1))
+);
+
+CREATE TABLE web_work_tag (
+  web_work INTEGER NOT NULL REFERENCES web_work(id) ON DELETE CASCADE,
+  seq      INTEGER NOT NULL,
+  tag      TEXT NOT NULL,
+  PRIMARY KEY (web_work, seq)
+);
+
+CREATE TABLE web_work_credit (
+  web_work INTEGER NOT NULL REFERENCES web_work(id) ON DELETE CASCADE,
+  seq      INTEGER NOT NULL,
+  name     TEXT NOT NULL,
+  role     TEXT,
+  PRIMARY KEY (web_work, seq)
 );
 
 -- WHAT ONE PLATFORM HOLDS OF ONE WORK. `schema.sql` said this before the table existed: what a

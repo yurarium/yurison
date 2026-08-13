@@ -229,6 +229,24 @@ def main(s):
         s.eq(len(got_f), len(want_f), f"`feed/{name}.json` holds every release the compiler wrote")
         s.eq(got_f, want_f, f"and every field of every row of `feed/{name}.json`, parsed")
 
+    # ── `feed/meta.json`: THE CENSUS, AND WHAT THE RUN SAYS ABOUT ITSELF ──────────────────────
+    mf = BUILD / "feed" / "meta.json"
+    if mf.exists():
+        want_m = json.loads(mf.read_text(encoding="utf-8"))
+        # THE STORE IS BUILT FROM THE COMPILER'S ROWS and this test has only the file, so the
+        # census is handed in the way `build.py` hands it in. What is proved is the round trip:
+        # what the compiler wrote goes into the tables and comes back out of them unchanged.
+        censused, _c2, refused_m = relational.build(path=":memory:", source={"meta": want_m})
+        s.eq(refused_m, [], "the census loads with nothing refused")
+        got_m = emit.meta(censused, want_m["generated"], want_m["window_days"],
+                          want_m["archive_from"], want_m["archive_months"],
+                          want_m["samples_dropped"])
+        s.eq(list(got_m), list(want_m), "`feed/meta.json` has the keys the compiler wrote")
+        s.eq(got_m, want_m, "and every one of their values, parsed")
+        s.check(got_m["platforms"] and got_m["platforms"][0]["id"] == want_m["platforms"][0]["id"],
+                "A CENSUS KEEPS ITS OWN ORDER, which two platforms sharing a rank make "
+                "underivable from the numbers in it")
+
     s.check(not any(emit._entry(db, rid, sid, k, sp)
                     for rid, sid, k, sp in db.execute(
                         "SELECT id, surface, kind, spelling FROM name_record"

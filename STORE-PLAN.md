@@ -42,7 +42,7 @@ below moves one domain to the other side of that line.
 | | stage | needs |
 |---|---|---|
 | §1 | Measure what travels around the store | done 2026-08-13 |
-| §1a | Somewhere for what a constraint refuses | before anything refuses |
+| §1a | Somewhere for what a constraint refuses | done 2026-08-13 |
 | §2 | Fill the two tables that were designed and never written | done 2026-08-13 |
 | §3 | Volumes, editions and the print run | done 2026-08-13 |
 | §4 | Releases and the per-platform offer | done 2026-08-13 |
@@ -200,6 +200,17 @@ turns an unattended run loose, and its absence is now the gap rather than a plan
 **AND THE SCHEMA FILE IS NOT THE WHOLE SCHEMA.** `derivation` is created by `delta.ensure` and
 `_tables` excludes it by name, so a reader of `schema.sql` cannot tell what the database holds. The
 quarantine must not arrive the same way.
+
+**DONE 2026-08-13, IN `schema.sql` WHERE A READER FINDS IT.** `quarantine` holds the row as the
+loader had it, the constraint that refused it, what produced it and when. `build(quarantine=True)`
+is the unattended path and a rebuild leaves it off, so the two answer differently exactly as this
+section argues. `rows the store could not admit` counts it and is 0.
+
+**AND THE PATH IS WATCHED WORKING RATHER THAN DECLARED.** It runs at 00:37 with nobody present, so
+`quarantine_row` is reachable from a test, which a closure was not, and the test plants a refused row,
+sees it filed under the table it was going to, and then asserts that NOTHING was admitted. A
+quarantine nobody has seen accept a row is the same thing as a constraint nobody has seen refuse
+one, which is the argument this whole file makes about controls.
 
 **WHAT THIS MEANS FOR A ROW IN QUARANTINE.** It is there because an unattended run met it and had
 nowhere else to put it. The next rebuild will refuse it and fail, so it cannot be left: either the

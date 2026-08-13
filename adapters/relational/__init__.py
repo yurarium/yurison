@@ -190,12 +190,41 @@ def _rows(name, key):
     return [(None, r) for r in (got or [])]
 
 
-def build(path=None):
+def quarantine_row(db, sql, args, what, error, at=None):
+    """Record a row the schema refused, so an unattended run can carry on. STORE-PLAN §1a.
+
+    IT IS REACHABLE FROM A TEST, which a closure inside `build` was not. The path that matters here
+    runs only when an update writes at 00:37, and a quarantine nobody has seen accept a row is the
+    same thing as a constraint nobody has seen refuse one.
+    """
+    db.execute("INSERT INTO quarantine (target, refusal, row, came_from, at) VALUES (?,?,?,?,?)",
+               (_target_of(sql), str(error),
+                json.dumps(list(args), ensure_ascii=False, default=str), what, at or "unstamped"))
+    return False
+
+
+def _target_of(sql):
+    """The table an INSERT or an UPDATE names, for the quarantine to file the row under."""
+    words = str(sql).replace("(", " ").split()
+    for i, w in enumerate(words):
+        if w.upper() in ("INTO", "UPDATE") and i + 1 < len(words):
+            return words[i + 1]
+    return "?"
+
+
+def build(path=None, quarantine=False, at=None):
     """Compile `data/build` into the store. Returns `(db, counts, refused)`.
 
     REFUSED ROWS ARE THE POINT AND ARE COUNTED, not swallowed. A row the schema will not accept is
     a row the current pipeline can produce and should not, so the loader reports how many and why
     instead of relaxing a constraint to make the number go away.
+
+    `quarantine` IS FOR THE UNATTENDED PATH AND FOR NOTHING ELSE, STORE-PLAN §1a. With it on, a
+    refused row is written to the `quarantine` table with the constraint that refused it and the run
+    continues, which is what lets an update at 00:37 populate what it can. A REBUILD leaves it off
+    and fails on a refusal: the loader is wrong until shown otherwise, and it has been every time so
+    far. `at` is the date to stamp a quarantined row with, passed in rather than read from the clock
+    so a rebuild is reproducible.
     """
     db = load_rulings(create(path))
     counts, refused = {}, []
@@ -206,6 +235,8 @@ def build(path=None):
             return True
         except sqlite3.IntegrityError as e:                              # noqa: PERF203
             refused.append((what, str(e)))
+            if quarantine:
+                quarantine_row(db, sql, args, what, e, at)
             return False
 
     seen_credit = {}

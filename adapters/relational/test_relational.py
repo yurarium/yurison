@@ -385,6 +385,37 @@ def main(s):
     s.eq(db.execute("SELECT count(*) FROM surface WHERE folded = 'あ／い'").fetchone()[0], 2,
          "and one string is a title and a credit line at once, which is what the kind is for")
 
+    # ── §1a: WHAT THE COMPILER COULD NOT ADMIT ────────────────────────────────────────────────
+    #
+    # An update runs unattended and must go on running. A refused row either fails the job or is
+    # dropped in silence, and the second is worse because nothing says it happened.
+    db.execute("INSERT INTO quarantine (target, refusal, row, came_from, at) VALUES"
+               " ('claim','FOREIGN KEY constraint failed','[1,\"reading\"]',"
+               "'claim reading authors X','2026-08-13')")
+    s.eq(db.execute("SELECT count(*) FROM quarantine").fetchone()[0], 1,
+         "a row the schema refused is held with the constraint that refused it")
+    _refuses(s, db, "INSERT INTO quarantine (target, row, at) VALUES ('claim','[]','x')", (),
+             "and a quarantined row that does not say what refused it is itself refused")
+
+    # THE PATH THAT MATTERS RUNS AT 00:37 WITH NOBODY PRESENT, so it is watched here. A quarantine
+    # nobody has seen accept a row is the same thing as a constraint nobody has seen refuse one.
+    try:
+        db.execute("INSERT INTO work_credit (work, credit) VALUES ('w99999','c00001')")
+        s.check(False, "the row this is about must be refused in the first place")
+    except sqlite3.IntegrityError as e:
+        relational.quarantine_row(db, "INSERT INTO work_credit (work, credit) VALUES (?,?)",
+                                  ("w99999", "c00001"), "edge from a capture", e, "2026-08-13")
+    held = db.execute("SELECT target, row, came_from FROM quarantine ORDER BY id DESC").fetchone()
+    s.eq(held[0], "work_credit", "a refused row is filed under the table it was going to")
+    s.check("w99999" in held[1],
+            "and the row is kept as the loader had it, so a person sees the data")
+    s.eq(held[2], "edge from a capture", "with what produced it, so a deferral can name the adapter")
+    s.eq(db.execute("SELECT count(*) FROM work_credit WHERE work = 'w99999'").fetchone()[0], 0,
+         "AND NOTHING WAS ADMITTED: the quarantine is a record of a refusal, not a way round one")
+    s.check("rows the store could not admit" in relational.QUESTIONS,
+            "IT IS COUNTED, because a quarantine growing every day means the model is wrong and "
+            "not that the captures were, and nothing else can tell those apart")
+
     # ── §5e: THE DISAGREEMENT RULE APPLIED TO SOMETHING OTHER THAN A NAME ─────────────────────
     #
     # Every one of the 3,040 works carries a state and 271 hold competing source claims about

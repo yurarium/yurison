@@ -142,6 +142,40 @@ CREATE TABLE work_publisher (
   PRIMARY KEY (work, publisher)
 );
 
+-- ── what the compiler could not admit ──────────────────────────────────────────────────────────
+--
+-- STORE-PLAN §1a. An update runs unattended at 00:37 and must go on running, populating what it
+-- can. A row the schema refuses either fails the job or is dropped in silence, and the second is
+-- worse because nothing says it happened. So the row is written here with the constraint that
+-- refused it, and the run continues.
+--
+-- THE TWO PATHS ANSWER DIFFERENTLY AND THAT IS THE WHOLE DESIGN. A REBUILD runs where somebody is
+-- present, on every pull request and in the weekly equivalence job, and it FAILS on a refusal: the
+-- loader is wrong until shown otherwise, which it has been every time so far. §2 refused 382 rows
+-- and every one was my citation rule; §5a refused 3,690 and three of the four causes were mine.
+-- The INCREMENTAL path quarantines so the run survives.
+--
+-- IT IS IN THE STORE AND NOT IN A FILE BESIDE IT, so "no data travels around the store" stays true
+-- in the strong sense: even what could not be modelled is in it, in a table of its own.
+--
+-- A QUARANTINE THAT GROWS EVERY DAY MEANS THE SCHEMA IS ASSERTING SOMETHING THE DATA DOES NOT
+-- SUPPORT, and the honest response then is to change the model rather than to keep filtering.
+-- `rows the store could not admit` is what tells a bad week of captures from a wrong model.
+CREATE TABLE quarantine (
+  id         INTEGER PRIMARY KEY,
+  -- WHERE IT WAS GOING, WHAT REFUSED IT, AND WHAT IT WAS. The row is kept as the loader had it, so
+  -- a person can see the data rather than a description of it.
+  target     TEXT NOT NULL,
+  refusal    TEXT NOT NULL,
+  row        TEXT NOT NULL,
+  -- WHICH CAPTURE OR RECORD IT CAME FROM, in the loader's own words, so the deferral §9 writes can
+  -- name the adapter without rediscovering it.
+  came_from  TEXT,
+  at         TEXT NOT NULL
+);
+
+CREATE INDEX quarantine_target ON quarantine (target);
+
 -- ── the identity registry, which the store has never read ──────────────────────────────────────
 --
 -- THE ENTITY WAS ALWAYS THERE. §5d was first written asking for a ruling on whether a person is a

@@ -124,6 +124,12 @@ DERIVATIONS = {
     "works on a house with no line named": {
         "sql": "SELECT count(*) FROM work_publisher WHERE imprint IS NULL",
         "reads": ("work_publisher",)},
+    # §1a. WHAT THE COMPILER COULD NOT ADMIT. A quarantine that grows every day means the schema is
+    # asserting something the data does not support, and the honest response then is to change the
+    # model rather than to keep filtering. This is what tells that from a bad week of captures.
+    "rows the store could not admit": {
+        "sql": "SELECT count(*) FROM quarantine",
+        "reads": ("quarantine",)},
     "identities somebody ruled apart": {
         "sql": "SELECT count(*) FROM identity_ruling WHERE kind IN ('keep', 'homophone')",
         "reads": ("identity_ruling",)},

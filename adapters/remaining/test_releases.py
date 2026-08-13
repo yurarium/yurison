@@ -110,5 +110,25 @@ def a_one_shot_states_one_date(s):
             "a page listing chapters is read as chapters even where the word appears on it")
 
 
+    # ── A CREDIT THE PAGE LABELS, WHERE THE TITLE STATES NONE ─────────────────────────────────
+    #
+    # The title rule needs a `|` to anchor on. きら星ポータル writes `作品 / 誌名 - サイト`, so
+    # ツイてるギャルとミエてる陰キャ arrived with an empty author while its page says
+    # `著者：深水たろー` in an anchor to the site's own author page. WORKS-PLAN section 5b.
+    import sys as _s
+    _s.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    from names import credits as _c
+    got = rm.LABELLED_CREDIT.search('<a href="/authors/2000538">\u8457\u8005\uff1a\u6df1\u6c34\u305f\u308d\u30fc</a>')
+    s.eq(got.group(1) if got else None, "\u6df1\u6c34\u305f\u308d\u30fc",
+         "the label names the field and the name follows it, anchor and all")
+    s.check(not rm.LABELLED_CREDIT.search("\u8457\u8005\uff1a"),
+            "a label with nothing after it names nobody")
+    # THE LABEL DOES NOT VOUCH FOR WHAT FOLLOWS IT. Everything still goes through people_only, so a
+    # one-shot title sitting where a name belongs is refused exactly as it is in a page title.
+    _m = rm.LABELLED_CREDIT.search("\u8457\u8005\uff1a\u8aad\u5207 \u753b\u5bb6\u306e\u8096\u50cf")
+    s.eq(_c.people_only(_m.group(1)) if _m else None, None,
+         "a label beside a chapter is still not a person")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "remaining.releases"))

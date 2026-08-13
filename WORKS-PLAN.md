@@ -11,7 +11,7 @@ The sections are in the order they are to be done, and each says what it needs f
 |---|---|---|---|
 | §1 | Run the name passes as part of the update | done 2026-08-13 | 96 works had no English for want of this |
 | §2 | A claim about a reading stops occupying the English's slot | done 2026-08-13 | 196 titles, 1,337 authors |
-| §5 | Two capture faults on the credit field | §5a done 2026-08-13 | 4 rows |
+| §5 | Two capture faults on the credit field | done 2026-08-13 | 4 rows |
 | §3 | Fetch the episode lists we never asked for | code done, data withheld | 53 works |
 | §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
 | §4 | Join a translated edition to the work it translates | nothing | 28 products, 7 unjoined |
@@ -288,7 +288,7 @@ An author is absent where the platform states one. `ツイてるギャルとミ�
 artist's name is in the work's own title. 2 rows of 983 in the feed window, so the class is small and
 the fix is per-adapter.
 
-**§5a DONE 2026-08-13.** `credits.people_only` asks each credit in a field rather than the field.
+§5a was done 2026-08-13. `credits.people_only` asks each credit in a field, and not the field.
 Every refusal `is_a_person` makes anchors at the start of a string, so a field opening with a real
 name passed whatever followed it, and `ONE_SHOT_LABEL` had been written for this exact string and
 was being asked the wrong question. It also rescues a name the old rule discarded: `金子ある / #1(1)`
@@ -296,10 +296,12 @@ failed as a whole and the capture dropped the field entire, losing a real person
 chapter number. The two rows already on disk heal on the next Stage C run, since a source record is
 stored as fetched and never hand-edited.
 
-§5b is not done. きら星ポータル states `著者：深水たろー` in the page body and titles its page
-`作品 / 誌名 - サイト`, with no `|` for the title-reading rule to anchor on, so the author is not
-absent from the page and is absent from the row. Reading a body credit is a new extraction rule per
-page shape rather than a correction to an existing one, which is why it is separated here.
+**§5b DONE 2026-08-13.** きら星ポータル titles its page `作品 / 誌名 - サイト`, with no `|` for the
+title rule to anchor on, and says `著者：深水たろー` in the body inside an anchor to its own author
+page. `LABELLED_CREDIT` reads a credit the page LABELS, which is better evidence than a position in
+a title: it says which field this is rather than leaving it to be inferred. The label vouches for
+nothing, so what follows it still goes through `people_only` and a one-shot title sitting where a
+name belongs is refused exactly as it is in a page title.
 
 **HOW BOTH ARE PROVED.** `incomplete attested rows` already counts a release missing a chapter name,
 an author or an access state, and stood at 37 on 2026-08-13. Neither of these fault classes moves it,

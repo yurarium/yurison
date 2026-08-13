@@ -47,6 +47,17 @@ CHROME = next((c for c in ("/snap/bin/chromium", "/usr/bin/chromium",
                if pathlib.Path(c).exists()), None)
 PAUSE = 1.0
 MIN_EPISODES = 1
+
+#: A CREDIT THE PAGE LABELS AS ONE. `著者：` and `作者：` name the field they hold, which is better
+#: evidence than the middle position of a `<title>` and is what a platform writes when its title
+#: has no room. Stops at the first tag or line break, so an anchor around the name is fine and a
+#: run-on paragraph cannot be swallowed.
+#:
+#: THE LABEL IS PART OF THE MATCH AND NOT PART OF THE NAME, which is why the group starts after it.
+#: `著者：深水たろー` inside an anchor yields 深水たろー, and everything the capture returns still
+#: goes through `credits.people_only`, so a label sitting beside something that cannot be a person
+#: is refused the same way a title's middle field is.
+LABELLED_CREDIT = re.compile(r"(?:著者|作者|漫画|著)\s*[：:]\s*([^<>\n\r]{1,40})")
 TODAY = __import__("datetime").date.today().isoformat()
 
 COMICI_BLOCK = re.compile(r'data-e2e="eli"')
@@ -259,6 +270,16 @@ def main():
             if _au:
                 _cand = _html.unescape(_au.group(1).strip())
                 page_author = _credits.people_only(_cand)
+            if not page_author:
+                # A CREDIT THE PAGE LABELS, where the title states none. The rule above needs a
+                # `|` to anchor on and きら星ポータル writes `作品 / 誌名 - サイト`, so
+                # ツイてるギャルとミエてる陰キャ arrived with an empty author while its page says
+                # `著者：深水たろー` twice over, once in an anchor to the site's own author page and
+                # once in the copyright line. A label is better evidence than a position in a title
+                # anyway: it says which field this is rather than leaving it to be inferred.
+                _lab = LABELLED_CREDIT.search(html)
+                if _lab:
+                    page_author = _credits.people_only(_html.unescape(_lab.group(1).strip()))
             for name, fn in (("gigaviewer", lambda h: from_giga(h, url)),
                              ("comici", lambda h: from_comici(h, url)),
                              ("markup", from_generic)):

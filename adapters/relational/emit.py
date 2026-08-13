@@ -33,6 +33,7 @@ from facts import division as _division                                 # noqa: 
 from facts import script as _script                                     # noqa: E402
 from names import provenance as _prov                                   # noqa: E402
 from names import fold as _fold                                         # noqa: E402
+from names import publishers as _pubmod                                 # noqa: E402
 from facts import namekey as _namekey                                   # noqa: E402
 try:
     import pass4_analyser as _p4                                        # noqa: E402
@@ -551,6 +552,65 @@ def _divisions(db):
             fact["drop"] = dropped
         out[folded] = fact
     return out
+
+
+def _parties(db):
+    """The catalogued seats, as the rows a name census walks: one party, one pseudo-block.
+
+    `print_party` IS ALREADY THE FOLDED RECORDS AS WELL AS THE SHOWN ONE, which is what
+    `facts/printblock.parties` yields and what the publisher census has to see. So each party is
+    given its own block here rather than a block being rebuilt around it.
+    """
+    return [{"print": [{"publisher": pub, "imprint": imp}]} for pub, imp in db.execute(
+        "SELECT publisher_raw, imprint_raw FROM print_party ORDER BY id")]
+
+
+def _publishers(db, people):
+    """`publishers`, keyed by the string the catalogue holds AND by the string the interface shows.
+
+    THE WHOLE OF THE RULE IS `names/publishers`, including which record answers for a string and
+    what an answer looks like. Three readings of that one fact existed once; the module's is the
+    only one now, and this hands it the store's rows.
+
+    A HOUSE WITH NO ENGLISH NAME IS STILL A HOUSE WITH AN ADDRESS. The map holds only names
+    something could render, which is right for a rendering and wrong for a link: 27 of the houses
+    have no English at all, so keying the identifier off a rendering would make exactly the smaller
+    publishers unreachable.
+    """
+    store = {}
+    for rid, sid, kind, spelling in db.execute(
+            "SELECT id, surface, kind, spelling FROM name_record WHERE kind = 'publisher'"
+            " ORDER BY id"):
+        entry = _entry(db, rid, sid, kind, spelling)
+        if entry:
+            store[spelling] = entry
+    rows = _parties(db)
+    out = _pubmod.render(store, people, _pubmod.corpus_names_from_rows(rows))
+    for key, fact in list(out.items()):
+        got = _house(db, key)
+        if got and not fact.get("id"):
+            # The fact is shared between the raw key and the shown one, so it is copied before it
+            # is written to: two keys legitimately answer for one house, and one of them naming a
+            # different house would be a link pointing away from the name beside it.
+            out[key] = dict(fact, id=got)
+    for row in rows:
+        for party in row["print"]:
+            name = str(party.get("publisher") or "").strip()
+            got = _house(db, name)
+            if not got:
+                continue
+            for key in (name, _pubmod.publisher_of(name),
+                        _namekey.fold(_pubmod.publisher_of(name))):
+                if key and key not in out:
+                    out[key] = {"id": got}
+    return out
+
+
+def _house(db, spelling):
+    """Which house a catalogued spelling names, as the registry's anchors answer it."""
+    got = db.execute("SELECT publisher FROM print_party WHERE publisher_raw = ?"
+                     " AND publisher IS NOT NULL", (spelling,)).fetchone()
+    return got[0] if got else None
 
 
 def _entry(db, rec_id, surface, kind, spelling):

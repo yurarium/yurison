@@ -1192,9 +1192,23 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   CLAIM it existed on the 689 and vanished on the rest. It is a column on `name_record` now, and
   fixing it took the two maps from 24 differing fields to 13.
 
-  WHAT IS LEFT BEFORE THE FILE CAN MOVE: the publishers and imprints maps, which are keyed by the
-  CORPUS's spellings rather than by the store's, and `floor`, `phrases` and `credit_parts`, which are
-  rows in `romanisation` and `credit_part` already.
+  `floor`, `phrases` AND `credit_parts` COME OUT EXACT, at 9,743, 7,479 and 3,399 keys. Two things
+  the round trip found: a romanisation is ONE string where the three styles agree, which is what the
+  file holds and is not a shortcut, since a name with no long vowel and no doubled consonant is
+  spelled one way whichever style a reader chose; and a byline can say `and others`, which
+  `[他著]雪子` does, and the loader was dropping the parts with no name.
+
+  THE TITLE AND AUTHOR MAPS COME BACK WITH THE FILE'S OWN KEYS, 3,301 and 2,575, with 3 and 6
+  entries differing. The last thing between them and the file was the register of works this
+  database does not publish: a withheld work has no row in the store, which is why the ruling is a
+  table of its own, and without it the emitter puts the title and its English rendering on the
+  public site with only the work's rows removed.
+
+  WHAT IS LEFT: `publishers` comes back with 370 of its 386 keys and 1 entry differing, and the 16
+  missing are imprint spellings on print rows whose publisher field is empty. `print_party` holds a
+  row per SEAT and a seat with no name is no row, so those blocks reach the census with their line
+  and without their house. The `imprints` section is not written. Then the file itself, and the
+  direct path deleted in the same change.
 
   `index.json` MOVED 2026-08-13, along with `feed/credit-keys.json`, which is `credit_spelling`
   written down. The index took four corrections that byte equality found and nothing else would

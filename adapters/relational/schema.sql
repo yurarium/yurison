@@ -35,12 +35,48 @@ CREATE TABLE work (
   -- for an x that matches neither and a CHECK passes on NULL. `'banana'` inserted here for as long
   -- as this column has existed. Every comparable column omits it; §5a is where this one did.
   first_event       TEXT CHECK (first_event IS NULL OR first_event IN ('publication', 'shop-delivery')),
-  volume_count      INTEGER CHECK (volume_count IS NULL OR volume_count >= 0),
-  explicit_content  INTEGER NOT NULL DEFAULT 0 CHECK (explicit_content IN (0, 1)),
-  -- WHY THIS WORK IS HERE AT ALL. DEFINITIONS section 6 admits a work on stated grounds, and a row
-  -- with no grounds is a work nobody decided to include.
-  admitted_by       TEXT NOT NULL
+  explicit_content  INTEGER NOT NULL DEFAULT 0 CHECK (explicit_content IN (0, 1))
+
+  -- `volume_count` AND `admitted_by` WERE COLUMNS HERE AND BOTH HELD A PLACEHOLDER ON EVERY ROW.
+  -- The loader read them from `series.json`, which carries neither: the grounds are on
+  -- `works.json`, structured, on 1,887 records, and the count is there too. So `admitted_by` was
+  -- the string `'unstated'` 3,040 times under a NOT NULL whose own comment says a row with no
+  -- grounds is a work nobody decided to include, and `volume_count` was NULL 3,040 times.
+  --
+  -- NEITHER COMES BACK AS A COLUMN, because measuring them showed both are CLAIMS. A work is
+  -- admitted on grounds that name a comparator, a shelf, a page and a date, which is `admission`.
+  -- And 72 works have records stating DIFFERENT volume counts, so a single column would have to
+  -- pick one and discard a disagreement, which is the one thing this project does not do.
+  -- `volume_claim` holds each with the source that states it, and how many volumes are HELD is
+  -- `count(volume)`, which is the other side of `works holding fewer volumes than the shop states`.
 );
+
+-- WHY A WORK IS HERE AT ALL. DEFINITIONS §2 admits one on stated grounds: a licensed retailer's
+-- yuri shelf is a comparator, presumptive and rebuttable. 1,887 grounds across 1,816 works.
+CREATE TABLE admission (
+  id         INTEGER PRIMARY KEY,
+  work       TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  comparator TEXT,
+  shelf      TEXT,
+  shop_url   TEXT,
+  url        TEXT,
+  retrieved  TEXT,
+  note       TEXT
+);
+
+CREATE INDEX admission_work ON admission (work);
+
+-- HOW MANY VOLUMES A SOURCE SAYS THERE ARE, which is not how many we hold and is why both exist.
+CREATE TABLE volume_claim (
+  id         INTEGER PRIMARY KEY,
+  work       TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  volumes    INTEGER NOT NULL CHECK (volumes >= 0),
+  source     TEXT,
+  provenance TEXT,
+  retrieved  TEXT
+);
+
+CREATE UNIQUE INDEX volume_claim_one ON volume_claim (work, volumes, coalesce(source, ''));
 
 CREATE TABLE credit (
   id      TEXT PRIMARY KEY CHECK (id GLOB 'c[0-9][0-9][0-9][0-9][0-9]'),
@@ -351,6 +387,12 @@ CREATE TABLE claim (
   -- WHY THE REVIEWER CONCLUDED IT. `researched` demands this and `curate.problems` enforces it in
   -- Python; here it is a CHECK, so a researched claim with no note cannot be written at all.
   note         TEXT,
+
+  -- WHETHER THIS IS THE ANSWER THE RECORD STANDS BEHIND. §1 keeps a displaced claim rather than
+  -- discarding it, and until §5c nothing said which of two rows is the live one, so 638 surfaces
+  -- carried a `verified` flag beside two or more readings with no way to tell which one a person
+  -- ruled on. A conflicts entry is a claim somebody moved aside, and saying so costs one column.
+  displaced    INTEGER NOT NULL DEFAULT 0 CHECK (displaced IN (0, 1)),
 
   CHECK (basis <> 'researched' OR note IS NOT NULL),
 

@@ -213,11 +213,10 @@ def build(path=None):
         wid = r.get("id")
         if not wid or not str(wid).startswith("w"):
             continue
-        put("INSERT OR IGNORE INTO work (id, title, first_publication, first_event, volume_count,"
-            " explicit_content, admitted_by) VALUES (?,?,?,?,?,?,?)",
+        put("INSERT OR IGNORE INTO work (id, title, first_publication, first_event,"
+            " explicit_content) VALUES (?,?,?,?,?)",
             (wid, r.get("work") or "", r.get("first"), r.get("first_event"),
-             r.get("volumes"), int(bool(r.get("explicit_content"))),
-             r.get("admitted_by") or "unstated"), f"work {wid}")
+             int(bool(r.get("explicit_content")))), f"work {wid}")
     counts["work"] = db.execute("SELECT count(*) FROM work").fetchone()[0]
 
     for cid, r in _rows("credits", "credits"):
@@ -468,22 +467,51 @@ def build(path=None):
                         continue
                     seen_claims.add(ident)
                     put("INSERT INTO claim (surface, predicate, value, basis, source, source_kind,"
-                        " retrieved, reviewed, url, isbn, note) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                        " retrieved, reviewed, url, isbn, note, displaced)"
+                        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                         (sid, predicate, value, basis, claim.get(f"{cite}_source"),
                          _kind_of(claim, cite), claim.get(f"{cite}_at"),
                          claim.get(f"{cite}_reviewed"),
                          cited.get("url") or claim.get(f"{cite}_url"),
-                         cited.get("isbn"), claim.get(f"{cite}_note") or claim.get("note")),
+                         cited.get("isbn"), claim.get(f"{cite}_note") or claim.get("note"),
+                         # WHICH ANSWER THE RECORD STANDS BEHIND. Index 0 is the live claim and
+                         # every later one came out of a conflicts list, which is a claim somebody
+                         # moved aside. Without this the store held two readings and a `verified`
+                         # flag with no way to say which one a person ruled on, 638 times.
+                         int(i > 0)),
                         f"claim {predicate} {f} {name}" + (f" [{i}]" if i else ""))
             # WHERE A NAME PARTS, AND ONLY WHERE SOMETHING SAYS WHAT THAT RESTS ON. 680 records
             # hold a boundary and 660 of them state their source as PROSE: `the kana in its own
             # surface`, `the National Diet Library's author heading on record R100000002-…`. Prose
             # is not a basis and inventing one for it here would put a ruling in the loader.
             # docs/GAPS.md carries the 660.
-            if r.get("reading_boundary") and r.get("reading_boundary_basis"):
+            #
+            # DONE IN §5c FOR EVERY NAME THAT STATES ONE, and the earlier reading of this was
+            # wrong. §5 argued `undivided` needed no column because the store holds the reading and
+            # whether the credit is a person; the flag turns on whether a parting point is STATED,
+            # and 889 names state one: 680 in `reading_boundary` and 276 in `reading_family` and
+            # `reading_given`, which together are the divided form of the name. The store held 20.
+            #
+            # THE BASIS IS THE RECORD'S OWN WHERE THE BOUNDARY DOES NOT NAME ONE. `facts/division`
+            # says a `cited` basis gave the division with the reading, which is what a catalogue
+            # printing `美鈴, ちょこ` does, so the reading's basis is the division's basis unless
+            # the record says otherwise. The 660 boundaries stating their source in prose keep it
+            # as the note, and docs/GAPS.md carries the fact that prose is not a basis.
+            divided = (" ".join(x for x in (r.get("reading_family"), r.get("reading_given")) if x)
+                       if r.get("reading_family") or r.get("reading_given") else None)
+            if r.get("reading_boundary") or divided:
+                basis = (r.get("reading_boundary_basis") or r.get("reading_basis")
+                         or _reading.DEFAULT_BASIS)
+                # THROUGH THE SAME DEDUPE AS THE REST, since two spellings folding to one surface
+                # state one division between them.
+                ident = (sid, "division", divided or r.get("reading") or "", basis, "")
+                if ident in seen_claims:
+                    continue
+                seen_claims.add(ident)
                 put("INSERT INTO claim (surface, predicate, value, basis, note)"
                     " VALUES (?,'division',?,?,?)",
-                    (sid, r["reading"], r["reading_boundary_basis"], r["reading_boundary"]),
+                    (sid, divided or r.get("reading") or "", basis,
+                     r.get("reading_boundary") or r.get("reading_note")),
                     f"claim division {f} {name}")
     counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
     counts["claim"] = db.execute("SELECT count(*) FROM claim").fetchone()[0]
@@ -599,8 +627,22 @@ def build(path=None):
 
     # WORK TO PUBLISHER, read off `publishers.json`'s own `works` list, which IS the edge. Going by
     # way of the print blocks would have rebuilt a join the publisher pass has already made.
-    imprint_id = {(pub, nm): i for i, pub, nm in
-                  db.execute("SELECT id, publisher, name FROM imprint")}
+    # KEYED ON THE FOLD AS WELL AS THE SPELLING, §5c. The print blocks write one line as
+    # `Yuri-hime comics`, `Yurihime comics` and `IDコミックス　／　Yurihime comics`, and an exact
+    # match on the name left 906 of 2,661 rows with no imprint at all. The registry's own slug is
+    # what identifies a line; folding the spelling is what reaches it from a print block.
+    imprint_id = {}
+    for i, pub, nm in db.execute("SELECT id, publisher, name FROM imprint"):
+        imprint_id[(pub, nm)] = i
+        imprint_id.setdefault((pub, _namekey.fold(nm).lower()), i)
+
+    def _imprint(pid, name):
+        if not name:
+            return None
+        got = imprint_id.get((pid, name))
+        if got is not None:
+            return got
+        return imprint_id.get((pid, _namekey.fold(str(name)).lower()))
     # THE IMPRINT A WORK IS PUBLISHED UNDER lives on the print block rather than on the publisher,
     # because one house runs several lines and a work sits on one of them.
     work_imprint = {}
@@ -615,7 +657,7 @@ def build(path=None):
         for wid in (r.get("works") or []):
             imp = work_imprint.get((wid, pub_name.get(pid)))
             put("INSERT INTO work_publisher (work, publisher, imprint) VALUES (?,?,?)",
-                (wid, pid, imprint_id.get((pid, imp))), f"work_publisher {wid}->{pid}")
+                (wid, pid, _imprint(pid, imp)), f"work_publisher {wid}->{pid}")
     counts["work_publisher"] = db.execute("SELECT count(*) FROM work_publisher").fetchone()[0]
 
     # EDITIONS. `works.json` is keyed by the RECORD identifier a catalogue or a shop issued, and
@@ -692,6 +734,37 @@ def build(path=None):
                     " VALUES (?,?,?,?,?)",
                     (vol, dated, kind, basis, cite if kind == "printing" else (shop or cite)),
                     f"edition {kind} {wid} {v.get('isbn') or v.get('designation') or '?'}")
+    # ── the grounds, and what a source says the run is, §5c ──────────────────────────────────────
+    #
+    # BOTH WERE COLUMNS ON `work` AND BOTH WERE READ FROM THE WRONG FILE. `series.json` carries
+    # neither, so `admitted_by` was the word `'unstated'` on all 3,040 rows under a NOT NULL, and
+    # `volume_count` was NULL on all of them, while `works.json` held structured grounds on 1,887
+    # records. `explicit_content` is filled from the same place and is False on every one, which is
+    # now a measured answer rather than a column default.
+    for _k, w in _rows("works", "works"):
+        wid = of_record.get(w.get("work_id"))
+        if not wid:
+            continue
+        if w.get("explicit_content"):
+            db.execute("UPDATE work SET explicit_content = 1 WHERE id = ?", (wid,))
+        for g in (w.get("admitted_by") or []):
+            if isinstance(g, dict):
+                put("INSERT INTO admission (work, comparator, shelf, shop_url, url, retrieved,"
+                    " note) VALUES (?,?,?,?,?,?,?)",
+                    (wid, g.get("comparator"), g.get("shelf"), g.get("shop_url"), g.get("url"),
+                     g.get("retrieved"), g.get("note")), f"admission {wid}")
+        # A COUNT A SOURCE STATES, AND 72 WORKS HAVE RECORDS THAT DISAGREE, which is why this is a
+        # row with its source beside it rather than a column that would have to pick one.
+        claimed = w.get("completed_claim") if isinstance(w.get("completed_claim"), dict) else {}
+        n = claimed.get("volumes") if claimed.get("volumes") is not None else w.get("volume_count")
+        if isinstance(n, int):
+            put("INSERT OR IGNORE INTO volume_claim (work, volumes, source, provenance, retrieved)"
+                " VALUES (?,?,?,?,?)",
+                (wid, n, claimed.get("source") or w.get("work_id"), claimed.get("provenance"),
+                 claimed.get("retrieved")), f"volume_claim {wid}")
+    counts["admission"] = db.execute("SELECT count(*) FROM admission").fetchone()[0]
+    counts["volume_claim"] = db.execute("SELECT count(*) FROM volume_claim").fetchone()[0]
+
     counts["volume"] = db.execute("SELECT count(*) FROM volume").fetchone()[0]
     counts["edition"] = db.execute("SELECT count(*) FROM edition").fetchone()[0]
 

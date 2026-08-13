@@ -106,6 +106,24 @@ DERIVATIONS = {
         "reads": ("names",)},
     # A RULING THAT TWO IDENTIFIERS ARE NOT ONE, which is what stops a later pass merging them
     # again. `delta.KINDS` names `merge` and `divide` and nothing recorded the decisions until now.
+    # §5c. `verified` SITS ON THE NAME AND THE CLAIMS DISAGREE, which was unanswerable while nothing
+    # said which of two rows a record stands behind. It counts the live claims alone now.
+    "names two sources disagree about, live claims only": {
+        "sql": "SELECT count(*) FROM (SELECT surface FROM claim WHERE displaced = 0 "
+               "GROUP BY surface, predicate HAVING count(DISTINCT value) > 1)",
+        "reads": ("claim",)},
+    # A DATE CITED TO SOMETHING THAT IS NOT A PAGE. `CHECK (dated IS NULL OR cite IS NOT NULL)`
+    # asks whether a citation exists and cannot ask what it is, so 915 rows cite the literal string
+    # `ndl`. A CHECK on the shape would refuse them, and they are the corpus as it stands.
+    "dates cited to something that is not a page": {
+        "sql": "SELECT count(*) FROM edition WHERE dated IS NOT NULL AND cite IS NOT NULL "
+               "AND cite NOT LIKE 'http%' AND cite NOT LIKE 'madb:%' AND cite NOT LIKE 'openbd:%'",
+        "reads": ("edition",)},
+    # 833 of 2,661, down from 906 once the print block's spelling is folded onto the registry's.
+    # What is left is a line the registry does not carry, which is data rather than a join.
+    "works on a house with no line named": {
+        "sql": "SELECT count(*) FROM work_publisher WHERE imprint IS NULL",
+        "reads": ("work_publisher",)},
     "identities somebody ruled apart": {
         "sql": "SELECT count(*) FROM identity_ruling WHERE kind IN ('keep', 'homophone')",
         "reads": ("identity_ruling",)},

@@ -25,7 +25,7 @@ import relational                                                       # noqa: 
 def _fresh():
     d = tempfile.mkdtemp()
     db = relational.load_rulings(relational.create(pathlib.Path(d) / "t.db"))
-    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001','T','test')")
+    db.execute("INSERT INTO work (id, title) VALUES ('w00001','T')")
     db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','X','person')")
     db.execute("INSERT INTO publisher (id, name) VALUES ('h00001','P')")
     db.execute("INSERT INTO surface (kind, folded) VALUES ('title','T')")
@@ -63,13 +63,13 @@ def main(s):
             "`seq` is gone: it was documented as byline order and numbered the wrong thing")
 
     # ONE ROW PER IDENTIFIER, and one identifier per name.
-    _refuses(s, db, "INSERT INTO work (id, title, admitted_by) VALUES ('w00001','other','t')", (),
+    _refuses(s, db, "INSERT INTO work (id, title) VALUES ('w00001','other')", (),
              "a second work under one id is refused")
     _refuses(s, db, "INSERT INTO credit (id, surface, kind) VALUES ('c00002','X','person')", (),
              "a second credit under one surface is refused")
 
     # AN IDENTIFIER HAS A SHAPE. `w`, `c`, `h` are the project's and a typo is not an id.
-    _refuses(s, db, "INSERT INTO work (id, title, admitted_by) VALUES ('nope','T','t')", (),
+    _refuses(s, db, "INSERT INTO work (id, title) VALUES ('nope','T')", (),
              "an identifier of the wrong shape is refused")
 
     # AN IMPRINT BELONGS TO A HOUSE THAT EXISTS.
@@ -150,7 +150,7 @@ def main(s):
     # commit that created the schema until 2026-08-13. A constraint nothing has ever inserted
     # against asserts nothing, which is the same argument this file opens with.
     db = relational.create(":memory:")
-    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001', 'x', 'shelf')")
+    db.execute("INSERT INTO work (id, title) VALUES ('w00001', 'x')")
     db.execute("INSERT INTO publisher (id, name) VALUES ('h00001', '芳文社')")
     db.execute("INSERT INTO imprint (publisher, name) VALUES ('h00001', 'まんがタイムKR')")
     imp = db.execute("SELECT id FROM imprint").fetchone()[0]
@@ -285,7 +285,7 @@ def main(s):
     # nothing had nowhere to hang and the loader skipped it: 890 readings and every one of the
     # 4,174 English renderings the corpus holds were absent from a store reporting no refusals.
     db = relational.load_rulings(relational.create(":memory:"))
-    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001','ゆり','shelf')")
+    db.execute("INSERT INTO work (id, title) VALUES ('w00001','ゆり')")
     db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','作者','person')")
     db.execute("INSERT INTO surface (kind, folded) VALUES ('title','よんだことのないほん')")
     orphan = db.execute("SELECT last_insert_rowid()").fetchone()[0]
@@ -297,7 +297,7 @@ def main(s):
     # §5d: WHAT A NAME NAMES IS AN EDGE. Three nullable columns on `surface` said a name names at
     # most one thing, and `百合漫画短編集` names w01990 and w02284 while `Girls Love` names w01001
     # and w01108, so one work of each pair took the English and the reading and the other got none.
-    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00002','T2','test')")
+    db.execute("INSERT INTO work (id, title) VALUES ('w00002','T2')")
     db.execute("INSERT INTO names (surface, kind, work) VALUES (?, 'title', 'w00002')", (orphan,))
     db.execute("INSERT INTO names (surface, kind, work) VALUES (?, 'title', 'w00001')", (orphan,))
     s.eq(db.execute("SELECT count(*) FROM names WHERE surface = ?", (orphan,)).fetchone()[0], 2,
@@ -385,6 +385,42 @@ def main(s):
     s.eq(db.execute("SELECT count(*) FROM surface WHERE folded = 'あ／い'").fetchone()[0], 2,
          "and one string is a title and a credit line at once, which is what the kind is for")
 
+    # ── §5c: WHAT THE STORE SAID IT HELD AND DID NOT ──────────────────────────────────────────
+    #
+    # `admitted_by` WAS A NOT NULL HOLDING THE WORD `'unstated'` ON ALL 3,040 ROWS, because the
+    # loader read it from `series.json` and the grounds are on `works.json`, structured, on 1,887
+    # records. A NOT NULL whose every value is the word for null reports as filled.
+    s.check("admitted_by" not in [r[1] for r in db.execute("pragma table_info(work)")],
+            "the placeholder column is gone and the grounds are a table")
+    db.execute("INSERT INTO admission (work, comparator, shelf, note) VALUES"
+               " ('w00001','cmoa.jp','genre 37 (百合・GL)','DEFINITIONS §2, presumptive')")
+    s.eq(db.execute("SELECT shelf FROM admission").fetchone()[0], "genre 37 (百合・GL)",
+         "and a work is admitted on grounds that name the comparator and the shelf")
+    _refuses(s, db, "INSERT INTO admission (work) VALUES ('w99999')", (),
+             "grounds for a work nobody holds are refused")
+
+    # `volume_count` WAS NULL ON ALL 3,040 FOR THE SAME REASON, and it does not come back as a
+    # column: 72 works have records stating DIFFERENT counts, so one column would have to pick and
+    # discard a disagreement. How many are HELD is `count(volume)`, which is the other side of it.
+    s.check("volume_count" not in [r[1] for r in db.execute("pragma table_info(work)")],
+            "a count a source states is not a property of the work")
+    db.execute("INSERT INTO volume_claim (work, volumes, source) VALUES ('w00001',6,'cmoa.jp')")
+    db.execute("INSERT INTO volume_claim (work, volumes, source) VALUES ('w00001',5,'bookwalker')")
+    s.eq(db.execute("SELECT count(*) FROM volume_claim WHERE work='w00001'").fetchone()[0], 2,
+         "two sources disagreeing about the run are two rows, which is the rule everywhere else")
+    _refuses(s, db, "INSERT INTO volume_claim (work, volumes) VALUES ('w00001',-1)", (),
+             "and a negative run is refused")
+
+    # WHICH ANSWER THE RECORD STANDS BEHIND. 638 surfaces carried a `verified` flag beside two or
+    # more readings, and nothing said which one a person ruled on.
+    db.execute("INSERT INTO claim (surface, predicate, value, basis, source, displaced) VALUES"
+               " (?,'reading','ヨミC','surface','x',1)", (orphan,))
+    s.eq(db.execute("SELECT count(*) FROM claim WHERE displaced = 1").fetchone()[0], 1,
+         "a claim somebody moved aside is kept and says so")
+    _refuses(s, db, "INSERT INTO claim (surface, predicate, value, basis, displaced) VALUES"
+                    " (?,'reading','ヨミD','surface',2)", (orphan,),
+             "and displaced is a yes or a no")
+
     # ── §5d: THE IDENTITY REGISTRY, WHICH THE STORE HAD NEVER READ ────────────────────────────
     #
     # ONE ADDRESS REACHES ONE WORK, which is how this project identifies one and is the constraint
@@ -449,15 +485,15 @@ def main(s):
     # NULL, and a CHECK passes on NULL, so this column constrained nothing until §5a.
     s.check(db.execute("SELECT 'banana' IN ('publication','shop-delivery',NULL)").fetchone()[0]
             is None, "the SQL behind it: a comparison against a list holding NULL answers NULL")
-    _refuses(s, db, "INSERT INTO work (id,title,admitted_by,first_event) "
-                    "VALUES ('w00009','T','t','banana')", (),
+    _refuses(s, db, "INSERT INTO work (id,title,first_event) "
+                    "VALUES ('w00009','T','banana')", (),
              "a first event outside the pair is refused now that the NULL is out of the list")
 
     # AN IDENTIFIER HAS A WIDTH AND NOT ONLY A PREFIX. `w[0-9]*` admitted `w1garbage`, and it
     # admitted the short ids `test_delta.py` had been planting since it was written.
-    _refuses(s, db, "INSERT INTO work (id,title,admitted_by) VALUES ('w1garbage','T','t')", (),
+    _refuses(s, db, "INSERT INTO work (id,title) VALUES ('w1garbage','T')", (),
              "an identifier with rubbish after the digits is refused")
-    _refuses(s, db, "INSERT INTO work (id,title,admitted_by) VALUES ('w1','T','t')", (),
+    _refuses(s, db, "INSERT INTO work (id,title) VALUES ('w1','T')", (),
              "and so is one too short to be an identifier this project issues")
 
     # A VOLUME BEFORE THE FIRST ONE.

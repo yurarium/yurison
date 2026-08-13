@@ -50,7 +50,7 @@ below moves one domain to the other side of that line.
 | §5a | The constraints that do not fire | done 2026-08-13 |
 | §5b | A row nothing can address twice | done 2026-08-13 |
 | §5d | A name is an identity here, and it must not be | done 2026-08-13 |
-| §5c | What the store says it holds and does not | §5a |
+| §5c | What the store says it holds and does not | done 2026-08-13 |
 | §5e | The domains still outside the store | §5c |
 | §6 | The compiler writes the store; the JSON is emitted from it | §5e |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
@@ -553,6 +553,15 @@ The 812 extra rows are exactly the volumes that state two dates, so nothing is d
 
 ## 5c. What the store says it holds and does not
 
+**DONE 2026-08-13, AND EVERY ONE OF THE THREE COLUMNS TURNED OUT TO BE A CLAIM.** `admission` holds
+1,887 grounds across 1,816 works, naming a comparator, a shelf, a page and a date. `volume_claim`
+holds 2,573, because 72 works have records stating DIFFERENT counts and one column would have to
+pick one and discard a disagreement. `explicit_content` is filled from the same file and is False on
+every row, which is a measured answer rather than a column default. Both columns are gone from
+`work`, for the reason `seq` went: a column holding a placeholder reports as filled.
+
+`data reaching the site around the store` falls 388 to 380.
+
 **THREE COLUMNS ON `work` ARE SATISFIED BY A PLACEHOLDER.** `admitted_by TEXT NOT NULL` reads
 `'unstated'` on all 3,040 rows, and its comment says a row with no grounds is a work nobody decided
 to include. The grounds exist: `works.json` carries a structured `admitted_by` on 1,887 records
@@ -565,7 +574,8 @@ null is worse than a nullable column, because it reports as filled.
 than reported by it. Every one has its folded title in `feed/names.json`. The loader resolves a
 name to a work by exact match against `work.title`, and NFKC folds `！` to `!`, so
 `一畳間まんきつ暮らし！` never matches the raw title it came from. Indexing the subjects by the same
-fold the table is keyed on resolves all 55 and is a change to one dictionary.
+fold the table is keyed on resolves all 55. Done by §5d, which replaced the title match with the
+fold, and the count is 0.
 
 **869 NAMES WHOSE PARTING POINT THE CORPUS STATES ARE RECORDED AS HAVING NONE.** §5 argued that
 `undivided` needed no column because the store holds the reading and whether the credit is a
@@ -579,10 +589,19 @@ division claims are loaded from the fields that state one.
 and two or more distinct reading values, so the flag cannot say which reading a person ruled on.
 That is the flattening `claim` was introduced to end, reintroduced one table over.
 
+**DONE 2026-08-13, AND IT COST ONE COLUMN.** A conflicts entry is a claim somebody moved aside, and
+`claim.displaced` says so, which is what `verified` was missing a referent for. It also corrects a
+number: `names two sources disagree about` reports 1,001, and only 107 of those are two LIVE claims.
+The other 894 are a live answer beside one already set aside, which is not two sources disagreeing.
+
 **A CITATION THAT CITES NOTHING SATISFIES `edition`'s CHECK.** 915 rows cite the literal string
 `'ndl'`, and 2,818 cite a series-level page, one of them shared by 119 volumes. The check the
 comment names, `per-book dates cite their page`, is about per-book pages specifically, and 3,733 of
 the 6,108 dated rows carry a citation that does not witness the date. `cite = 'nonsense'` inserts.
+
+A CHECK on the shape would refuse the 915, which are the corpus as it stands, so `dates cited to
+something that is not a page` counts them instead and answers 915. A CHECK asking whether a citation
+EXISTS cannot ask what it is.
 
 **`imprint` IS KEYED ON A SPELLING AND A LINE IS IDENTIFIED BY ITS SLUG.** 906 of 2,661
 `work_publisher` rows carry no imprint, because the print blocks spell one line as `Yuri-hime
@@ -590,6 +609,10 @@ comics`, `Yurihime comics` and `IDコミックス　／　Yurihime comics` and t
 name. 125 of 306 imprint rows have no slug. 47 work and publisher pairs have more than one print
 block and 15 name different imprints, of which the loader keeps the first without counting the
 rest. `parent` is free text and one value resolves to no imprint.
+
+Folding the print block's spelling onto the registry's takes 906 to 833, and `works on a house with
+no line named` counts what is left. Those are lines the registry does not carry, which is data to
+find rather than a join to fix, and the multi-block case goes to §5e with the byline.
 
 ## 5d. A name is an identity here, and it must not be
 

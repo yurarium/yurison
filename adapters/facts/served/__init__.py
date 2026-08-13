@@ -168,6 +168,11 @@ STORE_ANSWERS = (
     "series.json:series[].work",
     "series.json:series[].first",
     "works.json:works[].work_id",
+    # §5c: the grounds a work was admitted on, and what a source says its run is.
+    "works.json:works[].admitted_by",
+    "works.json:works[].volume_count",
+    "works.json:works[].explicit_content",
+    "works.json:works[].completed_claim",
     "works.json:works[].publisher",
     "works.json:works[].imprint",
     "works.json:works[].volumes[].isbn",

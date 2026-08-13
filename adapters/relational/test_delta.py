@@ -21,8 +21,8 @@ from relational import delta                                            # noqa: 
 
 def _db(d):
     db = delta.ensure(relational.load_rulings(relational.create(pathlib.Path(d) / "t.db")))
-    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001','T','test')")
-    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00002','U','test')")
+    db.execute("INSERT INTO work (id, title) VALUES ('w00001','T')")
+    db.execute("INSERT INTO work (id, title) VALUES ('w00002','U')")
     db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','X','person')")
     db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00002','Y','person')")
     delta.recompute(db)
@@ -140,7 +140,7 @@ def main(s):
         a, b = _db(da), _db(db2)
         s.eq(relational._table_digests(a), relational._table_digests(b),
              "two stores built the same way digest the same")
-        b.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00003','V','test')")
+        b.execute("INSERT INTO work (id, title) VALUES ('w00003','V')")
         s.ne(relational._table_digests(a)["work"], relational._table_digests(b)["work"],
              "and one extra row moves the digest of its table alone")
         s.eq(relational._table_digests(a)["credit"], relational._table_digests(b)["credit"],

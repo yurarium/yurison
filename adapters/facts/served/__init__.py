@@ -254,11 +254,22 @@ STORE_ANSWERS = (
     "feed/current.json:releases[].url",
     "feed/current.json:releases[].type",
     "feed/current.json:releases[].seen",
+    # §6: `feed/current.json` AND THE ARCHIVED MONTHS ARE EMITTED FROM THE STORE as of 2026-08-13.
+    # One emitter for both, because a row is the same row wherever it is filed and what differs is
+    # the date filter over it. The archive is re-derived every build and what is locked is the ROW
+    # SET rather than the bytes, which is what lets a name the store has since corrected reach a
+    # month published before the correction.
+    "feed/current.json:releases", "feed/current.json:window_days", "feed/current.json:from",
+    "feed/current.json:to", "feed/current.json:generated",
+    "feed/2026-07.json:releases", "feed/2026-07.json:month", "feed/2026-07.json:generated",
+    "feed/current.json:releases[]", "feed/2026-07.json:releases[]",
     # §5: THE RENDERINGS. A name is a `surface` row keyed by the fold the feed joins on, what is
     # claimed about it is a `claim` row, and what a reader is shown in Latin is a `romanisation` or
     # a `ruby` row. The three name maps take the same paths because they are the same shape.
     # THE MAP AND ITS CONTENTS ARE TWO PATHS, because `{}` is not a field separator: `titles` is the
     # map and `titles{}` is what one entry holds, and claiming the second does not claim the first.
+    # §6: THE MAP IS EMITTED FROM THE STORE as of 2026-08-13, every key of all seven sections.
+    "feed/names.json:generated", "feed/names.json:note",
     "feed/names.json:titles", "feed/names.json:titles{}",
     "feed/names.json:authors", "feed/names.json:authors{}",
     "feed/names.json:publishers", "feed/names.json:publishers{}",

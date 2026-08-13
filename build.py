@@ -2590,7 +2590,8 @@ BUILD_SUBDIRS = ("feed",)
 
 
 def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
-                     contradicted_works, print_candidates, web_works, samples, regenerate=()):
+                     contradicted_works, print_candidates, web_works, samples, regenerate=(),
+                     store=None):
     # ── The published feed, split ────────────────────────────────────────────────────────────────
     #
     # feed.json above is the INTERNAL whole — the acceptance tests and the audit sampler read it,
@@ -2641,8 +2642,17 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
     # that makes a reader distrust the counts that matter.
     window_from = str(_today - datetime.timedelta(days=CURRENT_WINDOW_DAYS - 1))
     current_rows = [r for r in releases if _fdate(r) >= window_from]
+    # THE ROWS COME OUT OF THE STORE, §6, and the FILTER stays here. Which releases belong in the
+    # window and which in a month is a fact about the file's structure; what a release row says is a
+    # fact about the release, and only the second moved.
+    def _rows_of(want):
+        if store is None:
+            return want
+        from relational import emit as _e
+        return _e.feed(store, [r.get("id") for r in want])
+
     (feed_dir / "current.json").write_text(json.dumps(
-        {"releases": current_rows,
+        {"releases": _rows_of(current_rows),
          "window_days": CURRENT_WINDOW_DAYS, "from": window_from, "to": str(_today),
          "generated": str(_today)},
         ensure_ascii=False, indent=1, default=jsonable))
@@ -2673,7 +2683,7 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
         if m >= this_month:
             continue
         path = feed_dir / f"{m}.json"
-        payload = {"releases": by_month[m], "month": m, "generated": str(_today)}
+        payload = {"releases": _rows_of(by_month[m]), "month": m, "generated": str(_today)}
         # WITHHELD BEATS WRITE-ONCE. §5's date locking protects a statement about DATES from being
         # quietly revised. It was never a licence to keep publishing a work that the adult-content
         # review has held back: an archive is still published, and a row nobody may see is a row
@@ -7045,7 +7055,9 @@ def main():
     import relational as _rel
     from relational import emit as _emit
     _store_db, _store_counts, _store_refused = _rel.build(
-        source={"series": {"series": series_rows}, "works": {"works": works}})
+        source={"series": {"series": series_rows}, "works": {"works": works},
+                # THE FEED'S OWN ROWS, so the store is not reading back the files it emits.
+                "releases": releases})
     if _store_refused:
         print(f"store refused {len(_store_refused)} row(s): "
               f"{_store_refused[0][0]}: {_store_refused[0][1]}")
@@ -7371,7 +7383,8 @@ def main():
           f"{f'; {len(_wid_ambiguous)} title(s) shared by more than one work' if _wid_ambiguous else ''}")
 
     write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
-                     contradicted_works, print_candidates, web_works, samples, regenerate=set(ARGS.regenerate_archive))
+                     contradicted_works, print_candidates, web_works, samples,
+                     regenerate=set(ARGS.regenerate_archive), store=_store_db)
 
     cl = write_run_record(out, _today, releases, platforms, works, series_rows,
                           claim_trace, dropped_dupes, thin_dropped, resolver_dropped,

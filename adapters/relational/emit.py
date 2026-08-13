@@ -1092,3 +1092,118 @@ def _print_blocks(db, work):
                 for _seq, got in sorted(folded.items())]
         out.append(block)
     return out
+
+
+def feed(db, rows=None):
+    """Every release the store holds, as the feed writes one, newest field order and all.
+
+    ONE EMITTER FOR THE WINDOW AND FOR EVERY ARCHIVED MONTH, because a row is the same row wherever
+    it is filed: what differs is the date filter over it. The archive is re-derived on every build
+    and what is locked is the ROW SET rather than the bytes, which is what lets a name the store has
+    since corrected reach a month that was published before the correction.
+
+    `rows` NARROWS IT TO A SET OF IDENTIFIERS, in the order the caller wants them.
+    """
+    titles_raw, authors_raw = _raw(db, "title"), _raw(db, "author")
+    titles_folded = _fold.fold_map(titles_raw, _namekey.fold)[0]
+    authors_folded = _fold.fold_map(authors_raw, _namekey.fold)[0]
+    out = []
+    for r in db.execute(
+            "SELECT id, work_raw, instalment, kind, adv, web, published, first_seen, basis, conf,"
+            " why, moved, url, series_url, author, author_basis, plat_slug, platform, ident,"
+            " free_from, discovered_on, late_discovered, access_basis, became_free,"
+            " access_changed, date_means, provenance, free, ahead_n, ahead_ep, ahead_next_free,"
+            " ahead_next_ep, event, event_basis, event_inferred, type_basis, preferred,"
+            " preferred_reason, is_preferred, feed_date, work, episode_count, free_episodes,"
+            " started, work_level, in_collection, syndicated, origin_note, origin_unknown,"
+            " same_title_elsewhere, channel_name, channel_host, channel_origin, channel_home,"
+            " channel_syndicated, access_stated, channel_stated FROM release ORDER BY rowid"):
+        (rid, work, ep, kind, adv, web, pub, seen, basis, conf, why, moved, url, series_url,
+         author, author_basis, plat, plat_name, ident, free_from, discovered_on, late_discovered,
+         access_basis, became_free, access_changed, date_means, provenance, free, ahead_n,
+         ahead_ep, ahead_next_free, ahead_next_ep, event, event_basis, event_inferred, type_basis,
+         preferred, preferred_reason, is_preferred, feed_date, wid, episode_count, free_episodes,
+         started, work_level, in_collection, syndicated, origin_note, origin_unknown,
+         same_title, channel_name, channel_host, channel_origin, channel_home,
+         channel_syndicated, access_stated, channel_stated) = r
+        row = {"id": rid, "work": work, "ep": ep, "type": kind, "adv": bool(adv), "web": web,
+               "pub": pub, "seen": seen, "basis": basis, "conf": conf, "why": why, "moved": moved,
+               "url": url}
+        if series_url is not None:
+            row["series_url"] = series_url
+        row["author"] = author
+        if author_basis is not None:
+            row["author_basis"] = author_basis
+        row["plat"] = plat
+        row["plat_name"] = plat_name
+        row["ident"] = ident
+        row["free_from"] = free_from
+        if discovered_on is not None or late_discovered is not None:
+            row["discovered_on"] = discovered_on
+            row["late_discovered"] = bool(late_discovered)
+        modes = [m for m, in db.execute(
+            "SELECT mode FROM release_access_mode WHERE release = ? ORDER BY seq", (rid,))]
+        if access_stated:
+            row["access_modes"] = modes
+        if access_basis is not None:
+            row["access_basis"] = access_basis
+        if became_free is not None:
+            row["became_free"] = bool(became_free)
+            row["access_changed"] = access_changed
+        if date_means is not None:
+            row["date_means"] = date_means
+        row["provenance"] = provenance
+        row["free"] = bool(free)
+        if ahead_n is not None:
+            row["ahead_n"] = ahead_n
+            row["ahead_ep"] = ahead_ep
+            row["ahead_next_free"] = ahead_next_free
+            row["ahead_next_ep"] = ahead_next_ep
+        row["kind"] = event
+        row["kind_basis"] = event_basis
+        if event_inferred is not None:
+            row["kind_inferred"] = bool(event_inferred)
+        if type_basis is not None:
+            row["type_basis"] = type_basis
+        row["preferred"] = preferred
+        if preferred_reason is not None:
+            row["preferred_reason"] = preferred_reason
+        row["also_on"] = [p for p, in db.execute(
+            "SELECT platform FROM release_also_on WHERE release = ? ORDER BY seq", (rid,))]
+        row["is_preferred"] = bool(is_preferred)
+        if episode_count is not None or free_episodes is not None or started is not None:
+            row["episode_count"] = episode_count
+            row["free_episodes"] = free_episodes
+            row["started"] = started
+        if work_level is not None:
+            row["work_level"] = bool(work_level)
+        if in_collection is not None:
+            row["in_collection"] = bool(in_collection)
+        if syndicated is not None:
+            row["syndicated"] = bool(syndicated)
+        if origin_note is not None:
+            row["origin_note"] = origin_note
+        if origin_unknown is not None:
+            row["origin_unknown"] = bool(origin_unknown)
+        if same_title is not None:
+            row["same_title_elsewhere"] = same_title
+        if channel_name is not None:
+            row["channel_name"] = channel_name
+        if channel_stated:
+            row["channel"] = ({"name": channel_name, "host": channel_host,
+                               "syndicated": bool(channel_syndicated), "origin": channel_origin,
+                               "home": channel_home} if channel_host is not None else None)
+        row["feed_date"] = feed_date
+        if wid is not None:
+            row["wid"] = wid
+        got = _attach.title(work, titles_raw, titles_folded, _namekey.fold)
+        if got:
+            row["work_en"] = got
+        got = _attach.author(author, authors_raw, authors_folded, _namekey.fold)
+        if got:
+            row["author_en"] = got
+        out.append(row)
+    if rows is None:
+        return out
+    held = {r["id"]: r for r in out}
+    return [held[i] for i in rows if i in held]

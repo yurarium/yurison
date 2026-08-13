@@ -1128,10 +1128,19 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   published the book. It comes from `print_party` now and the seat comes with it, because dropping
   those edges would have lost a fact to make a column tidier.
 
-  `feed/current.json` and the archived months carry a RENDERING per row, `work_en` and `author_en`,
-  which the store already answers and which the feed holds a copy of. What is not modelled is the
-  release row's own reasoning: `basis`, `why`, `conf`, `provenance`, `kind_basis`, the `ahead_*`
-  block and the access-mode history.
+  `feed/current.json` AND THE ARCHIVED MONTHS MOVED 2026-08-13, both from one emitter: a row is the
+  same row wherever it is filed and what differs is the date filter over it, which stays in the
+  build because it is a fact about the file's structure. All 373 rows of the window and all 601 of
+  July, every field, parsed.
+
+  WHAT IT TOOK WAS THE ROW'S OWN REASONING, which is most of a release: on what basis we hold the
+  date, how confident that is, what kind of instalment it is and what made us say so. A release is a
+  claim that something happened, and a reader is owed the reasoning with the claim.
+
+  AND THE THREE ANSWERS `absence` HIDES, which the file spells apart and a column would not. 11 rows
+  state an EMPTY set of access modes, meaning the capture looked and the chapter offers none; 19
+  state a channel of `null`, meaning the platform has channels and this row is in none; and a row
+  that was never asked states neither. `access_stated` and `channel_stated` are the difference.
 
   `series.json` MOVED 2026-08-13, ON PARSED EQUALITY: all 3,038 rows, every field, including the
   keys that are always there and sometimes null, which is a distinction the two row paths make and

@@ -22,9 +22,12 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import kana as _kana                                                    # noqa: E402
+import pass4_analyser as _p4                                            # noqa: E402
 
-#: A reading nobody answers for, which is what withholds furigana from a personal name.
-GUESSED = ("analyser", "back-converted")
+#: A reading nobody answers for, which is what withholds furigana from a personal name. ASKED OF
+#: `pass4_analyser`, which owns which bases are a machine's answer: it is the same set the register
+#: table may take back, because both questions are `did anybody state this`.
+GUESSED = _p4.OVERRULABLE
 
 
 def spans(spelling, rec, is_person=False):

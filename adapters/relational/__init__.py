@@ -251,6 +251,16 @@ def _rows(name, key, source=None):
     return [(None, r) for r in (got or [])]
 
 
+def _flag(row, key):
+    """A boolean the row STATES, as 0 or 1, and NULL where it states nothing.
+
+    ABSENCE IS A STATE (§5). `late_discovered` is on 515 of 974 rows and false on some of them, and
+    a column defaulting to 0 would say we had looked and found nothing where nobody had looked.
+    """
+    got = (row or {}).get(key)
+    return None if got is None else int(bool(got))
+
+
 def quarantine_row(db, sql, args, what, error, at=None):
     """Record a row the schema refused, so an unattended run can carry on. STORE-PLAN §1a.
 
@@ -1276,11 +1286,15 @@ def build(path=None, quarantine=False, at=None, source=None):
             if o.get("platform"):
                 put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (o["platform"],),
                     f"platform {o['platform']}")
-    feed = ROOT / "data" / "build" / "feed"
-    releases = []
-    if feed.is_dir():
-        for f in sorted(feed.glob("current.json")) + sorted(feed.glob("[0-9]*.json")):
-            releases += (json.loads(f.read_text(encoding="utf-8")) or {}).get("releases") or []
+    # THE COMPILER'S OWN ROWS, §6. Read from `data/build/feed` this was the store taking its input
+    # from the files it emits, which on a fresh checkout is nothing and on any run is the last run's.
+    releases = (source or {}).get("releases")
+    if releases is None:
+        feed = ROOT / "data" / "build" / "feed"
+        releases = []
+        if feed.is_dir():
+            for f in sorted(feed.glob("current.json")) + sorted(feed.glob("[0-9]*.json")):
+                releases += (json.loads(f.read_text(encoding="utf-8")) or {}).get("releases") or []
     for rel in releases:
         if rel.get("plat_name"):
             put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (rel["plat_name"],),
@@ -1358,10 +1372,42 @@ def build(path=None, quarantine=False, at=None, source=None):
         seen_rel.add(rid)
         wid = rel.get("wid") if rel.get("wid") in held else by_fold.get(
             _namekey.fold(rel.get("work") or ""))
-        put("INSERT INTO release (id, work, platform, instalment, published, url, kind, first_seen)"
-            " VALUES (?,?,?,?,?,?,?,?)",
+        ch = rel.get("channel") or {}
+        put("INSERT INTO release (id, work, platform, instalment, published, url, kind, first_seen,"
+            " work_raw, author, author_basis, plat_slug, adv, web, basis, conf, why, moved, ident,"
+            " provenance, series_url, feed_date, free, free_from, access_basis, became_free,"
+            " access_changed, date_means, event, event_basis, event_inferred, type_basis,"
+            " preferred, preferred_reason, is_preferred, discovered_on, late_discovered,"
+            " episode_count, free_episodes, started, work_level, in_collection, syndicated,"
+            " origin_note, origin_unknown, same_title_elsewhere, ahead_n, ahead_ep,"
+            " ahead_next_free, ahead_next_ep, channel_name, channel_host, channel_origin,"
+            " channel_home, channel_syndicated, access_stated, channel_stated)"
+            " VALUES (" + ",".join("?" * 57) + ")",
             (rid, wid, rel["plat_name"], rel.get("ep"), rel.get("pub"), rel.get("url"),
-             rel.get("type"), rel.get("seen")), f"release {rid[:40]}")
+             rel.get("type"), rel.get("seen"),
+             rel.get("work"), rel.get("author"), rel.get("author_basis"), rel.get("plat"),
+             int(bool(rel.get("adv"))), rel.get("web"), rel.get("basis"), rel.get("conf"),
+             rel.get("why"), rel.get("moved"), rel.get("ident"), rel.get("provenance"),
+             rel.get("series_url"), rel.get("feed_date"), int(bool(rel.get("free"))),
+             rel.get("free_from"), rel.get("access_basis"),
+             _flag(rel, "became_free"), rel.get("access_changed"), rel.get("date_means"),
+             rel.get("kind"), rel.get("kind_basis"), _flag(rel, "kind_inferred"),
+             rel.get("type_basis"), rel.get("preferred"), rel.get("preferred_reason"),
+             int(bool(rel.get("is_preferred"))), rel.get("discovered_on"),
+             _flag(rel, "late_discovered"), rel.get("episode_count"), rel.get("free_episodes"),
+             rel.get("started"), _flag(rel, "work_level"), _flag(rel, "in_collection"),
+             _flag(rel, "syndicated"), rel.get("origin_note"), _flag(rel, "origin_unknown"),
+             rel.get("same_title_elsewhere"), rel.get("ahead_n"), rel.get("ahead_ep"),
+             rel.get("ahead_next_free"), rel.get("ahead_next_ep"),
+             ch.get("name") or rel.get("channel_name"), ch.get("host"), ch.get("origin"),
+             ch.get("home"), _flag(ch, "syndicated"),
+             int("access_modes" in rel), int("channel" in rel)), f"release {rid[:40]}")
+        for i, mode in enumerate(rel.get("access_modes") or []):
+            put("INSERT OR IGNORE INTO release_access_mode (release, seq, mode) VALUES (?,?,?)",
+                (rid, i, mode), f"access mode {rid[:30]}")
+        for i, other in enumerate(rel.get("also_on") or []):
+            put("INSERT OR IGNORE INTO release_also_on (release, seq, platform) VALUES (?,?,?)",
+                (rid, i, other), f"also on {rid[:30]}")
     counts["release"] = db.execute("SELECT count(*) FROM release").fetchone()[0]
     counts["release unplaced"] = db.execute(
         "SELECT count(*) FROM release WHERE work IS NULL").fetchone()[0]

@@ -1373,7 +1373,93 @@ CREATE TABLE release (
   published  TEXT CHECK (published IS NULL OR published GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR published GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   url        TEXT,
   kind       TEXT REFERENCES release_kind(name),
-  first_seen TEXT CHECK (first_seen IS NULL OR first_seen GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR first_seen GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
+  first_seen TEXT CHECK (first_seen IS NULL OR first_seen GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR first_seen GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+
+  -- ── WHAT THE ROW SAYS FOR ITSELF, §6 ─────────────────────────────────────────────────────────
+  --
+  -- A RELEASE IS A CLAIM THAT SOMETHING HAPPENED, and almost every column below is the reasoning
+  -- behind it rather than the event: on what basis we hold the date, how confident that is, what
+  -- kind of instalment it is and what made us say so. Modelled because the feed ships all of it and
+  -- a reader is owed the reasoning with the claim, which is what §1 is about.
+  work_raw   TEXT,                      -- the title as the row carries it, which is the join key
+  author     TEXT,
+  author_basis TEXT,
+  plat_slug  TEXT,                      -- the CAPTURE route, where `platform` is the display name
+  adv        INTEGER NOT NULL DEFAULT 0 CHECK (adv IN (0, 1)),
+  web        TEXT,
+  basis      TEXT,
+  conf       TEXT,
+  why        TEXT,
+  moved      TEXT,
+  ident      TEXT,
+  provenance TEXT,
+  series_url TEXT,
+  feed_date  TEXT,
+  -- WHETHER A READER CAN OPEN IT WITHOUT PAYING, and when that became true.
+  free       INTEGER NOT NULL DEFAULT 0 CHECK (free IN (0, 1)),
+  free_from  TEXT,
+  access_basis TEXT,
+  became_free  INTEGER CHECK (became_free IN (0, 1)),
+  access_changed TEXT,
+  date_means TEXT,
+  -- WHAT KIND OF INSTALMENT, WHICH IS NOT `kind` ABOVE. `release_kind` says what the ROW is, a
+  -- chapter or an access change; this is what the chapter IS to the run, `new-chapter` or
+  -- `first-chapter`, and `event_basis` is the sentence that decided it.
+  event      TEXT,
+  event_basis TEXT,
+  event_inferred INTEGER CHECK (event_inferred IN (0, 1)),
+  type_basis TEXT,
+  -- WHICH PLATFORM A READER IS SENT TO where several carry the work, and why.
+  preferred  TEXT,
+  preferred_reason TEXT,
+  is_preferred INTEGER NOT NULL DEFAULT 0 CHECK (is_preferred IN (0, 1)),
+  -- WHEN WE FIRST SAW IT, and whether that was later than the platform's own date.
+  discovered_on TEXT,
+  late_discovered INTEGER CHECK (late_discovered IN (0, 1)),
+  -- WHAT ELSE THE PLATFORM SAYS ABOUT THE RUN, on the rows where the capture reads a work page.
+  episode_count INTEGER,
+  free_episodes INTEGER,
+  started    TEXT,
+  work_level INTEGER CHECK (work_level IN (0, 1)),
+  in_collection INTEGER CHECK (in_collection IN (0, 1)),
+  syndicated INTEGER CHECK (syndicated IN (0, 1)),
+  origin_note TEXT,
+  origin_unknown INTEGER CHECK (origin_unknown IN (0, 1)),
+  same_title_elsewhere TEXT,
+  -- HOW FAR AHEAD THE PAID CHAPTERS RUN, and when the next one opens.
+  ahead_n    INTEGER,
+  ahead_ep   TEXT,
+  ahead_next_free TEXT,
+  ahead_next_ep TEXT,
+  -- THE VENUE INSIDE THE PLATFORM. きららベース is 芳文社's channel hosted on ニコニコ漫画, so the
+  -- host is not the publisher and the two are different questions about one row.
+  channel_name TEXT,
+  channel_host TEXT,
+  channel_origin TEXT,
+  channel_home TEXT,
+  channel_syndicated INTEGER CHECK (channel_syndicated IN (0, 1)),
+  -- WHETHER THE ROW WAS ASKED AT ALL, which is a different answer from `none`. 11 rows state an
+  -- EMPTY set of access modes, meaning the capture looked and the chapter offers none of them, and
+  -- 19 state a channel of `null`, meaning the platform has channels and this row is not in one.
+  -- A row that was never asked has neither, and the file spells the three apart.
+  access_stated INTEGER NOT NULL DEFAULT 0 CHECK (access_stated IN (0, 1)),
+  channel_stated INTEGER NOT NULL DEFAULT 0 CHECK (channel_stated IN (0, 1))
+);
+
+-- HOW A READER GETS AT IT, which is a LIST because a chapter can be free now and purchasable later.
+CREATE TABLE release_access_mode (
+  release TEXT NOT NULL REFERENCES release(id) ON DELETE CASCADE,
+  seq     INTEGER NOT NULL,
+  mode    TEXT NOT NULL,
+  PRIMARY KEY (release, seq)
+);
+
+-- THE OTHER PLATFORMS CARRYING THE SAME WORK, which is what makes one row the preferred one.
+CREATE TABLE release_also_on (
+  release  TEXT NOT NULL REFERENCES release(id) ON DELETE CASCADE,
+  seq      INTEGER NOT NULL,
+  platform TEXT NOT NULL,
+  PRIMARY KEY (release, seq)
 );
 
 CREATE INDEX release_work ON release (work, published);

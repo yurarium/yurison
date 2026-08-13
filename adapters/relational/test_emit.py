@@ -214,6 +214,21 @@ def main(s):
         s.eq(got_s["thresholds"], want_s["thresholds"],
              "and the thresholds are `facts/serialisation`'s rather than a second copy")
 
+    # ── THE FEED: ONE EMITTER FOR THE WINDOW AND FOR EVERY ARCHIVED MONTH ─────────────────────
+    #
+    # A row is the same row wherever it is filed, so what differs between the two files is the date
+    # filter over them. The archive is re-derived on every build and what is locked is the ROW SET
+    # rather than the bytes, which is what lets a name the store has since corrected reach a month
+    # that was published before the correction.
+    for name in ("current", "2026-07"):
+        ff = BUILD / "feed" / f"{name}.json"
+        if not ff.exists():
+            continue
+        want_f = json.loads(ff.read_text(encoding="utf-8"))["releases"]
+        got_f = emit.feed(db, [r["id"] for r in want_f])
+        s.eq(len(got_f), len(want_f), f"`feed/{name}.json` holds every release the compiler wrote")
+        s.eq(got_f, want_f, f"and every field of every row of `feed/{name}.json`, parsed")
+
     s.check(not any(emit._entry(db, rid, sid, k, sp)
                     for rid, sid, k, sp in db.execute(
                         "SELECT id, surface, kind, spelling FROM name_record"

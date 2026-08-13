@@ -63,7 +63,7 @@ below moves one domain to the other side of that line.
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
 | §10 | An invariant is a query on the store | §6 |
-| §11 | The store is the artefact; the site builds from it | §10 |
+| §11 | The store is the artefact; the site builds from it | §10; both repositories public |
 | §12 | A test the length of what it tests | nothing, and it never finishes |
 
 **WHERE §5a TO §5e CAME FROM.** An agent with no part in writing any of this reviewed
@@ -1397,7 +1397,15 @@ hold before the schedule goes on, and this plan does not get to relax them.
 | `SITE_DEPLOY_KEY` set, so publishing works | not confirmed; the step warns and exits 0 without it |
 | a re-measured cost | not done since the concurrency change |
 
-**THE COST IS THE ONE THAT DECIDES IT.** `yurison` is private, so Actions bills against 2,000 free
+**THE COST WAS THE ONE THAT DECIDED IT, AND §11 REMOVES IT.** The reasoning below held while this
+repository was private, where Actions bills against 2,000 free minutes a month and GitHub rounds
+every run up to a whole minute. A public repository is not billed for standard runners, so the
+condition that decided whether the schedule is three crons or one dissolves on the day §11 publishes
+the repository. The measurement is still worth having, for knowing what the pipeline costs in time;
+it stops being what gates the decision. The rest of §C's conditions are untouched, including
+`SITE_DEPLOY_KEY`, which is still how anything reaches the site.
+
+The argument as it stood: `yurison` is private, so Actions bills against 2,000 free
 minutes a month, GitHub rounds every run up to a whole minute, and run COUNT matters as much as run
 length. Stage A took 2,285s when it ran serially, which was roughly 1,800 minutes a month before the
 browser stage. Concurrency should have changed that substantially and nobody has measured it. Three
@@ -1561,6 +1569,11 @@ a sibling checkout, writes HTML into it, and rewrites its `index.html` to bust a
 after this is `corpus.sqlite`: 30.7 MB, 42 tables, 17.5 seconds to build, stamped with a schema
 version and the commit that produced it. The site pulls that and builds what it needs.
 
+**THE VERSION IS A DETECTOR AND NOT A PROMISE**, ruled by the project owner: no guarantee of format
+or schema is offered to anyone. So the stamp exists for the consumer to REFUSE on. A site build that
+meets a store it does not recognise stops rather than reading a column that has moved, and the
+schema stays as free to change as every other compiled thing in this repository.
+
 The site goes on being served JSON, ruled by the project owner. The emitters move unchanged and
 produce the same ten files on the other side of the line. Whether the site later queries the store
 directly is a question about the site, which is exactly the freedom this boundary is for.
@@ -1585,16 +1598,38 @@ withheld work takes a deliberate act rather than an omission. Deciding that now 
 because nothing is withheld on content grounds today; the day something is, the store will carry
 the flag, the reason and the renderings while the site shows nothing.
 
-**WHAT IS NOT DECIDED.** How the artefact travels. 30.7 MB committed into a Pages repository on
-every build is not viable, so it is a release asset or a build artefact, and that choice belongs
-with whoever wires the site's CI.
+**HOW IT TRAVELS, AND WHY THAT STOPPED BEING A PROBLEM.** The store may be public and so may this
+repository, both ruled by the project owner. That dissolves the only hard question the transfer had.
+A private producer feeding a public consumer inverts the credential this project already has:
+`SITE_DEPLOY_KEY` lives in the PRIVATE repository and grants write to the public one, which is the
+safe direction, and making the site pull would have put a read credential for a private repository
+into a public repository's secrets, one workflow edit from exposure. With both public, a read needs
+no credential in either direction. The artefact is a release asset rather than a committed file, so
+30.7 MB per build never enters anyone's git history.
 
-**THE RISKS, and the second is the one to watch.** A schema change becomes a contract between two
-repositories rather than one commit, so the site has to refuse a store whose version it does not
-know. And a check that changes repository is a check that can quietly not be adopted: those 26
-include the ones that caught `????·Bun?Bun` and Japanese leaking into English mode, which are the
-most reader-visible failures this project has had. They move as a unit with their canaries, and the
-site's CI gates on them BEFORE this repository stops running them.
+**WHAT PUBLISHING THE REPOSITORY NEEDS FIRST, and it was measured rather than assumed on
+2026-08-14.** Three axes, and this repository was built for two of them from the start.
+
+  IDENTITY. `.githooks/leak-guard.sh` has enforced one pseudonymous author on every commit since the
+  beginning and scans content against a structural denylist and an out-of-band list of real names,
+  self-testing against a planted canary and failing closed. Run over all 1,020 commits from the root
+  to HEAD it reports clean, and every commit in the history carries the one permitted author.
+
+  THIRD-PARTY CONTENT. 3,980 tracked files under `data/source` and every one is YAML records rather
+  than copies of pages. No synopsis and no image URL is stored anywhere, which REQUIREMENTS §2 says
+  and `comicfuz/works.yaml` repeats in its own header. The page caches are gitignored, so what would
+  be published is this project's account of what a source said.
+
+  WHAT ASSUMED PRIVACY. §8's cost argument, which is the next paragraph, and
+  `TODO-github-setup.md`'s wording. Both are documentation rather than mechanism.
+
+Publishing is one-way in practice, since forks and archives outlive a setting, so the audit above is
+the thing to repeat rather than trust once.
+
+**THE RISK THAT REMAINS.** A check that changes repository is a check that can quietly not be
+adopted, and those 26 include the ones that caught `????·Bun?Bun` and Japanese leaking into English
+mode, which are the most reader-visible failures this project has had. They move as a unit with
+their canaries, and the site's CI gates on them BEFORE this repository stops running them.
 
 ## 12. A test the length of what it tests
 

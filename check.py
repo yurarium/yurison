@@ -2876,6 +2876,33 @@ def budget_uncertain_readings(ctx):
     return _rd.CHECKS["uncertain_readings"](ctx)
 
 
+def budget_data_reaching_the_site_around_the_store(ctx):
+    """Fields a reader is served that the relational store could not answer.
+
+    STORE-PLAN §1. The store is to become the sole compiled form, and every section of that plan is
+    a migration; this is the number that tells a migration from a sequence of changes that feel like
+    progress. It starts at the identity spine and reaches 0 when the plan is done.
+
+    ASKED OF WHAT THE SITE SERVES, NOT OF WHAT THE STORE HOLDS. A budget counting tables would fall
+    by adding a table nobody reads. The population is the corpus files `deploy.sh` copies, so the
+    only way to move this is to make a field a reader actually gets answerable from the store.
+
+    THE RUN'S REPORT ON ITSELF IS NOT IN IT. `checks.json`, `status.json` and `run.json` are copied
+    to the site and describe the run rather than the corpus; requiring the gate's own findings to
+    come from the store would be a category error. `facts/served.CORPUS` draws that line.
+
+    §14b, WHAT IT CANNOT SEE. A field derivable in principle and not in fact, because the emitter
+    still reads the JSON. Derivability is what this measures; emission is what STORE-PLAN §6 proves,
+    and the two are deliberately separate so that neither is mistaken for the other.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from facts import served
+    try:
+        return len(served.around(str(ROOT / "data" / "build")))
+    except (OSError, ValueError):
+        return UNMEASURED
+
+
 def budget_works_without_english(ctx):
     return sum(1 for r in ctx["series"]
                if not (r.get("work_en") or {}).get("en")
@@ -5369,6 +5396,12 @@ BUDGETS_DEF = [
     ("uncertain readings", budget_uncertain_readings,
      "readings assembled character by character because no analyser could read the word. A rise "
      "means new works whose kanji nothing can read, or a regression in the analyser passes."),
+    ("data reaching the site around the store",
+     budget_data_reaching_the_site_around_the_store,
+     "fields a reader is served that the relational store could not answer. STORE-PLAN \u00a71: "
+     "the store becomes the sole compiled form, and this is what says whether a migration is "
+     "happening. Asked of what the site SERVES, so it cannot fall by adding a table nobody "
+     "reads, and it reaches 0 when the plan is done."),
     ("works without English", budget_works_without_english,
      "works that render in Japanese in English-only mode. Should be 0; a rise means the automatic "
      "naming pass stopped covering something it used to."),

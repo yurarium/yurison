@@ -41,7 +41,7 @@ below moves one domain to the other side of that line.
 
 | | stage | needs |
 |---|---|---|
-| §1 | Measure what travels around the store | nothing |
+| §1 | Measure what travels around the store | done 2026-08-13 |
 | §1a | Somewhere for what a constraint refuses | before anything refuses |
 | §2 | Fill the two tables that were designed and never written | §1 |
 | §3 | Volumes, editions and the print run | §2 |
@@ -69,6 +69,28 @@ adding tables, because it is asked of what the site SERVES rather than of what t
 **WHAT IT CANNOT SEE, §14b.** A field derivable in principle and not in fact, because the emitter
 still reads the JSON. That is why §6 stands as its own section: derivability is the measure and
 emission is the proof, and this budget only asks the first.
+
+**DONE 2026-08-13, OPENING AT 701 OF 707.** `adapters/facts/served` enumerates the field paths in
+the corpus files `deploy.sh` copies, and `data reaching the site around the store` counts those the
+store could not answer. Six paths are claimed today, all of them identity: an id and a title in each
+of the four files that carry one.
+
+**TELLING A MAP FROM A RECORD IS THE WHOLE MODULE**, and it decides whether the number means
+anything. `feed/names.json` holds 3,301 titles under folded keys, so walking it naively reported
+137,131 paths for a corpus that has 707. Two signals collapse a map: keys that are not field names,
+which catches `authors` keyed `*sow*` and the string-valued `floor` and `phrases`; and values that
+share a small vocabulary, which catches a map keyed by something identifier-shaped like `c01876`.
+
+**THE COUNTER-CASE IS THE ONE THAT WOULD HAVE READ AS SUCCESS.** A `series.json` row has 31 keys and
+nearly all its values are scalars, so a rule reading "many keys, simple values" as a map would
+collapse the most important record in the corpus to one path and report near-total coverage of a
+store holding almost none of it. Its keys are field names, so the first signal refuses it. The test
+pins that row at 31 fields and asserts it is never collapsed.
+
+**WHAT IS DELIBERATELY OUT OF THE POPULATION.** `checks.json`, `status.json` and `run.json` are
+copied to the site and describe the RUN rather than the corpus. Requiring the gate's own findings to
+come from the store would be a category error, and `served.CORPUS` draws that line where a reader
+can disagree with it.
 
 ## 1a. Somewhere for what a constraint refuses
 

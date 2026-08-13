@@ -15,7 +15,7 @@ which states the circle and the release date beside the product.
 
 Four products name a base title absent from the corpus entirely: `冷たい体温`, `ふたりの日記帳`,
 `人間してる？` and `風の少女達へ`. A join needs two ends and this has one. Whether the English
-edition may stand as the only record of a work is a question about scope rather than about matching.
+edition may be the only record of a work is a question about scope and not about matching.
 
 ## The reading it compares is an analyser's
 

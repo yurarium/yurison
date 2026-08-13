@@ -132,6 +132,19 @@ suffix whose tooltip reads "the platform lists more chapters than we hold; this 
 A row where the field meant something else would be invisible to all of them and would inflate the
 free-view count with works nobody here has read a chapter of.
 
+**THE RECORD PROVES THE POINT ON ITS OWN.** 見える子ちゃん carries `episode_count: 32` beside
+`latest_episode: 第72話`. Those cannot both be a chapter count: 32 is how many instalments ニコニコ
+offers today and 72 is where the serialisation has reached. So the number is neither what we hold
+nor the work's length, and it needs a slot that says which of the three it is. Calling it `chapters`
+would claim 32 chapters nobody here has read AND publish 32 as the length of a work on its 72nd.
+
+**IT ALSO CARRIES COMPLETION EVIDENCE NOTHING READS.**
+`わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）` has `latest_episode: 最終話`,
+which is a platform stating that a serialisation ended. `completed_basis` exists to hold exactly
+that and the corpus holds nothing for this work. Weighed rather than believed outright, since a
+platform can mark a final chapter and then run a sequel, and a stopped run is evidence about the
+run rather than about the story.
+
 Nothing else needs inventing. The record states the author, `started`, `updated`, `episode_count`,
 `free_episodes` and a readable URL, so `first`, `latest` and `state` all derive from stated facts,
 and the interface already prints `3 listed of 90` rather than a bare number that would claim a total

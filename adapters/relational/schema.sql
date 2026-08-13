@@ -73,21 +73,31 @@ CREATE TABLE comparator (
 
 CREATE TABLE admission (
   id         INTEGER PRIMARY KEY,
+  -- KEYED ON THE RECORD, like `work_origin` and for the same reason: `works.json` carries these per
+  -- catalogue record, and holding them per work put one record's grounds on another's row. §5c
+  -- deduped 20 rows that were the same grounds seen through two records; they are two records'
+  -- grounds and the dedupe was hiding the layer rather than a duplicate.
+  record     TEXT NOT NULL,
   work       TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   comparator TEXT REFERENCES comparator(name),
   shop_url   TEXT,
   url        TEXT,
+  -- WHICH PAGE OF THE SHELF THE WORK WAS FOUND ON, which 1,632 grounds state and is how a reader
+  -- returns to the listing that admitted it.
+  page       INTEGER,
   retrieved  TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   note       TEXT
 );
 
 -- ADDRESSABLE, for the reason `volume` is. §5c added this table and §5g gave it a key.
 CREATE UNIQUE INDEX admission_one ON admission
-  (work, coalesce(comparator, ''), coalesce(url, ''));
+  (record, coalesce(comparator, ''), coalesce(url, ''));
 
 CREATE INDEX admission_work ON admission (work);
 
--- HOW MANY VOLUMES A SOURCE SAYS THERE ARE, which is not how many we hold and is why both exist.
+-- A SOURCE SAYING A RUN IS COMPLETE AT n VOLUMES, which is a different statement from a catalogue
+-- counting the volumes it holds. `record.volume_count` is the second; this is the first, and §5c
+-- filled it from both so 2,574 rows said what 330 of them meant.
 -- A COLUMN THAT MEANT TWO THINGS, §5i. `source` held a source on 329 rows and a RECORD identifier
 -- on 2,244, because the loader fell back to the record when no claim named a source, and the unique
 -- index keyed on it. So two records from one catalogue stating one count were two rows rather than
@@ -790,6 +800,9 @@ CREATE TABLE volume (
   -- NEITHER IS REQUIRED AND NEITHER EXCLUDES THE OTHER. `build.volume_number` reads 創刊号 as the
   -- first issue, so a designation can acquire a position.
   volume       INTEGER CHECK (volume IS NULL OR volume >= 0),
+  -- AS THE RECORD STATES IT. `number_raw` below is what the catalogue called the volume whether or
+  -- not that reads as a position, so `coalesce(designation, number_raw)` is what a volume is
+  -- called and this column stays what the record says.
   designation  TEXT,
   -- WHAT THE CATALOGUE CALLED IT, `vol.6`, beside the integer position read out of it.
   number_raw   TEXT,
@@ -834,6 +847,10 @@ CREATE INDEX volume_work ON volume (work);
 -- refuses means the duplicate cannot enter and no second thing has to be consulted to know it. 13
 -- digits, or 10 for the older form whose check digit may be X.
 CREATE TABLE volume_isbn (
+  -- THE RECORD'S OWN ORDER, WITH ITS PRIMARY FIRST. A book with a standard and a special edition
+  -- lists both, and which one the record leads with is the one a page shows as THE isbn; sorting
+  -- them put the special edition first on 81 volumes.
+  seq    INTEGER NOT NULL,
   isbn   TEXT PRIMARY KEY CHECK (
            isbn GLOB '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
            OR isbn GLOB '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9X]'),
@@ -854,6 +871,11 @@ CREATE TABLE edition (
   -- table: `claim` is scoped to what a NAME is, by its own CHECK on predicate. A closed set,
   -- because a basis nobody can name is a basis nobody can weigh.
   dated_basis  TEXT REFERENCES volume_basis(name),
+  -- WHETHER THE RECORD SAID SO OR THE LOADER WORKED IT OUT. 127 volumes state their basis and the
+  -- rest have one derived from the same evidence the citation uses, which is a fair answer to
+  -- "what does this date rest on" and is NOT the record's own words. `works.json` ships only the
+  -- stated ones, so the difference has to be in the store or the file cannot be emitted from it.
+  basis_stated INTEGER NOT NULL DEFAULT 0 CHECK (basis_stated IN (0, 1)),
 
   -- WHO SAYS SO, AND WHERE, WHICH ARE TWO FACTS AND WERE ONE COLUMN. `cite` packed a scheme and an
   -- identifier into one string three ways: 3,635 urls, 2,375 `madb:C418820`, and 906 that were the

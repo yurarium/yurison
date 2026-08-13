@@ -58,7 +58,7 @@ below moves one domain to the other side of that line.
 | §5i | A column that means two things | done 2026-08-13 |
 | §5j | A vocabulary with one home, and a key into it | done 2026-08-13 |
 | §5k | A date says it is a date | done 2026-08-13 |
-| §6 | The compiler writes the store; the JSON is emitted from it | 4 files emitted 2026-08-13; `works.json` modelled, the feed and `series.json` remain |
+| §6 | The compiler writes the store; the JSON is emitted from it | 5 files emitted 2026-08-13; the feed and `series.json` remain |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
@@ -1143,18 +1143,24 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   between the records of one work, a record stating no date ships `null` where one with no
   first-publication block ships `""`, and the creator field has TWO divisions in this project.
 
-  `works.json` IS MODELLED IN FULL AND NOT YET EMITTED, which is the one place §6 leaves a domain
-  half-done on purpose. Every field it carries is in the store, record and volume alike, and the
-  emitter is not written because the proof this section relies on is unavailable here: the file has
-  11 distinct key orders on its records and 38 on its volumes, and each is an artefact of the order
-  the compiler merged its sources rather than a fact about a book. Byte equality against it would be
-  asserting the merge order, so the standard for this file has to be PARSED equality, which is a
-  weaker claim and needs saying out loud before it is relied on.
+  `works.json` MOVED 2026-08-13, ON PARSED EQUALITY AND NOT ON BYTES, which is a weaker standard and
+  is stated rather than assumed. The file has 11 distinct key orders on its records and 38 on its
+  volumes, each an artefact of the order the compiler merged its sources rather than a fact about a
+  book, so asserting them would assert the merge order. Every key's PRESENCE and every value is
+  asserted instead, which is the whole of what a reader is served.
 
-  THE MODELLING IS SAFE WITHOUT THE EMISSION and the emission is not safe without care, which is why
-  they are split. Nothing the site reads changed; what changed is that the store now answers for
-  `works.json` completely, so writing the emitter is a self-contained piece of work with a clear
-  test to write first.
+  IT CORRECTED FOUR THINGS EARLIER SECTIONS HAD PUT IN THE STORE. §5f folded two volume rows onto
+  one where a record lists the same book twice, which is the right reading of an ISBN and the wrong
+  reading of a RECORD, so the store held 6,104 rows where the corpus states 6,105; both rows are
+  kept now and the ISBN is attached once. §5c filled `volume_claim` from `volume_count`, so 2,574
+  rows said what 330 of them meant. §5c keyed `admission` on the work, putting one record's grounds
+  on another's row. And §5e synthesised a designation from a number, which `number_raw` made
+  unnecessary and which was putting something into a field the record states.
+
+  AND ITS ISBNs ARE NORMALISED NOW, which is the project owner's ruling reaching the file. Every
+  difference from what the compiler wrote is provably the same ISBN respelled, 926 of them, or an
+  `editions` list that held one ISBN written twice, 26 more. No ISBN changes identity, which is what
+  made shipping the change safe to decide.
 
 **WHAT MUST NOT HAPPEN.** A domain half-migrated, where the store holds it and the JSON is still
 written directly. That is two producers of one fact, which is the fault this project names most

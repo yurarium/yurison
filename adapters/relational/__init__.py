@@ -984,7 +984,11 @@ def build(path=None, quarantine=False, at=None, source=None):
             events = []
             if v.get("published"):
                 events.append(("printing", v["published"]))
-            if v.get("delivered") and v.get("delivered") != v.get("published"):
+            # EVEN WHERE IT EQUALS THE PRINTING. §5b skipped those as redundant and they are not:
+            # the record states that a shop delivered the book on a date, and that the catalogue
+            # gives the same date for the printing is a fact about the two agreeing rather than a
+            # reason to hold one of them. `works.json` ships both and could not be emitted without.
+            if v.get("delivered"):
                 events.append(("shop-delivery", v["delivered"]))
             if not events:
                 events.append(("printing", None))
@@ -1003,23 +1007,33 @@ def build(path=None, quarantine=False, at=None, source=None):
                     of_work or
                     (shop if v.get("delivered") else None))
             # THE BOOK FIRST, ONCE, AND THEN WHAT HAPPENED TO IT.
-            # A NUMBER THAT IS A WORD IS A DESIGNATION. 28 volumes are called `難問編`, `沼編` or
-            # `上巻`, carry no integer position, and carried no designation either, so the store
-            # held nothing at all about what they are called. `build.volume_number` produced no
-            # integer for them, which is the signal that the string is a name and not a position.
+            # THE RECORD'S OWN DESIGNATION AND NOTHING ELSE. §5e synthesised one from `number`
+            # where the volume had no integer position, on the reasoning that a number which is a
+            # word is a name. The reasoning holds and the column was the wrong home for it: §6 added
+            # `number_raw`, which is that same string as the record wrote it, so
+            # `coalesce(designation, number_raw)` answers "what is this volume called" without a
+            # field the record states carrying something it does not say.
             designation = v.get("designation")
-            if not designation and v.get("number_n") is None and v.get("number"):
-                designation = str(v["number"])
-            # AN ISBN IDENTIFIES A BOOK, so a record listing one twice is listing one book twice.
-            # `C433149` numbers volume 5 twice, `9784199509322` on one row and
-            # `978-4-19-950932-2` on the other, which is `works whose records number one volume
-            # twice` seen with the evidence that settles it. The second row is not a second book
-            # and the events on it belong to the first. This is the definition of an ISBN rather
-            # than a rule about when two rows look alike, which is why the loader may apply it.
-            isbns = sorted({_isbn(x) for x in
-                            ([v["isbn"]] if v.get("isbn") else []) + list(v.get("editions") or [])
-                            if _isbn(x)})
-            vol = next((held_isbn[i] for i in isbns if i in held_isbn), None)
+            # THE RECORD'S ROWS ARE ITS ROWS, AND AN ISBN IS STILL ONE BOOK. `C433149` numbers
+            # volume 5 twice, `9784199509322` on one row and `978-4-19-950932-2` on the other, so
+            # the two rows describe one book. §5f folded them into one `volume`, which is the right
+            # reading of an ISBN and the wrong reading of a RECORD: `works.json` is the record layer
+            # and lists both rows, so the store held 6,104 where the corpus states 6,108 and the
+            # file could not be emitted from it without dropping four.
+            #
+            # SO BOTH ROWS ARE KEPT AND THE ISBN IS ATTACHED ONCE. `volume_isbn` still says one ISBN
+            # is one book, the second row simply carries none, and
+            # `works whose records number one volume twice` goes on counting the shape where it has
+            # always been counted. A store that silently held fewer rows than the record states was
+            # answering a question about books with a number about our filing.
+            # THE PRIMARY FIRST AND THEN THE REST AS THE RECORD LISTS THEM, deduplicated on the
+            # normalised form so a hyphenated repeat of the leader does not become a second entry.
+            isbns = []
+            for _raw in ([v["isbn"]] if v.get("isbn") else []) + list(v.get("editions") or []):
+                _norm = _isbn(_raw)
+                if _norm and _norm not in isbns:
+                    isbns.append(_norm)
+            vol = None
             if vol is None:
                 fv = (v.get("final_volume_basis")
                       if isinstance(v.get("final_volume_basis"), dict) else {})
@@ -1037,11 +1051,11 @@ def build(path=None, quarantine=False, at=None, source=None):
                 vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
             # EVERY ISBN THE BOOK CARRIES. 81 volumes list two, a regular printing and a special
             # edition, and the store kept one of them.
-            for isbn in isbns:
+            for _n, isbn in enumerate(isbns):
                 if isbn not in held_isbn:
                     held_isbn[isbn] = vol
-                    put("INSERT INTO volume_isbn (isbn, volume) VALUES (?,?)", (isbn, vol),
-                        f"isbn {isbn}")
+                    put("INSERT INTO volume_isbn (seq, isbn, volume) VALUES (?,?,?)",
+                        (_n, isbn, vol), f"isbn {isbn}")
             # A PLAIN INSERT, DELIBERATELY. `OR IGNORE` here swallowed 382 volumes on the first
             # run and reported `refused 0`, because SQLite treats the conflict as handled and
             # raises nothing for `put` to catch. A constraint that quietly drops a row is worse
@@ -1071,9 +1085,10 @@ def build(path=None, quarantine=False, at=None, source=None):
                 who = (v.get("published_source") if kind == "printing" else None) or (
                     "madb" if str(where or "").startswith("madb:") else None) or (
                     "shop" if kind == "shop-delivery" else None) or where
-                put("INSERT INTO edition (volume, dated, kind, dated_basis, source, cite)"
-                    " VALUES (?,?,?,?,?,?)",
-                    (vol, dated, kind, basis, who,
+                put("INSERT INTO edition (volume, dated, kind, dated_basis, basis_stated,"
+                    " source, cite) VALUES (?,?,?,?,?,?,?)",
+                    (vol, dated, kind, basis,
+                     int(bool(v.get("published_basis")) and kind == "printing"), who,
                      where if str(where or "").startswith(("http", "madb:", "openbd:")) else None),
                     f"edition {kind} {wid} {v.get('isbn') or v.get('designation') or '?'}")
     # ── the grounds, and what a source says the run is, §5c ──────────────────────────────────────
@@ -1109,21 +1124,19 @@ def build(path=None, quarantine=False, at=None, source=None):
         for g in (w.get("admitted_by") or []):
             if not isinstance(g, dict):
                 continue
-            # ONE WORK ADMITTED ON ONE SHELF IS ONE GROUND, however many of its records say so.
-            # A work reached by two records carries the grounds twice, 20 times over, and the same
-            # comparator on the same shelf at the same address is the same decision.
-            ident = (wid, g.get("comparator") or "", g.get("shelf") or "", g.get("url") or "")
-            if ident in seen_grounds:
-                continue
-            seen_grounds.add(ident)
-            put("INSERT INTO admission (work, comparator, shop_url, url, retrieved,"
-                " note) VALUES (?,?,?,?,?,?)",
-                (wid, g.get("comparator"), g.get("shop_url"), g.get("url"),
-                 g.get("retrieved"), g.get("note")), f"admission {wid}")
+            put("INSERT INTO admission (record, work, comparator, shop_url, url, page,"
+                " retrieved, note) VALUES (?,?,?,?,?,?,?,?)",
+                (w.get("work_id"), wid, g.get("comparator"), g.get("shop_url"), g.get("url"),
+                 g.get("page"), g.get("retrieved"), g.get("note")),
+                f"admission {w.get('work_id')}")
         # A COUNT A SOURCE STATES, AND 72 WORKS HAVE RECORDS THAT DISAGREE, which is why this is a
         # row with its source beside it rather than a column that would have to pick one.
+        # A COMPLETED CLAIM ONLY, WHICH IS 330 RECORDS. §5c filled this from `volume_count` where no
+        # claim existed, so 2,574 rows sat here and `record.volume_count` said the same thing again.
+        # A source saying a run is COMPLETE at n volumes is a different statement from a catalogue
+        # counting the volumes it holds, and `works.json` ships them as different fields.
         claimed = w.get("completed_claim") if isinstance(w.get("completed_claim"), dict) else {}
-        n = claimed.get("volumes") if claimed.get("volumes") is not None else w.get("volume_count")
+        n = claimed.get("volumes")
         if isinstance(n, int):
             # THE RECORD MAKES THE CLAIM AND THE SOURCE IS WHERE IT GOT IT. §5i: these were one
             # column, so a record identifier stood in for a source 2,244 times and the key could
@@ -1132,6 +1145,7 @@ def build(path=None, quarantine=False, at=None, source=None):
                 " VALUES (?,?,?,?,?,?)",
                 (wid, w.get("work_id"), n, claimed.get("source"), claimed.get("provenance"),
                  claimed.get("retrieved")), f"volume_claim {wid}")
+
         # THE RECORD ITSELF, which is the layer `works.json` is written at.
         put("INSERT INTO record (id, work, title, yomi, title_en, title_en_basis, creator,"
             " creator_folded, creator_basis,"

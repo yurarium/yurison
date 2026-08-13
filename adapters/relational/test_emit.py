@@ -136,6 +136,25 @@ def main(s):
                 "AND A WORK COMPILED FROM TWO RECORDS KEEPS BOTH ADDRESSES, because a collapse "
                 "that kept one would make the other unresolvable")
 
+    # ── `works.json`: THE RECORD LAYER, ON PARSED EQUALITY ───────────────────────────────────
+    #
+    # NOT BYTE EQUALITY, AND `emit.works` says why: 11 key orders on the records and 38 on the
+    # volumes, each an artefact of the order the compiler merged its sources. Asserting them would
+    # assert the merge order. Every key's PRESENCE and every value is asserted instead.
+    wf = BUILD / "works.json"
+    if wf.exists():
+        want_w = json.loads(wf.read_text(encoding="utf-8"))
+        got_w = emit.works(db)
+        s.eq(got_w["count"], want_w["count"], "one row per catalogue record")
+        s.eq([r["work_id"] for r in got_w["works"]], [r["work_id"] for r in want_w["works"]],
+             "in the order the compiler wrote them")
+        s.eq(sum(len(r["volumes"]) for r in got_w["works"]),
+             sum(len(r["volumes"]) for r in want_w["works"]),
+             "AND EVERY VOLUME ROW THE RECORDS STATE, which §5f folded four of on the ISBN and had "
+             "to stop: a record listing one book twice lists two rows")
+        s.eq(got_w["works"], want_w["works"],
+             "and every field of every record, parsed")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

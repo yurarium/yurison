@@ -24,6 +24,15 @@ allowed:
       Two release adapters emitting the same row for the same consumer. The consumer's shape is the
       fact and it has one home; these are two producers filling it.
 
+  - match: "provenance, retrieved, source, volumes"
+    why: >-
+      A completed-run claim at the two ends of the store. `build.py` builds it when a shop states a
+      run is finished, and `adapters/relational/emit.py` builds it again writing `works.json` out of
+      `volume_claim`. STORE-PLAN section 6 is what put the store between them: the first is where the
+      fact enters and the second is where it leaves, and the columns in between are the one home the
+      shape actually has. When the capture writes to the store directly this entry should go, because
+      the construction in build.py will have gone with it.
+
   - match: "genre, imprint, publisher, title"
     why: >-
       cmoa_volumes and madb/by_platform_isbn each describe a volume they found. Same shape because

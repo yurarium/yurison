@@ -3673,8 +3673,7 @@ def main():
     # this line, and nothing local could see it. `./build.py --out <an empty dir>` is the whole test.
     for _sub in BUILD_SUBDIRS:
         (out / _sub).mkdir(parents=True, exist_ok=True)
-    (out / "works.json").write_text(json.dumps(
-        {"count": len(works), "works": works}, ensure_ascii=False, indent=1, default=jsonable))
+    # WRITTEN FURTHER DOWN, OUT OF THE STORE (§6), where the store exists.
 
     # THE SEARCH INDEX IS EMITTED FROM THE STORE, §6, further down where the store exists. It was
     # assembled here and read the identity registry to collapse records into works; `record.work`
@@ -7394,6 +7393,18 @@ def main():
         _emit.as_compact(_emit.credit_keys(_store_db)))
 
     (out / "index.json").write_text(_emit.as_compact(idx))
+
+    # THE RECORD LAYER, OUT OF THE STORE. 2,574 catalogue records with the volumes each lists.
+    #
+    # PARSED EQUALITY IS THE STANDARD HERE, not byte equality, and the reason is in `emit.works`:
+    # this file has 11 key orders on its records and 38 on its volumes, every one an artefact of the
+    # order the compiler merged its sources rather than a fact about a book.
+    #
+    # AND ITS ISBNs ARE NORMALISED NOW, which is the project owner's ruling of 2026-08-13 reaching
+    # the file. 926 volumes carried a hyphenated spelling and 26 `editions` lists held one ISBN
+    # written twice; every difference from the previous file is provably the same ISBN respelled or
+    # a duplicate spelling removed, and no ISBN changes identity.
+    (out / "works.json").write_text(_emit.as_text(_emit.works(_store_db)))
     _cp_n = len(_credits_shipped.get("credits") or {})
     _cp_e = sum(len(v.get("works") or []) for v in (_credits_shipped.get("credits") or {}).values())
     _cp_r = sum(1 for v in (_credits_shipped.get("credits") or {}).values()

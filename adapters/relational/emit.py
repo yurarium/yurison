@@ -255,6 +255,168 @@ def index(db):
     return rows
 
 
+def works(db):
+    """`works.json`, the RECORD layer: one catalogue record per row, with the volumes it lists.
+
+    2,574 RECORDS AGAINST 3,038 WORKS, which is what makes this a different file from `series.json`
+    rather than a longer one. Two records of one work each carry their own title as that catalogue
+    wrote it, their own creator field, their own count and their own first publication.
+
+    PARSED EQUALITY IS THE STANDARD HERE AND BYTE EQUALITY IS NOT, which is a weaker claim and is
+    said out loud rather than discovered. The file has 11 distinct key orders on its records and 38
+    on its volumes, and every one is an artefact of the order the compiler merged its sources: a
+    volume that reached us from MADB first carries `madb_id` before `number`, one that reached us
+    from a shop carries `number` before `delivered`. That is not a fact about a book, so asserting
+    it would be asserting the merge order. What IS asserted is every key's PRESENCE and every
+    value, which is the whole of what a reader is served.
+
+    AN ABSENT KEY AND A NULL ARE DIFFERENT HERE, and the store says which by holding NULL: a record
+    with no shop url has no `shop_url` key at all, while a first-publication block naming no date
+    has `date: null`. The two are spelled apart in the file and are spelled apart here.
+    """
+    per_record = {}
+    for (rec, number, number_n, designation, openbd, openbd_date, madb_id, isbn_source, cover,
+         final, fsource, fprov, fvols, fret, vid) in db.execute(
+            "SELECT record, number_raw, volume, designation, openbd, openbd_date, madb_id,"
+            " isbn_source, cover_url, final_volume, final_source, final_provenance, final_volumes,"
+            " final_retrieved, id FROM volume ORDER BY record, seq"):
+        isbns = [i for i, in db.execute(
+            "SELECT isbn FROM volume_isbn WHERE volume = ? ORDER BY seq", (vid,))]
+        events = {k: (d, b, s, st) for k, d, b, s, st in db.execute(
+            "SELECT kind, dated, dated_basis, source, basis_stated FROM edition WHERE volume = ?",
+            (vid,))}
+        vol = {}
+        if madb_id:
+            vol["madb_id"] = madb_id
+        if number is not None:
+            vol["number"] = number
+        if designation is not None:
+            vol["designation"] = designation
+        if isbns:
+            vol["isbn"] = isbns[0]
+        printed = events.get("printing")
+        if printed and printed[0] is not None:
+            vol["published"] = printed[0]
+        delivered = events.get("shop-delivery")
+        if delivered and delivered[0] is not None:
+            vol["delivered"] = delivered[0]
+        if openbd is not None:
+            vol["openbd"] = openbd
+        if openbd_date is not None:
+            vol["published_openbd"] = openbd_date
+        if number_n is not None:
+            vol["number_n"] = number_n
+        if isbn_source is not None:
+            vol["isbn_source"] = isbn_source
+        # ONLY WHERE THE RECORD SAID SO. The loader derives a basis for every dated row and the
+        # file ships the 127 the records state, which `basis_stated` is what tells apart.
+        if printed and printed[3]:
+            vol["published_basis"] = printed[1]
+            vol["published_source"] = printed[2]
+        if len(isbns) > 1:
+            vol["editions"] = isbns
+        if cover is not None:
+            vol["cover_url"] = cover
+        if final:
+            vol["final_volume"] = True
+            vol["final_volume_basis"] = {"source": fsource, "provenance": fprov,
+                                         "volumes": fvols, "retrieved": fret}
+        per_record.setdefault(rec, []).append(vol)
+
+    sources = {}
+    for rec, src in db.execute("SELECT record, source FROM record_source ORDER BY rowid"):
+        sources.setdefault(rec, []).append(src)
+
+    records_of = {}
+    for rec, source, url, retrieved in db.execute(
+            "SELECT record, source, url, retrieved FROM work_record ORDER BY rowid"):
+        records_of.setdefault(rec, []).append(
+            {"source": source, "retrieved": retrieved, "url": url})
+
+    grounds = {}
+    for rec, comparator, shelf, shop_url, url, retrieved, note, page in db.execute(
+            "SELECT a.record, a.comparator, c.shelf, a.shop_url, a.url, a.retrieved, a.note,"
+            " a.page FROM admission a LEFT JOIN comparator c ON c.name = a.comparator"
+            " ORDER BY a.id"):
+        # AN ABSENT KEY, NOT A NULL ONE. A ground admitted from a shelf with no shop page for the
+        # work simply has no `shop_url`, and the file says so by leaving the key out.
+        ground = {"comparator": comparator, "shelf": shelf, "retrieved": retrieved}
+        if shop_url is not None:
+            ground["shop_url"] = shop_url
+        ground["note"] = note
+        ground["url"] = url
+        if page is not None:
+            ground["page"] = page
+        grounds.setdefault(rec, []).append(ground)
+
+    claims = {}
+    for rec, volumes, source, provenance, retrieved in db.execute(
+            "SELECT record, volumes, source, provenance, retrieved FROM volume_claim ORDER BY id"):
+        claims[rec] = {"source": source, "volumes": volumes, "retrieved": retrieved,
+                       "provenance": provenance}
+
+    out = []
+    for (rid, work, title, yomi, ten, ten_basis, creator, creator_basis, n, group, label,
+         lsource, lurl, lret, lnote, pub, imp, dist, shop, periodical) in db.execute(
+            "SELECT id, work, title, yomi, title_en, title_en_basis, creator, creator_basis,"
+            " volume_count, grouping, marketing_label, label_source, label_url, label_retrieved,"
+            " label_note, publisher_raw, imprint_raw, distributor, shop_url, periodical"
+            " FROM record ORDER BY rowid"):
+        row = {"work_id": rid, "title": {"ja": title}}
+        if ten is not None:
+            row["title"]["en"] = ten
+        if ten_basis is not None:
+            row["title"]["en_basis"] = ten_basis
+        if yomi is not None:
+            row["title"]["yomi"] = yomi
+        row["creator"] = creator
+        if creator_basis is not None:
+            row["creator_basis"] = creator_basis
+        row["publisher"] = pub
+        row["imprint"] = imp
+        if dist is not None:
+            row["distributor"] = dist
+        row["volume_count"] = n
+        row["grouping"] = group
+        if periodical:
+            row["periodical"] = True
+        if shop is not None:
+            row["shop_url"] = shop
+        row["sources"] = sources.get(rid, [])
+        row["records"] = records_of.get(rid, [])
+        row["volumes"] = per_record.get(rid, [])
+        if rid in claims:
+            row["completed_claim"] = claims[rid]
+        row["first_publication"] = _origin(db, rid)
+        row["marketing_label"] = label or "none"
+        row["marketing_label_basis"] = ({"source": lsource, "url": lurl, "retrieved": lret,
+                                         "note": lnote}
+                                        if any(x is not None for x in (lsource, lurl, lret, lnote))
+                                        else None)
+        if grounds.get(rid):
+            row["admitted_by"] = grounds[rid]
+        row["explicit_content"] = bool(_explicit(db, work))
+        out.append(row)
+    return {"count": len(out), "works": out}
+
+
+def _origin(db, record):
+    got = db.execute(
+        "SELECT dated, date_source, date_basis, venue, venue_type, country, country_basis,"
+        " country_note, note, date_event, date_followup, date_silence"
+        " FROM work_origin WHERE record = ?", (record,)).fetchone()
+    if not got:
+        return None
+    keys = ("date", "date_source", "date_basis", "venue", "venue_type", "country", "country_basis",
+            "country_note", "note", "date_event", "date_followup", "date_silence")
+    return {k: v for k, v in zip(keys, got) if not (v is None and k not in ("date", "country"))}
+
+
+def _explicit(db, work):
+    got = db.execute("SELECT explicit_content FROM work WHERE id = ?", (work,)).fetchone()
+    return got[0] if got else 0
+
+
 def _origin_date(db, record):
     """The date the record states, or NULL where it states none and `""` where it states nothing.
 

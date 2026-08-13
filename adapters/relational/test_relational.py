@@ -162,7 +162,7 @@ def main(s):
     # keeping the printing and dropping the delivery was forced by the shape, not chosen.
     db.execute("INSERT INTO volume (work, record, seq) VALUES ('w00001', 'C000001', 0)")
     vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
-    db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784778320614', ?)", (vol,))
+    db.execute("INSERT INTO volume_isbn (seq, isbn, volume) VALUES (0, '9784778320614', ?)", (vol,))
     db.execute("INSERT INTO edition (volume, dated, kind, source, cite) VALUES"
                " (?, '2009-08', 'printing', 'madb', 'madb:M400412')", (vol,))
     db.execute("INSERT INTO edition (volume, dated, kind, source, cite) VALUES"
@@ -186,12 +186,12 @@ def main(s):
 
     # ONE ISBN IS ONE BOOK AND ONE BOOK MAY CARRY SEVERAL. 81 volumes list two, a regular printing
     # and a special edition, which `volume.isbn UNIQUE` could say only half of.
-    db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784757540248', ?)", (vol,))
+    db.execute("INSERT INTO volume_isbn (seq, isbn, volume) VALUES (1, '9784757540248', ?)", (vol,))
     s.eq(db.execute("SELECT count(*) FROM volume_isbn WHERE volume = ?", (vol,)).fetchone()[0], 2,
          "one book carries a second ISBN for its other printing")
     db.execute("INSERT INTO volume (work, record, seq) VALUES ('w00001', 'C000003', 0)")
     other = db.execute("SELECT last_insert_rowid()").fetchone()[0]
-    _refuses(s, db, "INSERT INTO volume_isbn (isbn, volume) VALUES ('9784778320614', ?)", (other,),
+    _refuses(s, db, "INSERT INTO volume_isbn (seq, isbn, volume) VALUES (0, '9784778320614', ?)", (other,),
              "and an ISBN already held is refused, so the half that matters is unweakened")
 
     # AND THE KIND IS A CLOSED SET, so a date's meaning cannot be invented per row.
@@ -214,7 +214,7 @@ def main(s):
          "and the volume above holds a date, so nothing answers to it here")
     db.execute("INSERT INTO volume (work, record, seq) VALUES ('w00001', 'C000005', 0)")
     undated = db.execute("SELECT last_insert_rowid()").fetchone()[0]
-    db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784088900000', ?)", (undated,))
+    db.execute("INSERT INTO volume_isbn (seq, isbn, volume) VALUES (0, '9784088900000', ?)", (undated,))
     s.eq(db.execute(relational.QUESTIONS["volumes with an isbn and no date"]).fetchone()[0], 1,
          "while an ISBN nobody dated is found, which is what the CHECK used to refuse")
 
@@ -451,11 +451,11 @@ def main(s):
     # two duplicate WORKS for as long as it stood.
     db.execute("INSERT INTO volume (work, record, seq) VALUES ('w00001','C000900',0)")
     isbnvol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
-    _refuses(s, db, "INSERT INTO volume_isbn (isbn, volume) VALUES ('978-4-09-157288-2', ?)",
+    _refuses(s, db, "INSERT INTO volume_isbn (seq, isbn, volume) VALUES (0, '978-4-09-157288-2', ?)",
              (isbnvol,), "a hyphenated ISBN cannot enter, so the key cannot be evaded by spelling")
-    _refuses(s, db, "INSERT INTO volume_isbn (isbn, volume) VALUES ('nonsense', ?)", (isbnvol,),
+    _refuses(s, db, "INSERT INTO volume_isbn (seq, isbn, volume) VALUES (0, 'nonsense', ?)", (isbnvol,),
              "nor can anything that is not an ISBN")
-    db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('412345678X', ?)", (isbnvol,))
+    db.execute("INSERT INTO volume_isbn (seq, isbn, volume) VALUES (0, '412345678X', ?)", (isbnvol,))
     s.check(True, "and the older ten-character form, whose check digit may be X, is admitted")
 
     # A PRESENCE CONSTRAINT SATISFIED BY THE EMPTY STRING IS NOT ONE.
@@ -648,16 +648,17 @@ def main(s):
     # records. A NOT NULL whose every value is the word for null reports as filled.
     s.check("admitted_by" not in [r[1] for r in db.execute("pragma table_info(work)")],
             "the placeholder column is gone and the grounds are a table")
-    db.execute("INSERT INTO admission (work, comparator, note) VALUES"
-               " ('w00001','cmoa.jp','DEFINITIONS §2, presumptive')")
+    db.execute("INSERT INTO admission (record, work, comparator, note) VALUES"
+               " ('C900','w00001','cmoa.jp','DEFINITIONS §2, presumptive')")
     # §5j: THE SHELF IS THE COMPARATOR'S, NOT THE ROW'S. It was a second column repeating one pair
     # across 1,867 rows, which is a functional dependency on the comparator rather than on the row.
     s.eq(db.execute("SELECT c.shelf FROM admission a JOIN comparator c ON c.name = a.comparator")
          .fetchone()[0], "genre 37 (百合・GL)",
          "a work is admitted on a comparator, and the shelf is the comparator's own")
-    _refuses(s, db, "INSERT INTO admission (work, comparator) VALUES ('w00002','someshop.jp')", (),
+    _refuses(s, db, "INSERT INTO admission (record, work, comparator) VALUES"
+                    " ('C901','w00002','someshop.jp')", (),
              "and a comparator no fact states is refused")
-    _refuses(s, db, "INSERT INTO admission (work) VALUES ('w99999')", (),
+    _refuses(s, db, "INSERT INTO admission (record, work) VALUES ('C902','w99999')", (),
              "grounds for a work nobody holds are refused")
 
     # `volume_count` WAS NULL ON ALL 3,040 FOR THE SAME REASON, and it does not come back as a

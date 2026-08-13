@@ -190,7 +190,10 @@ STORE_ANSWERS = (
     "works.json:count", "works.json:works",
     "works.json:works[].title", "works.json:works[].creator", "works.json:works[].grouping",
     "works.json:works[].sources", "works.json:works[].records", "works.json:works[].volumes",
-    "works.json:works[].admitted_by",
+    "works.json:works[].admitted_by", "works.json:works[].admitted_by[]",
+    "works.json:works[].records[]",
+    "works.json:works[].creator_basis", "works.json:works[].distributor",
+    "works.json:works[].periodical", "works.json:works[].shop_url",
     "works.json:works[].work_id",
     # §5c: the grounds a work was admitted on, and what a source says its run is.
     "works.json:works[].admitted_by",

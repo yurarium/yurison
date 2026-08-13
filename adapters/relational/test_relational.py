@@ -150,10 +150,13 @@ def main(s):
     except sqlite3.IntegrityError:
         s.check(True, "an edition of an unheld work is refused by the foreign key")
 
-    # ONE ISBN IS ONE BOOK.
-    db.execute("INSERT INTO edition (work, isbn, kind) VALUES ('w00001', '9784778320614', 'printing')")
+    # ONE ISBN IS ONE BOOK. Dated, because §3 made an ISBN without a date unstateable and this
+    # assertion is about the ISBN rather than about the date.
+    db.execute("INSERT INTO edition (work, isbn, dated, cite, kind) VALUES"
+               " ('w00001','9784778320614','2008-05','madb:M309963','printing')")
     try:
-        db.execute("INSERT INTO edition (work, isbn, kind) VALUES ('w00001', '9784778320614', 'printing')")
+        db.execute("INSERT INTO edition (work, isbn, dated, cite, kind) VALUES"
+                   " ('w00001','9784778320614','2008-05','madb:M309963','printing')")
         s.check(False, "two editions must not share one ISBN")
     except sqlite3.IntegrityError:
         s.check(True, "an ISBN already held is refused, so one ISBN is one book")
@@ -164,6 +167,38 @@ def main(s):
         s.check(False, "an edition kind outside the set must be refused")
     except sqlite3.IntegrityError:
         s.check(True, "printing, shop-delivery and serialisation are the only kinds there are")
+
+    # ── WHAT §3 ADDED: A VOLUME IS CALLED SOMETHING, AND ITS DATE RESTS ON SOMETHING ──────────
+    #
+    # `volume` is a position and an integer answers it. 983 volumes are called `上`, `創刊号` or
+    # `2017年1月号`, which no integer holds, and the column for that did not exist until §3.
+    db.execute("INSERT INTO edition (work, designation, kind) VALUES ('w00001', '創刊号', 'printing')")
+    s.eq(db.execute("SELECT designation FROM edition WHERE designation IS NOT NULL").fetchone()[0],
+         "創刊号", "a volume carries the word it is called, not a number standing in for it")
+
+    # AN ISBN IS A KEY INTO EVERY DATED REGISTRY THERE IS, so holding one and no date means nobody
+    # asked. The budget was 0 and is now unstateable.
+    try:
+        db.execute("INSERT INTO edition (work, isbn, kind) VALUES ('w00001','9784088900000','printing')")
+        s.check(False, "an ISBN with no date must not be accepted")
+    except sqlite3.IntegrityError:
+        s.check(True, "an ISBN with no date is refused: the registries it keys into all state one")
+    db.execute("INSERT INTO edition (work, isbn, dated, cite, kind) VALUES"
+               " ('w00001','9784088900000','2019-01','madb:M1','printing')")
+    s.check(True, "and the same ISBN with a date and a citation is admitted")
+
+    # A BASIS NOBODY CAN NAME IS A BASIS NOBODY CAN WEIGH.
+    try:
+        db.execute("INSERT INTO edition (work, dated, cite, kind, dated_basis) VALUES"
+                   " ('w00001','2019-01','madb:M2','printing','somebody said so')")
+        s.check(False, "a date basis outside the set must be refused")
+    except sqlite3.IntegrityError:
+        s.check(True, "the four bases a volume date can rest on are the only ones there are")
+    # AND SILENCE IS ALLOWED, because 1,219 volumes state no basis and an admitted silence beats
+    # a basis invented to satisfy a column.
+    db.execute("INSERT INTO edition (work, dated, cite, kind) VALUES"
+               " ('w00001','2019-02','madb:M3','printing')")
+    s.check(True, "a date with no stated basis is admitted rather than given one")
 
     # WORK TO PUBLISHER, and the imprint it is published under.
     db.execute("INSERT INTO work_publisher (work, publisher, imprint) VALUES ('w00001','h00001',?)",

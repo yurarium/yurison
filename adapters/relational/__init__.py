@@ -298,10 +298,19 @@ def build(path=None):
             # run and reported `refused 0`, because SQLite treats the conflict as handled and
             # raises nothing for `put` to catch. A constraint that quietly drops a row is worse
             # than no constraint: it looks like coverage. STORE-PLAN §1a is about exactly this.
-            put("INSERT INTO edition (work, isbn, volume, dated, kind, cite)"
-                " VALUES (?,?,?,?,?,?)",
-                (wid, v.get("isbn"), v.get("number_n"), dated, kind, cite),
-                f"edition {wid} {v.get('isbn') or v.get('number') or '?'}")
+            # WHAT THE DATE RESTS ON. Stated where the volume says so, derived from the same
+            # evidence the citation uses where it does not, and NULL where nothing names it: a
+            # basis nobody can point at is worth less than an admitted silence.
+            basis = (v.get("published_basis")
+                     or ("madb-tankobon" if v.get("madb_id") else None)
+                     or ("openbd-registration" if v.get("openbd") == "present" and v.get("isbn")
+                         else None)
+                     or ("shop-delivery" if kind == "shop-delivery" else None))
+            put("INSERT INTO edition (work, isbn, volume, designation, dated, kind, dated_basis,"
+                " cite) VALUES (?,?,?,?,?,?,?,?)",
+                (wid, v.get("isbn"), v.get("number_n"), v.get("designation"), dated, kind,
+                 basis, cite),
+                f"edition {wid} {v.get('isbn') or v.get('designation') or v.get('number') or '?'}")
     counts["edition"] = db.execute("SELECT count(*) FROM edition").fetchone()[0]
 
     db.commit()

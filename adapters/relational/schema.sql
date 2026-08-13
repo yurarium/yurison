@@ -156,12 +156,36 @@ CREATE TABLE edition (
   id      INTEGER PRIMARY KEY,
   work    TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   isbn    TEXT UNIQUE,
-  volume  INTEGER,
+
+  -- WHAT A VOLUME IS CALLED AND WHERE IT SITS ARE TWO FACTS, and this table held only the second.
+  -- `volume` is a position in a run and an integer answers it. A DESIGNATION is the word the
+  -- publisher uses: `上`, `創刊号`, `2017年1月号`. 983 volumes carry one, no integer can hold it,
+  -- and STORE-PLAN §3 is where the schema stopped pretending otherwise.
+  --
+  -- NEITHER IS REQUIRED AND NEITHER EXCLUDES THE OTHER. A volume may have both in principle:
+  -- `build.volume_number` reads 創刊号 as the first issue, so a designation can acquire a position.
+  -- No row carries both today and that is left as an observation rather than written in as a
+  -- CHECK, because a constraint on an accident refuses the first correct row that meets it.
+  volume       INTEGER,
+  designation  TEXT,
+
   dated   TEXT,
   kind    TEXT NOT NULL CHECK (kind IN ('printing', 'shop-delivery', 'serialisation')),
+
+  -- WHAT KIND OF EVIDENCE THE DATE RESTS ON, following `claim`'s pattern rather than reusing its
+  -- table: `claim` is scoped to what a NAME is, by its own CHECK on predicate. A closed set,
+  -- because a basis nobody can name is a basis nobody can weigh.
+  dated_basis  TEXT CHECK (dated_basis IS NULL OR dated_basis IN
+                 ('national-library', 'openbd-registration', 'madb-tankobon', 'shop-delivery')),
+
   -- A DATE WITH NO PAGE BEHIND IT is what `per-book dates cite their page` refuses.
   cite    TEXT,
-  CHECK (dated IS NULL OR cite IS NOT NULL)
+  CHECK (dated IS NULL OR cite IS NOT NULL),
+
+  -- AN ISBN IS A KEY INTO EVERY DATED REGISTRY THERE IS, so a volume holding one and no date means
+  -- nobody asked. `volumes with an isbn and no date` has been a ZERO budget and is now unstateable;
+  -- locked in 2026-08-13 while the count was 0, which is the only time it is free to adopt.
+  CHECK (isbn IS NULL OR dated IS NOT NULL)
 );
 
 CREATE INDEX edition_work ON edition (work, kind);

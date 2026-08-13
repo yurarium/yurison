@@ -44,7 +44,7 @@ below moves one domain to the other side of that line.
 | §1 | Measure what travels around the store | done 2026-08-13 |
 | §1a | Somewhere for what a constraint refuses | before anything refuses |
 | §2 | Fill the two tables that were designed and never written | done 2026-08-13 |
-| §3 | Volumes, editions and the print run | §2 |
+| §3 | Volumes, editions and the print run | done 2026-08-13 |
 | §4 | Releases and the per-platform offer | §3 |
 | §5 | Renderings, which are derived from a source that stays where it is | §4 |
 | §6 | The compiler writes the store; the JSON is emitted from it | per domain, as each lands |
@@ -220,6 +220,33 @@ One constraint is worth having here on its own. `volumes with an isbn and no dat
 today, enforced by a check. As a schema constraint it becomes unstateable in the admitted tables,
 which is what §1a's quarantine is for: an unattended run that meets one records the row and carries
 on rather than failing or dropping it.
+
+**DONE 2026-08-13.** `edition` grew what a volume is called, what its date rests on, and a refusal
+for an ISBN nobody dated. The loader fills all 6,108 rows and none is refused.
+
+  A DESIGNATION, which is the fault this section opened on. `volume` is a position and an integer
+  answers it; 983 volumes are called `上`, `創刊号` or `2017年1月号`, and no integer holds one. The
+  schema grew a column rather than the corpus losing a fact to a type.
+
+  A BASIS FOR THE DATE, following `claim`'s pattern rather than reusing its table, which is scoped
+  by its own CHECK to what a NAME is. A closed set of four, because a basis nobody can name is a
+  basis nobody can weigh: 2,436 shop deliveries, 2,326 from the MADB 単行本 dataset, 78 national
+  library, 49 openBD. 1,219 rows state none and are admitted saying so, since an admitted silence
+  beats a basis invented to satisfy a column.
+
+  `CHECK (isbn IS NULL OR dated IS NOT NULL)`. An ISBN is a key into every dated registry there is,
+  so a volume holding one and no date means nobody asked. Locked in while the count was 0.
+
+**WHAT WAS DELIBERATELY NOT CONSTRAINED.** No row carries both a number and a designation today,
+all 983 against 4,091. That is left as an observation and not written in as a CHECK, because
+`build.volume_number` reads 創刊号 as the first issue, so a designation can legitimately acquire a
+position, and a constraint on an accident refuses the first correct row that meets it.
+
+**THE NEW CONSTRAINT BROKE A TEST WRITTEN AN HOUR EARLIER**, which is the system working. §2's
+assertion that one ISBN is one book inserted an undated ISBN twice, and §3 made that unstateable.
+The test carries a date now, because what it asserts is about the ISBN rather than about the date.
+
+`data reaching the site around the store` falls 696 to 693.
 
 ## 4. Releases and the per-platform offer
 

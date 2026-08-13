@@ -75,11 +75,11 @@ def main(s):
             "a volume's ISBN is claimed: the edition table holds one row per volume")
     s.check(any("works[].publisher" in c for c in served.STORE_ANSWERS),
             "and the house a work is published under, which work_publisher now carries")
-    # WHAT IS STILL NOT CLAIMED, and each absence is a section of STORE-PLAN rather than an
-    # oversight. A designation is `上` or `創刊号` or `2017年1月号`, and `edition.volume` is an
-    # INTEGER, so the schema has nowhere to put one.
-    s.check(not any("designation" in c for c in served.STORE_ANSWERS),
-            "a volume's designation is not claimed: the column is an integer and 創刊号 is not one")
+    # §3 GAVE A VOLUME ITS OWN WORD. `edition.volume` is an INTEGER and 983 volumes are called
+    # `上`, `創刊号` or `2017年1月号`, so the schema grew a column rather than the corpus losing a
+    # fact to a type.
+    s.check(any("volumes[].designation" in c for c in served.STORE_ANSWERS),
+            "a volume's designation is claimed: edition carries the word alongside the number")
     s.check(not any("work_en" in c or "romaji" in c for c in served.STORE_ANSWERS),
             "and no rendering is claimed: the store has no table for one")
 

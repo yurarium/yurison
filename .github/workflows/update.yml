@@ -174,6 +174,61 @@ jobs:
       - name: Compile
         run: python3 build.py
 
+      # ── Stage E — names. ──────────────────────────────────────────────────────────────────────
+      #
+      # AFTER COMPILE, because every pass takes its worklist from `data/build/series.json` and the
+      # feed files beside it. A work that arrived in this run exists nowhere else yet, so a pass
+      # run before Compile would be reading yesterday's corpus and would not see it.
+      #
+      # WHY THIS STEP EXISTS AT ALL. Nothing ran these passes on a schedule. `build.py` imports
+      # `pass4_analyser` for its functions and runs no pass, and Stage A runs thirteen capture
+      # adapters and no pass, so a work entering the corpus carried whatever the store already held
+      # until somebody ran `resolve.py` by hand. On 2026-08-12 that was 96 works rendering in
+      # Japanese in English-only mode, 95 of them with a title the platform prints in Latin that
+      # `pass0_cache` has always had a rule for. WORKS-PLAN section 1.
+      #
+      # ORDER: pass 1 before pass 0, which is the order `resolve.py` uses and for its reason. Pass
+      # 1's readings are `surface`, the highest rank there is, so nothing later can displace them
+      # and every pass after it gets a smaller queue.
+      #
+      # `--surfaces-only` IS THE WHOLE OF WHY PASS 0 CAN BE HERE. Its handle hunt reads every
+      # cached page, 131,784 files and about twenty-five minutes, looking for evidence that changes
+      # when a cache changes rather than when a work arrives. The step this run needs is the one
+      # that costs milliseconds. The walk stays a thing somebody runs deliberately.
+      #
+      # NONE OF THESE REACH THE NETWORK. Pass 2 and pass 3 do and are deliberately absent.
+      - name: Name what this run brought in
+        run: |
+          python3 adapters/names/resolve.py --run 1
+          python3 adapters/names/pass0_cache.py --surfaces-only
+          python3 adapters/names/pass4_analyser.py
+          python3 adapters/names/curate.py --apply
+
+      # A SECOND COMPILE ONLY WHERE THERE IS SOMETHING TO COMPILE. The passes above write into
+      # data/names, and the build joins those names onto rows, so a name found after Compile
+      # reaches nobody until the next one. Rebuilding unconditionally would pay for a full compile
+      # on every run to catch the runs that brought in a new work; asking git whether the store
+      # actually moved costs nothing and is exact.
+      - name: Compile again, if the passes named anything
+        run: |
+          python3 - <<'PY'
+          import subprocess, sys
+          diff = subprocess.run(["git", "diff", "-U0", "--", "data/names"],
+                                capture_output=True, text=True).stdout.splitlines()
+          # `generated:` IS A DATESTAMP AND NOT A NAME. Every compaction rewrites it, so a plain
+          # `git diff --quiet` reports the store as changed on a run that named nothing at all,
+          # which would rebuild every day and make this step's own reason for existing false.
+          # Caught by running the sequence by hand: the whole diff was four dates.
+          moved = [l for l in diff
+                   if l[:1] in "+-" and not l.startswith(("+++", "---"))
+                   and not l[1:].lstrip().startswith("generated:")]
+          if not moved:
+              print("the passes named nothing new; this build already carries every name we hold")
+              raise SystemExit(0)
+          print(f"{len(moved)} line(s) of names moved; compiling again")
+          raise SystemExit(subprocess.run([sys.executable, "build.py"]).returncode)
+          PY
+
       # The hooks in .githooks are per-clone local config — a fresh checkout has none, which is
       # exactly why the leak guard documents CI as its backstop. The same argument applies to the
       # data gate, so it runs here too.
@@ -302,7 +357,12 @@ jobs:
           # the site repository's kari/data history already holds the exact bytes readers were
           # served, which is the published snapshot. Committing it stored the same information
           # twice and gave the two somewhere to disagree.
-          git add data/source data/coverage data/ledger
+          # data/names IS COMMITTED, and has to be. The name passes below Compile write into it,
+          # and a store rebuilt every run and never kept is a store that starts empty every run:
+          # the work of naming what arrived today would be repeated tomorrow and nothing would
+          # accumulate. It is a source in the same sense data/source is, journal-backed and
+          # hand-curated in data/names/curated.yaml, which is the file a person edits.
+          git add data/source data/coverage data/ledger data/names
           git diff --cached --quiet || git commit -m "update: run ${{ github.run_id }}"
 
       - name: Push

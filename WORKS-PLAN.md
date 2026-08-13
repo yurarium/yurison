@@ -9,7 +9,7 @@ The sections are in the order they are to be done, and each says what it needs f
 
 | | stage | needs | measured today |
 |---|---|---|---|
-| §1 | Run the name passes as part of the update | nothing | 96 works had no English for want of this |
+| §1 | Run the name passes as part of the update | done 2026-08-13 | 96 works had no English for want of this |
 | §2 | A claim about a reading stops occupying the English's slot | nothing | 196 titles, 1,337 authors |
 | §5 | Two capture faults on the credit field | nothing | 4 rows |
 | §3 | Fetch the episode lists we never asked for | §1, §2, §5 | 53 works |
@@ -59,6 +59,19 @@ daily cost falls to nothing.
 
 **HOW IT IS PROVED.** `works without English` is already 0 and recorded, so it can only rise.
 A work arriving unnamed now moves a number the same day rather than whenever somebody looks.
+
+**DONE 2026-08-13.** Stage E in `update.yml` runs pass 1, pass 0 with `--surfaces-only`, pass 4 and
+`curate.py --apply`, after Compile because every pass takes its worklist from the build. A second
+Compile follows only where the store actually moved. `data/names` joined the commit list, without
+which the store would be rebuilt and thrown away every run.
+
+Two things had to be fixed to run the passes the documented way, and both had gone unnoticed
+because nothing ever ran them like this. `curate.py` imported `facts` above the `sys.path` line
+that makes `facts` importable, so `curate.py --check` from the repo root, which is the usage in its
+own docstring, died on ModuleNotFoundError. And the first version of the rebuild test asked
+`git diff --quiet -- data/names`, which reports the store as changed on a run that named nothing:
+`generated:` is a datestamp every compaction rewrites, and running the sequence by hand showed a
+diff consisting of four dates and nothing else.
 
 ## 2. A claim about a reading stops occupying the English's slot
 

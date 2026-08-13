@@ -175,7 +175,19 @@ def needs_no_romanising(name):
     return True
 
 
-def run(store, authors, titles, cache_root, verbose=False):
+def run(store, authors, titles, cache_root, verbose=False, scan=True):
+    """Steps 1 and 2 cost nothing; step 3 walks every cached page. `scan=False` stops before it.
+
+    WHY THE SPLIT EXISTS. The handle hunt reads 131,784 files and takes about twenty-five minutes,
+    and it is looking for evidence that changes when a CACHE changes. Steps 1 and 2 answer a
+    question about the NAMES a build just produced, in milliseconds. Wiring pass 0 into the daily
+    update meant paying the first to get the second, which is the kind of cost that gets a step
+    quietly dropped from a workflow.
+
+    STEP 4 GOES WITH STEP 3 AND NOT WITH THE CHEAP HALF. It records `attempt(ja, 0, "cache")`,
+    which says the cache was searched and held nothing. A surfaces-only run has searched nothing,
+    so writing that would put a false negative in the store and stop a later full run from looking.
+    """
     stats = collections.Counter()
 
     # 1. Surfaces with no Japanese in them. Nothing to look up: the platform printed the author's
@@ -227,6 +239,10 @@ def run(store, authors, titles, cache_root, verbose=False):
                          note="the platform printed the reading in brackets beside the name",
                          **{"pass": 0})
             stats["author-gloss"] += 1
+
+    if not scan:
+        store.compact()
+        return stats
 
     # 3. Handles. One pass over every cached file, then the §4a filter, then proximity.
     if verbose:
@@ -307,11 +323,17 @@ def main(argv=None):
     ap.add_argument("--out", default="data/names")
     ap.add_argument("--cache", default=str(paths.CACHE_ROOT))
     ap.add_argument("-v", "--verbose", action="store_true")
+    # WHAT THE DAILY UPDATE ASKS FOR. Steps 1 and 2 read the names a build just produced and cost
+    # milliseconds; the handle hunt reads the whole capture cache and costs twenty-five minutes,
+    # and what it looks for changes when the cache changes rather than when a work arrives.
+    ap.add_argument("--surfaces-only", action="store_true", dest="surfaces_only",
+                    help="skip the cache walk: record the surfaces that need no romanising and the "
+                         "credit-line glosses, and stop")
     args = ap.parse_args(argv)
 
     authors, titles, _, _by_title = inputs.load(args.build)
     store = NameStore(args.out)
-    stats = run(store, authors, titles, args.cache, args.verbose)
+    stats = run(store, authors, titles, args.cache, args.verbose, scan=not args.surfaces_only)
     for k, v in sorted(stats.items()):
         print(f"{k:32} {v}")
     print()

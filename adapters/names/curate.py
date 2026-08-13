@@ -34,16 +34,21 @@ Usage:  curate.py --check              validate the file and stop
 """
 import argparse
 import pathlib
-from facts import reading as _reading  # noqa: E402
-from facts import division as _division  # noqa: E402
 import re
 import unicodedata
 import sys
 
 import yaml
 
+# BEFORE THE `facts` IMPORTS, WHICH IS THE WHOLE POINT OF THE LINE. It used to sit below them, so
+# `from facts import reading` resolved only when `adapters` was already on the path and the usage
+# this module's own docstring documents, `curate.py --check` from the repo root, died on
+# ModuleNotFoundError. Found on 2026-08-13 wiring the pass into the daily update, which is the
+# first thing that ever ran it the documented way.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
+from facts import reading as _reading  # noqa: E402
+from facts import division as _division  # noqa: E402
 from names import key  # noqa: E402
 from names.store import NameStore  # noqa: E402
 

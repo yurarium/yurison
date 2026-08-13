@@ -69,6 +69,36 @@ def main(s):
     s.check(not p0.needs_no_romanising("Vチューバー"),
             "Latin beside kana is not a finished name; the kana half still has to be read")
 
+    # ── THE CHEAP HALF, WHICH IS WHAT A DAILY UPDATE RUNS ─────────────────────────────────────
+    #
+    # The handle hunt reads 131,784 cached files and takes about twenty-five minutes. Steps 1 and 2
+    # read the names a build just produced. Wiring pass 0 into the update meant paying the first to
+    # get the second, so `scan=False` stops before the walk.
+    import tempfile
+    from names.store import NameStore
+    with tempfile.TemporaryDirectory() as tmp:
+        store = NameStore(tmp)
+        authors = {"Ｍａｇｐｉｅ": {"reading": None, "urls": []},
+                   "森永みるく": {"reading": "もりながみるく", "urls": ["https://example.test/a"]}}
+        titles = {"Distortion": None, "2332": None, "球詠": None}
+        stats = p0.run(store, authors, titles, cache_root=tmp, scan=False)
+
+        s.eq(store.records["titles"]["Distortion"]["en"], "Distortion",
+             "a Latin title is recorded as its own English without any cache being read")
+        s.eq(store.records["titles"]["2332"]["basis"], "official-jp",
+             "and so is a title made of digits, which is what the widened rule was for")
+        s.check("球詠" not in store.records["titles"],
+                "while kanji is left for a pass that can read it")
+        s.eq(store.records["authors"]["森永みるく"]["reading_basis"], "stated",
+             "step 2 still runs: a reading the credit line printed in brackets is kept")
+        s.eq(stats["files-scanned"], 0, "and nothing was scanned to get any of it")
+
+        # THE ONE THING A SURFACES-ONLY RUN MUST NOT DO. `attempt(ja, 0, "cache")` means the cache
+        # was searched and held nothing, which stops a later run looking. A run that searched
+        # nothing may not say so, or the expensive pass is permanently disarmed by the cheap one.
+        s.check(not store.tried("球詠", "cache"),
+                "a run that read no cache records no attempt against it, so a full run still looks")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "names.pass0_cache"))

@@ -211,6 +211,15 @@ def main(s):
         # identifier the corpus no longer holds.
         s.check(all(v not in got_s["merged"] for v in got_s["merged"].values()),
                 "A RETIRED IDENTIFIER RESOLVES TO A LIVE ONE, never to another retired one")
+        # A DOMAIN MAY NOT BE ITS OWN INPUT, FOURTH TIME, AND THE FIRST A DEPLOY FOUND. The work
+        # merge map was read from `series.json`, which this emits, so a clean checkout built an
+        # empty map, emitted an empty map, and `pages.forwarders` deleted the stub at all 153
+        # retired work addresses. The registry states the merge and is where it is read from.
+        s.check(got_s["merged"],
+                "A RETIRED WORK ADDRESS STILL RESOLVES, which is what a forwarder needs and what "
+                "an empty merge map silently removes from the site")
+        s.eq(got_s["merged"], want_s["merged"] | got_s["merged"],
+             "and every merge the shipped file knows about is one the registry states")
         s.eq(got_s["thresholds"], want_s["thresholds"],
              "and the thresholds are `facts/serialisation`'s rather than a second copy")
 

@@ -1314,12 +1314,21 @@ over the section. The number is what makes the claim checkable: it counts the pa
 served rather than the tables the store holds, so it cannot be satisfied by modelling something and
 leaving the file to be written beside it.
 
-The move itself is the argument for having done it this way. Nine faults that
+AND THE LAST ONE WAS FOUND BY A DEPLOY, which is worth its own line. `data/build/series.json` was
+still where the store read the WORK merge map from, and §6 had just made that file something the
+store writes: a clean checkout built an empty map, emitted an empty map, and `pages.forwarders`
+deleted the stub at all 153 retired work addresses. Fourth time this project has been bitten by a
+domain being its own input, and the first time nothing upstream of the site caught it. The registry
+states the merge, exactly as the credit half has since §5d, and `test_emit.py` now asserts that a
+retired work address still resolves.
+
+The move itself is the argument for having done it this way. Ten faults that
 neither side could see alone: a credit registry that emptied on a clean checkout, an unordered
 SELECT served from an index, 130 credits filed under a spelling the registry does not answer for,
 two volume rows folded into one, a claim heap shared between the records that made it, furigana over
 the wrong spelling of a name, a byline that said `and others` and lost it, a forwarder pointing at a
-retired identifier, and seven houses that only ever distribute counted as publishing. Byte or parsed
+retired identifier, seven houses that only ever distribute counted as publishing, and 153 work
+forwarders about to be deleted from the live site. Byte or parsed
 equality against what the compiler wrote is what caught every one, and it is available only while
 both producers exist, which is the whole reason this section refused a cutover.
 

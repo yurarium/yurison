@@ -494,11 +494,12 @@ def build(path=None, quarantine=False, at=None, source=None):
     # store could not rebuild. `merged_into` in `data/identity/credits.yaml` is where a credit merge
     # is recorded, exactly as it is for a work.
     survivor, retired = {}, []
-    for gone, kept in ((json.loads((BUILD / "series.json").read_text(encoding="utf-8"))
-                        .get("merged") or {}).items() if (BUILD / "series.json").exists() else ()):
-        survivor[gone] = kept
-        retired.append((gone, "work"))
-    for f, col in (("credits", "credit"), ("publishers", "publisher")):
+    # FROM THE REGISTRY, NOT FROM THE FILE THIS STORE EMITS, which is the fourth time that fault has
+    # been found and the first time a DEPLOY found it. The work half read `data/build/series.json`,
+    # which §6 now writes out of `superseded` itself, so a clean checkout built an empty merge map,
+    # emitted an empty one, and `pages.forwarders` deleted the stub at all 153 retired work
+    # addresses. `data/identity/works.yaml` states the merge, exactly as the credit half does.
+    for f, col in (("works", "work"), ("credits", "credit"), ("publishers", "publisher")):
         for e in (_yaml(f).get(f) or []):
             if e.get("merged_into") and e.get("id"):
                 survivor[str(e["id"])] = str(e["merged_into"])

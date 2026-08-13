@@ -11,10 +11,16 @@ The sections are in the order they are to be done, and each says what it needs f
 |---|---|---|---|
 | §1 | Run the name passes as part of the update | nothing | 96 works had no English for want of this |
 | §2 | A claim about a reading stops occupying the English's slot | nothing | 196 titles, 1,337 authors |
-| §3 | Fetch the episode lists we never asked for | nothing | 53 works |
-| §4 | Join a translated edition to the work it translates | nothing | 28 products, 7 unjoined |
 | §5 | Two capture faults on the credit field | nothing | 4 rows |
-| §6 | Ask the shops about a work, not only their yuri shelf | nothing | 560 to ask about |
+| §3 | Fetch the episode lists we never asked for | §1, §2, §5 | 53 works |
+| §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
+| §4 | Join a translated edition to the work it translates | nothing | 28 products, 7 unjoined |
+
+**THE NUMBERS ARE THE ORDER THEY WERE FOUND IN, and the table above is the order to do them in.**
+§3 and §6 both ADD works, which is what moved them down. A work arriving before §1 arrives unnamed,
+before §2 it acquires an argument about the wrong fact, and before §5 it can bring a page title into
+its own credit field. Fixing the intake first means the new works land clean rather than joining a
+queue of repairs. §4 depends on nothing and can be done at any point.
 
 ## 0. What connects them
 

@@ -58,7 +58,7 @@ below moves one domain to the other side of that line.
 | §5i | A column that means two things | done 2026-08-13 |
 | §5j | A vocabulary with one home, and a key into it | done 2026-08-13 |
 | §5k | A date says it is a date | done 2026-08-13 |
-| §6 | The compiler writes the store; the JSON is emitted from it | 5 files emitted 2026-08-13; the feed and `series.json` remain |
+| §6 | The compiler writes the store; the JSON is emitted from it | 5 files emitted 2026-08-13; `feed/names.json` is the keystone the rest wait on |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
@@ -1136,6 +1136,27 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   `feed/meta.json` is the run's own report on the platforms, and much of it, `print_candidates`,
   `lapsed`, `samples_dropped`, describes what the CAPTURE did rather than what the corpus holds.
   Whether it belongs in `served.CORPUS` at all is worth asking before it is modelled.
+
+  `feed/names.json` IS THE KEYSTONE AND WAS NOT ON THE QUEUE, which measuring the rest found. It
+  carries 2 unanswered paths of the 278, so the budget calls it modelled and says nothing about the
+  order the files can move in: `series.json` and both feed files carry a RENDERING per row,
+  `work_en` and `author_en`, and each of those is an entry from this map. Nothing else can move
+  until it does, and `feed/meta.json` is the one file that carries no name at all.
+
+  THE SEAM IT NEEDED IS BUILT, 2026-08-13, and it corrected a fault of the kind §6 keeps finding.
+  The store loaded the renderings by READING `feed/names.json` off the disk, which on any run is the
+  LAST run's and on a fresh checkout is nothing. It could not simply be handed the compiler's rows
+  like `series` and `works`, because the map is downstream of two files the store emits: `floor` is
+  every string the interface will render and it is assembled by walking the credit pages and the
+  publisher pages. So `relational.renderings` is a load of its own. The compiler builds the store,
+  emits those two files, assembles the map, and hands it back.
+
+  AND A CLAIM NOW SAYS WHICH RECORD MADE IT. Claims hung off the FOLD alone, so the 112 author
+  spellings that fold onto another's key put their answers in one heap. An entry is one record's
+  account of a name, its reading, its English, its marks and its citation together, and one
+  assembled from whichever record held each field would ship a name nobody ever wrote down.
+  `names/fold` holds the rule that picks the record and `name_record.renders` is its answer stored,
+  so the compiler and the emitter ask one function rather than ranking the records twice.
 
   `index.json` MOVED 2026-08-13, along with `feed/credit-keys.json`, which is `credit_spelling`
   written down. The index took four corrections that byte equality found and nothing else would

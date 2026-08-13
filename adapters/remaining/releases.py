@@ -250,10 +250,15 @@ def main():
             # crediting `金子ある / #1(1)`, and #1(1) sits in that platform's own feed as a chapter.
             # A capture that cannot be somebody's name is dropped and the work keeps the credit it
             # already had.
+            # ASKED OF EACH CREDIT IN THE FIELD, NOT OF THE FIELD. ゼノンプラス writes
+            # `作品 - 作者 / 読切 作品 | プラットフォーム`, so the middle holds the artist and the
+            # work's own episode label. `is_a_person` refuses `読切 画家の肖像` and accepts the pair,
+            # because every refusal it makes anchors at the start of the string and the string
+            # opens with a real name. Two rows shipped with the work's title inside the byline.
             _au = re.search(r"<title>[^<|]*?\s+-\s+([^<|]+?)\s*\|", html)
             if _au:
                 _cand = _html.unescape(_au.group(1).strip())
-                page_author = _cand if _credits.is_a_person(_cand) else None
+                page_author = _credits.people_only(_cand)
             for name, fn in (("gigaviewer", lambda h: from_giga(h, url)),
                              ("comici", lambda h: from_comici(h, url)),
                              ("markup", from_generic)):

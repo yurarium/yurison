@@ -119,6 +119,31 @@ def main(s):
     # merely starting with those syllables is somebody's.
     for real in ("読切り太郎", "斉藤りょーパー", "レオパード・ゲッコー"):
         s.check(credits.is_a_person(real), f"a person whose name begins alike: {real}")
+
+    # ── THE FIELD IS NOT THE CREDIT, WHICH IS WHY THE RULE ABOVE MISSED TWO ROWS ───────────────
+    #
+    # Every refusal `is_a_person` makes anchors at the start of the string, so a field opening with
+    # a real name passes whatever follows it. ゼノンプラス titles a page
+    # `作品 - 作者 / 読切 作品 | プラットフォーム` and two release rows shipped with the work's own
+    # title inside the byline a reader sees. The rule was right and the question was.
+    s.check(credits.is_a_person("レオパード・ゲッコー / 読切 画家の肖像"),
+            "the field passes as a whole, which is the fault this pair of tests pins")
+    s.eq(credits.people_only("レオパード・ゲッコー / 読切 画家の肖像"), "レオパード・ゲッコー",
+         "asked of each credit, the label goes and the artist stays")
+    s.eq(credits.people_only("ぽぽらら / 読切 散らないで菊"), "ぽぽらら", "and on the other row")
+    s.eq(credits.people_only("斉藤りょーパー / 読み切り作品"), "斉藤りょーパー",
+         "including 一迅プラス's own spelling of the label")
+    # IT RESCUES A NAME THE OLD TEST THREW AWAY. `金子ある / #1(1)` failed `is_a_person` as a whole
+    # and the capture dropped the field entire, losing a real person to keep out a chapter number.
+    s.eq(credits.people_only("金子ある / #1(1)"), "金子ある",
+         "a chapter beside a person costs the chapter and not the person")
+    s.eq(credits.people_only("森永みるく"), "森永みるく", "a lone name is returned unchanged")
+    s.eq(credits.people_only("読切 画家の肖像"), None,
+         "and a field with nobody in it answers None rather than an empty string")
+    # THE INTERPUNCT IS NOT A CREDIT SEPARATOR HERE. レオパード・ゲッコー is one pen name, and where
+    # a ・ divides two people is a question `adapters/names/interpunct.py` settles from evidence.
+    s.eq(credits.people_only("レオパード・ゲッコー"), "レオパード・ゲッコー",
+         "a pen name holding an interpunct is one credit and is not cut here")
     # And the counter-case, because a rule keyed on "contains a digit" deletes real people.
     for real in ("タイザン5", "梵辛", "おにぎりパクパク", "Ｍａｇｐｉｅ", "帯屋ミドリ2"):
         s.check(credits.is_a_person(real), f"a person: {real}")

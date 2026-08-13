@@ -445,6 +445,37 @@ def is_a_person(name):
             and not ONE_SHOT_LABEL.match(s))
 
 
+#: The separator a capture writes between two credits in one field. Deliberately NOT the interpunct:
+#: `レオパード・ゲッコー` is one pen name and cutting it is a different question, which
+#: `adapters/names/interpunct.py` owns and settles from evidence.
+CREDIT_SEP = re.compile(r"\s*/\s*")
+
+
+def people_only(field):
+    """A credit field with the parts that cannot be a person removed, or None where none survive.
+
+    WHY THE WHOLE FIELD IS THE WRONG THING TO ASK. `is_a_person` refuses `読切 画家の肖像` and
+    accepts `レオパード・ゲッコー / 読切 画家の肖像`, because the string opens with a real name and
+    every refusal above anchors at the start. ゼノンプラス writes its page title as
+    `作品 - 作者 / 読切 作品 | プラットフォーム`, so the field a capture reads out of the middle holds
+    the artist AND the work's own episode label, and two release rows shipped with the work's title
+    inside the byline a reader sees.
+
+    `ONE_SHOT_LABEL` was written for exactly this string and says so in its own comment. It was
+    being asked of the field when it describes a PART, which is the whole of the bug: the rule was
+    right and the question was.
+
+    NOTHING IS SPLIT ON THE INTERPUNCT HERE. `split_authors` does that later for its own reasons.
+    A credit field arriving as `A / B` states two credits and this keeps whichever of them could be
+    somebody.
+    """
+    parts = [p.strip() for p in CREDIT_SEP.split(str(field or "").strip()) if p.strip()]
+    kept = [p for p in parts if is_a_person(p)]
+    if not kept:
+        return None
+    return " / ".join(kept)
+
+
 def _nobody():
     """`facts.credit`, imported late because this module is reached by passes that put `adapters`
     on the path themselves."""

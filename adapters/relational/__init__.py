@@ -937,9 +937,10 @@ def build(path=None, quarantine=False, at=None, source=None):
         wid = r.get("id")
         if not wid or r.get("state") is None:
             continue
-        put("INSERT INTO work_state (work, state, basis) VALUES (?,?,?)",
-            (wid, r["state"], r.get("state_basis") or r.get("completed_basis")),
-            f"work_state {wid}")
+        put("INSERT INTO work_state (work, state, basis, basis_ja, completed_basis,"
+            " completed_basis_ja) VALUES (?,?,?,?,?,?)",
+            (wid, r["state"], r.get("state_basis"), r.get("state_basis_ja"),
+             r.get("completed_basis"), r.get("completed_basis_ja")), f"work_state {wid}")
         # THE COMPETING CLAIMS, which are the disagreement rule applied to something other than a
         # name: 271 works hold a source, a term, a date and a page each.
         for cl in (r.get("state_claims") or []):

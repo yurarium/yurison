@@ -359,7 +359,17 @@ CREATE TABLE work_state (
   state TEXT NOT NULL REFERENCES work_state_kind(name),
   -- WHY, IN THE PROJECT'S OWN WORDS: `the newest chapter is titled 最終話`. Prose, and it is prose
   -- in the corpus, so `state_claim` beside it is where the queryable form lives.
-  basis TEXT
+  basis TEXT,
+  -- AND THE JAPANESE TRAVELS WITH THE ENGLISH, from the same row and by the same rule. A basis has
+  -- to describe the state being PUBLISHED: はなにあらし once read `active` with its last chapter a
+  -- month old, above a line saying no chapter had appeared for 2,946 days, because the state came
+  -- from one platform and the sentence from another.
+  basis_ja TEXT,
+  -- WHY WE SAY IT ENDED, WHICH IS A DIFFERENT SENTENCE FROM WHY IT IS IN THE STATE IT IS IN. One
+  -- column held whichever of the two the row had, which is §5i's fault: a work that ended and a
+  -- work that went quiet were saying their reasons in the same slot.
+  completed_basis TEXT,
+  completed_basis_ja TEXT
 );
 
 CREATE TABLE state_claim (

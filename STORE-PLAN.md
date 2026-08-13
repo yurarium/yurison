@@ -62,6 +62,9 @@ below moves one domain to the other side of that line.
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
+| §10 | An invariant is a query on the store | §6 |
+| §11 | The store is the artefact; the site builds from it | §10 |
+| §12 | A test the length of what it tests | nothing, and it never finishes |
 
 **WHERE §5a TO §5e CAME FROM.** An agent with no part in writing any of this reviewed
 `schema.sql` on 2026-08-13, given the domain, the owner's intent above and the standing
@@ -1504,3 +1507,111 @@ it, record why, and let the number fall because the work was done.
 what the site actually serves. Where `kari/app.js` has changed, the site repository goes
 first, because `gate.yml` clones the site at its default branch and would otherwise test today's
 Python against yesterday's JavaScript.
+
+## 10. An invariant is a query on the store
+
+**WHY THIS COMES BEFORE THE SPLIT.** §6's proof was byte or parsed equality against what the
+compiler wrote, and it is available only while both producers exist. §11 moves the emitters out of
+this repository, and on that day the comparison becomes the store against itself. What replaces it
+has to exist first, and the honest replacement is that the store answers for itself: a constraint
+the data cannot violate, or a query whose answer is checkable by anyone holding the file.
+
+It is also what §7 needs. A check written in Python over `data/build/*.json` can only ever
+describe a full rebuild. A query holds equally over a store that was rebuilt and one that was
+updated in place, which is the whole difficulty of an incremental path: the reconciliation compares
+two stores, and until the invariants are statements about a store there is nothing to compare them
+with.
+
+**THREE TIERS, AND THE FIRST ONE DELETES THE CHECK.**
+
+  A CONSTRAINT, so the violation is unstateable. §5 did this for the alias cycle, for ISBN
+  spelling and for the vocabularies, and each time the check that had been counting violations
+  stopped existing rather than moving. Anything that is really a uniqueness, a foreign key or a
+  domain belongs here.
+
+  A QUERY WITH A NAME, a `SELECT`, and the number it should return. This is most of the middle
+  ground, and it is where a budget belongs: a budget is a count already, so `docs/budgets.json`
+  becomes a name, a query, a number and the reason, which finally puts the definition beside the
+  figure it produces.
+
+  PYTHON, because the subject is prose, the source tree, or two runs compared. `tics.py`,
+  `modules without a test` and `adapters fetching without net.py` are about this repository rather
+  than about the corpus, and the weekly equivalence run compares two stores and cannot be one query.
+
+The shape of the move is measured rather than guessed. `check.py` holds 145 invariant and budget
+functions. 43 of them read the built collections directly and are the obvious candidates; 26 name
+the site and leave under §11; my estimate is that 60 to 70 end as constraints or queries and that
+about 50 are properly Python. The number that matters is not how many move but that the ones that
+stay are the ones with a stated reason to stay.
+
+**THE CANARY SURVIVES AND GETS CHEAPER.** `--self-test` plants a violation and fails if the check
+does not catch it, which is what stops a check that matches nothing from reporting clean. In SQL
+that is a violating row inserted into a throwaway copy, which is simpler than the context patching
+it takes today. Two things must not be lost in the translation: a query that ERRORS must read as
+unmeasured rather than as zero, which is the trap `UNMEASURED` already exists for, and a budget
+still ratchets down only.
+
+**WHAT THIS IS NOT.** It is not a rewrite of the gate. The checks that stay in Python stay exactly
+as they are, and a check moves only when somebody can say in a sentence what the query means.
+
+## 11. The store is the artefact; the site builds from it
+
+**THE BOUNDARY BECOMES A FILE WITH A VERSION ON IT.** Today it is a shell script that reaches into
+a sibling checkout, writes HTML into it, and rewrites its `index.html` to bust a cache. What crosses
+after this is `corpus.sqlite`: 30.7 MB, 42 tables, 17.5 seconds to build, stamped with a schema
+version and the commit that produced it. The site pulls that and builds what it needs.
+
+The site goes on being served JSON, ruled by the project owner. The emitters move unchanged and
+produce the same ten files on the other side of the line. Whether the site later queries the store
+directly is a question about the site, which is exactly the freedom this boundary is for.
+
+**WHAT LEAVES THIS REPOSITORY.** `adapters/relational/emit.py`, `adapters/stubs.py` and
+`adapters/pages.py`, which are 1,754 lines of rendering; `deploy.sh` entire; and the 26 checks that
+read `kari/app.js`, `app-status.js`, `index.html` and the deployed data tree. What is left has no
+path that names the other repository, and `SITE_ROOT` and `YURARIUM_SITE` stop existing here.
+
+**THE STORE CARRIES THE WITHHELD WORKS, ruled by the project owner.** The store is the archive and
+the emission is the publication, which is a cleaner division than filtering both. What that means
+concretely: 13 works refused under DEFINITIONS §6, 11 of them prose from one publisher's comics
+label and 2 first published outside Japan, have no `work` row, and all 13 keep a title surface
+carrying 26 claims between them. The `withheld` table holds each title with the reasoning that
+refused it.
+
+**SO THE WITHHOLDING MUST BECOME STRUCTURAL, which it is not today.** It is applied at emission, by
+a filter in one function, and §11 moves that function into the repository that consumes the store.
+A rule enforced by the consumer is a rule the producer cannot check. The answer is a VIEW: the
+schema offers `published_work` and the emitters read views rather than tables, so shipping a
+withheld work takes a deliberate act rather than an omission. Deciding that now costs nothing,
+because nothing is withheld on content grounds today; the day something is, the store will carry
+the flag, the reason and the renderings while the site shows nothing.
+
+**WHAT IS NOT DECIDED.** How the artefact travels. 30.7 MB committed into a Pages repository on
+every build is not viable, so it is a release asset or a build artefact, and that choice belongs
+with whoever wires the site's CI.
+
+**THE RISKS, and the second is the one to watch.** A schema change becomes a contract between two
+repositories rather than one commit, so the site has to refuse a store whose version it does not
+know. And a check that changes repository is a check that can quietly not be adopted: those 26
+include the ones that caught `????·Bun?Bun` and Japanese leaking into English mode, which are the
+most reader-visible failures this project has had. They move as a unit with their canaries, and the
+site's CI gates on them BEFORE this repository stops running them.
+
+## 12. A test the length of what it tests
+
+**THE LENGTH IS A SYMPTOM AND THE MODULE IS THE CAUSE.** `test_build.py` is 913 lines and 211
+assertions in a single function, and it is that long because `build.py` is 7,467 lines. Splitting
+the file gives four integration tests where there was one, and none of them is a unit test either.
+
+**THE CURE IS EXTRACTION, AND §6 IS THE EVIDENCE.** `names/fold`, `names/attach` and `names/ruby`
+came out of `build.py` because a second caller needed them, and each shipped with a unit test of
+nine to thirteen assertions over pure functions with no build in sight. Each also removed a section
+from `test_build.py`. That is the whole method: when a rule is asked twice it becomes a module, and
+the integration test gets shorter as a side effect rather than as a project.
+
+**§10 SHRINKS THE OTHER LONG ONE.** `test_relational.py` is 790 lines and most of what it asserts is
+that the schema refuses a bad row. As those become constraints, each test is an insert and an
+expected refusal, which is three lines and reads as one.
+
+**WHAT SHOULD REMAIN WHEN THIS IS DONE.** An integration test that says the whole thing runs and its
+outputs join up, named as an integration test so nobody mistakes its length for a fault. Everything
+else is a module with a test the size of its subject.

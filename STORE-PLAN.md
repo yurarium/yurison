@@ -55,6 +55,9 @@ below moves one domain to the other side of that line.
 | §5f | The constraints that still do not fire | done 2026-08-13 |
 | §5g | A row §7 can address, and a quarantine that survives | done 2026-08-13 |
 | §5h | A judgement belongs to the record that was judged | done 2026-08-13 |
+| §5i | A column that means two things | before §6 |
+| §5j | A vocabulary with one home, and a key into it | a home in `facts/` first |
+| §5k | A date says it is a date | free while every value is well formed |
 | §6 | The compiler writes the store; the JSON is emitted from it | §5e |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
@@ -883,6 +886,70 @@ its comment calls it the §13 register. And `credit_spelling` is documented as e
 reaches one person while 131 credits' own `credit.surface` is absent from it, so a consumer must
 union two tables to ask one question, which the loader does at `by_subject` and nothing else knows.
 
+## 5i. A column that means two things
+
+**WHY THESE COME BEFORE §6 AND THE OTHER TWO DO NOT.** §6 emits from these tables, so a column whose
+value does not say what it is gets emitted, and one of the four is keyed on today.
+
+`volume_claim.source` holds a source on 329 rows and a record identifier on 2,244. The loader
+falls back to `work_id` where no claim names a source, and `volume_claim_one` keys on the column, so
+two records from one catalogue stating one count are two rows rather than the one disagreement this
+table exists to hold. "Which sources disagree about this run" cannot be asked at all. The claim
+belongs to the RECORD that makes it, which is the key, and `source` says where that record got it.
+
+**`edition.cite` PACKS A SCHEME AND AN IDENTIFIER INTO ONE STRING.** 3,635 are a url,
+2,375 are `madb:C418820`, and 906 are the bare word `ndl`, which names a source and locates nothing.
+`work_anchor` splits exactly this into a scheme and an address and gets a key out of it, so the file
+disagrees with itself about how a citation is held.
+
+A DATE NAMES ITS SOURCE ALWAYS, which every row can satisfy and is what `per-book dates cite their
+page` is really asserting. Whether that source also gives a page a reader can open is a second
+question, and `dates cited to something that is not a page` counts the 906 rather than refusing rows
+the corpus is right to hold.
+
+**TWO COLUMNS SAY ABSENCE WITH A VALUE THAT MEANS SOMETHING ELSE.** `work.explicit_content` is
+`NOT NULL DEFAULT 0` and 0 on every row, of which 2,459 are a record stating false and 579 have no
+record at all, so looked-and-false and never-looked are one value. `work_presentation.label` holds
+the string `none` on 2,127 rows, which makes `label IS NOT NULL` lie about what is known.
+STANDING-INSTRUCTIONS §5 is the rule both break: absence is a state and gets its own value.
+
+## 5j. A vocabulary with one home, and a key into it
+
+**NINE COLUMNS HOLD A CLOSED SET AS FREE TEXT**, and the schema is not what blocks them. A CHECK here
+would be a second home for each vocabulary, which is the fault every ruling table in this file exists
+to prevent and the one `check.STATES_A_READING` demonstrated by drifting from
+`curate.READING_ATTRIBUTION` before this store existed. So the section's work is a home in `facts/`
+first, and the key follows it.
+
+  `credit_part.role`, 39 values. The gloss table exists and an invariant proves every role has one,
+  and it lives in `kari/app.js`, so the home has to move into Python before a key can point at it.
+
+  `release.kind` at 5, `identity_ruling.shape` at 4, `state_claim.says` at 2 and `work_anchor.scheme`
+  at 2 are stated in `build.py` and in this loader. `edition.dated_basis` is stated inline in this
+  file as a CHECK where `basis` gets a table with columns, and `facts/dating` is NOT its home: that
+  module's `BASES` is a different vocabulary, about why a work has no date, overlapping on one word.
+
+**ONE NEEDS NO NEW HOME AND IS THE FIRST WORK.** `imprint.parent` is an imprint written as a name, 23
+of them with one that resolves to nothing, and it should be a foreign key into the table it is
+already sitting in.
+
+**AND ONE IS A NORMALISATION, WHICH THE VOCABULARY WAS HIDING.** `admission.comparator` and `admission.shelf`
+are the same fact twice: `facts/inclusion.SHELVES` states
+`{cmoa.jp: genre 37 (百合・GL), bookwalker.jp: tag 14 (百合)}`, the 1,867 rows match it exactly, and
+the shelf is functionally dependent on the comparator rather than on the row. A `comparator` table
+filled from the fact makes the column a foreign key and takes `shelf` off `admission` altogether.
+
+## 5k. A date says it is a date
+
+**THIRTEEN COLUMNS OF UNCONSTRAINED TEXT**, across `edition`, `claim`, `work`, `offer`, `release`,
+`admission`, `state_claim`, `volume_claim`, `work_presentation` and `quarantine`. `'yesterday
+afternoon'` inserts into any of them.
+
+Every value is well formed today, including the partial `YYYY-MM` that `edition.dated` and
+`work.first_publication` carry beside whole dates, so the format is free to adopt, which is the only
+time a constraint is. It is the cheapest item in the plan and it is a section of its own only
+because it touches ten tables.
+
 ## What this plan does not adopt from the review
 
 Recorded because a rejected finding that leaves no trace is indistinguishable from one nobody read.
@@ -930,6 +997,31 @@ a running updater. Imposing a shape now would settle it in advance of the eviden
 `release.kind`: their vocabularies are written in `build.py` and nowhere else, so a CHECK here would
 be a second home for them. The fix is a `facts/` module that owns each, and that is pipeline work
 under §9's boundary rather than a schema change.
+
+**THE DUPLICATED `kind` COLUMNS STAY, BECAUSE THE DUPLICATE IS THE CONSTRAINT.** `claim.kind`,
+`name_record.kind`, `names.kind`, `work_byline.kind` and `credit_division.kind` repeat
+`surface.kind` across some 18,000 rows, and `FOREIGN KEY (surface, kind) REFERENCES surface (id,
+kind)` is what stops a title naming a person. 0 rows disagree and none can. Removing the redundancy
+would remove the thing §5f was written to add.
+
+**`quarantine.row` STAYS A JSON LIST IN A TEXT COLUMN**, which is the carrier this schema's header
+says it exists to stop being, and is right in exactly one place. The column holds a row the model
+could not admit, so by construction it cannot be modelled, and a typed shape would have to
+anticipate every way a future row fails. If it ever fills, what that means is a §9 question about
+the model, and not about a column type.
+
+**`work_publisher` KEEPS ITS TRANSITIVE DEPENDENCY.** It carries a publisher and an imprint, and an
+imprint determines its publisher, so the first depends on the second. 833 of 2,659 rows name a house
+with no line known, so dropping the column would lose them, and 0 of the 1,827 rows carrying both
+disagree.
+
+**THE FILING VALUES ARE DEFERRED AND THIS IS THE LEAST COMFORTABLE OF THESE.** `credit.surface`
+repeats a row of `credit_spelling`, `identity_ruling.about` repeats a row of
+`identity_ruling_surface`, and `keeps` sits beside `keeps_credit`. That is real redundancy held
+together by one loader function rather than by the schema, which is weaker than the case above it.
+0 rows disagree, and the fix is a partial unique index over a `filed` flag on each set, which is a
+restructure of three tables to enforce something nothing has broken. Worth revisiting the moment one
+drifts.
 
 **AND THE SHARED PEN NAME IS LEFT UNSTATEABLE ON PURPOSE.** `credit.surface UNIQUE` and
 `credit_spelling.spelling` as a primary key both forbid two artists sharing one name, which the

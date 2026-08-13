@@ -171,6 +171,19 @@ def publishers(db, generated):
                 "SELECT id, publisher FROM superseded WHERE publisher IS NOT NULL ORDER BY id")}}
 
 
+def credit_keys(db):
+    """`feed/credit-keys.json`, which IS `credit_spelling` and nothing else.
+
+    45 KB AGAINST `credits.json`'s 457, and that is the reason it exists as its own file: a search
+    needs a spelling and an identifier, and the works hang off `ci` on rows the page already holds.
+    So it never fetches the credit records to answer a question about a person.
+
+    THE ORDER IS THE REGISTRY'S, which is the order the rows were written in. A search does not care
+    and a byte comparison does.
+    """
+    return {s: c for s, c in db.execute("SELECT spelling, credit FROM credit_spelling ORDER BY id")}
+
+
 def _slug(db, imprint_id):
     got = db.execute("SELECT slug FROM imprint WHERE id = ?", (imprint_id,)).fetchone()
     return got[0] if got else None
@@ -191,3 +204,8 @@ def _span(years, first, last):
 def as_text(payload):
     """The file as `build.py` writes one, so a comparison is of bytes and not of parsed objects."""
     return json.dumps(payload, ensure_ascii=False, indent=1)
+
+
+def as_compact(payload):
+    """The same, for the files written without indentation because a browser loads them on sight."""
+    return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))

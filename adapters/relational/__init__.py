@@ -1019,9 +1019,16 @@ def build(path=None, quarantine=False, at=None, source=None):
                             if _isbn(x)})
             vol = next((held_isbn[i] for i in isbns if i in held_isbn), None)
             if vol is None:
-                if not put("INSERT INTO volume (work, record, seq, volume, designation)"
-                           " VALUES (?,?,?,?,?)",
-                           (wid, w.get("work_id"), seq, v.get("number_n"), designation),
+                fv = (v.get("final_volume_basis")
+                      if isinstance(v.get("final_volume_basis"), dict) else {})
+                if not put("INSERT INTO volume (work, record, seq, volume, designation, number_raw,"
+                           " openbd, cover_url, final_volume, final_source, final_provenance,"
+                           " final_volumes, final_retrieved)"
+                           " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                           (wid, w.get("work_id"), seq, v.get("number_n"), designation,
+                            v.get("number"), v.get("openbd"), v.get("cover_url"),
+                            int(bool(v.get("final_volume"))), fv.get("source"),
+                            fv.get("provenance"), fv.get("volumes"), fv.get("retrieved")),
                            f"volume {wid} {isbns[0] if isbns else designation or '?'}"):
                     continue
                 vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
@@ -1120,6 +1127,25 @@ def build(path=None, quarantine=False, at=None, source=None):
                 " VALUES (?,?,?,?,?,?)",
                 (wid, w.get("work_id"), n, claimed.get("source"), claimed.get("provenance"),
                  claimed.get("retrieved")), f"volume_claim {wid}")
+        # WHERE AND WHEN IT FIRST APPEARED, AND THE RECORDS IT WAS COMPILED FROM.
+        fp = w.get("first_publication") if isinstance(w.get("first_publication"), dict) else {}
+        if fp:
+            put("INSERT INTO work_origin (record, work, dated, date_source, date_basis, venue,"
+                " venue_type, country, country_basis, country_note, note)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                (w.get("work_id"), wid,
+                 fp.get("date"), fp.get("date_source"), fp.get("date_basis"), fp.get("venue"),
+                 fp.get("venue_type"), fp.get("country"), fp.get("country_basis"),
+                 fp.get("country_note"), fp.get("note")), f"work_origin {wid}")
+        # THE RECORD LAYER AGAIN: two catalogue records of one work each name their own sources.
+        for rec in (w.get("records") or []):
+            if isinstance(rec, dict) and rec.get("source"):
+                put("INSERT OR IGNORE INTO work_record (record, work, source, url, retrieved)"
+                    " VALUES (?,?,?,?,?)",
+                    (w.get("work_id"), wid, rec["source"], rec.get("url"), rec.get("retrieved")),
+                    f"work_record {w.get('work_id')} {rec['source']}")
+    counts["work_origin"] = db.execute("SELECT count(*) FROM work_origin").fetchone()[0]
+    counts["work_record"] = db.execute("SELECT count(*) FROM work_record").fetchone()[0]
     counts["admission"] = db.execute("SELECT count(*) FROM admission").fetchone()[0]
     counts["volume_claim"] = db.execute("SELECT count(*) FROM volume_claim").fetchone()[0]
 

@@ -475,6 +475,22 @@ def main(s):
     _refuses(s, db, "INSERT INTO volume (work, record, seq) VALUES ('w00001','C000900',0)", (),
              "so one record cannot state the same position twice")
 
+    # ── §6: THE RECORD LAYER, WHICH IS NOT THE WORK LAYER ─────────────────────────────────────
+    #
+    # `works.json` holds 2,574 CATALOGUE RECORDS against 3,038 works, and two records of one work
+    # each state their own first publication and their own sources. Keying either on the work kept
+    # whichever was read first: `work_origin` reported 2,459 rows where the corpus has 2,574.
+    db.execute("INSERT INTO work_origin (record, work, dated, venue) VALUES"
+               " ('C100','w00001','2008-05','F×COMICS')")
+    db.execute("INSERT INTO work_origin (record, work, dated, venue) VALUES"
+               " ('bw-9','w00001','2008-06','BOOK☆WALKER')")
+    s.eq(db.execute("SELECT count(*) FROM work_origin WHERE work='w00001'").fetchone()[0], 2,
+         "two records of one work each state their own first publication")
+    _refuses(s, db, "INSERT INTO work_origin (record, work) VALUES ('C100','w00001')", (),
+             "and one record states it once")
+    _refuses(s, db, "INSERT INTO work_origin (record, work) VALUES ('C200','w99999')", (),
+             "against a work the store holds")
+
     # ── §6: A PRINT ROW IS A CATALOGUE RECORD AS A SHELF WOULD COUNT IT ───────────────────────
     #
     # A work carrying two editions under one line is TWO rows and ONE work, which is why a house's

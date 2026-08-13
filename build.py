@@ -3711,8 +3711,9 @@ def main():
     # spelling to identifier and nothing else: the works hang off `ci` on the rows already loaded,
     # so the page never fetches the credit records to answer a query about a person.
     (out / "feed").mkdir(parents=True, exist_ok=True)
-    (out / "feed" / "credit-keys.json").write_text(
-        json.dumps(_spell_to_cid, ensure_ascii=False, separators=(",", ":")))
+    #
+    # WRITTEN FURTHER DOWN, OUT OF THE STORE (§6), because `credit_spelling` IS this map and the
+    # store is built after the series rows it also needs.
 
     # EVERY ID IN IS AN ID OUT, EXCEPT THE ONES A RULING REFUSED BY NAME. Counting the refusals
     # rather than exempting the guard keeps it able to catch what it was written for: a record lost
@@ -7399,6 +7400,13 @@ def main():
     # they are separate files rather than more keys on `names.json`: that one loads on every visit.
     (out / "credits.json").write_text(json.dumps(_credits_shipped, ensure_ascii=False, indent=1,
                                                  default=jsonable))
+
+    # THE MAP A QUERY IS RESOLVED THROUGH, 45 KB against `credits.json`'s 457, and it IS
+    # `credit_spelling`. A search needs a spelling and an identifier; the works hang off `ci` on the
+    # rows a page already holds, so it never fetches the credit records to answer about a person.
+    (out / "feed").mkdir(parents=True, exist_ok=True)
+    (out / "feed" / "credit-keys.json").write_text(
+        _emit.as_compact(_emit.credit_keys(_store_db)))
     _cp_n = len(_credits_shipped.get("credits") or {})
     _cp_e = sum(len(v.get("works") or []) for v in (_credits_shipped.get("credits") or {}).values())
     _cp_r = sum(1 for v in (_credits_shipped.get("credits") or {}).values()

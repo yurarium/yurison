@@ -269,7 +269,11 @@ CREATE INDEX work_anchor_work ON work_anchor (work);
 -- the absence as a gap and put the titles in, which made this table disagree with the one producer
 -- of the answer. `credit.surface` is what a page is headed with; this is what finds it.
 CREATE TABLE credit_spelling (
-  spelling TEXT PRIMARY KEY,
+  -- AN ID, SO THE ORDER THE REGISTRY WROTE THEM IN SURVIVES. `feed/credit-keys.json` is this table
+  -- and nothing else, and a byte comparison against what the compiler wrote cares about the order
+  -- even though a search does not.
+  id       INTEGER PRIMARY KEY,
+  spelling TEXT NOT NULL UNIQUE,
   credit   TEXT NOT NULL REFERENCES credit(id) ON DELETE CASCADE
 );
 
@@ -784,7 +788,19 @@ CREATE TABLE volume (
   -- NEITHER IS REQUIRED AND NEITHER EXCLUDES THE OTHER. `build.volume_number` reads 創刊号 as the
   -- first issue, so a designation can acquire a position.
   volume       INTEGER CHECK (volume IS NULL OR volume >= 0),
-  designation  TEXT
+  designation  TEXT,
+  -- WHAT THE CATALOGUE CALLED IT, `vol.6`, beside the integer position read out of it.
+  number_raw   TEXT,
+  -- WHETHER openBD HOLDS A REGISTRATION FOR IT, which is how a volume's ISBN reached a date.
+  openbd       TEXT,
+  cover_url    TEXT,
+  -- THE LAST VOLUME, AND WHO SAYS SO. A shop stating a completed run is a claim like any other, so
+  -- it carries its source, how it was arrived at, and the count it stated.
+  final_volume INTEGER NOT NULL DEFAULT 0 CHECK (final_volume IN (0, 1)),
+  final_source TEXT,
+  final_provenance TEXT,
+  final_volumes INTEGER,
+  final_retrieved TEXT
 
   -- THERE IS NO KEY HERE BEYOND THE ISBN AND THAT IS THE DATA'S DOING, not an omission. 92 rows
   -- share a work, a position and a designation with another, 40 of them holding no ISBN at all:
@@ -855,7 +871,39 @@ CREATE TABLE edition (
 
 CREATE INDEX edition_volume ON edition (volume, kind);
 
--- ── the print rows a work's run is made of ─────────────────────────────────────────────────────
+-- WHERE AND WHEN A WORK FIRST APPEARED, AND ON WHOSE WORD. A date, the venue that carried it and
+-- what kind of venue that is, and the country, which is its own question with its own basis: 2,574
+-- works state `japanese-edition-catalogued`, which places the EDITION in Japan and says so rather
+-- than claiming the work was first published there.
+-- KEYED ON THE RECORD AND NOT ON THE WORK, because `works.json` is the RECORD layer: 2,574 rows
+-- against 3,038 works, and two catalogue records of one work each state their own first publication.
+-- Keying on the work kept whichever record was read first and discarded the other's answer.
+CREATE TABLE work_origin (
+  record       TEXT PRIMARY KEY,
+  work         TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  dated        TEXT CHECK (dated IS NULL OR dated GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR dated GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  date_source  TEXT,
+  date_basis   TEXT,
+  venue        TEXT,
+  venue_type   TEXT,
+  country      TEXT,
+  country_basis TEXT,
+  country_note TEXT,
+  note         TEXT
+);
+
+-- THE CATALOGUE RECORDS A WORK WAS COMPILED FROM, with the page each was read at and when. This is
+-- what `records[]` ships and what lets a reader follow a fact back to the catalogue that stated it.
+CREATE TABLE work_record (
+  record    TEXT NOT NULL,
+  work      TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  source    TEXT NOT NULL,
+  url       TEXT,
+  retrieved TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  PRIMARY KEY (record, source)
+);
+
+-- ── the print rows a work'''s run is made of ─────────────────────────────────────────────────────
 --
 -- A PRINT ROW IS A CATALOGUE RECORD AS A SHELF WOULD COUNT IT, which is what `publishers.json` and
 -- the print half of `series.json` are both counting. A work carrying two editions under one line is

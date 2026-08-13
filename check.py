@@ -883,6 +883,16 @@ def inv_content_flags_are_accounted_for(ctx):
     # normalised form, which is the ANSWER build.py reached and not the PATTERN it reached it with:
     # the patterns above are still applied here to a list build.py did not hand over, so a flag that
     # stopped being raised at all is still what this catches.
+    #
+    # READ OFF THE BUILT ROWS AND NOT THE DEPLOYED ONES, CHANGED 2026-08-13. This took the works
+    # list from `SITE`, so it judged a fresh build's report against whatever was last copied out.
+    # It failed twice in one day for that reason and neither was a fault: a work admitted by the
+    # run being checked is in the report and not yet in the deployed tree, which reads here as a
+    # flag nothing accounts for. The report and the rows now come from the same build, which is
+    # what the comparison was always meant to be about. GATE-PLAN section 5.
+    #
+    # WHAT THIS DOES NOT COST. The property being guarded is that a marketing flag build.py should
+    # have raised is present in what build.py reported, and both sides of that are the build's.
     expect_marketing, norm = set(), lambda t: t
     try:
         sys.path.insert(0, str(ROOT))
@@ -891,7 +901,7 @@ def inv_content_flags_are_accounted_for(ctx):
         _b = importlib.util.module_from_spec(_spec)
         _spec.loader.exec_module(_b)
         norm = _b.norm_work
-        for r in (_load(SITE / "series.json", {}) or {}).get("series", []):
+        for r in ctx["series"]:
             w = r.get("work") or ""
             if _b.ADULT_MARKETED.search(w) and _b.COLLECTION_MARK.search(w):
                 expect_marketing.add(w)

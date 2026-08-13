@@ -237,6 +237,17 @@ jobs:
       # a violated invariant has already degraded to the fallback it names, and what matters here is
       # that the count is recorded and visible. The blocking copy runs at pre-push and on pull
       # requests, where someone is present to fix it.
+      # THE SCHEMA REFUSES WHAT THE CHECKS REPORT. See gate.yml for the argument; the short form is
+      # that five invariants in check.py are foreign keys written out as Python, and until now the
+      # store carrying those constraints was compiled only by the weekly equivalence run. 6.9s.
+      #
+      # OPTIONAL HERE AND BLOCKING ON A PULL REQUEST, which is the split this workflow already
+      # makes everywhere: an unattended update must keep publishing, and the place to refuse a
+      # dangling identifier is where somebody is present to fix it.
+      - name: The relational store, whose constraints refuse rather than report
+        continue-on-error: true
+        run: python3 adapters/relational/__init__.py --build
+
       - name: Invariants and budgets (runtime — reports, does not block)
         run: python3 check.py --runtime
 

@@ -18,9 +18,9 @@ The sections are in the order they are to be done, and each says what it needs f
 |---|---|---|---|
 | §1 | Make the cheap path the one you get by accident | done 2026-08-13 | 79.6s to 28.5s |
 | §2 | Stop re-proving the checks against unchanged code | done 2026-08-13 | 28.5s to 2.4s |
-| §3 | Render the interface once, ask it six questions | nothing | about 13s off `--full` |
-| §4 | Let the schema refuse what the checks report | §1 | five fault classes, no seconds |
-| §5 | Derive the content-flag report rather than reconcile it | §4 | 8.1s and two false alarms |
+| §3 | One node round trip, not six | measured, declined | ~18s off `--full` only |
+| §4 | Let the schema refuse what the checks report | store wired 2026-08-13 | five fault classes, no seconds |
+| §5 | Read the signal off the built rows | done 2026-08-13 | two false alarms, no seconds |
 
 ## 0. What is actually slow, and it is not the gate
 
@@ -102,12 +102,26 @@ notation in an English rendering` (3.8s), `a byline never states the default rol
 `renderings resting on a mechanical romanisation` (1.9s), `full-width forms in English renderings`
 (1.8s). About 18s, and they agree on the collections they render.
 
-One memoised render per gate run answers all six, each check keeping its own question and its own
-name. This is memoisation and leaves every rule where it is.
+**THE PREMISE WAS WRONG, CHECKED 2026-08-13.** "Render once" is already done: `_interface(ctx)`
+keeps the loaded interface on the context and its docstring says so, "kept on the context so several
+checks share one load". What is not shared is the round trip. `interface.render` spawns a fresh
+`node` for every call list, and the harness re-evaluates `app.js` each time, so six checks asking
+six different questions pay six process starts and six evaluations.
 
-**WHY IT IS NOT FIRST.** With §1 in place a data-only run skips most of these anyway. It earns its
-place on `--full`, which is what `equivalence.yml` runs weekly and what a reviewer runs after
-touching the interface.
+So the fix is one node request carrying all six call lists, which means the six checks declaring
+their calls before any of them runs and reading their answers afterwards. That is a restructuring of
+six checks rather than a memoisation, and each of the six currently reads as one self-contained
+question, which is worth something.
+
+**DECLINED AT ITS MEASURED VALUE.** With §1 and §2 done, `--gate` is 2.4s and none of this is on
+that path: these six are skipped outright when their inputs have not moved. The ~18s falls only on
+`--full`, which `equivalence.yml` runs weekly and a reviewer runs after touching the interface. The
+plan is not worth six restructured checks to save 18s of a weekly run, and saying so is the same
+judgement the SQL section below makes for the same reason.
+
+**WHAT WOULD CHANGE THE ANSWER.** A long-lived node process, which would cut the cost without
+touching any check, and would introduce a server to a codebase that currently has none. Worth
+revisiting if `--full` becomes something anyone waits on.
 
 ## 4. Let the schema refuse what the checks report
 
@@ -142,6 +156,19 @@ That argues for the REBUILD staying weekly and independent. It does not argue fo
 absent from the daily path. The two were collapsed, and separating them is what unblocks this
 section: build the store daily, keep the weekly rebuild-and-compare exactly as it is.
 
+**THE STORE IS IN BOTH PATHS, 2026-08-13.** `gate.yml` builds it on every pull request, where a
+failing insert blocks and somebody is present to fix it, and `update.yml` builds it after the final
+Compile with `continue-on-error`, which is the split that workflow already makes everywhere: an
+unattended update must keep publishing. `PRAGMA foreign_keys = ON` now meets real data on a schedule
+instead of once a week.
+
+**THE FIVE CHECKS STAY, AND THAT IS THE DECISION RATHER THAN AN OMISSION.** A constraint that has
+never refused anything in this repository has not earned the retirement of a check that has, and
+three of the five docstrings name faults they caught: 13 pairs shipped under one identifier, a fold
+drifting silently, a page listing a work that does not name it. Retire them when both have run
+together over a stretch of real updates and agreed. Until then the cost is one insert and the gain
+is that the wrong thing becomes unstateable rather than merely reported.
+
 ## 5. Derive the content-flag report rather than reconcile it
 
 **THE FAULT.** `content flags are accounted for` costs 8.1s and gave two false failures in one day.
@@ -164,6 +191,28 @@ disagree about.
 **WHAT MUST SURVIVE.** The reason the check exists. A register that nothing consumes reads as a
 control that is working, which is how five works stayed live on the public site while a file said
 they were withheld. Deriving the report keeps the consumer; it removes only the third computation.
+
+**THE PLAN WAS HALF WRONG AND THE HALF THAT WAS RIGHT IS DONE, 2026-08-13.** The report is ALREADY
+derived from one producer: `build.py` line 3173 merges `content_flags()` with `marketing_flags()`
+and reports the result, so the single-producer property this section asked for already held.
+
+What was actually wrong is narrower and is the part that failed twice in one day. The check
+recomputed the marketing signal from the DEPLOYED works list, so a fresh build's report was judged
+against whatever was last copied out, and a work admitted by the run being checked read as a flag
+nothing accounts for. Neither failure was a fault. It now reads `ctx["series"]`, so both sides of
+the comparison come from the same build, which is what it was always meant to be about.
+
+**THE CHECK STAYS, AND ITS COST STAYS AT 8.1s.** The recomputation is not redundant: it exists
+because scoping this to the file register alone let a fire-drill delete all three marketing flags
+from the report without failing anything. That is a real guard on a real fault, and eliminating it
+would trade a false-alarm class for a silent one. The 8.1s is `exec_module`ing `build.py` for its
+patterns, which is the price of applying the ANSWER build.py reached to a list it did not hand over,
+and that separation is the whole point of the check.
+
+So this section ends smaller than it was written. The general form it argued for still holds and is
+worth keeping in view: a check that reconciles two producers is evidence there should be one. It
+happens that here there already was one, and the fault was in which copy of the data the third
+computation read.
 
 ## What is deliberately not here
 

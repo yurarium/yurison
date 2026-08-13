@@ -44,6 +44,7 @@ from names import key as _namekey  # noqa: E402
 from names import openbd_reading  # noqa: E402
 import bylines as _bylines  # noqa: E402
 from classify import credence  # noqa: E402
+from names import fold as _foldmod  # noqa: E402
 from recon import bookwalker_volumes  # noqa: E402
 import delivery  # noqa: E402
 from facts import script as _script                                     # noqa: E402
@@ -940,72 +941,12 @@ def load_platform_history(files):
 def fold_map(records, fold):
     """Key records by their folded name, keeping the fullest where several fold together.
 
-    A dict comprehension here let the last writer win, and the winner depended on iteration order.
-    彼氏の女友達がぐいぐい来る(私に) is held twice, once with full-width brackets and once without,
-    and the copy that arrived second carried no English name: a curated translation was written to
-    the store, applied cleanly, and then silently dropped on the way to the page. The name was
-    absent from the site with nothing anywhere reporting a problem.
-
-    Fullest means the record answering the most questions a reader can ask of it. Ranking by field
-    count rather than by which spelling looks canonical avoids deciding that full-width brackets
-    are wrong, which they are not; the two spellings are one work and either may be the one a
-    source used.
+    ONE PRODUCER, IN `adapters/names/fold.py`, because STORE-PLAN §6 needs the store to reach the
+    same answer: `feed/names.json` ships one entry per fold and something has to choose which
+    record it is rendered from. A copy of the rule here is the shape §3 counts seven shipped bugs
+    from, and it would be the copy that disagrees.
     """
-    best, lost = {}, {}
-    for k, v in records.items():
-        f = fold(k)
-        if f in best:
-            lost[f] = lost.get(f, 0) + 1
-        if f not in best or _fullness(v) > _fullness(best[f]):
-            best[f] = v
-    return best, sorted(lost.items())
-
-
-# How much a claim about an English name is worth, highest first. The same order as the name
-# store's own rank, restated here because build.py must not import from the resolver.
-# ASKED OF `facts/reading`, which owns which English name wins.
-_EN_BASIS = _reading.en_ranks()
-
-# And how much a claim about a READING is worth, same order, same reason. `analyser` and
-# `back-converted` are a machine's answer and sit below every one that came from somewhere.
-# `community-printed` is Wikidata, ruled noncanonical on 2026-08-09 and kept as a floor: an editor
-# typed the kana, so it beats a machine reading the characters, and nobody answers for it, so it
-# loses to a kana surface and to everything a source states. The owner's correction later that day
-# left the rank alone, because this decides which of two records holds the better STRING and the
-# corrected ruling is that a better string is exactly what Wikidata may give. Nothing measures a
-# record's standing off this table.
-# ASKED OF `facts/division`, which owns which reading wins. The reasoning that used to sit
-# here is on the table, beside the bases it ranks.
-_READING_BASIS = _division.ranks()
-
-
-def _fullness(rec):
-    """How much a name record actually says, for choosing between two that fold together.
-
-    Field count alone was wrong the moment both records had an `en`. 見えてますよ！愛沢さん is
-    held twice, and the copy carrying a curated translation lost to one carrying a community
-    database's string, because the loser also happened to hold a reading, a ruby split and a set
-    of furigana spans. Counting fields measured the wrong thing: what matters first is WHICH
-    English name, and only then how much else is attached.
-
-    AND THE SAME FAULT AGAIN ON THE READING, found by `a person is spelled one way`. 春結千晶 is
-    held twice, once as itself and once with an ideographic space in it, and the spaced copy holds
-    an analyser's `ハル ケツ 　 チアキ` while the plain one holds ハルユウチアキ off the shop that
-    sells the artist's books. Neither has an `en`, so both scored zero twice over and the tie went
-    to field count, which the analyser's copy wins by carrying the ruby, the spans and the two
-    marks saying not to trust it. A reader was shown `Haru Ketsu Chiaki` with a [?] beside it while
-    a researched reading of the same person sat in the file.
-
-    So a reading a source states outranks a machine's, on the same order the name store ranks them
-    by, and only then does field count decide.
-    """
-    if not isinstance(rec, dict):
-        return (0, 0, 0, 0)
-    has_en = 1 if rec.get("en") else 0
-    rank = _EN_BASIS.get(rec.get("basis"), 0) if has_en else 0
-    reading = _READING_BASIS.get(rec.get("reading_basis"), 0) if rec.get("reading") else 0
-    rest = sum(1 for v in rec.values() if v not in (None, "", [], {}))
-    return (has_en, rank, reading, rest)
+    return _foldmod.fold_map(records, fold)
 
 
 def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources="data/source"):
@@ -2152,7 +2093,7 @@ def credits_en(raw, exact, folded, fold):
     """
     def lookup(part):
         cands = [x for x in (exact.get(part), folded.get(fold(part))) if x]
-        return max(cands, key=_fullness) if cands else None
+        return max(cands, key=_foldmod.fullness) if cands else None
 
     return _credits.compose(raw, lookup)
 
@@ -7010,8 +6951,8 @@ def main():
     _wh_names = withheld_works()
     _title_names = {k: v for k, v in _title_names.items()
                     if not names_a_withheld_work(k, _wh_names)}
-    _title_folded, _fold_lost = fold_map(_title_names, _fold)
-    _auth_folded, _a_lost = fold_map(_auth_names, _fold)
+    _title_folded, _fold_lost, _title_chosen = fold_map(_title_names, _fold)
+    _auth_folded, _a_lost, _auth_chosen = fold_map(_auth_names, _fold)
     # Named for what they are rather than reusing a short loop name: `_dropped` is already bound
     # two thousand lines away in this function, and the shadowing budget counts that.
     for _folded_key, _folded_dups in _fold_lost + _a_lost:
@@ -7042,7 +6983,7 @@ def main():
                                   _title_folded.get(_fold(r.get("work")))) if x]
         if not _row_cands:
             continue
-        _row_rec = max(_row_cands, key=_fullness)
+        _row_rec = max(_row_cands, key=_foldmod.fullness)
         for _pr in (r.get("print") or []):
             _cat = _record_title.get(_pr.get("work_id")) or ""
             if not _cat or names_a_withheld_work(_cat, _wh_names):
@@ -7072,7 +7013,7 @@ def main():
         # above as the set of candidate work titles and is still live here.
         _name_cands = [x for x in (_title_names.get(r.get("work")),
                                    _title_folded.get(_fold(r.get("work")))) if x]
-        t = max(_name_cands, key=_fullness) if _name_cands else None
+        t = max(_name_cands, key=_foldmod.fullness) if _name_cands else None
         # AN EDITION IS THE SAME WORK AND TAKES THE SAME NAME. `やがて君になる` is Bloom Into You and
         # `やがて君になる【タテスク】` was showing a full romanisation, because the marker makes a
         # different key and the English attached to the plain title never reached the row. Nine rows
@@ -7304,7 +7245,7 @@ def main():
     print(f"floor           : {len(_floor)} string(s) spelled for the English fallback, "
           f"{len(_floor_unread)} nothing could read")
 
-    (out / "feed" / "names.json").write_text(json.dumps(
+    _names_doc = json.loads(json.dumps(
         {"generated": str(_today),
          "note": "English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
                  "feed rows at render time so archived months — which are never rewritten — still "
@@ -7369,7 +7310,17 @@ def main():
              (yaml.safe_load(pathlib.Path("data/names/phrases.yaml").read_text()) or {}
               ).get("names", {}) if pathlib.Path("data/names/phrases.yaml").exists() else {}
          ).items() if not names_a_withheld_work(k, _wh_names)}},
-        ensure_ascii=False, indent=1, default=jsonable))
+        ensure_ascii=False, default=jsonable))
+
+    # AND INTO THE STORE, WHICH COULD NOT BE HANDED IT ANY EARLIER. `floor` is every string the
+    # interface will render, assembled by walking the credit pages and the publisher pages, and
+    # those come OUT of the store; so the map is downstream of two files the store emits and the
+    # store is upstream of the map. `relational.renderings` is that seam, and the alternative was
+    # for the loader to read `feed/names.json` off the disk, which on any run is the LAST run's
+    # renderings and on a fresh checkout is nothing at all. §6, three times bitten.
+    _rel.renderings(_store_db, _names_doc)
+    (out / "feed" / "names.json").write_text(
+        json.dumps(_names_doc, ensure_ascii=False, indent=1))
 
     # ── the two records that are not works ────────────────────────────────────────────────────
     #

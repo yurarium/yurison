@@ -496,11 +496,19 @@ CREATE TABLE name_record (
   uncertain      INTEGER NOT NULL DEFAULT 0 CHECK (uncertain IN (0, 1)),
   ordinary       INTEGER NOT NULL DEFAULT 0 CHECK (ordinary  IN (0, 1)),
   transliterates TEXT,
+  -- WHOSE ANSWER THE SHIPPED ENTRY IS, §6. Where several spellings fold together the compiler picks
+  -- the record that says the most, `fold_map`, and that judgement is the compiler's: an emitter
+  -- ranking them again would be the second implementation §3 refuses. So the answer is a row here.
+  renders        INTEGER NOT NULL DEFAULT 0 CHECK (renders IN (0, 1)),
   UNIQUE (kind, spelling),
   FOREIGN KEY (surface, kind) REFERENCES surface (id, kind) ON DELETE CASCADE
 );
 
 CREATE INDEX name_record_surface ON name_record (surface);
+
+-- ONE RECORD PER FOLD IS THE ONE THE FILE SHOWS. A partial index, because every other record of the
+-- same fold is a 0 and there may be many of those.
+CREATE UNIQUE INDEX name_record_renders ON name_record (surface) WHERE renders = 1;
 
 CREATE UNIQUE INDEX names_edge ON names
   (surface, coalesce(work, ''), coalesce(credit, ''), coalesce(publisher, ''));
@@ -622,6 +630,12 @@ CREATE TABLE claim (
   -- carried a `verified` flag beside two or more readings with no way to tell which one a person
   -- ruled on. A conflicts entry is a claim somebody moved aside, and saying so costs one column.
   displaced    INTEGER NOT NULL DEFAULT 0 CHECK (displaced IN (0, 1)),
+  -- WHICH RECORD MADE IT, §6. A claim hung off the FOLD alone, and 112 author spellings fold onto
+  -- another's key, so two records' answers arrived in one heap with nothing saying whose was whose.
+  -- `feed/names.json` ships ONE entry per fold, rendered from the record `fold_map` judged the
+  -- fullest, and that entry could not be emitted from a heap: the reading, the English, the marks
+  -- and the citation all have to come from the SAME record or the entry contradicts itself.
+  record       INTEGER REFERENCES name_record(id) ON DELETE CASCADE,
 
   -- AND A NOTE THAT IS EMPTY IS NOT A NOTE. Every presence constraint in this file was satisfied
   -- by `''` until §5f: a researched claim with an empty note, a work with an empty title and a

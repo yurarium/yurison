@@ -149,21 +149,11 @@ def main(s):
     s.eq(first[0]["来る(私に)"]["en"], rich["en"], "and it is the one carrying the English name")
     s.eq(first[1], [("来る(私に)", 1)], "the collision is reported rather than passed over")
     s.eq(b.fold_map({"球詠": bare}, fold)[1], [], "a title held once reports no collision")
-    s.check(b._fullness({"en": "x"}) > b._fullness({"reading": "x", "basis": "y"}),
-            "an English name outweighs a record that merely has more fields")
-    # And where both carry one, the BASIS decides, not the field count. 見えてますよ！愛沢さん is
-    # held twice, and a curated translation lost to a community database's string because the
-    # loser also happened to carry a reading, a ruby split and furigana spans.
-    curated = {"en": "I Can See Them, Aizawa!", "basis": "translated"}
-    scraped = {"en": "I See You, Aizawa-san!", "basis": "romaji", "reading": "x",
-               "ruby": [["a", "b"]], "furigana_spans": [["a", "b"]], "note": "n"}
-    s.check(b._fullness(curated) > b._fullness(scraped),
-            "a translation beats a romanisation carrying more fields")
-    s.eq(b.fold_map({"見えてますよ! 愛沢さん": scraped, "見えてますよ！愛沢さん": curated}, fold)[0]
-         ["見えてますよ!愛沢さん"]["en"], curated["en"],
-         "and the fold keeps the translated one whichever order they arrive in")
-    s.eq(b.fold_map({"見えてますよ！愛沢さん": curated, "見えてますよ! 愛沢さん": scraped}, fold)[0]
-         ["見えてますよ!愛沢さん"]["en"], curated["en"], "in the other order too")
+    # WHICH RECORD ANSWERS IS `names/fold`'s AND IS TESTED THERE, since STORE-PLAN §6 needed the
+    # store to reach the same answer and a rule with two implementations has none. What is asserted
+    # here is that the build still asks it, which is what the collision above is about.
+    s.eq(b.fold_map({"球詠": bare}, fold)[2], {"球詠": "球詠"},
+         "and the fold says whose record the entry it keeps was rendered from")
 
     # PLATFORM HISTORY. Two file shapes, and the second was silently dropped: a file assembled
     # across platforms leaves the top-level platform_name empty and names it on each work instead,

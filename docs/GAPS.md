@@ -2818,6 +2818,20 @@ instalments, and every count downstream is quietly short. Nothing verifies that 
 for a work are all of them, because that needs the platform's own index of what it carries under
 one title, and no capture asks for it.
 
+**MIRRORING NEEDS THE LISTING'S OWN NAME, AND THE BUILD DROPS IT.** The project owner asked where
+this leaves the work page. `田所さん` is one work, `w00185`: 4 volumes on ヴァルキリーコミックス,
+and three web rows reading ニコニコ漫画 119, キミコミ 29, ニコニコ漫画 16. Two rows carry the same
+platform name and nothing tells them apart, while the site calls them `田所さん` and `田所さん（２）`.
+
+The capture holds it. `data/source/nicovideo/nicovideo.yaml` records `work_title: 田所さん（２）`
+against comic/55102, and `series[].sources[]` keeps the address and not the name, so the store's
+`offer` has nowhere to get it. Representing every listing is what the ruling asks for, and two rows
+a reader cannot distinguish represent them only in the arithmetic.
+
+The fix is small and it is a change to the build rather than to the store: carry the listing's own
+title into `sources[]`, and `offer` grows a column for it. Deferred here rather than done because
+this is pipeline work, which STORE-PLAN §9 keeps out of a maintenance pass.
+
 **AND THE NEWEST LISTING IS THE LIVE ONE.** 不器用ビンボーダンス is still updating in the third of
 its three, so a work's state belongs to its most recent listing rather than to the longest or the
 first. 470 of the 471 ニコニコ offers state no latest date, so nothing in `offer` can currently

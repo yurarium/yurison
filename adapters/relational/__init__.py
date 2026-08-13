@@ -64,10 +64,28 @@ def open_db(path=None):
 
 
 def create(path=None):
-    """A fresh database with the schema applied. Replaces any existing file."""
+    """A fresh database with the schema applied, carrying any quarantine forward.
+
+    THE ONE THING HERE THAT IS NOT RECOMPUTABLE, and §5g is where that was faced. This file's header
+    calls the store derived and says deleting it costs time alone, which is true of every table but
+    one: a quarantined row is what an unattended run met and could not admit, and a rebuild that
+    unlinks the file erases the only record that it happened. Measured before this changed: 1 row
+    before a rebuild, 0 after.
+
+    SO IT IS CARRIED ACROSS AND THE HEADER SAYS SO. A row stays quarantined until something admits
+    it or §9 rules on it, and a rebuild is not either of those. What a rebuild does establish is
+    that the loader still refuses it, which is why the row is kept rather than retried.
+    """
     p = pathlib.Path(path or DB)
     p.parent.mkdir(parents=True, exist_ok=True)
+    kept = []
     if p.exists():
+        try:
+            old = sqlite3.connect(p)
+            kept = old.execute("SELECT target, refusal, row, came_from, at FROM quarantine").fetchall()
+            old.close()
+        except sqlite3.DatabaseError:
+            kept = []                      # no quarantine to carry, which is the ordinary case
         p.unlink()
     db = open_db(p)
     db.executescript(SCHEMA.read_text(encoding="utf-8"))
@@ -75,6 +93,8 @@ def create(path=None):
     # statement in a transaction. Asserted rather than assumed, because everything below rests on it.
     if not db.execute("PRAGMA foreign_keys").fetchone()[0]:
         raise RuntimeError("foreign keys are off on a freshly created store")
+    db.executemany("INSERT INTO quarantine (target, refusal, row, came_from, at)"
+                   " VALUES (?,?,?,?,?)", kept)
     return db
 
 
@@ -201,6 +221,18 @@ def quarantine_row(db, sql, args, what, error, at=None):
                (_target_of(sql), str(error),
                 json.dumps(list(args), ensure_ascii=False, default=str), what, at or "unstamped"))
     return False
+
+
+def _isbn(value):
+    """An ISBN as the schema keys it: the digits alone, with any hyphen or space taken out.
+
+    A HYPHEN IS TYPOGRAPHY. `9784091572882` and `978-4-09-157288-2` are one book, and
+    keying on the string made them two rows, so "one ISBN is one book" never fired and hid two
+    duplicate WORKS behind it. The table refuses anything that is not this form, so normalising here
+    and refusing there are the same rule stated once each side of the insert.
+    """
+    got = str(value or "").replace("-", "").replace(" ", "").upper()
+    return got if got else None
 
 
 def _target_of(sql):
@@ -345,6 +377,14 @@ def build(path=None, quarantine=False, at=None):
     counts["work_anchor"] = db.execute("SELECT count(*) FROM work_anchor").fetchone()[0]
 
     held_credit, spelt = {r[0] for r in db.execute("SELECT id FROM credit")}, {}
+    # THE FILING SPELLING IS A SPELLING TOO. 131 credits' own `credit.surface` was absent from
+    # this table, so "every spelling that reaches one person" needed two tables unioned to answer,
+    # which the loader did at `by_subject` and nothing else knew.
+    for s, cid in db.execute("SELECT surface, id FROM credit").fetchall():
+        if s and spelt.get(s) != cid:
+            spelt[s] = cid
+            put("INSERT INTO credit_spelling (spelling, credit) VALUES (?,?)", (s, cid),
+                f"spelling {s}")
     for c in (_yaml("credits").get("credits") or []):
         cid = _live(c.get("id"))
         if cid not in held_credit:
@@ -360,17 +400,24 @@ def build(path=None, quarantine=False, at=None):
 
     # THE RULINGS, which are what make a merge and a divide safe to repeat.
     def _ruling(kind, subject, r, spellings):
-        if not r.get("basis"):
+        spellings = [s for s in spellings if s]
+        if not r.get("basis") or not spellings:
             refused.append((f"ruling {kind}", "a ruling with no reasoning is a preference"))
             return
-        db.execute("INSERT INTO identity_ruling (kind, subject, reading, shape, basis, keeps)"
-                   " VALUES (?,?,?,?,?,?)",
-                   (kind, subject, r.get("reading"), r.get("shape"), r["basis"], r.get("keep")))
+        # THE SPELLING AS WRITTEN, AND THE IDENTIFIER IT MEANS. `credit_spelling` is what resolves
+        # one to the other, so the ruling can be joined to the identity it preserves, which is the
+        # one thing it is for.
+        keeps = r.get("keep")
+        cid = db.execute("SELECT credit FROM credit_spelling WHERE spelling = ?",
+                         (keeps,)).fetchone() if keeps else None
+        db.execute("INSERT INTO identity_ruling (kind, subject, about, reading, shape, basis,"
+                   " keeps, keeps_credit) VALUES (?,?,?,?,?,?,?,?)",
+                   (kind, subject, sorted(spellings)[0], r.get("reading"), r.get("shape"),
+                    r["basis"], keeps, cid[0] if cid else None))
         rid = db.execute("SELECT last_insert_rowid()").fetchone()[0]
         for sp in spellings:
-            if sp:
-                db.execute("INSERT OR IGNORE INTO identity_ruling_surface (ruling, spelling)"
-                           " VALUES (?,?)", (rid, sp))
+            db.execute("INSERT OR IGNORE INTO identity_ruling_surface (ruling, spelling)"
+                       " VALUES (?,?)", (rid, sp))
 
     for r in (_yaml("credit-rulings").get("rulings") or []):
         _ruling(r.get("decision") or "keep", "credit", r, r.get("surfaces") or [])
@@ -449,14 +496,17 @@ def build(path=None, quarantine=False, at=None):
             # this section was written for: the loader used to skip it, silently, so 890 readings
             # and every English rendering in the corpus were absent from a store reporting no
             # refusals. A surface is what a claim hangs off, and a surface needs no identifier.
-            sid = surface_id(surface_kind[f], name, subject_kind,
-                             verified=(None if r.get("verified") is None
-                                       else int(bool(r["verified"]))),
-                             uncertain=int(bool(r.get("reading_uncertain"))) or None,
-                             ordinary=int(bool(r.get("reading_ordinary"))) or None,
-                             transliterates=r.get("transliterates"))
+            sid = surface_id(surface_kind[f], name, subject_kind)
             if sid is None:
                 continue
+            # THE JUDGEMENT BELONGS TO THE RECORD THAT WAS JUDGED, §5h. These were columns on the
+            # FOLD and two spellings folding together overwrote each other, losing 14 rulings.
+            put("INSERT INTO name_record (kind, spelling, surface, verified, uncertain, ordinary,"
+                " transliterates) VALUES (?,?,?,?,?,?,?)",
+                (surface_kind[f], name, sid,
+                 None if r.get("verified") is None else int(bool(r["verified"])),
+                 int(bool(r.get("reading_uncertain"))), int(bool(r.get("reading_ordinary"))),
+                 r.get("transliterates")), f"name_record {f} {name}")
             for predicate, cite in (("reading", "reading"), ("english", "en")):
                 # EVERY FORM WE HOLD AND NOT ONLY THE LIVE ONE. A displaced claim is kept rather
                 # than discarded (§1), and `en_conflicts` is where the store keeps it; as rows they
@@ -497,10 +547,11 @@ def build(path=None, quarantine=False, at=None):
                     if ident in seen_claims:
                         continue
                     seen_claims.add(ident)
-                    put("INSERT INTO claim (surface, predicate, value, basis, source, source_kind,"
-                        " retrieved, reviewed, url, isbn, note, displaced)"
-                        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
-                        (sid, predicate, value, basis, claim.get(f"{cite}_source"),
+                    put("INSERT INTO claim (surface, kind, predicate, value, basis, source,"
+                        " source_kind, retrieved, reviewed, url, isbn, note, displaced)"
+                        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                        (sid, surface_kind[f], predicate, value, basis,
+                         claim.get(f"{cite}_source"),
                          _kind_of(claim, cite), claim.get(f"{cite}_at"),
                          claim.get(f"{cite}_reviewed"),
                          cited.get("url") or claim.get(f"{cite}_url"),
@@ -539,12 +590,30 @@ def build(path=None, quarantine=False, at=None):
                 if ident in seen_claims:
                     continue
                 seen_claims.add(ident)
-                put("INSERT INTO claim (surface, predicate, value, basis, note)"
-                    " VALUES (?,'division',?,?,?)",
-                    (sid, divided or r.get("reading") or "", basis,
+                # A CITED BASIS GAVE THE DIVISION WITH THE READING, which is what
+                # `facts/division.cites_its_source` means and what a catalogue printing `美鈴, ちょこ`
+                # does. So the division carries the reading's own citation. §5c wrote none at all,
+                # and 219 `stated` divisions then sat in the hole §5f closed in the CHECK above:
+                # admitted for saying nothing, refused for naming a kind.
+                from facts import division as _division
+                lends = _division.cites_its_source(basis)
+                cited = (_prov.cite(r) or {}) if lends else {}
+                # THE ADDRESS THE RECORD HOLDS, NOT THE ONE A READER MAY BE SHOWN. `cite` withholds
+                # the NDL OpenSearch route because that host's robots.txt disallows it, and 9
+                # divisions rest on a reading held that way. The address exists and is recorded;
+                # whether to put it in front of a reader is §6's question about a page, and a store
+                # that dropped it would be answering a display question with a missing fact.
+                put("INSERT INTO claim (surface, kind, predicate, value, basis, source,"
+                    " source_kind, url, isbn, note) VALUES (?,?,'division',?,?,?,?,?,?,?)",
+                    (sid, surface_kind[f], divided or r.get("reading") or "", basis,
+                     r.get("reading_source") if lends else None,
+                     _kind_of(r) if lends else None,
+                     (cited.get("url") or r.get("reading_url")) if lends else None,
+                     cited.get("isbn"),
                      r.get("reading_boundary") or r.get("reading_note")),
                     f"claim division {f} {name}")
     counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
+    counts["name_record"] = db.execute("SELECT count(*) FROM name_record").fetchone()[0]
     counts["claim"] = db.execute("SELECT count(*) FROM claim").fetchone()[0]
 
     # ── the renderings, which are what a reader is actually shown ────────────────────────────────
@@ -629,15 +698,16 @@ def build(path=None, quarantine=False, at=None):
         if wid and field:
             sid = surface_id("credit-line", field)
             if sid is not None:
-                put("INSERT OR IGNORE INTO work_byline (work, surface) VALUES (?,?)",
-                    (wid, sid), f"byline {wid}")
+                put("INSERT OR IGNORE INTO work_byline (work, surface, kind)"
+                    " VALUES (?,?,'credit-line')", (wid, sid), f"byline {wid}")
     counts["work_byline"] = db.execute("SELECT count(*) FROM work_byline").fetchone()[0]
 
     for folded, r in entries("credit_parts"):
         sid = surface_id("credit-line", folded)
         if sid is None:
             continue
-        put("INSERT INTO credit_division (surface, joiner, partial) VALUES (?,?,?)",
+        put("INSERT INTO credit_division (surface, kind, joiner, partial)"
+        " VALUES (?,'credit-line',?,?)",
             (sid, r.get("j") or "", int(bool(r.get("part")))), f"division {folded}")
         for i, part in enumerate(r.get("p") or []):
             if part.get("n"):
@@ -724,7 +794,8 @@ def build(path=None, quarantine=False, at=None):
     # EDITIONS. `works.json` is keyed by the RECORD identifier a catalogue or a shop issued, and
     # `edition.work` is a `w` identifier, so the print blocks supply the bridge: `work_ids` names
     # every record a series row's run is made of.
-    of_record, shop_of = {}, {}
+    of_record, shop_of, held_isbn, held_event = {}, {}, {}, set()
+    seen_grounds = set()
     for _k, r in _rows("series", "series"):
         wid = r.get("id")
         for blk in (r.get("print") or []):
@@ -742,7 +813,7 @@ def build(path=None, quarantine=False, at=None):
         # refused as uncitable while their work carried
         # `records: [{source: madb, url: .../id/C418820}]`, and the work_id IS that page's id.
         of_work = next((r.get("url") for r in (w.get("records") or []) if r.get("url")), None)
-        for v in (w.get("volumes") or []):
+        for seq, v in enumerate(w.get("volumes") or []):
             # BOTH EVENTS, NOT WHICHEVER ONE FITS. A volume states a printing date, a delivery
             # date, or both, and 812 state two that differ. The `if/elif` that used to stand here
             # kept the printing and dropped the delivery, which looked like a choice and was the
@@ -777,17 +848,30 @@ def build(path=None, quarantine=False, at=None):
             designation = v.get("designation")
             if not designation and v.get("number_n") is None and v.get("number"):
                 designation = str(v["number"])
-            if not put("INSERT INTO volume (work, volume, designation) VALUES (?,?,?)",
-                       (wid, v.get("number_n"), designation),
-                       f"volume {wid} {v.get('isbn') or designation or '?'}"):
-                continue
-            vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+            # AN ISBN IDENTIFIES A BOOK, so a record listing one twice is listing one book twice.
+            # `C433149` numbers volume 5 twice, `9784199509322` on one row and
+            # `978-4-19-950932-2` on the other, which is `works whose records number one volume
+            # twice` seen with the evidence that settles it. The second row is not a second book
+            # and the events on it belong to the first. This is the definition of an ISBN rather
+            # than a rule about when two rows look alike, which is why the loader may apply it.
+            isbns = sorted({_isbn(x) for x in
+                            ([v["isbn"]] if v.get("isbn") else []) + list(v.get("editions") or [])
+                            if _isbn(x)})
+            vol = next((held_isbn[i] for i in isbns if i in held_isbn), None)
+            if vol is None:
+                if not put("INSERT INTO volume (work, record, seq, volume, designation)"
+                           " VALUES (?,?,?,?,?)",
+                           (wid, w.get("work_id"), seq, v.get("number_n"), designation),
+                           f"volume {wid} {isbns[0] if isbns else designation or '?'}"):
+                    continue
+                vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
             # EVERY ISBN THE BOOK CARRIES. 81 volumes list two, a regular printing and a special
             # edition, and the store kept one of them.
-            for isbn in dict.fromkeys([v["isbn"]] if v.get("isbn") else []).keys() | set(
-                    v.get("editions") or []):
-                put("INSERT INTO volume_isbn (isbn, volume) VALUES (?,?)", (isbn, vol),
-                    f"isbn {isbn}")
+            for isbn in isbns:
+                if isbn not in held_isbn:
+                    held_isbn[isbn] = vol
+                    put("INSERT INTO volume_isbn (isbn, volume) VALUES (?,?)", (isbn, vol),
+                        f"isbn {isbn}")
             # A PLAIN INSERT, DELIBERATELY. `OR IGNORE` here swallowed 382 volumes on the first
             # run and reported `refused 0`, because SQLite treats the conflict as handled and
             # raises nothing for `put` to catch. A constraint that quietly drops a row is worse
@@ -804,6 +888,12 @@ def build(path=None, quarantine=False, at=None):
                 # A DELIVERY'S BASIS IS THE SHOP, whatever the printing beside it rests on.
                 if kind == "shop-delivery":
                     basis = "shop-delivery"
+                # ONE EVENT OF EACH KIND PER BOOK, and a record numbering one volume twice states
+                # the same event twice. The rows were folded above on the ISBN that identifies the
+                # book, so the second copy is the same printing and not a second one.
+                if (vol, kind) in held_event:
+                    continue
+                held_event.add((vol, kind))
                 put("INSERT INTO edition (volume, dated, kind, dated_basis, cite)"
                     " VALUES (?,?,?,?,?)",
                     (vol, dated, kind, basis, cite if kind == "printing" else (shop or cite)),
@@ -815,6 +905,8 @@ def build(path=None, quarantine=False, at=None):
     # `volume_count` was NULL on all of them, while `works.json` held structured grounds on 1,887
     # records. `explicit_content` is filled from the same place and is False on every one, which is
     # now a measured answer rather than a column default.
+    visible = {r.get("id"): r.get("visibility") for _k, r in _rows("series", "series")
+               if r.get("visibility")}
     for _k, w in _rows("works", "works"):
         wid = of_record.get(w.get("work_id"))
         if not wid:
@@ -824,17 +916,28 @@ def build(path=None, quarantine=False, at=None):
         # HOW IT IS PRESENTED, AND WHETHER IT IS. `marketing_label` is publisher-side labelling
         # under DEFINITIONS §4 and `visibility` is the §13 register.
         mb = w.get("marketing_label_basis") if isinstance(w.get("marketing_label_basis"), dict) else {}
-        if w.get("marketing_label") or w.get("visibility"):
+        # VISIBILITY IS ON THE SERIES ROW AND §5e READ IT HERE, which is `admitted_by`'s fault
+        # again: `build.py` puts it there from `data/rebuttals.yaml` and `works.json` never carries
+        # one, so the §13 register the comment names was empty on all 2,461 rows.
+        if w.get("marketing_label") or visible.get(wid):
             put("INSERT OR IGNORE INTO work_presentation (work, label, visibility, source, url,"
                 " retrieved, note) VALUES (?,?,?,?,?,?,?)",
-                (wid, w.get("marketing_label"), w.get("visibility"), mb.get("source"),
+                (wid, w.get("marketing_label"), visible.get(wid), mb.get("source"),
                  mb.get("url"), mb.get("retrieved"), mb.get("note")), f"presentation {wid}")
         for g in (w.get("admitted_by") or []):
-            if isinstance(g, dict):
-                put("INSERT INTO admission (work, comparator, shelf, shop_url, url, retrieved,"
-                    " note) VALUES (?,?,?,?,?,?,?)",
-                    (wid, g.get("comparator"), g.get("shelf"), g.get("shop_url"), g.get("url"),
-                     g.get("retrieved"), g.get("note")), f"admission {wid}")
+            if not isinstance(g, dict):
+                continue
+            # ONE WORK ADMITTED ON ONE SHELF IS ONE GROUND, however many of its records say so.
+            # A work reached by two records carries the grounds twice, 20 times over, and the same
+            # comparator on the same shelf at the same address is the same decision.
+            ident = (wid, g.get("comparator") or "", g.get("shelf") or "", g.get("url") or "")
+            if ident in seen_grounds:
+                continue
+            seen_grounds.add(ident)
+            put("INSERT INTO admission (work, comparator, shelf, shop_url, url, retrieved,"
+                " note) VALUES (?,?,?,?,?,?,?)",
+                (wid, g.get("comparator"), g.get("shelf"), g.get("shop_url"), g.get("url"),
+                 g.get("retrieved"), g.get("note")), f"admission {wid}")
         # A COUNT A SOURCE STATES, AND 72 WORKS HAVE RECORDS THAT DISAGREE, which is why this is a
         # row with its source beside it rather than a column that would have to pick one.
         claimed = w.get("completed_claim") if isinstance(w.get("completed_claim"), dict) else {}
@@ -1006,6 +1109,15 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--build", action="store_true")
     ap.add_argument("--ask", action="store_true")
+    # THE UNATTENDED PATH, WHICH §1a's TABLE HAD NO WRITER FOR. `update.yml` runs at 00:37 with
+    # nobody present and ran `--build`, which FAILS on a refusal, so a row the schema would not
+    # admit either took the whole run down or, under `continue-on-error`, vanished with it. With
+    # this flag the row is recorded and the run goes on populating what it can, which is the whole
+    # of what the project owner asked for. A rebuild anywhere a person is present leaves it off.
+    ap.add_argument("--unattended", action="store_true",
+                    help="quarantine a row the schema refuses and carry on, rather than failing; "
+                         "for a scheduled update, never for a rebuild somebody is watching")
+    ap.add_argument("--at", help="the date to stamp a quarantined row with")
     ap.add_argument("--equivalent", action="store_true",
                     help="rebuild from scratch and compare every derivation against the store as "
                          "it stands; what the scheduled CI run does")
@@ -1015,7 +1127,7 @@ def main():
         return 0 if equivalent() else 1
 
     if a.build or not a.ask:
-        db, counts, refused = build()
+        db, counts, refused = build(quarantine=a.unattended, at=a.at)
         for k, v in counts.items():
             print(f"  {k:14} {v}")
         print(f"  {'refused':14} {len(refused)}")
@@ -1039,7 +1151,10 @@ def main():
         # otherwise. The incremental path runs at 00:37 with nobody watching and quarantines
         # instead. Locked in on 2026-08-13 while the count was 0, because a rule adopted when the
         # number is already zero costs nothing to keep and everything to regain.
-        if refused:
+        if refused and a.unattended:
+            print(f"\n  {len(refused)} row(s) quarantined; the run continues. STORE-PLAN §9 is "
+                  f"what deals with them, and `rows the store could not admit` counts them.")
+        elif refused:
             print(f"\nFAIL: a full rebuild refused {len(refused)} row(s). Suspect the loader "
                   f"before the data: every refusal §2 met was the loader.")
             return 1

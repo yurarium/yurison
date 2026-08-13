@@ -89,10 +89,10 @@ def main(s):
         # RETRACT. A claim is withdrawn rather than corrected, which leaves no row to look at.
         db.execute("INSERT INTO surface (kind, folded) VALUES ('title','ゆり')")
         db.execute("INSERT INTO names (surface, kind, work) VALUES (1,'title','w00001')")
-        db.execute("INSERT INTO claim (surface, predicate, value, basis, source, source_kind)"
-                   " VALUES (1,'reading','ヨミ','surface','x','derived')")
-        db.execute("INSERT INTO claim (surface, predicate, value, basis, source, source_kind)"
-                   " VALUES (1,'reading','ベツ','surface','y','derived')")
+        db.execute("INSERT INTO claim (surface, kind, predicate, value, basis, source, source_kind)"
+                   " VALUES (1,'title','reading','ヨミ','surface','x','derived')")
+        db.execute("INSERT INTO claim (surface, kind, predicate, value, basis, source, source_kind)"
+                   " VALUES (1,'title','reading','ベツ','surface','y','derived')")
         s.check("names two sources disagree about" in delta.converge(db, {"claim"})[0],
                 "two sources on one predicate is a disagreement")
         db.execute("DELETE FROM claim WHERE value = 'ベツ'")

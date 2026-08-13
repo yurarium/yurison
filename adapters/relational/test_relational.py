@@ -79,35 +79,35 @@ def main(s):
     # A RESEARCHED CLAIM CARRIES ITS REASONING. This one is not hypothetical: the loader refuses
     # eight rows the corpus holds today, all `researched` from `yurarium` with no note.
     _refuses(s, db,
-             "INSERT INTO claim (surface,predicate,value,basis,note)"
-             " VALUES (1,'reading','ヨミ','researched',NULL)", (),
+             "INSERT INTO claim (surface,kind,predicate,value,basis,note)"
+             " VALUES (1,'title','reading','ヨミ','researched',NULL)", (),
              "a researched claim with no note is refused")
-    db.execute("INSERT INTO claim (surface,predicate,value,basis,note)"
-               " VALUES (1,'reading','ヨミ','researched','weighed X')")
+    db.execute("INSERT INTO claim (surface,kind,predicate,value,basis,note)"
+               " VALUES (1,'title','reading','ヨミ','researched','weighed X')")
     s.check(True, "and one with a note is accepted")
 
     # A STATED CLAIM NAMES WHERE IT CAME FROM. The stage-three invariant, as a constraint.
     _refuses(s, db,
-             "INSERT INTO claim (surface,predicate,value,basis,source_kind,url)"
-             " VALUES (1,'reading','ヨミ','stated','national-library',NULL)", (),
+             "INSERT INTO claim (surface,kind,predicate,value,basis,source_kind,url)"
+             " VALUES (1,'title','reading','ヨミ','stated','national-library',NULL)", (),
              "a stated claim with no address is refused")
-    db.execute("INSERT INTO claim (surface,predicate,value,basis,source_kind,url)"
-               " VALUES (1,'reading','ヨミA','stated','national-library','https://x')")
+    db.execute("INSERT INTO claim (surface,kind,predicate,value,basis,source_kind,url)"
+               " VALUES (1,'title','reading','ヨミA','stated','national-library','https://x')")
     s.check(True, "and one with an address is accepted")
     # SELF-SOURCED NEEDS NO ADDRESS, because a kana surface reads as itself and there is nothing to
     # point at. Two title-furigana claims were refused until the loader said `derived`.
-    db.execute("INSERT INTO claim (surface,predicate,value,basis,source_kind)"
-               " VALUES (1,'reading','ヨミB','stated','derived')")
+    db.execute("INSERT INTO claim (surface,kind,predicate,value,basis,source_kind)"
+               " VALUES (1,'title','reading','ヨミB','stated','derived')")
     s.check(True, "a self-sourced stated claim needs no address")
 
     # §5b: WHAT IDENTIFIES A CLAIM. It had nothing, so `delta.write` could not address a row twice
     # and neither an upsert nor a retraction was expressible, which is what stood between this store
     # and §7. Ten groups were byte-identical on all eleven non-id columns.
-    _refuses(s, db, "INSERT INTO claim (surface,predicate,value,basis,source_kind)"
-                    " VALUES (1,'reading','ヨミB','stated','derived')", (),
+    _refuses(s, db, "INSERT INTO claim (surface,kind,predicate,value,basis,source_kind)"
+                    " VALUES (1,'title','reading','ヨミB','stated','derived')", (),
              "the same claim said twice is one claim")
-    db.execute("INSERT INTO claim (surface,predicate,value,basis,source,source_kind,url)"
-               " VALUES (1,'reading','ヨミA','stated','openBD','publisher-jp','https://y')")
+    db.execute("INSERT INTO claim (surface,kind,predicate,value,basis,source,source_kind,url)"
+               " VALUES (1,'title','reading','ヨミA','stated','openBD','publisher-jp','https://y')")
     s.eq(db.execute("SELECT count(*) FROM claim WHERE value = 'ヨミA'").fetchone()[0], 2,
          "TWO SOURCES AGREEING STAY TWO ROWS, which is what `claims resting on a community "
          "database` counts and why the source is part of the key")
@@ -115,12 +115,12 @@ def main(s):
     # A BASIS OR A KIND NOBODY HAS RULED ON IS REFUSED, which is the drift this replaces: the
     # vocabulary has one home and a foreign key has no second copy to disagree with.
     _refuses(s, db,
-             "INSERT INTO claim (surface,predicate,value,basis) "
-             "VALUES (1,'reading','ヨミ','invented')", (),
+             "INSERT INTO claim (surface,kind,predicate,value,basis) "
+             "VALUES (1,'title','reading','ヨミ','invented')", (),
              "a basis nobody ruled on is refused")
     _refuses(s, db,
-             "INSERT INTO claim (surface,predicate,value,basis,source_kind,url)"
-             " VALUES (1,'reading','ヨミ','stated','wikipedia','https://x')", (),
+             "INSERT INTO claim (surface,kind,predicate,value,basis,source_kind,url)"
+             " VALUES (1,'title','reading','ヨミ','stated','wikipedia','https://x')", (),
              "a source kind nobody ruled on is refused")
 
     # THE RULINGS ARE ASKED FOR AND NOT RESTATED, which is the whole reason the schema may hold
@@ -160,7 +160,7 @@ def main(s):
     # 812 volumes state a printing date and a shop delivery date that differ, and `edition` held one
     # row per book with `isbn UNIQUE`, so the second event had nowhere to go. The loader's `if/elif`
     # keeping the printing and dropping the delivery was forced by the shape, not chosen.
-    db.execute("INSERT INTO volume (work) VALUES ('w00001')")
+    db.execute("INSERT INTO volume (work, record, seq) VALUES ('w00001', 'C000001', 0)")
     vol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
     db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784778320614', ?)", (vol,))
     db.execute("INSERT INTO edition (volume, dated, kind, cite) VALUES"
@@ -179,7 +179,7 @@ def main(s):
              (vol,), "a date with no page behind it is refused rather than counted")
 
     # A VOLUME OF A WORK NOBODY HOLDS, and an event on a volume nobody holds.
-    _refuses(s, db, "INSERT INTO volume (work) VALUES ('w99999')", (),
+    _refuses(s, db, "INSERT INTO volume (work, record, seq) VALUES ('w99999', 'C000002', 0)", (),
              "a volume may not name a work the store does not hold")
     _refuses(s, db, "INSERT INTO edition (volume, kind) VALUES (99999, 'printing')", (),
              "and an event may not name a volume that does not exist")
@@ -189,7 +189,7 @@ def main(s):
     db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784757540248', ?)", (vol,))
     s.eq(db.execute("SELECT count(*) FROM volume_isbn WHERE volume = ?", (vol,)).fetchone()[0], 2,
          "one book carries a second ISBN for its other printing")
-    db.execute("INSERT INTO volume (work) VALUES ('w00001')")
+    db.execute("INSERT INTO volume (work, record, seq) VALUES ('w00001', 'C000003', 0)")
     other = db.execute("SELECT last_insert_rowid()").fetchone()[0]
     _refuses(s, db, "INSERT INTO volume_isbn (isbn, volume) VALUES ('9784778320614', ?)", (other,),
              "and an ISBN already held is refused, so the half that matters is unweakened")
@@ -202,7 +202,7 @@ def main(s):
     #
     # `volume` is a position and an integer answers it. 983 volumes are called `上`, `創刊号` or
     # `2017年1月号`, which no integer holds, and the column for that did not exist until §3.
-    db.execute("INSERT INTO volume (work, designation) VALUES ('w00001', '創刊号')")
+    db.execute("INSERT INTO volume (work, designation, record, seq) VALUES ('w00001', '創刊号', 'C000004', 0)")
     s.eq(db.execute("SELECT designation FROM volume WHERE designation IS NOT NULL").fetchone()[0],
          "創刊号", "a volume carries the word it is called, not a number standing in for it")
 
@@ -212,7 +212,7 @@ def main(s):
             "the constraint §3 adopted became a question §5b can still ask")
     s.eq(db.execute(relational.QUESTIONS["volumes with an isbn and no date"]).fetchone()[0], 0,
          "and the volume above holds a date, so nothing answers to it here")
-    db.execute("INSERT INTO volume (work) VALUES ('w00001')")
+    db.execute("INSERT INTO volume (work, record, seq) VALUES ('w00001', 'C000005', 0)")
     undated = db.execute("SELECT last_insert_rowid()").fetchone()[0]
     db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('9784088900000', ?)", (undated,))
     s.eq(db.execute(relational.QUESTIONS["volumes with an isbn and no date"]).fetchone()[0], 1,
@@ -298,8 +298,8 @@ def main(s):
     db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','作者','person')")
     db.execute("INSERT INTO surface (kind, folded) VALUES ('title','よんだことのないほん')")
     orphan = db.execute("SELECT last_insert_rowid()").fetchone()[0]
-    db.execute("INSERT INTO claim (surface, predicate, value, basis) VALUES (?,?,?,?)",
-               (orphan, "english", "A Book Nobody Has Read", "translated"))
+    db.execute("INSERT INTO claim (surface, kind, predicate, value, basis) VALUES (?,?,?,?,?)",
+               (orphan, "title", "english", "A Book Nobody Has Read", "translated"))
     s.eq(db.execute("SELECT count(*) FROM claim").fetchone()[0], 1,
          "a name the corpus identifies nothing for still holds its claims")
 
@@ -330,11 +330,11 @@ def main(s):
     # THE TWO VOCABULARIES ARE DIFFERENT AND OVERLAP ON ONE WORD. `stated` means a source printed
     # the kana and it also means a source printed the English; nothing before §5 could tell a claim
     # resting on the wrong one, because `basis` alone admitted either for either.
-    _refuses(s, db, "INSERT INTO claim (surface,predicate,value,basis) "
-                    "VALUES (?,'english','X','analyser')", (orphan,),
+    _refuses(s, db, "INSERT INTO claim (surface,kind,predicate,value,basis) "
+                    "VALUES (?,'title','english','X','analyser')", (orphan,),
              "an English name resting on a reading basis is refused")
-    _refuses(s, db, "INSERT INTO claim (surface,predicate,value,basis) "
-                    "VALUES (?,'reading','ヨミ','licensed')", (orphan,),
+    _refuses(s, db, "INSERT INTO claim (surface,kind,predicate,value,basis) "
+                    "VALUES (?,'title','reading','ヨミ','licensed')", (orphan,),
              "and a reading resting on an English one is refused the same way")
 
     # `en_forms` IS THIS TABLE READ BACK, which is why neither it nor `en` needs a column. Every
@@ -342,8 +342,8 @@ def main(s):
     for basis, value in (("official-jp", "Even if we become adults"),
                          ("licensed", "Even Though We’re Adults"),
                          ("translated", "Even After Becoming an Adult")):
-        db.execute("INSERT INTO claim (surface, predicate, value, basis) VALUES (?,?,?,?)",
-                   (orphan, "english", value, basis))
+        db.execute("INSERT INTO claim (surface, kind, predicate, value, basis) VALUES (?,?,?,?,?)",
+                   (orphan, "title", "english", value, basis))
     won = db.execute(
         "SELECT c.value FROM claim c JOIN basis_for_predicate b"
         " ON b.basis = c.basis AND b.predicate = c.predicate"
@@ -381,7 +381,8 @@ def main(s):
              "a part with no division above it is refused")
     db.execute("INSERT INTO surface (kind, folded) VALUES ('credit-line','あ／い')")
     line = db.execute("SELECT last_insert_rowid()").fetchone()[0]
-    db.execute("INSERT INTO credit_division (surface, joiner) VALUES (?,', ')", (line,))
+    db.execute("INSERT INTO credit_division (surface, kind, joiner)"
+               " VALUES (?,'credit-line',', ')", (line,))
     db.execute("INSERT INTO credit_part (surface, seq, name, role) VALUES (?,0,'あ','原作')", (line,))
     s.eq(db.execute("SELECT role FROM credit_part").fetchone()[0], "原作",
          "and the role sits on the part, because one line names two people doing two jobs")
@@ -393,6 +394,75 @@ def main(s):
     db.execute("INSERT INTO surface (kind, folded) VALUES ('title','あ／い')")
     s.eq(db.execute("SELECT count(*) FROM surface WHERE folded = 'あ／い'").fetchone()[0], 2,
          "and one string is a title and a credit line at once, which is what the kind is for")
+
+    # ── §5f: THE CONSTRAINTS THAT STILL DID NOT FIRE ──────────────────────────────────────────
+    #
+    # THE CITATION CHECK WAS THREE-VALUED AND PASSED ON WHAT IT COULD NOT SEE. With a NULL source
+    # kind the last disjunct is NULL, the whole expression is NULL, and a CHECK passes on NULL, so
+    # a `stated` claim saying nothing about its evidence was admitted while the same claim naming
+    # its evidence was refused. 221 rows were in the hole, 219 of them §5c's divisions.
+    _refuses(s, db, "INSERT INTO claim (surface,kind,predicate,value,basis,source) VALUES"
+                    " (?,'title','reading','ZZZ','stated','a source that printed it')", (orphan,),
+             "a stated claim that names no evidence at all is refused, which it was not")
+    s.check(db.execute("SELECT 'x' = 'derived'").fetchone()[0] == 0
+            and db.execute("SELECT NULL = 'derived'").fetchone()[0] is None,
+            "the SQL behind it: a comparison against NULL answers NULL and a CHECK passes on that")
+
+    # AND IT ASKS ONLY OF A CLAIM THE RECORD STANDS BEHIND. A conflicts entry holds a basis, a
+    # source and a value with nowhere to put an address, and demanding a document for something
+    # nobody asserts any more would mean dropping the disagreement to satisfy a rule about
+    # assertions.
+    db.execute("INSERT INTO claim (surface,kind,predicate,value,basis,source,displaced) VALUES"
+               " (?,'title','reading','ZZY','stated','ndlsearch.ndl.go.jp',1)", (orphan,))
+    s.check(True, "a displaced stated claim with no address is kept")
+
+    # A CIRCLE IS UNSTATEABLE RATHER THAN COUNTED, which is the project owner's ruling. A retired
+    # surface may not point at another retired one, so no arrangement of any length closes.
+    db.execute("INSERT INTO surface (kind, folded) VALUES ('title','canonical')")
+    canon = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    db.execute("INSERT INTO surface (kind, folded, alias_of) VALUES ('title','variant',?)", (canon,))
+    variant = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    _refuses(s, db, "INSERT INTO surface (kind, folded, alias_of) VALUES ('title','chain',?)",
+             (variant,), "a chain of aliases is refused, so no cycle of any length can form")
+    _refuses(s, db, "UPDATE surface SET alias_of = ? WHERE id = ?", (variant, canon),
+             "and closing a two-step circle is refused from the other end")
+    db.execute("INSERT INTO surface (kind, folded, alias_of) VALUES ('title','variant2',?)", (canon,))
+    s.eq(db.execute("SELECT count(*) FROM surface WHERE alias_of = ?", (canon,)).fetchone()[0], 2,
+         "while two aliases onto one canonical row are admitted, which is the real case")
+    s.check("aliases pointing in a circle" not in relational.QUESTIONS,
+            "AND THE STANDING QUESTION IS GONE: it caught two-node cycles alone, and an answer that "
+            "can no longer be anything but 0 is the control §13 objects to")
+    _refuses(s, db, "INSERT INTO surface (kind, folded, alias_of) VALUES ('author','wrongkind',?)",
+             (canon,), "an alias points at a surface of its own kind, by the same composite key")
+
+    # AN ISBN IS THE IDENTIFIER AND NOT A SPELLING OF IT. 940 of 3,371 arrived hyphenated, so
+    # `9784091572882` and `978-4-09-157288-2` were two rows and one ISBN was not one book. It hid
+    # two duplicate WORKS for as long as it stood.
+    db.execute("INSERT INTO volume (work, record, seq) VALUES ('w00001','C000900',0)")
+    isbnvol = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    _refuses(s, db, "INSERT INTO volume_isbn (isbn, volume) VALUES ('978-4-09-157288-2', ?)",
+             (isbnvol,), "a hyphenated ISBN cannot enter, so the key cannot be evaded by spelling")
+    _refuses(s, db, "INSERT INTO volume_isbn (isbn, volume) VALUES ('nonsense', ?)", (isbnvol,),
+             "nor can anything that is not an ISBN")
+    db.execute("INSERT INTO volume_isbn (isbn, volume) VALUES ('412345678X', ?)", (isbnvol,))
+    s.check(True, "and the older ten-character form, whose check digit may be X, is admitted")
+
+    # A PRESENCE CONSTRAINT SATISFIED BY THE EMPTY STRING IS NOT ONE.
+    _refuses(s, db, "INSERT INTO claim (surface,kind,predicate,value,basis,note) VALUES"
+                    " (?,'title','reading','ZZW','researched','')", (orphan,),
+             "a researched claim with an empty note is refused, which it was not")
+    _refuses(s, db, "INSERT INTO work (id,title) VALUES ('w00019','')", (),
+             "and a work with an empty title")
+
+    # ── §5g: A ROW §7 CAN ADDRESS ─────────────────────────────────────────────────────────────
+    #
+    # `delta.write` identifies a row by a column-to-value mapping, and `volume.id` was a rowid
+    # handed out by the order `works.json` happened to iterate.
+    s.check("volume_source" in [r[0] for r in db.execute(
+        "SELECT name FROM sqlite_master WHERE type='index'")],
+        "a volume is addressable by the record that states it and its position in that record")
+    _refuses(s, db, "INSERT INTO volume (work, record, seq) VALUES ('w00001','C000900',0)", (),
+             "so one record cannot state the same position twice")
 
     # ── §1a: WHAT THE COMPILER COULD NOT ADMIT ────────────────────────────────────────────────
     #
@@ -455,8 +525,10 @@ def main(s):
     # THE BYLINE AS A WORK PRINTS IT. One line appears on many works, so it is an edge.
     db.execute("INSERT INTO surface (kind, folded) VALUES ('credit-line','原作あ／作画い')")
     line0 = db.execute("SELECT last_insert_rowid()").fetchone()[0]
-    db.execute("INSERT INTO work_byline (work, surface) VALUES ('w00001', ?)", (line0,))
-    db.execute("INSERT INTO work_byline (work, surface) VALUES ('w00002', ?)", (line0,))
+    db.execute("INSERT INTO work_byline (work, surface, kind)"
+               " VALUES ('w00001', ?, 'credit-line')", (line0,))
+    db.execute("INSERT INTO work_byline (work, surface, kind)"
+               " VALUES ('w00002', ?, 'credit-line')", (line0,))
     s.eq(db.execute("SELECT count(*) FROM work_byline WHERE surface = ?", (line0,)).fetchone()[0],
          2, "one byline reaches two works, which a column on the surface could not say")
 
@@ -488,12 +560,12 @@ def main(s):
 
     # WHICH ANSWER THE RECORD STANDS BEHIND. 638 surfaces carried a `verified` flag beside two or
     # more readings, and nothing said which one a person ruled on.
-    db.execute("INSERT INTO claim (surface, predicate, value, basis, source, displaced) VALUES"
-               " (?,'reading','ヨミC','surface','x',1)", (orphan,))
-    s.eq(db.execute("SELECT count(*) FROM claim WHERE displaced = 1").fetchone()[0], 1,
-         "a claim somebody moved aside is kept and says so")
-    _refuses(s, db, "INSERT INTO claim (surface, predicate, value, basis, displaced) VALUES"
-                    " (?,'reading','ヨミD','surface',2)", (orphan,),
+    db.execute("INSERT INTO claim (surface, kind, predicate, value, basis, source, displaced) VALUES"
+               " (?,'title','reading','ヨミC','surface','x',1)", (orphan,))
+    s.eq(db.execute("SELECT count(*) FROM claim WHERE displaced = 1 AND value = 'ヨミC'")
+         .fetchone()[0], 1, "a claim somebody moved aside is kept and says so")
+    _refuses(s, db, "INSERT INTO claim (surface, kind, predicate, value, basis, displaced) VALUES"
+                    " (?,'title','reading','ヨミD','surface',2)", (orphan,),
              "and displaced is a yes or a no")
 
     # ── §5d: THE IDENTITY REGISTRY, WHICH THE STORE HAD NEVER READ ────────────────────────────
@@ -530,15 +602,15 @@ def main(s):
 
     # A RULING THAT TWO IDENTIFIERS ARE NOT ONE. `delta.KINDS` names `merge` and `divide`, and a
     # store that can merge and holds no record of a decision to keep them apart will merge again.
-    _refuses(s, db, "INSERT INTO identity_ruling (kind, subject, basis) VALUES"
-                    " ('homophone','credit',NULL)", (),
+    _refuses(s, db, "INSERT INTO identity_ruling (kind, subject, about, basis) VALUES"
+                    " ('homophone','credit','x',NULL)", (),
              "a ruling with no reasoning is a preference and is refused")
-    db.execute("INSERT INTO identity_ruling (kind, subject, reading, basis) VALUES"
-               " ('homophone','credit','アオイ','two spellings with no character in common')")
+    db.execute("INSERT INTO identity_ruling (kind, subject, about, reading, basis) VALUES"
+               " ('homophone','credit','蒼井','アオイ','two spellings with no character in common')")
     s.eq(db.execute("SELECT count(*) FROM identity_ruling").fetchone()[0], 1,
          "and one with its reasoning is held")
-    _refuses(s, db, "INSERT INTO identity_ruling (kind, subject, basis) VALUES"
-                    " ('guessed','credit','x')", (),
+    _refuses(s, db, "INSERT INTO identity_ruling (kind, subject, about, basis) VALUES"
+                    " ('guessed','credit','y','x')", (),
              "the kinds a ruling can be are the ones the registry writes")
 
     # ── §5a: THE CONSTRAINTS THAT DID NOT FIRE ────────────────────────────────────────────────
@@ -572,13 +644,13 @@ def main(s):
              "and so is one too short to be an identifier this project issues")
 
     # A VOLUME BEFORE THE FIRST ONE.
-    _refuses(s, db, "INSERT INTO volume (work, volume) VALUES ('w00001',-5)", (),
+    _refuses(s, db, "INSERT INTO volume (work, volume, record, seq) VALUES ('w00001',-5, 'C000006', 0)", (),
              "a negative volume number is refused")
 
     # `romanisation` WAS DECLARED LEGAL AND MADE UNSTATEABLE by the composite key, which is a schema
     # contradicting itself. It is out of the enum, so the contradiction is gone rather than hidden.
-    _refuses(s, db, "INSERT INTO claim (surface,predicate,value,basis) "
-                    "VALUES (?,'romanisation','Yuri','translated')", (orphan,),
+    _refuses(s, db, "INSERT INTO claim (surface,kind,predicate,value,basis) "
+                    "VALUES (?,'title','romanisation','Yuri','translated')", (orphan,),
              "a romanisation is not a claim about a name and the predicate no longer pretends")
 
     # THE ATTRIBUTION TABLE IS SCOPED BY THE CLAIM IT ANSWERS FOR, and was filled from the reading

@@ -29,7 +29,7 @@ PRAGMA foreign_keys = ON;
 
 CREATE TABLE work (
   id                TEXT PRIMARY KEY CHECK (id GLOB 'w[0-9][0-9][0-9][0-9][0-9]'),
-  title             TEXT NOT NULL,
+  title             TEXT NOT NULL CHECK (title <> ''),
   first_publication TEXT,                       -- ISO 8601, whole or partial
   -- A LIST HOLDING NULL MAKES A CHECK PASS ON EVERYTHING, since `x IN (a, b, NULL)` answers NULL
   -- for an x that matches neither and a CHECK passes on NULL. `'banana'` inserted here for as long
@@ -63,6 +63,10 @@ CREATE TABLE admission (
   retrieved  TEXT,
   note       TEXT
 );
+
+-- ADDRESSABLE, for the reason `volume` is. §5c added this table and §5g gave it a key.
+CREATE UNIQUE INDEX admission_one ON admission
+  (work, coalesce(comparator, ''), coalesce(shelf, ''), coalesce(url, ''));
 
 CREATE INDEX admission_work ON admission (work);
 
@@ -236,9 +240,21 @@ CREATE TABLE identity_ruling (
   -- the difference between them.
   reading  TEXT,
   shape    TEXT,
-  basis    TEXT NOT NULL,
-  keeps    TEXT
+  -- WHICH SPELLING THE RULING IS FILED UNDER, which is what identifies it. Two `withdraw` rulings
+  -- carry no reading and no survivor and are told apart by what they were about, so the parent has
+  -- to say. It is the same relation `credit.surface` has to `credit_spelling`: a filing spelling
+  -- beside the full set, rather than a second copy of the set.
+  about    TEXT NOT NULL CHECK (about <> ''),
+  basis    TEXT NOT NULL CHECK (basis <> ''),
+  -- WHAT THE RULING PRESERVES, AS AN IDENTIFIER WHERE ONE RESOLVES. The registry writes a spelling
+  -- and 0 of 220 resolved to anything, seven lines below `superseded`'s comment about a real
+  -- foreign key rather than a string nobody checks. Both are kept: the spelling is what was
+  -- written, the credit is what it means.
+  keeps    TEXT,
+  keeps_credit TEXT REFERENCES credit(id) ON DELETE SET NULL
 );
+
+CREATE UNIQUE INDEX identity_ruling_one ON identity_ruling (kind, subject, about);
 
 CREATE TABLE identity_ruling_surface (
   ruling   INTEGER NOT NULL REFERENCES identity_ruling(id) ON DELETE CASCADE,
@@ -322,34 +338,44 @@ CREATE TABLE surface (
   -- names w01001 and w01108. A column could hold only the first, so one work of each pair took the
   -- English and the reading and the other got neither. `names` below is the edge.
 
-  -- WHAT IS TRUE OF THE NAME ITSELF rather than of any one claim about it.
+  -- THE JUDGEMENTS THAT USED TO SIT HERE ARE IN `name_record`, §5h. `verified`, `uncertain`,
+  -- `ordinary` and `transliterates` describe the RECORD somebody ruled on and this row is a FOLD,
+  -- so two spellings folding together collided on them and the loader resolved it by overwriting.
+  -- 14 `verified: true` rulings were erased that way: `今東　ともよ`, whose reading the National
+  -- Diet Library states and a person verified, folds onto `今東ともよ`, whose reading is an
+  -- analyser's, and the surviving row said nobody had verified it. Under STANDING-INSTRUCTIONS §6
+  -- that ships as marking a national library reading unverified.
   --
-  --   verified       somebody has ruled on this record. NULL where nobody has looked, which is not
-  --                  the same as looked and unsure, and the interface's mark turns on the
-  --                  difference.
-  --   uncertain      the reading was assembled a character at a time, which is weaker than a guess
-  --                  at the whole word.
-  --   ordinary       the analyser read ordinary vocabulary rather than a coinage, so its answer is
-  --                  not the guess the mark exists to flag. `analyser_vocabulary.py` is its one
-  --                  producer and this is where its answer lands.
-  --   transliterates the kana are themselves a transliteration, so romanising them takes a reader
-  --                  further from the name: ステファン・セジク is Stjepan Šejić.
-  -- `undivided` IS DELIBERATELY NOT A COLUMN. A person's romanisation runs the family and given
-  -- names together where nothing states the parting point, and the site ships that as a flag; the
-  -- store holds the reading itself and whether the credit is a person, which is everything the
-  -- flag is computed from. A column would be a second copy of an answer already in the rows.
-  verified       INTEGER CHECK (verified IN (0, 1)),
-  uncertain      INTEGER NOT NULL DEFAULT 0 CHECK (uncertain IN (0, 1)),
-  ordinary       INTEGER NOT NULL DEFAULT 0 CHECK (ordinary  IN (0, 1)),
-  transliterates TEXT,
+  -- `undivided` IS DELIBERATELY NOT A COLUMN ANYWHERE. A person's romanisation runs the family and
+  -- given names together where nothing states the parting point, and the store holds the reading
+  -- itself and whether the credit is a person, which is everything the flag is computed from.
 
   -- ONE TITLE STANDING FOR ANOTHER, which is how an edition marker keeps its work's English.
+  --
+  -- A CIRCLE IS MADE UNSTATEABLE RATHER THAN COUNTED, ruled by the project owner 2026-08-13. No
+  -- CHECK can walk a graph, so `aliases pointing in a circle` was a standing question, and it
+  -- caught two-node cycles alone. The rule that does the whole job is that a RETIRED row may not
+  -- point at another retired row: `retired` says whether this row is itself an alias, `wants`
+  -- carries the constant 0 whenever it points at anything, and the foreign key then demands a
+  -- target whose `retired` is 0. A cycle of ANY length needs every row in it retired and every
+  -- target current, which no arrangement satisfies.
+  --
+  -- IT FORBIDS CHAINS TOO, and that is a rule about how a rename is recorded. Re-point the aliases
+  -- rather than chaining them, which is the discipline §5d had to apply by hand when `w01234` named
+  -- a survivor that had itself been retired. `superseded` gets the property for nothing, because a
+  -- retired work id is not a row in `work`; `alias_of` is self-referential and this is how it says
+  -- the same thing.
   alias_of INTEGER REFERENCES surface(id) ON DELETE SET NULL,
+  retired  INTEGER GENERATED ALWAYS AS (alias_of IS NOT NULL) STORED,
+  wants    INTEGER GENERATED ALWAYS AS (CASE WHEN alias_of IS NULL THEN NULL ELSE 0 END) STORED,
   CHECK (alias_of IS NULL OR alias_of <> id),
 
   UNIQUE (kind, folded),
-  -- SO THE EDGE CAN NAME BOTH AT ONCE. A composite foreign key needs this to point at.
-  UNIQUE (id, kind)
+  -- SO AN EDGE CAN NAME BOTH AT ONCE. A composite foreign key needs these to point at, and §5f
+  -- applies the same trick to every edge into this table rather than to one of the five.
+  UNIQUE (id, kind),
+  UNIQUE (id, retired, kind),
+  FOREIGN KEY (alias_of, wants, kind) REFERENCES surface (id, retired, kind)
 );
 
 -- WHAT A NAME NAMES. Many to many in both directions: one folded title names two works, and one
@@ -377,9 +403,39 @@ CREATE TABLE names (
 -- appears on many works. `credit_division` holds how it divides; this holds where it was seen.
 CREATE TABLE work_byline (
   work    TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
-  surface INTEGER NOT NULL REFERENCES surface(id) ON DELETE CASCADE,
-  PRIMARY KEY (work, surface)
+  surface INTEGER NOT NULL,
+  kind    TEXT NOT NULL CHECK (kind = 'credit-line'),
+  PRIMARY KEY (work, surface),
+  FOREIGN KEY (surface, kind) REFERENCES surface (id, kind) ON DELETE CASCADE
 );
+
+-- ONE RECORD IN THE NAME STORE, AND WHAT A PERSON RULED ABOUT IT. `data/names/*.yaml` is keyed by
+-- the spelling a source wrote, and 112 author spellings fold onto another's key, so a judgement
+-- about one of them is not a judgement about the fold they share.
+--
+--   verified       somebody has ruled on this record. NULL where nobody has looked, which is a
+--                  different thing from looked and unsure, and the interface's mark turns on it.
+--   uncertain      the reading was assembled a character at a time, weaker than a guess at the
+--                  whole word.
+--   ordinary       the analyser read ordinary vocabulary rather than a coinage, so its answer is
+--                  not the guess the mark exists to flag. `analyser_vocabulary.py` is its one
+--                  producer and this is where its answer lands.
+--   transliterates the kana are themselves a transliteration, so romanising them takes a reader
+--                  further from the name: ステファン・セジク is Stjepan Šejić.
+CREATE TABLE name_record (
+  id             INTEGER PRIMARY KEY,
+  kind           TEXT NOT NULL,
+  spelling       TEXT NOT NULL,
+  surface        INTEGER NOT NULL,
+  verified       INTEGER CHECK (verified IN (0, 1)),
+  uncertain      INTEGER NOT NULL DEFAULT 0 CHECK (uncertain IN (0, 1)),
+  ordinary       INTEGER NOT NULL DEFAULT 0 CHECK (ordinary  IN (0, 1)),
+  transliterates TEXT,
+  UNIQUE (kind, spelling),
+  FOREIGN KEY (surface, kind) REFERENCES surface (id, kind) ON DELETE CASCADE
+);
+
+CREATE INDEX name_record_surface ON name_record (surface);
 
 CREATE UNIQUE INDEX names_edge ON names
   (surface, coalesce(work, ''), coalesce(credit, ''), coalesce(publisher, ''));
@@ -412,12 +468,14 @@ CREATE TABLE ruby (
 -- HOW A CREDIT LINE DIVIDES INTO PEOPLE. `creditline._divide` owns the rule and this is where its
 -- answer lands, so the division a page draws is the division the name store is keyed on.
 CREATE TABLE credit_division (
-  surface INTEGER PRIMARY KEY REFERENCES surface(id) ON DELETE CASCADE,
+  surface INTEGER PRIMARY KEY,
+  kind    TEXT NOT NULL CHECK (kind = 'credit-line'),
   -- WHAT THE FIELD PUTS BETWEEN TWO PEOPLE, so a recomposed byline reads as the field it replaces.
   joiner  TEXT NOT NULL,
   -- THE DIVISION DOES NOT ACCOUNT FOR EVERYTHING THE FIELD SAYS, which is what stops the interface
   -- rebuilding a byline out of an incomplete answer.
-  partial INTEGER NOT NULL DEFAULT 0 CHECK (partial IN (0, 1))
+  partial INTEGER NOT NULL DEFAULT 0 CHECK (partial IN (0, 1)),
+  FOREIGN KEY (surface, kind) REFERENCES surface (id, kind) ON DELETE CASCADE
 );
 
 CREATE TABLE credit_part (
@@ -451,7 +509,10 @@ CREATE TABLE credit_dropped (
 
 CREATE TABLE claim (
   id           INTEGER PRIMARY KEY,
-  surface      INTEGER NOT NULL REFERENCES surface(id) ON DELETE CASCADE,
+  surface      INTEGER NOT NULL,
+  -- THE KIND TRAVELS WITH THE EDGE, as it does on `names`. §5f applied it here because a reading
+  -- claim on a chapter label was accepted, and only a name is claimed about.
+  kind         TEXT NOT NULL CHECK (kind IN ('title', 'author', 'publisher')),
   -- `romanisation` WAS HERE AND WAS UNSTATEABLE. §5 gave it a table of its own, because it is a
   -- function of the reading and rests on no source, and `basis_for_predicate` has no row for it, so
   -- the composite key below refused every claim the enum declared legal. A schema contradicting
@@ -484,17 +545,33 @@ CREATE TABLE claim (
   -- ruled on. A conflicts entry is a claim somebody moved aside, and saying so costs one column.
   displaced    INTEGER NOT NULL DEFAULT 0 CHECK (displaced IN (0, 1)),
 
-  CHECK (basis <> 'researched' OR note IS NOT NULL),
+  -- AND A NOTE THAT IS EMPTY IS NOT A NOTE. Every presence constraint in this file was satisfied
+  -- by `''` until §5f: a researched claim with an empty note, a work with an empty title and a
+  -- ruling with an empty basis were all accepted.
+  CHECK (basis <> 'researched' OR coalesce(note, '') <> ''),
 
   -- A STATED CLAIM NAMES WHERE IT CAME FROM. This is the stage-three invariant as a constraint:
   -- a reading a source printed is an INPUT, the repository is its only copy, and one without an
   -- address cannot be checked, refreshed or argued with.
-  CHECK (basis <> 'stated' OR url IS NOT NULL OR isbn IS NOT NULL OR source_kind = 'derived'),
+  -- `coalesce` BECAUSE THE CHECK WAS THREE-VALUED AND PASSED ON EVERYTHING IT COULD NOT SEE. With a
+  -- NULL source kind the last disjunct is NULL, the whole expression is NULL, and a CHECK passes on
+  -- NULL: a `stated` claim saying nothing at all about its evidence was ADMITTED, and the same
+  -- claim naming `national-library` was REFUSED. 221 rows were in that hole, 219 of them divisions
+  -- §5c added with no source kind at all. It is the fault §5a fixed on `work.first_event` four
+  -- lines above, with a different operator.
+  -- AND IT ASKS ONLY OF A CLAIM THE RECORD STANDS BEHIND. A displaced claim is one somebody has
+  -- already argued with and set aside, kept because §1 records a disagreement rather than
+  -- discarding it, and `reading_conflicts` holds a basis, a source and a value with nowhere to put
+  -- an address. Demanding a document for something nobody asserts any more would mean dropping the
+  -- disagreement to satisfy a rule about assertions. docs/GAPS.md carries the shape.
+  CHECK (displaced = 1 OR basis <> 'stated' OR url IS NOT NULL OR isbn IS NOT NULL
+         OR coalesce(source_kind, '') = 'derived'),
 
   -- A BASIS BELONGS TO A CLAIM, and the pair is what `basis_for_predicate` admits. This is what
   -- makes an English name resting on `analyser` unstateable: the vocabularies are different and
   -- the schema now knows which is which instead of accepting either for either.
-  FOREIGN KEY (basis, predicate) REFERENCES basis_for_predicate (basis, predicate)
+  FOREIGN KEY (basis, predicate) REFERENCES basis_for_predicate (basis, predicate),
+  FOREIGN KEY (surface, kind) REFERENCES surface (id, kind) ON DELETE CASCADE
 );
 
 -- WHAT IDENTIFIES A CLAIM, WHICH IT HAD NOTHING OF. Ten groups of rows were byte-identical on all
@@ -607,6 +684,18 @@ CREATE TABLE volume (
   id      INTEGER PRIMARY KEY,
   work    TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
 
+  -- A KEY §7 CAN ADDRESS THIS ROW BY, which it had none of. `delta.write` identifies a row by a
+  -- column-to-value mapping and `id` was a rowid handed out by the order `works.json` happened to
+  -- iterate, with `edition` keyed on top of it, so the largest and most volatile table in the store
+  -- could be inserted into and never updated. That is where §5b found `claim`.
+  --
+  -- THE RECORD THAT STATES IT, AND ITS POSITION IN THAT RECORD. 2,818 volumes carry no ISBN and 66
+  -- of those share a work, a position and a designation with another, so no key is available from
+  -- the volume's own facts; a UNIQUE over the three would refuse the reissue this table's comment
+  -- below cites. Where the row came FROM is always known and always distinct.
+  record  TEXT NOT NULL,
+  seq     INTEGER NOT NULL,
+
   -- WHAT A VOLUME IS CALLED AND WHERE IT SITS ARE TWO FACTS. `volume` is a position in a run and
   -- an integer answers it. A DESIGNATION is the word the publisher uses: `上`, `創刊号`,
   -- `2017年1月号`. 983 volumes carry one and no integer can hold it, which is STORE-PLAN §3.
@@ -623,14 +712,27 @@ CREATE TABLE volume (
   -- refuse a reissue, which is a real thing this project holds.
 );
 
+CREATE UNIQUE INDEX volume_source ON volume (record, seq);
 CREATE INDEX volume_work ON volume (work);
 
 -- ONE ISBN IS ONE BOOK AND ONE BOOK MAY CARRY SEVERAL, which `volume.isbn UNIQUE` could say only
 -- half of. 81 volumes list two: a regular printing and a special edition of the same book, which
 -- the corpus holds as `editions` and the store kept one of. The key is the ISBN, so the half that
 -- matters is unweakened, and the foreign key is what lets a book have more than one.
+--
+-- THE KEY IS THE ISBN AND NOT A SPELLING OF IT, which is the difference between a constraint and a
+-- constraint that fires. 940 of 3,371 arrived hyphenated beside 2,423 bare, so `9784091572882` and
+-- `978-4-09-157288-2` were two rows, and "one ISBN is one book" was defeated by punctuation. It hid
+-- two duplicate WORKS for as long as it stood: 8 ISBNs reached two work identifiers each.
+--
+-- NORMALISED IN THE SCHEMA RATHER THAN WATCHED FROM OUTSIDE, ruled by the project owner 2026-08-13.
+-- A budget counting mis-spelled ISBNs would report a fault after the row landed; a format the table
+-- refuses means the duplicate cannot enter and no second thing has to be consulted to know it. 13
+-- digits, or 10 for the older form whose check digit may be X.
 CREATE TABLE volume_isbn (
-  isbn   TEXT PRIMARY KEY,
+  isbn   TEXT PRIMARY KEY CHECK (
+           isbn GLOB '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
+           OR isbn GLOB '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9X]'),
   volume INTEGER NOT NULL REFERENCES volume(id) ON DELETE CASCADE
 );
 
@@ -652,7 +754,7 @@ CREATE TABLE edition (
 
   -- A DATE WITH NO PAGE BEHIND IT is what `per-book dates cite their page` refuses.
   cite    TEXT,
-  CHECK (dated IS NULL OR cite IS NOT NULL),
+  CHECK (dated IS NULL OR coalesce(cite, '') <> ''),
 
   UNIQUE (volume, kind)
 );
@@ -766,7 +868,7 @@ CREATE INDEX offer_platform ON offer (platform);
 --     WHERE c.surface = ? AND c.predicate = 'english' ORDER BY b.rank DESC;
 --
 --   which names does the corpus identify nothing for
---     SELECT folded FROM surface WHERE kind IN ('title','author','publisher')
---     AND work IS NULL AND credit IS NULL AND publisher IS NULL;
+--     SELECT s.folded FROM surface s WHERE s.kind IN ('title','author','publisher')
+--     AND NOT EXISTS (SELECT 1 FROM names n WHERE n.surface = s.id);
 --
 -- Each of those is a script today, and the last two have no script at all.

@@ -246,7 +246,11 @@ jobs:
       # dangling identifier is where somebody is present to fix it.
       - name: The relational store, whose constraints refuse rather than report
         continue-on-error: true
-        run: python3 adapters/relational/__init__.py --build
+        # `--unattended` IS WHAT MAKES THIS SURVIVABLE, STORE-PLAN §1a. Nobody is present at 00:37,
+        # so a row the schema refuses is quarantined with the constraint that refused it and the
+        # run goes on populating what it can. Every rebuild where somebody IS present leaves the
+        # flag off and fails instead, which is what stops the quarantine becoming an excuse.
+        run: python3 adapters/relational/__init__.py --build --unattended --at "$(date -u +%F)"
 
       - name: Invariants and budgets (runtime — reports, does not block)
         run: python3 check.py --runtime

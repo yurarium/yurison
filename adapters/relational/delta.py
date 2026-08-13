@@ -93,10 +93,10 @@ DERIVATIONS = {
                "WHERE p.kind = 'printing' AND d.kind = 'shop-delivery' "
                "AND p.dated IS NOT NULL AND d.dated IS NOT NULL AND d.dated < p.dated",
         "reads": ("edition",)},
-    "aliases pointing in a circle": {
-        "sql": "SELECT count(*) FROM surface a JOIN surface b ON a.alias_of = b.id "
-               "WHERE b.alias_of = a.id",
-        "reads": ("surface",)},
+    # `aliases pointing in a circle` WAS HERE AND IS GONE, which is the better end for a standing
+    # question. It caught two-node cycles alone, and §5f made a cycle of any length unstateable by
+    # forbidding a retired surface to point at another retired one. A question whose answer can no
+    # longer be anything but 0 is the control §13 objects to.
     "names nothing in the corpus is identified by": {
         "sql": "SELECT count(*) FROM surface s WHERE s.kind IN ('title', 'author', 'publisher') "
                "AND NOT EXISTS (SELECT 1 FROM names n WHERE n.surface = s.id)",

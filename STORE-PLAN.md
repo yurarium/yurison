@@ -42,7 +42,7 @@ below moves one domain to the other side of that line.
 | | stage | needs |
 |---|---|---|
 | §1 | Measure what travels around the store | done 2026-08-13 |
-| §1a | Somewhere for what a constraint refuses | table built 2026-08-13; its producer is §5g |
+| §1a | Somewhere for what a constraint refuses | done 2026-08-13 |
 | §2 | Fill the two tables that were designed and never written | done 2026-08-13 |
 | §3 | Volumes, editions and the print run | done 2026-08-13 |
 | §4 | Releases and the per-platform offer | done 2026-08-13 |
@@ -52,9 +52,9 @@ below moves one domain to the other side of that line.
 | §5d | A name is an identity here, and it must not be | done 2026-08-13 |
 | §5c | What the store says it holds and does not | done 2026-08-13 |
 | §5e | The domains still outside the store | done 2026-08-13; the residue is §6's queue |
-| §5f | The constraints that still do not fire | first, as §5a was |
-| §5g | A row §7 can address, and a quarantine that survives | §5f |
-| §5h | A judgement belongs to the record that was judged | §5f |
+| §5f | The constraints that still do not fire | done 2026-08-13 |
+| §5g | A row §7 can address, and a quarantine that survives | done 2026-08-13 |
+| §5h | A judgement belongs to the record that was judged | done 2026-08-13 |
 | §6 | The compiler writes the store; the JSON is emitted from it | §5e |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
@@ -798,11 +798,30 @@ The composite key is used once and applies five times. `names` carries `(surface
 title as a byline, a title divided into people, and a reading claim on a chapter label were all
 accepted. No live row violates any of them, which is when a constraint is free to adopt.
 
-**AND `volume_isbn` KEYS ON THE STRING RATHER THAN THE ISBN.** 940 of 3,371 are hyphenated and 34
-books are held under two spellings, so "one ISBN is one book" is defeated by a hyphen. Normalising
-the key turns it into the store's best duplicate-WORK detector, which it already is by accident:
-8 bare ISBNs reach two different works, and those name two pairs that look like one work each.
-Those merges are §9's, and the key is this section's.
+**AND `volume_isbn` KEYED ON THE STRING RATHER THAN THE ISBN.** 940 of 3,371 were hyphenated and 34
+books were held under two spellings, so "one ISBN is one book" was defeated by a hyphen.
+
+**THE PROJECT OWNER RULED ON BOTH HALVES OF THIS, 2026-08-13, AND THE SECOND RULING IS THE BETTER
+ONE.** First: an ISBN identifies a work by definition, so one reaching two works means something is
+broken rather than something to note. Then: the normalised form belongs IN THE SCHEMA, preventing a
+duplicate from entering, rather than in an invariant watching from outside. So `volume_isbn.isbn`
+takes 13 digits or the older 10 with its X, the loader strips the punctuation on the way in, and a
+hyphenated spelling cannot land at all. Nothing external has to be consulted to know one ISBN is one
+book.
+
+WHAT IT WAS HIDING was two duplicate works, and they are merged rather than deferred: `w01603` into
+`w01245` and `w02055` into `w01463`, each on the evidence that both records credit one artist and
+list the same books by ISBN. `data/identity/works.yaml` carries the reasoning. It also hid one
+record numbering volume 5 twice, once bare and once hyphenated, which is
+`works whose records number one volume twice` seen with the evidence that settles it: same ISBN,
+same book, so the loader folds the rows rather than making two.
+
+AND THE MERGE COST TWO BUDGETS, WHICH IS RECORDED RATHER THAN EDITED AWAY. `volume numbers a page
+draws twice` rose 5 to 10 and `works holding more volumes than the shop states` 25 to 26, because
+each merge brings two catalogues' volume lists onto one row and MADB dates ゆりてつ's first three
+volumes to the 24th where BOOK☆WALKER says the 19th. `merge_volumes` keeps rows apart when their
+dates disagree, which §1 says is right: which catalogue is correct is not a question a string
+comparison answers, and folding them would answer it by discarding one.
 
 **THE SMALLER ONES, AS ONE BATCH.** Every presence constraint is satisfied by the empty string: a
 researched claim with `note = ''`, a work with `title = ''`, a ruling with `basis = ''`, all

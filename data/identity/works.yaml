@@ -12065,6 +12065,8 @@ works:
       - "madb:bw-1239ea9d-2d67-4ea7-ba2c-a27c8bc304ee"
   - id: w01603
     title: null
+    merged_into: w01245
+    merge_basis: "One work held twice. Both records credit 松山せいじ and both list the same four books by ISBN: 9784091572882, 9784091573100, 9784091573469 and 9784091573636, written bare on one record and hyphenated on the other. The titles differ only by the subtitle, ゆりてつ against ゆりてつ～私立百合ヶ咲女子高鉄道部～, and the stated first publication is five days apart. An ISBN identifies one book from one publisher, so two works listing the same four are one work; found 2026-08-13 by normalising the ISBN key in the relational store, which the hyphenation had been defeating."
     anchors:
       - "madb:bw-124664"
   - id: w01604
@@ -14953,6 +14955,8 @@ works:
       - "madb:bw-37d21732-49b2-4fb6-bb1c-255873a902f5"
   - id: w02055
     title: "どうしたら幼馴染の彼女になれますか!?"
+    merged_into: w01463
+    merge_basis: "One work held twice. Both records credit 矢坂しゅう and both list the same five books by ISBN: 9784801979758, 9784801982017, 9784801983526, 9784801985643 and the fifth alongside them, written bare on one record and hyphenated on the other. The titles differ by one character, どうしたら幼馴染♀の彼女になれますか!? against どうしたら幼馴染の彼女になれますか!?, which is a source dropping the ♀ the work prints. The surviving identifier keeps the ♀. Found 2026-08-13 by normalising the ISBN key in the relational store."
     anchors:
       - "madb:bw-381470"
       - "web:https://manga.nicovideo.jp/comic/58253"

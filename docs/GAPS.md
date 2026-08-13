@@ -2915,7 +2915,7 @@ ruling carried out, against a table written before it. `claims whose evidence th
 admit` counts those 102 along with 2 publisher names on `official-jp` citing the national library
 and 1 kana surface citing a platform. The composite key goes on `claim` when the number is 0.
 
-## Two pairs of works that look like one work each. Found 2026-08-13
+## Two pairs of works that were one work each. Found and merged 2026-08-13
 
 STORE-PLAN §5f found `volume_isbn` keyed on the ISBN as a STRING, so 940 of 3,371 hyphenated
 spellings sit beside 2,423 bare ones and "one ISBN is one book" is defeated by a hyphen. Normalising
@@ -2929,11 +2929,20 @@ The first pair shares a credit, 松山せいじ, all four of its books, and a fi
 apart. The second differs by one character and shares five books. A third work, `w01376`, holds one
 book as two volume rows.
 
-**NEITHER IS THIS PLAN'S TO DECIDE.** DEFINITIONS §4 says identity is a human judgement, declared and
-not inferred, and `data/identity/` is where a merge is recorded with its reasoning. So this is
-§9's, by the JOIN door, and what §5f contributes is the query that finds the next one.
+**THE PROJECT OWNER RULED, 2026-08-13:** an ISBN identifies a work by definition, so one reaching
+two works means an invariant or the data is broken. Both were. `w01603` is merged into `w01245` and
+`w02055` into `w01463`, with the ISBN evidence written into `data/identity/works.yaml`, and the
+normalised key is in the schema so the next one cannot enter rather than being noticed later.
 
-**AND IT IS THE ARGUMENT FOR THE KEY RATHER THAN A COST OF IT.** The ISBN is the only cross-work book
+**WHAT THE MERGE COST, recorded because a rise is never edited away.** Two budgets moved:
+`volume numbers a page draws twice` 5 to 10 and `works holding more volumes than the shop states`
+25 to 26. Each merge brings two catalogues onto one row, and MADB dates ゆりてつ's first three
+volumes to the 24th of their months where BOOK☆WALKER says the 19th. `merge_volumes` keeps rows
+apart when their dates disagree, which is right: which catalogue is correct is not a question a
+string comparison answers. The work pages draw those volumes twice until somebody settles the
+dates, and that is §9's.
+
+That is the argument for the key rather than a cost of it. The ISBN is the only cross-work book
 identity the store has. Normalised, it stops being a spelling and becomes the best duplicate-work
 detector this project owns, which is worth more than the constraint it was adopted for.
 

@@ -87,10 +87,11 @@ def main(s):
         s.eq(delta.value(db, "credits named by more than one work"), [[0]], "to none")
 
         # RETRACT. A claim is withdrawn rather than corrected, which leaves no row to look at.
-        db.execute("INSERT INTO claim (subject_kind, subject, predicate, value, basis, source,"
-                   " source_kind) VALUES ('work','w1','reading','ヨミ','surface','x','derived')")
-        db.execute("INSERT INTO claim (subject_kind, subject, predicate, value, basis, source,"
-                   " source_kind) VALUES ('work','w1','reading','ベツ','surface','y','derived')")
+        db.execute("INSERT INTO surface (kind, folded, work) VALUES ('title','ゆり','w1')")
+        db.execute("INSERT INTO claim (surface, predicate, value, basis, source, source_kind)"
+                   " VALUES (1,'reading','ヨミ','surface','x','derived')")
+        db.execute("INSERT INTO claim (surface, predicate, value, basis, source, source_kind)"
+                   " VALUES (1,'reading','ベツ','surface','y','derived')")
         s.check("names two sources disagree about" in delta.converge(db, {"claim"})[0],
                 "two sources on one predicate is a disagreement")
         db.execute("DELETE FROM claim WHERE value = 'ベツ'")

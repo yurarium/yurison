@@ -46,7 +46,7 @@ below moves one domain to the other side of that line.
 | §2 | Fill the two tables that were designed and never written | done 2026-08-13 |
 | §3 | Volumes, editions and the print run | done 2026-08-13 |
 | §4 | Releases and the per-platform offer | done 2026-08-13 |
-| §5 | Renderings, which are derived from a source that stays where it is | §4 |
+| §5 | Renderings, which are derived from a source that stays where it is | done 2026-08-13 |
 | §6 | The compiler writes the store; the JSON is emitted from it | per domain, as each lands |
 | §7 | Incremental on every update, reconciled weekly | §6 |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
@@ -318,6 +318,57 @@ every check that runs the interface reads it, so getting it wrong is visible eve
 **WHAT IT WOULD BUY.** `a work shows the English its record holds` and `the interface folds a name
 key as the build does` are both reconciliations between two producers, which §5 of GATE-PLAN argues
 is evidence there should be one. A single keyed table is that one producer.
+
+**DONE 2026-08-13. A CLAIM IS ABOUT A NAME AND NOT ABOUT A THING**, which is the fault the section
+turned on and it was costing the store most of the domain. `claim` was keyed on `subject_kind` and
+an identifier, so a name resolving to nothing had nowhere to hang and the loader skipped it with a
+bare `continue`: 890 readings and every one of the 4,174 English renderings the corpus holds were
+missing from a store that reported no refusals. `surface` is the keyed table both sides were
+talking about, keyed on `facts/namekey.fold` because that is what the site joins on.
+
+`surface` 27,294, `claim` 11,077 against 5,005, `romanisation` 53,472, `ruby` 14,067,
+`credit_part` 4,951, none refused.
+
+  `en_forms` IS THE CLAIM TABLE READ BACK, and it is why neither it nor `en` needed a column. Every
+  English form is a row, `basis_for_predicate` carries the ranking as data, and the one the site
+  shows is `ORDER BY rank DESC LIMIT 1`. A displaced form is kept beside it rather than discarded.
+
+  THE TWO VOCABULARIES OVERLAP ON ONE WORD AND MEAN DIFFERENT DOCUMENTS BY IT. `stated` is a source
+  printing the kana and it is also a source printing the English, and `claim.basis` alone admitted
+  either for either. The compound key `(basis, predicate)` is what makes an English name resting on
+  `analyser` unstateable.
+
+  RUBY IS SPANS AND NOT A BLOB, `credit_part` is parts and not a list, and `romanisation` is three
+  rows and not a nested object. A JSON list in a TEXT column is the carrier this store exists to
+  stop being, so each became the table its shape already was.
+
+**THREE OF THE 3,690 FIRST REFUSALS WERE THE LOADER AND NONE WERE THE DATA**, which is §1a's rule
+holding for the third time. `_kind_of` asked only about the reading, so 194 English names whose
+source is the name's own Latin surface were refused for want of an address to a document that does
+not exist. `basis_for_predicate` was filled from `reading.bases()`, which names the four a source
+can STATE and not the six a reading can REST on, so 3,496 analyser readings had no admitted pair.
+And `source_kind`, whose comment says it is every kind that exists, was assembled from the reading
+attributions alone, so `bibliography` had no row and 113 English names transcribed from a book's
+own title page were refused.
+
+**WHAT THE STORE CANNOT REPRODUCE, MEASURED RATHER THAN ASSUMED.** Setting the store beside the
+file the site is served: romanisations, ruby and credit divisions match at 0 of 3,301, 9,743, 7,479
+and 3,399; author readings match at 0 of 2,389. English titles differ on 18 of 3,186, and each is
+the compiler's own derivation over a title the store holds, either a name already in Latin or a
+base title plus an edition marker. §6 is what settles those, since derivability is what §1 measures
+and emission is what proves it.
+
+Setting the two side by side also found a fault neither side could see
+alone. 62 of 386 publisher keys and 112 of 399
+imprint keys in `feed/names.json` hold a space, and every lookup the site makes folds it away, so
+those entries are unreachable. 5 publisher pairs hold different things under one folded key and the
+reachable one is the poorer: `いんどの宮殿！` carries the English, `いんどの宮殿!` carries the
+identifier, and a reader lands on the second. The build sees two keys it wrote, the interface gets
+an answer to what it asked, and only a table with one row per fold shows the pair. Documented in
+`docs/GAPS.md` and deferred as pipeline work; the loader prefers the entry a reader can reach.
+
+`data reaching the site around the store` falls 520 to 391, and `feed/names.json` from 87 paths to
+2, both of them the file's own datestamp and note.
 
 ## 6. The compiler writes the store; the JSON is emitted from it
 

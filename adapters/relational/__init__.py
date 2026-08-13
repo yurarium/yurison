@@ -26,6 +26,7 @@ from facts import namekey as _namekey                                   # noqa: 
 from relational import delta as _delta                                  # noqa: E402
 from relational import delta                                            # noqa: E402
 from facts import reading as _reading                                   # noqa: E402
+from names import provenance as _prov                                   # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCHEMA = pathlib.Path(__file__).resolve().parent / "schema.sql"
@@ -70,6 +71,27 @@ def load_rulings(db):
     for b in _rd.bases():
         db.execute("INSERT OR IGNORE INTO basis (name, cited, donates, marked, counted) "
                    "VALUES (?,0,0,1,1)", (b,))
+    # AN ENGLISH BASIS ANSWERS NONE OF THE FOUR, and says so rather than saying no to each. They ask
+    # what a READING's basis licenses, and `licensed` has no view on whether it may lend a division.
+    for b in _rd.en_bases():
+        db.execute("INSERT OR IGNORE INTO basis (name) VALUES (?)", (b,))
+    # WHICH BASIS BELONGS TO WHICH CLAIM, ASKED OF THE FACTS THAT RANK THEM. `stated` is in both
+    # vocabularies and means a different document in each, which is the pair this table exists to
+    # tell apart. `romanisation` has no bases: it is a function of the reading and rests on nothing.
+    #
+    # THE READING VOCABULARY IS BOTH SETS AND NOT EITHER ONE. `reading.bases()` names the four a
+    # source can STATE and `division.BASES` names the six a reading can REST on, and `analyser` is
+    # in the second alone; registering the first alone refused 3,496 analyser readings the corpus
+    # holds. It is the same union `basis` itself is filled from, ten lines above.
+    for b in set(_rd.bases()) | set(_div.BASES):
+        db.execute("INSERT OR IGNORE INTO basis_for_predicate (basis, predicate, rank) "
+                   "VALUES (?,'reading',?)", (b, _div.rank(b)))
+    for b in _div.BASES:
+        db.execute("INSERT OR IGNORE INTO basis_for_predicate (basis, predicate, rank) "
+                   "VALUES (?,'division',?)", (b, _div.rank(b)))
+    for b in _rd.en_bases():
+        db.execute("INSERT OR IGNORE INTO basis_for_predicate (basis, predicate, rank) "
+                   "VALUES (?,'english',?)", (b, _rd.en_rank(b)))
     # SOURCE_KIND IS EVERY KIND THAT EXISTS; basis_admits_kind is which PAIRS are allowed. Keeping
     # those separate is what lets `analyser` be a real kind that states nothing.
     #
@@ -78,7 +100,14 @@ def load_rulings(db):
     # because that table answers who may STATE a reading and an analyser states nothing. The pair
     # was written here, which put a vocabulary decision in the code that reads the data; it is
     # `_rd.analyser_pair()` now, beside the table it is an exception to.
-    kinds = {k for b in _rd.bases() for k in _rd.kinds_for(b)} | {_rd.analyser_pair()[1]}
+    #
+    # IT WAS NOT EVERY KIND THAT EXISTS, WHICH §5 FOUND BY BEING REFUSED. This was assembled from
+    # the READING attributions, so `bibliography` had no row: it is admitted for `official-jp` and
+    # for nothing else, which is an ENGLISH basis, and 113 English names transcribed from a book's
+    # own title page were refused. `facts/reading.SOURCE_KINDS` is the vocabulary itself and is
+    # what this should always have asked.
+    kinds = (set(_rd.SOURCE_KINDS) | {k for b in _rd.bases() for k in _rd.kinds_for(b)}
+             | {_rd.analyser_pair()[1]})
     for k in sorted(kinds):
         db.execute("INSERT INTO source_kind (name) VALUES (?)", (k,))
     for b in _rd.bases():
@@ -90,17 +119,21 @@ def load_rulings(db):
     return db
 
 
-def _kind_of(record):
+def _kind_of(record, claim="reading"):
     """The source kind for a claim, with a self-sourced one normalised to `derived`.
 
     `surface` and `title-furigana` are read off a name and a title the corpus already holds, so
     there is no address to record and the schema must not demand one. Saying `derived` is what the
     attribution table already means by it, and it keeps the CHECK simple enough to read.
+
+    IT ASKED ONLY ABOUT THE READING UNTIL §5, and English claims arrived reading `platform` where
+    the source is the name's own surface: 194 authors are already written in Latin, so their
+    English IS their name and there is no page behind it. 194 rows were refused for want of an
+    address to a document that does not exist, which is the same shape as the 382 §2 refused.
     """
-    from names import provenance as _prov
-    if str(record.get("reading_source") or "") in set(getattr(_prov, "SELF_SOURCED", ())):
+    if str(record.get(f"{claim}_source") or "") in set(getattr(_prov, "SELF_SOURCED", ())):
         return "derived"
-    return record.get("reading_source_kind")
+    return record.get(f"{claim}_source_kind")
 
 
 def _rows(name, key):
@@ -187,39 +220,205 @@ def build(path=None):
                     (wid, cid, role, i), f"edge {cid}->{wid}")
     counts["work_credit"] = db.execute("SELECT count(*) FROM work_credit").fetchone()[0]
 
-    # ── the claims, which is the table the schema exists for ────────────────────────────────────
+    # ── the names, and what is claimed about each ────────────────────────────────────────────────
+    #
+    # ONE PRODUCER OF A `surface` ROW (§3), and it is `surface_id` below. Two loaders need those
+    # rows, the name store's claims and the build's renderings, and a second insert site is how the
+    # two would come to disagree about a fold.
+    import yaml
+    subject_ids = {"credit": {s: i for s, i in db.execute("SELECT surface, id FROM credit")},
+                   "work": {t: i for i, t in db.execute("SELECT id, title FROM work")},
+                   "publisher": {n: i for i, n in db.execute("SELECT id, name FROM publisher")}}
+    surfaces = {}
+
+    def surface_id(kind, ja, subject_kind=None, subject=None, **cols):
+        """The row for one string, made once. `subject` is looked up where a kind can carry one."""
+        folded = _namekey.fold(str(ja or ""))
+        if not folded:
+            return None
+        got = surfaces.get((kind, folded))
+        if got is None:
+            if subject_kind and subject is None:
+                subject = subject_ids[subject_kind].get(ja)
+            args = dict.fromkeys(("work", "credit", "publisher"))
+            if subject_kind:
+                args[subject_kind] = subject
+            db.execute("INSERT INTO surface (kind, folded, work, credit, publisher)"
+                       " VALUES (?,?,?,?,?)",
+                       (kind, folded, args["work"], args["credit"], args["publisher"]))
+            got = surfaces[(kind, folded)] = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+        for col, value in cols.items():
+            if value is not None:
+                db.execute(f"UPDATE surface SET {col} = ? WHERE id = ?", (value, got))
+        return got
+
     # ONE ROW IS ONE CLAIM. The store holds a reading and its provenance as nine `reading_*` keys on
     # a record; here each claim is a row, so a second opinion is a second ROW and a conflict is data.
     # That is what makes "where do two sources disagree about one name" a query at all.
-    import yaml
-    # KEYED ON `facts/namekey.KINDS`, so the store's populations and the name store's cannot
-    # drift apart. The values are what each population is a name OF.
+    #
+    # READ FROM `data/names/*.yaml` AND NOT FROM THE BUILD, because the note, the address and the
+    # date it was reviewed are in the source and the shipped form compresses them. STORE-PLAN §6 is
+    # where the direction reverses; until then this is the fuller of the two.
+    #
+    # KEYED ON `facts/namekey.KINDS`, so the store's populations and the name store's cannot drift
+    # apart. The values are what each population is a name OF, and the surface kinds it files under.
     subject_of = dict(zip(_namekey.KINDS, ("credit", "publisher", "work")))
-    ids_for = {"credit": {r["surface"]: r["id"] for r in
-                          db.execute("SELECT surface, id FROM credit").fetchall()
-                          and [{"surface": s, "id": i} for s, i in
-                               db.execute("SELECT surface, id FROM credit")]},
-               "work": {t: i for i, t in db.execute("SELECT id, title FROM work")},
-               "publisher": {n: i for i, n in db.execute("SELECT id, name FROM publisher")}}
-    for f, kind in subject_of.items():
+    surface_kind = dict(zip(_namekey.KINDS, ("author", "publisher", "title")))
+    for f, subject_kind in subject_of.items():
         path = ROOT / "data" / "names" / f"{f}.yaml"
         if not path.exists():
             continue
         rows = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("names", {})
-        for surface, r in rows.items():
-            if not isinstance(r, dict) or not r.get("reading"):
+        for name, r in rows.items():
+            if not isinstance(r, dict):
                 continue
-            sid = ids_for[kind].get(surface)
-            if not sid:
-                continue                      # a name the corpus holds no identified subject for
-            put("INSERT INTO claim (subject_kind, subject, predicate, value, basis, source,"
-                " source_kind, retrieved, url, note) VALUES (?,?,?,?,?,?,?,?,?,?)",
-                (kind, sid, "reading", r["reading"],
-                 r.get("reading_basis") or _reading.DEFAULT_BASIS,
-                 r.get("reading_source"), _kind_of(r), r.get("reading_at"),
-                 r.get("reading_url"), r.get("reading_note")),
-                f"claim {kind} {sid}")
+            # A NAME THE CORPUS IDENTIFIES NOTHING FOR STILL HOLDS ITS CLAIMS, which is the fault
+            # this section was written for: the loader used to skip it, silently, so 890 readings
+            # and every English rendering in the corpus were absent from a store reporting no
+            # refusals. A surface is what a claim hangs off, and a surface needs no identifier.
+            sid = surface_id(surface_kind[f], name, subject_kind,
+                             verified=(None if r.get("verified") is None
+                                       else int(bool(r["verified"]))),
+                             uncertain=int(bool(r.get("reading_uncertain"))) or None,
+                             ordinary=int(bool(r.get("reading_ordinary"))) or None,
+                             transliterates=r.get("transliterates"))
+            if sid is None:
+                continue
+            for predicate, cite in (("reading", "reading"), ("english", "en")):
+                # EVERY FORM WE HOLD AND NOT ONLY THE LIVE ONE. A displaced claim is kept rather
+                # than discarded (§1), and `en_conflicts` is where the store keeps it; as rows they
+                # are what the site ships as `en_forms` and no second shape is needed for them.
+                held = [r] + [dict(r, **{cite: c.get("value"),
+                                         _prov.BASIS_FIELD[cite]: c.get("basis")})
+                              for c in (r.get(f"{cite}_conflicts") or []) if isinstance(c, dict)]
+                for i, claim in enumerate(held):
+                    value = claim.get(cite)
+                    basis = (_prov.basis_of(claim, cite)
+                             or (_reading.DEFAULT_BASIS if cite == "reading" else None))
+                    if not value or not basis:
+                        continue
+                    cited = _prov.cite(claim, cite) or {}
+                    put("INSERT INTO claim (surface, predicate, value, basis, source, source_kind,"
+                        " retrieved, reviewed, url, isbn, note) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                        (sid, predicate, value, basis, claim.get(f"{cite}_source"),
+                         _kind_of(claim, cite), claim.get(f"{cite}_at"),
+                         claim.get(f"{cite}_reviewed"),
+                         cited.get("url") or claim.get(f"{cite}_url"),
+                         cited.get("isbn"), claim.get(f"{cite}_note") or claim.get("note")),
+                        f"claim {predicate} {f} {name}" + (f" [{i}]" if i else ""))
+            # WHERE A NAME PARTS, AND ONLY WHERE SOMETHING SAYS WHAT THAT RESTS ON. 680 records
+            # hold a boundary and 660 of them state their source as PROSE: `the kana in its own
+            # surface`, `the National Diet Library's author heading on record R100000002-…`. Prose
+            # is not a basis and inventing one for it here would put a ruling in the loader.
+            # docs/GAPS.md carries the 660.
+            if r.get("reading_boundary") and r.get("reading_boundary_basis"):
+                put("INSERT INTO claim (surface, predicate, value, basis, note)"
+                    " VALUES (?,'division',?,?,?)",
+                    (sid, r["reading"], r["reading_boundary_basis"], r["reading_boundary"]),
+                    f"claim division {f} {name}")
+    counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
     counts["claim"] = db.execute("SELECT count(*) FROM claim").fetchone()[0]
+
+    # ── the renderings, which are what a reader is actually shown ────────────────────────────────
+    #
+    # `feed/names.json` IS THE DERIVED FORM AND THIS IS WHERE IT LANDS. The romanisations, the ruby
+    # spans, the credit divisions and the two romanisation maps are all functions of a reading and
+    # of the rules `adapters/names` holds; none of that judgement moves, and STORE-PLAN §3 is where
+    # the reason is written out. What changes is that the answer is a row.
+    names = BUILD / "feed" / "names.json"
+    doc = json.loads(names.read_text(encoding="utf-8")) if names.exists() else {}
+
+    def entries(section):
+        """One section's entries, with a key that is already its own fold taken first.
+
+        SOME KEYS IN THIS FILE ARE NOT FOLDED AND THE SITE CAN ONLY LOOK UP FOLDED ONES, which §5
+        found by seeing one publisher's romanisation vanish. 62 of 386 publisher keys and 112 of 399
+        imprint keys hold a space NFKC keeps, and `app.js` reaches every one of them through
+        `foldKey`, so 24 publishers collapse onto 12 folded keys and 5 of those pairs hold different
+        things. `いんどの宮殿！` carries the English and `いんどの宮殿!` carries the identifier, and
+        the second is the one a reader's lookup lands on.
+
+        THAT IS A FAULT IN THE BUILD AND NOT IN THIS LOADER, so it is recorded in docs/GAPS.md and
+        deferred. What this does is stop the store's copy depending on which spelling the emitter
+        happened to write first: the entry the SITE can reach is the one that wins here.
+        """
+        rows = list((doc.get(section) or {}).items())
+        return sorted(rows, key=lambda kv: _namekey.fold(kv[0]) != kv[0])
+
+    def romanise(sid, got):
+        """The three styles, where a string means all three agree."""
+        styles = ({"plain": got, "macron": got, "double": got} if isinstance(got, str)
+                  else (got or {}))
+        for style, value in styles.items():
+            if value and style in ("plain", "macron", "double"):
+                put("INSERT OR IGNORE INTO romanisation (surface, style, value) VALUES (?,?,?)",
+                    (sid, style, value), f"romanisation {style}")
+
+    for section, kind, subject_kind in (("titles", "title", "work"), ("authors", "author", "credit"),
+                                        ("publishers", "publisher", "publisher")):
+        for folded, r in entries(section):
+            sid = surface_id(kind, folded, subject_kind, r.get("id"))
+            if sid is None:
+                continue
+            romanise(sid, r.get("romaji"))
+            for i, span in enumerate(r.get("ruby") or []):
+                text, reading = (list(span) + [None, None])[:2]
+                if text:
+                    put("INSERT OR IGNORE INTO ruby (surface, seq, text, reading) VALUES (?,?,?,?)",
+                        (sid, i, text, reading), f"ruby {folded} {i}")
+
+    # A TITLE STANDING FOR ANOTHER, resolved after every title has a row, since an alias may be read
+    # before the name it points at.
+    for folded, r in entries("titles"):
+        if r.get("alias_of"):
+            here, there = surface_id("title", folded), surface_id("title", r["alias_of"])
+            if here and there and here != there:
+                put("UPDATE surface SET alias_of = ? WHERE id = ?", (there, here),
+                    f"alias {folded}")
+
+    # THE TWO ROMANISATION MAPS. `floor` answers for any Japanese run that can reach a surface, in
+    # the three styles; `phrases` answers for a whole chapter name or credit line in one. They are
+    # different populations of string and each is keyed by the same fold as everything else.
+    for folded, got in entries("floor"):
+        sid = surface_id("floor", folded)
+        if sid is not None:
+            romanise(sid, got)
+    for folded, got in entries("phrases"):
+        sid = surface_id("phrase", folded)
+        # THE MACRON STYLE, AND SAYING SO IS THE POINT. `phrases` ships one spelling and the site
+        # renders it unchanged, so filing it under a style names which spelling a reader is getting
+        # rather than leaving a bare string to be mistaken for all three.
+        if sid is not None and got:
+            put("INSERT OR IGNORE INTO romanisation (surface, style, value) VALUES (?,'macron',?)",
+                (sid, got), f"phrase {folded}")
+    counts["romanisation"] = db.execute("SELECT count(*) FROM romanisation").fetchone()[0]
+    counts["ruby"] = db.execute("SELECT count(*) FROM ruby").fetchone()[0]
+
+    for folded, r in entries("credit_parts"):
+        sid = surface_id("credit-line", folded)
+        if sid is None:
+            continue
+        put("INSERT INTO credit_division (surface, joiner, partial) VALUES (?,?,?)",
+            (sid, r.get("j") or "", int(bool(r.get("part")))), f"division {folded}")
+        for i, part in enumerate(r.get("p") or []):
+            if part.get("n"):
+                put("INSERT OR IGNORE INTO credit_part (surface, seq, name, role)"
+                    " VALUES (?,?,?,?)", (sid, i, part["n"], part.get("r")), f"part {folded} {i}")
+        for text in (r.get("drop") or []):
+            put("INSERT OR IGNORE INTO credit_dropped (surface, text) VALUES (?,?)",
+                (sid, text), f"dropped {folded}")
+    counts["credit_part"] = db.execute("SELECT count(*) FROM credit_part").fetchone()[0]
+
+    # THE LINE'S OWN NAME AND ITS PARENT, which the imprint registry states and nothing carried into
+    # the store. An imprint row exists per publisher already; this is the same fact keyed the way a
+    # reader reaches it.
+    for folded, r in entries("imprints"):
+        surface_id("imprint", folded)
+        for house in (r.get("publishers") or []):
+            db.execute("UPDATE imprint SET slug = ?, parent = ? WHERE name = ? AND publisher ="
+                       " (SELECT id FROM publisher WHERE name = ?)",
+                       (r.get("id"), r.get("parent"), r.get("name"), house))
+    counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
 
     # ── the two tables the schema declared and nothing ever wrote ───────────────────────────────
     #

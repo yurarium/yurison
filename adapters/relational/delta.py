@@ -47,9 +47,13 @@ DERIVATIONS = {
                "WHERE e.work IS NULL",
         "reads": ("work", "work_credit")},
     "names two sources disagree about": {
-        "sql": "SELECT count(*) FROM (SELECT subject FROM claim "
-               "GROUP BY subject_kind, subject, predicate HAVING count(DISTINCT value) > 1)",
+        "sql": "SELECT count(*) FROM (SELECT surface FROM claim "
+               "GROUP BY surface, predicate HAVING count(DISTINCT value) > 1)",
         "reads": ("claim",)},
+    "names nothing in the corpus is identified by": {
+        "sql": "SELECT count(*) FROM surface WHERE kind IN ('title', 'author', 'publisher') "
+               "AND work IS NULL AND credit IS NULL AND publisher IS NULL",
+        "reads": ("surface",)},
     "credits named by more than one work": {
         "sql": "SELECT count(*) FROM (SELECT credit FROM work_credit GROUP BY credit "
                "HAVING count(*) > 1)",

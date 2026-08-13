@@ -2837,3 +2837,70 @@ its three, so a work's state belongs to its most recent listing rather than to t
 first. 470 of the 471 ニコニコ offers state no latest date, so nothing in `offer` can currently
 say which listing is the live one; the work's state is decided elsewhere and this table cannot
 corroborate it.
+
+## `feed/names.json` is keyed two ways and the site can only read one. Found 2026-08-13
+
+STORE-PLAN §5 loaded the renderings and one publisher's romanisation went missing on the way in.
+The cause is in the emitter. `app.js` reaches every entry in this file through `foldKey`, which is
+NFKC with spaces removed, and 62 of 386 publisher keys and 112 of 399 imprint keys hold a space
+that NFKC keeps. Those entries cannot be looked up by anything the site does.
+
+24 publisher keys collapse onto 12 folded keys, and 5 of those pairs hold different things:
+
+    いんどの宮殿！            en: Indo no Kyuden!, basis: romaji, id: h00097
+    いんどの宮殿!            id: h00097
+
+The reader's lookup folds the name and lands on the SECOND, which carries an identifier and no
+English. So the English is emitted, shipped in a 3.8 MB file every visit loads, and unreachable.
+`スイートピー&COCOA BREAK` and `スタジオぷち屋 桜那えいか、` are the same shape.
+
+**IT IS NOT VISIBLE FROM EITHER SIDE ALONE**, which is why it survived. The build writes both keys
+and can see nothing wrong with either; the interface asks for a folded key and gets an answer, so
+nothing looks missing. Setting the file beside a store keyed on one fold is what made the pair
+show up as a row that would not insert twice.
+
+**THE STORE PREFERS THE ENTRY THE SITE CAN REACH**, which is what `relational.entries` does, so
+the store now holds what a reader holds rather than whichever spelling the emitter wrote first.
+That is a workaround. The fix is that the emitter should fold its keys, and it is pipeline work,
+which STORE-PLAN §9 keeps out of a maintenance pass.
+
+Titles, authors, credit lines, `floor` and `phrases` are all clean, with 0 unfolded keys between
+them. It is the two maps written by a different route that differ.
+
+## 660 divisions state their source in prose and no basis. Found 2026-08-13
+
+`reading_boundary` holds a sentence: `the kana in its own surface`, `the National Diet Library's
+author heading on record R100000002-I034558058`, `a reviewer's own reading of the whole name,
+argued in reading_note`. 680 records carry one and 20 of them also carry
+`reading_boundary_basis`, which is the field a query can act on.
+
+STORE-PLAN §5 loads a `division` claim only for those 20, because `claim.basis` is a foreign key
+into a closed vocabulary and reading a basis out of a sentence would be a ruling made in a loader.
+The other 660 divisions are in the corpus, are shown to readers, and cannot be counted by basis.
+
+**IT IS THE SAME SHAPE AS THE FAULT `claim` WAS BUILT FOR**: 293 divisions sat in `reading_note`
+prose while `reading_boundary` was empty, which is why the schema holds one claim per row. The
+prose field outlived the fix, and filling `reading_boundary_basis` from it is a naming pass's work
+rather than a schema change.
+
+## 18 English titles a reader is served come from no name-store row. Found 2026-08-13
+
+Measured while checking that the store can reproduce what the site serves: 3,186 titles ship an
+English name, the store answers 3,168 of them from a claim, and 18 are the build's own derivation.
+Two kinds. `RoomforHoneys` and `TheDayTomorrowComes` are already in Latin, so the title IS the
+English. `恋愛遺伝子XX:完全版` and `犬も歩けば姫に当たる【電子単行本】` are a base title plus an
+edition marker, which `EDITION_EN` glosses beside the base work's name.
+
+Both are derivable from what the store holds, since the base title and the surface are both in it,
+and neither is a name anybody curated. Recorded because §1's budget measures derivability and this
+is the residue that only emission can settle, which is STORE-PLAN §6.
+
+## `stated` is an English basis with no attribution row. Found 2026-08-13
+
+`facts/reading._EN_RANK` ranks five bases and `ATTRIBUTION` states the evidence four of them
+demand. `stated` is in the first and not the second, so 194 author names and 4 titles rest on a
+basis that says a source printed the English and names no kind of source that may. Every one of
+the 194 is a name already written in Latin whose source is its own surface, which is why nothing
+has complained: the claim is true and the vocabulary has no row for it. Either `stated` belongs in
+`ATTRIBUTION` with `derived`, or those records belong on a basis that means "the name is already
+Latin". A ruling, and `facts/reading` is where it goes.

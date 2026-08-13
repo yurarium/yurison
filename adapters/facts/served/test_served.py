@@ -100,8 +100,16 @@ def main(s):
             "§4 claims a platform's offer, which is a listing and not a work's property")
     s.check(any("releases[].pub" in c for c in served.STORE_ANSWERS),
             "and a release, which the store holds even where no work has been placed for it")
-    s.check(not any("work_en" in c or "romaji" in c for c in served.STORE_ANSWERS),
-            "and no rendering is claimed: the store has no table for one, which is §5")
+    # §5 MODELLED THE RENDERINGS, so a name is a `surface` row, what is claimed about it is a
+    # `claim` row, and the Latin a reader sees is a `romanisation` or a `ruby` row.
+    s.check(any(c == "feed/names.json:titles{}" for c in served.STORE_ANSWERS),
+            "§5 claims what a title's entry holds: its English, its reading, its Latin and its ruby")
+    s.check(any("series[].work_en" in c for c in served.STORE_ANSWERS),
+            "and the same rendering where a series row carries it, since it is the same fold")
+    s.check(all(f"feed/names.json:{m}" in served.STORE_ANSWERS for m in
+                ("titles", "authors", "publishers", "imprints", "credit_parts", "floor", "phrases")),
+            "THE MAP AND ITS CONTENTS ARE TWO PATHS: `{}` is not a field separator, so claiming "
+            "`titles{}` leaves `titles` uncovered and the map itself counted")
 
     # A CLAIM COVERS WHAT HANGS OFF IT. `series.json:series[].id` answers for the id itself, and a
     # deeper path under a claimed prefix is answered with it rather than counted again.

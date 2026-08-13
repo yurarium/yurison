@@ -200,6 +200,20 @@ STORE_ANSWERS = (
     "feed/current.json:releases[].url",
     "feed/current.json:releases[].type",
     "feed/current.json:releases[].seen",
+    # §5: THE RENDERINGS. A name is a `surface` row keyed by the fold the feed joins on, what is
+    # claimed about it is a `claim` row, and what a reader is shown in Latin is a `romanisation` or
+    # a `ruby` row. The three name maps take the same paths because they are the same shape.
+    # THE MAP AND ITS CONTENTS ARE TWO PATHS, because `{}` is not a field separator: `titles` is the
+    # map and `titles{}` is what one entry holds, and claiming the second does not claim the first.
+    "feed/names.json:titles", "feed/names.json:titles{}",
+    "feed/names.json:authors", "feed/names.json:authors{}",
+    "feed/names.json:publishers", "feed/names.json:publishers{}",
+    "feed/names.json:imprints", "feed/names.json:imprints{}",
+    "feed/names.json:credit_parts", "feed/names.json:credit_parts{}",
+    "feed/names.json:floor", "feed/names.json:floor{}",
+    "feed/names.json:phrases", "feed/names.json:phrases{}",
+    "series.json:series[].work_en",
+    "series.json:series[].author_en",
 )
 
 

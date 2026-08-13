@@ -60,6 +60,12 @@ CREATE TABLE imprint (
   id        INTEGER PRIMARY KEY,
   publisher TEXT NOT NULL REFERENCES publisher(id) ON DELETE CASCADE,
   name      TEXT NOT NULL,
+  -- THE LINE'S OWN NAME FOR ITSELF, which `facts/imprint`'s registry keys on and the site links by:
+  -- `manga-time-kr-comics`. Several spellings reach one line, so this is not unique here.
+  slug      TEXT,
+  -- A LINE INSIDE A LINE. 裏少年サンデーコミックス sits under 少年サンデーコミックス, and the
+  -- registry states the parent by name rather than by id.
+  parent    TEXT,
   UNIQUE (publisher, name)
 );
 
@@ -83,19 +89,141 @@ CREATE TABLE work_publisher (
   PRIMARY KEY (work, publisher)
 );
 
+-- ── the strings a reader is shown ───────────────────────────────────────────────────────────────
+--
+-- A CLAIM IS ABOUT A NAME AND NOT ABOUT A THING, which STORE-PLAN §5 is where the schema stopped
+-- pretending otherwise. `claim` used to hold `subject_kind` and an identifier, so a name that
+-- resolved to nothing had nowhere to hang: 890 readings and every one of the 4,174 English
+-- renderings the corpus holds were skipped by the loader, silently, with no refusal and no count.
+-- `data/names/*.yaml` is keyed by the NAME, `feed/names.json` is keyed by the name, and this table
+-- is the one keyed thing both of them are talking about.
+--
+-- THE KEY IS THE FOLD, `facts/namekey.fold`, because that is what the site joins on. An archived
+-- month is never rewritten, so a release from March finds today's English for its work by folding
+-- the title it recorded. Keying on the raw spelling would break that join for every name whose
+-- source wrote it with a full-width space.
+--
+-- IT HOLDS MORE THAN NAMES, and the kinds say which. A chapter label, a magazine issue and a credit
+-- line are strings the site must render in Latin and nothing identifies them; they carry
+-- romanisations and no claims. Filing them here rather than in a map of their own is what makes
+-- `floor` and `phrases` answerable at all.
+CREATE TABLE surface (
+  id     INTEGER PRIMARY KEY,
+  kind   TEXT NOT NULL CHECK (kind IN
+           ('title', 'author', 'publisher', 'imprint', 'credit-line', 'phrase', 'floor')),
+  folded TEXT NOT NULL,
+
+  -- WHAT IT NAMES, WHERE A JOIN HAS BEEN MADE, and nullable because most of the point is that a
+  -- name may name nothing we hold. Three columns rather than one polymorphic id, so each is a real
+  -- foreign key and a dangling identifier is refused instead of stored.
+  work      TEXT REFERENCES work(id)      ON DELETE SET NULL,
+  credit    TEXT REFERENCES credit(id)    ON DELETE SET NULL,
+  publisher TEXT REFERENCES publisher(id) ON DELETE SET NULL,
+
+  -- WHAT IS TRUE OF THE NAME ITSELF rather than of any one claim about it.
+  --
+  --   verified       somebody has ruled on this record. NULL where nobody has looked, which is not
+  --                  the same as looked and unsure, and the interface's mark turns on the
+  --                  difference.
+  --   uncertain      the reading was assembled a character at a time, which is weaker than a guess
+  --                  at the whole word.
+  --   ordinary       the analyser read ordinary vocabulary rather than a coinage, so its answer is
+  --                  not the guess the mark exists to flag. `analyser_vocabulary.py` is its one
+  --                  producer and this is where its answer lands.
+  --   transliterates the kana are themselves a transliteration, so romanising them takes a reader
+  --                  further from the name: ステファン・セジク is Stjepan Šejić.
+  -- `undivided` IS DELIBERATELY NOT A COLUMN. A person's romanisation runs the family and given
+  -- names together where nothing states the parting point, and the site ships that as a flag; the
+  -- store holds the reading itself and whether the credit is a person, which is everything the
+  -- flag is computed from. A column would be a second copy of an answer already in the rows.
+  verified       INTEGER CHECK (verified IN (0, 1)),
+  uncertain      INTEGER NOT NULL DEFAULT 0 CHECK (uncertain IN (0, 1)),
+  ordinary       INTEGER NOT NULL DEFAULT 0 CHECK (ordinary  IN (0, 1)),
+  transliterates TEXT,
+
+  -- ONE TITLE STANDING FOR ANOTHER, which is how an edition marker keeps its work's English.
+  alias_of INTEGER REFERENCES surface(id) ON DELETE SET NULL,
+  CHECK (alias_of IS NULL OR alias_of <> id),
+
+  -- A NAME RESOLVES TO A SUBJECT OF ITS OWN KIND, and a string that is not a name resolves to none.
+  CHECK (CASE kind
+           WHEN 'title'     THEN credit IS NULL AND publisher IS NULL
+           WHEN 'author'    THEN work   IS NULL AND publisher IS NULL
+           WHEN 'publisher' THEN work   IS NULL AND credit    IS NULL
+           ELSE work IS NULL AND credit IS NULL AND publisher IS NULL END),
+
+  UNIQUE (kind, folded)
+);
+
+CREATE INDEX surface_work      ON surface (work);
+CREATE INDEX surface_credit    ON surface (credit);
+CREATE INDEX surface_publisher ON surface (publisher);
+
+-- THE READING SPELT IN LATIN, IN THE READER'S THREE STYLES. It is not a claim about a name and must
+-- not be filed as one: `build.py` says so where it assembles `en_forms`, and a romanisation has no
+-- source to cite because it is a function of the reading. One row per style, so "which names differ
+-- between the macron and the double spelling" is a query rather than a comparison of three maps.
+CREATE TABLE romanisation (
+  surface INTEGER NOT NULL REFERENCES surface(id) ON DELETE CASCADE,
+  style   TEXT NOT NULL CHECK (style IN ('plain', 'macron', 'double')),
+  value   TEXT NOT NULL,
+  PRIMARY KEY (surface, style)
+);
+
+-- FURIGANA, AS SPANS OVER THE SURFACE AND NOT AS A BLOB. `[["最強", "さいきょう"], [" ～", null]]`
+-- is a list of pairs in the JSON, and a list of pairs in a TEXT column is the carrier this store
+-- exists to stop being. A span with no reading is a run of the surface that takes none.
+CREATE TABLE ruby (
+  surface INTEGER NOT NULL REFERENCES surface(id) ON DELETE CASCADE,
+  seq     INTEGER NOT NULL,
+  text    TEXT NOT NULL,
+  reading TEXT,
+  PRIMARY KEY (surface, seq)
+);
+
+-- HOW A CREDIT LINE DIVIDES INTO PEOPLE. `creditline._divide` owns the rule and this is where its
+-- answer lands, so the division a page draws is the division the name store is keyed on.
+CREATE TABLE credit_division (
+  surface INTEGER PRIMARY KEY REFERENCES surface(id) ON DELETE CASCADE,
+  -- WHAT THE FIELD PUTS BETWEEN TWO PEOPLE, so a recomposed byline reads as the field it replaces.
+  joiner  TEXT NOT NULL,
+  -- THE DIVISION DOES NOT ACCOUNT FOR EVERYTHING THE FIELD SAYS, which is what stops the interface
+  -- rebuilding a byline out of an incomplete answer.
+  partial INTEGER NOT NULL DEFAULT 0 CHECK (partial IN (0, 1))
+);
+
+CREATE TABLE credit_part (
+  surface INTEGER NOT NULL REFERENCES credit_division(surface) ON DELETE CASCADE,
+  seq     INTEGER NOT NULL,
+  name    TEXT NOT NULL,
+  role    TEXT,
+  PRIMARY KEY (surface, seq)
+);
+
+-- A SUBSTRING SAYING THE SAME THING TWICE: a reading printed beside the name it reads. Taken off an
+-- English page, where kana beside a romanisation is a second copy of a name in the wrong script.
+CREATE TABLE credit_dropped (
+  surface INTEGER NOT NULL REFERENCES credit_division(surface) ON DELETE CASCADE,
+  text    TEXT NOT NULL,
+  PRIMARY KEY (surface, text)
+);
+
 -- ── what is claimed about a name, and on whose word ─────────────────────────────────────────────
 -- THE FLATTENING THIS REPLACES. A reading lived as `reading`, `reading_basis`, `reading_source`,
 -- `reading_source_kind`, `reading_at`, `reading_url`, `reading_note`, `reading_boundary` and
 -- `reading_conflicts` on one record. That shape is why 293 divisions sat in `reading_note` prose
 -- while `reading_boundary` was empty: two slots for one fact, and prose is not queryable.
 --
--- One row is one claim. A second claim about the same subject is a second ROW, so a conflict is
--- data and not a nested list, and "which claims rest on a community database" is one query.
+-- One row is one claim. A second claim about the same name is a second ROW, so a conflict is data
+-- and not a nested list, and "which claims rest on a community database" is one query.
+--
+-- `en_forms` IS THIS TABLE READ BACK. The site ships every English form it holds keyed by what
+-- makes it that form, and the one it shows is the highest-ranked of them. Both are the same rows
+-- under `basis_for_predicate`'s ranking, which is why neither needs a column of its own.
 
 CREATE TABLE claim (
   id           INTEGER PRIMARY KEY,
-  subject_kind TEXT NOT NULL CHECK (subject_kind IN ('work', 'credit', 'publisher')),
-  subject      TEXT NOT NULL,
+  surface      INTEGER NOT NULL REFERENCES surface(id) ON DELETE CASCADE,
   predicate    TEXT NOT NULL CHECK (predicate IN ('reading', 'division', 'english', 'romanisation')),
   value        TEXT NOT NULL,
 
@@ -105,7 +233,13 @@ CREATE TABLE claim (
   source       TEXT,                            -- who said so, in their own words
   source_kind  TEXT REFERENCES source_kind(name),
   retrieved    TEXT,                            -- ISO 8601 date the answer was obtained
+  -- WHEN A PERSON LOOKED AT IT, which is a different date from the one above and is the one a
+  -- citation shows. `provenance.PARTS` names both and the loader kept only the first.
+  reviewed     TEXT,
   url          TEXT,
+  -- AN ISBN IS A CITATION WHERE A URL IS NOT. openBD answers by ISBN and its only address is an API
+  -- query, which is not a page to send a reader to; the book it names is something they can act on.
+  isbn         TEXT,
 
   -- WHY THE REVIEWER CONCLUDED IT. `researched` demands this and `curate.problems` enforces it in
   -- Python; here it is a CHECK, so a researched claim with no note cannot be written at all.
@@ -116,10 +250,15 @@ CREATE TABLE claim (
   -- A STATED CLAIM NAMES WHERE IT CAME FROM. This is the stage-three invariant as a constraint:
   -- a reading a source printed is an INPUT, the repository is its only copy, and one without an
   -- address cannot be checked, refreshed or argued with.
-  CHECK (basis <> 'stated' OR url IS NOT NULL OR source_kind = 'derived')
+  CHECK (basis <> 'stated' OR url IS NOT NULL OR isbn IS NOT NULL OR source_kind = 'derived'),
+
+  -- A BASIS BELONGS TO A CLAIM, and the pair is what `basis_for_predicate` admits. This is what
+  -- makes an English name resting on `analyser` unstateable: the vocabularies are different and
+  -- the schema now knows which is which instead of accepting either for either.
+  FOREIGN KEY (basis, predicate) REFERENCES basis_for_predicate (basis, predicate)
 );
 
-CREATE INDEX claim_subject ON claim (subject_kind, subject, predicate);
+CREATE INDEX claim_surface ON claim (surface, predicate);
 CREATE INDEX claim_basis   ON claim (basis);
 CREATE INDEX claim_source  ON claim (source_kind);
 
@@ -132,10 +271,31 @@ CREATE INDEX claim_source  ON claim (source_kind);
 CREATE TABLE basis (
   name    TEXT PRIMARY KEY,
   -- the columns are the questions anybody asks of a basis, which is facts/division's table
-  cited   INTEGER NOT NULL CHECK (cited   IN (0, 1)),
-  donates INTEGER NOT NULL CHECK (donates IN (0, 1)),
-  marked  INTEGER NOT NULL CHECK (marked  IN (0, 1)),
-  counted INTEGER NOT NULL CHECK (counted IN (0, 1))
+  --
+  -- THEY ARE QUESTIONS ABOUT A READING, and an English basis has no answer to any of them: nothing
+  -- about `licensed` says whether it may lend a division. NULL is that answer, and it is all four
+  -- or none, so a row cannot be half filled in and read as though the blanks meant no.
+  cited   INTEGER CHECK (cited   IN (0, 1)),
+  donates INTEGER CHECK (donates IN (0, 1)),
+  marked  INTEGER CHECK (marked  IN (0, 1)),
+  counted INTEGER CHECK (counted IN (0, 1)),
+  CHECK ((cited IS NULL) = (donates IS NULL)
+     AND (cited IS NULL) = (marked  IS NULL)
+     AND (cited IS NULL) = (counted IS NULL))
+);
+
+-- WHICH BASIS MAY STAND BEHIND WHICH CLAIM, AND WHICH ANSWER WINS. `facts/division.rank` orders the
+-- readings and `facts/reading.en_rank` orders the English names, and they are different vocabularies
+-- that overlap on one word: `stated` means a source printed the kana, and it also means a source
+-- printed the English. Nothing before this could tell a claim resting on the wrong one.
+--
+-- THE RANK IS WHY `en` NEEDS NO COLUMN. The site shows the highest-ranked English form it holds and
+-- ships the rest beside it; with the order here as data, both are one query over `claim`.
+CREATE TABLE basis_for_predicate (
+  basis     TEXT NOT NULL REFERENCES basis(name) ON DELETE CASCADE,
+  predicate TEXT NOT NULL CHECK (predicate IN ('reading', 'division', 'english', 'romanisation')),
+  rank      INTEGER NOT NULL,
+  PRIMARY KEY (basis, predicate)
 );
 
 CREATE TABLE source_kind (
@@ -282,7 +442,16 @@ CREATE INDEX offer_platform ON offer (platform);
 --     SELECT w.id FROM work w LEFT JOIN work_credit e ON e.work = w.id WHERE e.work IS NULL;
 --
 --   where do two sources disagree about one name
---     SELECT subject, predicate, count(DISTINCT value) n FROM claim
---     GROUP BY subject, predicate, subject_kind HAVING n > 1;
+--     SELECT surface, predicate, count(DISTINCT value) n FROM claim
+--     GROUP BY surface, predicate HAVING n > 1;
 --
--- Each of those is a script today, and the last one has no script at all.
+--   which English name does a title show, and what else do we hold for it
+--     SELECT c.value, c.basis FROM claim c
+--     JOIN basis_for_predicate b ON b.basis = c.basis AND b.predicate = c.predicate
+--     WHERE c.surface = ? AND c.predicate = 'english' ORDER BY b.rank DESC;
+--
+--   which names does the corpus identify nothing for
+--     SELECT folded FROM surface WHERE kind IN ('title','author','publisher')
+--     AND work IS NULL AND credit IS NULL AND publisher IS NULL;
+--
+-- Each of those is a script today, and the last two have no script at all.

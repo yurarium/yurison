@@ -28,6 +28,7 @@ def _fresh():
     db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001','T','test')")
     db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','X','person')")
     db.execute("INSERT INTO publisher (id, name) VALUES ('h00001','P')")
+    db.execute("INSERT INTO surface (kind, folded, work) VALUES ('title','T','w00001')")
     return db
 
 
@@ -66,36 +67,36 @@ def main(s):
     # A RESEARCHED CLAIM CARRIES ITS REASONING. This one is not hypothetical: the loader refuses
     # eight rows the corpus holds today, all `researched` from `yurarium` with no note.
     _refuses(s, db,
-             "INSERT INTO claim (subject_kind,subject,predicate,value,basis,note)"
-             " VALUES ('work','w00001','reading','ヨミ','researched',NULL)", (),
+             "INSERT INTO claim (surface,predicate,value,basis,note)"
+             " VALUES (1,'reading','ヨミ','researched',NULL)", (),
              "a researched claim with no note is refused")
-    db.execute("INSERT INTO claim (subject_kind,subject,predicate,value,basis,note)"
-               " VALUES ('work','w00001','reading','ヨミ','researched','weighed X')")
+    db.execute("INSERT INTO claim (surface,predicate,value,basis,note)"
+               " VALUES (1,'reading','ヨミ','researched','weighed X')")
     s.check(True, "and one with a note is accepted")
 
     # A STATED CLAIM NAMES WHERE IT CAME FROM. The stage-three invariant, as a constraint.
     _refuses(s, db,
-             "INSERT INTO claim (subject_kind,subject,predicate,value,basis,source_kind,url)"
-             " VALUES ('work','w00001','reading','ヨミ','stated','national-library',NULL)", (),
+             "INSERT INTO claim (surface,predicate,value,basis,source_kind,url)"
+             " VALUES (1,'reading','ヨミ','stated','national-library',NULL)", (),
              "a stated claim with no address is refused")
-    db.execute("INSERT INTO claim (subject_kind,subject,predicate,value,basis,source_kind,url)"
-               " VALUES ('work','w00001','reading','ヨミ','stated','national-library','https://x')")
+    db.execute("INSERT INTO claim (surface,predicate,value,basis,source_kind,url)"
+               " VALUES (1,'reading','ヨミ','stated','national-library','https://x')")
     s.check(True, "and one with an address is accepted")
     # SELF-SOURCED NEEDS NO ADDRESS, because a kana surface reads as itself and there is nothing to
     # point at. Two title-furigana claims were refused until the loader said `derived`.
-    db.execute("INSERT INTO claim (subject_kind,subject,predicate,value,basis,source_kind)"
-               " VALUES ('work','w00001','reading','ヨミ','stated','derived')")
+    db.execute("INSERT INTO claim (surface,predicate,value,basis,source_kind)"
+               " VALUES (1,'reading','ヨミ','stated','derived')")
     s.check(True, "a self-sourced stated claim needs no address")
 
     # A BASIS OR A KIND NOBODY HAS RULED ON IS REFUSED, which is the drift this replaces: the
     # vocabulary has one home and a foreign key has no second copy to disagree with.
     _refuses(s, db,
-             "INSERT INTO claim (subject_kind,subject,predicate,value,basis) "
-             "VALUES ('work','w00001','reading','ヨミ','invented')", (),
+             "INSERT INTO claim (surface,predicate,value,basis) "
+             "VALUES (1,'reading','ヨミ','invented')", (),
              "a basis nobody ruled on is refused")
     _refuses(s, db,
-             "INSERT INTO claim (subject_kind,subject,predicate,value,basis,source_kind,url)"
-             " VALUES ('work','w00001','reading','ヨミ','stated','wikipedia','https://x')", (),
+             "INSERT INTO claim (surface,predicate,value,basis,source_kind,url)"
+             " VALUES (1,'reading','ヨミ','stated','wikipedia','https://x')", (),
              "a source kind nobody ruled on is refused")
 
     # THE RULINGS ARE ASKED FOR AND NOT RESTATED, which is the whole reason the schema may hold
@@ -259,6 +260,98 @@ def main(s):
         s.check(False, "a work may not be published by a house the store does not hold")
     except sqlite3.IntegrityError:
         s.check(True, "and a publisher nobody holds is refused by the foreign key")
+
+    # ── §5: A CLAIM IS ABOUT A NAME, AND A NAME MAY NAME NOTHING ──────────────────────────────
+    #
+    # THE FAULT THIS SECTION EXISTS FOR. `claim` was keyed on an identifier, so a name resolving to
+    # nothing had nowhere to hang and the loader skipped it: 890 readings and every one of the
+    # 4,174 English renderings the corpus holds were absent from a store reporting no refusals.
+    db = relational.load_rulings(relational.create(":memory:"))
+    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001','ゆり','shelf')")
+    db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','作者','person')")
+    db.execute("INSERT INTO surface (kind, folded) VALUES ('title','よんだことのないほん')")
+    orphan = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    db.execute("INSERT INTO claim (surface, predicate, value, basis) VALUES (?,?,?,?)",
+               (orphan, "english", "A Book Nobody Has Read", "translated"))
+    s.eq(db.execute("SELECT count(*) FROM claim").fetchone()[0], 1,
+         "a name the corpus identifies nothing for still holds its claims")
+
+    # A NAME RESOLVES TO A SUBJECT OF ITS OWN KIND, and a string that is not a name resolves to
+    # none. Three real foreign keys rather than one polymorphic column, so a dangling identifier is
+    # refused instead of stored and read back later as a join that failed.
+    _refuses(s, db, "INSERT INTO surface (kind, folded, credit) VALUES ('title','x','c00001')", (),
+             "a title naming a person is refused")
+    _refuses(s, db, "INSERT INTO surface (kind, folded, work) VALUES ('phrase','x','w00001')", (),
+             "and a chapter label names nothing at all, because it is not a name")
+    _refuses(s, db, "INSERT INTO surface (kind, folded, work) VALUES ('title','x','w99999')", (),
+             "a name pointing at a work nobody holds is refused, not silently unresolved")
+
+    # THE TWO VOCABULARIES ARE DIFFERENT AND OVERLAP ON ONE WORD. `stated` means a source printed
+    # the kana and it also means a source printed the English; nothing before §5 could tell a claim
+    # resting on the wrong one, because `basis` alone admitted either for either.
+    _refuses(s, db, "INSERT INTO claim (surface,predicate,value,basis) "
+                    "VALUES (?,'english','X','analyser')", (orphan,),
+             "an English name resting on a reading basis is refused")
+    _refuses(s, db, "INSERT INTO claim (surface,predicate,value,basis) "
+                    "VALUES (?,'reading','ヨミ','licensed')", (orphan,),
+             "and a reading resting on an English one is refused the same way")
+
+    # `en_forms` IS THIS TABLE READ BACK, which is why neither it nor `en` needs a column. Every
+    # form is a row and the one the site shows is the highest-ranked of them.
+    for basis, value in (("official-jp", "Even if we become adults"),
+                         ("licensed", "Even Though We’re Adults"),
+                         ("translated", "Even After Becoming an Adult")):
+        db.execute("INSERT INTO claim (surface, predicate, value, basis) VALUES (?,?,?,?)",
+                   (orphan, "english", value, basis))
+    won = db.execute(
+        "SELECT c.value FROM claim c JOIN basis_for_predicate b"
+        " ON b.basis = c.basis AND b.predicate = c.predicate"
+        " WHERE c.surface = ? AND c.predicate = 'english' ORDER BY b.rank DESC", (orphan,))
+    s.eq(won.fetchone()[0], "Even if we become adults",
+         "the work's own English outranks a licensor's, by the ranking the facts state")
+    s.eq(db.execute("SELECT count(*) FROM claim WHERE predicate = 'english'").fetchone()[0], 4,
+         "and the forms it beat are held beside it rather than discarded")
+
+    # AN ENGLISH BASIS ANSWERS NONE OF DIVISION'S FOUR QUESTIONS, and says so rather than saying no
+    # to each. All four or none, so a half-filled row cannot be read as though the blanks meant no.
+    s.check(db.execute("SELECT cited FROM basis WHERE name = 'licensed'").fetchone()[0] is None,
+            "nothing about `licensed` says whether it may lend a division")
+    _refuses(s, db, "INSERT INTO basis (name, cited) VALUES ('half', 1)", (),
+             "a basis answering one of the four and not the rest is refused")
+
+    # RUBY IS SPANS OVER THE SURFACE AND NOT A BLOB, which is the carrier this store exists to stop
+    # being. A span with no reading is a run of the surface that takes none.
+    db.execute("INSERT INTO ruby (surface, seq, text, reading) VALUES (?,0,'百合','ゆり')", (orphan,))
+    db.execute("INSERT INTO ruby (surface, seq, text) VALUES (?,1,'の')", (orphan,))
+    s.eq(db.execute("SELECT count(*) FROM ruby WHERE reading IS NULL").fetchone()[0], 1,
+         "a span the surface reads for itself carries no ruby and is still a span")
+    _refuses(s, db, "INSERT INTO ruby (surface, seq, text) VALUES (?,0,'again')", (orphan,),
+             "and one position holds one span")
+
+    # THE THREE STYLES ARE THREE ROWS. `plain`, `macron` and `double` are what a reader chooses
+    # between, and a fourth spelling is not one of them.
+    db.execute("INSERT INTO romanisation (surface, style, value) VALUES (?,'macron','Yuri')",
+               (orphan,))
+    _refuses(s, db, "INSERT INTO romanisation (surface, style, value) VALUES (?,'wapuro','Yuri')",
+             (orphan,), "a romanisation style outside the reader's three is refused")
+
+    # A CREDIT PART BELONGS TO A DIVISION, so parts cannot accumulate under a line nothing divided.
+    _refuses(s, db, "INSERT INTO credit_part (surface, seq, name) VALUES (?,0,'X')", (orphan,),
+             "a part with no division above it is refused")
+    db.execute("INSERT INTO surface (kind, folded) VALUES ('credit-line','あ／い')")
+    line = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    db.execute("INSERT INTO credit_division (surface, joiner) VALUES (?,', ')", (line,))
+    db.execute("INSERT INTO credit_part (surface, seq, name, role) VALUES (?,0,'あ','原作')", (line,))
+    s.eq(db.execute("SELECT role FROM credit_part").fetchone()[0], "原作",
+         "and the role sits on the part, because one line names two people doing two jobs")
+
+    # ONE STRING PER KIND. The fold is the key the feed joins on, so a second row under one folded
+    # key would be two answers to the question an archived month asks.
+    _refuses(s, db, "INSERT INTO surface (kind, folded) VALUES ('credit-line','あ／い')", (),
+             "a second surface under one folded key is refused")
+    db.execute("INSERT INTO surface (kind, folded) VALUES ('title','あ／い')")
+    s.eq(db.execute("SELECT count(*) FROM surface WHERE folded = 'あ／い'").fetchone()[0], 2,
+         "and one string is a title and a credit line at once, which is what the kind is for")
 
 
 if __name__ == "__main__":

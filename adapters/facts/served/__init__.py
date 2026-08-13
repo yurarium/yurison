@@ -214,6 +214,11 @@ STORE_ANSWERS = (
     "feed/names.json:credit_parts", "feed/names.json:credit_parts{}",
     "feed/names.json:floor", "feed/names.json:floor{}",
     "feed/names.json:phrases", "feed/names.json:phrases{}",
+    # §5d: THE MERGE MAP. A retired identifier and what absorbed it, which `superseded` holds and
+    # which the anchor constraint needs before it can say one address reaches one work.
+    "series.json:merged",
+    "credits.json:merged",
+    "publishers.json:merged",
     "series.json:series[].work_en",
     "series.json:series[].author_en",
 )

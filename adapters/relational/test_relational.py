@@ -28,7 +28,8 @@ def _fresh():
     db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001','T','test')")
     db.execute("INSERT INTO credit (id, surface, kind) VALUES ('c00001','X','person')")
     db.execute("INSERT INTO publisher (id, name) VALUES ('h00001','P')")
-    db.execute("INSERT INTO surface (kind, folded, work) VALUES ('title','T','w00001')")
+    db.execute("INSERT INTO surface (kind, folded) VALUES ('title','T')")
+    db.execute("INSERT INTO names (surface, kind, work) VALUES (1,'title','w00001')")
     return db
 
 
@@ -293,15 +294,29 @@ def main(s):
     s.eq(db.execute("SELECT count(*) FROM claim").fetchone()[0], 1,
          "a name the corpus identifies nothing for still holds its claims")
 
-    # A NAME RESOLVES TO A SUBJECT OF ITS OWN KIND, and a string that is not a name resolves to
-    # none. Three real foreign keys rather than one polymorphic column, so a dangling identifier is
-    # refused instead of stored and read back later as a join that failed.
-    _refuses(s, db, "INSERT INTO surface (kind, folded, credit) VALUES ('title','x','c00001')", (),
-             "a title naming a person is refused")
-    _refuses(s, db, "INSERT INTO surface (kind, folded, work) VALUES ('phrase','x','w00001')", (),
-             "and a chapter label names nothing at all, because it is not a name")
-    _refuses(s, db, "INSERT INTO surface (kind, folded, work) VALUES ('title','x','w99999')", (),
-             "a name pointing at a work nobody holds is refused, not silently unresolved")
+    # §5d: WHAT A NAME NAMES IS AN EDGE. Three nullable columns on `surface` said a name names at
+    # most one thing, and `百合漫画短編集` names w01990 and w02284 while `Girls Love` names w01001
+    # and w01108, so one work of each pair took the English and the reading and the other got none.
+    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00002','T2','test')")
+    db.execute("INSERT INTO names (surface, kind, work) VALUES (?, 'title', 'w00002')", (orphan,))
+    db.execute("INSERT INTO names (surface, kind, work) VALUES (?, 'title', 'w00001')", (orphan,))
+    s.eq(db.execute("SELECT count(*) FROM names WHERE surface = ?", (orphan,)).fetchone()[0], 2,
+         "one folded title names two works and both are recorded")
+    _refuses(s, db, "INSERT INTO names (surface, kind, work) VALUES (?, 'title', 'w00001')",
+             (orphan,), "and the same edge twice is still one edge")
+
+    # A NAME RESOLVES TO A SUBJECT OF ITS OWN KIND. The kind travels with the edge so the pair can
+    # be a foreign key, which is what keeps a title from naming a person.
+    _refuses(s, db, "INSERT INTO names (surface, kind, credit) VALUES (?, 'title', 'c00001')",
+             (orphan,), "a title naming a person is refused")
+    _refuses(s, db, "INSERT INTO names (surface, kind, work) VALUES (?, 'author', 'w00001')",
+             (orphan,), "and the edge's kind must be the surface's own, by the composite key")
+    db.execute("INSERT INTO surface (kind, folded) VALUES ('phrase','第1話')")
+    ph = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+    _refuses(s, db, "INSERT INTO names (surface, kind, work) VALUES (?, 'phrase', 'w00001')",
+             (ph,), "a chapter label names nothing at all, because it is not a name")
+    _refuses(s, db, "INSERT INTO names (surface, kind, work) VALUES (?, 'title', 'w99999')",
+             (orphan,), "a name pointing at a work nobody holds is refused, not left unresolved")
 
     # THE TWO VOCABULARIES ARE DIFFERENT AND OVERLAP ON ONE WORD. `stated` means a source printed
     # the kana and it also means a source printed the English; nothing before §5 could tell a claim
@@ -369,6 +384,51 @@ def main(s):
     db.execute("INSERT INTO surface (kind, folded) VALUES ('title','あ／い')")
     s.eq(db.execute("SELECT count(*) FROM surface WHERE folded = 'あ／い'").fetchone()[0], 2,
          "and one string is a title and a credit line at once, which is what the kind is for")
+
+    # ── §5d: THE IDENTITY REGISTRY, WHICH THE STORE HAD NEVER READ ────────────────────────────
+    #
+    # ONE ADDRESS REACHES ONE WORK, which is how this project identifies one and is the constraint
+    # the store never had. `works.yaml` holds 5,400 anchors across 3,240 works.
+    db.execute("INSERT INTO work_anchor (scheme, address, work) VALUES ('madb','C418820','w00001')")
+    _refuses(s, db, "INSERT INTO work_anchor (scheme, address, work) VALUES"
+                    " ('madb','C418820','w00002')", (),
+             "one address may not reach two works")
+    db.execute("INSERT INTO work_anchor (scheme, address, work) VALUES"
+               " ('web','https://x/1','w00001')")
+    s.eq(db.execute("SELECT count(*) FROM work_anchor WHERE work = 'w00001'").fetchone()[0], 2,
+         "and one work is reached by several, which is how 1,308 of them are held")
+
+    # EVERY SPELLING THAT REACHES ONE PERSON. `credit.surface UNIQUE` kept one and discarded the
+    # rest, so a byline written `スズキフミエ` never reached c00016, whose kept spelling is 鈴木二三江.
+    db.execute("INSERT INTO credit_spelling (spelling, credit) VALUES ('鈴木二三江','c00001')")
+    db.execute("INSERT INTO credit_spelling (spelling, credit) VALUES ('スズキフミエ','c00001')")
+    s.eq(db.execute("SELECT count(*) FROM credit_spelling WHERE credit='c00001'").fetchone()[0], 2,
+         "one person is written two ways and both reach them")
+    _refuses(s, db, "INSERT INTO credit_spelling (spelling, credit) VALUES ('鈴木二三江','c00002')",
+             (), "and one spelling reaches one person, once retirements are resolved")
+
+    # A RETIRED IDENTIFIER RESOLVES TO A LIVE ONE, AND THE CHAIN IS FOLLOWED. `w01234` names
+    # `w01220` as its survivor and `w01220` was retired in its turn, so storing the map as written
+    # puts a foreign key against an identifier the corpus no longer holds.
+    db.execute("INSERT INTO superseded (id, work) VALUES ('w09999','w00001')")
+    _refuses(s, db, "INSERT INTO superseded (id, work) VALUES ('w09998','w01220')", (),
+             "a survivor the store does not hold is refused rather than stored as a dead pointer")
+    _refuses(s, db, "INSERT INTO superseded (id, work, credit) VALUES"
+                    " ('w09997','w00001','c00001')", (),
+             "and exactly one survivor, since an identifier was retired into one thing")
+
+    # A RULING THAT TWO IDENTIFIERS ARE NOT ONE. `delta.KINDS` names `merge` and `divide`, and a
+    # store that can merge and holds no record of a decision to keep them apart will merge again.
+    _refuses(s, db, "INSERT INTO identity_ruling (kind, subject, basis) VALUES"
+                    " ('homophone','credit',NULL)", (),
+             "a ruling with no reasoning is a preference and is refused")
+    db.execute("INSERT INTO identity_ruling (kind, subject, reading, basis) VALUES"
+               " ('homophone','credit','アオイ','two spellings with no character in common')")
+    s.eq(db.execute("SELECT count(*) FROM identity_ruling").fetchone()[0], 1,
+         "and one with its reasoning is held")
+    _refuses(s, db, "INSERT INTO identity_ruling (kind, subject, basis) VALUES"
+                    " ('guessed','credit','x')", (),
+             "the kinds a ruling can be are the ones the registry writes")
 
     # ── §5a: THE CONSTRAINTS THAT DID NOT FIRE ────────────────────────────────────────────────
     #

@@ -257,33 +257,139 @@ def build(path=None):
                     (wid, cid, role), f"edge {cid}->{wid}")
     counts["work_credit"] = db.execute("SELECT count(*) FROM work_credit").fetchone()[0]
 
+    # ── the identity registry, §5d ───────────────────────────────────────────────────────────────
+    #
+    # THE STORE HAS NEVER READ THIS AND THE ENTITY WAS ALWAYS THERE. `data/identity/` holds the
+    # spellings that reach a person, the addresses that reach a work, and the rulings behind both.
+    import yaml
+    IDENT = ROOT / "data" / "identity"
+
+    def _yaml(name):
+        f = IDENT / f"{name}.yaml"
+        return (yaml.safe_load(f.read_text(encoding="utf-8")) or {}) if f.exists() else {}
+
+    # THE MERGE MAP FIRST, because an anchor may still name a retired identifier and one address
+    # reaching two works would refuse. `merged` is a map from the retired id to its survivor.
+    survivor, retired = {}, []
+    for f, key, col in (("series", "merged", "work"), ("credits", "merged", "credit")):
+        doc = BUILD / f"{f}.json"
+        if not doc.exists():
+            continue
+        for gone, kept in (json.loads(doc.read_text(encoding="utf-8")).get(key) or {}).items():
+            survivor[gone] = kept
+            retired.append((gone, col))
+
+    def _live(i):
+        """An identifier with every retirement followed. `merged` records one hop at a time."""
+        for _ in range(8):
+            if i not in survivor:
+                return i
+            i = survivor[i]
+        return i
+
+    # THE CHAIN IS FOLLOWED BEFORE THE ROW IS WRITTEN. `w01234` names `w01220` as its survivor and
+    # `w01220` was retired in its turn, so storing the map as written puts a foreign key against an
+    # identifier the corpus no longer holds. What a retired id resolves to is the LIVE one.
+    for gone, col in retired:
+        put(f"INSERT INTO superseded (id, {col}) VALUES (?,?)", (gone, _live(gone)),
+            f"superseded {gone}")
+    counts["superseded"] = db.execute("SELECT count(*) FROM superseded").fetchone()[0]
+
+    held_work = {r[0] for r in db.execute("SELECT id FROM work")}
+    # A RETIRED ENTRY AND ITS SURVIVOR LIST THE SAME ADDRESS, which is what a merge means: 165
+    # anchors appear under both. Resolving each to the live identifier makes them one row, and the
+    # loader says so rather than letting the primary key absorb it. Measured after resolving, NO
+    # address reaches two different live works, which is what makes the key worth having.
+    anchored = {}
+    for w in (_yaml("works").get("works") or []):
+        wid = _live(w.get("id"))
+        if wid not in held_work:
+            continue                          # a registry entry for a work the corpus dropped
+        for a_ in (w.get("anchors") or []):
+            scheme, _, address = str(a_).partition(":")
+            if not address or anchored.get((scheme, address)) == wid:
+                continue
+            anchored[(scheme, address)] = wid
+            put("INSERT INTO work_anchor (scheme, address, work) VALUES (?,?,?)",
+                (scheme, address, wid), f"anchor {a_}")
+    counts["work_anchor"] = db.execute("SELECT count(*) FROM work_anchor").fetchone()[0]
+
+    held_credit, spelt = {r[0] for r in db.execute("SELECT id FROM credit")}, {}
+    for c in (_yaml("credits").get("credits") or []):
+        cid = _live(c.get("id"))
+        if cid not in held_credit:
+            continue
+        for a_ in (c.get("anchors") or []):
+            _scheme, _, spelling = str(a_).partition(":")
+            if not spelling or spelt.get(spelling) == cid:
+                continue
+            spelt[spelling] = cid
+            put("INSERT INTO credit_spelling (spelling, credit) VALUES (?,?)",
+                (spelling, cid), f"spelling {spelling}")
+    counts["credit_spelling"] = db.execute("SELECT count(*) FROM credit_spelling").fetchone()[0]
+
+    # THE RULINGS, which are what make a merge and a divide safe to repeat.
+    def _ruling(kind, subject, r, spellings):
+        if not r.get("basis"):
+            refused.append((f"ruling {kind}", "a ruling with no reasoning is a preference"))
+            return
+        db.execute("INSERT INTO identity_ruling (kind, subject, reading, shape, basis, keeps)"
+                   " VALUES (?,?,?,?,?,?)",
+                   (kind, subject, r.get("reading"), r.get("shape"), r["basis"], r.get("keep")))
+        rid = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+        for sp in spellings:
+            if sp:
+                db.execute("INSERT OR IGNORE INTO identity_ruling_surface (ruling, spelling)"
+                           " VALUES (?,?)", (rid, sp))
+
+    for r in (_yaml("credit-rulings").get("rulings") or []):
+        _ruling(r.get("decision") or "keep", "credit", r, r.get("surfaces") or [])
+    for r in (_yaml("credits").get("homophones") or []):
+        _ruling("homophone", "credit", r,
+                [x.get("credit") for x in (r.get("credits") or []) if isinstance(x, dict)])
+    counts["identity_ruling"] = db.execute("SELECT count(*) FROM identity_ruling").fetchone()[0]
+
     # ── the names, and what is claimed about each ────────────────────────────────────────────────
     #
     # ONE PRODUCER OF A `surface` ROW (§3), and it is `surface_id` below. Two loaders need those
     # rows, the name store's claims and the build's renderings, and a second insert site is how the
     # two would come to disagree about a fold.
-    import yaml
-    subject_ids = {"credit": {s: i for s, i in db.execute("SELECT surface, id FROM credit")},
-                   "work": {t: i for i, t in db.execute("SELECT id, title FROM work")},
-                   "publisher": {n: i for i, n in db.execute("SELECT id, name FROM publisher")}}
+    # WHAT A NAME NAMES, ASKED OF THE REGISTRY AND NOT OF A TITLE MATCH. §5d. A credit is reached by
+    # every spelling that resolves to it, which is 2,473 spellings rather than the one
+    # `credits.json` happens to print. A work is reached by the FOLD of its title, because that is
+    # what the site joins on and the registry's own anchors are addresses rather than names; the
+    # fold is what §5c's 55 nameless works were missing, since `work.title` holds `一畳間まんきつ
+    # 暮らし！` and NFKC turns the exclamation mark into an ASCII one.
+    #
+    # A FOLD MAY REACH TWO WORKS and both are recorded. `百合漫画短編集` names w01990 and w02284.
+    by_subject = {"credit": {}, "work": {}, "publisher": {}}
+    for sp, cid in db.execute("SELECT spelling, credit FROM credit_spelling"):
+        by_subject["credit"].setdefault(_namekey.fold(sp), []).append(cid)
+    for s, cid in db.execute("SELECT surface, id FROM credit"):
+        by_subject["credit"].setdefault(_namekey.fold(s), []).append(cid)
+    for i, ttl in db.execute("SELECT id, title FROM work"):
+        by_subject["work"].setdefault(_namekey.fold(ttl), []).append(i)
+    for i, nm in db.execute("SELECT id, name FROM publisher"):
+        by_subject["publisher"].setdefault(_namekey.fold(nm), []).append(i)
     surfaces, seen_claims = {}, set()
 
     def surface_id(kind, ja, subject_kind=None, subject=None, **cols):
-        """The row for one string, made once. `subject` is looked up where a kind can carry one."""
+        """The row for one string, made once, with every subject the registry says it names."""
         folded = _namekey.fold(str(ja or ""))
         if not folded:
             return None
         got = surfaces.get((kind, folded))
         if got is None:
-            if subject_kind and subject is None:
-                subject = subject_ids[subject_kind].get(ja)
-            args = dict.fromkeys(("work", "credit", "publisher"))
-            if subject_kind:
-                args[subject_kind] = subject
-            db.execute("INSERT INTO surface (kind, folded, work, credit, publisher)"
-                       " VALUES (?,?,?,?,?)",
-                       (kind, folded, args["work"], args["credit"], args["publisher"]))
+            db.execute("INSERT INTO surface (kind, folded) VALUES (?,?)", (kind, folded))
             got = surfaces[(kind, folded)] = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+            if subject_kind:
+                for sub in ([subject] if subject else by_subject[subject_kind].get(folded, [])):
+                    db.execute("INSERT OR IGNORE INTO names (surface, kind, work, credit,"
+                               " publisher) VALUES (?,?,?,?,?)",
+                               (got, kind,
+                                sub if subject_kind == "work" else None,
+                                sub if subject_kind == "credit" else None,
+                                sub if subject_kind == "publisher" else None))
         for col, value in cols.items():
             if value is not None:
                 db.execute(f"UPDATE surface SET {col} = ? WHERE id = ?", (value, got))

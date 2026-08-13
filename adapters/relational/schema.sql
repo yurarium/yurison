@@ -106,6 +106,76 @@ CREATE TABLE work_publisher (
   PRIMARY KEY (work, publisher)
 );
 
+-- ── the identity registry, which the store has never read ──────────────────────────────────────
+--
+-- THE ENTITY WAS ALWAYS THERE. §5d was first written asking for a ruling on whether a person is a
+-- thing this project holds. The ruling is DEFINITIONS §4, identity is a human judgement, declared
+-- and not inferred, and `data/identity/` is where it has lived all along. What was missing is that
+-- this store never read it: `credit.surface` took one spelling off `credits.json` and made it the
+-- key, and a name was resolved to a work by matching `work.title`, which is a join this project
+-- makes nowhere else.
+
+-- AN IDENTIFIER THAT WAS RETIRED INTO ANOTHER, and it has to load first. 158 addresses reach two
+-- works and 5 spellings reach two credits, and every one is a retired id sitting beside its
+-- survivor. `series.json:merged` carries 151 of them and `credits.json:merged` 6.
+CREATE TABLE superseded (
+  id     TEXT PRIMARY KEY,
+  work   TEXT REFERENCES work(id)   ON DELETE CASCADE,
+  credit TEXT REFERENCES credit(id) ON DELETE CASCADE,
+  -- EXACTLY ONE SURVIVOR, and it is a real foreign key rather than a string nobody checks.
+  CHECK ((work IS NULL) <> (credit IS NULL))
+);
+
+-- WHERE A WORK WAS FOUND, which is how this project identifies one. `works.yaml` holds 5,400 of
+-- these across 3,240 works, `madb:` and `web:`, and 1,308 works carry more than one.
+--
+-- ONE ADDRESS REACHES ONE WORK, and that is the identity constraint the store has never had. It
+-- holds only once retired identifiers are resolved through `superseded`, which is why that table
+-- loads first.
+CREATE TABLE work_anchor (
+  scheme  TEXT NOT NULL,
+  address TEXT NOT NULL,
+  work    TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  PRIMARY KEY (scheme, address)
+);
+
+CREATE INDEX work_anchor_work ON work_anchor (work);
+
+-- EVERY SPELLING THAT REACHES ONE PERSON. `credits.yaml` holds 2,473 across 2,255 credits and 220
+-- carry more than one, so `credit.surface UNIQUE` was keeping one and discarding the rest: a byline
+-- written `スズキフミエ` never reached `c00016`, whose kept spelling is `鈴木二三江`.
+CREATE TABLE credit_spelling (
+  spelling TEXT PRIMARY KEY,
+  credit   TEXT NOT NULL REFERENCES credit(id) ON DELETE CASCADE
+);
+
+CREATE INDEX credit_spelling_credit ON credit_spelling (credit);
+
+-- A DECISION THAT TWO IDENTIFIERS ARE ONE, OR THAT THEY ARE NOT, WITH THE REASONING. `delta.KINDS`
+-- names `merge` and `divide`, and a store that can merge two identifiers and holds no record that
+-- somebody ruled them apart will merge them again on the next run. `credit-rulings.yaml` holds 230
+-- decisions and `credits.yaml` 7 homophones, which are the cases where the evidence says do not.
+--
+-- THE BASIS IS REQUIRED. A ruling with no reasoning is a preference, and the next pass has no way
+-- to tell one from the other, which is the same argument `claim` makes for a researched note.
+CREATE TABLE identity_ruling (
+  id       INTEGER PRIMARY KEY,
+  kind     TEXT NOT NULL CHECK (kind IN ('merge', 'keep', 'withdraw', 'not-a-credit', 'homophone')),
+  subject  TEXT NOT NULL CHECK (subject IN ('credit', 'work')),
+  -- WHAT WAS RULED ON, as the registry writes it: a reading two spellings share, or the shape of
+  -- the difference between them.
+  reading  TEXT,
+  shape    TEXT,
+  basis    TEXT NOT NULL,
+  keeps    TEXT
+);
+
+CREATE TABLE identity_ruling_surface (
+  ruling   INTEGER NOT NULL REFERENCES identity_ruling(id) ON DELETE CASCADE,
+  spelling TEXT NOT NULL,
+  PRIMARY KEY (ruling, spelling)
+);
+
 -- ── the strings a reader is shown ───────────────────────────────────────────────────────────────
 --
 -- A CLAIM IS ABOUT A NAME AND NOT ABOUT A THING, which STORE-PLAN §5 is where the schema stopped
@@ -130,12 +200,10 @@ CREATE TABLE surface (
            ('title', 'author', 'publisher', 'imprint', 'credit-line', 'phrase', 'floor')),
   folded TEXT NOT NULL,
 
-  -- WHAT IT NAMES, WHERE A JOIN HAS BEEN MADE, and nullable because most of the point is that a
-  -- name may name nothing we hold. Three columns rather than one polymorphic id, so each is a real
-  -- foreign key and a dangling identifier is refused instead of stored.
-  work      TEXT REFERENCES work(id)      ON DELETE SET NULL,
-  credit    TEXT REFERENCES credit(id)    ON DELETE SET NULL,
-  publisher TEXT REFERENCES publisher(id) ON DELETE SET NULL,
+  -- WHAT IT NAMES IS AN EDGE AND NOT A COLUMN, which is §5d. Three nullable columns here said a
+  -- name names at most one thing, and `百合漫画短編集` names w01990 and w02284 while `Girls Love`
+  -- names w01001 and w01108. A column could hold only the first, so one work of each pair took the
+  -- English and the reading and the other got neither. `names` below is the edge.
 
   -- WHAT IS TRUE OF THE NAME ITSELF rather than of any one claim about it.
   --
@@ -162,19 +230,36 @@ CREATE TABLE surface (
   alias_of INTEGER REFERENCES surface(id) ON DELETE SET NULL,
   CHECK (alias_of IS NULL OR alias_of <> id),
 
-  -- A NAME RESOLVES TO A SUBJECT OF ITS OWN KIND, and a string that is not a name resolves to none.
-  CHECK (CASE kind
-           WHEN 'title'     THEN credit IS NULL AND publisher IS NULL
-           WHEN 'author'    THEN work   IS NULL AND publisher IS NULL
-           WHEN 'publisher' THEN work   IS NULL AND credit    IS NULL
-           ELSE work IS NULL AND credit IS NULL AND publisher IS NULL END),
-
-  UNIQUE (kind, folded)
+  UNIQUE (kind, folded),
+  -- SO THE EDGE CAN NAME BOTH AT ONCE. A composite foreign key needs this to point at.
+  UNIQUE (id, kind)
 );
 
-CREATE INDEX surface_work      ON surface (work);
-CREATE INDEX surface_credit    ON surface (credit);
-CREATE INDEX surface_publisher ON surface (publisher);
+-- WHAT A NAME NAMES. Many to many in both directions: one folded title names two works, and one
+-- work is reached by several spellings.
+--
+-- THE KIND TRAVELS WITH THE EDGE so the pair can be a foreign key, which is what keeps a title from
+-- naming a person. A string that is not a name, a chapter label or a credit line, reaches nothing
+-- and has no row here at all.
+CREATE TABLE names (
+  surface   INTEGER NOT NULL,
+  kind      TEXT NOT NULL,
+  work      TEXT REFERENCES work(id)      ON DELETE CASCADE,
+  credit    TEXT REFERENCES credit(id)    ON DELETE CASCADE,
+  publisher TEXT REFERENCES publisher(id) ON DELETE CASCADE,
+  CHECK (CASE kind
+           WHEN 'title'     THEN work      IS NOT NULL AND credit IS NULL AND publisher IS NULL
+           WHEN 'author'    THEN credit    IS NOT NULL AND work   IS NULL AND publisher IS NULL
+           WHEN 'publisher' THEN publisher IS NOT NULL AND work   IS NULL AND credit    IS NULL
+           ELSE 0 END),
+  FOREIGN KEY (surface, kind) REFERENCES surface (id, kind) ON DELETE CASCADE
+);
+
+CREATE UNIQUE INDEX names_edge ON names
+  (surface, coalesce(work, ''), coalesce(credit, ''), coalesce(publisher, ''));
+CREATE INDEX names_work      ON names (work);
+CREATE INDEX names_credit    ON names (credit);
+CREATE INDEX names_publisher ON names (publisher);
 
 -- THE READING SPELT IN LATIN, IN THE READER'S THREE STYLES. It is not a claim about a name and must
 -- not be filed as one: `build.py` says so where it assembles `en_forms`, and a romanisation has no

@@ -87,7 +87,8 @@ def main(s):
         s.eq(delta.value(db, "credits named by more than one work"), [[0]], "to none")
 
         # RETRACT. A claim is withdrawn rather than corrected, which leaves no row to look at.
-        db.execute("INSERT INTO surface (kind, folded, work) VALUES ('title','ゆり','w00001')")
+        db.execute("INSERT INTO surface (kind, folded) VALUES ('title','ゆり')")
+        db.execute("INSERT INTO names (surface, kind, work) VALUES (1,'title','w00001')")
         db.execute("INSERT INTO claim (surface, predicate, value, basis, source, source_kind)"
                    " VALUES (1,'reading','ヨミ','surface','x','derived')")
         db.execute("INSERT INTO claim (surface, predicate, value, basis, source, source_kind)"

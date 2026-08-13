@@ -97,9 +97,18 @@ DERIVATIONS = {
                "WHERE b.alias_of = a.id",
         "reads": ("surface",)},
     "names nothing in the corpus is identified by": {
-        "sql": "SELECT count(*) FROM surface WHERE kind IN ('title', 'author', 'publisher') "
-               "AND work IS NULL AND credit IS NULL AND publisher IS NULL",
-        "reads": ("surface",)},
+        "sql": "SELECT count(*) FROM surface s WHERE s.kind IN ('title', 'author', 'publisher') "
+               "AND NOT EXISTS (SELECT 1 FROM names n WHERE n.surface = s.id)",
+        "reads": ("surface", "names")},
+    # §5d. A FOLD NAMING TWO THINGS IS DATA AND NOT A FAULT, and a column could hold only the first.
+    "names that name more than one thing": {
+        "sql": "SELECT count(*) FROM (SELECT surface FROM names GROUP BY surface HAVING count(*) > 1)",
+        "reads": ("names",)},
+    # A RULING THAT TWO IDENTIFIERS ARE NOT ONE, which is what stops a later pass merging them
+    # again. `delta.KINDS` names `merge` and `divide` and nothing recorded the decisions until now.
+    "identities somebody ruled apart": {
+        "sql": "SELECT count(*) FROM identity_ruling WHERE kind IN ('keep', 'homophone')",
+        "reads": ("identity_ruling",)},
     "credits named by more than one work": {
         "sql": "SELECT count(*) FROM (SELECT credit FROM work_credit GROUP BY credit "
                "HAVING count(*) > 1)",

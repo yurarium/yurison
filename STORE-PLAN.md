@@ -49,7 +49,7 @@ below moves one domain to the other side of that line.
 | §5 | Renderings, which are derived from a source that stays where it is | done 2026-08-13 |
 | §5a | The constraints that do not fire | done 2026-08-13 |
 | §5b | A row nothing can address twice | done 2026-08-13 |
-| §5d | A name is an identity here, and it must not be | §5a; before §5c's title join |
+| §5d | A name is an identity here, and it must not be | done 2026-08-13 |
 | §5c | What the store says it holds and does not | §5a |
 | §5e | The domains still outside the store | §5c |
 | §6 | The compiler writes the store; the JSON is emitted from it | §5e |
@@ -647,6 +647,28 @@ anything loads it.
 **AND THE RULINGS ARE WHAT MAKE §7 SAFE.** `delta.KINDS` names `merge` and `divide`. A store that
 can merge two identifiers and holds no record that somebody ruled them apart will merge them again
 on the next run, and the 7 homophones are exactly the cases where the evidence says do not.
+
+**DONE 2026-08-13.** `superseded` 157, `work_anchor` 5,190, `credit_spelling` 2,468,
+`identity_ruling` 237 with the surfaces each ruled on, and `names` 5,653 edges. None refused.
+
+  WORKS WITH NO NAME AT ALL: 55 BEFORE, 0 AFTER. The loader matched a name to a work on `work.title`
+  exactly, and NFKC folds `！` to `!`, so `一畳間まんきつ暮らし！` never matched the title it came
+  from. Every population is indexed on the fold the table is keyed on now.
+
+  A FOLD NAMING TWO WORKS IS RECORDED TWICE RATHER THAN ONCE. `names that name more than one thing`
+  answers 2, which is `百合漫画短編集` and `GirlsLove`, and each work now carries the English and the
+  reading that one of them used to take from the other.
+
+  THE CHAIN HAS TO BE FOLLOWED BEFORE THE ROW IS WRITTEN, which one refusal proved. `w01234` names
+  `w01220` as its survivor and `w01220` was retired in its turn, so the map as written puts a
+  foreign key against an identifier the corpus no longer holds. `merged` records one hop at a time.
+
+  AND 165 ANCHORS ARE LISTED TWICE, under a retired id and under its survivor, which is what a merge
+  means. Resolved, NO address reaches two different live works, which is what makes
+  `PRIMARY KEY (scheme, address)` worth adopting: the identity constraint this store has never had.
+
+`data reaching the site around the store` falls 391 to 388, because the merge map is modelled and
+was three of the paths it counted.
 
 ## 5e. The domains still outside the store
 

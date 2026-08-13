@@ -313,6 +313,70 @@ def build(path=None):
                 f"edition {wid} {v.get('isbn') or v.get('designation') or v.get('number') or '?'}")
     counts["edition"] = db.execute("SELECT count(*) FROM edition").fetchone()[0]
 
+    # ── what a platform offers, and what it published ───────────────────────────────────────────
+    # STORE-PLAN §4. A platform is named rather than slugged: six display names carry two capture
+    # slugs each, so keying on `plat` would split コミックDAYS into two platforms.
+    held = {r[0] for r in db.execute("SELECT id FROM work")}
+    for _k, r in _rows("series", "series"):
+        for o in (r.get("sources") or []):
+            if o.get("platform"):
+                put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (o["platform"],),
+                    f"platform {o['platform']}")
+    feed = ROOT / "data" / "build" / "feed"
+    releases = []
+    if feed.is_dir():
+        for f in sorted(feed.glob("current.json")) + sorted(feed.glob("[0-9]*.json")):
+            releases += (json.loads(f.read_text(encoding="utf-8")) or {}).get("releases") or []
+    for rel in releases:
+        if rel.get("plat_name"):
+            put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (rel["plat_name"],),
+                f"platform {rel['plat_name']}")
+    counts["platform"] = db.execute("SELECT count(*) FROM platform").fetchone()[0]
+
+    for _k, r in _rows("series", "series"):
+        wid = r.get("id")
+        if wid not in held:
+            continue
+        for o in (r.get("sources") or []):
+            if not o.get("platform") or not o.get("url"):
+                continue
+            # `chapters` IN THE BUILD COUNTS INSTALMENTS, which is the conflation the schema note
+            # above is about. The column is named for what it holds; the field is read as it is
+            # written, because renaming it in the build is a change to what the site is served.
+            put("INSERT INTO offer (work, platform, url, instalments, free, free_timed, priced,"
+                " latest, partial, retrieved) VALUES (?,?,?,?,?,?,?,?,?,?)",
+                (wid, o["platform"], o.get("url"), o.get("chapters") or 0, o.get("free") or 0,
+                 o.get("free_timed") or 0, o.get("priced") or 0, o.get("latest"),
+                 int(bool(o.get("partial"))), o.get("retrieved")),
+                f"offer {wid}@{o['platform']}")
+    counts["offer"] = db.execute("SELECT count(*) FROM offer").fetchone()[0]
+
+    # WHICH WORK A RELEASE BELONGS TO, by the identifier it carries and then by the folded title.
+    # An exact title match resolves 944 of 974; these two resolve 971, and the 3 left carry no
+    # identifier at all. Suspecting the rule before the data is what §2 taught, twice.
+    by_fold = {}
+    for _k, r in _rows("series", "series"):
+        if r.get("id") in held and r.get("work"):
+            by_fold.setdefault(_namekey.fold(r["work"]), r["id"])
+    seen_rel = set()
+    for rel in releases:
+        rid = rel.get("id")
+        # THE FEED SERVES 13 RELEASES TWICE, because its rolling window overlaps the archived
+        # month. Collapsed here on purpose rather than left for the primary key to swallow: a
+        # constraint that quietly absorbs a row reads as coverage, which is §2's lesson.
+        if not rid or rid in seen_rel or not rel.get("plat_name"):
+            continue
+        seen_rel.add(rid)
+        wid = rel.get("wid") if rel.get("wid") in held else by_fold.get(
+            _namekey.fold(rel.get("work") or ""))
+        put("INSERT INTO release (id, work, platform, instalment, published, url, kind, first_seen)"
+            " VALUES (?,?,?,?,?,?,?,?)",
+            (rid, wid, rel["plat_name"], rel.get("ep"), rel.get("pub"), rel.get("url"),
+             rel.get("type"), rel.get("seen")), f"release {rid[:40]}")
+    counts["release"] = db.execute("SELECT count(*) FROM release").fetchone()[0]
+    counts["release unplaced"] = db.execute(
+        "SELECT count(*) FROM release WHERE work IS NULL").fetchone()[0]
+
     db.commit()
     return db, counts, refused
 

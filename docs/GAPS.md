@@ -2748,3 +2748,42 @@ absent from the corpus entirely: 冷たい体温, ふたりの日記帳, 人間�
 A join needs two ends and this has one. Whether an English edition may be the only record of a work
 is a scope question rather than a matching one; the likelier explanation is that BOOK☆WALKER sells
 the originals and nothing captured them, which is four fetches to settle.
+
+## An instalment is not a chapter, and one word does both jobs. Found 2026-08-13
+
+What a platform lists is what it will sell separately: often a PART of a chapter, sometimes a
+notice, a special, or a read-through that is no chapter at all. What a work has is chapters, in its
+own numbering. The build calls both `chapters` and the site drew one as the other:
+彼女が先輩にNTRれたので ran 24 instalments with 22 free against 11 chapters with 10 free, and the
+badge read `11/11 free`.
+
+That case was fixed by taking the denominator from what the platform states. The WORD was not, and
+`series[].sources[].chapters` still names instalments. The relational store's `offer.instalments`
+is named for what it counts, which makes the discrepancy visible at the one place a reader of the
+schema meets it, and it does not resolve it: the build's field keeps its name because renaming it
+changes what the site is served.
+
+**THERE ARE THREE COUNTS AND THE CORPUS HOLDS ONE.** The project owner named the third on
+2026-08-13, and it is the one most likely to be missed.
+
+  INSTALMENTS, what a platform sells as separate items. This is what the corpus counts, everywhere.
+
+  NUMBERED CHAPTERS, the work's own 第1話 to 第N話. Fewer than the instalments where a platform
+  splits a chapter to sell it in parts.
+
+  LOGICAL UNITS, everything the work actually contains. MORE than the numbered chapters, because a
+  volume carries omake, extras, afterwords and bonus strips that the numbering does not reach.
+
+So the numbered chapters are neither the largest nor the smallest of the three, and a reader asking
+how long a work is gets an answer about a shop's catalogue. Nothing states either of the other two,
+so this needs a source rather than a fix: the platforms count what they sell, and the count of what
+a work contains is on the book.
+
+The narrower version is worth doing first: rename the build's field to say what it holds, and leave
+the harder question of a work's own length to whatever can source it.
+
+**WHAT A READER IS SHOWN IS A SEPARATE QUESTION**, ruled out of scope by the project owner on
+2026-08-13, and out of STORE-PLAN's scope too. This entry is about what the corpus holds and what
+it calls it. Whether a work page states instalments, chapters, both, or neither is an interface
+decision that can only be made once there is something true to state, and it should be settled
+where interface decisions are settled rather than folded into a schema change.

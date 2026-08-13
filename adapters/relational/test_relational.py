@@ -200,6 +200,55 @@ def main(s):
                " ('w00001','2019-02','madb:M3','printing')")
     s.check(True, "a date with no stated basis is admitted rather than given one")
 
+    # ── §4: WHAT A PLATFORM OFFERS, AND WHAT IT PUBLISHED ─────────────────────────────────────
+    db.execute("INSERT INTO platform (name) VALUES ('ニコニコ漫画')")
+
+    # AN OFFER IS A LISTING, NOT A PLATFORM, and keying it `(work, platform)` refused 11 rows that
+    # were all right to exist. 不器用ビンボーダンス has three ニコニコ漫画 listings at three
+    # addresses; one platform can carry one work several times over.
+    for u, n in (("https://manga.nicovideo.jp/comic/41035", 100),
+                 ("https://manga.nicovideo.jp/comic/56736", 100),
+                 ("https://manga.nicovideo.jp/comic/70296", 67)):
+        db.execute("INSERT INTO offer (work, platform, url, instalments) VALUES (?,?,?,?)",
+                   ("w00001", "ニコニコ漫画", u, n))
+    s.eq(db.execute("SELECT count(*) FROM offer").fetchone()[0], 3,
+         "one work has three listings on one platform, and each is its own offer")
+    try:
+        db.execute("INSERT INTO offer (work, platform, url, instalments) VALUES"
+                   " ('w00001','ニコニコ漫画','https://manga.nicovideo.jp/comic/41035',1)")
+        s.check(False, "the same listing twice must be refused")
+    except sqlite3.IntegrityError:
+        s.check(True, "and the same address twice is one listing, refused")
+
+    # AN INSTALMENT IS NOT A CHAPTER. The column counts what a platform sells separately, which is
+    # often a part of a chapter; naming it `chapters` is how the site came to print `11/11 free`
+    # for a work running 24 instalments against 11 chapters.
+    s.check("instalments" in [r[1] for r in db.execute("pragma table_info(offer)")],
+            "the column says what it counts, so the conflation cannot be inherited silently")
+    s.check("chapters" not in [r[1] for r in db.execute("pragma table_info(offer)")],
+            "and the word that did both jobs is not in this schema")
+
+    # A RELEASE MAY NAME NO WORK, which the plan expected to refuse and the data corrected. 971 of
+    # 974 resolve by the identifier a release carries or by the folded title; the 3 that do not
+    # carry no identifier at all and are works WORKS-PLAN §3 left without a page. A release is an
+    # event somebody observed, and refusing it would push a fact the site is served out of the
+    # store, which this model may not do.
+    db.execute("INSERT INTO release (id, platform, instalment) VALUES ('r1','ニコニコ漫画','第1話')")
+    s.eq(db.execute("SELECT count(*) FROM release WHERE work IS NULL").fetchone()[0], 1,
+         "a release nobody has placed is held and counted rather than dropped")
+    # BUT A DANGLING WORK IS STILL REFUSED, which is the difference between unplaced and wrong.
+    try:
+        db.execute("INSERT INTO release (id, work, platform) VALUES ('r2','w99999','ニコニコ漫画')")
+        s.check(False, "a release naming a work the store does not hold must be refused")
+    except sqlite3.IntegrityError:
+        s.check(True, "naming a work that does not exist is refused; naming none is allowed")
+    # AND A PLATFORM NOBODY HOLDS, because the offer belongs to a platform we have a name for.
+    try:
+        db.execute("INSERT INTO release (id, platform) VALUES ('r3','どこか')")
+        s.check(False, "a release on an unknown platform must be refused")
+    except sqlite3.IntegrityError:
+        s.check(True, "and the platform is a foreign key, so it cannot be invented per row")
+
     # WORK TO PUBLISHER, and the imprint it is published under.
     db.execute("INSERT INTO work_publisher (work, publisher, imprint) VALUES ('w00001','h00001',?)",
                (imp,))

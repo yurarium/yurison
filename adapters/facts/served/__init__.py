@@ -143,6 +143,25 @@ STORE_ANSWERS = (
     "credits.json:credits{}.name",
     "publishers.json:publishers{}.id",
     "publishers.json:publishers{}.name",
+    # §4: what a platform offers of a work, and what it published.
+    "series.json:series[].sources[].platform",
+    "series.json:series[].sources[].url",
+    "series.json:series[].sources[].chapters",
+    "series.json:series[].sources[].free",
+    "series.json:series[].sources[].free_timed",
+    "series.json:series[].sources[].priced",
+    "series.json:series[].sources[].latest",
+    "series.json:series[].sources[].partial",
+    "series.json:series[].sources[].retrieved",
+    "feed/current.json:releases[].id",
+    "feed/current.json:releases[].wid",
+    "feed/current.json:releases[].work",
+    "feed/current.json:releases[].plat_name",
+    "feed/current.json:releases[].ep",
+    "feed/current.json:releases[].pub",
+    "feed/current.json:releases[].url",
+    "feed/current.json:releases[].type",
+    "feed/current.json:releases[].seen",
 )
 
 

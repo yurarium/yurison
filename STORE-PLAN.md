@@ -45,7 +45,7 @@ below moves one domain to the other side of that line.
 | §1a | Somewhere for what a constraint refuses | before anything refuses |
 | §2 | Fill the two tables that were designed and never written | done 2026-08-13 |
 | §3 | Volumes, editions and the print run | done 2026-08-13 |
-| §4 | Releases and the per-platform offer | §3 |
+| §4 | Releases and the per-platform offer | done 2026-08-13 |
 | §5 | Renderings, which are derived from a source that stays where it is | §4 |
 | §6 | The compiler writes the store; the JSON is emitted from it | per domain, as each lands |
 | §7 | Incremental on every update, reconciled weekly | §6 |
@@ -259,6 +259,38 @@ a release naming a work we do not hold is refused rather than counted. `updates 
 not hold` is 18 today, and those 18 are the reason §1a comes first: this is the commonest way a
 capture arrives faster than the corpus can admit it, so it is the case the quarantine will carry
 most often and the one that must never cost an unattended run its other work.
+
+**DONE 2026-08-13, WITH THREE OF THIS SECTION'S ASSUMPTIONS CORRECTED BY THE DATA.** `platform` 50,
+`offer` 1,820, `release` 961, none refused.
+
+  A PLATFORM IS ITS NAME, NOT THE ADAPTER THAT READ IT. Six display names carry two capture slugs
+  each: コミックDAYS arrives as `comic-days` and `backfill`, 一迅プラス as `ichicomi` and
+  `claim-resolved`. Keying on the slug would have split one platform into two.
+
+  AN OFFER IS A LISTING, NOT A PLATFORM. Keyed `(work, platform)` the loader refused 11 rows and
+  every one was right to exist: 不器用ビンボーダンス has three ニコニコ漫画 listings at three
+  addresses, and 田所さん two. All 1,820 state a url, so the address is an identity the data holds.
+
+  A RELEASE MAY NAME NO WORK. This section expected the foreign key to refuse one that does, and
+  measured, an exact title match resolves 944 of 974 while the identifier a release carries or the
+  folded title resolves 971. The 3 that resolve to nothing carry no identifier at all and are the
+  GigaViewer works WORKS-PLAN §3 left without a page. A release is an event somebody observed and
+  the work is a join that may not have been made, so `release.work` is nullable: a DANGLING work is
+  refused, an ABSENT one is admitted and counted. Refusing those 3 would push a fact the site is
+  served out of the store, which is the one thing this model may not do.
+
+**THE ACCESS COUNTS ARE NOT CONSTRAINED TO SUM.** 87 of 1,820 offers state modes adding to more
+than the instalments counted. A CHECK would have refused all 87, and the interface already says
+`12 free · 3 to buy · 5 not recorded` in its own words, so the arithmetic is a fact about the
+capture rather than a rule the data breaks.
+
+**AN INSTALMENT IS NOT A CHAPTER**, raised by the project owner while this section was being
+written and named into the schema before it shipped. `offer.instalments` counts what a platform
+sells separately, which is often a part of a chapter. There are three counts and the corpus holds
+one; `docs/GAPS.md` carries the rest, including that what a reader is SHOWN is a separate question
+and out of this plan's scope.
+
+`data reaching the site around the store` falls 693 to 675.
 
 ## 5. Renderings, which are derived from a source that stays where it is
 

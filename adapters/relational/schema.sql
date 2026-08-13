@@ -190,6 +190,86 @@ CREATE TABLE edition (
 
 CREATE INDEX edition_work ON edition (work, kind);
 
+-- ── what a platform offers, and what it published ──────────────────────────────────────────────
+--
+-- A PLATFORM IS IDENTIFIED BY ITS NAME AND NOT BY THE ADAPTER THAT READ IT. `plat` on a release is
+-- the capture route: コミックDAYS arrives as both `comic-days` and `backfill`, サンデーうぇぶり as
+-- `sundaywebry` and `backfill`, 一迅プラス as `ichicomi` and `claim-resolved`. Six names carry two
+-- slugs each, so keying on the slug would split one platform into two.
+CREATE TABLE platform (
+  name TEXT PRIMARY KEY
+);
+
+-- WHAT ONE PLATFORM HOLDS OF ONE WORK. `schema.sql` said this before the table existed: what a
+-- platform holds, what it charges for and when it last updated are properties of that platform's
+-- OFFER and not of the work, which is why they cannot live on `work`.
+-- AN INSTALMENT IS NOT A CHAPTER, and naming it `chapters` is how the two got confused. What a
+-- platform lists is what it will sell you separately: often a PART of a chapter, sometimes a
+-- notice, a special or a read-through that is no chapter at all. 彼女が先輩にNTRれたので ran 24
+-- instalments, 22 of them free, against 11 chapters of which 10 were free, and the site published
+-- `11/11 free` by treating one number as the other.
+--
+-- AND THERE ARE THREE COUNTS, NOT TWO. Instalments are what a platform sells; NUMBERED CHAPTERS
+-- are the work's own 第1話 onward, fewer where a chapter is split to be sold in parts; LOGICAL
+-- UNITS are everything the work contains, MORE than the numbering reaches, because a volume
+-- carries omake, extras and afterwords that are never numbered. This store holds the first only,
+-- and nothing in the corpus states the other two. docs/GAPS.md.
+--
+-- SO THE COLUMN SAYS WHAT IT COUNTS. `instalments` is what this platform offers as separate items,
+-- and `free`, `free_timed` and `priced` count those items and not chapters.
+--
+-- AN OFFER IS A LISTING, NOT A PLATFORM. Keyed `(work, platform)` this refused 11 rows, and every
+-- one was right to exist: 不器用ビンボーダンス has three ニコニコ漫画 listings at three addresses,
+-- 100, 100 and 67 instalments, and 田所さん has two. One platform can carry one work at several
+-- addresses and each is its own offer. Every one of the 1,820 states a url, so the address is an
+-- identity the data actually holds.
+CREATE TABLE offer (
+  id         INTEGER PRIMARY KEY,
+  work       TEXT NOT NULL REFERENCES work(id)        ON DELETE CASCADE,
+  platform   TEXT NOT NULL REFERENCES platform(name)  ON DELETE RESTRICT,
+  url        TEXT NOT NULL,
+  instalments INTEGER NOT NULL DEFAULT 0 CHECK (instalments >= 0),
+  free       INTEGER NOT NULL DEFAULT 0 CHECK (free       >= 0),
+  free_timed INTEGER NOT NULL DEFAULT 0 CHECK (free_timed >= 0),
+  priced     INTEGER NOT NULL DEFAULT 0 CHECK (priced     >= 0),
+  latest     TEXT,
+  -- THE PLATFORM LISTS MORE THAN WE HOLD, which the interface already draws as `90+`.
+  partial    INTEGER NOT NULL DEFAULT 0 CHECK (partial IN (0, 1)),
+  retrieved  TEXT,
+  UNIQUE (work, platform, url)
+);
+
+-- THE ACCESS COUNTS ARE NOT CONSTRAINED TO SUM TO `instalments`, and that is measured rather than
+-- assumed: 87 of 1,820 offers state modes adding to more than the instalments counted, and others
+-- state fewer. Both are real and the interface says so in its own words, `12 free · 3 to buy · 5 not
+-- recorded`. A CHECK here would refuse 87 rows the corpus is right to hold.
+
+-- ONE RELEASE IS ONE EVENT ON ONE PLATFORM. The id is the platform's own, and the feed serves 13
+-- of them twice because the rolling window overlaps the archived month; that is a property of how
+-- the feed is SPLIT, so the loader collapses them knowingly rather than letting the key swallow it.
+CREATE TABLE release (
+  id         TEXT PRIMARY KEY,
+  -- NULLABLE, AND THE PLAN SAID OTHERWISE. STORE-PLAN §4 expected a release naming a work we do
+  -- not hold to be refused. Measured, 971 of 974 resolve by the identifier the release carries or
+  -- by the folded title, and the 3 that do not carry no identifier at all: they are the GigaViewer
+  -- works WORKS-PLAN §3 left without a page. A release is an event somebody observed, and which
+  -- work it belongs to is a join that may not have been made. Refusing it would push a fact the
+  -- site is served out of the store, which is the one thing this model may not do. So the foreign
+  -- key still refuses a DANGLING work, and a release placed with NO work is admitted and counted.
+  work       TEXT     REFERENCES work(id)       ON DELETE CASCADE,
+  platform   TEXT NOT NULL REFERENCES platform(name) ON DELETE RESTRICT,
+  -- THE PLATFORM'S OWN LABEL FOR THE INSTALMENT: `第72話`, `読切`, `最終話`, `#1(1)`. It is not a
+  -- chapter number and must not be read as one.
+  instalment TEXT,
+  published  TEXT,
+  url        TEXT,
+  kind       TEXT,
+  first_seen TEXT
+);
+
+CREATE INDEX release_work ON release (work, published);
+CREATE INDEX offer_platform ON offer (platform);
+
 -- ── the questions this shape makes askable, which the file layout did not ───────────────────────
 --
 --   what would we lose if NDL were withdrawn

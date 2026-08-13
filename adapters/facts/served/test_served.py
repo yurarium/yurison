@@ -80,8 +80,12 @@ def main(s):
     # fact to a type.
     s.check(any("volumes[].designation" in c for c in served.STORE_ANSWERS),
             "a volume's designation is claimed: edition carries the word alongside the number")
+    s.check(any("sources[].platform" in c for c in served.STORE_ANSWERS),
+            "§4 claims a platform's offer, which is a listing and not a work's property")
+    s.check(any("releases[].pub" in c for c in served.STORE_ANSWERS),
+            "and a release, which the store holds even where no work has been placed for it")
     s.check(not any("work_en" in c or "romaji" in c for c in served.STORE_ANSWERS),
-            "and no rendering is claimed: the store has no table for one")
+            "and no rendering is claimed: the store has no table for one, which is §5")
 
     # A CLAIM COVERS WHAT HANGS OFF IT. `series.json:series[].id` answers for the id itself, and a
     # deeper path under a claimed prefix is answered with it rather than counted again.

@@ -32,6 +32,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
 from facts import division as _division                                 # noqa: E402
 from facts import script as _script                                     # noqa: E402
 from names import provenance as _prov                                   # noqa: E402
+from names import fold as _fold                                         # noqa: E402
+from facts import namekey as _namekey                                   # noqa: E402
 try:
     import pass4_analyser as _p4                                        # noqa: E402
 except Exception:                                                       # noqa: BLE001
@@ -472,6 +474,75 @@ def as_compact(payload):
 NAMES_NOTE = ("English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
               "feed rows at render time so archived months — which are never rewritten — still "
               "show current names.")
+
+
+def _map(db, kind):
+    """One population's entries, keyed by the fold the site joins on.
+
+    RENDERED FIRST AND FOLDED AFTER, which is the order `build.py` has always used and the reason
+    a column saying which record won was taken back out. `names/fold` ranks what a reader is SHOWN,
+    so a record whose rendering is withheld, or whose ruby its reading contradicts, has to be ranked
+    on its entry.
+    """
+    rendered = {}
+    for rid, sid, k, spelling in db.execute(
+            "SELECT id, surface, kind, spelling FROM name_record WHERE kind = ? ORDER BY id",
+            (kind,)):
+        entry = _entry(db, rid, sid, k, spelling)
+        if entry:
+            rendered[spelling] = entry
+    out = _fold.fold_map(rendered, _namekey.fold)[0]
+
+    # A CATALOGUED SPELLING OF A TITLE IS THE SAME TITLE, and the store says which by holding the
+    # alias. A cataloguer writes a subtitle after an ISBD colon where a platform writes it inside
+    # 〜 〜, so eight works were rendered in English everywhere the series row is read and in
+    # Japanese on the two tabs that draw the bibliographic record.
+    for folded, target in db.execute(
+            "SELECT s.folded, t.folded FROM surface s JOIN surface t ON t.id = s.alias_of"
+            " WHERE s.kind = ? ORDER BY s.id", (kind,)):
+        if target in out and folded not in out:
+            out[folded] = dict(out[target], alias_of=target)
+    return out
+
+
+def _romaji(db, kind):
+    """A romanisation map: one folded string, the three styles it is spelled in."""
+    out = {}
+    for folded, style, value in db.execute(
+            "SELECT s.folded, r.style, r.value FROM surface s JOIN romanisation r ON r.surface = s.id"
+            " WHERE s.kind = ? ORDER BY s.id", (kind,)):
+        out.setdefault(folded, {})[style] = value
+    # ONE STRING WHERE THE THREE STYLES AGREE, which is what the file holds and is not a shortcut:
+    # a name with no long vowel and no doubled consonant is spelled the same way whichever style a
+    # reader has chosen, and three copies of it would say the styles differ.
+    styled = {}
+    for folded, v in out.items():
+        three = {s: v[s] for s in ("macron", "double", "plain") if s in v}
+        styled[folded] = (next(iter(three.values())) if len(set(three.values())) == 1
+                          else three)
+    return styled
+
+
+def _divisions(db):
+    """`credit_parts`: how a byline divides into the people in it, and what each of them did."""
+    out = {}
+    for sid, folded, joiner, partial in db.execute(
+            "SELECT d.surface, s.folded, d.joiner, d.partial FROM credit_division d"
+            " JOIN surface s ON s.id = d.surface ORDER BY d.surface"):
+        parts = []
+        for name, role, etc in db.execute(
+                "SELECT name, role, etc FROM credit_part WHERE surface = ? ORDER BY seq", (sid,)):
+            parts.append({"etc": 1} if etc else
+                         {"n": name, **({"r": role} if role else {})})
+        fact = {"j": joiner, "p": parts}
+        if partial:
+            fact["part"] = True
+        dropped = [x for x, in db.execute(
+            "SELECT text FROM credit_dropped WHERE surface = ? ORDER BY text", (sid,))]
+        if dropped:
+            fact["drop"] = dropped
+        out[folded] = fact
+    return out
 
 
 def _entry(db, rec_id, surface, kind, spelling):

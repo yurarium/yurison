@@ -1346,11 +1346,12 @@ def renderings(db, doc, put=None, surface_id=None, counts=None):
         " VALUES (?,'credit-line',?,?)",
             (sid, r.get("j") or "", int(bool(r.get("part")))), f"division {folded}")
         for i, part in enumerate(r.get("p") or []):
-            if not part.get("n"):
+            if not part.get("n") and not part.get("etc"):
                 continue
-            put("INSERT OR IGNORE INTO credit_part (surface, seq, name, name_folded, role)"
-                " VALUES (?,?,?,?,?)",
-                (sid, i, part["n"], _namekey.fold(part["n"]), part.get("r")),
+            put("INSERT OR IGNORE INTO credit_part (surface, seq, name, name_folded, role, etc)"
+                " VALUES (?,?,?,?,?,?)",
+                (sid, i, part.get("n"), _namekey.fold(part["n"]) if part.get("n") else None,
+                 part.get("r"), int(bool(part.get("etc")))),
                 f"part {folded} {i}")
             # A FIELD MAY STATE SEVERAL JOBS AT ONCE, `企画・監修`, and a multi-valued column is the
             # one shape a relational store may not keep. The separators are the splitter's own.

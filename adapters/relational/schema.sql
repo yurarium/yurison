@@ -563,14 +563,20 @@ CREATE TABLE credit_division (
 CREATE TABLE credit_part (
   surface INTEGER NOT NULL REFERENCES credit_division(surface) ON DELETE CASCADE,
   seq     INTEGER NOT NULL,
-  name    TEXT NOT NULL,
+  -- NULL ONLY WHERE THE PART IS `AND OTHERS`. `[他著]雪子` divides into a person and the field's own
+  -- statement that there are more people it does not name, which is a part of the byline and not a
+  -- person: 10 lines say it, the loader dropped the ones with no name, and a page rebuilt from the
+  -- parts would have said the book is by one person where the catalogue says otherwise.
+  name    TEXT,
+  etc     INTEGER NOT NULL DEFAULT 0 CHECK (etc IN (0, 1)),
   -- AND ITS FOLD, which is what `credit_spelling` is keyed on.
   name_folded TEXT,
   -- THE PHRASE THE FIELD WROTE, which may state several jobs at once. `credit_part_role` is the
   -- same fact as rows, and this is kept for the same reason `state_claim.term` is: what a source
   -- actually said outlives our reading of it.
   role    TEXT,
-  PRIMARY KEY (surface, seq)
+  PRIMARY KEY (surface, seq),
+  CHECK (name IS NOT NULL OR etc = 1)
 );
 
 CREATE TABLE credit_part_role (

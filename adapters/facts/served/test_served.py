@@ -43,6 +43,22 @@ def main(s):
     s.check(served.is_map(ids),
             "and keys that look like identifiers are caught by the vocabulary its values share")
 
+    # ── AN ISSUED SERIES, WHERE THERE IS NO VOCABULARY TO READ ────────────────────────────────
+    #
+    # `series.json:merged` maps a retired work id to the one that absorbed it. Its keys pass as
+    # field names and its values are bare strings, so both signals above stay silent and 151
+    # entries were counted as 151 fields of the 675 the budget reported.
+    merged = {f"w{i:05d}": "w00097" for i in range(151)}
+    s.check(served.is_map(merged), "a map from one identifier to another is data, not 151 fields")
+    s.check(served.is_map({"c00154": "c00504", "c00268": "c00267"}),
+            "AND SIZE CANNOT DECIDE IT: credits.json holds six of these, which is record-sized")
+    s.check(not served.is_map({"sha256": "x", "iso8601": "y"}),
+            "while field names that merely end in digits differ in prefix and in width")
+    s.check(not served.is_map({"w00253": "w00097"}),
+            "and one key is not a series, since a lone key has nothing to be consistent with")
+    s.check(not served.is_map({"h1": "x", "h2": "y", "h3": "z"}),
+            "nor is a single digit a run of them")
+
     # ── THE COUNTER-CASE THAT DECIDES THE DESIGN ──────────────────────────────────────────────
     #
     # A rule reading "many keys, simple values" as a map would swallow this row whole and report

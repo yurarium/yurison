@@ -27,6 +27,33 @@ CORPUS = ("index.json", "works.json", "series.json", "credits.json", "publishers
 #: A key that reads as a field name rather than as data.
 IDENTIFIER = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 
+#: A key that is one of an ISSUED SERIES: a short prefix and a run of digits, `w00253`, `c00154`.
+#: Split so the prefix and the width can be compared across the keys, which is what makes a series.
+SERIAL = re.compile(r"^([A-Za-z_]{1,3})([0-9]{2,})$")
+
+
+def is_series(keys):
+    """Whether these keys are issued identifiers of one series rather than field names.
+
+    THE CASE THIS EXISTS FOR. `series.json:merged` maps a retired work id to the work that
+    absorbed it, `{"w00253": "w00097", ...}`, 151 of them. Its keys pass as field names and its
+    values are strings, so neither signal in `is_map` fires and one field was counted as 151.
+
+    THE RULE IS SAMENESS AND NOT SHAPE, which is what keeps it off records. One key looking like
+    `sha256` proves nothing; every key sharing a prefix AND a digit width is a run of identifiers
+    somebody issued. `schema.sql` writes the same thing as `id GLOB 'w[0-9]*'`, and stating it as a
+    series rather than as a list of prefixes means a fourth prefix needs no edit here.
+    """
+    if len(keys) < 2:
+        return False
+    seen = set()
+    for k in keys:
+        m = SERIAL.match(str(k))
+        if not m:
+            return False
+        seen.add((m.group(1), len(m.group(2))))
+    return len(seen) == 1
+
 
 def is_map(d):
     """Whether a dict is keyed by DATA rather than by field name.
@@ -35,7 +62,10 @@ def is_map(d):
     walking it naively reports 3,301 field paths that are one field. Collapsing every map to `{}`
     took the corpus from 137,131 paths to something a person can read.
 
-    TWO SIGNALS, EITHER OF WHICH IS ENOUGH, because one alone gets a real case wrong.
+    THREE SIGNALS, ANY OF WHICH IS ENOUGH, because each alone gets a real case wrong.
+
+      THE KEYS ARE AN ISSUED SERIES, one prefix and one digit width across all of them. This is
+      what catches `merged`, whose values are plain strings, so there is no vocabulary to read.
 
       THE KEYS READ AS DATA. `authors` in names.json is keyed `*sow*` and `2C=がろあ`, which no
       record would call a field. This is what catches a map whose values vary in shape, and the
@@ -45,15 +75,23 @@ def is_map(d):
       of fields between them. This is what catches a map whose keys happen to look like identifiers,
       which `credits.json` keyed by `c01876` would otherwise slip through as.
 
+    THE SIZE FLOOR IS WAIVED FOR A SERIES AND FOR NOTHING ELSE. `credits.json:merged` holds six
+    entries, and six is indistinguishable from a record BY SIZE; it is distinguishable by its keys
+    being `c00154` and `c00268`, which no field is called.
+
     THE COUNTER-CASE THAT DECIDES THE DESIGN, and it is why neither signal is used alone. A
     `series.json` row has 31 keys and almost all of its values are scalars, so a rule reading "many
     keys, simple values" as a map would collapse the single most important record in the corpus into
     one path and report near-total coverage. Its keys ARE field names, so the first signal refuses
     it, and its values are not dicts, so the second never fires.
     """
-    if not isinstance(d, dict) or len(d) <= 8:
+    if not isinstance(d, dict) or not d:
         return False
     keys = list(d)
+    if is_series(keys):
+        return True
+    if len(d) <= 8:
+        return False
     named = sum(1 for k in keys if IDENTIFIER.match(str(k)))
     if named * 2 < len(keys):
         return True

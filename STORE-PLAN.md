@@ -87,6 +87,18 @@ collapse the most important record in the corpus to one path and report near-tot
 store holding almost none of it. Its keys are field names, so the first signal refuses it. The test
 pins that row at 31 fields and asserts it is never collapsed.
 
+**IT MISSED A THIRD KIND OF MAP, FOUND WHILE §5 WAS BEING SCOPED, AND 155 OF THE 675 WERE ONE
+FIELD.** `series.json:merged` maps a retired work id to the work that absorbed it, 151 entries, and
+`credits.json:merged` holds 6 more. The keys pass as field names and the values are bare strings, so
+the two signals above both stay silent. A third signal reads an ISSUED SERIES: every key sharing one
+prefix and one digit width, which no record's field names do. The size floor is waived for it alone,
+because six entries are record-sized and are still distinguishable by being called `c00154`.
+
+**SO 675 BECOMES 520 FOR A MEASUREMENT REASON AND NOT FOR WORK DONE**, recorded here because a
+budget that falls on its own is the one thing a ratchet cannot tell from progress. Nothing about the
+store changed. The error was in the safe direction, over-counting rather than under-counting, which
+is why it survived: an inflated number reads as work remaining rather than as coverage.
+
 **WHAT IS DELIBERATELY OUT OF THE POPULATION.** `checks.json`, `status.json` and `run.json` are
 copied to the site and describe the RUN rather than the corpus. Requiring the gate's own findings to
 come from the store would be a category error, and `served.CORPUS` draws that line where a reader

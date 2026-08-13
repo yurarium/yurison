@@ -56,3 +56,11 @@ def says():
 def release_kinds():
     """Every kind of event a release row records."""
     return RELEASE_KINDS
+
+
+#: WHEN A WORK'S SERIALISATION IS SAID TO HAVE GONE QUIET, in the words the file publishes beside
+#: the states. `build.py` applies these numbers over the release feed and this is where they are
+#: stated, because a threshold written in two places is two thresholds the day either moves.
+ACTIVE_DAYS, SLOW_DAYS = 45, 365
+THRESHOLDS = {"active": f"latest chapter within {ACTIVE_DAYS} days",
+              "slow": "within a year", "dormant": "older than a year"}

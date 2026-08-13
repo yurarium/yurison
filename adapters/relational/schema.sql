@@ -435,7 +435,9 @@ CREATE TABLE stated_next (
   next_update TEXT,
   -- THE PLATFORM SAYING IT HAS NOT DECIDED, which is a statement and not an absence.
   next_update_undecided INTEGER NOT NULL DEFAULT 0 CHECK (next_update_undecided IN (0, 1)),
-  next_from_cadence INTEGER NOT NULL DEFAULT 0 CHECK (next_from_cadence IN (0, 1))
+  -- THE DATE THE CADENCE PROJECTS, which is ours and is labelled as ours: an announcement and an
+  -- average are not the same kind of thing, so the two dates are two columns.
+  next_from_cadence TEXT
 );
 
 CREATE TABLE work_presentation (
@@ -596,8 +598,30 @@ CREATE TABLE work_byline (
   work    TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   surface INTEGER NOT NULL,
   kind    TEXT NOT NULL CHECK (kind = 'credit-line'),
+  -- THE LINE AS THE WORK PRINTS IT, spaces and all. `surface` is the FOLD, which is what the name
+  -- map is keyed on, and `仲谷 鳰` folds onto `仲谷鳰`: a row rebuilt from the fold loses the space
+  -- the catalogue put there. 42 bylines are spelled that way.
+  field   TEXT,
   PRIMARY KEY (work, surface),
   FOREIGN KEY (surface, kind) REFERENCES surface (id, kind) ON DELETE CASCADE
+);
+
+-- THE PEOPLE THE ROW'S OWN BYLINE NAMES, AND WHAT EACH DID. A THIRD DIVISION OF A CREATOR FIELD,
+-- and the reason there are three is that they answer different questions: `credit_part` is the name
+-- map's division of a FOLDED line and is what a page romanises from, `record_credit` is what the
+-- splitter minted identifiers against, and this is what the row itself states. 491 rows state a job
+-- and the other 2,547 name people with no job stated, which is why the file carries the list only
+-- where a role is in it.
+CREATE TABLE work_byline_part (
+  work TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  seq  INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  role TEXT,
+  -- WHERE THE NAME CAME FROM, where it is not the field the row prints. A listing a browser cannot
+  -- open is still a listing that says who made the work, and for an anthology sold one story at a
+  -- time it is the only thing that does, so the name survives the route being refused and says so.
+  basis TEXT,
+  PRIMARY KEY (work, seq)
 );
 
 -- ONE RECORD IN THE NAME STORE, AND WHAT A PERSON RULED ABOUT IT. `data/names/*.yaml` is keyed by
@@ -1238,6 +1262,10 @@ CREATE TABLE print_row_record (
 CREATE TABLE print_party (
   id            INTEGER PRIMARY KEY,
   print_row     INTEGER NOT NULL REFERENCES print_row(id) ON DELETE CASCADE,
+  -- WHICH OF THE BLOCK'S RECORDS THIS SEAT BELONGS TO. 0 is the record the block SHOWS and the rest
+  -- are the ones folded into it, which is what `folded_names` carries: what a block shows is a
+  -- choice about a page, and what it stands for is a fact about the corpus.
+  seq           INTEGER NOT NULL DEFAULT 0,
   seat          TEXT NOT NULL CHECK (seat IN ('publisher', 'distributor')),
   publisher_raw TEXT,
   publisher     TEXT REFERENCES publisher(id) ON DELETE SET NULL,

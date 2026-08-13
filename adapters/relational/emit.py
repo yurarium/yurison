@@ -32,6 +32,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
 from facts import division as _division                                 # noqa: E402
 from facts import script as _script                                     # noqa: E402
+from facts import serialisation as _ser                                 # noqa: E402
 from names import provenance as _prov                                   # noqa: E402
 from names import fold as _fold                                         # noqa: E402
 from names import publishers as _pubmod                                 # noqa: E402
@@ -834,3 +835,238 @@ def _cite(claim, which):
     return _prov.cite({which: value, _prov.BASIS_FIELD[which]: basis, f"{which}_source": source,
                        f"{which}_source_kind": source_kind, f"{which}_reviewed": reviewed,
                        f"{which}_url": url}, which)
+
+
+#: The sentence at the head of `series.json`.
+SERIES_NOTE = ("Built from full chapter histories in data/source/, not from the 60-day feed window. "
+               "One row per WORK; its platforms are listed as sources, because they differ in "
+               "coverage rather than in what they are.")
+
+
+def series(db, generated, names_map):
+    """`series.json`, the WORK layer: one row per work, with the platforms it runs on.
+
+    PARSED EQUALITY, like `works.json`, and for the same reason: the rows carry 30-odd key orders,
+    each an artefact of which fields the compiler happened to attach to which kind of row.
+
+    `names_map` IS THE RENDERINGS THIS FILE JOINS ON, which `emit.names` produces out of the same
+    store. It is passed rather than looked up so the row and the name map cannot disagree about
+    which entry a title reaches.
+
+    THIS IS NOT FINISHED AND NOTHING CALLS IT YET, which is said here rather than left to be
+    discovered. The rows come out 3,038 long in the compiler's own order with the serialisation,
+    the state and the platform offers on them; the title, the byline, the print blocks, the
+    evidence, the state claims, the provenance and the two name renderings are modelled in the
+    store and are not read back yet. `build.py` still writes this file directly, so the domain has
+    not moved and there is one producer of it, which is the state §6 requires between two.
+    """
+    rows = []
+    for (wid, chapters, stated, latest, latest_ep, first, oneshot, inferred, collection,
+         series_url, offer_id) in db.execute(
+            "SELECT work, chapters, chapters_stated, latest, latest_ep, first, oneshot,"
+            " oneshot_inferred, collection, series_url, offer FROM serialisation"
+            " ORDER BY rowid"):
+        sources = [{"platform": p, "url": u, "chapters": n, "free": f, "free_timed": ft,
+                    "priced": pr, "latest": la, "partial": bool(pa), "format": fmt,
+                    "retrieved": re_}
+                   for p, u, n, f, ft, pr, la, pa, fmt, re_ in db.execute(
+                       "SELECT platform, url, instalments, free, free_timed, priced, latest,"
+                       " partial, format, retrieved FROM offer WHERE work = ? ORDER BY id", (wid,))]
+        # THE ROW THE FILE SHOWS IS THE CHOSEN OFFER'S, and the rest follow it in the order they
+        # were loaded, which is the order the compiler ranked them in.
+        sources.sort(key=lambda s: s["url"] != _url_of(db, offer_id))
+        best = next((s for s in sources if s["url"] == _url_of(db, offer_id)), None)
+        state = db.execute(
+            "SELECT state, basis, basis_ja, completed_basis, completed_basis_ja FROM work_state"
+            " WHERE work = ?", (wid,)).fetchone() or (None, None, None, None, None)
+        row = {"chapters": chapters, "partial": bool(sources) and all(s["partial"] for s in sources),
+               "latest": latest, "latest_ep": latest_ep or "", "first": first,
+               "state": state[0], "oneshot": bool(oneshot),
+               "completed_basis": state[3], "state_basis": state[1],
+               "free": best["free"] if best else 0,
+               "free_timed": best["free_timed"] if best else 0,
+               "priced": best["priced"] if best else 0,
+               "url": best["url"] if best else None, "series_url": series_url,
+               "sources": sources, "collection": collection, "id": wid,
+               "skipped": [[d, t] for d, t in db.execute(
+                   "SELECT dated, title FROM skipped_slot WHERE work = ?"
+                   " ORDER BY dated DESC, title DESC", (wid,))]}
+        if stated is not None:
+            row["chapters_stated"] = stated
+        if inferred:
+            row["oneshot_inferred"] = True
+        if state[4] is not None:
+            row["completed_basis_ja"] = state[4]
+        if state[2] is not None:
+            row["state_basis_ja"] = state[2]
+
+        title, first_event, ident = db.execute(
+            "SELECT title, first_event, id FROM work WHERE id = ?", (wid,)).fetchone()
+        row["work"] = title
+        if first_event:
+            row["first_event"] = first_event
+        row["author"], credits = _byline(db, wid)
+        if credits:
+            row["credits"] = credits
+        row["evidence"] = _evidence(db, wid)
+        row["state_claims"] = [
+            {"source": s_, "says": sa, "term": te, "read": rd, **({"url": u} if u else {})}
+            for s_, sa, te, rd, u in db.execute(
+                "SELECT source, says, term, read, url FROM state_claim WHERE work = ?"
+                " ORDER BY id", (wid,))]
+        held = _provenance(db, wid)
+        if held:
+            row["sourced_from"] = held
+        nxt = db.execute(
+            "SELECT platform, cadence, next_update, next_update_undecided, next_from_cadence"
+            " FROM stated_next WHERE work = ?", (wid,)).fetchone()
+        if nxt:
+            block = {}
+            if nxt[2] is not None:
+                block["next_update"] = nxt[2]
+            if nxt[1] is not None:
+                block["cadence"] = nxt[1]
+            if nxt[3]:
+                block["next_update_undecided"] = True
+            if nxt[4]:
+                block["next_from_cadence"] = nxt[4]
+            block["platform"] = nxt[0]
+            row["stated_next"] = block
+        blocks = _print_blocks(db, wid)
+        if blocks:
+            row["print"] = blocks
+        # WHAT THE PRIMARY RECORD SAYS BEYOND ITS PRINT RUN. The row shows the record the block is
+        # drawn from, so its follow-up event, its shop's completion claim and the reason its creator
+        # field names nobody all come from that record and not from whichever names the run.
+        # AND ONLY WHERE THE RECORD IS WHAT THE ROW IS. A work with a serialisation takes its
+        # dates from the platforms that publish it, so the catalogue record's follow-up event and
+        # the reason its creator field names nobody belong to a row the record alone made.
+        primary = blocks[0]["work_id"] if blocks and not sources else None
+        if primary:
+            got = db.execute("SELECT date_followup FROM work_origin WHERE record = ?",
+                             (primary,)).fetchone()
+            if got and got[0]:
+                row["first_followup"] = got[0]
+            got = db.execute("SELECT creator_basis FROM record WHERE id = ?",
+                             (primary,)).fetchone()
+            if got and got[0]:
+                row["author_basis"] = got[0]
+        # A SHOP'S COMPLETION CLAIM RIDES ONLY WHERE NOTHING ELSE SPEAKS. Where a serialisation is
+        # watched, the platform decides the state and a shop marking the run 完結 is a disagreement
+        # counted elsewhere rather than a fact about the row.
+        for block in (blocks if not sources else []):
+            got = db.execute(
+                "SELECT source, volumes, retrieved, provenance FROM volume_claim WHERE record = ?",
+                (block["work_id"],)).fetchone()
+            if got:
+                row["completed_claim"] = {"source": got[0], "volumes": got[1],
+                                          "retrieved": got[2], "provenance": got[3]}
+                break
+        seen = db.execute("SELECT visibility FROM work_presentation WHERE work = ?",
+                          (wid,)).fetchone()
+        if seen and seen[0]:
+            row["visibility"] = seen[0]
+        # THE NEWEST THING THAT HAPPENED, WHICHEVER KIND IT WAS. `latest` answers only when the
+        # serialisation last updated, so a work whose volume shipped last month reads as a year
+        # stale. Month against day: a volume states 2024-03 and a chapter 2024-03-18, so the
+        # comparison is made on the part both sides always carry.
+        events = [(latest, "chapter")] + [(b.get("last") or b.get("first"), "volume")
+                                          for b in blocks]
+        events = [(d, k) for d, k in events if d]
+        if events:
+            row["latest_any"], row["latest_any_kind"] = max(
+                events, key=lambda dk: (str(dk[0])[:7], str(dk[0])))
+        rows.append(row)
+    return {"series": rows, "generated": generated, "note": SERIES_NOTE,
+            "credence": {k: v for k, v in db.execute(
+                "SELECT name, rule FROM credence_kind ORDER BY rank")},
+            "thresholds": _ser.THRESHOLDS,
+            "merged": {i: w for i, w in db.execute(
+                "SELECT id, work FROM superseded WHERE work IS NOT NULL ORDER BY id")}}
+
+
+def _url_of(db, offer_id):
+    got = db.execute("SELECT url FROM offer WHERE id = ?", (offer_id,)).fetchone()
+    return got[0] if got else None
+
+
+def _byline(db, work):
+    """`(the credit field, the people in it)`, rebuilt from the division the store holds.
+
+    THE ROW'S OWN DIVISION AND NOT THE NAME MAP'S. `credit_part` divides the FOLDED line for a
+    renderer and answers for every credit field in the corpus; this is what the row states, which is
+    a shorter list: 491 rows name a job and the rest name people with no job stated.
+    """
+    got = db.execute("SELECT field FROM work_byline WHERE work = ?", (work,)).fetchone()
+    credits = [{"name": n, **({"role": r} if r else {}), **({"basis": b} if b else {})}
+               for n, r, b in db.execute(
+                   "SELECT name, role, basis FROM work_byline_part WHERE work = ? ORDER BY seq",
+                   (work,))]
+    return (got[0] if got and got[0] else ""), credits
+
+
+def _evidence(db, work):
+    """Every source that speaks to whether this work is yuri, strongest first.
+
+    THE ORDER IS THE RANK'S AND THE RANK IS THE KIND'S, `classify/credence`, which is why neither is
+    a column on the row: 2,366 rows carrying a number that depends only on a word.
+    """
+    return [{"kind": k, "rank": rank, "type": ty, "source": s, "term": t, "read": rd,
+             **({"url": u} if u else {}), **({"page": pg} if pg else {})}
+            for k, rank, ty, s, t, rd, u, pg in db.execute(
+                "SELECT e.kind, c.rank, c.type, e.source, e.term, e.read, e.url, e.page"
+                " FROM evidence e JOIN credence_kind c ON c.name = e.kind WHERE e.work = ?"
+                " ORDER BY c.rank, e.source, e.term", (work,))]
+
+
+def _provenance(db, work):
+    """What else was read for this work, in the order the records were walked."""
+    return [{"source": s, "holds": h, "read": rd, **({"url": u} if u else {})}
+            for s, h, rd, u in db.execute(
+                "SELECT source, holds, read, url FROM provenance WHERE work = ? ORDER BY seq",
+                (work,))]
+
+
+def _print_blocks(db, work):
+    """One block per print run, with every catalogue record the run was folded from.
+
+    `folded_names` IS WHAT THE OTHER RECORDS CALL THE PARTIES, which the block itself does not show.
+    Three passes count publisher and imprint names off these blocks and every one of them was
+    counting one record per block, so 36 line names dropped out of the shipped name map the moment
+    runs began folding.
+    """
+    out = []
+    for (pid, record, pub, imp, dist, label, first, last, volumes, shop, delivered,
+         periodical) in db.execute(
+            "SELECT id, record, publisher_raw, imprint_raw, distributor, label, first, last,"
+            " volumes, shop_url, delivered_from, periodical FROM print_row WHERE work = ?"
+            " ORDER BY id", (work,)):
+        block = {"work_id": record, "shop_url": shop, "volumes": volumes, "publisher": pub}
+        if dist:
+            block["distributor"] = dist
+        block["imprint"] = imp
+        block["first"] = first
+        if delivered:
+            block["delivered_from"] = delivered
+        block["last"] = last
+        block["label"] = label
+        if periodical:
+            block["periodical"] = True
+        block["work_ids"] = [r for r, in db.execute(
+            "SELECT record FROM print_row_record WHERE print_row = ? ORDER BY rowid", (pid,))]
+        folded = {}
+        for seq, seat, raw, imp_raw, pfirst, plast in db.execute(
+                "SELECT seq, seat, publisher_raw, imprint_raw, first, last FROM print_party"
+                " WHERE print_row = ? AND seq > 0 ORDER BY seq, id", (pid,)):
+            got = folded.setdefault(seq, {})
+            got[seat] = raw
+            for key, value in (("imprint", imp_raw), ("first", pfirst), ("last", plast)):
+                if value and key not in got:
+                    got[key] = value
+        if folded:
+            block["folded_names"] = [
+                {k: got[k] for k in ("publisher", "distributor", "imprint", "first", "last")
+                 if got.get(k)}
+                for _seq, got in sorted(folded.items())]
+        out.append(block)
+    return out

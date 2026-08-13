@@ -833,9 +833,17 @@ def build(path=None, quarantine=False, at=None, source=None):
         if wid and field:
             sid = surface_id("credit-line", field)
             if sid is not None:
-                put("INSERT OR IGNORE INTO work_byline (work, surface, kind)"
-                    " VALUES (?,?,'credit-line')", (wid, sid), f"byline {wid}")
+                put("INSERT OR IGNORE INTO work_byline (work, surface, kind, field)"
+                    " VALUES (?,?,'credit-line',?)", (wid, sid, field), f"byline {wid}")
+        for i, part in enumerate(r.get("credits") or []):
+            if part.get("name"):
+                put("INSERT OR IGNORE INTO work_byline_part (work, seq, name, role, basis)"
+                    " VALUES (?,?,?,?,?)",
+                    (wid, i, part["name"], part.get("role"), part.get("basis")),
+                    f"byline part {wid} {i}")
     counts["work_byline"] = db.execute("SELECT count(*) FROM work_byline").fetchone()[0]
+    counts["work_byline_part"] = db.execute(
+        "SELECT count(*) FROM work_byline_part").fetchone()[0]
     # ── the two tables the schema declared and nothing ever wrote ───────────────────────────────
     #
     # WHY THEY WERE EMPTY, established 2026-08-13 rather than assumed. `schema.sql` and this loader
@@ -901,7 +909,7 @@ def build(path=None, quarantine=False, at=None, source=None):
         blk = print_block.get(rec)
         if blk is None:
             continue
-        for party in _pblk.parties(blk):
+        for _seq, party in enumerate(_pblk.parties(blk)):
             for seat in _phid.SEATS:
                 raw = str(party.get(seat) or "").strip()
                 if not raw:
@@ -910,9 +918,9 @@ def build(path=None, quarantine=False, at=None, source=None):
                 imp_raw = str(party.get("imprint") or "").strip()
                 line = _imp.resolve(_phid.publisher_of(party.get("publisher") or ""),
                                     imp_raw, _lidx) if imp_raw else None
-                put("INSERT INTO print_party (print_row, seat, publisher_raw, publisher,"
-                    " imprint_raw, imprint, first, last) VALUES (?,?,?,?,?,?,?,?)",
-                    (pid, seat, raw, hid, imp_raw or None,
+                put("INSERT INTO print_party (print_row, seq, seat, publisher_raw, publisher,"
+                    " imprint_raw, imprint, first, last) VALUES (?,?,?,?,?,?,?,?,?)",
+                    (pid, _seq, seat, raw, hid, imp_raw or None,
                      _imprint_id.get((hid, (line or {}).get("name"))) if line else None,
                      party.get("first"), party.get("last")),
                     f"print party {rec} {seat}")
@@ -1297,7 +1305,7 @@ def build(path=None, quarantine=False, at=None, source=None):
                 " next_update_undecided, next_from_cadence) VALUES (?,?,?,?,?,?)",
                 (wid, nxt["platform"], nxt.get("cadence"), nxt.get("next_update"),
                  int(bool(nxt.get("next_update_undecided"))),
-                 int(bool(nxt.get("next_from_cadence")))), f"stated_next {wid}")
+                 nxt.get("next_from_cadence")), f"stated_next {wid}")
     counts["serialisation"] = db.execute("SELECT count(*) FROM serialisation").fetchone()[0]
     counts["skipped_slot"] = db.execute("SELECT count(*) FROM skipped_slot").fetchone()[0]
     counts["stated_next"] = db.execute("SELECT count(*) FROM stated_next").fetchone()[0]

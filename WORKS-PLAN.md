@@ -12,7 +12,7 @@ The sections are in the order they are to be done, and each says what it needs f
 | §1 | Run the name passes as part of the update | nothing | 96 works had no English for want of this |
 | §2 | A claim about a reading stops occupying the English's slot | nothing | 196 titles, 1,337 authors |
 | §3 | A work attested on a platform we already read gets a page | a ruling on §3b | 53 works |
-| §4 | Rule what a translated edition is | the owner | 22 products, 5 languages |
+| §4 | Join a translated edition to the work it translates | nothing | 28 products, 7 unjoined |
 | §5 | Two capture faults on the credit field | nothing | 4 rows |
 
 ## 0. What connects them
@@ -133,40 +133,58 @@ The 170 are a different question and stay out of this section. They hold chapter
 held out by the app-only rule, the catch-all resolver rule or the scope test, each of which is
 deliberate and each of which deserves its own count before anything is changed.
 
-## 4. Rule what a translated edition is
+## 4. Join a translated edition to the work it translates
 
-**THE QUESTION, raised by the project owner 2026-08-13** as whether Korean editions should be
-considered at all. Measured, it is mostly not a Korean question.
+**THE QUESTION was raised by the project owner 2026-08-13** as whether Korean editions should be
+considered at all. Measured, the answer is already settled in practice and the remaining work is a
+join that fails on a spelling.
 
-BOOK☆WALKER sells translations of the same doujinshi as separate products and the corpus holds each
-as its own work. **22 products across five languages**, under six spellings of the marker:
+BOOK☆WALKER sells translations of the same doujinshi as separate products. **28 of them**, under
+six spellings of the marker, mostly English:
 
 | | |
 |---|---|
-| 17 | `【English ver.】`, `【English Ver.】`, `【English ver】` |
+| 22 | `【English ver.】`, `【English Ver.】`, `【English ver】` |
 | 3 | `【한국어 ver.】` |
-| 1 | `【中国語版】` |
+| 2 | `【中国語版】` |
 | 1 | `【Ver. en Español】` |
 
-`はずかしがりやの霊夢さん` by あとき is held three times, as `【中国語版】容易害羞的灵梦小姐`,
-`【Ver. en Español】Reimu se Avergüenza Fácilmente` and `【한국어 ver.】부끄럼쟁이레이무씨`, and each
-product title carries the Japanese original after a hyphen, so the shop states the join itself.
-`栖鴉` and `組長達のなかよし` are each held twice, once in Japanese and once in Korean.
+**THE CORPUS ALREADY TREATS ONE AS AN EDITION, and it is right to.** `w02056` holds three records
+as one work: the Japanese `はずかしがりやのれいむさん`, the Chinese edition and the English edition.
+Each product title pairs the translated name with the Japanese one across a hyphen, so the shop
+states the relation itself.
 
-**IT ALSO PUTS TRANSLATORS IN THE AUTHOR FIELD.** The Korean editions credit
-`あとき / 싱글벙글환상향 / 어쟤예쁘네 / 그냥계정`, and the three Hangul names are the circle that
-translated it. The Spanish edition credits `Ｈｏｕｒａｉ　Ｄｏｌｌ` beside あとき the same way. Those
-names are in the corpus as authors of a work, which is a claim about who made it.
+That pairing is also **a route to an official English name, and 16 works already have one by it.**
+`Reimu is Easily Embarrassed`, `BEAST MODE`, `Friendly Feuding Families`, `Nesting Crow` and twelve
+more are recorded `official-jp` sourced to bookwalker.jp, because the publisher printed the English
+beside the Japanese in one string. A translation made here would rank below any of them.
 
-There are three answers and the owner picks one. A translated edition is another EDITION of a work
-already held, which is what the shop's own hyphenated title says and what identity is for. Or it is
-a work of its own, in which case the credit needs a role so a translator stops reading as an author.
-Or it is out of scope, since the database is of Japanese yuri manga and a Korean printing of a
-Japanese doujinshi is the same manga sold elsewhere.
+**WHERE IT FAILS, and this is the whole of §4.** The shop files the original of one work in kana,
+`はずかしがりやのれいむさん`, and writes the base title of three of its translated editions in kanji,
+`はずかしがりやの霊夢さん`. The English and Chinese editions quote the kana and joined. The Korean and
+Spanish editions quote the kanji and did not, so they stand as works of their own, named
+`Reimu is Easily Embarrassed (Korean edition)` and `(Spanish edition)` by a reviewer working around
+a join that had already failed. `栖鴉` and `組長達のなかよし` each carry an unjoined Korean edition
+the same way.
 
-**WHAT DEPENDS ON THE ANSWER.** Five Hangul and one full-width Latin credit currently have no Latin
-rendering and no route that would reach one; whether that is work to do or work to delete follows
-directly. So does whether `はずかしがりやの霊夢さん` is one work or four.
+Counted across all 28: 16 name a base work that is held and joined, 3 name one held under a
+different spelling, 4 name a base work absent from the corpus, and 5 carry no separator at all, so
+nothing can be split out of the product title.
+
+An unjoined edition credits its translators as authors of the work.
+`【한국어 ver.】부끄럼쟁이레이무씨` credits `あとき / 싱글벙글환상향 / 어쟤예쁘네 / 그냥계정`, where the
+three Hangul names are the circle that translated it, and the Spanish edition credits
+`Ｈｏｕｒａｉ　Ｄｏｌｌ` beside あとき. Those are claims about who made the work. Joining the edition
+puts them where a translator belongs; leaving it unjoined needs a role on the credit instead.
+
+**WHAT TO DO.** Match the base title through a fold that equates a kana spelling with its kanji one,
+which is what these three need and nothing else in the corpus currently asks for. Then the 4 whose
+base work is absent are the only open question, and it is a small one: whether a translated edition
+may be the only record of a work we hold no Japanese record for.
+
+**THE COUNTER-CASE TO TEST.** A product whose base title matches a DIFFERENT work by the same
+circle. The join is on a title inside a title and a doujinshi circle publishes many, so a match that
+skips the creator would merge two works by あとき into one.
 
 ## 5. Two capture faults on the credit field
 

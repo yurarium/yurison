@@ -1,8 +1,8 @@
 # Which things are works, and what a record may claim about one: a plan
 
-Written 2026-08-13 out of the session that took `works without English` to zero. Four of the five
-items below were found by doing that work rather than by looking for them, and the fifth is a
-question the project owner raised about a category the work exposed. None of them is a case; each
+Written 2026-08-13 out of the session that took `works without English` to zero. Four items below
+were found by doing that work rather than by looking for them, and two came from the project owner
+reading the result and asking what the categories it exposed actually meant. None of them is a case; each
 is a class with a number beside it, measured today.
 
 The sections are in the order they are to be done, and each says what it needs from the one before.
@@ -11,9 +11,10 @@ The sections are in the order they are to be done, and each says what it needs f
 |---|---|---|---|
 | §1 | Run the name passes as part of the update | nothing | 96 works had no English for want of this |
 | §2 | A claim about a reading stops occupying the English's slot | nothing | 196 titles, 1,337 authors |
-| §3 | A work attested on a platform we already read gets a page | a ruling on §3b | 53 works |
+| §3 | Fetch the episode lists we never asked for | nothing | 53 works |
 | §4 | Join a translated edition to the work it translates | nothing | 28 products, 7 unjoined |
 | §5 | Two capture faults on the credit field | nothing | 4 rows |
+| §6 | Ask the shops about a work, not only their yuri shelf | nothing | 560 to ask about |
 
 ## 0. What connects them
 
@@ -87,17 +88,36 @@ sentence in `note` was doing double duty legitimately. It still belongs in `read
 English's slot should then be empty rather than wrong, which is the honest state and is what §1's
 budget will show as work to do.
 
-## 3. A work attested on a platform we already read gets a page
+## 3. Fetch the episode lists we never asked for
 
 **THE RULING, given by the project owner 2026-08-13:** the category of works living only in the
 release feed should essentially not exist by construction. A new work from a platform we already
 know about, arriving by an attesting route, presumptively gets its own work page.
 
-**THE FAULT.** `build.py` builds the series index from one record type:
+**THIS SECTION WAS WRITTEN WRONG AND THE OWNER CORRECTED IT THE SAME DAY.** It argued that 47 of
+these works reach us through a route that states no chapters, and recommended a row shape that could
+carry a chapter count of zero. The question that undid it was whether ニコニコ really says so little,
+and it does not: 見える子ちゃん has a full episode list on its page, free at the start and the end
+with the middle behind the app. We had simply never fetched it.
 
-    if _d.get("record_type") != "web_work_chapters": continue
+The adapter already exists and already names this problem. `adapters/nicovideo/works.py` writes
+`web_work_chapters` from the same page `releases.py` reads for dates, and its docstring says why:
 
-Four web routes write attesting records and one of them can produce a work page.
+    WHY THIS SITS BESIDE releases.py. `releases.py` writes `work_update_dates`: the platform said
+    this work updated on this day ... That record type produces no row in the works list, so a
+    serialisation reachable only here was invisible as a work however often it updated.
+
+It even models the case the owner described. `partial` is asked of each page rather than asserted of
+the platform, so a run whose middle is app-only reports a highest position above the number of items
+rendered and says the page left some out.
+
+**WHAT IS ACTUALLY WRONG IS THE WORKLIST.** The adapter runs from
+`data/queue/serialisation-joins.yaml`, which holds 674 ニコニコ entries and every one of them is a
+work already joined to a printed record, carrying a `w`-id and a MADB code. A work found by the
+discovery sweep has no print record to be joined from, so it never enters the queue and its episode
+list is never requested. 337 works have their episode list held; 見える子ちゃん is not among them.
+
+So the fault is a capture gap wearing the shape of a modelling problem, and the fix is to ask.
 
 | route | works it names | with no work page |
 |---|---|---|
@@ -106,58 +126,26 @@ Four web routes write attesting records and one of them can produce a work page.
 | `web_series`, publisher yuri labelling | 165 | 13 |
 | `web_releases`, GigaViewer Atom | 30 | 6 |
 
-So 53 works are attested on a platform we already read and hold no chapter-level record anywhere,
-and nothing in the pipeline can ever give them a page. 47 reach us only through ニコニコ's work-level
-dates and 6 only through a GigaViewer Atom feed. They include
-`わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）`, `おちこぼれフルーツタルト`
-and `見える子ちゃん`, which are not obscure. A reader meets each of them on the releases page, follows
-nothing, and the work is absent from every list the site draws.
+53 works are attested on a platform we already read and hold no chapter-level record anywhere. They
+include `わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）`,
+`おちこぼれフルーツタルト` and `見える子ちゃん`, which are not obscure. A reader meets each of them
+on the releases page, follows nothing, and the work is absent from every list the site draws.
 
-§3a, the six, are mechanical. A GigaViewer Atom record carries the episode title, the date, the
-author and the URL for every release, which is what a row is made of. They assemble from what is
-already on disk.
+**WHAT TO DO.** Feed the discovery candidates into the worklist the chapter-level adapters already
+read, rather than gating that worklist on a print join. GigaViewer writes `web_work_chapters` too,
+from `*-series-feeds.yaml` and `comic-days-confirmed.yaml`, so the same move covers its six.
 
-**§3b. THE FORTY-SEVEN NEED A RULING, and it is the reason this section has a dependency.**
-`work_update_dates` is `granularity: work` on purpose: ニコニコ漫画 states that a work updated on a
-date and never which chapter, so the record attests an update and nothing about its contents. A
-series row's shape assumes a chapter list, and the chapter count, the access mode, the free-view
-tally and both the first and latest date all read that list. Those 47 rows would carry an episode
-count and no chapters.
-
-**THE RECOMMENDATION, 2026-08-13.** Keep `chapters` at 0 and let it stay literally true, since it
-counts chapters we hold. Carry the platform's own instalment count in a field of its own, with
-`free_episodes` beside it. Setting `chapters` to `episode_count` is the move to refuse: every reader
-of that field treats it as what we hold, including the free-view tally, the access modes and the `+`
-suffix whose tooltip reads "the platform lists more chapters than we hold; this is what we have".
-A row where the field meant something else would be invisible to all of them and would inflate the
-free-view count with works nobody here has read a chapter of.
-
-**THE RECORD PROVES THE POINT ON ITS OWN.** 見える子ちゃん carries `episode_count: 32` beside
-`latest_episode: 第72話`. Those cannot both be a chapter count: 32 is how many instalments ニコニコ
-offers today and 72 is where the serialisation has reached. So the number is neither what we hold
-nor the work's length, and it needs a slot that says which of the three it is. Calling it `chapters`
-would claim 32 chapters nobody here has read AND publish 32 as the length of a work on its 72nd.
-
-**IT ALSO CARRIES COMPLETION EVIDENCE NOTHING READS.**
-`わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）` has `latest_episode: 最終話`,
-which is a platform stating that a serialisation ended. `completed_basis` exists to hold exactly
-that and the corpus holds nothing for this work. Weighed rather than believed outright, since a
-platform can mark a final chapter and then run a sequel, and a stopped run is evidence about the
-run rather than about the story.
-
-Nothing else needs inventing. The record states the author, `started`, `updated`, `episode_count`,
-`free_episodes` and a readable URL, so `first`, `latest` and `state` all derive from stated facts,
-and the interface already prints `3 listed of 90` rather than a bare number that would claim a total
-it lacks. A work-level row is the limiting case of something the shape already models.
-
-**BUILD §3a FIRST.** The six GigaViewer works carry real chapters, so they prove the admission path
-with no new field, and §3b then adds only the chapterless case to a route already working.
+**WHAT TO CHECK BEFORE BELIEVING IT IS DONE.** Some of these works may genuinely render no readable
+episode, which is the case `build.py` already refuses as a route no browser can read. That refusal
+is correct and it is a different outcome from never having asked. The two have to be told apart, so
+a work whose page was fetched and offered nothing should be recorded as asked and declined rather
+than left looking untried.
 
 Three consequences to expect. `works without English` leaves zero unless §1 has run, because 48 of
 these works have no English in the store for exactly the reason §1 names. Admission has to go
 through identity rather than making a work per title, since 3 of them are edition variants of works
-already held, in the shapes `（Lilie comics）` and `【連載版】`. And any budget counting access per
-chapter should skip a row holding no chapters rather than report it as a gap.
+already held, in the shapes `（Lilie comics）` and `【連載版】`. And the dormancy invariant starts
+applying to them, so some land as slow or dormant on arrival.
 
 The 170 are a different question and stay out of this section. They hold chapter records and are
 held out by the app-only rule, the catch-all resolver rule or the scope test, each of which is
@@ -237,6 +225,38 @@ the fix is per-adapter.
 an author or an access state, and stood at 37 on 2026-08-13. Neither of these fault classes moves it,
 since one row has an author that is wrong rather than absent and the other is counted already.
 A count of credits holding a chapter marker would see the first.
+
+## 6. Ask the shops about a work, rather than waiting for their yuri shelf to name it
+
+**FOUND BY THE PROJECT OWNER 2026-08-13**, on the same work as §3: 見える子ちゃん has print editions
+on コミックシーモア and on BOOK☆WALKER, and the corpus holds a record from neither.
+
+**EVERY SHOP ROUTE IS SHELF-DRIVEN.** `adapters/recon/bookwalker_shelf.py` opens with what it is:
+"BOOK☆WALKER's 百合 shelf, read as a candidate list". So the question the pipeline asks a shop is
+`which works do you file under 百合`, and it never asks `do you sell this work`. A shop that stocks
+a book and files it elsewhere is indistinguishable from a shop that does not stock it.
+
+**THE CORPUS ALREADY KNOWS THIS WORK IS IN SCOPE**, from a different comparator.
+`data/coverage/webcomics-gap.yaml` lists it under Web漫画アンテナ's 百合 tag with
+`["女子高生", "オカルト", "ホラー", "幽霊", "百合"]`, and that file exists to be the work queue for
+every listed update eventually appearing in our feed. So one comparator files it as yuri, the
+shops file it as horror, and nothing carries the first judgement across to the second.
+
+**HOW BIG IT MIGHT BE.** 560 of the 1,349 rows holding a web serialisation hold no print record at
+all. That is the population to ask about rather than the size of the gap, since a web serial with no
+book is an ordinary thing and many of those 560 will be exactly that. What makes it worth asking is
+that the cost per work is one search on a shop we already read, and the answer is a volume list with
+ISBNs and dates, which is what VOLUMES-PLAN spent two sections trying to reach by other means.
+
+**WHAT TO DO.** Take a work the corpus already admits and look it up by title on the shops, the way
+§6 of VOLUMES-PLAN asks the National Diet Library by title. The admission is already made and the
+shop is being asked about stock rather than about genre, so nothing here launders a retailer's
+shelving into a classification, which is the line `bookwalker_shelf.py` draws and this must not
+cross.
+
+**THE COUNTER-CASE TO TEST.** A title search on a shop returns the wrong book, which is exactly why
+the NDL pass refuses to accept a record without agreeing on the author. The same guard applies here
+and for the same reason.
 
 ## What is already in hand
 

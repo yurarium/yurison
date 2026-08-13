@@ -44,9 +44,17 @@ def plan(full=False):
     """The two commands, as a pair, so a test can ask what `--full` changes without running them."""
     gate = [sys.executable, str(ROOT / "check.py"), "--gate"]
     tests = [sys.executable, str(ROOT / "test.py")]
+    # SAYING IT OUT LOUD SINCE `--gate` STOPPED MEANING A FULL RUN. Before 2026-08-13 the full path
+    # was reached by NOT passing `--incremental`, so it was the absence of a flag. Inverting the
+    # default turned that absence into the fast path, and a `--full` that quietly ran the cached
+    # checks would be the one thing this option exists to refuse.
+    if full:
+        gate += ["--full"]
     if not full:
         # THE TESTS CARRY THE PROOF and this process refuses to report success without them.
-        gate += ["--proved-by", "tests", "--incremental"]
+        # `--incremental` is no longer named here: `--gate` has meant it since 2026-08-13, and a
+        # flag repeated where it is already the default is a second place to keep in step.
+        gate += ["--proved-by", "tests"]
         # AND THEY RUN ONLY WHAT MOVED. `check.py --self-test` is keyed on check.py, on the harness
         # AND on data/build, because it plants its canaries in the real context; skipping it means
         # every one of those is byte for byte what it was when the canaries were last all caught.

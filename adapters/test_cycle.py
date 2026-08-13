@@ -20,8 +20,14 @@ def main(s):
     fast, full = cycle.plan(False), cycle.plan(True)
     s.check("--proved-by" in fast["gate"], "the fast path tells the gate who is proving it")
     s.check("--proved-by" not in full["gate"], "--full has each half prove itself")
-    s.check("--incremental" in fast["gate"] and "--incremental" not in full["gate"],
-            "and --full re-answers every check rather than trusting a remembered pass")
+    # ASKED OF THE PROPERTY AND NOT OF THE SPELLING. This read "--incremental in fast and not in
+    # full", which was true when the absence of a flag meant a full run. `--gate` has implied
+    # incremental since 2026-08-13, so the same assertion would now pass for a `--full` that
+    # quietly trusted every remembered answer, which is the one thing --full exists to refuse.
+    s.check("--full" in full["gate"],
+            "--full says so to the gate rather than relying on a flag it does not pass")
+    s.check("--full" not in fast["gate"],
+            "and the fast path takes the default, which is the remembered one")
     s.check(any("test.py" in x for x in fast["tests"]),
             "and the tests are the half that carries the proof")
 

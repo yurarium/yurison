@@ -48,6 +48,30 @@ def main(s):
     # THE DERIVATION IS REAL, not an empty set that would make the line above vacuous.
     s.check(chk.deploy_sensitive(), "some invariants are derived as reading the deployed tree")
 
+    # ── THE PROOF IS REMEMBERED ON THE SAME TERMS AS A CHECK ──────────────────────────────────
+    #
+    # `check.py --self-test` was 24.7s of a 79.6s gate and the largest single cost once
+    # `--incremental` became the default on 2026-08-13. It asks whether the CHECKS can detect a
+    # fault, so it depends on the checking code and on the build it plants canaries in, which is
+    # exactly what `_verify_key` hashes. It gets no key of its own design.
+    s.check(chk.SELF_TEST.startswith(" "),
+            "the name it is remembered under starts with a space, so no real check can collide "
+            "with it: every real name comes from INVARIANTS or BUDGETS_DEF and none is spelled so")
+    real = {n for n, _f in chk.INVARIANTS} | {n for n, _f, _w in chk.BUDGETS_DEF}
+    s.check(chk.SELF_TEST not in real, "and nothing in either list has taken it")
+
+    proof = chk._verify_key(chk.SELF_TEST, keys, set())
+    s.eq(proof, chk._verify_key(chk.SELF_TEST, keys, set()),
+         "the same code and build remember the same proof")
+    # AND IT MOVES WITH THE CODE, which is the whole of why it may be remembered at all. A proof
+    # kept across an edit to check.py would vouch for checks nobody has run.
+    moved = dict(keys); moved["code"] = "0" * 64
+    s.ne(proof, chk._verify_key(chk.SELF_TEST, moved, set()),
+         "an edit anywhere in the tracked code re-proves rather than trusting the last answer")
+    moved = dict(keys); moved["data"] = "0" * 64
+    s.ne(proof, chk._verify_key(chk.SELF_TEST, moved, set()),
+         "and so does a change to the build, because the canaries are planted in the real context")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "incremental"))

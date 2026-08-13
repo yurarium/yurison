@@ -6642,6 +6642,11 @@ def self_test():
 #: the green-tree token hashes.
 VERIFIED = ROOT / "data" / "cache" / "checks.json"
 
+#: The name the self-test is remembered under. Reserved: no invariant or budget may take
+#: it, and the leading space is what makes that true rather than merely intended, since
+#: every real name comes from INVARIANTS or BUDGETS_DEF and none of those is spelled so.
+SELF_TEST = " the checks can fail"
+
 
 def _input_keys():
     """One digest per class of input a check can read, so an unchanged class need not be re-read.
@@ -6766,9 +6771,22 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--runtime", action="store_true", help="count and report; never fail")
     g.add_argument("--gate", action="store_true", help="fail on any violation or loosened budget")
+    # ON BY DEFAULT SINCE 2026-08-13, AND THE MEASUREMENT IS WHY. `--gate` alone costs 79.6s and
+    # `--gate --incremental` costs 2.6s on the same tree. The fast answer was reachable only by
+    # remembering a flag, so the command a person types, and the one written in CLAUDE.md, was the
+    # slow one every time. A default nobody can forget is worth more than a flag everybody must.
+    #
+    # THE CONTRACT IS UNCHANGED AND IT IS WHAT MAKES THE DEFAULT SAFE. A pass is remembered against
+    # a digest of what the check read; a failure never is. So the cache can only hold "this said
+    # nothing on exactly these inputs", and `test_incremental.py` proves it by planting a violation
+    # and asking whether the next run still measures that check.
+    #
+    # `--full` REFUSES EVERY REMEMBERED ANSWER, which is what the weekly equivalence run takes and
+    # what to reach for when the question is whether the fast path agrees with anything.
+    ap.add_argument("--full", action="store_true",
+                    help="re-answer every check, refusing any answer worked out before")
     ap.add_argument("--incremental", action="store_true",
-                    help="skip a check that passed on exactly these inputs; cycle.py's fast path "
-                         "passes it and --full never does")
+                    help=argparse.SUPPRESS)   # kept so an existing caller keeps working; now the default
     ap.add_argument("--proved-by", metavar="WHO", default=None,
                     help="another process now running is proving the checks can fail; only "
                          "cycle.py passes this, and it fails if that process fails")
@@ -6781,6 +6799,11 @@ def main():
                          "the invariants and any budget that could not be measured still block")
     a = ap.parse_args()
 
+    # ONE PLACE DECIDES IT, so every reader below asks the same question. `--incremental` survives
+    # as an accepted spelling of the default rather than as a second way to mean it: a caller that
+    # still passes it gets what it asked for, and `--full` beats both.
+    a.incremental = not a.full
+
     if a.self_test:
         return 0 if self_test() else 1
 
@@ -6788,19 +6811,51 @@ def main():
         return deploy_window()
 
     _phase = {}
+    # HOISTED ABOVE THE PROOF, because the proof is now one of the things remembered. `_input_keys`
+    # reads files and needs no build, so nothing about the order below depends on it being late.
+    verified, keys, sensitive = {}, {}, set()
+    if a.incremental:
+        _t0 = time.perf_counter()
+        keys = _input_keys()
+        sensitive = set(deploy_sensitive())
+        if VERIFIED.exists():
+            try:
+                verified = json.loads(VERIFIED.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                verified = {}
+        _phase["hashing what the checks read"] = time.perf_counter() - _t0
+
     # THE PROOF IS NOT SKIPPED, IT IS SOMEWHERE ELSE. `./test.py` runs `check.py --self-test` as one
     # of its suites, so a cycle that runs both proves the same property twice, 16 s each. cycle.py
     # runs them together and passes this; it reports failure if the test half fails, so the proof
     # still gates. Nothing else passes it, and `--full` never does.
     if a.gate and a.proved_by:
         print(f"invariants proved by {a.proved_by}, running alongside this")
+    proof_key = None
     if a.gate and not a.proved_by:
-        _t0 = time.perf_counter()
-        proved = self_test()
-        _phase["proving the checks can fail"] = time.perf_counter() - _t0
-        if not proved:
-            print("\nFAIL: the checks cannot prove they work; refusing to pass anything.")
-            return 3
+        # REMEMBERED LIKE ANY OTHER PASS, AND KEYED THE SAME WAY. The proof plants its canaries in
+        # the real context, so it depends on the checking code AND on the build, which is exactly
+        # what `_verify_key` already hashes; cycle.py says the same thing where it decides whether
+        # `test.py --changed` may skip the suite. So it needs no key of its own design.
+        #
+        # WHY IT IS WORTH REMEMBERING. It was 24.7s of a 79.6s gate and the largest single cost
+        # once `--incremental` became the default, and it re-answered a question about `check.py`
+        # on every run over data that cannot change the answer.
+        #
+        # A PASS IS REMEMBERED AND A FAILURE NEVER IS, which is the contract the rest of the cache
+        # keeps. `keep` below rewrites the file from what THIS run established, so the entry is
+        # carried forward there rather than left to survive by accident.
+        proof_key = _verify_key(SELF_TEST, keys, sensitive) if a.incremental else None
+        if proof_key and verified.get(SELF_TEST) == proof_key:
+            _phase["the proof, remembered"] = 0.0
+            print("the checks were proved able to fail on exactly this code and build")
+        else:
+            _t0 = time.perf_counter()
+            proved = self_test()
+            _phase["proving the checks can fail"] = time.perf_counter() - _t0
+            if not proved:
+                print("\nFAIL: the checks cannot prove they work; refusing to pass anything.")
+                return 3
 
     _t0 = time.perf_counter()
     ctx = context()
@@ -6819,18 +6874,6 @@ def main():
     timings = {}
     inv_results = {}
     budget_values = {}
-    verified, keys, sensitive = {}, {}, set()
-    if a.incremental:
-        _t0 = time.perf_counter()
-        keys = _input_keys()
-        sensitive = set(deploy_sensitive())
-        if VERIFIED.exists():
-            try:
-                verified = json.loads(VERIFIED.read_text(encoding="utf-8"))
-            except (OSError, ValueError):
-                verified = {}
-        _phase["hashing what the checks read"] = time.perf_counter() - _t0
-
     skipped = 0
     unmeasured = []
     failed = []
@@ -6976,6 +7019,10 @@ def main():
         for name, _fn, _w in BUDGETS_DEF:
             if name in budget_values:
                 keep[name] = [_verify_key(name, keys, sensitive), budget_values[name]]
+        # THE PROOF, on the same terms as everything else here: recorded only where this run
+        # established it, so a failing proof leaves nothing behind and the next run re-runs it.
+        if proof_key:
+            keep[SELF_TEST] = proof_key
         try:
             VERIFIED.parent.mkdir(parents=True, exist_ok=True)
             VERIFIED.write_text(json.dumps(keep, indent=1), encoding="utf-8")

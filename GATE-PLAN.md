@@ -16,8 +16,8 @@ The sections are in the order they are to be done, and each says what it needs f
 
 | | stage | needs | worth |
 |---|---|---|---|
-| §1 | Make the cheap path the one you get by accident | nothing | 79.6s to 2.6s on every run |
-| §2 | Stop re-proving the checks against unchanged code | nothing | 24.7s off `--full` |
+| §1 | Make the cheap path the one you get by accident | done 2026-08-13 | 79.6s to 28.5s |
+| §2 | Stop re-proving the checks against unchanged code | done 2026-08-13 | 28.5s to 2.4s |
 | §3 | Render the interface once, ask it six questions | nothing | about 13s off `--full` |
 | §4 | Let the schema refuse what the checks report | §1 | five fault classes, no seconds |
 | §5 | Derive the content-flag report rather than reconcile it | §4 | 8.1s and two false alarms |
@@ -59,6 +59,13 @@ default and nothing about what the path may remember.
 pass, and `equivalence.yml` runs it weekly. A default that is wrong shows up there rather than in a
 reviewer's memory.
 
+**DONE 2026-08-13, and inverting a default broke something it was easy to miss.** `cycle.py --full`
+reached the full path by NOT passing `--incremental`, so it was the absence of a flag. With the
+default inverted that absence became the FAST path, and `--full` would have quietly run the cached
+checks, which is the one thing it exists to refuse. It now says `--full` to the gate outright.
+`test_cycle` asserted the old spelling and would have passed throughout, so it is rewritten to ask
+the property: the full plan says `--full`, the fast plan does not.
+
 ## 2. Stop re-proving the checks against unchanged code
 
 **THE FAULT.** 24.7s of 79.6, a third of the gate, goes to proving the checks can fail. That
@@ -77,6 +84,15 @@ is the blind spot `_input_keys` already documents about itself: it takes three o
 rather than 110 hand-kept declarations, and a check reading something in none of the classes is
 invisible to it. The self-test digest must over-approximate in the same direction, covering every
 tracked Python file rather than a list of the ones believed relevant.
+
+**DONE 2026-08-13.** The proof is remembered under a reserved name that starts with a space, so no
+invariant or budget can collide with it, and it is keyed by `_verify_key` on the code AND the build,
+because the canaries are planted in the real context. It needed no key of its own design.
+
+`./check.py --gate` is 2.4s on a tree it has answered for, 78.9s on one it has not, and `--full`
+refuses the remembered answer. Both halves of the counter-case were run by hand: touching
+`facts/reading` re-proved in 25.5s rather than trusting the cache, and restoring the file re-proved
+again rather than carrying a stale entry across the change.
 
 ## 3. Render the interface once, ask it six questions
 

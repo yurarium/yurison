@@ -3676,36 +3676,10 @@ def main():
     (out / "works.json").write_text(json.dumps(
         {"count": len(works), "works": works}, ensure_ascii=False, indent=1, default=jsonable))
 
-    # Search index: only what the list view needs, so the initial payload scales with works
-    # rather than with total volume history (§5).
-    idx = [{"id": w["work_id"], "t": w["title"]["ja"], "y": w["title"].get("yomi", ""),
-            "c": w.get("creator", ""), "n": w["volume_count"],
-            "d": w.get("first_publication", {}).get("date", ""),
-            "l": w.get("marketing_label"), "ct": w.get("content_tier"),
-            "g": w.get("grouping")} for w in works]
-    idx = one_row_per_work(idx, works)
+    # THE SEARCH INDEX IS EMITTED FROM THE STORE, §6, further down where the store exists. It was
+    # assembled here and read the identity registry to collapse records into works; `record.work`
+    # carries that answer now, so the emitter collapses without re-deciding which records are one.
 
-    # THE CREDITS EACH ROW RESOLVES TO, so a search can reach a person by any spelling the registry
-    # unifies rather than only by the characters this row happens to carry. `c` is the raw creator
-    # field a bibliography wrote and it STAYS, both because it is what the row renders and because
-    # it is the safety property this rests on: where a credit resolves to nothing the raw string is
-    # still searched, so the move strictly gains and never loses a match it had.
-    #
-    # 2,009 distinct credits are named across these rows and 43 resolve to nothing. Those 43 are
-    # mostly the same field's own apparatus, a bibliography writing each name beside its reading:
-    # `育田花 / イクタハナ` is one person and arrives as two credits, and `アサウラ1984-` carries a
-    # life-date fragment. Minting for them would publish an address for a reading (see
-    # docs/PLAN-credits-and-gates.md §5), which is why the raw string is the answer instead.
-    _spell_to_cid = credit_spellings()
-    for _idxrow in idx:
-        _idxcids = []
-        for _idxname, _idxrd, _idxrole in _credit_fact.split_detail(str(_idxrow.get("c") or "")):
-            _idxhit = _spell_to_cid.get(_credit_fold(_idxname))
-            if _idxhit and _idxhit not in _idxcids:
-                _idxcids.append(_idxhit)
-        if _idxcids:
-            _idxrow["ci"] = _idxcids
-    (out / "index.json").write_text(json.dumps(idx, ensure_ascii=False, separators=(",", ":"), default=jsonable))
 
     # AND THE MAP A QUERY IS RESOLVED THROUGH, 45 KB against `credits.json`'s 457. A search needs
     # spelling to identifier and nothing else: the works hang off `ci` on the rows already loaded,
@@ -6814,7 +6788,12 @@ def main():
         # holding no ・ at all: `くろば・Ｕ` is one artist, nothing credits くろば or Ｕ alone, and
         # the store held both halves with a registry identifier each because the splitter that
         # filled it had already decided. A rule asking the store would agree with that split.
-        _credit_ruled = _interpunct_rulings(credit_fields(idx, works, series_rows, releases))
+        # `idx` IS NOT PASSED, AND IT ADDS NOTHING. The index's `c` is the works rows' `creator`
+        # collapsed, so `credit_fields` sees every one of the 2,704 fields either way, measured. §6
+        # needs it gone from here because the index is emitted from the store now, which is built
+        # further down, and a compiler that had to build the store early to feed a list that is a
+        # projection of what it already holds would be reasoning in a circle.
+        _credit_ruled = _interpunct_rulings(credit_fields([], works, series_rows, releases))
         # A NAME SOMEBODY CURATED WHOLE IS ONE PERSON, and that is not the circular question the
         # note above rules out. The objection there is that the STORE was filled by the splitter,
         # so asking it back would only echo the split; `curated.yaml` is written by hand, and an
@@ -6879,7 +6858,7 @@ def main():
                     _ao_credited += 1
             if _ao_credited:
                 print(f"credits kept from an excluded app-only route: {_ao_credited}")
-        _p4.fill_missing({p for f in credit_fields(idx, works, series_rows, releases)
+        _p4.fill_missing({p for f in credit_fields([], works, series_rows, releases)
                           for p in [f] + _credits.split_credits(f)[0] if p}, "authors",
                          ruled=_credit_ruled)
         # Chapter names and credit lines — 202 of the former against 6 titles, so this is most of
@@ -7230,6 +7209,12 @@ def main():
               f"{_store_refused[0][0]}: {_store_refused[0][1]}")
     _credits_shipped = _emit.credits(_store_db, str(_today))
 
+    # ONE ROW PER WORK, HOLDING EVERY RECORD'S ADDRESS. The name is the first record's by
+    # identifier, the length is the distinct volume numbers its records state, and the people are
+    # the ones its creator field names in the order it names them. Built here because the floor map
+    # below reads it; the file itself is written with the rest of them.
+    idx = _emit.index(_store_db)
+
     # THE DIVISION OF EVERY CREDIT FIELD A READER CAN MEET. Computed here because it needs the
     # author store, which is what tells a reading printed beside a name from a second artist.
     #
@@ -7239,7 +7224,7 @@ def main():
     # that produced it and `Kuro Ba, U` went to a reader (STANDING-INSTRUCTIONS §14b).
     # `interpunct.settled` reads the evidence off credit fields holding no ・ at all, which is 8,812
     # of the 8,865 here and none of the ones under question.
-    _credit_fields = credit_fields(idx, works, series_rows, releases, _credits_shipped)
+    _credit_fields = credit_fields([], works, series_rows, releases, _credits_shipped)
     _credit_div = {}
     _credit_unaccounted = 0
     for _cf in _credit_fields:
@@ -7407,6 +7392,8 @@ def main():
     (out / "feed").mkdir(parents=True, exist_ok=True)
     (out / "feed" / "credit-keys.json").write_text(
         _emit.as_compact(_emit.credit_keys(_store_db)))
+
+    (out / "index.json").write_text(_emit.as_compact(idx))
     _cp_n = len(_credits_shipped.get("credits") or {})
     _cp_e = sum(len(v.get("works") or []) for v in (_credits_shipped.get("credits") or {}).values())
     _cp_r = sum(1 for v in (_credits_shipped.get("credits") or {}).values()

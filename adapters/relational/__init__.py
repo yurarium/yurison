@@ -808,8 +808,10 @@ def build(path=None, quarantine=False, at=None, source=None):
         for i, part in enumerate(r.get("p") or []):
             if not part.get("n"):
                 continue
-            put("INSERT OR IGNORE INTO credit_part (surface, seq, name, role)"
-                " VALUES (?,?,?,?)", (sid, i, part["n"], part.get("r")), f"part {folded} {i}")
+            put("INSERT OR IGNORE INTO credit_part (surface, seq, name, name_folded, role)"
+                " VALUES (?,?,?,?,?)",
+                (sid, i, part["n"], _namekey.fold(part["n"]), part.get("r")),
+                f"part {folded} {i}")
             # A FIELD MAY STATE SEVERAL JOBS AT ONCE, `企画・監修`, and a multi-valued column is the
             # one shape a relational store may not keep. The separators are the splitter's own.
             for atom in _ROLE_SEP.split(str(part.get("r") or "")):
@@ -1080,6 +1082,8 @@ def build(path=None, quarantine=False, at=None, source=None):
     # `volume_count` was NULL on all of them, while `works.json` held structured grounds on 1,887
     # records. `explicit_content` is filled from the same place and is False on every one, which is
     # now a measured answer rather than a column default.
+    from facts import credit as _credit_fact
+    _spelling_to_credit = {s: c for s, c in db.execute("SELECT spelling, credit FROM credit_spelling")}
     visible = {r.get("id"): r.get("visibility") for _k, r in _rows("series", "series", source)
                if r.get("visibility")}
     for _k, w in _rows("works", "works", source):
@@ -1127,6 +1131,30 @@ def build(path=None, quarantine=False, at=None, source=None):
                 " VALUES (?,?,?,?,?,?)",
                 (wid, w.get("work_id"), n, claimed.get("source"), claimed.get("provenance"),
                  claimed.get("retrieved")), f"volume_claim {wid}")
+        # THE RECORD ITSELF, which is the layer `works.json` is written at.
+        put("INSERT INTO record (id, work, title, yomi, creator, creator_folded, creator_basis,"
+            " volume_count, grouping, content_tier, marketing_label, shop_url, periodical)"
+            " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            (w.get("work_id"), wid, (w.get("title") or {}).get("ja") or "",
+             (w.get("title") or {}).get("yomi"), w.get("creator"),
+             _namekey.fold(w.get("creator") or "") or None, w.get("creator_basis"),
+             w.get("volume_count"), w.get("grouping"), w.get("content_tier"),
+             w.get("marketing_label") if w.get("marketing_label") != "none" else None,
+             w.get("shop_url"), int(bool(w.get("periodical")))), f"record {w.get('work_id')}")
+        # THE PEOPLE THE FIELD NAMES, IN ITS ORDER, resolved through the spelling map. The splitter
+        # is asked here so no consumer needs one, which is what `index.json` used to do inline.
+        _seen_cid, _n = set(), 0
+        for _nm, _rd, _role in _credit_fact.split_detail(str(w.get("creator") or "")):
+            _hit = _spelling_to_credit.get(_namekey.fold(_nm))
+            if _hit and _hit not in _seen_cid:
+                _seen_cid.add(_hit)
+                put("INSERT OR IGNORE INTO record_credit (record, seq, credit) VALUES (?,?,?)",
+                    (w.get("work_id"), _n, _hit), f"record_credit {w.get('work_id')}")
+                _n += 1
+        for src_name in (w.get("sources") or []):
+            put("INSERT OR IGNORE INTO record_source (record, source) VALUES (?,?)",
+                (w.get("work_id"), src_name), f"record_source {src_name}")
+
         # WHERE AND WHEN IT FIRST APPEARED, AND THE RECORDS IT WAS COMPILED FROM.
         fp = w.get("first_publication") if isinstance(w.get("first_publication"), dict) else {}
         if fp:
@@ -1144,6 +1172,8 @@ def build(path=None, quarantine=False, at=None, source=None):
                     " VALUES (?,?,?,?,?)",
                     (w.get("work_id"), wid, rec["source"], rec.get("url"), rec.get("retrieved")),
                     f"work_record {w.get('work_id')} {rec['source']}")
+    counts["record"] = db.execute("SELECT count(*) FROM record").fetchone()[0]
+    counts["record_credit"] = db.execute("SELECT count(*) FROM record_credit").fetchone()[0]
     counts["work_origin"] = db.execute("SELECT count(*) FROM work_origin").fetchone()[0]
     counts["work_record"] = db.execute("SELECT count(*) FROM work_record").fetchone()[0]
     counts["admission"] = db.execute("SELECT count(*) FROM admission").fetchone()[0]

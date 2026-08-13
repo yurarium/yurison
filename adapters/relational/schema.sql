@@ -537,6 +537,8 @@ CREATE TABLE credit_part (
   surface INTEGER NOT NULL REFERENCES credit_division(surface) ON DELETE CASCADE,
   seq     INTEGER NOT NULL,
   name    TEXT NOT NULL,
+  -- AND ITS FOLD, which is what `credit_spelling` is keyed on.
+  name_folded TEXT,
   -- THE PHRASE THE FIELD WROTE, which may state several jobs at once. `credit_part_role` is the
   -- same fact as rows, and this is kept for the same reason `state_claim.term` is: what a source
   -- actually said outlives our reading of it.
@@ -875,9 +877,62 @@ CREATE INDEX edition_volume ON edition (volume, kind);
 -- what kind of venue that is, and the country, which is its own question with its own basis: 2,574
 -- works state `japanese-edition-catalogued`, which places the EDITION in Japan and says so rather
 -- than claiming the work was first published there.
--- KEYED ON THE RECORD AND NOT ON THE WORK, because `works.json` is the RECORD layer: 2,574 rows
--- against 3,038 works, and two catalogue records of one work each state their own first publication.
--- Keying on the work kept whichever record was read first and discarded the other's answer.
+-- ONE CATALOGUE RECORD, WHICH IS THE LAYER `works.json` IS WRITTEN AT. 2,574 of these against
+-- 3,038 works: a work compiled from two records has two rows here, each with its own title as that
+-- catalogue wrote it, its own creator field and its own count of volumes.
+--
+-- `grouping` SAYS HOW THE RECORD WAS JOINED TO ITS WORK: by a series link the catalogue states, by
+-- the title alone, by a match on the title, or by more than one route. It is how a reader can tell
+-- a firmly identified row from one held together by its name.
+CREATE TABLE record (
+  id           TEXT PRIMARY KEY,
+  work         TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  title        TEXT NOT NULL,
+  yomi         TEXT,
+  creator      TEXT,
+  -- THE FIELD'S OWN FOLD, so the division `credit_part` holds for it can be joined without a
+  -- caller doing the folding. `index.json` names a row's people in the order the FIELD wrote them.
+  creator_folded TEXT,
+  creator_basis TEXT,
+  volume_count INTEGER CHECK (volume_count IS NULL OR volume_count >= 0),
+  grouping     TEXT,
+  content_tier TEXT,
+  -- PER RECORD, BECAUSE IT VARIES BETWEEN THE RECORDS OF ONE WORK. 220 rows differ from the label
+  -- `work_presentation` carries: one catalogue applies the publisher's yuri label and another
+  -- states none for the same book, and `index.json` ships the record's own answer.
+  marketing_label TEXT CHECK (marketing_label IS NULL OR marketing_label <> 'none'),
+  shop_url     TEXT,
+  periodical   INTEGER NOT NULL DEFAULT 0 CHECK (periodical IN (0, 1))
+);
+
+CREATE INDEX record_work ON record (work);
+
+-- WHICH ADAPTERS A RECORD WAS ASSEMBLED FROM, which `sources` ships as a list and is a list of
+-- rows here for the reason every other list in this schema is.
+-- THE PEOPLE A RECORD'S CREATOR FIELD NAMES, IN THE ORDER IT NAMES THEM. `facts/credit.split_detail`
+-- is the splitter and this is where its answer lands, so a consumer needs no splitter of its own.
+--
+-- IT IS NOT `credit_part`, AND THE DIFFERENCE IS REAL. That table holds `creditline._divide`'s
+-- answer, which is what a page RENDERS a byline from; this holds the splitter's, which is what an
+-- identifier is minted against. They disagree about 17 records, and both are shipped: `index.json`
+-- resolves through this one. Two divisions of one field is a §3 fault worth its own entry in
+-- docs/GAPS.md rather than a silent choice made here.
+CREATE TABLE record_credit (
+  record TEXT NOT NULL REFERENCES record(id) ON DELETE CASCADE,
+  seq    INTEGER NOT NULL,
+  credit TEXT NOT NULL REFERENCES credit(id) ON DELETE CASCADE,
+  PRIMARY KEY (record, seq)
+);
+
+CREATE TABLE record_source (
+  record TEXT NOT NULL REFERENCES record(id) ON DELETE CASCADE,
+  source TEXT NOT NULL,
+  PRIMARY KEY (record, source)
+);
+
+-- KEYED ON THE RECORD AND NOT ON THE WORK, because `works.json` is the RECORD layer and two
+-- catalogue records of one work each state their own first publication. Keying on the work kept
+-- whichever record was read first and discarded the other's answer.
 CREATE TABLE work_origin (
   record       TEXT PRIMARY KEY,
   work         TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,

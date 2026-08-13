@@ -184,6 +184,88 @@ def credit_keys(db):
     return {s: c for s, c in db.execute("SELECT spelling, credit FROM credit_spelling ORDER BY id")}
 
 
+def index(db):
+    """`index.json`, the search list: one row per WORK, holding every record's address.
+
+    THE COLLAPSE IS ARITHMETIC AND THE IDENTITY IS THE STORE'S. `one_row_per_work` read the registry
+    to decide which records are one work, and `record.work` already carries that answer, so nothing
+    here re-decides it. What is left is the rules that follow from it, each of which the compiler
+    argued for and none of which is a judgement about identity.
+
+      THE NAME IS THE FIRST RECORD'S BY IDENTIFIER, which prefers a C-number's bare title to a
+      `madb-t-` record's ISBD line, so `School zone = スクールゾーン` never reaches the list.
+
+      THE LENGTH IS THE DISTINCT VOLUME NUMBERS THE RECORDS STATE, not their sum and not the
+      larger. MADB holds ゆるゆり as 21 volumes and as 11, overlapping, so adding them reports a
+      work as twice its length; スクールゾーン is 1 to 3 in one record and 4 and 5 in the other, so
+      the larger is 3 where the run is 5. And every volume has to state a number, or the union is
+      counting a subset and would report a work as shorter than one of its own records says.
+
+      THE DATE IS THE EARLIEST ANY RECORD STATES.
+
+    A RECORD WITH NO IDENTITY STAYS ITS OWN ROW, which cannot arise here: the store cannot hold a
+    record whose work is not a work, so the case the compiler guarded against is unstateable.
+    """
+    numbers, per_record = {}, {}
+    for rec, raw in db.execute(
+            "SELECT record, number_raw FROM volume ORDER BY record, seq"):
+        per_record.setdefault(rec, []).append(raw or "")
+
+    rows, at = [], {}
+    for rid, work, title, yomi, creator, n, label, tier, group in db.execute(
+            "SELECT id, work, title, yomi, creator, volume_count, marketing_label,"
+            " content_tier, grouping FROM record ORDER BY rowid"):
+        # `none` AND `""` ARE THIS FILE'S SPELLING OF AN ABSENCE, which is a format decision and not
+        # a fact. §5i took the word `none` out of `work_presentation` because a word standing for
+        # absence makes `label IS NOT NULL` lie; the file has always written it, so the emitter
+        # writes it back, the same way a record with no reading ships an empty `y`.
+        row = {"id": rid, "t": title, "y": yomi or "", "c": creator or "", "n": n,
+               "d": _origin_date(db, rid), "l": label or "none", "ct": tier, "g": group}
+        if work not in at:
+            row["ids"] = [rid]
+            at[work] = row
+            numbers[work] = list(per_record.get(rid) or [])
+            rows.append(row)
+            continue
+        kept = at[work]
+        kept["ids"].append(rid)
+        numbers[work] += list(per_record.get(rid) or [])
+        kept["n"] = max(kept.get("n") or 0, n or 0)
+        if row["d"] and (not kept.get("d") or row["d"] < kept["d"]):
+            kept["d"] = row["d"]
+    for work, row in at.items():
+        vols = numbers.get(work) or []
+        if len(row["ids"]) > 1 and vols and all(vols):
+            row["n"] = max(row["n"] or 0, len(set(vols)))
+
+    # THE CREDITS EACH ROW RESOLVES TO, so a search reaches a person by any spelling the registry
+    # unifies rather than only by the characters this row carries. The raw field stays in `c`: where
+    # a credit resolves to nothing it is still searched, so the join strictly gains matches.
+    #
+    # IN THE BYLINE'S ORDER AND NOT THE REGISTRY'S. The field names its people in an order somebody
+    # chose, and `credit_part` holds that division with its sequence; taking `work_credit` in row
+    # order instead reordered 217 of these lists into whatever order the identifiers were minted in.
+    named = {}
+    for record, credit in db.execute(
+            "SELECT record, credit FROM record_credit ORDER BY record, seq"):
+        named.setdefault(record, []).append(credit)
+    for row in rows:
+        if named.get(row["id"]):
+            row["ci"] = named[row["id"]]
+    return rows
+
+
+def _origin_date(db, record):
+    """The date the record states, or NULL where it states none and `""` where it states nothing.
+
+    THE TWO ABSENCES ARE DIFFERENT AND THE FILE KEEPS THEM APART. A record with a first-publication
+    block naming no date ships `null`; one with no block at all ships `""`, because the compiler
+    reads `first_publication` and then `.get("date", "")` off whatever it found.
+    """
+    got = db.execute("SELECT dated FROM work_origin WHERE record = ?", (record,)).fetchone()
+    return got[0] if got else ""
+
+
 def _slug(db, imprint_id):
     got = db.execute("SELECT slug FROM imprint WHERE id = ?", (imprint_id,)).fetchone()
     return got[0] if got else None

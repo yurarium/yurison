@@ -162,6 +162,10 @@ def served(build="data/build"):
 #: under. §5b is why those are two tables: 812 volumes state a printing and a delivery that differ,
 #: and one row per book could hold only one of them.
 STORE_ANSWERS = (
+    # §6: `index.json` IS EMITTED FROM THE STORE, one row per work with every record's address.
+    "index.json:[].id", "index.json:[].t", "index.json:[].y", "index.json:[].c",
+    "index.json:[].n", "index.json:[].d", "index.json:[].l", "index.json:[].ct",
+    "index.json:[].g", "index.json:[].ids", "index.json:[].ci",
     "index.json:id",
     "index.json:t",
     "series.json:series[].id",

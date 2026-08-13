@@ -99,6 +99,43 @@ def main(s):
     s.check(any(l.get("parent") for h in got_h["publishers"].values() for l in h["lines"]),
             "a line inside a line names its parent, including the one that resolves to no line")
 
+    # ── `feed/credit-keys.json`, WHICH IS A TABLE WRITTEN DOWN ───────────────────────────────
+    keys = BUILD / "feed" / "credit-keys.json"
+    if keys.exists():
+        s.eq(emit.as_compact(emit.credit_keys(db)),
+             emit.as_compact(json.loads(keys.read_text(encoding="utf-8"))),
+             "`feed/credit-keys.json` is `credit_spelling` and comes out of it byte for byte")
+
+    # ── `index.json`: THE COLLAPSE IS ARITHMETIC, THE IDENTITY IS THE STORE'S ────────────────
+    idx = BUILD / "index.json"
+    if idx.exists():
+        want_i = json.loads(idx.read_text(encoding="utf-8"))
+        got_i = emit.index(db)
+        # NOT BYTE EQUALITY, AND THE REASON IS WORTH MORE THAN THE ASSERTION WOULD BE. `record_credit`
+        # is the splitter's division of a creator field, and the splitter answers differently
+        # depending on the INTERPUNCT RULINGS, which `build.py` derives from the corpus at run time
+        # and holds in memory. A store built here has none, so `るいす・まくられん` divides in two
+        # where the compiler kept it whole, and 6 rows differ. docs/GAPS.md carries it.
+        s.eq(len(got_i), len(want_i), "the index holds one row per work, as the compiler wrote it")
+        s.eq([r["id"] for r in got_i], [r["id"] for r in want_i],
+             "in the same order and standing for the same records")
+        s.eq([{k: v for k, v in r.items() if k != "ci"} for r in got_i],
+             [{k: v for k, v in r.items() if k != "ci"} for r in want_i],
+             "and identical in every field but the one the splitter's rulings reach")
+        # WHAT THE COMPARISON CAUGHT. `ci` is the people the CREATOR FIELD names in ITS order, and
+        # taking `work_credit` in row order reordered 217 lists into the order identifiers were
+        # minted in. Then 17 more differed because the field has TWO divisions in this project:
+        # `credit_part` holds what a page renders a byline from and `record_credit` holds what the
+        # splitter minted against, and `index.json` resolves through the second.
+        multi = [r for r in got_i if len(r.get("ci") or []) > 2]
+        s.check(multi, "a row naming several people carries them in the field's own order")
+        s.eq([r["ci"] for r in got_i if r["id"] == multi[0]["id"]],
+             [r["ci"] for r in want_i if r["id"] == multi[0]["id"]],
+             "which is the splitter's division and not the renderer's")
+        s.check(any(len(r.get("ids") or []) > 1 for r in got_i),
+                "AND A WORK COMPILED FROM TWO RECORDS KEEPS BOTH ADDRESSES, because a collapse "
+                "that kept one would make the other unresolvable")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

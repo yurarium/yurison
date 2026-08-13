@@ -2976,3 +2976,26 @@ something ALMOST the same is a second producer with a bug. Changing what a credi
 separate change with its own reason, and it wants a decision: whether an edge recorded against a
 retired identifier follows the merge, or whether the registry should be rewritten when a merge lands
 so the edge names the survivor directly. The second is tidier and touches a file people edit by hand.
+
+## The store's division of a byline depends on rulings only build.py holds. Found 2026-08-13
+
+STORE-PLAN §6 moved `index.json` to the store and a rebuild produced 6 rows the compiler did not.
+`record_credit` holds `facts/credit.split_detail`'s division of a record's creator field, and that
+splitter answers differently depending on the INTERPUNCT RULINGS: whether `・` in a given field
+separates two people or is a character in one person's name. `くろば・Ｕ` is one artist and
+`るいす・まくられん` is two, and nothing about either string says which.
+
+`build.py` derives those rulings from the corpus at run time, hands them to `facts/credit` in
+memory, and never writes them down. `data/identity/interpunct-rulings.yaml` exists and holds
+`rulings: {}`. So a store built by the compiler has them and a store built by
+`adapters/relational/__init__.py --build` does not, and the two divide 6 records differently.
+
+**IT MATTERS MOST WHERE IT IS HARDEST TO SEE.** `equivalent()` rebuilds from source and sets the
+result beside a store that has only ever been updated, which is §7's whole check on the incremental
+path. A rebuild that divides bylines differently from the compiler will report a divergence caused by
+the rulings while somebody spends a morning looking for it in the updater.
+
+**THE FIX IS TO PERSIST WHAT IS DERIVED**, into the file that already exists for it, so both paths
+read one answer. That is a change to the build rather than to the store, so it is documented here.
+Until then `test_emit` asserts every field of `index.json` except the one the rulings reach, and
+says why.

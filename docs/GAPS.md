@@ -2914,3 +2914,38 @@ romanisation. 102 English names now rest on `romaji` with a `community-db` sourc
 ruling carried out, against a table written before it. `claims whose evidence their basis does not
 admit` counts those 102 along with 2 publisher names on `official-jp` citing the national library
 and 1 kana surface citing a platform. The composite key goes on `claim` when the number is 0.
+
+## Two pairs of works that look like one work each. Found 2026-08-13
+
+STORE-PLAN §5f found `volume_isbn` keyed on the ISBN as a STRING, so 940 of 3,371 hyphenated
+spellings sit beside 2,423 bare ones and "one ISBN is one book" is defeated by a hyphen. Normalising
+the key is that section's. What normalising REVEALS is this entry: 8 bare ISBNs reach two different
+works, and they fall into two pairs.
+
+    w01245  ゆりてつ                          w01603  ゆりてつ～私立百合ヶ咲女子高鉄道部～
+    w01463  どうしたら幼馴染♀の彼女になれますか!?   w02055  どうしたら幼馴染の彼女になれますか!?
+
+The first pair shares a credit, 松山せいじ, all four of its books, and a first publication five days
+apart. The second differs by one character and shares five books. A third work, `w01376`, holds one
+book as two volume rows.
+
+**NEITHER IS THIS PLAN'S TO DECIDE.** DEFINITIONS §4 says identity is a human judgement, declared and
+not inferred, and `data/identity/` is where a merge is recorded with its reasoning. So this is
+§9's, by the JOIN door, and what §5f contributes is the query that finds the next one.
+
+**AND IT IS THE ARGUMENT FOR THE KEY RATHER THAN A COST OF IT.** The ISBN is the only cross-work book
+identity the store has. Normalised, it stops being a spelling and becomes the best duplicate-work
+detector this project owns, which is worth more than the constraint it was adopted for.
+
+## A release id still carries the route that captured it. Found 2026-08-13
+
+`platform` is keyed on the display name because six of them arrive under two capture slugs, and the
+comment says a platform is identified by its name and not by the adapter that read it. `release.id`
+is then the platform's own id, except that it is not: the ids read `comicfuz:` and `comicfuz-free:`,
+`sundaywebry:` and `sunday_webry:` and `backfill:`, `ichicomi:` and `ichijinsha:` and
+`claim-resolved:`. Thirteen platforms carry two or three routes inside the primary key of `release`.
+
+So the adapter was taken out of `platform` and left in the key of the table that references it. One
+event captured twice by two routes would be two rows and the key would not stop it. Measured, that
+has not happened: no url appears under two routes, and `(platform, work, instalment, published)` is
+unique across all 961 rows. Recorded because the comment is false today and the cost is latent.

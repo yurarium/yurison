@@ -42,7 +42,7 @@ below moves one domain to the other side of that line.
 | | stage | needs |
 |---|---|---|
 | §1 | Measure what travels around the store | done 2026-08-13 |
-| §1a | Somewhere for what a constraint refuses | done 2026-08-13 |
+| §1a | Somewhere for what a constraint refuses | table built 2026-08-13; its producer is §5g |
 | §2 | Fill the two tables that were designed and never written | done 2026-08-13 |
 | §3 | Volumes, editions and the print run | done 2026-08-13 |
 | §4 | Releases and the per-platform offer | done 2026-08-13 |
@@ -52,6 +52,9 @@ below moves one domain to the other side of that line.
 | §5d | A name is an identity here, and it must not be | done 2026-08-13 |
 | §5c | What the store says it holds and does not | done 2026-08-13 |
 | §5e | The domains still outside the store | done 2026-08-13; the residue is §6's queue |
+| §5f | The constraints that still do not fire | first, as §5a was |
+| §5g | A row §7 can address, and a quarantine that survives | §5f |
+| §5h | A judgement belongs to the record that was judged | §5f |
 | §6 | The compiler writes the store; the JSON is emitted from it | §5e |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
@@ -753,6 +756,114 @@ remains is mostly the feed's own months, `feed/meta.json`, the interface's thres
 per-source `evidence` and `sourced_from` arrays. None of it is a modelling question of the kind
 §5a to §5e were: each is a shape to move, and §6 moves them one domain at a time as it emits.
 
+## 5f. The constraints that still do not fire
+
+**THE SAME BUG AS §5a, FOUR LINES FURTHER DOWN THE SAME FILE.** `claim`'s citation CHECK reads
+`basis <> 'stated' OR url IS NOT NULL OR isbn IS NOT NULL OR source_kind = 'derived'`. When
+`source_kind` is NULL the last disjunct is NULL, the whole expression is NULL, and a CHECK passes on
+NULL. So a `stated` claim that says nothing at all about its evidence is ADMITTED, and the same
+claim naming `national-library` is REFUSED. The constraint penalises the provenance it exists to
+demand.
+
+221 live rows are in the hole and 219 of them are mine: §5c's division branch never writes a source
+kind, so every `stated` division escapes by construction. §5a fixed this exact shape on
+`work.first_event` and wrote beside it that every comparable column omits the NULL. `coalesce(
+source_kind, '') = 'derived'` is the fix, and the 2 readings left over cite `ndlsearch.ndl.go.jp`
+with no address, which is the state the comment says cannot be checked, refreshed or argued with.
+
+**A CIRCLE CAN BE MADE UNSTATEABLE RATHER THAN COUNTED, WHICH IS THE PROJECT OWNER'S OBSERVATION AND
+IT IS RIGHT.** `aliases pointing in a circle` was written as a standing question because no CHECK
+can walk a graph, and the review then found it catches two-node cycles alone. The better answer is
+to forbid a retired row from pointing at another retired row:
+
+    retired  INTEGER GENERATED ALWAYS AS (alias_of IS NOT NULL) STORED,
+    wants    INTEGER GENERATED ALWAYS AS (CASE WHEN alias_of IS NULL THEN NULL ELSE 0 END) STORED,
+    UNIQUE (id, retired),
+    FOREIGN KEY (alias_of, wants) REFERENCES surface (id, retired)
+
+Tested on 2026-08-13: a chain is refused, a two-step circle is refused, retiring a row others point
+at is refused, and two aliases onto one canonical row are admitted, which is the real case. A cycle
+of ANY length becomes unstateable, because every row in one must be retired while every target must
+be current. 18 alias rows today, no chains, so it is free to adopt.
+
+IT FORBIDS CHAINS, WHICH IS STRONGER THAN FORBIDDING CIRCLES, and that is a rule about how a rename
+is recorded rather than only about cycles. It is the same discipline §5d had to apply by hand when
+`w01234` named a survivor that had itself been retired. `superseded` gets the property for free,
+because a retired work id is not a row in `work` at all; `alias_of` is self-referential inside one
+table and the generated column is how it says the same thing.
+
+The composite key is used once and applies five times. `names` carries `(surface, kind)` against
+`surface(id, kind)` so a title cannot name a person. `work_byline`, `credit_division`, `claim` and
+`surface.alias_of` all reference `surface(id)` with the same requirement and none of them has it: a
+title as a byline, a title divided into people, and a reading claim on a chapter label were all
+accepted. No live row violates any of them, which is when a constraint is free to adopt.
+
+**AND `volume_isbn` KEYS ON THE STRING RATHER THAN THE ISBN.** 940 of 3,371 are hyphenated and 34
+books are held under two spellings, so "one ISBN is one book" is defeated by a hyphen. Normalising
+the key turns it into the store's best duplicate-WORK detector, which it already is by accident:
+8 bare ISBNs reach two different works, and those name two pairs that look like one work each.
+Those merges are §9's, and the key is this section's.
+
+**THE SMALLER ONES, AS ONE BATCH.** Every presence constraint is satisfied by the empty string: a
+researched claim with `note = ''`, a work with `title = ''`, a ruling with `basis = ''`, all
+accepted. `identity_ruling.keeps` is a spelling and 0 of its 220 values resolve to an identifier,
+seven lines below `superseded`'s comment boasting of a real foreign key rather than a string nobody
+checks. And the footer's own example query no longer runs: §5d moved `surface.work` to the `names`
+edge and left the comment naming the column.
+
+## 5g. A row §7 can address, and a quarantine that survives
+
+**`volume` HAS NO KEY AND IT IS THE TABLE AN UPDATE TOUCHES MOST.** `delta.write` addresses a row by
+a column-to-value mapping and `volume.id` is a rowid assigned by the iteration order of
+`works.json`, with `edition` keyed on top of it. `admission` and `identity_ruling` have no unique
+index either. So the three tables §5c and §5d added can be inserted into and never updated, which is
+where §5b left `claim` and is the same argument.
+
+2,818 volumes carry no ISBN and 66 of those share a work, a position and a designation with another,
+so the answer is a key derived from the SOURCE RECORD and its ordinal rather than a UNIQUE over the
+three columns, which would refuse the reissue `volume`'s own comment cites. `count(volume)` is the
+schema's stated answer to how many volumes are held and it over-reports by 13 across 9 works, which
+is the same absence seen from the other end.
+
+**AND §1a's QUARANTINE HAS NO PRODUCER.** Nothing outside the tests passes `quarantine=True`, so
+`rows the store could not admit` reads 0 and will read 0 for ever. That is §13 with the polarity
+reversed, a register with a consumer and no producer, and STANDING-INSTRUCTIONS §4 in the same
+breath: a check whose pattern never matched anything reports clean.
+
+Worse, `create()` unlinks the file, so a rebuild ERASES the quarantine: 1 row before, 0 after,
+measured. The comment argues that being in the store rather than in a file beside it is the point,
+and a rebuild deleting it is what that argument has to answer. Either the quarantine survives a
+rebuild, and the header calling this database derived and disposable is wrong about one table, or it
+does not, and the claim buys nothing. §7 cannot start until this is settled, because the unattended
+run is the only thing that writes it.
+
+## 5h. A judgement belongs to the record that was judged
+
+**`surface` IS KEYED ON THE FOLD AND CARRIES FOUR COLUMNS THAT ARE NOT PROPERTIES OF A FOLD.**
+`verified`, `uncertain`, `ordinary` and `transliterates` describe the RECORD a person ruled on, and
+two spellings folding to one key collide on them. The loader resolves the collision by overwriting,
+so 14 `verified: true` rulings are erased.
+
+`今東ともよ` is the case to keep. The store folds `今東　ともよ`, whose reading the National Diet
+Library states and which a person verified, onto `今東ともよ`, whose reading is an analyser's and
+which nobody verified. Both readings land live, and the surface says verified 0. 84 surfaces carry a
+flag beside two or more live readings. Under STANDING-INSTRUCTIONS §6 an unverified reading is
+marked to a reader, so once §6 emits from the store this ships as marking a national library reading
+as unverified.
+
+THE FOUR DISAGREE WITH EACH OTHER ABOUT HOW TO COLLIDE. `verified` is last-writer-wins and
+`uncertain` is a sticky OR, because the loader coerces False to None so it can be set and never
+cleared. This is the fault `claim.displaced` was added to fix, solved within a record and left open
+across records, and the answer is the same one: the judgement belongs on a row keyed by the raw
+spelling, with `surface` keeping the fold and nothing else.
+
+**AND TWO THINGS THE LOADER STILL READS FROM THE WRONG FILE**, which is §5c's fault twice more.
+`visibility` is on the SERIES row, 4 rebutted and 2 marginal from `data/rebuttals.yaml`, and §5e read
+it from `works.json` where it is NULL on every row. So `work_presentation.visibility` is empty and
+its comment calls it the §13 register. And `credit_spelling` is documented as every spelling that
+reaches one person while 131 credits' own `credit.surface` is absent from it, so a consumer must
+union two tables to ask one question, which the loader does at `by_subject` and nothing else knows.
+
 ## What this plan does not adopt from the review
 
 Recorded because a rejected finding that leaves no trace is indistinguishable from one nobody read.
@@ -778,6 +889,34 @@ recorded. The question is what should compare folds, and the fix belongs in the 
 what the check forbids from reaching a subject. Forbidding it is correct: one credit line appears on
 many works and one imprint spelling reaches many houses, so a column could only ever hold the first.
 §5e carries the edge that is actually missing.
+
+**AND FROM THE SECOND REVIEW, 2026-08-13.** The same schema was reviewed again once §5a to §5e had
+landed, under a prompt identical to the first, so a finding appearing in both is one I failed to fix
+and a finding appearing only in the second is either something those sections introduced or
+something the first missed. Every figure it reported was re-measured and every one held.
+
+**`credit.kind = 'unknown'` HAVING NO ROWS IS NOT A DEFECT**, on the same reasoning that kept
+`edition.kind = 'serialisation'`: an enum member nothing has produced yet refuses nothing and
+asserts nothing false. `work_presentation.visibility` looked like a third of these and is not, which
+is why it is in §5h instead: the corpus HOLDS 6 of them and the loader reads the wrong file.
+
+**A TABLE DOES NOT OWE A DERIVATION.** The review counts sixteen tables no standing question reads
+and calls the platform side unquestioned. A derivation exists to gate a cascade and to answer
+something somebody asked; requiring one per table would mean inventing questions to satisfy a rule,
+which is how a control nobody consumes gets written in the first place. What §7 actually needs is
+that every `reads` declaration covers what an update touches, and that is §7's to establish against
+a running updater. Imposing a shape now would settle it in advance of the evidence.
+
+**`state_claim.says` AND `release.kind` STAY FREE TEXT**, for the reason §5a already gave for
+`release.kind`: their vocabularies are written in `build.py` and nowhere else, so a CHECK here would
+be a second home for them. The fix is a `facts/` module that owns each, and that is pipeline work
+under §9's boundary rather than a schema change.
+
+**AND THE SHARED PEN NAME IS LEFT UNSTATEABLE ON PURPOSE.** `credit.surface UNIQUE` and
+`credit_spelling.spelling` as a primary key both forbid two artists sharing one name, which the
+schema header gives as a reason for opaque ids. There are no collisions today and the seven
+homophone rulings are a different case. When one arrives the rebuild FAILS rather than losing data,
+which is the right failure, and the model changes then with a real row to design against.
 
 ## 6. The compiler writes the store; the JSON is emitted from it
 

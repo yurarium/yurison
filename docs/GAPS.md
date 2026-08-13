@@ -2657,3 +2657,94 @@ record. MADB files コミック百合姫 as an imprint on books rather than as a
 the shelf captures state a genre. Settling it needs a source that says `magazine`, and until there
 is one the honest position is that an untagged periodical is unmarked, which is the shape
 `categories are not advertised equally` describes: an absent tag is not evidence of absence.
+
+## A pass that exists, works, and nothing calls it. Found 2026-08-13
+
+Three passes were found in one day that were written, tested, correct, and absent from
+`adapters/stage-a.yaml` and from `update.yml`. Each ran when somebody remembered and then stopped.
+
+  `resolve.py`'s name passes. 96 works rendered in Japanese in English-only mode, 95 of them with a
+  title the platform prints in Latin that `pass0_cache` has always had a rule for.
+
+  `adapters/shopquery/capture.py` and `adapters/madb/by_shop_query.py`. 639 works had been asked by
+  hand and 52 were left; running them wrote 110 works and 465 volumes.
+
+  `adapters/openbd/enrich.py`. `volumes with an isbn and no date` is a ZERO budget and went to 1 the
+  moment printed works arrived, because an ISBN is a key into registries that state a date and
+  nobody had done the lookup. It supplied 1,936 dates.
+
+All three are wired now, and a fourth is not: `adapters/cmoa_volumes.py` (below). What has no
+guard is the CLASS. An adapter with a `main()` that no manifest names is a capability this project
+believes it has, and the belief is invisible: nothing fails, no count moves, and the number that
+would have shown it sits at whatever the last manual run left. `modules without a test` is 0 and
+proves nothing here, because the fault is not a missing test.
+
+The route is a check that reads every `main()` under `adapters/` and asks which manifest or
+workflow names it, with a list of the ones deliberately run by hand: `curate.py` is a person's tool
+and `identity --merge` is a decision. Anything else with no caller is a pass nobody runs.
+
+## コミックシーモア is asked what it shelves, never what it stocks. Found 2026-08-13
+
+WORKS-PLAN §6 fixed this for BOOK☆WALKER: `shopquery/capture.py` asks whether the shop sells a work
+this database already admits, rather than reading the shop's 百合 shelf as a candidate list. The
+same gap is open at コミックシーモア and the same fix does not transfer.
+
+`adapters/cmoa_volumes.py` reads work pages for the 1,844 works on cmoa's 百合・GL shelf and for
+nothing else, so a work cmoa stocks and files under another genre is invisible exactly as
+見える子ちゃん was on BOOK☆WALKER. The project owner found one by eye: 日常やめたらしたいこと is
+listed on cmoa with a date and an ISBN, is one of the leads `by_shop_query` reports as reaching no
+bibliography record, and is not on cmoa's yuri shelf in our data. Of the 187 creator-agreement
+leads, 33 are on that shelf, and the rest cannot be counted at all.
+
+**The search route is closed.** `by_shop_query` records why: cmoa's robots.txt disallows
+`/search/result/` under `User-agent: *`. BOOK☆WALKER's search is what §6 rides on and cmoa offers
+no permitted equivalent, so reaching a cmoa work page needs its address from somewhere else. That
+is what makes this a gap rather than a task: the obvious route is not available and the alternative
+is unidentified.
+
+## 618 ISBNs from cmoa and not one date. Found 2026-08-13
+
+`cmoa_volumes.py` states its own case for reading the page: 出版年月 "costs nothing beyond the page
+already being fetched and it is the only route that works without an ISBN". `data/queue/cmoa-volumes.yaml`
+holds 1,833 works read on 2026-08-05, 618 volumes carrying an ISBN, and **zero carrying a date**.
+
+Either those pages state no 出版年月 or nothing reads it. The second is likelier, since the shop's
+page for 日常やめたらしたいこと shows a date, and a route the module argues for and does not deliver
+is the shape STANDING-INSTRUCTIONS §13 is about. Checking it costs one cached page and a look at
+the parser; it is listed here rather than fixed because it was found at the end of a long session
+and deserves a fresh reading.
+
+`cmoa_volumes.py` is also in no manifest, which is the class above.
+
+## Leads that reach no bibliography record are counted and not listed. Found 2026-08-13
+
+`by_shop_query.py` reports 74 leads where the shop and this database agree and MADB holds nothing,
+split 34 printed against 40 digital-only on the shop's own 底本発行日. That split is the useful part:
+a hit stating a print date is a book that exists and a bibliography that is behind, and a hit
+stating none is a digital-only edition with no print run to catalogue.
+
+The list is capped at twelve, `unanswered[:12]`, and written nowhere. So 62 of the 74 are counted
+and unnamed, and the 34 printed ones in particular are leads about MADB's coverage that nobody can
+act on. `data/queue/shop-query-title-only.yaml` already exists for the 78 title-only hits, so the
+queue-file pattern is there to copy.
+
+## Six works reach us only through a GigaViewer Atom feed. Noted 2026-08-13
+
+WORKS-PLAN §3 took the works with no page from 53 to 6 by widening the ニコニコ episode-list
+worklist. The six that remain are named only in `web_releases` records, which carry episode titles
+and dates and no chapter list, so they produce feed rows and no work row.
+
+`series_feeds.py` runs for ichicomi alone, because only platforms declaring `series_pages` do work
+without `--candidates`. Reaching コミックゼノン and サンデーうぇぶり that way needs the platform
+registry extended rather than a worklist widened, which is why it was left.
+
+## Four translated editions name a base work the corpus does not hold. Noted 2026-08-13
+
+`facts/edition` matches a translated edition to the work it translates through the reading the two
+spellings share, and resolves 3 of the 7 that were unjoined. The other 4 name a Japanese title
+absent from the corpus entirely: 冷たい体温, ふたりの日記帳, 人間してる？ and 風の少女達へ, all
+あとき on アトキンソン, each printing its English on the product beside the Japanese.
+
+A join needs two ends and this has one. Whether an English edition may be the only record of a work
+is a scope question rather than a matching one; the likelier explanation is that BOOK☆WALKER sells
+the originals and nothing captured them, which is four fetches to settle.

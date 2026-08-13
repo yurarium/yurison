@@ -118,9 +118,10 @@ def served(build="data/build"):
 #: thing to keep in step with the schema, which is the fault `_input_keys` refuses in `check.py`.
 #: Each section of STORE-PLAN adds the prefixes it has modelled, so the list grows once per domain.
 #:
-#: TODAY IT IS THE IDENTITY SPINE AND NOTHING ELSE. `work`, `credit`, `work_credit`, `publisher`,
-#: `imprint` and `claim` hold rows; `edition` and `work_publisher` are in the schema with no rows in
-#: them, so nothing they would answer is claimed here. STORE-PLAN §2 is where that changes.
+#: THE SPINE, PLUS WHAT §2 FILLED. `edition` holds 6,108 rows and `work_publisher` 2,661, so a
+#: volume's ISBN, number, date and kind are answerable, and so is which house and line a work is
+#: published under. Nothing about a volume's DESIGNATION is claimed: the schema has a number and no
+#: place for `上`, `創刊号` or `2017年1月号`, which STORE-PLAN §3 is where to put right.
 STORE_ANSWERS = (
     "index.json:id",
     "index.json:t",
@@ -128,6 +129,12 @@ STORE_ANSWERS = (
     "series.json:series[].work",
     "series.json:series[].first",
     "works.json:works[].work_id",
+    "works.json:works[].publisher",
+    "works.json:works[].imprint",
+    "works.json:works[].volumes[].isbn",
+    "works.json:works[].volumes[].number_n",
+    "works.json:works[].volumes[].published",
+    "works.json:works[].volumes[].delivered",
     "credits.json:credits{}.id",
     "credits.json:credits{}.name",
     "publishers.json:publishers{}.id",

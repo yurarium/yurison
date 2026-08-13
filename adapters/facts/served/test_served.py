@@ -66,12 +66,20 @@ def main(s):
     # ── WHAT IS CLAIMED, AND WHAT THAT MEANS ──────────────────────────────────────────────────
     #
     # The declaration is prefixes rather than one entry per field, because a per-field list is a
-    # second thing to keep in step with the schema. `edition` and `work_publisher` are in the
-    # schema with no rows, so nothing they would answer may be claimed until §2 fills them.
+    # second thing to keep in step with the schema. Nothing a table cannot answer may be claimed,
+    # which is why this file changed when §2 filled `edition` and `work_publisher`.
     s.check(all(":" in c for c in served.STORE_ANSWERS),
             "every claim names the file it is a path in, since two files share path shapes")
-    s.check(not any("volumes" in c for c in served.STORE_ANSWERS),
-            "no volume field is claimed: the edition table holds no rows")
+    # §2 FILLED `edition` AND `work_publisher`, so what they answer may be claimed and is.
+    s.check(any("volumes[].isbn" in c for c in served.STORE_ANSWERS),
+            "a volume's ISBN is claimed: the edition table holds one row per volume")
+    s.check(any("works[].publisher" in c for c in served.STORE_ANSWERS),
+            "and the house a work is published under, which work_publisher now carries")
+    # WHAT IS STILL NOT CLAIMED, and each absence is a section of STORE-PLAN rather than an
+    # oversight. A designation is `上` or `創刊号` or `2017年1月号`, and `edition.volume` is an
+    # INTEGER, so the schema has nowhere to put one.
+    s.check(not any("designation" in c for c in served.STORE_ANSWERS),
+            "a volume's designation is not claimed: the column is an integer and 創刊号 is not one")
     s.check(not any("work_en" in c or "romaji" in c for c in served.STORE_ANSWERS),
             "and no rendering is claimed: the store has no table for one")
 

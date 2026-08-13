@@ -43,7 +43,7 @@ below moves one domain to the other side of that line.
 |---|---|---|
 | §1 | Measure what travels around the store | done 2026-08-13 |
 | §1a | Somewhere for what a constraint refuses | before anything refuses |
-| §2 | Fill the two tables that were designed and never written | §1 |
+| §2 | Fill the two tables that were designed and never written | done 2026-08-13 |
 | §3 | Volumes, editions and the print run | §2 |
 | §4 | Releases and the per-platform offer | §3 |
 | §5 | Renderings, which are derived from a source that stays where it is | §4 |
@@ -150,6 +150,33 @@ work.
 
 **WHAT IT PROVES.** That a domain can be added to the loader without disturbing the spine, which is
 the pattern §3 to §5 repeat at increasing size.
+
+**DONE 2026-08-13, AND THE REASON WAS THE DULL ONE.** `schema.sql` and the loader arrived in one
+commit, the loader was written for the identity spine, and nothing came back for the rest. So both
+tables carried columns, constraints and an index and had never been inserted against. No decision
+was reversed and none had been recorded.
+
+`work_publisher` holds 2,661 rows, 1,755 of them naming the line as well as the house, read off
+`publishers.json`'s own `works` list because that IS the edge; going by way of the print blocks
+would have rebuilt a join the publisher pass had already made. `edition` holds 6,108, one per
+volume, 3,290 with an ISBN and 3,672 printings against 2,436 shop deliveries.
+
+**THE LOADER WAS HIDING ITS OWN REFUSALS AND THE FIRST RUN LOOKED PERFECT.** `INSERT OR IGNORE`
+dropped 382 volumes and reported `refused 0`, because SQLite treats the conflict as handled and
+raises nothing for the loader to catch. A constraint that quietly drops a row is worse than no
+constraint, since it reads as coverage. Plain `INSERT` made the 382 visible, every one of them
+`CHECK (dated IS NULL OR cite IS NOT NULL)`.
+
+The refusals turned out to be my rule's doing. 173 of the 382 were volumes whose
+`published` equals their `delivered`, so the date IS the shop's and the shop is the citation. The
+other 209 sit under a work whose record names the page it came from: `C418820` carries
+`records: [{source: madb, url: .../id/C418820}]`, and the work_id is that page's own id. My rule
+read only the volume. Citing the record's page admits all 6,108 with none refused, and the
+constraint was never relaxed to get there.
+
+**WHAT IS STILL NOT MODELLED, and it is §3's opening.** `edition.volume` is an INTEGER, so a
+designation cannot go in it: `上`, `創刊号` and `2017年1月号` are what a volume is called and the
+schema has nowhere to put one. 983 volumes carry a designation today.
 
 ## 3. Volumes, editions and the print run
 

@@ -118,6 +118,64 @@ def main(s):
         db.execute(sql).fetchone()
     s.check(True, "every standing question is valid SQL against this schema")
 
+    # ── THE TWO TABLES §2 FILLED, AND THE CONSTRAINTS THEY BRING WITH THEM ────────────────────
+    #
+    # Both were declared with columns, constraints and an index and never written to, from the
+    # commit that created the schema until 2026-08-13. A constraint nothing has ever inserted
+    # against asserts nothing, which is the same argument this file opens with.
+    db = relational.create(":memory:")
+    db.execute("INSERT INTO work (id, title, admitted_by) VALUES ('w00001', 'x', 'shelf')")
+    db.execute("INSERT INTO publisher (id, name) VALUES ('h00001', '芳文社')")
+    db.execute("INSERT INTO imprint (publisher, name) VALUES ('h00001', 'まんがタイムKR')")
+    imp = db.execute("SELECT id FROM imprint").fetchone()[0]
+
+    # A DATE NOBODY CAN FOLLOW IS REFUSED, which is the whole of what `edition` adds. The rule is
+    # the same one `per-book dates cite their page` states for the shop capture, moved to where it
+    # cannot be reported after the fact because the row never lands.
+    try:
+        db.execute("INSERT INTO edition (work, dated, kind) VALUES ('w00001', '2018-08', 'printing')")
+        s.check(False, "a dated edition with no citation must not be accepted")
+    except sqlite3.IntegrityError:
+        s.check(True, "a date with no page behind it is refused rather than counted")
+    db.execute("INSERT INTO edition (work, dated, kind, cite) VALUES"
+               " ('w00001', '2018-08', 'printing', 'madb:M309963')")
+    s.eq(db.execute("SELECT count(*) FROM edition").fetchone()[0], 1,
+         "and the same row with a citation is admitted")
+
+    # AN EDITION OF A WORK NOBODY HOLDS. The foreign key is what makes this unstateable rather than
+    # a number somebody reads later.
+    try:
+        db.execute("INSERT INTO edition (work, kind) VALUES ('w99999', 'printing')")
+        s.check(False, "an edition may not name a work the store does not hold")
+    except sqlite3.IntegrityError:
+        s.check(True, "an edition of an unheld work is refused by the foreign key")
+
+    # ONE ISBN IS ONE BOOK.
+    db.execute("INSERT INTO edition (work, isbn, kind) VALUES ('w00001', '9784778320614', 'printing')")
+    try:
+        db.execute("INSERT INTO edition (work, isbn, kind) VALUES ('w00001', '9784778320614', 'printing')")
+        s.check(False, "two editions must not share one ISBN")
+    except sqlite3.IntegrityError:
+        s.check(True, "an ISBN already held is refused, so one ISBN is one book")
+
+    # AND THE KIND IS A CLOSED SET, so a date's meaning cannot be invented per row.
+    try:
+        db.execute("INSERT INTO edition (work, kind) VALUES ('w00001', 'guessed')")
+        s.check(False, "an edition kind outside the set must be refused")
+    except sqlite3.IntegrityError:
+        s.check(True, "printing, shop-delivery and serialisation are the only kinds there are")
+
+    # WORK TO PUBLISHER, and the imprint it is published under.
+    db.execute("INSERT INTO work_publisher (work, publisher, imprint) VALUES ('w00001','h00001',?)",
+               (imp,))
+    s.eq(db.execute("SELECT imprint FROM work_publisher").fetchone()[0], imp,
+         "a work carries the line it is published on, not merely the house")
+    try:
+        db.execute("INSERT INTO work_publisher (work, publisher) VALUES ('w00001', 'h99999')")
+        s.check(False, "a work may not be published by a house the store does not hold")
+    except sqlite3.IntegrityError:
+        s.check(True, "and a publisher nobody holds is refused by the foreign key")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

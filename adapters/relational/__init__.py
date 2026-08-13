@@ -221,6 +221,89 @@ def build(path=None):
                 f"claim {kind} {sid}")
     counts["claim"] = db.execute("SELECT count(*) FROM claim").fetchone()[0]
 
+    # ── the two tables the schema declared and nothing ever wrote ───────────────────────────────
+    #
+    # WHY THEY WERE EMPTY, established 2026-08-13 rather than assumed. `schema.sql` and this loader
+    # arrived in one commit, the loader was written for the identity spine, and nothing came back
+    # for the rest. So `edition` and `work_publisher` carried columns, constraints and an index and
+    # held no rows, which is a schema asserting something nothing had ever tested against data.
+    # STORE-PLAN §2.
+
+    # WORK TO PUBLISHER, read off `publishers.json`'s own `works` list, which IS the edge. Going by
+    # way of the print blocks would have rebuilt a join the publisher pass has already made.
+    imprint_id = {(pub, nm): i for i, pub, nm in
+                  db.execute("SELECT id, publisher, name FROM imprint")}
+    # THE IMPRINT A WORK IS PUBLISHED UNDER lives on the print block rather than on the publisher,
+    # because one house runs several lines and a work sits on one of them.
+    work_imprint = {}
+    for _k, r in _rows("series", "series"):
+        wid = r.get("id")
+        for blk in (r.get("print") or []):
+            if wid and blk.get("publisher") and blk.get("imprint"):
+                work_imprint.setdefault((wid, blk["publisher"]), blk["imprint"])
+    pub_name = {i: n for i, n in db.execute("SELECT id, name FROM publisher")}
+    for _k, r in _rows("publishers", "publishers"):
+        pid = r.get("id")
+        for wid in (r.get("works") or []):
+            imp = work_imprint.get((wid, pub_name.get(pid)))
+            put("INSERT INTO work_publisher (work, publisher, imprint) VALUES (?,?,?)",
+                (wid, pid, imprint_id.get((pid, imp))), f"work_publisher {wid}->{pid}")
+    counts["work_publisher"] = db.execute("SELECT count(*) FROM work_publisher").fetchone()[0]
+
+    # EDITIONS. `works.json` is keyed by the RECORD identifier a catalogue or a shop issued, and
+    # `edition.work` is a `w` identifier, so the print blocks supply the bridge: `work_ids` names
+    # every record a series row's run is made of.
+    of_record, shop_of = {}, {}
+    for _k, r in _rows("series", "series"):
+        wid = r.get("id")
+        for blk in (r.get("print") or []):
+            for rec in (blk.get("work_ids") or []):
+                of_record.setdefault(rec, wid)
+                if blk.get("shop_url"):
+                    shop_of.setdefault(rec, blk["shop_url"])
+    for _k, w in _rows("works", "works"):
+        wid = of_record.get(w.get("work_id"))
+        if not wid:
+            continue                          # a record no series row's run names
+        # THE PAGE THE RECORD ITSELF CAME FROM, which is where most volume dates are checkable.
+        # A volume states `madb_id` only where the bulk dataset named one per book; a volume dated
+        # by the catalogue that issued the whole record cites that record. 209 volumes were being
+        # refused as uncitable while their work carried
+        # `records: [{source: madb, url: .../id/C418820}]`, and the work_id IS that page's id.
+        of_work = next((r.get("url") for r in (w.get("records") or []) if r.get("url")), None)
+        for v in (w.get("volumes") or []):
+            # WHAT KIND OF EVENT THE DATE IS, which the schema asks for and the corpus states in
+            # which field carries it: a printing is dated by a catalogue, a delivery by a shop.
+            if v.get("published"):
+                kind, dated = "printing", v["published"]
+            elif v.get("delivered"):
+                kind, dated = "shop-delivery", v["delivered"]
+            else:
+                kind, dated = "printing", None
+            # AND WHERE A READER CAN GO AND SEE IT. `CHECK (dated IS NULL OR cite IS NOT NULL)` is
+            # the schema refusing a date nobody can check, which is the same rule
+            # `per-book dates cite their page` states for the shop capture.
+            # THE NEAREST PAGE FIRST, and each of these is somewhere a reader can go and look.
+            # The shop is last for a delivery and second to last for a printing whose date the
+            # shop is the only witness to: `published == delivered` with nothing else naming it
+            # means the date IS the shop's, and saying so is more honest than refusing it.
+            shop = shop_of.get(w.get("work_id"))
+            cite = (f"madb:{v['madb_id']}" if v.get("madb_id") else
+                    v.get("published_source") or v.get("isbn_source") or
+                    (f"openbd:{v['isbn']}" if v.get("openbd") == "present" and v.get("isbn")
+                     else None) or
+                    of_work or
+                    (shop if v.get("delivered") else None))
+            # A PLAIN INSERT, DELIBERATELY. `OR IGNORE` here swallowed 382 volumes on the first
+            # run and reported `refused 0`, because SQLite treats the conflict as handled and
+            # raises nothing for `put` to catch. A constraint that quietly drops a row is worse
+            # than no constraint: it looks like coverage. STORE-PLAN §1a is about exactly this.
+            put("INSERT INTO edition (work, isbn, volume, dated, kind, cite)"
+                " VALUES (?,?,?,?,?,?)",
+                (wid, v.get("isbn"), v.get("number_n"), dated, kind, cite),
+                f"edition {wid} {v.get('isbn') or v.get('number') or '?'}")
+    counts["edition"] = db.execute("SELECT count(*) FROM edition").fetchone()[0]
+
     db.commit()
     return db, counts, refused
 

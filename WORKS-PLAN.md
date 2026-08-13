@@ -14,7 +14,7 @@ The sections are in the order they are to be done, and each says what it needs f
 | §5 | Two capture faults on the credit field | done 2026-08-13 | 4 rows |
 | §3 | Fetch the episode lists we never asked for | code done, data withheld | 53 works |
 | §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
-| §4 | Join a translated edition to the work it translates | matcher done, merge left | 28 products, 7 unjoined |
+| §4 | Join a translated edition to the work it translates | done 2026-08-13 | 28 products, 7 unjoined |
 
 **THE NUMBERS ARE THE ORDER THEY WERE FOUND IN, and the table above is the order to do them in.**
 §3 and §6 both ADD works, which is what moved them down. A work arriving before §1 arrives unnamed,
@@ -282,10 +282,16 @@ Run against every BOOK☆WALKER record it resolves 3 and refuses 4, which is rig
 three are the kana/kanji cases and the four name a base title the corpus does not hold, so there is
 no second end to join to.
 
-**THE MERGE ITSELF IS LEFT.** Recording the joins means folding `w01932` and `w01577`, which are
-the Korean and Spanish editions standing as works of their own, into `w02056`, which already holds
-the original with its Chinese and English editions. That retires two work ids, and a retired id is
-a link a reader may already hold, so it belongs in a session with room to follow what it moves.
+**THE MERGE IS DONE, 2026-08-13, and the worry about it was unfounded.** Retiring an id was named
+here as the reason to wait, and the registry has carried the answer all along: a merged entry keeps
+`merged_into` and stays resolvable, `identity.py` says so at the top of the file, and 128 entries
+already do it. One of them, `転生王女と天才令嬢の魔法革命 【タテスク】`, is a vertical-scroll EDITION
+merged into its serialisation, which is this case exactly.
+
+`w01932` and `w01577` now carry `merged_into: w02056` with the argument beside them, so `w02056`
+holds all five records: the Japanese original, and its Chinese, English, Korean and Spanish
+editions. The 4 whose base work the corpus does not hold are untouched and stay §4's open
+question.
 
 ## 5. Two capture faults on the credit field
 

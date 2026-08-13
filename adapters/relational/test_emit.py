@@ -195,6 +195,25 @@ def main(s):
                  f"`{section}` is keyed exactly as the file is")
         s.eq(got_map, want_n, "and every entry of every section says what the compiler wrote")
 
+    # ── `series.json`: THE WORK LAYER, ON PARSED EQUALITY ─────────────────────────────────────
+    sf = BUILD / "series.json"
+    if sf.exists() and shipped_names.exists():
+        want_s = json.loads(sf.read_text(encoding="utf-8"))
+        got_s = emit.series(db, want_s["generated"])
+        s.eq(len(got_s["series"]), len(want_s["series"]), "one row per work")
+        s.eq([r["id"] for r in got_s["series"]], [r.get("id") for r in want_s["series"]],
+             "in the order the compiler wrote them")
+        s.eq(got_s["series"], want_s["series"],
+             "and every field of every row, parsed, including the keys that are always there "
+             "and sometimes null")
+        # THE ONE THING THAT CHANGED, and it is a correction. The shipped map named `w01220` as
+        # what `w01234` became and `w01220` was itself retired, so the forwarder pointed at an
+        # identifier the corpus no longer holds.
+        s.check(all(v not in got_s["merged"] for v in got_s["merged"].values()),
+                "A RETIRED IDENTIFIER RESOLVES TO A LIVE ONE, never to another retired one")
+        s.eq(got_s["thresholds"], want_s["thresholds"],
+             "and the thresholds are `facts/serialisation`'s rather than a second copy")
+
     s.check(not any(emit._entry(db, rid, sid, k, sp)
                     for rid, sid, k, sp in db.execute(
                         "SELECT id, surface, kind, spelling FROM name_record"

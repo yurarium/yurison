@@ -679,23 +679,35 @@ CREATE INDEX names_publisher ON names (publisher);
 -- not be filed as one: `build.py` says so where it assembles `en_forms`, and a romanisation has no
 -- source to cite because it is a function of the reading. One row per style, so "which names differ
 -- between the macron and the double spelling" is a query rather than a comparison of three maps.
+-- AND IT IS A FUNCTION OF THE RECORD'S OWN READING, so two records folding together do not share
+-- one. 春結千晶 is held twice, once with an analyser's ハル ケツ チアキ and once with ハルユウチアキ
+-- off the shop that sells the artist's books, and a row showing the second must not spell the first.
+-- `record` says whose it is and NULL means the fold's, which is what `feed/names.json` ships.
 CREATE TABLE romanisation (
   surface INTEGER NOT NULL REFERENCES surface(id) ON DELETE CASCADE,
+  record  INTEGER REFERENCES name_record(id) ON DELETE CASCADE,
   style   TEXT NOT NULL CHECK (style IN ('plain', 'macron', 'double')),
-  value   TEXT NOT NULL,
-  PRIMARY KEY (surface, style)
+  value   TEXT NOT NULL
 );
+
+CREATE UNIQUE INDEX romanisation_style ON romanisation (surface, coalesce(record, 0), style);
 
 -- FURIGANA, AS SPANS OVER THE SURFACE AND NOT AS A BLOB. `[["最強", "さいきょう"], [" ～", null]]`
 -- is a list of pairs in the JSON, and a list of pairs in a TEXT column is the carrier this store
 -- exists to stop being. A span with no reading is a run of the surface that takes none.
+-- AND THE SPANS ARE OVER A SPELLING, WHICH IS NOT ALWAYS THE FOLD. `仲谷 鳰` folds onto `仲谷鳰`,
+-- and furigana over the folded form reads 仲谷鳰 as one word where the spaced spelling parts it in
+-- two. A row showing the record filed under the spaced spelling has to show that record's spans, so
+-- `record` says whose they are and NULL means the fold's, which is what `feed/names.json` ships.
 CREATE TABLE ruby (
   surface INTEGER NOT NULL REFERENCES surface(id) ON DELETE CASCADE,
+  record  INTEGER REFERENCES name_record(id) ON DELETE CASCADE,
   seq     INTEGER NOT NULL,
   text    TEXT NOT NULL,
-  reading TEXT,
-  PRIMARY KEY (surface, seq)
+  reading TEXT
 );
+
+CREATE UNIQUE INDEX ruby_span ON ruby (surface, coalesce(record, 0), seq);
 
 -- HOW A CREDIT LINE DIVIDES INTO PEOPLE. `creditline._divide` owns the rule and this is where its
 -- answer lands, so the division a page draws is the division the name store is keyed on.

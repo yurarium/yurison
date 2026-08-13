@@ -28,6 +28,8 @@ from relational import delta as _delta                                  # noqa: 
 from relational import delta                                            # noqa: E402
 from facts import reading as _reading                                   # noqa: E402
 from names import provenance as _prov                                   # noqa: E402
+from names import ruby as _rubymod                                      # noqa: E402
+from facts import romanisation as _romanmod                             # noqa: E402
 
 #: HOW A ROLE PHRASE DIVIDES, which `facts/credit/splitter.ROLE_PHRASE` already writes as the
 #: separators a field puts between two jobs.
@@ -676,6 +678,34 @@ def build(path=None, quarantine=False, at=None, source=None):
                  int(bool(r.get("reading_uncertain"))), int(bool(r.get("reading_ordinary"))),
                  r.get("transliterates"), r.get("entity"), r.get("basis")),
                 f"name_record {f} {name}")
+            # AND THE SPANS IT SHOWS OVER ITS OWN SPELLING, where that is not the fold. `仲谷 鳰`
+            # folds onto `仲谷鳰` and its furigana part the name where the fold's read it as one
+            # word, so a row showing this record has to show these. `names/ruby` owns the rule and
+            # `build.py` asks the same function.
+            # EVERY RECORD, NOT ONLY THE ONES SPELLED DIFFERENTLY FROM THEIR FOLD. Storing only
+            # those left the rest falling back to the FOLD's spans, which are the winning record's,
+            # so a record that spells the name closed up showed the spaced record's parting.
+            # AND THE READING SPELT IN LATIN, which is a function of THIS record's reading:
+            # 春結千晶 is held twice, once with an analyser's ハル ケツ チアキ and once with
+            # ハルユウチアキ off the shop that sells the artist's books.
+            if r.get("reading"):
+                for _style, _value in _romanmod.styles(
+                        r["reading"], _romanmod.PERSON if surface_kind[f] == "author"
+                        else _romanmod.TITLE).items():
+                    if _value and _style in ("plain", "macron", "double"):
+                        put("INSERT OR IGNORE INTO romanisation (surface, record, style, value)"
+                            " VALUES (?,(SELECT id FROM name_record WHERE kind = ? AND"
+                            " spelling = ?),?,?)",
+                            (sid, surface_kind[f], name, _style, _value),
+                            f"romanisation {name} {_style}")
+            for _i, _span in enumerate(_rubymod.spans(
+                    name, r, surface_kind[f] == "author" and not r.get("entity")) or ()):
+                _text, _read = (list(_span) + [None, None])[:2]
+                if _text:
+                    put("INSERT OR IGNORE INTO ruby (surface, record, seq, text, reading)"
+                        " VALUES (?,(SELECT id FROM name_record WHERE kind = ? AND"
+                        " spelling = ?),?,?,?)",
+                        (sid, surface_kind[f], name, _i, _text, _read), f"ruby {name} {_i}")
             # AND THE CLAIMS BELOW BELONG TO IT, §6. Hung off the fold alone they arrived in one
             # heap wherever two spellings fold together, and the entry a reader is shown has to
             # come from one record or it contradicts itself.

@@ -35,6 +35,7 @@ from facts import script as _script                                     # noqa: 
 from facts import serialisation as _ser                                 # noqa: E402
 from names import provenance as _prov                                   # noqa: E402
 from names import fold as _fold                                         # noqa: E402
+from names import attach as _attach                                     # noqa: E402
 from names import publishers as _pubmod                                 # noqa: E402
 from facts import imprint as _impmod                                    # noqa: E402
 from facts import namekey as _namekey                                   # noqa: E402
@@ -500,6 +501,23 @@ def names(db, generated):
             "floor": _romaji(db, "floor"), "phrases": _romaji(db, "phrase")}
 
 
+def _raw(db, kind):
+    """One population's entries, keyed by the spelling each record is filed under.
+
+    THE ROW JOIN NEEDS BOTH MAPS. An exact hit on the spelling a row carries and a hit on its fold
+    are two candidates and the fuller one wins, so an emitter holding only the folded map would
+    decide that question by not being able to ask it.
+    """
+    out = {}
+    for rid, sid, k, spelling in db.execute(
+            "SELECT id, surface, kind, spelling FROM name_record WHERE kind = ? ORDER BY id",
+            (kind,)):
+        entry = _entry(db, rid, sid, k, spelling)
+        if entry:
+            out[spelling] = entry
+    return out
+
+
 def _map(db, kind):
     """One population's entries, keyed by the fold the site joins on.
 
@@ -508,14 +526,7 @@ def _map(db, kind):
     so a record whose rendering is withheld, or whose ruby its reading contradicts, has to be ranked
     on its entry.
     """
-    rendered = {}
-    for rid, sid, k, spelling in db.execute(
-            "SELECT id, surface, kind, spelling FROM name_record WHERE kind = ? ORDER BY id",
-            (kind,)):
-        entry = _entry(db, rid, sid, k, spelling)
-        if entry:
-            rendered[spelling] = entry
-    out = _fold.fold_map(rendered, _namekey.fold)[0]
+    out = _fold.fold_map(_raw(db, kind), _namekey.fold)[0]
 
     # A WITHHELD WORK'S TITLE MUST NOT SHIP EITHER. The register refuses the WORK, and this map is
     # keyed by the folded title and is published, so leaving it here would put the name and its
@@ -742,12 +753,15 @@ def _entry(db, rec_id, surface, kind, spelling):
     reading = live.get("reading")
     if reading:
         out["reading"] = reading[0]
+        # THIS RECORD'S SPANS WHERE IT HAS ITS OWN, and the fold's otherwise.
         ruby = [[text, read] for text, read in db.execute(
-            "SELECT text, reading FROM ruby WHERE surface = ? ORDER BY seq", (surface,))]
+            "SELECT text, reading FROM ruby WHERE surface = ? AND record = ? ORDER BY seq",
+            (surface, rec_id))]
         if ruby:
             out["ruby"] = ruby
         styles = {s: v for s, v in db.execute(
-            "SELECT style, value FROM romanisation WHERE surface = ?", (surface,))}
+            "SELECT style, value FROM romanisation WHERE surface = ? AND record = ?",
+            (surface, rec_id))}
         if styles:
             out["romaji"] = {k: styles[k] for k in ("macron", "double", "plain") if k in styles}
         # UNDIVIDED IS NOT A COLUMN ANYWHERE and this is why it does not need to be: it is the
@@ -843,23 +857,19 @@ SERIES_NOTE = ("Built from full chapter histories in data/source/, not from the 
                "coverage rather than in what they are.")
 
 
-def series(db, generated, names_map):
+def series(db, generated):
     """`series.json`, the WORK layer: one row per work, with the platforms it runs on.
 
     PARSED EQUALITY, like `works.json`, and for the same reason: the rows carry 30-odd key orders,
     each an artefact of which fields the compiler happened to attach to which kind of row.
 
-    `names_map` IS THE RENDERINGS THIS FILE JOINS ON, which `emit.names` produces out of the same
-    store. It is passed rather than looked up so the row and the name map cannot disagree about
-    which entry a title reaches.
-
-    THIS IS NOT FINISHED AND NOTHING CALLS IT YET, which is said here rather than left to be
-    discovered. The rows come out 3,038 long in the compiler's own order with the serialisation,
-    the state and the platform offers on them; the title, the byline, the print blocks, the
-    evidence, the state claims, the provenance and the two name renderings are modelled in the
-    store and are not read back yet. `build.py` still writes this file directly, so the domain has
-    not moved and there is one producer of it, which is the state §6 requires between two.
+    THE RENDERINGS ARE JOINED ON BY `names/attach`, the same function `build.py` asks, because a
+    row's `work_en` is not a lookup: two candidate records are weighed and a byline naming several
+    people is composed from them. A copy of that rule here would be the one that disagrees.
     """
+    titles_raw, authors_raw = _raw(db, "title"), _raw(db, "author")
+    titles_folded = _fold.fold_map(titles_raw, _namekey.fold)[0]
+    authors_folded = _fold.fold_map(authors_raw, _namekey.fold)[0]
     rows = []
     for (wid, chapters, stated, latest, latest_ep, first, oneshot, inferred, collection,
          series_url, offer_id) in db.execute(
@@ -895,9 +905,11 @@ def series(db, generated, names_map):
             row["chapters_stated"] = stated
         if inferred:
             row["oneshot_inferred"] = True
-        if state[4] is not None:
+        # A KEY THAT IS ALWAYS THERE AND SOMETIMES NULL, which is what the two row paths write and
+        # is not the same as a key that is absent: a work with a serialisation is ASKED whether its
+        # ending has a reason in Japanese and answers no, and a print-only row is never asked.
+        if sources:
             row["completed_basis_ja"] = state[4]
-        if state[2] is not None:
             row["state_basis_ja"] = state[2]
 
         title, first_event, ident = db.execute(
@@ -920,6 +932,8 @@ def series(db, generated, names_map):
         nxt = db.execute(
             "SELECT platform, cadence, next_update, next_update_undecided, next_from_cadence"
             " FROM stated_next WHERE work = ?", (wid,)).fetchone()
+        if sources:
+            row["stated_next"] = None
         if nxt:
             block = {}
             if nxt[2] is not None:
@@ -954,6 +968,8 @@ def series(db, generated, names_map):
         # A SHOP'S COMPLETION CLAIM RIDES ONLY WHERE NOTHING ELSE SPEAKS. Where a serialisation is
         # watched, the platform decides the state and a shop marking the run 完結 is a disagreement
         # counted elsewhere rather than a fact about the row.
+        if not sources:
+            row["completed_claim"] = None
         for block in (blocks if not sources else []):
             got = db.execute(
                 "SELECT source, volumes, retrieved, provenance FROM volume_claim WHERE record = ?",
@@ -976,6 +992,12 @@ def series(db, generated, names_map):
         if events:
             row["latest_any"], row["latest_any_kind"] = max(
                 events, key=lambda dk: (str(dk[0])[:7], str(dk[0])))
+        got = _attach.title(title, titles_raw, titles_folded, _namekey.fold)
+        if got:
+            row["work_en"] = got
+        got = _attach.author(row["author"], authors_raw, authors_folded, _namekey.fold)
+        if got:
+            row["author_en"] = got
         rows.append(row)
     return {"series": rows, "generated": generated, "note": SERIES_NOTE,
             "credence": {k: v for k, v in db.execute(

@@ -46,6 +46,7 @@ import bylines as _bylines  # noqa: E402
 from classify import credence  # noqa: E402
 from names import fold as _foldmod  # noqa: E402
 from names import attach as _attach  # noqa: E402
+from names import ruby as _rubymod  # noqa: E402
 from recon import bookwalker_volumes  # noqa: E402
 import delivery  # noqa: E402
 from facts import script as _script                                     # noqa: E402
@@ -2215,34 +2216,11 @@ def load_names():
             # So stored spans are used only when they reconstruct the stored reading. Otherwise the
             # reading wins, because it is the thing other passes corroborate and the thing the
             # romanisation is built from, and the ruby is re-derived from it.
-            sp = rec.get("furigana_spans")
-            if sp and not _kana.ruby_spells(sp, rd):
-                sp = None
-            if not sp:
-                # The reading keeps its spaces. Where the surface is spaced the same way they are
-                # the boundary, and align() strips them itself when they are not.
-                got = _kana.align(k_ja, rd)
-                if got:
-                    sp = [[t, _kana.to_hiragana(x) if x else None] for t, x in got]
-            # THE UNIT OF RUBY IS THE WORD, AND THE ANALYSER IS WHAT KNOWS WHERE WORDS ARE.
-            # 927e141 cut every run it could into one span per character, citing JIS X 4051's
-            # preference for jukugo-ruby over group-ruby, and what it emitted was neither: app.js
-            # wraps each span in its own <ruby>, so 総選挙 arrived as three independent ruby units
-            # that break and space apart. Jukugo-ruby keeps the compound as ONE unit and
-            # distributes the reading inside it; splitting it into separate elements is mono-ruby,
-            # which those rules distinguish and do not prefer for a compound.
-            #
-            # AND THE SPLIT WAS A CLAIM NOBODY MADE. The analyser said 総選挙 is one word read
-            # ソウセンキョ. そう over 総 and きょ over 挙 came from a table of per-character
-            # readings the analyser never consulted, accepted whenever it found exactly one way to
-            # cut the reading, which is uniqueness and not evidence. Reported by the project owner
-            # on 2026-08-10 against 鮮血王女 and 私の女神が今日も推せる【単話版】 as well.
-            #
-            # 1,622 of 3,212 records with spans held at least one atomised run, 2,402 runs in all.
-            # A sibling record escaped only by accident: 総選挙4位 held a digit, so no partition
-            # existed and the run stayed whole, which is why one row read correctly and the next
-            # did not.
-            if sp and any(x[1] for x in sp) and not _guessed_person:
+            # ASKED OF `names/ruby`, which owns what furigana a record shows and over which
+            # spelling. §6 needs the store to reach the same answer: a row shows the record filed
+            # under the spelling it carries, and `仲谷 鳰` parts the name where `仲谷鳰` does not.
+            sp = _rubymod.spans(k_ja, rec, is_person)
+            if sp:
                 out["ruby"] = sp
             # Personal names take particles=False — と in a name is 都 or 斗, never the particle.
             # latinise here too. It was applied to `en` and not to the romanisations, so a title
@@ -7308,21 +7286,17 @@ def main():
             if _e3.get("merged_into"):
                 _merged[str(_e3["id"])] = str(_e3["merged_into"])
 
-    (out / "series.json").write_text(json.dumps(
-        {"series": series_rows,
-         "merged": _merged,
-         "generated": str(_today),
-         # WHERE EACH EVIDENCE RANK CAME FROM, once per file rather than once per row. Every
-         # `evidence` row names its kind and its rank; this says which clause of DEFINITIONS and
-         # REQUIREMENTS put that kind where it is. Nothing renders it, and it is published because
-         # a reader of the data should be able to check the ordering against the documents.
-         "credence": credence.RULE,
-         "note": "Built from full chapter histories in data/source/, not from the 60-day feed "
-                 "window. One row per WORK; its platforms are listed as sources, because they "
-                 "differ in coverage rather than in what they are.",
-         "thresholds": {"active": "latest chapter within 45 days",
-                        "slow": "within a year", "dormant": "older than a year"}},
-        ensure_ascii=False, indent=1, default=jsonable))
+    # ── the works list, out of the store ─────────────────────────────────────────────────────
+    #
+    # EVERY FIELD OF EVERY ROW COMES BACK OUT OF THE TABLES, on parsed equality: the rows carry some
+    # thirty key orders, each an artefact of which fields the compiler attached to which kind of
+    # row, so asserting them would assert the order rather than the data. `test_emit.py` compares
+    # all 3,038 against what this used to write.
+    #
+    # THE ONE THING THAT CHANGED IS A FORWARDER. The merge map here named `w01220` as what `w01234`
+    # became, and `w01220` was itself retired, so a reader following that address landed on an
+    # identifier the corpus no longer holds. `superseded` resolves the chain before it stores it.
+    (out / "series.json").write_text(_emit.as_text(_emit.series(_store_db, str(_today))))
     _st = Counter(r["state"] for r in series_rows)
     if shelf_cited:
         print(f"shelf citations : {shelf_cited} comparator entries cite the shelf the claim is on, "

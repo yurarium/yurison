@@ -268,7 +268,30 @@ STORE_ANSWERS = (
     "feed/names.json:phrases", "feed/names.json:phrases{}",
     # §5d: THE MERGE MAP. A retired identifier and what absorbed it, which `superseded` holds and
     # which the anchor constraint needs before it can say one address reaches one work.
-    "series.json:merged",
+    "series.json:merged", "series.json:merged{}",
+    # §6: `series.json` IS EMITTED FROM THE STORE as of 2026-08-13, so every path in it is answered
+    # by definition: the file is what the tables say. The paths stay listed rather than the file
+    # being excluded, because the measure asks what the SITE is served and the answer has to keep
+    # being true.
+    "series.json:generated", "series.json:note", "series.json:credence",
+    "series.json:thresholds", "series.json:series",
+    "series.json:series[].chapters", "series.json:series[].chapters_stated",
+    "series.json:series[].collection", "series.json:series[].completed_basis_ja",
+    "series.json:series[].credits", "series.json:series[].evidence",
+    "series.json:series[].free", "series.json:series[].free_timed",
+    "series.json:series[].latest", "series.json:series[].latest_any",
+    "series.json:series[].latest_any_kind", "series.json:series[].latest_ep",
+    "series.json:series[].oneshot", "series.json:series[].partial",
+    "series.json:series[].priced", "series.json:series[].series_url",
+    "series.json:series[].skipped", "series.json:series[].sourced_from",
+    "series.json:series[].sources", "series.json:series[].state_basis_ja",
+    "series.json:series[].stated_next", "series.json:series[].url",
+    "series.json:series[].credits[]", "series.json:series[].evidence[]",
+    "series.json:series[].sourced_from[]", "series.json:series[].sources[]",
+    "series.json:series[].state_claims[]",
+    "series.json:series[].stated_next.cadence", "series.json:series[].stated_next.platform",
+    "series.json:series[].stated_next.next_update",
+    "series.json:series[].stated_next.next_update_undecided",
     "credits.json:merged",
     "publishers.json:merged",
     "series.json:series[].work_en",

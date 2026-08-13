@@ -1133,7 +1133,29 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   release row's own reasoning: `basis`, `why`, `conf`, `provenance`, `kind_basis`, the `ahead_*`
   block and the access-mode history.
 
-  `series.json`'s WEB HALF IS MODELLED AS OF 2026-08-13, which leaves the print half it already had.
+  `series.json` MOVED 2026-08-13, ON PARSED EQUALITY: all 3,038 rows, every field, including the
+  keys that are always there and sometimes null, which is a distinction the two row paths make and
+  an emitter can get wrong in both directions. A work with a serialisation is ASKED whether its
+  ending has a reason in Japanese and answers no; a print-only row is never asked.
+
+  IT CHANGED ONE THING AND THAT IS A CORRECTION. The merge map named `w01220` as what `w01234`
+  became, and `w01220` was itself retired, so a reader following that forwarder landed on an
+  identifier the corpus no longer holds. `superseded` resolves the chain before it stores it, which
+  is what §5d had to do by hand before a foreign key would accept the row.
+
+  THE ROW'S RENDERINGS COST TWO MODULES AND BOTH WERE ONE FACT WITH TWO PRODUCERS WAITING TO HAPPEN.
+  `names/attach` is the join: a row's `work_en` is not a lookup, since two candidate records are
+  weighed, an edition takes the plain title's English, and a byline naming several people is
+  composed from them. `names/ruby` is the furigana, which is a function of the reading AND of the
+  spelling it sits over, so `仲谷 鳰` parts the name where `仲谷鳰` reads it as one word. Both are
+  asked by `build.py` and by the emitter now.
+
+  AND A RENDERING BELONGS TO A RECORD, not to the fold. `ruby` and `romanisation` were keyed by
+  surface, so 78 rows showed the winning record's spans and spellings over a different record's
+  name: 春結千晶 is held twice, once with an analyser's ハル ケツ チアキ and once with ハルユウチアキ
+  off the shop that sells the artist's books, and the row showing the second spelled the first.
+
+  `series.json`'s WEB HALF WAS MODELLED FIRST, which leaves the print half it already had.
   `serialisation` is one row per work over the offers below it: the counts and the address a row
   SHOWS are the chosen offer's and are read through `offer`, and what is here is what the compiler
   decided, which platform speaks for the work and how long the run demonstrably is. All 3,038 rows,

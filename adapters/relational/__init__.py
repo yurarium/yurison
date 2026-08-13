@@ -1024,11 +1024,12 @@ def build(path=None, quarantine=False, at=None, source=None):
                 fv = (v.get("final_volume_basis")
                       if isinstance(v.get("final_volume_basis"), dict) else {})
                 if not put("INSERT INTO volume (work, record, seq, volume, designation, number_raw,"
-                           " openbd, cover_url, final_volume, final_source, final_provenance,"
-                           " final_volumes, final_retrieved)"
-                           " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                           " openbd, openbd_date, madb_id, isbn_source, cover_url, final_volume,"
+                           " final_source, final_provenance, final_volumes, final_retrieved)"
+                           " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                            (wid, w.get("work_id"), seq, v.get("number_n"), designation,
-                            v.get("number"), v.get("openbd"), v.get("cover_url"),
+                            v.get("number"), v.get("openbd"), v.get("published_openbd"),
+                            v.get("madb_id"), v.get("isbn_source"), v.get("cover_url"),
                             int(bool(v.get("final_volume"))), fv.get("source"),
                             fv.get("provenance"), fv.get("volumes"), fv.get("retrieved")),
                            f"volume {wid} {isbns[0] if isbns else designation or '?'}"):
@@ -1132,15 +1133,25 @@ def build(path=None, quarantine=False, at=None, source=None):
                 (wid, w.get("work_id"), n, claimed.get("source"), claimed.get("provenance"),
                  claimed.get("retrieved")), f"volume_claim {wid}")
         # THE RECORD ITSELF, which is the layer `works.json` is written at.
-        put("INSERT INTO record (id, work, title, yomi, creator, creator_folded, creator_basis,"
-            " volume_count, grouping, content_tier, marketing_label, shop_url, periodical)"
-            " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        put("INSERT INTO record (id, work, title, yomi, title_en, title_en_basis, creator,"
+            " creator_folded, creator_basis,"
+            " volume_count, grouping, content_tier, marketing_label, shop_url, periodical,"
+            " label_source, label_url, label_retrieved, label_note,"
+            " publisher_raw, imprint_raw, distributor)"
+            " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (w.get("work_id"), wid, (w.get("title") or {}).get("ja") or "",
-             (w.get("title") or {}).get("yomi"), w.get("creator"),
+             (w.get("title") or {}).get("yomi"), (w.get("title") or {}).get("en"),
+             (w.get("title") or {}).get("en_basis"), w.get("creator"),
              _namekey.fold(w.get("creator") or "") or None, w.get("creator_basis"),
              w.get("volume_count"), w.get("grouping"), w.get("content_tier"),
              w.get("marketing_label") if w.get("marketing_label") != "none" else None,
-             w.get("shop_url"), int(bool(w.get("periodical")))), f"record {w.get('work_id')}")
+             w.get("shop_url"), int(bool(w.get("periodical"))),
+             (w.get("marketing_label_basis") or {}).get("source"),
+             (w.get("marketing_label_basis") or {}).get("url"),
+             (w.get("marketing_label_basis") or {}).get("retrieved"),
+             (w.get("marketing_label_basis") or {}).get("note"),
+             w.get("publisher"), w.get("imprint"), w.get("distributor")),
+            f"record {w.get('work_id')}")
         # THE PEOPLE THE FIELD NAMES, IN ITS ORDER, resolved through the spelling map. The splitter
         # is asked here so no consumer needs one, which is what `index.json` used to do inline.
         _seen_cid, _n = set(), 0
@@ -1159,12 +1170,13 @@ def build(path=None, quarantine=False, at=None, source=None):
         fp = w.get("first_publication") if isinstance(w.get("first_publication"), dict) else {}
         if fp:
             put("INSERT INTO work_origin (record, work, dated, date_source, date_basis, venue,"
-                " venue_type, country, country_basis, country_note, note)"
-                " VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                " venue_type, country, country_basis, country_note, note, date_event,"
+                " date_followup, date_silence) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 (w.get("work_id"), wid,
                  fp.get("date"), fp.get("date_source"), fp.get("date_basis"), fp.get("venue"),
                  fp.get("venue_type"), fp.get("country"), fp.get("country_basis"),
-                 fp.get("country_note"), fp.get("note")), f"work_origin {wid}")
+                 fp.get("country_note"), fp.get("note"), fp.get("date_event"),
+                 fp.get("date_followup"), fp.get("date_silence")), f"work_origin {wid}")
         # THE RECORD LAYER AGAIN: two catalogue records of one work each name their own sources.
         for rec in (w.get("records") or []):
             if isinstance(rec, dict) and rec.get("source"):

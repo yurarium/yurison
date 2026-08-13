@@ -793,8 +793,13 @@ CREATE TABLE volume (
   designation  TEXT,
   -- WHAT THE CATALOGUE CALLED IT, `vol.6`, beside the integer position read out of it.
   number_raw   TEXT,
-  -- WHETHER openBD HOLDS A REGISTRATION FOR IT, which is how a volume's ISBN reached a date.
+  -- WHETHER openBD HOLDS A REGISTRATION FOR IT, which is how a volume's ISBN reached a date, and
+  -- the date it gave where that is what the row shows.
   openbd       TEXT,
+  openbd_date  TEXT,
+  -- THE BIBLIOGRAPHY'S OWN IDENTIFIER FOR THE BOOK, and where the ISBN was read from.
+  madb_id      TEXT,
+  isbn_source  TEXT,
   cover_url    TEXT,
   -- THE LAST VOLUME, AND WHO SAYS SO. A shop stating a completed run is a claim like any other, so
   -- it carries its source, how it was arrived at, and the count it stated.
@@ -889,6 +894,10 @@ CREATE TABLE record (
   work         TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   title        TEXT NOT NULL,
   yomi         TEXT,
+  -- THE ENGLISH THE RECORD ITSELF CARRIES, on 59 of them, which is a catalogue transcribing a
+  -- parallel title rather than the rendering `claim` holds for the name.
+  title_en     TEXT,
+  title_en_basis TEXT,
   creator      TEXT,
   -- THE FIELD'S OWN FOLD, so the division `credit_part` holds for it can be joined without a
   -- caller doing the folding. `index.json` names a row's people in the order the FIELD wrote them.
@@ -901,6 +910,16 @@ CREATE TABLE record (
   -- `work_presentation` carries: one catalogue applies the publisher's yuri label and another
   -- states none for the same book, and `index.json` ships the record's own answer.
   marketing_label TEXT CHECK (marketing_label IS NULL OR marketing_label <> 'none'),
+  -- AND HOW THAT LABEL WAS ARRIVED AT, per record for the same reason the label is.
+  label_source    TEXT,
+  label_url       TEXT,
+  label_retrieved TEXT CHECK (label_retrieved IS NULL OR label_retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  label_note      TEXT,
+  -- THE HOUSE AND LINE AS THIS RECORD WROTE THEM. `print_row` carries the same strings for the
+  -- 2,512 records a series row's run names; these 2,574 include the ones no run does.
+  publisher_raw   TEXT,
+  imprint_raw     TEXT,
+  distributor     TEXT,
   shop_url     TEXT,
   periodical   INTEGER NOT NULL DEFAULT 0 CHECK (periodical IN (0, 1))
 );
@@ -944,7 +963,12 @@ CREATE TABLE work_origin (
   country      TEXT,
   country_basis TEXT,
   country_note TEXT,
-  note         TEXT
+  note         TEXT,
+  -- WHAT THE DATE IS A DATE OF, and what the row does about the silence after it. 1,124 records
+  -- carry these: the event the date names, whether anything followed it, and how long nothing has.
+  date_event   TEXT,
+  date_followup TEXT,
+  date_silence TEXT
 );
 
 -- THE CATALOGUE RECORDS A WORK WAS COMPILED FROM, with the page each was read at and when. This is

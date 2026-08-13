@@ -185,6 +185,12 @@ STORE_ANSWERS = (
     "series.json:series[].author",
     "works.json:works[].marketing_label",
     "works.json:works[].marketing_label_basis",
+    # §6: every field of `works.json` is modelled as of 2026-08-13. The file is not yet emitted
+    # from the store, which is what the section still owes it, and the reason is in STORE-PLAN.
+    "works.json:count", "works.json:works",
+    "works.json:works[].title", "works.json:works[].creator", "works.json:works[].grouping",
+    "works.json:works[].sources", "works.json:works[].records", "works.json:works[].volumes",
+    "works.json:works[].admitted_by",
     "works.json:works[].work_id",
     # §5c: the grounds a work was admitted on, and what a source says its run is.
     "works.json:works[].admitted_by",

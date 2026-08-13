@@ -464,6 +464,31 @@ def main(s):
     _refuses(s, db, "INSERT INTO volume (work, record, seq) VALUES ('w00001','C000900',0)", (),
              "so one record cannot state the same position twice")
 
+    # ── §6: A PRINT ROW IS A CATALOGUE RECORD AS A SHELF WOULD COUNT IT ───────────────────────
+    #
+    # A work carrying two editions under one line is TWO rows and ONE work, which is why a house's
+    # `rows` and its `works` are different numbers on a publisher page.
+    db.execute("INSERT INTO publisher (id, name) VALUES ('h00009','芳文社')")
+    db.execute("INSERT INTO print_row (work, record, publisher, imprint_raw, volumes) VALUES"
+               " ('w00001','C100','h00009','まんがタイムKRコミックス',6)")
+    db.execute("INSERT INTO print_row (work, record, publisher, imprint_raw, volumes) VALUES"
+               " ('w00001','C101','h00009','まんがタイムKRコミックス',4)")
+    s.eq(db.execute("SELECT count(*) FROM print_row WHERE work='w00001'").fetchone()[0], 2,
+         "one work is two print rows where two records describe it")
+    _refuses(s, db, "INSERT INTO print_row (work, record) VALUES ('w00002','C100')", (),
+             "and one catalogue record is one row, which is the key §7 addresses it by")
+
+    # THE SPELLING AS CATALOGUED IS KEPT, because the census measures which years a spelling covers
+    # and can only do that from what the rows actually say.
+    s.eq(db.execute("SELECT imprint_raw FROM print_row WHERE record='C100'").fetchone()[0],
+         "まんがタイムKRコミックス", "the imprint is held as the catalogue wrote it")
+    pid = db.execute("SELECT id FROM print_row WHERE record='C100'").fetchone()[0]
+    db.execute("INSERT INTO print_row_record (print_row, record) VALUES (?,'C100')", (pid,))
+    db.execute("INSERT INTO print_row_record (print_row, record) VALUES (?,'bw-9')", (pid,))
+    s.eq(db.execute("SELECT count(*) FROM print_row_record WHERE print_row = ?", (pid,))
+         .fetchone()[0], 2,
+         "and every record folded into a row stays resolvable, which is what `work_ids` is for")
+
     # ── §5j: A VOCABULARY WITH ONE HOME, AND A KEY INTO IT ────────────────────────────────────
     #
     # EACH OF THESE WAS FREE TEXT. A CHECK written in the schema would have been a SECOND home for

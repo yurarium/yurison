@@ -168,6 +168,12 @@ STORE_ANSWERS = (
     "series.json:series[].work",
     "series.json:series[].first",
     # §5e: whether a work is running, and on whose word.
+    # §6: the print rows a run is made of, which `publishers.json` and this file both count.
+    "series.json:series[].print", "series.json:series[].print[].work_id",
+    "series.json:series[].print[].work_ids", "series.json:series[].print[].publisher",
+    "series.json:series[].print[].imprint", "series.json:series[].print[].label",
+    "series.json:series[].print[].first", "series.json:series[].print[].last",
+    "series.json:series[].print[].volumes", "series.json:series[].print[].shop_url",
     "series.json:series[].state",
     "series.json:series[].state_basis",
     "series.json:series[].state_claims",

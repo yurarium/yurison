@@ -843,6 +843,49 @@ CREATE TABLE edition (
 
 CREATE INDEX edition_volume ON edition (volume, kind);
 
+-- ── the print rows a work's run is made of ─────────────────────────────────────────────────────
+--
+-- A PRINT ROW IS A CATALOGUE RECORD AS A SHELF WOULD COUNT IT, which is what `publishers.json` and
+-- the print half of `series.json` are both counting. A work carrying two editions under one line is
+-- TWO rows and one work, which is why a house's `rows` and its `works` are different numbers and
+-- say so by being named differently.
+--
+-- THE IMPRINT IS THE SPELLING AS CATALOGUED, not the line it resolves to. `facts/imprint.census`
+-- decides which line a spelling names and measures the years each covers, and it can only do that
+-- from the spellings the rows actually carry: `Yuri-hime comics`, `Yurihime comics` and
+-- `IDコミックス　／　Yurihime comics` are one line written three ways and three rows' worth of
+-- evidence about which years it was used in.
+CREATE TABLE print_row (
+  id          INTEGER PRIMARY KEY,
+  work        TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  -- THE CATALOGUE RECORD THIS ROW STANDS FOR, and the key §7 addresses it by. `work_ids` names
+  -- every record folded into it, which is `print_row_record` below.
+  record      TEXT NOT NULL UNIQUE,
+  publisher   TEXT REFERENCES publisher(id) ON DELETE SET NULL,
+  -- AS THE CATALOGUE WROTE THEM. `publisher` above is what the spelling resolved to, and these are
+  -- what it said, because the census is about the spellings and not about the resolution.
+  publisher_raw TEXT,
+  imprint_raw   TEXT,
+  distributor   TEXT,
+  label       TEXT,
+  first       TEXT CHECK (first IS NULL OR first GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR first GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  last        TEXT CHECK (last IS NULL OR last GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR last GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  volumes     INTEGER CHECK (volumes IS NULL OR volumes >= 0),
+  shop_url    TEXT,
+  delivered_from TEXT,
+  periodical  INTEGER NOT NULL DEFAULT 0 CHECK (periodical IN (0, 1))
+);
+
+CREATE INDEX print_row_work ON print_row (work);
+
+-- EVERY CATALOGUE RECORD FOLDED INTO ONE ROW. `work_ids` on the block, which is how a run built
+-- from several records keeps every address resolvable.
+CREATE TABLE print_row_record (
+  print_row INTEGER NOT NULL REFERENCES print_row(id) ON DELETE CASCADE,
+  record    TEXT NOT NULL,
+  PRIMARY KEY (print_row, record)
+);
+
 -- ── what a platform offers, and what it published ──────────────────────────────────────────────
 --
 -- A PLATFORM IS IDENTIFIED BY ITS NAME AND NOT BY THE ADAPTER THAT READ IT. `plat` on a release is

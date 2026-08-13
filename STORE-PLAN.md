@@ -58,7 +58,7 @@ below moves one domain to the other side of that line.
 | §5i | A column that means two things | done 2026-08-13 |
 | §5j | A vocabulary with one home, and a key into it | done 2026-08-13 |
 | §5k | A date says it is a date | done 2026-08-13 |
-| §6 | The compiler writes the store; the JSON is emitted from it | mechanism done 2026-08-13; per domain, `credits.json` moved |
+| §6 | The compiler writes the store; the JSON is emitted from it | mechanism done 2026-08-13; `credits.json` moved, print rows modelled |
 | §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
@@ -1097,10 +1097,18 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
 
 **WHAT EACH REMAINING DOMAIN NEEDS**, which is the queue and is 357 paths.
 
-  `publishers.json` and the print half of `series.json` want the same thing, a table of PRINT ROWS:
-  a work, a house, the imprint spelling as catalogued, the label, the span and the volume count.
-  `facts/imprint.census` measures the years each spelling covers off those rows, and a house's
-  `rows` and a line's `rows` are counts of them. Neither file can be emitted until they are held.
+  `publishers.json` and the print half of `series.json` want the same thing, a table of PRINT ROWS,
+  and `print_row` holds all 2,512 of them as of 2026-08-13: a work, a house, the imprint spelling as
+  catalogued, the label, the span, the volume count, and every catalogue record folded into the row.
+  The 10 print paths on a series row are answered from it.
+
+  WHAT `publishers.json` STILL NEEDS IS THE JUDGEMENT'S ANSWER RATHER THAN ITS INPUTS.
+  `publisher_identity.houses` decides which LINE a catalogued spelling names and
+  `facts/imprint.census` measures the years each covers, and an emitter recomputing either would be
+  the second implementation §3 refuses. So the store has to hold what those two decided, a resolved
+  line on each print row and a spelling census beside each line, and then the file is an aggregation
+  with no judgement left in it. That is the shape §3 states for the whole plan: the judgement stays
+  in the compiler and what moves is where the answer is written.
 
   `feed/current.json` and the archived months carry a RENDERING per row, `work_en` and `author_en`,
   which the store already answers and which the feed holds a copy of. What is not modelled is the

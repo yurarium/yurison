@@ -827,6 +827,33 @@ def build(path=None, quarantine=False, at=None, source=None):
                 (wid, pid, _imprint(pid, imp)), f"work_publisher {wid}->{pid}")
     counts["work_publisher"] = db.execute("SELECT count(*) FROM work_publisher").fetchone()[0]
 
+    # ── the print rows a run is made of, §6 ─────────────────────────────────────────────────────
+    #
+    # `publishers.json` AND THE PRINT HALF OF `series.json` BOTH WAIT ON THESE. A house's row count
+    # and a line's are counts of these rows, and `facts/imprint.census` measures the years a
+    # spelling covers from them, so neither file can be emitted while they are only in the JSON.
+    pub_id = {n: i for i, n in db.execute("SELECT id, name FROM publisher")}
+    for _k, r in _rows("series", "series", source):
+        wid = r.get("id")
+        for blk in (r.get("print") or []):
+            rec = blk.get("work_id")
+            if not wid or not rec:
+                continue
+            if not put("INSERT INTO print_row (work, record, publisher, publisher_raw,"
+                       " imprint_raw, distributor, label, first, last, volumes, shop_url,"
+                       " delivered_from, periodical) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                       (wid, rec, pub_id.get(blk.get("publisher")), blk.get("publisher"),
+                        blk.get("imprint"), blk.get("distributor"), blk.get("label"),
+                        blk.get("first"), blk.get("last"), blk.get("volumes"),
+                        blk.get("shop_url"), blk.get("delivered_from"),
+                        int(bool(blk.get("periodical")))), f"print_row {rec}"):
+                continue
+            pid = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+            for other in (blk.get("work_ids") or [rec]):
+                put("INSERT OR IGNORE INTO print_row_record (print_row, record) VALUES (?,?)",
+                    (pid, other), f"print record {other}")
+    counts["print_row"] = db.execute("SELECT count(*) FROM print_row").fetchone()[0]
+
     # ── whether a work is running, and the byline it prints, §5e ────────────────────────────────
     for _k, r in _rows("series", "series", source):
         wid = r.get("id")

@@ -61,6 +61,20 @@ def main(s):
     s.check(any(v.get("kind") for v in got["credits"].values()),
             "and the registry's finer word for what a credit is, which `shape` cannot carry")
 
+    # ── A DOMAIN MAY NOT BE ITS OWN INPUT, WHICH BYTE EQUALITY CANNOT SEE ─────────────────────
+    #
+    # The store's credit tables were loaded from `credits.json`, the file this emits. Comparing
+    # against a file still on disk proved the emitter and said nothing about where its input came
+    # from, so a clean checkout built empty and emitted empty. CI found that; the second time, the
+    # merge map alone was still being read from the file and every retired credit address lost its
+    # forwarder. This is the assertion that catches both without deleting anything.
+    s.check(source and "credits" not in source,
+            "the store is built from the compiler's rows with no `credits.json` among them")
+    s.check(got["merged"], "A RETIRED IDENTIFIER STILL RESOLVES, which is what a forwarder needs "
+                           "and what an empty merge map silently removed from the site")
+    s.eq(got["merged"], want["merged"],
+         "and the map is the registry's, which is where a merge is actually recorded")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

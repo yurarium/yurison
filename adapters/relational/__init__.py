@@ -368,14 +368,25 @@ def build(path=None, quarantine=False, at=None, source=None):
     # spellings that reach a person, the addresses that reach a work, and the rulings behind both.
     # THE MERGE MAP FIRST, because an anchor may still name a retired identifier and one address
     # reaching two works would refuse. `merged` is a map from the retired id to its survivor.
+    # FROM THE REGISTRY, NOT FROM THE FILE THIS STORE EMITS. The credit half read
+    # `data/build/credits.json`, which §6 moved to `emit.credits`, so on the run after that file was
+    # deleted the merge map came back EMPTY and `pages.forwarders` removed the stub at every retired
+    # credit address. An address published once has to keep resolving, which is the whole reason a
+    # retired identifier is kept at all.
+    #
+    # THE SAME FAULT AS THE CREDIT TABLES, ONE TABLE DEEPER, and the same lesson: byte equality
+    # proved the emit while the old file was still on disk, and only deleting it showed what the
+    # store could not rebuild. `merged_into` in `data/identity/credits.yaml` is where a credit merge
+    # is recorded, exactly as it is for a work.
     survivor, retired = {}, []
-    for f, key, col in (("series", "merged", "work"), ("credits", "merged", "credit")):
-        doc = BUILD / f"{f}.json"
-        if not doc.exists():
-            continue
-        for gone, kept in (json.loads(doc.read_text(encoding="utf-8")).get(key) or {}).items():
-            survivor[gone] = kept
-            retired.append((gone, col))
+    for gone, kept in ((json.loads((BUILD / "series.json").read_text(encoding="utf-8"))
+                        .get("merged") or {}).items() if (BUILD / "series.json").exists() else ()):
+        survivor[gone] = kept
+        retired.append((gone, "work"))
+    for e in (_yaml("credits").get("credits") or []):
+        if e.get("merged_into") and e.get("id"):
+            survivor[str(e["id"])] = str(e["merged_into"])
+            retired.append((str(e["id"]), "credit"))
 
     def _live(i):
         """An identifier with every retirement followed. `merged` records one hop at a time."""

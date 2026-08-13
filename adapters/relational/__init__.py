@@ -1259,12 +1259,47 @@ def build(path=None, quarantine=False, at=None, source=None):
             # above is about. The column is named for what it holds; the field is read as it is
             # written, because renaming it in the build is a change to what the site is served.
             put("INSERT INTO offer (work, platform, url, instalments, free, free_timed, priced,"
-                " latest, partial, retrieved) VALUES (?,?,?,?,?,?,?,?,?,?)",
+                " latest, partial, retrieved, format) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                 (wid, o["platform"], o.get("url"), o.get("chapters") or 0, o.get("free") or 0,
                  o.get("free_timed") or 0, o.get("priced") or 0, o.get("latest"),
-                 int(bool(o.get("partial"))), o.get("retrieved")),
+                 int(bool(o.get("partial"))), o.get("retrieved"), o.get("format") or "standard"),
                 f"offer {wid}@{o['platform']}")
     counts["offer"] = db.execute("SELECT count(*) FROM offer").fetchone()[0]
+
+    # ── what the work's serialisation is, over the offers it runs on ────────────────────────────
+    #
+    # THE ROW THE FILE SHOWS IS THE FIRST OFFER, which `build.py` sorted so the platform that can
+    # speak for the work comes first: a listing whose every date is an import stamp cannot say when
+    # a work last updated, however many instalments it holds.
+    for _k, r in _rows("series", "series", source):
+        wid = r.get("id")
+        if wid not in held:
+            continue
+        first = (r.get("sources") or [{}])[0]
+        chosen = db.execute("SELECT id FROM offer WHERE work = ? AND platform = ? AND url = ?",
+                            (wid, first.get("platform"), first.get("url"))).fetchone()
+        put("INSERT INTO serialisation (work, offer, chapters, chapters_stated, latest, latest_ep,"
+            " first, oneshot, oneshot_inferred, collection, series_url)"
+            " VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+            (wid, chosen[0] if chosen else None, r.get("chapters") or 0, r.get("chapters_stated"),
+             r.get("latest"), r.get("latest_ep") or None, r.get("first"),
+             int(bool(r.get("oneshot"))), int(bool(r.get("oneshot_inferred"))),
+             r.get("collection"), r.get("series_url")), f"serialisation {wid}")
+        for slot in (r.get("skipped") or []):
+            dated, title = (list(slot) + [None, None])[:2]
+            if title:
+                put("INSERT OR IGNORE INTO skipped_slot (work, dated, title) VALUES (?,?,?)",
+                    (wid, dated or "", title), f"skipped {wid}")
+        nxt = r.get("stated_next") or {}
+        if nxt.get("platform"):
+            put("INSERT INTO stated_next (work, platform, cadence, next_update,"
+                " next_update_undecided, next_from_cadence) VALUES (?,?,?,?,?,?)",
+                (wid, nxt["platform"], nxt.get("cadence"), nxt.get("next_update"),
+                 int(bool(nxt.get("next_update_undecided"))),
+                 int(bool(nxt.get("next_from_cadence")))), f"stated_next {wid}")
+    counts["serialisation"] = db.execute("SELECT count(*) FROM serialisation").fetchone()[0]
+    counts["skipped_slot"] = db.execute("SELECT count(*) FROM skipped_slot").fetchone()[0]
+    counts["stated_next"] = db.execute("SELECT count(*) FROM stated_next").fetchone()[0]
 
     # WHICH WORK A RELEASE BELONGS TO, by the identifier it carries and then by the folded title.
     # An exact title match resolves 944 of 974; these two resolve 971, and the 3 left carry no

@@ -379,6 +379,55 @@ CREATE UNIQUE INDEX state_claim_one ON state_claim (work, source, coalesce(says,
 -- HOW A WORK IS PRESENTED, AND WHETHER IT IS PRESENTED AT ALL. `marketing_label` is publisher-side
 -- labelling under DEFINITIONS §4, which is a different question from the shelf a work was admitted
 -- on, and `visibility` is the §13 register: `rebutted` and `marginal`.
+-- WHAT A WORK'S SERIALISATION IS, as one row per work over the platform offers below. The counts
+-- and the address a row SHOWS are the best offer's and are read through `offer`; what cannot be
+-- derived from the offers is here, because the compiler decided it: which platform speaks for the
+-- work, how long the run demonstrably is, and when it began.
+CREATE TABLE serialisation (
+  work        TEXT PRIMARY KEY REFERENCES work(id) ON DELETE CASCADE,
+  -- THE OFFER THE ROW IS DRAWN FROM. A row whose every date is an import stamp cannot speak for the
+  -- work, however many instalments it holds, so this is not simply the longest.
+  offer       INTEGER REFERENCES offer(id) ON DELETE SET NULL,
+  -- THE BEST-KNOWN LENGTH, NOT A SUM: every source is describing the same story, and adding them
+  -- would report 135 chapters for a 121-chapter work.
+  chapters    INTEGER NOT NULL DEFAULT 0 CHECK (chapters >= 0),
+  -- WHAT A PLATFORM SAYS THE SERIES IS LONG, where we hold less.
+  chapters_stated INTEGER CHECK (chapters_stated IS NULL OR chapters_stated >= 0),
+  latest      TEXT CHECK (latest IS NULL OR latest GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR latest GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  -- THE PLATFORM'S OWN LABEL FOR THE NEWEST INSTALMENT, which is not a chapter number.
+  latest_ep   TEXT,
+  first       TEXT CHECK (first IS NULL OR first GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR first GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  oneshot     INTEGER NOT NULL DEFAULT 0 CHECK (oneshot IN (0, 1)),
+  -- WHETHER THE ONE-SHOT CALL IS OURS, read off a shape rather than stated by a source.
+  oneshot_inferred INTEGER NOT NULL DEFAULT 0 CHECK (oneshot_inferred IN (0, 1)),
+  collection  TEXT,
+  -- THE ADDRESS THAT DOES NOT MOVE. `offer.url` is the newest chapter's, so anchoring a work on it
+  -- mints a second identifier the next time the work publishes.
+  series_url  TEXT
+);
+
+-- A SLOT A RUN SKIPPED, kept as dated evidence rather than summarised into prose. A 休載 notice is
+-- what a platform published in the slot, so it carries the notice's own title.
+CREATE TABLE skipped_slot (
+  work  TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  dated TEXT NOT NULL,
+  title TEXT NOT NULL,
+  PRIMARY KEY (work, dated, title)
+);
+
+-- WHAT THE PLATFORM SAYS COMES NEXT, kept apart from what we work out. A platform printing
+-- 次回無料更新は8/21 has announced a date; a cadence projected from the last chapter is arithmetic
+-- and is labelled as ours.
+CREATE TABLE stated_next (
+  work        TEXT PRIMARY KEY REFERENCES work(id) ON DELETE CASCADE,
+  platform    TEXT NOT NULL REFERENCES platform(name) ON DELETE RESTRICT,
+  cadence     TEXT,
+  next_update TEXT,
+  -- THE PLATFORM SAYING IT HAS NOT DECIDED, which is a statement and not an absence.
+  next_update_undecided INTEGER NOT NULL DEFAULT 0 CHECK (next_update_undecided IN (0, 1)),
+  next_from_cadence INTEGER NOT NULL DEFAULT 0 CHECK (next_from_cadence IN (0, 1))
+);
+
 CREATE TABLE work_presentation (
   work       TEXT PRIMARY KEY REFERENCES work(id) ON DELETE CASCADE,
   -- NULL WHERE THE PUBLISHER APPLIED NONE, rather than the string `none`, which 2,127 rows held.
@@ -1242,6 +1291,10 @@ CREATE TABLE offer (
   -- THE PLATFORM LISTS MORE THAN WE HOLD, which the interface already draws as `90+`.
   partial    INTEGER NOT NULL DEFAULT 0 CHECK (partial IN (0, 1)),
   retrieved  TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  -- ONE WORK IN PARALLEL FORMATS. A 縦読み edition is the same story told down a phone screen, and
+  -- the registry states which listing is one. NOT a closed vocabulary: `data/identity/` may name a
+  -- format nothing here has met, and a foreign key would refuse the registry's own word for it.
+  format     TEXT NOT NULL DEFAULT 'standard',
   UNIQUE (work, platform, url)
 );
 

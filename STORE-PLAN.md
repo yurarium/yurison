@@ -1133,6 +1133,18 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   release row's own reasoning: `basis`, `why`, `conf`, `provenance`, `kind_basis`, the `ahead_*`
   block and the access-mode history.
 
+  `series.json`'s WEB HALF IS MODELLED AS OF 2026-08-13, which leaves the print half it already had.
+  `serialisation` is one row per work over the offers below it: the counts and the address a row
+  SHOWS are the chosen offer's and are read through `offer`, and what is here is what the compiler
+  decided, which platform speaks for the work and how long the run demonstrably is. All 3,038 rows,
+  1,390 of them naming an offer, with 71 skipped slots and 151 announcements of what comes next.
+
+  `evidence` HOLDS ALL 2,366 ROWS AND `provenance` ALL 7,476, and they are two tables because a
+  volume count says nothing about whether a work is yuri: running them together would make a
+  classification look better supported by padding it with rows that answer a different question. How
+  much a piece of evidence is worth belongs to its KIND, so the rank, the party type and the clause
+  each was read out of are `credence_kind` and not 2,366 copies.
+
   `feed/meta.json` is the run's own report on the platforms, and much of it, `print_candidates`,
   `lapsed`, `samples_dropped`, describes what the CAPTURE did rather than what the corpus holds.
   Whether it belongs in `served.CORPUS` at all is worth asking before it is modelled.

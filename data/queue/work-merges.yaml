@@ -1,0 +1,311 @@
+source: yurarium
+role: merge-queue
+record_type: review_queue
+retrieved: '2026-08-13'
+note: 'Pairs the series list carries as two works that share a title and a credit, found when WORKS-PLAN
+  section 3 widened the nicovideo episode-list worklist. Each is a serialisation already in the corpus
+  under an identifier of its own, which adapters/serialisation/promote.py rules is a MERGE done by hand
+  with --merge: retiring an address that has been published is not something a pass does in bulk (RUNBOOK
+  section 11). Listed here so the work is enumerated rather than rediscovered.'
+pairs:
+- a: わたしのために脱ぎなさいっ！
+  a_id: null
+  b: わたしのために脱ぎなさいっ!
+  b_id: w00183
+  shared_credit:
+  - 九郎
+  a_platforms:
+  - ニコニコ漫画
+  - カドコミ
+  b_platforms: []
+- a: 私を喰べたい、ひとでなし
+  a_id: null
+  b: 私を喰べたい、ひとでなし
+  b_id: null
+  shared_credit:
+  - 苗川采
+  a_platforms:
+  - ニコニコ漫画
+  - カドコミ
+  b_platforms:
+  - ニコニコ漫画
+  - カドコミ
+- a: 忍者と殺し屋のふたりぐらし
+  a_id: null
+  b: 忍者と殺し屋のふたりぐらし
+  b_id: null
+  shared_credit:
+  - ハンバガ
+  a_platforms:
+  - ニコニコ漫画
+  - カドコミ
+  b_platforms:
+  - ニコニコ漫画
+  - カドコミ
+- a: 拝啓、在りし日に咲く花たちへ
+  a_id: null
+  b: 拝啓、在りし日に咲く花たちへ
+  b_id: null
+  shared_credit:
+  - 五十嵐純
+  a_platforms:
+  - ニコニコ漫画
+  - カドコミ
+  b_platforms:
+  - ニコニコ漫画
+  - カドコミ
+- a: 魔法少女にあこがれて
+  a_id: null
+  b: 魔法少女にあこがれて
+  b_id: null
+  shared_credit:
+  - 小野中彰大
+  a_platforms:
+  - ニコニコ漫画
+  - 竹コミ
+  b_platforms:
+  - ニコニコ漫画
+  - 竹コミ
+- a: 田所さん
+  a_id: null
+  b: 田所さん
+  b_id: null
+  shared_credit:
+  - tatsubon
+  a_platforms:
+  - ニコニコ漫画
+  - キミコミ
+  b_platforms:
+  - ニコニコ漫画
+  - キミコミ
+- a: 田所さん
+  a_id: null
+  b: 田所さん（２）
+  b_id: null
+  shared_credit:
+  - tatsubon
+  a_platforms:
+  - ニコニコ漫画
+  - キミコミ
+  b_platforms:
+  - ニコニコ漫画
+- a: 田所さん（２）
+  a_id: null
+  b: 田所さん
+  b_id: null
+  shared_credit:
+  - tatsubon
+  a_platforms:
+  - ニコニコ漫画
+  b_platforms:
+  - ニコニコ漫画
+  - キミコミ
+- a: 転生王女と天才令嬢の魔法革命
+  a_id: null
+  b: 転生王女と天才令嬢の魔法革命
+  b_id: null
+  shared_credit:
+  - きさらぎゆり
+  - 南高春告
+  a_platforms:
+  - ニコニコ漫画
+  - カドコミ
+  - カドコミ
+  b_platforms:
+  - ニコニコ漫画
+  - カドコミ
+  - カドコミ
+- a: タコと天使たち
+  a_id: null
+  b: タコと天使たち
+  b_id: null
+  shared_credit:
+  - kentookayama
+  a_platforms:
+  - ニコニコ漫画
+  - キミコミ
+  b_platforms:
+  - ニコニコ漫画
+  - キミコミ
+- a: Qyootie Q! ―麒麟娘と婚約事情―
+  a_id: w00425
+  b: Qyootie Q! -麒麟娘と婚約事情-
+  b_id: null
+  shared_credit:
+  - しおバタ
+  a_platforms:
+  - キミコミ
+  b_platforms:
+  - ニコニコ漫画
+- a: 彩香ちゃんは弘子先輩に恋してる
+  a_id: null
+  b: 彩香ちゃんは弘子先輩に恋してる
+  b_id: null
+  shared_credit:
+  - saljiang
+  a_platforms:
+  - ニコニコ漫画
+  - webアクション
+  b_platforms:
+  - ニコニコ漫画
+  - webアクション
+- a: 姉になりたい義姉VS百合になりたい義妹
+  a_id: null
+  b: 姉になりたい義姉vs百合になりたい義妹
+  b_id: w00546
+  shared_credit:
+  - 森
+  a_platforms:
+  - ニコニコ漫画
+  - MAGCOMI
+  - pixivコミック
+  b_platforms: []
+- a: ガチ恋カウント２.９
+  a_id: null
+  b: ガチ恋カウント2.9
+  b_id: w00584
+  shared_credit:
+  - 天海杏菜
+  a_platforms:
+  - ニコニコ漫画
+  - pixivコミック
+  b_platforms: []
+- a: アウトサイダーパラダイス
+  a_id: null
+  b: アウトサイダーパラダイス
+  b_id: null
+  shared_credit:
+  - 涼川りん
+  a_platforms:
+  - ニコニコ漫画
+  - webアクション
+  b_platforms:
+  - ニコニコ漫画
+  - webアクション
+- a: 魔法少女201
+  a_id: null
+  b: 魔法少女201
+  b_id: null
+  shared_credit:
+  - むちゃ
+  a_platforms:
+  - ニコニコ漫画
+  - 少年ジャンプ+
+  b_platforms:
+  - ニコニコ漫画
+  - 少年ジャンプ+
+- a: しかばね少女と愛が重い聖騎士の討伐学園ライフ
+  a_id: null
+  b: しかばね少女と愛が重い聖騎士の討伐学園ライフ
+  b_id: null
+  shared_credit:
+  - 日野アラシ
+  a_platforms:
+  - ニコニコ漫画
+  - pixivコミック
+  - 一迅プラス
+  b_platforms:
+  - ニコニコ漫画
+  - pixivコミック
+  - 一迅プラス
+- a: 百合オタに百合はご法度です!?
+  a_id: null
+  b: 百合オタに百合はご法度です!?
+  b_id: null
+  shared_credit:
+  - utemo
+  a_platforms:
+  - ニコニコ漫画
+  - webアクション
+  - pixivコミック
+  b_platforms:
+  - ニコニコ漫画
+  - webアクション
+  - pixivコミック
+- a: 少女たちの痕にくちづけを
+  a_id: null
+  b: 少女たちの痕にくちづけを
+  b_id: null
+  shared_credit:
+  - 春花あや
+  a_platforms:
+  - ニコニコ漫画
+  - pixivコミック
+  - カドコミ
+  b_platforms:
+  - ニコニコ漫画
+  - pixivコミック
+  - カドコミ
+- a: じょしまん。
+  a_id: null
+  b: じょしまん。
+  b_id: null
+  shared_credit:
+  - 吉田丸悠
+  a_platforms:
+  - ニコニコ漫画
+  - webアクション
+  b_platforms:
+  - ニコニコ漫画
+  - webアクション
+- a: お姉さんは女子小学生に興味があります。
+  a_id: null
+  b: お姉さんは女子小学生に興味があります。
+  b_id: null
+  shared_credit:
+  - 柚木涼太
+  a_platforms:
+  - ニコニコ漫画
+  - 竹コミ
+  b_platforms:
+  - ニコニコ漫画
+  - 竹コミ
+- a: きたない君がいちばんかわいい
+  a_id: null
+  b: きたない君がいちばんかわいい
+  b_id: null
+  shared_credit:
+  - まにお
+  a_platforms:
+  - ニコニコ漫画
+  - マガポケ
+  - 一迅プラス
+  - コミックDAYS
+  b_platforms:
+  - ニコニコ漫画
+  - マガポケ
+  - 一迅プラス
+  - コミックDAYS
+- a: 不死犠コネクト
+  a_id: null
+  b: 不死犠コネクト
+  b_id: null
+  shared_credit:
+  - shimazaki
+  a_platforms:
+  - ニコニコ漫画
+  - pixivコミック
+  b_platforms:
+  - ニコニコ漫画
+  - pixivコミック
+- a: ケーキも花も宝石も
+  a_id: null
+  b: ケーキも花も宝石も
+  b_id: null
+  shared_credit:
+  - 臓内ニガツ
+  a_platforms:
+  - ニコニコ漫画
+  - カドコミ
+  b_platforms:
+  - ニコニコ漫画
+  - カドコミ
+- a: 君めく夜に焦がれて
+  a_id: w02240
+  b: ●合本版●君めく夜に焦がれて
+  b_id: w02257
+  shared_credit:
+  - アンブル編集部
+  - 鴒
+  a_platforms: []
+  b_platforms: []

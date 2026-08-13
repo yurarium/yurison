@@ -12,7 +12,7 @@ The sections are in the order they are to be done, and each says what it needs f
 | §1 | Run the name passes as part of the update | done 2026-08-13 | 96 works had no English for want of this |
 | §2 | A claim about a reading stops occupying the English's slot | done 2026-08-13 | 196 titles, 1,337 authors |
 | §5 | Two capture faults on the credit field | done 2026-08-13 | 4 rows |
-| §3 | Fetch the episode lists we never asked for | code done, data withheld | 53 works |
+| §3 | Fetch the episode lists we never asked for | code done, 25 merges queued | 53 works |
 | §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
 | §4 | Join a translated edition to the work it translates | done 2026-08-13 | 28 products, 7 unjoined |
 
@@ -197,6 +197,20 @@ Eleven budgets rise with those works and each wants reading rather than a blanke
 `credit fields an identifier does not cover` goes 28 to 51 and `renderings with nothing to show`
 18 to 25, both because 41 works bring credits nobody has resolved. That is the real size of §3 and
 it was invisible until the fetch ran.
+
+**WHAT THE 24 DUPLICATE PAIRS TURNED OUT TO BE, measured rather than guessed.** `one work under two
+names in a list` goes 3 to 27, and they are not romanisation collisions as the budget's key allows
+for. Most are IDENTICAL titles: `私を喰べたい、ひとでなし` beside itself, `田所さん` beside itself.
+They are works the corpus already holds, arriving again from ニコニコ under an identifier of their
+own because nothing joined the new row to the held work.
+
+`adapters/serialisation/promote.py` already rules on this exact case and the rule is what blocks
+the data: where the serialisation is already in the corpus under an identifier of its own, it is a
+MERGE done by hand with `--merge`, because retiring an address that has been published is not
+something a pass does in bulk (RUNBOOK §11). So §3's remaining step is 25 hand merges, and they are
+enumerated in `data/queue/work-merges.yaml` with the shared credit and both platform lists on each
+pair, so the work is listed rather than rediscovered. §4's two merges are what one of these looks
+like done properly.
 
 **THE SIX GIGAVIEWER WORKS ARE NOT DONE.** `series_feeds.py` runs for ichicomi alone, because only
 platforms declaring `series_pages` do work without `--candidates`, so reaching コミックゼノン and

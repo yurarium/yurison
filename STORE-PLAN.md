@@ -277,7 +277,7 @@ It does not change the code that collects, ingests or compiles. An unattended pa
 adapter would be altering what the next capture MEANS, unreviewed, on the strength of one row it
 could not admit. That is the one thing a maintenance run must not be able to do.
 
-**WHAT IT READS, in this order, because each earlier one can create work for the later ones.**
+It reads these in order, because each earlier one can create work for the later ones.
 
   §1a's quarantine, which holds rows the compiler could not admit. Newest first.
 
@@ -325,7 +325,7 @@ It goes to `docs/GAPS.md` for a class, which is what that file is for and what i
 holds for six findings from 2026-08-13. A queue file where the deferral is a list of rows rather
 than an argument. Neither is the build, so writing to them stays inside the boundary.
 
-**AND THE COUNT MUST NOT SETTLE.** A deferral leaves the row in quarantine, so §1a's budget keeps
+A deferral leaves the row in quarantine, so §1a's budget keeps
 counting it, which is correct: nothing has been resolved. What that means in practice is that a
 pipeline fault shows up as a number that stops falling, and a pass that deferred everything looks
 exactly like a pass that did nothing. So the deferral is recorded where a person reads it, and the

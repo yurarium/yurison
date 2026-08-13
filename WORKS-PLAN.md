@@ -14,7 +14,7 @@ The sections are in the order they are to be done, and each says what it needs f
 | §5 | Two capture faults on the credit field | done 2026-08-13 | 4 rows |
 | §3 | Fetch the episode lists we never asked for | code done, data withheld | 53 works |
 | §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
-| §4 | Join a translated edition to the work it translates | nothing | 28 products, 7 unjoined |
+| §4 | Join a translated edition to the work it translates | matcher done, merge left | 28 products, 7 unjoined |
 
 **THE NUMBERS ARE THE ORDER THEY WERE FOUND IN, and the table above is the order to do them in.**
 §3 and §6 both ADD works, which is what moved them down. A work arriving before §1 arrives unnamed,
@@ -262,7 +262,7 @@ three Hangul names are the circle that translated it, and the Spanish edition cr
 `Ｈｏｕｒａｉ　Ｄｏｌｌ` beside あとき. Those are claims about who made the work. Joining the edition
 puts them where a translator belongs; leaving it unjoined needs a role on the credit instead.
 
-**WHAT TO DO.** Match the base title through a fold that equates a kana spelling with its kanji one,
+The base title has to be matched through something that equates a kana spelling with its kanji one,
 which is what these three need and nothing else in the corpus currently asks for. Then the 4 whose
 base work is absent are the only open question, and it is a small one: whether a translated edition
 may be the only record of a work we hold no Japanese record for.
@@ -270,6 +270,22 @@ may be the only record of a work we hold no Japanese record for.
 **THE COUNTER-CASE TO TEST.** A product whose base title matches a DIFFERENT work by the same
 circle. The join is on a title inside a title and a doujinshi circle publishes many, so a match that
 skips the creator would merge two works by あとき into one.
+
+**THE MATCHER IS DONE, 2026-08-13, and the reading is what carries it.** No fold could do this:
+`namekey.fold` is the identity key and is strict on purpose, `loosely` adds case, brackets and a
+catalogue's name separator, and none of them reaches a kanji spelling and its kana one. Both forms
+read `ハズカシガリ ヤ ノ レイムサン` and `pass4_analyser` says so for either, so `facts/edition`
+compares readings rather than spellings and requires the creator to agree, which is the test
+`ndl_volumes` already applies for the same reason.
+
+Run against every BOOK☆WALKER record it resolves 3 and refuses 4, which is right on both sides: the
+three are the kana/kanji cases and the four name a base title the corpus does not hold, so there is
+no second end to join to.
+
+**THE MERGE ITSELF IS LEFT.** Recording the joins means folding `w01932` and `w01577`, which are
+the Korean and Spanish editions standing as works of their own, into `w02056`, which already holds
+the original with its Chinese and English editions. That retires two work ids, and a retired id is
+a link a reader may already hold, so it belongs in a session with room to follow what it moves.
 
 ## 5. Two capture faults on the credit field
 

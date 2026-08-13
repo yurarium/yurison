@@ -108,6 +108,28 @@ def main(s):
     s.eq(W.targets({"joins": [{"url": "https://manga.nicovideo.jp/watch/mg1"}]}), {},
          "an episode address is not a work address")
 
+    # ── MORE THAN ONE WORKLIST, WHICH IS WHY 53 WORKS HAD NO PAGE ─────────────────────────────
+    #
+    # The only list read was `serialisation-joins.yaml`, and every ニコニコ entry in it is a work
+    # already tied to a printed record. A work the discovery sweep found has nothing to be joined
+    # from, so its episode list was never requested: 見える子ちゃん has a full one on its page and
+    # the corpus held a release row and no work page. WORKS-PLAN section 3.
+    gap = {"works_missing": [
+        {"title": "見える子ちゃん", "url": "https://manga.nicovideo.jp/comic/37662"},
+        {"title": "このままモブじゃ終われない!", "url": "https://comic-fuz.com/manga/3700"},
+    ]}
+    s.eq(W.targets(doc, gap), {"72312": "運命のヤマダ", "37662": "見える子ちゃん"},
+         "the coverage yardstick names targets the joins file cannot, under its own key")
+    s.eq(W.targets(gap, doc)["37662"], "見える子ちゃん",
+         "and the documents may be given in any order")
+
+    # THE SAME WORD IS A COUNT IN ONE FILE AND A LIST IN ANOTHER. `webcomics-gap.yaml` writes
+    # `listings: 400` and `serialisation-joins.yaml` writes `works: 547`, each summarising what the
+    # document holds. Reading a tally as a list of entries raises, which is how this was found.
+    s.eq(W.targets({"works": 547, "listings": 400, "joins": [
+        {"url": "https://manga.nicovideo.jp/comic/1", "title": "本物"}]}), {"1": "本物"},
+        "a key holding a count is passed over rather than iterated")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "nicovideo.works"))

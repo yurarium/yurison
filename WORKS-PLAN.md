@@ -12,7 +12,7 @@ The sections are in the order they are to be done, and each says what it needs f
 | §1 | Run the name passes as part of the update | done 2026-08-13 | 96 works had no English for want of this |
 | §2 | A claim about a reading stops occupying the English's slot | done 2026-08-13 | 196 titles, 1,337 authors |
 | §5 | Two capture faults on the credit field | §5a done 2026-08-13 | 4 rows |
-| §3 | Fetch the episode lists we never asked for | §1, §2, §5 | 53 works |
+| §3 | Fetch the episode lists we never asked for | code done, data withheld | 53 works |
 | §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
 | §4 | Join a translated edition to the work it translates | nothing | 28 products, 7 unjoined |
 
@@ -165,6 +165,42 @@ on the releases page, follows nothing, and the work is absent from every list th
 **WHAT TO DO.** Feed the discovery candidates into the worklist the chapter-level adapters already
 read, rather than gating that worklist on a print join. GigaViewer writes `web_work_chapters` too,
 from `*-series-feeds.yaml` and `comic-days-confirmed.yaml`, so the same move covers its six.
+
+**THE CODE IS DONE AND THE DATA IS NOT PUBLISHED, 2026-08-13.** `works.py --ids` now takes several files, and the one
+that closes the gap is `data/source/nicovideo/nicovideo.yaml`, which is what `releases.py` writes
+about every work it saw. Both adapters read the same page, one for its dates and one for its
+episodes, so a work whose update this project recorded is a work whose episode list it can ask for.
+The coverage yardstick was tried first and reached only part of it: a sample of eight pages, which
+left 36 works behind and made the point that a worklist has to be the population rather than a
+sample of it.
+
+337 targets became 492, the fetch returned 10,530 rendered episodes against 8,336, and the corpus
+went from 1,395 works to 1,436. The §3 population fell from 53 to 6, and the ニコニコ part of it to
+0. `works without English` stayed at 0 through 41 new works arriving, which is §1 doing the job it
+was built for.
+
+Two shapes had to be handled on the way. `targets` read one key of one document, and the documents
+name their entries `joins`, `works_missing` and `works`. And the same word is a count in one file
+and a list in another: `webcomics-gap.yaml` writes `listings: 400` and `serialisation-joins.yaml`
+writes `works: 547`, each summarising what the document holds, so the reader asks whether a value
+is a list before iterating it.
+
+**THE RUN WAS THEN WITHDRAWN, AND WHY MATTERS MORE THAN THE NUMBERS.** Admitting the 41 works
+fails `content flags are accounted for`, an invariant: 田舎エッチ ～田舎のエッチな女の子と過ごすひと夏
+の… arrives content-flagged and appears in no `withheld.yaml`. That register records a WITHHOLDING
+decision about adult content, which is the project owner's and not a build's, so the fetched
+`data/source/nicovideo/works.yaml` was reverted rather than the gate satisfied. The adapter, its
+test and the stage-a wiring all stay, so the next update run brings the works in the moment the
+ruling exists.
+
+Eleven budgets rise with those works and each wants reading rather than a blanket acceptance.
+`credit fields an identifier does not cover` goes 28 to 51 and `renderings with nothing to show`
+18 to 25, both because 41 works bring credits nobody has resolved. That is the real size of §3 and
+it was invisible until the fetch ran.
+
+**THE SIX GIGAVIEWER WORKS ARE NOT DONE.** `series_feeds.py` runs for ichicomi alone, because only
+platforms declaring `series_pages` do work without `--candidates`, so reaching コミックゼノン and
+サンデーうぇぶり this way needs that registry extended rather than a worklist widened.
 
 **WHAT TO CHECK BEFORE BELIEVING IT IS DONE.** Some of these works may genuinely render no readable
 episode, which is the case `build.py` already refuses as a route no browser can read. That refusal

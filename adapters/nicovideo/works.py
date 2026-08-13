@@ -98,13 +98,45 @@ def record(cid, html):
     }
 
 
-def targets(doc):
-    """`{comic_id: title}` for every ニコニコ address in a joins document."""
+#: WHERE A ニコニコ ADDRESS MAY BE NAMED. `joins` is the serialisation search's output and
+#: `works_missing` is the coverage yardstick's; `works` covers a source-shaped document. The key
+#: differs because the documents were written for different jobs, and the question asked of them is
+#: the same one.
+#:
+#: `listings` IS NOT IN THIS LIST AND MUST NOT BE. `webcomics-gap.yaml` uses it for a COUNT, and
+#: reading it as a list of entries raises rather than returning nothing, which is the better of the
+#: two failures and is how this was caught.
+_ENTRY_KEYS = ("joins", "works_missing", "works")
+
+
+def targets(*docs):
+    """`{comic_id: title}` for every ニコニコ address in any of the documents given.
+
+    IT USED TO READ ONE DOCUMENT AND ONE KEY, AND THAT WAS THE BUG. The only worklist was
+    `data/queue/serialisation-joins.yaml`, which holds 674 ニコニコ entries and every one of them is
+    a work already joined to a printed record. A work the discovery sweep found has no print record
+    to be joined from, so it never entered the queue and its episode list was never requested: 見え
+    る子ちゃん has a full episode list on its page, free at the start and the end with the middle
+    behind the app, and the corpus held a release row for it and no work page at all. 53 works were
+    in that state. WORKS-PLAN section 3.
+    """
     out = {}
-    for j in (doc or {}).get("joins") or []:
-        m = COMIC_ID.search(j.get("url") or "")
-        if m:
-            out.setdefault(m.group(1), j.get("platform_title") or j.get("title"))
+    for doc in docs:
+        for key in _ENTRY_KEYS:
+            entries = (doc or {}).get(key)
+            # THE SAME WORD IS A COUNT IN ONE FILE AND A LIST IN ANOTHER. `webcomics-gap.yaml`
+            # writes `listings: 400` and `serialisation-joins.yaml` writes `works: 547`, both
+            # summarising what the document holds. Asking whether the value is a list is what
+            # separates a document's entries from its own tally of them.
+            if not isinstance(entries, list):
+                continue
+            for j in entries:
+                if not isinstance(j, dict):
+                    continue
+                m = COMIC_ID.search(j.get("url") or "")
+                if m:
+                    out.setdefault(m.group(1), j.get("platform_title") or j.get("title")
+                                   or j.get("work_title"))
     return out
 
 
@@ -160,14 +192,27 @@ def write(path, works, retrieved):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--ids", default="data/queue/serialisation-joins.yaml")
+    # MORE THAN ONE, because a work reaches us by more than one route and the episode list is
+    # wanted for all of them. The joins file names works already tied to a printed record; the
+    # coverage yardstick names works a 百合 tag lists and nothing here has reached yet; and
+    # `nicovideo.yaml` is what `releases.py` wrote about every work it saw on this platform.
+    #
+    # THE LAST OF THE THREE IS THE ONE THAT CLOSES THE GAP, and it is obvious in hindsight: both
+    # adapters read the same page, one for its dates and one for its episodes, so a work whose
+    # update this project recorded is a work whose episode list it can ask for. The other two lists
+    # each reach part of the population and neither reaches all of it: the coverage yardstick is a
+    # sample of eight pages, so it left 36 works behind.
+    ap.add_argument("--ids", nargs="+",
+                    default=["data/queue/serialisation-joins.yaml",
+                             "data/coverage/webcomics-gap.yaml",
+                             "data/source/nicovideo/nicovideo.yaml"])
     ap.add_argument("--out", default="data/source/nicovideo")
     ap.add_argument("--cache", default="/tmp/yuri-serialisation-pages")
     ap.add_argument("--age", type=int, default=net.AGE_LISTING)
     a = ap.parse_args(argv)
 
-    want = targets(yaml.safe_load(pathlib.Path(a.ids).read_text()))
-    print(f"{len(want)} ニコニコ work(s) named by the joins file")
+    want = targets(*(yaml.safe_load(pathlib.Path(f).read_text()) for f in a.ids))
+    print(f"{len(want)} ニコニコ work(s) named across {len(a.ids)} worklist(s)")
     pages = net.fetch_many([WORK.format(cid=c) for c in want], a.cache, a.age, workers=4)
 
     works, failed = [], []

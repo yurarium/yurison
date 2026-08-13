@@ -39,13 +39,25 @@ commands:
     argv: [adapters/nicovideo/releases.py, --works, data/coverage/webcomics-works.yaml,
            --out, data/source/nicovideo, --cache, "{CACHE}/nico", --retrieved, "{R}"]
 
-  # The works ニコニコ carries that reach us as printed books, joined by adapters/serialisation/.
-  # `releases.py` above writes update dates, which make a feed row and never a work row, so a
-  # serialisation reachable only here was invisible as a work however often it updated. The joins
-  # file is committed, so this needs nobody to remember anything (STANDING-INSTRUCTIONS §7).
+  # The episode lists. `releases.py` above writes update dates, which make a feed row and never a
+  # work row, so a serialisation reachable only here was invisible as a work however often it
+  # updated. This writes the record type build.py turns into a row.
+  #
+  # THREE WORKLISTS, because a work reaches us by more than one route. For a long time there was
+  # one, `serialisation-joins.yaml`, and every ニコニコ entry in it is a work already tied to a
+  # printed record: a work the discovery sweep found had nothing to be joined from, so its episode
+  # list was never requested. 見える子ちゃん has a full episode list on its page, free at the start
+  # and the end with the middle behind the app, and the corpus held a release row for it and no
+  # work page at all. 53 works were in that state. WORKS-PLAN section 3.
+  #
+  # THE THIRD IS THE ONE THAT CLOSES IT. Both adapters read the same page, one for its dates and
+  # one for its episodes, so a work whose update this project recorded is a work whose episode list
+  # it can ask for. The coverage yardstick is a sample of eight pages and left 36 behind on its own.
+  # 337 targets became 383 with the yardstick and 492 with the file releases.py writes.
   - id: nicovideo-works
     optional: true
     argv: [adapters/nicovideo/works.py, --ids, data/queue/serialisation-joins.yaml,
+           data/coverage/webcomics-gap.yaml, data/source/nicovideo/nicovideo.yaml,
            --out, data/source/nicovideo, --cache, "{CACHE}/nico-works"]
 
   - id: webpages

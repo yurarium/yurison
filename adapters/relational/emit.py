@@ -682,6 +682,26 @@ def _house(db, spelling):
     return got[0] if got else None
 
 
+_MINTED = {}
+
+
+def _minted(db):
+    """`{folded spelling: credit}`, which is the registry's anchors and not what a fold reaches.
+
+    `アンソロジー` IS WHY THE TWO ARE DIFFERENT. Its spelling was withdrawn and the folded name still
+    reaches the credit through `names`, so an edge-based lookup hands a reader a link to an address
+    the registry no longer mints. What answers here is what a page can be opened at.
+    """
+    got = _MINTED.get(id(db))
+    if got is None:
+        got = _MINTED[id(db)] = {}
+        for spelling, credit in db.execute(
+                "SELECT spelling, credit FROM credit_spelling WHERE anchor = 1"
+                " ORDER BY id"):
+            got.setdefault(_namekey.fold(spelling), credit)
+    return got
+
+
 def _entry(db, rec_id, surface, kind, spelling):
     """One name record as the interface gets it, or None where it should not answer a lookup.
 
@@ -773,10 +793,12 @@ def _entry(db, rec_id, surface, kind, spelling):
     # reader's language, style or name order. A title gets none, because a work's identifier is
     # already on its own row. A name the registry credits nothing is a state and not a gap.
     if out and kind == "author":
-        got = db.execute("SELECT credit FROM names WHERE surface = ? AND credit IS NOT NULL"
-                         " ORDER BY credit", (surface,)).fetchone()
+        # ASKED OF THE REGISTRY'S SPELLINGS, not of what the fold reaches. `アンソロジー` is a credit
+        # whose spelling was WITHDRAWN and whose folded name the surface still reaches, so the edge
+        # answers where the registry does not, and a link would go to an address nothing mints.
+        got = _minted(db).get(_namekey.fold(spelling))
         if got:
-            out["id"] = got[0]
+            out["id"] = got
     return out or None
 
 

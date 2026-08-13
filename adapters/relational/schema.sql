@@ -297,7 +297,12 @@ CREATE TABLE credit_spelling (
   -- even though a search does not.
   id       INTEGER PRIMARY KEY,
   spelling TEXT NOT NULL UNIQUE,
-  credit   TEXT NOT NULL REFERENCES credit(id) ON DELETE CASCADE
+  credit   TEXT NOT NULL REFERENCES credit(id) ON DELETE CASCADE,
+  -- WHETHER THE REGISTRY MINTED AN ADDRESS FOR IT. A credit answers for the fold of its own title as
+  -- well as for its anchors, and only an anchor is a page a reader can be sent to: `アンソロジー` is
+  -- a credit whose spelling was withdrawn and whose folded title the registry still answers for, so
+  -- a name map keyed off every spelling offered a link to an address nothing mints.
+  anchor   INTEGER NOT NULL DEFAULT 0 CHECK (anchor IN (0, 1))
 );
 
 CREATE INDEX credit_spelling_credit ON credit_spelling (credit);
@@ -713,8 +718,13 @@ CREATE TABLE claim (
 --
 -- `coalesce(source, '')` BECAUSE 20 CLAIMS NAME NONE, and a NULL in a unique index constrains
 -- nothing, which is the same trap `work_credit` was in.
+-- AND THE DOCUMENT IS PART OF IT, §6. Two name records state one reading, and the two are not
+-- always reading the same page on the same day: five of them cite a different NDL record or a date a
+-- day apart. Keyed without the citation they were one row, the row kept whichever record was read
+-- first, and the entry the site shows came out citing a page that record never named.
 CREATE UNIQUE INDEX claim_identity ON claim
-  (surface, predicate, value, basis, coalesce(source, ''));
+  (surface, predicate, value, basis, coalesce(source, ''), coalesce(url, ''),
+   coalesce(retrieved, ''), coalesce(reviewed, ''));
 -- WHICH RECORDS MAKE A CLAIM, WHICH IS MANY AND WAS A COLUMN. §6. Two spellings folding onto one
 -- surface state the same reading, and a claim is identified by its surface and its content, so the
 -- second is not a second claim: it is the same claim, made twice. The column then held whichever

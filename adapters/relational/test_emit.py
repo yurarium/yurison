@@ -180,6 +180,21 @@ def main(s):
          "in the reader's three styles, from `romanisation` and not from a string")
     s.check(got_n.get("reading_basis"),
             "and it says how the reading was arrived at, which is the claim's own basis")
+    # ── AND THE WHOLE MAP, ON PARSED EQUALITY ─────────────────────────────────────────────────
+    #
+    # NOT BYTES, and the reason is the file's own shape: a fact is SHARED between the two keys that
+    # reach it, the catalogued spelling and the shown one, so what is written is one object under
+    # two keys and the order inside it follows whichever slot was filled first.
+    if shipped_names.exists():
+        want_n = json.loads(shipped_names.read_text(encoding="utf-8"))
+        got_map = emit.names(db, want_n["generated"])
+        s.eq(list(got_map), list(want_n), "`feed/names.json` has the sections the compiler wrote")
+        for section in ("titles", "authors", "publishers", "imprints", "credit_parts",
+                        "floor", "phrases"):
+            s.eq(sorted(got_map[section]), sorted(want_n[section]),
+                 f"`{section}` is keyed exactly as the file is")
+        s.eq(got_map, want_n, "and every entry of every section says what the compiler wrote")
+
     s.check(not any(emit._entry(db, rid, sid, k, sp)
                     for rid, sid, k, sp in db.execute(
                         "SELECT id, surface, kind, spelling FROM name_record"

@@ -1213,12 +1213,20 @@ two rows, and that is what `(work, credit, coalesce(role, ''))` was keyed for al
   AND A SEAT IS NOT A SEAT'S NAME. The census was being handed every print party as though it were a
   publisher, so seven houses that only ever DISTRIBUTE were counted as publishing.
 
-  THE 11 THAT DIFFER ARE ONE FAULT AND IT IS THE CLAIM'S KEY. Five are a `reading_cite` whose
-  `reviewed` is a day earlier than the file's. Two records state one reading, the claim is
-  identified by `(surface, predicate, value, basis, source)` so it is ONE row, and the row keeps the
-  first record's dates. What each record says it read and WHEN is not part of what the claim is: it
-  is what that record can show for it, so it belongs on `claim_record` rather than on `claim`.
-  Moving it is the last thing between this file and being emitted.
+  IT MOVED 2026-08-13, ON PARSED EQUALITY, and the two faults that stood in the way were both about
+  what identifies a thing. THE DOCUMENT IS PART OF A CLAIM: two name records state one reading and
+  are not always reading the same page on the same day, so keyed without the citation they were one
+  row, the row kept whichever record was read first, and the entry the site shows cited a page that
+  record never named. 23 rows the store had been collapsing are two claims apiece.
+
+  AND AN ANCHOR IS NOT A SPELLING. A credit answers for the fold of its own title as well as for its
+  anchors, and only an anchor is a page a reader can be sent to. `アンソロジー` is a credit whose
+  spelling was withdrawn and whose folded title the registry still answers for, so the map offered a
+  link to an address nothing mints. `credit_spelling.anchor` is the difference.
+
+  PARSED AND NOT BYTES, because a fact object in this file is SHARED between the two keys that reach
+  it, the catalogued spelling and the shown one, so what is written is one object under two keys and
+  the order inside it follows whichever slot was filled first.
 
   `index.json` MOVED 2026-08-13, along with `feed/credit-keys.json`, which is `credit_spelling`
   written down. The index took four corrections that byte equality found and nothing else would

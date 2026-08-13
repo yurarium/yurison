@@ -7321,8 +7321,12 @@ def main():
     # for the loader to read `feed/names.json` off the disk, which on any run is the LAST run's
     # renderings and on a fresh checkout is nothing at all. §6, three times bitten.
     _rel.renderings(_store_db, _names_doc)
-    (out / "feed" / "names.json").write_text(
-        json.dumps(_names_doc, ensure_ascii=False, indent=1))
+    # AND THE FILE COMES BACK OUT OF THE STORE, §6. The map above is the compiler's rows, the same
+    # way `series` and `works` are, and what ships is what the tables say: every key of every one of
+    # its seven sections, on parsed equality rather than bytes, because a fact object here is SHARED
+    # between the catalogued spelling and the shown one and key order inside it follows whichever
+    # slot was filled first.
+    (out / "feed" / "names.json").write_text(_emit.as_text(_emit.names(_store_db, str(_today))))
 
     # ── the two records that are not works ────────────────────────────────────────────────────
     #

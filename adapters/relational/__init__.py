@@ -535,7 +535,7 @@ def build(path=None, quarantine=False, at=None, source=None):
             if not spelling or spelt.get(spelling) == cid:
                 continue
             spelt[spelling] = cid
-            put("INSERT INTO credit_spelling (spelling, credit) VALUES (?,?)",
+            put("INSERT INTO credit_spelling (spelling, credit, anchor) VALUES (?,?,1)",
                 (spelling, cid), f"spelling {spelling}")
         if not c.get("merged_into"):
             k = _cid.credit_key(c.get("credit") or c.get("title") or "")
@@ -713,7 +713,9 @@ def build(path=None, quarantine=False, at=None, source=None):
                     # Skipping the second outright filed the claim against whichever record was
                     # read first, so the record the file renders from could be missing the reading
                     # it states.
-                    ident = (sid, predicate, value, basis, claim.get(f"{cite}_source") or "")
+                    ident = (sid, predicate, value, basis, claim.get(f"{cite}_source") or "",
+                             cited.get("url") or claim.get(f"{cite}_url") or "",
+                             claim.get(f"{cite}_at") or "", claim.get(f"{cite}_reviewed") or "")
                     if ident in seen_claims:
                         put("INSERT OR IGNORE INTO claim_record (claim, record) VALUES (?,?)",
                             (seen_claims[ident], rec_id), f"claim edge {f} {name}")
@@ -761,7 +763,7 @@ def build(path=None, quarantine=False, at=None, source=None):
                          or _reading.DEFAULT_BASIS)
                 # THROUGH THE SAME DEDUPE AS THE REST, since two spellings folding to one surface
                 # state one division between them.
-                ident = (sid, "division", divided or r.get("reading") or "", basis, "")
+                ident = (sid, "division", divided or r.get("reading") or "", basis, "", "", "", "")
                 if ident in seen_claims:
                     put("INSERT OR IGNORE INTO claim_record (claim, record) VALUES (?,?)",
                         (seen_claims[ident], rec_id), f"claim edge division {name}")

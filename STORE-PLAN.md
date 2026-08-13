@@ -779,6 +779,8 @@ what the check forbids from reaching a subject. Forbidding it is correct: one cr
 many works and one imprint spelling reaches many houses, so a column could only ever hold the first.
 §5e carries the edge that is actually missing.
 
+## 6. The compiler writes the store; the JSON is emitted from it
+
 **PER DOMAIN, AS EACH LANDS, and never as a cutover.** When a domain is modelled, `build.py` writes
 it to the store, the JSON for it is emitted FROM the store, and the direct path is deleted. Then
 §1's budget falls by that domain and cannot rise again without something failing.
@@ -788,10 +790,10 @@ fetches today, or something narrower, or the site may one day query the store di
 plan fixes is that the data reaches the site THROUGH the store. Everything about presentation stays
 free to evolve behind that line, which is the whole reason the line is worth drawing.
 
-**IT CANNOT START ON A DOMAIN §5e HAS NOT MODELLED.** An emitter cannot write a field the store has
-no table for, and a work's state, its admission evidence and its byline are all in that position.
-§1's budget standing at 391 is the list, and it is the same list because the budget asks what the
-site is served rather than what the store holds.
+**IT CANNOT START ON A DOMAIN NOTHING HAS MODELLED.** An emitter cannot write a field the store has
+no table for. A work's state, its admission evidence and its byline were all in that position when
+§5e was written and none of them is now. §1's budget standing at 369 is what is left, and it is the
+same list because the budget asks what the site is served rather than what the store holds.
 
 **WHAT MUST NOT HAPPEN.** A domain half-migrated, where the store holds it and the JSON is still
 written directly. That is two producers of one fact, which is the fault this project names most

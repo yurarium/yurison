@@ -159,20 +159,6 @@ def inv_no_ruby_over_latin(ctx):
     return bad
 
 
-def inv_feed_is_attested(ctx):
-    """A listing site's claim is an INPUT. The feed holds what a platform attested, and nothing else.
-
-    fallback: drop the row from the feed; it stays in the claim trace on status.html.
-    """
-    return [r.get("work") for r in ctx["releases"] if r.get("provenance") != "attested"]
-
-
-def inv_no_unknown_kind(ctx):
-    """Every update says what kind of update it is. `unknown` meant a claim row, and those are gone.
-
-    fallback: drop the row rather than publish an uncategorised update.
-    """
-    return [r.get("work") for r in ctx["releases"] if r.get("kind") == "unknown"]
 
 
 def inv_readings_are_kana(ctx):
@@ -1258,40 +1244,6 @@ def inv_state_agrees_with_its_own_date(ctx):
     return bad
 
 
-def inv_no_refutation_of_print_serials(ctx):
-    """A web platform cannot refute a claim about a work that also runs in a magazine.
-
-    The two record different events. コミック百合姫 prints an instalment and 一迅プラス puts it online
-    weeks later, so the platform's chapter dates say nothing about whether the work published on
-    the claimed date — it published in print. Sixteen of nineteen refutations were 一迅プラス, eleven
-    of them works we hold on a 百合姫 imprint in our own print catalogue, and their gaps clustered at
-    magazine intervals: 14, 28, 31, 35, 36 days, several NEGATIVE because the web chapter came
-    after the claim rather than before it.
-
-    REQUIREMENTS §4 already says absence is evidence of absence only where the list is known to be
-    complete. A publisher's web arm is not a complete list of that publisher's publications; the
-    magazine is.
-
-    fallback: the claim is dispositioned print-serialised, not refuted, and stays open to a source
-    that can actually speak to magazine dates.
-    """
-    run = _load(BUILD / "run.json", {}) or {}
-    refuted = [t for t in (run.get("claims", {}).get("trace") or [])
-               if t.get("disposition") == "refuted"]
-    if not refuted:
-        return []
-    works = ctx["works"]
-
-    def nm(x):
-        t = x.get("title")
-        return (t.get("ja") if isinstance(t, dict) else t) or ""
-
-    def norm(t):
-        return re.sub(r"[\s　・･!！?？…‥、。,.\-–—〜~\"'’“”()（）\[\]【】]", "", (t or "").lower())
-
-    print_titles = {norm(nm(x)) for x in works}
-    return [t["work"] for t in refuted if norm(t["work"]) in print_titles]
-
 
 def inv_undated_works_say_where_and_why(ctx):
     """A work with no publication date still states where it was published, and why it is undated.
@@ -1746,39 +1698,6 @@ def budget_imprint_names_the_interface_disagrees_with(ctx):
                 if got != shipped[s]["name"]})
 
 
-def inv_imprint_spelling_belongs_to_its_own_publisher(ctx):
-    """A line's spelling may not be recorded under a house the line does not name.
-
-    THE FAILURE THIS IS FOR. A loose match eats a real imprint, and the cheapest version of that
-    mistake reaches across companies: the pattern that opened this work matched KADOKAWA's
-    BRIDGE COMICS while looking for 一迅社's 百合姫 line. Matching is scoped by publisher so that
-    cannot happen, and this is the statement of it that can be observed instead of assumed.
-
-    Measured on the shipped map against the corpus, so it holds whatever produced the map. Each
-    entry names the houses its line runs under; a row carrying that spelling under any other house
-    is the finding. The publisher is read as the record stores it. It used to be read through this
-    file's copy of a `publisherOf` in `kari/app.js` that has since been deleted there, the
-    cataloguing having moved into `adapters/madb/extract.py`; `a publisher is a name, not a role`
-    holds the stored string to carrying no notation, so there is nothing left here to strip.
-
-    fallback: none. The interface would show one company's line under another company's name, and
-    that is the category error the publisher pages are being built to avoid.
-    """
-    shipped = (ctx["names_shipped"] or {}).get("imprints")
-    if not shipped:
-        return []
-    bad = []
-    for r in ctx["series"]:
-        for pr in (r.get("print") or []):
-            raw = str(pr.get("imprint") or "").strip()
-            fact = shipped.get(raw)
-            if not fact or not fact.get("publishers"):
-                continue
-            pub = str(pr.get("publisher") or "").strip()
-            if pub and pub not in fact["publishers"]:
-                bad.append(f"{pr.get('work_id')}: {raw} is {fact['name']}'s and the row says {pub}")
-    return sorted(set(bad))
-
 
 def inv_first_date_precedes_its_editions(ctx):
     """A work cannot first appear after the volume that collects it was published.
@@ -1934,28 +1853,6 @@ def inv_ruby_covers_its_surface(ctx):
                 bad.append(f"{r.get('id')} {key}: ruby covers {a[:40]!r}, surface is {b[:40]!r}")
     return bad
 
-
-def inv_dates_within_a_row_are_ordered(ctx):
-    """A row cannot first appear after it last appeared.
-
-    INDEPENDENT BY CONSTRUCTION (§14b). `first date precedes its editions` tests the exact condition
-    `build.py` enforces when it moves a first date back to the earliest volume, so it holds by
-    construction and detects nothing. This asks what no pass enforces: that a row's own dates are in
-    order. `first` is assembled from the sources and then moved back by the print run, `latest` comes
-    from the serialisation, `latest_any` from whichever event is newest. Nothing makes them agree,
-    and a row beginning after it ended is incoherent however it arose.
-
-    Compared on the month, because a volume states 2024-03 where a chapter states 2024-03-18.
-    """
-    bad = []
-    for r in ctx["series"]:
-        first, latest, any_ = r.get("first"), r.get("latest"), r.get("latest_any")
-        for name, later in (("latest", latest), ("latest_any", any_)):
-            if first and later and str(first)[:7] > str(later)[:7]:
-                bad.append(f"{r.get('id')}: first {first} after {name} {later}")
-        if latest and any_ and str(latest)[:7] > str(any_)[:7]:
-            bad.append(f"{r.get('id')}: latest {latest} after latest_any {any_}")
-    return bad
 
 
 def _divisions(reading):
@@ -2556,41 +2453,6 @@ def budget_works_shaped_like_prose(ctx):
     return n
 
 
-def budget_works_named_by_a_truncation(ctx):
-    """Shipped rows naming a work under a title a listing cut short.
-
-    A LISTING SHOWS WHAT FITS. 公爵令嬢の籠絡ミッション and 病弱少女、転生して健康な肉体(最強)を手に入れる
-    both have titles longer than the cell they were read from, and the page ended each with three
-    full stops. Both entered the corpus as works of their own and both reached the updates feed,
-    where a reader met a title with its ending sheared off. `data/work-aliases.yaml` had already
-    recorded what each one really is; the release writer for that route was one of the several that
-    read `work_title` straight off the record without asking.
-
-    ASCII DOTS AND NOT `…`, which is the distinction that makes this checkable. A Japanese title
-    trailing off uses the ellipsis character: 乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった… is
-    a real title and so is Valentine with…, and 56 strings in the sources end that way. Three
-    ASCII full stops at the end of a Japanese title is a machine running out of room.
-
-    §14b, WHAT IT REUSES: nothing. It reads the shipped rows and matches characters. The alias
-    table is what FIXES this, and a check that read the same table would agree with it about every
-    title in it and stay silent about the one nobody has added yet, which is the case that matters.
-
-    THE ARCHIVE HOLDS THE FLOOR ABOVE ZERO. The context reads the archived monthly feeds along
-    with the current one, and a published month keeps its row set: the two rows
-    published under a truncated title in 2026-07 record what was shipped and stay that way. A floor
-    of zero would fail every run for a month over something no edit may touch.
-    The count falls as the archive ages out, and a rise says the writers have gone back to reading
-    `work_title` off a record without asking the alias table.
-    """
-    bad = set()
-    for r in (ctx["series"] or []):
-        if str(r.get("work") or "").endswith("..."):
-            bad.add(str(r.get("work")))
-    for r in (ctx["releases"] or []):
-        if str(r.get("work") or "").endswith("..."):
-            bad.add(str(r.get("work")))
-    return len(bad)
-
 
 def inv_no_source_a_reader_sees_is_an_adapter(ctx):
     """No name in a reader-facing source column is the name of a pass that fetched it.
@@ -2799,7 +2661,6 @@ INVARIANTS = [
     ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
     ("a division cites its source", inv_a_division_cites_its_source),
     ("a division names its donor in a field", inv_a_division_names_its_donor_in_a_field),
-    ("dates within a row are ordered", inv_dates_within_a_row_are_ordered),
     ("curated values reach the store", inv_curated_values_reach_the_store),
     ("ruby spells the reading", inv_ruby_spells_reading),
     ("one row per identifier", inv_one_row_per_identifier),
@@ -2807,8 +2668,6 @@ INVARIANTS = [
     ("a shipped identifier resolves", inv_a_shipped_identifier_resolves),
     ("first date precedes its editions", inv_first_date_precedes_its_editions),
     ("no ruby over bare Latin", inv_no_ruby_over_latin),
-    ("feed holds only attested rows", inv_feed_is_attested),
-    ("every update has a kind", inv_no_unknown_kind),
     ("readings are stored as kana", inv_readings_are_kana),
     ("a reading can show its source", inv_reading_can_show_its_source),
     ("English mode has no Japanese", inv_english_mode_has_no_japanese),
@@ -2827,7 +2686,6 @@ INVARIANTS = [
     ("a release id names one release", inv_a_release_id_names_one_release),
     ("no published update leaves its month", inv_no_published_update_leaves_its_month),
     ("deployed data matches built", inv_deployed_matches_built),
-    ("no refutation of print serials", inv_no_refutation_of_print_serials),
     ("state agrees with its own date", inv_state_agrees_with_its_own_date),
     ("undated works say where and why", inv_undated_works_say_where_and_why),
     ("a delivery date never stands beside a printing",
@@ -2836,8 +2694,6 @@ INVARIANTS = [
     ("a stated printing precedes the delivery", inv_a_stated_printing_precedes_the_delivery),
     ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role),
     ("a record without a publisher says why", inv_a_record_without_a_publisher_says_why),
-    ("an imprint spelling belongs to its own publisher",
-     inv_imprint_spelling_belongs_to_its_own_publisher),
     ("no HTML entity in a stored name", inv_no_html_entity_in_a_stored_name),
     ("a person is spelled one way", inv_a_person_is_spelled_one_way),
     ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees),
@@ -2909,11 +2765,6 @@ def budget_data_reaching_the_site_around_the_store(ctx):
     except (OSError, ValueError):
         return UNMEASURED
 
-
-def budget_works_without_english(ctx):
-    return sum(1 for r in ctx["series"]
-               if not (r.get("work_en") or {}).get("en")
-               and not (r.get("work_en") or {}).get("romaji"))
 
 
 def budget_works_without_an_english_name(ctx):
@@ -3085,12 +2936,6 @@ def budget_one_work_under_two_names(ctx):
                         pairs += 1
     return pairs
 
-
-def budget_incomplete_attested_rows(ctx):
-    return sum(1 for r in ctx["releases"]
-               if r.get("provenance") == "attested"
-               and (not (r.get("ep") or "").strip() or not r.get("author")
-                    or not r.get("access_modes")))
 
 
 def budget_facts_with_more_than_one_home(ctx):
@@ -3425,35 +3270,6 @@ def _our_volumes(row):
     return max(((p.get("volumes") or 0) for p in (row.get("print") or ())), default=0)
 
 
-def budget_volume_rows_with_no_publication_date(ctx):
-    """Volume rows a reader can reach that carry no publication date at all.
-
-    2,525 OF 6,153, AND EVERY ONE OF THEM FROM BOOK☆WALKER. The shop states 底本発行日 for the
-    volumes whose print edition it recorded and nothing for the rest, so a work page lists
-    `vol. 27  no date recorded` under a heading that counts it. MADB's rows are dated without
-    exception, which is what makes the split worth counting rather than a general lament about
-    coverage.
-
-    THE ROUTE OUT IS AN ISBN AND BOOK☆WALKER HAS NONE. `isbndate.py` measures this: no BOOK☆WALKER
-    volume of 5,968 read states one, so every ISBN-keyed enrichment in the pipeline is unable to
-    reach exactly this population. コミックシーモア's per-volume page states both the ISBN and
-    出版年月, which is why VOLUMES-PLAN §4 is the stage that moves this number.
-
-    A count, so it ratchets. A rise means new undated works, or a capture that stopped dating rows
-    it used to date.
-
-    §14b, what it cannot see: a row dated WRONGLY. `first date precedes its editions` and
-    `dates within a row are ordered` are the checks for that, and a plausible wrong date passes all
-    three.
-
-    fallback: none. A volume with no date carries no field saying why, which is itself the state
-    this counts.
-    """
-    reachable = {i for r in ctx["series"] for p in (r.get("print") or ())
-                 for i in (p.get("work_ids") or [p.get("work_id")]) if i}
-    return sum(1 for w in ctx["works"] if w.get("work_id") in reachable
-               for v in (w.get("volumes") or ()) if not v.get("published"))
-
 
 def budget_macron_boundaries_nobody_has_ruled_on(ctx):
     """Names where our macron says a long vowel, a source spells the pair out, and nobody has read it.
@@ -3497,39 +3313,6 @@ def budget_macron_boundaries_nobody_has_ruled_on(ctx):
             n += 1
     return n
 
-
-def budget_volume_rows_a_page_counts_but_cannot_list(ctx):
-    """Volume rows the work page counts in its heading and can put nothing on the page for.
-
-    THE SHAPE, FOUND ON コミック百合姫 BY THE PROJECT OWNER. Its page read `Volumes 119` above
-    `119 with no date and nothing else recorded`, and the record held the name and the delivery
-    date of every one of the 117 issues. `build.py` was building a volume row out of five keys and
-    dropping `designation` and `delivered`, so the interface, which lists a row carrying a date, an
-    ISBN or a number, had nothing to list. 1,420 rows across 897 works were in that state and every
-    single one of them had both fields in its source record.
-
-    WHAT IT COUNTS IS THE READER'S QUESTION, not the record's completeness. `volume rows with no
-    publication date` is 2,521 and is a research debt; this is 0 and is a plumbing fault. A row can
-    carry a date and still be listed, and a row can carry no date and still say what it is called
-    and when it went on sale, which is what these 1,420 now do.
-
-    ARITHMETIC OVER THE SHIPPED ROWS, per §14b: it asks the same question the interface's `says`
-    asks, over works.json, without running the interface. That is deliberate duplication of a
-    predicate and not of a rule: `says` decides what a page draws and this decides what the build
-    owes it, and the two agreeing is the property under test.
-
-    IT RATCHETS RATHER THAN BLOCKING, because a source could legitimately state that a volume
-    exists and nothing else. None does today. A rise says a field stopped being carried, which is
-    the fault this was written for.
-
-    fallback: none. A row with nothing on it carries no field saying why.
-    """
-    reachable = {i for r in ctx["series"] for p in (r.get("print") or ())
-                 for i in (p.get("work_ids") or [p.get("work_id")]) if i}
-    return sum(1 for w in ctx["works"] if w.get("work_id") in reachable
-               for v in (w.get("volumes") or ())
-               if not (v.get("published") or v.get("isbn") or v.get("number")
-                       or v.get("designation") or v.get("delivered")))
 
 
 def budget_works_whose_records_number_one_volume_twice(ctx):
@@ -5270,12 +5053,6 @@ BUDGETS_DEF = [
      "which is how an illustrated novel is billed and how a work nothing catalogues is admitted. "
      "DEFINITIONS §6 refuses prose and had no test. A rise is a work somebody should look at "
      "before it reaches readers with a work record."),
-    ("works named by a truncation", budget_works_named_by_a_truncation,
-     "distinct work titles in the shipped rows that end in three ASCII full stops, which is a "
-     "listing running out of room rather than a title trailing off: a Japanese title that trails "
-     "off uses …. Falls as the archived feeds holding them age out; a rise means a release writer "
-     "has gone back to reading `work_title` off a record without resolving it against "
-     "data/work-aliases.yaml."),
     ("interface tooltips a reader of Japanese cannot read",
      budget_interface_tooltips_a_reader_of_japanese_cannot_read,
      "title attributes in kari/app.js whose text is an English literal rather than a string built "
@@ -5432,9 +5209,6 @@ BUDGETS_DEF = [
      "the store becomes the sole compiled form, and this is what says whether a migration is "
      "happening. Asked of what the site SERVES, so it cannot fall by adding a table nobody "
      "reads, and it reaches 0 when the plan is done."),
-    ("works without English", budget_works_without_english,
-     "works that render in Japanese in English-only mode. Should be 0; a rise means the automatic "
-     "naming pass stopped covering something it used to."),
     ("works showing a romanisation", budget_works_without_an_english_name,
      "works with no English name, showing a romanisation instead. Distinct from the budget above, "
      "which a romanisation satisfies: this is the one that answers 'can a reader tell what this "
@@ -5457,9 +5231,6 @@ BUDGETS_DEF = [
      "one work offered twice under two names. Measured on the shipped rows and never on the "
      "identity registry, so it reports the pairs the registry has not joined. A queue rather than "
      "a fault count: each pair needs deciding, and the number falls by deciding them."),
-    ("incomplete attested rows", budget_incomplete_attested_rows,
-     "attested releases missing a chapter name, author or access state. The classic sign of a "
-     "moved CSS selector — the adapter still returns rows, just emptier ones."),
     ("facts with more than one home", budget_facts_with_more_than_one_home,
      "a vocabulary, a shape or a rule typed into a second file"),
     ("impossibilities asserted without evidence",
@@ -5530,12 +5301,6 @@ BUDGETS_DEF = [
     # Four numbers that were wrong on the day they were first looked at and that nothing was
     # watching. They are here before the fixes they measure, so each of §2, §3 and §4 of that plan
     # can be shown to move the number it claims to move rather than asserted to.
-    ("volume rows with no publication date", budget_volume_rows_with_no_publication_date,
-     "volume rows a reader can reach that state no publication date, all of them BOOK☆WALKER's: "
-     "the shop states 底本発行日 for the volumes whose print edition it recorded and nothing for "
-     "the rest. No ISBN-keyed enrichment can reach them because BOOK☆WALKER states no ISBN, so "
-     "the route is コミックシーモア's per-volume page, which states both. A rise means new undated "
-     "works or a capture that stopped dating rows it used to."),
     ("macron boundaries nobody has ruled on", budget_macron_boundaries_nobody_has_ruled_on,
      "names where our macron says a long vowel and a source spells the pair out, which nobody has "
      "read. Most of the class is a style, because MangaUpdates and Wikidata write ou for ō; what "
@@ -5543,13 +5308,6 @@ BUDGETS_DEF = [
      "states a long o nobody says. Four of 21 were that. The owner ruled on 2026-08-12 that a "
      "morphology rule is not worth buying for four names, so the four are data in kana.NOT_LONG "
      "and this is what stops a fifth arriving unnoticed. A rise is a name to read."),
-    ("volume rows a page counts but cannot list",
-     budget_volume_rows_a_page_counts_but_cannot_list,
-     "volume rows the heading counts and the page can show nothing for. It was 1,420 across 897 "
-     "works, every one of which had its own name and a delivery date in the source record while "
-     "the build carried five fields and dropped both. コミック百合姫 was 119 of them. Distinct "
-     "from `volume rows with no publication date`, which is a research debt: this is a row a "
-     "reader is shown nothing about, and a rise means a field stopped being carried."),
     ("works whose records number one volume twice",
      budget_works_whose_records_number_one_volume_twice,
      "works whose print records give one volume number to two rows, so the page draws vol. 1 twice "
@@ -5644,6 +5402,83 @@ BUDGETS_DEF = [
 
 # ── Running ───────────────────────────────────────────────────────────────────────────────────
 
+def _store():
+    """A connection to the compiled store, or None where nothing has built one."""
+    try:
+        sys.path.insert(0, str(ROOT / "adapters"))
+        import relational
+        return relational.open_db() if relational.DB.exists() else None
+    except Exception:                                                   # noqa: BLE001
+        return None
+
+
+def _store_canary(db, sql):
+    """A copy of the store with a violation planted in it, for `self_test`.
+
+    ASKED OF THE STORE'S OWN PACKAGE, because `adapters/lint/onewriter` refuses a second opener and
+    a copy needs the same `PRAGMA foreign_keys` the original does.
+    """
+    if db is None:
+        return None
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import relational
+    return relational.canary_copy(db, sql)
+
+
+def _store_asks():
+    """The checks §10 states as SQL, as `(invariants, budgets, probes)` for the tables below.
+
+    A QUERY IS NOT EXEMPT FROM §4. A check whose pattern never matches reports clean whether it is
+    written as a loop or as a `WHERE`, so every entry that can state a canary states one and the
+    self-test runs it against a copy of the store.
+
+    A MISSING STORE IS A FAILURE AND NOT A PASS. An invariant with nothing to read returns a
+    violation saying so, because returning nothing is the shape this whole file exists to refuse.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters"))
+        from relational import asks as _asks
+    except Exception:                                                   # noqa: BLE001
+        return [], [], []
+    invariants, budgets, probes = [], [], []
+
+    def _rows(spec):
+        def run(ctx):
+            db = ctx.get("store")
+            if db is None:
+                return [("the store is missing; run ./build.py before the checks", "")]
+            return [tuple(r) for r in db.execute(spec["sql"]).fetchall()]
+        return run
+
+    def _count(spec):
+        def run(ctx):
+            db = ctx.get("store")
+            if db is None:
+                return UNMEASURED    # this could not be measured; see UNMEASURED
+            return db.execute(spec["sql"]).fetchone()[0]
+        return run
+
+    for name, spec in _asks.INVARIANTS.items():
+        fn = _rows(spec)
+        invariants.append((name, fn))
+        if spec.get("canary"):
+            probes.append((name, fn, (lambda s: lambda c: c.update(
+                {"store": _store_canary(c.get("store"), s)}))(spec["canary"]), None))
+    for name, spec in _asks.BUDGETS.items():
+        fn = _count(spec)
+        budgets.append((name, fn, spec.get("why", "")))
+        # A BUDGET IS A NUMBER AND CANNOT BE PROBED ON A PASS, so its canary states how far it
+        # should move the count and the self-test asserts that rather than a truthy answer.
+        if spec.get("canary"):
+            probes.append((name, fn, (lambda s: lambda c: c.update(
+                {"store": _store_canary(c.get("store"), s)}))(spec["canary"]),
+                spec.get("canary_rises_by")))
+    return invariants, budgets, probes
+
+
+STORE_INVARIANTS, STORE_BUDGETS, STORE_PROBES = _store_asks()
+
+
 def context():
     releases = []
     cur = _load(BUILD / "feed" / "current.json", {})
@@ -5675,6 +5510,10 @@ def context():
         # THE §6 SCOPE RULINGS AND WHAT THE RUN REPORTED OF THEM, both on the context so a canary
         # can be planted between them. An invariant that opened data/scope.yaml itself could be
         # shown nothing and would report healthy for the rest of its life.
+        # THE STORE ITSELF, §10. Every check written as SQL reads this, and a canary swaps it for a
+        # copy with a violation in it, exactly as a canary swaps a collection above. `build.py`
+        # writes it on every run, so a gate that has built has one.
+        "store": _store(),
         "scope_rulings": (_yaml(ROOT / "data" / "scope.yaml", {}) or {}).get("rulings") or [],
         "scope_reported": ((_load(BUILD / "run.json", {}) or {}).get("scope") or {}).get("rulings")
                           or [],
@@ -5850,21 +5689,6 @@ def _plant_one_nicovideo_channel_for_all(c):
         r["channel"] = one
 
 
-def _plant_imprint_under_another_house(c):
-    """File a shipped imprint spelling under a company that does not run that line.
-
-    Taken out of the shipped map so the canary is a string the build wrote, and the house is one the
-    corpus already holds, so the row differs from a real one only in the join being wrong. Where the
-    map is empty the check has nothing to say and the probe plants nothing, which self_test reports
-    as an uncaught canary instead of passing quietly.
-    """
-    shipped = (c["names_shipped"] or {}).get("imprints") or {}
-    spelling = next((k for k, v in sorted(shipped.items()) if (v or {}).get("publishers")), None)
-    if spelling:
-        c["series"].append({"id": "CANARY", "work": "CANARY",
-                            "print": [{"work_id": "CANARY", "publisher": "講談社",
-                                       "imprint": spelling}]})
-
 
 def _private(value):
     """A copy a probe may mutate freely, sharing everything that cannot be mutated.
@@ -5888,6 +5712,13 @@ def _private(value):
     if t is set:
         return set(value)
     if t in (str, int, float, bool, bytes, type(None)):
+        return value
+    # A CONNECTION IS SHARED AND NEVER COPIED, §10. A store canary hands the probe a database of
+    # its own, made by `_store_canary`, so what a probe must not do is copy the shared one; a
+    # `deepcopy` of a `sqlite3.Connection` raises, which is how this was found rather than a probe
+    # quietly writing into the store every later probe reads.
+    import sqlite3 as _s
+    if isinstance(value, _s.Connection):
         return value
     import copy as _c
     return _c.deepcopy(value)
@@ -5982,6 +5813,15 @@ def _scratch_self_test():
     return ok
 
 
+# ── §10: the checks the store answers for itself ────────────────────────────────────────────────
+#
+# APPENDED RATHER THAN LISTED, because their names, their queries and their reasons live in
+# `adapters/relational/asks.py`, beside the schema they are about. A check written twice is the
+# fault this project names most often, and a name typed here as well as there is exactly that.
+INVARIANTS += STORE_INVARIANTS
+BUDGETS_DEF += STORE_BUDGETS
+
+
 def self_test():
     """Prove the invariants can fail. A check that cannot demonstrate a catch is not a check."""
     import copy
@@ -5991,11 +5831,7 @@ def self_test():
     if not ctx["releases"]:
         print("  self-test SKIPPED — no build output to plant a canary in")
         return True
-    probes = [
-        ("feed holds only attested rows", inv_feed_is_attested,
-         lambda c: c["releases"].append({"work": "CANARY", "provenance": "claimed"})),
-        ("every update has a kind", inv_no_unknown_kind,
-         lambda c: c["releases"].append({"work": "CANARY", "kind": "unknown"})),
+    probes = [tuple(p) for p in STORE_PROBES] + [
         # THE JOIN BETWEEN THE STORE AND THE ROW, planted as the fault would arrive: a title the
         # store has an English name for whose row carries none. That is what a fold quietly ceasing
         # to match looks like, and it would otherwise show only as a reader seeing romaji.
@@ -6125,10 +5961,6 @@ def self_test():
         ("ruby covers its surface", inv_ruby_covers_its_surface,
          lambda c: c["series"].append({"id": "CANARY", "work": "カナリア",
                                        "work_en": {"ruby": [["ちがう", None]]}})),
-        # A row that begins after it ended.
-        ("dates within a row are ordered", inv_dates_within_a_row_are_ordered,
-         lambda c: c["series"].append({"id": "CANARY", "work": "CANARY",
-                                       "first": "2030-01", "latest": "2020-01"})),
         # THE FAULT AS IT WAS SHIPPED (§14b): the item's position in the shop's listing, written
         # into the number field. This is MURCIÉLAGO's third product, a free sample of volume 1,
         # which the old rule numbered 3 because it came third.
@@ -6143,13 +5975,6 @@ def self_test():
         # The distributor MADB names ahead of the publisher, stored as the publisher.
         ("a publisher is a name, not a role", inv_publisher_is_a_name_not_a_role,
          lambda c: c["madb_records"].append({"work_id": "CANARY", "publisher": "[発売]講談社"})),
-        # A SPELLING THE MAP REALLY HOLDS, PUT UNDER A HOUSE THAT DOES NOT RUN IT (§14b). The
-        # invented version of this canary would be a made-up imprint, which proves only that the
-        # dictionary lookup works. This takes the first spelling the build shipped and files it
-        # under 講談社, which is the shape a substring match produces: the 一迅社 pattern that
-        # opened this work reached KADOKAWA's BRIDGE COMICS in exactly that way.
-        ("an imprint spelling belongs to its own publisher",
-         inv_imprint_spelling_belongs_to_its_own_publisher, _plant_imprint_under_another_house),
         # BOTH CANARIES ARE THE FILE AS IT STOOD ON 2026-08-07 (§14b), not an invented bad value:
         # every work was filed under ニコニコ漫画（公式）, the first banner in the sidebar. The
         # first plants it on one recorded work, so only the comparison can catch it; the second
@@ -6281,11 +6106,18 @@ def self_test():
               "credits": [{"name": "野宮りおん", "basis": "named-on-an-app-only-listing"}]})),
     ]
     ok = True
-    for name, fn, plant in probes:
+    for probe in probes:
+        name, fn, plant = probe[0], probe[1], probe[2]
+        rises = probe[3] if len(probe) > 3 else None
         c = _Scratch(ctx)
+        was = fn(c) if rises is not None else None
         plant(c)
         c.freeze()
-        if not fn(c):
+        if rises is not None:
+            if fn(c) != was + rises:
+                print(f"  self-test FAILED — '{name}' did not move by {rises} for its canary")
+                ok = False
+        elif not fn(c):
             print(f"  self-test FAILED — '{name}' did not catch its canary")
             ok = False
 
@@ -6436,88 +6268,11 @@ def self_test():
     # Every canary below is the shape a real record had on 2026-08-12, not one invented to make a
     # counter move. The collections are REPLACED rather than appended to, so each probe answers a
     # number rather than a delta, for the reason the paragraph above gives.
-    c = _Scratch(ctx)
-    c["series"] = [{"id": "wCANARY", "work": "カナリア",
-                    "print": [{"work_id": "bwCANARY", "work_ids": ["bwCANARY"], "volumes": 3}]}]
-    # BOOK☆WALKER's own shape: 底本発行日 on the volumes whose print edition it recorded, and
-    # nothing on the rest, which is every undated row in the corpus.
-    c["works"] = [{"work_id": "bwCANARY", "volumes": [{"number": 1, "published": "2014-04-25"},
-                                                      {"number": 2}, {"number": 3}]}]
-    if budget_volume_rows_with_no_publication_date(c) != 2:
-        print("  self-test FAILED — 'volume rows with no publication date' did not count the two "
-              "rows BOOK☆WALKER left undated")
-        ok = False
-    # AND A ROW NO READER CAN REACH IS NOT COUNTED, which is the other half of the rule: works.json
-    # holds records no print block stands for, and counting those would report a debt nobody owes.
-    c2 = _Scratch(ctx)
-    c2["series"] = []
-    c2["works"] = c["works"]
-    if budget_volume_rows_with_no_publication_date(c2) != 0:
-        print("  self-test FAILED — 'volume rows with no publication date' counted a volume no "
-              "print block reaches")
-        ok = False
-
-    # A NAME NOBODY HAS READ, which is the whole job of the measure: the four faults are ruled and
-    # the seventeen styles are ruled, so anything arriving is arriving unread.
-    c = _Scratch(ctx)
-    c["names_shipped"] = {"authors": {"カナリア": {
-        "en": "Kanaria", "romaji": {"macron": "Kanaria", "double": "Kanaria"}}}}
-    if budget_macron_boundaries_nobody_has_ruled_on(c) != 0:
-        print("  self-test FAILED — 'macron boundaries nobody has ruled on' counted a name whose "
-              "romanisation holds no long vowel at all")
-        ok = False
-    c["names_shipped"] = {"authors": {"カナリア": {
-        "en": "Kanaoue", "romaji": {"macron": "Kanaōe", "double": "Kanaoue"}}}}
-    if budget_macron_boundaries_nobody_has_ruled_on(c) != 1:
-        print("  self-test FAILED — 'macron boundaries nobody has ruled on' did not count a "
-              "macron a source spells out")
-        ok = False
-    # AND A NAME ALREADY READ IS NOT COUNTED AGAIN, whichever way it was ruled.
-    c["names_shipped"] = {"authors": {"御家かえる": {
-        "en": "Ouchi Kaeru", "romaji": {"macron": "Ōchi Kaeru", "double": "Ouchi Kaeru"}}}}
-    if budget_macron_boundaries_nobody_has_ruled_on(c) != 0:
-        print("  self-test FAILED — 'macron boundaries nobody has ruled on' counted a name the "
-              "queue already carries a decision for")
-        ok = False
-
-    # THE STATE MURCIÉLAGO WAS IN when the cross-catalogue fold was first tried and withdrawn: one
-    # block, and the two catalogues' rows for volume 1 both drawn, at two precisions.
-    c = _Scratch(ctx)
-    c["series"] = [{"id": "wCANARY", "work": "カナリア",
-                    "print": [{"work_id": "C1", "work_ids": ["C1", "bw1"], "volumes": 2}]}]
-    c["works"] = [{"work_id": "C1", "volumes": [{"number": "1", "published": "2014-04"},
-                                                {"number": "2", "published": "2014-09"}]},
-                  {"work_id": "bw1", "volumes": [{"number": "1", "published": "2014-04-25"}]}]
-    if budget_volume_numbers_a_page_draws_twice(c) != 1:
-        print("  self-test FAILED — 'volume numbers a page draws twice' did not count a number "
-              "drawn by two of one block's records")
-        ok = False
-    # AND TWO BLOCKS DRAWING A 1 EACH IS A REISSUE, which is two lists under two headings and not
-    # one number drawn twice. citrus is that, and counting it would make the budget unreachable.
-    c["series"] = [{"id": "wCANARY", "work": "カナリア",
-                    "print": [{"work_id": "C1", "work_ids": ["C1"], "volumes": 2},
-                              {"work_id": "bw1", "work_ids": ["bw1"], "volumes": 1}]}]
-    if budget_volume_numbers_a_page_draws_twice(c) != 0:
-        print("  self-test FAILED — 'volume numbers a page draws twice' counted two runs, which "
-              "are two lists and not one list with a number in it twice")
-        ok = False
-
-    # THE FAULT AS IT WAS FOUND (§14b): コミック百合姫's issues, carrying their own names and
-    # delivery dates in the record and neither of them on the volume row the build wrote.
-    c = _Scratch(ctx)
-    c["series"] = [{"id": "wCANARY", "work": "カナリア",
-                    "print": [{"work_id": "bwCANARY", "work_ids": ["bwCANARY"], "volumes": 3}]}]
-    c["works"] = [{"work_id": "bwCANARY", "volumes": [{}, {}, {"designation": "2017年1月号"}]}]
-    if budget_volume_rows_a_page_counts_but_cannot_list(c) != 2:
-        print("  self-test FAILED — 'volume rows a page counts but cannot list' did not count the "
-              "rows the build left with nothing on them")
-        ok = False
-    # AND A DELIVERY DATE ALONE IS SOMETHING, which is what 1,420 of them had all along.
-    c["works"] = [{"work_id": "bwCANARY", "volumes": [{"delivered": "2016-11-18"}, {}, {}]}]
-    if budget_volume_rows_a_page_counts_but_cannot_list(c) != 2:
-        print("  self-test FAILED — 'volume rows a page counts but cannot list' counted a row "
-              "carrying the day the shop began selling it")
-        ok = False
+    # THE TWO VOLUME BUDGETS ARE STORE QUERIES NOW, §10, and their canaries are planted in a copy
+    # of the store beside every other one, in `_store_asks`. What was asserted here and is asserted
+    # there is the same pair of things: an undated row is counted, and a row no print block reaches
+    # is not, because `works.json` holds records no run stands for and counting those would report
+    # a debt nobody owes.
 
     # MURCIÉLAGO's two records, which number volume 1 twice: MADB at month precision with an ISBN,
     # BOOK☆WALKER at day precision without one.

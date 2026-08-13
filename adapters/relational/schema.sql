@@ -807,12 +807,6 @@ CREATE TABLE claim (
   -- carried a `verified` flag beside two or more readings with no way to tell which one a person
   -- ruled on. A conflicts entry is a claim somebody moved aside, and saying so costs one column.
   displaced    INTEGER NOT NULL DEFAULT 0 CHECK (displaced IN (0, 1)),
-  -- WHICH RECORD MADE IT, §6. A claim hung off the FOLD alone, and 112 author spellings fold onto
-  -- another's key, so two records' answers arrived in one heap with nothing saying whose was whose.
-  -- `feed/names.json` ships ONE entry per fold, rendered from the record `fold_map` judged the
-  -- fullest, and that entry could not be emitted from a heap: the reading, the English, the marks
-  -- and the citation all have to come from the SAME record or the entry contradicts itself.
-  record       INTEGER REFERENCES name_record(id) ON DELETE CASCADE,
   -- WHETHER THE RECORD STATES THIS BASIS OR INHERITED IT. A division whose record says nothing
   -- about where its answer came from takes the READING's basis, which `facts/division` says is
   -- right: a cited basis gave the division with the reading. But the two are then indistinguishable

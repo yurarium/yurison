@@ -70,6 +70,24 @@ def open_db(path=None):
     return db
 
 
+def canary_copy(db, sql):
+    """A private copy of `db` with `sql` applied, for a self-test to plant a violation in.
+
+    ON A COPY AND NOT ON THE STORE, §10. `backup` into memory costs 25 ms for this database, so a
+    self-test never writes to the file the next check reads, and a canary that failed to roll back
+    could not silently become the corpus.
+
+    HERE RATHER THAN IN `check.py`, because `adapters/lint/onewriter` refuses a second opener and is
+    right to: the argument for one opener is `PRAGMA foreign_keys`, which a copy needs exactly as
+    much as the original. It is applied below.
+    """
+    mem = sqlite3.connect(":memory:")
+    db.backup(mem)
+    mem.execute("PRAGMA foreign_keys = ON")
+    mem.executescript(sql)
+    return mem
+
+
 def create(path=None):
     """A fresh database with the schema applied, carrying any quarantine forward.
 
@@ -771,8 +789,8 @@ def build(path=None, quarantine=False, at=None, source=None):
                             (seen_claims[ident], rec_id), f"claim edge {f} {name}")
                         continue
                     put("INSERT INTO claim (surface, kind, predicate, value, basis, source,"
-                        " source_kind, retrieved, reviewed, url, isbn, note, displaced, record)"
-                        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                        " source_kind, retrieved, reviewed, url, isbn, note, displaced)"
+                        " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
                         (sid, surface_kind[f], predicate, value, basis,
                          claim.get(f"{cite}_source"),
                          _kind_of(claim, cite), claim.get(f"{cite}_at"),
@@ -783,7 +801,7 @@ def build(path=None, quarantine=False, at=None, source=None):
                          # every later one came out of a conflicts list, which is a claim somebody
                          # moved aside. Without this the store held two readings and a `verified`
                          # flag with no way to say which one a person ruled on, 638 times.
-                         int(i > 0), rec_id),
+                         int(i > 0)),
                         f"claim {predicate} {f} {name}" + (f" [{i}]" if i else ""))
                     seen_claims[ident] = db.execute(
                         "SELECT last_insert_rowid()").fetchone()[0]
@@ -832,14 +850,14 @@ def build(path=None, quarantine=False, at=None, source=None):
                 # whether to put it in front of a reader is §6's question about a page, and a store
                 # that dropped it would be answering a display question with a missing fact.
                 put("INSERT INTO claim (surface, kind, predicate, value, basis, source,"
-                    " source_kind, url, isbn, note, record, basis_stated)"
-                    " VALUES (?,?,'division',?,?,?,?,?,?,?,?,?)",
+                    " source_kind, url, isbn, note, basis_stated)"
+                    " VALUES (?,?,'division',?,?,?,?,?,?,?,?)",
                     (sid, surface_kind[f], divided or r.get("reading") or "", basis,
                      r.get("reading_source") if lends else None,
                      _kind_of(r) if lends else None,
                      (cited.get("url") or r.get("reading_url")) if lends else None,
                      cited.get("isbn"),
-                     r.get("reading_boundary") or r.get("reading_note"), rec_id,
+                     r.get("reading_boundary") or r.get("reading_note"),
                      int(bool(r.get("reading_boundary_basis")))),
                     f"claim division {f} {name}")
                 seen_claims[ident] = db.execute("SELECT last_insert_rowid()").fetchone()[0]

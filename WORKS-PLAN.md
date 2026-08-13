@@ -13,7 +13,7 @@ The sections are in the order they are to be done, and each says what it needs f
 | §2 | A claim about a reading stops occupying the English's slot | done 2026-08-13 | 196 titles, 1,337 authors |
 | §5 | Two capture faults on the credit field | done 2026-08-13 | 4 rows |
 | §3 | Fetch the episode lists we never asked for | done 2026-08-13 | 53 works |
-| §6 | Ask the shops about a work, not only their yuri shelf | §3, which is the same move | 560 to ask about |
+| §6 | Ask the shops about a work, not only their yuri shelf | wired 2026-08-13, run going | 560 to ask about |
 | §4 | Join a translated edition to the work it translates | done 2026-08-13 | 28 products, 7 unjoined |
 
 **THE NUMBERS ARE THE ORDER THEY WERE FOUND IN, and the table above is the order to do them in.**
@@ -383,6 +383,23 @@ ISBNs and dates, which is what VOLUMES-PLAN spent two sections trying to reach b
 shop is being asked about stock rather than about genre, so nothing here launders a retailer's
 shelving into a classification, which is the line `bookwalker_shelf.py` draws and this must not
 cross.
+
+**THE ROUTE ALREADY EXISTED AND NOTHING RAN IT, 2026-08-13.** This section was written as though it
+needed building, and that was the third time today the same mistake was made: the two adapters are
+`adapters/shopquery/capture.py`, which asks BOOK☆WALKER what it stocks for a work with no print
+edition, and `adapters/madb/by_shop_query.py`, which asks the bibliography to agree before anything
+is written. Two parties agree on a title and on a person, neither having consulted the other, and a
+work clearing the first and failing the second is counted and named rather than dropped.
+
+What was missing is a caller. Neither pass is in `stage-a.yaml`, so both had been run by hand and
+then not run: 639 works asked, 174 with a creator agreement, and the file left where the last person
+stopped. `shopquery` now runs in Stage A, resuming from its own output, which is the same repair
+§1 made for the name passes.
+
+It reads the previous build's `series.json`, because Stage A runs before Compile. A work admitted
+today is asked about tomorrow, which costs nothing when hundreds are still unasked; the name passes
+sit in Stage E for the opposite reason, since a name is wanted for the work that arrived in the same
+run.
 
 **THE COUNTER-CASE TO TEST.** A title search on a shop returns the wrong book, which is exactly why
 the NDL pass refuses to accept a record without agreeing on the author. The same guard applies here

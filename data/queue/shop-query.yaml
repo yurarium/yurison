@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-08-07
+retrieved: 2026-08-13
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 174
-  hits_on_the_title_alone: 77
-  hits_stating_a_print_edition_date: 142
-  works_asked: 639
-  works_with_a_hit: 174
+  hits_agreeing_on_a_creator: 204
+  hits_on_the_title_alone: 78
+  hits_stating_a_print_edition_date: 159
+  works_asked: 691
+  works_with_a_hit: 204
 works:
   - work_url: "https://bigcomics.jp/series/003c4bf48a97f"
     id: "w00450"
@@ -1707,6 +1707,23 @@ works:
         agreement: "creator"
         volumes_stated: 6
         completed_marker: false
+  - work_url: "https://comic-fuz.com/manga/2389"
+    id: "w03159"
+    work: "ぬるめた"
+    author: "こかむも"
+    platform: "COMIC FUZ"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/284597/list/"
+        title_listed: "ぬるめた（まんがタイムKRコミックス）"
+        shop_author: "こかむも(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        printed: "2021/2/11"
+        agreement: "creator"
+        volumes_stated: 6
+        completed_marker: false
   - work_url: "https://comic-fuz.com/manga/2425"
     id: "w00518"
     work: "ヲトメは義母に恋してる"
@@ -2013,6 +2030,21 @@ works:
         agreement: "creator"
         volumes_stated: 4
         completed_marker: true
+  - work_url: "https://comic-fuz.com/manga/4133"
+    id: "w03169"
+    work: "君が一等星に光るまで"
+    author: "なうち"
+    platform: "COMIC FUZ"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "君が一等星に光るまで １巻"
+        shop_author: "なうち(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://comic-fuz.com/manga/441"
     id: "w00026"
     work: "球詠"
@@ -3357,6 +3389,26 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-zenon.com/episode/12207421983944323781"
+    id: "w03172"
+    work: "画家の肖像"
+    author: "レオパード・ゲッコー"
+    platform: "コミックゼノン"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-zenon.com/episode/12207421983944323839"
+    id: "w03173"
+    work: "散らないで菊"
+    author: "ぽぽらら"
+    platform: "コミックゼノン"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://comic-zenon.com/episode/14079602755346320251"
     id: "w00802"
     work: "神様の手"
@@ -4556,6 +4608,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/2551460910021695025"
+    id: "w03175"
+    work: "姫虐が止まらない白桃さん"
+    author: "斉藤りょーパー"
+    platform: "一迅プラス"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://kimicomi.com/series/617d2958d4953"
     id: "w00292"
     work: "さきゅりふぁいす!"
@@ -4603,6 +4665,14 @@ works:
         agreement: "creator"
         volumes_stated: 5
         completed_marker: true
+  - work_url: "https://kirapo.jp/meteor/titles/tuimie"
+    id: "w03174"
+    work: "ツイてるギャルとミエてる陰キャ"
+    platform: "きら星ポータル"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "title query answered nothing"
   - work_url: "https://kuragebunch.com/episode/12207421983458660582"
     id: "w00337"
     work: "メイドのベル"
@@ -5119,6 +5189,616 @@ works:
         agreement: "creator"
         volumes_stated: 3
         completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/34652"
+    id: "w03215"
+    work: "とにも角にも鹿姫さん。"
+    author: "きっかん"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://manga.nicovideo.jp/comic/37662"
+    id: "w03194"
+    work: "見える子ちゃん"
+    author: "泉朝樹"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/200720/list/"
+        title_listed: "見える子ちゃん（MFC）"
+        shop_author: "泉 朝樹"
+        imprint: "MFC"
+        publisher: "KADOKAWA"
+        printed: "2019/4/23"
+        agreement: "creator"
+        volumes_stated: 14
+        completed_marker: false
+      - series_url: null
+        title_listed: "見える子ちゃん 公式アンソロジーコミック"
+        shop_author: "泉 朝樹(原作)"
+        imprint: "MFC"
+        publisher: "KADOKAWA"
+        printed: "2021/11/22"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/39303"
+    id: "w03202"
+    work: "異種族女子に○○する話"
+    author: "すいみん"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/219556/list/"
+        title_listed: "異種族女子に○○する話（MFC）"
+        shop_author: "すいみん"
+        imprint: "MFC"
+        publisher: "KADOKAWA"
+        printed: "2019/9/21"
+        agreement: "creator"
+        volumes_stated: 5
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/39341"
+    id: "w03208"
+    work: "まほまほ ~魔法少女と魔法使い~"
+    author: "つくる"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://manga.nicovideo.jp/comic/40721"
+    id: "w03206"
+    work: "ハッピーアワーガールズ"
+    author: "揚立しの"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/255116/list/"
+        title_listed: "ハッピーアワーガールズ（バンブーコミックス）"
+        shop_author: "揚立しの(著)"
+        imprint: "バンブーコミックス"
+        publisher: "竹書房"
+        printed: "2020/7/21"
+        agreement: "creator"
+        volumes_stated: 3
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/41670"
+    id: "w03203"
+    work: "河島さんは面倒くさい。"
+    author: "れいぴあ"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://manga.nicovideo.jp/comic/42275"
+    id: "w03209"
+    work: "ゆりでなる♥えすぽわーる"
+    author: "なおいまい"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://manga.nicovideo.jp/comic/44969"
+    id: "w03201"
+    work: "センゲンス"
+    author: "ニョニョトマコト"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
+  - work_url: "https://manga.nicovideo.jp/comic/45363"
+    id: "w03216"
+    work: "サキュバスの後輩に堕とされたくない先輩"
+    author: "かごのとり"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://manga.nicovideo.jp/comic/46293"
+    id: "w03217"
+    work: "JCがサキュバスに先祖返りした話"
+    author: "菅原優太郎"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://manga.nicovideo.jp/comic/47265"
+    id: "w03195"
+    work: "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）"
+    author: "むっしゅ / みかみてれん / 竹嶋えく"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/267490/list/"
+        title_listed: "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）（ヤングジャンプコミックスDIGITAL）"
+        shop_author: "みかみてれん(原作) むっしゅ(漫画) 竹嶋えく(キャラクター原案)"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        printed: "2020/10/21"
+        agreement: "creator"
+        volumes_stated: 9
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/48388"
+    id: "w03191"
+    work: "両片想いな双子姉妹"
+    author: "はちこ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "両片想いな双子姉妹 １"
+        shop_author: "はちこ"
+        imprint: "MFC"
+        publisher: "KADOKAWA"
+        printed: "2021/5/21"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/50087"
+    id: "w03204"
+    work: "はぴちゅ！"
+    author: "ほんわかわーくす"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://manga.nicovideo.jp/comic/50615"
+    id: "w03210"
+    work: "ずぼら先輩とまじめちゃん"
+    author: "東３８５"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/311619/list/"
+        title_listed: "ずぼら先輩とまじめちゃん（バンブーコミックス 4コマセレクション）"
+        shop_author: "東385(著)"
+        imprint: "バンブーコミックス 4コマセレクション"
+        publisher: "竹書房"
+        printed: "2021/8/10"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/52402"
+    id: "w03218"
+    work: "迷えるJCがキスをたしなむ話"
+    author: "すたひろ"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://manga.nicovideo.jp/comic/52677"
+    id: "w03227"
+    work: "JSがキスする"
+    author: "白玉もち"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://manga.nicovideo.jp/comic/53293"
+    id: "w03223"
+    work: "口に出しても宜しいですか？"
+    author: "松本ナミル"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/336608/list/"
+        title_listed: "口に出しても宜しいですか？（メテオCOMICS）"
+        shop_author: "松本ナミル(著)"
+        imprint: "メテオCOMICS"
+        publisher: "フレックスコミックス"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/53909"
+    id: "w03228"
+    work: "おちこぼれフルーツタルト"
+    author: "浜弓場 双"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/67624/list/"
+        title_listed: "おちこぼれフルーツタルト（まんがタイムKRコミックス）"
+        shop_author: "浜弓場双(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        printed: "2016/4/27"
+        agreement: "creator"
+        volumes_stated: 9
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/53993"
+    id: "w03229"
+    work: "ポンポコタヌキとへっぽこ王子"
+    author: "桜Qり"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "ポンポコタヌキとへっぽこ王子 １巻"
+        shop_author: "桜Ｑり(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        printed: "2022/3/12"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/54613"
+    id: "w03234"
+    work: "ゆらめきラグーン"
+    author: "花宮みぃ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/358408/list/"
+        title_listed: "ゆらめきラグーン（まんがタイムKRコミックス）"
+        shop_author: "花宮みぃ(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/54924"
+    id: "w03197"
+    work: "チートイーター異世界召喚尽く滅ぶべし"
+    author: "赤人義一"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/345743/list/"
+        title_listed: "チートイーター異世界召喚尽く滅ぶべし（バンブーコミックス 異世界BC）"
+        shop_author: "赤人義一(著)"
+        imprint: "バンブーコミックス 異世界BC"
+        publisher: "竹書房"
+        printed: "2022/3/14"
+        agreement: "creator"
+        volumes_stated: 7
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/55537"
+    id: "w03198"
+    work: "同居人に片思いしてる百合漫画"
+    author: "はいじま"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://manga.nicovideo.jp/comic/56977"
+    id: "w03196"
+    work: "性別不明な中性僕っ子とお姉さん"
+    author: "つみきつき"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "性別不明な中性僕っ子とお姉さん"
+        shop_author: "つみきつき"
+        imprint: "MFC"
+        publisher: "KADOKAWA"
+        printed: "2023/3/23"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/57356"
+    id: "w03199"
+    work: "くっ殺せの姫騎士となり、百合娼館で働くことになりました。"
+    author: "ひな姫"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/311273/list/"
+        title_listed: "くっ殺せの姫騎士となり、百合娼館で働くことになりました。（バンブーコミックス）"
+        shop_author: "ひな姫(著)"
+        imprint: "バンブーコミックス 異世界BC"
+        publisher: "竹書房"
+        printed: "2021/8/4"
+        agreement: "creator"
+        volumes_stated: 6
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/59477"
+    id: "w03219"
+    work: "ここに住みたい"
+    author: "40原"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://manga.nicovideo.jp/comic/59722"
+    id: "w03225"
+    work: "ごきげんよう、一局いかが?"
+    author: "卯花つかさ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/409502/list/"
+        title_listed: "ごきげんよう、一局いかが？（まんがタイムKRコミックス）"
+        shop_author: "卯花つかさ(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        volumes_stated: 5
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/60390"
+    id: "w03207"
+    work: "おかしなエルフと女子高生"
+    author: "東３８５"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/415744/list/"
+        title_listed: "おかしなエルフと女子高生（バンブーコミックス）"
+        shop_author: "東385(著)"
+        imprint: "バンブーコミックス 異世界BC"
+        publisher: "竹書房"
+        printed: "2023/5/20"
+        agreement: "creator"
+        volumes_stated: 3
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/61103"
+    id: "w03205"
+    work: "ときめけ魔法幼女ココピュア"
+    author: "柚木涼太"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/406672/list/"
+        title_listed: "ときめけ魔法幼女ココピュア（バンブーコミックス）"
+        shop_author: "柚木涼太(著)"
+        imprint: "バンブーコミックス"
+        publisher: "竹書房"
+        printed: "2023/3/30"
+        agreement: "creator"
+        volumes_stated: 3
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/62269"
+    id: "w03235"
+    work: "MOJI の百合"
+    author: "MOJI"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://manga.nicovideo.jp/comic/67280"
+    id: "w03222"
+    work: "押しかけ女房、コドモ付き！"
+    author: "とめきち"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "押しかけ女房、コドモ付き！ １巻"
+        shop_author: "とめきち(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/68328"
+    id: "w03238"
+    work: "すき焼き定食なんかキライだ"
+    author: "会田小路ちょこぷでぃんぐ"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://manga.nicovideo.jp/comic/68352"
+    id: "w03220"
+    work: "神絵師のおしごと"
+    author: "有野金吾"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/514083/list/"
+        title_listed: "神絵師のおしごと（まんがタイムKRコミックス）"
+        shop_author: "有野金吾(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/68902"
+    id: "w03236"
+    work: "エンドロールの後には最高の旅を"
+    author: "リキタケ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/481620/list/"
+        title_listed: "エンドロールの後には最高の旅を（ガンガンコミックスJOKER）"
+        shop_author: "リキタケ"
+        imprint: "ガンガンコミックスJOKER"
+        publisher: "スクウェア・エニックス"
+        agreement: "creator"
+        volumes_stated: 3
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/69333"
+    id: "w03230"
+    work: "魔女まじょS-WITCH"
+    author: "海老川ケイ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "魔女まじょＳ－ＷＩＴＣＨ １巻"
+        shop_author: "海老川ケイ(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/69545"
+    id: "w03239"
+    work: "犬窪ノアとなかよしするまで"
+    author: "塩井こぬ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/506428/list/"
+        title_listed: "犬窪ノアとなかよしするまで（ガンガンコミックスJOKER）"
+        shop_author: "塩井こぬ"
+        imprint: "ガンガンコミックスJOKER"
+        publisher: "スクウェア・エニックス"
+        agreement: "creator"
+        volumes_stated: 4
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/69622"
+    id: "w03240"
+    work: "田舎エッチ ～田舎のエッチな女の子と過ごすひと夏のエッチな思い出～ アンソロジーコミック"
+    author: "梧桐柾木, QZO。, あびしに杏, ケム木村, ひととせひるね, ほっぺげ, ももずみ純, 焼肉定食, ゆづましろ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "田舎エッチ ～田舎のエッチな女の子と過ごすひと夏のエッチな思い出～ アンソロジーコミック"
+        shop_author: "梧桐柾木(カバーイラスト) あびしに 杏(著) QZO。(著) ケム 木村(著) ひととせひるね(著) ほっぺげ(著) ももずみ純(著) 焼肉定食(著) ゆづましろ(著)"
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        printed: "2024/8/27"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/70759"
+    id: "w03231"
+    work: "フルボイス！"
+    author: "科戸コウ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: "https://bookwalker.jp/series/544702/list/"
+        title_listed: "フルボイス！（まんがタイムKRコミックス）"
+        shop_author: "科戸コウ(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: true
+  - work_url: "https://manga.nicovideo.jp/comic/71834"
+    id: "w03232"
+    work: "十字トンボは空を飛ばない"
+    author: "織日ちひろ 虫原"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "十字トンボは空を飛ばない １巻"
+        shop_author: "織日ちひろ(原作) 虫原(漫画)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "title-only"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/72637"
+    id: "w03212"
+    work: "きみとボドゲが作りたい！"
+    author: "赤城ナツイチ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "きみとボドゲが作りたい！ １巻"
+        shop_author: "赤城ナツイチ(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/72638"
+    id: "w03233"
+    work: "子供部屋ドラゴン"
+    author: "*sow*"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "子供部屋ドラゴン １巻"
+        shop_author: "*sow*(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        printed: "2026/4/10"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/73060"
+    id: "w03221"
+    work: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
+    author: "倉崎もろこ / みかみてれん / 未幡"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話 1"
+        shop_author: "倉崎もろこ(漫画) みかみてれん(原作) 未幡(キャラクター原案)"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/74044"
+    id: "w03224"
+    work: "桃色カンパネラ"
+    author: "リンリココ"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-13"
+    hits:
+      - series_url: null
+        title_listed: "桃色カンパネラ １巻"
+        shop_author: "リンリココ(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/77287"
+    id: "w03226"
+    work: "タイムトラベル少女 ～ミライのサキ～"
+    author: "ぱぺっときゃすと！"
+    platform: "ニコニコ漫画"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://news.mynavi.jp/series/carfairy/"
     id: "w00038"
     work: "自動車の妖精 パッソちゃんの恩返し"
@@ -5302,6 +5982,26 @@ works:
     author: "じぃと"
     platform: "マガポケ"
     retrieved: "2026-08-07"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03196/episode/442364"
+    id: "w00198"
+    work: "怪獣ロマンティクス"
+    author: "じぃと"
+    platform: "マガポケ"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03273/episode/442380"
+    id: "w03170"
+    work: "アイ・ヘイ・チュー"
+    author: "長門知大"
+    platform: "マガポケ"
+    retrieved: "2026-08-13"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -8177,6 +8877,14 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://ynjn.jp/title/30352"
+    id: "w03168"
+    work: "横槍メンゴ新作読切シリーズ"
+    platform: "ヤンジャン+"
+    retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
   - work_url: "https://youngchampion.jp/series/f82a97494ac07"
     id: "w00713"
     work: "隣人/読み切り"

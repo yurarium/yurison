@@ -60,6 +60,35 @@ commands:
            data/coverage/webcomics-gap.yaml, data/source/nicovideo/nicovideo.yaml,
            --out, data/source/nicovideo, --cache, "{CACHE}/nico-works"]
 
+  # ASK THE SHOP WHETHER IT STOCKS A WORK, rather than waiting for its 百合 shelf to name one.
+  # Every shop route this project has is shelf-driven: `recon/bookwalker_shelf.py` opens by saying
+  # it reads "BOOK☆WALKER's 百合 shelf, read as a candidate list", so the question asked of a shop
+  # is which works it FILES under 百合 and never whether it sells a given one. A shop that stocks a
+  # book and files it as horror is then indistinguishable from a shop that does not stock it:
+  # 見える子ちゃん has print editions on コミックシーモア and BOOK☆WALKER, is tagged 百合 by
+  # Web漫画アンテナ in our own coverage file, and the corpus held a record from neither shop.
+  #
+  # THE PASS ALREADY EXISTED AND NOTHING RAN IT, which is exactly section 1's fault one layer out.
+  # It has asked 639 works and found 174 with a creator agreement, and it resumes from its own
+  # output, so a scheduled run picks up whatever the last one did not reach. 560 rows hold a web
+  # serialisation and no print record at all, which is the population to ask about rather than the
+  # size of the gap: many web serials have no book. WORKS-PLAN section 6.
+  #
+  # STOCK IS NOT A GENRE CLAIM. These works were admitted before the shop was asked, and what the
+  # shop answers is what it sells; `by_shop_query` records the label as `none`, which DEFINITIONS
+  # section 4 means as saying nothing about content.
+  #
+  # IT READS THE PREVIOUS BUILD'S series.json, because Stage A runs before Compile. A work admitted
+  # today is therefore asked about tomorrow, which costs nothing here: the pass resumes from its own
+  # output and has hundreds of works still to reach, so a day's lag on the newest one changes no
+  # answer. The name passes are in Stage E for the opposite reason, since a name is wanted for the
+  # work that arrived in the same run.
+  - id: shopquery
+    optional: true
+    argv: [adapters/shopquery/capture.py, --out, data/queue/shop-query.yaml,
+           --series, data/build/series.json, --cache, "{CACHE}/shopquery-cache",
+           --retrieved, "{R}"]
+
   - id: webpages
     optional: true
     argv: [adapters/webpages/releases.py, --gap, data/coverage/webcomics-gap.yaml,

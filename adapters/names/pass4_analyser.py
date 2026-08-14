@@ -1367,9 +1367,27 @@ def _misread():
     return reading
 
 
+def _romanisation_facts():
+    """`facts/romanisation`, imported late so this module runs from its own directory."""
+    import sys as _s
+    _s.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    from facts import romanisation as _r
+    return _r
+
+
 def romanise_ja(tok, modes, text):
-    """Romanise a fragment — a chapter subtitle, one name out of a credit line — or return it as it
-    came. Uses the same analyser and the same styles, so nothing here can disagree with a title."""
+    """Romanise a fragment, a chapter subtitle or one name out of a credit line, or return it as it
+    came.
+
+    THROUGH `facts/romanisation`, WHICH IS WHERE THE RULE IS, READER-PLAN item 7. This called
+    `title_case` directly and left `particles` off, while a title passes it on, so a chapter label
+    capitalised the particles a title lowercases: `Koe Ni Nosete Fanfaare` on the same tab as
+    `Uesugi Kun wa Onnanoko o Yametai`, and on one feed row the same phrase appeared twice spelled
+    two ways. 41 rows were in that state.
+
+    THE DOCSTRING SAID THE OPPOSITE and had done since it was written: "the same styles, so nothing
+    here can disagree with a title". The claim was true of the style and false of the casing, which
+    is the shape a second implementation always takes."""
     import kana as _k
     if not text:
         return text
@@ -1382,7 +1400,7 @@ def romanise_ja(tok, modes, text):
     r, _unc = analyse_best(tok, text, modes)
     if not r:
         return latinise(text)       # nothing readable; at least fix the punctuation
-    return latinise(_k.title_case(_k.romanise(r, "macron")))
+    return latinise(_romanisation_facts().romanise(r, "macron"))
 
 
 def renderer_fingerprint():

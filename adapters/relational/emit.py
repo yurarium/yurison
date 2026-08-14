@@ -894,12 +894,17 @@ def series(db, generated):
             "SELECT work, chapters, chapters_stated, latest, latest_ep, first, oneshot,"
             " oneshot_inferred, collection, series_url, offer FROM serialisation"
             " ORDER BY rowid"):
+        # `latest_work_level` TRAVELS WITH THE DATE, READER-PLAN item 2. The date reached the
+        # reader and the mark saying what it dates did not, so the tooltip the site had been given
+        # never fired: a fix half-shipped is a fix nobody can see.
         sources = [{"platform": p, "url": u, "chapters": n, "free": f, "free_timed": ft,
                     "priced": pr, "latest": la, "partial": bool(pa), "format": fmt,
-                    "retrieved": re_}
-                   for p, u, n, f, ft, pr, la, pa, fmt, re_ in db.execute(
+                    "retrieved": re_,
+                    **({"latest_work_level": True} if wl else {})}
+                   for p, u, n, f, ft, pr, la, pa, fmt, re_, wl in db.execute(
                        "SELECT platform, url, instalments, free, free_timed, priced, latest,"
-                       " partial, format, retrieved FROM offer WHERE work = ? ORDER BY id", (wid,))]
+                       " partial, format, retrieved, latest_work_level FROM offer"
+                       " WHERE work = ? ORDER BY id", (wid,))]
         # THE ROW THE FILE SHOWS IS THE CHOSEN OFFER'S, and the rest follow it in the order they
         # were loaded, which is the order the compiler ranked them in.
         sources.sort(key=lambda s: s["url"] != _url_of(db, offer_id))

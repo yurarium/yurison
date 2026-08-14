@@ -6200,6 +6200,10 @@ def main():
             "sources": [{"platform": r["platform"], "url": r["url"], "chapters": r["chapters"],
                          "free": r["free"], "free_timed": r["free_timed"], "priced": r["priced"],
                          "latest": r["latest"], "partial": r["partial"], "format": r["format"],
+                         # THE MARK TRAVELS WITH THE DATE. Without it the store took the date and
+                         # left behind what it dates, so the site could not tell a reader whether
+                         # it was holding a chapter's date or the work's.
+                         "latest_work_level": r.get("latest_work_level"),
                          "retrieved": r.get("retrieved")}
                         for r in rows],
             # WHY THIS WORK IS FILED AS YURI, as far as the platforms go. One row per platform

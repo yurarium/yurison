@@ -1707,9 +1707,11 @@ def _load_feed(db, source, put, counts):
             # above is about. The column is named for what it holds; the field is read as it is
             # written, because renaming it in the build is a change to what the site is served.
             put("INSERT INTO offer (work, platform, url, instalments, free, free_timed, priced,"
-                " latest, partial, retrieved, format) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                " latest, latest_work_level, partial, retrieved, format)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                 (wid, o["platform"], o.get("url"), o.get("chapters") or 0, o.get("free") or 0,
                  o.get("free_timed") or 0, o.get("priced") or 0, o.get("latest"),
+                 int(bool(o.get("latest_work_level"))) if o.get("latest") else None,
                  int(bool(o.get("partial"))), o.get("retrieved"), o.get("format") or "standard"),
                 f"offer {wid}@{o['platform']}")
     counts["offer"] = db.execute("SELECT count(*) FROM offer").fetchone()[0]

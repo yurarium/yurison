@@ -1602,6 +1602,11 @@ CREATE TABLE offer (
   free_timed INTEGER NOT NULL DEFAULT 0 CHECK (free_timed >= 0),
   priced     INTEGER NOT NULL DEFAULT 0 CHECK (priced     >= 0),
   latest     TEXT CHECK (latest IS NULL OR latest GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR latest GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  -- WHETHER THAT DATE IS THE WORK'S OR A CHAPTER'S, READER-PLAN item 2. ニコニコ漫画 states when a
+  -- WORK last updated and never which chapter did, so the date is real and dates something else.
+  -- Without this the site cannot tell a reader which it is holding, and the first version of the
+  -- fix shipped the date with the mark stranded in `build.py`.
+  latest_work_level INTEGER CHECK (latest_work_level IN (0, 1)),
   -- THE PLATFORM LISTS MORE THAN WE HOLD, which the interface already draws as `90+`.
   partial    INTEGER NOT NULL DEFAULT 0 CHECK (partial IN (0, 1)),
   retrieved  TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]' OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),

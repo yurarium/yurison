@@ -1852,12 +1852,34 @@ queue.
   THEN `build.py` STOPS WRITING THEM, which is the observable end and is one line per file. The
   emitters stay, because the site calls them, and this repository stops calling them at all.
 
-One thing has to be decided before the last step. `run.json`, `checks.json` and `status.json` are the
-run's report on itself rather than compiled data, and `served.CORPUS` has always excluded them. They
-are also what the site's status page is built from. Under §11 that page is the site's to build, so
-either the store carries the report and the site renders it, or this repository goes on publishing
-three small files that are not the corpus. That is a question about what a report IS, and it is the
-only part of this section that is not mechanical.
+**THE REPORT GOES INTO THE STORE, ruled by the project owner 2026-08-14.** `run.json`,
+`checks.json` and `status.json` are the run's report on itself rather than compiled data, and
+`served.CORPUS` has always excluded them; they are also what the site's status page is built from.
+Under §11 that page is the site's to build, so the choice was between the store carrying the report
+and this repository publishing three small files that are not the corpus. The store carries it. A
+consumer that has to fetch one artefact for the corpus and three more for the report has two
+boundaries where §11 drew one, and the second one would be the one nobody versions.
+
+  WHAT IS ALREADY THERE AND WHAT IS NOT. `run_report` holds four keys, the feed window's width, the
+  first archived month, the samples dropped and the run's date, added when the site's build needed
+  them to write a feed at all. The rest is 298 KB of `run.json`, 47 KB of `status.json` and 43 KB of
+  `checks.json`, which is every invariant and budget with its number. Those are tables rather than
+  blobs: a check with its value, its budget and whether it was measured is a row, and a store that
+  held it as JSON text would have made the store a way of shipping the files again.
+
+  AND THE ORDERING IS THE ONE REAL DIFFICULTY. The store is compiled and applied before
+  `check.py --runtime` runs, because the checks read the compiled corpus, so the report cannot be
+  part of the same write. Either the run applies a second, small delta once the checks have
+  answered, which is what `delta.write` is for and costs one more `apply` on a handful of rows, or
+  publishing waits for the checks and the store is stamped after them. The first keeps the store
+  usable when a check crashes, which is the state that matters most.
+
+**THIS IS COSTING SOMETHING NOW, AND IT IS VISIBLE.** `deploy.sh` used to copy the three files to
+the site and §11 removed it, `from_store.py` never emitted them, so all three froze on 2026-08-13
+while the corpus beside them moved on. The status page reads a day behind and will stay there until
+this lands: a page reporting on a run that is not the run that produced the data around it, which is
+a worse failure than a missing page because it answers. Whoever takes §13 should take this first
+rather than last.
 
 **AND WHAT IS LOST, WHICH ON EXAMINATION IS NOTHING.** The worry was that `data/build` is a
 debugging affordance: a person can open `series.json` and read it, where a store answers only

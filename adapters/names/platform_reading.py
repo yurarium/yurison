@@ -20,6 +20,13 @@ THE RUBY IS HIRAGANA AND THE STORE HOLDS KATAKANA, which is a conversion and not
 WHAT IS NOT DONE. The author page states no boundary between family and given name, since
 `うどうあかり` is one run, so none is invented, for the reason `madb_reading.py` gives at length.
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population as _population  # noqa: E402
+
 import pathlib
 import re
 import sys
@@ -136,7 +143,7 @@ def main(argv=None):
         return r.text or ""
 
     wanted = unsettled_readings()
-    series = json.loads((pathlib.Path(a.build) / "series.json").read_text())["series"]
+    series = _population.series()
     # Which work pages to open: the ones on this platform crediting somebody with no stated
     # reading. The author page is reached from the work, because the platform's author index is
     # paginated and the works are the population we care about.

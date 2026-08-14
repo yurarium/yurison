@@ -31,6 +31,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
 import captures  # noqa: E402
+import population  # noqa: E402
 import delivery  # noqa: E402
 import yaml
 import yamlfast  # noqa: F401,E402   for its effect: yaml.safe_load reads through libyaml
@@ -319,7 +320,7 @@ def main(argv=None):
     read = lambda n: json.loads((b / n).read_text())                        # noqa: E731
     run, checks = read("run.json"), read("checks.json")
     series = read("series.json")["series"]
-    index = json.loads((b / "works.json").read_text())["works"]
+    index = population.records(b / "works.json")
     budgets = json.loads(pathlib.Path(a.budgets).read_text())
 
     queues = {}

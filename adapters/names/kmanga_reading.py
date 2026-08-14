@@ -64,6 +64,13 @@ either.
 Usage:  kmanga_reading.py --cache DIR            fetch and print entries for curated.yaml
         kmanga_reading.py --cache DIR --offline  re-read the cache without a request
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population as _population  # noqa: E402
+
 import html as _html
 import pathlib
 import re
@@ -471,7 +478,7 @@ def main(argv=None):
     # re-run at all.
     skipped = sorted(n for n in wanted if store.tried(n, SOURCE))
     wanted = {k: v for k, v in wanted.items() if k not in set(skipped)}
-    series = json.loads((pathlib.Path(a.build) / "series.json").read_text())["series"]
+    series = _population.series()
     order = by_reader_reach(wanted, series)
     if a.limit:
         order = order[:a.limit]

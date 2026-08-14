@@ -26,6 +26,13 @@ WHAT IT CANNOT SEE, and it is the reason the routes are suggestions rather than 
 licensor exists, what a cover prints, and whether a coinage is a coinage. Every one of those needs
 somebody to look. This orders the looking.
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population as _population  # noqa: E402
+
 import argparse
 import json
 import pathlib
@@ -110,7 +117,9 @@ def rows(build="data/build"):
     """
     at = pathlib.Path(build)
     titles = json.loads((at / "feed" / "names.json").read_text())["titles"]
-    series = json.loads((at / "series.json").read_text())["series"]
+    # THE BUILD WHERE ONE IS NAMED AND THE STORE OTHERWISE, §13. `build` is what the test hands a
+    # fixture through, so it has to keep meaning what it meant.
+    series = _population.series(at / "series.json" if (at / "series.json").exists() else None)
 
     answered = {}
     for k, v in titles.items():

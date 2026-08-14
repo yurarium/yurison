@@ -25,6 +25,13 @@ Licence: SudachiPy and SudachiDict-core are Apache-2.0 (§5c). KANJIDIC2 is deli
 
 Usage:  pass4_analyser.py [--limit N] [--dry-run]
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population as _population  # noqa: E402
+
 import argparse, datetime, functools, pathlib, re, sys, unicodedata
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
@@ -729,7 +736,7 @@ def main():
         # Everything the pipeline has seen, not just what already has a record.
         import json
         seen = set()
-        series = json.load(open("data/build/series.json"))["series"]
+        series = _population.series()
         # WHERE AN INTERPUNCT SEPARATES PEOPLE AND WHERE IT DOES NOT, settled once off the fields
         # themselves before any of them is split. `adapters/names/interpunct.py` reads the evidence
         # only from credit fields holding no ・, which is what stops the answer being read out of a

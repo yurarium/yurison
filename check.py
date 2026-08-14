@@ -2294,6 +2294,32 @@ def budget_unguarded_captures(ctx):
     return n
 
 
+def budget_modules_reading_a_corpus_file(ctx):
+    """Modules that open one of the compiled JSON files by path, STORE-PLAN §13.
+
+    A BUDGET AT ZERO RATHER THAN AN INVARIANT, because the number is what an unfinished migration
+    looks like: it fell from eleven to nine to two as the readers were converted, and a count says
+    how far a person got where a pass-or-fail says only that they had not finished.
+
+    WHY IT EXISTS AT ALL. §13 stopped `build.py` writing these files and the readers were converted
+    one at a time, each as it was noticed. Two CI runs died in a row on the same class, the second
+    on the very file the first had been fixed in, because each fix went to the case in front of me
+    rather than to the class. Nine more were behind them. This is that class, asked once.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: nothing but the source tree. It reads code and asks
+    which calls open a corpus file; it does not ask the store or the build anything. Its blind spot
+    is a path assembled far from where it is opened, stated in adapters/lint/corpusjson.py.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters" / "lint"))
+        import corpusjson as _cj
+        import importlib
+        importlib.reload(_cj)
+        return len(_cj.findings())
+    except Exception:                                                   # noqa: BLE001
+        return UNMEASURED    # this could not be measured; see UNMEASURED
+
+
 def budget_adapters_fetching_without_net(ctx):
     """Adapters that open a URL themselves instead of going through adapters/net.py.
 
@@ -4272,6 +4298,9 @@ BUDGETS_DEF = [
      "Python modules no suite covers. Offline tests are the enforcement for factoring as well: a "
      "module that cannot be tested without a network has not separated its logic from its I/O, so "
      "this number falling is the refactoring, not a proxy for it."),
+    ("modules reading a corpus file", budget_modules_reading_a_corpus_file,
+     "modules that open one of the compiled JSON files by path instead of asking the store; §13 "
+     "made the store the compiled form and `adapters/population.py` the one reader"),
     ("adapters fetching without net.py", budget_adapters_fetching_without_net,
      "modules that call urlopen themselves instead of going through adapters/net.py, and so have "
      "no per-host pause, no retry for a 503, no status code to tell an absent work from a refused "

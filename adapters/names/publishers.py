@@ -60,6 +60,13 @@ Usage:  publishers.py                 print what the store covers and what is st
         publishers.py --todo 40       print the queue, most-published first, and stop
         publishers.py --out PATH      also write the old standalone map, for a one-off comparison
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population as _population  # noqa: E402
+
 import argparse
 import json
 import pathlib
@@ -170,7 +177,7 @@ def corpus_names(build="data/build"):
     Read off the SERIES rows, which is where the interface reads them, so the queue is ordered by
     what a reader is most likely to be looking at.
     """
-    rows = json.loads((pathlib.Path(build) / "series.json").read_text())["series"]
+    rows = _population.series()
     return corpus_names_from_rows(rows)
 
 

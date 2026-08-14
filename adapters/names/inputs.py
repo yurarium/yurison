@@ -142,13 +142,11 @@ def load(build_dir, feeds=None):
     titles, authors, credits, by_title = {}, {}, {}, {}
     rows = []
 
-    import sys as _sys
-    _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
-    import population as _pop
-
-    if build and (build / "series.json").exists():
-        rows.extend(json.loads((build / "series.json").read_text(encoding="utf-8")).get("series")
-                    or [])
+    named = build / "series.json" if build else None
+    if named and named.exists():
+        # `population` OPENS IT, HERE AS EVERYWHERE. A second reader of the same file is what
+        # `adapters/lint/corpusjson.py` counts, and it counted this one.
+        rows.extend(_pop().series(named))
         if feeds is None:
             feeds = ["feed/current.json"] + [f"feed/{p.name}" for p in
                                              sorted((build / "feed").glob("[0-9]*.json"))]
@@ -159,16 +157,16 @@ def load(build_dir, feeds=None):
         people_only = [(r, key) for file, section, key in CREDIT_ROWS
                        for r in _rows(build, file, section)]
     else:
-        rows.extend(_pop.series())
+        rows.extend(_pop().series())
         # THE FEED FILES AND NOT THE WHOLE LIST, which is the population these passes have always
         # walked: what a reader can reach rather than every row the run compiled. The whole list
         # widened it by 311 rows and gave 209 people addresses from releases the window has rolled
         # past, which would have been requests spent on a difference nobody asked for.
-        rows.extend(_pop.feed_window())
+        rows.extend(_pop().feed_window())
         # PEOPLE ONLY FROM THESE TWO, and the row's title is deliberately not taken. A catalogue
         # row is a print work, and `titles` is what pass 2 spends requests on.
-        people_only = ([(r, "c") for r in _pop.index()]
-                       + [(r, "creator") for r in _pop.records()])
+        people_only = ([(r, "c") for r in _pop().index()]
+                       + [(r, "creator") for r in _pop().records()])
 
     for r, credit_key in [(r, "author") for r in rows] + people_only:
         work = r.get("work") if credit_key == "author" else None
@@ -192,10 +190,20 @@ def load(build_dir, feeds=None):
     return authors, titles, credits, by_title
 
 
+def _pop():
+    """The population module, imported late. `adapters/` is the parent of this package and is not
+    on the path when `names` is imported as a package from somewhere else."""
+    import sys as _sys
+    _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    import population
+    return population
+
+
 def plan_baseline(build_dir):
     """The §2 denominator: authors and titles from series.json only, which is what was measured."""
     build = pathlib.Path(build_dir)
-    series = json.loads((build / "series.json").read_text(encoding="utf-8")).get("series") or []
+    series = _pop().series(build / "series.json"
+                                 if build and (build / "series.json").exists() else None)
     titles = {r["work"] for r in series if r.get("work")}
     authors = set()
     for r in series:

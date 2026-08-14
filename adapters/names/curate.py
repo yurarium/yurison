@@ -32,6 +32,13 @@ WHAT IT REFUSES, AND WHY THAT IS THE POINT.
 Usage:  curate.py --check              validate the file and stop
         curate.py --apply              validate, then record into data/names
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population as _population  # noqa: E402
+
 import argparse
 import pathlib
 import re
@@ -526,7 +533,8 @@ def todo(build="data/build", limit=None, curated=None):
     than a list of faults, and it is ordered by what a reader is most likely to be looking at.
     """
     import json
-    names = json.loads(pathlib.Path(f"{build}/feed/names.json").read_text())["titles"]
+    _nf = pathlib.Path(f"{build}/feed/names.json")
+    names = (_population.names(_nf if _nf.exists() else None).get("titles") or {})
     feed = json.loads(pathlib.Path(f"{build}/feed/current.json").read_text())["releases"]
 
     import unicodedata
@@ -534,7 +542,8 @@ def todo(build="data/build", limit=None, curated=None):
     latest = {}
     for r in feed:
         latest[r["work"]] = max(latest.get(r["work"], ""), r.get("pub") or "")
-    for w in {s["work"] for s in json.loads(pathlib.Path(f"{build}/series.json").read_text())["series"]}:
+    _named = pathlib.Path(f"{build}/series.json")
+    for w in {s["work"] for s in _population.series(_named if _named.exists() else None)}:
         latest.setdefault(w, "")
 
     # A DECISION ALREADY MADE IS NOT WORK OUTSTANDING, whichever way it went. §5a keeps a title

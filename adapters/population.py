@@ -137,3 +137,13 @@ def index(path=None):
         return json.loads(pathlib.Path(path).read_text(encoding="utf-8"))
     from relational import emit
     return emit.index(_store())
+
+
+def names(path=None):
+    """The name map as `feed/names.json` states it: what the build spelled for every surface."""
+    if path:
+        return json.loads(pathlib.Path(path).read_text(encoding="utf-8"))
+    from relational import emit
+    db = _store()
+    return emit.names(db, dict(db.execute("SELECT key, value FROM run_report")).get(
+        "generated") or "")

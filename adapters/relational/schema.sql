@@ -232,6 +232,26 @@ CREATE TABLE withheld (
   reason TEXT
 );
 
+-- A WORK A SOURCE FLAGGED ON CONTENT GROUNDS, WHETHER OR NOT WE ACTED, §13. `run.json` carried
+-- this and `content flags are accounted for` read it from there. The check exists because
+-- `adapters/kadokomi/confirm.py` had written such a register since the first run, flagging works
+-- whose rating is `adult`, its own header saying they were not published, and nothing read the
+-- file: all five were live on the public site and no count anywhere said otherwise. A register
+-- nothing consumes reads as a control that is working.
+--
+-- `withhold` IS THE DECISION AND `published` IS WHAT HAPPENED, and they are separate columns
+-- because the check compares them. The policy is that a rating flag on a commercial publisher's
+-- own web arm withholds nothing; it is recorded and reported instead, so a less obvious future
+-- case cannot fall between the cracks.
+CREATE TABLE content_flag (
+  title     TEXT PRIMARY KEY,
+  source    TEXT,
+  reason    TEXT,
+  withhold  INTEGER NOT NULL CHECK (withhold IN (0, 1)),
+  published INTEGER NOT NULL CHECK (published IN (0, 1)),
+  CHECK (withhold = 0 OR published = 0)
+);
+
 -- EVERY §6 SCOPE RULING, ONE ROW PER WORK IT NAMES, §13. `run.json` carried this as
 -- `scope.rulings` and `scope rulings are accounted for` read it from there: the check asks whether
 -- every decision somebody made shows up in what the run reported, which is the failure

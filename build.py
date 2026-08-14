@@ -34,6 +34,7 @@ import checkstate  # noqa: E402
 from facts import identity  # noqa: E402
 from facts import dating as _dating  # noqa: E402
 from facts import printblock as _printblock  # noqa: E402
+from facts import content as _content  # noqa: E402
 from facts import origin as _origin  # noqa: E402
 from facts import imprint as _imprints  # noqa: E402
 import importdates  # noqa: E402
@@ -1012,37 +1013,14 @@ def set_aside(works_out, kadokomi="data/source/kadokomi/chapters.yaml", sources=
 
 
 def content_flags():
-    """Works a source has flagged on content grounds, whether or not we act on the flag.
+    """Works a source has flagged on content grounds, keyed the way the build compares titles.
 
-    HOW THIS WENT WRONG, because the shape recurs. adapters/kadokomi/confirm.py has written
-    data/source/kadokomi/withheld.yaml since the first run, flagging works whose `ratingLevel` is
-    `adult`, its header saying they are not published. Nothing read the file. All five were live on
-    the public site, and no count anywhere said otherwise: a register that nothing consumes is
-    worse than no register, because it reads as a control that is working.
-
-    WHAT THE POLICY IS NOW, per the project owner. Every platform in this database is a commercial
-    publisher's own web arm, and a reader following a link to a serialisation there is not going to
-    meet unwanted pornographic content, certainly not up front. So a rating flag on such a platform
-    does not withhold anything. It is RECORDED and REPORTED instead, so that a less obvious future
-    case cannot fall permanently between the cracks.
-
-    A flag withholds only where its entry says `withhold: true`. That is the deliberate,
-    reviewed decision, and there are none today.
-
-    The count is surfaced in run.json and on status.html, and check.py fails if a flag exists that
-    nothing reports. That is the part that could not fail silently a second time.
+    THE REGISTER ITSELF IS `facts/content`, §12. This was the whole rule until the store's loader
+    needed the same register, and a rule asked twice becomes a module rather than a second copy.
+    What stays here is the fold: the build keys on `norm_work` so a flag matches whatever spelling
+    a platform used, where the store keys on the title as written.
     """
-    out = {}
-    for f in sorted(pathlib.Path("data/source").rglob("withheld.yaml")):
-        d = yaml.safe_load(f.read_text()) or {}
-        for w in d.get("works") or []:
-            t = w.get("work_title")
-            if t:
-                out[norm_work(t)] = {"title": t, "reason": w.get("reason"),
-                                     "source": d.get("source") or f.parent.name,
-                                     "withhold": bool(w.get("withhold"))}
-    return out
-
+    return _content.flags(key=norm_work)
 
 def scope_refusals():
     """Works a §6 scope ruling refuses, keyed like the content-flag register. See data/scope.yaml.
@@ -1091,33 +1069,9 @@ def names_a_withheld_work(s, register):
     return bool(stripped) and stripped != str(s or "").strip() and norm_work(stripped) in register
 
 
-# A title that is BOTH adult-marketed and a collection. Both are required: えっち or セフレ alone
-# appears in story titles, and アンソロジー alone is most of the anthologies we carry. Together they
-# describe how a volume is sold, which is the thing DEFINITIONS §7 turns on.
-ADULT_MARKETED = re.compile(r"えっち|エッチ|セフレ|エロ|官能|18禁|R-?18|成人向")
-COLLECTION_MARK = re.compile(r"アンソロジー|短編集|傑作選|オムニバス|読切集")
-
-
 def marketing_flags(series_rows):
-    """Adult-marketed collections, REPORTED and published.
-
-    一迅プラス publishes explicit yuri anthologies and exposes no rating field, so nothing else in
-    the pipeline can see them. They are not pornography by §7's test and the project owner has
-    decided they are safe to carry and to link to, which settles what happens to them. What was
-    missing is that nothing would have SHOWN them: a category decided once and then invisible is
-    how the withheld register went five works wrong for the life of the project.
-
-    So they appear in the flag report with everything else, marked published, and a fourth arriving
-    from a publisher nobody has thought about turns up in the same place rather than nowhere.
-    """
-    out = {}
-    for r in series_rows:
-        w = r.get("work") or ""
-        if ADULT_MARKETED.search(w) and COLLECTION_MARK.search(w):
-            out[norm_work(w)] = {"title": w, "source": "marketing signal",
-                                 "reason": "adult-marketed collection; §7 explicit, not pornography",
-                                 "withhold": False}
-    return out
+    """Adult-marketed collections, keyed the way the build compares titles. `facts/content`, §12."""
+    return _content.marketing(((r.get("work") or "") for r in series_rows), key=norm_work)
 
 
 # An anthology instalment names its own author and title, in one of two shapes. Lifted out of

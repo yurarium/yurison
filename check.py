@@ -497,11 +497,8 @@ def inv_no_absolute_paths_in_published_files(ctx):
     import re as _re
     bad = []
     pat = _re.compile(r"(/home/|/Users/|C:\\Users\\)[^\s\"']+")
-    for f in sorted(BUILD.rglob("*.json")):
-        try:
-            hits = pat.findall(f.read_text(encoding="utf-8", errors="replace"))
-        except Exception:
-            continue
+    for f, text in sorted((ctx.get("emitted") or {}).items()):
+        hits = pat.findall(text)
         if hits:
             bad.append(f"{f.relative_to(BUILD)}: {len(hits)} absolute path(s)")
     return bad
@@ -581,8 +578,10 @@ def inv_content_flags_are_accounted_for(ctx):
         for w in (_yaml(f, {}) or {}).get("works") or []:
             if w.get("work_title"):
                 reg[w["work_title"]] = bool(w.get("withhold"))
-    run = _load(BUILD / "run.json", {}) or {}
-    reported = {r.get("title"): r for r in (run.get("content_flags") or {}).get("rows") or []}
+    # WHAT THE RUN REPORTED, from the store, §13. It was `run.json`'s `content_flags.rows`.
+    db = ctx.get("store")
+    reported = {r[0]: {"title": r[0]} for r in (
+        db.execute("SELECT title FROM content_flag") if db is not None else [])}
 
     bad = []
     for title, withhold in reg.items():
@@ -623,9 +622,15 @@ def inv_content_flags_are_accounted_for(ctx):
         _b = importlib.util.module_from_spec(_spec)
         _spec.loader.exec_module(_b)
         norm = _b.norm_work
+        # THE SIGNAL ITSELF IS `facts/content` SINCE §12, having been asked by the build and by the
+        # store's loader. This still walks the population itself rather than calling the rule over
+        # it, which is the independence §14b asks for: what it shares is the pattern, and what it
+        # does not share is the decision about which titles the pattern is applied to.
+        sys.path.insert(0, str(ROOT / "adapters"))
+        from facts import content as _cf
         for r in ctx["series"]:
             w = r.get("work") or ""
-            if _b.ADULT_MARKETED.search(w) and _b.COLLECTION_MARK.search(w):
+            if _cf.ADULT_MARKETED.search(w) and _cf.COLLECTION_MARK.search(w):
                 expect_marketing.add(w)
     except Exception as e:
         bad.append(f"could not recompute the marketing signal: {type(e).__name__}")
@@ -646,12 +651,9 @@ def inv_content_flags_are_accounted_for(ctx):
     for title, withhold in reg.items():
         if not withhold:
             continue
-        for f in sorted(BUILD.rglob("*.json")):
-            try:
-                if title in f.read_text(encoding="utf-8", errors="replace"):
-                    bad.append(f"withheld but emitted: {f.relative_to(BUILD)}: {title[:24]}")
-            except OSError:
-                pass
+        for f, text in sorted((ctx.get("emitted") or {}).items()):
+            if title in text:
+                bad.append(f"withheld but emitted: {f}: {title[:24]}")
     return bad
 
 
@@ -702,22 +704,17 @@ def inv_scope_rulings_are_accounted_for(ctx):
                 and r.get("medium_basis") not in _origin_medium_bases()):
             bad.append(f"rests on a term no vocabulary holds: "
                        f"{r.get('work') or r.get('imprint')}")
-    if not BUILD.exists():
-        return bad
+    # AND ON THE EMITTED BYTES, §13. It scanned `data/build`; nothing writes that under this
+    # section, and the emitters produce the same texts. The report files were exempt from the scan
+    # and are simply absent from this map, which is the corpus and nothing else.
     for r in rulings:
         for m in (r.get("works") or [r]):
             title = m.get("title")
             if r.get("disposition") != "out-of-scope" or not title:
                 continue
-            for f in sorted(BUILD.rglob("*.json")):
-                if f.name in REPORT_FILES:
-                    continue
-                try:
-                    if title in f.read_text(encoding="utf-8", errors="replace"):
-                        bad.append(f"out of scope and emitted: {f.relative_to(BUILD)}: "
-                                   f"{title[:24]}")
-                except OSError:
-                    pass
+            for f, text in sorted((ctx.get("emitted") or {}).items()):
+                if title in text:
+                    bad.append(f"out of scope and emitted: {f}: {title[:24]}")
     return bad
 
 
@@ -2921,8 +2918,8 @@ def budget_works_whose_country_is_unattested(ctx):
     and is written down somewhere for most of them, so this can in principle reach zero. What it
     cannot do is fall in bulk, which is why it is stated as a deficit.
     """
-    works = (_load(BUILD / "works.json", {}) or {}).get("works")
-    if works is None:
+    works = ctx.get("works")
+    if not works:
         return UNMEASURED    # this could not be measured; see UNMEASURED
     return sum(1 for w in works if not (w.get("first_publication") or {}).get("country"))
 
@@ -4456,7 +4453,19 @@ def _emitted(db):
                                                if re.fullmatch(r"feed/[0-9]{4}-[0-9]{2}\.json", n)):
         if name in feed:
             releases += (json.loads(feed[name]) or {}).get("releases") or []
+    # THE EMITTED BYTES, WHICH THREE CHECKS SCAN RATHER THAN READ AS FIELDS. A withheld title
+    # reaching the site inside a claim trace, an archived month or a coverage list is as published
+    # as one in the works list, and only the bytes see all of them. They used to be `data/build`;
+    # under §13 nothing writes that, so the same texts come from the emitters that produce them.
+    emitted = dict(feed)
+    for name, payload in (("works.json", _emit.works(db)), ("index.json", _emit.index(db)),
+                          ("series.json", _emit.series(db, generated)),
+                          ("credits.json", _emit.credits(db, generated)),
+                          ("publishers.json", _emit.publishers(db, generated)),
+                          ("feed/names.json", _emit.names(db, generated))):
+        emitted[name] = _emit.as_text(payload)
     return {
+        "emitted": emitted,
         "releases": releases,
         "works": _emit.works(db).get("works") or [],
         "index": _emit.index(db) or [],

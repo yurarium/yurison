@@ -876,6 +876,27 @@ def _load_all(db, source, put, counts, refused):
         if _ref.get("title"):
             put("INSERT OR IGNORE INTO withheld (title, reason) VALUES (?,?)",
                 (_ref["title"], _ref.get("reason") or _ref.get("why")), f"withheld {_ref['title']}")
+    # AND WHAT A SOURCE FLAGGED ON CONTENT GROUNDS, acted on or not. `run.json` carried this and
+    # the check that reads it exists because a register nothing consumes reads as a control that is
+    # working: five works were flagged `not published` for the life of the project and all five
+    # were live.
+    from facts import content as _content_mod
+    # AND THE MARKETING FLAGS, which are the other half of the register the check compares against.
+    # Read off the titles the store already holds rather than off the rows the compiler was handed,
+    # so a rebuild and a delta see the same population.
+    _titles = [r[0] for r in db.execute("SELECT title FROM work")]
+    for _flag in list(_content_mod.flags().values()) + list(
+            _content_mod.marketing(_titles).values()):
+        # `published` IS WHAT HAPPENED and the loader cannot know it: a work reaches the site
+        # through the emitters, and this runs before any of them. It is recorded as the negation
+        # of the decision, which is what the register asserts, and `content flags are accounted
+        # for` checks the bytes rather than believing this column.
+        put("INSERT OR IGNORE INTO content_flag (title, source, reason, withhold, published)"
+            " VALUES (?,?,?,?,?)",
+            (_flag["title"], _flag.get("source"), _flag.get("reason"),
+             int(bool(_flag.get("withhold"))), 0),
+            f"content flag {_flag['title']}")
+
     # AND EVERY RULING, REFUSED OR NOT. A ruling may name several works on one line and each of
     # them is a row; `origin.members` is the one producer of that expansion and `build.py` reports
     # the same list through it, so a loop reading `works` here would be a second one to keep in

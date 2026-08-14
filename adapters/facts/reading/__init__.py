@@ -265,3 +265,33 @@ def en_kinds_for(basis):
     This side has no such hole, and a caller inventing a row for either is what the accessor stops.
     """
     return tuple(ATTRIBUTION.get(basis, ()))
+
+def spells(name, reading):
+    """Whether a kana NAME and its reading hold the same kana, spaces aside.
+
+    A NAME WRITTEN IN KANA IS ITS OWN READING, so a reading that holds different kana republishes
+    the artist under a second spelling with nothing saying the two are one person. `checks
+    .kana_reading_spells_its_name` is the same rule applied to the whole store; this is it applied
+    to one pair, so a pass can refuse to WRITE what the check would refuse to pass.
+
+    IT EXISTS BECAUSE PASS 4 WROTE ONE. The analyser read `スタジオクロマト・スタジオコロリド` as
+    `スタジオクロマト スタジオコロリド`, turning the interpunct into a space, and the reading no
+    longer spelled the name. The check caught it after the fact and blocked a gate; nothing had
+    stopped it being written.
+
+    A NAME THAT IS NOT ALL KANA IS NOT THIS RULE'S BUSINESS, and answers True: its reading is
+    legitimately different characters from its surface.
+    """
+    import sys as _sys
+    import unicodedata as _ud
+    import pathlib as _pl
+    _sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[2] / "names"))
+    try:
+        import kana as _kana
+    except Exception:                                                   # noqa: BLE001
+        return True
+    if not name or not reading or not _kana.kana_only(name):
+        return True
+    strip = str.maketrans("", "", " \u3000")
+    return (_ud.normalize("NFC", _kana.to_katakana(name)).translate(strip)
+            == _ud.normalize("NFC", _kana.to_katakana(reading)).translate(strip))

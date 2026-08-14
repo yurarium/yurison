@@ -1163,6 +1163,14 @@ def segment_reader():
 OVERRULABLE = ("analyser", "back-converted")
 
 
+def _reading_facts():
+    """`facts/reading`, imported late so this module keeps working run from its own directory."""
+    import sys as _s
+    _s.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    from facts import reading as _r
+    return _r
+
+
 def overruled(tokenizer, s, reading, mode=None):
     """Whether this stored reading still holds the analyser's own answer where the table overrules it.
 
@@ -1251,7 +1259,7 @@ def fill_missing(strings, kind, quiet=False, refresh=False, ruled=None):
     if not todo:
         return 0
     today = str(datetime.date.today())
-    added = surfaced = 0
+    added = surfaced = skipped_spelling = 0
     for s in todo:
         # A KANA NAME IS PASS 1's, AND PASS 1 RUNS WHEN SOMEBODY REMEMBERS. This one runs on every
         # build, so every kana name arriving after the last manual pass got an analyser reading for
@@ -1287,6 +1295,14 @@ def fill_missing(strings, kind, quiet=False, refresh=False, ruled=None):
         r, uncertain = analyse_best(tok, s, modes)
         if not r:
             continue
+        # A KANA NAME'S READING MUST SPELL IT, and the analyser does not know that. It read
+        # `スタジオクロマト・スタジオコロリド` as `スタジオクロマト スタジオコロリド`, turning the
+        # interpunct into a space, and the reading stopped spelling the name. `a kana name's
+        # reading spells it` caught it after the fact and blocked a gate; nothing had stopped it
+        # being written. One rule, in `facts/reading`, asked here before writing and there after.
+        if not _reading_facts().spells(s, r):
+            skipped_spelling += 1
+            continue
         rec = names.setdefault(s, {})
         if r.replace(" ", "") != s.replace(" ", ""):
             spans = furigana_spans(tok, s, modes[0])
@@ -1308,7 +1324,11 @@ def fill_missing(strings, kind, quiet=False, refresh=False, ruled=None):
             # no marking; an analyser's is a guess and the interface marks it. One number covering
             # both would have reported the 181 corrections as 181 more guesses.
             print(f"names filled    : {added - surfaced} new {kind} read automatically "
-                  f"(analyser, unverified), {surfaced} answered by their own kana (surface)")
+                  f"(analyser, unverified), {surfaced} answered by their own kana (surface)"
+                  # SAID EVERY RUN AND NOT ONLY WHEN IT FIRES. A reading refused for not spelling
+                  # its own name is the analyser meeting a name it cannot read, which is worth
+                  # seeing; a number that appears only on a bad day is a number nobody recognises.
+                  + f", {skipped_spelling} refused for not spelling their own name")
     return added
 
 if __name__ == "__main__":

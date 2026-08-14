@@ -1047,7 +1047,8 @@ def _load_all(db, source, put, counts, refused):
                         put("INSERT OR IGNORE INTO claim_record (claim, record) VALUES (?,?)",
                             (seen_claims[ident], rec_id), f"claim edge {f} {name}")
                         continue
-                    put("INSERT INTO claim (surface, kind, predicate, value, basis, source,"
+                    ok = put(
+                        "INSERT INTO claim (surface, kind, predicate, value, basis, source,"
                         " source_kind, retrieved, reviewed, url, isbn, note, displaced)"
                         " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
                         (sid, surface_kind[f], predicate, value, basis,
@@ -1062,6 +1063,18 @@ def _load_all(db, source, put, counts, refused):
                          # flag with no way to say which one a person ruled on, 638 times.
                          int(i > 0)),
                         f"claim {predicate} {f} {name}" + (f" [{i}]" if i else ""))
+                    # ONLY WHERE THE CLAIM WENT IN. `put` swallows a refusal and returns False,
+                    # and `last_insert_rowid()` does not know that: it answers with the PREVIOUS
+                    # successful insert's id, so a refused claim filed its edge against whichever
+                    # claim happened to go in before it. Every record after that point in the load
+                    # carries somebody else's reading, which is how 1,752 authors in a published
+                    # store came to be spelled from another person's name.
+                    #
+                    # UNDER `--unattended` THE RUN CONTINUES PAST A REFUSAL, §1a, which is what
+                    # makes this a corruption rather than a crash: the quarantine keeps the night
+                    # alive and this quietly rewired the names while it did.
+                    if not ok:
+                        continue
                     seen_claims[ident] = db.execute(
                         "SELECT last_insert_rowid()").fetchone()[0]
                     put("INSERT OR IGNORE INTO claim_record (claim, record) VALUES (?,?)",
@@ -1108,7 +1121,8 @@ def _load_all(db, source, put, counts, refused):
                 # divisions rest on a reading held that way. The address exists and is recorded;
                 # whether to put it in front of a reader is §6's question about a page, and a store
                 # that dropped it would be answering a display question with a missing fact.
-                put("INSERT INTO claim (surface, kind, predicate, value, basis, source,"
+                if not put(
+                    "INSERT INTO claim (surface, kind, predicate, value, basis, source,"
                     " source_kind, url, isbn, note, basis_stated)"
                     " VALUES (?,?,'division',?,?,?,?,?,?,?,?)",
                     (sid, surface_kind[f], divided or r.get("reading") or "", basis,
@@ -1118,7 +1132,11 @@ def _load_all(db, source, put, counts, refused):
                      cited.get("isbn"),
                      r.get("reading_boundary") or r.get("reading_note"),
                      int(bool(r.get("reading_boundary_basis")))),
-                    f"claim division {f} {name}")
+                    f"claim division {f} {name}"):
+                    # THE SAME GUARD AS THE CLAIM ABOVE, and for the same reason: a refused insert
+                    # leaves `last_insert_rowid()` answering with the previous one's id, and the
+                    # edge is then filed against another record's claim.
+                    continue
                 seen_claims[ident] = db.execute("SELECT last_insert_rowid()").fetchone()[0]
                 put("INSERT OR IGNORE INTO claim_record (claim, record) VALUES (?,?)",
                     (seen_claims[ident], rec_id), f"claim edge division {name}")

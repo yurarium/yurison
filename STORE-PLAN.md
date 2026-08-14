@@ -62,7 +62,7 @@ below moves one domain to the other side of that line.
 | §7 | Incremental on every update, reconciled weekly | done 2026-08-14 |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
-| §10 | An invariant is a query on the store | §6 |
+| §10 | An invariant is a query on the store | done 2026-08-14; the queue of what else could move is in the section |
 | §11 | The store is the artefact; the site builds from it | done 2026-08-14 |
 | §12 | A test the length of what it tests | begun 2026-08-14; it never finishes |
 
@@ -1584,6 +1584,29 @@ still ratchets down only.
 
 **WHAT THIS IS NOT.** It is not a rewrite of the gate. The checks that stay in Python stay exactly
 as they are, and a check moves only when somebody can say in a sentence what the query means.
+
+**DONE 2026-08-14. `relational/asks.py` HOLDS THEM**, each with a name, a query, the tables it reads,
+what it asserts and SQL that plants a violation. Eight invariants and six budgets answer from the
+store, and the ten Python functions they replace are gone. Every migrated budget reproduces the
+number its Python gave, which is the standard for calling it the same check: 37 incomplete attested
+rows, 2,436 volumes with no printing date, 0 for the rest.
+
+**THREE COULD NOT FIRE AND THE CANARIES ARE WHAT SAID SO.** A release id naming one release is
+unstateable once the id is a primary key, so that check is gone rather than moved. A print run's
+dates being ordered was planted with an UPDATE against a predicate no row satisfies, because `last`
+is empty on all 2,512 print rows. A refutation of a print serial was planted the same way, and 1,407
+of the 1,648 print works have no presentation row to update. Each is §4 caught one level down: a
+canary that matches nothing runs perfectly and proves nothing.
+
+**AND ONE NEW BUDGET CAME OUT OF THE MOVE**, which is the argument for writing the questions down.
+A record's stored furigana should spell the record's own name and eleven sets do not: nine drop a
+bracketed reading, so `恋する小惑星 (アステロイド)` gets spans covering the first six characters and
+nothing over the gloss, and two are a name stored with a COMBINING dakuten where the aligner emits
+the composed character, so `お嬢さま` and `お嬢さま` differ by a code point nobody can see.
+
+**WHAT IS LEFT, MEASURED.** 32 of the remaining checks read the built collections and are the queue;
+the site took 16 with it under §11; the rest are about this repository rather than the corpus, which
+is prose, the source tree, and two runs compared, and they stay in Python where they can be.
 
 ## 11. The store is the artefact; the site builds from it
 

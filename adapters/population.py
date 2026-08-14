@@ -74,3 +74,33 @@ def works(path=None):
         return _rows(path)
     from relational import asks
     return asks.population(_store(), "works with their title and byline")
+
+
+def releases(path=None):
+    """Every release the run compiled, as `feed.json` states them.
+
+    `emit.feed` IS THE ONE PRODUCER and this is the whole list rather than the window. The feed
+    FILES are the rolling window plus the archived months, which overlap and between them hold
+    fewer rows than the run compiled, so assembling this from them would have measured a different
+    population from the one `acceptance.py` has always measured.
+    """
+    if path:
+        return json.loads(pathlib.Path(path).read_text(encoding="utf-8")).get("releases") or []
+    from relational import emit
+    return emit.feed(_store())
+
+
+def records(path=None):
+    """The record layer, as `works.json` states it: one row per catalogued book run."""
+    if path:
+        return json.loads(pathlib.Path(path).read_text(encoding="utf-8")).get("works") or []
+    from relational import emit
+    return emit.works(_store()).get("works") or []
+
+
+def index(path=None):
+    """The collapsed bibliographic index, as `index.json` states it."""
+    if path:
+        return json.loads(pathlib.Path(path).read_text(encoding="utf-8"))
+    from relational import emit
+    return emit.index(_store())

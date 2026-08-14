@@ -584,7 +584,8 @@ def main(argv=None):
     # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13.
     ap.add_argument("--series", default=None,
                     help="read the work rows from this series.json instead of from the store")
-    ap.add_argument("--index", default="data/build/index.json")
+    ap.add_argument("--index", default=None,
+                    help="read the index from this index.json instead of from the store")
     ap.add_argument("--registry", default="data/identity/works.yaml")
     ap.add_argument("--review", default="data/queue/identity-review.yaml")
     ap.add_argument("--joins", default="data/queue/platform-print-joins.yaml",
@@ -615,7 +616,7 @@ def main(argv=None):
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
     import population
     web = population.series(a.series)
-    prints = json.loads(pathlib.Path(a.index).read_text())
+    prints = population.index(a.index)
 
     reg = pathlib.Path(a.registry)
     doc = yaml.safe_load(reg.read_text()) if reg.exists() else None

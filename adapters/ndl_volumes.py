@@ -128,7 +128,8 @@ def main(argv=None):
     # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13.
     ap.add_argument("--series", default=None,
                     help="read the work rows from this series.json instead of from the store")
-    ap.add_argument("--works", default="data/build/works.json")
+    ap.add_argument("--works", default=None,
+                    help="read the record layer from this works.json instead of from the store")
     ap.add_argument("--out", default=OUT)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--cache", default=str(_paths.cache("ndl-cache")))
@@ -137,7 +138,7 @@ def main(argv=None):
 
     import yaml
     series = population.series(a.series)
-    works = json.loads(pathlib.Path(a.works).read_text()).get("works") or []
+    works = population.records(a.works)
     todo = wanted(series, works)
     if a.limit:
         todo = todo[:a.limit]

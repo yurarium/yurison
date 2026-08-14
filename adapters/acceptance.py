@@ -19,6 +19,12 @@ import datetime
 
 FEED_DAYS = 60
 
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parent))
+
+import population  # noqa: E402
 import json
 import unicodedata
 import pathlib
@@ -61,7 +67,7 @@ def main():
     # Collected as we go and returned, so the floors below compare against what was actually
     # measured rather than re-deriving it and risking the two disagreeing.
     measured = {}
-    feed = json.loads(pathlib.Path("data/build/feed.json").read_text())
+    feed = {"releases": population.releases()}
     rel = [r for r in feed["releases"] if r.get("web") != "promotional-sample-only"]
     # The window the feed TARGETS, not the extent of what happens to be in it. Late-discovered
     # works carry their true publication date — one from 2026-05-14 — and deriving the period from

@@ -18,6 +18,13 @@ at.
 Usage:  promote.py --dry-run
         promote.py
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population  # noqa: E402
+
 import argparse
 import collections
 import datetime
@@ -126,7 +133,9 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--confirmed", default="data/queue/serialisation-confirmed.yaml")
     ap.add_argument("--joins", default="data/queue/serialisation-joins.yaml")
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13.
+    ap.add_argument("--series", default=None,
+                    help="read the work rows from this series.json instead of from the store")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
 
@@ -136,7 +145,7 @@ def main(argv=None):
     # AN ADDRESS ANOTHER WORK ALREADY ANSWERS TO IS NOT A DISCOVERY. It is the merge case, and a
     # merge is a decision taken by hand. Reported here so it cannot be missed.
     held = {}
-    series = json.loads(pathlib.Path(a.series).read_text())["series"]
+    series = population.series(a.series)
     for row in series:
         for u in [row.get("url")] + [s.get("url") for s in (row.get("sources") or [])]:
             if u:

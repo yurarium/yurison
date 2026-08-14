@@ -25,6 +25,16 @@ Usage:  sweep.py --since 2019
         sweep.py --since 1900 --include-undated       every print-only work in the database
         sweep.py --since 2019 --limit 20              a sample, for checking the shape of an answer
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+# UNDER A NAME THIS FILE DOES NOT ALREADY USE. `population` below is a function here,
+# and the bare import bound the module to the same name: whichever came second won and
+# nothing said so. `adapters/lint/shadowing.py` counts this shape.
+import population as _population  # noqa: E402
+
 import argparse
 import collections
 import datetime
@@ -60,7 +70,7 @@ def population(series_path, since, include_undated=False):
     serialised" (STANDING-INSTRUCTIONS §5). So they are asked about deliberately or skipped
     deliberately, and the flag is what says which.
     """
-    rows = json.loads(pathlib.Path(series_path).read_text())["series"]
+    rows = _population.series(series_path)
     out = []
     for w in rows:
         if w.get("url") or w.get("chapters"):
@@ -183,7 +193,9 @@ def write(path, rows, since, retrieved):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13.
+    ap.add_argument("--series", default=None,
+                    help="read the work rows from this series.json instead of from the store")
     ap.add_argument("--out", default="data/queue/serialisation-search.yaml")
     ap.add_argument("--cache", default="/tmp/yuri-serialisation-cache")
     ap.add_argument("--since", default="2019")

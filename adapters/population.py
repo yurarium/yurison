@@ -17,6 +17,7 @@ missing path. The store is the default and a file is an override for running aga
 """
 import json
 import pathlib
+import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -88,6 +89,38 @@ def releases(path=None):
         return json.loads(pathlib.Path(path).read_text(encoding="utf-8")).get("releases") or []
     from relational import emit
     return emit.feed(_store())
+
+
+def feed_window(path=None):
+    """The releases the feed FILES hold: the rolling window, then each archived month in order.
+
+    NOT `releases`, WHICH IS THE WHOLE LIST. The name passes walked `feed/current.json` and the
+    archives, so the population they spent requests on was what a reader can reach rather than
+    every row the run compiled. Handing them the whole list quietly widened that by 311 rows and
+    209 people gained addresses from releases the window has rolled past.
+
+    ROWS ARE NOT DEDUPLICATED, because the window overlaps the newest archive and the callers here
+    count occurrences: an author's `urls` list carries one entry per row that credited them.
+    """
+    if path:
+        base = pathlib.Path(path)
+        names = ["feed/current.json"] + [f"feed/{p.name}" for p in
+                                         sorted((base / "feed").glob("[0-9]*.json"))]
+        out = []
+        for n in names:
+            f = base / n
+            if f.exists():
+                out += json.loads(f.read_text(encoding="utf-8")).get("releases") or []
+        return out
+    from relational import emit
+    feed = emit.feed_files(_store())
+    order = ["feed/current.json"] + sorted(
+        n for n in feed if re.fullmatch(r"feed/[0-9]{4}-[0-9]{2}\.json", n))
+    out = []
+    for name in order:
+        if name in feed:
+            out += (json.loads(feed[name]) or {}).get("releases") or []
+    return out
 
 
 def records(path=None):

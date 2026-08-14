@@ -36,6 +36,13 @@ against the chapter page's own og:title, which carries the work title in an orde
 platform, so containment on the folded strings is the test rather than equality. A row that fails
 it is reported and left alone.
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population  # noqa: E402
+
 import pathlib
 import re
 import sys
@@ -151,7 +158,9 @@ def main(argv=None):
     import net
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13.
+    ap.add_argument("--series", default=None,
+                    help="read the work rows from this series.json instead of from the store")
     ap.add_argument("--registry", default="data/identity/works.yaml")
     ap.add_argument("--out", default="data/queue/address-work-level-gigaviewer.yaml")
     ap.add_argument("--cache", required=True)
@@ -159,7 +168,7 @@ def main(argv=None):
     a = ap.parse_args(argv)
 
     import yaml
-    rows = json.loads(pathlib.Path(a.series).read_text())["series"]
+    rows = population.series(a.series)
     entries = (yaml.safe_load(pathlib.Path(a.registry).read_text()) or {}).get("works") or []
     owner = identity.index(entries)
     seen = collections.Counter(r.get("url") for r in rows if r.get("url"))

@@ -28,6 +28,13 @@ POLITENESS IS NOT REIMPLEMENTED. `net.fetch_many` already paces per host, runs h
 backs off a 503 for every worker at once, keeps redirects and never caches a refusal. This asks it
 for pages and then for images, so no host sees traffic faster than any other pass here makes it.
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population  # noqa: E402
+
 import argparse
 import json
 import pathlib
@@ -253,7 +260,9 @@ def run(series, cache=CACHE, minutes=240, limit=None, refresh=False, workers=8, 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13.
+    ap.add_argument("--series", default=None,
+                    help="read the work rows from this series.json instead of from the store")
     ap.add_argument("--cache", default=str(CACHE))
     ap.add_argument("--minutes", type=float, default=240,
                     help="stop cleanly after this long; the ledger makes the next run continue")
@@ -269,7 +278,7 @@ def main(argv=None):
         print(f"{len(led.rows)} work(s) recorded: {led.counts()}")
         return 0
 
-    series = json.loads(pathlib.Path(a.series).read_text()).get("series") or []
+    series = population.series(a.series)
     led = run(series, cache=a.cache, minutes=a.minutes, limit=a.limit,
               refresh=a.refresh, workers=a.workers)
     print(f"\nledger: {len(led.rows)} work(s) {led.counts()}")

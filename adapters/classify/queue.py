@@ -26,6 +26,13 @@ become a record by accident (REQUIREMENTS §1).
 
 Usage:  queue.py --out data/queue --retrieved 2026-08-01
 """
+import pathlib as _pl0
+import sys as _sys0
+
+_sys0.path.insert(0, str(_pl0.Path(__file__).resolve().parents[1]))
+
+import population  # noqa: E402
+
 import argparse, glob, json, pathlib, re, sys, unicodedata
 from collections import Counter
 
@@ -84,11 +91,9 @@ def main():
     ap.add_argument("--limit", type=int, default=0, help="0 = all")
     a = ap.parse_args()
 
-    wf = pathlib.Path("data/build/works.json")
-    if not wf.exists():
-        sys.exit("data/build/works.json not found — run build.py first")
-    doc = json.loads(wf.read_text())
-    works = doc["works"] if isinstance(doc, dict) else doc
+    # THE RECORD LAYER FROM THE STORE, §13. It read `data/build/works.json` and exited with
+    # "run build.py first" when there was none, which is now every ordinary run.
+    works = population.records()
 
     done = set()
     ov = pathlib.Path("data/overlay")

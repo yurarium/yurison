@@ -129,24 +129,46 @@ def load(build_dir, feeds=None):
     Japanese one — "MIZUNO Eita" cannot be string-matched to 水野英多, so the work is the only join
     available.
     """
-    build = pathlib.Path(build_dir)
+    # ── THE COMPILED COLLECTIONS COME FROM THE STORE, STORE-PLAN §13 ──────────────────────────
+    #
+    # Every one of these was read out of `data/build` and every one is emitted from the store, so
+    # the question went out through a file and came back in. `build_dir` still selects a build for
+    # a person running a pass against an old one; with nothing named, the store answers.
+    #
+    # IT WAS THE LAST READER AND IT TOOK THE RUN DOWN. §13 stopped `build.py` writing the corpus
+    # JSON, the name passes run between the two compiles, and `pass1_kana` died on a missing
+    # `series.json` in CI. Nothing local caught it because nothing local runs the name passes.
+    build = pathlib.Path(build_dir) if build_dir else None
     titles, authors, credits, by_title = {}, {}, {}, {}
     rows = []
 
-    series = json.loads((build / "series.json").read_text(encoding="utf-8"))
-    rows.extend(series.get("series") or [])
-    if feeds is None:
-        feeds = ["feed/current.json"] + [f"feed/{p.name}" for p in
-                                         sorted((build / "feed").glob("[0-9]*.json"))]
-    for f in feeds:
-        p = build / f
-        if p.exists():
-            rows.extend(json.loads(p.read_text(encoding="utf-8")).get("releases") or [])
+    import sys as _sys
+    _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    import population as _pop
 
-    # PEOPLE ONLY FROM THESE TWO, and the row's title is deliberately not taken. A catalogue row is
-    # a print work, and `titles` is what pass 2 spends requests on.
-    people_only = [(r, key) for file, section, key in CREDIT_ROWS
-                   for r in _rows(build, file, section)]
+    if build and (build / "series.json").exists():
+        rows.extend(json.loads((build / "series.json").read_text(encoding="utf-8")).get("series")
+                    or [])
+        if feeds is None:
+            feeds = ["feed/current.json"] + [f"feed/{p.name}" for p in
+                                             sorted((build / "feed").glob("[0-9]*.json"))]
+        for f in feeds:
+            p = build / f
+            if p.exists():
+                rows.extend(json.loads(p.read_text(encoding="utf-8")).get("releases") or [])
+        people_only = [(r, key) for file, section, key in CREDIT_ROWS
+                       for r in _rows(build, file, section)]
+    else:
+        rows.extend(_pop.series())
+        # THE FEED FILES AND NOT THE WHOLE LIST, which is the population these passes have always
+        # walked: what a reader can reach rather than every row the run compiled. The whole list
+        # widened it by 311 rows and gave 209 people addresses from releases the window has rolled
+        # past, which would have been requests spent on a difference nobody asked for.
+        rows.extend(_pop.feed_window())
+        # PEOPLE ONLY FROM THESE TWO, and the row's title is deliberately not taken. A catalogue
+        # row is a print work, and `titles` is what pass 2 spends requests on.
+        people_only = ([(r, "c") for r in _pop.index()]
+                       + [(r, "creator") for r in _pop.records()])
 
     for r, credit_key in [(r, "author") for r in rows] + people_only:
         work = r.get("work") if credit_key == "author" else None

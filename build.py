@@ -7258,9 +7258,25 @@ def main():
     # WHAT THAT BUYS BESIDES THE ARGUMENT. The store keeps its own memory across runs: §5g's
     # quarantine carries forward, and the derivation digests say which answers moved TODAY rather
     # than which exist at all.
+    # AND A DELTA MAY NOT COST THE NIGHT, which is §1a's rule applied to §7. The incremental path
+    # is new, and the first unattended run that met real captures died inside it and took the
+    # compile, the checks and the publish with it. A store that cannot be updated can always be
+    # rebuilt: that is what makes it derived. So a refusal here is reported loudly and the file is
+    # rebuilt from the rows this run already compiled, and the run goes on.
     if _rel.DB.exists():
-        _live = _rel.open_db()
-        _store_moved_counts, _store_refused_now, _store_moved = _rel.apply(_live, fresh=_store_db, at=str(_today))
+        try:
+            _live = _rel.open_db()
+            _store_moved_counts, _store_refused_now, _store_moved = _rel.apply(
+                _live, fresh=_store_db, at=str(_today))
+        except Exception as _apply_failed:                                  # noqa: BLE001
+            print(f"store           : the delta was refused ({_apply_failed.__class__.__name__}: "
+                  f"{_apply_failed}); rebuilding the file from this run's rows")
+            import traceback
+            print("\n".join(f"                : {_line}"
+                             for _line in traceback.format_exc().strip().splitlines()[-8:]))
+            _rel.DB.unlink()
+            _rel.build(source=_store_source, at=str(_today))
+            _store_moved_counts, _store_moved = {}, []
         print(f"store           : {sum(c[0] for c in _store_moved_counts.values())} row(s) "
               f"written, {sum(c[1] for c in _store_moved_counts.values())} dropped, "
               f"{sum(c[2] for c in _store_moved_counts.values())} unchanged; "

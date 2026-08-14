@@ -46,7 +46,24 @@ def run_one(cmd, subs, dry=False):
         return cmd["id"], 0, 0, " ".join(argv[1:]), ""
     t0 = time.time()
     r = subprocess.run(argv, capture_output=True, text=True, cwd=ROOT)
-    return cmd["id"], r.returncode, round(time.time() - t0), r.stdout[-1500:], r.stderr[-1500:]
+    return (cmd["id"], r.returncode, round(time.time() - t0),
+            _both_ends(r.stdout), _both_ends(r.stderr))
+
+
+def _both_ends(s, keep=1500):
+    """The output, or its two ends with a line saying what was dropped between them.
+
+    THE TAIL ALONE HID THE START OF EVERY CHATTY ADAPTER. This kept the last 1,500 characters while
+    the comment below claimed the output was printed whole, so `gigaviewer-platform-feeds` began
+    mid-sentence and a reader could not tell that from an adapter that starts abruptly. A traceback's
+    CAUSE is at the top and its type is at the bottom, so keeping one end is the wrong half half the
+    time; this keeps both and says how much is missing.
+    """
+    s = s or ""
+    if len(s) <= keep * 2:
+        return s
+    dropped = len(s) - keep * 2
+    return f"{s[:keep]}\n… {dropped} character(s) dropped from the middle …\n{s[-keep:]}"
 
 
 def main():
@@ -91,12 +108,21 @@ def main():
           f"({serial / total:.1f}x)")
     if failed:
         print(f"failed ({len(failed)}): {', '.join(sorted(failed))}")
-    # An optional adapter failing must not cost the run, which is what the shell `|| true` meant.
-    # A required one failing must, or the stage reports success having fetched nothing.
+        # SAID WHERE A RUNNER WILL SHOW IT. A failing adapter that only appears halfway down a log
+        # is a failing adapter nobody reads about, and every command in this manifest is optional,
+        # so the step itself goes green.
+        for c in sorted(failed):
+            print(f"::warning title=adapter failed::{c} wrote nothing this run")
+    # AN ADAPTER FAILING MUST NOT COST THE NIGHT AND MUST NOT BE SILENT, which are different
+    # things and were confused here. `optional` stops a failure from ending the RUN, and the
+    # workflow's `continue-on-error` is what carries the night's data to the compile and the
+    # publish; what this returns is whether anything failed AT ALL, so the step goes red and the
+    # job's last step can fail it after the data is out. The comment in `update.yml` has described
+    # this behaviour since it was written, while every command in the manifest was marked optional
+    # and nothing could ever return 1.
     if required_failed:
         print(f"REQUIRED command(s) failed: {', '.join(required_failed)}")
-        return 1
-    return 0
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

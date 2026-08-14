@@ -1888,7 +1888,14 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
                 if row.get(column) is not None:
                     row[column] = mapping.get(row[column], row[column])
             rows.append(row)
-        written, dropped, unchanged = _delta.reconcile(db, table, key, rows, stated)
+        try:
+            written, dropped, unchanged = _delta.reconcile(db, table, key, rows, stated, mine)
+        except sqlite3.IntegrityError as e:
+            # NAMING THE TABLE, because a delta that fails says only what the schema refused and a
+            # reader then has forty tables to guess between. The first one to fail unattended cost
+            # a reproduction attempt that never succeeded.
+            raise sqlite3.IntegrityError(
+                f"{table} refused a delta keyed on {key}: {e}") from e
         counts[table] = (written, dropped, unchanged)
         if written or dropped:
             touched.add(table)

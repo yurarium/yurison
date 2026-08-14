@@ -245,7 +245,7 @@ def value(db, name):
     return json.loads(got[0]) if got else None
 
 
-def reconcile(db, table, key_columns, rows, value_columns=None):
+def reconcile(db, table, key_columns, rows, value_columns=None, addresses=()):
     """Bring one table to exactly `rows`, through `write` and `drop`. Returns what changed.
 
     THE PRODUCTION CALLER §7 WAS MISSING. `write` and `drop` have existed since the store did and
@@ -262,7 +262,14 @@ def reconcile(db, table, key_columns, rows, value_columns=None):
     `rows` is an iterable of column-to-value mappings, each holding the key columns and the values.
     Returns `(written, dropped, unchanged)`.
     """
-    value_columns = list(value_columns or ())
+    # A ROW'S ADDRESS IS NEVER WRITTEN, whatever the caller worked out. `claim.id` is handed out by
+    # the insert that made the row, so carrying one across from another compile inserts a row under
+    # a number something else already has; the first unattended run to meet new claims died on
+    # exactly that, `UNIQUE constraint failed: claim.id`, and the caller's key was right. Stripping
+    # it here makes the class unstateable rather than making one caller careful.
+    addresses = set(addresses or ())
+    key_columns = [c for c in key_columns if c not in addresses]
+    value_columns = [c for c in (value_columns or ()) if c not in addresses]
     if not value_columns:
         for row in rows:
             value_columns = [c for c in row if c not in key_columns]

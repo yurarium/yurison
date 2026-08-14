@@ -77,10 +77,15 @@ def get(url):
         time.sleep(PAUSE)
 
 
+#: The same window `render/releases.py` uses, and for the same reason: a run that happens every few
+#: days re-rendered everything at two days, and this is the more expensive of the two adapters.
+RENDER_AGE_DAYS = 7
+
+
 def render(url, cache):
     key = re.sub(r"[^A-Za-z0-9]", "_", url)[-110:]
     f = cache / f"{key}.html"
-    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < 2:
+    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < RENDER_AGE_DAYS:
         return f.read_text()
     if not CHROME:
         return ""

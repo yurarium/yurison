@@ -51,7 +51,16 @@ PAUSE = 1.0
 MIN_EPISODES = 2
 
 
-def render(url, cache, max_age_days=2):
+#: HOW LONG A RENDERED PAGE IS WORTH REUSING, weighed against how often this actually runs. At two
+#: days, a run three days after the last one re-rendered every page: the cache had been saved, was
+#: restored, and every entry in it was stale by a day. That is 24 minutes of browser time thrown
+#: away for a chapter list that changes weekly at most. A chapter this misses is picked up by the
+#: feed adapters, which are never served stale; what a render supplies is the per-chapter ACCESS
+#: state, and a week-old answer to that is worth more than no answer.
+RENDER_AGE_DAYS = 7
+
+
+def render(url, cache, max_age_days=RENDER_AGE_DAYS):
     key = re.sub(r"[^A-Za-z0-9]", "_", url)[-120:]
     f = cache / f"{key}.html"
     if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
@@ -285,7 +294,13 @@ def main():
     spec = yaml.safe_load(open(a.targets)) or {}
     for plat in spec.get("platforms") or []:
         rows, failed = [], Counter()
-        for t in (plat.get("works") or [])[: a.limit_per_host]:
+        # SAYING WHAT IT IS DOING, because this stage was silent for 24 minutes. A browser render is
+        # ten seconds and this walks a hundred of them, so a run that has hung and a run that is
+        # working looked exactly alike from outside: one line per platform, before the work starts.
+        want = (plat.get("works") or [])[: a.limit_per_host]
+        print(f"{plat.get('name') or plat.get('platform') or '?':22} rendering {len(want)} work(s)"
+              f" (cached renders are reused for {RENDER_AGE_DAYS} days)", flush=True)
+        for t in want:
             try:
                 html = render(t["url"], cache)
             except subprocess.TimeoutExpired:

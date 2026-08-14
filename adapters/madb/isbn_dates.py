@@ -134,6 +134,15 @@ def load(cache, rebuild=False):
     store = cache / "isbn13-dates.json"
     if store.exists() and not rebuild:
         return json.loads(store.read_text())
+    # A CACHE THAT IS NOT THERE IS A STATE AND NOT A FAULT. This is a 665 MB dataset restored from a
+    # runner's cache, and a cold or expired one made `openbd` die on a FileNotFoundError every time:
+    # the enrichment it does with its OWN source is worth having without the national bibliography's
+    # dates beside it. Said out loud, so a run where the cache never came back is visible rather
+    # than looking like a quiet day.
+    if not (cache / VOLUMES).exists():
+        print(f"madb: no {VOLUMES} under {cache}; ISBN dates are not enriched from the national "
+              f"bibliography this run")
+        return {}
     index = build(cache / VOLUMES)
     ok, dated = healthy(index)
     if not ok:

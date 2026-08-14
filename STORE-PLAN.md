@@ -1418,7 +1418,7 @@ hold before the schedule goes on, and this plan does not get to relax them.
 |---|---|
 | per-host parallelism in Stage A | met: `run_stage.py` drives `stage-a.yaml` concurrently |
 | a clean run with the browser stage | not confirmed |
-| `SITE_DEPLOY_KEY` set, so publishing works | not confirmed; the step warns and exits 0 without it |
+| ~~`SITE_DEPLOY_KEY` set, so publishing works~~ | dissolved by §11: the store is a release on this repository and needs no credential |
 | a re-measured cost | not done since the concurrency change |
 
 **THE COST WAS THE ONE THAT DECIDED IT, AND §11 REMOVES IT.** The reasoning below held while this
@@ -1426,8 +1426,13 @@ repository was private, where Actions bills against 2,000 free minutes a month a
 every run up to a whole minute. A public repository is not billed for standard runners, so the
 condition that decided whether the schedule is three crons or one dissolves on the day §11 publishes
 the repository. The measurement is still worth having, for knowing what the pipeline costs in time;
-it stops being what gates the decision. The rest of §C's conditions are untouched, including
-`SITE_DEPLOY_KEY`, which is still how anything reaches the site.
+it stops being what gates the decision. `SITE_DEPLOY_KEY` was the other condition and §11 removed
+the step that used it: the store is a release on this repository, and the site pulls.
+
+**AND THE SITE NO LONGER HAS TO GUESS WHICH TIMES THESE ARE.** While it built on a cron of its own,
+every choice made here moved the lag a reader saw, and 06:47 against a 15:37 update was fifteen
+hours of it. With a consumer told on publish, §11, the site follows the store rather than the clock,
+so these crons can be decided on what the platforms do without a second schedule to keep in step.
 
 The argument as it stood: `yurison` is private, so Actions bills against 2,000 free
 minutes a month, GitHub rounds every run up to a whole minute, and run COUNT matters as much as run
@@ -1717,6 +1722,49 @@ this repository's output against a copy of it in another, and there is no copy s
 archive does not lose a published row` was that same comparison at one remove, and it is a GUARD in
 the site's build now: the build that would drop the row is the build that stops.
 
+**WHAT THE SPLIT COST ON ITS FIRST DAY, WHICH WAS THE SITE.** The published store carried an empty
+`run_report`; the feed emitters take the window's width and the run's date from it, so they emitted
+no feed files at all; and the site's build deleted every data file it had not produced. The live
+site rendered nothing until the commit was reverted. Three separate mistakes lined up, and each is
+now closed. A store yielding no feed window is REFUSED, because a broken artefact and a corpus with
+no releases look identical from here and only one of them is worth building. A file the store stops
+producing is reported and removed only under `--prune`, since an emitter producing nothing looks
+exactly like a pipeline that meant to stop, and a stale file costs a fetch nobody makes where a
+deleted live one costs the site. The redundant `--build` step that made the empty store is gone.
+
+**THE GUARD THEN EARNED ITSELF, AND WHAT IT CAUGHT NEEDS A DECISION.** The next build was refused
+for three rows July would lose, and reading them found more than one cause. ONE WAS NOT A LOSS: a
+chapter of ステラ・ステップ moved from pixivコミック to キミコミ, and a release id is its platform and
+its address, so a re-attribution mints a new id. TWO WERE REAL: あまねくシグナル's July chapters were
+served in the archive from 2026-08-02 with a feed date equal to their publication dates, because the
+first-sighting ledger held nothing for them; the ledger gained their key on 2026-08-07, a row's
+month follows its feed date, and they now file under August. The archive is itself evidence of the
+earlier sighting and the ledger cannot see it, because §11 leaves the published files in the other
+repository. So the guard names every lost id rather than the first, `--regenerate YYYY-MM` accepts a
+month's new row set deliberately and in the commit, and whether the ledger is corrected is the
+owner's call rather than a pass's.
+
+**HOW THE SITE LEARNS THE STORE HAS MOVED.** A schedule was the first answer and it left the site
+building 06:47 against a 15:37 update. GitHub has no configuration that says "when a release appears
+here, run that workflow there": `workflow_run` and reusable workflows are same-repository, a
+repository webhook signs its payload with an HMAC rather than sending an `Authorization` header so
+it cannot reach the API it would have to call, and `GITHUB_TOKEN` is scoped to the repository it
+runs in. The only cross-repository path GitHub offers is the authenticated API.
+
+  SO THE MECHANISM IS COMMITTED AND THE SUBSCRIBER IS CONFIGURED. `update.yml` ends with a step that
+  tells a consumer, reading `CONSUMER_REPO` and `CONSUMER_WORKFLOW` from Actions variables and
+  `CONSUMER_TOKEN` from Actions secrets. None of those are in the tree, so nothing committed here
+  names the site and a second consumer or none at all is a settings change. Unset, the `if` is false
+  and the step does not run, which is the state it is committed in. It dispatches a WORKFLOW rather
+  than the repository, so the token scopes to `Actions: write` instead of the `Contents: write` a
+  repository dispatch would want, and something that starts a build cannot also rewrite what it
+  builds.
+
+  AND THE CONSUMER GOES ON POLLING UNDERNEATH IT. A fine-grained token expires within the year and a
+  dispatch that fails is an update nobody sent, so the step warns and leaves the run green while the
+  site keeps a slow cron as the floor. Push decides the latency, poll decides what an expired
+  credential costs. That also unpins the site from whatever times §8 settles on.
+
 ## 12. A test the length of what it tests
 
 **THE LENGTH IS A SYMPTOM AND THE MODULE IS THE CAUSE.** `test_build.py` is 913 lines and 211
@@ -1811,7 +1859,13 @@ either the store carries the report and the site renders it, or this repository 
 three small files that are not the corpus. That is a question about what a report IS, and it is the
 only part of this section that is not mechanical.
 
-**AND WHAT IS LOST, SAID PLAINLY.** `data/build` is a debugging affordance: a person can open
-`series.json` and read it. A store is not readable that way, and `--ask` answers questions somebody
-already thought to write down. Whatever replaces the affordance should exist before the files go,
-or the first hard bug after this section will be argued in the dark.
+**AND WHAT IS LOST, WHICH ON EXAMINATION IS NOTHING.** The worry was that `data/build` is a
+debugging affordance: a person can open `series.json` and read it, where a store answers only
+questions somebody already thought to write down. The project owner put the obvious objection, which
+is that the files are read OUT of the store, so whoever is debugging holds the same data either way.
+`data/build/` is gitignored, so it is scratch for one run rather than a record to diff across
+commits. Everything in it is a projection the store can produce on demand, and the store answers
+better: a query can join what the ten files split apart, and `sqldiff` compares two runs where a
+JSON diff compares two reformattings. The one thing the files do better is showing a single record
+without writing a query, and `emit.py` still does that from a store whenever it is wanted. So
+nothing has to replace the affordance, and the last step is the one line per file it looked like.

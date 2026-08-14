@@ -503,7 +503,13 @@ def names(db, generated):
             "titles": _map(db, "title"), "authors": people,
             "publishers": _publishers(db, people), "imprints": _imprints(db),
             "credit_parts": _divisions(db),
-            "floor": _romaji(db, "floor"), "phrases": _romaji(db, "phrase")}
+            "floor": _romaji(db, "floor"), "phrases": _romaji(db, "phrase"),
+            # WHAT AN ENGLISH PAGE CALLS EACH PLATFORM, READER-PLAN item 5. The interface held its
+            # own table of these and it drifted from the register, leaving three names in Japanese
+            # on an English page. A platform's English name is a fact about the platform, so it
+            # travels with the rest of the names rather than being maintained a second time.
+            "platforms": {n: e for n, e in db.execute(
+                "SELECT name, en FROM platform_register WHERE en IS NOT NULL ORDER BY name")}}
 
 
 def _raw(db, kind):

@@ -46,8 +46,12 @@ def registered():
             if not p.get("name"):
                 continue
             hosts = ([p["host"]] if p.get("host") else []) + list(p.get("hosts") or [])
+            # THE ENGLISH NAME LIVES WITH THE PLATFORM, READER-PLAN item 5. The interface held its
+            # own table of these, which is a second register: it drifted, and three names reached
+            # an English page in Japanese while a fourth was in the table and rendered through a
+            # path that never asked it.
             out[p["name"]] = {"name": p["name"], "id": p.get("id"),
-                              "publisher": p.get("publisher") or None,
+                              "publisher": p.get("publisher") or None, "en": p.get("en") or None,
                               "host": hosts[0] if hosts else None, "hosts": hosts}
     return list(out.values())
 

@@ -885,9 +885,9 @@ def _load_all(db, source, put, counts, refused):
     # recorded can be a query rather than a script.
     from facts import platform as _plat_mod
     for _p in _plat_mod.registered():
-        put("INSERT OR IGNORE INTO platform_register (name, slug, publisher, host)"
-            " VALUES (?,?,?,?)",
-            (_p["name"], _p.get("id"), _p.get("publisher"), _p.get("host")),
+        put("INSERT OR IGNORE INTO platform_register (name, slug, publisher, host, en)"
+            " VALUES (?,?,?,?,?)",
+            (_p["name"], _p.get("id"), _p.get("publisher"), _p.get("host"), _p.get("en")),
             f"platform register {_p['name']}")
 
     from facts import content as _content_mod

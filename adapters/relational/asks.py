@@ -124,6 +124,21 @@ INVARIANTS = {
         "asserts": "empty",
         "fallback": "the name reaches a reader as it stands, which is how `bylines` did",
         "canary": "INSERT INTO platform (name) VALUES ('an adapter, not a platform')"},
+    # AND EVERY REGISTERED PLATFORM WHOSE NAME IS JAPANESE HAS AN ENGLISH NAME, item 5. The
+    # interface held its own table of these, which is a second register and drifted: きら星ポータル
+    # and comicブースト were never in it and reached an English page in Japanese, while きららベース
+    # was in it and was rendered through a path that never asked. The table is gone and the map is
+    # emitted from here, so a platform arriving without one would go out untranslated.
+    #
+    # A LATIN NAME NEEDS NOTHING. COMIC FUZ and MAGCOMI are already what an English page shows, and
+    # asserting a translation for them would be inventing one.
+    "every platform a reader is shown has an English name": {
+        "sql": "SELECT name FROM platform_register"
+               " WHERE en IS NULL AND name GLOB '*[぀-ヿ㐀-鿿]*'",
+        "reads": ("platform_register",),
+        "asserts": "empty",
+        "fallback": "the Japanese name is shown to an English reader",
+        "canary": "UPDATE platform_register SET en = NULL WHERE name = 'カドコミ'"},
     # AND THE SAME FOR THE CENSUS, which `build.py` writes the same way and for the same reason.
     # `_store_census` names this check in its own docstring as the thing that would notice it
     # stopping, and for its first day the check did not exist: the function swallows every

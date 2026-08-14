@@ -1476,7 +1476,15 @@ CREATE TABLE platform_register (
   name      TEXT PRIMARY KEY,
   slug      TEXT,
   publisher TEXT,
-  host      TEXT
+  host      TEXT,
+  -- WHAT AN ENGLISH PAGE CALLS IT, READER-PLAN item 5. The interface held its own table of these
+  -- and it drifted: きら星ポータル and comicブースト were absent from it, so they reached an English
+  -- reader in Japanese, and きららベース was present and rendered through a path that never asked.
+  -- A platform's English name is a fact about the platform and belongs where the platform is.
+  --
+  -- NULL WHERE THE NAME IS ALREADY LATIN. COMIC FUZ and MAGCOMI need no rendering, and inventing
+  -- one for them would be asserting a translation nobody made.
+  en        TEXT
 ) WITHOUT ROWID;
 
 CREATE TABLE platform (

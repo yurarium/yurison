@@ -1,6 +1,7 @@
 platforms:
 - id: kadokomi
   name: カドコミ
+  en: KADOKOMI
   publisher: KADOKAWA
   reading_rank: 1
   default_access: free
@@ -21,6 +22,7 @@ platforms:
   host: comic-fuz.com
 - id: nicovideo
   name: ニコニコ漫画
+  en: Niconico Manga
   publisher: ドワンゴ
   reading_rank: 3
   aliases:
@@ -58,6 +60,7 @@ platforms:
   host: manga.nicovideo.jp
 - id: pixivcomic
   name: pixivコミック
+  en: pixiv Comic
   publisher: ピクシブ
   reading_rank: 3
   overlap: 0.77
@@ -87,6 +90,7 @@ platforms:
   host: comic.pixiv.net
 - id: sundaywebry
   name: サンデーうぇぶり
+  en: Sunday Webry
   publisher: 小学館
   reading_rank: null
   overlap: 0.02
@@ -94,8 +98,10 @@ platforms:
   notes: Overlap 0.02 — almost everything it lists appears nowhere else, so its 65 exclusive works are
     genuinely its own and will not shrink as other platforms come online. The clearest coverage-per-effort
     target. Reading quality unassessed.
+  host: www.sunday-webry.com
 - id: ichicomi
   name: 一迅プラス
+  en: Ichijin Plus
   # THE SITE MOVED. `ichicomi.com` was the address and `ichijin-plus.com` is, and a byline read
   # off the new one named no platform while the register held only the old.
   hosts:
@@ -108,6 +114,7 @@ platforms:
 - id: comic-days
   access_investigated: 2026-08-01
   name: コミックDAYS
+  en: Comic Days
   publisher: 講談社
   reading_rank: null
   watched: true
@@ -115,6 +122,7 @@ platforms:
 - id: tonarinoyj
   access_investigated: 2026-08-01
   name: となりのヤングジャンプ
+  en: Tonari no Young Jump
   publisher: 集英社
   reading_rank: null
   watched: true
@@ -122,18 +130,21 @@ platforms:
 - id: shonenjumpplus
   access_investigated: 2026-08-01
   name: 少年ジャンプ+
+  en: Shonen Jump+
   publisher: 集英社
   reading_rank: null
   watched: true
   host: shonenjumpplus.com
 - id: kuragebunch
   name: くらげバンチ
+  en: Kurage Bunch
   publisher: 新潮社
   reading_rank: null
   watched: true
   host: kuragebunch.com
 - id: comic-zenon
   name: コミックゼノン
+  en: Comic Zenon
   publisher: コアミックス
   reading_rank: null
   watched: true
@@ -148,18 +159,21 @@ platforms:
   host: magcomi.com
 - id: comic-trail
   name: コミックトレイル
+  en: Comic Trail
   publisher: 白泉社
   reading_rank: null
   watched: true
   host: comic-trail.com
 - id: comic-gardo
   name: コミックガルド
+  en: Comic Gardo
   publisher: オーバーラップ
   reading_rank: null
   watched: true
   host: comic-gardo.com
 - id: bigcomics
   name: ビッコミ
+  en: Bikkomi
   publisher: 小学館
   reading_rank: null
   overlap: 0.04
@@ -169,6 +183,7 @@ platforms:
   host: bigcomics.jp
 - id: takecomic
   name: 竹コミ
+  en: Takecomi
   publisher: 竹書房
   reading_rank: null
   overlap: 0.27
@@ -179,6 +194,7 @@ platforms:
   host: takecomic.jp
 - id: yanmaga
   name: ヤンマガWeb
+  en: Yanmaga Web
   publisher: 講談社
   reading_rank: null
   overlap: 0.38
@@ -186,16 +202,9 @@ platforms:
   access_model: per-chapter, data-is-free attribute
   notes: Server-rendered; states per-episode free/paid via data-is-free.
   host: yanmaga.jp
-- id: sundaywebry
-  access_investigated: 2026-08-01
-  name: サンデーうぇぶり
-  publisher: 小学館
-  reading_rank: null
-  overlap: 0.02
-  watched: true
-  host: www.sunday-webry.com
 - id: comic-action
   name: webアクション
+  en: Web Action
   publisher: 双葉社
   reading_rank: null
   overlap: 0.5
@@ -203,6 +212,7 @@ platforms:
   host: comic-action.com
 - id: magapoke
   name: マガポケ
+  en: Magazine Pocket
   publisher: 講談社
   reading_rank: null
   overlap: 0.76
@@ -211,6 +221,7 @@ platforms:
   host: pocket.shonenmagazine.com
 - id: championcross
   name: チャンピオンクロス
+  en: Champion Cross
   publisher: 秋田書店
   reading_rank: null
   overlap: 0.11
@@ -229,12 +240,14 @@ platforms:
   host: comic-ogyaaa.com
 - id: comic-earthstar
   name: コミック アース・スター
+  en: Comic Earth Star
   publisher: アース・スター エンターテイメント
   reading_rank: null
   watched: true
   host: comic-earthstar.com
 - id: kimicomi
   name: キミコミ
+  en: Kimicomi
   publisher: キルタイムコミュニケーション
   reading_rank: null
   overlap: 0.62
@@ -242,6 +255,7 @@ platforms:
   host: kimicomi.com
 - id: kirarabase
   name: きららベース
+  en: Kirara Base
   publisher: 芳文社
   reading_rank: null
   watched: false
@@ -257,36 +271,42 @@ platforms:
     at all.
 - id: gangan-online
   name: ガンガンONLINE
+  en: GANGAN ONLINE
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: www.ganganonline.com
 - id: manga-one
   name: マンガワン
+  en: Manga One
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: manga-one.com
 - id: young-champion
   name: ヤングチャンピオン
+  en: Young Champion
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: youngchampion.jp
 - id: hanayume-plus
   name: 花とゆめ+
+  en: Hanayume+
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: hanayume.com
 - id: corocoro-online
   name: コロコロオンライン
+  en: CoroCoro Online
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: www.corocoro.jp
 - id: comic-border
   name: コミックボーダー
+  en: Comic Border
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
@@ -299,36 +319,42 @@ platforms:
   host: heros-web.com
 - id: g-comi
   name: Gコミ
+  en: G-Comi
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: g-comi.jp
 - id: raicomi
   name: ライコミ
+  en: Raicomi
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: comicride.jp
 - id: furacomi-like
   name: フラコミlike!
+  en: Furacomi like!
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: flowercomics.jp
 - id: manga-yomonga
   name: マンガよもんが
+  en: Manga Yomonga
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: www.yomonga.com
 - id: manga-time-square
   name: まんがタイムSquare
+  en: Manga Time Square
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: mangatime-square.com
 - id: comic-ogyaaa
   name: コミックオギャー!!
+  en: Comic Ogyaaa!!
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
@@ -341,6 +367,7 @@ platforms:
   host: comic-seasons.com
 - id: mynavi-news
   name: マイナビニュース
+  en: Mynavi News
   reading_rank: null
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
@@ -359,11 +386,13 @@ platforms:
 # it does not, because a guess here would reach a reader as a fact.
 - id: comic-boost
   name: comicブースト
+  en: comic Boost
   publisher: コアミックス
   host: comic-boost.com
   watched: false
 - id: manga-park
   name: マンガPark
+  en: Manga Park
   publisher: 白泉社
   host: manga-park.com
   watched: false
@@ -374,25 +403,30 @@ platforms:
   watched: false
 - id: comic-ruelle
   name: COMICリュエル
+  en: COMIC Ruelle
   publisher: 日本文芸社
   host: comic.j-nbooks.jp
   watched: false
 - id: comic-nova
   name: コミックノヴァ
+  en: Comic Nova
   publisher: 一二三書房
   host: www.123hon.com
   watched: false
 - id: ynjn
   name: ヤンジャン+
+  en: Yanjan+
   publisher: 集英社
   host: ynjn.jp
   watched: false
 - id: kirapo
   name: きら星ポータル
+  en: Kiraboshi Portal
   host: kirapo.jp
   watched: false
 - id: comic-pash-neo
   name: コミックPASH! neo
+  en: Comic PASH! neo
   publisher: 主婦と生活社
   host: comicpash.jp
   watched: false
@@ -402,23 +436,21 @@ platforms:
   watched: false
 - id: asacomi
   name: アサコミ
+  en: Asacomi
   publisher: 朝日新聞出版
   host: asacomi.jp
   watched: false
 - id: comic-growl
   name: コミックグロウル
+  en: Comic Growl
   publisher: コアミックス
   host: comic-growl.com
   watched: false
 - id: zerosum-online
   name: ゼロサムオンライン
+  en: Zero-Sum Online
   publisher: 一迅社
   host: zerosumonline.com
-  watched: false
-- id: mynavi-news
-  name: マイナビニュース
-  publisher: マイナビ
-  host: news.mynavi.jp
   watched: false
 
 - id: ganma
@@ -428,12 +460,36 @@ platforms:
   watched: false
 - id: firecross
   name: ファイアクロス
+  en: Fire Cross
   host: firecross.jp
   watched: false
 - id: comic-nettai
   name: コミックネッタイ
+  en: Comic Nettai
   host: www.comicnettai.com
   watched: false
+
+
+# ── THE ENGLISH NAME FOR A PLATFORM THE ADAPTER'S OWN LIST HOLDS ───────────────────────
+# `facts/platform` merges both registers and this file wins on the fields they share, so
+# an entry here carrying a name and an English name says how to render a platform the
+# gigaviewer list found. READER-PLAN item 5: the interface held its own table of these,
+# which is a second register that drifted and left three names in Japanese on an English
+# page.
+- name: COMICリュウ
+  en: COMIC Ryu
+- name: ちゃおプラス
+  en: Ciao Plus
+- name: パイコミックス
+  en: Pai Comics
+- name: マガジンデビュー(更新終了)
+  en: Magazine Debut (ended)
+- name: マンガクロス
+  en: Manga Cross
+- name: 栞
+  en: Shiori
+- name: 路草
+  en: Michikusa
 
 not_works:
 - title: ゆりひめ@ピクシブ

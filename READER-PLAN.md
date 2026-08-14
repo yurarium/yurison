@@ -316,8 +316,20 @@ holds` on w03202, because a fact object there is SHARED between the catalogued s
 shown one. Untangling that sharing is the work, and naming one work correctly by un-naming another
 is not a fix.
 
-Items 6 and 7 are still to do, and the order below already puts them last because they rest on a
-naming question older than this crawl.
+  ITEM 7 WAS ONE LINE AND A FALSE DOCSTRING. `romanise_ja` called `kana.title_case` directly and
+  left `particles` off, where a title goes through `facts/romanisation` and passes it on, so a
+  chapter label capitalised the particles a title lowercases. Its docstring had said the opposite
+  since it was written: "the same styles, so nothing here can disagree with a title", which was
+  true of the style and false of the casing. The renderer fingerprint re-rendered every phrase and
+  225 dropped to 44, and those 44 are a different fault: a particle opening a segment the analyser
+  cut wrongly, or the English word "to".
+
+**ITEM 6's FIRST HALF IS OPEN AND WILL STAY OPEN UNTIL SOMEBODY SOURCES IT.** `フレックスコミックス`
+is the only name of its shape in the corpus, holding a romanisation where an English name belongs,
+and no record here states FLEX COMIX. Establishing it needs a source, and inventing it would be
+worse than the blank. The second half, the 95 titles that become one word when a reader puts
+romanisation first, is the population `renderings resting on a mechanical romanisation` counts, and
+it falls only as names are researched.
 
 ## Order
 

@@ -65,6 +65,7 @@ below moves one domain to the other side of that line.
 | §10 | An invariant is a query on the store | done 2026-08-14; the queue of what else could move is in the section |
 | §11 | The store is the artefact; the site builds from it | done 2026-08-14 |
 | §12 | A test the length of what it tests | begun 2026-08-14; it never finishes |
+| §13 | Nothing here reads the JSON | §10, §11 |
 
 **WHERE §5a TO §5e CAME FROM.** An agent with no part in writing any of this reviewed
 `schema.sql` on 2026-08-13, given the domain, the owner's intent above and the standing
@@ -1757,3 +1758,60 @@ lines gathered from five places and 35 assertions, the largest single block in t
 those. What LOOKS extractable and is not is worth as much: `work_alias` reads a file into a module
 global AND writes a second one that a later pass reads back, `set_aside` globs the source tree, and
 `main()`'s inner functions close over its locals and are asserted nowhere.
+
+## 13. Nothing here reads the JSON
+
+**WHAT §6 LEFT HALF-DONE, SEEN FROM THE OTHER END.** §6 reversed the direction: the compiler writes
+the store and the JSON is emitted from it. §11 moved the emission of what a READER is served into
+the repository that serves it. What neither touched is that this repository still writes the same
+ten files into `data/build` and then reads them back: 51 modules here do, and `build.py` writes them
+for no other reason. The compiled form is the store, and a pass asking the compiled form a question
+should ask the store.
+
+**IT IS NOT WRONG TODAY AND THAT IS WHAT MAKES IT WORTH DOING.** The files are emitted from the
+store, so they cannot disagree with it; nothing is broken. What it costs is an ordering nobody
+states. A pass reading `data/build/series.json` needs a compile in front of it, says so nowhere, and
+on a machine that has built before it reads whatever the last build left. `shopquery` died on that
+every CI run for two days, and on a developer's machine it looked like it worked.
+
+What reads what, measured 2026-08-14:
+
+| file | readers here | what they are asking |
+|---|---|---|
+| `series.json` | 22 modules | populations: what the corpus holds, and what it lacks |
+| `feed.json` | 11 | every release, which the store now holds in full |
+| `works.json`, `index.json` | 16 between them | the record layer and the collapsed index |
+| `titles.json` | 4 | is this a work we hold |
+| `credits.json`, `publishers.json` | 7 | the record pages |
+| `run.json`, `checks.json`, `status.json` | 10 | the run's report on itself |
+
+And 43 of `check.py`'s 112 checks read a built collection. §10 moved 14 and this is the rest of that
+queue.
+
+**THE WORK, IN THE ORDER ITS DEPENDENCIES ALLOW.**
+
+  A POPULATION IS A NAMED QUERY AND TWO PASSES ALREADY SHARE ONE. `asks.POPULATIONS` holds the
+  first, `works with a serialisation and no print edition`, asked by `shopquery` and
+  `editions/capture`, each of whose docstrings had claimed to be its one producer. Every other
+  question a capture pass asks of `series.json` is the same shape: which works a shelf has not been
+  read for, which have no cover, which have gone quiet, whether we hold this title at all. About
+  twenty of them, each a query and a call site.
+
+  THE 43 CHECKS ARE §10 CONTINUED, on §10's terms: a constraint where the violation can be made
+  unstateable, a query with its number where it cannot, Python where the subject is prose or the
+  source tree. Each reproduces its number or the difference is explained.
+
+  THEN `build.py` STOPS WRITING THEM, which is the observable end and is one line per file. The
+  emitters stay, because the site calls them, and this repository stops calling them at all.
+
+One thing has to be decided before the last step. `run.json`, `checks.json` and `status.json` are the
+run's report on itself rather than compiled data, and `served.CORPUS` has always excluded them. They
+are also what the site's status page is built from. Under §11 that page is the site's to build, so
+either the store carries the report and the site renders it, or this repository goes on publishing
+three small files that are not the corpus. That is a question about what a report IS, and it is the
+only part of this section that is not mechanical.
+
+**AND WHAT IS LOST, SAID PLAINLY.** `data/build` is a debugging affordance: a person can open
+`series.json` and read it. A store is not readable that way, and `--ask` answers questions somebody
+already thought to write down. Whatever replaces the affordance should exist before the files go,
+or the first hard bug after this section will be argued in the dark.

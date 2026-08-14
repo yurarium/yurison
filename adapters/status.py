@@ -20,6 +20,15 @@ import datetime
 import glob
 import json
 import pathlib
+import sys
+
+# ITS OWN DIRECTORY, SAID RATHER THAN ASSUMED, the same as `adapters/ledger.py` and found the same
+# way. `the pipeline runs from a clean checkout` selects a file by whether it imports `facts`,
+# `names`, `testkit`, `lint` or `relational`; this one imported none of them until §13 gave it
+# `from_store`, so the pattern had never matched and two imports that only ever worked because the
+# script's own directory happens to be on the path read as clean (STANDING-INSTRUCTIONS §4).
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
 import captures  # noqa: E402
 import delivery  # noqa: E402
@@ -246,6 +255,54 @@ def build(run, checks, series, index, budgets, queues, previous=None, shape=None
         "outstanding": outstanding(series, budgets, queues),
         "statistics": stats,
     }
+
+
+def from_store(db, previous=None):
+    """The whole document, with every input taken from the store. STORE-PLAN §13.
+
+    THE ONE PRODUCER STAYS `build` ABOVE, and this only changes where its inputs come from. The
+    status page is the site's to build under §11 and the site has a store and nothing else, so a
+    second assembler over there would be a second answer to "what did this run do".
+
+    `age_days` IS COMPUTED HERE, because the store refuses to hold it: `retrieved` is a fact about
+    a capture and the age is a fact about today, and a stored age is wrong by morning. `connectors`
+    sorts on it, so it has to exist by the time that runs.
+
+    WHAT IT CANNOT TAKE FROM THE STORE IS THE PREVIOUS DOCUMENT, which is the file this is about to
+    replace and is the only record of the run before it. The caller passes it, because the caller
+    is the one that knows where its own copy lives.
+    """
+    from relational import emit
+
+    run = emit.run(db)
+    generated = run.get("generated") or ""
+    for s in run["sources"]:
+        s["age_days"] = _age(generated, s.get("retrieved"))
+    checks = emit.checks(db)
+    stored = dict(db.execute("SELECT key, value FROM run_report"))
+    return build(
+        run, checks,
+        emit.series(db, generated).get("series") or [],
+        emit.works(db).get("works") or [],
+        {b["name"]: b["budget"] for b in checks["budgets"] if b.get("budget") is not None},
+        {n: d for n, d in db.execute("SELECT name, depth FROM run_queue ORDER BY name")},
+        previous,
+        {s["source"]: (s.get("stated_rows") or 0, s.get("conforming_rows") or 0)
+         for s in run["sources"]},
+        {"runs_held": int(stored.get("ledger.runs_held") or 0),
+         "previous_at": stored.get("ledger.previous_at"),
+         "drops": [{"source": src, "was": was, "now": now, "lost": was - now, "share": share}
+                   for src, was, now, share in db.execute(
+                       "SELECT source, was, now, share FROM run_drop ORDER BY share DESC")]})
+
+
+def _age(generated, retrieved):
+    """Days between the run's date and a capture's, or nothing where either is missing."""
+    try:
+        return (datetime.date.fromisoformat(generated)
+                - datetime.date.fromisoformat(retrieved)).days
+    except (TypeError, ValueError):
+        return None
 
 
 def main(argv=None):

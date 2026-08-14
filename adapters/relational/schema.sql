@@ -330,6 +330,11 @@ CREATE TABLE check_result (
   -- could not is a row that says nothing, which the constraint below refuses.
   not_measured TEXT,
   seconds      REAL,
+  -- WHERE IT SITS IN `check.py`'S OWN ORDER, which is information and not decoration. The checks
+  -- are declared in an order that groups related ones, the status page lists them as it is given
+  -- them, and a report ordered by name instead put `adapters fetching without net.py` at the head
+  -- of the gate. A table has no order of its own, so the order has to be a column.
+  seq          INTEGER NOT NULL,
   PRIMARY KEY (kind, name),
   CHECK (kind = 'budget' OR budget IS NULL),
   CHECK (value IS NOT NULL OR not_measured IS NOT NULL)

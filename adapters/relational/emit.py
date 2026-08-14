@@ -475,6 +475,11 @@ def as_compact(payload):
     return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
 
 
+#: The sentence at the head of `checks.json`, with one home. `check.py` writes that file today and
+#: this emits the site's, and a sentence written out twice is `facts with more than one home`
+#: waiting to happen: the two copies had already drifted by a clause before this was noticed.
+CHECKS_NOTE = ('Invariants are statements that are either true or the data is broken. At runtime a violation degrades to the fallback named in check.py and is counted here; at check-in the same violation blocks. Budgets are counts with no correct value, only a direction: they tighten automatically and loosen only by hand.')
+
 #: The sentence at the head of `feed/names.json`.
 NAMES_NOTE = ("English renderings and readings, keyed by NFKC-folded title/author. Joined onto "
               "feed rows at render time so archived months — which are never rewritten — still "
@@ -1375,7 +1380,7 @@ def checks(db):
             "SELECT kind, name, finding FROM check_finding ORDER BY kind, name, seq"):
         findings.setdefault((kind, name), []).append(finding)
     rows = list(db.execute("SELECT kind, name, value, budget, why, not_measured, seconds"
-                           " FROM check_result ORDER BY name"))
+                           " FROM check_result ORDER BY seq, name"))
     return {
         "generated": dict(db.execute("SELECT key, value FROM run_report")).get("generated") or "",
         # AN INVARIANT RECORDS `violations` AND NOT `ok`, which the status page counts on: reading
@@ -1388,9 +1393,9 @@ def checks(db):
         "budgets": [{"name": n, "means": w, "budget": b, "value": v,
                      **({"not_measured": nm} if nm else {})}
                     for k, n, v, b, w, nm, _s in rows if k == "budget"],
+        # WHICH CHECK COST WHAT, so the next slow one is visible without guessing. A zero is
+        # kept: it says the check ran and cost nothing, where an absent key says nothing at all.
         "seconds": {n: s for k, n, _v, _b, _w, _nm, s in sorted(
-            rows, key=lambda r: -(r[6] or 0)) if s},
-        "note": ("Invariants are statements that are either true or the data is broken. At runtime "
-                 "a violation degrades to the fallback named in check.py and is counted here; at "
-                 "the gate it blocks. Budgets are counts with a direction and no correct value."),
+            rows, key=lambda r: -(r[6] or 0)) if s is not None},
+        "note": CHECKS_NOTE,
     }

@@ -83,6 +83,14 @@ def _load(p, default=None):
         return default
 
 
+def _checks_note():
+    """The sentence at the head of `checks.json`, from its one home in `relational.emit`."""
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from relational import emit as _emit
+    return _emit.CHECKS_NOTE
+
+
 def _store_report(inv_results, budget_values, recorded, timings, skip_source, unroot):
     """Put what the checks answered into the store, STORE-PLAN §13.
 
@@ -108,10 +116,15 @@ def _store_report(inv_results, budget_values, recorded, timings, skip_source, un
         db = _rel.open_db()
         _delta.ensure(db)
         rows, findings = [], []
+        # THE ORDER THEY ARE DECLARED IN, CARRIED AS A COLUMN. A table has none of its own and the
+        # status page lists the gate as it is given it, so a report ordered by name put `adapters
+        # fetching without net.py` where `citations withheld from readers` had been. The number is
+        # per kind, which is what the primary key is too.
         for name, _fn in INVARIANTS:
             got = inv_results.get(name)
             rows.append({"kind": "invariant", "name": name, "value": len(got or []),
                          "budget": None, "why": None, "not_measured": None,
+                         "seq": len([r for r in rows if r["kind"] == "invariant"]),
                          "seconds": round(timings.get(name, 0.0), 3)})
             for i, example in enumerate((got or [])[:5]):
                 findings.append({"kind": "invariant", "name": name, "seq": i,
@@ -124,6 +137,7 @@ def _store_report(inv_results, budget_values, recorded, timings, skip_source, un
                 missed = "the check did not run"
             rows.append({"kind": "budget", "name": name, "value": value,
                          "budget": recorded.get(name), "why": why, "not_measured": missed,
+                         "seq": len([r for r in rows if r["kind"] == "budget"]),
                          "seconds": round(timings.get(name, 0.0), 3)})
         # THE PARENT FIRST AND THE CHILDREN AFTER, because these are the one pair here with a
         # foreign key between them and this reconcile is not inside `apply`'s deferred transaction.
@@ -5674,10 +5688,8 @@ def main():
         # WHICH CHECK COST WHAT, so the next slow one is visible without guessing. Two rounds of
         # this refactor guessed wrong from a total.
         "seconds": {n: round(s, 3) for n, s in sorted(timings.items(), key=lambda kv: -kv[1])},
-        "note": ("Invariants are statements that are either true or the data is broken. At runtime "
-                 "a violation degrades to the fallback named in check.py and is counted here; at "
-                 "check-in the same violation blocks. Budgets are counts with no correct value, "
-                 "only a direction: they tighten automatically and loosen only by hand."),
+        # ONE HOME FOR THE SENTENCE, in the emitter that writes the site's copy of this file.
+        "note": _checks_note(),
     }, ensure_ascii=False, indent=1))
     _store_report(inv_results, budget_values, recorded, timings, skip_source, _unroot)
     _phase["writing the report"] = time.perf_counter() - _t0

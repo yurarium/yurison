@@ -276,10 +276,11 @@ def main(s):
     rep.execute("INSERT INTO run_source (source, files, works, rows, retrieved, in_scope, empty,"
                 " stated_rows, conforming_rows) VALUES ('comicfuz',2,129,6189,'2026-08-14',1,0,"
                 " 6189, 6180)")
-    rep.execute("INSERT INTO check_result (kind, name, value, budget, why, not_measured, seconds)"
-                " VALUES ('budget','uncertain readings',53,53,'names nobody has settled',NULL,0.4)")
-    rep.execute("INSERT INTO check_result (kind, name, value, budget, why, not_measured, seconds)"
-                " VALUES ('invariant','ruby covers its surface',0,NULL,NULL,NULL,0.2)")
+    rep.execute("INSERT INTO check_result (kind, name, value, budget, why, not_measured, seconds,"
+                " seq) VALUES ('budget','uncertain readings',53,53,'names nobody has settled',"
+                "NULL,0.4,0)")
+    rep.execute("INSERT INTO check_result (kind, name, value, budget, why, not_measured, seconds,"
+                " seq) VALUES ('invariant','ruby covers its surface',0,NULL,NULL,NULL,0.2,0)")
     rep.execute("INSERT INTO check_finding (kind, name, seq, finding)"
                 " VALUES ('invariant','ruby covers its surface',0,'w00001: ruby is short')")
 
@@ -309,9 +310,9 @@ def main(s):
     # A BUDGET THE RUN DID NOT MEASURE SAYS SO, which is what lets a reader tell "nothing to
     # report" from "not asked". `check.py` records that twenty-one budgets once caught every
     # exception and answered 0, and a gate banked the number nobody had measured.
-    rep.execute("INSERT INTO check_result (kind, name, value, budget, why, not_measured, seconds)"
-                " VALUES ('budget','unreadable bookwalker rows',NULL,15,'rows',"
-                "'source-quality budget; measured at check-in',0.0)")
+    rep.execute("INSERT INTO check_result (kind, name, value, budget, why, not_measured, seconds,"
+                " seq) VALUES ('budget','unreadable bookwalker rows',NULL,15,'rows',"
+                "'source-quality budget; measured at check-in',0.0,1)")
     skipped = next(b for b in emit.checks(rep)["budgets"]
                    if b["name"] == "unreadable bookwalker rows")
     s.eq(skipped["value"], None, "a budget nobody measured reports no value")

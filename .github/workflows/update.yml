@@ -168,7 +168,7 @@ jobs:
 
       # ── Stage D — compile. This one is allowed to fail the run. ───────────────────────────────
       - name: Compile
-        run: python3 build.py
+        run: python3 build.py --unattended
 
       # ── WHAT THE COMPILED DATABASE IS MISSING, which only a compile can say ────────────────
       #
@@ -256,13 +256,17 @@ jobs:
       # OPTIONAL HERE AND BLOCKING ON A PULL REQUEST, which is the split this workflow already
       # makes everywhere: an unattended update must keep publishing, and the place to refuse a
       # dangling identifier is where somebody is present to fix it.
-      - name: The relational store, whose constraints refuse rather than report
-        continue-on-error: true
-        # `--unattended` IS WHAT MAKES THIS SURVIVABLE, STORE-PLAN §1a. Nobody is present at 00:37,
-        # so a row the schema refuses is quarantined with the constraint that refused it and the
-        # run goes on populating what it can. Every rebuild where somebody IS present leaves the
-        # flag off and fails instead, which is what stops the quarantine becoming an excuse.
-        run: python3 adapters/relational/__init__.py --build --unattended --at "$(date -u +%F)"
+      # THE STORE IS BUILT BY THE COMPILE AND NOT AGAIN HERE, §11. This step ran
+      # `relational --build` after `build.py` had already made the store, which REPLACED it with one
+      # compiled from `data/build` rather than from the run's own rows, and a store compiled that way
+      # carried no `run_report`: the artefact this workflow publishes then told the site nothing
+      # about the feed's window, the site's build emitted no feed files, and the files it was serving
+      # were deleted as stale. The live site rendered nothing.
+      #
+      # WHAT THE STEP WAS FOR IS NOW WHERE IT BELONGS. It existed when the store was optional, to
+      # make the schema refuse what the checks only reported; `build.py` builds the store as part of
+      # the compile now, `--unattended` quarantining is what §1a gave it, and a delta it cannot apply
+      # is rebuilt rather than fatal.
 
       - name: Invariants and budgets (runtime — reports, does not block)
         run: python3 check.py --runtime

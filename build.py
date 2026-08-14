@@ -3019,6 +3019,13 @@ def main():
     ap.add_argument("--regenerate-archive", metavar="YYYY-MM", action="append", default=[],
                     help="rewrite an already-published month. Overrides the write-once rule; "
                          "use when a classification fix must reach an archived month.")
+    # NOBODY IS PRESENT AT 00:37, STORE-PLAN §1a. With this on, a row the schema refuses is written
+    # to the quarantine with the constraint that refused it and the compile carries on populating
+    # what it can; without it a refusal stops the run, which is right wherever somebody is there to
+    # fix it. It used to reach the store through a workflow step of its own, and that step rebuilt
+    # the store from `data/build` and lost the run's own report with it.
+    ap.add_argument("--unattended", action="store_true",
+                    help="quarantine a row the schema refuses rather than failing on it (§1a)")
     ap.add_argument("--checks", action="store_true",
                     help="run check.py --runtime at the end; skipped by default")
     ap.add_argument("--no-checks", action="store_true",
@@ -7069,7 +7076,8 @@ def main():
     # COMPILED IN MEMORY AND APPLIED TO THE STORE ONCE IT IS COMPLETE. The renderings arrive two
     # hundred lines below, so a store written now would be missing them; what is written now is a
     # scratch, and `relational.apply` reconciles the real one against it after `renderings` has run.
-    _store_db, _store_counts, _store_refused = _rel.build(":memory:", source=_store_source)
+    _store_db, _store_counts, _store_refused = _rel.build(
+        ":memory:", source=_store_source, quarantine=ARGS.unattended, at=str(_today))
     if _store_refused:
         print(f"store refused {len(_store_refused)} row(s): "
               f"{_store_refused[0][0]}: {_store_refused[0][1]}")
@@ -7267,7 +7275,7 @@ def main():
         try:
             _live = _rel.open_db()
             _store_moved_counts, _store_refused_now, _store_moved = _rel.apply(
-                _live, fresh=_store_db, at=str(_today))
+                _live, fresh=_store_db, at=str(_today), quarantine=ARGS.unattended)
         except Exception as _apply_failed:                                  # noqa: BLE001
             print(f"store           : the delta was refused ({_apply_failed.__class__.__name__}: "
                   f"{_apply_failed}); rebuilding the file from this run's rows")
@@ -7275,7 +7283,7 @@ def main():
             print("\n".join(f"                : {_line}"
                              for _line in traceback.format_exc().strip().splitlines()[-8:]))
             _rel.DB.unlink()
-            _rel.build(source=_store_source, at=str(_today))
+            _rel.build(source=_store_source, at=str(_today), quarantine=ARGS.unattended)
             _store_moved_counts, _store_moved = {}, []
         print(f"store           : {sum(c[0] for c in _store_moved_counts.values())} row(s) "
               f"written, {sum(c[1] for c in _store_moved_counts.values())} dropped, "

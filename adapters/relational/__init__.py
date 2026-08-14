@@ -1501,7 +1501,19 @@ def _load_feed(db, source, put, counts):
     # FROM THE COMPILER, OR FROM THE FILE A COMPILER WROTE. Every other collection here falls back
     # to `data/build`, and this one did not, so a rebuild had no census and the weekly comparison
     # reported the platforms, the lapsed listings and the two queues as divergences.
-    for key, value in ((source or {}).get("run") or {}).items():
+    # FROM THE COMPILER, OR FROM THE FILE THAT CARRIES THE SAME FIELDS. Every other collection here
+    # falls back to `data/build` and this one did not, so a store compiled by anything but `build.py`
+    # held no report at all: the update workflow rebuilds the store in a step of its own, that store
+    # is the one published, and `emit.feed_files` reads the window's width out of this table. With it
+    # empty the feed emitted NO files, and the site's build then deleted the ones it was serving as
+    # stale. `feed/meta.json` states all four fields, which is where they were read back from.
+    run = (source or {}).get("run")
+    if run is None:
+        _m = BUILD / "feed" / "meta.json"
+        got = json.loads(_m.read_text(encoding="utf-8")) if _m.exists() else {}
+        run = {k: got[k] for k in ("window_days", "archive_from", "samples_dropped", "generated")
+               if k in got}
+    for key, value in (run or {}).items():
         put("INSERT OR REPLACE INTO run_report (key, value) VALUES (?,?)",
             (key, None if value is None else str(value)), f"run report {key}")
     meta = (source or {}).get("meta")

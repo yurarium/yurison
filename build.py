@@ -3999,19 +3999,12 @@ def main():
     # Canonicalise platform names through the registry's aliases, so a site the comparators label
     # two ways (ニコニコ静画 / ニコニコ漫画) reads as one platform and dedupes as one.
     alias_to_name, channels = {}, {}
-    # The adapter registries carry aliases too, and only platforms.yaml was being read — so
-    # 花とゆめ＋ (the antenna's full-width ＋) and 花とゆめ+ (the site's) stayed two platforms, and a
-    # work carried once looked cross-published with itself.
-    for _reg, _key in (("adapters/webpages/sites.yaml", "sites"),
-                       ("adapters/gigaviewer/platforms.yaml", "platforms")):
-        _f = pathlib.Path(_reg)
-        if not _f.exists():
-            continue
-        for pl in (yaml.safe_load(_f.read_text()) or {}).get(_key) or []:
-            for al in (pl.get("aliases") or []) + [pl.get("name")]:
-                if al:
-                    alias_to_name[norm_work(al)] = pl.get("name")
-    for pl in (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms") or []:
+    # THE THREE REGISTERS, THROUGH THE ONE MODULE THAT READS THEM, §12. This walked all three
+    # itself and `facts/platform` walked two, so the two could disagree about which spelling is the
+    # platform's own; the module reads all three now and this asks it. The registers carry aliases
+    # because a site is labelled several ways: 花とゆめ＋ with the antenna's full-width ＋ against
+    # 花とゆめ+ with the site's, and a work carried once looked cross-published with itself.
+    for pl in _platform.registered():
         for al in (pl.get("aliases") or []) + [pl.get("name")]:
             if al:
                 alias_to_name[norm_work(al)] = pl.get("name")
@@ -4987,14 +4980,27 @@ def main():
         m["preferred"] = best_free
         m["preferred_reason"] = "the best-ranked carrier this chapter is actually free on"
         switched += 1
+    # ONE PLATFORM UNDER ONE NAME, READER-PLAN item 9. A comparator claim writes コミックオギャー!!
+    # where the platform's own capture writes COMIC OGYAAA!!, and the two travelled into this list
+    # unfolded: four feed rows read `COMIC OGYAAA!! · also on Comic Ogyaaa!!`, telling a reader a
+    # work is somewhere else as well as where it already is. `facts/platform.canonical` is the one
+    # answer to which spelling is the platform's, and the register carries the other as an alias.
+    _canon = {}
+    for _preg in _platform.registered():
+        _canon[_preg["name"]] = _preg["name"]
+        for _alias in (_preg.get("aliases") or []):
+            _canon.setdefault(_alias, _preg["name"])
     for r in releases:
         m = by_row.get(id(r)) or by_key.get((r["work"], r["ep"]))
         if m:
-            r["preferred"] = m["preferred"]
-            r["also_on"] = m["also_on"]
+            r["preferred"] = _canon.get(m["preferred"], m["preferred"])
+            r["also_on"] = sorted({_canon.get(x, x) for x in (m["also_on"] or [])}
+                                  - {_canon.get(r.get("plat_name") or r.get("plat"),
+                                                r.get("plat_name") or r.get("plat"))})
             if m.get("preferred_reason"):
                 r["preferred_reason"] = m["preferred_reason"]
-            r["is_preferred"] = (r["plat_name"] or r["plat"]) == m["preferred"]
+            r["is_preferred"] = (_canon.get(r["plat_name"] or r["plat"],
+                                              r["plat_name"] or r["plat"]) == r["preferred"])
         else:
             r["is_preferred"] = True
     # Only the preferred source of each chapter is shown; alternatives ride along on that entry.
@@ -6984,6 +6990,11 @@ def main():
             if not _cat or names_a_withheld_work(_cat, _wh_names):
                 continue
             _cat_key = _fold(_cat)
+            # AN ENTRY THAT ALREADY EXISTS IS MARKED, NOT REPLACED, READER-PLAN item 11. A
+            # catalogued spelling has its own reading, ruby and romanisation, and the first attempt
+            # copied the row's whole record over them: `a work shows the English its record holds`
+            # broke on w03202 at once. What it needs is the LINK, so `relational/emit._map` can
+            # take the translation across and leave the rest alone.
             if _cat_key and _cat_key not in _title_folded:
                 # MARKED AS AN ALIAS, and copied rather than shared, so a count over the shipped
                 # file can tell one title held twice from two titles. `titles with no translation

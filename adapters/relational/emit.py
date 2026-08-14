@@ -554,6 +554,13 @@ def _map(db, kind):
     for folded, target in db.execute(
             "SELECT s.folded, t.folded FROM surface s JOIN surface t ON t.id = s.alias_of"
             " WHERE s.kind = ? ORDER BY s.id", (kind,)):
+        # AN ENTRY THAT EXISTS IS LEFT ALONE, and READER-PLAN item 11 is why that is worth
+        # saying. A catalogued spelling with its own entry and no translation blocks the alias
+        # that would give it one, so the same work is named in English on two tabs and romanised
+        # on the third. Filling it from the target was tried twice, in the build and here, and
+        # both broke `a work shows the English its record holds` on w03202: a fact object here is
+        # SHARED between the catalogued spelling and the shown one, and the sharing has to be
+        # untangled before the fill is safe.
         if target in out and folded not in out:
             out[folded] = dict(out[target], alias_of=target)
     return out

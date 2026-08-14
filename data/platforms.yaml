@@ -235,8 +235,13 @@ platforms:
   publisher: キルタイムコミュニケーション
   reading_rank: null
   watched: true
+  # ONE PLATFORM UNDER TWO SPELLINGS, READER-PLAN item 9. This was two entries sharing an id and a
+  # host: the platform's own capture writes COMIC OGYAAA!! and a comparator claim writes
+  # コミックオギャー!!, and nothing folded them, so four feed rows read "COMIC OGYAAA!! · also on
+  # Comic Ogyaaa!!" and told a reader a work was elsewhere as well as where it is.
   aliases:
   - COMIC OGYAAA!!
+  - コミックオギャー!!
   host: comic-ogyaaa.com
 - id: comic-earthstar
   name: コミック アース・スター
@@ -352,13 +357,6 @@ platforms:
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: mangatime-square.com
-- id: comic-ogyaaa
-  name: コミックオギャー!!
-  en: Comic Ogyaaa!!
-  reading_rank: null
-  watched: true
-  notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
-  host: comic-ogyaaa.com
 - id: seasons
   name: Seasons
   reading_rank: null

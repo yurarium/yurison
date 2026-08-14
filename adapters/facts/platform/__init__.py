@@ -25,9 +25,13 @@ ROOT = pathlib.Path(__file__).resolve().parents[3]
 #: project's own register and `adapters/gigaviewer/platforms.yaml` is the list one adapter drives
 #: itself from, carrying two hundred more with their hosts. Two files, one answer: a reader asking
 #: what platforms exist should not have to know which pass found one.
-REGISTERS = (ROOT / "data" / "platforms.yaml",
-             ROOT / "adapters" / "gigaviewer" / "platforms.yaml")
-REGISTER = REGISTERS[0]
+#: THE THIRD ONE WAS FOUND BY A DRIFT. `build.py` canonicalises a comparator's spelling through
+#: all three and this module read two, so the two answers could differ about which name is the
+#: platform's. `adapters/webpages/sites.yaml` keys its list under `sites` rather than `platforms`.
+REGISTERS = ((ROOT / "data" / "platforms.yaml", "platforms"),
+             (ROOT / "adapters" / "gigaviewer" / "platforms.yaml", "platforms"),
+             (ROOT / "adapters" / "webpages" / "sites.yaml", "sites"))
+REGISTER = REGISTERS[0][0]
 
 
 def registered():
@@ -38,11 +42,11 @@ def registered():
     itself from.
     """
     out = {}
-    for f in reversed(REGISTERS):
+    for f, key in reversed(REGISTERS):
         if not f.exists():
             continue
         doc = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
-        for p in (doc.get("platforms") or []):
+        for p in (doc.get(key) or []):
             if not p.get("name"):
                 continue
             hosts = ([p["host"]] if p.get("host") else []) + list(p.get("hosts") or [])
@@ -51,6 +55,8 @@ def registered():
             # an English page in Japanese while a fourth was in the table and rendered through a
             # path that never asked it.
             out[p["name"]] = {"name": p["name"], "id": p.get("id"),
+                              "aliases": [a for a in (p.get("aliases") or [])
+                                          if a and a != p["name"]],
                               "publisher": p.get("publisher") or None, "en": p.get("en") or None,
                               "host": hosts[0] if hosts else None, "hosts": hosts}
     return list(out.values())
@@ -77,3 +83,23 @@ def of(url, known=None):
     if not url or "://" not in str(url):
         return None
     return (owners() if known is None else known).get(str(url).split("/")[2])
+
+
+def canonical(name, known=None):
+    """The registered name for a platform, given any spelling the register lists for it.
+
+    ONE PLATFORM UNDER TWO SPELLINGS IS STILL ONE PLATFORM, READER-PLAN item 9. The platform's own
+    capture writes `COMIC OGYAAA!!` and a comparator claim writes `コミックオギャー!!`, and the
+    register held both as entries in their own right, sharing an id and a host. Four feed rows read
+    `COMIC OGYAAA!! · also on Comic Ogyaaa!!`, which tells a reader a work is somewhere else as
+    well as where it is.
+
+    AN UNKNOWN NAME COMES BACK UNCHANGED. A platform nobody has registered is a platform this
+    cannot rename, and inventing a canonical form for it would be worse than leaving it alone.
+    """
+    if not name:
+        return name
+    for p in (registered() if known is None else known):
+        if name == p["name"] or name in (p.get("aliases") or []):
+            return p["name"]
+    return name

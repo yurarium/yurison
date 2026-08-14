@@ -150,5 +150,48 @@ def main(s):
     s.eq(vn.stated("", ""), None, "an empty title states no number")
 
 
+
+
+    volume_numbers(s)
+
+
+def volume_numbers(s):
+    """A designation becomes an integer, or does not. STORE-PLAN §12.
+
+    THE RULE CAME OUT OF `build.py`, where it was reachable only by importing a 7,400-line compiler,
+    and its assertions came with it: twenty spellings of `volume 1` cost no compiler here.
+    """
+    # ── A DOZEN WAYS ONE CATALOGUE WRITES ONE NUMBER ──────────────────────────────────────────
+    #
+    # MADB writes it as a bare digit, as `vol. 8`, as `Volume1`, as `v.1`, as `第1巻`. Each of
+    # these is a spelling the corpus really carries.
+    for raw, want in (("1", 1), ("8", 8), ("vol. 8", 8), ("vol.2", 2), ("volume 1", 1),
+                      ("Volume1", 1), ("volume.2", 2), ("Vol. 1", 1), ("v.1", 1), ("第1巻", 1),
+                      ("第 12 巻", 12), (" 3 ", 3)):
+        s.eq(vn.volume_number({"number": raw}), want, f"{raw!r} is volume {want}")
+
+    # ── A DESIGNATION THAT NAMES A PART AND NOT A POSITION ────────────────────────────────────
+    #
+    # 上 and 下 are how a two-volume set is divided. Which position each takes depends on which
+    # words the set uses, 上下 being two parts and 上中下 three, and both spell 下 the same way, so
+    # the number is worked out over a run's own volumes and never read off the word.
+    for raw in vn.PART_WORDS:
+        s.eq(vn.volume_number({"number": raw}), None,
+             f"{raw!r} designates a part and does not number it")
+
+    # ── ONE WORD THAT IS A NUMBER WRITTEN OUT ─────────────────────────────────────────────────
+    #
+    # `創刊号` names the first issue and nothing else, so ガレット's inaugural issue sorts and
+    # counts as 1 among its `No.2` to `No.37`. Ruled by the project owner 2026-08-12.
+    s.eq(vn.volume_number({"number": vn.FIRST_ISSUE_WORD}), 1,
+         "the inaugural issue is the first one, so it sorts and counts as 1")
+
+    # ── AND WHAT IS NOT A NUMBER AT ALL ───────────────────────────────────────────────────────
+    for raw in ("", "  ", "特別編", "2024年3月号", "No.2", "上巻"):
+        s.eq(vn.volume_number({"number": raw}), None,
+             f"{raw!r} states no volume number")
+    s.eq(vn.volume_number({}), None, "a volume stating nothing answers nothing")
+    s.eq(vn.volume_number({"number": None}), None, "and so does one whose field is empty")
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

@@ -3,9 +3,9 @@
 
 WHY A QUESTION AND AN INVARIANT ARE ONE OBJECT. A derivation is a question whose answer has to be
 recomputed when its inputs move; an invariant is a question whose answer must be empty; a budget is
-a question whose answer is counted and ratchets down. Written as three registries they would be
-three things to keep in step, and the incremental path would re-answer one of them and not the
-others. They are one registry with three shapes of expectation.
+a question whose answer is counted and ratchets down. Written as separate registries they would have
+to be kept in step, and the incremental path would re-answer one of them and not the others. This is
+one registry with several shapes of expectation.
 
 WHAT A SPEC HOLDS.
 

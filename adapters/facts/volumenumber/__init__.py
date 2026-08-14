@@ -215,3 +215,46 @@ def designation(title, series):
     if tail is None:
         return _shown(str(title or "")) or None
     return _shown(tail) or None
+
+
+# ── A DESIGNATION BECOMES AN INTEGER, WHICH IS THE OTHER HALF OF THIS FACT. STORE-PLAN §12 ─────
+#
+# The rest of this module says which part of a product title is a designation; this says what
+# number that designation names, where it names one. The two were a docstring apart and a
+# repository apart: the second lived in a 7,400-line compiler, and three adapters imported the
+# compiler to reach it.
+
+VOLUME_NO = re.compile(r"^\s*(?:第\s*)?(?:v(?:ol)?(?:ume)?\s*\.?\s*)?(\d+)\s*(?:巻)?\s*$", re.I)
+
+
+#: HOW A SET NUMBERED BY WORD RUNS, in order. Which position each word takes depends on which of
+#: them the work uses, so the number is worked out over a run's own volumes rather than read off
+#: this: 上下 is two parts and 上中下 is three, and both spell 下 the same way.
+PART_WORDS = ("上", "中", "下")
+
+#: The inaugural issue of a periodical, which is its first. `FIRST_ISSUE` above is the same word as
+#: a pattern, for reading a product title; this is the word itself, for reading a designation that
+#: is already isolated. Two spellings of one fact in one module was a name collision waiting, and
+#: it happened on the first run after these were brought together.
+FIRST_ISSUE_WORD = "創刊号"
+
+
+def volume_number(v):
+    """The volume's number as a number, or None where it does not state one.
+
+    MADB writes it a dozen ways: a bare `1`, `vol. 8`, `vol.2`, `volume 1`, `Volume1`, `volume.2`,
+    `Vol. 1`, `v.1`, `第1巻`. 上 and 下 are not numbers, they are how a two-volume set is designated,
+    and they answer None here.
+
+    `創刊号` IS A NUMBER WRITTEN OUT, which 上 and 下 are not: it names the first issue and nothing
+    else, so ガレット's inaugural issue sorts and counts as 1 among its `No.2` to `No.37`. Ruled by
+    the project owner 2026-08-12. It is read here rather than at capture, so the record keeps the
+    word the shop printed and `a volume number is the shop's own` stays pure arithmetic.
+    """
+    raw = str(v.get("number") or "").strip()
+    if raw == FIRST_ISSUE_WORD:
+        return 1
+    m = VOLUME_NO.match(raw)
+    return int(m.group(1)) if m else None
+
+

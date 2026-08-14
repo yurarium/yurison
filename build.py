@@ -733,36 +733,20 @@ def _recompose_credit(ja, phrase, authors, ruled=None, floor=None, divided=False
     return ", ".join(out)
 
 
-VOLUME_NO = re.compile(r"^\s*(?:第\s*)?(?:v(?:ol)?(?:ume)?\s*\.?\s*)?(\d+)\s*(?:巻)?\s*$", re.I)
+from facts import volumenumber as _volnum
 
-
-#: HOW A SET NUMBERED BY WORD RUNS, in order. Which position each word takes depends on which of
-#: them the work uses, so the number is worked out over a run's own volumes rather than read off
-#: this: 上下 is two parts and 上中下 is three, and both spell 下 the same way.
-_PART_WORDS = ("上", "中", "下")
-
-#: The inaugural issue of a periodical, which is its first. One word, so it is a value and not a
-#: vocabulary; `facts/volumenumber` recognises the same word when reading a product title.
-FIRST_ISSUE = "創刊号"
+VOLUME_NO = _volnum.VOLUME_NO
+_PART_WORDS = _volnum.PART_WORDS
+FIRST_ISSUE = _volnum.FIRST_ISSUE_WORD
 
 
 def volume_number(v):
     """The volume's number as a number, or None where it does not state one.
 
-    MADB writes it a dozen ways: a bare `1`, `vol. 8`, `vol.2`, `volume 1`, `Volume1`, `volume.2`,
-    `Vol. 1`, `v.1`, `第1巻`. 上 and 下 are not numbers, they are how a two-volume set is designated,
-    and they answer None here.
-
-    `創刊号` IS A NUMBER WRITTEN OUT, which 上 and 下 are not: it names the first issue and nothing
-    else, so ガレット's inaugural issue sorts and counts as 1 among its `No.2` to `No.37`. Ruled by
-    the project owner 2026-08-12. It is read here rather than at capture, so the record keeps the
-    word the shop printed and `a volume number is the shop's own` stays pure arithmetic.
+    ONE PRODUCER, in `facts/volumenumber/number.py`, which `facts/volumenumber` already named as its
+    counterpart while the rule lived here and could only be reached by importing the whole compiler.
     """
-    raw = str(v.get("number") or "").strip()
-    if raw == FIRST_ISSUE:
-        return 1
-    m = VOLUME_NO.match(raw)
-    return int(m.group(1)) if m else None
+    return _volnum.volume_number(v)
 
 
 def undated_publication(base, country=None, country_basis=_origin.FALLBACK):
@@ -1247,25 +1231,16 @@ def jst_date(stamp):
     return d.astimezone(JST).date().isoformat() if d.tzinfo else s[:10]
 
 
+from facts import worktitle as _worktitle
+
+
 def norm_work(s):
-    """Normalise a work title for comparison.
+    """Normalise a work title for comparison. ONE PRODUCER, in `facts/worktitle`.
 
-    NFKC first. Without it （私に） and (私に) compare unequal, as do ２ and 2, and ！ and !.
-    That duplicated series in the feed. The comparators and the platforms render all of these
-    inconsistently, so folding them is the only way titles match across sources.
-
-    The long vowel mark ー is deliberately NOT stripped: it is a letter in katakana, not
-    punctuation, and removing it would merge genuinely different titles.
-
-    Nor is '+', for the same reason and a sharper one: it marks a SEQUEL. citrus and citrus+ are
-    two works with two URLs on 一迅プラス, and stripping it merged them into one everywhere in the
-    database — the sequel's releases filed under the original. NFKC has already folded ＋ to +, so
-    keeping it costs no cross-source matching.
+    Three adapters imported this name from here, which meant executing the whole compiler to get
+    nineteen lines of regex; §12 is about exactly that.
     """
-    s = re.sub(r"[\u200b-\u200f\u202a-\u202e\ufeff]", "", s or "")
-    s = unicodedata.normalize("NFKC", s)
-    return re.sub(r"""[\s\-.=、。･・!?,:;'"“”‘’()\[\]{}「」『』【】〈〉《》〔〕~〜_/\\|*&#@]""",
-                  "", s.strip().lower())
+    return _worktitle.norm_work(s)
 
 
 # 第５０−２話 is chapter 50 part 2, written in fullwidth digits. NFKC folds the digits, and 第 is

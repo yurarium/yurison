@@ -272,7 +272,7 @@ def main(argv=None):
     import yaml
 
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
-    from build import norm_work                                              # noqa: E402
+    from facts.worktitle import norm_work                                              # noqa: E402
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--capture", default="data/queue/bookwalker-volumes.yaml")

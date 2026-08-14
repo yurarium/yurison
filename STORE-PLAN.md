@@ -64,7 +64,7 @@ below moves one domain to the other side of that line.
 | §9 | The maintenance pass, and what it works from | §1a |
 | §10 | An invariant is a query on the store | §6 |
 | §11 | The store is the artefact; the site builds from it | done 2026-08-14 |
-| §12 | A test the length of what it tests | nothing, and it never finishes |
+| §12 | A test the length of what it tests | begun 2026-08-14; it never finishes |
 
 **WHERE §5a TO §5e CAME FROM.** An agent with no part in writing any of this reviewed
 `schema.sql` on 2026-08-13, given the domain, the owner's intent above and the standing
@@ -1703,3 +1703,25 @@ expected refusal, which is three lines and reads as one.
 **WHAT SHOULD REMAIN WHEN THIS IS DONE.** An integration test that says the whole thing runs and its
 outputs join up, named as an integration test so nobody mistakes its length for a fault. Everything
 else is a module with a test the size of its subject.
+
+**FIRST TWO OUT, 2026-08-14, AND THE METHOD IS THE POINT RATHER THAN THE COUNT.** A volume's number
+went to `facts/volumenumber`, whose own docstring had named `build.volume_number` as its counterpart
+while the counterpart sat where it could only be reached by importing a 7,400-line compiler. Merging
+them collided on `FIRST_ISSUE`, one a pattern and one the word, which is what two spellings of one
+fact in one module does the moment they meet. `norm_work` went to `facts/worktitle`: three adapters
+did `from build import norm_work` and executed the whole compiler for nineteen lines of regex.
+
+**A DELEGATE IS NOT A MODULE, and `test_build.py` says so where one is left.** Where a rule moves,
+what stays behind is an assertion that the build still ASKS, which is what a delegate can get wrong;
+the twenty spellings of `volume 1` are asserted where the rule is, and cost no compiler to run.
+
+**THE SURVEY IS RECORDED SO THE NEXT PASS DOES NOT REPEAT IT.** The strongest remaining candidates,
+in order: the print-run cluster, `_shop_address` through `merge_volumes`, 410 lines carrying 46
+assertions across four sections of `test_build.py`; the credit recomposition, 180 lines and 14
+assertions, whose second implementation already exists in `check.py`; the shelf citation rule, 16
+assertions, which splits into a pure parser and a file read; the chapter-title classifiers, 140
+lines gathered from five places and 35 assertions, the largest single block in the test. And
+`undated_publication`, `state_claim_rows`, `work_level_addresses` and the length cluster after
+those. What LOOKS extractable and is not is worth as much: `work_alias` reads a file into a module
+global AND writes a second one that a later pass reads back, `set_aside` globs the source tree, and
+`main()`'s inner functions close over its locals and are asserted nowhere.

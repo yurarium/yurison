@@ -166,7 +166,7 @@ def main(argv=None):
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
     import net                                                         # noqa: PLC0415
     import paths                                                       # noqa: PLC0415
-    from build import norm_work                                        # noqa: PLC0415
+    from facts.worktitle import norm_work                                        # noqa: PLC0415
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     # Defaulted, not required: see adapters/paths.py for the rule and why the alternative left a

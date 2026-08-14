@@ -477,7 +477,7 @@ def main(argv=None):
     # single author. コミックシーモア lists the contributors, one row per work, and that capture is
     # already on disk.
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
-    from build import norm_work                                              # noqa: E402
+    from facts.worktitle import norm_work                                              # noqa: E402
     shelf = (yaml.safe_load(pathlib.Path(a.shelf).read_text()) or {}).get("works") or []
     works = _json.loads((pathlib.Path(a.build) / "works.json").read_text())["works"]
     read_print = {r["work_id"]: r for r in (rev.get("print_works") or [])}

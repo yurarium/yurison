@@ -70,21 +70,30 @@ PIXIV_HEADERS = {"X-Requested-With": "pixivcomic", "Referer": "https://comic.pix
 FLOOR = 0.5
 
 
-def gap_works(path=SERIES):
-    """Every work with a web serialisation and no print edition, as the build states it.
+def gap_works(path=None):
+    """Every work with a web serialisation and no print edition, as the STORE holds it.
 
-    Read from `data/build/series.json` rather than from the source layer, because the question is
-    what the PUBLISHED database is missing and that is the build's answer, not a source's.
+    ONE PRODUCER OF THIS POPULATION, `relational/asks.POPULATIONS`. `shopquery/capture.py` asks the
+    same question, and each of these docstrings claimed to be its one producer while both held a
+    copy of the loop.
+
+    ASKED OF THE STORE AND NOT OF `data/build/series.json`, §11. The question is what the COMPILED
+    database is missing, and the compiled form is the store.
+
+    ONE ROW PER LISTING, because this is looking for the EDITION each platform points at and two
+    platforms can point at different ones.
     """
-    doc = json.loads(pathlib.Path(path).read_text())
-    out = []
-    for w in doc.get("series") or []:
-        if not w.get("sources") or w.get("print"):
-            continue
-        for s in w["sources"]:
-            out.append({"id": w.get("id"), "work": w.get("work"), "author": w.get("author"),
-                        "platform": s.get("platform"), "url": s.get("url")})
-    return out
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    import relational
+    from relational import asks
+    if path:
+        doc = json.loads(pathlib.Path(path).read_text())
+        return [{"id": w.get("id"), "work": w.get("work"), "author": w.get("author"),
+                 "platform": s.get("platform"), "url": s.get("url")}
+                for w in (doc.get("series") or []) if w.get("sources") and not w.get("print")
+                for s in w["sources"]]
+    return asks.population(relational.open_db(),
+                           "works with a serialisation and no print edition")
 
 
 def fetch(url, cache, headers=None):

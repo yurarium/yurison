@@ -1702,6 +1702,15 @@ CORPUS, with one home here. What the site decides is which files it wants and wh
 beside them. Its build puts this repository's `adapters/` on the path, cloned at the commit that
 made the store; the dependency runs one way and needs no credential because both are public.
 
+**WHAT THIS REPOSITORY STILL READS OUT OF `data/build`, WHICH IS THE RESIDUE.** `build.py` goes on
+writing the ten files because 51 modules here read them: the capture passes that ask what the
+published database lacks, and the checks §10 has not moved. That is not wrong, since the files are
+emitted from the store and cannot disagree with it, but it means a question about the COMPILED form
+goes out through a file and comes back in, and it hides an ordering: a pass reading
+`data/build/series.json` needs a compile in front of it and says so nowhere. `shopquery` and
+`editions/capture` ask the store now, through one query both share, and each of their docstrings had
+claimed to be its one producer while both held a copy of the loop. The rest are the queue.
+
 **AND TWO QUESTIONS STOPPED EXISTING RATHER THAN MOVING.** `deployed data matches built` compared
 this repository's output against a copy of it in another, and there is no copy step left. `the
 archive does not lose a published row` was that same comparison at one remove, and it is a GUARD in

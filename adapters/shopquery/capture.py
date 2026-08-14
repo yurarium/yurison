@@ -82,22 +82,38 @@ SILENCE_CEILING = 0.35
 NOTHING = "answered nothing"
 
 
-def gap_works(path=SERIES):
-    """Every work with a web serialisation and no print edition, as the build states it.
+def gap_works(path=None):
+    """Every work with a web serialisation and no print edition, as the STORE holds it.
 
-    ONE PRODUCER OF THIS POPULATION. `editions/capture.py` asks the same question of the same file
-    and this is the same rule, deliberately identical so that the before-and-after count for this
-    route is comparable with that one's. Read from `data/build/series.json` because the question is
-    what the PUBLISHED database is missing, which is the build's answer and not a source's.
+    ONE PRODUCER OF THIS POPULATION, and it is `relational/asks.POPULATIONS` rather than this
+    function. `editions/capture.py` asks the same question and each of these docstrings claimed to
+    be the one producer while both held a copy of the loop.
+
+    ASKED OF THE STORE AND NOT OF `data/build/series.json`, §11. The question is what the COMPILED
+    database is missing, and the compiled form is the store; going through the file it emits sent
+    the answer out and read it back, and made this pass die on a missing path wherever no compile
+    had written one yet.
+
+    ONE ROW PER WORK, taking the first listing, because a shop is asked about the BOOK and a work
+    serialised on three platforms is one book to look for.
     """
-    doc = json.loads(pathlib.Path(path).read_text())
-    out = []
-    for w in doc.get("series") or []:
-        if not w.get("sources") or w.get("print"):
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    import relational
+    from relational import asks
+    if path:
+        doc = json.loads(pathlib.Path(path).read_text())
+        rows = [{"id": w.get("id"), "work": w.get("work"), "author": w.get("author"),
+                 "url": w.get("url"),
+                 "platform": (w["sources"][0] or {}).get("platform")}
+                for w in (doc.get("series") or []) if w.get("sources") and not w.get("print")]
+        return rows
+    out, seen = [], set()
+    for r in asks.population(relational.open_db(),
+                             "works with a serialisation and no print edition"):
+        if r["id"] in seen:
             continue
-        out.append({"id": w.get("id"), "work": w.get("work"), "author": w.get("author"),
-                    "url": w.get("url"),
-                    "platform": (w["sources"][0] or {}).get("platform")})
+        seen.add(r["id"])
+        out.append(r)
     return out
 
 

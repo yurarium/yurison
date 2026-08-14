@@ -282,6 +282,34 @@ BUDGETS = {
 }
 
 
+#: POPULATIONS A CAPTURE PASS WORKS FROM, as against questions with an expectation. A pass asking
+#: what the PUBLISHED database is missing is asking about the compiled form, which is this store: it
+#: used to be asked of `data/build/series.json`, which the store emits, so the answer went out
+#: through a file and came back in. That also made the pass depend on a compile having written that
+#: file, and on a fresh runner it had not, so the pass died on a missing path every time.
+POPULATIONS = {
+    # A WORK SERIALISED ON THE WEB THAT NO PRINT RUN COVERS. `shopquery` and `editions/capture` ask
+    # this same question, and their docstrings have each claimed to be its one producer while both
+    # held a copy of the loop. One query, asked by both.
+    "works with a serialisation and no print edition": {
+        "sql": "SELECT w.id AS id, w.title AS work, b.field AS author, o.platform AS platform,"
+               " o.url AS url FROM work w"
+               " JOIN offer o ON o.work = w.id"
+               " LEFT JOIN work_byline b ON b.work = w.id"
+               " WHERE NOT EXISTS (SELECT 1 FROM print_row p WHERE p.work = w.id)"
+               " ORDER BY w.id, o.id",
+        "reads": ("work", "offer", "print_row", "work_byline")},
+}
+
+
+def population(db, name):
+    """The rows of a named population, as dicts keyed by the columns the query selects."""
+    spec = POPULATIONS[name]
+    cur = db.execute(spec["sql"])
+    cols = [c[0] for c in cur.description]
+    return [dict(zip(cols, r)) for r in cur.fetchall()]
+
+
 def all_asks():
     """Every ask, whatever shape its expectation has."""
     return {**QUESTIONS, **INVARIANTS, **BUDGETS}

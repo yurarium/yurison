@@ -232,6 +232,30 @@ CREATE TABLE withheld (
   reason TEXT
 );
 
+-- WHAT THIS FILE IS AND WHAT MADE IT, §11. The store is published as an artefact now, and a
+-- consumer meeting one has to be able to tell whether it understands the shape it is holding. No
+-- guarantee of format or schema is offered to anyone, which is the project owner's ruling, so this
+-- exists for the consumer to REFUSE on rather than as a promise: a site build that meets a schema
+-- it does not recognise stops instead of reading a column that has moved.
+--
+-- THE VERSION IS THE SCHEMA'S OWN DIGEST, so it changes exactly when the schema does and cannot be
+-- forgotten the way a hand-typed number is. `PRAGMA user_version` carries the same value for a
+-- reader that would rather not run a query.
+CREATE TABLE store_stamp (
+  key   TEXT PRIMARY KEY,
+  value TEXT NOT NULL
+);
+
+-- WHAT THE RUN DID, as against what the corpus holds. §6 kept these out of the store on the
+-- reasoning that a window's width and a count of dropped samples describe a BUILD rather than a
+-- work, and that reasoning was right while the JSON crossed the line: the emitter took them as
+-- arguments. §11 makes the store the only thing that crosses, so a consumer that cannot read them
+-- cannot write `feed/meta.json` at all, and an argument nobody can pass is not an argument.
+CREATE TABLE run_report (
+  key   TEXT PRIMARY KEY,
+  value TEXT
+);
+
 CREATE TABLE quarantine (
   id         INTEGER PRIMARY KEY,
   -- WHERE IT WAS GOING, WHAT REFUSED IT, AND WHAT IT WAS. The row is kept as the loader had it, so

@@ -123,6 +123,29 @@ def create(path=None):
     return db
 
 
+def stamp(db, at=None):
+    """Say what this store is: the schema it was made against, and when. §11.
+
+    A CONSUMER REFUSES ON THIS RATHER THAN TRUSTING IT. The published artefact carries no promise of
+    format, so what a site build needs is a way to tell that the shape has moved; the digest of
+    `schema.sql` changes exactly when the schema does, which a hand-typed number would not.
+    """
+    import hashlib
+    # CREATED HERE TOO, so a store made before §11 gains one rather than refusing an update. The
+    # same reasoning as `delta.ensure`: the file on disk outlives the schema that made it.
+    db.execute("CREATE TABLE IF NOT EXISTS store_stamp (key TEXT PRIMARY KEY, value TEXT NOT NULL)")
+    digest = hashlib.sha256(SCHEMA.read_bytes()).hexdigest()
+    db.execute("INSERT INTO store_stamp (key, value) VALUES ('schema', ?)"
+               " ON CONFLICT(key) DO UPDATE SET value = excluded.value", (digest[:16],))
+    # A DATE THE CALLER DID NOT STATE LEAVES THE ONE ALREADY THERE. A rebuild run by hand has no
+    # date to give and should not blank the one the last compile stamped.
+    if at:
+        db.execute("INSERT INTO store_stamp (key, value) VALUES ('generated', ?)"
+                   " ON CONFLICT(key) DO UPDATE SET value = excluded.value", (str(at),))
+    db.execute(f"PRAGMA user_version = {int(digest[:7], 16)}")
+    return digest[:16]
+
+
 def load_rulings(db):
     """The basis table and the attribution table, taken from the facts that own them.
 
@@ -407,6 +430,7 @@ def build(path=None, quarantine=False, at=None, source=None):
     db = load_rulings(create(path))
     counts, refused = {}, []
     put = _putter(db, refused, quarantine, at)
+    stamp(db, at)
     _load_all(db, source, put, counts, refused)
     db.commit()
     return db, counts, refused
@@ -1477,6 +1501,9 @@ def _load_feed(db, source, put, counts):
     # FROM THE COMPILER, OR FROM THE FILE A COMPILER WROTE. Every other collection here falls back
     # to `data/build`, and this one did not, so a rebuild had no census and the weekly comparison
     # reported the platforms, the lapsed listings and the two queues as divergences.
+    for key, value in ((source or {}).get("run") or {}).items():
+        put("INSERT OR REPLACE INTO run_report (key, value) VALUES (?,?)",
+            (key, None if value is None else str(value)), f"run report {key}")
     meta = (source or {}).get("meta")
     if meta is None:
         _m = BUILD / "feed" / "meta.json"
@@ -1730,6 +1757,54 @@ def _table_order(db):
     return out
 
 
+def _migrate(db, fresh):
+    """Give an existing store the tables and columns the schema has gained since it was made.
+
+    A STORE OUTLIVES THE SCHEMA THAT MADE IT, which is what `delta.ensure` has always said about one
+    table and is true of all of them once the store is updated rather than replaced. An addition is
+    applied here; anything else is refused loudly, because a column that has CHANGED or gone cannot
+    be reconciled and a store carrying half of two schemas is worse than one that says so.
+
+    Returns what it did, so a run can say it rather than doing it silently.
+    """
+    done = []
+    held = {r[0]: r[1] for r in db.execute(
+        "SELECT name, sql FROM sqlite_master WHERE type IN ('table', 'index')")}
+    for name, kind, sql in fresh.execute(
+            "SELECT name, type, sql FROM sqlite_master WHERE type IN ('table', 'index')"
+            " AND sql IS NOT NULL ORDER BY type DESC, name"):
+        if name not in held:
+            db.execute(sql)
+            done.append(f"+{kind} {name}")
+    for table, in fresh.execute(
+            "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%'"):
+        mine = {r[1]: r for r in db.execute(f"PRAGMA table_xinfo({table})")}
+        if not mine:
+            continue
+        for r in fresh.execute(f"PRAGMA table_xinfo({table})"):
+            if r[1] in mine:
+                continue
+            if r[6] or r[3]:
+                # A GENERATED COLUMN OR A NOT NULL WITH NO DEFAULT cannot be added to rows that
+                # exist. Rebuilding is the honest answer and this says so rather than half-doing it.
+                raise RuntimeError(
+                    f"{table}.{r[1]} cannot be added to a store that already has rows; "
+                    "delete data/relational.db and let the next run rebuild it")
+            db.execute(f"ALTER TABLE {table} ADD COLUMN {r[1]} {r[2] or ''}")
+            done.append(f"+column {table}.{r[1]}")
+    # `derivation` IS THE STORE'S OWN MEMORY AND NOT THE SCHEMA'S, made by `delta.ensure` on
+    # whichever store is in front of it, so a scratch that has never converged does not have one.
+    gone = [t for t, in db.execute(
+        "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%'")
+        if t != "derivation"
+        and not fresh.execute("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
+                              (t,)).fetchone()]
+    if gone:
+        raise RuntimeError(f"the schema no longer has {', '.join(gone)}; delete "
+                           "data/relational.db and let the next run rebuild it")
+    return done
+
+
 def apply(db, source=None, quarantine=False, at=None, fresh=None):
     """Bring an existing store to what the compiler now says, without replacing it. §7.
 
@@ -1777,6 +1852,7 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
     # every COMMIT, and Python's sqlite3 in its default mode makes a bare PRAGMA its own
     # transaction, so setting it before the first write set it and immediately lost it.
     db.isolation_level = None
+    migrated = _migrate(db, fresh)
     db.execute("BEGIN")
     db.execute("PRAGMA defer_foreign_keys = ON")
     counts, touched, translate = {}, set(), {}
@@ -1784,7 +1860,7 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
         # THE QUARANTINE AND THE DERIVATIONS ARE THE STORE'S OWN MEMORY, not the compiler's answer.
         # §5g carries a quarantined row forward across rebuilds precisely so it is not lost, and
         # reconciling it against a scratch that never saw yesterday's refusals would delete it.
-        if table in ("quarantine", "derivation"):
+        if table in ("quarantine", "derivation", "store_stamp"):
             continue
         # WHAT A ROW STATES, WHICH IS NOT EVERY COLUMN IT HAS. A generated column cannot be written
         # at all, and a rowid handed out by an insert addresses the row and states nothing.
@@ -1838,6 +1914,8 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
     # than the argument for not doing it. `converge` still gates the CASCADE, which is where the
     # cost would actually be.
     moved += [n for n in _delta.recompute(db) if n not in moved]
+    stamp(db, at)
+    counts["schema"] = (len(migrated), 0, 0)
     db.execute("COMMIT")
     return counts, refused, moved
 
@@ -1896,7 +1974,7 @@ def equivalent(db=None):
 def _tables(db):
     return [r[0] for r in db.execute(
         "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' "
-        "AND name <> 'derivation' ORDER BY name")]
+        "AND name NOT IN ('derivation', 'store_stamp') ORDER BY name")]
 
 
 def _comparable(db, table):
@@ -2013,6 +2091,8 @@ def main():
                     help="quarantine a row the schema refuses and carry on, rather than failing; "
                          "for a scheduled update, never for a rebuild somebody is watching")
     ap.add_argument("--at", help="the date to stamp a quarantined row with")
+    ap.add_argument("--publish", metavar="PATH",
+                    help="write the store out under this name, stamped, for release. §11")
     ap.add_argument("--equivalent", action="store_true",
                     help="rebuild from scratch and compare every derivation against the store as "
                          "it stands; what the scheduled CI run does")
@@ -2020,6 +2100,24 @@ def main():
 
     if a.equivalent:
         return 0 if equivalent() else 1
+
+    if a.publish:
+        # WHAT CROSSES THE LINE, §11. A copy under the name a consumer expects, vacuumed so the
+        # artefact is the data and not the space a rebuild left behind, and stamped so a consumer
+        # can refuse a shape it does not know. This is the whole of what this repository publishes.
+        import shutil
+        db = open_db()
+        stamp(db)
+        db.commit()
+        # OUTSIDE THE TRANSACTION, which SQLite requires and Python's sqlite3 opens for you.
+        db.isolation_level = None
+        db.execute("VACUUM")
+        out = pathlib.Path(a.publish)
+        shutil.copyfile(DB, out)
+        held = dict(open_db(out).execute("SELECT key, value FROM store_stamp"))
+        print(f"published {out} ({out.stat().st_size / 1e6:.1f} MB), schema {held.get('schema')}, "
+              f"generated {held.get('generated') or 'unstated'}")
+        return 0
 
     if a.build or not a.ask:
         db, counts, refused = build(quarantine=a.unattended, at=a.at)

@@ -48,7 +48,11 @@ from facts import script as _script                                     # noqa: 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 HARNESS = pathlib.Path(__file__).resolve().parent / "interface.js"
-SITE_ROOT = pathlib.Path(os.environ.get("YURARIUM_SITE") or ROOT.parent / "yurarium.github.io")
+# WHERE THE RENDERER IS, IF THERE IS ONE HERE AT ALL. §11 moved the interface and everything that
+# checks what a reader is shown into the repository that renders it, so this repository no longer
+# assumes a sibling checkout: `YURARIUM_SITE` points at one where somebody wants these suites run
+# against a real `app.js`, and without it they say they had nothing to run rather than passing.
+SITE_ROOT = pathlib.Path(os.environ.get("YURARIUM_SITE") or ROOT.parent / "no-site-configured")
 APP_JS = SITE_ROOT / "kari" / "app.js"
 
 

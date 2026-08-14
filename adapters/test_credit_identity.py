@@ -243,19 +243,10 @@ def main(s):
     s.eq(ci.uncovered("&nbsp;フォローする", {"クール教信者"}), ["nbsp", "フォローする"],
          "a Follow button handed over as a byline is what the residue is for")
 
-    # ── What a retired credit id serves ──────────────────────────────────────────────────────
-    pages = ci.forwarders(reg)
-    s.eq(sorted(pages), ["credit/c00002/index.html"],
-         "a retired identifier gets a page and a live one does not")
-    body = pages["credit/c00002/index.html"]
-    for fragment in ('rel="canonical" href="../../credit/c00001/"',
-                     'content="noindex,nofollow"',
-                     'http-equiv="refresh" content="0; url=../../credit/c00001/"',
-                     'location.replace("../../credit/c00001/")',
-                     "This record is now"):
-        s.check(fragment in body, f"the stub carries {fragment}")
-    s.check("work/c00001" not in body,
-            "and it points inside its own root, which the shared renderer used to ignore")
+    # THE FORWARDER MOVED WITH THE PAGE IT IS, §11. What a retired address SAYS to a reader is the
+    # rendering repository's decision now; what stayed here is which identifier became which, and
+    # `retired` above is asserted directly.
+
 
     # ── Kinds, so that a company does not get a person-shaped page ────────────────────────────
     s.eq(ci.kind_of("円谷プロダクション"), "company", "a television company is a company")

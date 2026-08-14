@@ -1270,3 +1270,52 @@ def meta(db, generated, window_days, archive_from, archive_months, samples_dropp
         "archive_from": archive_from,
         "window_days": window_days,
         "generated": generated}
+
+
+def feed_files(db):
+    """The feed as the site serves it: a window, one file per archived month, and the report.
+
+    THE SPLIT IS A FACT ABOUT THE FILES AND IT MOVED WITH THEM, §11. Which releases belong in the
+    window and which in a month was decided in the pipeline while the pipeline wrote them; the
+    store carries what the run stated, `window_days` and `archive_from`, and the split falls out of
+    those and the dates the releases carry.
+
+    A MONTH FILE HOLDS THE WHOLE MONTH, including the days the window still covers. The alternative
+    makes a file's contents depend on the day the build ran, so a month written once would be frozen
+    half complete and the same month written a week later would disagree with it.
+
+    THE MONTH IN PROGRESS IS NOT ARCHIVED. It is not finished, so writing it would either publish an
+    incomplete month or require rewriting it tomorrow. What IS rewritten every build is the months
+    that are done: the row set is what is locked, not the bytes, so a name the store has since
+    corrected reaches a month published before the correction.
+    """
+    import datetime
+    report = dict(db.execute("SELECT key, value FROM run_report"))
+    generated = report.get("generated") or ""
+    window = int(report.get("window_days") or 14)
+    archive_from = report.get("archive_from") or "9999-99"
+    rows = feed(db)
+    dated = [(str(r.get("feed_date") or r.get("pub") or "")[:10], r) for r in rows]
+
+    out = {}
+    if generated:
+        today = datetime.date.fromisoformat(generated)
+        # DAYS MINUS ONE, so the window is exactly that many calendar days counting today.
+        # Subtract the full 14 and the tab shows fifteen date headings under a control that says
+        # 直近14日, and an interface counting differently from its own label is what makes a reader
+        # distrust the counts that matter.
+        first = str(today - datetime.timedelta(days=window - 1))
+        out["feed/current.json"] = as_text({
+            "releases": [r for d, r in dated if d >= first],
+            "window_days": window, "from": first, "to": generated, "generated": generated})
+
+    months = sorted({d[:7] for d, _r in dated if len(d) >= 7
+                     and archive_from <= d[:7] < generated[:7]}, reverse=True)
+    for month in months:
+        out[f"feed/{month}.json"] = as_text({
+            "releases": [r for d, r in dated if d[:7] == month],
+            "month": month, "generated": generated})
+
+    out["feed/meta.json"] = as_text(meta(
+        db, generated, window, archive_from, months, int(report.get("samples_dropped") or 0)))
+    return out

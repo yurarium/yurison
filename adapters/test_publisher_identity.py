@@ -118,22 +118,10 @@ def main(s):
     s.eq(kodansha["seats"], ["distributor"], "and the seat it did hold is recorded")
     s.eq(kodansha["works"], ["w00003"], "with the book it shipped")
 
-    # ---- a retired identifier still resolves -----------------------------------------------------
-    from facts import identity
-    merged = identity.merge(entries, entries[1]["id"], entries[0]["id"],
-                            "the same house recorded under two spellings")
-    fwd = P.forwarders(merged)
-    path = f"publisher/{entries[1]['id']}/index.html"
-    s.check(path in fwd, "a retired house serves a forwarder")
-    s.check(f'href="../../publisher/{entries[0]["id"]}/"' in fwd[path],
-            "pointing inside the publisher root and not at a work that does not exist")
-    s.check("noindex,nofollow" in fwd[path] and "canonical" in fwd[path],
-            "with the same stub a retired work id serves")
-    s.eq(P.retired(merged), {entries[1]["id"]: entries[0]["id"]},
-         "and the registry says where it went")
-    # The edge file must never name it again: `index` resolves a retired anchor to its successor.
-    s.eq(identity.index(merged)[P.anchor("講談社")], entries[0]["id"],
-         "a retired anchor resolves to the survivor")
+    # THE FORWARDER MOVED WITH THE PAGE IT IS, §11. What a retired address SAYS to a reader is the
+    # rendering repository's decision now; what stayed here is which identifier became which, and
+    # `retired` above is asserted directly.
+
 
 
 if __name__ == "__main__":

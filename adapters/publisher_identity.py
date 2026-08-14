@@ -211,13 +211,10 @@ def retired(entries):
             if e.get("merged_into") and e.get("id")}
 
 
-def forwarders(entries, root=ROOT):
-    """{path: html} for every retired house id, through `stubs` rather than a second renderer."""
-    import stubs
-
-    live = {str(e["id"]) for e in entries or () if e.get("id") and not e.get("merged_into")}
-    return stubs.forwarders(root, live, retired(entries))
-
+# `forwarders` MOVED WITH THE RENDERING IT DID, §11. It returned HTML for every retired publisher id,
+# which is a page rather than a fact about identity, and the repository that renders pages is the
+# one that should decide what a forwarder says. `retired` above is what it needed from here and is
+# what stayed: which identifier became which is this repository's answer.
 
 def load(path):
     """(entries, doc) from a publisher registry, or ([], {}) where there is none.

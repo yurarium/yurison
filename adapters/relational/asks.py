@@ -217,7 +217,10 @@ BUDGETS = {
                "OR NOT EXISTS (SELECT 1 FROM release_access_mode m WHERE m.release = release.id))",
         "reads": ("release", "release_access_mode"),
         "why": "attested releases missing a chapter name, author or access state. The classic sign "
-               "of a moved CSS selector: the adapter still returns rows, just emptier ones."},
+               "of a moved CSS selector: the adapter still returns rows, just emptier ones. It "
+               "rose 37 to 52 when the store began taking the compiler's rows rather than the "
+               "feed's: 1,270 releases against the 961 the feed publishes, and the window was "
+               "never the population this asks about."},
     # A NAME WITH NOTHING TO SHOW AN ENGLISH READER. The floor answers for most strings, so what
     # this counts is a title the store holds no reading, no rendering and no romanisation for.
     "works without English": {

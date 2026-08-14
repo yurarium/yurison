@@ -56,15 +56,10 @@ BUDGETS = ROOT / "docs" / "budgets.json"
 #: A budget that answers this is PRINTED, NEVER TIGHTENED, and fails the gate: not being able to
 #: measure something is a state to fix and not a state to pass.
 UNMEASURED = None
-# Derived, not written out: the site repo sits beside this one. See adapters/paths.py.
-SITE_ROOT = pathlib.Path(os.environ.get("YURARIUM_SITE") or ROOT.parent / "yurarium.github.io")
-SITE = SITE_ROOT / "kari" / "data"
-
-# Every file a reader can load. The English strings live inside the pages rather than in a
-# resource file, so the pages themselves are the text; there is nowhere else to look.
-READER_TEXT = [SITE_ROOT / "index.html", SITE_ROOT / "README.md",
-               SITE_ROOT / "kari" / "index.html", SITE_ROOT / "kari" / "status.html",
-               ROOT / "README.md"]     # this repo goes public at 1.0; its README is public text
+# THIS FILE NO LONGER KNOWS WHERE THE SITE IS, §11. What a reader is SHOWN is checked in the
+# repository that renders it, `build/reader_checks.py` there, and the pipeline's business ends at
+# the store it publishes. `README.md` stays because it is this repository's own public text.
+READER_TEXT = [ROOT / "README.md"]
 
 JAPANESE = re.compile(r"[぀-ヿ一-鿿　-〿＀-￯]")
 # Kana and the marks that only ever appear beside them. Narrower than JAPANESE on purpose: this
@@ -173,71 +168,10 @@ def inv_reading_can_show_its_source(ctx):
     return _rd.CHECKS["reading_can_show_its_source"](ctx)
 
 
-def _interface(ctx):
-    """The interface, loaded once for this run and holding the names the browser would fetch.
-
-    Built from `ctx` rather than from the files, so a canary planted in the context reaches the
-    renderer like any other row (§14b). Kept on the context so several checks share one load.
-    """
-    import tempfile
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    if "_iface" not in ctx:
-        # RUN THE SOURCE THE CONTEXT HOLDS, not the file on disk. `interface_js` is loaded in
-        # `context()` for the reason everything else is: a check that opens its own file cannot be
-        # shown a canary, and self_test plants one in this string to prove the fold comparison can
-        # fail. Written out because node loads a path.
-        src = ctx.get("interface_js") or ""
-        path = None
-        if src:
-            fh = tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8")
-            fh.write(src)
-            fh.close()
-            path = fh.name
-        ctx["_iface"] = interface.Interface(names=ctx["names_shipped"] or {}, prefs={"LANG": "en"},
-                                            app_js=path)
-    return ctx["_iface"]
 
 
-def _status_interface(ctx):
-    """status.html's own script, loaded in a context of its own.
-
-    A SECOND CONTEXT AND NOT A SECOND SCRIPT IN THE FIRST. `app-status.js` declares `esc`, `T`,
-    `splitLang`, `SEP` and `render` at the top level and so does `app.js`, and a `const` redeclared
-    in one context's global lexical scope is a SyntaxError. They are two pages and they get two
-    contexts, which is also what a browser gives them.
-    """
-    import tempfile
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    if "_siface" not in ctx:
-        src = ctx.get("status_js") or ""
-        if not src:
-            return None
-        fh = tempfile.NamedTemporaryFile("w", suffix=".js", delete=False, encoding="utf-8")
-        fh.write(src)
-        fh.close()
-        # No name map. This page states facts about the collection and draws no name through the
-        # store; handing it one would suggest otherwise.
-        ctx["_siface"] = interface.Interface(names={"titles": {}, "authors": {}, "phrases": {}},
-                                             prefs={"LANG": "en"}, app_js=fh.name)
-    return ctx["_siface"]
 
 
-def _collections(ctx):
-    """The built collections under the names `adapters/interface.py` rules them by.
-
-    THE RECORD PAGES ARE HERE BECAUSE A READER CAN OPEN THEM. `credits.json` and `publishers.json`
-    are fetched only when one of those 2,405 addresses is visited, so neither was in this list and
-    neither was measured; `status.json` is a whole published page nothing walked. A surface nobody
-    walks is a surface nobody measures, and the first walk of the credit pages found the homophone
-    list writing a name into the markup without asking the renderer for it.
-    """
-    return {"index": ctx["index"], "series": ctx["series"], "works": ctx["works"],
-            "releases": ctx["releases"],
-            "credits": list(((ctx["credit_pages"] or {}).get("credits") or {}).values()),
-            "publishers": list(((ctx["publisher_pages"] or {}).get("publishers") or {}).values()),
-            "status": [ctx["status"]] if ctx.get("status") else []}
 
 
 # WHAT kari/app.js PUTS ON A NAME IT SPELLED ITSELF, in its two forms. `enFallback` appends the
@@ -254,237 +188,9 @@ FLOOR_TOKEN = '[?]'
 FLOOR_MARKUP = 'class="unc floor"'
 
 
-def inv_english_mode_has_no_japanese(ctx):
-    """English-only mode shows no kana and no kanji, asked of the interface rather than modelled.
-
-    WHAT THIS USED TO BE, AND WHY IT WENT GREEN OVER A VISIBLE FAULT. It held a `fold`, a `render`
-    reimplementing the name lookup and a `joins` guessing at app.js's fallback order, and the guess
-    was generous: it tried the title with its subtitle stripped and with the separator turned into
-    a space, and app.js tries neither. So
-    `シャドウ・アサシンズ・ワールド : 影は薄いけど、最強忍者やってます` was on the 発売 tab in
-    English mode with this check reporting nothing, which is the third drift of the same shape in
-    one day (STANDING-INSTRUCTIONS §3).
-
-    It now loads `kari/app.js` and calls the file's own label functions over every row of every
-    surface `adapters/interface.py` rules. There is no model of the renderer left to be wrong.
-
-    KANA AND KANJI, WHICH IS NARROWER THAN THIS USED TO ASK, and the narrowing is a finding rather
-    than a relaxation. The old test also failed a full-width character, and running the real
-    renderer showed why that is wrong: `2×2＝SHINOBUDEN+` is the work's OWN English name, published
-    with a full-width ＝, and the interface renders `en_forms` where the transcription read `en`,
-    an ASCII-folded copy. A reader in English meets the title the work publishes. What they must
-    not meet is a script they cannot read. `full-width forms in English renderings` counts the rest
-    so the narrowing is a number rather than a silence.
-
-    EVERY SURFACE, WHICH IT DID NOT USED TO BE, AND THIS IS WHY IT PASSED WHILE A BUDGET COUNTED
-    77. `Surface.holds_at_zero` split the table in two and this check read one half: the titles and
-    the chapter names, where Japanese was called a fault. The other half was the credit lines, the
-    people and the publishing lines, where Japanese was called a coverage deficit, and
-    `renderings still Japanese in English mode` counted those and ratcheted. So the two checks
-    partitioned the surfaces between them and neither could ever see what the other measured. This
-    one was not passing over a fault it could see. It was reading eleven surfaces of twenty-one.
-
-    THE OWNER OVERRULED THE SPLIT. An unclear romanisation with an explanatory tooltip is required
-    wherever the alternative is Japanese under an English heading, so there is no surface left
-    where Japanese is a finished state. The flag is gone from `adapters/interface.py`, the budget
-    is gone from the list below, and this reads the whole table.
-
-    §14b, WHAT THIS CANNOT SEE. A call site that never calls the renderer. Running the interface
-    proves that what reaches it comes out right, and says nothing about `esc(w.t)` written beside
-    it, which is how 2,430 rows shipped Japanese once already. `adapters/lint/entrypoints.py` is
-    the other half and `names reach a page only through their renderer` is where it blocks.
-
-    fallback: `enFallback` in kari/app.js, which spells the name from `feed/names.json`'s floor and
-    marks it. A violation here means that fallback did not run, which is a fault in the renderer
-    and not a name nobody has looked up.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    try:
-        iface = _interface(ctx)
-        calls, about = interface.calls_for(_collections(ctx))
-        if not calls:
-            return []
-        out = iface.labels(calls)
-    except interface.Unavailable as e:
-        # A check that could not run has not passed. Reported rather than skipped, because a
-        # renderer nobody ran answers "no Japanese anywhere" for exactly the same reason a clean
-        # page does (§4).
-        return [f"the interface could not be run, so nothing here was checked: {e}"]
-    bad = []
-    for (surface, value), shown in zip(about, out):
-        if interface.KANA_KANJI.search(value) and interface.KANA_KANJI.search(shown):
-            bad.append(f"{surface.path}:{value[:32]}")
-    return sorted(set(bad))
 
 
-def budget_interface_tooltips_a_reader_of_japanese_cannot_read(ctx):
-    """`title="…"` attributes in kari/app.js written in English whatever the language toggle says.
 
-    THE SITE IS BILINGUAL AND ITS TOOLTIPS ARE NOT. 30 of the 32 in the file are English string
-    literals: a Japanese reader who sets 日本語 gets a Japanese page whose explanations are all in
-    English, and those explanations are where the interface accounts for itself. `有料先行` said
-    `18 chapter(s) of this series sit ahead of the free line` to everyone.
-
-    COUNTED RATHER THAN FIXED IN ONE GO, because each one needs Japanese somebody means, and thirty
-    sentences invented at once would be thirty guesses. A budget makes each new tooltip pay for
-    itself and lets the existing ones come down as they are written.
-
-    §14b, WHAT IT REUSES: the shipped file's text, and `T(`/`L(` as the marks of a string that
-    follows the toggle. It consults no list of which tooltips are done, so a tooltip cannot be
-    counted as bilingual by being named somewhere.
-    """
-    src = (ROOT.parent / "yurarium.github.io" / "kari" / "app.js")
-    if not src.exists():
-        return UNMEASURED    # this could not be measured; see UNMEASURED
-    text = src.read_text(encoding="utf-8")
-    # A tooltip is bilingual when its value is built by the translation helpers. Anything else is
-    # a literal, and a literal is one language.
-    return sum(1 for m in re.finditer(r'title="([^"]*)"', text)
-               if "${" not in m.group(1) or not re.search(r"\b[TL]\(", m.group(1)))
-
-
-def budget_interface_reads_outside_an_entry_point(ctx):
-    """Reads of a name field in kari/app.js that are excepted rather than going through a renderer.
-
-    THE EXCEPTIONS, COUNTED. `entrypoints.SAFE` lets a call site read a name field without
-    rendering it, because some of them must: a comparator sorts on the Japanese, a grouping key is
-    the string as written, and the work identifier in the address bar shares a field name with a
-    title without being one. Each entry says which function, which field, what is done with the
-    value and how many times, so a read added beside an allowed one fails.
-
-    A number here rather than a list nobody looks at (§13). Every entry is a place where the
-    guarantee rests on a sentence somebody wrote instead of on the arrangement, and the count is
-    what makes adding one an argument rather than an edit.
-    """
-    sys.path.insert(0, str(ROOT / "adapters" / "lint"))
-    try:
-        import entrypoints
-    except Exception:                                                           # noqa: BLE001
-        return UNMEASURED    # this could not be measured; see UNMEASURED
-    return sum(n for n, _why in entrypoints.SAFE.values())
-
-
-def budget_renderings_resting_on_a_mechanical_romanisation(ctx):
-    """Renderings the interface spelled itself because no source states how the name is read.
-
-    WHAT THIS REPLACES. `renderings still Japanese in English mode` counted 77 rows that reached an
-    English page as kana or kanji, and its docstring said a name the store cannot render shows as
-    the Japanese and that this is a finished state. The owner overruled that: a marked romanisation
-    with a tooltip is REQUIRED where the alternative is Japanese. So the count of Japanese rows is
-    an invariant at zero and this is what is left, which is the number of names carrying our guess
-    instead of somebody's reading.
-
-    IT FALLS ONLY WHEN A NAME IS RESEARCHED and nothing about the renderer can move it. A record
-    with a sourced reading is spelled from the reading and never reaches the floor; a record with
-    no reading at all reaches it every time. That makes this the data gap stated as a number, and
-    the one measure a later naming pass should be aimed at.
-
-    A COMMUNITY DATABASE'S READING IS COUNTED HERE, from the project owner's correction of
-    2026-08-09: "I mistyped 'without overcoming their fallback basis'". Wikidata raises the floor on
-    the string and leaves the record resting on a fallback, so a name spelled off its kana is a name
-    an English page spelled for itself and belongs in this number. 44 before, 628 after, and the
-    rise is the correction working rather than anything getting worse. `uncertainMark` in
-    kari/app.js is what emits the class for them, beside `floorHtml`, and the tooltip stays the one
-    naming the database.
-
-    WHAT IT STILL DOES NOT COUNT, said here because a measure that catches the stronger case and
-    misses the weaker one is worth nobody's trust (§14b). 1,914 renderings carry `unc` without
-    `floor`: a reading a morphological analyser produced, or one assembled character by character.
-    Those rest on less than a Wikidata edit does, and whether the class should widen to take them is
-    a ruling nobody has made. `author readings no source states` counts the RECORDS behind them,
-    which is why the population is not invisible in the meantime.
-
-    MEASURED FROM THE MARKUP THE INTERFACE PRODUCES, so it counts what a reader is actually shown.
-    §14b, WHAT IT SHARES: one CSS class name, `unc floor`, which kari/app.js emits from a single
-    constant. That is the whole of the coupling. Nothing here holds a copy of the rule deciding when
-    the mark is warranted, so a renderer that stopped marking a guess would show up as this falling
-    to zero rather than as this agreeing with it.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    try:
-        calls, _about = interface.calls_for(_collections(ctx))
-        if not calls:
-            return 0
-        out = _interface(ctx).values(calls)
-    except interface.Unavailable:
-        return UNMEASURED    # this could not be measured; see UNMEASURED
-    return sum(html.count(FLOOR_MARKUP) for html in out)
-
-
-def budget_full_width_forms_in_english_renderings(ctx):
-    """English renderings that still hold a full-width character, having no kana and no kanji.
-
-    WHY THIS IS SEPARATE FROM THE INVARIANT. `English mode has no Japanese` used to fail a
-    full-width character as well as a script, and running the real renderer showed that rule
-    catching the work's own name: `2×2＝SHINOBUDEN+` is published with a full-width ＝ and the
-    interface renders `en_forms`, where the transcription had read `en`, an ASCII-folded copy of
-    it. Blocking there would ask a reader to be shown a title the work does not use.
-
-    So the invariant narrowed to kana and kanji, and this counts what the narrowing let past, which
-    is what stops a narrowing from being a silence (§13).
-
-    308 OF THEM WERE A CATALOGUER'S TYPING AND ARE GONE. `Ｍａｇｐｉｅ`, `ｆｉｎｉｔｅ` and
-    `Ｈｏｕｒａｉ　Ｄｏｌｌ` are Latin pen names typed full width, and the store holds nothing for
-    them because a Latin pen name is not a transliteration of anything; the surface reached an
-    English page with its width intact. `plainLatin` in kari/app.js folds a name holding no kana
-    and no kanji, which is NFKC and not a reading. What is left is mostly a TITLE published with a
-    full-width mark, `2×2＝SHINOBUDEN+` being the recorded one, and those are correct.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    fw = re.compile(r"[！-｠￠-￮　]")
-    try:
-        calls, about = interface.calls_for(_collections(ctx))
-        if not calls:
-            return 0
-        out = _interface(ctx).labels(calls)
-    except interface.Unavailable:
-        return UNMEASURED    # this could not be measured; see UNMEASURED
-    return sum(1 for (_s, _v), shown in zip(about, out)
-               if fw.search(shown) and not interface.KANA_KANJI.search(shown))
-
-
-def inv_names_reach_a_page_only_through_their_renderer(ctx):
-    """No field carrying a name is put on a page except by the function that renders that kind.
-
-    THE HALF A RUNNING RENDERER CANNOT DO. Every leak this project has shipped was a call site that
-    did not call the renderer: `esc(w.t)` from index.json on the catalogue tab, a volume row
-    labelled from the bibliographic record's title, `credit()` glossing the bracket and leaving the
-    name. None of those reaches a renderer, so running one finds none of them.
-
-    So this reads `kari/app.js` and asserts a relation between two sets. The fields carrying a name
-    are DERIVED from the built data by `adapters/interface.py`, not listed here, so one added by a
-    later pass has to be ruled on. The entry points are named beside them. Every read of one of
-    those fields must be inside its entry point, an argument to it, or an entry in
-    `entrypoints.SAFE` that says which function, which field, what is done with the value, how many
-    times, and why.
-
-    AND IT NOW ASKS THE OTHER HALF OF THE QUESTION. A field the data carries Japanese in is ruled
-    either by a surface or by `interface.NOT_DRAWN`, which says nothing puts it on a page. The
-    second answer was asserted and never verified: a volume's `designation` was ruled that way on
-    2026-08-12 and drawn by the same change with `esc`, so 383 works showed Japanese in English
-    mode with both guards green. `entrypoints.undrawn_findings` reads the source for it.
-
-    §14b, WHAT IT SHARES: `interface.SURFACES`, which is also what the check above renders through.
-    That is the point rather than a cost. The two checks ask different questions of one table, and
-    a table naming a field the interface does not render fails this one, while a table missing a
-    field the DATA carries fails `every Japanese field the data carries has a ruling`.
-
-    What it cannot see is a fault inside an entry point, which is what running the renderer is for.
-
-    fallback: none. This reads a file in another repository and cannot degrade a build.
-    """
-    sys.path.insert(0, str(ROOT / "adapters" / "lint"))
-    src = ctx.get("interface_js")
-    if not src:
-        return []
-    try:
-        import entrypoints
-    except Exception as e:                                                      # noqa: BLE001
-        return [f"adapters/lint/entrypoints.py will not import ({e}), so nothing was checked"]
-    return entrypoints.findings(src) + entrypoints.undrawn_findings(src)
 
 
 def inv_a_stated_reading_names_where_it_came_from(ctx):
@@ -493,29 +199,6 @@ def inv_a_stated_reading_names_where_it_came_from(ctx):
     n = _rd.CHECKS["facts_fetched_with_no_citation"](ctx)
     return [f"{n} stated reading(s) hold no url or cite"] if n else []
 
-
-def inv_the_interface_is_the_derivation_of_its_source(ctx):
-    """`kari/app.js` is what `kari/src` concatenates to.
-
-    THE PROPERTY A BUNDLE WOULD HAVE COST US. The checks run the real `app.js` in a Node vm, so
-    what is verified is what ships. Splitting the file into modules keeps that only if the shipped
-    file is exactly the modules, and this is what says so.
-
-    IT IS THE SHAPE `deployed data matches built` ALREADY HAS. A derived artefact and its inputs,
-    compared by content, with the answer being that one is stale.
-
-    Section 14b: it re-derives from the source files and compares bytes. It shares nothing with the
-    builder except the concatenation order, which is filename order and stated in kari/src/BUILD.md.
-    """
-    site = ROOT.parent / "yurarium.github.io"
-    src = site / "kari" / "src"
-    out = site / "kari" / "app.js"
-    if not src.is_dir() or not out.exists():
-        return []
-    want = "".join(p.read_text(encoding="utf-8") for p in sorted(src.glob("*.js")))
-    if want == out.read_text(encoding="utf-8"):
-        return []
-    return ["kari/app.js is not the derivation of kari/src; run ./build-app.py"]
 
 
 def inv_the_tracker_states_what_it_claims(ctx):
@@ -570,30 +253,6 @@ def inv_a_fact_is_reached_through_its_entry_point(ctx):
     return [f"{path}:{line} reaches facts.{fact}.{sub}" for path, line, fact, sub in got]
 
 
-def inv_every_renderer_is_ruled(ctx):
-    """Every function that returns rendered name text is a surface or is argued not to be.
-
-    THE FAULT THIS IS FOR. `interface.SURFACES` is hand-written and `creditLine` was missing from it.
-    The work page called it, it cut the byline on a slash and passed the pieces on as a field the
-    build had never seen, and 安田剛助・文尾文 reached a reader as `???? · Bun?Bun` while every probe
-    over the table reported zero. A table of what reaches a reader cannot be what decides it.
-
-    DERIVED FROM THE SOURCE, seeded with the floor primitives and with whatever the table already
-    names, so the derived set is a superset of the table by construction and the answer here is what
-    it holds that the table does not. `NOT_A_SURFACE` is where an orchestrator goes, with a reason.
-
-    §14b, WHAT IT SHARES WITH ITS SUBJECT: it reads `app.js` as text and asks nothing of the table
-    except which names are in it. Its blind spot is a renderer written as an arrow function or a
-    method, stated in interface.renderers, which is why the exemptions carry reasons and not names.
-    """
-    try:
-        sys.path.insert(0, str(ROOT / "adapters"))
-        import interface as _iface
-        got = _iface.unruled_renderers()
-    except Exception:                                                   # noqa: BLE001
-        return []
-    return [f"{n} returns rendered name text and is in neither SURFACES nor NOT_A_SURFACE"
-            for n in got]
 
 
 def inv_every_name_is_defined_where_it_is_used(ctx):
@@ -715,6 +374,18 @@ def inv_a_name_is_answered_by_one_module(ctx):
     return [f"{name}: {', '.join(paths)}" for name, paths in got]
 
 
+def _collections(ctx):
+    """The built collections under the names `adapters/interface.py` rules them by.
+
+    THE RECORD PAGES WENT WITH THE RENDERING, §11. `credits.json` and `publishers.json` are opened
+    only when one of those addresses is visited, and what a reader is SHOWN there is now checked in
+    the repository that renders it. What is left here is the question this file still owns: whether
+    a field the pipeline emits in Japanese has been ruled on at all.
+    """
+    return {"index": ctx["index"], "series": ctx["series"], "works": ctx["works"],
+            "releases": ctx["releases"], "status": [ctx["status"]] if ctx.get("status") else []}
+
+
 def inv_every_japanese_field_has_a_ruling(ctx):
     """Every field the built data carries in Japanese is either a name with a renderer or is not.
 
@@ -806,27 +477,6 @@ def inv_fixture_states_where_it_came_from(ctx):
     return bad
 
 
-def inv_no_stock_phrasing_in_public_text(ctx):
-    """Public prose says things rather than performing them.
-
-    Not a disguise: the project does not hide being AI-driven, and nothing here defeats a detector.
-    These are constructions that waste a sentence, reach for an abstraction where a fact belongs,
-    or add rhythm in place of content. The documentation ships so a third party can pick the
-    project up, which makes it part of the deliverable rather than notes to ourselves.
-
-    Only the HARD list and density are absolute. Words that are filler only in bulk are a budget.
-    fallback: none needed. This reads files already written; it cannot degrade a build.
-    """
-    out = subprocess.run(
-        [sys.executable, str(ROOT / "adapters" / "lint" / "tics.py"), "--prose",
-         *[str(f) for f in READER_TEXT if f.exists()]],
-        capture_output=True, text=True, timeout=60)
-    # Parse on the lint's own markers, not on an em dash: this line used to split on " — " and the
-    # lint's output separator changed, which would have made the invariant silently vacuous.
-    # Structural findings count too, or the check would report them and block nothing.
-    bad = [l.split(" -> ")[0].strip() for l in out.stdout.splitlines() if " -> " in l]
-    bad += [l.strip() for l in out.stdout.splitlines() if l.startswith("STRUCTURE:")]
-    return bad
 
 
 def inv_content_flags_are_accounted_for(ctx):
@@ -878,7 +528,9 @@ def inv_content_flags_are_accounted_for(ctx):
     # stopped being raised at all is still what this catches.
     #
     # READ OFF THE BUILT ROWS AND NOT THE DEPLOYED ONES, CHANGED 2026-08-13. This took the works
-    # list from `SITE`, so it judged a fresh build's report against whatever was last copied out.
+    # list from the deployed tree, so it judged a fresh build's report against whatever was last
+    # copied out. §11 makes the question sharper rather than moving it: what this asks now is
+    # whether the PIPELINE emits a withheld work, which is upstream of anything a site could serve.
     # It failed twice in one day for that reason and neither was a fault: a work admitted by the
     # run being checked is in the report and not yet in the deployed tree, which reads here as a
     # flag nothing accounts for. The report and the rows now come from the same build, which is
@@ -917,10 +569,10 @@ def inv_content_flags_are_accounted_for(ctx):
     for title, withhold in reg.items():
         if not withhold:
             continue
-        for f in sorted(SITE.rglob("*.json")):
+        for f in sorted(BUILD.rglob("*.json")):
             try:
                 if title in f.read_text(encoding="utf-8", errors="replace"):
-                    bad.append(f"withheld but published: {f.relative_to(SITE)}: {title[:24]}")
+                    bad.append(f"withheld but emitted: {f.relative_to(BUILD)}: {title[:24]}")
             except OSError:
                 pass
     return bad
@@ -973,19 +625,19 @@ def inv_scope_rulings_are_accounted_for(ctx):
                 and r.get("medium_basis") not in _origin_medium_bases()):
             bad.append(f"rests on a term no vocabulary holds: "
                        f"{r.get('work') or r.get('imprint')}")
-    if not SITE.exists():
+    if not BUILD.exists():
         return bad
     for r in rulings:
         for m in (r.get("works") or [r]):
             title = m.get("title")
             if r.get("disposition") != "out-of-scope" or not title:
                 continue
-            for f in sorted(SITE.rglob("*.json")):
+            for f in sorted(BUILD.rglob("*.json")):
                 if f.name in REPORT_FILES:
                     continue
                 try:
                     if title in f.read_text(encoding="utf-8", errors="replace"):
-                        bad.append(f"out of scope and published: {f.relative_to(SITE)}: "
+                        bad.append(f"out of scope and emitted: {f.relative_to(BUILD)}: "
                                    f"{title[:24]}")
                 except OSError:
                     pass
@@ -1028,179 +680,12 @@ def _origin_medium_bases():
     return _o.medium_bases()
 
 
-def inv_no_published_update_leaves_its_month(ctx):
-    """Every update a published month holds is still built, in that month.
-
-    THE BYTES USED TO BE THE TEST AND THAT WAS THE WRONG THING TO LOCK. A month was written once
-    and never rewritten, on the argument that a published statement about dates must not be quietly
-    revised. It froze far more than dates: 602 of July's 605 rows baked a title, a reading and three
-    romaji styles, and 573 of those titles are spellings the store has since corrected. 球詠 read
-    `Tamaei` where it is `Tamayomi`, and no fix could ever reach it. The owner ruled on 2026-08-11
-    that a name has a right answer we converge on and is not history; what changed then is.
-
-    SO THE ROW SET IS LOCKED AND THE RENDERING IS NOT. The file is rewritten every build and this
-    asks the only question that matters: did an update we published stop being published. A title
-    improving is the system working. An update disappearing is the amnesia REQUIREMENTS §4 exists
-    to prevent.
-
-    KEYED ON THE PLATFORM'S OWN ID, because the work title is exactly what is allowed to change. A
-    handful of adapters build an id out of the chapter title and those rows will churn when a title
-    is corrected, which is a fault in those adapters and is why this reports the row rather than a
-    count.
-
-    §14b, WHAT IT REUSES: the served bytes and the built bytes. It asks nothing of the code that
-    wrote either, so a build that dropped a month entirely fails here rather than agreeing with
-    itself.
-    """
-    bad = []
-    for f in sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json")):
-        live = SITE / "feed" / f.name
-        if not live.exists():
-            continue
-        was = {(r.get("plat"), r.get("id")) for r in (_load(live, {}) or {}).get("releases") or []}
-        now = {(r.get("plat"), r.get("id")) for r in (_load(f, {}) or {}).get("releases") or []}
-        for k in sorted(was - now, key=str)[:20]:
-            bad.append(f"{f.name} published {k} and it is no longer built")
-    return bad
 
 
-def inv_a_release_id_names_one_release(ctx):
-    """No two releases on a platform share an identifier.
-
-    fallback: none; the rows still publish, and every measure keyed on the pair reads them as one.
-
-    THE FAULT. `build.py` keyed a release on the chapter's own address, or on its TITLE where the
-    platform states no address. A chapter label is not unique on a platform, so `pixivcomic:第3話`
-    named three works at once and `takecomic:18話` named three more. 1,352 of the 5,284 title-keyed
-    chapters in `data/source/webpages` collide that way, takecomic 425 of its own 506, and only 8
-    surfaced in a release window because a collision needs both works to publish the same label
-    within the same fortnight.
-
-    WHY IT IS AN INVARIANT AND NOT A COUNT. Two rows sharing an identifier are ONE row to anything
-    keyed on it, and `no published update leaves its month` is keyed on it: a row that really did
-    vanish could be masked by its twin still being there, so the collision blinds the measure that
-    exists to catch the worse fault. There is no acceptable number of these above zero.
-
-    §14b, WHAT IT REUSES: the shipped rows and nothing that wrote them. It counts pairs in the
-    published files, so a build that starts minting a colliding id fails here whatever the code
-    that minted it believes about uniqueness.
-    """
-    # THE CURRENT FEED COMES FROM `ctx` AND THE ARCHIVES FROM DISK. A check that opens its own file
-    # cannot be shown a canary, and this needs to be probeable, so the live list is taken from the
-    # context that `--self-test` plants in. The months behind it are not on the context and are read
-    # here; a collision minted today appears in the current feed first, which is the half the probe
-    # covers.
-    lists = [("feed.json", ctx["releases"] or [])]
-    months = sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json"))
-    lists += [(f.name, (_load(f, {}) or {}).get("releases") or []) for f in months]
-    seen, bad = {}, []
-
-    # AND IT SAYS SO WHERE IT READ NOTHING. The archive half opens its own files, so it reports
-    # clean when it finds none: point `BUILD` at a directory that does not exist and this returns
-    # no violations, and `--self-test` still passes, because the canary is planted in the current
-    # feed. A directory that moves, a glob that a future month's name does not match, a build that
-    # stops writing the months. Each is silence that looks exactly like a clean answer.
-    #
-    # THE SITE IS WHAT IT COUNTS AGAINST, because the served months are the ones somebody published
-    # and no amount of local breakage can reduce them. Serving more months than the build produced
-    # is the state worth catching. Before the first deploy there is nothing to count against and
-    # this asks nothing at all.
-    #
-    # WHY NOT PUT THE ARCHIVES ON THE CONTEXT and let a canary reach them: they grow by a month for
-    # ever, 1.25 MB and about 600 rows so far, and the context is loaded for all 59 invariants and
-    # 75 budgets whether or not they read it. This project already met that shape once, when
-    # feed.json reached 1.3 MB and every visitor fetched it to draw the first screen. The
-    # assertion catches the same silence at a cost that does not grow.
-    if SITE.exists():
-        served = sorted((SITE / "feed").glob("[0-9]*-[0-9]*.json"))
-        if len(months) < len(served):
-            missing = sorted({f.name for f in served} - {f.name for f in months})
-            bad.append(f"the site serves {len(served)} archived month(s) and the build produced "
-                       f"{len(months)}, so this examined fewer than were published: "
-                       f"{', '.join(missing[:5])}")
-    for name, rows in lists:
-        for r in rows:
-            k = (name, r.get("plat"), r.get("id"))
-            prev = seen.get(k)
-            if prev is not None and prev != (r.get("work"), r.get("ep")):
-                bad.append(f"{name}: {r.get('plat')} {r.get('id')!r} is both {prev[0]!r} "
-                           f"{prev[1]!r} and {r.get('work')!r} {r.get('ep')!r}")
-            seen[k] = (r.get("work"), r.get("ep"))
-    return bad[:20]
 
 
-def budget_published_dates_that_moved_in_an_archive(ctx):
-    """Rows in a published month whose publication date the rebuild has changed.
-
-    THE OTHER HALF OF WHAT AN ARCHIVE LOCKS. `no published update leaves its month` asks whether a
-    row is still there and deliberately says nothing about its contents, because the owner ruled on
-    2026-08-11 that a name has a right answer and is not history. That ruling was about NAMES.
-    `FEATURES-INTERFACE` draws the line in the same sentence: "A romanisation improving is the
-    system working; a published date changing is not." Nothing measured the second half.
-
-    IT IS A BUDGET AND NOT AN INVARIANT, and the 16 it opened at are why. Every one of them moved
-    by exactly one day, all on GigaViewer platforms, and they are a CORRECTION arriving rather than
-    drift: `2793bbe` replaced a naive `[:10]` slice of the feed's UTC stamp with `jst_date` on
-    2026-08-02, and the capture five days later re-read those chapters onto the Japanese calendar
-    day they were actually published on. JST is UTC+9, so anything published between midnight and
-    09:00 JST had been filed a day early. Refusing that would freeze a known error into the record.
-
-    So the number says how much of the past a rebuild has rewritten, and it ratchets: a correction
-    lands, somebody accepts it with the reason, and the floor drops back to zero. A date moving
-    with no such reason behind it is drift, and this is what makes it arrive as a number rather
-    than as a discovery years later.
-
-    §14b, WHAT IT REUSES: the served month and the built one, and nothing that wrote either. The
-    check that would share the producer's blind spot is one asking the feed writer whether it
-    changed a date.
-
-    WHAT IT CANNOT SEE: a month the site does not serve yet, which is any month before the first
-    deploy that published it. Those are skipped rather than counted as unchanged.
-    """
-    moved = 0
-    for f in sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json")):
-        live = SITE / "feed" / f.name
-        if not live.exists():
-            continue
-        # THE ADDRESS IS PART OF THE KEY, and it has to be. `(plat, id)` is what the invariant
-        # above uses and it collides: a handful of adapters build an id out of the chapter title,
-        # so `pixivcomic:第3話` is every pixivコミック work's third chapter at once. Three rows
-        # collided in July and this reported all three as dates that had moved when none had.
-        # `(plat, id, url)` is unique across all 602. Where an address itself changes the row
-        # simply goes uncompared, which under-reports rather than inventing a change.
-        was = {(r.get("plat"), r.get("id"), r.get("url")): r.get("pub")
-               for r in (_load(live, {}) or {}).get("releases") or []}
-        for r in (_load(f, {}) or {}).get("releases") or []:
-            k = (r.get("plat"), r.get("id"), r.get("url"))
-            if k in was and was[k] != r.get("pub"):
-                moved += 1
-    return moved
 
 
-def inv_deployed_matches_built(ctx):
-    """What the site serves is what the build produced.
-
-    fallback: do not copy the differing file; the previous one stays served.
-
-    TIMING MATTERS FOR THIS ONE. It is false for the whole window between a build finishing and
-    deploy.sh copying, which is exactly when build.py runs the checks — so the report published
-    beside the data claimed five violations that copying had already fixed, every single time.
-    deploy.sh now re-runs the checks after copying and ships the report last. A report that is
-    wrong by construction is worse than no report: it teaches the reader to ignore it.
-    """
-    if not SITE.exists():
-        return []
-    bad = []
-    for f in list(BUILD.glob("*.json")) + list((BUILD / "feed").glob("*.json")):
-        rel = f.relative_to(BUILD)
-        # checks.json reports on this comparison and is written after it; including it would have
-        # the check fail on its own output.
-        if rel.name == "checks.json":
-            continue
-        live = SITE / rel
-        if live.exists() and live.read_bytes() != f.read_bytes():
-            bad.append(str(rel))
-    return bad
 
 
 def inv_state_agrees_with_its_own_date(ctx):
@@ -1567,84 +1052,8 @@ def inv_no_html_entity_in_a_stored_name(ctx):
     return bad
 
 
-def inv_a_name_in_both_mode_is_rendered_in_both(ctx):
-    """Every call to a one-language renderer in kari/app.js sits inside a 併記 wrapper.
-
-    THE FAULT. `workLabel` and `authorLabel` answer in the reader's language and leave 併記 to
-    `bilingual()`, which calls them once per language with LANG forced. Called directly with the
-    toggle on 併記 they answer in Japanese and report nothing, so the work page heading, the 作品
-    rows, the 発売 rows and the works list on a credit or a publisher page shipped with no English
-    at all. Each of them was right in ja and right in en, which is why a reader found it before any
-    check did.
-
-    WHY THE RENDERER CHECKS ABOVE MISS IT. Those ask whether a name reaches a page through the
-    function that renders it, and every one of these call sites does. What was wrong is how many
-    times it was asked.
-
-    §14b, WHAT THIS CANNOT SEE. It reads call sites and not output, so a renderer added to app.js
-    and left out of `entrypoints.ONE_LANGUAGE` is invisible to it, and `creditText` composing a
-    byline out of `personShown` is not covered today.
-
-    fallback: none. This reads a file already written and cannot degrade a build.
-    """
-    sys.path.insert(0, str(ROOT / "adapters" / "lint"))
-    # THE SOURCE THE CONTEXT HOLDS, which is what the entry-point invariant above reads and what
-    # the canary is planted in. Reading the file again here would give a check the probe cannot
-    # reach, and a canary that lands somewhere the check does not look proves nothing (§4).
-    src = ctx.get("interface_js")
-    if not src:
-        return []
-    try:
-        import entrypoints
-    except Exception as e:                                                      # noqa: BLE001
-        return [f"adapters/lint/entrypoints.py will not import, so nothing was checked: {e}"]
-    return entrypoints.single_language_findings(src)
 
 
-def inv_interface_folds_a_name_key_as_the_build_does(ctx):
-    """The browser's fold and the build's fold, run against each other on the corpus.
-
-    WHY THERE ARE TWO COPIES AT ALL. `data/build/feed/names.json` is keyed on the FOLDED Japanese
-    string and on nothing else, so the browser has to fold a row's title the same way to find its
-    rendering. `adapters/names/key.fold` is the definition and `foldKey` in `kari/app.js` is the
-    same two operations in JavaScript, which cannot import it.
-
-    WHAT A DISAGREEMENT COSTS. Not a degraded lookup: a lost one. Unlike the publisher map, which
-    is keyed by the raw catalogued string as well as the normalised one so either answer finds the
-    record, the title map holds the folded key alone. A browser folding differently renders
-    Japanese on a work whose English this project holds, and the page says nothing about why.
-
-    THIS USED TO READ THE SOURCE AND ASK FOR THE TWO OPERATIONS BY NAME, and said so: it could not
-    run the JavaScript, so it could not see a disagreement the two implementations would only
-    reveal on a particular string. It runs the JavaScript now. Every title, author and chapter name
-    the corpus holds is folded both ways and the two answers are compared, so the check is over the
-    strings this project actually has rather than over a regular expression matching a function
-    body.
-
-    §14b: the corpus is the input to both sides, and neither fold produced it, so this can fail on
-    anything the build is able to emit. What it cannot see is a string neither collection carries.
-
-    fallback: none. A key is either the same key on both sides or the map stops answering.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    sys.path.insert(0, str(ROOT / "adapters" / "names"))
-    import interface
-    try:
-        import key as _key
-    except Exception:                                                           # noqa: BLE001
-        return []
-    strings = sorted({s for r in list(ctx["series"]) + list(ctx["releases"])
-                      for s in (r.get("work"), (r.get("author") or "").strip(), r.get("ep"),
-                                r.get("collection"), r.get("latest_ep"))
-                      if s and isinstance(s, str)})
-    if not strings:
-        return []
-    try:
-        theirs = _interface(ctx).values([("foldKey", s) for s in strings])
-    except interface.Unavailable as e:
-        return [f"the interface could not be run, so the two folds were not compared: {e}"]
-    return [f"{s[:28]}: app.js folds it {a!r} and adapters/names/key.fold folds it {b!r}"
-            for s, a, b in zip(strings, theirs, (_key.fold(s) for s in strings)) if a != b]
 
 
 def inv_a_record_without_a_publisher_says_why(ctx):
@@ -1668,34 +1077,6 @@ def inv_a_record_without_a_publisher_says_why(ctx):
             and not str(r.get("publisher_basis") or "").strip()]
 
 
-def budget_imprint_names_the_interface_disagrees_with(ctx):
-    """Imprint strings the browser renders as one name and the shipped map calls another.
-
-    THE SECOND PRODUCER, COUNTED WHILE IT LASTS. `imprintOf` in app.js decides which imprint a
-    string names and `data/names/imprints.yaml` decides the same thing with a registry behind it.
-    Both now read the map the build ships, so the two stopped having separate opinions, and this
-    number went to zero by the disagreement ending rather than by anybody hiding it.
-
-    IT IS MEASURED BY RUNNING `imprintOf`, not by a copy of it. This file used to hold
-    `_app_imprint_of`, a transcription kept so the two could be compared, which is a comparison
-    between the map and a Python function claiming to be the browser. It is now the browser.
-
-    Counted on distinct pairs so that one wrong name does not read as hundreds.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    shipped = (ctx["names_shipped"] or {}).get("imprints") or {}
-    raw = sorted({str(pr.get("imprint") or "").strip()
-                  for r in ctx["series"] for pr in (r.get("print") or [])
-                  if str(pr.get("imprint") or "").strip() in shipped})
-    if not raw:
-        return 0
-    try:
-        shown = _interface(ctx).labels([("imprintOf", s) for s in raw])
-    except interface.Unavailable:
-        return UNMEASURED    # this could not be measured; see UNMEASURED
-    return len({(got, shipped[s]["name"]) for s, got in zip(raw, shown)
-                if got != shipped[s]["name"]})
 
 
 
@@ -2089,289 +1470,12 @@ def inv_a_shipped_identifier_resolves(ctx):
     return bad
 
 
-def _role_vocabulary(ctx):
-    """Every role string a credit field can state, from the splitter and from the corpus.
-
-    BOTH, BECAUSE NEITHER IS THE WHOLE ANSWER. `inputs.ROLES` is what the splitter will recognise
-    and so is what it can hand the interface tomorrow; the corpus is what it hands it today, and it
-    states compounds that no list holds, because they are built rather than written down:
-    `キャラクター原案・漫画` and `原作監修・文` are two roles joined by the field that wrote them.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    from names import creditline, inputs
-    fields = [str((r.get("c") or "")) for r in ctx["index"]]
-    fields += [str((w.get("creator") or "")) for w in ctx["works"]]
-    fields += [str((r.get("author") or "")) for r in ctx["series"]]
-    fields += [str((r.get("author") or "")) for r in ctx["releases"]]
-    stated = set(creditline.roles_stated([f for f in fields if f]))
-    stated |= {r for e in ((ctx["credit_pages"] or {}).get("credits") or {}).values()
-               for w in (e.get("works") or []) for r in (w.get("roles") or [])}
-    return sorted(stated | set(inputs.ROLES) | set(inputs.BRACKET_ROLES))
 
 
-def inv_every_credit_role_has_an_english_gloss(ctx):
-    """Every job a credit can state comes out of the interface in English.
-
-    WHY THIS IS AN INVARIANT AND NOT A COUNT. A role is a closed vocabulary somebody wrote down, so
-    a role with no gloss is a missing table entry and not a name nobody has researched. That is the
-    difference between this and `renderings resting on a mechanical romanisation`, which counts
-    the names an English page spells for itself and falls only as readings are researched.
-
-    236 catalogue credit lines were in Japanese under an English heading and the largest single
-    cause was this: `ROLE_EN` in kari/app.js held six words and a second table further down the
-    same file held twenty more, so キャラクターデザイン was English on a credit page and Japanese on
-    the catalogue tab. Neither knew about 校正, 編纂, カバーイラスト or ほか著.
-
-    §14b, WHAT IT SHARES AND WHAT IT THEREFORE CANNOT SEE. The vocabulary comes from the PYTHON
-    splitter and from the corpus; the gloss comes from the JavaScript table. Nothing produces both,
-    so the two can disagree and this is where they do. What it cannot see is a role the splitter
-    fails to recognise at all, which is not a gloss problem: that role never becomes a role, and it
-    shows up as notation surviving into a rendering, which the check below is for.
-
-    §14b, AND THIS CHECK ALMOST LOST ITS SIGHT. It used to look for kana or kanji in what
-    `roleWord` returned, and `roleWord` now floors a role it cannot gloss, so a table that had lost
-    an entry came back `Cho` and this reported clean. The subject had grown a fallback the measure
-    was blind to, which is the shape §14b is about. It reads the MARK instead: the floor puts
-    `unc floor` on anything it spelled, and a role carrying that mark is a role with no gloss
-    whatever it looks like. Japanese is still a violation too, because a renderer that stopped
-    flooring should not read as a pass.
-
-    fallback: the role is spelled from the floor and marked, which is Latin and visibly a guess.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    roles = _role_vocabulary(ctx)
-    if not roles:
-        return ["no role vocabulary was collected, so nothing here was checked"]
-    try:
-        shown = _interface(ctx).values([("roleWord", r) for r in roles])
-    except interface.Unavailable as e:
-        return [f"the interface could not be run, so nothing here was checked: {e}"]
-    return [f"{r} has no English gloss in kari/app.js"
-            for r, out in zip(roles, shown)
-            if FLOOR_TOKEN in out or interface.KANA_KANJI.search(out)]
 
 
-def inv_a_byline_never_states_the_default_role(ctx):
-    """A byline names people and the jobs that distinguish them, and never the unmarked author.
-
-    THE OWNER'S RULING. `著`, `著者`, `作` and no role at all are one concept, and `[著]中村明日美子`
-    and `中村明日美子` are the same fact written two ways. A reader meeting `Nakamura Asumiko
-    (author)` on one row and `Nakamura Asumiko` on the next would be reading a distinction the
-    catalogue never made, so the word may not appear on a byline at all.
-
-    AND IT MUST STILL APPEAR ON A CREDIT PAGE, which is why this is an invariant over the OUTPUT
-    rather than an entry removed from the gloss table. That page lists a person's works with the job
-    beside each, the job is the payload, and eliding it leaves an empty cell. Surfaces of category
-    `role` are therefore not scanned; they are the page where the word belongs.
-
-    §14b, WHAT IT SHARES. The words it forbids come from asking the interface which roles elide,
-    which is `bylineRole` answering about itself, so a table that stopped eliding would also stop
-    forbidding. What it cannot share is where those words then turn up: the scan is over the
-    rendered person surfaces, and the renderer that draws them consults no list of forbidden words.
-    A role glossed on a byline through any path at all shows here.
-
-    fallback: none. A role is a closed vocabulary somebody wrote down, so this holds at zero.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    roles = _role_vocabulary(ctx)
-    if not roles:
-        return ["no role vocabulary was collected, so nothing here was checked"]
-    try:
-        iface = _interface(ctx)
-        byline = iface.labels([("bylineRole", r) for r in roles])
-        page = iface.labels([("roleWord", r) for r in roles])
-    except interface.Unavailable as e:
-        return [f"the interface could not be run, so nothing here was checked: {e}"]
-    # The English a role has on a credit page and does not have on a byline. Empty for every role
-    # that is not the default, which is what leaves this scanning for three or four words.
-    gone = sorted({p.strip() for r, b, p in zip(roles, byline, page)
-                   if p.strip() and not b.strip()}, key=len, reverse=True)
-    if not gone:
-        return []
-    calls, about = interface.calls_for(_collections(ctx))
-    if not calls:
-        return []
-    bad = []
-    for (surface, value), shown in zip(about, iface.labels(calls)):
-        if surface.category != "person":
-            continue
-        for word in gone:
-            if re.search(r"(?:^|[\s\[\](){}（）/,·、]|\b)" + re.escape(word) + r"(?:$|[\s\[\](){}（）/,·、]|\b)",
-                         shown):
-                bad.append(f"{surface.path}: {value!r} renders as {shown!r}, "
-                           f"which states the default role {word!r}")
-                break
-    return sorted(set(bad))
 
 
-def _notation_left(ctx):
-    """`[(surface, value, the notation that survived)]` over every rendering.
-
-    THE OUTPUT MEASURED AGAINST A VOCABULARY THE RENDERER NEVER CONSULTED (§14b). The roles come
-    from the Python splitter and the words below are the ones the splitter drops; kari/app.js has
-    its own table and its own division, and neither of them is asked here. A role the interface
-    glosses cannot appear in the output, so anything that does is a role the DIVISION did not find
-    or a gloss that did not reach the page, and those are exactly the two ways this class comes
-    back.
-
-    AND NOW A ROLE WITH NO GLOSS IS NOT JAPANESE ON THE PAGE, IT IS A ROMANISATION OF IT. Dropping
-    `著` from the table used to leave `[著]` standing in an English credit line, which is what this
-    scanned for. It now leaves `[Cho]`, which is the same fault wearing Latin letters, and a scan
-    for the Japanese word would report clean. So each role is put through `roleWord` first and the
-    ones the renderer FLOORED are added to the vocabulary under the spelling it gave them. The
-    vocabulary still comes from the splitter; what the interface supplies is how each word looks
-    once it has failed to be glossed.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    roles = [r for r in _role_vocabulary(ctx) if interface.KANA_KANJI.search(r)]
-    # `ほか` closes a credit that names some of its contributors; the interface says "and others".
-    # Neither is a name, and a reader in English has no way to read either as one.
-    words = set(roles) | {"ほか"}
-    if roles:
-        # `roleWord` ANSWERS WITH TEXT AND NOT WITH MARKUP, which is why the token is what is
-        # read here. The gloss goes into a credit line that is escaped and marked later, so at this
-        # point a floored role is the spelling followed by the token and nothing else.
-        for out in _interface(ctx).labels([("roleWord", r) for r in roles]):
-            if FLOOR_TOKEN in out and out.strip():
-                words.add(out.strip())
-    words = sorted(words, key=len, reverse=True)
-    calls, about = interface.calls_for(_collections(ctx))
-    if not calls:
-        return []
-    out = _interface(ctx).labels(calls)
-    bad = []
-    for (surface, value), shown in zip(about, out):
-        if surface.category not in ("person", "role"):
-            continue
-        for word in words:
-            # DELIMITED, because a role word is also an ordinary word and pen names are built out
-            # of ordinary words. 文 sits inside 文尾文 and 作 inside 佐喜ハジメ's neighbours; what
-            # makes an occurrence notation is that a bracket or a separator stands either side.
-            if re.search(r"(?:^|[\s\u3000\[\](){}（）〔〕【】/／、,，・･&＆:：])"
-                         + re.escape(word)
-                         + r"(?:$|[\s\u3000\[\](){}（）〔〕【】/／、,，・･&＆:：])", shown):
-                bad.append((surface, value, word))
-                break
-    return bad
-
-
-def inv_no_cataloguing_notation_in_an_english_rendering(ctx):
-    """A credit line in English holds names and nothing else the catalogue wrote around them.
-
-    WHAT THIS BLOCKS THAT A BUDGET TOLERATED. `renderings still Japanese in English mode` counted
-    a row as one number whatever was Japanese about it, so a role nobody glossed and a pen name
-    nobody has researched were the same event. They are not: a pen name nobody has researched now
-    gets a mechanical romanisation, which is a guess about a sound, and `[キャラクターデザイン]`,
-    `(校正)`, `ほか` and a reading printed beside the name it reads are none of them names at all.
-    Those are the catalogue's notation, they have a right answer, and once the answer exists
-    nothing should be able to lose it quietly.
-
-    So the guarantee splits. This holds at zero on the notation;
-    `renderings resting on a mechanical romanisation` counts the guesses at the names.
-
-    fallback: the notation shows as the catalogue wrote it, which is what it did before.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    try:
-        return sorted({f"{s.path}:{v[:32]} still shows {w}" for s, v, w in _notation_left(ctx)})
-    except interface.Unavailable as e:
-        return [f"the interface could not be run, so nothing here was checked: {e}"]
-
-
-def inv_no_name_is_spelled_with_question_marks(ctx):
-    """No name a reader meets in English holds a question mark the field it came from did not.
-
-    THE FAULT, WHICH REACHED A READER. `enFallback` spells a Japanese run it cannot look up one
-    character at a time, and a character nothing can read becomes `?`. The work page's byline for
-    w01700 came out `???? · Bun?Bun` where the field says 安田剛助・文尾文, two artists whose
-    readings openBD and the publisher both state. Neither name was missing from anything: the
-    corpus had settled that field as two people, the build had shipped the division and floored the
-    two of them separately, and `creditLine` threw the division away by cutting the field on the
-    slash and passing the pieces on as a field of their own.
-
-    ARITHMETIC ON THE RENDERED RESULT, per §14b. It counts question marks in the answer against
-    question marks in the question, so it consults no store, no division and nothing in
-    `enFallback`, and it fails on anything the interface is able to draw. The floor's own `[?]`,
-    which says a spelling is ours, is taken off before counting: it is a mark on a name rather than
-    a character nothing could read, and this must not read one as the other.
-
-    NAMES AND ROLES, WHICH IS WHERE A QUESTION MARK IS NEVER PUNCTUATION. A TITLE may gain one
-    honestly, because a translation is not a transliteration and 月が綺麗ですね is published as
-    `The Moon Is Beautiful, Isn't It?`; 21 titles are in that state and every one of them is a
-    translator's sentence. Nobody is called `?`, so the surfaces this walks are the ones whose
-    values are people, houses and the jobs they did.
-
-    WHY IT IS AN INVARIANT AND NOT A BUDGET. A `?` in place of a name is not a deficit that shrinks
-    as readings are sourced. It says the renderer was handed a string the build never floored,
-    which is a fault in the renderer every time.
-
-    §14b, what it cannot see: a name spelled wrongly but spellably. `Yasuda Takesuke` for
-    ヤスダ コウスケ holds no question mark, and `a person is spelled one way` is the check for that.
-
-    fallback: none in the build. `enFallback` already IS the fallback, and a violation says it ran
-    out of map rather than that a name is unresearched.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    try:
-        calls, about = interface.calls_for(_collections(ctx))
-        if not calls:
-            return []
-        out = _interface(ctx).labels(calls)
-    except interface.Unavailable as e:
-        return [f"the interface could not be run, so nothing here was checked: {e}"]
-
-    def marks(text):
-        return str(text).replace(FLOOR_TOKEN, "").count("?") + str(text).count("？")
-
-    bad = []
-    for (surface, value), shown in zip(about, out):
-        if surface.category in ("person", "publisher", "role") and marks(shown) > marks(value):
-            bad.append(f"{surface.path}:{value[:32]} renders as {shown[:48]}")
-    return sorted(set(bad))
-
-
-def inv_status_page_shows_no_japanese_of_its_own(ctx):
-    """status.html in English says nothing in Japanese except the rows it is reporting on.
-
-    THE PAGE FOR FACTS ABOUT US IS STILL A PAGE. §1 puts coverage and backlog here rather than in
-    front of a reader, and nothing had ever asked it what it renders: `app-status.js` builds every
-    sentence out of `T('日本語', 'English')` pairs, and a pair whose Japanese half contains a bare
-    ` / ` loses its own numbers, which happened once and was fixed by hand.
-
-    THE DATA IT REPORTS IS ANOTHER MATTER AND IS NOT EXCUSED, IT IS RULED. `outstanding[].rows[]`
-    is the list of works with no English name; naming them in English is the thing that queue
-    exists to do, so the Japanese in it is the subject rather than a failure to render. Those
-    values are ruled in `interface.NOT_A_NAME` and are recognised HERE by being the values
-    themselves, not by the check looking away from a region of the page.
-
-    fallback: none. This reads a file in another repository and cannot degrade a build.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    iface = _status_interface(ctx)
-    doc = ctx.get("status") or {}
-    if not iface or not doc:
-        return []
-    sections = ["lastRun", "connectors", "outstanding", "stats", "gate"]
-    try:
-        shown = iface.labels([(fn, doc) for fn in sections])
-    except interface.Unavailable as e:
-        return [f"status.html could not be run, so nothing here was checked: {e}"]
-    ruled = {str(v) for row in (doc.get("outstanding") or [])
-             for v in (row.get("rows") or []) if isinstance(v, str)}
-    ruled |= {str(b.get("means") or "") for b in ((doc.get("gate") or {}).get("budgets") or [])}
-    bad = []
-    for name, text in zip(sections, shown):
-        for run in set(re.findall(r"[\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff]+", text)):
-            if any(run in v for v in ruled):
-                continue
-            bad.append(f"status.html:{name} shows {run} in English mode")
-    return sorted(set(bad))
 
 
 def inv_no_record_comes_from_a_host_that_is_not_a_source(ctx):
@@ -2670,22 +1774,10 @@ INVARIANTS = [
     ("no ruby over bare Latin", inv_no_ruby_over_latin),
     ("readings are stored as kana", inv_readings_are_kana),
     ("a reading can show its source", inv_reading_can_show_its_source),
-    ("English mode has no Japanese", inv_english_mode_has_no_japanese),
-    ("every credit role has an English gloss", inv_every_credit_role_has_an_english_gloss),
-    ("no cataloguing notation in an English rendering",
-     inv_no_cataloguing_notation_in_an_english_rendering),
-    ("a byline never states the default role", inv_a_byline_never_states_the_default_role),
     ("a volume number is the shop's own", inv_a_volume_number_is_the_shop_s_own),
-    ("no name is spelled with question marks", inv_no_name_is_spelled_with_question_marks),
-    ("status.html shows no Japanese of its own",
-     inv_status_page_shows_no_japanese_of_its_own),
     ("no build-machine paths in published files", inv_no_absolute_paths_in_published_files),
-    ("no stock phrasing in public text", inv_no_stock_phrasing_in_public_text),
     ("content flags are accounted for", inv_content_flags_are_accounted_for),
     ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for),
-    ("a release id names one release", inv_a_release_id_names_one_release),
-    ("no published update leaves its month", inv_no_published_update_leaves_its_month),
-    ("deployed data matches built", inv_deployed_matches_built),
     ("state agrees with its own date", inv_state_agrees_with_its_own_date),
     ("undated works say where and why", inv_undated_works_say_where_and_why),
     ("a delivery date never stands beside a printing",
@@ -2698,21 +1790,13 @@ INVARIANTS = [
     ("a person is spelled one way", inv_a_person_is_spelled_one_way),
     ("nicovideo channels agree with our own records", inv_nicovideo_channel_agrees),
     ("a fixture states where it came from", inv_fixture_states_where_it_came_from),
-    ("the interface folds a name key as the build does",
-     inv_interface_folds_a_name_key_as_the_build_does),
-    ("names reach a page only through their renderer",
-     inv_names_reach_a_page_only_through_their_renderer),
-    ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both),
     ("a fact is reached through its entry point", inv_a_fact_is_reached_through_its_entry_point),
     ("a name is answered by one module", inv_a_name_is_answered_by_one_module),
     ("a work shows the English its record holds",
      inv_a_work_shows_the_english_its_record_holds),
     ("the store has one writer", inv_the_store_has_one_writer),
     ("every name is defined where it is used", inv_every_name_is_defined_where_it_is_used),
-    ("every renderer is ruled", inv_every_renderer_is_ruled),
     ("the tracker states what it claims", inv_the_tracker_states_what_it_claims),
-    ("the interface is the derivation of its source",
-     inv_the_interface_is_the_derivation_of_its_source),
     ("a stated reading names where it came from",
      inv_a_stated_reading_names_where_it_came_from),
     ("every Japanese field the data carries has a ruling",
@@ -3893,7 +2977,10 @@ def budget_titles_with_no_translation_of_our_own(ctx):
 #: the push is a gate reporting on something else.
 #:
 #: `deploy.sh` still answers it after copying, which is the moment the claim is about.
-NOT_ASSERTED_BEFORE_A_DEPLOY = {"deployed data matches built"}
+# NOTHING IS DEFERRED TO A DEPLOY ANY MORE, §11. `deployed data matches built` compared this
+# repository's output against a copy of it in another one, and there is no copy step left: the site
+# builds its own data from the store, so the question it asked cannot be posed here.
+NOT_ASSERTED_BEFORE_A_DEPLOY = set()
 
 
 SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
@@ -4321,60 +3408,6 @@ def budget_publishers_with_no_english(ctx):
     return len(_pub.unnamed(shipped, _pub.corpus_names_from_rows(ctx["series"])))
 
 
-def budget_publisher_keys_the_interface_misses(ctx):
-    """Publisher, distributor and imprint names the browser still shows in Japanese.
-
-    THE FAULT THIS FOUND, and it had been invisible to every measure in the file.
-    `GP-KIDS/高菜しんの` is catalogued in the publisher field AND the imprint field, and the two
-    normalise differently, so whichever field was read first decided what the shown name was, the
-    other field's name never entered the map, and the interface asked for a key nothing held.
-
-    HOW IT USED TO ASK, AND WHY THAT WENT. It held `_app_publisher_of` and `_app_imprint_of`, this
-    file's transcriptions of the browser's normalisers, kept deliberately as a third copy so a
-    drift between the interface and the pipeline would show up as a disagreement. The copy went
-    stale the way §3 says a copy does: `publisherOf` no longer exists in `kari/app.js` at all, the
-    cataloguing having moved upstream into `adapters/madb/extract.py`, and this file was still
-    stripping brackets on the browser's behalf.
-
-    So it asks the browser. `pubBoth` and `imprintOf` are called through
-    `adapters/interface.py`, on the strings the corpus holds, and what comes back Japanese is what
-    a reader sees in Japanese. There is nothing left here to drift.
-
-    Japanese only. A name already in Latin passes through the interface untouched and needs no
-    entry, which is the same rule `platName` follows.
-
-    THE IMPRINT MAP IS PASSED IN, and for one round it was not. `imprintOf` stopped segmenting and
-    started returning the registry's canonical name for the line, this copy followed it, and the
-    caller went on invoking it with no map. So the copy of the consumer resolved every imprint
-    string to itself, which is what the OLD interface did, and the measure quietly went on
-    answering the previous question: it read 5 while 11 canonical line names reached a reader in
-    Japanese and 4 catalogued strings it was counting had stopped being shown at all. A copy of the
-    consumer has to be called the way the consumer is called (STANDING-INSTRUCTIONS §14b).
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    if (ctx["names_shipped"] or {}).get("publishers") is None:
-        return 0
-    raw = {}
-    for r in ctx["series"]:
-        for pr in (r.get("print") or []):
-            for field, fn in (("publisher", "pubBoth"), ("distributor", "pubBoth"),
-                              ("imprint", "imprintOf")):
-                s = str(pr.get(field) or "").strip()
-                if s and interface.KANA_KANJI.search(s):
-                    raw[(fn, s)] = True
-    if not raw:
-        return 0
-    keys = sorted(raw)
-    try:
-        # `imprintOf` answers with the LINE, which is then shown like any other publisher name, so
-        # the two-step is what a reader meets and asking only the first step would count a line
-        # resolved as a line rendered.
-        shown = _interface(ctx).labels([(fn, s) for fn, s in keys])
-        second = _interface(ctx).labels([("pubBoth", v) for v in shown])
-    except interface.Unavailable:
-        return UNMEASURED    # this could not be measured; see UNMEASURED
-    return len({v for v in second if interface.KANA_KANJI.search(v)})
 
 
 def budget_credit_phrases_spelling_a_person_otherwise(ctx):
@@ -4443,53 +3476,6 @@ def budget_credit_phrases_spelling_a_person_otherwise(ctx):
     return len(bad)
 
 
-def budget_bylines_drawn_in_a_spelling_the_field_does_not_write(ctx):
-    """Work rows whose byline reaches a reader spelt differently from the credit field itself.
-
-    THE FAULT, AND IT HAS BEEN SHIPPED TWICE. `credit_parts` spells each person the way the name
-    store is keyed on them and a credit field spells them the way its cataloguer typed them, so
-    `山本 和音` is 山本和音 in the division and `sono.N` is ｓｏｎｏ．Ｎ. `linkedCredits` located
-    names with `indexOf` on the field, missed all 38 of those, and drew their work pages with no
-    address on any name. The patch that fixed the address by searching the FOLD then handed the
-    division's spelling to `creditChip`, so 35 Japanese bylines came back with the artist's name
-    rewritten underneath their work. Both are one fault: the string that addresses a record and the
-    string a reader sees are not the same string.
-
-    MEASURED WITH FURIGANA ON, because that is where the last of them live. `ruby` draws the spans
-    a record carries, and a record carries the store's spelling of the name, so the space in
-    永田　さんずい reached a field that says 永田さんずい. A chip covering the whole field takes the
-    row's own `author_en`, whose spans are aligned to what that row writes, which is what carried
-    this from 70 to 23.
-
-    §14b, WHAT IT SHARES WITH ITS SUBJECT: the shape of a ruby element, because the reading has to
-    come off before the surface can be compared. Nothing else. The comparison is against
-    `series[].author` as the data holds it, which no part of the renderer consults, so a walk that
-    starts rewriting names shows up here as a rise rather than as agreement. Run against the patch
-    that was reverted it reads 92.
-
-    A budget. The residue is the parts of a MULTI-person field, which have no `author_en` of their
-    own and take the store's record, spelling and all. It reaches zero when a part carries the
-    alignment the whole field already has.
-    """
-    sys.path.insert(0, str(ROOT / "adapters"))
-    import interface
-    rows = [r for r in ctx["series"] if str(r.get("author") or "").strip()]
-    if not rows:
-        return 0
-    try:
-        drawn = _interface(ctx).with_prefs(LANG="ja", FURIGANA=True).values(
-            [("linkedCredits", r) for r in rows])
-    except interface.Unavailable:
-        return UNMEASURED    # this could not be measured; see UNMEASURED
-    bad = 0
-    for row, markup in zip(rows, drawn):
-        # The reading comes off and the surface stays: `<ruby>永田<rt>ながた</rt></ruby>` is the
-        # name 永田 annotated, and the annotation is not part of the spelling.
-        surface = re.sub(r"<rt[^>]*>.*?</rt>", "", markup)
-        surface = html_module.unescape(re.sub(r"<[^>]*>", "", surface))
-        if surface != str(row.get("author") or "").strip():
-            bad += 1
-    return bad
 
 
 def budget_names_rendered_two_ways(ctx):
@@ -5018,10 +4004,6 @@ BUDGETS_DEF = [
     ("publishers with no English", budget_publishers_with_no_english,
      "distinct publisher and imprint names that render as Japanese in English-only mode. A rise "
      "means new publishers entered the corpus faster than their names were rendered."),
-    ("publisher keys the interface misses", budget_publisher_keys_the_interface_misses,
-     "publisher names app.js asks the shipped map for and does not get, normalised the way the "
-     "browser normalises. A rise means the two implementations of the cataloguing rule have "
-     "drifted, which is the one failure the budget above cannot see."),
     ("an imprint field repeating its publisher", budget_an_imprint_field_repeating_its_publisher,
      "print rows whose imprint field holds the same name as their publisher field, which a shop's "
      "individual-publishing service writes when an artist publishes their own book. There is no "
@@ -5031,46 +4013,16 @@ BUDGETS_DEF = [
      "the string stands as its own object. A coverage deficit: it falls as houses are curated and "
      "it will not reach zero, because some of these are a company name or a magazine sitting in the "
      "imprint field. A rise means new imprint spellings entered faster than they were placed."),
-    ("renderings resting on a mechanical romanisation",
-     budget_renderings_resting_on_a_mechanical_romanisation,
-     "names an English page spells itself, because no source states how they are read. That covers "
-     "a name the store holds nothing for and a name read off a community-edited database, which "
-     "improves the spelling without settling the pronunciation. Each carries a mark and a tooltip "
-     "saying so. It falls as readings are researched and nothing about the renderer can move it, "
-     "which makes it the data gap written as a number."),
     ("credit fields the division does not account for",
      budget_credit_fields_the_division_does_not_account_for,
      "credit fields whose shipped division leaves part of the field unexplained, so the interface "
      "renders the string as the catalogue wrote it instead of rebuilding a byline that would have "
      "lost something. A rise means the splitter met a shape it cannot divide."),
-    ("full-width forms in English renderings",
-     budget_full_width_forms_in_english_renderings,
-     "English renderings holding a full-width character and no kana or kanji, which is what "
-     "narrowing the invariant to a script let past. Mostly a Latin pen name catalogued in full "
-     "width; some are official titles and are correct, so this will not reach zero."),
     ("works shaped like prose", budget_works_shaped_like_prose,
      "works credited to an author beside an illustrator whose only source is a retailer's shelf, "
      "which is how an illustrated novel is billed and how a work nothing catalogues is admitted. "
      "DEFINITIONS §6 refuses prose and had no test. A rise is a work somebody should look at "
      "before it reaches readers with a work record."),
-    ("interface tooltips a reader of Japanese cannot read",
-     budget_interface_tooltips_a_reader_of_japanese_cannot_read,
-     "title attributes in kari/app.js whose text is an English literal rather than a string built "
-     "by T() or L(), so they stay English when a reader selects 日本語. The tooltips are where the "
-     "interface explains itself, which is the worst place to be monolingual. Falls as each is "
-     "written in both; a rise means a new one was added in one language."),
-    ("interface reads outside an entry point",
-     budget_interface_reads_outside_an_entry_point,
-     "reads of a name-carrying field in kari/app.js that are excepted in entrypoints.SAFE rather "
-     "than going through the function that renders that kind of name. Each names its function, "
-     "its field, what is done with the value and how many there are. A rise means a new call site "
-     "was argued for instead of using the renderer."),
-    ("imprint names the interface disagrees with",
-     budget_imprint_names_the_interface_disagrees_with,
-     "imprint strings app.js renders as one name and the shipped map calls another, counted as "
-     "distinct pairs. It is the second producer of one fact, live and visible to a reader: 一迅社's "
-     "yuri line shows as its magazine's name on 346 rows. It goes to zero when the interface reads "
-     "feed/names.json's imprints map, and nothing else can move it down."),
     ("credit phrases spelling a person otherwise",
      budget_credit_phrases_spelling_a_person_otherwise,
      "credit fields whose composed phrase spells one of the people in it differently from the name "
@@ -5081,14 +4033,6 @@ BUDGETS_DEF = [
      "of a name already in Latin that no store will ever hold. The residue is a field naming one "
      "person inside notation that states no job, which is the one shape the recomposition still "
      "refuses to touch."),
-    ("bylines drawn in a spelling the field does not write",
-     budget_bylines_drawn_in_a_spelling_the_field_does_not_write,
-     "work rows whose byline reaches a reader spelt differently from the credit field the row "
-     "holds, measured with furigana on. The division spells a name the way the store is keyed on "
-     "it and a field spells it the way a cataloguer typed it, and a walk that confuses the two "
-     "either loses the address on 38 pages or rewrites a name under its own artist. The residue "
-     "is the parts of a field naming several people, which have no rendering of their own to take "
-     "the alignment from. A rise means a name is being respelt."),
     ("names rendered two ways", budget_names_rendered_two_ways,
      "strings the shipped maps spell one way as a publisher and another way as a person, which "
      "happens because a self-published work names its own author as its publisher. A rise means a "
@@ -5223,9 +4167,6 @@ BUDGETS_DEF = [
      "twice or three times in index.json, which emitted one row per source record and asked "
      "identity nothing. A rise means a collapse stopped running, or a new list shipped without "
      "asking which work a record belongs to."),
-    ("published dates that moved in an archive", budget_published_dates_that_moved_in_an_archive,
-     "a rebuild rewrote the publication date of a row a published month already carried; a name "
-     "improving is the system working and a date changing is not, so each wants a reason"),
     ("one work under two names in a list", budget_one_work_under_two_names,
      "pairs of rows in one list whose titles fold equal and whose credits share a person, which is "
      "one work offered twice under two names. Measured on the shipped rows and never on the "
@@ -5500,12 +4441,10 @@ def context():
         # THE INTERFACE'S OWN SOURCE. Read here for the same reason as everything else: a check that
         # opens its own file cannot be shown a canary, and this one is holding a copy of a Python
         # function to its original.
-        "interface_js": ((SITE_ROOT / "kari" / "app.js").read_text()
-                         if (SITE_ROOT / "kari" / "app.js").exists() else ""),
+
         # status.html's script, read here for the same reason app.js is. It is a published page
         # and nothing had ever asked it what it shows.
-        "status_js": ((SITE_ROOT / "kari" / "app-status.js").read_text()
-                      if (SITE_ROOT / "kari" / "app-status.js").exists() else ""),
+
         "status": _load(BUILD / "status.json", {}) or {},
         # THE §6 SCOPE RULINGS AND WHAT THE RUN REPORTED OF THEM, both on the context so a canary
         # can be planted between them. An invariant that opened data/scope.yaml itself could be
@@ -5860,73 +4799,6 @@ def self_test():
              "reading_source": "sudachi", "reading_at": "2026-08-06",
              "reading_url": "https://www.mangaupdates.com/author/0fnry5y/hoshino-katsura",
              "reading_refuted": "the reading of a different person's name"}})),
-        # THE CANARY IS THE FALLBACK REMOVED, planted in the SOURCE the context holds. A row of
-        # Japanese data no longer proves anything: the renderer floors whatever it is handed, so a
-        # planted row comes back romanised and the check correctly reports nothing. What this now
-        # asserts is a property of the RENDERER, so the canary has to break the renderer, and
-        # taking `enFallback` back to a pass-through is exactly the state the 77 were in.
-        ("English mode has no Japanese", inv_english_mode_has_no_japanese,
-         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
-             "  if (!s || !JA_ANY.test(s)) return s;\n  const whole = floorText(s);",
-             "  if (s) return s;\n  const whole = floorText(s);")})),
-        # THE CANARY IS THE FAULT THAT SHIPPED (§14b). The catalogue tab really did print
-        # index.json's title with `esc` instead of asking workLabel for it, and 2,430 rows stayed
-        # Japanese in English mode. Planted in the SOURCE the context holds, so the probe reaches
-        # the same string the check reads.
-        ("names reach a page only through their renderer",
-         inv_names_reach_a_page_only_through_their_renderer,
-         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
-             "${workLabel({ work: w.t })}", "${esc(w.t)}")})),
-        # THE CANARY IS THE FAULT A READER FOUND. The work page heading asked `workLabel` once,
-        # and 併記 renders each row by asking twice, so the heading answered in Japanese and the
-        # English title never appeared. Every other language setting was right, which is what made
-        # it survive.
-        ("a name reaches both lines of a bilingual row", inv_a_name_in_both_mode_is_rendered_in_both,
-         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
-             "${bilingual(() => workLabel(r))}", "${workLabel(r)}")})),
-        # THE CANARY IS THE TABLE LOSING AN ENTRY, planted in the SOURCE the context holds so it
-        # reaches the file the check evaluates. 著 is the commonest role in the corpus by a long
-        # way, 766 credits state it, and it was in the six-word table this replaced, so a round
-        # that rewrites `ROLE_EN` and drops it is not a hypothetical.
-        ("every credit role has an English gloss", inv_every_credit_role_has_an_english_gloss,
-         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
-             "'著': 'author', '著者': 'author',", "'著者': 'author',")})),
-        # AND THE SAME LOSS SEEN FROM THE OTHER END. The line still renders and the name is still
-        # replaced; what is left is `[著]` standing in the middle of an English credit, which is
-        # what a reader would meet. One fault, two checks, and they fail for different reasons:
-        # the first reads the table, the second reads the page.
-        ("no cataloguing notation in an English rendering",
-         inv_no_cataloguing_notation_in_an_english_rendering,
-         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
-             "'著': 'author', '著者': 'author',", "'著者': 'author',")})),
-        # THE ELISION DROPPED FOR ONE SPELLING, which is what a table edited in a hurry looks like.
-        # 著 stops eliding and 578 catalogue bylines state a job the catalogue never distinguished,
-        # while 著者 and 作 go on eliding, so the word this scans for is still derived and the
-        # canary is a real disagreement rather than an empty vocabulary.
-        ("a byline never states the default role", inv_a_byline_never_states_the_default_role,
-         lambda c: c.update({"interface_js": (c.get("interface_js") or "").replace(
-             "const ROLE_ELIDED = { '著': '',", "const ROLE_ELIDED = {")})),
-        # THE CANARY IS THE LINE THAT SHIPPED (§14b), planted in the SOURCE the context holds.
-        # `creditLine` shortened a long byline by cutting the field on the slash and calling
-        # `linkedCredits` with the pieces joined back up, which is a field the build never divided,
-        # so the division went missing and the line dropped to the floor. That is how
-        # `安田剛助・文尾文` reached a reader as `???? · Bun?Bun`. Nothing invented: this is the two
-        # statements the file held, restored.
-        ("no name is spelled with question marks", inv_no_name_is_spelled_with_question_marks,
-         lambda c: c.update({"interface_js": (c.get("interface_js") or "")
-                             .replace("const people = creditPeople(raw) || (raw ? [raw] : []);",
-                                      "const people = raw.split(/\\s*\\/\\s*/).filter(Boolean);")
-                             .replace("const head = linkedCredits(r, CREDITS_SHOWN);",
-                                      "const head = linkedCredits({ ...r, author: "
-                                      "people.slice(0, CREDITS_SHOWN).join(' / ') });")})),
-        # THE STATUS PAGE WRITING A SENTENCE OF ITS OWN IN JAPANESE. Planted in the SOURCE the
-        # context holds, the same way the entry-point probe is, so it reaches the file the check
-        # evaluates. `T('統計', 'Statistics')` is a pair; dropping the English half is what a
-        # section added in a hurry looks like.
-        ("status.html shows no Japanese of its own",
-         inv_status_page_shows_no_japanese_of_its_own,
-         lambda c: c.update({"status_js": (c.get("status_js") or "").replace(
-             "T('統計', 'Statistics')", "T('統計', '統計')")})),
         # A field carrying Japanese that nothing has ruled on, which is what every pass adding a
         # field looks like from here.
         ("every Japanese field the data carries has a ruling", inv_every_japanese_field_has_a_ruling,
@@ -6076,13 +4948,6 @@ def self_test():
         # decides nothing and looks decided.
         ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for,
          _plant_a_ruling_on_an_unknown_term),
-        # TWO RELEASES UNDER ONE IDENTIFIER, which is the state `pixivcomic:第3話` was in: three
-        # works' third chapters answering to one string, and every measure keyed on the pair
-        # reading them as one row.
-        ("a release id names one release", inv_a_release_id_names_one_release,
-         lambda c: c["releases"].extend([
-             {"plat": "canary", "id": "canary:第3話", "work": "カナリア", "ep": "第3話"},
-             {"plat": "canary", "id": "canary:第3話", "work": "カナリアふたたび", "ep": "第3話"}])),
         # THE TWO PASSES THAT DECIDE THIS, COMING APART. The page pass reads the episode tiles and
         # the build reads the episodes it stored, and a route only one of them recognises is the
         # shape the fault took: the header said `アプリで読める` and the stored chapters were still
@@ -6181,20 +5046,6 @@ def self_test():
               "its canary")
         ok = False
 
-    # A BYLINE RESPELT UNDER ITS OWN ARTIST, and the canary is a state this repository was in
-    # yesterday rather than a shape invented for the probe. 永田さんずい is the field w00094
-    # carries; the store's record of the same person spells it 永田　さんずい and its ruby spans
-    # carry that space, so a row reaching the walk without a rendering of its own is drawn with a
-    # space the catalogue never wrote. That row is what this appends. A count that reads 23 and a
-    # count that cannot rise look the same from outside (§14b).
-    c = _Scratch(ctx)
-    was = budget_bylines_drawn_in_a_spelling_the_field_does_not_write(c)
-    c["series"] = list(c["series"]) + [{"id": "wCANARY", "author": "永田さんずい"}]
-    if budget_bylines_drawn_in_a_spelling_the_field_does_not_write(c) != was + 1:
-        print("  self-test FAILED — 'bylines drawn in a spelling the field does not write' did "
-              "not count its canary")
-        ok = False
-
     # AN ADMISSION WITH NOWHERE TO FOLLOW IT TO, and both directions are probed because a count
     # that reads 5 and a count that cannot rise above 5 look identical from outside (§14b). The
     # first canary is the shape 230 shipped rows really had: コミックシーモア named as the
@@ -6217,18 +5068,6 @@ def self_test():
     if budget_shelf_admissions_a_reader_cannot_follow(c) != was:
         print("  self-test FAILED — 'shelf admissions a reader cannot follow' counted a row whose "
               "shop page is on it")
-        ok = False
-
-    # THE INTERFACE'S OWN COPY OF THE FOLD, changed to what it looked like before the two were held
-    # together: NFKC and no space stripping, which is `curate._fold` and is what made "the same key"
-    # mean two things. The canary is a real state of this repository and not an invented one.
-    c = _Scratch(ctx)
-    c["interface_js"] = (c.get("interface_js") or "").replace(
-        "return (t || '').normalize('NFKC').replace(/ /g, '');",
-        "return (t || '').normalize('NFKC');")
-    if not inv_interface_folds_a_name_key_as_the_build_does(c):
-        print("  self-test FAILED — 'the interface folds a name key as the build does' did not "
-              "catch a fold that stops stripping spaces")
         ok = False
 
     # THE CANARY IS THE STATE THE BUILD WAS IN THIS MORNING (§14b), not a shape invented for the
@@ -6516,13 +5355,13 @@ def _input_keys():
         (data if f.startswith("data/") else code).append(at)
     build = [x for x in (BUILD.rglob("*") if BUILD.is_dir() else [])
              if x.is_file() and x.name not in (".green-tree.json", "checks.json")]
-    site = []
-    kari = ROOT.parent / "yurarium.github.io" / "kari"
-    if kari.is_dir():
-        site = [x for x in kari.rglob("*") if x.is_file() and "node_modules" not in x.parts]
+    # NO `site` KEY ANY MORE, §11. It hashed the other repository so a check reading the deployed
+    # tree would be re-run when that tree moved, and no check reads it: what a reader is shown is
+    # checked where it is rendered. An empty digest is kept rather than the key removed, because
+    # `_verify_key` mixes it and a remembered pass from before this change must not read as current.
     return {"code": filecache.digest(code),
             "data": filecache.digest(data + build),
-            "site": filecache.digest(site)}
+            "site": filecache.digest([])}
 
 
 def _verify_key(name, keys, sensitive):
@@ -6533,68 +5372,7 @@ def _verify_key(name, keys, sensitive):
     return hashlib.sha256("|".join([name, *parts]).encode()).hexdigest()
 
 
-def deploy_sensitive():
-    """The invariants whose answer the copy changes, derived and not listed.
 
-    WHY DERIVED. `deploy.sh` re-ran every check after copying so the published `checks.json` would
-    not claim violations the copy had already fixed. That is 37 seconds of a 39-second deploy, and
-    the fourth run of the checks in one cycle. Only the invariants that READ the deployed tree can
-    change across a copy, so only those need re-running.
-
-    Its comment said two. There are four. A hand-kept list of what reads the site is the same fault
-    as a hand-kept list of what to check, so this reads the source and asks which functions name
-    `SITE`.
-
-    Section 14b, WHAT IT MISSES: an invariant reaching the deployed tree through a helper that names
-    `SITE` for it. None does today; if one appears, its answer in `checks.json` will be the
-    pre-copy one, which is the behaviour every invariant had before this existed.
-    """
-    import inspect
-    got = []
-    for name, f in INVARIANTS:
-        try:
-            if "SITE" in inspect.getsource(f):
-                got.append(name)
-        except (OSError, TypeError):                                    # noqa: PERF203
-            got.append(name)
-    return got
-
-
-def deploy_window():
-    """Re-answer only the invariants a copy can change, and patch `checks.json` in place.
-
-    THE PUBLISHED REPORT STAYS TRUE and the deploy stops paying for a whole run of the checks. The
-    entries this does not touch keep the answers the build gave them, which is what they had before
-    and is correct: nothing but the copy has happened since.
-    """
-    out = BUILD / "checks.json"
-    if not out.exists():
-        print("  deploy-window: no checks.json to patch; run the build first")
-        return 0
-    doc = json.loads(out.read_text(encoding="utf-8"))
-    ctx = context()
-    # A REPORT FROM AN OLDER BUILD IS WORSE THAN A MISSING ONE. build.py no longer runs the checks
-    # by default, so checks.json is written by the gate; a deploy that never saw one would patch
-    # three entries of a stale report and publish it looking current.
-    if (doc.get("generated") or "") != (ctx.get("generated") or ""):
-        print(f"  deploy-window: checks.json is from {doc.get('generated')!r} and the build is "
-              f"{ctx.get('generated')!r}; run ./check.py --gate")
-        return 1
-    want = set(deploy_sensitive())
-    by_name = {n: f for n, f in INVARIANTS}
-    patched = 0
-    for row in doc.get("invariants", []):
-        if row.get("name") not in want:
-            continue
-        bad = by_name[row["name"]](ctx)
-        row["violations"] = len(bad)
-        row["examples"] = [str(e).replace(str(ROOT.parent) + "/", "") for e in bad[:5]]
-        patched += 1
-    out.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    still = sum(1 for r in doc.get("invariants", [])
-                if r.get("name") in want and r.get("violations"))
-    print(f"  deploy-window: {patched} invariant(s) re-answered after the copy, {still} violated")
-    return 0
 
 
 def main():
@@ -6638,8 +5416,6 @@ def main():
     if a.self_test:
         return 0 if self_test() else 1
 
-    if a.deploy_window:
-        return deploy_window()
 
     _phase = {}
     # HOISTED ABOVE THE PROOF, because the proof is now one of the things remembered. `_input_keys`
@@ -6648,7 +5424,7 @@ def main():
     if a.incremental:
         _t0 = time.perf_counter()
         keys = _input_keys()
-        sensitive = set(deploy_sensitive())
+        sensitive = set()
         if VERIFIED.exists():
             try:
                 verified = json.loads(VERIFIED.read_text(encoding="utf-8"))

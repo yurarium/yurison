@@ -63,7 +63,7 @@ below moves one domain to the other side of that line.
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
 | §10 | An invariant is a query on the store | §6 |
-| §11 | The store is the artefact; the site builds from it | §10; both repositories public |
+| §11 | The store is the artefact; the site builds from it | done 2026-08-14 |
 | §12 | A test the length of what it tests | nothing, and it never finishes |
 
 **WHERE §5a TO §5e CAME FROM.** An agent with no part in writing any of this reviewed
@@ -1653,6 +1653,36 @@ the thing to repeat rather than trust once.
 adopted, and those 26 include the ones that caught `????·Bun?Bun` and Japanese leaking into English
 mode, which are the most reader-visible failures this project has had. They move as a unit with
 their canaries, and the site's CI gates on them BEFORE this repository stops running them.
+
+**DONE 2026-08-14.** `corpus.sqlite` is what crosses, stamped with the digest of `schema.sql` and
+the date the run compiled it. `--publish` vacuums and copies it; `update.yml` attaches it to a
+release, which needs no cross-repository credential because it is a release on this repository, and
+30 MB of binary per run never enters anyone's git history. The site pulls the latest release on its
+own schedule.
+
+**THE STAMP EARNED ITSELF WITHIN THE HOUR.** Adding `run_report` moved the schema digest, and the
+site's build refused the store rather than reading it: `is stamped 'd07040c9…' and this build knows
+('fe21da7d…',)`. That is the whole of what no-guarantee-of-format buys, working the first time it
+could.
+
+**WHAT MOVED, AND THE PROOF IT WAS THE SAME THING.** `build/from_store.py` writes the ten files, the
+entry pages and the cache-busting version; `build/reader_checks.py` holds sixteen checks about what
+a reader is shown, each at the number this repository recorded, each with its canary. Before
+anything was deleted, the site's build was set beside this one's output and all ten files were
+BYTE-IDENTICAL. `deploy.sh`, `stubs.py`, `pages.py`, `test_display.py` and `lint/entrypoints.py` are
+gone from here, and so is every path naming the other repository: `SITE_ROOT`, the site clone in two
+workflows, and the `site` digest the incremental gate hashed.
+
+**THE EMITTERS ARE IMPORTED RATHER THAN FORKED, and that is the line the split actually draws.** How
+a name folds, where a personal name parts and what a citation may show a reader are facts about the
+CORPUS, with one home here. What the site decides is which files it wants and what a reader needs
+beside them. Its build puts this repository's `adapters/` on the path, cloned at the commit that
+made the store; the dependency runs one way and needs no credential because both are public.
+
+**AND TWO QUESTIONS STOPPED EXISTING RATHER THAN MOVING.** `deployed data matches built` compared
+this repository's output against a copy of it in another, and there is no copy step left. `the
+archive does not lose a published row` was that same comparison at one remove, and it is a GUARD in
+the site's build now: the build that would drop the row is the build that stops.
 
 ## 12. A test the length of what it tests
 

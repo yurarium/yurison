@@ -35,7 +35,9 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CACHE_ROOT = pathlib.Path(os.environ.get("YURI_CACHE") or ROOT.parent)
-SITE_ROOT = pathlib.Path(os.environ.get("YURARIUM_SITE") or ROOT.parent / "yurarium.github.io")
+# THE SITE IS SOMEWHERE ELSE AND THIS REPOSITORY DOES NOT KNOW WHERE, §11. Set `YURARIUM_SITE` to
+# run the interface suites against a real checkout; nothing here assumes one is beside it.
+SITE_ROOT = pathlib.Path(os.environ.get("YURARIUM_SITE") or ROOT.parent / "no-site-configured")
 
 
 def cache(name):

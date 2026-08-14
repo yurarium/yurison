@@ -24,14 +24,12 @@ import sys
 import time
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-SITE = ROOT.parent / "yurarium.github.io" / "kari"
 TOKEN = ROOT / "data" / "build" / ".green-tree.json"
 
 #: What a token covers, named so the file can say so. Over-approximate on purpose.
 COVERS = (
     "every tracked file in the repository",
     "everything under data/build",
-    "the deployed data and interface under ../yurarium.github.io/kari",
 )
 
 
@@ -40,10 +38,6 @@ def _files():
                          capture_output=True, text=True, timeout=120).stdout.split("\0")
     got = [ROOT / f for f in out if f]
     got += list((ROOT / "data" / "build").rglob("*"))
-    if SITE.is_dir():
-        got += list((SITE / "data").rglob("*"))
-        got.append(SITE / "app.js")
-        got += list((SITE / "src").rglob("*.js"))
     # THE TOKEN IS NOT PART OF THE TREE IT VOUCHES FOR. It lives under data/build, which this
     # hashes, so including it meant writing the token invalidated the token.
     #

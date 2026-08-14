@@ -633,20 +633,10 @@ def retired(entries):
             if e.get("merged_into") and e.get("id")}
 
 
-def forwarders(entries, root=ROOT):
-    """{path: html} for every retired credit id, through `stubs` rather than a second renderer.
-
-    A RETIRED CREDIT ID SERVES WHAT A RETIRED WORK ID SERVES, and 49 work ids serve it today:
-    `rel=canonical` at the survivor, `noindex,nofollow`, a meta refresh for a reader with no
-    JavaScript, a `location.replace` for everyone else so the dead address does not sit in the
-    history behind them, and a sentence naming the successor. Copied by calling the same function
-    rather than by writing it again, so a fix to either reaches both.
-    """
-    import stubs
-
-    live = {str(e["id"]) for e in entries or () if e.get("id") and not e.get("merged_into")}
-    return stubs.forwarders(root, live, retired(entries))
-
+# `forwarders` MOVED WITH THE RENDERING IT DID, §11. It returned HTML for every retired credit id,
+# which is a page rather than a fact about identity, and the repository that renders pages is the
+# one that should decide what a forwarder says. `retired` above is what it needed from here and is
+# what stayed: which identifier became which is this repository's answer.
 
 def rows_from(build):
     """(works rows, release rows). Both carry a credit field and only the first mints one."""

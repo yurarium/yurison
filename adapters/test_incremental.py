@@ -45,8 +45,10 @@ def main(s):
          chk._verify_key("a check", moved, {"a check"}),
          "and it does re-run one that does")
 
-    # THE DERIVATION IS REAL, not an empty set that would make the line above vacuous.
-    s.check(chk.deploy_sensitive(), "some invariants are derived as reading the deployed tree")
+    # THE DEPLOYED TREE IS NOT THIS REPOSITORY'S ANY MORE, §11. `deploy_sensitive` derived which
+    # invariants read it, and none does: what a reader is SHOWN is checked where it is rendered, so
+    # the `site` key below is what a check would have to name and nothing names it. The two
+    # assertions above still hold, and the third has nothing left to be true about.
 
     # ── THE PROOF IS REMEMBERED ON THE SAME TERMS AS A CHECK ──────────────────────────────────
     #

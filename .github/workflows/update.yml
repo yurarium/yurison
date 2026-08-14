@@ -4,7 +4,7 @@ name: update
 #
 # DELIBERATELY MANUAL-ONLY FOR NOW. The schedule is commented out, because merging this with it
 # live would start the job hitting external sites on a timer before anyone had watched it run once.
-# Uncomment when you have the SITE_DEPLOY_KEY secret set, one green workflow_dispatch, and a look
+# Uncomment when you have one green workflow_dispatch and a look
 # at the diff it produced.
 on:
   workflow_dispatch:
@@ -62,12 +62,8 @@ jobs:
       # in `--self-test` went uncaught and entrypoints raised FileNotFoundError, so the two steps
       # that run them blocked the job. Cloned over HTTPS because the repository is public and this
       # needs no key; the deploy step still clones its own writable copy with the SSH key.
-      - name: The site repository, which several checks read
-        run: |
-          git clone --depth 1 https://github.com/yurarium/yurarium.github.io.git \
-            "$(dirname "$GITHUB_WORKSPACE")/yurarium.github.io"
-          ls "$(dirname "$GITHUB_WORKSPACE")/yurarium.github.io/kari/app.js"
-
+      # THE SITE IS NOT CLONED ANY MORE, §11. The suites that read it moved to the repository
+      # that renders it, and nothing here names it.
       - name: Confirm a browser is present
         id: browser
         run: |
@@ -255,7 +251,7 @@ jobs:
       - name: Invariants and budgets (runtime — reports, does not block)
         run: python3 check.py --runtime
 
-      # THE LEDGER AND THE STATUS FILE, which deploy.sh also runs and which the checks need before
+      # THE LEDGER AND THE STATUS FILE, which the checks need before
       # it gets the chance. `inv_status_page_shows_no_japanese_of_its_own` reads
       # `data/build/status.json`: with it absent the check returns no violations, so `--self-test`
       # planted its canary and caught nothing, and the step below blocked the job.
@@ -393,40 +389,26 @@ jobs:
           path: .cache
           key: fetch-${{ github.run_id }}
 
-      - name: Publish artefacts to the site repo
-        env:
-          DEPLOY_KEY: ${{ secrets.SITE_DEPLOY_KEY }}
-        run: |
-          if [ -z "$DEPLOY_KEY" ]; then
-            echo "::warning::SITE_DEPLOY_KEY unset — built but did not publish"; exit 0
-          fi
-          mkdir -p ~/.ssh && printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
-          git clone --depth 1 git@github.com:yurarium/yurarium.github.io.git /tmp/site
-          ./deploy.sh /tmp/site
-          cd /tmp/site
-          # THE IDENTITY THE GUARD ALLOWS, exactly. .githooks/leak-guard.sh holds a single
-          # permitted author string and treats anything else as a violation — that single value is
-          # the whole design, so CI matches it rather than the allowlist being widened to admit a
-          # second one. The workflow had set "yurarium-bot <noreply@yurarium.github.io>" since it
-          # was written and no run had ever reached this step to disagree.
-          git config user.name  "Yurarium"
-          git config user.email "311755991+yurarium@users.noreply.github.com"
-          git add kari/data
-          git diff --cached --quiet || git commit -m "kari: data from yurison run ${{ github.run_id }}"
-          # Pushed with the deploy key rather than GITHUB_TOKEN, which means this push DOES trigger
-          # the site repo's own leak-guard.yml. The public repo keeps its server-side backstop
-          # without this workflow doing anything.
-          git push
-
-      # THE NIGHT'S VERDICT, AFTER THE DATA IS OUT (B2). Publishing comes first because a fetch
-      # that failed is not a reason to withhold the twelve that did not, and a red run is how
-      # anybody learns a platform stopped answering. Both halves are needed: publish, then say so.
+      # ── WHAT THIS REPOSITORY PUBLISHES, §11 ───────────────────────────────────────────────
       #
-      # Stage 0, the fixtures and Stage C are deliberately absent. A discovery pass, a fixture that
-      # has drifted and a browser adapter are all expected to fail sometimes, and a check that
-      # fires on somebody else's release schedule gets switched off rather than obeyed. Stage A is
-      # the one whose failure means a platform we track went unread.
+      # A FILE WITH A VERSION ON IT, and nothing else. This workflow used to clone the site with a
+      # deploy key, run `deploy.sh`, write HTML into it and rewrite its `index.html` to bust a
+      # cache. All of that is the site's own business now: it builds what it serves from the store
+      # this step publishes, on its own schedule, and this repository has no path that names it.
+      #
+      # A RELEASE ASSET RATHER THAN A COMMIT. 30 MB of binary per run would be a gigabyte of git
+      # history a year, and a release asset never enters it at all. `GITHUB_TOKEN` is enough
+      # because the release is on this repository; no cross-repository credential exists any more.
+      - name: Publish the store
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 adapters/relational/__init__.py --publish corpus.sqlite
+          TAG="store-$(date -u +%Y%m%d-%H%M)"
+          gh release create "$TAG" corpus.sqlite \
+            --title "$TAG" \
+            --notes "The compiled corpus. Schema and format carry no guarantee; a consumer reads \
+          \`store_stamp\` and refuses what it does not know."
       - name: Stage A failed, and the data was published first
         if: ${{ steps.stage_a.outcome == 'failure' }}
         run: |

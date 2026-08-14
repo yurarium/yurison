@@ -42,7 +42,7 @@ def main(s):
     os.environ["YURARIUM_SITE"] = "/tmp/site"
     try:
         again = importlib.reload(paths)
-        s.eq(str(again.SITE_ROOT), "/tmp/site", "YURARIUM_SITE overrides the derivation")
+        s.eq(str(again.SITE_ROOT), "/tmp/site", "YURARIUM_SITE says where a site checkout is")
     finally:
         del os.environ["YURARIUM_SITE"]
         importlib.reload(paths)

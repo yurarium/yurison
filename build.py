@@ -130,6 +130,13 @@ def jsonable(o):
 # second could not ask and the question was answered by an adapter's own cutoff instead.
 CURRENT_WINDOW_DAYS = 14
 
+#: THE FIRST MONTH THE ARCHIVE HOLDS. Update tracking began when this pipeline first ran, and
+#: everything dated before that was bootstrap-imported in one pass from what each platform states
+#: about its own back catalogue: real dates, mostly, and not a record of updates AS THEY HAPPENED.
+#: Publishing those months as "the updates of June 2026" would assert a history nobody observed.
+#: Raise it only when there is a month whose updates were actually watched happening.
+ARCHIVE_FROM = "2026-07"
+
 FINAL_RE = re.compile(r"最終(話|回|幕|エピソード)|[（(＜<〈\[【]\s*完\s*[）)＞>〉\]】]")
 # WHAT THE MARK MEANS, for the English sentence that quotes it. `completed_basis` read "the newest
 # chapter is titled 最終話" on 79 works, which is the evidence for calling a series finished and is
@@ -2620,7 +2627,7 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
     #
     # So the archive starts at the first month that is genuinely ours. Raise this only when there is
     # a month whose updates were actually watched happening.
-    ARCHIVE_FROM_MONTH = "2026-07"
+    ARCHIVE_FROM_MONTH = ARCHIVE_FROM
 
     feed_dir = out / "feed"
     feed_dir.mkdir(parents=True, exist_ok=True)
@@ -7079,7 +7086,11 @@ def main():
                 # `feed/meta.json`: what each platform lists, how far a listing has fallen behind,
                 # and the two queues of what has been noticed and not yet confirmed.
                 "meta": {"platforms": platforms, "platform_meta": plat_meta, "lapsed": lapsed,
-                         "print_candidates": print_candidates, "web_works": web_works}}
+                         "print_candidates": print_candidates, "web_works": web_works},
+                # WHAT THIS RUN DID, which §11 makes the store's business: a consumer that cannot
+                # read the window's width cannot write the feed at all.
+                "run": {"window_days": CURRENT_WINDOW_DAYS, "archive_from": ARCHIVE_FROM,
+                        "samples_dropped": len(samples), "generated": str(_today)}}
     # COMPILED IN MEMORY AND APPLIED TO THE STORE ONCE IT IS COMPLETE. The renderings arrive two
     # hundred lines below, so a store written now would be missing them; what is written now is a
     # scratch, and `relational.apply` reconciles the real one against it after `renderings` has run.
@@ -7274,7 +7285,7 @@ def main():
     # than which exist at all.
     if _rel.DB.exists():
         _live = _rel.open_db()
-        _store_moved_counts, _store_refused_now, _store_moved = _rel.apply(_live, fresh=_store_db)
+        _store_moved_counts, _store_refused_now, _store_moved = _rel.apply(_live, fresh=_store_db, at=str(_today))
         print(f"store           : {sum(c[0] for c in _store_moved_counts.values())} row(s) "
               f"written, {sum(c[1] for c in _store_moved_counts.values())} dropped, "
               f"{sum(c[2] for c in _store_moved_counts.values())} unchanged; "

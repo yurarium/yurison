@@ -38,21 +38,9 @@ jobs:
           python-version: "3.12"
       - run: pip install pyyaml pyflakes sudachipy sudachidict-core
 
-      # WHAT THE FIRST RUN ON `main` FOUND, which is the argument for running it there. Four suites
-      # failed here and passed on a developer's machine: `acceptance`, `test_curate`, `test_display`
-      # and the entrypoints self-test. None is a fault in the code. They read `data/build`, which is
-      # gitignored, or `../yurarium.github.io/kari/app.js`, which is the other repository, and a
-      # fresh checkout has neither. `update.yml` clones the site and compiles before it tests; this
-      # job tested first and cloned nothing, so it could only ever have passed by accident.
-      #
-      # This is the same class as `the pipeline runs from a clean checkout`, which exists because a
-      # green run on a developer's machine hid three CI failures on 2026-08-10.
-      - name: The site repository, which several suites read
-        run: |
-          git clone --depth 1 https://github.com/yurarium/yurarium.github.io.git \
-            "$(dirname "$GITHUB_WORKSPACE")/yurarium.github.io"
-          ls "$(dirname "$GITHUB_WORKSPACE")/yurarium.github.io/kari/app.js"
-
+      # THE SITE IS NOT CLONED ANY MORE, §11. Four suites used to read `../yurarium.github.io`
+      # and this job had to fetch it; what a reader is SHOWN is checked in the repository that
+      # renders it now, and nothing here names that repository at all.
       - name: Build
         run: python3 build.py
 

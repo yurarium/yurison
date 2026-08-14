@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-11
+retrieved: 2026-08-14
 record_type: candidate_works
-works: 315
+works: 317
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -509,6 +509,10 @@ candidates:
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3269754496321192668", "https://comic.pixiv.net/works/5758", "https://ichicomi.com/episode/2550912965923203770", "https://manga.nicovideo.jp/comic/56012", "https://pocket.shonenmagazine.com/title/01045"]
     tags: ["アニメ化", "女子高生", "百合", "音楽"]
+  - title: "さざめとりお"
+    platforms: ["ダ・ヴィンチニュース"]
+    urls: ["https://ddnavi.com/sazametorio/"]
+    tags: ["百合"]
   - title: "さよなら"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/3270296674384339730"]
@@ -595,6 +599,10 @@ candidates:
   - title: "それはただの夏の一日"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983529195736"]
+  - title: "たっぷりお嬢様とちょっぴりギャルの幸せシェアごはん"
+    platforms: ["きら星ポータル"]
+    urls: ["https://kirapo.jp/meteor/titles/tappurichoppiri"]
+    tags: ["百合", "読み切り"]
   - title: "たとえとどかぬ糸だとしても"
     platforms: ["コミックDAYS", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3269754496321225448", "https://ichicomi.com/episode/2550912965923204597"]
@@ -839,6 +847,10 @@ candidates:
   - title: "ももいろモンタージュ"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/2976"]
+  - title: "ももと宮村"
+    platforms: ["サンデーうぇぶり"]
+    urls: ["https://www.sunday-webry.com/episode/12207421984030879903"]
+    tags: ["百合", "読み切り"]
   - title: "もらったもの"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2551460909787867364"]
@@ -989,7 +1001,7 @@ candidates:
   - title: "イジめてイジられて"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_019052_S", "https://manga.nicovideo.jp/comic/83472"]
-    tags: ["お色気・微エロ", "フェチ・性癖", "ラブコメ", "百合"]
+    tags: ["お色気・微エロ", "フェチ・性癖", "ラブコメ", "最近のコメント数", "百合"]
   - title: "イタズラっ子世に憚らず!!"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2268"]
@@ -1517,7 +1529,7 @@ candidates:
   - title: "バカに告白"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006660_S"]
-    tags: ["ラブコメ", "学園", "最近のコメント数", "百合"]
+    tags: ["ラブコメ", "女子高生", "学園", "最近のコメント数", "百合"]
   - title: "バカ女26時"
     platforms: ["pixivコミック", "ヤンジャン+"]
     urls: ["https://comic.pixiv.net/works/9913", "https://ynjn.jp/title/12102"]
@@ -1532,6 +1544,7 @@ candidates:
   - title: "バトル・ウィッチーズ"
     platforms: ["新都社"]
     urls: ["http://neetsha.jp/inside/comic.php?id=24919"]
+    tags: ["エロ", "百合", "魔法少女"]
   - title: "バニーズクエスト"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88"]
@@ -1691,6 +1704,10 @@ candidates:
   - title: "ムショカノジョ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019393_S"]
+    tags: ["百合", "読み切り"]
+  - title: "メイドinお嬢さま"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_019452_S"]
     tags: ["百合", "読み切り"]
   - title: "メイドのデューデ"
     platforms: ["サンデーうぇぶり"]
@@ -2006,6 +2023,10 @@ candidates:
   - title: "【今日の10ページ】世界の終わりにエロ本と先生と。"
     platforms: ["MAGCOMI"]
     urls: ["https://magcomi.com/episode/2550689798372256224"]
+  - title: "【今日の10ページ】女子高生VS首切り地蔵"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/12207421984065499859"]
+    tags: ["百合"]
   - title: "【今日の10ページ】怪異調査室"
     platforms: ["MAGCOMI"]
     urls: ["https://magcomi.com/episode/2551460909530630827"]
@@ -2134,6 +2155,10 @@ candidates:
   - title: "冷厳寺さんは今日からおもちゃ"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/14079602755391426512"]
+  - title: "凛としてきゅん"
+    platforms: ["となりのヤングジャンプ", "ヤンジャン+"]
+    urls: ["https://tonarinoyj.jp/episode/12207421984080790252", "https://ynjn.jp/title/37944"]
+    tags: ["百合", "読み切り"]
   - title: "凪の果てにて"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203892"]
@@ -3512,6 +3537,10 @@ candidates:
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/12207421983850437714"]
     tags: ["百合", "読み切り"]
+  - title: "㊙のライラ"
+    platforms: ["ビビビコミック"]
+    urls: ["https://bibibi-comic.com/series/e889bd092d08d"]
+    tags: ["百合"]
   - title: "程遠い君の星まで"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/4856001361130667551"]
@@ -3702,6 +3731,7 @@ candidates:
   - title: "超かぐや姫!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008281_S"]
+    tags: ["コミカライズ", "百合"]
   - title: "超深宇宙より愛をこめて"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/11521", "https://ichicomi.com/episode/2550912965923204780"]
@@ -3867,6 +3897,7 @@ candidates:
   - title: "香り屋さんの纏さん"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2286"]
+    tags: ["百合", "読み切り"]
   - title: "香原さんのふぇちのーと"
     platforms: ["ニコニコ漫画", "竹コミ‎‏‎"]
     urls: ["https://manga.nicovideo.jp/comic/56509", "https://takecomic.jp/series/4e4bb1b935407"]

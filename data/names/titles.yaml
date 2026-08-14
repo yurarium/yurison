@@ -1,4 +1,4 @@
-generated: '2026-08-13'
+generated: '2026-08-14'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -17224,19 +17224,19 @@ names:
     verified: true
   はぴちゅ！:
     basis: romaji
-    furigana_spans:
-    - - はぴちゅ！
-      - null
-    reading: ワ ピチュ！
-    reading_at: '2026-08-13'
-    reading_basis: analyser
+    reading: ハピチュ！
+    reading_at: '2026-08-14'
+    reading_basis: surface
+    reading_conflicts:
+    - basis: analyser
+      source: SudachiPy 0.6.11, SudachiDict-core 20260723
+      value: ワ ピチュ！
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   はるい駈歩:
     basis: translated
     en: Harui's Canter
@@ -20512,19 +20512,15 @@ names:
     verified: true
   ゆらめきラグーン:
     basis: romaji
-    furigana_spans:
-    - - ゆらめきラグーン
-      - null
-    reading: ユラメキ ラグーン
-    reading_at: '2026-08-13'
-    reading_basis: analyser
+    reading: ユラメキラグーン
+    reading_at: '2026-08-14'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ゆり×こちょ！:
     basis: translated
     en: Yuri × Tickle!
@@ -20794,19 +20790,15 @@ names:
     verified: true
   ゆりでなる♥えすぽわーる:
     basis: romaji
-    furigana_spans:
-    - - ゆりでなる♥えすぽわーる
-      - null
-    reading: ユリ デ ナル ♥ エ スポ ワール
-    reading_at: '2026-08-13'
-    reading_basis: analyser
+    reading: ユリデナル♥エスポワール
+    reading_at: '2026-08-14'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ゆりでなるｖえすぽわーる:
     reading: ユリ デ ナル ♡ エスポワール
     reading_at: '2026-08-08'
@@ -29310,14 +29302,14 @@ names:
   センゲンス:
     basis: romaji
     reading: センゲンス
-    reading_at: '2026-08-13'
-    reading_basis: analyser
+    reading_at: '2026-08-14'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   センコウガール:
     basis: translated
     en: Senkō Girl
@@ -31240,16 +31232,15 @@ names:
     verified: true
   ハッピーアワーガールズ:
     basis: romaji
-    reading: ハッピー アワー ガールズ
-    reading_at: '2026-08-13'
-    reading_basis: analyser
+    reading: ハッピーアワーガールズ
+    reading_at: '2026-08-14'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ハッピーシュート！:
     basis: translated
     en: Happy Shoot!
@@ -34651,6 +34642,25 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  メイドinお嬢さま:
+    basis: romaji
+    furigana_spans:
+    - - メイドinお
+      - null
+    - - 嬢
+      - じょう
+    - - さま
+      - null
+    reading: メイド in オジョウサマ
+    reading_at: '2026-08-14'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   メイドさんと百合についてのアンソロジー:

@@ -6,7 +6,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-08-13
+retrieved: 2026-08-14
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -14,7 +14,7 @@ releases:
   - release_id: "comicdays:episode:12207421983566481732"
     work_title: "サタノファニ"
     web_status: "serialised"
-    identified_via: "known-work-match"
+    identified_via: "discovery-candidate"
     episode_title: "第３３７話　「仇討ち」"
     release_type: "chapter"
     date: "2026-08-12"
@@ -27,6 +27,7 @@ releases:
     author: "山田恵庸"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984027208760"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -44,6 +45,7 @@ releases:
     raw_title: "２３．　Ｎｅｖｅｒ　Ｓｅｅ　Ｍｅ　Ａｇａｉｎ"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027208175"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -61,6 +63,7 @@ releases:
     raw_title: "２２．　水上のガンマン"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027207564"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -78,6 +81,7 @@ releases:
     raw_title: "２１．　過ぎ去りし思い出"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027206774"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -95,6 +99,7 @@ releases:
     raw_title: "２０．　それが黒魔女"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027205914"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -112,6 +117,7 @@ releases:
     raw_title: "１９．　海に沈める"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027205108"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -129,6 +135,7 @@ releases:
     raw_title: "１８．　世界が終わるまでは"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027204275"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -146,6 +153,7 @@ releases:
     raw_title: "１７．　夜を延ばして"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027203363"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -163,6 +171,7 @@ releases:
     raw_title: "１６．　あなたは海の底"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027202496"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -180,6 +189,7 @@ releases:
     raw_title: "１５．　サバトとハント"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027201649"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -197,6 +207,7 @@ releases:
     raw_title: "１４．　魔法少女たちの百年祭"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984027200790"
+    in_current_window: false
     work_title: "ＧＵＲＵ"
     web_status: "serialised"
     identified_via: "known-work-match"

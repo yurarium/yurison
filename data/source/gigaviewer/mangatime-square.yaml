@@ -6,12 +6,13 @@ source: gigaviewer
 platform: mangatime-square
 platform_name: "まんがタイムSquare"
 publisher: ""
-retrieved: 2026-08-13
+retrieved: 2026-08-14
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "mangatime:episode:12207421983656607521"
+    in_current_window: false
     work_title: "腹割るウチらの秘密ごと！"
     web_status: "serialised"
     identified_via: "known-work-match"

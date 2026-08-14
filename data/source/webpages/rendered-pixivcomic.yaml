@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-08-11
+retrieved: 2026-08-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -21,7 +21,7 @@ works:
     url: "https://comic.pixiv.net/works/10005"
     chapter_count: 2
     chapters:
-      - title: "第54話 4日前UP"
+      - title: "第54話"
         updated: 2026-08-06
         access_modes: ["free"]
         date_basis: rendered
@@ -211,14 +211,10 @@ works:
   - work_title: "ステラ・ステップ"
     author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
     url: "https://comic.pixiv.net/works/10790"
-    chapter_count: 5
+    chapter_count: 4
     chapters:
       - title: "Step.14① 夜風に約束"
         updated: 2026-08-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.13② されど花は枯れず"
-        updated: 2026-07-07
         access_modes: ["free"]
         date_basis: rendered
       - title: "Step.1② 砂漠に降る雨"
@@ -784,8 +780,12 @@ works:
   - work_title: "まるせっせんす"
     author: "畳ゆか"
     url: "https://comic.pixiv.net/works/12886"
-    chapter_count: 5
+    chapter_count: 6
     chapters:
+      - title: "6 紅血"
+        updated: 2026-08-14
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "5 日常"
         updated: 2026-07-10
         access_modes: ["free"]
@@ -939,7 +939,7 @@ works:
     url: "https://comic.pixiv.net/works/13425"
     chapter_count: 4
     chapters:
-      - title: "第4話 2日前UP"
+      - title: "第4話 6日前UP"
         updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
@@ -979,8 +979,12 @@ works:
   - work_title: "新米姉妹のふたりごはん"
     author: "柊ゆたか"
     url: "https://comic.pixiv.net/works/3287"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "71品目 せいろ蒸しパーティー"
+        updated: 2026-08-11
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "3品目 ネギソーセージ"
         updated: 2017-06-06
         access_modes: ["free"]
@@ -1052,7 +1056,7 @@ works:
     url: "https://comic.pixiv.net/works/4810"
     chapter_count: 8
     chapters:
-      - title: "第121話 2日前UP"
+      - title: "第121話 6日前UP"
         updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
@@ -2137,7 +2141,7 @@ works:
     url: "https://comic.pixiv.net/works/9380"
     chapter_count: 4
     chapters:
-      - title: "#25 2日前UP"
+      - title: "#25 6日前UP"
         updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered

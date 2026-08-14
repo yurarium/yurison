@@ -6,12 +6,13 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-08-13
+retrieved: 2026-08-14
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "action:episode:12207421983913993746"
+    in_current_window: false
     work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～"
     web_status: "serialised"
     identified_via: "known-work-match"

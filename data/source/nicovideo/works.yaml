@@ -10,7 +10,7 @@
 source: nicovideo
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-13
+retrieved: 2026-08-14
 record_type: web_work_chapters
 identification_mode: known-works
 works_resolved: 492
@@ -10237,10 +10237,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/44519"
     platform_code: "44519"
     started: "2019-10-20"
-    updated: "2026-08-12"
-    episode_count_stated: 107
+    updated: "2026-08-10"
+    episode_count_stated: 105
     partial: true
-    chapter_count: 107
+    chapter_count: 105
     chapters:
       - title: "ロボ1-1"
         access_modes: ["free"]
@@ -10451,10 +10451,6 @@ works:
       - title: "ロボ18-2"
         access_modes: ["free"]
       - title: "ロボ18-3"
-        access_modes: ["free"]
-      - title: "ロボ18-4"
-        access_modes: ["free"]
-      - title: "ロボ18-5"
         access_modes: ["free"]
   - work_title: "あなたのためなら女にでも"
     author: "つごもり(著者)"
@@ -11636,7 +11632,7 @@ works:
     platform_code: "47265"
     started: "2020-05-15"
     updated: "2026-07-31"
-    episode_count_stated: 17
+    episode_count_stated: 16
     rights: ["みかみてれん", "むっしゅ", "竹嶋えく", "集英社"]
     chapter_count: 96
     chapters:
@@ -11829,7 +11825,7 @@ works:
       - title: "王塚真唯のお話　紫陽花の告白のそのあとで"
         app_only: true
       - title: "王塚真唯のお話　遊園地のデートを見送ったそのあとで"
-        access_modes: ["free"]
+        app_only: true
       - title: "最終話"
         access_modes: ["free"]
   - work_title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
@@ -19581,7 +19577,7 @@ works:
         app_only: true
       - title: "第17話"
         app_only: true
-      - title: "第18話前編"
+      - title: "第18話"
         access_modes: ["free"]
   - work_title: "海鳥東月の『でたらめ』な事情"
     author: "飴色みそ(著者) 両生類かえる(原作) 甘城なつき(キャラクター原案)"
@@ -20382,10 +20378,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/62230"
     platform_code: "62230"
     started: "2023-02-02"
-    updated: "2026-08-12"
-    episode_count_stated: 17
+    updated: "2026-08-10"
+    episode_count_stated: 15
     rights: ["Sui Kohno"]
-    chapter_count: 27
+    chapter_count: 25
     chapters:
       - title: "第1話　ララのお仕事"
         access_modes: ["free"]
@@ -20436,10 +20432,6 @@ works:
       - title: "第22話　ララと歌①"
         access_modes: ["free"]
       - title: "第22話　ララと歌②"
-        access_modes: ["free"]
-      - title: "第23話　ヨンカ①"
-        access_modes: ["free"]
-      - title: "第23話　ヨンカ②"
         access_modes: ["free"]
   - work_title: "MOJI の百合"
     author: "MOJI"
@@ -25118,7 +25110,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/74042"
     platform_code: "74042"
     started: "2025-09-09"
-    updated: "2026-08-11"
+    updated: "2026-07-14"
     episode_count_stated: 4
     partial: true
     rights: ["薗田かんきつ", "芳文社"]
@@ -25130,7 +25122,7 @@ works:
         access_modes: ["free"]
       - title: "第3話"
         access_modes: ["free"]
-      - title: "番外編"
+      - title: "第13話"
         access_modes: ["free"]
   - work_title: "ウイニングアンサー！"
     author: "八代涼"
@@ -26037,10 +26029,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/83472"
     platform_code: "83472"
     started: "2026-07-17"
-    updated: "2026-08-07"
-    episode_count_stated: 4
+    updated: "2026-08-14"
+    episode_count_stated: 5
     rights: ["Daisuke Chida"]
-    chapter_count: 4
+    chapter_count: 5
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -26049,6 +26041,8 @@ works:
       - title: "第3話"
         access_modes: ["free"]
       - title: "第4話"
+        access_modes: ["free"]
+      - title: "第5話"
         access_modes: ["free"]
   - work_title: "のだ"
     author: "沢田かに(漫画) 真野真央(ストーリー) Oda Kogane(キャラクター原案)"

@@ -1,4 +1,4 @@
-generated: '2026-08-13'
+generated: '2026-08-14'
 names:
   '*sow*':
     basis: stated
@@ -542,6 +542,16 @@ names:
     en_source_kind: platform
     script: latin
     verified: false
+  MOJI:
+    basis: stated
+    en: MOJI
+    en_at: '2026-08-14'
+    en_pass: 0
+    en_source: surface
+    en_source_kind: platform
+    note: already Latin on the platform's own page; no romanisation involved
+    script: latin
+    verified: true
   Magica Quartet:
     basis: stated
     en: Magica Quartet
@@ -658,6 +668,16 @@ names:
     en_source: surface
     en_source_kind: platform
     entity: project
+    note: already Latin on the platform's own page; no romanisation involved
+    script: latin
+    verified: true
+  QZO:
+    basis: stated
+    en: QZO
+    en_at: '2026-08-14'
+    en_pass: 0
+    en_source: surface
+    en_source_kind: platform
     note: already Latin on the platform's own page; no romanisation involved
     script: latin
     verified: true
@@ -17193,6 +17213,22 @@ names:
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/25850
     verified: false
+  初瀬白:
+    basis: romaji
+    furigana_spans:
+    - - 初瀬
+      - はつせ
+    - - 白
+      - しろ
+    reading: ハツセシロ
+    reading_at: '2026-08-14'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   剛田ナギ:
     basis: romaji
     furigana_spans:
@@ -30886,6 +30922,25 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I06A0000000000961495H
     verified: true
+  淀洞蝸牛:
+    basis: romaji
+    furigana_spans:
+    - - 淀
+      - よど
+    - - 洞
+      - どう
+    - - 蝸牛
+      - かぎゅう
+    reading: ヨドドウカギュウ
+    reading_at: '2026-08-14'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   深山はな:
     basis: romaji
     furigana_spans:
@@ -30927,6 +30982,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I031865137
     verified: true
+  深水たろー:
+    basis: romaji
+    furigana_spans:
+    - - 深水
+      - ふかみ
+    - - たろー
+      - null
+    reading: フカミタロー
+    reading_at: '2026-08-14'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   深水紅茶:
     basis: romaji
     reading: フカミ コウチャ

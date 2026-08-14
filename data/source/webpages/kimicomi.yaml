@@ -6,10 +6,28 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-08-13
+retrieved: 2026-08-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "魔王城デート大作戦!"
+    status: "連載中"
+    author: "涼海来夏"
+    url: "https://kimicomi.com/series/0cd32d6a7efc2"
+    chapter_count: 4
+    chapters:
+      - title: "OPERATION1"
+        updated: "2026-07-20"
+        access_modes: ["free"]
+      - title: "OPERATION2"
+        updated: "2026-07-27"
+        access_modes: ["free"]
+      - title: "OPERATION3"
+        updated: "2026-08-03"
+        access_modes: ["free"]
+      - title: "OPERATION4"
+        updated: "2026-08-10"
+        access_modes: ["purchase"]
   - work_title: "ワインガールズ"
     status: "連載中"
     author: "真田一輝"
@@ -172,24 +190,6 @@ works:
       - title: "Step.14①"
         updated: "2026-08-03"
         access_modes: ["free"]
-  - work_title: "魔王城デート大作戦!"
-    status: "連載中"
-    author: "涼海来夏"
-    url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    chapter_count: 4
-    chapters:
-      - title: "OPERATION1"
-        updated: "2026-07-20"
-        access_modes: ["free"]
-      - title: "OPERATION2"
-        updated: "2026-07-27"
-        access_modes: ["free"]
-      - title: "OPERATION3"
-        updated: "2026-08-03"
-        access_modes: ["free"]
-      - title: "OPERATION4"
-        updated: "2026-08-10"
-        access_modes: ["purchase"]
   - work_title: "見えてますよ! 愛沢さん"
     status: "連載中"
     author: "棘尾どろしー"

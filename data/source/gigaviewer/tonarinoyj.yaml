@@ -6,11 +6,27 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-08-13
+retrieved: 2026-08-14
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "tonarino_yj:episode:12207421984080790252"
+    work_title: "凛としてきゅん"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "[特別読切] 凛としてきゅん"
+    release_type: "oneshot"
+    date: "2026-08-14"
+    date_basis: "observed"
+    first_seen: "2026-08-14"
+    first_reported: "2026-08-14T03:00:00Z"
+    platform_updated: "2026-08-14T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421984080790252"
+    author: "古川楊也"
+    free_term_start: "2026-08-14T03:00:00Z"
+    advances_narrative: true
   - release_id: "tonarino_yj:episode:12207421983966653061"
     in_current_window: false
     work_title: "英雄少女と呪われの銀姫"

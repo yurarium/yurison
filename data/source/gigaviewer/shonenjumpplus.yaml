@@ -6,12 +6,29 @@ source: gigaviewer
 platform: shonenjumpplus
 platform_name: "少年ジャンプ+"
 publisher: "集英社"
-retrieved: 2026-08-13
+retrieved: 2026-08-14
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "jump_plus:episode:9253191255729393927"
+    work_title: "春雷卓球"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "[おまけ13]春雷卓球"
+    release_type: "extra"
+    date: "2026-08-14"
+    date_basis: "observed"
+    first_seen: "2026-08-14"
+    first_reported: "2026-08-13T15:00:00Z"
+    platform_updated: "2026-08-13T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://shonenjumpplus.com/episode/9253191255729393927"
+    author: "平方昌宏"
+    free_term_start: "2026-08-13T15:00:00Z"
+    advances_narrative: true
   - release_id: "jump_plus:episode:9253191255607513514"
+    in_current_window: false
     work_title: "春雷卓球"
     web_status: "serialised"
     identified_via: "known-work-match"

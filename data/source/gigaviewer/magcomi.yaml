@@ -6,11 +6,28 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-08-13
+retrieved: 2026-08-14
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "magcomi:episode:12207421984065499859"
+    work_title: "【今日の10ページ】女子高生VS首切り地蔵"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "今日の10ページ「女子高生VS首切り地蔵」淀洞蝸牛"
+    release_type: "unclassified"
+    date: "2026-08-14"
+    date_basis: "observed"
+    first_seen: "2026-08-14"
+    first_reported: "2026-08-14T03:00:00Z"
+    platform_updated: "2026-08-14T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984065499859"
+    author: "淀洞蝸牛"
+    free_term_start: "2026-08-14T03:00:00Z"
+    raw_title: "今日の10ページ「女子高生VS首切り地蔵」淀洞蝸牛"
+    advances_narrative: false
   - release_id: "magcomi:episode:12207421983980139772"
     in_current_window: false
     work_title: "ボイタボイネ"

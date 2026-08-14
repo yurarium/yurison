@@ -8,12 +8,12 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-08-11
+retrieved: 2026-08-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "英雄少女と呪われの銀姫"
-    author: "アルト/絵本奈央"
+    author: "アルト / 絵本奈央"
     url: "https://tonarinoyj.jp/episode/2551460910044575820"
     platform_name: "ヤンジャン+"
     route: "gigaviewer"
@@ -621,7 +621,7 @@ works:
         author: "くずしろ"
         access_modes: ["free"]
   - work_title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
-    author: "あらた伊里/アトハ/狐印 / 第1話「フィアナ、転生して超健康になる」"
+    author: "あらた伊里 / アトハ / 狐印 / 第1話「フィアナ、転生して超健康になる」"
     url: "https://comic-gardo.com/episode/2550912966011803878"
     platform_name: "コミックガルド"
     route: "gigaviewer"
@@ -878,7 +878,7 @@ works:
         author: "瑠夏子"
         access_modes: ["purchase"]
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
-    author: "空山トキ/五色安未/泉乃せん/伍長 / 第１話　少女と暗殺者の世界"
+    author: "空山トキ / 五色安未 / 泉乃せん / 伍長 / 第１話　少女と暗殺者の世界"
     url: "https://comic-days.com/episode/2550912964518073379"
     platform_name: "コミックDAYS"
     route: "gigaviewer"
@@ -1464,7 +1464,7 @@ works:
         updated: 2025-04-25
         author: "U-temo"
         access_modes: ["purchase"]
-      - title: "第６話 旅は道連れ（中編）1"
+      - title: "第6話 旅は道連れ（中編）1"
         updated: 2025-03-28
         author: "U-temo"
         access_modes: ["purchase"]
@@ -2268,7 +2268,7 @@ works:
     url: "https://g-comi.jp/series/5448ec9f6077b"
     platform_name: "Gコミ"
     route: "comici"
-    chapter_count: 9
+    chapter_count: 10
     chapters:
       - title: "第1話"
         updated: 2025-12-19
@@ -2277,32 +2277,28 @@ works:
       - title: "第2話"
         updated: 2025-12-19
         author: "ミナミト"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第3話"
         updated: 2026-01-23
         author: "ミナミト"
-        access_modes: ["free-timed"]
-        access_note: "共通チケット — one extra free chapter per day, any series"
+        access_modes: ["purchase"]
       - title: "第4話"
         updated: 2026-02-20
         author: "ミナミト"
-        access_modes: ["free-timed"]
-        access_note: "共通チケット — one extra free chapter per day, any series"
+        access_modes: ["purchase"]
       - title: "第5話"
         updated: 2026-03-20
         author: "ミナミト"
-        access_modes: ["free-timed"]
-        access_note: "共通チケット — one extra free chapter per day, any series"
+        access_modes: ["purchase"]
       - title: "第6話"
         updated: 2026-04-17
         author: "ミナミト"
-        access_modes: ["free-timed"]
-        access_note: "共通チケット — one extra free chapter per day, any series"
+        access_modes: ["purchase"]
       - title: "第7話"
         updated: 2026-05-22
         author: "ミナミト"
-        access_modes: ["free-timed"]
-        access_note: "共通チケット — one extra free chapter per day, any series"
+        access_modes: ["purchase"]
       - title: "第8話"
         updated: 2026-06-19
         author: "ミナミト"
@@ -2311,6 +2307,10 @@ works:
         updated: 2026-07-17
         author: "ミナミト"
         access_modes: ["purchase"]
+      - title: "第10話"
+        updated: 2026-08-14
+        author: "ミナミト"
+        access_modes: ["free"]
   - work_title: "運命は役に立たない"
     author: "まめ魚"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
@@ -2333,7 +2333,8 @@ works:
       - title: "4話"
         updated: 2026-04-20
         author: "まめ魚"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "5話"
         updated: 2026-04-20
         author: "まめ魚"
@@ -2397,7 +2398,7 @@ works:
     url: "https://youngchampion.jp/series/86c1162f34a04"
     platform_name: "チャンピオンクロス"
     route: "comici"
-    chapter_count: 28
+    chapter_count: 29
     chapters:
       - title: "第1話①"
         updated: 2025-11-05
@@ -2529,13 +2530,18 @@ works:
       - title: "第9話③"
         updated: 2026-07-15
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第10話①"
         updated: 2026-08-05
         author: "りんご飴サード,川田暁生"
+        access_modes: ["free"]
+      - title: "第10話②"
+        updated: 2026-08-12
+        author: "りんご飴サード,川田暁生"
         access_modes: ["purchase"]
   - work_title: "平良深姉妹はどっちもヤんでる"
-    author: "金子ある / #1(1)"
+    author: "金子ある"
     url: "https://comic-days.com/episode/4856001361274266527"
     platform_name: "マガポケ"
     route: "gigaviewer"
@@ -2822,7 +2828,7 @@ works:
         author: "金子ある"
         access_modes: ["free"]
   - work_title: "今夜、エーテルで待ちあわせ"
-    author: "ヨン / 読切"
+    author: "ヨン"
     url: "https://comic-seasons.com/episode/2551460909766158255"
     platform_name: "Seasons"
     route: "gigaviewer"
@@ -2892,7 +2898,7 @@ works:
         author: "当麻"
         access_modes: ["free"]
   - work_title: "新刊100億冊ください"
-    author: "破賀ミチル / １冊目：叔母さんは神絵師"
+    author: "破賀ミチル"
     url: "https://comic-days.com/episode/2550912965415315207"
     platform_name: "コミックDAYS"
     route: "gigaviewer"
@@ -3039,7 +3045,7 @@ works:
         author: "破賀ミチル"
         access_modes: ["free"]
   - work_title: "GURU"
-    author: "陣ノ内康暉 / １．月と太陽の日々"
+    author: "陣ノ内康暉"
     url: "https://comic-days.com/episode/12207421983430012575"
     platform_name: "マガポケ"
     route: "gigaviewer"
@@ -3138,7 +3144,7 @@ works:
         author: "陣ノ内康暉"
         access_modes: ["free"]
   - work_title: "画家の肖像"
-    author: "レオパード・ゲッコー / 読切 画家の肖像"
+    author: "レオパード・ゲッコー"
     url: "https://comic-zenon.com/episode/12207421983944323781"
     platform_name: "コミックゼノン"
     route: "markup"
@@ -3146,10 +3152,10 @@ works:
     chapters:
       - title: "読み切り"
         updated: 2026-07-13
-        author: "レオパード・ゲッコー / 読切 画家の肖像"
+        author: "レオパード・ゲッコー"
         date_basis: heuristic
   - work_title: "散らないで菊"
-    author: "ぽぽらら / 読切 散らないで菊"
+    author: "ぽぽらら"
     url: "https://comic-zenon.com/episode/12207421983944323839"
     platform_name: "コミックゼノン"
     route: "markup"
@@ -3157,7 +3163,7 @@ works:
     chapters:
       - title: "読み切り"
         updated: 2026-07-13
-        author: "ぽぽらら / 読切 散らないで菊"
+        author: "ぽぽらら"
         date_basis: heuristic
   - work_title: "魔性の乙女の役廻り"
     author: "サスケ"
@@ -3245,8 +3251,12 @@ works:
     url: "https://comic-ogyaaa.com/episode/4856001361171643976"
     platform_name: "コミックオギャー!!"
     route: "gigaviewer"
-    chapter_count: 42
+    chapter_count: 43
     chapters:
+      - title: "第41話"
+        updated: 2026-08-14
+        author: "深海 紺"
+        access_modes: ["free"]
       - title: "第40話"
         updated: 2026-07-10
         author: "深海 紺"
@@ -3416,7 +3426,7 @@ works:
         author: "深海 紺"
         access_modes: ["free"]
   - work_title: "姫虐が止まらない白桃さん"
-    author: "斉藤りょーパー / 読み切り作品"
+    author: "斉藤りょーパー"
     url: "https://ichicomi.com/episode/2551460910021695025"
     platform_name: "一迅プラス"
     route: "markup"
@@ -3424,7 +3434,7 @@ works:
     chapters:
       - title: "読み切り"
         updated: 2026-01-14
-        author: "斉藤りょーパー / 読み切り作品"
+        author: "斉藤りょーパー"
         date_basis: heuristic
   - work_title: "今日はカノジョがいないから"
     author: "岩見樹代子 / 第1話「接触」(1)"
@@ -4698,7 +4708,7 @@ works:
     chapter_count: 1
     chapters:
       - title: "読み切り"
-        updated: 2026-08-11
+        updated: 2026-08-14
         date_basis: heuristic
   - work_title: "ナキノン"
     author: "根岸岳春"
@@ -4822,7 +4832,7 @@ works:
         author: "たびれこ"
         access_modes: ["free"]
   - work_title: "誰かオオカミさんのしつけ方知りませんか⁉"
-    author: "餡実ツキ / 第1話"
+    author: "餡実ツキ"
     url: "https://ichicomi.com/episode/12207421983347947242"
     platform_name: "ニコニコ漫画"
     route: "gigaviewer"
@@ -4849,6 +4859,7 @@ works:
         author: "餡実ツキ"
         access_modes: ["free"]
   - work_title: "ツイてるギャルとミエてる陰キャ"
+    author: "深水たろー"
     url: "https://kirapo.jp/meteor/titles/tuimie"
     platform_name: "きら星ポータル"
     route: "markup"
@@ -4856,6 +4867,7 @@ works:
     chapters:
       - title: "読み切り"
         updated: 2026-06-17
+        author: "深水たろー"
         date_basis: heuristic
   - work_title: "ロイヤルテーラー ―王宮の裁縫師―"
     url: "https://zerosumonline.com/detail/royaltailor"
@@ -4873,7 +4885,7 @@ works:
         updated: 2021-12-03
         date_basis: rendered
   - work_title: "彩純ちゃんはレズ風俗に興味があります!"
-    author: "伊月クロ / 第1話"
+    author: "伊月クロ"
     url: "https://ichicomi.com/episode/2550912965923204004"
     platform_name: "一迅プラス"
     route: "gigaviewer"
@@ -4882,7 +4894,7 @@ works:
       - title: "第34話"
         updated: 2026-06-17
         author: "伊月クロ"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第33話"
         updated: 2026-04-17
         author: "伊月クロ"

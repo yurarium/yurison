@@ -1955,8 +1955,14 @@ def budget_data_reaching_the_site_around_the_store(ctx):
     """
     sys.path.insert(0, str(ROOT / "adapters"))
     from facts import served
+    # ASKED OF WHAT THIS RUN EMITTED, §13. It read `data/build`, which nothing writes any more, so
+    # it answered 0 for every run after that change: a budget measuring an empty directory reports
+    # a clean site. `ctx["emitted"]` is the texts the store produces, which is what a reader gets.
+    texts = ctx.get("emitted")
+    if not texts:
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     try:
-        return len(served.around(str(ROOT / "data" / "build")))
+        return len(served.around(texts=texts))
     except (OSError, ValueError):
         return UNMEASURED
 

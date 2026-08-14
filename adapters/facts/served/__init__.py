@@ -133,8 +133,18 @@ def paths(doc, limit=30, depth=8):
     return out
 
 
-def served(build="data/build"):
-    """`{file: {path}}` for every corpus file the site is served, feed months included."""
+def served(build="data/build", texts=None):
+    """`{file: {path}}` for every corpus file the site is served, feed months included.
+
+    `texts` IS `{name: json text}` AND IS HOW THIS IS ASKED NOW. STORE-PLAN §13 stopped `build.py`
+    writing these files, so reading a directory meant reading one that nothing fills: the budget
+    over this answered 0 for every run after that change and nobody was told it had stopped
+    looking. A directory that is not there is indistinguishable from a corpus with no fields in it,
+    which is STANDING-INSTRUCTIONS §4 with the pattern removed rather than never matched.
+    """
+    if texts is not None:
+        return {n: paths(json.loads(s)) for n, s in texts.items()
+                if n in CORPUS or n.startswith("feed/")}
     root = pathlib.Path(build)
     out = {}
     for name in CORPUS:
@@ -184,6 +194,10 @@ STORE_ANSWERS = (
     "series.json:series[].print[].work_ids", "series.json:series[].print[].publisher",
     "series.json:series[].print[].imprint", "series.json:series[].print[].label",
     "series.json:series[].print[].first", "series.json:series[].print[].last",
+    # WHEN A SHOP BEGAN DELIVERING THE FILE, from `print_row.delivered_from`. It has been served on
+    # 1,121 print blocks and was never declared, which nobody saw because this budget was reading a
+    # directory §13 had stopped filling.
+    "series.json:series[].print[].delivered_from",
     "series.json:series[].print[].volumes", "series.json:series[].print[].shop_url",
     "series.json:series[].state",
     "series.json:series[].state_basis",
@@ -335,11 +349,11 @@ STORE_ANSWERS = (
 )
 
 
-def around(build="data/build"):
+def around(build="data/build", texts=None):
     """Every `file:path` the site is served that the store could not answer, sorted."""
     claimed = set(STORE_ANSWERS)
     out = []
-    for name, ps in served(build).items():
+    for name, ps in served(build, texts).items():
         for p in sorted(ps):
             key = f"{name}:{p}"
             if key in claimed or any(key.startswith(c + ".") for c in claimed):

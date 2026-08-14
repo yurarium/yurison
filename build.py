@@ -343,6 +343,10 @@ def platform_of(url, owners):
     return _platform.of(url, owners)
 
 
+#: `{(folded work, platform): date}` for platforms that state when a WORK last updated without
+#: saying which chapter did. See the nicovideo block below for what this is and is not.
+_WORK_LEVEL_LATEST = {}
+
 _STATED = {}
 
 
@@ -3884,6 +3888,17 @@ def main():
         d = yaml.safe_load(nf.read_text()) or {}
         for w in d.get("works") or []:
             u = str(w.get("updated") or "")[:10]
+            # THE DATE THE PLATFORM STATES FOR THE WORK, kept whether or not it is feed-recent,
+            # READER-PLAN items 2 and 10. ニコニコ漫画 is a work-level platform: it says when a
+            # work last updated and never which chapter, so the row has no chapters and its
+            # `latest` was left empty. 470 serialisation rows rendered an entirely blank date cell
+            # beside a cell reading "76 not recorded", and on 柚子森さん the work page said the
+            # state was unknown while the feed listed a chapter from the day before.
+            #
+            # THE PLATFORM SAID IT, so the corpus holds it. What it is NOT is a chapter date, and
+            # `latest_work_level` is what says so to whatever draws it.
+            if u and w.get("work_title"):
+                _WORK_LEVEL_LATEST[(norm_work(w["work_title"]), "ニコニコ漫画")] = u
             if not u or u < wcut or u > wtoday:
                 continue
             # AN APP-ONLY ROUTE PUBLISHES NO WEB CHAPTER, so its 更新 date is a store restocking
@@ -5676,6 +5691,15 @@ def main():
         row["dates_imported"] = bool(dated) and not observed
         row["first"] = str(face[0]["updated"])[:10] if face else None
         row["latest"] = str(face[-1]["updated"])[:10] if face else None
+        # AND WHERE THE PLATFORM STATES A DATE FOR THE WORK ITSELF, that is the newest this source
+        # can tell us. Marked, because it dates the WORK and not a chapter, and a reader should be
+        # able to tell the two apart.
+        if not row["latest"]:
+            _stated_work_date = _WORK_LEVEL_LATEST.get(
+                (norm_work(row.get("work") or ""), row.get("platform") or ""))
+            if _stated_work_date:
+                row["latest"] = _stated_work_date
+                row["latest_work_level"] = True
         row["latest_ep"] = (face[-1].get("title") or "").strip() if face else ""
         row["free"] = sum(1 for c in chs
                           if "free" in (c.get("access_modes") or []) and readable_now(c))

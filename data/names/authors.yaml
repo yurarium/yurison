@@ -11039,18 +11039,6 @@ names:
     reading_source_kind: derived
     reading_url: https://api.openbd.jp/v1/get?isbn=9784048117579
     verified: true
-  スタジオクロマト・スタジオコロリド:
-    basis: romaji
-    reading: スタジオクロマト スタジオコロリド
-    reading_at: '2026-08-14'
-    reading_basis: analyser
-    reading_boundary: the kana in its own surface
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
-    reading_source_kind: analyser
-    verified: false
   スタジオコロリド:
     basis: romaji
     en: Studio Colorido

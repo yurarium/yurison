@@ -2041,10 +2041,26 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
             addr = next(iter(mine))
             here = {tuple(r[:-1]): r[-1] for r in db.execute(
                 f"SELECT {', '.join(key)}, {addr} FROM {table}")}
+            # THE FRESH KEY IS TRANSLATED BEFORE IT IS LOOKED UP, exactly as the rows were on the
+            # way in. `claim`'s natural key CONTAINS a surrogate, `surface`, so the live side of
+            # this map was keyed on live surface ids and the fresh side on the scratch's. Almost
+            # nothing matched, and where a scratch id happened to collide with a different live
+            # one, `claim.id` was mapped onto somebody else's claim.
+            #
+            # WHAT THAT COST. 1,752 authors in the published store read as other people: 古賀由人
+            # came out フルベ リョウ, against its own ruby, and 117 works lost the English byline
+            # that is composed from those readings. It appeared only where a compile ran against a
+            # store an EARLIER compile had made from different data, which is what CI does every
+            # night with the name passes in between and what no single local build reproduces.
+            fresh_key = []
+            for r in fresh.execute(f"SELECT {', '.join(key)}, {addr} FROM {table}"):
+                row = dict(zip(key, r[:-1]))
+                for column, mapping in points_at.items():
+                    if row.get(column) is not None:
+                        row[column] = mapping.get(row[column], row[column])
+                fresh_key.append((tuple(row[c] for c in key), r[-1]))
             translate[(table, addr)] = {
-                r[-1]: here[tuple(r[:-1])]
-                for r in fresh.execute(f"SELECT {', '.join(key)}, {addr} FROM {table}")
-                if tuple(r[:-1]) in here}
+                got: here[k] for k, got in fresh_key if k in here}
         for column, mapping in points_at.items():
             translate[(table, column)] = mapping
     moved, _passes = _delta.converge(db, touched)

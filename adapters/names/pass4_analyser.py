@@ -800,6 +800,13 @@ def main():
             # romanisation is built from, and バクガタリzzZ needs "Bakugatari zzZ" as much as any
             # other title does. Skipping it conflated "useless as ruby" with "useless", and left
             # every kana-and-Latin title with no English at all.
+            # THE SAME RULE AS THE OTHER WRITE SITE, and there are two: this one refills a whole
+            # kind and the one below fills what a later pass named. Guarding one of them let the
+            # analyser write スタジオクロマト・スタジオコロリド a second time, on the very run
+            # after the guard went in, which is what a rule applied at one of two producers buys.
+            if not _reading_facts().spells(s, r):
+                skipped += 1
+                continue
             same_as_surface = r.replace(" ", "") == s.replace(" ", "")
             rec = names.setdefault(s, {})
             if not same_as_surface:

@@ -277,6 +277,48 @@ English labels read as unsorted. A tooltip on about 210 works reading "complete 
 a raw plural, in English only. Internal design commentary shipped in `index.html`, reachable only by
 viewing source.
 
+## What each investigation found, 2026-08-15
+
+**RESOLVED AT ROOT, WITH A CHECK APIECE.** Items 1, 2, 3, 4, 5, 8, 9 and 10.
+
+  ITEM 1 WAS A RENDERING FAULT AND THE DATA WAS COMPLETE. Those works carry a カドコミ source with
+  its own comic-walker URL beside the Niconico one, so nothing had to be captured: `predictedRows`
+  took a row's name from one field and its address from another. `a link goes where its label says`
+  sets `SERIES`, calls the function that builds the view, and holds each row's address against the
+  work's own source list; on the unfixed renderer it reports fifteen.
+
+  ITEMS 2 AND 10 WERE ONE FAULT. ニコニコ漫画 states when a WORK last updated and never which
+  chapter, the row took its dates from chapters alone, and 470 rows dropped a date the source
+  states plainly. The date reaches the row now, marked as dating the work; the 98 that remain are
+  カドコミ rows for which none exists, and the site says so in words.
+
+  ITEM 3's TWO COUNTS WERE TWO POPULATIONS. `series_rows` counts what the build assembled and the
+  statistics count what the store can key, and the difference is a work with no identifier, which
+  reaches no reader at all. The page uses one number and the run reports the other as
+  `awaiting_identifier`.
+
+  ITEM 4 WAS A MISSING REGISTER RATHER THAN A BAD NAME. Thirteen of the 49 platforms the corpus
+  serves were absent from `data/platforms.yaml`, so an adapter's filename looked no different from
+  a platform nobody had recorded.
+
+  ITEM 5 WAS A SECOND REGISTER. The interface kept its own table of English names, which drifted
+  both ways; the name belongs with the platform and travels through `platform_register`.
+
+**REJECTED ON EXAMINATION.** The state badge reading 更新中 alone in 併記 is deliberate and
+documented where `T` is defined: a badge has no room for `更新中 / Updating`. Both call sites use
+the same one-argument form and cannot differ, so the works list does not pair them either. The
+crawl reported a difference that is not there.
+
+**INVESTIGATED AND LEFT OPEN.** Item 11. The catalogued spelling holds a name-map entry with a
+reading and no translation, and that entry blocks the alias that would carry one across. Filling it
+was tried in the build and again in the emitter and both broke `a work shows the English its record
+holds` on w03202, because a fact object there is SHARED between the catalogued spelling and the
+shown one. Untangling that sharing is the work, and naming one work correctly by un-naming another
+is not a fix.
+
+Items 6 and 7 are still to do, and the order below already puts them last because they rest on a
+naming question older than this crawl.
+
 ## Order
 
 Item 1 first, because it is the only one that sends a reader somewhere false. Then 4 and 3, which

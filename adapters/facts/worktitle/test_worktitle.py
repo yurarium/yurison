@@ -44,7 +44,7 @@ def main(s):
          "a zero-width space arrives from a capture and names nothing")
 
     # ── AND IT ANSWERS FOR NOTHING RATHER THAN RAISING, because a capture hands it whatever it
-    # found, and a title that is absent is a state rather than an error.
+    # found, and an absent title is something the corpus records rather than a fault.
     s.eq(fold(None), "", "None normalises rather than raising")
     s.eq(fold(""), "", "and so does an empty title")
 

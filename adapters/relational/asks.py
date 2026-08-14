@@ -91,6 +91,22 @@ QUESTIONS = {
 #: What must never be true. Each returns the offending rows, and the first column is what the
 #: gate prints, so it names the thing rather than counting it.
 INVARIANTS = {
+    # THE STORE CARRIES WHAT THE CHECKS ANSWERED, §13. `check.py` writes `check_result` after the
+    # checks have run, which is a second write on a store that is already stamped and on disk, and
+    # a second write is a thing that can quietly stop happening. It reports its own count every run
+    # so a person watching CI would see it go, and this is the part that does not need watching.
+    #
+    # EMPTINESS IS ALL IT CAN ASK, and that is deliberate rather than weak. A run's checks are
+    # evaluated BEFORE the same run records them, so anything comparing this table against the
+    # checks that exist today would fail on the run that adds a check and pass on the next one,
+    # which is a check that cries wolf about its own deployment. An empty table means the write has
+    # never succeeded, which no ordering makes acceptable.
+    "the store carries what the checks answered": {
+        "sql": "SELECT 'check_result is empty' WHERE NOT EXISTS (SELECT 1 FROM check_result)",
+        "reads": ("check_result",),
+        "asserts": "empty",
+        "fallback": "the run's report is whatever the last successful write left",
+        "canary": "DELETE FROM check_result"},
     # THE FEED HOLDS WHAT A PLATFORM ATTESTED AND NOTHING ELSE. A listing site's claim is an INPUT
     # to the pipeline, and a row that reached the feed on one is the pipeline publishing its own
     # working. The claim survives on status.html, where it is labelled as a claim.

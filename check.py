@@ -83,6 +83,69 @@ def _load(p, default=None):
         return default
 
 
+def _store_report(inv_results, budget_values, recorded, timings, skip_source, unroot):
+    """Put what the checks answered into the store, STORE-PLAN §13.
+
+    THE SECOND WRITE OF THE RUN, AND IT HAS TO BE. The checks read the compiled corpus, so they
+    cannot run inside the compile that produced it, and the store is already stamped and on disk by
+    the time this has an answer. `delta.write` is what that costs: a hundred and thirty rows
+    reconciled against what is there, which is the incremental path §7 built doing the job it was
+    built for.
+
+    A FAILURE HERE MAY NOT COST THE REPORT. `checks.json` is already written by the time this runs
+    and the store is already publishable; a schema that refuses a row, or a store locked by
+    something else, is worth a line on stderr and nothing more. The check that this actually wrote
+    is `the store carries what the checks answered`, which fails LOUDLY at check-in rather than
+    here, so a silent skip cannot become the normal state without something saying so.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters" / "names"))
+        sys.path.insert(0, str(ROOT / "adapters"))
+        import relational as _rel
+        from relational import delta as _delta
+        if not _rel.DB.exists():
+            return
+        db = _rel.open_db()
+        _delta.ensure(db)
+        rows, findings = [], []
+        for name, _fn in INVARIANTS:
+            got = inv_results.get(name)
+            rows.append({"kind": "invariant", "name": name, "value": len(got or []),
+                         "budget": None, "why": None, "not_measured": None,
+                         "seconds": round(timings.get(name, 0.0), 3)})
+            for i, example in enumerate((got or [])[:5]):
+                findings.append({"kind": "invariant", "name": name, "seq": i,
+                                 "finding": unroot(example)})
+        for name, _fn, why in BUDGETS_DEF:
+            missed = ("source-quality budget; measured at check-in"
+                      if skip_source and name in SOURCE_BUDGETS else None)
+            value = budget_values.get(name)
+            if value is None and missed is None:
+                missed = "the check did not run"
+            rows.append({"kind": "budget", "name": name, "value": value,
+                         "budget": recorded.get(name), "why": why, "not_measured": missed,
+                         "seconds": round(timings.get(name, 0.0), 3)})
+        # THE PARENT FIRST AND THE CHILDREN AFTER, because these are the one pair here with a
+        # foreign key between them and this reconcile is not inside `apply`'s deferred transaction.
+        # A finding written before its check has nothing to point at; a check dropped before its
+        # findings takes them with it, which is what the CASCADE is for.
+        _delta.reconcile(db, "check_result", ["kind", "name"], rows)
+        _delta.reconcile(db, "check_finding", ["kind", "name", "seq"], findings)
+        db.commit()
+        # AND IT SAYS WHAT IT WROTE, EVERY TIME, having read it back. A write that reports only its
+        # failures is a write whose success nobody can see, so a run where this stopped happening
+        # would read exactly like a run where nothing needed writing. The read-back is what makes
+        # the number a measurement rather than a restatement of the intent.
+        held = db.execute("SELECT count(*) FROM check_result").fetchone()[0]
+        kept = db.execute("SELECT count(*) FROM check_finding").fetchone()[0]
+        print(f"store           : {held} check(s) recorded, {kept} finding(s)"
+              + ("" if held == len(rows)
+                 else f"; EXPECTED {len(rows)}, so something else is writing this table"))
+    except Exception as why:                                                # noqa: BLE001
+        print(f"store           : the checks were not recorded ({why.__class__.__name__}: {why})",
+              file=sys.stderr)
+
+
 def _yaml(p, default=None):
     """One parse per file per run, shared with every other reader of it.
 
@@ -5616,6 +5679,7 @@ def main():
                  "check-in the same violation blocks. Budgets are counts with no correct value, "
                  "only a direction: they tighten automatically and loosen only by hand."),
     }, ensure_ascii=False, indent=1))
+    _store_report(inv_results, budget_values, recorded, timings, skip_source, _unroot)
     _phase["writing the report"] = time.perf_counter() - _t0
 
     if a.incremental:

@@ -256,6 +256,53 @@ CREATE TABLE run_report (
   value TEXT
 );
 
+-- WHAT THE RUN'S CHECKS ANSWERED, §13. The project owner ruled on 2026-08-14 that the run's report
+-- on itself belongs in the store rather than in three small files published beside it: a consumer
+-- fetching one artefact for the corpus and three more for the report has two boundaries where §11
+-- drew one, and the second is the one nobody would version.
+--
+-- ROWS AND NOT A BLOB, because a check with its value, its budget and whether it was measured IS a
+-- row, and a store holding `checks.json` as text would be a way of shipping the file again.
+--
+-- KEYED ON THE PAIR. An invariant and a budget are free to share a name, and two of them very
+-- nearly do: `content flags are accounted for` is an invariant and `works shaped like prose` a
+-- budget, but nothing stops the next pair colliding, and a primary key that assumed otherwise
+-- would silently keep whichever was written second.
+CREATE TABLE check_result (
+  kind         TEXT NOT NULL CHECK (kind IN ('invariant', 'budget')),
+  name         TEXT NOT NULL,
+  -- WHAT IT COUNTED: violations for an invariant, the measure for a budget. NULL where the check
+  -- did not run, which is a state rather than a zero. `check.py`'s own comment says why that
+  -- distinction is load-bearing: twenty-one budgets once caught every exception and returned 0,
+  -- and a gate ratcheted the recorded budget down to a number nobody had measured.
+  value        INTEGER,
+  -- THE CEILING A BUDGET MAY NOT PASS, and nothing on an invariant, which has no ceiling: it is
+  -- either true or the data is broken.
+  budget       INTEGER,
+  -- WHAT THE NUMBER MEANS, in the words `check.py` carries beside it.
+  why          TEXT,
+  -- AND WHY IT DID NOT RUN, where it did not. A row saying neither what it counted nor why it
+  -- could not is a row that says nothing, which the constraint below refuses.
+  not_measured TEXT,
+  seconds      REAL,
+  PRIMARY KEY (kind, name),
+  CHECK (kind = 'budget' OR budget IS NULL),
+  CHECK (value IS NOT NULL OR not_measured IS NOT NULL)
+) WITHOUT ROWID;
+
+-- THE EXAMPLES A CHECK REPORTED, which are what makes a violation actionable rather than a number.
+-- Stripped of absolute paths before they arrive: several invariants report `<file>:<line>: <what>`
+-- and the file is absolute on whichever machine ran the build, which once wrote a developer's home
+-- directory into the published repository.
+CREATE TABLE check_finding (
+  kind    TEXT NOT NULL,
+  name    TEXT NOT NULL,
+  seq     INTEGER NOT NULL,
+  finding TEXT NOT NULL,
+  PRIMARY KEY (kind, name, seq),
+  FOREIGN KEY (kind, name) REFERENCES check_result (kind, name) ON DELETE CASCADE
+) WITHOUT ROWID;
+
 CREATE TABLE quarantine (
   id         INTEGER PRIMARY KEY,
   -- WHERE IT WAS GOING, WHAT REFUSED IT, AND WHAT IT WAS. The row is kept as the loader had it, so

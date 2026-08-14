@@ -2774,6 +2774,53 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
 
 
 
+def _store_census(src_health, today):
+    """The run's account of its own connectors and queues, into the store. STORE-PLAN §13.
+
+    A SECOND WRITE, FOR THE SAME REASON `check.py`'S IS. The census is assembled where the run's
+    report is assembled, which is after the store has been compiled and applied, so this reconciles
+    a hundred-odd rows against what is already there rather than reopening the compile.
+
+    WHAT THE CAPTURE ACTUALLY RETURNED IS THE HALF THAT WAS NOWHERE. `status.py` read it straight
+    off `data/source` and the status page joined the two halves in the browser, so a connector's
+    account of itself was assembled from a file and a directory, neither of which crosses to the
+    site under §11. Both halves are columns now.
+
+    A FAILURE HERE COSTS THE CENSUS AND NOT THE RUN. `run.json` is already written and the store is
+    already publishable; `the store carries this run's census` is the check that says so at
+    check-in, where it can block.
+    """
+    try:
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters" / "names"))
+        sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+        import relational as _r
+        from relational import delta as _d
+        import status as _status
+        import captures as _captures
+        if not _r.DB.exists():
+            return
+        stated = _status.conforms("data/source")
+        rows = [{"source": s["source"], "files": s.get("files"), "works": s.get("works"),
+                 "rows": s.get("rows"), "retrieved": s.get("retrieved") or None,
+                 "in_scope": int(bool(s.get("in_scope"))), "empty": int(bool(s.get("empty"))),
+                 "stated_rows": (stated.get(s["source"]) or (None, None))[0],
+                 "conforming_rows": (stated.get(s["source"]) or (None, None))[1]}
+                for s in src_health if s.get("source")]
+        queues = []
+        for f in sorted(glob.glob("data/queue/*.yaml")):
+            d0 = _captures.load(f)
+            got = next((v for v in d0.values() if isinstance(v, list)), [])
+            queues.append({"name": pathlib.Path(f).stem, "depth": len(got)})
+        db = _r.open_db()
+        _d.ensure(db)
+        _d.reconcile(db, "run_source", ["source"], rows)
+        _d.reconcile(db, "run_queue", ["name"], queues)
+        db.commit()
+        print(f"store           : {len(rows)} connector(s) and {len(queues)} queue(s) recorded")
+    except Exception as why:                                                # noqa: BLE001
+        print(f"store           : the census was not recorded ({why.__class__.__name__}: {why})")
+
+
 def write_run_record(out, _today, releases, platforms, works, series_rows,
                      claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
                      filled_author, filled_access, samples, catalogue_rows=()):
@@ -3005,7 +3052,10 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
          "filled": {"author": filled_author, "access": filled_access}},
         ensure_ascii=False, indent=1, default=jsonable))
     print(f"claims traced   : {dict(cl)}")
-    return cl
+    # AND THE CENSUS GOES BACK TO THE CALLER, for the store. It is computed here because this is
+    # where the run's account of itself is assembled, and it is written from `main` because the
+    # store has already been applied by the time this runs. §13.
+    return cl, src_health
 
 
 def main():
@@ -7460,9 +7510,10 @@ def main():
                      contradicted_works, print_candidates, web_works, samples,
                      regenerate=set(ARGS.regenerate_archive), store=_store_db)
 
-    cl = write_run_record(out, _today, releases, platforms, works, series_rows,
+    cl, _src_health = write_run_record(out, _today, releases, platforms, works, series_rows,
                           claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
                           filled_author, filled_access, samples, catalogue_rows)
+    _store_census(_src_health, _today)
 
     print(f"syndicated      : {sum(1 for r in releases if r.get('syndicated'))}")
     print(f"provenance      : {dict(Counter(r.get('provenance') for r in releases))}")

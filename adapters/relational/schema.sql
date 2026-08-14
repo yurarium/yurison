@@ -256,6 +256,36 @@ CREATE TABLE run_report (
   value TEXT
 );
 
+-- WHAT EACH CAPTURE RETURNED, §13. `run.json` carried this as `sources` and `status.py` read a
+-- second half of it straight off `data/source`, so the status page's account of a connector was
+-- assembled from a file and a directory neither of which crosses to the site. Both halves are here.
+--
+-- `age_days` IS NOT A COLUMN, and that is §3 rather than thrift. The run's date is in `run_report`
+-- and `retrieved` is here, so the age is a subtraction; storing it would put a second producer of
+-- one fact in the same table as the first, and the stored one goes wrong at midnight.
+CREATE TABLE run_source (
+  source          TEXT PRIMARY KEY,
+  files           INTEGER,
+  works           INTEGER,
+  rows            INTEGER,
+  retrieved       TEXT CHECK (retrieved IS NULL OR retrieved GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
+  in_scope        INTEGER NOT NULL CHECK (in_scope IN (0, 1)),
+  empty           INTEGER NOT NULL CHECK (empty IN (0, 1)),
+  -- READ FROM THE SOURCE FILES RATHER THAN FROM THE BUILD, which is the whole point of the pair:
+  -- by the time a row reaches the build its missing field has been filled in or the row dropped,
+  -- and this asks what the capture actually returned.
+  stated_rows     INTEGER,
+  conforming_rows INTEGER,
+  CHECK (conforming_rows IS NULL OR stated_rows IS NULL OR conforming_rows <= stated_rows)
+) WITHOUT ROWID;
+
+-- HOW MUCH IS WAITING FOR A PERSON. §9's pass works from these, and the status page counts them, so
+-- the depth of each queue is part of what the run has to say about itself.
+CREATE TABLE run_queue (
+  name  TEXT PRIMARY KEY,
+  depth INTEGER NOT NULL CHECK (depth >= 0)
+) WITHOUT ROWID;
+
 -- WHAT THE RUN'S CHECKS ANSWERED, §13. The project owner ruled on 2026-08-14 that the run's report
 -- on itself belongs in the store rather than in three small files published beside it: a consumer
 -- fetching one artefact for the corpus and three more for the report has two boundaries where §11

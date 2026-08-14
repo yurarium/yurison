@@ -107,6 +107,24 @@ INVARIANTS = {
         "asserts": "empty",
         "fallback": "the run's report is whatever the last successful write left",
         "canary": "DELETE FROM check_result"},
+    # AND THE SAME FOR THE CENSUS, which `build.py` writes the same way and for the same reason.
+    # `_store_census` names this check in its own docstring as the thing that would notice it
+    # stopping, and for its first day the check did not exist: the function swallows every
+    # exception by design, so a schema that refused a row or a locked store would have cost the
+    # census silently and for ever. That is STANDING-INSTRUCTIONS §13 with the promise written down
+    # and unkept, which is worse than not promising.
+    #
+    # BOTH TABLES, BECAUSE THEY ARE WRITTEN BY ONE CALL AND CAN FAIL APART. `run_queue` reads
+    # `data/queue` and `run_source` reads a capture census, so a fault in either loop leaves the
+    # other populated and the run looking well.
+    "the store carries this run's census": {
+        "sql": "SELECT 'run_source is empty' WHERE NOT EXISTS (SELECT 1 FROM run_source)"
+               " UNION ALL"
+               " SELECT 'run_queue is empty' WHERE NOT EXISTS (SELECT 1 FROM run_queue)",
+        "reads": ("run_source", "run_queue"),
+        "asserts": "empty",
+        "fallback": "the status page counts whatever the last successful write left",
+        "canary": "DELETE FROM run_source"},
     # THE FEED HOLDS WHAT A PLATFORM ATTESTED AND NOTHING ELSE. A listing site's claim is an INPUT
     # to the pipeline, and a row that reached the feed on one is the pipeline publishing its own
     # working. The claim survives on status.html, where it is labelled as a claim.

@@ -322,6 +322,48 @@ def main(s):
     moved, _c = ident.assign(lent, [("credit:ししお", [], "ししお")], "c")
     s.eq(moved[0]["title"], "ししお", "and a work's title is allowed to move, which is the default")
 
+    # ── A ROW IS SEVERAL ADDRESSES AND THE REGISTRY ANSWERS FOR ONE OF THEM ────────────────────
+    #
+    # まるせっせんす, quoted. Registered on COMIC OGYAAA!!, picked up by pixivコミック, and the two
+    # tied on chapter count so the pixiv address became the row's headline. The registry knows the
+    # OGYAAA address and nothing else, and a lookup on the headline alone answered nothing: the
+    # work left series.json, the store and the site's work list together.
+    reg = ident.index([{"id": "w00192", "anchors":
+                        ["web:https://comic-ogyaaa.com/episode/12207421983939282915"]}])
+    row = {"work": "まるせっせんす", "url": "https://comic.pixiv.net/works/12886",
+           "sources": [{"platform": "pixivコミック", "url": "https://comic.pixiv.net/works/12886"},
+                       {"platform": "COMIC OGYAAA!!",
+                        "url": "https://comic-ogyaaa.com/episode/12207421983939282915"}]}
+    s.eq(ident.web_anchor(row["url"]) in reg, False,
+         "the headline address is one the registry has never seen")
+    s.eq(ident.for_row(row, reg), "w00192", "and a source address answers for the work")
+
+    # THE HEADLINE STILL WINS WHERE IT ANSWERS, so nothing that resolves today moves tomorrow.
+    both = ident.index([{"id": "w00001", "anchors": ["web:https://a.example/1"]},
+                        {"id": "w00002", "anchors": ["web:https://b.example/2"]}])
+    s.eq(ident.for_row({"work": "x", "url": "https://a.example/1",
+                        "sources": [{"url": "https://b.example/2"}]}, both), "w00001",
+         "the row's own address is asked before any of its sources")
+
+    # AND A ROW NO ADDRESS ANSWERS FOR IS A ROW WITHOUT AN IDENTIFIER, which is a state the
+    # interface has to tolerate: a work registered since the last identity run has none yet.
+    s.eq(ident.for_row({"work": "x", "url": "https://nowhere.example/9"}, both), None,
+         "and an unregistered work answers nothing rather than raising")
+    s.eq(ident.for_row({"work": "x"}, both), None, "as does a row carrying no address at all")
+
+    # `shared` REACHES EVERY ADDRESS TRIED, not only the headline. An anthology container serves
+    # five stories, so its anchor carries the story's title, and a source consulted second has to
+    # be asked the same question or it would match the container for whichever story asked first.
+    coll = ident.index([{"id": "w00003", "anchors":
+                         [ident.web_anchor("https://comic.pixiv.net/works/700", "君は光", True)]}])
+    s.eq(ident.for_row({"work": "君は光", "sources": [{"url": "https://comic.pixiv.net/works/700"}]},
+                       coll, lambda u: True), "w00003",
+         "a shared address is qualified by the title wherever it is found")
+    s.eq(ident.for_row({"work": "幼馴染のトロフィー",
+                        "sources": [{"url": "https://comic.pixiv.net/works/700"}]},
+                       coll, lambda u: True), None,
+         "so the other story in the same container does not take its identifier")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

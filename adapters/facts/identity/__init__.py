@@ -147,6 +147,37 @@ def web_anchor(url, title=None, shared=False):
     return f"web:{url}#{match_key(title)}" if shared else f"web:{url}"
 
 
+def for_row(row, anchors, shared=None):
+    """The identifier a collapsed series row carries, from ANY address its sources hold.
+
+    A ROW IS ONE WORK AND SEVERAL PLATFORMS, and it carries a single headline `url` chosen from
+    whichever platform had the fullest coverage. The registry answers for the address a person
+    registered, which is whichever platform the work was FOUND on, and the two part company the
+    moment a second platform picks the work up. まるせっせんす was registered on COMIC OGYAAA!!,
+    pixivコミック matched it for chapter count and won the headline, and the row went out with no
+    identifier at all: no work page, no `wid` on its feed rows, and since STORE-PLAN §6 keys works
+    on the identifier, no row in `series.json` or in the store either. One work vanished from the
+    corpus because a second platform started carrying it.
+
+    SO EVERY ADDRESS THE ROW HOLDS IS TRIED, headline first and then each source in turn. The
+    headline keeps priority so nothing that resolves today resolves differently tomorrow, and a
+    source address is consulted only where the headline answers nothing.
+
+    `shared(url) -> bool` is the caller's judgement about whether an address serves more than one
+    work, decided over the whole population, as `web_anchor` requires. Returns `None` where no
+    address the row holds is one the registry knows.
+    """
+    seen, title = [], (row.get("work") if hasattr(row, "get") else None)
+    for u in [row.get("url")] + [s.get("url") for s in (row.get("sources") or [])]:
+        if not u or u in seen:
+            continue
+        seen.append(u)
+        got = anchors.get(web_anchor(u, title, bool(shared(u)) if shared else False))
+        if got:
+            return got
+    return None
+
+
 def print_anchor(work_id):
     wid = (work_id or "").strip()
     return f"madb:{wid}" if wid else None

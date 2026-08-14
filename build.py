@@ -6218,10 +6218,16 @@ def main():
                 _print_by_id[_e["id"]] = _mad
         _pw = {w["work_id"]: w for w in works if w.get("work_id")}
         _named = _joined = 0
+        _by_source = 0
         for _srow in series_rows:
-            _anchor = identity.web_anchor(_srow.get("url"), _srow.get("work"),
-                                          _shared[_srow.get("url")] > 1)
-            _found_id = _byanchor.get(_anchor)
+            # EVERY ADDRESS THE ROW HOLDS, not only its headline. The headline is whichever
+            # platform had the fullest coverage and the registry answers for whichever platform
+            # the work was found on, so a work picked up by a second platform can lose its
+            # identifier to a tie-break. See `identity.for_row`, which owns the rule.
+            _found_id = identity.for_row(_srow, _byanchor, lambda u: _shared[u] > 1)
+            _by_source += bool(_found_id) and not _byanchor.get(
+                identity.web_anchor(_srow.get("url"), _srow.get("work"),
+                                    _shared[_srow.get("url")] > 1))
             if _found_id:
                 _srow["id"] = _found_id
                 _named += 1
@@ -6230,7 +6236,9 @@ def main():
                     _srow["print"] = [_print_block(_e2) for _e2 in _eds]
                     _joined += 1
         print(f"work identifiers: {_named} of {len(series_rows)} rows carry one; "
-              f"{_joined} also carry their print edition")
+              f"{_joined} also carry their print edition"
+              + (f"; {_by_source} answered by a source address rather than the row's own"
+                 if _by_source else ""))
 
         # THE PRINT-ONLY POPULATION JOINS THE WORKS LIST. It used to live in a tab of its own,
         # which is how one database came to hold two populations a reader had to notice were the

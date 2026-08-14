@@ -6,11 +6,27 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-08-14
+retrieved: 2026-08-15
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984094535779"
+    work_title: "上杉くんは女の子をやめたい"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "本誌７月号出張番外編"
+    release_type: "extra"
+    date: "2026-08-15"
+    date_basis: "observed"
+    first_seen: "2026-08-15"
+    first_reported: "2026-08-14T15:00:00Z"
+    platform_updated: "2026-08-14T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984094535779"
+    author: "やぶうち優"
+    free_term_start: "2026-08-14T15:00:00Z"
+    advances_narrative: true
   - release_id: "sunday_webry:episode:12207421984093442305"
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"

@@ -9,8 +9,8 @@ retrieved: 2026-08-15
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 317
-works_on_watched_platform: 294
+distinct_works: 316
+works_on_watched_platform: 293
 platforms_total: 56
 platforms_watched: 38
 # ranked by works reachable on NO watched platform
@@ -198,6 +198,11 @@ works_missing:
     platform: "Seasons"
     url: "https://comic-seasons.com/episode/2551460909766158255"
     antenna_id: "198917"
+    tags: ["百合"]
+  - title: "ロリースイートロリー"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13522"
+    antenna_id: "213547"
     tags: ["百合"]
   - title: "新米姉妹のふたりごはん"
     platform: "pixivコミック"
@@ -438,7 +443,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007122_S"
     antenna_id: "196622"
-    tags: ["百合", "忍者"]
+    tags: ["最近のコメント数"]
   - title: "猫に白鳥、蛍に小判"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006798_S"
@@ -739,11 +744,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006791_S"
     antenna_id: "194339"
     tags: ["百合"]
-  - title: "幼馴染は、にゃあと鳴いてスカートのなか"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006116_S"
-    antenna_id: "179557"
-    tags: ["女子高生", "猫", "百合", "ラブコメ", "完結"]
   - title: "香り屋さんの纏さん"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2286"
@@ -1279,6 +1279,11 @@ works_missing:
     url: "https://flowercomics.jp/title/1409"
     antenna_id: "172525"
     tags: ["百合", "悪役"]
+  - title: "オカルトタイムズ"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    antenna_id: "211531"
+    tags: ["百合", "オカルト"]
   - title: "アイドラトリィ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/02901"
@@ -1299,11 +1304,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03056"
     antenna_id: "200175"
     tags: ["百合", "漫画家・絵描き"]
-  - title: "オカルトタイムズ"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    antenna_id: "211531"
-    tags: ["百合", "オカルト"]
   - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/02328"
@@ -1649,6 +1649,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "「触れたい」は恋の始まり"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/5a87d01128492"
+    antenna_id: "175491"
+    tags: ["百合", "学園"]
   - title: "貴女へささげるサディスティック"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/ae1cf555c8b01"
@@ -1734,11 +1739,6 @@ works_missing:
     url: "https://takecomic.jp/series/4e4bb1b935407"
     antenna_id: "126252"
     tags: ["フェチ・性癖", "百合", "ヒューマンドラマ", "エロ", "お色気・微エロ", "ギャグ・コメディ"]
-  - title: "「触れたい」は恋の始まり"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/5a87d01128492"
-    antenna_id: "175491"
-    tags: ["百合", "学園"]
   - title: "フレンドガールフレンド"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"

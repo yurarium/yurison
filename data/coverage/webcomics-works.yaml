@@ -9,7 +9,7 @@ source: webcomics.jp
 role: discovery-only
 retrieved: 2026-08-15
 record_type: candidate_works
-works: 317
+works: 316
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -1834,8 +1834,8 @@ candidates:
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204184"]
   - title: "ロリースイートロリー"
-    platforms: ["キミコミ"]
-    urls: ["https://kimicomi.com/series/f7db55fffae10"]
+    platforms: ["pixivコミック", "キミコミ"]
+    urls: ["https://comic.pixiv.net/works/13522", "https://kimicomi.com/series/f7db55fffae10"]
     tags: ["百合"]
   - title: "ロンリーガールに逆らえない"
     platforms: ["pixivコミック", "マガポケ", "一迅プラス"]
@@ -1881,7 +1881,7 @@ candidates:
   - title: "七限目は忍者修行です!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007122_S"]
-    tags: ["忍者", "百合"]
+    tags: ["忍者", "最近のコメント数", "百合"]
   - title: "三年坂"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004855_S"]
@@ -2158,7 +2158,7 @@ candidates:
   - title: "凛としてきゅん"
     platforms: ["となりのヤングジャンプ", "ヤンジャン+"]
     urls: ["https://tonarinoyj.jp/episode/12207421984080790252", "https://ynjn.jp/title/37944"]
-    tags: ["百合", "読み切り"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "凪の果てにて"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203892"]

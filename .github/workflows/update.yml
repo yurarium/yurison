@@ -420,6 +420,7 @@ jobs:
       # history a year, and a release asset never enters it at all. `GITHUB_TOKEN` is enough
       # because the release is on this repository; no cross-repository credential exists any more.
       - name: Publish the store
+        id: publish
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -429,6 +430,34 @@ jobs:
             --title "$TAG" \
             --notes "The compiled corpus. Schema and format carry no guarantee; a consumer reads \
           \`store_stamp\` and refuses what it does not know."
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      # A CONSUMER IS TOLD, AND THIS FILE DOES NOT KNOW WHICH ONE. The mechanism is here and the
+      # subscriber is repository configuration: `CONSUMER_REPO` and `CONSUMER_WORKFLOW` are Actions
+      # variables and `CONSUMER_TOKEN` an Actions secret, none of them in the tree. Nothing in this
+      # repository names the site, and a second consumer or none at all is a settings change rather
+      # than a commit. WITH NOTHING CONFIGURED THIS STEP DOES NOT RUN, which is the state it is
+      # committed in.
+      #
+      # SCOPE THE TOKEN TO `Actions: write` ON THE ONE REPOSITORY. `workflow_dispatch` is the
+      # narrowest endpoint that starts a run; `repository_dispatch` would want `Contents: write`,
+      # and a token that can start a build should not also be a token that can rewrite the site.
+      #
+      # A FAILURE HERE WARNS AND DOES NOT FAIL THE RUN. The store is already published and a
+      # consumer that also polls will find it within its own period, so a token that expired
+      # overnight costs latency rather than the update. The annotation is what stops that decaying
+      # into a notification nobody notices has stopped arriving.
+      - name: Tell a consumer the store has moved
+        if: ${{ vars.CONSUMER_REPO != '' && vars.CONSUMER_WORKFLOW != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.CONSUMER_TOKEN }}
+          TAG: ${{ steps.publish.outputs.tag }}
+        run: |
+          gh workflow run "${{ vars.CONSUMER_WORKFLOW }}" \
+            --repo "${{ vars.CONSUMER_REPO }}" --field release="$TAG" \
+          || echo "::warning::the consumer at ${{ vars.CONSUMER_REPO }} was not reachable; \
+          $TAG is published and its own schedule will find it"
+
       - name: Stage A failed, and the data was published first
         if: ${{ steps.stage_a.outcome == 'failure' }}
         run: |

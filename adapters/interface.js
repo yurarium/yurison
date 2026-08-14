@@ -169,6 +169,15 @@ function main() {
     return 1;
   }
 
+  // WHAT THE FUNCTION ANSWERED, AND NOT ITS SHAPE COERCED TO A STRING. Every label function
+  // returns markup, so String() was right for all of them; a function answering with ROWS came
+  // back as [object Object] repeated, which is the harness losing the answer rather than
+  // reporting it. `value` carries the structure where there is one and `html` is unchanged for
+  // every existing caller.
+  //
+  // AND THE COMMENT LIVES OUT HERE. The block below is a template literal, so a backtick inside
+  // it ends the program: the first version of this note was written in there and node exited 1
+  // on a syntax error four lines further down.
   let results;
   try {
     results = vm.runInContext(`
@@ -179,8 +188,11 @@ function main() {
           const args = call.length > 2 ? call.slice(1) : [call[1]];
           const f = (0, eval)(fn);
           if (typeof f !== 'function') throw new Error('kari/app.js has no function ' + fn);
-          const html = String(f(...args) ?? '');
-          return { html, text: text(html) };
+          const got = f(...args) ?? '';
+          const html = String(got);
+          const shaped = got !== null && typeof got === 'object';
+          return shaped ? { html, text: text(html), value: got }
+                        : { html, text: text(html) };
         });
       })()
     `, ctx);

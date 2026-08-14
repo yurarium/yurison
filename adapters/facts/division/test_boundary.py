@@ -259,5 +259,30 @@ def marked_donors(s):
     s.eq(_d.is_marked("analyser"), True, "so a division it supplies stays marked")
 
 
+    # ── AN INTERPUNCT IS PART OF THE NAME, NOT A SPACE ────────────────────────────────────────
+    #
+    # `flat` takes the interpunct out with the spaces, because a source writing トリイ・シヅク and
+    # one writing トリイ シヅク state the same division. Writing a SPACE back where the surface had
+    # `・` states something else, and for a KANA surface it respells the name: a kana name is its
+    # own reading, so スタジオクロマト・スタジオコロリド divided as スタジオクロマト スタジオコロリド
+    # no longer spells itself. It reached the live site and blocked a gate.
+    s.eq(b.from_surface("スタジオクロマト・スタジオコロリド",
+                               "スタジオクロマトスタジオコロリド"),
+         "スタジオクロマト・スタジオコロリド",
+         "a division the surface writes with an interpunct is written back with one")
+    s.eq(b.from_surface("かしい 葵", "カシイアオイ"), "カシイ アオイ",
+         "and a division the surface writes with a space still gets a space")
+
+    # A SEPARATOR HOLDING BOTH IS WRITTEN AS A SPACE, which is the safer of the two: the surface
+    # stated a space as well, and a space divides without asserting a character.
+    s.eq(b.from_surface("アイ・ ウエ", "アイウエ"), "アイ ウエ",
+         "a separator that is not entirely interpuncts comes back a space")
+
+    # AND `respace` TAKES WHAT IT IS GIVEN, defaulting to what every caller wanted before.
+    s.eq(b.respace("アイウエオ", [2]), "アイ ウエオ", "no separator named means a space")
+    s.eq(b.respace("アイウエオ", [2], {2: "・"}), "アイ・ウエオ",
+         "and a named one is used at its own offset")
+
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

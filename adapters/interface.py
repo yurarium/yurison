@@ -567,7 +567,10 @@ class Interface:
         read `<完>` as an element and threw it away, so a comparison against the Python fold
         reported a disagreement that only the harness had.
         """
-        return [r["html"] for r in self.rendered(calls)]
+        # THE STRUCTURE WHERE THERE IS ONE. A function answering with rows rather than with markup
+        # came back as `[object Object]` repeated, which is the harness losing the answer. Every
+        # existing caller asks a label function and gets exactly what it got before.
+        return [r["value"] if "value" in r else r["html"] for r in self.rendered(calls)]
 
     def rendered(self, calls):
         return render(calls, names=self.names, names_path=self.names_path,

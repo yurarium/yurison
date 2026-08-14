@@ -126,14 +126,31 @@ def cuts(reading):
     return tuple(a for a in at if 0 < a < seen)
 
 
-def respace(run, at):
-    """The run with a space at each offset."""
+def respace(run, at, sep=None):
+    """The run with a boundary at each offset, a space unless `sep` names another.
+
+    THE SEPARATOR IS PART OF THE NAME WHERE THE NAME WROTE ONE. `flat` takes the interpunct out
+    with the spaces, because a source writing トリイ・シヅク and one writing トリイ シヅク state
+    the same division; putting a SPACE back where the surface had `・` states something else. For a
+    kana surface that is the whole difference between a reading and a misspelling:
+    スタジオクロマト・スタジオコロリド came back as スタジオクロマト スタジオコロリド, and a kana
+    name IS its own reading, so the name had been respelled.
+
+    `sep` IS `{offset: separator}` AND ONLY THE CALLER THAT SAW THE SURFACE CAN BUILD IT. This
+    takes what it is given and defaults to a space, which is what every caller wanted before.
+    """
     out, last = [], 0
     for a in at:
         out.append(run[last:a])
         last = a
     out.append(run[last:])
-    return " ".join(p for p in out if p)
+    parts = [(p, i) for i, p in enumerate(out) if p]
+    if not parts:
+        return ""
+    got = parts[0][0]
+    for text, i in parts[1:]:
+        got += ((sep or {}).get(at[i - 1], " ") if i - 1 < len(at) else " ") + text
+    return got
 
 
 def carry(surface, donor):
@@ -298,7 +315,12 @@ def from_surface(name, reading):
     end of ミツモトヒヨリ and the offset stands; a reading that transcribes the kana differently, as
     a filing key folding づ to ず does, does not match and nothing is carried.
     """
-    parts = [p for p in re.split(r"[\s　・･]+", str(name or "")) if p]
+    # THE SEPARATORS TRAVEL WITH THE PARTS, in order, so the division can be written back the way
+    # the surface wrote it. A name divided by `・` that comes back divided by a space has been
+    # respelled rather than divided, which for a kana name is the reading no longer spelling it.
+    text = str(name or "")
+    parts = [p for p in re.split(r"[\s　・･]+", text) if p]
+    seps = [m.group(0) for m in re.finditer(r"[\s　・･]+", text)]
     ours = flat(reading)
     if len(parts) < 2 or not ours:
         return None
@@ -324,13 +346,21 @@ def from_surface(name, reading):
         return None
     # THE ANCHOR HAS TO BE WHERE IT SAYS IT IS. Every kana part read off the surface must appear in
     # the reading at the offset the arithmetic put it, or the two strings are not each other's.
-    if respace(ours, tuple(at)).replace(" ", "") != ours:
+    # AN INTERPUNCT IS KEPT AND A RUN OF WHITESPACE BECOMES ONE SPACE, which is what the surface
+    # said in each case. Only a separator that is entirely interpuncts is carried over: a name
+    # written `A・ B` is stating a space as well and the space is the safer of the two.
+    marks = {}
+    for i, off in enumerate(at):
+        got = seps[i] if i < len(seps) else " "
+        if got and set(got) <= set("・･"):
+            marks[off] = got
+    if respace(ours, tuple(at), marks).replace(" ", "").replace("・", "").replace("･", "") != ours:
         return None
-    pieces = respace(ours, tuple(at)).split(" ")
+    pieces = re.split(r"[ ・･]", respace(ours, tuple(at), marks))
     for p, piece in zip(parts, pieces):
         if KANA_RUN.fullmatch(p) and flat(p) != piece:
             return None
-    return respace(ours, tuple(at)) if len(pieces) == len(parts) else None
+    return respace(ours, tuple(at), marks) if len(pieces) == len(parts) else None
 
 
 #: WHAT THE ANALYSER HAS TO SAY BEFORE ITS BOUNDARY IS A NAME BOUNDARY. Sudachi tags a morpheme

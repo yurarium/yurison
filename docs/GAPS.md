@@ -2999,3 +2999,25 @@ the rulings while somebody spends a morning looking for it in the updater.
 read one answer. That is a change to the build rather than to the store, so it is documented here.
 Until then `test_emit` asserts every field of `index.json` except the one the rulings reach, and
 says why.
+
+## A published release can leave its month, and a published release can vanish
+
+Found 2026-08-14, by the guard in the site's build refusing to drop three rows from `feed/2026-07.json`.
+
+**TWO ROWS MOVED MONTH BECAUSE THE LEDGER LEARNED THEM LATE.** `comicfuz:78983` and `78986` were
+served in July's archive from 2026-08-02, both with `feed_date` equal to their publication date
+because the first-sighting ledger held no entry for them. The ledger gained their key on 2026-08-07,
+and a row's month follows `feed_date`, so they now claim August and leave the month they were
+published in. The archive is itself proof of an earlier sighting: a row served on 2026-08-02 was
+seen no later than that, and the ledger says 2026-08-07. Either the ledger's date is corrected to
+what the archive proves, or July is regenerated deliberately and the rows move with that said out
+loud. The ledger cannot see the archive, because §11 leaves the published files in the other
+repository, so the owner decides and no pass can.
+
+**AND ONE ROW IS SIMPLY GONE.** `pixivcomic:…:Step.13② されど花は枯れず` is in the published July
+archive and in no source the corpus now holds. Under the old arrangement the archive file kept it
+because the file was kept; §6 made the file derived and §7 made the store forget what a capture
+stops returning, so a release nobody captures again is a release the store drops and the archive
+loses. That is a real change in what "a published update does not stop having happened" can mean,
+and the choice it forces is whether `release` is append-only with a mark for what is no longer
+listed, or whether an archive may lose a row when its source does.

@@ -333,13 +333,44 @@ POPULATIONS = {
                " WHERE NOT EXISTS (SELECT 1 FROM print_row p WHERE p.work = w.id)"
                " ORDER BY w.id, o.id",
         "reads": ("work", "offer", "print_row", "work_byline")},
+    # EVERY WORK IN A GIVEN STATE, WITH WHAT A SHELF NEEDS TO SEARCH FOR IT. `ndl`, `bookwalker`
+    # and `ndl_volumes` each read `series.json` and filtered it on `state` in Python, which is one
+    # question written three times and a compile the pass could not say it needed. The state is
+    # bound rather than interpolated: these run from a workflow argument.
+    "works in a state": {
+        "sql": "SELECT w.id AS id, w.title AS work, b.field AS author, s.state AS state"
+               " FROM work w JOIN work_state s ON s.work = w.id"
+               " LEFT JOIN work_byline b ON b.work = w.id"
+               " WHERE s.state = :state ORDER BY w.id",
+        "reads": ("work", "work_state", "work_byline"),
+        "params": ("state",)},
+    # AND EVERY WORK THE CORPUS HOLDS, for the passes that need to answer "is this one of ours"
+    # about a title arriving from outside. `sevenseas` keys its own lookup on the folded title and
+    # so does `recon/bookwalker_shelf` on the author, and both were rebuilding that map from the
+    # file each run.
+    "works with their title and byline": {
+        "sql": "SELECT w.id AS id, w.title AS work, b.field AS author FROM work w"
+               " LEFT JOIN work_byline b ON b.work = w.id ORDER BY w.id",
+        "reads": ("work", "work_byline")},
 }
 
 
-def population(db, name):
-    """The rows of a named population, as dicts keyed by the columns the query selects."""
+def population(db, name, **params):
+    """The rows of a named population, as dicts keyed by the columns the query selects.
+
+    A POPULATION MAY TAKE PARAMETERS AND THEY ARE BOUND, never interpolated. `works in a state` is
+    asked with whichever state a workflow argument named, and a query built by concatenation would
+    make the caller's argument part of the SQL.
+    """
     spec = POPULATIONS[name]
-    cur = db.execute(spec["sql"])
+    wanted = tuple(spec.get("params") or ())
+    missing = [k for k in wanted if k not in params]
+    if missing:
+        raise TypeError(f"{name} needs {', '.join(missing)}")
+    extra = [k for k in params if k not in wanted]
+    if extra:
+        raise TypeError(f"{name} takes no {', '.join(extra)}")
+    cur = db.execute(spec["sql"], {k: params[k] for k in wanted})
     cols = [c[0] for c in cur.description]
     return [dict(zip(cols, r)) for r in cur.fetchall()]
 

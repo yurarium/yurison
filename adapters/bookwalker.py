@@ -24,8 +24,13 @@ WHAT KIND OF SOURCE THIS IS. A licensed distributor, so it sells the publisher's
 the publisher's word about it. Ranked below the platform serialising the work and above an
 aggregator: it is a shop describing its own stock, which is a matter of record.
 """
+import pathlib
 import re
+import sys
 import unicodedata
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import population  # noqa: E402
 import htmlbits as _htmlbits                                            # noqa: E402
 
 SERIES_URL = re.compile(r"https://bookwalker\.jp/series/(\d+)")
@@ -109,7 +114,10 @@ def main(argv=None):
     import argparse, datetime, json, pathlib, time, urllib.parse, urllib.request
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13. It defaulted to a build artefact, so
+    # the pass needed a compile it never declared and died on a fresh runner that had none.
+    ap.add_argument("--series", default=None,
+                    help="read the population from this series.json instead of from the store")
     ap.add_argument("--out", default="data/coverage/bookwalker-completion.yaml")
     ap.add_argument("--state", default="dormant")
     ap.add_argument("--pause", type=float, default=2.5)
@@ -122,8 +130,7 @@ def main(argv=None):
         with urllib.request.urlopen(req, timeout=40) as r:
             return r.read().decode("utf-8", "replace")
 
-    works = [w for w in json.loads(pathlib.Path(a.series).read_text())["series"]
-             if w.get("state") == a.state]
+    works = population.works_in_state(a.state, a.series)
     rows, unmarked, missing = [], 0, 0
     for w in works:
         try:

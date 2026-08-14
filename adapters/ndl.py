@@ -22,12 +22,14 @@ DISAMBIGUATION IS THE HARD PART. A title search for `citrus+` returns two volume
 book from 2007. So a record counts only where the creator agrees with the author we hold, and a
 work whose author we do not know gets no answer rather than a guess.
 """
+import json
 import pathlib
 import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
+import population  # noqa: E402
 import htmlbits as _htmlbits                                            # noqa: E402
 from facts import namekey as _namekey                                   # noqa: E402
 
@@ -120,14 +122,16 @@ def main(argv=None):
     import argparse, datetime, json, pathlib, time, urllib.parse, urllib.request
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED. It defaulted to `data/build/series.json`,
+    # so the pass needed a compile it never declared and died on a fresh runner that had none.
+    ap.add_argument("--series", default=None,
+                    help="read the population from this series.json instead of from the store")
     ap.add_argument("--out", default="data/coverage/ndl-volumes.yaml")
     ap.add_argument("--state", default="dormant")
     ap.add_argument("--pause", type=float, default=1.5)
     a = ap.parse_args(argv)
 
-    works = [w for w in json.loads(pathlib.Path(a.series).read_text())["series"]
-             if w.get("state") == a.state]
+    works = population.works_in_state(a.state, a.series)
     ua = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
     rows, no_author, silent = [], 0, 0
     for w in works:

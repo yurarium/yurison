@@ -15,8 +15,13 @@ as pornography outright, and an adult imprint is one of its four signals, so the
 from the page and carried rather than discarded. Nothing here decides the exclusion; it records
 what the licensor says so the decision can be made on evidence.
 """
+import pathlib
 import re
+import sys
 import unicodedata
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import population  # noqa: E402
 import html as _html
 
 SERIES = re.compile(r'href="(https://sevenseasentertainment\.com/series/[^"#?]+)"[^>]*>(.*?)</a>',
@@ -77,7 +82,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--tag", default="https://sevenseasentertainment.com/tag/yuri/")
     ap.add_argument("--pages", type=int, default=4)
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13. It defaulted to a build artefact, so
+    # the pass needed a compile it never declared and died on a fresh runner that had none.
+    ap.add_argument("--series", default=None,
+                    help="read the population from this series.json instead of from the store")
     ap.add_argument("--out", default="data/queue/english-licences.yaml")
     ap.add_argument("--pause", type=float, default=1.5)
     a = ap.parse_args(argv)
@@ -105,8 +113,7 @@ def main(argv=None):
         if len(found) == before:
             break
 
-    ours = {match_key(w["work"]): w for w in
-            json.loads(pathlib.Path(a.series).read_text())["series"]}
+    ours = {match_key(w["work"]): w for w in population.works(a.series)}
     rows, unmatched, noja = [], 0, 0
     for url, en in sorted(found.items()):
         try:

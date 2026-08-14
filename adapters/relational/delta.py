@@ -162,9 +162,12 @@ def write(db, table, key, values):
     write producing what is already there returns False, and a False here is what stops the cascade.
     """
     where = " AND ".join(f"{c} IS ?" for c in key)
-    got = db.execute(f"SELECT {', '.join(values)} FROM {table} WHERE {where}",
+    # A ROW THAT IS ALL KEY AND NO VALUE still exists or does not, and `SELECT  FROM` is a syntax
+    # error. `print_row_record` is one: both its columns are the key, so the only thing a write can
+    # say about it is whether the row is there.
+    got = db.execute(f"SELECT {', '.join(values) if values else '1'} FROM {table} WHERE {where}",
                      tuple(key.values())).fetchone()
-    if got is not None and list(got) == list(values.values()):
+    if got is not None and (not values or list(got) == list(values.values())):
         return False
     if got is None:
         cols = list(key) + [c for c in values if c not in key]
@@ -240,3 +243,45 @@ def value(db, name):
     """The last answer recorded for a derivation, or None if it has never been computed."""
     got = db.execute("SELECT value FROM derivation WHERE name = ?", (name,)).fetchone()
     return json.loads(got[0]) if got else None
+
+
+def reconcile(db, table, key_columns, rows, value_columns=None):
+    """Bring one table to exactly `rows`, through `write` and `drop`. Returns what changed.
+
+    THE PRODUCTION CALLER §7 WAS MISSING. `write` and `drop` have existed since the store did and
+    nothing outside their own tests ever called one, which means the incremental path was a design
+    with no exercise: the argument for it is that an idempotent write plus a pure derivation
+    converges on the same fixed point a rebuild does, and an argument nothing runs is a hypothesis.
+
+    WHY A WHOLE TABLE RATHER THAN A DIFF THE CAPTURE HANDS OVER. A capture knows what it saw and
+    does not know what has GONE, and the delta kind these systems get wrong is deletion: an output
+    whose input disappeared has nothing left to notice it. Handed the rows that should be there,
+    this can see both, and the write that produces the value already present returns False and
+    cascades nothing, which is the whole trick.
+
+    `rows` is an iterable of column-to-value mappings, each holding the key columns and the values.
+    Returns `(written, dropped, unchanged)`.
+    """
+    value_columns = list(value_columns or ())
+    if not value_columns:
+        for row in rows:
+            value_columns = [c for c in row if c not in key_columns]
+            break
+    want = {}
+    for row in rows:
+        want[tuple(row.get(c) for c in key_columns)] = row
+    held = {tuple(r) for r in db.execute(
+        f"SELECT {', '.join(key_columns)} FROM {table}").fetchall()}
+
+    written = unchanged = 0
+    for k, row in want.items():
+        if write(db, table, {c: row.get(c) for c in key_columns},
+                 {c: row.get(c) for c in value_columns}):
+            written += 1
+        else:
+            unchanged += 1
+    dropped = 0
+    for k in held - set(want):
+        if drop(db, table, dict(zip(key_columns, k))):
+            dropped += 1
+    return written, dropped, unchanged

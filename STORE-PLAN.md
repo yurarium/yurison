@@ -59,7 +59,7 @@ below moves one domain to the other side of that line.
 | §5j | A vocabulary with one home, and a key into it | done 2026-08-13 |
 | §5k | A date says it is a date | done 2026-08-13 |
 | §6 | The compiler writes the store; the JSON is emitted from it | DONE 2026-08-13. Every corpus file is emitted from the store and the budget is 0 |
-| §7 | Incremental on every update, reconciled weekly | §6, and §5b absolutely |
+| §7 | Incremental on every update, reconciled weekly | done 2026-08-14 |
 | §8 | Turn the schedule on | §7, and TODO-github-setup §C's conditions |
 | §9 | The maintenance pass, and what it works from | §1a |
 | §10 | An invariant is a query on the store | §6 |
@@ -1364,6 +1364,29 @@ when the JSON does.
 form, a divergence has no JSON to arbitrate between them, so the report has to be good enough to
 act on by itself. It already refuses to overwrite the incremental store with the rebuilt one, and
 that decision becomes more important rather than less.
+
+**DONE 2026-08-14, AND THE FAILURE MODES ARRIVED EXACTLY WHERE THIS SECTION SAID THEY WOULD.**
+`relational.apply` reconciles the store against the rows the run compiled, and `build.py` calls it
+instead of replacing the file. A second consecutive build now writes NOTHING: 262,495 rows
+unchanged, nothing dropped, no derivation moved. That is the idempotence the design has always
+claimed, demonstrated against the corpus rather than against a fixture.
+
+**A SURROGATE ID IS NOT A FACT, WHICH COST FOUR ATTEMPTS TO STATE PROPERLY.** `surface.id` is handed
+out by the insert that made the row, so the same name is 23581 in one compile and 23585 in the next.
+Keyed on it, every row looked new; dropped from the comparison, an EDGE compared equal to an edge
+pointing somewhere else. What works is translating a number into what it MEANS, following the chain
+as far as it goes: `credit_part_role.surface` addresses `credit_part`, which addresses
+`credit_division`, which is a surface, and only the last of the four is a rowid. Keys are checked at
+COMMIT rather than per statement, because no ordering of forty tables is right in both directions at
+once.
+
+**AND A STALE DIGEST NEVER HEALS, which the weekly reconciliation found on its first real run.**
+Convergence recomputes what a write TOUCHED, so an answer recorded before a change that has since
+stopped moving its tables stays wrong for ever: `names nothing in the corpus is identified by` was
+recorded at 593 where the store said 637. Re-asking all fifteen base questions costs 0.02 s, which
+is less than the argument for not doing it, and `converge` still gates the cascade, which is where
+the cost would be if there were one. An updated store and one rebuilt from nothing now agree on
+every derivation and every table.
 
 ## What this plan does not decide
 

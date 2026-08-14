@@ -4009,9 +4009,9 @@ def main():
                 known_titles[norm_work(ti)] = ti
     for r in releases:
         known_titles.setdefault(norm_work(r["work"]), r["work"])
-    # Web漫画アンテナ lists a clean title in its own cell. It is not an attesting source, but a
-    # title string is all that is needed to locate the boundary in a 百合ナビ cell — the split is
-    # then checked against the cell itself, so a wrong title simply fails to match.
+    # Web漫画アンテナ lists a clean title in its own cell. It attests nothing, and a title string is
+    # all that is needed to locate the boundary in a 百合ナビ cell: the split is then checked
+    # against the cell itself, so a wrong title simply fails to match.
     _cf = pathlib.Path("data/source/comparators/claims.yaml")
     if _cf.exists():
         for c in (yaml.safe_load(_cf.read_text()) or {}).get("updates") or []:
@@ -7060,15 +7060,30 @@ def main():
     # and one whose spelling was withdrawn. An emitter that is ALMOST right is a second producer.
     import relational as _rel
     from relational import emit as _emit
-    _store_db, _store_counts, _store_refused = _rel.build(
-        source={"series": {"series": series_rows}, "works": {"works": works},
+    # ── THE STORE IS UPDATED WHERE ONE EXISTS, AND BUILT WHERE ONE DOES NOT, §7 ───────────────
+    #
+    # `delta.write` HAD NO PRODUCTION CALLER, which made the incremental design a hypothesis: its
+    # argument is that an idempotent write plus a pure derivation converges on the fixed point a
+    # rebuild produces, and nothing but its own tests had ever put that in front of real captures.
+    # `relational.apply` compiles the same rows a rebuild would and reconciles the store against
+    # them, so a row that has not moved is not written, a row the capture no longer states is
+    # dropped, and only a derivation whose ANSWER changed cascades.
+    #
+    # WHAT THAT BUYS BESIDES THE ARGUMENT. The store keeps its own memory across runs: the
+    # quarantine §5g carries forward, and the derivation digests that say which answers moved
+    # TODAY rather than which exist at all.
+    _store_source = {"series": {"series": series_rows}, "works": {"works": works},
                 # THE FEED'S OWN ROWS, so the store is not reading back the files it emits.
                 "releases": releases,
                 # AND THE CENSUS THE RUN MADE OF THE PLATFORMS, which is the rest of
                 # `feed/meta.json`: what each platform lists, how far a listing has fallen behind,
                 # and the two queues of what has been noticed and not yet confirmed.
                 "meta": {"platforms": platforms, "platform_meta": plat_meta, "lapsed": lapsed,
-                         "print_candidates": print_candidates, "web_works": web_works}})
+                         "print_candidates": print_candidates, "web_works": web_works}}
+    # COMPILED IN MEMORY AND APPLIED TO THE STORE ONCE IT IS COMPLETE. The renderings arrive two
+    # hundred lines below, so a store written now would be missing them; what is written now is a
+    # scratch, and `relational.apply` reconciles the real one against it after `renderings` has run.
+    _store_db, _store_counts, _store_refused = _rel.build(":memory:", source=_store_source)
     if _store_refused:
         print(f"store refused {len(_store_refused)} row(s): "
               f"{_store_refused[0][0]}: {_store_refused[0][1]}")
@@ -7244,6 +7259,31 @@ def main():
     # for the loader to read `feed/names.json` off the disk, which on any run is the LAST run's
     # renderings and on a fresh checkout is nothing at all. §6, three times bitten.
     _rel.renderings(_store_db, _names_doc)
+
+    # ── AND THE STORE IS UPDATED RATHER THAN REPLACED, §7 ─────────────────────────────────────
+    #
+    # `delta.write` HAD NO PRODUCTION CALLER, which made the incremental design a hypothesis: its
+    # argument is that an idempotent write plus a pure derivation converges on the fixed point a
+    # rebuild produces, and nothing but its own tests had ever put that in front of real captures.
+    # `relational.apply` reconciles the store against the scratch this run compiled, so a row that
+    # has not moved is not written, a row the capture no longer states is DROPPED, and only a
+    # derivation whose ANSWER changed cascades.
+    #
+    # WHAT THAT BUYS BESIDES THE ARGUMENT. The store keeps its own memory across runs: §5g's
+    # quarantine carries forward, and the derivation digests say which answers moved TODAY rather
+    # than which exist at all.
+    if _rel.DB.exists():
+        _live = _rel.open_db()
+        _store_moved_counts, _store_refused_now, _store_moved = _rel.apply(_live, fresh=_store_db)
+        print(f"store           : {sum(c[0] for c in _store_moved_counts.values())} row(s) "
+              f"written, {sum(c[1] for c in _store_moved_counts.values())} dropped, "
+              f"{sum(c[2] for c in _store_moved_counts.values())} unchanged; "
+              f"{len(_store_moved)} derivation(s) moved")
+        for _derivation in _store_moved[:6]:
+            print(f"                : {_derivation}")
+    else:
+        _rel.build(source=_store_source)
+        print("store           : built from nothing, there being none to update")
     # AND THE FILE COMES BACK OUT OF THE STORE, §6. The map above is the compiler's rows, the same
     # way `series` and `works` are, and what ships is what the tables say: every key of every one of
     # its seven sections, on parsed equality rather than bytes, because a fact object here is SHARED

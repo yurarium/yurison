@@ -151,5 +151,61 @@ def main(s):
                 "and says which side it is missing from")
 
 
+    # ── RECONCILE: A WHOLE TABLE BROUGHT TO THE ROWS THAT SHOULD BE THERE, §7 ────────────────
+    #
+    # THE PRODUCTION CALLER `write` AND `drop` NEVER HAD. A capture knows what it saw and does not
+    # know what has GONE, so the updater is handed the rows that should be there and works out both
+    # directions itself. What is asserted here is each of the three answers a row can get.
+    with tempfile.TemporaryDirectory() as d:
+        db = _db(d)
+        db.execute("INSERT INTO work_credit (work, credit, role) VALUES ('w00001','c00001','art')")
+        db.execute("INSERT INTO work_credit (work, credit, role) VALUES ('w00002','c00002','art')")
+        delta.recompute(db)
+
+        rows = [{"work": "w00001", "credit": "c00001", "role": "art"},     # unchanged
+                {"work": "w00002", "credit": "c00002", "role": "story"}]   # changed
+        written, dropped, unchanged = delta.reconcile(
+            db, "work_credit", ["work", "credit"], rows, ["role"])
+        s.eq((written, dropped, unchanged), (1, 0, 1),
+             "a row that moved is written, a row that did not is left alone")
+        s.eq(db.execute("SELECT role FROM work_credit WHERE work = 'w00002'").fetchone()[0],
+             "story", "and the value that moved is the one that is there now")
+
+        # AND THE ROW THE CAPTURE NO LONGER STATES IS DROPPED, which is the delta kind these
+        # systems get wrong: an output whose input disappeared has nothing left to notice it.
+        written, dropped, unchanged = delta.reconcile(
+            db, "work_credit", ["work", "credit"], rows[:1], ["role"])
+        s.eq((written, dropped, unchanged), (0, 1, 1), "a row no longer stated is dropped")
+        s.eq(db.execute("SELECT count(*) FROM work_credit").fetchone()[0], 1,
+             "and it is gone from the table rather than marked")
+        moved, _passes = delta.converge(db, {"work_credit"})
+        s.check("works naming nobody" in moved,
+                "AND THE DROP CASCADES, which an updater that only ever wrote would never see")
+
+        # A ROW THAT IS ALL KEY AND NO VALUE still exists or does not. `print_row_record` is one,
+        # and `SELECT  FROM` is a syntax error, so this asked for nothing and raised.
+        db.execute("INSERT INTO print_row (id, work, record) VALUES (1,'w00001','r1')")
+        written, dropped, _u = delta.reconcile(
+            db, "print_row_record", ["print_row", "record"], [{"print_row": 1, "record": "r1"}])
+        s.eq((written, dropped), (1, 0), "a row with no value columns can still be written")
+        written, dropped, unchanged = delta.reconcile(
+            db, "print_row_record", ["print_row", "record"], [{"print_row": 1, "record": "r1"}])
+        s.eq((written, dropped, unchanged), (0, 0, 1), "and writing it again changes nothing")
+
+    # ── THE KEY A RECONCILE ADDRESSES A ROW BY IS NOT THE ROWID ──────────────────────────────
+    #
+    # `claim.id` is handed out in insertion order, so two compiles of one corpus number the same
+    # claim differently and a reconcile keyed on it would call every row changed. What identifies a
+    # claim is the unique index §5b gave it.
+    with tempfile.TemporaryDirectory() as d:
+        db = _db(d)
+        s.check("id" not in relational.natural_key(db, "claim"),
+                "a claim is addressed by what it says, not by the order it was inserted in")
+        s.eq(relational.natural_key(db, "work"), ["id"],
+             "a work is addressed by the identifier the registry minted")
+        s.eq(sorted(relational.natural_key(db, "work_credit")), ["credit", "role", "work"],
+             "and an edge by the three columns its unique index names")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "delta"))

@@ -406,8 +406,147 @@ def build(path=None, quarantine=False, at=None, source=None):
     """
     db = load_rulings(create(path))
     counts, refused = {}, []
-
     put = _putter(db, refused, quarantine, at)
+    _load_all(db, source, put, counts, refused)
+    db.commit()
+    return db, counts, refused
+
+
+
+def renderings(db, doc, put=None, surface_id=None, counts=None):
+    """The derived name map, loaded into the store. STORE-PLAN §6.
+
+    A SEPARATE STEP BECAUSE THE MAP IS DOWNSTREAM OF TWO FILES THE STORE EMITS. `floor` is every
+    string the interface will render, and it is assembled by walking the credit pages and the
+    publisher pages, which are `emit.credits` and `emit.publishers` and come out of a store that
+    already exists. So the compiler builds the store, emits those two, assembles the map, and hands
+    it back here. A rebuild with no compiler in front of it reads `data/build` instead, which is
+    what `build()` does when nothing hands it a map.
+
+    THE HELPERS ARE REBUILT WHERE NOTHING PASSES THEM, so this is callable on a store that was made
+    by an earlier call. `surface_id` is get-or-create either way, so a store that already holds a
+    fold finds the row it made instead of a second row under the same key.
+    """
+    refused = []
+    if put is None:
+        put = _putter(db, refused)
+    if surface_id is None:
+        surface_id = _surfacer(db)
+    if counts is None:
+        counts = {}
+
+    def entries(section):
+        """One section's entries, with a key that is already its own fold taken first.
+
+        SOME KEYS IN THIS FILE ARE NOT FOLDED AND THE SITE CAN ONLY LOOK UP FOLDED ONES, which §5
+        found by seeing one publisher's romanisation vanish. 62 of 386 publisher keys and 112 of 399
+        imprint keys hold a space NFKC keeps, and `app.js` reaches every one of them through
+        `foldKey`, so 24 publishers collapse onto 12 folded keys and 5 of those pairs hold different
+        things. `いんどの宮殿！` carries the English and `いんどの宮殿!` carries the identifier, and
+        the second is the one a reader's lookup lands on.
+
+        THAT IS A FAULT IN THE BUILD AND NOT IN THIS LOADER, so it is recorded in docs/GAPS.md and
+        deferred. What this does is stop the store's copy depending on which spelling the emitter
+        happened to write first: the entry the SITE can reach is the one that wins here.
+        """
+        rows = list((doc.get(section) or {}).items())
+        return sorted(rows, key=lambda kv: _namekey.fold(kv[0]) != kv[0])
+
+    def romanise(sid, got):
+        """The three styles, where a string means all three agree."""
+        styles = ({"plain": got, "macron": got, "double": got} if isinstance(got, str)
+                  else (got or {}))
+        for style, value in styles.items():
+            if value and style in ("plain", "macron", "double"):
+                put("INSERT OR IGNORE INTO romanisation (surface, style, value) VALUES (?,?,?)",
+                    (sid, style, value), f"romanisation {style}")
+
+    for section, kind, subject_kind in (("titles", "title", "work"), ("authors", "author", "credit"),
+                                        ("publishers", "publisher", "publisher")):
+        for folded, r in entries(section):
+            sid = surface_id(kind, folded, subject_kind, r.get("id"))
+            if sid is None:
+                continue
+            romanise(sid, r.get("romaji"))
+            for i, span in enumerate(r.get("ruby") or []):
+                text, reading = (list(span) + [None, None])[:2]
+                if text:
+                    put("INSERT OR IGNORE INTO ruby (surface, seq, text, reading) VALUES (?,?,?,?)",
+                        (sid, i, text, reading), f"ruby {folded} {i}")
+
+    # A TITLE STANDING FOR ANOTHER, resolved after every title has a row, since an alias may be read
+    # before the name it points at.
+    for folded, r in entries("titles"):
+        if r.get("alias_of"):
+            here, there = surface_id("title", folded), surface_id("title", r["alias_of"])
+            if here and there and here != there:
+                put("UPDATE surface SET alias_of = ? WHERE id = ?", (there, here),
+                    f"alias {folded}")
+
+    # THE TWO ROMANISATION MAPS. `floor` answers for any Japanese run that can reach a surface, in
+    # the three styles; `phrases` answers for a whole chapter name or credit line in one. They are
+    # different populations of string and each is keyed by the same fold as everything else.
+    for folded, got in entries("floor"):
+        sid = surface_id("floor", folded)
+        if sid is not None:
+            romanise(sid, got)
+    for folded, got in entries("phrases"):
+        sid = surface_id("phrase", folded)
+        # THE MACRON STYLE, AND SAYING SO IS THE POINT. `phrases` ships one spelling and the site
+        # renders it unchanged, so filing it under a style names which spelling a reader is getting
+        # rather than leaving a bare string to be mistaken for all three.
+        if sid is not None and got:
+            put("INSERT OR IGNORE INTO romanisation (surface, style, value) VALUES (?,'macron',?)",
+                (sid, got), f"phrase {folded}")
+    counts["romanisation"] = db.execute("SELECT count(*) FROM romanisation").fetchone()[0]
+    counts["ruby"] = db.execute("SELECT count(*) FROM ruby").fetchone()[0]
+
+    for folded, r in entries("credit_parts"):
+        sid = surface_id("credit-line", folded)
+        if sid is None:
+            continue
+        put("INSERT INTO credit_division (surface, kind, joiner, partial)"
+        " VALUES (?,'credit-line',?,?)",
+            (sid, r.get("j") or "", int(bool(r.get("part")))), f"division {folded}")
+        for i, part in enumerate(r.get("p") or []):
+            if not part.get("n") and not part.get("etc"):
+                continue
+            put("INSERT OR IGNORE INTO credit_part (surface, seq, name, name_folded, role, etc)"
+                " VALUES (?,?,?,?,?,?)",
+                (sid, i, part.get("n"), _namekey.fold(part["n"]) if part.get("n") else None,
+                 part.get("r"), int(bool(part.get("etc")))),
+                f"part {folded} {i}")
+            # A FIELD MAY STATE SEVERAL JOBS AT ONCE, `企画・監修`, and a multi-valued column is the
+            # one shape a relational store may not keep. The separators are the splitter's own.
+            for atom in _ROLE_SEP.split(str(part.get("r") or "")):
+                if atom:
+                    put("INSERT OR IGNORE INTO credit_part_role (surface, seq, role)"
+                        " VALUES (?,?,?)", (sid, i, atom), f"role {folded} {i} {atom}")
+        for text in (r.get("drop") or []):
+            put("INSERT OR IGNORE INTO credit_dropped (surface, text) VALUES (?,?)",
+                (sid, text), f"dropped {folded}")
+    counts["credit_part"] = db.execute("SELECT count(*) FROM credit_part").fetchone()[0]
+
+    # THE STRINGS A CATALOGUE WRITES A LINE UNDER, which is the population `feed/names.json` keys
+    # its imprints map by. What the line IS comes from the registry and is loaded with the imprint
+    # rows themselves; this is only the surface a reader's lookup lands on.
+    for folded, _r in entries("imprints"):
+        surface_id("imprint", folded)
+    counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
+
+    return counts, refused
+
+
+
+def _load_all(db, source, put, counts, refused):
+    """Everything a compile puts in the store. One loader, called by a rebuild and by a delta.
+
+    EXTRACTED SO `apply` AND `build` CANNOT DIVERGE, §7. A delta that compiled its rows differently
+    from a rebuild would make the weekly reconciliation report the difference between two loaders
+    rather than a fault in the incremental path, which is the one thing that reconciliation exists
+    to be able to say.
+    """
+
 
     import yaml
     IDENT = ROOT / "data" / "identity"
@@ -1296,6 +1435,20 @@ def build(path=None, quarantine=False, at=None, source=None):
     counts["volume"] = db.execute("SELECT count(*) FROM volume").fetchone()[0]
     counts["edition"] = db.execute("SELECT count(*) FROM edition").fetchone()[0]
 
+    _load_feed(db, source, put, counts)
+
+
+    return counts
+
+
+def _load_feed(db, source, put, counts):
+    """The platforms, the offers and the releases. One loader, called by a rebuild and by a delta.
+
+    EXTRACTED SO `apply` AND `build` CANNOT DIVERGE, §7. A delta that compiled its rows differently
+    from a rebuild would make the weekly reconciliation report the difference between two loaders
+    rather than a fault in the incremental path, which is the one thing that reconciliation exists
+    to be able to say.
+    """
     # ── what a platform offers, and what it published ───────────────────────────────────────────
     # STORE-PLAN §4. A platform is named rather than slugged: six display names carry two capture
     # slugs each, so keying on `plat` would split コミックDAYS into two platforms.
@@ -1321,7 +1474,13 @@ def build(path=None, quarantine=False, at=None, source=None):
     # THE CENSUS BEHIND `feed/meta.json`, which is what the run saw of each platform. The rows come
     # from the compiler because they are the capture's own answer; a rebuild reads nothing here and
     # the columns stay NULL, which is the truthful state for a store built without a capture.
-    meta = (source or {}).get("meta") or {}
+    # FROM THE COMPILER, OR FROM THE FILE A COMPILER WROTE. Every other collection here falls back
+    # to `data/build`, and this one did not, so a rebuild had no census and the weekly comparison
+    # reported the platforms, the lapsed listings and the two queues as divergences.
+    meta = (source or {}).get("meta")
+    if meta is None:
+        _m = BUILD / "feed" / "meta.json"
+        meta = json.loads(_m.read_text(encoding="utf-8")) if _m.exists() else {}
     for _i, p_ in enumerate(meta.get("platforms") or []):
         if p_.get("name"):
             put("INSERT OR IGNORE INTO platform (name) VALUES (?)", (p_["name"],),
@@ -1484,135 +1643,203 @@ def build(path=None, quarantine=False, at=None, source=None):
     counts["release"] = db.execute("SELECT count(*) FROM release").fetchone()[0]
     counts["release unplaced"] = db.execute(
         "SELECT count(*) FROM release WHERE work IS NULL").fetchone()[0]
-
-    db.commit()
-    return db, counts, refused
+    return counts
 
 
 
-def renderings(db, doc, put=None, surface_id=None, counts=None):
-    """The derived name map, loaded into the store. STORE-PLAN §6.
+def natural_key(db, table):
+    """The columns that address a row of `table`, for a delta to write against.
 
-    A SEPARATE STEP BECAUSE THE MAP IS DOWNSTREAM OF TWO FILES THE STORE EMITS. `floor` is every
-    string the interface will render, and it is assembled by walking the credit pages and the
-    publisher pages, which are `emit.credits` and `emit.publishers` and come out of a store that
-    already exists. So the compiler builds the store, emits those two, assembles the map, and hands
-    it back here. A rebuild with no compiler in front of it reads `data/build` instead, which is
-    what `build()` does when nothing hands it a map.
+    NOT THE ROWID, which is the trap. `claim.id` is an INTEGER PRIMARY KEY handed out in insertion
+    order, so two compiles of the same corpus number the same claim differently and a reconcile
+    keyed on it would report every row as changed. What identifies a claim is `claim_identity`, the
+    unique index §5b spent a section giving it, and that is what this finds: the narrowest UNIQUE
+    index the table declares, then a composite primary key, then every column.
+    """
+    info = list(db.execute(f"PRAGMA table_info({table})"))
+    pk = [r[1] for r in sorted((r for r in info if r[5]), key=lambda r: r[5])]
+    if len(pk) > 1:
+        return pk
+    rowid = set(pk) if _is_rowid_alias(db, table, info, pk) else set()
+    uniques = []
+    for _seq, name, unique, origin, partial in db.execute(f"PRAGMA index_list({table})"):
+        if not unique or partial:
+            continue
+        cols = [r[2] for r in db.execute(f"PRAGMA index_info({name})")]
+        # AN EXPRESSION HAS NO COLUMN NAME, and `coalesce(source, '')` is half of what identifies a
+        # claim. An index this cannot read is an index this may not key on.
+        #
+        # AND AN INDEX HOLDING THE ROWID IS NO KEY AT ALL. `surface` declares `UNIQUE (kind, folded)`
+        # and `UNIQUE (id, kind)`, both two columns wide, and taking the second made every row look
+        # new on every compile because the id is handed out by insertion order.
+        if all(cols) and not (set(cols) & rowid) and (origin != "pk" or len(cols) > 1):
+            uniques.append(cols)
+    if uniques:
+        return min(uniques, key=len)
+    if pk and not _is_rowid_alias(db, table, info, pk):
+        return pk
+    # EVERY COLUMN EXCEPT THE ROWID, which is the honest fallback where the only unique index is
+    # over an EXPRESSION. `claim_identity` is keyed on `coalesce(source, '')` and `PRAGMA
+    # index_info` gives no column name for it, so this cannot read that key; what it can say is that
+    # two rows agreeing on everything they state are the same row, and that the number the insert
+    # handed out is not part of what they state. Keying on `id` would have called every row changed.
+    return [r[1] for r in info if r[1] not in rowid]
 
-    THE HELPERS ARE REBUILT WHERE NOTHING PASSES THEM, so this is callable on a store that was made
-    by an earlier call. `surface_id` is get-or-create either way, so a store that already holds a
-    fold finds the row it made instead of a second row under the same key.
+
+def _is_rowid_alias(db, table, info, pk):
+    """Whether the primary key is a bare INTEGER rowid, which no two compiles agree on.
+
+    A KEY THAT POINTS AT SOMETHING IS NOT A ROWID, however it is typed. `credit_division.surface` is
+    an INTEGER PRIMARY KEY and it is also a foreign key into `surface`, so it means the same thing
+    in every compile; treating it as a rowid keyed the whole table on `(kind, joiner, partial)` and
+    a reconcile then tried to move one division onto another's surface.
+    """
+    if len(pk) != 1:
+        return False
+    if not any(r[1] == pk[0] and (r[2] or "").upper() == "INTEGER" for r in info):
+        return False
+    return not any(r[3] == pk[0] for r in db.execute(f"PRAGMA foreign_key_list({table})"))
+
+
+def _addresses(db, table):
+    """The columns holding a rowid the insert handed out, which addresses a row and states nothing."""
+    info = list(db.execute(f"PRAGMA table_info({table})"))
+    pk = [r[1] for r in sorted((r for r in info if r[5]), key=lambda r: r[5])]
+    return set(pk) if _is_rowid_alias(db, table, info, pk) else set()
+
+
+def _table_order(db):
+    """Tables in dependency order, parents first, so a child is written after what it points at."""
+    tables = [r[0] for r in db.execute(
+        "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%'"
+        " ORDER BY name")]
+    deps = {t: {r[2] for r in db.execute(f"PRAGMA foreign_key_list({t})") if r[2] != t}
+            for t in tables}
+    out, seen = [], set()
+
+    def visit(t, stack=()):
+        if t in seen or t in stack or t not in deps:
+            return
+        for parent in sorted(deps[t]):
+            visit(parent, stack + (t,))
+        seen.add(t)
+        out.append(t)
+
+    for t in tables:
+        visit(t)
+    return out
+
+
+def apply(db, source=None, quarantine=False, at=None, fresh=None):
+    """Bring an existing store to what the compiler now says, without replacing it. §7.
+
+    THE PRODUCTION CALLER `delta.write` NEVER HAD. The incremental design has been in this
+    repository since the store was, argued and tested and never once run by anything but its own
+    tests, which makes it a hypothesis rather than a path. What it claims is that an idempotent
+    write plus a pure derivation converges on the fixed point a rebuild produces; this is what puts
+    the claim in front of real captures.
+
+    THE DIFFERENCE FROM `build` IS WHAT SURVIVES. A rebuild makes a store from nothing, so every
+    derivation digest starts empty and every row is new. This takes the store that exists and writes
+    only what moved: a row the capture did not change is not written, a row it no longer states is
+    DROPPED, and only a derivation whose ANSWER changed cascades. Deletion is the kind these systems
+    get wrong, and a table reconciled against the rows that should be there is what sees it.
+
+    THE ROWS COME FROM THE SAME LOADER A REBUILD USES, compiled into memory and then diffed, so a
+    delta cannot compile differently from a rebuild. What that costs is one in-memory build; what it
+    buys is that the weekly reconciliation reports faults in the incremental path rather than in a
+    second loader.
+
+    A SURROGATE ID IS NOT A FACT AND IS NOT CARRIED ACROSS. `name_record.id` is handed out by the
+    insert that made the row, so the same record has one number here and another in the scratch
+    compile, and an edge copied across verbatim would point at whatever happened to hold that number.
+    Every such id is translated through the natural key of the row it addresses, which is why the
+    tables are walked parents first.
+
+    Returns `(counts, refused, moved)`: what moved per table, what the schema refused, and which
+    derivations changed answer.
     """
     refused = []
-    if put is None:
-        put = _putter(db, refused)
-    if surface_id is None:
-        surface_id = _surfacer(db)
-    if counts is None:
-        counts = {}
-
-    def entries(section):
-        """One section's entries, with a key that is already its own fold taken first.
-
-        SOME KEYS IN THIS FILE ARE NOT FOLDED AND THE SITE CAN ONLY LOOK UP FOLDED ONES, which §5
-        found by seeing one publisher's romanisation vanish. 62 of 386 publisher keys and 112 of 399
-        imprint keys hold a space NFKC keeps, and `app.js` reaches every one of them through
-        `foldKey`, so 24 publishers collapse onto 12 folded keys and 5 of those pairs hold different
-        things. `いんどの宮殿！` carries the English and `いんどの宮殿!` carries the identifier, and
-        the second is the one a reader's lookup lands on.
-
-        THAT IS A FAULT IN THE BUILD AND NOT IN THIS LOADER, so it is recorded in docs/GAPS.md and
-        deferred. What this does is stop the store's copy depending on which spelling the emitter
-        happened to write first: the entry the SITE can reach is the one that wins here.
-        """
-        rows = list((doc.get(section) or {}).items())
-        return sorted(rows, key=lambda kv: _namekey.fold(kv[0]) != kv[0])
-
-    def romanise(sid, got):
-        """The three styles, where a string means all three agree."""
-        styles = ({"plain": got, "macron": got, "double": got} if isinstance(got, str)
-                  else (got or {}))
-        for style, value in styles.items():
-            if value and style in ("plain", "macron", "double"):
-                put("INSERT OR IGNORE INTO romanisation (surface, style, value) VALUES (?,?,?)",
-                    (sid, style, value), f"romanisation {style}")
-
-    for section, kind, subject_kind in (("titles", "title", "work"), ("authors", "author", "credit"),
-                                        ("publishers", "publisher", "publisher")):
-        for folded, r in entries(section):
-            sid = surface_id(kind, folded, subject_kind, r.get("id"))
-            if sid is None:
-                continue
-            romanise(sid, r.get("romaji"))
-            for i, span in enumerate(r.get("ruby") or []):
-                text, reading = (list(span) + [None, None])[:2]
-                if text:
-                    put("INSERT OR IGNORE INTO ruby (surface, seq, text, reading) VALUES (?,?,?,?)",
-                        (sid, i, text, reading), f"ruby {folded} {i}")
-
-    # A TITLE STANDING FOR ANOTHER, resolved after every title has a row, since an alias may be read
-    # before the name it points at.
-    for folded, r in entries("titles"):
-        if r.get("alias_of"):
-            here, there = surface_id("title", folded), surface_id("title", r["alias_of"])
-            if here and there and here != there:
-                put("UPDATE surface SET alias_of = ? WHERE id = ?", (there, here),
-                    f"alias {folded}")
-
-    # THE TWO ROMANISATION MAPS. `floor` answers for any Japanese run that can reach a surface, in
-    # the three styles; `phrases` answers for a whole chapter name or credit line in one. They are
-    # different populations of string and each is keyed by the same fold as everything else.
-    for folded, got in entries("floor"):
-        sid = surface_id("floor", folded)
-        if sid is not None:
-            romanise(sid, got)
-    for folded, got in entries("phrases"):
-        sid = surface_id("phrase", folded)
-        # THE MACRON STYLE, AND SAYING SO IS THE POINT. `phrases` ships one spelling and the site
-        # renders it unchanged, so filing it under a style names which spelling a reader is getting
-        # rather than leaving a bare string to be mistaken for all three.
-        if sid is not None and got:
-            put("INSERT OR IGNORE INTO romanisation (surface, style, value) VALUES (?,'macron',?)",
-                (sid, got), f"phrase {folded}")
-    counts["romanisation"] = db.execute("SELECT count(*) FROM romanisation").fetchone()[0]
-    counts["ruby"] = db.execute("SELECT count(*) FROM ruby").fetchone()[0]
-
-    for folded, r in entries("credit_parts"):
-        sid = surface_id("credit-line", folded)
-        if sid is None:
+    _delta.ensure(db)
+    # THE SCRATCH MAY BE HANDED IN, and `build.py` hands one in because it has one. Its store is
+    # complete only after the name map is loaded, which happens two hundred lines after the compile
+    # that produced it, and a scratch compiled here without those renderings would drop 52,000 rows
+    # the run puts straight back.
+    if fresh is None:
+        fresh, _c, refused_fresh = build(":memory:", source=source, quarantine=quarantine, at=at)
+        refused += refused_fresh
+    # THE KEYS ARE CHECKED AT COMMIT AND NOT AT EACH STATEMENT, which is what makes a reconcile
+    # order-free within a table. A parent dropped before its children is a violation only if it is
+    # still one when the transaction ends. Deferring is not relaxing: the same constraints refuse
+    # the same rows, one moment later.
+    #
+    # AND IT HAS TO BE SET INSIDE THE TRANSACTION IT APPLIES TO. SQLite switches the flag off at
+    # every COMMIT, and Python's sqlite3 in its default mode makes a bare PRAGMA its own
+    # transaction, so setting it before the first write set it and immediately lost it.
+    db.isolation_level = None
+    db.execute("BEGIN")
+    db.execute("PRAGMA defer_foreign_keys = ON")
+    counts, touched, translate = {}, set(), {}
+    for table in _table_order(fresh):
+        # THE QUARANTINE AND THE DERIVATIONS ARE THE STORE'S OWN MEMORY, not the compiler's answer.
+        # §5g carries a quarantined row forward across rebuilds precisely so it is not lost, and
+        # reconciling it against a scratch that never saw yesterday's refusals would delete it.
+        if table in ("quarantine", "derivation"):
             continue
-        put("INSERT INTO credit_division (surface, kind, joiner, partial)"
-        " VALUES (?,'credit-line',?,?)",
-            (sid, r.get("j") or "", int(bool(r.get("part")))), f"division {folded}")
-        for i, part in enumerate(r.get("p") or []):
-            if not part.get("n") and not part.get("etc"):
-                continue
-            put("INSERT OR IGNORE INTO credit_part (surface, seq, name, name_folded, role, etc)"
-                " VALUES (?,?,?,?,?,?)",
-                (sid, i, part.get("n"), _namekey.fold(part["n"]) if part.get("n") else None,
-                 part.get("r"), int(bool(part.get("etc")))),
-                f"part {folded} {i}")
-            # A FIELD MAY STATE SEVERAL JOBS AT ONCE, `企画・監修`, and a multi-valued column is the
-            # one shape a relational store may not keep. The separators are the splitter's own.
-            for atom in _ROLE_SEP.split(str(part.get("r") or "")):
-                if atom:
-                    put("INSERT OR IGNORE INTO credit_part_role (surface, seq, role)"
-                        " VALUES (?,?,?)", (sid, i, atom), f"role {folded} {i} {atom}")
-        for text in (r.get("drop") or []):
-            put("INSERT OR IGNORE INTO credit_dropped (surface, text) VALUES (?,?)",
-                (sid, text), f"dropped {folded}")
-    counts["credit_part"] = db.execute("SELECT count(*) FROM credit_part").fetchone()[0]
-
-    # THE STRINGS A CATALOGUE WRITES A LINE UNDER, which is the population `feed/names.json` keys
-    # its imprints map by. What the line IS comes from the registry and is loaded with the imprint
-    # rows themselves; this is only the surface a reader's lookup lands on.
-    for folded, _r in entries("imprints"):
-        surface_id("imprint", folded)
-    counts["surface"] = db.execute("SELECT count(*) FROM surface").fetchone()[0]
-
-    return counts, refused
-
+        # WHAT A ROW STATES, WHICH IS NOT EVERY COLUMN IT HAS. A generated column cannot be written
+        # at all, and a rowid handed out by an insert addresses the row and states nothing.
+        cols = [r[1] for r in db.execute(f"PRAGMA table_xinfo({table})") if not r[6]]
+        key = natural_key(fresh, table)
+        mine = _addresses(db, table)
+        stated = [c for c in cols if c not in key and c not in mine]
+        # WHICH OF THIS TABLE'S COLUMNS HOLD A NUMBER THAT MEANS SOMETHING ELSE HERE. Keyed by the
+        # column a foreign key points AT rather than by its table, because the chain runs further
+        # than one hop: `credit_dropped.surface` points at `credit_division.surface`, which is
+        # itself a surface id, so translating only the tables that own a rowid left the second hop
+        # holding the scratch's numbers and the commit refused it.
+        points_at = {}
+        for r in db.execute(f"PRAGMA foreign_key_list({table})"):
+            parent, column, parent_col = r[2], r[3], r[4]
+            if parent_col is None:
+                parent_col = next(iter(_addresses(db, parent)), None)
+            got = translate.get((parent, parent_col))
+            if got:
+                points_at[column] = got
+        rows = []
+        for r in fresh.execute(f"SELECT {', '.join(cols)} FROM {table}"):
+            row = dict(zip(cols, r))
+            for column, mapping in points_at.items():
+                if row.get(column) is not None:
+                    row[column] = mapping.get(row[column], row[column])
+            rows.append(row)
+        written, dropped, unchanged = _delta.reconcile(db, table, key, rows, stated)
+        counts[table] = (written, dropped, unchanged)
+        if written or dropped:
+            touched.add(table)
+        # AND WHAT THIS TABLE'S OWN NUMBERS BECAME, for the children walked after it. Its address,
+        # which the insert handed out here and there and which agree about nothing; and any column
+        # already translated on the way in, since a child pointing at THAT column needs the same map.
+        if mine:
+            addr = next(iter(mine))
+            here = {tuple(r[:-1]): r[-1] for r in db.execute(
+                f"SELECT {', '.join(key)}, {addr} FROM {table}")}
+            translate[(table, addr)] = {
+                r[-1]: here[tuple(r[:-1])]
+                for r in fresh.execute(f"SELECT {', '.join(key)}, {addr} FROM {table}")
+                if tuple(r[:-1]) in here}
+        for column, mapping in points_at.items():
+            translate[(table, column)] = mapping
+    moved, _passes = _delta.converge(db, touched)
+    # AND EVERY BASE ANSWER IS RE-ASKED, WHICH THE CASCADE ALONE DOES NOT DO. A digest that has gone
+    # stale never heals: convergence recomputes what a write TOUCHED, so an answer recorded before a
+    # change that has since stopped moving its tables stays wrong for ever, and the weekly
+    # reconciliation found exactly one of those, `names nothing in the corpus is identified by`
+    # recorded at 593 where the store says 637. Re-asking all fifteen costs 0.02 s, which is less
+    # than the argument for not doing it. `converge` still gates the CASCADE, which is where the
+    # cost would actually be.
+    moved += [n for n in _delta.recompute(db) if n not in moved]
+    db.execute("COMMIT")
+    return counts, refused, moved
 
 
 def ask(db):
@@ -1672,17 +1899,91 @@ def _tables(db):
         "AND name <> 'derivation' ORDER BY name")]
 
 
+def _comparable(db, table):
+    """The columns two stores can be compared on: what a row STATES, never where it sits.
+
+    A SURROGATE ID IS NOT A FACT, §7. `surface.id` is handed out by the insert that made the row, so
+    a store that has been UPDATED and a store rebuilt from nothing number the same surface
+    differently and every table reachable from one differed. That is the reconciliation reporting
+    the order of two inserts as a divergence, which is exactly the noise that would train a reader
+    to ignore it.
+    """
+    cols = [r[1] for r in db.execute(f"PRAGMA table_info({table})")]
+    mine = _addresses(db, table)
+    return [c for c in cols if c not in mine] or cols
+
+
+def _end_of_chain(db, table, column, depth=6):
+    """The `(table, column)` a foreign key ultimately addresses, where that is somebody's rowid.
+
+    THE CHAIN RUNS FURTHER THAN ONE HOP. `credit_part_role.surface` points at
+    `credit_part(surface)`, which points at `credit_division(surface)`, which is a `surface(id)`,
+    and only the last of the four is a rowid.
+    """
+    if column is None or depth <= 0:
+        return None
+    if column in _addresses(db, table):
+        return (table, column)
+    for r in db.execute(f"PRAGMA foreign_key_list({table})"):
+        if r[3] == column:
+            got = _end_of_chain(db, r[2], r[4] or next(iter(_addresses(db, r[2])), None), depth - 1)
+            if got:
+                return got
+    return None
+
+
+def _labels(db):
+    """`{(table, address): {id: what the row it addresses actually says}}`.
+
+    A SURROGATE ID IS NOT A FACT AND DROPPING IT IS NOT THE ANSWER EITHER, §7. Two stores number the
+    same surface differently, so comparing the numbers reports the order of two inserts as a
+    divergence; but dropping the column compares an EDGE without its endpoint, and 44 edges pointing
+    somewhere else compared equal. What is compared is what the number means.
+    """
+    out = {}
+    for table in _tables(db):
+        addr = next(iter(_addresses(db, table)), None)
+        if not addr:
+            continue
+        key = natural_key(db, table)
+        if key == [addr]:
+            continue
+        out[(table, addr)] = {r[-1]: tuple(r[:-1]) for r in db.execute(
+            f"SELECT {', '.join(key)}, {addr} FROM {table}")}
+    return out
+
+
+def _reaches_an_address(db, table, column, depth=4):
+    """Whether a column holds a number that is somebody's rowid, however many hops away.
+
+    THE CHAIN RUNS FURTHER THAN ONE HOP, which the first version of this missed twice.
+    `credit_part_role.surface` points at `credit_part(surface)`, which points at
+    `credit_division(surface)`, which is a `surface(id)`, and only the last of the four is a rowid.
+    Stopping at the first hop left three tables comparing the order two inserts ran in.
+    """
+    if column is None or column in _addresses(db, table):
+        return True
+    if depth <= 0:
+        return False
+    return any(r[3] == column and _reaches_an_address(db, r[2], r[4], depth - 1)
+               for r in db.execute(f"PRAGMA foreign_key_list({table})"))
+
+
 def _table_digests(db):
-    """`{table: (rows, digest)}` over every row in a stable order."""
+    """`{table: (rows, digest)}` over every row in a stable order, addresses read as what they mean."""
     import hashlib
+    labels = _labels(db)
     out = {}
     for t in _tables(db):
-        cols = [r[1] for r in db.execute(f"PRAGMA table_info({t})")]
+        cols = _comparable(db, t)
+        ends = {c: _end_of_chain(db, t, c) for c in cols}
         order = ", ".join(f'"{c}"' for c in cols)
         h = hashlib.sha256()
         n = 0
         for row in db.execute(f'SELECT {order} FROM "{t}" ORDER BY {order}'):
-            h.update(repr(row).encode("utf-8"))
+            said = tuple(labels.get(ends[c], {}).get(v, v) if ends.get(c) else v
+                         for c, v in zip(cols, row))
+            h.update(repr(sorted(map(repr, said))).encode("utf-8") if False else repr(said).encode("utf-8"))
             n += 1
         out[t] = (n, h.hexdigest())
     return out
@@ -1690,7 +1991,7 @@ def _table_digests(db):
 
 def _first_differing_rows(a, b, table, limit=3):
     """A few rows one store holds and the other does not, so a report says what to look at."""
-    cols = [r[1] for r in a.execute(f"PRAGMA table_info({table})")]
+    cols = _comparable(a, table)
     order = ", ".join(f'"{c}"' for c in cols)
     left = {tuple(r) for r in a.execute(f'SELECT {order} FROM "{table}"')}
     right = {tuple(r) for r in b.execute(f'SELECT {order} FROM "{table}"')}

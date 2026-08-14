@@ -724,159 +724,26 @@ works:
         author: "あらた伊里/アトハ/狐印"
         access_modes: ["free"]
   - work_title: "フレンドガールフレンド"
-    author: "瑠夏子"
     url: "https://hanayume.com/series/f3ce082d639de"
     platform_name: "花とゆめ+"
-    route: "comici"
-    chapter_count: 31
+    route: "rendered"
+    chapter_count: 5
     chapters:
       - title: "#1"
         updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "#2"
         updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "#3"
         updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "#4①"
         updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        date_basis: rendered
       - title: "#4②"
         updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "#5①"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "#5②"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "#6①"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "#6②"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "おまけ"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free"]
-      - title: "#7①"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "#7②"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "#8①"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "#8②"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃9①"
-        updated: 2026-04-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃9②"
-        updated: 2026-04-27
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃10①"
-        updated: 2026-05-04
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃10②"
-        updated: 2026-05-11
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "おまけ"
-        updated: 2026-05-18
-        author: "瑠夏子"
-        access_modes: ["free"]
-      - title: "＃11①"
-        updated: 2026-05-25
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃11②"
-        updated: 2026-06-01
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃12①"
-        updated: 2026-06-08
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃12②"
-        updated: 2026-06-15
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃13①"
-        updated: 2026-06-22
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃13②"
-        updated: 2026-06-29
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃14①"
-        updated: 2026-07-06
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃14②"
-        updated: 2026-07-13
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃15①"
-        updated: 2026-07-20
-        author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "＃15②"
-        updated: 2026-07-27
-        author: "瑠夏子"
-        access_modes: ["free"]
-      - title: "おまけ"
-        updated: 2026-08-03
-        author: "瑠夏子"
-        access_modes: ["free"]
-      - title: "＃16①"
-        updated: 2026-08-10
-        author: "瑠夏子"
-        access_modes: ["purchase"]
+        date_basis: rendered
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     author: "空山トキ / 五色安未 / 泉乃せん / 伍長 / 第１話　少女と暗殺者の世界"
     url: "https://comic-days.com/episode/2550912964518073379"
@@ -4024,6 +3891,45 @@ works:
       - title: "18話"
         updated: 2026-02-07
         author: "もくふう"
+        access_modes: ["purchase"]
+  - work_title: "男装メイドは尽くしたい"
+    author: "瑠夏子"
+    url: "https://hanayume.com/series/1191c17a3f374"
+    platform_name: "花とゆめ+"
+    route: "comici"
+    chapter_count: 7
+    chapters:
+      - title: "1話"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "2話①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "2話②"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "3話①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "3話②"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "4話①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["purchase"]
+      - title: "4話②＜完＞"
+        updated: 2026-04-20
+        author: "瑠夏子"
         access_modes: ["purchase"]
   - work_title: "愛でたいセンセイ"
     author: "タカノ晴"

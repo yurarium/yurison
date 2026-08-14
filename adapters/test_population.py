@@ -20,22 +20,33 @@ import population                                                       # noqa: 
 import relational                                                       # noqa: E402
 
 
-def _store():
-    db = relational.load_rulings(relational.create(":memory:"))
-    db.execute("INSERT INTO work (id, title) VALUES ('w00001','やがて君になる')")
-    db.execute("INSERT INTO work (id, title) VALUES ('w00002','citrus')")
-    db.execute("INSERT INTO work_state (work, state) VALUES ('w00001','active')")
-    db.execute("INSERT INTO work_state (work, state) VALUES ('w00002','completed')")
-    db.execute("INSERT INTO surface (kind, folded) VALUES ('credit-line','仲谷鳰')")
-    sid = db.execute("SELECT id FROM surface WHERE folded = '仲谷鳰'").fetchone()[0]
-    db.execute("INSERT INTO work_byline (work, surface, kind, field)"
-               " VALUES ('w00001', ?, 'credit-line', '仲谷 鳰')", (sid,))
-    db.commit()
-    return db
+def _store(rows):
+    """A store built the way `build.py` builds one, from the compiler's own rows.
+
+    NO `INSERT` HERE, AND THAT IS THE POINT TWICE OVER. `the store has one writer` refuses a write
+    from outside `adapters/relational/`, and this file is outside it; and a population asked of a
+    store assembled by hand would be asked of a shape no compile produces. Handing `series` rows in
+    is what §6 made the compiler's own input path.
+    """
+    db, _counts, refused = relational.build(":memory:", source={"series": {"series": rows}})
+    return db, refused
+
+
+SERIES = [
+    {"id": "w00001", "work": "やがて君になる", "author": "仲谷 鳰", "state": "active"},
+    {"id": "w00002", "work": "citrus", "author": None, "state": "completed"},
+    {"id": "w00003", "work": "不明", "author": None},
+]
 
 
 def main(s):
-    db = _store()
+    db, refused = _store(SERIES)
+    # THE THREE WORKS GO IN, AND THE IDENTITY REGISTRY DOES NOT. `build` loads the real
+    # `data/identity` beside whatever rows it is handed, and a `superseded` entry naming a work
+    # this fixture does not hold is refused by the foreign key, which is the constraint doing its
+    # job. What has to be clean is the population under test.
+    s.eq([r for r in refused if r[0].startswith(("work ", "work_state"))], [],
+         "the works handed in go in with nothing refused")
     from relational import asks
 
     got = asks.population(db, "works in a state", state="active")
@@ -51,8 +62,6 @@ def main(s):
     # A WORK WITH NO STATE IS IN NO STATE, which is what the join has to mean. `work_state` is a
     # separate table precisely because a work may have no ruling yet, and an outer join here would
     # have swept every unruled work into whichever state was asked for.
-    db.execute("INSERT INTO work (id, title) VALUES ('w00003','不明')")
-    db.commit()
     s.eq(len(asks.population(db, "works in a state", state="active")), 1,
          "a work with no state recorded joins no state")
     s.eq(len(asks.population(db, "works with their title and byline")), 3,
@@ -63,13 +72,10 @@ def main(s):
     # The build's file is emitted FROM these tables, so a pass moved from one to the other must not
     # see a different population. Written here as the shape `series.json` really has.
     d = pathlib.Path(tempfile.mkdtemp()) / "series.json"
-    d.write_text(json.dumps({"series": [
-        {"id": "w00001", "work": "やがて君になる", "author": "仲谷 鳰", "state": "active"},
-        {"id": "w00002", "work": "citrus", "author": None, "state": "completed"},
-        {"id": "w00003", "work": "不明", "author": None}]}, ensure_ascii=False), encoding="utf-8")
+    d.write_text(json.dumps({"series": SERIES}, ensure_ascii=False), encoding="utf-8")
     s.eq([w["work"] for w in population.works_in_state("active", d)], ["やがて君になる"],
          "the file route selects the same work")
-    s.eq(len(population.works("dummy") if False else population.works(d)), 3,
+    s.eq(len(population.works(d)), 3,
          "and holds the same three works")
 
     # A ROW WITH NO STATE KEY IS NOT IN A STATE HERE EITHER, which is the counter-case that makes

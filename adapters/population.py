@@ -7,9 +7,9 @@ lines: open the store, ask the registry, fall back to a file if one was named. T
 STANDING-INSTRUCTIONS §3 refuses, and the copies drift in the way `shopquery` and `editions/capture`
 already demonstrated, each docstring claiming to be the one producer of a population both computed.
 
-THE QUERY IS NOT HERE EITHER. `relational/asks.POPULATIONS` holds it, because a population is a
-question about the corpus and the corpus's questions have one home. What this adds is the calling
-convention: which store, and what `--series` means when somebody passes one.
+THE QUERY LIVES IN `relational/asks.POPULATIONS`, because a population is a question about the
+corpus and the corpus's questions have one home. What this adds is the calling convention: which
+store, and what `--series` means when somebody passes one.
 
 WHAT `--series` MEANS NOW. It used to default to `data/build/series.json`, so every one of these
 passes needed a compile it never declared, and on a fresh runner with no build the pass died on a

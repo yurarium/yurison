@@ -2297,9 +2297,12 @@ def budget_unguarded_captures(ctx):
 def budget_modules_reading_a_corpus_file(ctx):
     """Modules that open one of the compiled JSON files by path, STORE-PLAN §13.
 
-    A BUDGET AT ZERO RATHER THAN AN INVARIANT, because the number is what an unfinished migration
-    looks like: it fell from eleven to nine to two as the readers were converted, and a count says
-    how far a person got where a pass-or-fail says only that they had not finished.
+    A BUDGET, because the number is what an unfinished migration looks like
+    and a count says how far somebody got where a pass-or-fail says only that they had not
+    finished. It is 17 rather than 0, and each of the 17 is legitimate: a write target, a name in
+    a table of which field to read from which shape, and the module constants two passes hand to
+    `population` as their `--series` override. What matters is that the number cannot RISE, which
+    is what a new reader would do.
 
     WHY IT EXISTS AT ALL. §13 stopped `build.py` writing these files and the readers were converted
     one at a time, each as it was noticed. Two CI runs died in a row on the same class, the second

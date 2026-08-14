@@ -675,7 +675,9 @@ def main(argv=None):
 
     today = datetime.date.today().isoformat()
     works, releases = rows_from(a.build)
-    shipped = (json.loads((pathlib.Path(a.build) / "feed" / "names.json").read_text())
+    shipped = (population.names(pathlib.Path(a.build) / "feed" / "names.json"
+                               if (pathlib.Path(a.build) / "feed" / "names.json").exists()
+                               else None)
                .get("authors") or {})
     rdoc = {}
     rp = pathlib.Path(a.rulings)

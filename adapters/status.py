@@ -319,7 +319,9 @@ def main(argv=None):
     b = pathlib.Path(a.build)
     read = lambda n: json.loads((b / n).read_text())                        # noqa: E731
     run, checks = read("run.json"), read("checks.json")
-    series = read("series.json")["series"]
+    # THE STORE, §13. This went through a `read` lambda, so the filename and the open were in
+    # different statements and the lint reported the file clean; CI found it instead.
+    series = population.series(b / "series.json" if (b / "series.json").exists() else None)
     index = population.records(b / "works.json")
     budgets = json.loads(pathlib.Path(a.budgets).read_text())
 

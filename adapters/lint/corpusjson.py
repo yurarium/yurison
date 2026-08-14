@@ -29,30 +29,73 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 CORPUS = ("series.json", "works.json", "index.json", "credits.json", "publishers.json",
           "credit-keys.json", "feed/names.json")
 
-#: The module allowed to name them, and the one that produces them. One entry each, on purpose.
-ALLOWED = ("adapters/population.py", "adapters/relational/emit.py")
+#: WHO MAY NAME THEM, AND WHY EACH IS HERE. `population` is the one reader and `emit` produces
+#: them. `build.py` still writes them under `--emit-json`. `check.py` builds the map of emitted
+#: texts three checks scan, so the names are its keys. `facts/served` DECLARES the set, which is
+#: what makes it the register. `names/inputs` names two in a table of which field to read from
+#: which shape, and reads neither by path.
+#:
+#: EVERY ENTRY IS A HOLE and the list is meant to stay this short. A file added here stops being
+#: watched, which is the trade `adapters/lint/onewriter.py` makes with the same shape.
+ALLOWED = ("adapters/population.py", "adapters/relational/emit.py", "build.py", "check.py",
+           "adapters/facts/served/__init__.py", "adapters/names/inputs.py",
+           "adapters/lint/corpusjson.py")
 
 
-#: What counts as opening one. A bare mention is prose, and there is a great deal of prose about
-#: these files: the whole of §13's history is written in comments beside the code that moved. What
-#: makes a mention a finding is that it is being READ.
-READS = {"read_text", "load", "loads", "open", "read_json"}
+#: WHAT COUNTS AS WRITING ONE, which is the only executable mention that is not a finding.
+#: `build.py --emit-json` still writes these, deliberately.
+WRITES = {"write_text", "dump", "write"}
+
+#: A keyword whose value is prose meant for a person rather than a path.
+PROSE_KEYWORDS = {"help", "description", "metavar", "note"}
+
+#: The reader itself, under the names the tree imports it by. A path HANDED TO it is the override
+#: every converted pass kept, `--series`, so a person can run against an old build; naming a file
+#: on the way into the one reader is the opposite of the fault this counts.
+READER = {"population", "_population", "_pop"}
 
 
-def _reads_corpus(node):
-    """Whether a call opens a corpus file. The name may be built with `/`, so the whole call is
-    walked rather than only its arguments: `(build / "series.json").read_text()` puts the constant
-    inside the callee."""
-    fn = node.func
-    name = fn.attr if isinstance(fn, ast.Attribute) else getattr(fn, "id", None)
-    if name not in READS:
-        return None
-    for n in ast.walk(node):
-        if isinstance(n, ast.Constant) and isinstance(n.value, str):
-            hit = next((c for c in CORPUS if c in n.value), None)
-            if hit:
-                return hit
-    return None
+def _is_prose(node, parents):
+    """Whether this string is written for a person rather than used as a path.
+
+    THE RULE STARTED AS "IS IT INSIDE A READ" AND THAT WAS WRONG. `adapters/status.py` held
+    `read = lambda n: json.loads((b / n).read_text())` and then `read("series.json")`, so the name
+    and the open were in different statements and this reported the file clean. It went to CI and
+    the run died on it: the third round trip on one class, and the second time this lint's own
+    stated blind spot was the thing that bit. A blind spot written down is still a blind spot.
+
+    SO EVERY EXECUTABLE MENTION IS A FINDING and the exceptions are enumerated. There are three: a
+    docstring, an argument's help text, and a write.
+    """
+    for p in parents:
+        if isinstance(p, ast.keyword) and p.arg in PROSE_KEYWORDS:
+            return True
+        if isinstance(p, ast.Call):
+            fn = p.func
+            name = fn.attr if isinstance(fn, ast.Attribute) else getattr(fn, "id", None)
+            if name in WRITES:
+                return True
+            # HANDED TO THE READER. `population.series(build / "series.json")` names the file on
+            # its way INTO the one place allowed to open it.
+            owner = fn.value if isinstance(fn, ast.Attribute) else None
+            if isinstance(owner, ast.Name) and owner.id in READER:
+                return True
+            if isinstance(owner, ast.Call) and getattr(owner.func, "id", None) in READER:
+                return True
+    return False
+
+
+def _docstrings(tree):
+    """Every docstring's identity: the first statement of a module, class or function body."""
+    out = set()
+    for n in ast.walk(tree):
+        body = getattr(n, "body", None)
+        if isinstance(body, list) and body:
+            first = body[0]
+            if (isinstance(first, ast.Expr) and isinstance(first.value, ast.Constant)
+                    and isinstance(first.value.value, str)):
+                out.add(id(first.value))
+    return out
 
 
 def findings(paths=None, root=None):
@@ -70,13 +113,19 @@ def findings(paths=None, root=None):
             tree = ast.parse(f.read_text(encoding="utf-8"))
         except (OSError, SyntaxError, UnicodeDecodeError):
             continue
-        for n in ast.walk(tree):
-            if not isinstance(n, ast.Call):
-                continue
-            hit = _reads_corpus(n)
-            if hit:
-                out.append((rel, n.lineno, f"reads {hit}, which only the store produces now"))
-    return out
+        docs = _docstrings(tree)
+        # PARENTS ARE TRACKED ON THE WAY DOWN, `ast` offering no way to ask a node for its own.
+        stack = [(tree, ())]
+        while stack:
+            node, parents = stack.pop()
+            if (isinstance(node, ast.Constant) and isinstance(node.value, str)
+                    and id(node) not in docs):
+                hit = next((c for c in CORPUS if c in node.value), None)
+                if hit and not _is_prose(node, parents):
+                    out.append((rel, node.lineno, f"names {hit}, which only the store produces"))
+            for child in ast.iter_child_nodes(node):
+                stack.append((child, (node,) + parents))
+    return sorted(out)
 
 
 if __name__ == "__main__":

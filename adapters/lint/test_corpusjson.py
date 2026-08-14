@@ -33,13 +33,13 @@ def _found(**files):
 
 def main(s):
     # THE THREE SHAPES THE REAL READERS HAD, each of which was in the tree this morning.
-    s.check(("a.py", "reads series.json") in _found(
+    s.check(("a.py", "names series.json") in _found(
         **{"a.py": 'import json\nx = json.loads(open("data/build/series.json").read())\n'}),
         "a path written whole is found")
-    s.check(("b.py", "reads series.json") in _found(
+    s.check(("b.py", "names series.json") in _found(
         **{"b.py": 'x = (build / "series.json").read_text()\n'}),
         "and one assembled with a slash, where the name sits inside the callee")
-    s.check(("c.py", "reads works.json") in _found(
+    s.check(("c.py", "names works.json") in _found(
         **{"c.py": 'x = json.loads(pathlib.Path(a.build / "works.json").read_text())["works"]\n'}),
         "and one nested two calls deep")
 
@@ -52,6 +52,12 @@ def main(s):
          "prose naming a corpus file is prose")
     s.eq(_found(**{"e.py": 'ap.add_argument("--series", help="a series.json to read instead")\n'}),
          set(), "and so is an argument's help text")
+    # AND A NAME HANDED TO A LOCAL HELPER IS A FINDING, which is the case that got past the first
+    # version of this: `adapters/status.py` opened the file through a `read` lambda, so the name
+    # and the open sat in different statements and the file read clean until CI died on it.
+    s.check(("h.py", "names series.json") in _found(
+        **{"h.py": 'read = lambda n: json.loads((b / n).read_text())\nx = read("series.json")\n'}),
+        "a name handed to a local helper is found, wherever the open happens")
     s.eq(_found(**{"f.py": '(out / "series.json").write_text(payload)\n'}), set(),
          "writing one is not reading one, which is what `--emit-json` still does")
     s.eq(_found(**{"g.py": 'x = json.loads(open("data/build/titles.json").read())\n'}), set(),

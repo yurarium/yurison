@@ -116,7 +116,8 @@ def rows(build="data/build"):
     `check.inv_a_work_shows_the_english_its_record_holds` is what makes the two agree on the rest.
     """
     at = pathlib.Path(build)
-    titles = json.loads((at / "feed" / "names.json").read_text())["titles"]
+    _nf = at / "feed" / "names.json"
+    titles = _population.names(_nf if _nf.exists() else None)["titles"]
     # THE BUILD WHERE ONE IS NAMED AND THE STORE OTHERWISE, §13. `build` is what the test hands a
     # fixture through, so it has to keep meaning what it meant.
     series = _population.series(at / "series.json" if (at / "series.json").exists() else None)

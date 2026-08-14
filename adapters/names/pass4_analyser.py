@@ -674,11 +674,23 @@ def credit_fields_built(root="data/build"):
     """
     import json, pathlib as _pl                                             # noqa: PLC0415,E401
     out, base = [], _pl.Path(root)
+    # THE STORE WHERE THE BUILD HAS NOTHING, §13. Each of these was read if present and skipped
+    # otherwise, so with the corpus JSON no longer written the loop found nothing and this queue
+    # silently emptied. Absence is a state, and here it is the state of having a store instead.
+    _from_store = {"index.json": lambda: {"works": _population.index()},
+                   "works.json": lambda: {"works": _population.records()},
+                   "series.json": lambda: {"series": _population.series()},
+                   "feed/current.json": lambda: {"releases": _population.feed_window()}}
     for name, rows_at, field in (("index.json", "works", "c"), ("works.json", "works", "creator"),
                                  ("series.json", "series", "author"),
                                  ("feed/current.json", "releases", "author")):
         f = base / name
         if not f.exists():
+            doc = _from_store[name]()
+            got = doc.get(rows_at) or []
+            for r in got:
+                if isinstance(r, dict) and r.get(field):
+                    out.append((r.get(field), r.get("url")))
             continue
         try:
             doc = json.loads(f.read_text())

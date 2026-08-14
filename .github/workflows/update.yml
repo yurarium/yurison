@@ -170,6 +170,19 @@ jobs:
       - name: Compile
         run: python3 build.py
 
+      # ── WHAT THE COMPILED DATABASE IS MISSING, which only a compile can say ────────────────
+      #
+      # `shopquery` reads `data/build/series.json` to find works with a web serialisation and no
+      # print edition, so it cannot run in Stage A: nothing has written that file yet. It sat there
+      # anyway, failed on a missing file on every CI run this workflow has ever made, and was marked
+      # optional, so nobody was told. On a developer's machine it read the last build's answer,
+      # which is why it looked like it worked.
+      - name: Ask the shops what the compile says is missing
+        continue-on-error: true
+        run: |
+          python3 adapters/shopquery/capture.py --out data/queue/shop-query.yaml \
+            --series data/build/series.json --cache "$CACHE/shopquery-cache" --retrieved "$R"
+
       # ── Stage E — names. ──────────────────────────────────────────────────────────────────────
       #
       # AFTER COMPILE, because every pass takes its worklist from `data/build/series.json` and the

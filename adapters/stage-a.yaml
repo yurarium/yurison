@@ -83,11 +83,11 @@ commands:
   # output and has hundreds of works still to reach, so a day's lag on the newest one changes no
   # answer. The name passes are in Stage E for the opposite reason, since a name is wanted for the
   # work that arrived in the same run.
-  - id: shopquery
-    optional: true
-    argv: [adapters/shopquery/capture.py, --out, data/queue/shop-query.yaml,
-           --series, data/build/series.json, --cache, "{CACHE}/shopquery-cache",
-           --retrieved, "{R}"]
+  # `shopquery` IS NOT HERE, and where it went is worth saying. It asks what the PUBLISHED database
+  # is missing, which is `data/build/series.json`'s answer, and no compile has written that when this
+  # stage runs: on a fresh runner it died on a missing file every single time, and on a developer's
+  # machine it read whatever the last build left. It runs after the compile now, where its question
+  # can be asked.
 
   # THE DATE AN ISBN IS A KEY TO. `volumes with an isbn and no date` is a ZERO budget, and a volume
   # holding an ISBN and no date is a lookup nobody has done rather than a fact nobody holds. The

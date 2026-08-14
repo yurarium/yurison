@@ -264,5 +264,60 @@ def main(s):
             "separately and a lookup on the raw field has to reach them")
 
 
+    # ── THE RUN'S REPORT ON ITSELF, §13 ───────────────────────────────────────────────────────
+    #
+    # BUILT HERE RATHER THAN READ FROM THE STORE ON DISK, because these tables are written after
+    # the compile by three separate passes and a test that needed all three to have run would be a
+    # test of whether somebody built recently.
+    rep = relational.load_rulings(relational.create(":memory:"))
+    relational.note(rep, {"generated": "2026-08-14", "releases": 1260, "works": 2574,
+                          "platforms": 23, "series_rows": 3039, "collapsed.samples": 36,
+                          "collapsed.thin_sitemap": 8, "ledger.runs_held": 40})
+    rep.execute("INSERT INTO run_source (source, files, works, rows, retrieved, in_scope, empty,"
+                " stated_rows, conforming_rows) VALUES ('comicfuz',2,129,6189,'2026-08-14',1,0,"
+                " 6189, 6180)")
+    rep.execute("INSERT INTO check_result (kind, name, value, budget, why, not_measured, seconds)"
+                " VALUES ('budget','uncertain readings',53,53,'names nobody has settled',NULL,0.4)")
+    rep.execute("INSERT INTO check_result (kind, name, value, budget, why, not_measured, seconds)"
+                " VALUES ('invariant','ruby covers its surface',0,NULL,NULL,NULL,0.2)")
+    rep.execute("INSERT INTO check_finding (kind, name, seq, finding)"
+                " VALUES ('invariant','ruby covers its surface',0,'w00001: ruby is short')")
+
+    got = emit.run(rep)
+    # THE DOTTED KEYS COME BACK APART, which is the whole reason `run_report` can hold scalars and
+    # still serve a shape with sections in it.
+    s.eq(got["collapsed"], {"samples": 36, "thin_sitemap": 8},
+         "a section stored as dotted scalars is served as a section")
+    s.check("ledger" not in got,
+            "and the ledger's own keys stay out of it, being the ledger's rather than the run's")
+    s.eq(got["releases"], 1260, "a count comes back a number rather than the text it is stored as")
+    s.eq([x["source"] for x in got["sources"]], ["comicfuz"], "the census is the connector list")
+    s.eq(got["sources"][0]["in_scope"], True, "with its flags as booleans rather than as 0 and 1")
+
+    got = emit.checks(rep)
+    s.eq([i["name"] for i in got["invariants"]], ["ruby covers its surface"],
+         "an invariant is reported under its own kind")
+    s.eq(got["invariants"][0]["violations"], 0,
+         "and records `violations`, which is what the status page counts; reading a key it does "
+         "not have made every check on that page render as failing")
+    s.eq(got["invariants"][0]["examples"], ["w00001: ruby is short"],
+         "with the findings that make a violation actionable")
+    s.eq(got["budgets"][0]["budget"], 53, "a budget carries the ceiling it may not pass")
+    s.check("not_measured" not in got["budgets"][0],
+            "and says nothing about not being measured where it was")
+
+    # A BUDGET THE RUN DID NOT MEASURE SAYS SO, which is what lets a reader tell "nothing to
+    # report" from "not asked". `check.py` records that twenty-one budgets once caught every
+    # exception and answered 0, and a gate banked the number nobody had measured.
+    rep.execute("INSERT INTO check_result (kind, name, value, budget, why, not_measured, seconds)"
+                " VALUES ('budget','unreadable bookwalker rows',NULL,15,'rows',"
+                "'source-quality budget; measured at check-in',0.0)")
+    skipped = next(b for b in emit.checks(rep)["budgets"]
+                   if b["name"] == "unreadable bookwalker rows")
+    s.eq(skipped["value"], None, "a budget nobody measured reports no value")
+    s.eq(skipped["not_measured"], "source-quality budget; measured at check-in",
+         "and says why, rather than reporting the best possible number")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

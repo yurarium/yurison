@@ -2774,7 +2774,7 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
 
 
 
-def _store_census(src_health, today):
+def _store_census(src_health, scalars):
     """The run's account of its own connectors and queues, into the store. STORE-PLAN §13.
 
     A SECOND WRITE, FOR THE SAME REASON `check.py`'S IS. The census is assembled where the run's
@@ -2815,8 +2815,10 @@ def _store_census(src_health, today):
         _d.ensure(db)
         _d.reconcile(db, "run_source", ["source"], rows)
         _d.reconcile(db, "run_queue", ["name"], queues)
+        _r.note(db, scalars)
         db.commit()
-        print(f"store           : {len(rows)} connector(s) and {len(queues)} queue(s) recorded")
+        print(f"store           : {len(rows)} connector(s), {len(queues)} queue(s) and "
+              f"{len(scalars or {})} count(s) recorded")
     except Exception as why:                                                # noqa: BLE001
         print(f"store           : the census was not recorded ({why.__class__.__name__}: {why})")
 
@@ -3052,10 +3054,22 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
          "filled": {"author": filled_author, "access": filled_access}},
         ensure_ascii=False, indent=1, default=jsonable))
     print(f"claims traced   : {dict(cl)}")
+    # THE SCALARS THE STATUS PAGE READS, for the store. `last_run` is the run's own headline and
+    # every one of these is a count, so they go into `run_report` as scalars under dotted keys
+    # rather than as a JSON value in a text column, which is the file this table replaces.
+    _scalars = {"releases": len(releases), "platforms": len(platforms), "works": len(works),
+                "series_rows": len(series_rows)}
+    for _section, _got in (("identification", dict(Counter(r.get("ident") for r in releases))),
+                           ("collapsed", {"duplicate_chapters": dropped_dupes,
+                                          "thin_sitemap": thin_dropped,
+                                          "resolver": resolver_dropped,
+                                          "samples": len(samples)})):
+        for _k, _v in _got.items():
+            _scalars[f"{_section}.{_k}"] = _v
     # AND THE CENSUS GOES BACK TO THE CALLER, for the store. It is computed here because this is
     # where the run's account of itself is assembled, and it is written from `main` because the
     # store has already been applied by the time this runs. §13.
-    return cl, src_health
+    return cl, src_health, _scalars
 
 
 def main():
@@ -7510,10 +7524,11 @@ def main():
                      contradicted_works, print_candidates, web_works, samples,
                      regenerate=set(ARGS.regenerate_archive), store=_store_db)
 
-    cl, _src_health = write_run_record(out, _today, releases, platforms, works, series_rows,
-                          claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
-                          filled_author, filled_access, samples, catalogue_rows)
-    _store_census(_src_health, _today)
+    cl, _src_health, _run_scalars = write_run_record(
+        out, _today, releases, platforms, works, series_rows,
+        claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
+        filled_author, filled_access, samples, catalogue_rows)
+    _store_census(_src_health, _run_scalars)
 
     print(f"syndicated      : {sum(1 for r in releases if r.get('syndicated'))}")
     print(f"provenance      : {dict(Counter(r.get('provenance') for r in releases))}")

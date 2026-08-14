@@ -437,6 +437,28 @@ def build(path=None, quarantine=False, at=None, source=None):
 
 
 
+def note(db, mapping):
+    """Record scalars the run has to say about itself in `run_report`. Returns how many. §13.
+
+    ONE STATEMENT FOR ONE TABLE, which is what `the store has one writer` asks and what the three
+    passes that write here would otherwise break. `build.py` records the run's counts, `ledger.py`
+    the depth of the window it holds, and the loader the feed's own shape; each computes something
+    different and all three were about to carry their own INSERT. The check found the second and
+    third the moment they appeared, which is the check working.
+
+    SCALARS ONLY, AND THAT IS THE POINT OF THE TABLE. A value that wants to be a list or a mapping
+    is a row somewhere else: `run_source`, `run_queue` and `run_drop` all exist because a census
+    entry is a row, and putting one here as JSON text would rebuild the file this replaces. Nested
+    counts arrive under a dotted key, `collapsed.samples`, and the emitter puts them back together.
+    """
+    n = 0
+    for key, value in sorted((mapping or {}).items()):
+        db.execute("INSERT OR REPLACE INTO run_report (key, value) VALUES (?,?)",
+                   (key, None if value is None else str(value)))
+        n += 1
+    return n
+
+
 def save(db, path=None):
     """Write a compiled store out to the file, replacing whatever was there. Returns the path.
 
@@ -1910,7 +1932,16 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
         # THE QUARANTINE AND THE DERIVATIONS ARE THE STORE'S OWN MEMORY, not the compiler's answer.
         # §5g carries a quarantined row forward across rebuilds precisely so it is not lost, and
         # reconciling it against a scratch that never saw yesterday's refusals would delete it.
-        if table in ("quarantine", "derivation", "store_stamp"):
+        #
+        # AND SO IS THE RUN'S REPORT ON ITSELF, §13, for the same reason one step later. The
+        # census, the drops and what the checks answered are all written AFTER the compile by the
+        # passes that compute them, so a scratch has none of them by construction. Reconciling
+        # against it dropped all 127 check rows on every build, and the gate that asks whether the
+        # store carries them failed on the run after a build and passed on the run after that: a
+        # check alternating with nothing wrong is worse than no check, because the first person to
+        # see it green stops reading it.
+        if table in ("quarantine", "derivation", "store_stamp",
+                     "run_source", "run_queue", "run_drop", "check_result", "check_finding"):
             continue
         # WHAT A ROW STATES, WHICH IS NOT EVERY COLUMN IT HAS. A generated column cannot be written
         # at all, and a rowid handed out by an insert addresses the row and states nothing.

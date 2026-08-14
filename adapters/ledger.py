@@ -22,6 +22,16 @@ landmark declaration as the answer to it.
 """
 import datetime
 import pathlib
+import sys
+
+# ITS OWN DIRECTORY, SAID RATHER THAN ASSUMED. Running `python3 adapters/ledger.py` puts this
+# directory on the path and importing the file any other way does not, so `import captures` below
+# worked from the workflow and failed from anywhere else. `the pipeline runs from a clean checkout`
+# is the check that says so, and it had never looked here: it selects a file by whether it imports
+# `facts`, `names`, `testkit`, `lint` or `relational`, this one imported none of them until §13,
+# and a check whose pattern never matches reports clean (STANDING-INSTRUCTIONS §4).
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
 import captures  # noqa: E402
 import yaml
@@ -130,11 +140,43 @@ def main(argv=None):
     pathlib.Path(a.out).write_text(json.dumps(
         {"runs_held": len(runs), "previous_at": runs[-2]["at"] if len(runs) > 1 else None,
          "drops": drops, "sources": snap}, ensure_ascii=False, indent=1))
+    _store(drops, len(runs), runs[-2]["at"] if len(runs) > 1 else None)
     for d in drops:
         print(f"  DROP {d['source']}: {d['was']} -> {d['now']} rows "
               f"({d['share']:.0%} lost) after a re-fetch")
     print(f"ledger: {len(snap)} source(s), {len(runs)} run(s) held, {len(drops)} drop(s)")
     return 0
+
+
+def _store(drops, runs_held, previous_at):
+    """The drops and the window's depth, into the store. STORE-PLAN §13.
+
+    THE THIRD SMALL WRITE OF A RUN, and the third for the same reason: this is computed here, after
+    the compile, because it compares today's capture against the runs this file holds. `build.py`
+    writes the census and `check.py` the checks; each owns what it computes, which is §3 rather
+    than three copies of one idea.
+
+    A FAILURE COSTS THE DROPS AND NOT THE RUN. `data/ledger/runs.yaml` is already written by the
+    time this is reached and is the record of account; `the store carries this run's census` is
+    what fails at check-in if the store stops receiving any of it.
+    """
+    try:
+        here = pathlib.Path(__file__).resolve().parent
+        sys.path.insert(0, str(here / "names"))
+        sys.path.insert(0, str(here))
+        import relational as _r
+        from relational import delta as _d
+        if not _r.DB.exists():
+            return
+        db = _r.open_db()
+        _d.ensure(db)
+        _d.reconcile(db, "run_drop", ["source"],
+                     [{"source": d["source"], "was": d["was"], "now": d["now"],
+                       "share": round(float(d["share"]), 6)} for d in drops])
+        _r.note(db, {"ledger.runs_held": runs_held, "ledger.previous_at": previous_at})
+        db.commit()
+    except Exception as why:                                                # noqa: BLE001
+        print(f"ledger: the store was not updated ({why.__class__.__name__}: {why})")
 
 
 if __name__ == "__main__":

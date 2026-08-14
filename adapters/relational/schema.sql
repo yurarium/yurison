@@ -286,6 +286,21 @@ CREATE TABLE run_queue (
   depth INTEGER NOT NULL CHECK (depth >= 0)
 ) WITHOUT ROWID;
 
+-- A SOURCE THAT CAME BACK SMALLER THAN LAST TIME, §13. `adapters/ledger.py` compares each capture
+-- against the runs it holds and reports a fall in row count, which is how a platform quietly
+-- serving half its catalogue is noticed at all. The status page shows these beside the connector.
+--
+-- `share` IS STORED THOUGH IT IS `1 - now/was`, which looks like the `age_days` argument next door
+-- and is not. That one is a fact about TODAY and goes wrong overnight; this is the proportion the
+-- run observed, and the two counts it came from are the run's as well. Nothing here moves later.
+CREATE TABLE run_drop (
+  source TEXT PRIMARY KEY,
+  was    INTEGER NOT NULL CHECK (was >= 0),
+  now    INTEGER NOT NULL CHECK (now >= 0),
+  share  REAL NOT NULL CHECK (share >= 0.0 AND share <= 1.0),
+  CHECK (now <= was)
+) WITHOUT ROWID;
+
 -- WHAT THE RUN'S CHECKS ANSWERED, §13. The project owner ruled on 2026-08-14 that the run's report
 -- on itself belongs in the store rather than in three small files published beside it: a consumer
 -- fetching one artefact for the corpus and three more for the report has two boundaries where §11

@@ -1319,3 +1319,78 @@ def feed_files(db):
     out["feed/meta.json"] = as_text(meta(
         db, generated, window, archive_from, months, int(report.get("samples_dropped") or 0)))
     return out
+
+
+# ── THE RUN'S REPORT ON ITSELF, §13 ───────────────────────────────────────────────────────────
+#
+# THESE ARE NOT THE CORPUS AND THEY SHIP ANYWAY. `served.CORPUS` excludes `run.json`,
+# `checks.json` and `status.json` because they describe what a RUN did rather than what the
+# database holds, and the status page is built from all three. §11 made that page the site's to
+# build, and the project owner ruled on 2026-08-14 that the store carries the report rather than
+# the pipeline publishing three small files beside it.
+#
+# WHAT IS MISSING FROM `run` HERE, SAID PLAINLY. `build.py`'s own `run.json` carries `claims` and
+# `gaps`, 186 KB between them, and those are the corpus rather than the run: claims are in
+# `claim` and `claim_record`, and a gap is a query over `work` and `offer`. They belong in the
+# emitters that already answer for those tables, and putting them here would make a report file
+# the way to reach corpus data for a second time.
+def run(db):
+    """`run.json`: what this run did, from `run_report` and `run_source`."""
+    got = dict(db.execute("SELECT key, value FROM run_report"))
+
+    def number(key):
+        raw = got.get(key)
+        try:
+            return int(raw)
+        except (TypeError, ValueError):
+            return None
+
+    # THE DOTTED KEYS COME BACK APART. `run_report` holds scalars, so `collapsed.samples` is a row
+    # and `collapsed` is not; the shape a reader is served puts them back the way `status.py`
+    # reads them.
+    sections = {}
+    for key in got:
+        if "." not in key:
+            continue
+        head, tail = key.split(".", 1)
+        if head == "ledger":
+            continue
+        sections.setdefault(head, {})[tail] = number(key)
+    return {"generated": got.get("generated") or "",
+            "releases": number("releases"), "platforms": number("platforms"),
+            "works": number("works"), "series_rows": number("series_rows"),
+            "sources": [{"source": s, "files": f, "works": w, "rows": r, "retrieved": ret,
+                         "in_scope": bool(sc), "empty": bool(e),
+                         "stated_rows": st, "conforming_rows": cf}
+                        for s, f, w, r, ret, sc, e, st, cf in db.execute(
+                            "SELECT source, files, works, rows, retrieved, in_scope, empty,"
+                            " stated_rows, conforming_rows FROM run_source ORDER BY source")],
+            **{k: sections.get(k) or {} for k in ("identification", "collapsed")}}
+
+
+def checks(db):
+    """`checks.json`: every check with what it answered, from `check_result` and `check_finding`."""
+    findings = {}
+    for kind, name, finding in db.execute(
+            "SELECT kind, name, finding FROM check_finding ORDER BY kind, name, seq"):
+        findings.setdefault((kind, name), []).append(finding)
+    rows = list(db.execute("SELECT kind, name, value, budget, why, not_measured, seconds"
+                           " FROM check_result ORDER BY name"))
+    return {
+        "generated": dict(db.execute("SELECT key, value FROM run_report")).get("generated") or "",
+        # AN INVARIANT RECORDS `violations` AND NOT `ok`, which the status page counts on: reading
+        # a key it does not have made every check render as failing on the page whose whole job is
+        # to say whether they do.
+        "invariants": [{"name": n, "violations": v or 0, "examples": findings.get((k, n)) or []}
+                       for k, n, v, _b, _w, _nm, _s in rows if k == "invariant"],
+        # AND A BUDGET THE RUN DID NOT MEASURE CARRIES `value: null` AND SAYS WHY, so a reader can
+        # tell "nothing to report" from "not asked". The store refuses a row that says neither.
+        "budgets": [{"name": n, "means": w, "budget": b, "value": v,
+                     **({"not_measured": nm} if nm else {})}
+                    for k, n, v, b, w, nm, _s in rows if k == "budget"],
+        "seconds": {n: s for k, n, _v, _b, _w, _nm, s in sorted(
+            rows, key=lambda r: -(r[6] or 0)) if s},
+        "note": ("Invariants are statements that are either true or the data is broken. At runtime "
+                 "a violation degrades to the fallback named in check.py and is counted here; at "
+                 "the gate it blocks. Budgets are counts with a direction and no correct value."),
+    }

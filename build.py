@@ -7290,8 +7290,10 @@ def main():
             import traceback
             print("\n".join(f"                : {_line}"
                              for _line in traceback.format_exc().strip().splitlines()[-8:]))
-            _rel.DB.unlink()
-            _rel.build(source=_store_source, at=str(_today), quarantine=ARGS.unattended)
+            # FROM THE SCRATCH THIS RUN ALREADY COMPILED, and not from `_store_source` again.
+            # `_store_source` is the compiler's rows and the renderings are not in it, so the
+            # second compile came out without a single floor surface. See `relational.save`.
+            _rel.save(_store_db)
             _store_moved_counts, _store_moved = {}, []
         print(f"store           : {sum(c[0] for c in _store_moved_counts.values())} row(s) "
               f"written, {sum(c[1] for c in _store_moved_counts.values())} dropped, "
@@ -7300,8 +7302,11 @@ def main():
         for _derivation in _store_moved[:6]:
             print(f"                : {_derivation}")
     else:
-        _rel.build(source=_store_source)
-        print("store           : built from nothing, there being none to update")
+        # THE SAME CORRECTION, AND THIS IS THE BRANCH CI TAKES EVERY TIME. A fresh checkout has no
+        # store file, so every store this repository has ever published came from a second compile
+        # of `_store_source` with the renderings left out of it.
+        _rel.save(_store_db)
+        print("store           : written from this run's compile, there being none to update")
     # AND THE FILE COMES BACK OUT OF THE STORE, §6. The map above is the compiler's rows, the same
     # way `series` and `works` are, and what ships is what the tables say: every key of every one of
     # its seven sections, on parsed equality rather than bytes, because a fact object here is SHARED

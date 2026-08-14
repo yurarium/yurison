@@ -437,6 +437,44 @@ def build(path=None, quarantine=False, at=None, source=None):
 
 
 
+def save(db, path=None):
+    """Write a compiled store out to the file, replacing whatever was there. Returns the path.
+
+    THE SCRATCH IS THE COMPLETE STORE AND REBUILDING FROM `source` IS NOT. `build.py` compiles into
+    memory, hands the result the name map through `renderings`, and only then reconciles the file
+    against it. The two paths that could not reconcile, a clean checkout with no file and a delta
+    the schema refused, both called `build(source=...)` again, and `source` is the compiler's ROWS
+    with no renderings in it: the store came out holding titles, authors and publishers and none of
+    the 17,263 floor and phrase surfaces that are what an English page falls back to.
+
+    EVERY STORE CI HAS EVER PUBLISHED WAS THAT ONE, because a fresh checkout has no file by
+    definition. It went unseen while the site was served JSON this repository wrote from the
+    scratch; the day §11 made the site emit `feed/names.json` from the published store, `floor`
+    arrived empty and every Japanese run in English mode rendered as one `?` per character. 25,172
+    of them on the front page.
+
+    SO THE FILE IS A COPY OF THE SCRATCH rather than a second compile of the same inputs. There is
+    only one compile per run now, which is also the only way to be sure the published store and the
+    store this run checked are the same store.
+    """
+    # AND THE SOURCE IS COMMITTED FIRST, WHICH IS NOT TIDINESS. `Connection.backup` asks SQLite for
+    # a read lock, and an open write transaction on the source refuses it; Python's binding answers
+    # a refusal by sleeping a quarter second and trying again, with no attempt limit, so a scratch
+    # with one uncommitted INSERT in it hangs the call for ever rather than raising. `renderings`
+    # leaves exactly that open, which is how this was found: a test that never finished.
+    db.commit()
+    path = pathlib.Path(path or DB)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.unlink(missing_ok=True)
+    out = sqlite3.connect(path)
+    try:
+        db.backup(out)
+        out.commit()
+    finally:
+        out.close()
+    return path
+
+
 def renderings(db, doc, put=None, surface_id=None, counts=None):
     """The derived name map, loaded into the store. STORE-PLAN §6.
 

@@ -785,6 +785,46 @@ def main(s):
         for k in _rd.en_kinds_for(b):
             s.check((b, "english", k) in pairs, f"the English attribution carries {b}/{k}")
 
+    # ── THE PUBLISHED STORE IS THE STORE THAT WAS COMPILED, AND WAS NOT ───────────────────────
+    #
+    # `build.py` compiles into memory, hands the scratch the name map through `renderings`, and
+    # writes the file. Where there was no file to reconcile against, which on a fresh checkout is
+    # every CI run, it compiled `source` a second time instead of copying the scratch, and `source`
+    # is the compiler's rows with no renderings in it. `floor` reached the site empty and every
+    # Japanese run under an English heading rendered as one question mark per character.
+    scratch = relational.load_rulings(relational.create(":memory:"))
+    scratch.execute("INSERT INTO work (id, title) VALUES ('w00001','T')")
+    relational.renderings(scratch, {"floor": {"やがて君になる": {"macron": "Yagate Kimi ni Naru"}}})
+    planted = scratch.execute(
+        "SELECT count(*) FROM surface WHERE kind = 'floor'").fetchone()[0]
+    s.eq(planted, 1, "the scratch carries the floor surface the name map gave it")
+
+    out = pathlib.Path(tempfile.mkdtemp()) / "published.db"
+    relational.save(scratch, out)
+    kept = sqlite3.connect(out)
+    s.eq(kept.execute("SELECT count(*) FROM surface WHERE kind = 'floor'").fetchone()[0], 1,
+         "and saving the scratch is what publishes it, renderings and all")
+    s.eq(kept.execute(
+        "SELECT r.value FROM romanisation r JOIN surface s ON s.id = r.surface"
+        " WHERE s.kind = 'floor' AND r.style = 'macron'").fetchone()[0], "Yagate Kimi ni Naru",
+        "with the spelling a reader is shown, rather than the key alone")
+
+    # AND THE COUNTER-CASE, WHICH IS THE FAULT ITSELF. A floor surface exists only because
+    # `renderings` was called; the compiler's rows do not contain one and cannot, since the map is
+    # assembled from files the store itself emits. So compiling `source` a second time answers zero
+    # however complete the source is, and a test asserting only that `save` round-trips would have
+    # passed against the code that shipped the fault.
+    bare = relational.load_rulings(relational.create(":memory:"))
+    s.eq(bare.execute("SELECT count(*) FROM surface WHERE kind = 'floor'").fetchone()[0], 0,
+         "where a store the name map never reached has no floor at all")
+
+    # A SAVE REPLACES rather than merges, so a store rebuilt after a refused delta cannot inherit a
+    # row the run no longer states.
+    relational.save(relational.load_rulings(relational.create(":memory:")), out)
+    s.eq(sqlite3.connect(out).execute(
+        "SELECT count(*) FROM surface").fetchone()[0], 0,
+        "and writing again replaces the file rather than adding to it")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

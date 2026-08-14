@@ -124,6 +124,22 @@ INVARIANTS = {
         "asserts": "empty",
         "fallback": "the name reaches a reader as it stands, which is how `bylines` did",
         "canary": "INSERT INTO platform (name) VALUES ('an adapter, not a platform')"},
+    # NO CAPTURE IS DATED AFTER THE RUN THAT READ IT, READER-PLAN item 3. The workflow dates its
+    # captures `TZ=Asia/Tokyo`, deliberately, and `build.py` dated the run from the machine's own
+    # clock, so a run after 15:00 UTC stamped itself a day behind the captures it had just read and
+    # the status page showed five sources with an age of MINUS ONE DAY. Two clocks in one run.
+    #
+    # ASKED OF THE PAIR RATHER THAN OF EITHER DATE. Neither the run's date nor a capture's is wrong
+    # on its own, which is why nothing had caught it; what cannot be true is a capture from after
+    # the run that compiled it. `facts/dating.today` is the one clock now and this says so.
+    "no capture is dated after the run that read it": {
+        "sql": "SELECT s.source, s.retrieved FROM run_source s"
+               " WHERE s.retrieved > (SELECT value FROM run_report WHERE key = 'generated')",
+        "reads": ("run_source", "run_report"),
+        "asserts": "empty",
+        "fallback": "the status page shows a negative age",
+        "canary": "UPDATE run_source SET retrieved = '2099-01-01'"
+                  " WHERE source = (SELECT source FROM run_source LIMIT 1)"},
     # AND EVERY REGISTERED PLATFORM WHOSE NAME IS JAPANESE HAS AN ENGLISH NAME, item 5. The
     # interface held its own table of these, which is a second register and drifted: きら星ポータル
     # and comicブースト were never in it and reached an English page in Japanese, while きららベース

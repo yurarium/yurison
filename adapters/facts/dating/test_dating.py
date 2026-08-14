@@ -56,5 +56,22 @@ def main(s):
             "a delivery date dates the row, whatever else is unresolved about the printing")
 
 
+    # ── WHAT DAY IT IS, FOR A DATABASE DATED IN JAPAN ─────────────────────────────────────────
+    #
+    # The workflow dates its captures TZ=Asia/Tokyo and `build.py` took the machine's date, so a
+    # run after 15:00 UTC stamped itself a day behind the captures it had just read and the status
+    # page showed five sources aged minus one day.
+    import datetime as _dt
+    s.eq(dating.JST.utcoffset(None), _dt.timedelta(hours=9), "JST is nine hours ahead of UTC")
+    got = dating.today()
+    s.check(isinstance(got, _dt.date), "and today answers with a date")
+    # AT 15:30 UTC IT IS ALREADY TOMORROW IN TOKYO, which is exactly when the most valuable run of
+    # the day happens, so the two clocks disagree precisely where it matters most.
+    at = _dt.datetime(2026, 8, 14, 15, 30, tzinfo=_dt.timezone.utc)
+    s.eq(at.astimezone(dating.JST).date(), _dt.date(2026, 8, 15),
+         "15:30 UTC on the 14th is the 15th in Tokyo")
+    s.eq(at.date(), _dt.date(2026, 8, 14), "where UTC still calls it the 14th")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "dating"))

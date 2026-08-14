@@ -829,7 +829,7 @@ def readable_now(chapter, today=None):
     the per-chapter button now, and this is the backstop that reads what the row itself states.
     """
     when = str(chapter.get("free_from") or "")[:10]
-    return not (when and when > (today or datetime.date.today().isoformat()))
+    return not (when and when > (today or _dating.today().isoformat()))
 
 
 def _basis_of(best, rows, field):
@@ -3020,7 +3020,12 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
     # every one of these is a count, so they go into `run_report` as scalars under dotted keys
     # rather than as a JSON value in a text column, which is the file this table replaces.
     _scalars = {"releases": len(releases), "platforms": len(platforms), "works": len(works),
-                "series_rows": len(series_rows)}
+                "series_rows": len(series_rows),
+                # WHAT THE STORE WILL BE ABLE TO KEY, which is what a reader can reach. The two
+                # differ by the works still awaiting an identifier, and the status page called
+                # both of them "works".
+                "series_addressable": sum(1 for r in series_rows
+                                          if str(r.get("id") or "").startswith("w"))}
     for _section, _got in (("identification", dict(Counter(r.get("ident") for r in releases))),
                            ("collapsed", {"duplicate_chapters": dropped_dupes,
                                           "thin_sitemap": thin_dropped,
@@ -3647,8 +3652,8 @@ def main():
         # Anchor the window to TODAY, not to the newest date in the data. FUZ carries free dates
         # for chapters running ahead of the free line, and anchoring on those pulled months of
         # back-catalogue into the feed.
-        today = str(datetime.date.today())
-        cutoff = str(datetime.date.today() - datetime.timedelta(days=FUZ_FEED_DAYS))
+        today = str(_dating.today())
+        cutoff = str(_dating.today() - datetime.timedelta(days=FUZ_FEED_DAYS))
         for w in d.get("works") or []:
             for c in w.get("chapters") or []:
                 u = str(c.get("updated") or "")
@@ -3721,8 +3726,8 @@ def main():
     # Facts about chapters too old to be releases, kept so they can still be carried onto the rows
     # that are in the feed. Keyed (work, platform, chapter).
     field_facts = {}
-    wcut = str(datetime.date.today() - datetime.timedelta(days=WEBPAGE_FEED_DAYS))
-    wtoday = str(datetime.date.today())
+    wcut = str(_dating.today() - datetime.timedelta(days=WEBPAGE_FEED_DAYS))
+    wtoday = str(_dating.today())
     # カドコミ: same shape as the webpages adapters, but it does apply a 百合 tag, so its works
     # carry a marketing_label where present.
     # Works the platform itself calls a one-shot. Confirmation records is_oneshot and the release
@@ -5111,7 +5116,7 @@ def main():
         # did, silently, because the failure was hidden behind a grep and a pipe's exit code.
         ledger = {k: str(v) for k, v in
                   ((yaml.safe_load(ledger_path.read_text()) or {}).get("first_seen") or {}).items()}
-    today_iso = str(datetime.date.today())
+    today_iso = str(_dating.today())
     new_sightings = 0
     for r in releases:
         key = f"{norm_work(r['work'])}|{norm_work(r.get('ep') or '')}|{r.get('plat_name') or r.get('plat')}"
@@ -5421,7 +5426,7 @@ def main():
             # カドコミ dates a not-yet-released chapter 9999-12-31, and コミックFUZ carries 公開予定
             # rows months out. Neither has been published, so neither can be the latest chapter —
             # left in they sorted the whole index by which series had announced furthest ahead.
-            _now = str(datetime.date.today())
+            _now = str(_dating.today())
             future = [c for c in chs if c.get("updated") and str(c["updated"])[:10] > _now]
             chs = [c for c in chs if not (c.get("updated") and str(c["updated"])[:10] > _now)]
             dated = sorted((c for c in chs if c.get("updated")),
@@ -5723,7 +5728,11 @@ def main():
                 for r in releases if r.get("kind") == "oneshot" or r.get("type") == "oneshot"}
     _oneshot_any = {w for w, _ in _oneshot}
 
-    _today = datetime.date.today()
+    # THE DATE IN JAPAN, WHICH IS THE DATE THIS CORPUS KEEPS, READER-PLAN item 3. It was the
+    # machine's own date, so a run after 15:00 UTC stamped itself a day behind the captures the
+    # workflow had just dated `TZ=Asia/Tokyo`, and the status page showed five sources aged MINUS
+    # ONE DAY. `facts/dating.today` is the one answer now.
+    _today = _dating.today()
     for row in series.values():
         # State from the one thing every platform actually tells us: when it last published. Named
         # for what is observed, not inferred — nothing here says 完結, because almost no platform
@@ -6097,7 +6106,7 @@ def main():
             _state_basis = ("every chapter we hold arrived on the day a platform imported the "
                             "series, so nothing here says when it last published")
         if _state in ("active", "slow", "dormant") and _merged_latest:
-            _age = (datetime.date.today()
+            _age = (_dating.today()
                     - datetime.date.fromisoformat(_merged_latest)).days
             _recomputed = "active" if _age <= 45 else ("slow" if _age <= 365 else "dormant")
             if _recomputed != _state:
@@ -7102,6 +7111,15 @@ def main():
     # WHAT THAT BUYS BESIDES THE ARGUMENT. The store keeps its own memory across runs: the
     # quarantine §5g carries forward, and the derivation digests that say which answers moved
     # TODAY rather than which exist at all.
+    # A WORK WITH NO IDENTIFIER REACHES NO READER, and the run says how many, READER-PLAN item 3.
+    # The store keys a work on its identifier, so a row that has none becomes no `work` row, no
+    # page and no entry in the works list: today that is メイドinお嬢さま, which the corpus holds
+    # and nobody can open. It is the honest half of the two counts the status page disagreed with
+    # itself over, `3039 works` in its opening sentence against `3038 works` below.
+    _idless = [r for r in series_rows if not str(r.get("id") or "").startswith("w")]
+    if _idless:
+        print(f"awaiting an identifier: {len(_idless)} work(s) the store cannot key, so they "
+              f"reach no reader: " + ", ".join(str(r.get("work"))[:24] for r in _idless[:4]))
     _store_source = {"series": {"series": series_rows}, "works": {"works": works},
                 # THE FEED'S OWN ROWS, so the store is not reading back the files it emits.
                 "releases": releases,

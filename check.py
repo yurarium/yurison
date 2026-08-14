@@ -398,6 +398,42 @@ def inv_a_work_shows_the_english_its_record_holds(ctx):
     return bad
 
 
+def inv_every_kind_the_run_reports_has_a_gloss(ctx):
+    """Every key the status page renders as a row has a sentence to render.
+
+    WHY THIS EXISTS. `identification` has three values and `status.MEANS` held two, so one row of
+    "what this run did" read `17  known-work-match` among six English sentences: a key with no
+    gloss falls through to the key, and the key is machinery. Adding the missing sentence fixed
+    that row and nothing stopped the next one, which is why this asks the question instead.
+
+    THE KEYS COME FROM THE DATA AND THE SENTENCES FROM A TABLE, which is what makes them able to
+    drift. A capture that starts reporting a fourth identification kind writes it into the run's
+    report without anybody editing the table, and the page shows the raw key to a reader.
+
+    §14b, WHAT IT SHARES: the table, which is the thing under test, and the store, which is where
+    the keys are. Neither knows about the other, so a key with no sentence is visible from here and
+    from nowhere else.
+
+    fallback: the key is shown as it stands, which is what `known-work-match` did.
+    """
+    db = ctx.get("store")
+    if db is None:
+        return []
+    try:
+        sys.path.insert(0, str(ROOT / "adapters"))
+        import status as _status
+    except Exception:                                                   # noqa: BLE001
+        return []
+    # THE SECTIONS THE PAGE DRAWS AS ROWS, which `run_report` holds under dotted keys.
+    want = {"identification", "collapsed"}
+    bad = []
+    for (key,) in db.execute("SELECT key FROM run_report WHERE key LIKE '%.%'"):
+        head, _, tail = key.partition(".")
+        if head in want and tail not in _status.MEANS:
+            bad.append(f"{tail}: the run reports it and `status.MEANS` has no sentence for it")
+    return bad
+
+
 def inv_the_store_has_one_writer(ctx):
     """Nothing writes to the relational store except the module that compiles it.
 
@@ -1868,6 +1904,7 @@ INVARIANTS = [
     ("a name is answered by one module", inv_a_name_is_answered_by_one_module),
     ("a work shows the English its record holds",
      inv_a_work_shows_the_english_its_record_holds),
+    ("every kind the run reports has a gloss", inv_every_kind_the_run_reports_has_a_gloss),
     ("the store has one writer", inv_the_store_has_one_writer),
     ("every name is defined where it is used", inv_every_name_is_defined_where_it_is_used),
     ("the tracker states what it claims", inv_the_tracker_states_what_it_claims),

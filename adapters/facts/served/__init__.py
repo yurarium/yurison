@@ -294,6 +294,11 @@ STORE_ANSWERS = (
     "feed/names.json:authors", "feed/names.json:authors{}",
     "feed/names.json:publishers", "feed/names.json:publishers{}",
     "feed/names.json:imprints", "feed/names.json:imprints{}",
+    # WHAT AN ENGLISH PAGE CALLS EACH PLATFORM, from `platform_register.en`, READER-PLAN item 5.
+    # The interface held its own table of these until the register carried them, and this budget
+    # caught the new field the moment it was served: a field a reader gets has to be one the store
+    # can answer, and saying so here is the declaration that it is.
+    "feed/names.json:platforms", "feed/names.json:platforms{}",
     "feed/names.json:credit_parts", "feed/names.json:credit_parts{}",
     "feed/names.json:floor", "feed/names.json:floor{}",
     "feed/names.json:phrases", "feed/names.json:phrases{}",

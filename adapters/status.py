@@ -47,6 +47,11 @@ MEANS = {
     "samples": "Held back promotional read-throughs of finished volumes as print candidates",
     "discovery-candidate": "Admitted works that a discovery list names",
     "platform-genre": "Admitted works that a platform files under its own yuri genre",
+    # THE THIRD IDENTIFICATION KIND, READER-PLAN item 3. `identification` has three values and this
+    # table held two, so one row of "what this run did" read `17  known-work-match` among six
+    # English sentences. A key with no gloss falls through to the key, which is the machinery
+    # reaching a reader.
+    "known-work-match": "Matched updates to works the database already held",
 }
 
 
@@ -235,7 +240,17 @@ def build(run, checks, series, index, budgets, queues, previous=None, shape=None
         "last_run": {
             "at": run.get("generated"),
             "releases": run.get("releases"), "works": run.get("works"),
-            "platforms": run.get("platforms"), "series_rows": run.get("series_rows"),
+            "platforms": run.get("platforms"),
+            # THE NUMBER THE REST OF THE PAGE USES, READER-PLAN item 3. This was `series_rows`,
+            # which counts what the build ASSEMBLED, while the statistics below count what the
+            # store can key and a reader can open. The page called both of them "works" and said
+            # 3039 in one sentence and 3038 in the next.
+            #
+            # THE DIFFERENCE IS NOT LOST. `awaiting_identifier` is the works the corpus holds and
+            # nobody can reach, which is a thing this page exists to show rather than a rounding.
+            "series_rows": len(series),
+            "assembled": run.get("series_rows"),
+            "awaiting_identifier": max(0, (run.get("series_rows") or 0) - len(series)),
             "identification": run.get("identification") or {},
             "collapsed": run.get("collapsed") or {},
         },

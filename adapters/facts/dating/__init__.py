@@ -29,6 +29,7 @@ chapter serial with no volumes, an imprint that dates its other books but not th
 little read to tell those apart. Each wants something different done about it, and the flattened
 field asked for one thing. `no-date-attested` survives for the source that said nothing about why.
 """
+import datetime
 
 #: Every term the `date_basis` field can hold, and what each one means.
 BASES = {
@@ -146,3 +147,22 @@ def venue_type(basis):
 def dates_the_row(basis):
     """Whether the basis names an event that dates the row, rather than saying why nothing does."""
     return bool((BASES.get(basis) or {}).get("dated"))
+
+
+# ── WHAT DAY IT IS, FOR A DATABASE THAT IS DATED IN JAPAN ─────────────────────────────────────
+#
+# EVERY PUBLICATION DATE HERE IS JAPANESE AND STATED IN JST, and the site tells readers so in
+# those words. The update workflow already dates its captures `TZ=Asia/Tokyo`, deliberately,
+# because the most valuable run of the day sits just after midnight Tokyo, which is 15:30 UTC on
+# the PREVIOUS UTC day: dating that run from UTC records a chapter as retrieved the day before it
+# was published.
+#
+# `build.py` DID NOT. It took the machine's own date, so a run after 15:00 UTC stamped itself one
+# day behind the captures it had just read, and the status page showed five sources with an age of
+# MINUS ONE DAY. Two clocks in one run, and only one of them was written down.
+JST = datetime.timezone(datetime.timedelta(hours=9))
+
+
+def today():
+    """The date it is in Japan, which is the date this corpus is keeping."""
+    return datetime.datetime.now(JST).date()

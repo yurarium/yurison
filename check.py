@@ -4430,6 +4430,50 @@ def _store():
         return None
 
 
+def _emitted(db):
+    """The compiled collections, from the store that emits them. STORE-PLAN §13.
+
+    THE CHECKS ASK THE COMPILED FORM AND THE COMPILED FORM IS THE STORE. They read nine files out
+    of `data/build`, every one of which §6 made a projection of these tables, so the question went
+    out through a file and came back in. That also hid an ordering: a gate on a tree where nothing
+    had built read whatever the last build left, and on a fresh runner it read nothing at all and
+    every check reported clean over an empty list, which is STANDING-INSTRUCTIONS §4 at the scale
+    of a whole suite.
+
+    `relational/emit` ALREADY PRODUCES EXACTLY THESE SHAPES and the site is served from them, so a
+    second assembly here would be a second answer to what the corpus holds, differing in the ways
+    the two would drift.
+
+    LOADED ONCE INTO THE CONTEXT, which is what makes a canary possible: a check that opens its own
+    file cannot be shown a planted violation, and `--self-test` then reports it healthy having
+    exercised nothing.
+    """
+    from relational import emit as _emit
+    generated = dict(db.execute("SELECT key, value FROM run_report")).get("generated") or ""
+    feed = _emit.feed_files(db)
+    releases = []
+    for name in ["feed/current.json"] + sorted(n for n in feed
+                                               if re.fullmatch(r"feed/[0-9]{4}-[0-9]{2}\.json", n)):
+        if name in feed:
+            releases += (json.loads(feed[name]) or {}).get("releases") or []
+    return {
+        "releases": releases,
+        "works": _emit.works(db).get("works") or [],
+        "index": _emit.index(db) or [],
+        "series": _emit.series(db, generated).get("series") or [],
+        "names_shipped": _emit.names(db, generated),
+        "credit_pages": _emit.credits(db, generated),
+        "publisher_pages": _emit.publishers(db, generated),
+        # WHAT THE RUN REPORTED OF THE §6 RULINGS, which `run.json` carried and the store now
+        # holds a row per member of. The check compares it against `data/scope.yaml` and asks
+        # nothing of the code that acted on either, which is §14b and is why it cannot read the
+        # ruling file twice.
+        "scope_reported": [{"work": w} for (w,) in db.execute("SELECT work FROM scope_ruling")],
+        # status.html's own data is the site's to build under §11, and nothing here reads it.
+        "status": {},
+    }
+
+
 def _store_canary(db, sql):
     """A copy of the store with a violation planted in it, for `self_test`.
 
@@ -4498,23 +4542,19 @@ STORE_INVARIANTS, STORE_BUDGETS, STORE_PROBES = _store_asks()
 
 
 def context():
-    releases = []
-    cur = _load(BUILD / "feed" / "current.json", {})
-    releases += cur.get("releases", [])
-    for f in sorted((BUILD / "feed").glob("[0-9]*-[0-9]*.json")):
-        releases += (_load(f, {}) or {}).get("releases", [])
-    # Loaded HERE rather than in each check that wants it, so a canary planted in the context
-    # reaches every one of them. A check that reads its own file off disk cannot be shown a
-    # canary at all, and self_test then reports it healthy without ever having exercised it.
-    works = _load(BUILD / "works.json", []) or []
+    # ── THE COMPILED COLLECTIONS COME FROM THE STORE, §13 ────────────────────────────────────
+    #
+    # Nine of them, and every one used to be read out of `data/build`. See `_emitted`. A tree with
+    # no store gets empty collections and says so once, rather than every check reporting clean
+    # over a list nobody filled.
+    db = _store()
+    got = _emitted(db) if db is not None else {}
+    if db is None:
+        print("check: no store; the compiled collections are empty and every check over them "
+              "will report nothing. Run ./build.py.", file=sys.stderr)
     return {
-        "releases": releases,
-        "works": works.get("works") if isinstance(works, dict) else works,
-        # THE BIBLIOGRAPHIC LIST AS SHIPPED. Nothing here read it until 41 works were found listed
-        # twice in it, which is the state a file can reach when it is deployed and measured by
-        # nothing. Loaded with the rest so a canary can be planted in front of the checks that use
-        # it, for the reason the comment above gives.
-        "index": _load(BUILD / "index.json", []) or [],
+        **got,
+        "store": db,
         # THE INTERFACE'S OWN SOURCE. Read here for the same reason as everything else: a check that
         # opens its own file cannot be shown a canary, and this one is holding a copy of a Python
         # function to its original.
@@ -4522,24 +4562,18 @@ def context():
         # status.html's script, read here for the same reason app.js is. It is a published page
         # and nothing had ever asked it what it shows.
 
-        "status": _load(BUILD / "status.json", {}) or {},
         # THE §6 SCOPE RULINGS AND WHAT THE RUN REPORTED OF THEM, both on the context so a canary
         # can be planted between them. An invariant that opened data/scope.yaml itself could be
         # shown nothing and would report healthy for the rest of its life.
         # THE STORE ITSELF, §10. Every check written as SQL reads this, and a canary swaps it for a
         # copy with a violation in it, exactly as a canary swaps a collection above. `build.py`
         # writes it on every run, so a gate that has built has one.
-        "store": _store(),
         "scope_rulings": (_yaml(ROOT / "data" / "scope.yaml", {}) or {}).get("rulings") or [],
-        "scope_reported": ((_load(BUILD / "run.json", {}) or {}).get("scope") or {}).get("rulings")
-                          or [],
-        "series": (_load(BUILD / "series.json", {}) or {}).get("series", []),
         # EVERY POPULATION `facts/namekey` NAMES, and publishers were missing from it. Nothing
         # walks this dict wholesale; each check names the kinds it wants, so the third key costs
         # the readers nothing and it is what lets a publisher's claims be checked at all.
         "names": {k: ((_yaml(NAMES / f"{k}.yaml", {}) or {}).get("names") or {})
                   for k in _namekey_kinds()},
-        "names_shipped": _load(BUILD / "feed" / "names.json", {}),
         "cmoa_capture": _capture_works("data/queue/cmoa-volumes.yaml"),
         "identity": (_yaml(ROOT / "data" / "identity" / "works.yaml", {}) or {}).get("works") or [],
         # THE CREDIT REGISTRY AND WHAT WAS RULED ABOUT IT. Whole documents rather than their `credits`
@@ -4550,8 +4584,6 @@ def context():
         # THE TWO FILES THE NEW PAGES ARE BUILT FROM. Loaded here with everything else so a canary
         # can be planted in front of the checks that read them; a check that opens its own file
         # cannot be shown one, and self_test then reports it healthy having exercised nothing.
-        "credit_pages": _load(BUILD / "credits.json", {}) or {},
-        "publisher_pages": _load(BUILD / "publishers.json", {}) or {},
         "credit_rulings": _yaml(ROOT / "data" / "identity" / "credit-rulings.yaml", {}) or {},
         "credit_works": _yaml(ROOT / "data" / "identity" / "credit-works.yaml", {}) or {},
         # THE SOURCE LAYER, not the build. Two checks below ask what the RECORD states, because

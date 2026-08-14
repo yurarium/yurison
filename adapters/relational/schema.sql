@@ -232,6 +232,30 @@ CREATE TABLE withheld (
   reason TEXT
 );
 
+-- EVERY §6 SCOPE RULING, ONE ROW PER WORK IT NAMES, §13. `run.json` carried this as
+-- `scope.rulings` and `scope rulings are accounted for` read it from there: the check asks whether
+-- every decision somebody made shows up in what the run reported, which is the failure
+-- STANDING-INSTRUCTIONS §13 names. `data/source/kadokomi/withheld.yaml` once said five works were
+-- not published while all five were live, and nothing anywhere disagreed.
+--
+-- EVERY RULING AND NOT ONLY THE REFUSALS, which is what `withheld` above holds. 落差 and ON a LEASH
+-- are `review`: a Korean webtoon on a Japanese shop with no publisher-side page found, so nothing
+-- is decided and the work stays in. A table of refusals alone would have reported those two as
+-- ruled and unaccounted for ever.
+--
+-- `work` IS NOT A FOREIGN KEY. A refused work has no `work` row by construction, which is the
+-- point of refusing it, and a work under review has one; the column has to admit both.
+CREATE TABLE scope_ruling (
+  work          TEXT PRIMARY KEY,
+  title         TEXT,
+  disposition   TEXT,
+  country       TEXT,
+  country_basis TEXT,
+  medium        TEXT,
+  medium_basis  TEXT,
+  source        TEXT
+);
+
 -- WHAT THIS FILE IS AND WHAT MADE IT, §11. The store is published as an artefact now, and a
 -- consumer meeting one has to be able to tell whether it understands the shape it is holding. No
 -- guarantee of format or schema is offered to anyone, which is the project owner's ruling, so this

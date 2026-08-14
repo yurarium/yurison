@@ -876,6 +876,21 @@ def _load_all(db, source, put, counts, refused):
         if _ref.get("title"):
             put("INSERT OR IGNORE INTO withheld (title, reason) VALUES (?,?)",
                 (_ref["title"], _ref.get("reason") or _ref.get("why")), f"withheld {_ref['title']}")
+    # AND EVERY RULING, REFUSED OR NOT. A ruling may name several works on one line and each of
+    # them is a row; `origin.members` is the one producer of that expansion and `build.py` reports
+    # the same list through it, so a loop reading `works` here would be a second one to keep in
+    # step. `review` rulings are here too, which is why this is not `withheld`.
+    for _rul in (_origin_mod.load() or {}).get("rulings") or []:
+        for _mem in _origin_mod.members(_rul):
+            if not _mem.get("work"):
+                continue
+            put("INSERT OR IGNORE INTO scope_ruling (work, title, disposition, country,"
+                " country_basis, medium, medium_basis, source) VALUES (?,?,?,?,?,?,?,?)",
+                (_mem["work"], _mem.get("title"), _rul.get("disposition"), _rul.get("country"),
+                 _rul.get("country_basis"), _rul.get("medium"), _rul.get("medium_basis"),
+                 (_rul.get("evidence") or [{}])[0].get("source") if _rul.get("evidence")
+                 else _rul.get("source")),
+                f"scope ruling {_mem['work']}")
     counts["withheld"] = db.execute("SELECT count(*) FROM withheld").fetchone()[0]
 
     # ── the names, and what is claimed about each ────────────────────────────────────────────────

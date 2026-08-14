@@ -24,6 +24,22 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
 
+def _named(path):
+    """The path, where a caller named one that is actually there. Otherwise nothing.
+
+    A PATH THAT IS NOT THERE MEANS "USE THE STORE", and deciding it here is the whole point. Each
+    caller used to test `.exists()` before handing the path over, which is a rule every call site
+    has to remember: `adapters/status.py` remembered it for `series` and forgot it for `works` in
+    the same two lines, and CI died on the second. The fourth run of the day lost to that, on the
+    very class this module exists to close.
+
+    IT IS NOT A SILENT FALLBACK ONTO STALE DATA. The store is the compiled form and a named file is
+    the override for reading an OLDER build, so a name pointing at nothing is a caller asking for a
+    build that is not there, and the answer is the current corpus rather than an error.
+    """
+    return path if path and pathlib.Path(path).exists() else None
+
+
 def _store():
     import relational
     return relational.open_db()
@@ -36,6 +52,7 @@ def _rows(path):
 
 def works_in_state(state, path=None):
     """Works whose serialisation state is `state`, with the title and byline a shelf searches on."""
+    path = _named(path)
     if path:
         return [w for w in _rows(path) if w.get("state") == state]
     from relational import asks
@@ -55,6 +72,7 @@ def series(path=None):
     form is asked of the compiled form rather than sent out through a file and read back; a pass
     calling the emitter has no compile to wait for and no path to miss.
     """
+    path = _named(path)
     if path:
         return _rows(path)
     import relational
@@ -71,6 +89,7 @@ def works(path=None):
     different question from any of the filtered ones and is why it is here rather than assembled by
     each caller out of a filtered population.
     """
+    path = _named(path)
     if path:
         return _rows(path)
     from relational import asks
@@ -85,6 +104,7 @@ def releases(path=None):
     fewer rows than the run compiled, so assembling this from them would have measured a different
     population from the one `acceptance.py` has always measured.
     """
+    path = _named(path)
     if path:
         return json.loads(pathlib.Path(path).read_text(encoding="utf-8")).get("releases") or []
     from relational import emit
@@ -102,6 +122,7 @@ def feed_window(path=None):
     ROWS ARE NOT DEDUPLICATED, because the window overlaps the newest archive and the callers here
     count occurrences: an author's `urls` list carries one entry per row that credited them.
     """
+    path = _named(path)
     if path:
         base = pathlib.Path(path)
         names = ["feed/current.json"] + [f"feed/{p.name}" for p in
@@ -125,6 +146,7 @@ def feed_window(path=None):
 
 def records(path=None):
     """The record layer, as `works.json` states it: one row per catalogued book run."""
+    path = _named(path)
     if path:
         return json.loads(pathlib.Path(path).read_text(encoding="utf-8")).get("works") or []
     from relational import emit
@@ -133,6 +155,7 @@ def records(path=None):
 
 def index(path=None):
     """The collapsed bibliographic index, as `index.json` states it."""
+    path = _named(path)
     if path:
         return json.loads(pathlib.Path(path).read_text(encoding="utf-8"))
     from relational import emit
@@ -141,6 +164,7 @@ def index(path=None):
 
 def names(path=None):
     """The name map as `feed/names.json` states it: what the build spelled for every surface."""
+    path = _named(path)
     if path:
         return json.loads(pathlib.Path(path).read_text(encoding="utf-8"))
     from relational import emit

@@ -96,6 +96,10 @@ platforms:
     target. Reading quality unassessed.
 - id: ichicomi
   name: 一迅プラス
+  # THE SITE MOVED. `ichicomi.com` was the address and `ichijin-plus.com` is, and a byline read
+  # off the new one named no platform while the register held only the old.
+  hosts:
+  - ichijin-plus.com
   publisher: キルタイムコミュニケーション
   reading_rank: null
   notes: Unassessed. The 百合姫 line's own platform; the only one that labels its own genres.
@@ -341,6 +345,96 @@ platforms:
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: news.mynavi.jp
+
+# ── PLATFORMS THE CORPUS SERVES AND THIS REGISTER DID NOT HOLD ──────────────────────────
+# Added 2026-08-14 after a crawl of the live site. Thirteen platforms reached readers while
+# being absent from here, which is what let `bylines`, an adapter's own module name, sit in
+# the Platform column of seven work pages and in the reader's platform filter: nothing said
+# a platform had to be one this file knows. `every platform a reader is shown is registered`
+# is the check that now says so.
+#
+# EACH HOST IS CLAIMED BY EXACTLY ONE OF THEM, so `facts/platform` can name the platform a
+# page is on, which is how a byline read off a platform's own page stops being filed under
+# the pass that read it. A publisher is named where the site states one and left out where
+# it does not, because a guess here would reach a reader as a fact.
+- id: comic-boost
+  name: comicブースト
+  publisher: コアミックス
+  host: comic-boost.com
+  watched: false
+- id: manga-park
+  name: マンガPark
+  publisher: 白泉社
+  host: manga-park.com
+  watched: false
+- id: feelweb
+  name: FEEL web
+  publisher: 祥伝社
+  host: feelweb.jp
+  watched: false
+- id: comic-ruelle
+  name: COMICリュエル
+  publisher: 日本文芸社
+  host: comic.j-nbooks.jp
+  watched: false
+- id: comic-nova
+  name: コミックノヴァ
+  publisher: 一二三書房
+  host: www.123hon.com
+  watched: false
+- id: ynjn
+  name: ヤンジャン+
+  publisher: 集英社
+  host: ynjn.jp
+  watched: false
+- id: kirapo
+  name: きら星ポータル
+  host: kirapo.jp
+  watched: false
+- id: comic-pash-neo
+  name: コミックPASH! neo
+  publisher: 主婦と生活社
+  host: comicpash.jp
+  watched: false
+- id: comic-y-ours
+  name: COMIC Y-OURS
+  host: comic-y-ours.com
+  watched: false
+- id: asacomi
+  name: アサコミ
+  publisher: 朝日新聞出版
+  host: asacomi.jp
+  watched: false
+- id: comic-growl
+  name: コミックグロウル
+  publisher: コアミックス
+  host: comic-growl.com
+  watched: false
+- id: zerosum-online
+  name: ゼロサムオンライン
+  publisher: 一迅社
+  host: zerosumonline.com
+  watched: false
+- id: mynavi-news
+  name: マイナビニュース
+  publisher: マイナビ
+  host: news.mynavi.jp
+  watched: false
+
+- id: ganma
+  name: GANMA!
+  publisher: コミックスマート
+  host: ganma.jp
+  watched: false
+- id: firecross
+  name: ファイアクロス
+  host: firecross.jp
+  watched: false
+- id: comic-nettai
+  name: コミックネッタイ
+  host: www.comicnettai.com
+  watched: false
+
 not_works:
 - title: ゆりひめ@ピクシブ
   url: https://comic.pixiv.net/magazines/206

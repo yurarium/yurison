@@ -35,6 +35,7 @@ from facts import identity  # noqa: E402
 from facts import dating as _dating  # noqa: E402
 from facts import printblock as _printblock  # noqa: E402
 from facts import content as _content  # noqa: E402
+from facts import platform as _platform  # noqa: E402
 from facts import origin as _origin  # noqa: E402
 from facts import imprint as _imprints  # noqa: E402
 import importdates  # noqa: E402
@@ -296,18 +297,8 @@ HIATUS_FRESH_DAYS = 180
 
 
 def host_platforms(platforms):
-    """host -> the one platform that owns it, for hosts owned by exactly one.
-
-    A host with two claimants is not authoritative and is left out: comic-walker.com carries
-    カドコミ and other KADOKAWA brands, so the URL alone cannot say which of them a page belongs
-    to. Only the unambiguous ones are used to correct a label.
-    """
-    import collections
-    seen = collections.defaultdict(set)
-    for p in platforms:
-        if p.get("host") and p.get("name"):
-            seen[p["host"]].add(p["name"])
-    return {h: next(iter(n)) for h, n in seen.items() if len(n) == 1}
+    """host -> the one platform that owns it. `facts/platform` holds the rule, §12."""
+    return _platform.owners(platforms)
 
 
 # AN ADAPTER'S MODULE NAME IS NOT A SOURCE'S NAME. `sourced_from` is rendered in the work page's
@@ -348,10 +339,8 @@ def source_named(key, url=None, owners=None, on=()):
 
 
 def platform_of(url, owners):
-    """The platform a URL is on, where that is unambiguous."""
-    if not url or "://" not in str(url):
-        return None
-    return owners.get(str(url).split("/")[2])
+    """The platform a URL is on, where that is unambiguous. `facts/platform`, §12."""
+    return _platform.of(url, owners)
 
 
 _STATED = {}

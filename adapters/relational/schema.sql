@@ -1460,6 +1460,25 @@ CREATE INDEX print_party_publisher ON print_party (publisher);
 -- the capture route: コミックDAYS arrives as both `comic-days` and `backfill`, サンデーうぇぶり as
 -- `sundaywebry` and `backfill`, 一迅プラス as `ichicomi` and `claim-resolved`. Six names carry two
 -- slugs each, so keying on the slug would split one platform into two.
+-- EVERY PLATFORM THE PROJECT HAS WRITTEN DOWN, from `data/platforms.yaml`, READER-PLAN item 4.
+-- `platform` beside it is what a CENSUS saw; this is what the project says exists, and the check
+-- `every platform a reader is shown is registered` holds the first against the second.
+--
+-- WHY THE DIFFERENCE MATTERS. `bylines` is the filename of the pass that reads a byline off a
+-- platform's own page, and it reached seven work pages and the reader's platform filter as though
+-- it were a brand. Thirteen of the 49 platforms the corpus serves were missing from the register
+-- at the same time, so nothing could tell an adapter's name from a platform nobody had recorded.
+--
+-- A HOST IS WHAT MAKES A PAGE ATTRIBUTABLE, which is why it is here: `facts/platform` names the
+-- platform a URL is on from exactly this list, and a platform with no host is a page nothing can
+-- attribute.
+CREATE TABLE platform_register (
+  name      TEXT PRIMARY KEY,
+  slug      TEXT,
+  publisher TEXT,
+  host      TEXT
+) WITHOUT ROWID;
+
 CREATE TABLE platform (
   name TEXT PRIMARY KEY,
   -- THE CAPTURE ROUTE'S OWN NAME, which `release.plat_slug` also carries: six display names carry

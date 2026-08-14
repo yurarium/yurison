@@ -880,6 +880,16 @@ def _load_all(db, source, put, counts, refused):
     # the check that reads it exists because a register nothing consumes reads as a control that is
     # working: five works were flagged `not published` for the life of the project and all five
     # were live.
+    # THE PLATFORMS THE PROJECT HAS WRITTEN DOWN, READER-PLAN item 4. `facts/platform` reads the
+    # register and this stores it, so the check comparing what a reader is shown against what is
+    # recorded can be a query rather than a script.
+    from facts import platform as _plat_mod
+    for _p in _plat_mod.registered():
+        put("INSERT OR IGNORE INTO platform_register (name, slug, publisher, host)"
+            " VALUES (?,?,?,?)",
+            (_p["name"], _p.get("id"), _p.get("publisher"), _p.get("host")),
+            f"platform register {_p['name']}")
+
     from facts import content as _content_mod
     # AND THE MARKETING FLAGS, which are the other half of the register the check compares against.
     # Read off the titles the store already holds rather than off the rows the compiler was handed,

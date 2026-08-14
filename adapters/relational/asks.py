@@ -107,6 +107,23 @@ INVARIANTS = {
         "asserts": "empty",
         "fallback": "the run's report is whatever the last successful write left",
         "canary": "DELETE FROM check_result"},
+    # EVERY PLATFORM A READER IS SHOWN IS ONE THE REGISTER HOLDS, READER-PLAN item 4. `bylines`,
+    # which is the filename of the pass that reads a byline off a platform's own page, sat in the
+    # Platform column of seven work pages and in the reader's platform filter, beside COMIC FUZ
+    # and カドコミ. Nothing said a platform had to be one `data/platforms.yaml` knows, so thirteen
+    # of the 49 the corpus serves were absent from it and the adapter's own name looked no
+    # different from the rest.
+    #
+    # THE REGISTER IS WHAT MAKES A NAME A PLATFORM. It carries the host, which is how
+    # `facts/platform` names the platform a page is on; a platform missing from it is a platform
+    # nothing can attribute a page to, which is the same gap seen from the other end.
+    "every platform a reader is shown is registered": {
+        "sql": "SELECT DISTINCT p.name FROM platform p"
+               " WHERE NOT EXISTS (SELECT 1 FROM platform_register r WHERE r.name = p.name)",
+        "reads": ("platform", "platform_register"),
+        "asserts": "empty",
+        "fallback": "the name reaches a reader as it stands, which is how `bylines` did",
+        "canary": "INSERT INTO platform (name) VALUES ('an adapter, not a platform')"},
     # AND THE SAME FOR THE CENSUS, which `build.py` writes the same way and for the same reason.
     # `_store_census` names this check in its own docstring as the thing that would notice it
     # stopping, and for its first day the check did not exist: the function swallows every

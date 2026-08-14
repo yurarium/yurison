@@ -45,6 +45,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import population  # noqa: E402
+from facts import platform as _platform  # noqa: E402
 import re
 
 # ── the shapes, each proven against a page in the fixture set ────────────────────────────────────
@@ -538,13 +539,24 @@ def main(argv=None):
          "# agree with itself.",
          "#",
          "# Nothing here attests a chapter, a date or a genre label. One fact per work.",
+         # THE FILE'S OWN PLATFORM IS THE ADAPTER'S NAME AND EVERY ROW OVERRIDES IT, §12. This
+         # capture reads a byline off twelve platforms' own pages and the format wants one
+         # platform for the file, so `bylines` went out as a platform: seven work pages showed it
+         # in the Platform column beside COMIC FUZ and カドコミ, and a reader could filter by it.
+         # The address each row was read from is what says which platform it really is.
          "source: webpages", "platform: bylines", 'platform_name: ""',
          f"retrieved: {datetime.date.today().isoformat()}",
          "record_type: web_work_credit",
          "identification_mode: known-work",
          "works:"]
+    _owners = _platform.owners()
     for work, url, credit, note in rows:
         L += [f"  - work_title: {js(work)}", f"    url: {js(url)}", f"    author: {js(credit)}"]
+        # WHERE THE ADDRESS NAMES A PLATFORM, THE ROW SAYS SO. A host two platforms share names
+        # neither, and such a row keeps the file's placeholder rather than taking a guess.
+        _on = _platform.of(url, _owners)
+        if _on:
+            L.append(f"    platform_name: {js(_on)}")
         if note:
             L.append(f"    note: {js(note)}")
     L.append("print_works:")

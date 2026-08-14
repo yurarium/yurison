@@ -2525,6 +2525,25 @@ def imprint_map(rows):
 BUILD_SUBDIRS = ("feed",)
 
 
+#: WHETHER THIS RUN WRITES THE CORPUS JSON AT ALL, STORE-PLAN §13. It stopped: the store is the
+#: compiled form, the site emits what a reader is served from it, and nothing in this repository
+#: reads these files any more. `--emit-json` puts them back for a person who wants to look at one
+#: without writing a query, and for `test_emit`'s parity block, which can only compare an emitter
+#: against a file while a file exists.
+#:
+#: THE EMITTERS THEMSELVES STAY AND ARE STILL CALLED, because the store is compiled from their
+#: inputs and the site imports them. What stops is this repository writing their output to disk on
+#: an ordinary run.
+#: Set by `main` from the flag. A module-level name because the writes are scattered through a
+#: 2,900-line function and `ARGS` is local to it; `adapters/lint/shadowing.py` counts the shape
+#: that rebinding would produce.
+_EMIT_JSON = False
+
+
+def _emit_json():
+    return _EMIT_JSON
+
+
 def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
                      contradicted_works, print_candidates, web_works, samples, regenerate=(),
                      store=None):
@@ -3034,6 +3053,11 @@ def main():
     # published month cannot be quietly revised; correcting a classification is not a revision of
     # its dates, but it IS a rewrite, and a rewrite should be an act somebody performed and can be
     # found in the shell history rather than a side effect.
+    # THE CORPUS JSON IS NOT WRITTEN ANY MORE, §13. Nothing in this repository reads it and the
+    # site emits what a reader is served from the store. This puts it back for a person who wants
+    # to open one without writing a query, and for `test_emit`'s parity block.
+    ap.add_argument("--emit-json", action="store_true",
+                    help="also write the corpus JSON into data/build, which nothing reads")
     ap.add_argument("--regenerate-archive", metavar="YYYY-MM", action="append", default=[],
                     help="rewrite an already-published month. Overrides the write-once rule; "
                          "use when a classification fix must reach an archived month.")
@@ -3054,6 +3078,8 @@ def main():
     # happened to be, which was None. This is the shape adapters/lint/shadowing.py counts, met in
     # the wild about ten minutes after being written about.
     ARGS = a
+    global _EMIT_JSON
+    _EMIT_JSON = bool(a.emit_json)
 
     # pixivコミック has two possible sources — the rendered pages and adapters/pixivcomic/ — and
     # they carry the same chapters. The dedup keys on (work, episode, platform) and would collapse
@@ -7330,7 +7356,8 @@ def main():
     # its seven sections, on parsed equality rather than bytes, because a fact object here is SHARED
     # between the catalogued spelling and the shown one and key order inside it follows whichever
     # slot was filled first.
-    (out / "feed" / "names.json").write_text(_emit.as_text(_emit.names(_store_db, str(_today))))
+    if _emit_json():
+        (out / "feed" / "names.json").write_text(_emit.as_text(_emit.names(_store_db, str(_today))))
 
     # ── the two records that are not works ────────────────────────────────────────────────────
     #
@@ -7343,17 +7370,20 @@ def main():
     # SO THE ANSWER SHIPS, and the registry modules are the only things that compute it. These are
     # fetched when a reader opens one of these pages and never for an ordinary visit, which is why
     # they are separate files rather than more keys on `names.json`: that one loads on every visit.
-    (out / "credits.json").write_text(json.dumps(_credits_shipped, ensure_ascii=False, indent=1,
+    if _emit_json():
+        (out / "credits.json").write_text(json.dumps(_credits_shipped, ensure_ascii=False, indent=1,
                                                  default=jsonable))
 
     # THE MAP A QUERY IS RESOLVED THROUGH, 45 KB against `credits.json`'s 457, and it IS
     # `credit_spelling`. A search needs a spelling and an identifier; the works hang off `ci` on the
     # rows a page already holds, so it never fetches the credit records to answer about a person.
     (out / "feed").mkdir(parents=True, exist_ok=True)
-    (out / "feed" / "credit-keys.json").write_text(
-        _emit.as_compact(_emit.credit_keys(_store_db)))
+    if _emit_json():
+        (out / "feed" / "credit-keys.json").write_text(
+            _emit.as_compact(_emit.credit_keys(_store_db)))
 
-    (out / "index.json").write_text(_emit.as_compact(idx))
+    if _emit_json():
+        (out / "index.json").write_text(_emit.as_compact(idx))
 
     # THE RECORD LAYER, OUT OF THE STORE. 2,574 catalogue records with the volumes each lists.
     #
@@ -7365,7 +7395,8 @@ def main():
     # the file. 926 volumes carried a hyphenated spelling and 26 `editions` lists held one ISBN
     # written twice; every difference from the previous file is provably the same ISBN respelled or
     # a duplicate spelling removed, and no ISBN changes identity.
-    (out / "works.json").write_text(_emit.as_text(_emit.works(_store_db)))
+    if _emit_json():
+        (out / "works.json").write_text(_emit.as_text(_emit.works(_store_db)))
     _cp_n = len(_credits_shipped.get("credits") or {})
     _cp_e = sum(len(v.get("works") or []) for v in (_credits_shipped.get("credits") or {}).values())
     _cp_r = sum(1 for v in (_credits_shipped.get("credits") or {}).values()
@@ -7373,7 +7404,8 @@ def main():
     print(f"credit pages    : {_cp_n} record(s), {_cp_e} edge(s) to works, {_cp_r} of them "
           f"naming a role")
 
-    (out / "publishers.json").write_text(json.dumps(_houses_shipped, ensure_ascii=False, indent=1,
+    if _emit_json():
+        (out / "publishers.json").write_text(json.dumps(_houses_shipped, ensure_ascii=False, indent=1,
                                                     default=jsonable))
     _hp = _houses_shipped.get("publishers") or {}
     print(f"publisher pages : {len(_hp)} house(s), "
@@ -7400,7 +7432,8 @@ def main():
     # THE ONE THING THAT CHANGED IS A FORWARDER. The merge map here named `w01220` as what `w01234`
     # became, and `w01220` was itself retired, so a reader following that address landed on an
     # identifier the corpus no longer holds. `superseded` resolves the chain before it stores it.
-    (out / "series.json").write_text(_emit.as_text(_emit.series(_store_db, str(_today))))
+    if _emit_json():
+        (out / "series.json").write_text(_emit.as_text(_emit.series(_store_db, str(_today))))
     _st = Counter(r["state"] for r in series_rows)
     if shelf_cited:
         print(f"shelf citations : {shelf_cited} comparator entries cite the shelf the claim is on, "
@@ -7513,7 +7546,12 @@ def main():
     print(f"volumes         : {sum(w['volume_count'] for w in works)}")
     print(f"with openBD     : {sum(1 for w in works if 'openbd' in w['sources'])}")
     print(f"unclassified    : {len(warnings)} works have no content_tier (needs human review)")
-    print(f"written         : {out}/works.json, {out}/index.json")
+    # WHAT THIS RUN ACTUALLY LEFT ON DISK, §13. It said `works.json, index.json` whether or not
+    # either was written, which is the shape of a control nobody can trust: a line reporting a
+    # write that did not happen reads exactly like one that did.
+    print(f"written         : the store"
+          + (f", and the corpus JSON under {out}" if _emit_json() else
+             " (the corpus JSON is not written; pass --emit-json for it)"))
 
     # THE SHOW MUST GO ON. Runtime mode counts violations and reports them; it never aborts. Each
     # invariant names the fallback the build has already applied, so what is published is degraded

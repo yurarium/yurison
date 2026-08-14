@@ -3010,20 +3010,22 @@ def budget_titles_with_no_translation_of_our_own(ctx):
     record holding more than one form can answer. Where the only English is the publisher's, that
     reader falls through to a romanisation, so the control silently does nothing.
 
-    MEASURED ON THE SHIPPED FILE, because the store holds one name per title and assembles
-    en_forms at build time. A count taken from the store would read zero forever while the
-    interface offered a control with nothing behind it, which is the shape of blind spot §14b
-    exists to refuse.
+    MEASURED ON THE EMITTED MAP, because the store holds one name per title and `en_forms` is
+    assembled by the emitter. A count taken off the tables would read zero for ever while the
+    interface offered a control with nothing behind it, which is the blind spot §14b refuses.
+    §13 took the file away and this read it off disk: on the first run with no build it answered
+    0 and the gate ratcheted the recorded budget from 151 to 0, banking a number nobody had
+    measured. That is the failure `UNMEASURED` was written for, arriving through a door it did
+    not cover.
 
     A count, so it ratchets down as translations are written. It is deliberately not a floor on
     how many titles hold several forms: that number falls whenever the corpus legitimately
     shrinks, so it would need explaining away on ordinary churn, and it says nothing at all about
     the titles that never held a second form.
     """
-    f = ROOT / "data" / "build" / "feed" / "names.json"
-    if not f.exists():
-        return 0
-    titles = (_load(f, {}) or {}).get("titles") or {}
+    titles = (ctx.get("names_shipped") or {}).get("titles") or {}
+    if not titles:
+        return UNMEASURED    # this could not be measured; see UNMEASURED
     # ONE TITLE HELD UNDER TWO KEYS IS ONE TITLE. The map answers for the catalogued spelling of a
     # title as well as the platform's, so a work whose subtitle a cataloguer wrote after a colon has
     # two entries pointing at one record; counting keys read that as two titles needing a

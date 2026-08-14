@@ -269,11 +269,18 @@ def reconcile(db, table, key_columns, rows, value_columns=None, addresses=()):
     # it here makes the class unstateable rather than making one caller careful.
     addresses = set(addresses or ())
     key_columns = [c for c in key_columns if c not in addresses]
-    value_columns = [c for c in (value_columns or ()) if c not in addresses]
+    value_columns = list(value_columns or ())
     if not value_columns:
+        # INFERRED FROM A ROW WHERE THE CALLER SAID NOTHING, which is the convenience that put the
+        # address back. `claim` is the one table whose natural key is every column it has but its
+        # rowid, so it is the only caller that reaches this line, and it reached it with `id` in
+        # the row: stripping addresses BEFORE the inference stripped a list that was then rebuilt
+        # from the row itself. It cost a night's run and did not show until a claim was NEW, since
+        # a row that already matches is never inserted.
         for row in rows:
             value_columns = [c for c in row if c not in key_columns]
             break
+    value_columns = [c for c in value_columns if c not in addresses]
     want = {}
     for row in rows:
         want[tuple(row.get(c) for c in key_columns)] = row

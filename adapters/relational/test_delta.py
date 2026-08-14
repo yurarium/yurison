@@ -192,6 +192,31 @@ def main(s):
             db, "print_row_record", ["print_row", "record"], [{"print_row": 1, "record": "r1"}])
         s.eq((written, dropped, unchanged), (0, 0, 1), "and writing it again changes nothing")
 
+    # ── AND THE INFERENCE MUST NOT PUT THE ADDRESS BACK ──────────────────────────────────────
+    #
+    # THE FAULT THIS IS WRITTEN FROM COST A NIGHT'S RUN. `reconcile` infers the value columns from a
+    # row where the caller names none, and the strip that keeps a rowid out of a write ran BEFORE
+    # that inference, so the inference rebuilt the list from the row and put `id` back. `claim` is
+    # the one table whose natural key is every column but its rowid, so it is the only caller that
+    # reaches the inference, and it only inserts when a claim is NEW: an update that brought in one
+    # new name died on `UNIQUE constraint failed: claim.id`, having carried the other compile's
+    # number across.
+    with tempfile.TemporaryDirectory() as d:
+        db = _db(d)
+        db.execute("INSERT INTO surface (kind, folded) VALUES ('author','x')")
+        sid = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+        key = ["surface", "kind", "predicate", "value", "basis"]
+        # A ROW CARRYING AN `id` FROM SOMEWHERE ELSE, which is what a scratch compile hands over.
+        row = {"id": 9999, "surface": sid, "kind": "author", "predicate": "reading",
+               "value": "カナリア", "basis": "analyser"}
+        written, _dropped, _u = delta.reconcile(db, "claim", key, [row], None, {"id"})
+        s.eq(written, 1, "a row whose key is every column but the rowid is written")
+        s.ne(db.execute("SELECT id FROM claim WHERE value = 'カナリア'").fetchone()[0], 9999,
+             "AND THE STORE GAVE IT ITS OWN ADDRESS, rather than the one the other compile used")
+        written, _dropped, unchanged = delta.reconcile(db, "claim", key, [row], None, {"id"})
+        s.eq((written, unchanged), (0, 1),
+             "and writing it again changes nothing, which a carried id would have made impossible")
+
     # ── THE KEY A RECONCILE ADDRESSES A ROW BY IS NOT THE ROWID ──────────────────────────────
     #
     # `claim.id` is handed out in insertion order, so two compiles of one corpus number the same

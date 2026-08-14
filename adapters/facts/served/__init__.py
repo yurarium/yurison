@@ -174,6 +174,13 @@ STORE_ANSWERS = (
     # §5e: whether a work is running, and on whose word.
     # §6: the print rows a run is made of, which `publishers.json` and this file both count.
     "series.json:series[].print", "series.json:series[].print[].work_id",
+    # WHAT A BLOCK STANDS FOR AS AGAINST WHAT IT SHOWS, and the register of what is not shown at
+    # all. Both are emitted and both were unclaimed, and the budget only found them when a capture
+    # brought in a row that carries them: a path nothing in the sample happened to hold is a path
+    # this measure cannot see. `print_party.seq` holds the folded records and
+    # `work_presentation.visibility` the register.
+    "series.json:series[].print[].folded_names", "series.json:series[].print[].folded_names[]",
+    "series.json:series[].visibility",
     "series.json:series[].print[].work_ids", "series.json:series[].print[].publisher",
     "series.json:series[].print[].imprint", "series.json:series[].print[].label",
     "series.json:series[].print[].first", "series.json:series[].print[].last",

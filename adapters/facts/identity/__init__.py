@@ -581,7 +581,9 @@ def main(argv=None):
     import yaml
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13.
+    ap.add_argument("--series", default=None,
+                    help="read the work rows from this series.json instead of from the store")
     ap.add_argument("--index", default="data/build/index.json")
     ap.add_argument("--registry", default="data/identity/works.yaml")
     ap.add_argument("--review", default="data/queue/identity-review.yaml")
@@ -610,7 +612,9 @@ def main(argv=None):
     ap.add_argument("--basis", help="why the two are one work")
     a = ap.parse_args(argv)
 
-    web = json.loads(pathlib.Path(a.series).read_text())["series"]
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
+    import population
+    web = population.series(a.series)
     prints = json.loads(pathlib.Path(a.index).read_text())
 
     reg = pathlib.Path(a.registry)

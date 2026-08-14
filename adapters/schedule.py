@@ -29,6 +29,8 @@ import pathlib
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
+import population  # noqa: E402
 import checkstate
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "render"))
@@ -295,7 +297,9 @@ def _self_test():
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13.
+    ap.add_argument("--series", default=None,
+                    help="read the work rows from this series.json instead of from the store")
     ap.add_argument("--budget", type=int, default=400)
     ap.add_argument("--limit", type=int, default=25, help="rows to print")
     ap.add_argument("--self-test", action="store_true")
@@ -303,7 +307,7 @@ def main():
     if a.self_test:
         return 0 if _self_test() else 1
 
-    series = (json.load(open(a.series)) or {}).get("series", [])
+    series = population.series(a.series)
     checks = checkstate.load()
     rows = plan(series, checks, budget=a.budget)
     by = collections.Counter(r.split(":")[0] for r, _, _, _ in rows)

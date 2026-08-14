@@ -32,6 +32,13 @@ clear an all-ages filter is the same work as the uncensored edition sold elsewhe
 excluded. The markers below catch only the editions that say so, so the count they produce is a
 floor rather than a measurement. Their titles are counted and never written down.
 """
+import pathlib as _pl
+import sys as _sys
+
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))
+
+import population  # noqa: E402
+
 import html
 import re
 import unicodedata
@@ -730,8 +737,7 @@ def authors_main(argv=None):
     known = set(yaml.safe_load(pathlib.Path("data/names/authors.yaml").read_text())["names"])
     known |= set(yaml.safe_load(pathlib.Path("data/names/curated.yaml").read_text())
                  .get("authors") or {})
-    known |= {w["author"] for w in json.loads(pathlib.Path("data/build/series.json").read_text())
-              ["series"] if w.get("author")}
+    known |= {w["author"] for w in population.works() if w.get("author")}
     known = {match_key(k) for k in known}
 
     doc = {"retrieved": datetime.date.today().isoformat(),

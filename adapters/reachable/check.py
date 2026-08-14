@@ -28,6 +28,10 @@ Usage:  check.py --series data/build/series.json --out data/source/reachable \
                  --retrieved 2026-08-02 [--state oneshot] [--limit 400]
 """
 import argparse, json, pathlib, re, sys, time
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+
+import population  # noqa: E402
 import urllib.error, urllib.request
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"

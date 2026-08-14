@@ -90,7 +90,10 @@ def bare(title):
 
 def load():
     """Everything the assembly reads. Returns a context dict; no network."""
-    rows = json.loads(SERIES.read_text(encoding="utf-8"))["series"]
+    import sys as _s
+    _s.path.insert(0, str(ROOT / "adapters"))
+    import population
+    rows = population.series(SERIES if SERIES.exists() else None)
     antenna = {key(c["title"]) for c in (yaml.safe_load(ANTENNA.read_text())["candidates"])}
     cat = yaml.safe_load(KADOKOMI.read_text())
     tagged = {w["code"] for w in cat["works"]}

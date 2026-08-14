@@ -39,6 +39,12 @@ WHAT IS DELIBERATELY NOT HERE.
 """
 import html as _html
 import json
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
+import population  # noqa: E402
 import re
 
 # ── the shapes, each proven against a page in the fixture set ────────────────────────────────────
@@ -397,6 +403,11 @@ def main(argv=None):
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--build", default="data/build")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13. `--build` still names where the run's
+    # other artefacts are; the work rows come from the compiled database unless this points at a
+    # `series.json` from an older build.
+    ap.add_argument("--series", default=None,
+                    help="read the work rows from this series.json instead of from the store")
     ap.add_argument("--cache", default=None, help="where fetched pages live; outside the repo")
     ap.add_argument("--out", default="data/source/webpages/bylines.yaml")
     ap.add_argument("--reviewed", default="data/queue/bylines-reviewed.yaml",
@@ -448,7 +459,7 @@ def main(argv=None):
     claimed = {r["work_title"] for r in ((mine or {}).get("works") or [])}
     claimed_ids = {r["work_id"] for r in ((mine or {}).get("print_works") or [])}
 
-    series = _json.loads((pathlib.Path(a.build) / "series.json").read_text())["series"]
+    series = population.series(a.series)
     wanted = outstanding([w for w in series if w.get("url")],
                          lambda w: w.get("author"), lambda w: w["work"], claimed)
 

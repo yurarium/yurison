@@ -46,6 +46,8 @@ import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
+import population  # noqa: E402
+
 import textnorm                                                             # noqa: E402
 
 RULINGS = "data/queue/unheld-works.yaml"
@@ -120,12 +122,16 @@ def feed_rows(build):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--build", default="data/build")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13. `--build` still names where the run's
+    # other artefacts are; the work rows come from the compiled database unless this points at a
+    # `series.json` from an older build.
+    ap.add_argument("--series", default=None,
+                    help="read the work rows from this series.json instead of from the store")
     ap.add_argument("--rulings", default=RULINGS)
     a = ap.parse_args(argv)
 
     rows = feed_rows(a.build)
-    series = (json.loads((pathlib.Path(a.build) / "series.json").read_text())
-              or {}).get("series") or []
+    series = population.series(a.series)
     bad = unheld(rows, series)
     ruled = rulings(a.rulings)
 

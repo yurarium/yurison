@@ -41,6 +41,28 @@ def works_in_state(state, path=None):
     return asks.population(_store(), "works in a state", state=state)
 
 
+def series(path=None):
+    """Every work as `series.json` states it, from the store that emits that file.
+
+    THE WHOLE ROW, FOR THE PASSES THAT NEED THE WHOLE ROW. `bylines`, `feedgap`, `credit_identity`
+    and `publisher_identity` read a work's platforms, its print edition, its url and its state
+    together, and a narrow query per pass would be four queries reproducing one row badly. The
+    emitter that produces `series.json` already answers exactly this, so asking IT is asking the
+    store, and what disappears is the file in between.
+
+    IT IS NOT A SHORTCUT AROUND §13. The point of the section is that a question about the compiled
+    form is asked of the compiled form rather than sent out through a file and read back; a pass
+    calling the emitter has no compile to wait for and no path to miss.
+    """
+    if path:
+        return _rows(path)
+    import relational
+    from relational import emit
+    db = _store()
+    return emit.series(db, dict(db.execute("SELECT key, value FROM run_report")).get(
+        "generated") or "").get("series") or []
+
+
 def works(path=None):
     """Every work the corpus holds, with its title and byline.
 

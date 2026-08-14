@@ -280,7 +280,10 @@ def dead_spellings(rows, lines):
 
 
 def series_rows(build="data/build"):
-    return json.loads((pathlib.Path(build) / "series.json").read_text())["series"]
+    import sys as _s
+    _s.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
+    import population
+    return population.series(pathlib.Path(build) / "series.json" if build else None)
 
 
 def main(argv=None):

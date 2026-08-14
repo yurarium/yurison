@@ -37,6 +37,8 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
+import population  # noqa: E402
+
 import ndl                                                              # noqa: E402
 import paths as _paths                                                  # noqa: E402
 
@@ -123,7 +125,9 @@ def main(argv=None):
     import net as _net
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--series", default="data/build/series.json")
+    # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13.
+    ap.add_argument("--series", default=None,
+                    help="read the work rows from this series.json instead of from the store")
     ap.add_argument("--works", default="data/build/works.json")
     ap.add_argument("--out", default=OUT)
     ap.add_argument("--limit", type=int, default=0)
@@ -132,7 +136,7 @@ def main(argv=None):
     a = ap.parse_args(argv)
 
     import yaml
-    series = json.loads(pathlib.Path(a.series).read_text()).get("series") or []
+    series = population.series(a.series)
     works = json.loads(pathlib.Path(a.works).read_text()).get("works") or []
     todo = wanted(series, works)
     if a.limit:

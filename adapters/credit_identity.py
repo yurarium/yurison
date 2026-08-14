@@ -46,6 +46,8 @@ import sys
 import unicodedata
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
+import population  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
 from facts import identity                                                             # noqa: E402
@@ -643,7 +645,7 @@ def rows_from(build):
     import json
 
     b = pathlib.Path(build)
-    works = list(json.loads((b / "series.json").read_text()).get("series") or [])
+    works = list(population.series())
     releases = []
     for f in [b / "feed" / "current.json"] + sorted((b / "feed").glob("[0-9]*.json")):
         if f.exists():

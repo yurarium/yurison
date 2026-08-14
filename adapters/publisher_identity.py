@@ -42,6 +42,8 @@ import pathlib
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+
+import population  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
 from facts import identity                                                             # noqa: E402
@@ -275,10 +277,10 @@ def save(path, entries, generated):
     p.write_text("\n".join(L))
 
 
-def rows_from(build):
-    import json
-
-    return list(json.loads((pathlib.Path(build) / "series.json").read_text()).get("series") or [])
+def rows_from(build=None):
+    """The work rows, from the store. `build` names a `series.json` to read instead. §13."""
+    return list(population.series(
+        pathlib.Path(build) / "series.json" if build else None))
 
 
 def main(argv=None):

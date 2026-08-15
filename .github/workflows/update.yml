@@ -306,57 +306,16 @@ jobs:
       # WHAT COVERS THE CODE INSTEAD: `gate.yml`, on every push, blocking, with the site cloned and
       # the corpus built first so the suites have what they read.
 
+      # A MOVED SELECTOR IS SILENT OTHERWISE. A platform that renames a class does not error: it
+      # returns the right number of well-formed rows with the same field missing from every one.
+      # The rules and their thresholds are in `adapters/fieldaudit.py`, with a test, because a rule
+      # deciding whether a day's capture may be published is not a thing to keep in a YAML block.
+      #
+      # IT READ `data/build/feed.json` AND STORE-PLAN §13 STOPPED WRITING IT, so the run died here
+      # on the tripwire refusing to answer rather than on a platform losing a field. The audit asks
+      # the store, which is where the rows are.
       - name: Field audit — a moved selector is silent otherwise
-        run: |
-          python3 - <<'PY'
-          import json, sys
-          rs = json.load(open("data/build/feed.json"))["releases"]
-          att = [r for r in rs if r["provenance"] == "attested"]
-          # A rendered platform that renames a class does not error: it returns rows with the field
-          # missing and the build accepts them. This is the tripwire for that.
-          #
-          # NAMED SEPARATELY, because one of the three is not the same fault. A row with no episode
-          # title or no author is a selector that has moved, and there are none. A row with no
-          # access is usually a platform stating none on the route we read it by: マガポケ has two,
-          # and `magapoke-feeds.yaml` carries access on 0 of its 1,956 chapters while the rendered
-          # route carries it on nearly all of them, so a work reached only by the feed has none.
-          # Counted together, 26 of those were consuming a tripwire set at 25 and would have hidden
-          # the first row that really did lose its title.
-          #
-          # COUNTED PER PLATFORM, BECAUSE THAT IS WHAT A MOVED SELECTOR LOOKS LIKE. A bare total of
-          # 3 failed the 2026-08-11 run on four rows that were nothing of the kind: ニコニコ漫画
-          # states a work-level `updated` for おやすみシェヘラザード and 柚子森さん and names no
-          # chapter, and ヤンジャン+ and きら星ポータル each carry a 読み切り with no byline. Four
-          # rows on three platforms in two shapes is four platforms each publishing an update the
-          # way they publish it. A selector that has moved takes out the platform it belongs to, so
-          # the test is a platform losing the field across its own rows, and a scattered handful is
-          # printed and passed.
-          import collections
-          named = [r for r in att if not (r.get("ep") or "").strip() or not r.get("author")]
-          unpriced = [r for r in att if r.get("ep") and r.get("author") and not r.get("access_modes")]
-          print(f"attested {len(att)}, missing a name {len(named)}, missing access {len(unpriced)}")
-          seen = collections.Counter((r.get("plat_name") or r.get("plat")) for r in att)
-          lost = collections.Counter((r.get("plat_name") or r.get("plat")) for r in named)
-          moved = [(p, n, seen[p]) for p, n in lost.items() if n >= 3 and n * 2 >= seen[p]]
-          for r in named[:15]:
-              print("  ", r.get("plat_name"), r["work"][:30], repr(r.get("ep"))[:30])
-          if moved:
-              for p, n, tot in moved:
-                  print(f"   {p}: {n} of {tot} rows carry no episode title or no author")
-              sys.exit(f"{len(moved)} platform(s) lost a field across their own rows — a selector "
-                       f"has probably moved. See RUNBOOK-github.md section 8.")
-          # AND A DRIFT ACROSS EVERYTHING STILL TRIPS. Per-platform alone would miss a change to a
-          # shared renderer, which shows up as a few rows everywhere and no platform over its share.
-          if len(named) > 25:
-              sys.exit(f"{len(named)} attested rows have no episode title or no author, spread too "
-                       f"widely to be one platform. See RUNBOOK-github.md section 8.")
-          if len(unpriced) > 60:
-              import collections
-              for p, n in collections.Counter(r.get("plat_name") for r in unpriced).most_common(8):
-                  print(f"   {n:4}  {p}")
-              sys.exit(f"{len(unpriced)} attested rows state no access, which is more than the "
-                       f"route asymmetry accounts for. See RUNBOOK-github.md section 8.")
-          PY
+        run: python3 adapters/fieldaudit.py
 
       # No content scan on this path. The guard's content half looks for real-name strings, and
       # nothing that reaches here can contain one: data/source, data/build, data/coverage and

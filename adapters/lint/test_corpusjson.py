@@ -67,5 +67,35 @@ def main(s):
         "and `titles.json` is on the list now, the last pair §13 had not reached")
 
 
+    # ── A WORKFLOW STEP IS A READER LIKE ANY OTHER ────────────────────────────────────────────
+    #
+    # THE ONE THAT BROKE A PRODUCTION RUN. `update.yml` held the field audit as an inline block
+    # opening `data/build/feed.json`, §13 stopped writing that file, and the run died on the audit
+    # step rather than on anything wrong with the capture. This lint had only ever read Python.
+    with tempfile.TemporaryDirectory() as d:
+        root = pathlib.Path(d)
+        wf = root / ".github" / "workflows"
+        wf.mkdir(parents=True)
+        (wf / "update.yml").write_text(
+            "jobs:\n  a:\n    steps:\n"
+            "      # this comment names data/build/feed.json and is history, not a step\n"
+            "      - run: |\n"
+            "          # so is this one, about data/build/series.json\n"
+            '          python3 -c \'import json; json.load(open("data/build/feed.json"))\'\n',
+            encoding="utf-8")
+        got = corpusjson.workflow_findings(root=root)
+        s.eq(len(got), 1, "the step that opens the file is the finding")
+        s.eq(got[0][0], ".github/workflows/update.yml", "named by the workflow it is in")
+        s.eq(got[0][1], 7, "and by the line, because a workflow is long")
+        s.check("feed.json" in got[0][2], "saying which file it named")
+
+        (wf / "update.yml").write_text(
+            "jobs:\n  a:\n    steps:\n"
+            "      # the audit read data/build/feed.json until §13 stopped writing it\n"
+            "      - run: python3 adapters/fieldaudit.py\n", encoding="utf-8")
+        s.eq(corpusjson.workflow_findings(root=root), [],
+             "and a workflow that only remembers the file in a comment is clean")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

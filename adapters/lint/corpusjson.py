@@ -17,6 +17,7 @@ that explain the history are not findings. A `--series` argument's help text is 
 """
 import ast
 import pathlib
+import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -99,6 +100,35 @@ def _docstrings(tree):
     return out
 
 
+#: WHERE A WORKFLOW WOULD READ ONE. A step is a reader like any other and this lint only ever
+#: looked at Python, so `update.yml` kept an inline block opening `data/build/feed.json` for the
+#: field audit: §13 stopped writing that file, the run died on the audit step, and the tripwire that
+#: decides whether a day's capture may be published was the thing that broke. Six commits looked for
+#: readers and every one of them grepped `*.py`.
+WORKFLOWS = ".github/workflows"
+
+
+def workflow_findings(root=None):
+    """`[(path, line, what)]` for every workflow step naming a file under `data/build`.
+
+    A COMMENT IS PROSE, AND A STEP IS WHAT RUNS. These files carry long comments explaining what
+    used to be read from there and why it is not any more, and a rule counting those would be
+    unusable. A line whose first character is `#` is a comment in YAML and inside a `run:` block in
+    both shells this uses.
+    """
+    root = pathlib.Path(root or ROOT)
+    out = []
+    for f in sorted((root / WORKFLOWS).glob("*.yml")) if (root / WORKFLOWS).is_dir() else []:
+        for n, line in enumerate(f.read_text(encoding="utf-8").splitlines(), 1):
+            if line.lstrip().startswith("#"):
+                continue
+            m = re.search(r"data/build/[\w./-]+\.json", line)
+            if m:
+                out.append((str(f.relative_to(root)), n,
+                            f"names {m.group(0)}, which the run emits only for a person"))
+    return out
+
+
 def findings(paths=None, root=None):
     """`[(path, line, what)]` for every module naming a corpus file outside the allowed two."""
     root = pathlib.Path(root or ROOT)
@@ -130,7 +160,7 @@ def findings(paths=None, root=None):
 
 
 if __name__ == "__main__":
-    got = findings()
+    got = findings() + workflow_findings()
     for path, line, what in got:
         print(f"{path}:{line}: {what}")
     print(f"{len(got)} module(s) name a corpus file")

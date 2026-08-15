@@ -1885,6 +1885,34 @@ def inv_a_rendered_file_names_a_platform_its_targets_hold(ctx):
     return bad
 
 
+def inv_no_workflow_step_reads_a_file_the_run_emits(ctx):
+    """A workflow step may not open a file under `data/build`, STORE-PLAN §13.
+
+    THIS IS THE ONE THAT BROKE A PRODUCTION RUN. `update.yml` carried the field audit as an inline
+    Python block reading `data/build/feed.json`, §13 stopped writing that file, and the run died on
+    the audit step: the tripwire that decides whether a day's capture may be published was the
+    thing that failed, and the capture did not publish. Six commits had gone looking for readers of
+    the emitted files and every one of them searched `*.py`.
+
+    ZERO RATHER THAN A BUDGET, unlike `modules reading a corpus file`. Seventeen modules name one
+    legitimately, as a write target or as a `--series` override handed to `population`. A workflow
+    has no such case: the run emits those files only under `--emit-json`, for a person.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: nothing. It reads YAML and the thing it is about is
+    Python and shell. Its blind spot is a path assembled from pieces inside a step, which is the
+    same blind spot the module rule states, and the audit is a module with a test now rather than a
+    block in a workflow.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "adapters" / "lint"))
+        import corpusjson as _cj
+        import importlib
+        importlib.reload(_cj)
+        return [f"{path}:{line}: {what}" for path, line, what in _cj.workflow_findings()]
+    except Exception as why:                                            # noqa: BLE001
+        return [f"the workflows could not be read, so nothing was asked: {why}"]
+
+
 INVARIANTS = [
     ("ruby covers its surface", inv_ruby_covers_its_surface),
     ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
@@ -1935,6 +1963,8 @@ INVARIANTS = [
      inv_a_rendered_file_names_a_platform_its_targets_hold),
     ("no source a reader sees is an adapter",
      inv_no_source_a_reader_sees_is_an_adapter),
+    ("no workflow step reads a file the run emits",
+     inv_no_workflow_step_reads_a_file_the_run_emits),
 ]
 
 

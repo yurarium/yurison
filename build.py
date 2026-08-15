@@ -2542,10 +2542,11 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
                      store=None):
     # ── The published feed, split ────────────────────────────────────────────────────────────────
     #
-    # feed.json above is the INTERNAL whole — the acceptance tests and the audit sampler read it,
-    # and it stays. What ships is this directory. One file of 1.3 MB was downloaded in full by every
-    # visitor to render the first screen; at a year of accumulation that is unloadable, and the cost
-    # falls hardest on the reader who only ever asks "what is new".
+    # feed.json above was the INTERNAL whole, read by the acceptance tests and the audit sampler.
+    # Both ask the store now, so it is written only under `--emit-json`. What ships is this
+    # directory. One file of 1.3 MB was downloaded in full by every visitor to render the first
+    # screen; at a year of accumulation that is unloadable, and the cost falls hardest on the
+    # reader who only ever asks "what is new".
     #
     #   feed/current.json  — the rolling window the 更新 tab opens on.
     #   feed/YYYY-MM.json  — one completed month, fetched only if a reader asks for it.
@@ -2958,67 +2959,71 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
     }
 
     cl = Counter(t["disposition"] for t in claim_trace)
-    (out / "run.json").write_text(json.dumps(
-        {"generated": str(_today),
-         "releases": len(releases), "platforms": len(platforms),
-         "works": len(works), "series_rows": len(series_rows),
-         "sources": src_health,
-         # Claims never reach the reader. They are inputs, and this is where they end up.
-         "claims": {"total": len(claim_trace), "by_disposition": dict(cl), "trace": claim_trace},
-         # Named in full rather than counted, because a number alone cannot be reviewed and the
-         # point of this block is that somebody can look at what was flagged.
-         "content_flags": {"total": len(content_flag_rows),
-                           "withheld": sum(1 for r in content_flag_rows if r["withheld"]),
-                           "published": sum(1 for r in content_flag_rows if r["published"]),
-                           "rows": content_flag_rows},
-         # THE SCOPE TEST, REPORTED RATHER THAN ONLY APPLIED. DEFINITIONS §6 is the inclusion test
-         # and until now it ran as the constant "JP", so nothing anywhere said how many works had
-         # actually been asked. Named in full for the same reason the flags above are: a filter
-         # that drops rows silently is unobservable the day it stops working (§13), and this one
-         # drops works. `check.py`'s `scope rulings are accounted for` fails if this block and
-         # data/scope.yaml disagree.
-         "scope": _scope_report,
-         # THE WEAKEST DATE THE DATABASE CARRIES, counted where the coverage facts live so that it
-         # can be found again when a better source appears. `followup` is NOT a queue length:
-         # `no-earlier-record-expected` is finished work under DEFINITIONS §6, since for a doujinshi
-         # a platform sells the delivery day may be the only datable event in its history;
-         # `unclassified` means the shop said nothing about the edition; and only
-         # `earlier-edition-unsourced` names a row another source could answer.
-         "delivery_dated": {**delivery.tally(series_rows),
-                            "means": delivery.BASIS_NOTE[delivery.BASIS],
-                            "followup_means": delivery.FOLLOWUP_NOTE},
-         "bulk_dated": bulk,
-         # Cases the reader-facing interface used to render as doubt, now decided and moved here.
-         # A work with no chapters at all is a lead; a volume grouped by title match rather than an
-         # explicit series link is our inference. Neither is something a reader can adjudicate, and
-         # both are real coverage facts, so they are counted where the coverage facts live.
-         "gaps": {
-             "uncaptured_works": [
-                 {"work": r["work"],
-                  "platform": (r.get("sources") or [{}])[0].get("platform")}
-                 for r in series_rows if not r.get("chapters")],
-             "grouping": dict(Counter(w.get("grouping") or "unknown" for w in works)),
-             # Set aside, and counted, because setting things aside is how a number quietly
-             # becomes a way of losing them. These are カドコミ shop entries for works it does not
-             # serialise: the volumes are for sale, nothing was ever published there to read, and
-             # they were sitting in the web list as work somebody might go and do.
-             "catalogue_listings": [
-                 {"work": r["work"], "why": r.get("set_aside"),
-                  "platform": (r.get("sources") or [{}])[0].get("platform")}
-                 for r in catalogue_rows],
-         },
-         # Weeks already trimmed and ready to draw; `trimmed_weeks` says how many came off, so the
-         # page can be honest about the window without recomputing anything.
-         "weekly": {"weeks": [{"week": k, "n": wk[k]} for k in keys],
-                    "trimmed_weeks": trimmed, "pre_tracking_releases": pre_tracking,
-                    "tracking_from": _from},
-         "access_modes": dict(Counter(m for r in releases for m in (r.get("access_modes") or []))),
-         "update_kinds": dict(Counter(r.get("kind") for r in releases)),
-         "identification": dict(Counter(r.get("ident") for r in releases)),
-         "collapsed": {"duplicate_chapters": dropped_dupes, "thin_sitemap": thin_dropped,
-                       "resolver": resolver_dropped, "samples": len(samples)},
-         "filled": {"author": filled_author, "access": filled_access}},
-        ensure_ascii=False, indent=1, default=jsonable))
+    # WRITTEN ONLY WHERE SOMEBODY ASKED, §13. `run.json` had one reader, `status.py`, which turned
+    # it into a file nothing opened; the site builds the run's report from the store. `--emit-json`
+    # keeps it available for a person who wants to read one without a query.
+    if _emit_json():
+        (out / "run.json").write_text(json.dumps(
+            {"generated": str(_today),
+             "releases": len(releases), "platforms": len(platforms),
+             "works": len(works), "series_rows": len(series_rows),
+             "sources": src_health,
+             # Claims never reach the reader. They are inputs, and this is where they end up.
+             "claims": {"total": len(claim_trace), "by_disposition": dict(cl), "trace": claim_trace},
+             # Named in full rather than counted, because a number alone cannot be reviewed and the
+             # point of this block is that somebody can look at what was flagged.
+             "content_flags": {"total": len(content_flag_rows),
+                               "withheld": sum(1 for r in content_flag_rows if r["withheld"]),
+                               "published": sum(1 for r in content_flag_rows if r["published"]),
+                               "rows": content_flag_rows},
+             # THE SCOPE TEST, REPORTED RATHER THAN ONLY APPLIED. DEFINITIONS §6 is the inclusion test
+             # and until now it ran as the constant "JP", so nothing anywhere said how many works had
+             # actually been asked. Named in full for the same reason the flags above are: a filter
+             # that drops rows silently is unobservable the day it stops working (§13), and this one
+             # drops works. `check.py`'s `scope rulings are accounted for` fails if this block and
+             # data/scope.yaml disagree.
+             "scope": _scope_report,
+             # THE WEAKEST DATE THE DATABASE CARRIES, counted where the coverage facts live so that it
+             # can be found again when a better source appears. `followup` is NOT a queue length:
+             # `no-earlier-record-expected` is finished work under DEFINITIONS §6, since for a doujinshi
+             # a platform sells the delivery day may be the only datable event in its history;
+             # `unclassified` means the shop said nothing about the edition; and only
+             # `earlier-edition-unsourced` names a row another source could answer.
+             "delivery_dated": {**delivery.tally(series_rows),
+                                "means": delivery.BASIS_NOTE[delivery.BASIS],
+                                "followup_means": delivery.FOLLOWUP_NOTE},
+             "bulk_dated": bulk,
+             # Cases the reader-facing interface used to render as doubt, now decided and moved here.
+             # A work with no chapters at all is a lead; a volume grouped by title match rather than an
+             # explicit series link is our inference. Neither is something a reader can adjudicate, and
+             # both are real coverage facts, so they are counted where the coverage facts live.
+             "gaps": {
+                 "uncaptured_works": [
+                     {"work": r["work"],
+                      "platform": (r.get("sources") or [{}])[0].get("platform")}
+                     for r in series_rows if not r.get("chapters")],
+                 "grouping": dict(Counter(w.get("grouping") or "unknown" for w in works)),
+                 # Set aside, and counted, because setting things aside is how a number quietly
+                 # becomes a way of losing them. These are カドコミ shop entries for works it does not
+                 # serialise: the volumes are for sale, nothing was ever published there to read, and
+                 # they were sitting in the web list as work somebody might go and do.
+                 "catalogue_listings": [
+                     {"work": r["work"], "why": r.get("set_aside"),
+                      "platform": (r.get("sources") or [{}])[0].get("platform")}
+                     for r in catalogue_rows],
+             },
+             # Weeks already trimmed and ready to draw; `trimmed_weeks` says how many came off, so the
+             # page can be honest about the window without recomputing anything.
+             "weekly": {"weeks": [{"week": k, "n": wk[k]} for k in keys],
+                        "trimmed_weeks": trimmed, "pre_tracking_releases": pre_tracking,
+                        "tracking_from": _from},
+             "access_modes": dict(Counter(m for r in releases for m in (r.get("access_modes") or []))),
+             "update_kinds": dict(Counter(r.get("kind") for r in releases)),
+             "identification": dict(Counter(r.get("ident") for r in releases)),
+             "collapsed": {"duplicate_chapters": dropped_dupes, "thin_sitemap": thin_dropped,
+                           "resolver": resolver_dropped, "samples": len(samples)},
+             "filled": {"author": filled_author, "access": filled_access}},
+            ensure_ascii=False, indent=1, default=jsonable))
     print(f"claims traced   : {dict(cl)}")
     # THE SCALARS THE STATUS PAGE READS, for the store. `last_run` is the run's own headline and
     # every one of these is a count, so they go into `run_report` as scalars under dotted keys
@@ -7521,19 +7526,22 @@ def main():
           f"{len({k[0] for k in series})} works — {dict(_st)}"
           f"{f'  [{_out_of_scope} out-of-scope rows dropped]' if _out_of_scope else ''}")
 
-    (out / "feed.json").write_text(json.dumps(
-        # The queue is a worklist, not part of the published database, and it is not shipped.
-        # It lived behind a 候補 tab that showed candidates already confirmed; the project owner's
-        # call is that it should not be in the interface at all. data/queue/ stays as the internal
-        # worklist it always was.
-        {"releases": releases, "platforms": platforms,
-         # Works a comparator reports as updating that the platform's own full chapter history
-         # contradicts. Recorded rather than silently dropped: they are not coverage we lack.
-         "contradicted": contradicted_works,
-         "print_candidates": print_candidates, "web_works": web_works,
-         "samples_dropped": len(samples),
-         "platform_meta": plat_meta, "lapsed": lapsed},
-        ensure_ascii=False, indent=1, default=jsonable))
+    # AND `feed.json` HAS NO READER AT ALL. `acceptance.py` was the last one and asks the store
+    # now, so this was writing 1.3 MB every run for nobody.
+    if _emit_json():
+        (out / "feed.json").write_text(json.dumps(
+            # The queue is a worklist, not part of the published database, and it is not shipped.
+            # It lived behind a 候補 tab that showed candidates already confirmed; the project owner's
+            # call is that it should not be in the interface at all. data/queue/ stays as the internal
+            # worklist it always was.
+            {"releases": releases, "platforms": platforms,
+             # Works a comparator reports as updating that the platform's own full chapter history
+             # contradicts. Recorded rather than silently dropped: they are not coverage we lack.
+             "contradicted": contradicted_works,
+             "print_candidates": print_candidates, "web_works": web_works,
+             "samples_dropped": len(samples),
+             "platform_meta": plat_meta, "lapsed": lapsed},
+            ensure_ascii=False, indent=1, default=jsonable))
 
     # THE WORK'S OWN IDENTIFIER ON EVERY UPDATE, so a row in the feed can offer the record of the
     # work it is an instalment of. The feed is keyed by CHAPTER and knew only the chapter's address,

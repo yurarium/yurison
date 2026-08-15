@@ -325,33 +325,30 @@ def main(argv=None):
     import argparse
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--build", default="data/build")
-    ap.add_argument("--queues", default="data/queue")
-    ap.add_argument("--budgets", default="docs/budgets.json")
+    # ONE ARGUMENT, because the store answers the rest. `--build`, `--queues` and `--budgets`
+    # named the three files this used to read.
     ap.add_argument("--out", default="data/build/status.json")
     a = ap.parse_args(argv)
 
-    b = pathlib.Path(a.build)
-    read = lambda n: json.loads((b / n).read_text())                        # noqa: E731
-    run, checks = read("run.json"), read("checks.json")
-    # THE STORE, §13. This went through a `read` lambda, so the filename and the open were in
-    # different statements and the lint reported the file clean; CI found it instead.
-    series = population.series(b / "series.json" if (b / "series.json").exists() else None)
-    index = population.records(b / "works.json")
-    budgets = json.loads(pathlib.Path(a.budgets).read_text())
-
-    queues = {}
-    for f in sorted(glob.glob(f"{a.queues}/*.yaml")):
-        d = captures.load(f)
-        rows = next((v for v in d.values() if isinstance(v, list)), [])
-        queues[pathlib.Path(f).stem] = len(rows)
-
-    # Read what this run is about to overwrite. It is the only record of the run before it.
+    # ── FROM THE STORE, LIKE THE SITE'S COPY, §13 ─────────────────────────────────────────────
+    #
+    # THIS READ THREE FILES TO WRITE A FOURTH NOBODY OPENED. `build.py` wrote `run.json`,
+    # `check.py` wrote `checks.json` and `ledger.py` wrote `ledger.json`, all so this could turn
+    # them into `data/build/status.json`, which nothing in this repository reads and which the site
+    # builds for itself out of the store. Four files and three writers keeping each other company.
+    #
+    # `from_store` IS THE ONE ASSEMBLER and the site already calls it. What is left here is a way
+    # for a person to look at the document without a browser.
+    # `relational.open_db` AND NOT A CONNECTION OF ITS OWN. One module opens this file, because
+    # `PRAGMA foreign_keys = ON` is per-connection and a second opener runs with them off.
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    import relational as _rel
+    if not _rel.DB.exists():
+        raise SystemExit(f"no store at {_rel.DB}; run ./build.py first")
     outp = pathlib.Path(a.out)
     previous = json.loads(outp.read_text()) if outp.exists() else None
-    led = b / "ledger.json"
-    doc = build(run, checks, series, index, budgets, queues, previous,
-                conforms("data/source"), json.loads(led.read_text()) if led.exists() else None)
+    doc = from_store(_rel.open_db(), previous)
+    outp.parent.mkdir(parents=True, exist_ok=True)
     outp.write_text(json.dumps(doc, ensure_ascii=False, indent=1))
     print(f"status: {doc['statistics']['works']} works, {len(doc['connectors'])} connector(s), "
           f"{len(doc['outstanding'])} outstanding group(s) -> {a.out}")

@@ -120,6 +120,9 @@ def main(argv=None):
     ap.add_argument("--source", default="data/source")
     ap.add_argument("--file", default="data/ledger/runs.yaml")
     ap.add_argument("--out", default="data/build/ledger.json")
+    # THE SAME FLAG `build.py` AND `check.py` CARRY. The drops go in the store; this writes the
+    # file only where a person asked for one.
+    ap.add_argument("--emit-json", action="store_true", help="also write --out")
     a = ap.parse_args(argv)
 
     p = pathlib.Path(a.file)
@@ -136,11 +139,15 @@ def main(argv=None):
                  f"{KEEP}. A source that was not re-fetched is not compared: see adapters/ledger.py.",
          "runs": runs}, allow_unicode=True, sort_keys=False))
 
-    pathlib.Path(a.out).parent.mkdir(parents=True, exist_ok=True)
-    pathlib.Path(a.out).write_text(json.dumps(
-        {"runs_held": len(runs), "previous_at": runs[-2]["at"] if len(runs) > 1 else None,
-         "drops": drops, "sources": snap}, ensure_ascii=False, indent=1))
+    # THE STORE IS WHERE THIS GOES, §13. `_store` puts the same four numbers in `run_drop` and
+    # `run_report`, and `status.from_store` reads them there. The file had one reader, `status.py`,
+    # which stopped opening it; `--emit-json` keeps it for a person looking at a run by hand.
     _store(drops, len(runs), runs[-2]["at"] if len(runs) > 1 else None)
+    if a.emit_json:
+        pathlib.Path(a.out).parent.mkdir(parents=True, exist_ok=True)
+        pathlib.Path(a.out).write_text(json.dumps(
+            {"runs_held": len(runs), "previous_at": runs[-2]["at"] if len(runs) > 1 else None,
+             "drops": drops, "sources": snap}, ensure_ascii=False, indent=1))
     for d in drops:
         print(f"  DROP {d['source']}: {d['was']} -> {d['now']} rows "
               f"({d['share']:.0%} lost) after a re-fetch")

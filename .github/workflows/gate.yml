@@ -77,11 +77,17 @@ jobs:
       - name: Invariants and budgets, reported so the status page has them
         run: python3 check.py --runtime
 
-      # AND THE TWO FILES THE CHECKS READ THAT `build.py` DOES NOT WRITE. `status.json` is
-      # `adapters/status.py`'s, and `inv_status_page_shows_no_japanese_of_its_own` reads it: with
-      # the file absent the check returns no violations, so `--self-test` plants its canary and
-      # catches nothing, and the suite fails for having proved nothing rather than for finding
-      # anything. `update.yml` has run these since it was written and this job never had them.
+      # THE LEDGER, AND A PROOF THE SITE'S DOCUMENT CAN BE BUILT FROM THIS STORE.
+      #
+      # `adapters/ledger.py` compares this run's captures against the last one and writes the
+      # difference into the store, where `status.from_store` reads it. It runs after the compile
+      # because the compile is what makes the store.
+      #
+      # `adapters/status.py` NO LONGER READS THREE JSON FILES TO WRITE A FOURTH, §13. It opens the
+      # store and calls `from_store`, which is the same call the site makes to build its status
+      # page. Running it here answers the question the site would otherwise be the first to ask:
+      # whether the store about to be published can produce that document. `data/build/status.json`
+      # is what a person reads without a browser.
       - name: The ledger and the status page's data
         run: |
           python3 adapters/ledger.py

@@ -5575,6 +5575,10 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--runtime", action="store_true", help="count and report; never fail")
     g.add_argument("--gate", action="store_true", help="fail on any violation or loosened budget")
+    # THE SAME FLAG `build.py` CARRIES, for the same reason: the report goes in the store and this
+    # writes `data/build/checks.json` only where a person asked for one.
+    ap.add_argument("--emit-json", action="store_true",
+                    help="also write data/build/checks.json")
     # ON BY DEFAULT SINCE 2026-08-13, AND THE MEASUREMENT IS WHY. `--gate` alone costs 79.6s and
     # `--gate --incremental` costs 2.6s on the same tree. The fast answer was reachable only by
     # remembering a flag, so the command a person types, and the one written in CLAUDE.md, was the
@@ -5788,27 +5792,31 @@ def main():
         return str(x).replace(str(ROOT.parent) + "/", "").replace(str(ROOT) + "/", "")
 
     _t0 = time.perf_counter()
-    (BUILD / "checks.json").write_text(json.dumps({
-        "generated": ctx.get("generated") or "",
-        # ANSWERED ONCE. This comprehension used to call every invariant a SECOND time to write
-        # the report, so `./check.py --gate` ran the whole suite twice: 47 s of checks became 94 s
-        # and the per-check timings are what made it visible. The loop above keeps its results.
-        "invariants": [{"name": n, "violations": len(inv_results[n]),
-                        "examples": [_unroot(e) for e in inv_results[n][:5]]}
-                       for n, _f in INVARIANTS],
-        # A budget this run did not measure carries `value: null` and says why, so a reader can
-        # tell "nothing to report" from "not asked".
-        "budgets": [{"name": n, "means": w, "budget": recorded.get(n),
-                     "value": budget_values.get(n),
-                     **({"not_measured": "source-quality budget; measured at check-in"}
-                        if skip_source and n in SOURCE_BUDGETS else {})}
-                    for n, f, w in BUDGETS_DEF],
-        # WHICH CHECK COST WHAT, so the next slow one is visible without guessing. Two rounds of
-        # this refactor guessed wrong from a total.
-        "seconds": {n: round(s, 3) for n, s in sorted(timings.items(), key=lambda kv: -kv[1])},
-        # ONE HOME FOR THE SENTENCE, in the emitter that writes the site's copy of this file.
-        "note": _checks_note(),
-    }, ensure_ascii=False, indent=1))
+    # WRITTEN WHERE SOMEBODY ASKED FOR IT, §13. `checks.json` had one reader, `status.py`, which
+    # made a file nothing opened; `_store_report` below puts the same answers in the store and the
+    # site emits the file from there. Kept behind the flag for a person reading one by hand.
+    if a.emit_json:
+        (BUILD / "checks.json").write_text(json.dumps({
+            "generated": ctx.get("generated") or "",
+            # ANSWERED ONCE. This comprehension used to call every invariant a SECOND time to write
+            # the report, so `./check.py --gate` ran the whole suite twice: 47 s of checks became 94 s
+            # and the per-check timings are what made it visible. The loop above keeps its results.
+            "invariants": [{"name": n, "violations": len(inv_results[n]),
+                            "examples": [_unroot(e) for e in inv_results[n][:5]]}
+                           for n, _f in INVARIANTS],
+            # A budget this run did not measure carries `value: null` and says why, so a reader can
+            # tell "nothing to report" from "not asked".
+            "budgets": [{"name": n, "means": w, "budget": recorded.get(n),
+                         "value": budget_values.get(n),
+                         **({"not_measured": "source-quality budget; measured at check-in"}
+                            if skip_source and n in SOURCE_BUDGETS else {})}
+                        for n, f, w in BUDGETS_DEF],
+            # WHICH CHECK COST WHAT, so the next slow one is visible without guessing. Two rounds of
+            # this refactor guessed wrong from a total.
+            "seconds": {n: round(s, 3) for n, s in sorted(timings.items(), key=lambda kv: -kv[1])},
+            # ONE HOME FOR THE SENTENCE, in the emitter that writes the site's copy of this file.
+            "note": _checks_note(),
+        }, ensure_ascii=False, indent=1))
     _store_report(inv_results, budget_values, recorded, timings, skip_source, _unroot)
     _phase["writing the report"] = time.perf_counter() - _t0
 

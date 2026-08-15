@@ -271,15 +271,17 @@ jobs:
       - name: Invariants and budgets (runtime — reports, does not block)
         run: python3 check.py --runtime
 
-      # THE LEDGER AND THE STATUS FILE, which the checks need before
-      # it gets the chance. `inv_status_page_shows_no_japanese_of_its_own` reads
-      # `data/build/status.json`: with it absent the check returns no violations, so `--self-test`
-      # planted its canary and caught nothing, and the step below blocked the job.
+      # THE LEDGER, AND A PROOF THE SITE'S DOCUMENT CAN BE BUILT FROM THIS STORE.
       #
-      # AFTER THE RUNTIME PASS AND NOT INSIDE Compile, because `adapters/status.py` reads
-      # `data/build/checks.json` and that is what the runtime pass writes. Putting these two beside
-      # build.py looked right and died on the missing file. The ledger goes first because status
-      # reads its output.
+      # `adapters/ledger.py` compares this run's captures against the last one and writes the
+      # difference into the store, where `status.from_store` reads it. It runs after the compile
+      # because the compile is what makes the store.
+      #
+      # `adapters/status.py` NO LONGER READS THREE JSON FILES TO WRITE A FOURTH, §13. It opens the
+      # store and calls `from_store`, which is the same call the site makes to build its status
+      # page. Running it here answers the question the site would otherwise be the first to ask:
+      # whether the store about to be published can produce that document. `data/build/status.json`
+      # is what a person reads without a browser.
       - name: The ledger and the status page's data
         run: |
           python3 adapters/ledger.py

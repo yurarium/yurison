@@ -6,7 +6,7 @@ platform: younganimal
 platform_name: "ヤングアニマルWeb"
 publisher: "白泉社"
 engine: comici
-retrieved: 2026-08-15
+retrieved: 2026-08-16
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -532,6 +532,17 @@ works:
       - title: "第56話②"
         updated: "2026-03-22"
         access_modes: ["purchase"]
+  - work_title: "最恐呪物令嬢"
+    status: "連載中"
+    url: "https://younganimal.com/episodes/24a3e6bcb998e"
+    chapter_count: 2
+    chapters:
+      - title: "第一話"
+        updated: "2026-07-28"
+        access_modes: ["free"]
+      - title: "第ニ話"
+        updated: "2026-08-11"
+        access_modes: ["free"]
   - work_title: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
     status: "連載中"
     author: "保坂歩,藤津一,法螺貝こゐ"

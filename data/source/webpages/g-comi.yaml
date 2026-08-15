@@ -6,7 +6,7 @@ platform: g-comi
 platform_name: "Gコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-08-15
+retrieved: 2026-08-16
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -149,38 +149,35 @@ works:
     status: "連載中"
     author: "ミナミト"
     url: "https://g-comi.jp/series/5448ec9f6077b"
-    chapter_count: 10
+    chapter_count: 9
     chapters:
       - title: "第1話"
         updated: "2025-12-19"
         access_modes: ["free"]
       - title: "第2話"
         updated: "2025-12-19"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第3話"
         updated: "2026-01-23"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第4話"
         updated: "2026-02-20"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第5話"
         updated: "2026-03-20"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第6話"
         updated: "2026-04-17"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第7話"
         updated: "2026-05-22"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第8話"
         updated: "2026-06-19"
         access_modes: ["purchase"]
       - title: "第9話"
         updated: "2026-07-17"
         access_modes: ["purchase"]
-      - title: "第10話"
-        updated: "2026-08-14"
-        access_modes: ["free"]
   - work_title: "狙いはキミだけ!"
     status: "読み切り"
     author: "あまね"

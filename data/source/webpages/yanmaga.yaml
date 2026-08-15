@@ -6,7 +6,7 @@ platform: yanmaga
 platform_name: "ヤンマガWeb"
 publisher: "講談社"
 engine: yanmaga
-retrieved: 2026-08-15
+retrieved: 2026-08-16
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -232,7 +232,7 @@ works:
         access_modes: ["purchase"]
   - work_title: "乙女のおかず"
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
-    chapter_count: 7
+    chapter_count: 6
     chapters:
       - title: "第１話　乙女のぬくもり"
         updated: "2025-09-23"
@@ -257,8 +257,6 @@ works:
       - title: "第３９話　宇宙のひみつ"
         updated: "2026-08-04"
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/d895fc7298bc7db33498829ef20a3278"
-        access_modes: ["purchase"]
-      - title: "第４０話　乙女のアルバイト"
         access_modes: ["purchase"]
   - work_title: "今日はカノジョがいないから"
     url: "https://yanmaga.jp/comics/%E4%BB%8A%E6%97%A5%E3%81%AF%E3%82%AB%E3%83%8E%E3%82%B8%E3%83%A7%E3%81%8C%E3%81%84%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89"

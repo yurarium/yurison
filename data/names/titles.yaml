@@ -25261,19 +25261,15 @@ names:
     verified: true
   キジとイナサ:
     basis: romaji
-    furigana_spans:
-    - - キジとイナサ
-      - null
-    reading: キジ ト イナサ
+    reading: キジトイナサ
     reading_at: '2026-08-15'
-    reading_basis: analyser
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   キスして恋:
     basis: translated
     en: Kiss, Then Love
@@ -60243,6 +60239,26 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  最恐呪物令嬢:
+    basis: romaji
+    furigana_spans:
+    - - 最
+      - さい
+    - - 恐
+      - おそれ
+    - - 呪物
+      - じゅぶつ
+    - - 令嬢
+      - れいじょう
+    reading: サイ オソレ ジュブツ レイジョウ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜:

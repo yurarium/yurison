@@ -6,7 +6,7 @@ platform: takecomic
 platform_name: "竹コミ"
 publisher: "竹書房"
 engine: comici
-retrieved: 2026-08-15
+retrieved: 2026-08-16
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -339,13 +339,13 @@ works:
         access_modes: ["free"]
       - title: "4話"
         updated: "2025-10-17"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "5話"
         updated: "2025-10-17"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "6話"
         updated: "2025-10-17"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "7話"
         updated: "2025-10-17"
         access_modes: ["free-timed"]
@@ -917,7 +917,7 @@ works:
     status: "連載中"
     author: "アジイチ,王月よう"
     url: "https://takecomic.jp/series/d8e8c084c4c6c"
-    chapter_count: 48
+    chapter_count: 47
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -1044,7 +1044,7 @@ works:
         access_modes: ["free-timed"]
       - title: "38話"
         updated: "2026-02-13"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "39話"
         updated: "2026-03-13"
         access_modes: ["purchase"]
@@ -1056,12 +1056,9 @@ works:
         access_modes: ["purchase"]
       - title: "42話"
         updated: "2026-06-12"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "43話"
         updated: "2026-07-10"
-        access_modes: ["free"]
-      - title: "44話"
-        updated: "2026-08-14"
         access_modes: ["purchase"]
   - work_title: "百合神さまの言うとおり!"
     status: "連載中"
@@ -1115,7 +1112,7 @@ works:
     status: "連載中"
     author: "スズオ"
     url: "https://takecomic.jp/series/e060f5eef826c"
-    chapter_count: 19
+    chapter_count: 18
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -1155,7 +1152,7 @@ works:
         access_modes: ["free-timed"]
       - title: "13話"
         updated: "2025-10-17"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "14話"
         updated: "2025-10-17"
         access_modes: ["purchase"]
@@ -1167,18 +1164,15 @@ works:
         access_modes: ["purchase"]
       - title: "17話"
         updated: "2026-05-08"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "18話"
         updated: "2026-07-03"
-        access_modes: ["free"]
-      - title: "最終話"
-        updated: "2026-08-14"
         access_modes: ["purchase"]
   - work_title: "「触れたい」は恋の始まり"
     status: "連載中"
     author: "くも子"
     url: "https://takecomic.jp/series/5a87d01128492"
-    chapter_count: 23
+    chapter_count: 22
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -1242,18 +1236,15 @@ works:
         access_modes: ["purchase"]
       - title: "18話"
         updated: "2026-05-15"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "最終話"
         updated: "2026-06-19"
-        access_modes: ["free"]
-      - title: "エピローグ"
-        updated: "2026-08-14"
         access_modes: ["free"]
   - work_title: "貴女へささげるサディスティック"
     status: "連載中"
     author: "ななつ藤"
     url: "https://takecomic.jp/series/ae1cf555c8b01"
-    chapter_count: 14
+    chapter_count: 13
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -1278,7 +1269,7 @@ works:
         access_modes: ["free-timed"]
       - title: "8話"
         updated: "2026-02-13"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "9話"
         updated: "2026-03-13"
         access_modes: ["purchase"]
@@ -1293,9 +1284,6 @@ works:
         access_modes: ["purchase"]
       - title: "13話"
         updated: "2026-07-10"
-        access_modes: ["purchase"]
-      - title: "14話"
-        updated: "2026-08-14"
         access_modes: ["free"]
   - work_title: "銀輪ボイス"
     status: "連載中"

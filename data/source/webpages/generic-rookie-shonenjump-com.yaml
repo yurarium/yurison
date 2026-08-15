@@ -1,0 +1,61 @@
+# 少年ジャンプルーキー — chapters extracted heuristically from work pages.
+#
+# NOT a publisher-stated field. Blocks carrying a date and a chapter-like label were
+# matched in the page; the strategy was proven for this host in
+# data/coverage/extract.yaml before being run. Every release carries
+# date_basis: heuristic and date_confidence: low so it is never mistaken for the
+# kind of statement GigaViewer or FUZ make.
+#
+# No 百合 label is established here (DEFINITIONS §4); works are named by the Tier C
+# yardsticks and this attests only their chapters.
+source: webpages
+platform: rookie-shonenjump-com
+platform_name: "少年ジャンプルーキー"
+publisher: ""
+retrieved: 2026-08-16
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+extraction: pairs
+date_basis: heuristic
+date_confidence: low
+works:
+  - work_title: "イトの国家転覆記"
+    url: "https://rookie.shonenjump.com/series/fmRli8MBymM"
+    chapter_count: 2
+    chapters:
+      - title: "第 10 話"
+        updated: 2026-02-05
+        date_basis: heuristic
+      - title: "第1話公開"
+        updated: 2023-07-12
+        date_basis: heuristic
+  - work_title: "デキ婚百合「デキちゃったので私たち結婚します♡」"
+    url: "https://rookie.shonenjump.com/series/zGZPbQ8wNYE"
+    chapter_count: 2
+    chapters:
+      - title: "第 11 話"
+        updated: 2025-04-06
+        date_basis: heuristic
+      - title: "第1話公開"
+        updated: 2025-03-22
+        date_basis: heuristic
+  - work_title: "愛の夢"
+    url: "https://rookie.shonenjump.com/series/X1vJnKYQKqw"
+    chapter_count: 2
+    chapters:
+      - title: "第 78 話"
+        updated: 2024-06-07
+        date_basis: heuristic
+      - title: "第1話公開"
+        updated: 2020-01-03
+        date_basis: heuristic
+  - work_title: "日常の片隅で…百合が咲く"
+    url: "https://rookie.shonenjump.com/series/zGZPbQ8x_Jk"
+    chapter_count: 2
+    chapters:
+      - title: "第 25 話"
+        updated: 2025-04-30
+        date_basis: heuristic
+      - title: "第1話公開"
+        updated: 2025-04-01
+        date_basis: heuristic

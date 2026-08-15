@@ -23178,6 +23178,26 @@ names:
     reading_source: yurarium
     reading_source_kind: derived
     verified: false
+  イトの国家転覆記:
+    basis: romaji
+    furigana_spans:
+    - - イトの
+      - null
+    - - 国家
+      - こっか
+    - - 転覆
+      - てんぷく
+    - - 記
+      - き
+    reading: イト ノ コッカ テンプクキ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   イノウエさんとアベさん。:
     basis: translated
     en: Inoue-san and Abe-san.
@@ -30314,6 +30334,34 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  デキ婚百合「デキちゃったので私たち結婚します♡」:
+    basis: romaji
+    furigana_spans:
+    - - デキ
+      - null
+    - - 婚
+      - こん
+    - - 百合
+      - ゆり
+    - - 「デキちゃったので
+      - null
+    - - 私
+      - わたし
+    - - たち
+      - null
+    - - 結婚
+      - けっこん
+    - - します♡」
+      - null
+    reading: デキ コン ユリ 「デキチャッタ ノデ ワタシタチ ケッコン シマス ♡」
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   デス・キス・ラブ!:
@@ -45889,6 +45937,35 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  君の初恋を私は知らない:
+    basis: romaji
+    furigana_spans:
+    - - 君
+      - きみ
+    - - の
+      - null
+    - - 初恋
+      - はつこい
+    - - を
+      - null
+    - - 私
+      - わたし
+    - - は
+      - null
+    - - 知
+      - し
+    - - らない
+      - null
+    reading: キミ ノ ハツコイ ヲ ワタシ ワ シラナイ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   君の愛と私の恋が実るまで:
     basis: translated
     en: Until Your Love and My Love Bear Fruit
@@ -56534,6 +56611,25 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  愛の夢:
+    basis: romaji
+    furigana_spans:
+    - - 愛
+      - あい
+    - - の
+      - null
+    - - 夢
+      - ゆめ
+    reading: アイ ノ ユメ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   愛を知らない獣たち:
     basis: official-jp
     en: The Beasts Who Don't Know Love
@@ -56880,6 +56976,40 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  打撃系鬼っ娘が征く配信道!@COMIC:
+    basis: romaji
+    furigana_spans:
+    - - 打撃
+      - だげき
+    - - 系
+      - けい
+    - - 鬼
+      - き
+    - - っ
+      - null
+    - - 娘
+      - むすめ
+    - - が
+      - null
+    - - 征
+      - ゆ
+    - - く
+      - null
+    - - 配信
+      - はいしん
+    - - 道
+      - どう
+    - - '!@COMIC'
+      - null
+    reading: ダゲキケイキッ ムスメ ガ ユク ハイシンドウ! @ COMIC
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   '抱かれたい女 : JDだけどアラサー女子に買われています':
@@ -58496,6 +58626,35 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  日常の片隅で…百合が咲く:
+    basis: romaji
+    furigana_spans:
+    - - 日常
+      - にちじょう
+    - - の
+      - null
+    - - 片隅
+      - かたすみ
+    - - で…
+      - null
+    - - 百合
+      - ゆり
+    - - が
+      - null
+    - - 咲
+      - さ
+    - - く
+      - null
+    reading: ニチジョウ ノ カタスミ デ… ユリ ガ サク
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   日常やめたらしたいこと:
     basis: translated
     en: What I'd Do If I Quit Ordinary Life
@@ -60105,6 +60264,48 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  最愛のお姉様が悪役令嬢だったので、神が定めた運命に抗います@COMIC:
+    basis: romaji
+    furigana_spans:
+    - - 最愛
+      - さいあい
+    - - のお
+      - null
+    - - 姉
+      - あね
+    - - 様
+      - さま
+    - - が
+      - null
+    - - 悪役
+      - あくやく
+    - - 令嬢
+      - れいじょう
+    - - だったので、
+      - null
+    - - 神
+      - かみ
+    - - が
+      - null
+    - - 定
+      - さだ
+    - - めた
+      - null
+    - - 運命
+      - しなりお
+    - - に
+      - null
+    - - 抗
+      - あらが
+    - - います@COMIC
+      - null
+    reading: サイアイ ノ オ アネサマ ガ アクヤク レイジョウダッタ ノデ、 カミガ サダメタ シナリオ ニ アラガイマス @ COMIC
+    reading_at: '2026-08-15'
+    reading_basis: stated
+    reading_note: the source writes this title 最愛のお姉様が悪役令嬢だったので、神が定めた運命(シナリオ)に抗います@COMIC, which prints
+      the reading of the run before each bracket
+    reading_source: title-furigana
+    verified: true
   最果てのともだち:
     basis: translated
     en: Friend at the End of the World

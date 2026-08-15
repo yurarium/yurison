@@ -33,7 +33,8 @@ import yaml
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import dedicated  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
-from extract import CHAPTERISH, norm_date, try_jsonld, try_markup, try_next, try_nuxt  # noqa: E402
+from extract import (CHAPTERISH, norm_date, try_jsonld, try_markup,  # noqa: E402
+                     try_next, try_nuxt, try_pairs)
 
 # The compatible-token form. Several hosts (firecross.jp, www.yomonga.com) reject a bare product
 # token outright but serve this, and it is the long-standing convention — "Mozilla/5.0 (compatible;
@@ -44,7 +45,13 @@ UA = ("Mozilla/5.0 (compatible; yurarium/0.1; bibliographic database; "
       "+https://yurarium.github.io/)")
 PAUSE = 1.5
 MIN_EPISODES = 2
-STRATEGIES = {"jsonld": try_jsonld, "next": try_next, "nuxt": try_nuxt}
+#: `pairs` IS THE LAST OF THEM AND IT WAS NOT REACHABLE FROM HERE. `try_markup` reads a page that
+#: names the element holding a chapter's title; `try_pairs` reads one that puts a label and a date
+#: near each other and names neither. 裏サンデー and 少年ジャンプルーキー are both the second kind,
+#: so this pass wrote nothing for them while `remaining/from_generic`, which tries every extractor
+#: in turn, read 7 and 2 chapters. A strategy table missing one strategy is a platform this cannot
+#: read for a reason that is about the table.
+STRATEGIES = {"jsonld": try_jsonld, "next": try_next, "nuxt": try_nuxt, "pairs": try_pairs}
 
 
 def clean(s):
@@ -65,6 +72,22 @@ def fetch(url, cache, max_age_days=1):
         time.sleep(PAUSE)
     f.write_text(t)
     return t
+
+
+#: A PAGE THAT ONLY EXISTS ONCE A BROWSER HAS RUN IT. 裏サンデー and アルファポリス serve a shell
+#: and build the chapter list in the client, so a plain fetch reads 200 and parses nothing: seven
+#: works between them looked like platforms with no chapter list rather than platforms this cannot
+#: read without a browser. `adapters/remaining` already drives headless Chrome and this borrows it
+#: rather than starting a second one.
+RENDERED = "rendered"
+
+
+def render_page(url, cache):
+    """The DOM a browser produces for `url`, through the one renderer this project has."""
+    import sys as _sys
+    _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "remaining"))
+    import releases as _remaining
+    return _remaining.render(url, pathlib.Path(cache))
 
 
 def episodes(html, strategy):
@@ -149,8 +172,12 @@ def main():
     for p in yaml.safe_load(open(a.extract))["platforms"]:
         if p["host"] in giga or p["host"] in web:
             continue
-        if p.get("strategy") in ("markup", "jsonld", "next", "nuxt"):
-            plans[p["host"]] = {"platform": p["platform"], "strategy": p["strategy"]}
+        if p.get("strategy") in ("markup", "jsonld", "next", "nuxt", "pairs", RENDERED):
+            plans[p["host"]] = {"platform": p["platform"], "strategy": p["strategy"],
+                                # WHICH EXTRACTOR READS THE RENDERED DOM, where it is not the
+                                # default. A browser supplies markup and the markup still has to
+                                # be read by whichever extractor suits the page.
+                                "rendered_as": p.get("rendered_as", "pairs")}
     if not plans:
         sys.exit("no hosts with a proven extraction strategy")
 
@@ -168,7 +195,12 @@ def main():
         rows, failed = [], 0
         for t in targets.get(host, []):
             try:
-                eps = episodes(fetch(t["url"], cache), plan["strategy"])
+                page = (render_page(t["url"], cache) if plan["strategy"] == RENDERED
+                        else fetch(t["url"], cache))
+                # A RENDERED PAGE IS READ BY THE ORDINARY EXTRACTORS. What the browser supplies is
+                # the markup that was never in the response, and `try_markup` is what reads markup.
+                eps = episodes(page, plan.get("rendered_as", "pairs")
+                               if plan["strategy"] == RENDERED else plan["strategy"])
             except (urllib.error.HTTPError, urllib.error.URLError, OSError):
                 failed += 1
                 continue

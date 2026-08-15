@@ -1,0 +1,133 @@
+# 裏サンデー — chapters extracted heuristically from work pages.
+#
+# NOT a publisher-stated field. Blocks carrying a date and a chapter-like label were
+# matched in the page; the strategy was proven for this host in
+# data/coverage/extract.yaml before being run. Every release carries
+# date_basis: heuristic and date_confidence: low so it is never mistaken for the
+# kind of statement GigaViewer or FUZ make.
+#
+# No 百合 label is established here (DEFINITIONS §4); works are named by the Tier C
+# yardsticks and this attests only their chapters.
+source: webpages
+platform: urasunday-com
+platform_name: "裏サンデー"
+publisher: ""
+retrieved: 2026-08-16
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+extraction: rendered
+date_basis: heuristic
+date_confidence: low
+works:
+  - work_title: "3分待って むぎ先輩"
+    url: "https://urasunday.com/title/2335"
+    chapter_count: 7
+    chapters:
+      - title: "第1話 恋と研究とカップヌードル | 3分待って むぎ先輩"
+        updated: 2023-05-28
+        date_basis: heuristic
+      - title: "10話ずつ"
+        updated: 2025-02-16
+        date_basis: heuristic
+      - title: "最終話 卒業式とサッポロ一番 カップスター 先読"
+        updated: 2024-11-10
+        date_basis: heuristic
+      - title: "第23話 思い出のカップヌードル シーフードヌードル 先読"
+        updated: 2024-10-13
+        date_basis: heuristic
+      - title: "第20話 二人の気持ちと寿がきや 麺処井の庄監修 辛辛魚らーめん 先読"
+        updated: 2024-08-18
+        date_basis: heuristic
+      - title: "10話ずつ 前へ 1"
+        updated: 2025-02-19
+        date_basis: heuristic
+      - title: "第1話 恋と研究とカップヌードル"
+        updated: 2026-08-09
+        date_basis: heuristic
+  - work_title: "かわいい同盟"
+    url: "https://urasunday.com/title/26962"
+    chapter_count: 9
+    chapters:
+      - title: "第1話"
+        updated: 2025-06-06
+        date_basis: heuristic
+      - title: "10話ずつ"
+        updated: 2026-04-10
+        date_basis: heuristic
+      - title: "第20話 無料"
+        updated: 2026-04-10
+        date_basis: heuristic
+      - title: "第19話"
+        updated: 2026-03-27
+        date_basis: heuristic
+      - title: "第18話"
+        updated: 2026-02-27
+        date_basis: heuristic
+      - title: "第17話"
+        updated: 2026-02-13
+        date_basis: heuristic
+      - title: "第16話"
+        updated: 2026-01-30
+        date_basis: heuristic
+      - title: "10話ずつ 前へ 1"
+        updated: 2026-02-19
+        date_basis: heuristic
+      - title: "第1話"
+        updated: 2026-06-13
+        date_basis: heuristic
+  - work_title: "付き合ってあげてもいいかな"
+    url: "https://urasunday.com/title/603"
+    chapter_count: 4
+    chapters:
+      - title: "第1話 恋、しちゃいましょうか…？ | 付き合ってあげてもいいかな"
+        updated: 2018-08-17
+        date_basis: heuristic
+      - title: "10話ずつ"
+        updated: 2025-07-04
+        date_basis: heuristic
+      - title: "10話ずつ 前へ 1"
+        updated: 2025-04-17
+        date_basis: heuristic
+      - title: "第1話 恋、しちゃいましょうか…？"
+        updated: 2026-07-20
+        date_basis: heuristic
+  - work_title: "妖怪殲滅のサイコリリー"
+    url: "https://urasunday.com/title/2565"
+    chapter_count: 12
+    chapters:
+      - title: "第1話 出遭い | 妖怪殲滅のサイコリリー"
+        updated: 2023-10-19
+        date_basis: heuristic
+      - title: "第15話(前編) 外野 先読"
+        updated: 2026-08-20
+        date_basis: heuristic
+      - title: "第14話(後編) 剣が峰 無料"
+        updated: 2026-08-13
+        date_basis: heuristic
+      - title: "第14話(前編) 剣が峰"
+        updated: 2026-08-06
+        date_basis: heuristic
+      - title: "第13話(後編) 弟子"
+        updated: 2026-07-30
+        date_basis: heuristic
+      - title: "第13話(前編) 弟子"
+        updated: 2026-07-23
+        date_basis: heuristic
+      - title: "第12話(後編) 規制緩和"
+        updated: 2026-07-16
+        date_basis: heuristic
+      - title: "第12話(前編) 規制緩和"
+        updated: 2024-05-16
+        date_basis: heuristic
+      - title: "第11話(後編) 未達成"
+        updated: 2024-05-09
+        date_basis: heuristic
+      - title: "第11話(前編) 未達成"
+        updated: 2024-05-02
+        date_basis: heuristic
+      - title: "10話ずつ 前へ 1"
+        updated: 2024-03-19
+        date_basis: heuristic
+      - title: "第1話 出遭い"
+        updated: 2026-08-13
+        date_basis: heuristic

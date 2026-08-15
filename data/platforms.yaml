@@ -363,6 +363,48 @@ platforms:
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: comic-seasons.com
+# Four more enabled 2026-08-15, each on what it answered when asked rather than on what an earlier
+# reconnaissance pass recorded. webアクション and 少年ジャンプルーキー serve their chapter lists in
+# the page; 裏サンデー and アルファポリス build theirs in the client and are read through the
+# browser route. `data/coverage/extract.yaml` carries the strategy and the day it was measured.
+- id: webaction
+  name: webアクション
+  en: Web Action
+  publisher: 双葉社
+  host: gaugau.futabanet.jp
+  watched: true
+  notes: markup strategy, read by adapters/generic.
+- id: jump-rookie
+  name: 少年ジャンプルーキー
+  en: Shonen Jump Rookie
+  publisher: 集英社
+  host: rookie.shonenjump.com
+  watched: true
+  notes: markup strategy, read by adapters/generic. Reader submissions, so scope is per work.
+- id: urasunday
+  name: 裏サンデー
+  en: Ura Sunday
+  publisher: 小学館
+  host: urasunday.com
+  watched: true
+  notes: rendered strategy, read by adapters/generic through headless Chrome.
+- id: alphapolis
+  name: アルファポリス
+  en: Alphapolis
+  publisher: アルファポリス
+  host: www.alphapolis.co.jp
+  watched: true
+  notes: rendered strategy, read by adapters/generic through headless Chrome.
+# コロナEX, Souffle, やわらかスピリッツ and Web漫画速報, enabled 2026-08-15 through the browser
+# route. Each was `strategy: none` in the reconnaissance file, which was the answer to a plain
+# fetch; each builds its chapter list in the client.
+- id: corona-ex
+  name: コロナEX
+  en: Corona EX
+  publisher: 一二三書房
+  host: to-corona-ex.com
+  watched: true
+  notes: rendered strategy, read by adapters/generic through headless Chrome.
 # ビビビコミック and MAGKAN, enabled 2026-08-15 beside ヤングアニマルWeb. Both are comici sites the
 # reconnaissance pass had written off as unreadable, which was the generic heuristic failing.
 - id: bibibi

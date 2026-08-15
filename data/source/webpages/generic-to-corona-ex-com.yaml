@@ -1,0 +1,65 @@
+# コロナEX — chapters extracted heuristically from work pages.
+#
+# NOT a publisher-stated field. Blocks carrying a date and a chapter-like label were
+# matched in the page; the strategy was proven for this host in
+# data/coverage/extract.yaml before being run. Every release carries
+# date_basis: heuristic and date_confidence: low so it is never mistaken for the
+# kind of statement GigaViewer or FUZ make.
+#
+# No 百合 label is established here (DEFINITIONS §4); works are named by the Tier C
+# yardsticks and this attests only their chapters.
+source: webpages
+platform: to-corona-ex-com
+platform_name: "コロナEX"
+publisher: ""
+retrieved: 2026-08-16
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+extraction: rendered
+date_basis: heuristic
+date_confidence: low
+works:
+  - work_title: "打撃系鬼っ娘が征く配信道!@COMIC"
+    url: "https://to-corona-ex.com/comics/20000000049417"
+    chapter_count: 6
+    chapters:
+      - title: "月額 第15話 ②"
+        updated: 2022-05-09
+        date_basis: heuristic
+      - title: "第1話"
+        updated: 2022-03-31
+        date_basis: heuristic
+      - title: "第2話 ①"
+        updated: 2022-03-31
+        date_basis: heuristic
+      - title: "第2話 ②"
+        updated: 2022-03-31
+        date_basis: heuristic
+      - title: "第3話 ①"
+        updated: 2022-03-31
+        date_basis: heuristic
+      - title: "第3話 ②"
+        updated: 2022-03-31
+        date_basis: heuristic
+  - work_title: "最愛のお姉様が悪役令嬢だったので、神が定めた運命(シナリオ)に抗います@COMIC"
+    url: "https://to-corona-ex.com/comics/44610925887524"
+    chapter_count: 6
+    chapters:
+      - title: "月額 第16話"
+        updated: 2024-04-29
+        date_basis: heuristic
+      - title: "第1話"
+        updated: 2022-04-18
+        date_basis: heuristic
+      - title: "第2話"
+        updated: 2022-05-23
+        date_basis: heuristic
+      - title: "第3話"
+        updated: 2022-06-20
+        date_basis: heuristic
+      - title: "第4話"
+        updated: 2022-07-18
+        date_basis: heuristic
+      - title: "第5話"
+        updated: 2022-09-05
+        date_basis: heuristic

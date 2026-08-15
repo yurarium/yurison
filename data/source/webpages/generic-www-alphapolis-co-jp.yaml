@@ -1,0 +1,34 @@
+# アルファポリス — chapters extracted heuristically from work pages.
+#
+# NOT a publisher-stated field. Blocks carrying a date and a chapter-like label were
+# matched in the page; the strategy was proven for this host in
+# data/coverage/extract.yaml before being run. Every release carries
+# date_basis: heuristic and date_confidence: low so it is never mistaken for the
+# kind of statement GigaViewer or FUZ make.
+#
+# No 百合 label is established here (DEFINITIONS §4); works are named by the Tier C
+# yardsticks and this attests only their chapters.
+source: webpages
+platform: www-alphapolis-co-jp
+platform_name: "アルファポリス"
+publisher: ""
+retrieved: 2026-08-16
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+extraction: rendered
+date_basis: heuristic
+date_confidence: low
+works:
+  - work_title: "君の初恋を私は知らない"
+    url: "https://www.alphapolis.co.jp/manga/official/791000435"
+    chapter_count: 3
+    chapters:
+      - title: "第3回"
+        updated: 2022-05-23
+        date_basis: heuristic
+      - title: "第2回"
+        updated: 2022-04-25
+        date_basis: heuristic
+      - title: "第1回"
+        updated: 2022-03-28
+        date_basis: heuristic

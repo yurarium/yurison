@@ -93,11 +93,31 @@ platforms:
   work_url: https://manga.line.me/product/periodic?id=Z0001543
   exclusive_works: 6
   strategy: no-response
+# webアクション, added 2026-08-15. It was in no reconnaissance row while the antenna listed seven of
+# its works, so nothing had ever asked it a question. The page as served carries the list.
+- platform: webアクション
+  host: gaugau.futabanet.jp
+  work_url: https://gaugau.futabanet.jp/list/work/lTDmbXuysN2w7lcsWF1HYSEBk
+  exclusive_works: 7
+  strategy: markup
+# Souffle, added 2026-08-15. In no reconnaissance row while the antenna listed a work on it.
+- platform: Souffle
+  host: souffle.life
+  work_url: https://souffle.life/manga/oshiego-to-doujinkyoushi-to-tensaigyaru/
+  exclusive_works: 1
+  # ASKED WITH A BROWSER AND STILL NONE. The one row every extractor returns is `1話を読む`, a
+  # button, not a chapter, and the two-episode minimum refuses it. A page that yields furniture is
+  # not a page with a chapter list on it.
+  strategy: none
 - platform: 裏サンデー
   host: urasunday.com
   work_url: https://urasunday.com/title/2335
   exclusive_works: 5
-  strategy: none
+  # ASKED AGAIN 2026-08-15 WITH A BROWSER: 7 chapters once Chrome has run the page, read by
+  # `try_pairs` because the page puts a label beside a date and names neither element. The response
+  # itself carries no list at all, which is what `none` was the answer to.
+  strategy: rendered
+  rendered_as: pairs
 - platform: ちゃおプラス
   host: ciao.shogakukan.co.jp
   work_url: https://ciao.shogakukan.co.jp/comics/title/00039/episode/4363
@@ -138,7 +158,8 @@ platforms:
   host: rookie.shonenjump.com
   work_url: https://rookie.shonenjump.com/series/fmRli8MBymM
   exclusive_works: 4
-  strategy: none
+  # ASKED AGAIN 2026-08-15: 2 chapters from the page as served, no browser needed.
+  strategy: pairs
 - platform: 花とゆめ+
   host: hanayume.com
   work_url: https://hanayume.com/series/f3ce082d639de
@@ -179,6 +200,7 @@ platforms:
   host: neetsha.jp
   work_url: http://neetsha.jp/inside/comic.php?id=23916
   exclusive_works: 3
+  strategy_note: 'asked again 2026-08-15: 403 to a plain fetch and 2,670 bytes to a browser, which is a block rather than a page'
   strategy: no-response
 - platform: ヤンジャン+
   host: ynjn.jp
@@ -215,6 +237,7 @@ platforms:
   host: sai-zen-sen.jp
   work_url: https://sai-zen-sen.jp/comics/twi4/twins/
   exclusive_works: 3
+  strategy_note: 'asked again 2026-08-15 with a browser: neither a chapter label nor a date in the rendered DOM'
   strategy: none
 - platform: コロコロオンライン
   host: www.corocoro.jp
@@ -235,6 +258,7 @@ platforms:
   host: www.comic-essay.com
   work_url: https://www.comic-essay.com/episode/a1006/
   exclusive_works: 2
+  strategy_note: 'asked again 2026-08-15 with a browser: ten 第N話 labels on the page and no date beside any of them, so no release can be dated and none is recorded'
   strategy: none
 - platform: GANMA!(更新終了)
   host: ganma.jp
@@ -318,11 +342,15 @@ platforms:
   host: novema.jp
   work_url: https://novema.jp/comic/serial/n10
   exclusive_works: 1
+  strategy_note: 'asked again 2026-08-15: 403 to a plain fetch and 373 bytes to a browser, which is a block rather than a page'
   strategy: no-response
 - platform: やわらかスピリッツ
   host: yawaspi.com
   work_url: https://yawaspi.com/oyasumi/index.html
   exclusive_works: 1
+  # ASKED AGAIN 2026-08-15 WITH A BROWSER AND STILL NONE. The one row every extractor
+  # returns is `1話読み切り漫画`, a section heading, not a chapter, and the two-episode minimum refuses it. A page
+  # that yields furniture is not a page with a chapter list on it.
   strategy: none
 - platform: 少年エースplus(更新終了)
   host: web-ace.jp
@@ -383,6 +411,7 @@ platforms:
   host: www.mangabox.me
   work_url: https://www.mangabox.me/reader/262412/
   exclusive_works: 1
+  strategy_note: 'asked again 2026-08-15 with a browser: neither a chapter label nor a date in the rendered DOM'
   strategy: none
 - platform: Matogrosso(更新終了)
   host: matogrosso.jp
@@ -398,11 +427,16 @@ platforms:
   host: www.alphapolis.co.jp
   work_url: https://www.alphapolis.co.jp/manga/official/791000435
   exclusive_works: 1
-  strategy: none
+  # ASKED AGAIN 2026-08-15 WITH A BROWSER: 3 chapters once Chrome has run the page.
+  strategy: rendered
+  rendered_as: pairs
 - platform: Web漫画速報
   host: mangalifewin.takeshobo.co.jp
   work_url: http://mangalifewin.takeshobo.co.jp/rensai/kiminotamenarashineru/
   exclusive_works: 1
+  # ASKED AGAIN 2026-08-15 WITH A BROWSER AND STILL NONE. The one row every extractor
+  # returns is `27話分無料 …`, a promotion, not a chapter, and the two-episode minimum refuses it. A page
+  # that yields furniture is not a page with a chapter list on it.
   strategy: none
 - platform: COMIC熱帯
   host: www.comicnettai.com
@@ -433,7 +467,9 @@ platforms:
   host: to-corona-ex.com
   work_url: https://to-corona-ex.com/comics/20000000049417
   exclusive_works: 1
-  strategy: none
+  # ASKED AGAIN 2026-08-15 WITH A BROWSER: 6 chapters where the response carries one.
+  strategy: rendered
+  rendered_as: markup
 - platform: OUR FEEL
   host: ourfeel.jp
   work_url: https://ourfeel.jp/episode/2550912966077179576
@@ -453,6 +489,7 @@ platforms:
   host: televikun-super-hero-comics.com
   work_url: https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/
   exclusive_works: 1
+  strategy_note: 'asked again 2026-08-15 with a browser: neither a chapter label nor a date in the rendered DOM'
   strategy: none
 - platform: 栞
   host: shiori-on.com

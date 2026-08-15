@@ -1,0 +1,117 @@
+# webアクション — chapters extracted heuristically from work pages.
+#
+# NOT a publisher-stated field. Blocks carrying a date and a chapter-like label were
+# matched in the page; the strategy was proven for this host in
+# data/coverage/extract.yaml before being run. Every release carries
+# date_basis: heuristic and date_confidence: low so it is never mistaken for the
+# kind of statement GigaViewer or FUZ make.
+#
+# No 百合 label is established here (DEFINITIONS §4); works are named by the Tier C
+# yardsticks and this attests only their chapters.
+source: webpages
+platform: gaugau-futabanet-jp
+platform_name: "webアクション"
+publisher: ""
+retrieved: 2026-08-16
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+extraction: markup
+date_basis: heuristic
+date_confidence: low
+works:
+  - work_title: "いなりの結婚"
+    url: "https://gaugau.futabanet.jp/list/work/lTDmbXuysN2w7lcsWF1HYSEBk"
+    chapter_count: 5
+    chapters:
+      - title: "無料 第5話(2) あなたのとなり-シロの場合-（後編）"
+        updated: 2026-04-06
+        date_basis: heuristic
+      - title: "無料 第5話(1) あなたのとなり-シロの場合-（前編）"
+        updated: 2025-12-01
+        date_basis: heuristic
+      - title: "無料 第4話(2) あなたのとなり-いなりの場合-（後編）"
+        updated: 2025-01-06
+        date_basis: heuristic
+      - title: "無料 第2話"
+        updated: 2023-12-01
+        date_basis: heuristic
+      - title: "無料 第1話"
+        updated: 2023-12-01
+        date_basis: heuristic
+  - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
+    url: "https://gaugau.futabanet.jp/list/work/u4FdNLFgU91kEXBufRsVlnzEw"
+    chapter_count: 6
+    chapters:
+      - title: "無料 第16話(2) 貸切！ 全校遠足②"
+        updated: 2026-07-05
+        date_basis: heuristic
+      - title: "無料 第16話(1) 貸切！ 全校遠足①"
+        updated: 2026-06-07
+        date_basis: heuristic
+      - title: "無料 第15話 エモジャン爆散"
+        updated: 2026-05-03
+        date_basis: heuristic
+      - title: "無料 第2話(2) フライドチキンの衣が好き！"
+        updated: 2024-12-01
+        date_basis: heuristic
+      - title: "無料 第2話(1) フライドチキンの衣が好き！"
+        updated: 2024-11-17
+        date_basis: heuristic
+      - title: "無料 第1話 ALL IN"
+        updated: 2024-11-03
+        date_basis: heuristic
+  - work_title: "よくばれ! 人間さん"
+    url: "https://gaugau.futabanet.jp/list/work/X1HDTUSrTpBYa6OPj8gl06hrH"
+    chapter_count: 2
+    chapters:
+      - title: "無料 第2話 働きたくない！人間さん"
+        updated: 2024-04-15
+        date_basis: heuristic
+      - title: "無料 第1話 天使と悪魔と人間さん"
+        updated: 2024-04-01
+        date_basis: heuristic
+  - work_title: "オカワリいただけただろうか?"
+    url: "https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P"
+    chapter_count: 7
+    chapters:
+      - title: "無料 第10話 (2) 丑の刻参り 前編"
+        updated: 2026-05-24
+        date_basis: heuristic
+      - title: "無料 第10話(1) 丑の刻参り 前編"
+        updated: 2026-05-10
+        date_basis: heuristic
+      - title: "無料 第9話 学校の七不思議② 後編"
+        updated: 2026-03-08
+        date_basis: heuristic
+      - title: "無料 第2話(3) 運命のきつねうどん 後編"
+        updated: 2025-01-26
+        date_basis: heuristic
+      - title: "無料 第2話(2) 運命のきつねうどん 後編"
+        updated: 2025-01-12
+        date_basis: heuristic
+      - title: "無料 第2話(1) 運命のきつねうどん 後編"
+        updated: 2024-12-22
+        date_basis: heuristic
+      - title: "無料 第1話 運命のきつねうどん 前編"
+        updated: 2024-12-08
+        date_basis: heuristic
+  - work_title: "スケバンと転校生"
+    url: "https://gaugau.futabanet.jp/list/work/7Zwm76VIzyUjdrYUdrbwqLFVa"
+    chapter_count: 2
+    chapters:
+      - title: "無料 第2話"
+        updated: 2023-12-01
+        date_basis: heuristic
+      - title: "無料 第1話"
+        updated: 2023-12-01
+        date_basis: heuristic
+  - work_title: "影と花"
+    url: "https://gaugau.futabanet.jp/list/work/XehF2hqUYfPP4iKD42beA1pV7"
+    chapter_count: 2
+    chapters:
+      - title: "無料 第2話"
+        updated: 2023-12-01
+        date_basis: heuristic
+      - title: "無料 第1話"
+        updated: 2023-12-01
+        date_basis: heuristic

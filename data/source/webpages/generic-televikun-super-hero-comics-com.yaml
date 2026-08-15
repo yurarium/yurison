@@ -1,0 +1,40 @@
+# てれびくんヒーローコミックス — chapters extracted heuristically from work pages.
+#
+# NOT a publisher-stated field. Blocks carrying a date and a chapter-like label were
+# matched in the page; the strategy was proven for this host in
+# data/coverage/extract.yaml before being run. Every release carries
+# date_basis: heuristic and date_confidence: low so it is never mistaken for the
+# kind of statement GigaViewer or FUZ make.
+#
+# No 百合 label is established here (DEFINITIONS §4); works are named by the Tier C
+# yardsticks and this attests only their chapters.
+source: webpages
+platform: televikun-super-hero-comics-com
+platform_name: "てれびくんヒーローコミックス"
+publisher: ""
+retrieved: 2026-08-16
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+extraction: rendered
+date_basis: heuristic
+date_confidence: low
+works:
+  - work_title: "獄門撫子此処ニ在リ"
+    url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
+    chapter_count: 5
+    chapters:
+      - title: "10話"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "9話"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "11話"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "2話"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "1話"
+        updated: 2026-08-16
+        date_basis: heuristic

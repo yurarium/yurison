@@ -156,6 +156,60 @@ def try_nuxt(html):
         return []
 
 
+def try_labels(html, page_url=""):
+    """Chapter labels a page lists while stating no date for any of them.
+
+    THE PLATFORMS THIS EXISTS FOR PUBLISH NO DATES AT ALL. コミックエッセイ劇場 lists ten 第N話
+    entries and prints no date on the listing, on the episode pages, in its metadata or in its
+    JSON-LD, which is a breadcrumb; てれびくんヒーローコミックス lists eleven the same way. Every
+    other extractor here pairs a label with a date and drops a label that has none, so both
+    platforms read as having no chapter list rather than no dates, and neither was read at all.
+    Web漫画速報 and やわらかスピリッツ are the same shape one work at a time.
+
+    A DATE IS STILL NOT INVENTED. What comes back carries no date, and the caller supplies the day
+    it read the page: `build.py` locks a heuristic date at first sighting, which is REQUIREMENTS §5
+    and is exactly what ヤンジャン+ already gets for a page that states none.
+
+    ANCHORS ONLY, because a chapter a reader can open is a link. A heading that names the work, a
+    banner and a promotion are not, which is what keeps this from reading a page's furniture as a
+    chapter list.
+
+    AND UNDER THIS WORK'S OWN ADDRESS, which is what keeps it from reading somebody else's. マンガ
+    ボックス puts a carousel of other serials on every reader page and 53 chapter labels came back
+    for a work that has none of them: `38話 放課後インスタントXXX` is a different work's thirty-
+    eighth chapter. A chapter of this work lives under this work's address, so the key segment of
+    the page's own URL has to appear in the link.
+    """
+    key = ""
+    for part in reversed([s for s in str(page_url or "").split("?")[0].split("/") if s]):
+        if len(part) > 3 and part not in ("http:", "https:", "index.html"):
+            key = part.replace(".html", "")
+            break
+    out, seen = [], set()
+    for m in re.finditer(r"<a\b[^>]*href=\"([^\"]*)\"[^>]*>(.*?)</a>", html, re.S | re.I):
+        href, body = m.group(1), m.group(2)
+        # A RELATIVE LINK IS ALREADY UNDER THIS WORK'S ADDRESS. てれびくんヒーローコミックス writes
+        # its chapters as `episode-010/`, which the browser resolves against the work's own path
+        # and which carries no key to match: requiring the key threw away every chapter it has.
+        # What the rule refuses is a link that goes somewhere ELSE, so an absolute one that does
+        # not name this work is the only kind to drop.
+        absolute = href.startswith(("http://", "https://", "//", "/"))
+        if key and absolute and key not in href:
+            continue
+        text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body)).strip()
+        if not text or len(text) > 60 or not CHAPTERISH.search(text):
+            continue
+        # THE LABEL AND NOT THE SENTENCE AROUND IT. A card links its whole blurb, so the anchor's
+        # text can carry the work's title and a strapline with the chapter buried in the middle.
+        c = CHAPTERISH.search(text)
+        label = text[max(0, c.start() - 4): c.end() + 40].strip(" 　·・|/-")
+        if label in seen:
+            continue
+        seen.add(label)
+        out.append({"title": label, "date": None})
+    return out
+
+
 def try_pairs(html):
     """Pair each date with the nearest chapter label before it.
 

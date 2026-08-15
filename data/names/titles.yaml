@@ -25259,6 +25259,21 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034312467
     verified: true
+  キジとイナサ:
+    basis: romaji
+    furigana_spans:
+    - - キジとイナサ
+      - null
+    reading: キジ ト イナサ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   キスして恋:
     basis: translated
     en: Kiss, Then Love

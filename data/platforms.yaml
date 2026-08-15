@@ -398,6 +398,24 @@ platforms:
 # コロナEX, Souffle, やわらかスピリッツ and Web漫画速報, enabled 2026-08-15 through the browser
 # route. Each was `strategy: none` in the reconnaissance file, which was the answer to a plain
 # fetch; each builds its chapter list in the client.
+# コミックエッセイ劇場 and てれびくんヒーローコミックス, enabled 2026-08-15. Both list their chapters
+# and print no date anywhere: not on the listing, not on an episode page, not in metadata, not in
+# the JSON-LD, which is a breadcrumb. `try_labels` reads the list and each row is dated the day it
+# was read, which `build.py` then locks at first sighting.
+- id: comic-essay
+  name: コミックエッセイ劇場
+  en: Comic Essay Gekijo
+  publisher: KADOKAWA
+  host: www.comic-essay.com
+  watched: true
+  notes: rendered strategy read through `labels`; the platform states no dates.
+- id: televikun-hero
+  name: てれびくんヒーローコミックス
+  en: Terebikun Hero Comics
+  publisher: 小学館
+  host: televikun-super-hero-comics.com
+  watched: true
+  notes: rendered strategy read through `labels`; the platform states no dates.
 - id: corona-ex
   name: コロナEX
   en: Corona EX

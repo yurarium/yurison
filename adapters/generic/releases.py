@@ -33,8 +33,8 @@ import yaml
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import dedicated  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
-from extract import (CHAPTERISH, norm_date, try_jsonld, try_markup,  # noqa: E402
-                     try_next, try_nuxt, try_pairs)
+from extract import (CHAPTERISH, norm_date, try_jsonld, try_labels,  # noqa: E402
+                     try_markup, try_next, try_nuxt, try_pairs)
 
 # The compatible-token form. Several hosts (firecross.jp, www.yomonga.com) reject a bare product
 # token outright but serve this, and it is the long-standing convention — "Mozilla/5.0 (compatible;
@@ -51,7 +51,13 @@ MIN_EPISODES = 2
 #: so this pass wrote nothing for them while `remaining/from_generic`, which tries every extractor
 #: in turn, read 7 and 2 chapters. A strategy table missing one strategy is a platform this cannot
 #: read for a reason that is about the table.
-STRATEGIES = {"jsonld": try_jsonld, "next": try_next, "nuxt": try_nuxt, "pairs": try_pairs}
+STRATEGIES = {"jsonld": try_jsonld, "next": try_next, "nuxt": try_nuxt, "pairs": try_pairs,
+              "labels": try_labels}
+
+#: THE STRATEGY THAT COMES BACK WITHOUT DATES, because its platforms print none. See
+#: `extract.try_labels`: the day the page was read is what there is, and `build.py` locks a
+#: heuristic date at first sighting so it cannot walk forward with the calendar.
+DATELESS = "labels"
 
 
 def clean(s):
@@ -90,11 +96,18 @@ def render_page(url, cache):
     return _remaining.render(url, pathlib.Path(cache))
 
 
-def episodes(html, strategy):
-    if strategy in STRATEGIES:
+def episodes(html, strategy, today=None, page_url=""):
+    if strategy == DATELESS:
+        got = try_labels(html, page_url)
+    elif strategy in STRATEGIES:
         got = STRATEGIES[strategy](html)
     else:
         got, _ = try_markup(html)
+    if strategy == DATELESS:
+        # THE DAY THIS READ THE PAGE, for a platform that states no date anywhere. Not a guess
+        # about publication: `date_basis: heuristic` says what it is and the first-seen ledger
+        # holds it still from the next run onward.
+        got = [dict(g, date=today) for g in got]
     out, seen = [], set()
     for g in got:
         title = re.sub(r"\s+", " ", g.get("title") or "").strip()
@@ -147,6 +160,13 @@ def main():
     ap.add_argument("--cache", required=True)
     ap.add_argument("--retrieved", required=True)
     ap.add_argument("--limit-per-host", type=int, default=40)
+    # WHICH HALF OF THE PLATFORMS TO READ, because a browser belongs in one stage and a fetch in
+    # another. `update.yml` runs stage A without a browser at all and stage C with one, under a
+    # timeout and allowed to fail; a platform that needs Chrome read in stage A would either
+    # silently write nothing on a runner without one or make the fetch-only stage as slow and as
+    # flaky as the browser stage. `both` is what a person running this by hand wants.
+    ap.add_argument("--rendered", choices=("both", "skip", "only"), default="both",
+                    help="whether to read the platforms that need a browser")
     a = ap.parse_args()
 
     cache = pathlib.Path(a.cache).expanduser()
@@ -172,7 +192,13 @@ def main():
     for p in yaml.safe_load(open(a.extract))["platforms"]:
         if p["host"] in giga or p["host"] in web:
             continue
-        if p.get("strategy") in ("markup", "jsonld", "next", "nuxt", "pairs", RENDERED):
+        wants_browser = p.get("strategy") == RENDERED
+        if a.rendered == "skip" and wants_browser:
+            continue
+        if a.rendered == "only" and not wants_browser:
+            continue
+        if p.get("strategy") in ("markup", "jsonld", "next", "nuxt", "pairs", DATELESS,
+                                 RENDERED):
             plans[p["host"]] = {"platform": p["platform"], "strategy": p["strategy"],
                                 # WHICH EXTRACTOR READS THE RENDERED DOM, where it is not the
                                 # default. A browser supplies markup and the markup still has to
@@ -200,7 +226,8 @@ def main():
                 # A RENDERED PAGE IS READ BY THE ORDINARY EXTRACTORS. What the browser supplies is
                 # the markup that was never in the response, and `try_markup` is what reads markup.
                 eps = episodes(page, plan.get("rendered_as", "pairs")
-                               if plan["strategy"] == RENDERED else plan["strategy"])
+                               if plan["strategy"] == RENDERED else plan["strategy"],
+                               today=a.retrieved, page_url=t["url"])
             except (urllib.error.HTTPError, urllib.error.URLError, OSError):
                 failed += 1
                 continue

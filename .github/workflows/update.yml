@@ -175,6 +175,12 @@ jobs:
             --out data/source/webpages --cache "$CACHE/render" --limit-per-host 140 --retrieved "$R"
           python3 adapters/remaining/releases.py --works data/coverage/remaining.yaml \
             --out data/source/webpages --cache "$CACHE/remaining" --retrieved "$R"
+          # THE PLATFORMS THAT ONLY EXIST ONCE A BROWSER HAS RUN THEM. 裏サンデー, アルファポリス
+          # and コロナEX serve a shell and build the chapter list in the client, so a plain fetch
+          # reads 200 and parses nothing. Stage A runs the same pass with `--rendered skip`.
+          python3 adapters/generic/releases.py --works data/coverage/webcomics-works.yaml \
+            --extract data/coverage/extract.yaml --rendered only \
+            --out data/source/webpages --cache "$CACHE/generic" --retrieved "$R"
 
       # ── Stage D — compile. This one is allowed to fail the run. ───────────────────────────────
       - name: Compile

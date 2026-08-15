@@ -104,5 +104,42 @@ def main(s):
             "a chapter that exists only inside an HTML comment is not extracted")
 
 
+    # ── A PLATFORM THAT LISTS ITS CHAPTERS AND PRINTS NO DATE ────────────────────────────────
+    #
+    # コミックエッセイ劇場 lists ten 第N話 entries and states no date on the listing, on an episode
+    # page, in its metadata or in its JSON-LD, which is a breadcrumb; てれびくんヒーローコミックス
+    # lists seven the same way. Every other extractor here pairs a label with a date and drops a
+    # label that has none, so both platforms read as having no chapter list rather than no dates.
+    page = ('<a href="/read/a1006/entry-51538.html">第１０話 大きい私と過去</a>'
+            '<a href="/read/a1006/entry-51537.html">第９話 小さな私とバイト仲間</a>'
+            '<a href="/about/">この作品について</a>')
+    got = extract.try_labels(page, "https://www.comic-essay.com/episode/a1006/")
+    s.eq([g["title"] for g in got], ["第１０話 大きい私と過去", "第９話 小さな私とバイト仲間"],
+         "the chapters a page lists, and not the page's other links")
+    s.eq({g["date"] for g in got}, {None},
+         "and no date is invented for a platform that states none")
+
+    # A RELATIVE LINK IS ALREADY UNDER THIS WORK'S ADDRESS. てれびくんヒーローコミックス writes its
+    # chapters as `episode-010/`, which carries no key to match, and requiring one threw away every
+    # chapter it has.
+    s.eq([g["title"] for g in extract.try_labels(
+        '<a href="episode-010/">10話</a><a href="episode-009/">9話</a>',
+        "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/")],
+        ["10話", "9話"], "a relative link is this work's own chapter")
+
+    # AND AN ABSOLUTE ONE THAT NAMES ANOTHER WORK IS NOT. マンガボックス puts a carousel of other
+    # serials on every reader page, and 53 chapter labels came back for a work that has none of
+    # them: `38話 放課後インスタントXXX` is a different work's thirty-eighth chapter.
+    s.eq(extract.try_labels(
+        '<a href="https://www.mangabox.me/reader/999999/">38話 放課後インスタントXXX</a>',
+        "https://www.mangabox.me/reader/262412/"), [],
+        "another work's chapter is not this work's, however chapter-shaped it reads")
+
+    # FURNITURE IS NOT A CHAPTER LIST. A page that only offers a button says nothing about how many
+    # chapters it has, and the two-episode minimum is what refuses one row.
+    s.eq(extract.try_labels('<h2>第1話を読む</h2><p>第2話 とても長い</p>', "https://x.jp/works/1"), [],
+         "a label outside an anchor is not a chapter a reader can open")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "recon.extract"))

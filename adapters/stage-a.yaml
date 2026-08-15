@@ -109,10 +109,13 @@ commands:
     argv: [adapters/webpages/releases.py, --gap, data/coverage/webcomics-works.yaml,
            --out, data/source/webpages, --cache, "{CACHE}/webpages", --retrieved, "{R}"]
 
+  # `--rendered skip` KEEPS THIS STAGE BROWSER-FREE, which is what the stage says it is. The
+  # platforms that build their chapter list in the client are read in stage C, where a browser is
+  # confirmed to exist and a slow pass is allowed to fail without costing the run.
   - id: generic
     optional: true
     argv: [adapters/generic/releases.py, --works, data/coverage/webcomics-works.yaml,
-           --extract, data/coverage/extract.yaml,
+           --extract, data/coverage/extract.yaml, --rendered, skip,
            --out, data/source/webpages, --cache, "{CACHE}/generic", --retrieved, "{R}"]
 
   # RESTORED 2026-08-10 together with its section of render-targets.yaml, which 544a462 dropped.

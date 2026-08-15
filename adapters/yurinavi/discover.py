@@ -12,7 +12,7 @@ else already tagged.
 
 Usage:  discover.py --out data/queue --cache $YURI_CACHE/yurinavi-cache --retrieved 2026-08-01
 """
-import argparse, datetime, json, pathlib, re, time, urllib.request
+import argparse, datetime, json, pathlib, re, sys, time, urllib.request
 
 import yaml
 import xml.etree.ElementTree as ET
@@ -68,24 +68,21 @@ def fetch_article(url, cache):
 
 
 def registry_hosts():
-    """host -> platform id, from the adapter registries rather than a list kept by hand.
+    """host -> platform id, from every register rather than a list kept by hand.
 
     The hand-kept list named four platforms. comic-earthstar.com has been in the GigaViewer
     registry throughout and was not in it, so articles linking straight to the work were filed as
-    "no platform link" — the article was fine and the resolver was not.
+    "no platform link" and the resolver was the thing at fault.
+
+    AND IT READ TWO OF THE THREE REGISTERS. `data/platforms.yaml` is the project's own, where a
+    ruling about a platform is written, and this asked the adapters' files instead: マンガワン is
+    in it with `manga-one.com` and an article linking straight there resolved to nothing. Three
+    hand-written entries papered over three of the gaps. `facts/platform` merges all three and is
+    the one place that knows which host belongs to which platform.
     """
-    out = {}
-    for f, key in (("adapters/gigaviewer/platforms.yaml", "platforms"),
-                   ("adapters/webpages/sites.yaml", "sites")):
-        p = pathlib.Path(f)
-        if not p.exists():
-            continue
-        for x in (yaml.safe_load(p.read_text()) or {}).get(key) or []:
-            if x.get("host"):
-                out[x["host"]] = x["id"]
-    out.update({"comic-walker.com": "kadokomi", "comic-fuz.com": "comicfuz",
-                "manga.nicovideo.jp": "nicovideo"})
-    return out
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    from facts import platform as _platform
+    return dict(_platform.ids())
 
 
 def unshorten(url, cache):
@@ -130,6 +127,42 @@ def resolve_near(html, title, hosts):
         return None, None, None
     code = re.search(r"/(?:episode|series|detail|manga|comic|title)/([A-Za-z0-9_]+)", best[1])
     return hosts[best[2]], (code.group(1) if code else None), best[1]
+
+
+#: HOSTS AN ARTICLE LINKS TO THAT ARE NOT WHERE THE WORK IS. The site's own furniture, the share
+#: buttons, and the microformat profile every WordPress theme points at.
+#: MATCHED BY SUFFIX, because a share button is served from a subdomain: the host is
+#: `social-plugins.line.me` and the list said `line.me`, so the first thing every article pointed
+#: at was a LINE button. 百合ナビ's own fanbox is here for the same reason.
+FURNITURE = ("yurinavi.com", "gmpg.org", "twitter.com", "x.com", "facebook.com",
+             "hatena.ne.jp", "line.me", "instagram.com", "youtube.com", "youtu.be",
+             "pinterest.com", "feedly.com", "fanbox.cc", "note.com", "pixiv.net")
+
+
+def outbound_host(html, title=None):        # noqa: ARG001  (title kept for the caller's symmetry)
+    """The host an article points at that is neither furniture nor a platform we know.
+
+    A PLATFORM NOBODY HAS REGISTERED IS NOT NO PLATFORM. 最恐呪物令嬢 was announced on 2026-08-15
+    and its article links straight to `younganimal.com`; the queue recorded it as naming no
+    platform, so the reason a reader was given for it sitting there was wrong. The work is on a
+    site 白泉社 runs and the register does not hold, which is one edit in one file and a decision
+    for a person rather than something to be inferred from an article.
+
+    NEVER RECORDED AS THE PLATFORM, only as the host. What `facts/platform.serves_openly` answers
+    for is the register, and this is the question that comes before it.
+    """
+    # THE WHOLE ARTICLE, NOT A WINDOW ROUND THE TITLE. `find` returns the first occurrence, which
+    # is the `<title>` tag 57,000 characters before the link 最恐呪物令嬢's article carries, so a
+    # window round it saw nothing. Safe to widen because this reports a HOST and never a platform:
+    # the furniture list is what keeps the answer meaningful, not the distance.
+    hosts = registry_hosts()
+    for m in re.finditer(r'href="https?://([^/"]+)', html):
+        h = m.group(1)
+        if (h in hosts or h in SHORTENERS
+                or any(h == f or h.endswith("." + f) for f in FURNITURE)):
+            continue
+        return h
+    return None
 
 
 def resolve_platform(html, cache=None, title=None):
@@ -262,9 +295,13 @@ def main():
             # Resolved per title, not per article: a まとめ names several works and links to each.
             plat, code, wurl = (resolve_platform(art_html, cache, t) if art_html
                                 else (None, None, None))
+            # WHERE THE ARTICLE POINTS WHEN NO REGISTER KNOWS IT, so the queue can say "a platform
+            # nobody has registered" rather than "no platform", which is what somebody acts on.
+            host = None if plat else (outbound_host(art_html, t) if art_html else None)
             rows.append({"work_title": t, "signal": sig, "headline": head,
                          "url": art, "platform": plat, "platform_code": code,
-                         "work_url": wurl, "source": "yurinavi", "announced": when})
+                         "work_url": wurl, "platform_host": host,
+                         "source": "yurinavi", "announced": when})
 
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -293,7 +330,7 @@ def main():
         for c in carried:
             row = {k: c.get(k) for k in
                    ("work_title", "signal", "announced", "url", "headline",
-                    "platform", "platform_code", "work_url")}
+                    "platform", "platform_code", "work_url", "platform_host")}
             if not row.get("work_url") and row.get("url"):
                 html = fetch_article(row["url"], cache)
                 if html:
@@ -322,7 +359,8 @@ def main():
     ]
     for r in sorted(rows, key=lambda r: r["announced"], reverse=True):
         L.append(f"  - work_title: {json.dumps(r['work_title'], ensure_ascii=False)}")
-        for k in ("signal", "announced", "url", "platform", "platform_code", "work_url"):
+        for k in ("signal", "announced", "url", "platform", "platform_code", "work_url",
+                  "platform_host"):
             if r.get(k):
                 L.append(f"    {k}: {json.dumps(r[k], ensure_ascii=False)}")
         L.append(f"    headline: {json.dumps(r['headline'], ensure_ascii=False)}")

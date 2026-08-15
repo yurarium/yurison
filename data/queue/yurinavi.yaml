@@ -31,7 +31,7 @@ candidates:
     signal: "new-serial"
     announced: "Sun, 02 Aug 2026 11:36:58 +0000"
     url: "https://yurinavi.com/2026/08/02/konya-start/"
-    platform: "comic-seasons"
+    platform: "seasons"
     platform_code: "12207421983858404523"
     work_url: "https://comic-seasons.com/episode/12207421983858404523"
     headline: "オンラインゲームで出会ったふたりの時間を描く百合漫画「今夜、エーテルで待ちあわせ」WEBでスタート"
@@ -40,6 +40,7 @@ candidates:
     signal: "new-serial"
     announced: "Sat, 15 Aug 2026 11:00:19 +0000"
     url: "https://yurinavi.com/2026/08/15/saikyoujyubutsu-start/"
+    platform_host: "younganimal.com"
     headline: "呪物を愛しすぎる令嬢にまつわる奇々怪々ホラーコメディ「最恐呪物令嬢」WEBで連載中"
     status: unconfirmed
   - work_title: "天瀬ましろはイきたくない！"
@@ -118,12 +119,16 @@ candidates:
     signal: "adaptation"
     announced: "2026-07-06"
     url: "https://yurinavi.com/2026/07/06/tsukikana-jissya/"
+    platform: "manga-one"
+    platform_code: "603"
+    work_url: "https://manga-one.com/manga/603/chapter/60189"
     headline: "大学生百合漫画「付き合ってあげてもいいかな」実写ドラマ化決定。9月10日より放送開始"
     status: unconfirmed
   - work_title: "ムルシエラゴ"
     signal: "adaptation"
     announced: "2026-07-05"
     url: "https://yurinavi.com/2026/07/05/murcielago-animeka/"
+    platform_host: "magazine.jp.square-enix.com"
     headline: "バイオレンス百合アクション漫画「ムルシエラゴ」TVアニメ化決定。ティザーPV＆ビジュアルが公開"
     status: unconfirmed
   - work_title: "クレアちゃん飼育日記"

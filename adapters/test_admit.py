@@ -80,6 +80,13 @@ def main(s):
     s.eq(admit.admits({"work_title": "ムルシエラゴ"}, KNOWN), (False, "names no platform"),
          "an announcement naming no platform names nowhere to look")
 
+    # AND A PLATFORM NOBODY HAS REGISTERED IS NOT NO PLATFORM. 最恐呪物令嬢's article links straight
+    # to `younganimal.com`, which 白泉社 runs and the register does not hold. Told apart because the
+    # two need different things done: one is a work with nowhere to look, the other is one edit.
+    s.eq(admit.admits({"work_title": "最恐呪物令嬢", "platform_host": "younganimal.com"}, KNOWN),
+         (False, "younganimal.com is a platform the register does not hold"),
+         "an unregistered host names itself, so somebody can decide about the platform")
+
     # AND AN ADDRESS IS WHAT AN ADAPTER FETCHES. A title with no URL in the target list is a title
     # every pass looks for and none finds.
     s.eq(admit.admits({"work_title": "x", "platform": "kadokomi"}, KNOWN)[1],

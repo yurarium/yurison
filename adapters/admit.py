@@ -51,7 +51,13 @@ def admits(candidate, known=None):
     register answering as it should.
     """
     if not all(candidate.get(k) for k in NEEDS):
-        return False, "names no platform"
+        # A PLATFORM NOBODY HAS REGISTERED IS NOT NO PLATFORM, and the difference is what somebody
+        # acts on. 最恐呪物令嬢's article links straight to `younganimal.com`, which 白泉社 runs and
+        # the register does not hold: the queue said it named no platform, so the reason given for
+        # it sitting there was wrong. Registering a platform is one edit in one file.
+        host = candidate.get("platform_host")
+        return False, (f"{host} is a platform the register does not hold" if host
+                       else "names no platform")
     if not _platform.serves_openly(candidate.get("platform"), known):
         return False, f"{candidate['platform']} is not a platform this reads openly"
     if not addressable(candidate):

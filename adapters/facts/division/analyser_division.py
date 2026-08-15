@@ -123,6 +123,36 @@ def runs(surface):
     return out
 
 
+def separators(surface, glued):
+    """`{offset: separator}` for the offsets a surface establishes with something other than a space.
+
+    THE INTERPUNCT IS A CHARACTER OF THE NAME, READER-PLAN item 7's neighbour. `flat` takes it out
+    with the spaces, because トリイ・シヅク and トリイ シヅク state the same division, and `respace`
+    puts a SPACE back at every offset. For a kana surface that respells the name:
+    スタジオクロマト・スタジオコロリド came back as スタジオクロマト スタジオコロリド, which no longer
+    spells itself, and `a kana name's reading spells it` refused it three times over.
+
+    `boundary.from_surface` WAS FIXED AND THIS WAS NOT, which is the second writer of one rule: the
+    reading that kept coming back carried `reading_boundary: the kana in its own surface`, and that
+    is written here rather than there.
+    """
+    out, pos, n = {}, 0, len(glued)
+    for kind, text in runs(surface):
+        if kind == FROM_KANA:
+            piece = boundary.flat(text)
+            if glued[pos:pos + len(piece)] != piece:
+                break
+            pos += len(piece)
+        elif kind == FROM_BYLINE:
+            # ONLY WHERE THE SEPARATOR IS ENTIRELY INTERPUNCTS. `A・ B` states a space as well, and
+            # a space asserts no character.
+            if 0 < pos < n and text and set(text) <= set("・･"):
+                out[pos] = text
+        else:
+            break
+    return out
+
+
 def _walk(surface, glued):
     """`{offset: origin}` for the offsets one surface establishes in one flattened reading.
 
@@ -208,7 +238,7 @@ def retire(surface, reading):
             if not (PART_ENDS.match(glued[offset - 1]) and PART_OPENS.match(glued[offset])):
                 continue
         kept.append(offset)
-    return boundary.respace(glued, tuple(kept))
+    return boundary.respace(glued, tuple(kept), separators(surface, glued))
 
 
 def asks(record):

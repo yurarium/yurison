@@ -64,8 +64,15 @@ jobs:
       # THE FIVE CHECKS STAY FOR NOW, deliberately. A constraint that has never refused anything in
       # this repository has not yet earned the retirement of a check that has: three of the five
       # docstrings name real faults they caught. Retire them once both have run together and agreed.
-      - name: The relational store, whose constraints refuse rather than report
-        run: python3 adapters/relational/__init__.py --build
+      # THE BUILD ABOVE IS THAT COMPILE NOW. This ran `relational --build`, a second rebuild from
+      # `data/build`, and §13 stopped writing those files: the step loaded no works and handed back
+      # 153 foreign-key refusals on `superseded`, which is the loader saying nothing useful about
+      # data that is fine. It failed that way for three pushes.
+      #
+      # WHAT IT WAS FOR IS STILL DONE. `build.py` compiles the store on this runner with
+      # `PRAGMA foreign_keys = ON` and quarantine OFF, so a row the schema will not admit fails the
+      # job, which is the whole of what this step asked for. What is lost is the SECOND, independent
+      # load from the emitted files, and that comparison stopped existing when the files did.
 
       - name: Invariants and budgets, reported so the status page has them
         run: python3 check.py --runtime

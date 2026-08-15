@@ -427,6 +427,21 @@ def build(path=None, quarantine=False, at=None, source=None):
     rather than from the files it wrote, which is the direction the whole plan turns on. Without
     it, `data/build` is read, which is what a rebuild and the weekly reconciliation do.
     """
+    # A REBUILD READS `data/build` AND §13 STOPPED WRITING IT. Without a source the loader takes
+    # the corpus JSON, and since `build.py --emit-json` became the only thing that writes those
+    # files a rebuild on an ordinary tree loads no works at all: every `superseded` row then fails
+    # its foreign key and the caller is handed 153 refusals to read, which says nothing about what
+    # is actually wrong. The gate failed that way for three pushes.
+    #
+    # SAID ONCE, PLAINLY, BEFORE ANY OF IT. `build.py` is the compiler now; a rebuild from files
+    # is a rebuild from files that are not there.
+    if source is None:
+        _corpus = ROOT / "data" / "build" / "series.json"
+        if not _corpus.exists():
+            raise SystemExit(
+                f"no corpus JSON at {_corpus}: §13 stopped `build.py` writing it, so there is "
+                "nothing here to rebuild from. `python3 build.py` compiles the store, and "
+                "`build.py --emit-json` writes the files this path wants.")
     db = load_rulings(create(path))
     counts, refused = {}, []
     put = _putter(db, refused, quarantine, at)

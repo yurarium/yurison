@@ -3630,7 +3630,7 @@ names:
       - null
     - - Ｕ
       - u
-    reading: クロバ U
+    reading: クロバ・U
     reading_at: '2026-08-09'
     reading_basis: analyser
     reading_boundary: the kana in its own surface
@@ -4192,7 +4192,7 @@ names:
       - null
     - - Ｂ
       - b
-    reading: サリイ B
+    reading: サリイ・B
     reading_at: '2026-08-09'
     reading_basis: analyser
     reading_boundary: the kana in its own surface
@@ -9108,7 +9108,7 @@ names:
       publisher and the artist's own site, did not settle it from オルターエゴ alone. Until they do, a reader
       is told the rendering is a transliteration of a transliteration rather than being shown `Ana C Sanchesu`
       as though it were the name.
-    reading: アナ C サンチェス
+    reading: アナ・C サンチェス
     reading_at: '2026-08-09'
     reading_basis: analyser
     reading_boundary: the kana in its own surface
@@ -9126,7 +9126,7 @@ names:
       - c
     - - ・サンチェス
       - null
-    reading: アナ C サンチェス
+    reading: アナ・C サンチェス
     reading_at: '2026-08-09'
     reading_basis: analyser
     reading_boundary: the kana in its own surface
@@ -10918,7 +10918,7 @@ names:
       - null
     - - 加藤
       - かとう
-    reading: ジェイ カトウ
+    reading: ジェイ・カトウ
     reading_at: '2026-08-09'
     reading_basis: analyser
     reading_boundary: the kana in its own surface
@@ -11039,18 +11039,6 @@ names:
     reading_source_kind: derived
     reading_url: https://api.openbd.jp/v1/get?isbn=9784048117579
     verified: true
-  スタジオクロマト・スタジオコロリド:
-    basis: romaji
-    reading: スタジオクロマト スタジオコロリド
-    reading_at: '2026-08-14'
-    reading_basis: analyser
-    reading_boundary: the kana in its own surface
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
-    reading_source_kind: analyser
-    verified: false
   スタジオコロリド:
     basis: romaji
     en: Studio Colorido

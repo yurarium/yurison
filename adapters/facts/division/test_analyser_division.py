@@ -183,5 +183,24 @@ def a_run_that_corrected_nothing_still_writes(s):
         s.eq(store.read_text(), before, "and a run with nothing left to say does not rewrite it")
 
 
+    # ── AN INTERPUNCT SURVIVES `retire`, WHICH IS THE SECOND WRITER OF THAT RULE ──────────────
+    #
+    # `boundary.from_surface` was fixed for this and `retire` was not, so the reading that no
+    # longer spelled its own name came back on the next run carrying `reading_boundary: the kana
+    # in its own surface`, which is written here. Three removals and two guards elsewhere did not
+    # stop it, because none of them was the producer.
+    from facts.division import analyser_division as _ad
+    s.eq(_ad.retire("スタジオクロマト・スタジオコロリド",
+                                  "スタジオクロマト スタジオコロリド"),
+         "スタジオクロマト・スタジオコロリド",
+         "a division the surface writes with an interpunct keeps the interpunct")
+    s.eq(_ad.retire("かしい葵", "カシイ アオイ"), "カシイ アオイ",
+         "and one the surface does not write with one still gets a space")
+    s.eq(_ad.separators("ア・イ", "アイ"), {1: "・"},
+         "the separator is reported at the offset it establishes")
+    s.eq(_ad.separators("ア イ", "アイ"), {},
+         "and a plain space names no character to keep")
+
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

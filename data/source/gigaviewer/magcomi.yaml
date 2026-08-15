@@ -16,7 +16,7 @@ releases:
     web_status: "serialised"
     identified_via: "discovery-candidate"
     episode_title: "今日の10ページ「女子高生VS首切り地蔵」淀洞蝸牛"
-    release_type: "unclassified"
+    release_type: "oneshot"
     date: "2026-08-14"
     date_basis: "observed"
     first_seen: "2026-08-14"
@@ -26,8 +26,7 @@ releases:
     url: "https://magcomi.com/episode/12207421984065499859"
     author: "淀洞蝸牛"
     free_term_start: "2026-08-14T03:00:00Z"
-    raw_title: "今日の10ページ「女子高生VS首切り地蔵」淀洞蝸牛"
-    advances_narrative: false
+    advances_narrative: true
   - release_id: "magcomi:episode:12207421983980139772"
     in_current_window: false
     work_title: "ボイタボイネ"

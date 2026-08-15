@@ -80,7 +80,7 @@ works:
     url: "https://www.corocoro.jp/title/65"
     platform_name: "コロコロオンライン"
     route: "rendered"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
       - title: "第101話"
         updated: 2026-08-15
@@ -93,6 +93,9 @@ works:
         date_basis: rendered
       - title: "第98話"
         updated: 2026-07-04
+        date_basis: rendered
+      - title: "第97話"
+        updated: 2026-06-27
         date_basis: rendered
       - title: "第4話"
         updated: 2024-02-03
@@ -2540,36 +2543,6 @@ works:
         updated: 2026-08-12
         author: "りんご飴サード,川田暁生"
         access_modes: ["purchase"]
-  - work_title: "上杉くんは女の子をやめたい"
-    url: "https://ciao.shogakukan.co.jp/comics/title/00577/episode/22025"
-    platform_name: "ちゃおプラス"
-    route: "rendered"
-    chapter_count: 8
-    chapters:
-      - title: "第1話 4 May"
-        updated: 2024-05-04
-        date_basis: rendered
-      - title: "第35話"
-        updated: 2026-08-15
-        date_basis: rendered
-      - title: "第34話"
-        updated: 2026-07-18
-        date_basis: rendered
-      - title: "第5話"
-        updated: 2024-07-06
-        date_basis: rendered
-      - title: "第4話"
-        updated: 2024-06-15
-        date_basis: rendered
-      - title: "第3話"
-        updated: 2024-06-01
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2024-05-18
-        date_basis: rendered
-      - title: "第1話 上杉くんは女の子をやめたい 1 上杉くんは女の子をやめたい 5 全巻見る やぶ"
-        updated: 2024-05-04
-        date_basis: rendered
   - work_title: "平良深姉妹はどっちもヤんでる"
     author: "金子ある"
     url: "https://comic-days.com/episode/4856001361274266527"

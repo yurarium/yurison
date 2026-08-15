@@ -6172,6 +6172,37 @@ def main():
     for row in series.values():
         row.pop("_srcs", None)
         row.pop("chapters_list", None)
+
+    # ── A FINISHED SERIES IS NOT NEWS, HOWEVER RECENTLY WE FOUND IT ───────────────────────────
+    #
+    # THE FAULT THE PROJECT OWNER SAW. 付き合ってあげてもいいかな finished, and enabling 裏サンデー
+    # brought in its 第1話: a chapter published on 2026-07-20 that this pipeline first saw today. The
+    # late-discovery rule surfaced it, so a completed series arrived at the top of 更新 as though it
+    # had just started. The rule is right about a work nobody has shown a reader; it is wrong about
+    # a work that has ended, because there is nothing coming and the reader is being told there is.
+    #
+    # THE PUBLICATION DATE IS WHAT SUCH A ROW KEEPS, which files it in the month it belongs to and
+    # leaves the window to works that are running. `oneshot` is here for the same reason: a one-shot
+    # discovered late is a thing that happened once, and the date it happened is the honest one.
+    #
+    # DECIDED HERE BECAUSE THE STATE IS DECIDED HERE. `late_discovered` is settled long before any
+    # of these rows have a state, so this is the first point at which the question can be asked at
+    # all, and `feed_date` is read by the split at the end of the run.
+    # NAMED APART FROM `_ended` ABOVE, which is a platform's own word for one work 500 lines back.
+    # `adapters/lint/shadowing.py` counts a name rebound across that distance, and it counted this.
+    _finished_works = {norm_work(r.get("work") or "") for r in series.values()
+                       if r.get("state") in (_ser.COMPLETED, _ser.ONESHOT)}
+    _unsurfaced = 0
+    for r in releases:
+        if r.get("late_discovered") and norm_work(r.get("work") or "") in _finished_works:
+            r["late_discovered"] = False
+            r["discovered_on"] = None
+            r["feed_date"] = r["pub"]
+            _unsurfaced += 1
+    if _unsurfaced:
+        print(f"finished series : {_unsurfaced} late-found row(s) filed under their publication "
+              f"date, the work having ended")
+
     # ── collapse platforms into one work ───────────────────────────────────────────────────────
     # A reader looking for 雨夜の月 wants the work, with its platforms as ways in — not three rows
     # competing to be it. The rows differ in COVERAGE, not in what they are: コミックDAYS holds 121

@@ -1,6 +1,10 @@
 .githooks/leak-deny.local
 madb-cache/
 openbd-cache/
+# The fetch cache the passes write when they are run by hand. CI points `--cache` at the same name
+# and never commits it either; a captured page belongs in data/fixtures/ where something states
+# where it came from.
+.cache/
 __pycache__/
 *.pyc
 

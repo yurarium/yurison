@@ -10,8 +10,8 @@ pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 316
-works_on_watched_platform: 293
-platforms_total: 56
+works_on_watched_platform: 292
+platforms_total: 57
 platforms_watched: 38
 # ranked by works reachable on NO watched platform
 platforms_missing:
@@ -24,6 +24,8 @@ platforms_missing:
   - platform: "ダ・ヴィンチニュース"
     works: 1
   - platform: "新都社"
+    works: 1
+  - platform: "ヤングアニマルWeb"
     works: 1
   - platform: "ドリコミ+"
     works: 1
@@ -903,7 +905,7 @@ works_missing:
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/65"
     antenna_id: "163124"
-    tags: ["異能・超能力", "近未来SF", "バディ", "警察", "百合"]
+    tags: ["最近のコメント数"]
   - title: "獄門撫子此処ニ在リ"
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/773"
@@ -1379,6 +1381,11 @@ works_missing:
     url: "https://manga-one.com/manga/27253/chapter/307792"
     antenna_id: "200450"
     tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
+  - title: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
+    platform: "ヤングアニマルWeb"
+    url: "https://younganimal.com/series/060a6130e55b2"
+    antenna_id: "212464"
+    tags: ["オカルト", "女子高生", "百合"]
   - title: "ベイビー車中ハッカーズ"
     platform: "ヤンジャン+"
     url: "https://ynjn.jp/title/16787"
@@ -1639,11 +1646,6 @@ works_missing:
     url: "https://ichicomi.com/episode/12207421983742535195"
     antenna_id: "208039"
     tags: ["百合"]
-  - title: "亜澄ちゃんと胡蝶ちゃん"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/12207421983722174969"
-    antenna_id: "207926"
-    tags: ["百合", "ラブコメ"]
   - title: "バトル・ウィッチーズ"
     platform: "新都社"
     url: "http://neetsha.jp/inside/comic.php?id=24919"

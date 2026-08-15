@@ -63,7 +63,7 @@ candidates:
   - title: "DOUBLE HELIX BLOSSOM"
     platforms: ["コロコロオンライン"]
     urls: ["https://www.corocoro.jp/title/65"]
-    tags: ["バディ", "異能・超能力", "百合", "警察", "近未来SF"]
+    tags: ["バディ", "最近のコメント数", "異能・超能力", "百合", "警察", "近未来SF"]
   - title: "ep.9"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550689798901526126"]
@@ -464,7 +464,7 @@ candidates:
     urls: ["https://comic-walker.com/detail/KC_008367_S"]
     tags: ["百合", "社会人"]
   - title: "この湯で、あなたと"
-    platforms: ["カドコミ"]
+    platforms: ["kadokomi", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019740_S"]
     tags: ["温泉・サウナ", "百合"]
   - title: "この百合はフィクションです"
@@ -581,7 +581,7 @@ candidates:
     platforms: ["コミクリ!(更新終了)", "コミックDAYS"]
     urls: ["https://comic-days.com/episode/3269754496502263912", "https://kodansha-cc.co.jp/series/sonoyoki"]
   - title: "その手紙代行します!"
-    platforms: ["カドコミ"]
+    platforms: ["kadokomi", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_014260_S"]
     tags: ["百合", "読み切り"]
   - title: "その気になれば世界だってぶっ壊せる"
@@ -678,11 +678,11 @@ candidates:
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001599_S", "https://manga.nicovideo.jp/comic/62478"]
   - title: "なとりとしずは"
-    platforms: ["サンデーうぇぶり"]
+    platforms: ["sundaywebry", "サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983745504350"]
     tags: ["女子高生", "百合", "運動系部活"]
   - title: "にせものターコイズ"
-    platforms: ["サンデーうぇぶり"]
+    platforms: ["sundaywebry", "サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983913735230"]
     tags: ["百合", "読み切り"]
   - title: "ねこみたいなのとわたし"
@@ -1003,7 +1003,7 @@ candidates:
     platforms: ["COMIC Y-OURS"]
     urls: ["https://comic-y-ours.com/episode/12207421983394553051"]
   - title: "イジめてイジられて"
-    platforms: ["カドコミ", "ニコニコ漫画"]
+    platforms: ["kadokomi", "カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_019052_S", "https://manga.nicovideo.jp/comic/83472"]
     tags: ["お色気・微エロ", "フェチ・性癖", "ラブコメ", "最近のコメント数", "百合"]
   - title: "イタズラっ子世に憚らず!!"
@@ -1208,6 +1208,9 @@ candidates:
   - title: "クリーンミート"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/84c2a9e8118c8"]
+  - title: "クレアちゃん飼育日記"
+    platforms: ["kadokomi", "カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_016896_S"]
   - title: "クレアちゃん飼育日記―カブトムシ少女にお世話されてます―"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016896_S"]
@@ -1500,6 +1503,9 @@ candidates:
   - title: "ノゾミとカナエ"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550912964579892071"]
+  - title: "ハウリング・ブレイズ"
+    platforms: ["kadokomi", "カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_019658_S"]
   - title: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019658_S"]
@@ -1595,7 +1601,7 @@ candidates:
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/2550689798333988462"]
   - title: "ファーストペンギン・レクイエム"
-    platforms: ["くらげバンチ"]
+    platforms: ["kuragebunch", "くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/12207421983893652478"]
     tags: ["ホラー", "現代ファンタジー", "異能・超能力", "百合"]
   - title: "フェアウェイの声をきかせて"
@@ -1907,7 +1913,7 @@ candidates:
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002112_S"]
   - title: "下部七花はかく語りき"
-    platforms: ["コミックDAYS"]
+    platforms: ["comic-days", "コミックDAYS"]
     urls: ["https://comic-days.com/episode/12207421983885192770"]
     tags: ["百合", "読み切り"]
   - title: "不思議なゆりこさん"
@@ -1931,7 +1937,7 @@ candidates:
     urls: ["https://g-comi.jp/series/58238b3987c11"]
     tags: ["エルフ・ハーフエルフ", "ファンタジー", "料理・グルメ", "百合", "魔女"]
   - title: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい"
-    platforms: ["カドコミ"]
+    platforms: ["kadokomi", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016982_S"]
     tags: ["VTuber", "百合"]
   - title: "両片想いな双子姉妹"
@@ -1980,8 +1986,8 @@ candidates:
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/0c17f3dd1d34a"]
   - title: "今夜、エーテルで待ちあわせ"
-    platforms: ["Seasons"]
-    urls: ["https://comic-seasons.com/episode/2551460909766158255"]
+    platforms: ["Seasons", "comic-seasons"]
+    urls: ["https://comic-seasons.com/episode/12207421983858404523", "https://comic-seasons.com/episode/2551460909766158255"]
     tags: ["百合"]
   - title: "今宵、悪役令嬢の手をとれたら"
     platforms: ["一迅プラス"]
@@ -2290,7 +2296,7 @@ candidates:
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/b0028823615fa"]
   - title: "吸血少女とウンディーネ"
-    platforms: ["pixivコミック", "コミック アース・スター"]
+    platforms: ["comic-earthstar", "pixivコミック", "コミック アース・スター"]
     urls: ["https://comic-earthstar.com/episode/12207421983715032399", "https://comic.pixiv.net/works/13227"]
     tags: ["現代ファンタジー", "異種族・人外", "百合", "読み切り"]
   - title: "吸血鬼と女子高生"
@@ -2350,7 +2356,7 @@ candidates:
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/8342", "https://ichicomi.com/episode/2550912965923203078"]
   - title: "夕子先輩は育てられない"
-    platforms: ["一迅プラス"]
+    platforms: ["ichicomi", "一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983742535195"]
     tags: ["百合"]
   - title: "外側偏重"
@@ -2413,7 +2419,7 @@ candidates:
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/316190247056983381"]
   - title: "天瀬ましろはイきたくない!"
-    platforms: ["カドコミ"]
+    platforms: ["kadokomi", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016898_S"]
     tags: ["エロ", "百合", "読み切り"]
   - title: "太刀んぼ キルコ"
@@ -2487,7 +2493,7 @@ candidates:
     platforms: ["COMIC FUZ", "pixivコミック"]
     urls: ["https://comic-fuz.com/manga/2390", "https://comic.pixiv.net/works/7195"]
   - title: "姉妹傭兵"
-    platforms: ["カドコミ"]
+    platforms: ["kadokomi", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019475_S"]
     tags: ["百合", "軍人・兵士"]
   - title: "姫と女勇者が結ばれるための12の聖行為"
@@ -2990,6 +2996,10 @@ candidates:
   - title: "最後の晩餐"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/4856001361294668969"]
+  - title: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
+    platforms: ["ヤングアニマルWeb"]
+    urls: ["https://younganimal.com/series/060a6130e55b2"]
+    tags: ["オカルト", "女子高生", "百合"]
   - title: "最愛のお姉様が悪役令嬢だったので、神が定めた運命(シナリオ)に抗います@COMIC"
     platforms: ["コロナEX"]
     urls: ["https://to-corona-ex.com/comics/44610925887524"]
@@ -3079,7 +3089,7 @@ candidates:
     urls: ["https://tonarinoyj.jp/episode/2550912965313547927"]
     tags: ["百合"]
   - title: "残光再撮"
-    platforms: ["カドコミ"]
+    platforms: ["kadokomi", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_011927_S"]
     tags: ["写真", "大学生", "百合"]
   - title: "残存の竜"
@@ -3732,6 +3742,9 @@ candidates:
   - title: "賭けっ娘"
     platforms: ["きら星ポータル"]
     urls: ["https://kirapo.jp/meteor/titles/kakekko"]
+  - title: "贋作の第十番"
+    platforms: ["チャンピオンクロス"]
+    urls: ["https://championcross.jp/episodes/b52d54db17eb4"]
   - title: "超かぐや姫!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008281_S"]

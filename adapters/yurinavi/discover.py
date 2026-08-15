@@ -105,7 +105,12 @@ SHORTENERS = ("t.co", "bit.ly", "ow.ly", "buff.ly", "urx.blue", "ux.nu")
 
 
 def resolve_near(html, title, hosts):
-    """The platform link nearest a given work title in the body.
+    """`(platform, code, url)` for the platform link nearest a given work title in the body.
+
+    THE URL IS CARRIED NOW AND WAS THROWN AWAY. Discovery found the work's own address, kept the
+    platform and a code parsed out of it, and dropped the address itself; the queue then held
+    candidates nothing could fetch, so a work announced on a platform this reads sat unheld for ten
+    weeks. `adapters/admit.py` is what needed it.
 
     A まとめ article covers a dozen works and links to each. Taking the first platform link in the
     page attaches whichever work happens to appear first to every title in it, which is worse than
@@ -113,7 +118,7 @@ def resolve_near(html, title, hosts):
     """
     i = html.find(title)
     if i < 0:
-        return None, None
+        return None, None, None
     best = None
     for m in re.finditer(r'href="(https?://([^/"]+)[^"]*)"', html):
         if m.group(2) not in hosts:
@@ -122,27 +127,28 @@ def resolve_near(html, title, hosts):
         if best is None or d < best[0]:
             best = (d, m.group(1), m.group(2))
     if not best or best[0] > 4000:      # further than that is a different section of the article
-        return None, None
+        return None, None, None
     code = re.search(r"/(?:episode|series|detail|manga|comic|title)/([A-Za-z0-9_]+)", best[1])
-    return hosts[best[2]], (code.group(1) if code else None)
+    return hosts[best[2]], (code.group(1) if code else None), best[1]
 
 
 def resolve_platform(html, cache=None, title=None):
+    """`(platform, code, url)`: where a work lives, and the address the article linked to."""
     hosts = registry_hosts()
     if title:
-        p, c = resolve_near(html, title, hosts)
+        p, c, u = resolve_near(html, title, hosts)
         if p:
-            return p, c
+            return p, c, u
     for name, pat in PLATFORMS:                 # explicit forms first: they carry a clean code
         m = re.search(pat, html)
         if m:
-            return name, m.group(1)
+            return name, m.group(1), m.group(0)
     links = re.findall(r'href="(https?://[^"]+)"', html)
     for u in links:
         h = re.match(r"https?://([^/]+)", u).group(1)
         if h in hosts:
             code = re.search(r"/(?:episode|series|detail|manga|comic|title)/([A-Za-z0-9_]+)", u)
-            return hosts[h], (code.group(1) if code else None)
+            return hosts[h], (code.group(1) if code else None), u
     for u in links:                             # only then pay for the redirects
         h = re.match(r"https?://([^/]+)", u).group(1)
         if h not in SHORTENERS:
@@ -151,8 +157,8 @@ def resolve_platform(html, cache=None, title=None):
         rh = re.match(r"https?://([^/]+)", real)
         if rh and rh.group(1) in hosts:
             code = re.search(r"/(?:episode|series|detail|manga|comic|title)/([A-Za-z0-9_]+)", real)
-            return hosts[rh.group(1)], (code.group(1) if code else None)
-    return None, None
+            return hosts[rh.group(1)], (code.group(1) if code else None), real
+    return None, None, None
 
 
 def fetch(url, cache, name="feed.xml"):
@@ -254,13 +260,53 @@ def main():
         art_html = fetch_article(art, cache) if art else ""
         for t in titles_in(head):
             # Resolved per title, not per article: a まとめ names several works and links to each.
-            plat, code = resolve_platform(art_html, cache, t) if art_html else (None, None)
+            plat, code, wurl = (resolve_platform(art_html, cache, t) if art_html
+                                else (None, None, None))
             rows.append({"work_title": t, "signal": sig, "headline": head,
                          "url": art, "platform": plat, "platform_code": code,
-                         "source": "yurinavi", "announced": when})
+                         "work_url": wurl, "source": "yurinavi", "announced": when})
 
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
+
+    # ── CUMULATIVE, FOR THE REASON `webcomics/coverage.py` GIVES ABOUT ITS OWN FILE ──────────
+    #
+    # THIS REWROTE THE QUEUE FROM THE CURRENT FEED WINDOW, so a candidate older than the window
+    # vanished on the next run whether or not anything had been done about it. 贋作の第十番 was
+    # announced on チャンピオンクロス on 7 June, sat unadmitted while the queue said a human must
+    # confirm it, and was dropped by a run in August without a word. An announcement is a thing
+    # that happened, and a work leaving 百合ナビ's recent news says nothing about the work.
+    #
+    # A FRESH ROW WINS, because a later run resolves what an earlier one could not: the platform,
+    # the code and the work's own address are exactly what a re-read of the article supplies.
+    was = out / "yurinavi.yaml"
+    if was.exists():
+        held = {c.get("work_title"): c for c in
+                ((yaml.safe_load(was.read_text()) or {}).get("candidates") or [])}
+        fresh = {r["work_title"] for r in rows}
+        carried = [c for t_, c in sorted(held.items()) if t_ and t_ not in fresh]
+        # AND A CARRIED ROW IS RE-RESOLVED WHERE IT NEVER RESOLVED, because the resolver improves
+        # and the row does not. 贋作の第十番 was carried with a platform and no address, which is
+        # exactly the state that keeps a work out of the target list; the article is on disk from
+        # the run that first read it, so asking again costs nothing.
+        again = 0
+        for c in carried:
+            row = {k: c.get(k) for k in
+                   ("work_title", "signal", "announced", "url", "headline",
+                    "platform", "platform_code", "work_url")}
+            if not row.get("work_url") and row.get("url"):
+                html = fetch_article(row["url"], cache)
+                if html:
+                    plat, code, wurl = resolve_platform(html, cache, row["work_title"])
+                    if wurl:
+                        row.update(platform=plat or row.get("platform"),
+                                   platform_code=code or row.get("platform_code"),
+                                   work_url=wurl)
+                        again += 1
+            rows.append(row)
+        if again:
+            print(f"re-resolved    : {again} carried candidate(s) that had no address")
+        print(f"carried forward: {len(carried)} candidate(s) older than the feed window")
     L = [
         "# DISCOVERY QUEUE — candidates only. Not records, not evidence of anything.",
         "#",
@@ -276,7 +322,7 @@ def main():
     ]
     for r in sorted(rows, key=lambda r: r["announced"], reverse=True):
         L.append(f"  - work_title: {json.dumps(r['work_title'], ensure_ascii=False)}")
-        for k in ("signal", "announced", "url", "platform", "platform_code"):
+        for k in ("signal", "announced", "url", "platform", "platform_code", "work_url"):
             if r.get(k):
                 L.append(f"    {k}: {json.dumps(r[k], ensure_ascii=False)}")
         L.append(f"    headline: {json.dumps(r['headline'], ensure_ascii=False)}")

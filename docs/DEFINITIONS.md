@@ -76,6 +76,30 @@ Two hazards come with them, both established by measurement rather than anticipa
 The two axes are independent by design. `白い部屋のふたり` has canonical content and no label.
 A thin *コミック百合姫* serial has the label and little content. Both belong, described accurately.
 
+### An announced work on a platform we read is taken, not queued
+
+Decided by the project owner on 2026-08-15. **A new work served by a known commercial platform that
+is not age-gated is ingested and presented automatically.** Discovery says a work exists and where;
+the platform's own page attests what it is; between those two there is nothing a person adds by
+being asked first, and the waiting costs the reader the work.
+
+The register is what "known" means, and it states the two exclusions: `age_gated`, which is a
+designation §7 already acts on, and `serves_works: false` for a site that reports on works and
+serves none. `adapters/facts/platform.serves_openly` is the whole of that test and
+`adapters/admit.py` is what applies it, in stage 0, before the passes that fetch.
+
+This changes nothing about scope. A comparator's announcement is a presumption exactly as its
+listing is, rebuttable by an attestation under §3 and overridden outright by §7, and both content
+axes remain somebody's call that a work reaches a reader without. What stops is the *wait*: a work
+presumed in scope, served openly and addressable is no longer held back until somebody types its
+title into a list.
+
+What it cost while it was not policy: 贋作の第十番 was announced on チャンピオンクロス on 7 June
+2026 and was absent from the database ten weeks later, as were クレアちゃん飼育日記 on カドコミ and
+one other. The queue that held them said each entry needed confirming by hand, nothing promoted a
+confirmed one into the list the adapters read, and the pass that wrote the queue ran in no workflow
+at all.
+
 ---
 
 ## 3. Axis 1 — `content_tier`

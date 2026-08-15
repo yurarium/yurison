@@ -273,6 +273,31 @@ def main():
             platforms_of[k] |= set(c.get("platforms") or [])
             urls.setdefault(k, []).extend(c.get("urls") or [])
             tags.setdefault(k, set()).update(c.get("tags") or [])
+    # ── WHAT A COMPARATOR ANNOUNCED, ADMITTED WITHOUT ASKING A PERSON ────────────────────────
+    #
+    # THE POLICY, decided by the project owner on 2026-08-15 and argued in `adapters/admit.py`: a
+    # new work served by a known commercial platform that is not age-gated is ingested and
+    # presented automatically. 百合ナビ announces those and its queue said each entry needed
+    # confirming by hand, so 贋作の第十番 was announced on チャンピオンクロス on 7 June and was
+    # still absent ten weeks later.
+    #
+    # HERE, BECAUSE THIS FILE HAS ONE WRITER. The target list is what every platform adapter reads
+    # to know which titles to look for, and a second pass appending to it would be a second answer
+    # to what this run is looking for. Stage 0 runs before the adapters, so a work admitted this
+    # morning is fetched this morning.
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    import admit as _admit
+    queues = [yaml.safe_load(f.read_text()) or {}
+              for f in sorted(pathlib.Path("data/queue").glob("*.yaml"))]
+    admitted = 0
+    for got in _admit.targets(queues):
+        k = norm(got["title"])
+        if k not in platforms_of:
+            admitted += 1
+        titles.setdefault(k, got["title"])
+        platforms_of.setdefault(k, set()).add(got["platform"])
+        urls.setdefault(k, []).append(got["url"])
+
     for k, ps in sorted(platforms_of.items()):
         W.append(f"  - title: {json.dumps(titles.get(k, k), ensure_ascii=False)}")
         W.append(f"    platforms: {json.dumps(sorted(p for p in ps if p), ensure_ascii=False)}")
@@ -283,6 +308,9 @@ def main():
     (out / "webcomics-works.yaml").write_text("\n".join(W))
 
     print(f"carried forward   : {carried} works no longer listed but still tracked")
+    print(f"admitted          : {admitted} announced work(s) a platform this reads serves openly")
+    for title, why in _admit.refused(queues):
+        print(f"   not admitted   : {title} — {why}")
     nworks = len(platforms_of)
     print(f"listings          : {len(entries)} over {a.pages} page(s), {len(per_platform)} platforms")
     print(f"distinct works    : {nworks}  ({len(entries)-nworks} multi-platform listings)")

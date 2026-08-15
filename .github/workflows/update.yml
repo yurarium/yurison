@@ -112,9 +112,19 @@ jobs:
       # refusing the runner. It was not: webcomics.jp had added an attribute to the container the
       # parser splits on, and the pass read 0 entries everywhere, including here. Removing the step
       # would have made a parser fix invisible for as long as nobody ran it by hand.
+      # 百合ナビ RUNS HERE TOO, AND RAN NOWHERE AT ALL. Its queue is where a work announced on a
+      # platform this reads is first heard of, and the pass writing it was in no workflow: the file
+      # was last written on 2026-08-01 by hand. A discovery source nothing runs is a discovery
+      # source that has stopped, and nothing said so.
+      #
+      # BEFORE `coverage.py`, because that is what merges an admitted candidate into the target
+      # list, and both run before the adapters that read it. A work announced this morning is
+      # therefore fetched this morning. See `adapters/admit.py` for what admits one.
       - name: Stage 0 — discovery queue
         continue-on-error: true
         run: |
+          python3 adapters/yurinavi/discover.py --out data/queue \
+            --cache "$CACHE/yurinavi-cache" --retrieved "$R"
           python3 adapters/webcomics/coverage.py --out data/coverage \
             --cache "$CACHE/webcomics-cache" --pages 8 --retrieved "$R" --force
 
@@ -354,7 +364,12 @@ jobs:
           # the work of naming what arrived today would be repeated tomorrow and nothing would
           # accumulate. It is a source in the same sense data/source is, journal-backed and
           # hand-curated in data/names/curated.yaml, which is the file a person edits.
-          git add data/source data/coverage data/ledger data/names
+          # `data/queue` IS COMMITTED, AND IT WAS NOT. The discovery queue carries a candidate
+          # forward until something admits it, which means nothing on a runner that starts from
+          # the committed tree: every candidate older than 百合ナビ's feed window would be lost on
+          # the next run, which is the fault the carry-forward exists to stop. `shopquery` writes
+          # here too and its rows were surviving only because a person ran it locally and pushed.
+          git add data/source data/coverage data/ledger data/names data/queue
           git diff --cached --quiet || git commit -m "update: run ${{ github.run_id }}"
 
       - name: Push

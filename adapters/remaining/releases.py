@@ -217,7 +217,22 @@ def from_oneshot(html):
     """
     if not ONESHOT.search(html):
         return []
-    found = {norm_date(m) for m in re.findall(r"\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2}", html)}
+    # A DATE WITH A CLOCK ON IT IS A TIMESTAMP, AND A READER PAID FOR THIS ONE. ヤンジャン+ renders
+    # `"2026-08-15 20:56:30"` in its page state, which is when the page was served: this took it as
+    # a publication date, so 横槍メンゴ新作読切シリーズ was dated 2026-08-10 on the tenth and
+    # 2026-08-15 on the fifteenth and appeared under 更新 as a new one-shot every single day. The
+    # project owner found it there.
+    #
+    # THE DISTINCTION IS THE PAGE'S OWN. A date a platform publishes beside a work is written as a
+    # date: きら星ポータル prints 2026年6月17日 next to the button, which is the case this exists
+    # for. A machine stamp carries hours, minutes and seconds, and nothing that means publication
+    # on these pages does.
+    # `(?!\d)` BEFORE THE CLOCK TEST, or the day is simply matched shorter. Without it the engine
+    # backtracks off the refused `2026-08-15 20:56:30` and takes `2026-08-1`, which normalises to
+    # the first of the month: a wrong date rather than no date, which is worse than what it fixed.
+    found = {norm_date(m) for m in
+             re.findall(r"\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2}(?!\d)(?!\s*日?\s*\d{1,2}:)",
+                        html)}
     dates = sorted(d for d in found if d and d <= TODAY)
     if len(dates) != 1:
         return []

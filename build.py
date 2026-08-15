@@ -5238,6 +5238,35 @@ def main():
         + "".join(f"  {json.dumps(k, ensure_ascii=False)}: {v}\n"
                  for k, v in sorted(ledger.items())))
 
+    # ── A GUESSED DATE IS LOCKED AT FIRST SIGHTING, §5 ────────────────────────────────────────
+    #
+    # THE FAULT A READER FOUND. 横槍メンゴ新作読切シリーズ appeared under 更新 as a new one-shot
+    # every day. Its page on ヤンジャン+ states no chapter list, so `remaining/releases.from_oneshot`
+    # takes the one date the page shows, and the page shows the current one: the row was dated
+    # 2026-08-10 on the tenth and 2026-08-15 on the fifteenth, and a reader who had already read it
+    # was told twice that it was new.
+    #
+    # THE LOCK IS THE EARLIER OF THE TWO, which is right in both directions. A page that keeps
+    # saying today loses to the day we first saw the row, so the row stops moving. A genuine
+    # publication date in the past is earlier than the sighting and is kept, which is the case a
+    # rule that simply took the sighting would have thrown away.
+    #
+    # HEURISTIC ROWS ONLY. A date a platform STATES may be corrected and the correction is worth
+    # taking; the archive guard reports one that moves in a published month. This is about a date
+    # nobody stated, which `basis: heuristic` is the pipeline's own word for.
+    _locked = 0
+    for r in releases:
+        if r.get("basis") != "heuristic":
+            continue
+        seen_on = ledger.get(_sighting_key(r))
+        pub = str(r.get("pub") or "")[:10]
+        if seen_on and pub and seen_on < pub:
+            r["pub"] = seen_on
+            _locked += 1
+    if _locked:
+        print(f"guessed dates   : {_locked} row(s) held at the day they were first seen, their "
+              f"page stating no date of its own")
+
     # ── initial build period ───────────────────────────────────────────────────────────────────
     # Surfacing a late discovery at the top of the feed is right in STEADY STATE: a one-shot that
     # 百合ナビ covers weeks late would otherwise be filed months back and never seen. It is wrong

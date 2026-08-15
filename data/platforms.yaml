@@ -368,6 +368,10 @@ platforms:
   en: Mynavi News
   reading_rank: null
   watched: true
+  # A NEWS SITE THAT REPORTS ON WORKS AND SERVES NONE. `serves_openly` decides whether a work
+  # announced on a platform is taken without asking a person, and taking one from here would be
+  # taking it from an article about it. Bylines are what this is read for.
+  serves_works: false
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: news.mynavi.jp
 

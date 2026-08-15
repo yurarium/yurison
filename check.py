@@ -2980,6 +2980,42 @@ def budget_series_names_holding_a_page_title(ctx):
     return n
 
 
+def budget_announced_works_the_corpus_does_not_hold(ctx):
+    """Works a comparator announced on a platform this reads openly, which the corpus does not hold.
+
+    THE POLICY THIS MEASURES, decided by the project owner on 2026-08-15: a new work served by a
+    known commercial platform that is not age-gated is ingested and presented automatically. The
+    mechanism is `adapters/admit.py` promoting a discovery candidate into the target list every
+    platform adapter reads, in stage 0, before those adapters run.
+
+    WHAT A RISE MEANS, AND IT IS NEVER NOTHING. Either an adapter cannot reach the work, or the
+    platform serves it under a title the fold does not reconcile, or the promotion stopped
+    happening. Before the policy the answer was simply that nobody had typed it in: 贋作の第十番 was
+    announced on チャンピオンクロス on 7 June and was absent ten weeks later, along with two others.
+
+    A BUDGET, because a work announced this morning is legitimately absent until the platform's own
+    pass has run. What must not happen is the number sitting there.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: the queue files and the fold. It does not ask `admit`
+    what it admitted; it asks whether the corpus HOLDS the work, which is a different question of a
+    different artefact, so a promotion that ran and achieved nothing is counted here.
+    """
+    import glob as _glob
+    sys.path.insert(0, str(ROOT / "adapters"))
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    import admit as _admit
+    from facts.worktitle import norm_work as _norm_work
+    queues = []
+    for f in sorted(_glob.glob(str(ROOT / "data" / "queue" / "*.yaml"))):
+        queues.append(_yaml(f, {}) or {})
+    # A WORKS ROW CARRIES ITS TITLE AS A MAPPING, `{"ja": …, "en": …}`, and a series row carries a
+    # string. Reading one shape for both handed `norm_work` a dict and took the run down.
+    held = {_norm_work((w.get("title") or {}).get("ja") or "") for w in ctx["works"]}
+    held |= {_norm_work(r.get("work") or "") for r in ctx["series"]}
+    return sum(1 for t in _admit.targets(queues)
+               if _norm_work(t["title"]) not in held)
+
+
 def budget_updates_naming_an_unheld_work(ctx):
     """Feed rows whose work has no record, so the row can offer a reader nothing but the platform.
 
@@ -4488,6 +4524,11 @@ BUDGETS_DEF = [
     ("shadowed names in build.py", budget_shadowed_names,
      "names rebound more than 300 lines from their first binding. Two shipped bugs came from this; "
      "see adapters/lint/shadowing.py for why the count is not simply falling."),
+    ("announced works the corpus does not hold", budget_announced_works_the_corpus_does_not_hold,
+     "works a comparator announced on a platform this reads openly that the corpus does not hold. "
+     "The policy is that such a work is ingested and presented without waiting for a person; a "
+     "rise means an adapter cannot reach it, the platform titles it differently, or the promotion "
+     "stopped happening"),
     ("updates naming a work we do not hold", budget_updates_naming_an_unheld_work,
      "release rows whose work has no record, so the row links to the platform and nowhere else and "
      "the work cannot be browsed, searched or classified. Coverage stated as a deficit, because "

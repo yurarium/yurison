@@ -130,5 +130,33 @@ def a_one_shot_states_one_date(s):
          "a label beside a chapter is still not a person")
 
 
+    # ── A DATE WITH A CLOCK ON IT IS A TIMESTAMP ─────────────────────────────────────────────
+    #
+    # THE FAULT A READER FOUND. ヤンジャン+ renders `"2026-08-15 20:56:30"` in its page state, which
+    # is when the page was served, and this took it for a publication date: 横槍メンゴ新作読切シリ
+    # ーズ was dated 2026-08-10 on the tenth and 2026-08-15 on the fifteenth, so it appeared under
+    # 更新 as a new one-shot every day for anyone who had already read it.
+    s.eq(rm.from_oneshot('読み切りを読む 2026年6月17日'),
+         [{"title": "読み切り", "updated": "2026-06-17", "oneshot": True}],
+         "a date a platform prints beside the button is the one-shot's date")
+    s.eq(rm.from_oneshot('読み切りを読む "2026-06-17 20:56:30"'), [],
+         "and a date carrying hours and minutes is a machine stamp, not a publication")
+
+    # THE DAY IS MATCHED WHOLE OR NOT AT ALL. Without that the engine backs off the refused
+    # timestamp and takes `2026-08-1`, which normalises to the first of the month: a wrong date
+    # instead of no date, which is worse than the fault it was fixing.
+    s.eq(rm.from_oneshot('読み切り "2026-08-15 20:56:30"'), [],
+         "a refused timestamp yields nothing rather than a truncated day")
+    s.eq(rm.from_oneshot('読み切り 2026年6月17日 のほか "2026-08-15 20:56:30" とある'),
+         [{"title": "読み切り", "updated": "2026-06-17", "oneshot": True}],
+         "a page carrying both is read for the date and not for the stamp")
+
+    # AND THE GUARDS THAT WERE ALREADY THERE. Two dates mean the page is saying something this
+    # cannot read, and a page that never calls itself a one-shot is not one.
+    s.eq(rm.from_oneshot('読み切り 2026年6月17日 と 2026年7月1日'), [],
+         "two dates are a page this may not read")
+    s.eq(rm.from_oneshot('第1話 2026年6月17日'), [], "and a page with no 読み切り on it is not one")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "remaining.releases"))

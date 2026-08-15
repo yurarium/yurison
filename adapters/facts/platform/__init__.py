@@ -34,6 +34,18 @@ REGISTERS = ((ROOT / "data" / "platforms.yaml", "platforms"),
 REGISTER = REGISTERS[0][0]
 
 
+#: A PLATFORM MARKED THIS IS ONE A READER MUST PROVE THEIR AGE TO OPEN, and no entry carries it
+#: today. It is the one thing that stops a work being taken automatically from a platform the
+#: register knows: DEFINITIONS §7 excludes pornography outright by designation, and a gate at the
+#: door is such a designation made by the platform itself.
+AGE_GATED = "age_gated"
+
+#: AND A PLATFORM THAT SERVES NO WORKS AT ALL. マイナビニュース is read for the bylines it prints
+#: in articles ABOUT works, so a work announced there is announced in a report rather than served.
+#: Absent means it serves works, which is what every other entry in the register does.
+SERVES_WORKS = "serves_works"
+
+
 def registered():
     """Every platform either register holds, as `{name, id, publisher, host}` rows.
 
@@ -54,10 +66,25 @@ def registered():
             # own table of these, which is a second register: it drifted, and three names reached
             # an English page in Japanese while a fourth was in the table and rendered through a
             # path that never asked it.
-            out[p["name"]] = {"name": p["name"], "id": p.get("id"),
+            # EVERY ID THE REGISTERS USE FOR IT, not only the winning file's. The project's own
+            # register calls Seasons `seasons` and the adapter's calls it `comic-seasons`, and a
+            # merge keyed on the name kept one: a caller holding the other spelling found no
+            # platform at all, which is how a work announced there was refused as unknown. Same
+            # shape as the two spellings of COMIC OGYAAA!! that reached a reader.
+            was = out.get(p["name"], {})
+            out[p["name"]] = {"name": p["name"], "id": p.get("id") or was.get("id"),
+                              "ids": sorted({i for i in (p.get("id"), was.get("id"),
+                                                         *(was.get("ids") or ())) if i}),
                               "aliases": [a for a in (p.get("aliases") or [])
                                           if a and a != p["name"]],
                               "publisher": p.get("publisher") or None, "en": p.get("en") or None,
+                              # WHETHER THIS PIPELINE READS IT, AND WHETHER A READER MUST PROVE
+                              # THEIR AGE TO. `serves_openly` is the one caller and both fields are
+                              # the register's to state; dropping them here made a row that could
+                              # not answer the question the register exists to answer.
+                              "watched": bool(p.get("watched")),
+                              AGE_GATED: bool(p.get(AGE_GATED)),
+                              SERVES_WORKS: p.get(SERVES_WORKS) is not False,
                               "host": hosts[0] if hosts else None, "hosts": hosts}
     return list(out.values())
 
@@ -116,6 +143,41 @@ def id_of(url, known=None):
     return (ids() if known is None else known).get(str(url).split("/")[2])
 
 
+
+
+def serves_openly(pid, known=None):
+    """Whether this platform is one the corpus takes a work from without asking a person first.
+
+    THE POLICY THIS ANSWERS FOR, decided by the project owner on 2026-08-15: a new work served by a
+    known commercial platform that is not age-gated is ingested and presented automatically. What
+    stood in the way was not a rule but three gaps: 百合ナビ discovery ran in no workflow, its queue
+    said a human must confirm each entry, and nothing promoted a confirmed one into the target list
+    the platform adapters read. 贋作の第十番 was announced on チャンピオンクロス on 7 June and was
+    still absent ten weeks later.
+
+    WHAT QUALIFIES, AND IT IS THE REGISTER THAT SAYS SO. Being in the register is what "known"
+    means: every entry is a publisher's or a distributor's site that somebody looked at and wrote
+    down. `age_gated` and `serves_works` are the two exclusions, both stated there, so admitting a
+    platform is one edit in one file rather than a rule spread across the passes that read it.
+
+    `watched` IS NOT THE TEST, THOUGH IT LOOKS LIKE IT. It says this pipeline reads the platform,
+    and it has gone stale in the direction that matters: サンデーうぇぶり is marked `false` and the
+    corpus holds 130 of its chapters, as it does for マガポケ, ヤンジャン+ and きら星ポータル. A
+    policy resting on it would refuse works from four platforms this reads every day. What the flag
+    is for is reporting coverage, and it is wrong about that too.
+
+    IT IS NOT AN INCLUSION TEST. Whether a work belongs is DEFINITIONS §2 and stays there: what this
+    decides is whether a work already presumed in scope waits for a person before a reader sees it.
+    """
+    if not pid:
+        return False
+    for p in (registered() if known is None else known):
+        if (pid in (p.get("ids") or (p.get("id"),)) or pid == p.get("name")
+                or pid in (p.get("aliases") or [])):
+            return not p.get(AGE_GATED) and p.get(SERVES_WORKS) is not False
+    return False
+
+
 def canonical(name, known=None):
     """The registered name for a platform, given any spelling the register lists for it.
 
@@ -125,12 +187,18 @@ def canonical(name, known=None):
     `COMIC OGYAAA!! · also on Comic Ogyaaa!!`, which tells a reader a work is somewhere else as
     well as where it is.
 
+    AN ID IS A SPELLING THE REGISTER LISTS. `admit` hands this whatever a discovery pass recorded,
+    which is the platform's id, and the target list every adapter reads is keyed on the display
+    name: 贋作の第十番 was written into it as `championcross` where every other row says カドコミ or
+    サンデーうぇぶり, so the adapters would have looked for a platform by that name and found none.
+
     AN UNKNOWN NAME COMES BACK UNCHANGED. A platform nobody has registered is a platform this
     cannot rename, and inventing a canonical form for it would be worse than leaving it alone.
     """
     if not name:
         return name
     for p in (registered() if known is None else known):
-        if name == p["name"] or name in (p.get("aliases") or []):
+        if (name == p["name"] or name in (p.get("aliases") or [])
+                or name in (p.get("ids") or ())):
             return p["name"]
     return name

@@ -52,6 +52,25 @@ def main(s):
     s.check(d.signal_of("単行本発売記念セール開催") is None, "a sale is ignored despite 発売")
     s.check(d.signal_of("新連載記念キャンペーン") is None, "a campaign is ignored despite 新連載")
 
+    # ── THE ADDRESS THE ARTICLE LINKED TO IS CARRIED ─────────────────────────────────────────
+    #
+    # Discovery found the work's own page, kept the platform and a code parsed out of it, and threw
+    # the address away, so every candidate in the queue named a work nothing could fetch and
+    # `adapters/admit.py` could admit none of them. 贋作の第十番 sat unheld for ten weeks that way.
+    hosts = {"comic-walker.com": "kadokomi", "championcross.jp": "championcross"}
+    body = ('<p>連載開始</p><a href="https://comic-walker.com/detail/KC_019740_S">よむ</a>')
+    s.eq(d.resolve_platform(body), ("kadokomi", "KC_019740_S",
+                                           "https://comic-walker.com/detail/KC_019740_S"),
+         "the platform, the code and the address itself")
+    near = d.resolve_near('作品名<a href="https://championcross.jp/series/abc123">x</a>',
+                                 "作品名", hosts)
+    s.eq(near, ("championcross", "abc123", "https://championcross.jp/series/abc123"),
+         "and the same three from the link nearest the title")
+    s.eq(d.resolve_near("nothing here", "作品名", hosts), (None, None, None),
+         "a title the article does not mention resolves to nothing at all")
+    s.eq(d.resolve_platform("<p>no links</p>"), (None, None, None),
+         "as does an article linking nowhere this knows")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "yurinavi.discover"))

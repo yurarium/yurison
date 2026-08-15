@@ -1,0 +1,55 @@
+# やわらかスピリッツ — chapters extracted heuristically from work pages.
+#
+# NOT a publisher-stated field. Blocks carrying a date and a chapter-like label were
+# matched in the page; the strategy was proven for this host in
+# data/coverage/extract.yaml before being run. Every release carries
+# date_basis: heuristic and date_confidence: low so it is never mistaken for the
+# kind of statement GigaViewer or FUZ make.
+#
+# No 百合 label is established here (DEFINITIONS §4); works are named by the Tier C
+# yardsticks and this attests only their chapters.
+source: webpages
+platform: yawaspi-com
+platform_name: "やわらかスピリッツ"
+publisher: ""
+retrieved: 2026-08-16
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+extraction: rendered
+date_basis: heuristic
+date_confidence: low
+works:
+  - work_title: "おやすみシェヘラザード"
+    url: "https://yawaspi.com/oyasumi/index.html"
+    chapter_count: 10
+    chapters:
+      - title: "5/1 第5夜 『アウトレイジ』 を更新しました。"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "17 第4夜 『君の名は。』 を更新しました。"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "4/3 第3夜 『呪怨』 を更新しました。"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "20 第2夜 『ファンタスティック Mr.FOX』 を更新しました。"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "3/6 第1夜 『裏切りのサーカス』 を更新しました。"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "第5夜 『アウトレイジ』"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "第4夜 『君の名は。』"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "第3夜 『呪怨』"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "第2夜 『ファンタスティック Mr.FOX』"
+        updated: 2026-08-16
+        date_basis: heuristic
+      - title: "第1夜 『裏切りのサーカス』"
+        updated: 2026-08-16
+        date_basis: heuristic

@@ -108,8 +108,8 @@ platforms:
   # ASKED WITH A BROWSER AND STILL NONE. The one row every extractor returns is `1話を読む`, a
   # button, not a chapter, and the two-episode minimum refuses it. A page that yields furniture is
   # not a page with a chapter list on it.
-  strategy: none
-  strategy_note: "asked again 2026-08-15 with a browser: the address the antenna holds now redirects to the マンガ index, and what parses is a 試し読み button"
+  strategy: sample-only
+  strategy_note: "asked again 2026-08-15 with a browser: the work page is /author/<work>/ and the only chapter it offers is `1話試し読み`, a trial read of a print serial. DEFINITIONS §6: a 試し読み sample is not web publication, so there is no release here to record"
 - platform: 裏サンデー
   host: urasunday.com
   work_url: https://urasunday.com/title/2335
@@ -238,8 +238,8 @@ platforms:
   host: sai-zen-sen.jp
   work_url: https://sai-zen-sen.jp/comics/twi4/twins/
   exclusive_works: 3
-  strategy: none
-  strategy_note: "asked again 2026-08-15 with a browser: ツイ4 publishes a paginated strip, 1/357 through 357/357, so there are no chapters to record rather than chapters this cannot read"
+  strategy: no-releases
+  strategy_note: "asked again 2026-08-15 with a browser: ツイ4 publishes a paginated strip, 1/357 through 357/357, and its work page offers `最新回を読む` at 0050.html with no chapter title and no date anywhere. Nothing on it can become a dated release row"
 - platform: コロコロオンライン
   host: www.corocoro.jp
   work_url: https://www.corocoro.jp/title/65
@@ -354,8 +354,9 @@ platforms:
   # ASKED AGAIN 2026-08-15 WITH A BROWSER AND STILL NONE. The one row every extractor
   # returns is `1話読み切り漫画`, a section heading, not a chapter, and the two-episode minimum refuses it. A page
   # that yields furniture is not a page with a chapter list on it.
-  strategy: none
-  strategy_note: "asked again 2026-08-15 with a browser: one row, a section heading, and no chapter list under the work's own address"
+  strategy: rendered
+  rendered_as: labels
+  strategy_note: "asked again 2026-08-15 with a browser: 10 chapters, which nothing found until `CHAPTERISH` learned that おやすみシェヘラザード counts its instalments in 夜"
 - platform: 少年エースplus(更新終了)
   host: web-ace.jp
   work_url: https://web-ace.jp/shonenaceplus/contents/3000097/
@@ -415,8 +416,8 @@ platforms:
   host: www.mangabox.me
   work_url: https://www.mangabox.me/reader/262412/
   exclusive_works: 1
-  strategy: none
-  strategy_note: "asked again 2026-08-15 with a browser: the 53 chapter labels on a reader page all belong to the carousel of other serials beside it, and the work's own list is not in the DOM"
+  strategy: dead-address
+  strategy_note: "asked again 2026-08-15 with a browser: /reader/262412/ now renders the site's home page, so the address the antenna holds no longer names a work. The 53 chapter labels a page does carry belong to the carousel of other serials beside it"
 - platform: Matogrosso(更新終了)
   host: matogrosso.jp
   work_url: https://matogrosso.jp/serial/shigokoi_02-136/
@@ -441,8 +442,8 @@ platforms:
   # ASKED AGAIN 2026-08-15 WITH A BROWSER AND STILL NONE. The one row every extractor
   # returns is `27話分無料 …`, a promotion, not a chapter, and the two-episode minimum refuses it. A page
   # that yields furniture is not a page with a chapter list on it.
-  strategy: none
-  strategy_note: "asked again 2026-08-15 with a browser: no chapter link under the work's own address"
+  strategy: superseded
+  strategy_note: "asked again 2026-08-15: the host now serves 竹コミ！, which this reads as takecomic.jp, so the platform is superseded rather than unread"
 - platform: COMIC熱帯
   host: www.comicnettai.com
   work_url: https://www.comicnettai.com/book/30

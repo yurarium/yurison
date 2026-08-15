@@ -402,6 +402,13 @@ platforms:
 # and print no date anywhere: not on the listing, not on an episode page, not in metadata, not in
 # the JSON-LD, which is a breadcrumb. `try_labels` reads the list and each row is dated the day it
 # was read, which `build.py` then locks at first sighting.
+- id: yawaspi
+  name: やわらかスピリッツ
+  en: Yawaraka Spirits
+  publisher: 小学館
+  host: yawaspi.com
+  watched: true
+  notes: rendered strategy read through `labels`; counts its instalments in 夜.
 - id: comic-essay
   name: コミックエッセイ劇場
   en: Comic Essay Gekijo

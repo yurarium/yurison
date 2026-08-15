@@ -135,6 +135,14 @@ def main(s):
         "https://www.mangabox.me/reader/262412/"), [],
         "another work's chapter is not this work's, however chapter-shaped it reads")
 
+    # THE COUNTER WORD IS THE WORK'S OWN CHOICE. おやすみシェヘラザード counts in 夜, one night per
+    # instalment, so やわらかスピリッツ listed ten chapters that nothing here matched and the
+    # platform was recorded as offering none.
+    s.check(extract.CHAPTERISH.search("第5夜 『アウトレイジ』"), "a work that counts in nights")
+    s.check(extract.CHAPTERISH.search("第12話"), "and the ordinary counter still matches")
+    s.check(not extract.CHAPTERISH.search("千夜一夜物語"),
+            "while a title that merely contains the word is not a chapter label")
+
     # FURNITURE IS NOT A CHAPTER LIST. A page that only offers a button says nothing about how many
     # chapters it has, and the two-episode minimum is what refuses one row.
     s.eq(extract.try_labels('<h2>第1話を読む</h2><p>第2話 とても長い</p>', "https://x.jp/works/1"), [],

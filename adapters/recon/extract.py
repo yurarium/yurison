@@ -33,8 +33,13 @@ TIMEOUT = 25
 DATE_KEY = re.compile(r"(date|updated|published|created|delivery|release|start|open)", re.I)
 TITLE_KEY = re.compile(r"(title|name|subtitle|label|heading)", re.I)
 # A chapter says so: 第N話, N話, #N, episode N, or a plain number in a numbering context.
+# THE COUNTER WORD IS THE WORK'S OWN CHOICE, and every one this misses is a platform that reads as
+# having no chapter list. おやすみシェヘラザード counts in 夜, one night per instalment, so やわらか
+# スピリッツ listed `2018/5/1 第5夜 『アウトレイジ』 を更新しました。` and nothing here matched it:
+# the platform was recorded as offering no chapters when what it offers is nights. 話, 回, 章 are
+# the ordinary ones; 品, 皿 and 杯 were added the same way, by a work that counted in dishes.
 CHAPTERISH = re.compile(
-    r"第?\s*[0-9０-９]+\s*(話|回|章|品|皿|杯)|#\s*\d+|"
+    r"第?\s*[0-9０-９]+\s*(話|回|章|品|皿|杯|夜)|#\s*\d+|"
     r"(?:episode|ep|file|case|act|vol|chapter)\s*\.?\s*\d+|最終(話|回)", re.I)
 ISO = re.compile(r"(\d{4})[-/.年](\d{1,2})[-/.月](\d{1,2})")
 # A JAPANESE PLATFORM WRITING ITS DATES IN ENGLISH. ちゃおプラス prints

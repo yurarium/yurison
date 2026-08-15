@@ -93,6 +93,13 @@ jobs:
           python3 adapters/ledger.py
           python3 adapters/status.py
 
+      # NOTHING COMPILED IS TRACKED. `.gitignore` is consulted for an untracked path and says
+      # nothing about a file git already follows, which is how the site repository carried three
+      # `build/__pycache__/*.pyc` and kept them up to date for as long as they were there. The hook
+      # runs this too and a hook is bypassable, so this is the side nobody can skip.
+      - name: No compiled caches in the index
+        run: .githooks/no-caches.sh
+
       - name: Unit tests
         run: |
           ./test.py

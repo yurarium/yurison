@@ -288,6 +288,13 @@ NOT_A_SURFACE = {
     "recWorkRows": "the rows of works on a record page, each field through its own renderer",
     "creditText": "the plain-text form of a credit line, used for searching and sorting rather "
                   "than shown; it goes through the same renderers and adds no name of its own",
+    # THE SAME RULING AS `creditText`, AND IT WAS UNRULED FOR THREE DAYS WITHOUT A WORD. READER-PLAN
+    # item 8 added it so the works tab could sort by the title an English reader is actually shown,
+    # and `every renderer is ruled` reported clean the whole time because `YURARIUM_SITE` was unset
+    # in CI and the check had no `app.js` to derive a renderer set from. The check now says when it
+    # cannot read its subject; this is the answer it was owed.
+    "workLabelText": "the plain-text form of a work's label, used for sorting rather than shown; "
+                     "it calls `workLabel` inside `inLang` and adds no name of its own",
     "creditGapText": "says how many people a shortened byline did not list, which is a count",
     "personShown": "decides WHETHER a person is listed, and renders nothing itself",
     "sourceBoth": "a source's name in both languages, which is a citation and not a name in the "

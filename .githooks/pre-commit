@@ -7,6 +7,9 @@ DIR="$(git rev-parse --show-toplevel)/.githooks"
 [ -f "$DIR/leak-deny.local" ] && export LEAK_DENY="$(cat "$DIR/leak-deny.local")"
 "$DIR/leak-guard.sh" identity-config || exit $?
 "$DIR/leak-guard.sh" content staged  || exit $?
+# AND NOTHING COMPILED. .gitignore says nothing about a file git already tracks, so the rule is
+# asked of the index rather than assumed. See no-caches.sh.
+"$DIR/no-caches.sh"                  || exit $?
 
 # Fast subset only. The full data gate runs at pre-push, which is the exposure moment; making every
 # commit wait on it would train everyone to pass --no-verify, and a gate that is routinely bypassed

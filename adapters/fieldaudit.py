@@ -47,17 +47,16 @@ SPREAD = 25
 NO_ACCESS = 60
 
 
+#: THE QUESTION LIVES WITH THE CORPUS'S OTHER QUESTIONS, STORE-PLAN §10. What this module owns is
+#: the reading of the answer: which counts mean a selector moved, and where each threshold came
+#: from. A query written here as well would be a second place to keep right.
+POPULATION = "attested releases and the fields a selector carries"
+
+
 def rows(db):
     """Attested releases as the audit reads them: the platform, the two named fields, the access."""
-    got = []
-    for rid, plat, ep, author, work in db.execute(
-            "SELECT id, platform, instalment, author, work_raw FROM release "
-            "WHERE provenance = 'attested'"):
-        modes = db.execute("SELECT count(*) FROM release_access_mode WHERE release = ?",
-                           (rid,)).fetchone()[0]
-        got.append({"id": rid, "plat": plat, "ep": ep, "author": author, "work": work,
-                    "access": modes})
-    return got
+    from relational import asks
+    return asks.population(db, POPULATION)
 
 
 def unnamed(got):

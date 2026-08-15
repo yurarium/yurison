@@ -24,10 +24,22 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 
 
 def own_files(*suffixes, root=None, under=None):
-    """Every file git tracks in this working tree, as absolute paths.
+    """Every file in this working tree that git would show, tracked or newly written.
 
     `suffixes` filters by extension (".py", ".md"); `under` restricts to a subdirectory. Both are
     conveniences, and the point of the function is the enumeration.
+
+    A FILE WRITTEN AN HOUR AGO IS AS MUCH THIS TREE'S AS ONE COMMITTED LAST YEAR, and leaving the
+    first kind out cost a CI run. This asked for
+    tracked files alone, so a module written and not yet committed was invisible to every lint
+    built on it: `./check.py --gate` answered `all right` on a tree holding a new suite that opened
+    its own database, and the same gate failed on the runner, where the file was committed and
+    therefore visible. The rule a person runs the gate to be told about is the rule about the work
+    they have just done.
+
+    `--exclude-standard` KEEPS THE NESTED-WORKTREE ARGUMENT INTACT, which is what this module is
+    for: `.claude/worktrees/` is ignored, so an agent's copy of the repository stays out of the
+    count, and so does everything else .gitignore names.
 
     FALLS BACK TO WALKING where git cannot answer, because a check that reads nothing reports zero
     and a zero is indistinguishable from clean. The fallback skips nested worktrees by name, which
@@ -35,13 +47,18 @@ def own_files(*suffixes, root=None, under=None):
     """
     at = pathlib.Path(root or ROOT)
     try:
-        out = subprocess.run(["git", "ls-files", "-z"], cwd=str(at),
+        out = subprocess.run(["git", "ls-files", "-z", "--cached", "--others",
+                              "--exclude-standard"], cwd=str(at),
                              capture_output=True, text=True, timeout=60)
         names = [n for n in out.stdout.split("\0") if n] if out.returncode == 0 else []
     except Exception:                                                   # noqa: BLE001
         names = []
+    # THE NESTED-TREE RULE IS APPLIED TO BOTH ANSWERS NOW. `git ls-files` never reports another
+    # working tree's INDEX, which is what this module was written on; `--others` reports files, and
+    # an agent's worktree is a directory of files. `.claude/` is in .gitignore, so today the flag
+    # excludes them anyway, and a guarantee that rests on a line somebody could delete is not one.
     if names:
-        paths = [at / n for n in names]
+        paths = [at / n for n in names if not _inside_another_tree(at / n, at)]
     else:
         paths = [p for p in at.rglob("*")
                  if p.is_file() and not _inside_another_tree(p, at)]

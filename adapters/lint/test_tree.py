@@ -55,15 +55,26 @@ def main(s):
         (nested / "sub").mkdir()
         (nested / "sub" / "c.py").write_text("y = 2\n")
         after = tree.own_files(".py", root=at)
-        s.eq(len(after), 2, "a nested checkout does not double the count")
+        s.eq(len(after), 2, "a nested checkout does not double the count, ignored or not")
         s.check(not any(".claude" in p.parts for p in after),
                 "and nothing under it is reported at all")
 
         # A FILE GIT IGNORES IS NOT THIS REPOSITORY'S, which is the fault the stock-phrasing budget
-        # met first: the same commit measured 903 in one tree and 898 in another.
-        (at / "untracked.py").write_text("z = 3\n")
-        s.check(not any(p.name == "untracked.py" for p in tree.own_files(".py", root=at)),
-                "an untracked file is not counted as the repository's own")
+        # met first: the same commit measured 903 in one tree and 898 in another. `.claude/` above
+        # is one, and so is anything else .gitignore names.
+        (at / ".gitignore").write_text("scratch.py\n")
+        (at / "scratch.py").write_text("z = 3\n")
+        s.check(not any(p.name == "scratch.py" for p in tree.own_files(".py", root=at)),
+                "a file git ignores is not counted as the repository's own")
+
+        # A FILE NOT COMMITTED YET IS STILL IN THE TREE, and this asked for tracked files alone
+        # until a CI run paid for it: a new suite that opened its own database was invisible to
+        # every lint built on this, `./check.py --gate` answered `all right`, and the same commit
+        # failed on the runner where the file was tracked. The gate is run to be told about the
+        # work somebody has just done.
+        (at / "written.py").write_text("z = 4\n")
+        s.check(any(p.name == "written.py" for p in tree.own_files(".py", root=at)),
+                "a file written and not yet committed is the repository's own")
 
     # WHERE GIT CANNOT ANSWER, IT STILL ANSWERS SOMETHING. A check that reads nothing reports zero,
     # and a zero is indistinguishable from clean, so the fallback walks and skips nested trees.

@@ -424,6 +424,19 @@ POPULATIONS = {
                " WHERE s.state = :state ORDER BY w.id",
         "reads": ("work", "work_state", "work_byline"),
         "params": ("state",)},
+    # EVERY ATTESTED RELEASE WITH THE FIELDS A MOVED SELECTOR TAKES OUT. `adapters/fieldaudit.py`
+    # decides whether a day's capture may be published, and it read `data/build/feed.json` from
+    # inside a workflow until §13 stopped writing that file and the run died on the audit step. The
+    # question is about the store's own rows and this is where the corpus's questions live.
+    #
+    # THE ACCESS COUNT COMES BACK AS A NUMBER, because what the audit asks is whether the row states
+    # any access at all, and a join would return the row once per mode and make every count wrong.
+    "attested releases and the fields a selector carries": {
+        "sql": "SELECT r.id AS id, r.platform AS plat, r.instalment AS ep, r.author AS author,"
+               " r.work_raw AS work,"
+               " (SELECT count(*) FROM release_access_mode m WHERE m.release = r.id) AS access"
+               " FROM release r WHERE r.provenance = 'attested' ORDER BY r.id",
+        "reads": ("release", "release_access_mode")},
     # AND EVERY WORK THE CORPUS HOLDS, for the passes that need to answer "is this one of ours"
     # about a title arriving from outside. `sevenseas` keys its own lookup on the folded title and
     # so does `recon/bookwalker_shelf` on the author, and both were rebuilding that map from the

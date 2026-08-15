@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-08-13
+retrieved: 2026-08-16
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 204
+  hits_agreeing_on_a_creator: 205
   hits_on_the_title_alone: 78
   hits_stating_a_print_edition_date: 159
-  works_asked: 691
-  works_with_a_hit: 204
+  works_asked: 693
+  works_with_a_hit: 205
 works:
   - work_url: "https://bigcomics.jp/series/003c4bf48a97f"
     id: "w00450"
@@ -3574,6 +3574,16 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://comic.pixiv.net/works/12886"
+    id: "w00192"
+    work: "まるせっせんす"
+    author: "畳ゆか"
+    platform: "pixivコミック"
+    retrieved: "2026-08-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://comic.pixiv.net/works/13324"
     id: "w00149"
     work: "アイ・ヘイ・チュー"
@@ -5696,6 +5706,22 @@ works:
         publisher: "KADOKAWA"
         printed: "2024/8/27"
         agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/70616"
+    id: "w00609"
+    work: "奈落の花園"
+    author: "さかさな"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-08-16"
+    hits:
+      - series_url: "https://bookwalker.jp/series/494119/list/"
+        title_listed: "奈落の花園（百合姫コミックス）"
+        shop_author: "さかさな"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        agreement: "creator"
+        volumes_stated: 2
         completed_marker: false
   - work_url: "https://manga.nicovideo.jp/comic/70759"
     id: "w03231"

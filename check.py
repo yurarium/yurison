@@ -1320,6 +1320,13 @@ def inv_curated_values_reach_the_store(ctx):
 
     Only a name the store already holds is compared. A curated entry for a work not in the corpus
     is waiting for the work, which is a different thing from a stale value.
+
+    AN ENTRY CARRYING TWO FORMS MAY SHOW EITHER, AND WHICH ONE IS PRECEDENCE RATHER THAN STALENESS.
+    `translation` puts our rendering beside the form the entry already holds, and the store ranks
+    the pair: a licensor's title outranks ours, so the attributed name keeps the slot, and ours
+    outranks a romanisation, so `ゆゆ式` shows The Yuyu Style over Yuyushiki. This read the second
+    case as a build that had not run. Both values come from the same entry and either being shown
+    is the ranking working, so both are accepted and a THIRD value is still the stale one.
     """
     bad = []
     for kind, rows in _curated().items():
@@ -1327,7 +1334,7 @@ def inv_curated_values_reach_the_store(ctx):
         for name, rec in rows.items():
             want = (rec or {}).get("en")
             got = (store.get(name) or {}).get("en")
-            if want and got and got != want:
+            if want and got and got not in (want, (rec or {}).get("translation")):
                 bad.append(f"{kind}/{name}: curated {want!r}, store holds {got!r}")
     return bad
 
@@ -3211,10 +3218,16 @@ def budget_titles_with_no_translation_of_our_own(ctx):
     # Scarlet in kana and the publisher's own English is `Scarlet`; `安達としまむら` is two
     # surnames. The ruling is per title and recorded in `data/names/curated.yaml`, because which
     # titles those are is a judgement and a rule that guessed would be answering it here.
+    # A ROMANISATION IS A LEVEL A READER MAY RANK PAST, and asking only about official-jp and
+    # licensed read as though it were not. EN_ORDER offers four levels in whatever order the reader
+    # sets, so `translated, romaji, licensed` is an order somebody can choose, and a record holding
+    # only a romanisation hands that reader `Kimi to Board Game ga Tsukuritai!` where the meaning is
+    # I Want to Make a Board Game with You. `en_forms` carries the three attributed kinds and never
+    # romaji, so the question is asked of the rendering the entry actually has: a title showing
+    # English of any kind and none of ours is a title whose reader has nothing to fall through to.
     return sum(1 for k, v in titles.items()
                if isinstance(v, dict) and not v.get("alias_of") and script.search(str(k))
-               and not v.get("translation_refused")
-               and set(v.get("en_forms") or {}) & {"official-jp", "licensed"}
+               and not v.get("translation_refused") and v.get("en")
                and not (v.get("en_forms") or {}).get("translated"))
 
 

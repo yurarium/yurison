@@ -8945,6 +8945,8 @@ names:
     reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
+    translation_refused: A coinage in kana with nothing under it, so our rendering spells the kana and
+      is the romanisation already recorded.
     verified: false
   うどみょん１:
     basis: romaji
@@ -8981,6 +8983,7 @@ names:
     reading_reviewed: '2026-08-12'
     reading_source: derived
     reading_source_kind: derived
+    translation_refused: A coinage in kana. Our rendering is Unausa, which the romanisation says.
     verified: false
   うまいものだけ食べて生きます。/読み切り:
     basis: romaji
@@ -11553,13 +11556,19 @@ names:
     reading_source_kind: analyser
     verified: false
   きみとボドゲが作りたい！:
-    basis: romaji
-    en: Kimi to Board Game ga Tsukuritai!
-    en_at: '2026-08-02'
-    en_pass: 2
-    en_source: mangaupdates
-    en_source_kind: community-db
-    en_url: https://www.mangaupdates.com/series/tw25st8/kimi-to-board-game-ga-tsukuritai
+    basis: translated
+    en: I Want to Make a Board Game with You!
+    en_at: '2026-08-08'
+    en_conflicts:
+    - basis: romaji
+      source: mangaupdates
+      value: Kimi to Board Game ga Tsukuritai!
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ボドゲ is ボードゲーム clipped, the everyday word for a board game. The record showed `Kimi to Board
+      Game ga Tsukuritai!`, which carries the sound of a whole sentence and none of what it says, and
+      a reader who ranks our rendering above a romanisation had nothing to fall through to.
     reading: キミ ト ボドゲ ガ ツクリタイ !
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -12321,6 +12330,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_refused: A coinage in kana with no word under it, so our rendering is the romanisation
+      over again.
     verified: true
   ぐだぐだするき！:
     basis: translated
@@ -12672,9 +12683,13 @@ names:
     reading_source_kind: analyser
     verified: false
   ことのことのは:
-    basis: romaji
-    en: Koto no Kotonoha
+    basis: translated
+    en: The Words of Koto
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: Koto no Kotonoha
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
@@ -12686,6 +12701,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: 言の葉 is an old word for words, and the title folds こと back on itself to reach it.
+      The romanisation keeps the fold and loses the word.
     verified: true
   ことのはの巫女とことだまの魔女と:
     basis: translated
@@ -13575,13 +13592,18 @@ names:
     reading_source_kind: analyser
     verified: false
   ごきげんよう、一局いかが?:
-    basis: romaji
-    en: Gokigenyō, Ikkyoku Ikaga?
-    en_at: '2026-08-02'
-    en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
-    en_url: http://www.wikidata.org/entity/Q120336493
+    basis: translated
+    en: Good Day to You. Care for a Game?
+    en_at: '2026-08-08'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Gokigenyō, Ikkyoku Ikaga?
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 一局 counts a single game of go or shogi, and ごきげんよう is the greeting of a girls' school. The record
+      showed the romanisation of both, which states neither.
     reading: ゴキゲンヨウ 、 イッキョク イカガ ?
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -14308,6 +14330,8 @@ names:
     reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
+    translation_refused: A coinage built on Salome. Our rendering spells the kana, as the romanisation
+      does, because the suffix answers to no English word.
     verified: false
   ざこのみなさんお大事に:
     basis: translated
@@ -17478,6 +17502,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: Two kana that read as a surname or as a sentence ending, and the title says which
+      nowhere. Our rendering is Noda either way, which the romanisation already gives.
     verified: true
   のっぽと不登校:
     basis: translated
@@ -19791,6 +19817,7 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_refused: A coinage in kana. Our rendering is the romanisation already held.
     verified: true
   まんがで綴る百合な日々:
     basis: translated
@@ -20898,6 +20925,7 @@ names:
     reading_reviewed: '2026-08-12'
     reading_source: derived
     reading_source_kind: derived
+    translation_refused: A coinage in kana with nothing under it to render, so ours is the romanisation.
     verified: false
   ゆたさんはままならない!:
     basis: translated
@@ -21005,11 +21033,15 @@ names:
     reading_source_kind: analyser
     verified: true
   ゆゆ式:
-    basis: romaji
-    en: Yuyushiki
+    basis: translated
+    en: The Yuyu Style
     en_at: '2026-08-10'
+    en_conflicts:
+    - basis: romaji
+      source: derived
+      value: Yuyushiki
     en_reviewed: '2026-08-10'
-    en_source: derived
+    en_source: yurarium
     en_source_kind: derived
     note: 式 here is the suffix for a style or a way of doing things, attached to a coined ゆゆ, so the title
       names a manner and not a thing English has a word for.
@@ -21022,6 +21054,8 @@ names:
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034320623
+    translation_note: 式 is the suffix for a style or a way of doing things, attached to a coined ゆゆ. The
+      romanisation runs the two into one word that says nothing in English.
     verified: true
   ゆらめきラグーン:
     basis: translated
@@ -21303,11 +21337,15 @@ names:
     reading_source_kind: analyser
     verified: false
   ゆりでなる♡えすぽわーる:
-    basis: romaji
-    en: Yuri de Naru ♡ Espoir
+    basis: translated
+    en: Becoming by Way of Yuri ♡ Hope
     en_at: '2026-08-10'
+    en_conflicts:
+    - basis: romaji
+      source: derived
+      value: Yuri de Naru ♡ Espoir
     en_reviewed: '2026-08-10'
-    en_source: derived
+    en_source: yurarium
     en_source_kind: derived
     note: えすぽわーる is the French espoir, hope, spelled in kana, so it is rendered as that word. The first
       half is a play on 百合 and the title has no English of its own beyond it. The row showed e Supo Wāru,
@@ -21318,6 +21356,9 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: えすぽわーる is the French espoir, hope, written in kana, and でなる is becoming by that
+      means. The romanisation keeps the French as a sound, and a reader ranking ours first fell through
+      to it.
     verified: true
   ゆりでなる♥えすぽわーる:
     basis: translated
@@ -21453,6 +21494,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_refused: ゆり is the genre word this database is named for and is left as yuri throughout,
+      so our rendering is Yuri Yuri, which is the romanisation already recorded.
     verified: true
   ゆりゆりうさぎ:
     basis: translated
@@ -21867,6 +21910,7 @@ names:
     reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
+    translation_refused: A coinage in kana. Our rendering spells the kana, which the romanisation does.
     verified: false
   よめとり!:
     basis: translated
@@ -24561,6 +24605,7 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: A coined name. Our rendering is Ogunanje, the romanisation already recorded.
     verified: true
   オタクには人生を積むことしかできない:
     basis: translated
@@ -25884,11 +25929,15 @@ names:
     reading_source_kind: analyser
     verified: false
   キマシ!:
-    basis: romaji
-    en: Kimashi!
+    basis: translated
+    en: It's Here!
     en_at: '2026-08-10'
+    en_conflicts:
+    - basis: romaji
+      source: derived
+      value: Kimashi!
     en_reviewed: '2026-08-10'
-    en_source: derived
+    en_source: yurarium
     en_source_kind: derived
     note: キマシ is the fandom interjection called out when two characters read as a couple, and it has no
       English equivalent that is a word rather than a sentence.
@@ -25897,6 +25946,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: キマシ is 来ました in the fandom's spelling, from キマシタワー, which is called out when yuri
+      arrives in a scene. The romanisation is the sound of a word an English reader has no key to.
     verified: true
   キマ紳士:
     basis: translated
@@ -27863,6 +27914,7 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: A coined name with no word under it, so our rendering is the romanisation.
     verified: true
   サニーサイド:
     basis: translated
@@ -27901,6 +27953,9 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: The title artwork prints Собаки under the katakana, Russian for dogs, and turning
+      that into Dogs would be our translation of a word the work chose to print in Cyrillic. The entry's
+      own note rules that the romanisation stands until the work publishes Latin letters.
     verified: true
   サブスクただ乗り鈴鈴ちゃん:
     basis: translated
@@ -31402,13 +31457,18 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_refused: A coined name. Our rendering is Nakinon, which the romanisation says.
     verified: true
   ナチュリーズ:
-    basis: romaji
-    en: Nachurīzu
+    basis: translated
+    en: Naturies
     en_at: '2026-08-10'
+    en_conflicts:
+    - basis: romaji
+      source: derived
+      value: Nachurīzu
     en_reviewed: '2026-08-10'
-    en_source: derived
+    en_source: yurarium
     en_source_kind: derived
     note: A katakana coinage with an English-looking ending that spells no English word, so it is rendered
       as it is read rather than resolved into one.
@@ -31417,6 +31477,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: The kana are built on nature with an English plural, so the word is legible written
+      in Latin letters. The romanisation spells the kana, Nachurīzu, and hides it.
     verified: true
   ナツコさんのおもいで:
     basis: translated
@@ -31909,6 +31971,8 @@ names:
     reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
+    translation_refused: ハクせつ is half kana and answers to no word the title spells out, so our rendering
+      is Hakusetsu Series, which is what the romanisation says.
     verified: false
   ハクメイとミコチ:
     basis: licensed
@@ -32196,6 +32260,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: The name is the four leads' names run together, so there is no word to render
+      and our rendering is the romanisation.
     verified: true
   ハニー★カルテット:
     basis: translated
@@ -34624,6 +34690,7 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_refused: A coined name in kana. Our rendering is the romanisation already held.
     verified: true
   ボウソウガールズテキモウソウレンアイテキステキプロジェクト:
     basis: translated
@@ -44929,13 +44996,18 @@ names:
     reading_source_kind: analyser
     verified: false
   十字トンボは空を飛ばない:
-    basis: romaji
-    en: Jūji Tonbo wa Sora o Tobanai
-    en_at: '2026-08-02'
-    en_pass: 2
-    en_source: wikidata
-    en_source_kind: community-db
-    en_url: http://www.wikidata.org/entity/Q138521679
+    basis: translated
+    en: The Cross Dragonfly Does Not Fly
+    en_at: '2026-08-08'
+    en_conflicts:
+    - basis: romaji
+      source: wikidata
+      value: Jūji Tonbo wa Sora o Tobanai
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 十字トンボ is the cross-shaped registration mark printed at the edge of a page, which is why it cannot
+      fly. The record showed the sentence romanised, so the joke reached nobody reading in English.
     reading: ジュウジ トンボ ワ ソラ オ トバナイ
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -51494,11 +51566,15 @@ names:
     reading_source_kind: analyser
     verified: false
   完パコLOVE:
-    basis: romaji
-    en: Kanpako LOVE
+    basis: translated
+    en: Full Package LOVE
     en_at: '2026-08-10'
+    en_conflicts:
+    - basis: romaji
+      source: derived
+      value: Kanpako LOVE
     en_reviewed: '2026-08-10'
-    en_source: derived
+    en_source: yurarium
     en_source_kind: derived
     note: 完パコ is slang built on 完 and a vulgar clipping, and it is a coinage rather than a phrase. LOVE
       is already the work's own.
@@ -51510,6 +51586,8 @@ names:
     reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
+    translation_note: 完パコ turns 完パケ, a finished master in the trade, into crude slang for sex. English
+      holds one half at a time and this keeps the package; the romanisation holds neither.
     verified: false
   完璧なあなた:
     basis: translated
@@ -57546,11 +57624,15 @@ names:
     reading_source_kind: analyser
     verified: false
   愛マイyummy:
-    basis: romaji
-    en: Ai Mai Yummy
+    basis: translated
+    en: Love My Yummy
     en_at: '2026-08-10'
+    en_conflicts:
+    - basis: romaji
+      source: derived
+      value: Ai Mai Yummy
     en_reviewed: '2026-08-10'
-    en_source: derived
+    en_source: yurarium
     en_source_kind: derived
     furigana_spans:
     - - 愛
@@ -57568,6 +57650,8 @@ names:
     reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
+    translation_note: 愛 is read ai and stands in for the English I, so the title reads both ways at once.
+      The romanisation keeps the pun and drops the love.
     verified: false
   愛焦がれキャラメリゼ:
     basis: translated
@@ -66341,6 +66425,8 @@ names:
     reading_source: comic-fuz
     reading_source_kind: platform
     reading_url: https://comic-fuz.com/manga/441
+    translation_refused: Reads as ball and song, and is also the two leads' names, 山崎珠姫 and 武田詠深. Either
+      rendering discards the other, which is why the entry's own note settled on the romanisation.
     verified: true
   理想と恋:
     basis: translated
@@ -74406,6 +74492,8 @@ names:
     reading_reviewed: '2026-08-07'
     reading_source: yurarium
     reading_source_kind: derived
+    translation_refused: Two characters read as a name. Our rendering is Shama, the romanisation already
+      held.
     verified: false
   紗痲 Fallin' Jail:
     basis: romaji
@@ -76424,6 +76512,8 @@ names:
     reading_reviewed: '2026-08-08'
     reading_source: yurarium
     reading_source_kind: derived
+    translation_refused: Two given names told apart by their honorifics alone, which is the whole title.
+      Our rendering keeps both names and both suffixes, so it is the romanisation again.
     verified: false
   花粉症からはじまる百合:
     basis: translated
@@ -77514,9 +77604,13 @@ names:
     reading_source_kind: derived
     verified: false
   見える子ちゃん:
-    basis: romaji
-    en: Mieruko-chan
+    basis: translated
+    en: The Girl Who Can See
     en_at: '2026-08-12'
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: Mieruko-chan
     en_reviewed: '2026-08-12'
     en_source: yurarium
     en_source_kind: derived
@@ -77532,6 +77626,8 @@ names:
     reading_reviewed: '2026-08-12'
     reading_source: yurarium
     reading_source_kind: derived
+    translation_note: 見える子 is a child who sees what others do not. Keeping the nickname as a name is the
+      right form to show by default, and it left a reader who ranks ours first with a romanisation.
     verified: false
   見える子ちゃん公式アンソロジーコミック:
     basis: translated

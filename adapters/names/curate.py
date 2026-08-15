@@ -162,6 +162,18 @@ KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "revi
         # `titles with no translation of our own` as work nobody could ever do.
         "translation_refused"}
 
+#: Bases whose `en` a reader may rank BELOW our translation, so an entry carrying one of them still
+#: owes a second form. Every level of EN_ORDER except `translated` itself, which IS the second form.
+#:
+#: `romaji` WAS MISSING AND THAT WAS THE WHOLE ERROR. EN_ORDER offers four levels and a reader may
+#: order them `translated`, `romaji`, `licensed`, so a record holding only a romanisation hands that
+#: reader the romanisation: `きみとボドゲが作りたい!` rendered `Kimi to Board Game ga Tsukuritai!`
+#: where the meaning is I Want to Make a Board Game with You. The rule read as though a romanisation
+#: were the finished answer and only a publisher's English could be ranked past, which decides the
+#: reader's setting for them. Writing the translation into `en` instead is what §5's precedence
+#: forbids for a licensed name and loses the romanisation here for the same reason.
+NEEDS_A_SECOND_FORM = ("official-jp", "licensed", "romaji", "stated")
+
 # What we call ourselves in the store when a claim is our own judgement rather than a finding.
 OURS = "yurarium"
 
@@ -333,12 +345,13 @@ def problems(kind, ja, e):
 
     if e.get("translation"):
         # A SECOND FORM, NOT A SECOND OPINION ABOUT WHO NAMED THE WORK. `translation` is only ever
-        # ours, so it takes no source and no basis; what it needs is an attributed name to sit
-        # beside and an argument of its own.
-        if e.get("basis") not in ("official-jp", "licensed"):
-            out.append(f"{where}: `translation` is our rendering beside the name the work already "
-                       f"has, so the entry needs an `en` on basis official-jp or licensed; with "
-                       f"nothing to sit beside, write the translation as `en` on basis translated")
+        # ours, so it takes no source and no basis; what it needs is a name to sit beside and an
+        # argument of its own.
+        if e.get("basis") not in NEEDS_A_SECOND_FORM:
+            out.append(f"{where}: `translation` is our rendering beside the form the entry already "
+                       f"carries, so it needs an `en` on basis "
+                       f"{' or '.join(sorted(NEEDS_A_SECOND_FORM))}; with nothing to sit beside, "
+                       f"write the translation as `en` on basis translated")
         if e.get("translation") == e.get("en"):
             out.append(f"{where}: the translation repeats the attributed name and adds no form")
         if not (e.get("translation_note") or "").strip():
@@ -354,10 +367,15 @@ def problems(kind, ja, e):
         if e.get("translation"):
             out.append(f"{where}: an entry either translates the title or records why it cannot, "
                        f"and this does both")
-        if e.get("basis") not in ("official-jp", "licensed"):
-            out.append(f"{where}: `translation_refused` says our rendering would only repeat the "
-                       f"name the work already has, so the entry needs an `en` on basis "
-                       f"official-jp or licensed for it to repeat")
+        # THE RULING IS ABOUT THE FORM THE RECORD SHIPS, which the entry need not restate. 球詠 is
+        # a reading correction whose note already says either translation would discard the other,
+        # and サバーキ records the Cyrillic the artwork prints and rules that turning it into Dogs
+        # would be translating a word the work chose not to write in English. Both ship a
+        # romanisation the file never stated, and demanding they copy it in would make a reviewer
+        # restate a machine's answer for permission to rule on it.
+        if e.get("basis") == "translated":
+            out.append(f"{where}: the entry's `en` is already our rendering, so there is no other "
+                       f"form for `translation_refused` to be about")
         if len(str(e["translation_refused"]).split()) < 4:
             out.append(f"{where}: `translation_refused` carries the argument rather than a flag; "
                        f"say what our rendering would come out as and why that is the same name")

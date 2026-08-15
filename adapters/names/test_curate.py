@@ -176,6 +176,29 @@ def main(s):
             "a translation with no argument behind it is the machine translation §5a rules out")
     s.check(curate.problems("titles", "ワインガールズ", dict(OURS, translation="Wine Girls")),
             "and a translation needs a name to sit beside; on its own it is just the `en`")
+
+    # ── A ROMANISATION IS A LEVEL A READER MAY RANK PAST ─────────────────────────────────────────
+    #
+    # EN_ORDER offers four levels and the reader orders them, so `translated, romaji, licensed` is
+    # an order somebody can set. A record holding only a romanisation hands that reader the
+    # romanisation, which is what this rule read as the finished answer: it admitted a second form
+    # beside a publisher's English and refused one beside ours, so `きみとボドゲが作りたい!`
+    # rendered `Kimi to Board Game ga Tsukuritai!` and had nowhere to put the meaning.
+    ROMAJI = {"en": "Kimi to Board Game ga Tsukuritai!", "basis": "romaji", "source": "yurarium",
+              "source_kind": "derived", "reviewed": "2026-08-15",
+              "note": "The kana are read as they are written."}
+    s.eq(curate.problems("titles", "きみとボドゲが作りたい!",
+                         dict(ROMAJI, translation="I Want to Make a Board Game with You!",
+                              translation_note="ボドゲ is ボードゲーム clipped.")), [],
+         "a romanisation takes a translation beside it, being a level a reader may rank past")
+    s.check("romaji" in curate.NEEDS_A_SECOND_FORM and "stated" in curate.NEEDS_A_SECOND_FORM,
+            "every level of EN_ORDER but `translated` owes a second form")
+    s.check("translated" not in curate.NEEDS_A_SECOND_FORM,
+            "and `translated` owes none, being the form the others are ranked against")
+    s.check(curate.problems("titles", "きみとボドゲが作りたい!",
+                            dict(ROMAJI, basis="translated", translation="Anything At All",
+                                 translation_note="x")),
+            "a translation beside a translation is two answers to one question")
     s.check(curate.problems("titles", "裏世界ピクニック",
                             dict(BOTH, translation="Otherside Picnic")),
             "a translation repeating the attributed name adds no second form")
@@ -197,7 +220,20 @@ def main(s):
             "an entry either translates the title or records why it cannot, never both")
     s.check(curate.problems("titles", "ワインガールズ",
                             dict(OURS, translation_refused=REFUSED["translation_refused"])),
-            "and with no attributed name to repeat there is nothing for the ruling to be about")
+            "and where the entry's `en` is already ours there is no other form to rule about")
+
+    # THE RULING IS ABOUT WHAT THE RECORD SHIPS, WHICH THE ENTRY NEED NOT RESTATE. 球詠 is a
+    # reading correction whose note already says either translation would discard the other, and
+    # its English is a romanisation no line of the file states. Demanding the entry copy that in
+    # would make a reviewer restate a machine's answer for permission to rule on it.
+    s.eq(curate.problems("titles", "球詠",
+                         {"reading": "タマヨミ", "reading_basis": "stated",
+                          "source": "comic-fuz", "source_kind": "platform",
+                          "source_url": "https://example.invalid/m", "reviewed": "2026-08-15",
+                          "translation_refused": "Reads as ball and song, and is also the two "
+                                                 "leads' names, so either rendering discards the "
+                                                 "other."}), [],
+         "an entry stating only a reading may still rule that its shipped English stands")
 
     # THE ARGUMENT IS THE FIELD. A flag would record that somebody decided and not what they
     # decided, which is the shape this whole file exists to refuse.

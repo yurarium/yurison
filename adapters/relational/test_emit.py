@@ -88,6 +88,26 @@ def _unit(s):
     s.eq(skipped["not_measured"], "source-quality budget; measured at check-in",
          "and says why, rather than reporting the best possible number")
 
+    # ── EVERY TITLE THE CORPUS HOLDS, FROM WHICHEVER SIDE ASKS ────────────────────────────────
+    #
+    # `emit.titles` is pure over the three collections that carry a title, because `build.py` has
+    # them in memory before the store exists and `population` gets them back out of it afterwards.
+    # Two callers, one function, and this is what holds for both.
+    doc = emit.titles(
+        [{"work": "ゆびさきと恋々"}, {"work": None}, {}],
+        [{"work": "私の百合はお仕事です", "collection": "アンソロジー"},
+         {"collection": None}, {"work": "ゆびさきと恋々"}],
+        [{"title": {"ja": "citrus", "en": "Citrus"}}, {"title": {}}, {"title": None}],
+        "2026-08-15")
+    s.eq(doc["titles"], sorted(["ゆびさきと恋々", "私の百合はお仕事です", "アンソロジー", "citrus"]),
+         "a title is taken from a series row, a release, a release's collection and a work")
+    s.eq(doc["count"], 4, "counted once each, a work serialised and released being one title")
+    s.check("ゆびさきと恋々" in doc["titles"] and doc["titles"].count("ゆびさきと恋々") == 1,
+            "and a title two collections both carry appears once")
+    s.eq(emit.titles([], [], [])["titles"], [],
+         "no collections is no titles, which is the answer `population` refuses to invent")
+    s.eq(doc["generated"], "2026-08-15", "the run's date rides along, as the file states it")
+
 
 def main(s):
     # ── THE UNIT ASSERTIONS RUN ALWAYS AND THE PARITY COMPARISON RUNS WHERE THERE IS A BUILD ──

@@ -24,10 +24,11 @@ import tree as _tree                                                    # noqa: 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 
-#: The compiled files. `titles.json` is not among them: `build.py` still writes it and
-#: `gigaviewer/releases.py` still reads it, which is a pair §13 has not reached.
+#: The compiled files. `titles.json` JOINED THEM on 2026-08-15: it was the last pair, written by
+#: `build.py` and read by `bwingest`, `gigaviewer/releases` and `names/curate`, and all three ask
+#: `population` now.
 CORPUS = ("series.json", "works.json", "index.json", "credits.json", "publishers.json",
-          "credit-keys.json", "feed/names.json")
+          "credit-keys.json", "feed/names.json", "titles.json")
 
 #: WHO MAY NAME THEM, AND WHY EACH IS HERE. `population` is the one reader and `emit` produces
 #: them. `build.py` still writes them under `--emit-json`. `check.py` builds the map of emitted

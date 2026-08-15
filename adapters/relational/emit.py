@@ -1344,6 +1344,45 @@ def feed_files(db):
     return out
 
 
+#: The note `titles.json` carries, so the file says what it is wherever it is written from.
+TITLES_NOTE = ("Every title this build knows, as it holds them. The answer to 'is this a work we "
+               "hold', stated here rather than reassembled from the feed window, the month "
+               "archives and the series list, none of which is the corpus. Fold as you need: "
+               "consumers disagree about spaces on purpose.")
+
+
+def titles(series_rows, releases, works_rows, generated=""):
+    """Every title the corpus holds, as it holds them, from the three collections that carry one.
+
+    ONE PRODUCER, TWO SOURCES OF THE SAME ROWS. `build.py` has these three lists in memory before
+    it compiles the store, and `adapters/population.titles` gets them back out of it afterwards.
+    The set they make has to be the same set, and it was computed in `build.py` alone while two
+    passes read the FILE it wrote: `adapters/bwingest.py` and `adapters/gigaviewer/releases.py`
+    are the pair STORE-PLAN §13 had not reached, and reaching it means the question has a function
+    rather than an artefact.
+
+    NOT FOLDED, and the docstring in `build.py` argues it at length. The name lookup drops spaces
+    so a title joins whatever spacing a platform used; `curate.py` keeps them so a curated key with
+    a stray space stays a typo somebody can find. Folding here would settle that for both by
+    accident.
+    """
+    known = set()
+    for row in series_rows or ():
+        if row.get("work"):
+            known.add(row["work"])
+    for row in releases or ():
+        if row.get("work"):
+            known.add(row["work"])
+        if row.get("collection"):
+            known.add(row["collection"])
+    for row in works_rows or ():
+        ja = (row.get("title") or {}).get("ja")
+        if ja:
+            known.add(ja)
+    return {"generated": generated, "note": TITLES_NOTE,
+            "count": len(known), "titles": sorted(known)}
+
+
 # ── THE RUN'S REPORT ON ITSELF, §13 ───────────────────────────────────────────────────────────
 #
 # THESE ARE NOT THE CORPUS AND THEY SHIP ANYWAY. `served.CORPUS` excludes `run.json`,

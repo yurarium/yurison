@@ -42,6 +42,8 @@ from collections import Counter, defaultdict
 import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+import population as _population                                             # noqa: E402
 import series_feeds                                                          # noqa: E402
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
@@ -155,24 +157,33 @@ def yuri_series(html, genre, label):
     return out
 
 
-def known_titles(paths):
+def known_titles(paths, build=None, store=True):
     """Normalised titles of works already ESTABLISHED as yuri: the corpus, the print catalogue, and
     platforms that label their own series. A match here is identification against settled evidence.
 
     THE CORPUS IS ASKED FOR. This read `index.json`, which is the PRINT catalogue, and one
     platform's own series list, and called the pair "works we already have". Every web serialisation
     the build holds was absent from it, so a platform feed naming one had to be rediscovered through
-    the Tier C yardstick every run. `titles.json` is the build stating what it holds.
+    the Tier C yardstick every run.
+
+    AND IT IS ASKED OF THE STORE, §13. The two corpus halves came out of `data/build/titles.json`
+    and `data/build/index.json`, so this pass needed a compile it never declared and read yesterday's
+    answer where the compile had not run. `population` holds both questions and `--build` names an
+    older compile for either. `paths` is what is left: a platform's own series list, a source file.
     """
     out = {}
+    if store:
+        at = pathlib.Path(build) if build else None
+        for title in _population.titles(at / "titles.json" if at else None):
+            out[norm_title(title)] = title
+        for row in _population.index(at / "index.json" if at else None):
+            if row.get("t"):
+                out[norm_title(row["t"])] = row["t"]
     for p_ in paths:
         f = pathlib.Path(p_)
         if not f.exists():
             continue
-        if f.name == "titles.json":
-            for title in json.loads(f.read_text()).get("titles") or []:
-                out[norm_title(title)] = title
-        elif f.suffix == ".json":
+        if f.suffix == ".json":
             for w in json.loads(f.read_text()):
                 out[norm_title(w.get("t", ""))] = w.get("t", "")
         else:
@@ -225,10 +236,13 @@ def main():
     ap.add_argument("--retrieved", required=True)
     ap.add_argument("--platforms", default="adapters/gigaviewer/platforms.yaml")
     ap.add_argument("--force", action="store_true", help="ignore cache validators")
-    ap.add_argument("--known", nargs="*", default=["data/build/titles.json",
-                                                   "data/build/index.json",
-                                                   "data/source/gigaviewer/ichicomi-series.yaml"],
-                    help="sources of already-established yuri work titles")
+    # THE CORPUS COMES FROM THE STORE and this names what is not in it. The two `data/build`
+    # entries that were here are `population.titles` and `population.index` now.
+    ap.add_argument("--build", default=None,
+                    help="an older build directory to take the corpus from, instead of the store")
+    ap.add_argument("--known", nargs="*",
+                    default=["data/source/gigaviewer/ichicomi-series.yaml"],
+                    help="further sources of already-established yuri work titles")
     ap.add_argument("--candidates", default="data/coverage/webcomics-works.yaml",
                     help="Tier C yardstick naming candidate titles (discovery only)")
     a = ap.parse_args()
@@ -240,7 +254,7 @@ def main():
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
 
-    known = known_titles(a.known)
+    known = known_titles(a.known, a.build)
     cands = candidate_titles(a.candidates) if a.candidates else {}
     # Established titles win where both contain a title, so provenance is never downgraded.
     cands = {k: v for k, v in cands.items() if k not in known}

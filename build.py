@@ -7064,28 +7064,15 @@ def main():
     # lookup here drops spaces so a title joins whatever spacing a platform used, and curate.py
     # keeps them so a curated key with a stray space stays a typo somebody can find. An artefact
     # that had already folded would settle that argument for both of them by accident.
-    _known_titles = set()
-    for _row in series_rows:
-        if _row.get("work"):
-            _known_titles.add(_row["work"])
-    for _rel in releases:
-        if _rel.get("work"):
-            _known_titles.add(_rel["work"])
-        if _rel.get("collection"):
-            _known_titles.add(_rel["collection"])
-    for _wk in works:
-        _ja = (_wk.get("title") or {}).get("ja")
-        if _ja:
-            _known_titles.add(_ja)
-    (out / "titles.json").write_text(json.dumps(
-        {"generated": str(_today),
-         "note": "Every title this build knows, as it holds them. The answer to 'is this a work "
-                 "we hold', stated here rather than reassembled from the feed window, the month "
-                 "archives and the series list, none of which is the corpus. Fold as you need: "
-                 "consumers disagree about spaces on purpose.",
-         "count": len(_known_titles),
-         "titles": sorted(_known_titles)}, ensure_ascii=False, indent=1))
-    print(f"titles known to this build: {len(_known_titles)}")
+    # `emit.titles` COMPUTES IT, HERE AND FROM THE STORE. The set was assembled in this function
+    # and two passes read the file it wrote, which is the last pair §13 had not reached.
+    # `adapters/population.titles` asks the store for the same three collections and calls the same
+    # function, so the two answers cannot drift apart.
+    from relational import emit as _emit_titles
+    _titles_doc = _emit_titles.titles(series_rows, releases, works, str(_today))
+    if _emit_json():
+        (out / "titles.json").write_text(json.dumps(_titles_doc, ensure_ascii=False, indent=1))
+    print(f"titles known to this build: {_titles_doc['count']}")
 
     # A COMPANY NAME IS A NAME, so it ships beside the other two instead of in a file of its own.
     _pub_shipped = publisher_map(_pub_names, _auth_folded, series_rows)

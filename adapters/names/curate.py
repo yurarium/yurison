@@ -408,7 +408,7 @@ def unmatched(doc, known):
     # its titles, and folding None into an empty set would report every curated entry as naming
     # nothing, or, worse in the other direction, let a caller treat silence as agreement.
     if known is None:
-        raise SystemExit("data/build/titles.json is missing: run build.py before checking the "
+        raise SystemExit("no titles to check against: run ./build.py before checking the "
                          "curated names against the corpus")
     folded = {_fold(k) for k in known}
     # A WORK RULED OUT OF SCOPE IS NOT A TYPO. `data/scope.yaml` carries the §6 rulings, and a work
@@ -508,15 +508,15 @@ def known_titles(build="data/build"):
     Three curated titles stopped naming works we hold overnight because the window moved, and the
     three files together still missed 18 works and disagreed with each other about punctuation.
 
-    build.py states the set now, in titles.json, holding titles as it holds them so each consumer
-    folds to its own rule. `None` where the file is absent, so a caller can tell "no answer" from
-    "no titles". Given no answer the check stops and says so: an empty set would pass everything.
+    `emit.titles` states the set now, from the store, holding titles as it holds them so each
+    consumer folds to its own rule. A named build directory is still read where it holds the file,
+    which is how a person checks against an older compile. With neither, `population` stops the run
+    rather than answering nothing: an empty set would pass every curated title.
     """
-    import json
-    p = pathlib.Path(build) / "titles.json"
-    if not p.exists():
-        return None
-    return set(json.loads(p.read_text()).get("titles") or [])
+    import sys as _sys
+    _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    import population
+    return set(population.titles(pathlib.Path(build) / "titles.json" if build else None))
 
 
 def todo(build="data/build", limit=None, curated=None):

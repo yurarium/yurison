@@ -60,8 +60,11 @@ def main(s):
         "a name handed to a local helper is found, wherever the open happens")
     s.eq(_found(**{"f.py": '(out / "series.json").write_text(payload)\n'}), set(),
          "writing one is not reading one, which is what `--emit-json` still does")
-    s.eq(_found(**{"g.py": 'x = json.loads(open("data/build/titles.json").read())\n'}), set(),
-         "and `titles.json` is not on the list: build.py still writes it and a pass still reads it")
+    # `titles.json` JOINED THE LIST on 2026-08-15, when the last three passes reading it moved to
+    # `population`. It is here because the file was the exception for as long as the list existed.
+    s.check(("g.py", "names titles.json") in _found(
+        **{"g.py": 'x = json.loads(open("data/build/titles.json").read())\n'}),
+        "and `titles.json` is on the list now, the last pair §13 had not reached")
 
 
 if __name__ == "__main__":

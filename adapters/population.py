@@ -41,7 +41,17 @@ def _named(path):
 
 
 def _store():
+    """The compiled store, refusing to invent one.
+
+    `sqlite3.connect` CREATES THE FILE, which is the failure this guards. On a checkout with no
+    build every population here would have come back empty and every caller would have read that
+    as "the corpus holds nothing": `curate.py` says in its own docstring that an empty set passes
+    every curated title, and it was reading a file precisely so it could tell silence from
+    agreement. STANDING-INSTRUCTIONS §5, absence is a state, and this is where it gets said.
+    """
     import relational
+    if not relational.DB.exists():
+        raise SystemExit(f"no store at {relational.DB}: run ./build.py first")
     return relational.open_db()
 
 
@@ -109,6 +119,29 @@ def releases(path=None):
         return json.loads(pathlib.Path(path).read_text(encoding="utf-8")).get("releases") or []
     from relational import emit
     return emit.feed(_store())
+
+
+def titles(path=None):
+    """Every title the corpus holds, as it holds them, for the passes asking "do we know this".
+
+    THE LAST PAIR §13 HAD NOT REACHED. `build.py` wrote `data/build/titles.json`, `bwingest` and
+    `gigaviewer/releases` read it, and a pass that ran before the compile read yesterday's answer
+    without anything saying so. `emit.titles` is the one function that makes the set; this hands it
+    the store's own three collections and `build.py` hands it the run's.
+
+    A NAMED PATH IS STILL A FILE, like every other population here, so a person can run a pass
+    against an old build.
+    """
+    path = _named(path)
+    if path:
+        return json.loads(pathlib.Path(path).read_text(encoding="utf-8")).get("titles") or []
+    from relational import emit
+    db = _store()
+    generated = dict(db.execute("SELECT key, value FROM run_report")).get("generated") or ""
+    return emit.titles(emit.series(db, generated).get("series") or [],
+                       emit.feed(db),
+                       emit.works(db).get("works") or [],
+                       generated)["titles"]
 
 
 def feed_window(path=None):

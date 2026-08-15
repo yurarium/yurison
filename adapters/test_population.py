@@ -83,6 +83,32 @@ def main(s):
     s.eq(population.works_in_state("unknown", d), [],
          "a row carrying no state matches no state asked for")
 
+    # ── A NAMED FILE THAT IS NOT THERE MEANS THE STORE, AND NO STORE MEANS A REFUSAL ───────────
+    #
+    # `sqlite3.connect` creates what it cannot open, so a checkout with no build would have handed
+    # every caller an empty corpus and `curate.py` would have passed every curated title against
+    # it. §5, absence is a state.
+    titles = pathlib.Path(tempfile.mkdtemp()) / "titles.json"
+    titles.write_text(json.dumps({"titles": ["やがて君になる", "citrus"]}, ensure_ascii=False),
+                      encoding="utf-8")
+    s.eq(population.titles(titles), ["やがて君になる", "citrus"],
+         "a named titles file is read as the population it states")
+    import relational as _rel
+    was = _rel.DB
+    try:
+        _rel.DB = pathlib.Path(tempfile.mkdtemp()) / "nothing.db"
+        raised = None
+        try:
+            population.titles()
+        except SystemExit as e:                                          # noqa: PERF203
+            raised = str(e)
+        s.check(raised and "run ./build.py" in raised,
+                "and with no store and no file the run stops, rather than answering nothing")
+        s.check(not (pathlib.Path(_rel.DB)).exists(),
+                "without leaving an empty database behind that the next caller would believe")
+    finally:
+        _rel.DB = was
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

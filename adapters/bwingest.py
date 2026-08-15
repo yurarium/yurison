@@ -28,6 +28,7 @@ import sys
 # at import time. It worked in every shell here because PYTHONPATH is set in all of them.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[0]))
 
+import population as _population  # noqa: E402
 from names import credits as _credits  # noqa: E402
 from facts import inclusion as _inclusion  # noqa: E402
 from facts import volumenumber as _volnum  # noqa: E402
@@ -276,7 +277,9 @@ def main(argv=None):
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--capture", default="data/queue/bookwalker-volumes.yaml")
-    ap.add_argument("--build", default="data/build")
+    # THE STORE ANSWERS IT, §13. This named a file `build.py` wrote and this pass read, which is
+    # a compile between a question and its answer; `--build` stays as the way to ask an older one.
+    ap.add_argument("--build", default=None)
     ap.add_argument("--out", default="data/source/bookwalker")
     ap.add_argument("--review", default="data/queue/bw-review.yaml")
     a = ap.parse_args(argv)
@@ -298,7 +301,7 @@ def main(argv=None):
     # it raw, every record looked like a duplicate of itself on the second run: 2,093 new works
     # became 415, with 1,724 filed for review against their own entries. So this pass subtracts its
     # own previous output, and the question stays "does anything BUT BOOK☆WALKER know this title".
-    titles = json.loads((pathlib.Path(a.build) / "titles.json").read_text()).get("titles") or []
+    titles = _population.titles(pathlib.Path(a.build) / "titles.json" if a.build else None)
     held = {norm_work(t) for t in titles}
     mine = set()
     for f in pathlib.Path(a.out).glob("*.yaml"):

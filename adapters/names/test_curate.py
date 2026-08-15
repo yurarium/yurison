@@ -382,8 +382,11 @@ def main(s):
     # window moved past them, and nothing about the corpus had changed.
     with tempfile.TemporaryDirectory() as d:
         b = pathlib.Path(d)
-        s.eq(curate.known_titles(str(b)), None,
-             "no titles.json is no answer, which is not the same as no titles")
+        # AND IT COMES FROM THE STORE NOW, §13. A build directory holding no titles file is a
+        # caller naming a build that is not there, so the current corpus answers; what used to be
+        # `None` cannot happen, because `population` stops the run where there is no store either.
+        s.check(len(curate.known_titles(str(b))) > 100,
+                "a build directory with no titles file falls through to the store")
         # And a caller must not read that silence as agreement.
         raised = False
         try:

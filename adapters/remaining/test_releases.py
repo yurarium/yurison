@@ -139,18 +139,23 @@ def a_one_shot_states_one_date(s):
     s.eq(rm.from_oneshot('読み切りを読む 2026年6月17日'),
          [{"title": "読み切り", "updated": "2026-06-17", "oneshot": True}],
          "a date a platform prints beside the button is the one-shot's date")
-    s.eq(rm.from_oneshot('読み切りを読む "2026-06-17 20:56:30"'), [],
-         "and a date carrying hours and minutes is a machine stamp, not a publication")
+    s.eq(rm.from_oneshot('読み切りを読む "2026-06-17 20:56:30"')[0]["updated"], rm.TODAY,
+         "and a date carrying hours and minutes is a machine stamp, so the day we read it is what "
+         "there is")
 
     # THE DAY IS MATCHED WHOLE OR NOT AT ALL. Without that the engine backs off the refused
     # timestamp and takes `2026-08-1`, which normalises to the first of the month: a wrong date
     # instead of no date, which is worse than the fault it was fixing.
-    s.eq(rm.from_oneshot('読み切り "2026-08-15 20:56:30"'), [],
-         "a refused timestamp yields nothing rather than a truncated day")
+    s.eq(rm.from_oneshot('読み切り "2026-08-15 20:56:30"')[0]["updated"], rm.TODAY,
+         "a refused timestamp yields no date rather than a truncated day")
     s.eq(rm.from_oneshot('読み切り 2026年6月17日 のほか "2026-08-15 20:56:30" とある'),
          [{"title": "読み切り", "updated": "2026-06-17", "oneshot": True}],
          "a page carrying both is read for the date and not for the stamp")
 
+    # THE WORK SURVIVES A PAGE THAT STATES NO DATE, which is the half that took a run down when it
+    # did not: refusing the stamp removed the only chapter, the work left the catalogue, and a
+    # curated title then named nothing. `build.py` holds a guessed date at first sighting.
+    #
     # AND THE GUARDS THAT WERE ALREADY THERE. Two dates mean the page is saying something this
     # cannot read, and a page that never calls itself a one-shot is not one.
     s.eq(rm.from_oneshot('読み切り 2026年6月17日 と 2026年7月1日'), [],

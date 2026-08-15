@@ -198,6 +198,11 @@ def from_generic(html):
 # offering 読み切りを読む and nothing else, so the match is anywhere on the page.
 ONESHOT = re.compile(r"読\s*み?\s*切り?")
 
+#: A DATE WITH A CLOCK ON IT. ヤンジャン+ renders `"2026-08-15 20:56:30"` in its page state, which
+#: is when the page was served. Its presence is what tells a page that states nothing about dates
+#: from one that states only the time it was built.
+STAMP = re.compile(r"\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2}\s*日?\s*[T ]\s*\d{1,2}:")
+
 
 def from_oneshot(html):
     """The single release of a work whose page states one date and marks itself a one-shot.
@@ -234,9 +239,25 @@ def from_oneshot(html):
              re.findall(r"\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2}(?!\d)(?!\s*日?\s*\d{1,2}:)",
                         html)}
     dates = sorted(d for d in found if d and d <= TODAY)
-    if len(dates) != 1:
+    if len(dates) > 1:
         return []
-    return [{"title": "読み切り", "updated": dates[0], "oneshot": True}]
+    if dates:
+        return [{"title": "読み切り", "updated": dates[0], "oneshot": True}]
+    # ── A PAGE WHOSE ONLY DATE IS A MACHINE STAMP ────────────────────────────────────────────
+    #
+    # REFUSING THE STAMP TOOK THE WORK WITH IT, which is worse than the fault it fixed: ヤンジャン+
+    # serves 横槍メンゴ新作読切シリーズ, a reader can open it, and dropping its only chapter dropped
+    # the work out of the catalogue and left a curated title naming nothing.
+    #
+    # SO THE DAY WE READ IT IS WHAT THERE IS, and only where the page showed a date-shaped string
+    # this refused. A page carrying no date at all still yields nothing: 読み切り appears in
+    # navigation and in a list of other people's one-shots, and minting a release from the word
+    # alone would invent one on every page that mentions the form. `date_basis: heuristic` says
+    # what this is, and `build.py` holds it at the day the first-seen ledger recorded so it cannot
+    # walk forward with the calendar.
+    if not STAMP.search(html):
+        return []
+    return [{"title": "読み切り", "updated": TODAY, "oneshot": True}]
 
 
 def js(v):

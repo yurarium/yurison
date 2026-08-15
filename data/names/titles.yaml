@@ -1676,7 +1676,12 @@ names:
     script: latin
     verified: false
   JCがサキュバスに先祖返りした話:
-    basis: romaji
+    basis: translated
+    en: The Story of a JC Who Threw Back to a Succubus
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - JCがサキュバスに
       - null
@@ -1686,6 +1691,8 @@ names:
       - null
     - - 話
       - はなし
+    note: JC is 女子中学生, a middle-school girl, and the abbreviation is left as the title prints it. 先祖返り
+      is atavism, a throwback to an ancestor rather than a transformation.
     reading: JC ガ サキュバス ニ センゾガエリ シタ ハナシ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -1844,10 +1851,16 @@ names:
     reading_source_kind: analyser
     verified: false
   JSがキスする:
-    basis: romaji
+    basis: translated
+    en: A JS Kisses
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - JSがキスする
       - null
+    note: JS is 女子小学生, a primary-school girl, kept as the title prints it.
     reading: JS ガ キス スル
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -2161,6 +2174,15 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
+    verified: false
+  MOJIの百合:
+    basis: translated
+    en: MOJI's Yuri
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: MOJI is the artist's name and stands as it is written.
     verified: false
   MRNR HONEY DAYS:
     basis: official-jp
@@ -2688,6 +2710,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  QyootieQ!:麒麟娘と婚約事情:
+    basis: translated
+    en: 'Qyootie Q!: A Kirin Girl and Her Engagement'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 麒麟 is the qilin, the Chinese chimera Japanese reads as kirin. 婚約事情 is the circumstances around
+      an engagement rather than the engagement itself.
+    verified: false
   REFACTORS:
     basis: official-jp
     en: REFACTORS
@@ -2801,6 +2833,16 @@ names:
     reading_reviewed: '2026-08-08'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
+    verified: false
+  SHWD(シュード):SpecialHazardousWasteDisposal:
+    basis: translated
+    en: 'SHWD: Special Hazardous Waste Disposal'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The subtitle expands the acronym in English already; シュード is the kana gloss telling a reader
+      to say it as one word.
     verified: false
   SHWD[シュード]Extra:
     basis: translated
@@ -3268,6 +3310,15 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  Schoolzone=スクールゾーン:
+    basis: translated
+    en: School Zone
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The kana after the equals sign gloss the English, so both halves are the one title.
     verified: false
   She "Falls" in Love:
     basis: official-jp
@@ -4521,6 +4572,16 @@ names:
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
     verified: false
+  「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい:THECOMIC:
+    basis: translated
+    en: 'They Threw Me Out of the Hero''s Party Saying Someone Like Me Could Never Beat the Demon Lord,
+      So Now I''d Like to Take It Easy in the Capital: The Comic'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The base title is rendered elsewhere; THE COMIC marks the manga of a novel.
+    verified: false
   「わたくしこそが王となりますゆえ、此度の縁談はお断りさせていただきますわ。かわいい妹が待っておりますの」:
     basis: translated
     en: “I Shall Be King Myself, So I Must Decline This Match. My Dear Little Sister Is Waiting for Me”
@@ -4943,6 +5004,10 @@ names:
     basis: official-jp
     en: UNCONNECTED MARKETEERS ET CETERA
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Rainbow Dragon Cave, Et Cetera
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -4966,11 +5031,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 虹龍洞 is the rainbow dragon cave the game is set in, and Unconnected Marketeers is
+      that game's own English name rather than a rendering of the words.
     verified: false
   【English Ver.】BEAST MODE-畜生モード:
     basis: official-jp
     en: BEAST MODE
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Brute Mode
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -4992,11 +5063,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 畜生 names an animal and is also what a person swears, which the artist's beast keeps
+      only the first half of.
     verified: false
   【English Ver.】Friendly Feuding Families - 組長達のなかよし:
     basis: official-jp
     en: Friendly Feuding Families
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Bosses Are Friends
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5020,11 +5097,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 組長 is the head of a gang. なかよし is being on good terms, with no feud in it.
     verified: false
   【English Ver.】Low Body Temperature-冷たい体温:
     basis: official-jp
     en: Low Body Temperature
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: A Cold Body Heat
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5048,11 +5130,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 体温 is the warmth a body has, so 冷たい体温 sets the two words against each other; low
+      reads as a measurement instead.
     verified: false
   【English Ver.】Memories of a Blink-またたきの記憶:
     basis: official-jp
     en: Memories of a Blink
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Memories of a Twinkling
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5072,11 +5160,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: またたき is both an eye blinking and a star twinkling, and the second sense is the one
+      an English blink cannot carry.
     verified: false
   【English Ver.】Present in the Spring-春にして君を抱き:
     basis: official-jp
     en: Present in the Spring
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: In Spring, Holding You
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5106,11 +5200,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: The Japanese echoes the title Christie's Absent in the Spring is published under
+      here, 春にして君を離れ, with the parting swapped for an embrace.
     verified: false
   【English ver.】AyaSana Compilation To the Girls of the Wind-風の少女達へ:
     basis: official-jp
     en: 'AyaSana Compilation: To the Girls of the Wind'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'For the Girls of the Wind: an AyaSana Collection'
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5139,11 +5239,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: へ addresses the collection to them, which is a dedication rather than a direction.
     verified: false
   【English ver.】Being Human-人間してる？:
     basis: official-jp
     en: Being Human
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Are You Being Human?
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5165,11 +5270,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: The Japanese is a question put to somebody, which the artist's English states as
+      a condition.
     verified: false
   【English ver.】Betrayal is the Sweetest Nectar - 裏切りは甘露の蜜:
     basis: official-jp
     en: Betrayal is the Sweetest Nectar
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Betrayal Is the Honey of Sweet Dew
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5197,11 +5308,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 甘露 is the sweet dew of the old stories, and 蜜 the honey; the artist's English folds
+      the two into one word.
     verified: false
   【English ver.】Chalk-White Promise-白亜の約束:
     basis: official-jp
     en: Chalk-White Promise
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Chalk Promise
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5225,11 +5342,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 白亜 is chalk itself, the stone, and is what a white-walled building is called.
     verified: false
   【English ver.】Diary of Two -ふたりの日記帳:
     basis: official-jp
     en: Diary of Two
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Diary the Two of Them Kept
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5251,11 +5373,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 日記帳 is the physical book rather than the writing in it.
     verified: false
   【English ver.】Gossamer Butterfly-あえかなる蝶:
     basis: official-jp
     en: Gossamer Butterfly
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Frail Butterfly
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5275,11 +5402,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: あえか is a classical word for something delicate enough to break, said of a person
+      as often as a thing.
     verified: false
   【English ver.】Hate but Love These Goddamn Animals-かわいくてにくいあんちくしょう:
     basis: official-jp
     en: Hate but Love These Goddamn Animals
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Cute and Hateful, the Little Wretch
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5297,11 +5430,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: あんちくしょう is one word for one person, an affectionate curse, and the artist's English
+      makes it a plural of animals.
     verified: false
   【English ver.】Jealousy Notebook-嫉妬手帳:
     basis: official-jp
     en: Jealousy Notebook
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Jealousy Pocketbook
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5323,11 +5462,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 手帳 is the small book carried about and written in, not a notebook on a desk.
     verified: false
   【English ver.】Nesting Crow-栖鴉:
     basis: official-jp
     en: Nesting Crow
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Roosting Crow
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5349,11 +5493,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 栖 is where a bird settles for the night, which is a roost rather than a nest.
     verified: false
   【English ver.】Reimu is Easily Embarrassed-はずかしがりやのれいむさん:
     basis: official-jp
     en: Reimu is Easily Embarrassed
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Reimu-san Is a Shy One
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5371,11 +5520,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: はずかしがりや names the kind of person she is rather than what happens to her, and the
+      honorific is in the Japanese title.
     verified: false
   【English ver.】The Beasts Who Don't Know Love-愛を知らない獣たち:
     basis: official-jp
     en: The Beasts Who Don't Know Love
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Beasts That Have Never Known Love
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5405,11 +5560,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 知らない here is having no acquaintance with the thing rather than not understanding
+      it.
     verified: false
   【English ver.】To You Who Came to the Underground-地底へと至る君へ:
     basis: official-jp
     en: To You Who Came to the Underground
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: To You Who Go Down to the Depths
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5439,6 +5600,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 至る is arriving after a journey, and 地底 is the underground of the Touhou setting,
+      which the artist's came puts in the past.
     verified: false
   【English ver.】Two Bosses Living Together:
     basis: official-jp
@@ -5457,6 +5620,10 @@ names:
     basis: official-jp
     en: Walking the Underground
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Going Through the Underground
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -5478,6 +5645,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: ゆく is the old form of going, which carries a journey rather than a walk.
     verified: false
   【English ver】Drunk on the Rain:
     basis: official-jp
@@ -5924,6 +6092,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  【今日の10ページ】女子高生VS首切り地蔵:
+    basis: translated
+    en: 'Today''s Ten Pages: High-School Girls vs the Beheading Jizo'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 今日の10ページ is the slot a platform prints above a short piece, ten pages for today, and it marks
+      a oneshot rather than naming this work. 首切り地蔵 is a roadside Jizo statue that local story attaches
+      to an execution ground.
+    verified: false
   【今日の10ページ】怪異調査室:
     basis: translated
     en: The Mystery Investigation Office
@@ -6111,7 +6290,12 @@ names:
     reading_source_kind: analyser
     verified: false
   【完結】冬木先輩と夏井:
-    basis: romaji
+    basis: translated
+    en: Fuyuki-senpai and Natsui (complete)
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 【
       - null
@@ -6127,6 +6311,8 @@ names:
       - null
     - - 夏井
       - なつい
+    note: 完結 is the shop's completion tag rather than part of the title. The two surnames carry winter
+      and summer, which the work plays on and English cannot hold.
     reading: 【カンケツ】 フユキ センパイ ト ナツイ
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -6138,7 +6324,13 @@ names:
     reading_source_kind: derived
     verified: false
   【百合】奴隷扱いの娘が足を舐めて幸せになる(かもしれない)話:
-    basis: romaji
+    basis: translated
+    en: 'Yuri: The Story of a Girl Kept as a Slave Who Licks Feet and Becomes Happy (Maybe)'
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 【百合】 is the genre tag the platform prints before the title.
     reading: 【ユリ】 ドレイ アツカイ ノ ムスメ ガ アシ ヲ ナメテ シアワセ ニ ナル （カ モ シレナイ） ハナシ
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -6293,6 +6485,10 @@ names:
     basis: official-jp
     en: Gossamer Butterfly
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Frail Butterfly
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -6313,6 +6509,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: あえか is a classical word for something delicate enough to break. The artist's own
+      English reaches for gossamer, which is the wing rather than the creature.
     verified: false
   あかねとすみれ:
     basis: translated
@@ -6951,7 +7149,15 @@ names:
     reading_source_kind: derived
     verified: false
   あなたの未来を許さない（コミック）:
-    basis: romaji
+    basis: translated
+    en: I Won't Forgive Your Future (comic)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: コミック distinguishes the manga from the novel of the same name.
     reading: アナタ ノ ミライ オ ユルサナイ （コミック）
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -7913,6 +8119,10 @@ names:
     basis: licensed
     en: Anne Happy
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Unhappy♪
     en_reviewed: '2026-08-06'
     en_source: yenpress.com
     en_source_kind: licensor
@@ -7927,6 +8137,9 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: アンハッピー is the English word in kana, and the licensed Anne Happy hears it as the
+      heroine An Hanako's name instead. A reader declining the pun is left with no word for what the title
+      actually says.
     verified: true
   あんハピ♪アンソロジーコミック　吉:
     basis: translated
@@ -8830,6 +9043,10 @@ names:
     basis: official-jp
     en: URARA MEIROCHOU
     en_at: '2026-08-10'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Urara Maze Register
     en_reviewed: '2026-08-10'
     en_source: COMIC FUZ
     en_source_kind: platform
@@ -8859,6 +9076,8 @@ names:
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I029802299
+    translation_note: 迷路帖 is a bound book of mazes, 帖 being the counter for such a volume. The official
+      English romanises both halves and so states nothing a reader without Japanese can use.
     verified: true
   うらら迷路帖アンソロジーコミック:
     basis: translated
@@ -9006,12 +9225,18 @@ names:
     reading_source: surface
     verified: true
   おかしなエルフと女子高生:
-    basis: romaji
+    basis: translated
+    en: A Strange Elf and a High-School Girl
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - おかしなエルフと
       - null
     - - 女子高生
       - じょしこうせい
+    note: おかしな is 可笑しな, odd or funny.
     reading: オカシナ エルフ ト ジョシコウセイ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -9116,10 +9341,24 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  おしえごと:同人教師と天才ギャル:
+    basis: translated
+    en: 'Lessons: The Doujin Teacher and the Genius Gal'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: おしえごと holds 教え事, a thing taught, against 教え子と, with my student. English keeps the first and
+      loses the second.
+    verified: false
   おしえて！ ギャル子ちゃん:
     basis: licensed
     en: Please Tell Me! Galko-chan
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Tell Me, Galko-chan!
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -9140,6 +9379,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: おしえて is asking to be told something, and the licensed please is a politeness the
+      Japanese does not print.
     verified: false
   おしえて！ギャル子ちゃん:
     basis: romaji
@@ -9488,7 +9729,15 @@ names:
     reading_source_kind: analyser
     verified: false
   おねロリキャバクラ（同人版）:
-    basis: romaji
+    basis: translated
+    en: Onee-Loli Hostess Bar (doujin edition)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 同人版 is the self-published edition, told apart from the commercial one.
     reading: オネ ロリ キャバクラ （ドウジンバン）
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -9656,6 +9905,9 @@ names:
     - basis: official-jp
       source: openBD
       value: Nighty night,Sheherazade
+    - basis: translated
+      source: yurarium
+      value: Good Night, Scheherazade
     en_reviewed: '2026-08-10'
     en_source: 小学館
     en_source_kind: publisher-jp
@@ -9673,6 +9925,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: The publisher's own English spells the storyteller of the Thousand and One Nights
+      without the c that English usually gives her, and sets the greeting in lower case.
     verified: true
   おやすみシェヘラザード = Nighty night,Sheherazade:
     basis: official-jp
@@ -10168,6 +10422,10 @@ names:
     basis: licensed
     en: Secret of the Princess
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Princess's Secret
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -10189,6 +10447,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: The Japanese is possessive, and the publisher's of reads as a secret about her rather
+      than one she keeps.
     verified: false
   お嬢さまは死んでいる。:
     basis: translated
@@ -11932,7 +12192,12 @@ names:
     reading_url: http://www.wikidata.org/entity/Q131751566
     verified: false
   くっ殺せの姫騎士となり、百合娼館で働くことになりました。:
-    basis: romaji
+    basis: translated
+    en: I Became a Kill-Me-Then Princess Knight and Ended Up Working in a Yuri Brothel.
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - くっ
       - null
@@ -11958,6 +12223,7 @@ names:
       - はたら
     - - くことになりました。
       - null
+    note: くっ殺せ is the stock line of a captured knight, 'Kuh, kill me!', used as a character type.
     reading: クッ コロセ ノ ヒメ キシ ト ナリ、 ヒャク ゴウ ショウカン デ ハタラク コト ニ ナリマシタ。
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -12123,10 +12389,18 @@ names:
       who has asked to see ours.
     verified: true
   けいおん!shuffle:
-    basis: romaji
+    basis: translated
+    en: K-On! Shuffle
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - けいおん!shuffle
       - null
+    note: けいおん is 軽音, light music, and the series is known in English as K-On!
     reading: ケイオン ! shuffle
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -12140,6 +12414,10 @@ names:
     basis: licensed
     en: K-ON! Shuffle
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Light Music! Shuffle
     en_reviewed: '2026-08-04'
     en_source: Yen Press
     en_source_kind: licensor
@@ -12157,6 +12435,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: けいおん is 軽音, the light-music club a Japanese school has. The licensed K-ON! keeps
+      the sound of the abbreviation and drops what it abbreviates.
     verified: false
   こい☆フラ　レボリューション:
     basis: romaji
@@ -12216,7 +12496,13 @@ names:
     reading_source_kind: analyser
     verified: false
   こいのおわりをねがうとき:
-    basis: romaji
+    basis: translated
+    en: When I Wish for the End of This Love
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Written in kana throughout, which the English cannot show.
     reading: コイノオワリヲネガウトキ
     reading_at: '2026-08-15'
     reading_basis: surface
@@ -12276,7 +12562,12 @@ names:
     reading_source_kind: analyser
     verified: false
   ここに住みたい:
-    basis: romaji
+    basis: translated
+    en: I Want to Live Here
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ここに
       - null
@@ -12284,6 +12575,7 @@ names:
       - す
     - - みたい
       - null
+    note: Plain and literal.
     reading: ココ ニ スミタイ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -14712,7 +15004,12 @@ names:
     reading_source_kind: analyser
     verified: false
   ずぼら先輩とまじめちゃん:
-    basis: romaji
+    basis: translated
+    en: Slovenly Senpai and Serious-chan
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ずぼら
       - null
@@ -14720,6 +15017,7 @@ names:
       - せんぱい
     - - とまじめちゃん
       - null
+    note: ずぼら is slovenly in the sense of not bothering.
     reading: ズボラ センパイ ト マジメチャン
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -16171,7 +16469,12 @@ names:
     reading_source: surface
     verified: true
   ときめけ魔法幼女ココピュア:
-    basis: romaji
+    basis: translated
+    en: Flutter, Magical Little Girl Coco Pure
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ときめけ
       - null
@@ -16181,6 +16484,8 @@ names:
       - ようじょ
     - - ココピュア
       - null
+    note: ときめけ is the imperative of ときめく, a heart beating faster. 幼女 is younger than the 少女 of the usual
+      magical-girl title.
     reading: トキメケ マホウ ヨウジョ ココピュア
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -16373,7 +16678,12 @@ names:
     reading_source_kind: analyser
     verified: false
   とにも角にも鹿姫さん。:
-    basis: romaji
+    basis: translated
+    en: At Any Rate, Shikahime-san.
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - とにも
       - null
@@ -16387,6 +16697,7 @@ names:
       - ひめ
     - - さん。
       - null
+    note: とにもかくにも is written with 角 so that the horn answers the 鹿 of the name.
     reading: ト ニ モ カド ニ モ シカ ヒメサン。
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -17011,6 +17322,9 @@ names:
     - basis: romaji
       source: yurarium
       value: Nurumeta
+    - basis: translated
+      source: yurarium
+      value: Lukewarm Meta
     en_reviewed: '2026-08-08'
     en_source: publisher
     en_source_kind: publisher-jp
@@ -17027,6 +17341,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: ぬるい is lukewarm, and the official NullMeta hears the first half as the English null.
+      Both readings are in the kana and only one of them survives into the publisher's English.
     verified: true
   ねえ、私だけに言ってよ:
     basis: translated
@@ -17342,6 +17658,15 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  はぴちゅ!:
+    basis: translated
+    en: Hapichu!
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: はぴ is happy clipped and ちゅ the sound of a kiss; the rendering transliterates.
+    verified: false
   はぴちゅ！:
     basis: romaji
     reading: ハピチュ！
@@ -17383,6 +17708,10 @@ names:
     basis: licensed
     en: Harukana Receive
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: A Far-Off Receive
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -17395,6 +17724,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: 遥かな is far off, and the two leads are Haruka and Kanata, so the title is their names
+      run together as a word. The official English keeps the names and loses the word.
     verified: true
   はるか咲きそふ、刻どきの:
     basis: translated
@@ -17497,6 +17828,10 @@ names:
     basis: licensed
     en: 'Bad Girl: The Art Book'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Bad Girl: A Collection of Pictures'
     en_reviewed: '2026-08-06'
     en_source: yenpress.com
     en_source_kind: licensor
@@ -17516,6 +17851,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 画集 is a book of an artist's pictures. The licensed art book is the trade's word
+      for the same object.
     verified: false
   ばーがー・ふぉー・ゆー！:
     basis: translated
@@ -18008,7 +18345,15 @@ names:
     reading_url: https://www.mangaupdates.com/series/fi7cqkw/hime-chan-wa-omoi-onna
     verified: false
   ひめちゃんは重い女【単話版】:
-    basis: romaji
+    basis: translated
+    en: Hime-chan Is a Heavy Woman (single chapters)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 単話版 is the edition sold a chapter at a time.
     reading: ヒメチャン ワ オモイ オンナ 【タンワバン】
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -18459,6 +18804,16 @@ names:
     reading_reviewed: '2026-08-08'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
+    verified: false
+  ふたり暮らしのおとりよせ日和:WOULDYOULIKETOORDERWITHME?:
+    basis: translated
+    en: 'A Fine Day to Order In, Living Together: Would You Like to Order with Me?'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: お取り寄せ is ordering food in from elsewhere in the country, and 日和 is weather that suits doing
+      it.
     verified: false
   ふたり異世界人:
     basis: translated
@@ -19141,6 +19496,10 @@ names:
     basis: official-jp
     en: Memories of a Blink
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Memories of a Twinkling
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -19161,6 +19520,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: またたき is a star twinkling as well as an eye blinking, and the second sense is the
+      one the publisher's English keeps.
     verified: false
   また教室で:
     basis: translated
@@ -19347,6 +19708,15 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
+    verified: false
+  まほまほ~魔法少女と魔法使い~:
+    basis: translated
+    en: 'Maho Maho: The Magical Girl and the Magician'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: まほまほ doubles the まほう of both halves of the subtitle.
     verified: false
   まめコーデ:
     basis: translated
@@ -20177,6 +20547,16 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ももと宮村:
+    basis: translated
+    en: Momo and Miyamura
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: A given name in kana against a surname in kanji, which is the pairing the title is made of and
+      the English cannot show.
+    verified: false
   もらったもの:
     basis: translated
     en: What I Was Given
@@ -20469,7 +20849,15 @@ names:
     reading_source: surface
     verified: true
   ゆうやけトリップ【単話版】:
-    basis: romaji
+    basis: translated
+    en: Sunset Trip (single chapters)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 単話版 is the edition sold a chapter at a time.
     reading: ユウヤケ トリップ 【タンワバン】
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -20631,7 +21019,13 @@ names:
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034320623
     verified: true
   ゆらめきラグーン:
-    basis: romaji
+    basis: translated
+    en: Shimmering Lagoon
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ゆらめき is a wavering of light or water.
     reading: ユラメキラグーン
     reading_at: '2026-08-14'
     reading_basis: surface
@@ -20696,6 +21090,10 @@ names:
     basis: licensed
     en: Yuri Life
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Yuri Living
     en_reviewed: '2026-08-06'
     en_source: yenpress.com
     en_source_kind: licensor
@@ -20710,11 +21108,17 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: ぐらし is 暮らし, the daily business of living somewhere, which is what the work is about.
+      The licensed Yuri Life reads as a life rather than a household.
     verified: true
   'ゆりぐらし : No Love,No Life!':
     basis: licensed
     en: Yuri Life
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Yuri Living: No Love, No Life!'
     en_reviewed: '2026-08-06'
     en_source: yenpress.com
     en_source_kind: licensor
@@ -20733,6 +21137,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 暮らし is the daily running of a household rather than a life. The English half of
+      the subtitle is the work's own.
     verified: false
   ゆりこん:
     basis: translated
@@ -20909,7 +21315,13 @@ names:
     reading_source_kind: analyser
     verified: true
   ゆりでなる♥えすぽわーる:
-    basis: romaji
+    basis: translated
+    en: Yuri de Naru ♥ Espoir
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The same title under a key carrying a filled heart instead of an open one.
     reading: ユリデナル♥エスポワール
     reading_at: '2026-08-14'
     reading_basis: surface
@@ -20920,6 +21332,13 @@ names:
     reading_source_kind: analyser
     verified: true
   ゆりでなるｖえすぽわーる:
+    basis: translated
+    en: Yuri de Naru ♡ Espoir
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The same title under a key where the heart came through as a v.
     reading: ユリ デ ナル ♡ エスポワール
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -21794,6 +22213,10 @@ names:
     basis: licensed
     en: I’m Fine With Being the Second Girlfriend
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: I Don't Mind Being the Second Girlfriend.
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -21821,11 +22244,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: いいから is conceding the point rather than being content with it, and the full stop
+      is the title's own.
     verified: false
   わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）:
     basis: licensed
     en: There's No Freaking Way I'll be Your Lover! Unless…
     en_at: '2026-08-03'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: There's No Way I Could Be Her Lover, No Way, No Way! (*It Turned Out Not to Be No Way!?)
     en_reviewed: '2026-08-03'
     en_source: Seven Seas Entertainment
     en_source_kind: licensor
@@ -21841,6 +22270,8 @@ names:
     reading_reviewed: '2026-08-04'
     reading_source: derived
     reading_source_kind: derived
+    translation_note: The licensed title compresses the doubled ムリムリ and the asterisked correction after
+      it into one word, and the correction is the joke the title is built on.
     verified: false
   わたしたちそれぞれ。水曜日の百合。短編集:
     basis: translated
@@ -21943,6 +22374,10 @@ names:
     basis: official-jp
     en: TAKE OFF YOUR CLOTHES FOR ME!
     en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Undress for Me!
     en_reviewed: '2026-08-07'
     en_source: mediaarts-db
     en_source_kind: bibliography
@@ -21965,6 +22400,8 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
+    translation_note: 脱ぎなさい is an instruction given from above, which the publisher's capitals carry and
+      its words do not.
     verified: false
   わたしのために脱ぎなさいっ! = TAKE OFF YOUR CLOTHES FOR ME!:
     basis: official-jp
@@ -23438,6 +23875,10 @@ names:
     basis: official-jp
     en: WAVER(S)
     en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Wavers
     en_reviewed: '2026-08-07'
     en_source: comic-walker.com
     en_source_kind: platform
@@ -23451,6 +23892,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: The kana are the English word for something that wavers. The publisher's bracketed
+      plural is a typographic choice rather than a second reading.
     verified: true
   ウクレア！:
     basis: translated
@@ -23974,7 +24417,12 @@ names:
     reading_source_kind: analyser
     verified: false
   エンドロールの後には最高の旅を:
-    basis: romaji
+    basis: translated
+    en: The Finest Journey After the End Credits
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - エンドロールの
       - null
@@ -23990,6 +24438,7 @@ names:
       - たび
     - - を
       - null
+    note: エンドロール is the credits that roll at the end of a film.
     reading: エンド ロール ノ アト ニ ワ サイコウ ノ タビ ヲ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -25259,8 +25708,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034312467
     verified: true
+  キグナスの乙女たち:新・魔法科高校の劣等生:
+    basis: translated
+    en: 'The Maidens of Cygnus: The Irregular at Magic High School, New Series'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 新・ marks a new series in a line whose base title is licensed in English.
+    verified: false
   キジとイナサ:
-    basis: romaji
+    basis: translated
+    en: Kiji and Inasa
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: キジ is a pheasant and イナサ a south-easterly wind, and both read as names here.
     reading: キジトイナサ
     reading_at: '2026-08-15'
     reading_basis: surface
@@ -25775,6 +26239,15 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  キャンディ:ふたりの約束:
+    basis: translated
+    en: 'Candy: A Promise Between the Two of Them'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Plain.
     verified: false
   キュウに1000年:
     basis: translated
@@ -26430,6 +26903,10 @@ names:
     basis: official-jp
     en: FOLKLORE OF KUDAN
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Folklore of the Kudan
     en_reviewed: '2026-08-06'
     en_source: openBD
     en_source_kind: publisher-jp
@@ -26445,6 +26922,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: 件 is the cow-faced creature of the old reports that speaks one prophecy and dies.
+      The publisher's English leaves it a name.
     verified: true
   クダンノフォークロア = FOLKLORE OF KUDAN:
     basis: official-jp
@@ -26643,6 +27122,10 @@ names:
     basis: official-jp
     en: Contract Sisters
     en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Sisters by Contract
     en_reviewed: '2026-08-07'
     en_source: mediaarts-db
     en_source_kind: bibliography
@@ -26654,6 +27137,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: 契約姉妹 written in kana. The publisher's English makes contract describe the sisters;
+      the Japanese compound says what makes them sisters.
     verified: true
   ケイヤクシマイ = Contract Sisters:
     basis: official-jp
@@ -27087,7 +27572,12 @@ names:
     reading_source: surface
     verified: true
   サキュバスの後輩に堕とされたくない先輩:
-    basis: romaji
+    basis: translated
+    en: The Senpai Who Doesn't Want to Be Corrupted by Her Succubus Kouhai
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - サキュバスの
       - null
@@ -27101,6 +27591,7 @@ names:
       - null
     - - 先輩
       - せんぱい
+    note: 堕とす is to bring someone down or seduce them, written with the character for falling.
     reading: サキュバス ノ コウハイ ニ オトサレタク ナイ センパイ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -27288,6 +27779,10 @@ names:
     basis: official-jp
     en: SACHI and YUUKA
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Sachi and Yuuka
     en_reviewed: '2026-08-06'
     en_source: openBD
     en_source_kind: publisher-jp
@@ -27302,6 +27797,7 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: Two given names, which the publisher sets in capitals.
     verified: true
   サチとユーカ = SACHI and YUUKA:
     basis: official-jp
@@ -28006,7 +28502,13 @@ names:
     reading_source: surface
     verified: true
   シュナイダー・ラリー:
-    basis: romaji
+    basis: translated
+    en: Schneider Rally
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Schneider is the German surname; ラリー is a rally.
     reading: シュナイダー・ ラリー
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -28601,6 +29103,9 @@ names:
     - basis: romaji
       source: mangaupdates
       value: Sukeban to Tenkousei ga Kudaranai Asobi o Suru dake no Hanashi
+    - basis: translated
+      source: yurarium
+      value: The Sukeban and the Transfer Student
     en_pass: 2
     en_reviewed: '2026-08-04'
     en_source: Seven Seas Entertainment
@@ -28628,6 +29133,8 @@ names:
     reading_source: Seven Seas Entertainment
     reading_source_kind: derived
     reading_url: https://www.penguinrandomhouse.com/books/814540/the-delinquent-and-the-transfer-student-vol-1-by-fujichika/
+    translation_note: スケバン is the head of a girls' gang in the schools of the 1970s and 80s, a figure
+      with its own dress and its own films. The licensed delinquent is a category she belongs to.
     verified: false
   スズラン手帖:
     basis: translated
@@ -28667,6 +29174,10 @@ names:
     basis: official-jp
     en: STELLA★RECORD
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Stella ★ Record
     en_reviewed: '2026-08-06'
     en_source: openBD
     en_source_kind: publisher-jp
@@ -28675,6 +29186,8 @@ names:
       with the title 「ステラ★レコード = STELLA★RECORD」, pairing the Japanese with STELLA★RECORD, which is how
       the title page prints it. openBD is publisher-supplied, so this is the work's own name rather than
       a rendering made here, and it is kept verbatim including its own capitalisation and spacing.
+    translation_note: The star is a mark between the two words rather than a letter, and the publisher's
+      capitals close the spaces up.
     verified: true
   ステラ★レコード = STELLA★RECORD:
     basis: official-jp
@@ -29419,6 +29932,10 @@ names:
     basis: licensed
     en: semelparous
     en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Semelparous
     en_reviewed: '2026-08-05'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -29430,6 +29947,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_note: The kana are the biologist's word for a creature that breeds once and dies. The
+      publisher sets it in lower case as though it were not the title.
     verified: true
   セメルパルス semelparous:
     basis: translated
@@ -29462,7 +29981,13 @@ names:
     reading_source: surface
     verified: true
   センゲンス:
-    basis: romaji
+    basis: translated
+    en: Sengens
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: A coinage, transliterated.
     reading: センゲンス
     reading_at: '2026-08-14'
     reading_basis: surface
@@ -30078,8 +30603,22 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  チートイーター:異世界召喚尽く滅ぶべし:
+    basis: translated
+    en: 'Cheat Eater: Let Every Otherworld Summoning Perish'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 尽く…べし is a classical construction, so the subtitle reads as a decree.
+    verified: false
   チートイーター異世界召喚尽く滅ぶべし:
-    basis: romaji
+    basis: translated
+    en: 'Cheat Eater: Let Every Otherworld Summoning Perish'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - チートイーター
       - null
@@ -30095,6 +30634,7 @@ names:
       - ほろ
     - - ぶべし
       - null
+    note: The same title under a key that lost the colon.
     reading: チート イーター イセカイ ショウカン コトゴトク ホロブベシ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -30554,6 +31094,15 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  トワ・エ・モア(パルシィ):
+    basis: translated
+    en: Toi et Moi (Palcy)
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title is French for you and me. パルシィ is the platform tag on the key.
+    verified: false
   トワ・エ・モア（パルシィ）:
     basis: romaji
     reading: トワ・ エ・ モア （パルシィ）
@@ -31223,6 +31772,10 @@ names:
     basis: licensed
     en: Noss and Zakuro
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Noss and Pomegranate
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -31235,6 +31788,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: ザクロ is 柘榴, the pomegranate, which the publisher's English keeps as a name.
     verified: false
   ノス＆ザクロ:
     basis: romaji
@@ -31345,6 +31899,10 @@ names:
     basis: licensed
     en: Hakumei & Mikochi
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Hakumei and Mikochi
     en_reviewed: '2026-08-06'
     en_source: yenpress.com
     en_source_kind: licensor
@@ -31359,6 +31917,7 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: Two given names joined by と, which the publisher sets with an ampersand.
     verified: true
   ハグからはじまる:
     basis: translated
@@ -31421,7 +31980,13 @@ names:
     reading_source_kind: analyser
     verified: true
   ハッピーアワーガールズ:
-    basis: romaji
+    basis: translated
+    en: Happy Hour Girls
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: English set in kana.
     reading: ハッピーアワーガールズ
     reading_at: '2026-08-14'
     reading_basis: surface
@@ -34167,12 +34732,18 @@ names:
     reading_source_kind: analyser
     verified: false
   ポンポコタヌキとへっぽこ王子:
-    basis: romaji
+    basis: translated
+    en: The Ponpoko Tanuki and the Hopeless Prince
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ポンポコタヌキとへっぽこ
       - null
     - - 王子
       - おうじ
+    note: ポンポコ is the drumming of a tanuki's belly, and へっぽこ is useless in an affectionate way.
     reading: ポンポコタヌキ ト ヘッポコ オウジ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -34702,6 +35273,10 @@ names:
     basis: official-jp
     en: MIKOREI LOG
     en_at: '2026-08-07'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Mikorei Log
     en_reviewed: '2026-08-07'
     en_source: bookwalker.jp
     en_source_kind: publisher-jp
@@ -34715,6 +35290,7 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: A coined name with a log after it, which the publisher sets in capitals throughout.
     verified: true
   ミスターユーリ！:
     basis: translated
@@ -34847,7 +35423,12 @@ names:
     reading_source_kind: analyser
     verified: false
   メイドinお嬢さま:
-    basis: romaji
+    basis: translated
+    en: Maid in Young Lady
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - メイドinお
       - null
@@ -34855,6 +35436,7 @@ names:
       - じょう
     - - さま
       - null
+    note: The title puns made in against maid, and the English keeps the maid.
     reading: メイド in オジョウサマ
     reading_at: '2026-08-14'
     reading_basis: analyser
@@ -35241,7 +35823,13 @@ names:
     reading_source_kind: analyser
     verified: false
   ヤンキー×ジャーキー:
-    basis: romaji
+    basis: translated
+    en: Yankee × Jerky
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ヤンキー is a delinquent, not an American; the pairing is for the rhyme.
     reading: ヤンキー×ジャーキー
     reading_at: '2026-08-12'
     reading_basis: surface
@@ -35767,6 +36355,10 @@ names:
     basis: official-jp
     en: LAST SUMMER VACATION
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Last Summer Vacation
     en_reviewed: '2026-08-06'
     en_source: openBD
     en_source_kind: publisher-jp
@@ -35782,6 +36374,7 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: English set in kana, which the publisher prints in capitals.
     verified: true
   ラストサマー・バケーション = LAST SUMMER VACATION:
     basis: official-jp
@@ -36338,6 +36931,10 @@ names:
     basis: official-jp
     en: LILY SYSTEM
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Lily System
     en_reviewed: '2026-08-06'
     en_source: openBD
     en_source_kind: publisher-jp
@@ -36353,6 +36950,7 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_note: リリィ is the lily the genre is named for, and the publisher sets both words in capitals.
     verified: true
   リリィシステム = LILY SYSTEM:
     basis: official-jp
@@ -37062,6 +37660,15 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ロイヤルテーラー:王宮の裁縫師:
+    basis: translated
+    en: 'Royal Tailor: The Seamstress of the Palace'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 裁縫師 is one who sews, and the subtitle glosses the English of the main title.
+    verified: false
   ロク + イチ暮らし:
     basis: translated
     en: A Household of Six Plus One
@@ -37680,6 +38287,9 @@ names:
     - basis: official-jp
       source: openBD
       value: VAMPEERZ,MY PEER VAMPIRES
+    - basis: translated
+      source: yurarium
+      value: 'Vampeerz: My Peer Vampires'
     en_reviewed: '2026-08-06'
     en_source: openBD
     en_source_kind: publisher-jp
@@ -37694,6 +38304,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: The title puns vampire on peer. The publisher's English closes the comma up and
+      sets the subtitle in capitals.
     verified: false
   ㊙のライラ:
     basis: romaji
@@ -38277,6 +38889,15 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033378875
     verified: true
+  下僕さんと主ちゃんの日常:主のためなら何でもします:
+    basis: translated
+    en: 'The Daily Life of Servant-san and Master-chan: I''ll Do Anything for My Master'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 下僕 is a menial servant and 主 the one served, both softened by the suffixes.
+    verified: false
   下僕さんと主ちゃんの日常～主のためなら何でもします～:
     basis: translated
     en: The Daily Life of Servant-san and Master-chan ~I'd Do Anything for My Master~
@@ -38495,6 +39116,24 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  不器用ビンボーダンス2:
+    basis: translated
+    en: Clumsy Broke Dance 2
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ビンボー is 貧乏, being poor, written in kana.
+    verified: false
+  不器用ビンボーダンス3:
+    basis: translated
+    en: Clumsy Broke Dance 3
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The third of the series; ビンボー is 貧乏 written in kana.
     verified: false
   不器用ビンボーダンス　３:
     basis: romaji
@@ -40828,6 +41467,10 @@ names:
     basis: official-jp
     en: LET'S FALL IN LOVE AFTER WORK
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Let's Fall in Love After Work
     en_reviewed: '2026-08-06'
     en_source: openBD
     en_source_kind: publisher-jp
@@ -40857,6 +41500,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: しよう is the ordinary invitation between two people, which the publisher's capitals
+      make an announcement.
     verified: false
   仕事の後は恋しよう = LET'S FALL IN LOVE AFTER WORK:
     basis: official-jp
@@ -41165,7 +41810,15 @@ names:
     reading_source_kind: analyser
     verified: false
   伊勢さんと志摩さん【単話版】:
-    basis: romaji
+    basis: translated
+    en: Ise-san and Shima-san (single chapters)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The two surnames are the halves of 伊勢志摩, one place. 単話版 is the chapter edition.
     reading: イセサン ト シマサン 【タンワバン】
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -42310,6 +42963,9 @@ names:
     - basis: official-jp
       source: mediaarts-db
       value: Senpai,does it taste good?
+    - basis: translated
+      source: yurarium
+      value: Senpai, Does It Taste Good?
     en_corroborated:
     - mediaarts-db
     en_reviewed: '2026-08-10'
@@ -42320,6 +42976,8 @@ names:
       by MIKANUJI.'. MADB records the same words after ' = ' as 'Senpai,does it taste good?'. That note
       read until 2026-08-10 that the missing space was the publisher's; the art shows the space, and closing
       a comma up is what MADB's ISBD transcription does to every title it holds.
+    translation_note: The question is asked of a senior, which is why 先輩 stands unnamed. The publisher
+      sets the question in lower case.
     verified: true
   先輩、美味しいですか? = Senpai,does it taste good?:
     basis: official-jp
@@ -42688,6 +43346,15 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033214720
     verified: true
+  入味:この娘と食卓を囲む日から:
+    basis: translated
+    en: 'Ruwei: From the Day I Share a Table with This Girl'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 入味 is read ルーウェイ, the Chinese rùwèi, a flavour that has soaked in.
+    verified: false
   全部君のせいだ:
     basis: translated
     en: It's All Your Fault
@@ -43099,7 +43766,13 @@ names:
     reading_source_kind: analyser
     verified: false
   冬馬くん:
-    basis: romaji
+    basis: translated
+    en: Touma-kun
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: A surname, kept.
     reading: トウマ クン
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -43236,6 +43909,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  凛としてきゅん:
+    basis: translated
+    en: Poised, and a Pang
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 凛として is bearing oneself with composure, and きゅん is the tightening in the chest at the sight
+      of someone. The title sets the two against each other in four beats.
     verified: false
   凛としてカレンな花のように:
     basis: translated
@@ -43449,6 +44132,10 @@ names:
     basis: licensed
     en: First Love Sisters
     en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The First Love Sisters
     en_reviewed: '2026-08-05'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -43465,6 +44152,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: The compound names the pair, so the English takes an article the publisher's leaves
+      off.
     verified: false
   初恋構造式:
     basis: translated
@@ -44743,6 +45432,10 @@ names:
     basis: licensed
     en: Double Your Pleasure – A Twin Yuri Anthology
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Twin Yuri Ecchi Anthology
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -44764,6 +45457,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: The licensed title replaces the Japanese with a slogan of its own. えっち is the everyday
+      word for what the anthology collects.
     verified: false
   双角カンケイ。:
     basis: translated
@@ -44828,7 +45523,12 @@ names:
     reading_source_kind: analyser
     verified: false
   口に出しても宜しいですか?:
-    basis: romaji
+    basis: translated
+    en: May I Say It Out Loud?
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 口
       - くち
@@ -44842,6 +45542,7 @@ names:
       - よろ
     - - しいですか?
       - null
+    note: 口に出す is to put something into words rather than keep it in.
     reading: クチ ニ ダシテ モ ヨロシイデス カ?
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -45118,6 +45819,10 @@ names:
     basis: official-jp
     en: Wait until I sleep in the same place with you
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Wait Until We Sleep in the Same Place
     en_reviewed: '2026-08-06'
     en_source: openBD
     en_source_kind: publisher-jp
@@ -45152,6 +45857,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: The publisher's English adds a with you the Japanese leaves out and puts the sleeping
+      on one person; 眠るまで待って asks the other to wait.
     verified: false
   同じ所で眠るまで待って = Wait until I sleep in the same place with you:
     basis: official-jp
@@ -45229,7 +45936,12 @@ names:
     reading_source_kind: analyser
     verified: false
   同居人に片思いしてる百合漫画:
-    basis: romaji
+    basis: translated
+    en: A Yuri Manga About Loving My Housemate from Afar
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 同居人
       - どうきょにん
@@ -45243,6 +45955,7 @@ names:
       - ゆり
     - - 漫画
       - まんが
+    note: 片思い is love that is not returned, or not yet said.
     reading: ドウキョニン ニ カタオモイ シテル ユリ マンガ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -46793,6 +47506,10 @@ names:
     basis: licensed
     en: The Lying Bride and the Same-Sex Marriage Debate
     en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Lying Bride and a Theory of Same-Sex Marriage
     en_reviewed: '2026-08-05'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -46820,6 +47537,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 論 is a treatise or an argued position, which the licensed debate makes an event.
     verified: false
   四王天礼子の願望:
     basis: translated
@@ -46931,6 +47649,10 @@ names:
     basis: official-jp
     en: To You Who Came to the Underground
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: To You Who Go Down to the Depths
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -46960,11 +47682,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 至る is arriving at the end of a journey. 地底 is the underground of the setting rather
+      than a place below ground.
     verified: false
   地底をゆく:
     basis: official-jp
     en: Walking the Underground
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Going Through the Underground
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -46985,6 +47713,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: ゆく is the old form of going and carries a journey through, not a walk in.
     verified: false
   地獄で会おうと言ったはいいが。:
     basis: translated
@@ -49462,7 +50191,15 @@ names:
     reading_source_kind: analyser
     verified: false
   女子校だからセーフ【単話版】:
-    basis: romaji
+    basis: translated
+    en: It's Safe Because It's an All-Girls School (single chapters)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 単話版 is the edition sold a chapter at a time.
     reading: ジョシコウ ダカラ セーフ 【タンワバン】
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -50118,7 +50855,15 @@ names:
     reading_source_kind: analyser
     verified: false
   姉になりたい義姉vs百合になりたい義妹:
-    basis: romaji
+    basis: translated
+    en: The Stepsister Who Wants to Be a Big Sister vs the Stepsister Who Wants Yuri
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 義姉 and 義妹 cover both a step-sibling and one by marriage, and the title does not say which.
     reading: アネ ニ ナリタイ アネ vs ユリ ニ ナリタイ イモウト
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -50204,7 +50949,15 @@ names:
     reading_source_kind: analyser
     verified: false
   姉を好きなお姉さんと【単話版】:
-    basis: romaji
+    basis: translated
+    en: With the Woman Who's in Love with My Sister (single chapters)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: お姉さん here is an older woman rather than the speaker's own sister, who is the 姉.
     reading: アネ オ スキナ オネエサン ト 【タンワバン】
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -50486,6 +51239,10 @@ names:
     basis: official-jp
     en: Jealousy Notebook
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Jealousy Pocketbook
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -50505,6 +51262,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 手帳 is the small book carried about, which the publisher's notebook leaves on a desk.
     verified: false
   嫌われ魔女令嬢と男装皇子の婚約:
     basis: translated
@@ -50567,6 +51325,10 @@ names:
     basis: licensed
     en: Gakuen Polizi
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: School Polizei
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -50584,6 +51346,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: ポリーチェ is the Italian polizia in kana. The official English romanises the kana instead,
+      which leaves an English reader a word in no language.
     verified: false
   学校が違うふたり:
     basis: translated
@@ -51172,6 +51936,15 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  対ありでした。:お嬢さまは格闘ゲームなんてしない:
+    basis: translated
+    en: 'Thanks for the Match.: A Young Lady Would Never Play Fighting Games'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 対あり is 対戦ありがとうございました clipped, what players say after a round.
+    verified: false
   寿命をゆずる友だちの話。:
     basis: translated
     en: A Story About a Friend Who Gives Away Her Lifespan.
@@ -51369,6 +52142,15 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  小春と湊:わたしのパートナーは女の子:
+    basis: translated
+    en: 'Koharu and Minato: My Partner Is a Girl'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: Two given names, the first of which is also a warm spell in early winter.
     verified: false
   小林さんちのメイドラゴン:
     basis: licensed
@@ -53412,7 +54194,15 @@ names:
     reading_source_kind: derived
     verified: false
   彼氏の女友達がぐいぐい来る〈私に〉:
-    basis: romaji
+    basis: translated
+    en: My Boyfriend's Girl Friend Keeps Pushing In (On Me)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ぐいぐい来る is coming on strongly and without pause. The angle brackets are the title's own afterthought.
     reading: カレシ ノ オンナトモダチ ガ グイグイ クル ワタシ ニ
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -53710,7 +54500,14 @@ names:
     reading_source_kind: analyser
     verified: false
   心の声が漏れやすいメイドさん:
-    basis: romaji
+    basis: translated
+    en: The Maid Whose Inner Voice Keeps Leaking Out
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 心
       - こころ
@@ -53724,6 +54521,7 @@ names:
       - も
     - - れやすいメイドさん
       - null
+    note: 心の声 is what a character thinks rather than says.
     reading: ココロ ノ コエ ガ モレヤスイ メイドサン
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -53854,7 +54652,12 @@ names:
     reading_source_kind: analyser
     verified: false
   志摩風さんのAクイック.:
-    basis: romaji
+    basis: translated
+    en: Shimafuu-san's A Quick.
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 志摩
       - しま
@@ -53862,6 +54665,7 @@ names:
       - ふう
     - - さんのAクイック.
       - null
+    note: A quick is the volleyball attack hit close in front of the setter.
     reading: シマフウサン ノ A クイック .
     reading_at: '2026-08-07'
     reading_basis: analyser
@@ -54078,7 +54882,12 @@ names:
     reading_source_kind: analyser
     verified: false
   性別不明な中性僕っ子とお姉さん:
-    basis: romaji
+    basis: translated
+    en: The Androgynous Boku-Girl of Unknown Sex and the Older Woman
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 性別
       - せいべつ
@@ -54100,6 +54909,7 @@ names:
       - ねえ
     - - さん
       - null
+    note: 僕っ子 is a girl who says boku, a pronoun usually a boy's, which is what the title is about.
     reading: セイベツ フメイナ チュウセイ ボクッコ ト オネエサン
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -55032,6 +55842,9 @@ names:
     - basis: licensed
       source: sevenseasentertainment.com
       value: A Love Yet to Bloom
+    - basis: translated
+      source: yurarium
+      value: Bluer than Love
     en_reviewed: '2026-08-07'
     en_source: mediaarts-db
     en_source_kind: bibliography
@@ -55054,6 +55867,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: より is the comparison, and the publisher capitalises the word that carries it.
     verified: false
   恋より青く = Bluer Than Love:
     basis: official-jp
@@ -56645,6 +57459,10 @@ names:
     basis: official-jp
     en: The Beasts Who Don't Know Love
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Beasts That Have Never Known Love
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -56674,6 +57492,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 知らない is having no acquaintance with a thing. The publisher's English reads as not
+      understanding it.
     verified: false
   愛を食べて生きる狼:
     basis: translated
@@ -58590,6 +59410,10 @@ names:
     basis: licensed
     en: The Last Uniform (new edition)
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Final Uniform (reissue)
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -58615,6 +59439,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 新装版 is the same book issued again in new covers. 最後 is final in the sense of last
+      of all.
     verified: false
   日なたのシルベチカ:
     basis: translated
@@ -58789,6 +59615,10 @@ names:
     basis: licensed
     en: Cheerful Amnesia
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Bright Amnesia
     en_reviewed: '2026-08-06'
     en_source: yenpress.com
     en_source_kind: licensor
@@ -58812,6 +59642,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 明るい is light rather than dark before it is cheerful, and the pairing with 記憶喪失 is
+      what the title turns on.
     verified: false
   明日、きみに会えたら:
     basis: translated
@@ -60172,6 +61004,10 @@ names:
     basis: licensed
     en: The Last Uniform
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Final Uniform
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -60192,6 +61028,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 最後 is the last of a sequence, which the licensed last leaves open between last and
+      latest.
     verified: false
   最後の告白:
     basis: translated
@@ -60242,7 +61080,12 @@ names:
     reading_source_kind: analyser
     verified: false
   最恐呪物令嬢:
-    basis: romaji
+    basis: translated
+    en: The Most Frightening Lady of Cursed Objects
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 最
       - さい
@@ -60252,6 +61095,7 @@ names:
       - じゅぶつ
     - - 令嬢
       - れいじょう
+    note: 最恐 is 最強, strongest, with the character for fear put in its place.
     reading: サイ オソレ ジュブツ レイジョウ
     reading_at: '2026-08-15'
     reading_basis: analyser
@@ -60294,6 +61138,15 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
+    verified: false
+  最恐呪物令嬢〜彼女は呪物を愛しすぎている〜:
+    basis: translated
+    en: 'The Most Frightening Lady of Cursed Objects: She Loves Cursed Objects Far Too Much'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 最恐 puts the character for fear where 最強, strongest, would be.
     verified: false
   最愛のお姉様が悪役令嬢だったので、神が定めた運命に抗います@COMIC:
     basis: romaji
@@ -61361,6 +62214,10 @@ names:
     basis: official-jp
     en: Nesting Crow
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Roosting Crow
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -61380,6 +62237,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 栖 is where a bird settles for the night. The publisher's nesting puts eggs in it.
     verified: false
   栗子さんの選択:
     basis: translated
@@ -61825,6 +62683,10 @@ names:
     basis: licensed
     en: The Conditions of Paradise (Series)
     en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Conditions of Paradise
     en_reviewed: '2026-08-05'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -61845,6 +62707,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: The licensed name appends Series, which is the shop gathering the volumes rather
+      than the title.
     verified: false
   横槍メンゴ新作読切シリーズ:
     basis: translated
@@ -63359,7 +64223,12 @@ names:
     reading_source_kind: analyser
     verified: false
   河島さんは面倒くさい。:
-    basis: romaji
+    basis: translated
+    en: Kawashima-san Is a Handful.
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 河島
       - かわしま
@@ -63369,6 +64238,7 @@ names:
       - めんどう
     - - くさい。
       - null
+    note: 面倒くさい is more tiring than difficult, said of someone who takes work.
     reading: カワシマサン ワ メンドウクサイ。
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -63778,6 +64648,10 @@ names:
     basis: licensed
     en: Days of Love at Seagull Villa
     en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Umineko Manor Days
     en_reviewed: '2026-08-05'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -63797,6 +64671,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 海猫 is the black-tailed gull, whose cry is said to sound like a cat's, and 荘 names
+      a block of flats or a villa. The licensed title adds a love the Japanese does not state.
     verified: false
   海鳥東月の『でたらめ』な事情:
     basis: translated
@@ -64494,7 +65370,15 @@ names:
     reading_source_kind: analyser
     verified: false
   灼熱の卓球娘reburn!!:
-    basis: romaji
+    basis: translated
+    en: Scorching Ping Pong Girls reburn!!
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The base series is known in English as Scorching Ping Pong Girls; reburn is the work's own.
     reading: シャクネツ ノ タッキュウムスメ reburn !!
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -64774,6 +65658,10 @@ names:
     basis: licensed
     en: A Tropical Fish Yearns for Snow
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Tropical Fish Longs for Snow
     en_reviewed: '2026-08-06'
     en_source: viz.com
     en_source_kind: licensor
@@ -64802,6 +65690,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 焦がれる is a longing that burns, and は marks one fish the story is about.
     verified: false
   熱演:
     basis: translated
@@ -64959,12 +65848,18 @@ names:
     reading_source_kind: analyser
     verified: false
   犬窪ノアとなかよしするまで:
-    basis: romaji
+    basis: translated
+    en: Until I'm Friends with Inukubo Noa
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 犬窪
       - いぬくぼ
     - - ノアとなかよしするまで
       - null
+    note: なかよしする makes a verb of なかよし, being close.
     reading: イヌクボ ノア ト ナカヨシ スル マデ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -65036,6 +65931,10 @@ names:
     basis: licensed
     en: Cats and Sugar Bowls
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Cat and the Sugar Pot
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -65054,6 +65953,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: The Japanese counts neither, and the licensed English makes both plural.
     verified: false
   猫に白鳥、蛍に小判:
     basis: translated
@@ -66026,6 +66926,15 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  田舎エッチ~田舎のエッチな女の子と過ごすひと夏のエッチな思い出~アンソロジーコミック:
+    basis: translated
+    en: 'Country Sex: A Summer of Sexy Memories with Sexy Country Girls, Anthology Comic'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: エッチ carries both the act and the adjective, which the English splits.
+    verified: false
   田舎エッチ～田舎のエッチな女の子と過ごすひと夏のエッチな思い出～アンソロジーコミック:
     basis: romaji
     furigana_spans:
@@ -66099,7 +67008,15 @@ names:
     reading_source_kind: derived
     verified: false
   男だけど死神姫の嫁になりました(仮):
-    basis: romaji
+    basis: translated
+    en: I'm a Man, but I Became the Death God Princess's Bride (provisional)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: (仮) says the title itself is not final.
     reading: オトコ ダケド シニガミヒメ ノ ヨメ ニ ナリマシタ (カリ)
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -66270,6 +67187,10 @@ names:
     basis: official-jp
     en: BEAST MODE
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Brute Mode
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -66290,9 +67211,19 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 畜生 is an animal and is also what a person swears. The publisher's beast keeps the
+      creature and not the curse.
     verified: false
   異世界でも風俗嬢やってみた:
-    basis: romaji
+    basis: translated
+    en: I Tried Sex Work in Another World Too
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 風俗嬢 is a woman working in the sex trade, and でも carries that she did it here first.
     reading: イセカイ デモ フウゾクジョウ ヤッテミタ
     reading_at: '2026-08-08'
     reading_basis: stated
@@ -66463,7 +67394,15 @@ names:
     reading_source_kind: analyser
     verified: false
   異種族女子に○○する話:
-    basis: romaji
+    basis: translated
+    en: The Story of Doing ○○ with a Girl of Another Species
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The circles stand for a word the title declines to print, and stay unfilled.
     reading: イシュゾク ジョシ ニ ○○ スル ハナシ
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -66957,6 +67896,10 @@ names:
     basis: official-jp
     en: Chalk-White Promise
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Chalk Promise
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -66979,6 +67922,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 白亜 is chalk, the stone, and names a white-walled building. The publisher's English
+      reads it as a colour.
     verified: false
   白妙様、秘密ですよ:
     basis: translated
@@ -68005,6 +68950,9 @@ names:
     - basis: romaji
       source: yurarium
       value: The Yuri Barizumu Club
+    - basis: translated
+      source: yurarium
+      value: The Yuri Balism Club
     en_reviewed: '2026-08-05'
     en_source: series-art
     en_source_kind: platform
@@ -68023,6 +68971,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 部 is a school club, and the official English runs the whole title together romanised,
+      so the club is not visible in it.
     verified: false
   百合フェチLIFE:
     basis: translated
@@ -68079,6 +69029,15 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  百合ラブスレイブ:ふたりだけの放課後:
+    basis: translated
+    en: 'Yuri Love Slave: An After-School for Two Alone'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 放課後 is the stretch of the day after lessons end.
     verified: false
   百合乙女至上主義:
     basis: translated
@@ -68866,7 +69825,15 @@ names:
     reading_source_kind: analyser
     verified: false
   百合ＳＭでふたりの気持ちはつながりますか？【単話版】:
-    basis: romaji
+    basis: translated
+    en: Can Yuri SM Connect Our Feelings? (single chapters)
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 単話版 is the edition sold a chapter at a time.
     reading: ユリ SM デ フタリ ノ キモチ ワ ツナガリマスカ？【タンワバン】
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -69999,7 +70966,12 @@ names:
     reading_uncertain: true
     verified: false
   神絵師のおしごと:
-    basis: romaji
+    basis: translated
+    en: The Work of a God-Tier Artist
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 神
       - かみ
@@ -70007,6 +70979,7 @@ names:
       - えし
     - - のおしごと
       - null
+    note: 神絵師 is online praise for an artist whose drawing is beyond the rest.
     reading: カミエシ ノ オ シゴト
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -70197,6 +71170,10 @@ names:
     basis: licensed
     en: No Matter How I Look at It, It's You Guys' Fault I'm Not Popular!
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: However I Think About It, It's You Lot Who Are to Blame for My Not Being Popular!
     en_reviewed: '2026-08-04'
     en_source: Yen Press
     en_source_kind: licensor
@@ -70227,6 +71204,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: お前ら is a rough plural you thrown at the reader, and どう考えても is turning the question
+      over and reaching the same answer.
     verified: false
   私がリアルで、百合なんて。:
     basis: translated
@@ -71100,6 +72079,10 @@ names:
     basis: licensed
     en: My Cute Little Kitten
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: My Sweet Little Kitten
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -71126,11 +72109,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 可愛い covers sweet as well as cute, and 子猫ちゃん already carries the little in its suffix.
     verified: false
   私の可愛い子猫ちゃん【合本版】:
     basis: licensed
     en: My Cute Little Kitten (omnibus)
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: My Sweet Little Kitten (collected)
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -71162,6 +72150,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 合本版 is the volumes bound together and sold as one, which the licensed omnibus names
+      in the trade's word.
     verified: false
   私の可愛い翼ちゃん:
     basis: translated
@@ -71970,6 +72960,10 @@ names:
     basis: licensed
     en: The Whole of Humanity Has Gone Yuri Except for Me
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Everyone in the Human Race but Me Is Yuri
     en_reviewed: '2026-08-06'
     en_source: yenpress.com
     en_source_kind: licensor
@@ -71995,6 +72989,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 人類 is the species rather than the people in the room, which is the scale the joke
+      needs.
     verified: false
   私立百合ヶ浜学院:
     basis: translated
@@ -72192,6 +73188,15 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  秘のライラ:
+    basis: translated
+    en: Top-Secret Laila
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ㊙ is the stamp meaning confidential, used here as a word.
     verified: false
   秘密のお姉さん養成ノート:
     basis: translated
@@ -72996,6 +74001,10 @@ names:
     basis: licensed
     en: Pandora in the Crimson Shell
     en_at: '2026-08-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Pandora of the Red-Lead Shell
     en_reviewed: '2026-08-04'
     en_source: Seven Seas Entertainment
     en_source_kind: licensor
@@ -73016,6 +74025,8 @@ names:
     reading_source: Seven Seas Entertainment
     reading_source_kind: derived
     reading_url: https://tankobonbon.com/products/9781626921900
+    translation_note: 紅殻 is bengara, the red iron oxide used as a pigment, and the licensed crimson reads
+      it as a colour word. The shell is the body she is put into.
     verified: false
   '紅殻のパンドラ : GHOST URN':
     basis: romaji
@@ -73033,6 +74044,15 @@ names:
     reading_reviewed: '2026-08-08'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
+    verified: false
+  紅殻のパンドラ:GHOSTURN:
+    basis: translated
+    en: 'Pandora of the Crimson Shell: Ghost Urn'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 紅殻 is red lead, the pigment, read here for the shell it also writes.
     verified: false
   '紅茶の魔女の優雅なる宮廷生活 : チートをひた隠す最弱魔導師の窓際ライフ':
     basis: romaji
@@ -73098,6 +74118,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  紅茶の魔女の優雅なる宮廷生活:チートをひた隠す最弱魔導師の窓際ライフ:
+    basis: translated
+    en: 'The Elegant Court Life of the Black Tea Witch: The Weakest Mage''s Sidelined Life, Hiding Her
+      Cheat'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 窓際 is the desk by the window an employee is moved to when nothing is expected of them.
     verified: false
   紅蓮紀:
     basis: translated
@@ -73784,6 +74814,10 @@ names:
     basis: official-jp
     en: Friendly Feuding Families
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Bosses Are Friends
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -73805,6 +74839,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 組長 heads a gang, and なかよし is being on good terms with no feud behind it.
     verified: false
   結ばれる日/読み切り:
     basis: translated
@@ -75863,6 +76898,10 @@ names:
     basis: official-jp
     en: UNCONNECTED MARKETEERS ET CETERA
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Rainbow Dragon Cave, Et Cetera
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -75885,6 +76924,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 虹龍洞 is the rainbow dragon cave the game is set in, which the game's English name
+      replaces rather than renders.
     verified: false
   蜂も刺さずばうたれまい:
     basis: translated
@@ -76135,6 +77176,10 @@ names:
     basis: licensed
     en: Otherside Picnic
     en_at: '2026-08-03'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Picnic in the World Behind
     en_reviewed: '2026-08-03'
     en_source: Square Enix Manga & Books
     en_source_kind: licensor
@@ -76154,11 +77199,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 裏 is the reverse side of a thing, the face that is there and not shown. The licensed
+      Otherside reads as a place with a name.
     verified: false
   裏切りは甘露の蜜:
     basis: official-jp
     en: Betrayal is the Sweetest Nectar
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Betrayal Is the Honey of Sweet Dew
     en_reviewed: '2026-08-06'
     en_source: bookwalker.jp
     en_source_kind: platform
@@ -76186,6 +77237,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 甘露 is the sweet dew of the old stories and 蜜 the honey, two words the publisher's
+      English folds into one.
     verified: false
   裏庭には…！:
     basis: translated
@@ -76349,6 +77402,10 @@ names:
     basis: licensed
     en: I See You, Aizawa-san!
     en_at: '2026-08-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: It's Showing, Aizawa-san!
     en_reviewed: '2026-08-05'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -76364,6 +77421,8 @@ names:
     reading_reviewed: '2026-08-04'
     reading_source: derived
     reading_source_kind: derived
+    translation_note: 見えてますよ is said to someone who cannot see what everyone else can, so the line is
+      about what is on show rather than about being seen.
     verified: false
   見えてますよ!愛沢さん:
     basis: romaji
@@ -76389,6 +77448,10 @@ names:
     basis: licensed
     en: I See You, Aizawa-san! (series)
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: It's Showing, Aizawa-san! (series)
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -76410,6 +77473,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 見えてますよ is what you say to someone whose something is showing. シリーズ is the shop gathering
+      the volumes rather than part of the title.
     verified: false
   見えてますよ！愛沢さん:
     basis: translated
@@ -76450,7 +77515,12 @@ names:
     reading_source_kind: derived
     verified: false
   見える子ちゃん公式アンソロジーコミック:
-    basis: romaji
+    basis: translated
+    en: 'The Girl Who Can See: Official Anthology Comic'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 見
       - み
@@ -76464,6 +77534,7 @@ names:
       - こうしき
     - - アンソロジーコミック
       - null
+    note: 公式 marks the anthology as the publisher's own rather than a fan book.
     reading: ミエル コチャン コウシキ アンソロジー コミック
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -77163,7 +78234,12 @@ names:
     reading_source_kind: analyser
     verified: false
   贋作の第十番:
-    basis: romaji
+    basis: translated
+    en: Forgery No. 10
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 贋作
       - がんさく
@@ -77175,6 +78251,7 @@ names:
       - じゅう
     - - 番
       - ばん
+    note: 贋作 is a forged work of art, and 第十番 numbers it as a catalogue would.
     reading: ガンサク ノ ダイ ジュウ バン
     reading_at: '2026-08-15'
     reading_basis: analyser
@@ -77660,6 +78737,9 @@ names:
     - basis: licensed
       source: Yen Press
       value: The Magical Revolution of the Reincarnated Princess and the Genius Young Lady
+    - basis: translated
+      source: yurarium
+      value: The Magical Revolution of the Reincarnated Princess and the Genius Young Lady
     en_reviewed: '2026-08-07'
     en_source: mediaarts-db
     en_source_kind: bibliography
@@ -77679,6 +78759,8 @@ names:
     reading_source: Yen Press
     reading_source_kind: derived
     reading_url: https://yenpress.com/series/the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady-manga
+    translation_note: 転生 is being born again into another life, which the publisher's reincarnation leaves
+      as a noun beside the princess rather than something done to her.
     verified: false
   転生王女と天才令嬢の魔法革命 = The Magical Revolution of Reincarnation Princess and Genius Young Lady:
     basis: official-jp
@@ -77797,7 +78879,12 @@ names:
     reading_source_kind: analyser
     verified: false
   迷えるJCがキスをたしなむ話:
-    basis: romaji
+    basis: translated
+    en: The Story of a Lost JC Who Takes to Kissing
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 迷
       - まよ
@@ -77805,6 +78892,7 @@ names:
       - null
     - - 話
       - はなし
+    note: JC is 女子中学生, a middle-school girl. たしなむ is taking something up as a habit one enjoys.
     reading: マヨエル JC ガ キス ヲ タシナム ハナシ
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -78161,6 +79249,15 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I032927981
     verified: true
+  遠山えま百合集:センセイとの時間。:
+    basis: translated
+    en: 'Tooyama Ema Yuri Collection: Time with Sensei.'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 百合集 collects an artist's yuri work; the name is the artist's.
+    verified: false
   遠山えま百合集　センセイとの時間。:
     basis: translated
     en: 'Ema Tōyama''s Yuri Collection: Time with Sensei'
@@ -78901,7 +79998,12 @@ names:
     reading_source_kind: analyser
     verified: false
   阿久津さんは推しに似ている.:
-    basis: romaji
+    basis: translated
+    en: Akutsu-san Looks Like My Favourite.
+    en_at: '2026-08-08'
+    en_reviewed: '2026-08-08'
+    en_source: derived
+    en_source_kind: derived
     furigana_spans:
     - - 阿久津
       - あくつ
@@ -78915,6 +80017,7 @@ names:
       - に
     - - ている.
       - null
+    note: 推し is whoever one backs and champions, an idol or a character.
     reading: アクツサン ワ オシ ニ ニテ イル .
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -78992,7 +80095,16 @@ names:
     reading_source_kind: analyser
     verified: false
   限界OLと女子大生が○○する話:
-    basis: romaji
+    basis: translated
+    en: The Story of a Burnt-Out Office Worker and a University Girl Doing ○○
+    en_at: '2026-08-08'
+    en_corroborated:
+    - ndlsearch.ndl.go.jp
+    en_reviewed: '2026-08-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 限界 said of a person is being at the end of what they can take. The circles stand for a word
+      the title declines to print.
     reading: ゲンカイ OL ト ジョシダイセイ ガ ○○ スル ハナシ
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -79506,6 +80618,9 @@ names:
     - basis: licensed
       source: Kodansha
       value: The Moon on a Rainy Night
+    - basis: translated
+      source: yurarium
+      value: The Moon on a Rainy Night
     en_reviewed: '2026-08-07'
     en_source: mediaarts-db
     en_source_kind: bibliography
@@ -79526,6 +80641,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: 雨夜 is one word for a night of rain, and the publisher sets the title in lower case.
     verified: false
   雨夜の月 = the moon on a rainy night:
     basis: official-jp
@@ -80444,6 +81560,10 @@ names:
     basis: licensed
     en: 'Takane-san and Arashi-chan: The First Story'
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Takane-san and Arashi-chan: How It Started'
     en_reviewed: '2026-08-06'
     en_source: yenpress.com
     en_source_kind: licensor
@@ -80469,6 +81589,7 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: はじめの話 is the story of the beginning, which the licensed first story numbers instead.
     verified: false
   '鬼と夜明け : 幕末女子高生':
     basis: romaji
@@ -80480,6 +81601,15 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033294027
     verified: true
+  鬼と夜明け:幕末女子高生:
+    basis: translated
+    en: 'Demons and Daybreak: A High-School Girl in the Bakumatsu'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 幕末 is the closing years of the shogunate, which English keeps by name.
+    verified: false
   鬼売れアイドルが今日も私を推してくる:
     basis: translated
     en: The Wildly Popular Idol Keeps Cheering Me On
@@ -80543,6 +81673,10 @@ names:
     basis: licensed
     en: 5 Seconds Before a Witch Falls in Love
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Five Seconds Before the Witch Falls in Love
     en_reviewed: '2026-08-06'
     en_source: sevenseasentertainment.com
     en_source_kind: licensor
@@ -80569,6 +81703,7 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     reading_uncertain: true
+    translation_note: が marks one witch the title is about, which the licensed a leaves indefinite.
     verified: false
   魔女ってバイト代出ます？:
     basis: translated
@@ -80767,12 +81902,18 @@ names:
     reading_source_kind: derived
     verified: false
   魔女まじょs-witch:
-    basis: romaji
+    basis: translated
+    en: Witch Witch s-witch
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 魔女
       - まじょ
     - - まじょs-witch
       - null
+    note: 魔女 and まじょ are the same word twice, and s-witch cuts switch so the witch shows in it.
     reading: マジョ マジョ s - witch
     reading_at: '2026-08-13'
     reading_basis: analyser
@@ -80976,6 +82117,15 @@ names:
     reading_reviewed: '2026-08-08'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
+    verified: false
+  魔法を捨てたい女の子:EnchantedGirlandtheSecretRoses:
+    basis: translated
+    en: 'The Girl Who Wants to Throw Magic Away: Enchanted Girl and the Secret Roses'
+    en_at: '2026-08-15'
+    en_reviewed: '2026-08-15'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The English subtitle is the work's own and is kept.
     verified: false
   魔法使いの作庭/よみきり:
     basis: translated

@@ -44,6 +44,43 @@ def main(s):
     s.check(curate.problems("titles", "x", with_(reviewed=None)),
             "an entry with no review date")
 
+    # ── THE ENGLISH'S OWN SOURCE, WHICH THE CHECK COULD NOT SEE ──────────────────────────────────
+    #
+    # ONE ENTRY, TWO CLAIMS, TWO SOURCES. `en_source_kind` mirrors `reading_source_kind` and was
+    # already in KEYS and already recorded by `apply`; only `problems` went on testing the ENTRY's
+    # `source_kind` for the English. 17 titles carry `ndlsearch.ndl.go.jp` because that is where
+    # their KANA came from, so a translation of our own beside one of them was refused for resting
+    # on a national library that translated nothing, and the vocabulary written to say otherwise
+    # was read by nobody.
+    NDL = {"en": "It's Safe Because It's an All-Girls School", "basis": "translated",
+           "source": "ndlsearch.ndl.go.jp", "source_kind": "national-library",
+           "reading": "ジョシコウ ダカラ セーフ", "reading_basis": "stated",
+           "reading_source_kind": "national-library",
+           "reading_url": "https://example.invalid/ndl", "reviewed": "2026-08-15",
+           "note": "The catalogue holds the kana and translates nothing."}
+    s.check(curate.problems("titles", "x", NDL),
+            "an entry whose only stated source is a catalogue cannot claim a translation")
+    s.eq(curate.problems("titles", "x", dict(NDL, en_source="yurarium",
+                                             en_source_kind="derived")), [],
+         "and naming the English's own source is what makes it ours to have made")
+
+    # THE PAGE IS OWED ON THE SAME TERMS. A derived English owes none, whatever catalogue supplied
+    # the reading beside it, so the demand has to read the same key the attribution does.
+    s.eq(curate.problems("titles", "x", {k: v for k, v in NDL.items()
+                                         if not k.startswith("reading")}
+                         | {"en_source": "yurarium", "en_source_kind": "derived"}), [],
+         "a translation cites no page even where the entry's own source would owe one")
+
+    # AND A MISSPELT KEY IS NOT A SILENT FALLBACK, which is the failure this pair exists to end:
+    # unchecked, `derivd` reads as an entry saying nothing about its English and hands the question
+    # back to the entry's `source_kind`, which is the very conflation being separated.
+    s.check(curate.problems("titles", "x", dict(NDL, en_source="yurarium",
+                                                en_source_kind="derivd")),
+            "an en_source_kind outside the vocabulary is named rather than ignored")
+    s.check(curate.problems("titles", "x", dict(OURS, reading="ア", reading_basis="surface",
+                                                reading_source_kind="drived")),
+            "and the reading's own key is held to the same list")
+
     # A COMMA THE CATALOGUE CLOSED UP. MADB and openBD transcribe to ISBD and drop the space after a
     # comma doing it, so a name carrying one has not been read off the work. It sent five entries
     # out with a comma no publisher set, including Nighty night,Sheherazade, whose cover breaks the

@@ -292,18 +292,31 @@ def problems(kind, ja, e):
         out.append(f"{where}: no source")
     if e.get("source_kind") not in SOURCE_KINDS:
         out.append(f"{where}: source_kind {e.get('source_kind')!r} is not one of {SOURCE_KINDS}")
+    # AND THE PER-CLAIM ONES ARE THE SAME VOCABULARY. Unchecked, a misspelt `en_source_kind` reads
+    # as an entry saying nothing about where its English came from, which is the entry's own
+    # `source_kind` answering for it. That is the silent fallback this pair of keys exists to end.
+    for k in ("en_source_kind", "reading_source_kind"):
+        if e.get(k) is not None and e.get(k) not in SOURCE_KINDS:
+            out.append(f"{where}: {k} {e.get(k)!r} is not one of {SOURCE_KINDS}")
     if not e.get("reviewed"):
         out.append(f"{where}: no reviewed date; a curated entry is a decision somebody made")
 
     if e.get("en"):
         basis = e.get("basis")
         table = KIND_ATTRIBUTION.get(kind, ATTRIBUTION)
+        # THE ENGLISH'S OWN SOURCE OUTRANKS THE ENTRY'S, exactly as `reading_source_kind` does
+        # below. `en_source_kind` was added to KEYS and passed through to the store, and this test
+        # went on reading the entry's `source_kind`, so the vocabulary existed and the check could
+        # not see it. What it cost: 17 titles read off ndlsearch carry the catalogue as the entry's
+        # source because that is where the KANA came from, and a translation of our own beside one
+        # of them was rejected for resting on a national library that translated nothing.
+        esk = e.get("en_source_kind") or e.get("source_kind")
         if basis not in table:
             out.append(f"{where}: basis {basis!r} is not one of {sorted(table)}")
-        elif e.get("source_kind") not in table[basis]:
+        elif esk not in table[basis]:
             out.append(f"{where}: basis {basis!r} needs evidence from "
-                       f"{' or '.join(table[basis])}, not {e.get('source_kind')!r}")
-        if e.get("source_kind") != "derived" and not (e.get("source_url") or e.get("en_url")):
+                       f"{' or '.join(table[basis])}, not {esk!r}")
+        if esk != "derived" and not (e.get("source_url") or e.get("en_url")):
             out.append(f"{where}: an attributed name needs the page it was read from")
         if (e.get("en_source") or e.get("source")) in FLATTENS_THE_COMMA and CLOSED_COMMA.search(e["en"]):
             out.append(f"{where}: {e.get('en_source') or e.get('source')} transcribes a title onto "

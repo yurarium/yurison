@@ -80,8 +80,11 @@ works:
     url: "https://www.corocoro.jp/title/65"
     platform_name: "コロコロオンライン"
     route: "rendered"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
+      - title: "第101話"
+        updated: 2026-08-15
+        date_basis: rendered
       - title: "第100話"
         updated: 2026-08-01
         date_basis: rendered
@@ -724,26 +727,159 @@ works:
         author: "あらた伊里/アトハ/狐印"
         access_modes: ["free"]
   - work_title: "フレンドガールフレンド"
+    author: "瑠夏子"
     url: "https://hanayume.com/series/f3ce082d639de"
     platform_name: "花とゆめ+"
-    route: "rendered"
-    chapter_count: 5
+    route: "comici"
+    chapter_count: 31
     chapters:
       - title: "#1"
         updated: 2026-04-20
-        date_basis: rendered
+        author: "瑠夏子"
+        access_modes: ["free"]
       - title: "#2"
         updated: 2026-04-20
-        date_basis: rendered
+        author: "瑠夏子"
+        access_modes: ["free"]
       - title: "#3"
         updated: 2026-04-20
-        date_basis: rendered
+        author: "瑠夏子"
+        access_modes: ["free"]
       - title: "#4①"
         updated: 2026-04-20
-        date_basis: rendered
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#4②"
         updated: 2026-04-20
-        date_basis: rendered
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "#5①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "#5②"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "#6①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "#6②"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "おまけ"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "#7①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "#7②"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "#8①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "#8②"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃9①"
+        updated: 2026-04-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃9②"
+        updated: 2026-04-27
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃10①"
+        updated: 2026-05-04
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃10②"
+        updated: 2026-05-11
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "おまけ"
+        updated: 2026-05-18
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "＃11①"
+        updated: 2026-05-25
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃11②"
+        updated: 2026-06-01
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃12①"
+        updated: 2026-06-08
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃12②"
+        updated: 2026-06-15
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃13①"
+        updated: 2026-06-22
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃13②"
+        updated: 2026-06-29
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃14①"
+        updated: 2026-07-06
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃14②"
+        updated: 2026-07-13
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃15①"
+        updated: 2026-07-20
+        author: "瑠夏子"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "＃15②"
+        updated: 2026-07-27
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "おまけ"
+        updated: 2026-08-03
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "＃16①"
+        updated: 2026-08-10
+        author: "瑠夏子"
+        access_modes: ["purchase"]
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     author: "空山トキ / 五色安未 / 泉乃せん / 伍長 / 第１話　少女と暗殺者の世界"
     url: "https://comic-days.com/episode/2550912964518073379"
@@ -2179,75 +2315,38 @@ works:
         author: "ミナミト"
         access_modes: ["free"]
   - work_title: "運命は役に立たない"
-    author: "まめ魚"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     platform_name: "花とゆめ+"
-    route: "comici"
-    chapter_count: 14
+    route: "rendered"
+    chapter_count: 9
     chapters:
       - title: "1話"
         updated: 2026-04-20
-        author: "まめ魚"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "2話"
         updated: 2026-04-20
-        author: "まめ魚"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "3話"
         updated: 2026-04-20
-        author: "まめ魚"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "4話"
         updated: 2026-04-20
-        author: "まめ魚"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        date_basis: rendered
       - title: "5話"
         updated: 2026-04-20
-        author: "まめ魚"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "6話"
-        updated: 2026-04-20
-        author: "まめ魚"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "7話"
-        updated: 2026-04-26
-        author: "まめ魚"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "おまけ"
-        updated: 2026-05-10
-        author: "まめ魚"
-        access_modes: ["free"]
-      - title: "8話"
-        updated: 2026-05-24
-        author: "まめ魚"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        date_basis: rendered
       - title: "9話"
         updated: 2026-06-07
-        author: "まめ魚"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        date_basis: rendered
       - title: "10話"
         updated: 2026-06-21
-        author: "まめ魚"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "おまけ"
-        updated: 2026-07-05
-        author: "まめ魚"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "11話"
         updated: 2026-07-19
-        author: "まめ魚"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "12話"
         updated: 2026-08-02
-        author: "まめ魚"
-        access_modes: ["purchase"]
+        date_basis: rendered
   - work_title: "裏世界ピクニック"
     url: "https://www.ganganonline.com/title/38"
     platform_name: "ガンガンONLINE"
@@ -2264,149 +2363,49 @@ works:
     author: "りんご飴サード,川田暁生"
     url: "https://youngchampion.jp/series/86c1162f34a04"
     platform_name: "チャンピオンクロス"
-    route: "comici"
-    chapter_count: 29
+    route: "rendered"
+    chapter_count: 10
     chapters:
       - title: "第1話①"
         updated: 2025-11-05
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "第1話②"
         updated: 2025-11-05
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "第1話③"
         updated: 2025-11-05
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "第2話①"
         updated: 2025-12-03
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        date_basis: rendered
       - title: "第2話②"
         updated: 2025-12-10
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第2話③"
-        updated: 2025-12-17
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第3話①"
-        updated: 2026-01-07
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第3話②"
-        updated: 2026-01-14
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第3話③"
-        updated: 2026-01-21
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第4話①"
-        updated: 2026-02-04
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第4話②"
-        updated: 2026-02-11
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第4話③"
-        updated: 2026-02-18
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第5話①"
-        updated: 2026-03-04
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第5話②"
-        updated: 2026-03-11
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第5話③"
-        updated: 2026-03-18
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第6話①"
-        updated: 2026-04-01
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第6話②"
-        updated: 2026-04-08
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第6話③"
-        updated: 2026-04-15
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第7話①"
-        updated: 2026-05-06
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第7話②"
-        updated: 2026-05-13
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第7話③"
-        updated: 2026-05-20
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第8話①"
-        updated: 2026-06-03
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第8話②"
-        updated: 2026-06-10
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "第8話③"
-        updated: 2026-06-17
-        author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        date_basis: rendered
       - title: "第9話①"
         updated: 2026-07-01
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        date_basis: rendered
       - title: "第9話②"
         updated: 2026-07-08
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        date_basis: rendered
       - title: "第9話③"
         updated: 2026-07-15
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        date_basis: rendered
       - title: "第10話①"
         updated: 2026-08-05
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free"]
+        date_basis: rendered
       - title: "第10話②"
         updated: 2026-08-12
         author: "りんご飴サード,川田暁生"
-        access_modes: ["purchase"]
+        date_basis: rendered
   - work_title: "平良深姉妹はどっちもヤんでる"
     author: "金子ある"
     url: "https://comic-days.com/episode/4856001361274266527"
@@ -4571,12 +4570,12 @@ works:
   - work_title: "横槍メンゴ新作読切シリーズ"
     url: "https://ynjn.jp/title/30352"
     platform_name: "ヤンジャン+"
-    route: "rendered"
+    route: "markup"
     chapter_count: 1
     chapters:
       - title: "読み切り"
-        updated: 2026-08-10
-        date_basis: rendered
+        updated: 2026-08-15
+        date_basis: heuristic
   - work_title: "ナキノン"
     author: "根岸岳春"
     url: "https://heros-web.com/series/696d291fa1769"

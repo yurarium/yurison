@@ -5,14 +5,14 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-08-15
+retrieved: 2026-08-16
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 316
 works_on_watched_platform: 294
 platforms_total: 57
-platforms_watched: 40
+platforms_watched: 43
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
@@ -42,6 +42,21 @@ platforms_missing:
   - platform: "ゼロサムオンライン"
     works: 1
 works_missing:
+  - title: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/4133"
+    antenna_id: "212772"
+    tags: ["百合"]
+  - title: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3776"
+    antenna_id: "209939"
+    tags: ["百合", "サキュバス"]
+  - title: "百合SMでふたりの気持ちはつながりますか?"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/2391"
+    antenna_id: "102691"
+    tags: ["百合", "フェチ・性癖"]
   - title: "うさぎはかく語りき"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3572"
@@ -72,21 +87,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3108"
     antenna_id: "166358"
     tags: ["百合", "学園", "料理・グルメ", "女子高生"]
-  - title: "君が一等星に光るまで"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/4133"
-    antenna_id: "212772"
-    tags: ["百合"]
-  - title: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3776"
-    antenna_id: "209939"
-    tags: ["百合", "サキュバス"]
-  - title: "百合SMでふたりの気持ちはつながりますか?"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/2391"
-    antenna_id: "102691"
-    tags: ["百合", "フェチ・性癖"]
   - title: "エイティエイトを2でわって"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3423"
@@ -436,7 +436,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006547_S"
     antenna_id: "187688"
-    tags: ["オカルト", "サスペンス", "ホラー", "残酷・グロテスク", "架空の部活", "女子高生", "デスゲーム", "百合"]
+    tags: ["最近のコメント数"]
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008429_S"
@@ -456,7 +456,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007122_S"
     antenna_id: "196622"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "忍者", "ギャグ・コメディ", "女子高生"]
   - title: "猫に白鳥、蛍に小判"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006798_S"
@@ -747,16 +747,16 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006791_S"
     antenna_id: "194339"
     tags: ["百合"]
-  - title: "香り屋さんの纏さん"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2286"
-    antenna_id: "189564"
-    tags: ["百合", "読み切り"]
   - title: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
     antenna_id: "77857"
     tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
+  - title: "香り屋さんの纏さん"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/2286"
+    antenna_id: "189564"
+    tags: ["百合", "読み切り"]
   - title: "ひきこまり吸血姫の悶々"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/1593"
@@ -1367,16 +1367,16 @@ works_missing:
     url: "https://www.mangabox.me/reader/262412/"
     antenna_id: "156579"
     tags: ["百合"]
-  - title: "妖怪殲滅のサイコリリー"
-    platform: "マンガワン"
-    url: "https://manga-one.com/viewer/225633"
-    antenna_id: "180170"
-    tags: ["百合", "ホラー", "オカルト", "女子高生"]
   - title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
     platform: "マンガワン"
     url: "https://manga-one.com/manga/27253/chapter/307792"
     antenna_id: "200450"
     tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
+  - title: "妖怪殲滅のサイコリリー"
+    platform: "マンガワン"
+    url: "https://manga-one.com/viewer/225633"
+    antenna_id: "180170"
+    tags: ["百合", "ホラー", "オカルト", "女子高生"]
   - title: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
     platform: "ヤングアニマルWeb"
     url: "https://younganimal.com/series/060a6130e55b2"

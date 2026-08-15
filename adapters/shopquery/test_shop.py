@@ -173,6 +173,19 @@ def main(s):
     s.check(capture.SILENCE_CEILING < 1.0,
             "the ceiling is a share the run can exceed, not a formality")
 
+    # ── THE WORKLIST COMES FROM THE STORE, WHICH IS WHAT THE DEFAULT HAS TO SAY ───────────────
+    #
+    # `gap_works` has answered from the store since §11 and its default went on naming
+    # `data/build/series.json`, which §13 stopped writing. Every update run since died on
+    # FileNotFoundError before asking one shop, under `continue-on-error` where nothing looked, so
+    # the pass reported nothing and was doing nothing. A default naming a file the build does not
+    # write is the failure this asserts against, and a named path stays supported for running the
+    # pass against an older build.
+    s.eq(capture.SERIES, None,
+         "no file is named by default, so the question reaches the store")
+    s.check("data/build" not in str(capture.SERIES),
+            "and in particular not a path the compile stopped writing")
+
     s.eq(shop.query_url("卯花りりか"),
          "https://bookwalker.jp/search/?word=%E5%8D%AF%E8%8A%B1%E3%82%8A%E3%82%8A%E3%81%8B&qcat=2",
          "the マンガ store, which is the same restriction the shelf capture used")

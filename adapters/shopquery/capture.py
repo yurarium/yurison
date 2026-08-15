@@ -48,7 +48,12 @@ import shop                                                                    #
 import yaml                                                                    # noqa: E402
 
 OUT = "data/queue/shop-query.yaml"
-SERIES = "data/build/series.json"
+#: A NAMED FILE IS STILL A FILE, and no longer the default. This pass asks the STORE, which its
+#: own `gap_works` docstring has said since §11, and the default went on naming
+#: `data/build/series.json`. §13 stopped writing the corpus JSON, so every run since has died on
+#: FileNotFoundError before asking a single shop, under `continue-on-error` where nothing looked.
+#: `None` is what sends the question to the store; a path is for running against an old build.
+SERIES = None
 
 # A shop's catalogue changes a few times a year for a given work and nothing here is a release
 # feed, so a fortnight-old answer is as good as a fresh one.
@@ -260,7 +265,8 @@ def render(doc):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--out", default=OUT)
-    ap.add_argument("--series", default=SERIES)
+    ap.add_argument("--series", default=SERIES,
+                    help="an old build's series.json; by default the store answers")
     ap.add_argument("--cache", default=str(paths.cache("shopquery-cache")))
     ap.add_argument("--limit", type=int)
     ap.add_argument("--retrieved", default=datetime.date.today().isoformat())

@@ -158,6 +158,45 @@ def from_comici(html, page_url=""):
 
 
 
+#: ヤンジャン+ SERVES ITS CHAPTER LIST FROM ITS OWN API. The page is a Nuxt shell: the list a reader
+#: sees is fetched from `webapi.ynjn.jp`, so every route that reads markup found nothing and the
+#: work fell through to the one-shot heuristic. `横槍メンゴ新作読切シリーズ` shipped as one untitled
+#: 読み切り while the platform lists Vol.1 and Vol.2, both free, and the project owner read both.
+YNJN_TITLE = re.compile(r"^https?://ynjn\.jp/title/(\d+)")
+YNJN_API = "https://webapi.ynjn.jp/title/{tid}/episode"
+
+
+def from_ynjn(page_url, fetch=None):
+    """The platform's own episode list for a ヤンジャン+ work, or nothing where it is not one.
+
+    THE PLATFORM'S OWN WORDS BEAT A PATTERN IN A PAGE, which is why this is worth a route of its
+    own rather than a rendered DOM: the API states the chapter's name, whether it costs anything,
+    and how many there are. What it does NOT state is a date, and this invents none. A chapter with
+    no date is filed at the day it was first seen, which `build.py` locks and REQUIREMENTS §5 is
+    about. The magazine issues the blurb names are a print fact and are not a web release date.
+    """
+    m = YNJN_TITLE.match(str(page_url or ""))
+    if not m:
+        return []
+    raw = (fetch or get)(YNJN_API.format(tid=m.group(1)))
+    if not raw:
+        return []
+    try:
+        doc = json.loads(raw)
+    except ValueError:
+        return []
+    got = ((doc.get("data") or {}).get("episodes")) or []
+    out = []
+    for e in got:
+        name = re.sub(r"\s+", " ", str(e.get("name") or "")).strip()
+        if not name:
+            continue
+        free = str(e.get("reading_condition") or "").endswith("FREE") or not e.get("cost")
+        out.append({"title": name, "updated": TODAY,
+                    "access_modes": ["free"] if free else ["purchase"]})
+    return out
+
+
 def from_generic(html):
     got = try_jsonld(html) or try_next(html)
     if len(got) < 2:
@@ -323,6 +362,9 @@ def main():
                     page_author = _credits.people_only(_html.unescape(_lab.group(1).strip()))
             for name, fn in (("gigaviewer", lambda h: from_giga(h, url)),
                              ("comici", lambda h: from_comici(h, url)),
+                             # THE PLATFORM'S OWN LIST, ASKED BEFORE THE PATTERNS. It needs no
+                             # markup, so it is tried against the URL rather than the page.
+                             ("ynjn", lambda _h: from_ynjn(url)),
                              ("markup", from_generic)):
                 eps = fn(html)
                 if len(eps) >= MIN_EPISODES:
@@ -375,8 +417,12 @@ def main():
                     L.append(f"        access_modes: {js(e['access_modes'])}")
                 if e.get("access_note"):
                     L.append(f"        access_note: {js(e['access_note'])}")
-                if r["route"] in ("markup", "rendered"):
-                    L.append(f"        date_basis: {'rendered' if r['route']=='rendered' else 'heuristic'}")
+                # THE ROUTE IS WHAT DECIDES HOW GOOD THE DATE IS. `ynjn` states a chapter list and
+                # no dates at all, so its rows carry the day they were read, which is the same
+                # standing as a date matched as a pattern and is said the same way.
+                if r["route"] in ("markup", "rendered", "ynjn"):
+                    L.append(f"        date_basis: "
+                             f"{'rendered' if r['route'] == 'rendered' else 'heuristic'}")
         L.append("")
         (out / f"{a.name}.yaml").write_text("\n".join(L))
 

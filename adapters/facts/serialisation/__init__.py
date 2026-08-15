@@ -17,6 +17,7 @@ rather than stored. That is the arrangement `facts/division` already has with `b
 WHAT THIS DOES NOT OWN. When a work enters each state, which is `build.py`'s thresholds over the
 release feed and is judgement rather than vocabulary.
 """
+import re
 
 #: WHAT A WORK'S SERIALISATION IS DOING. `PRINT` and `ONESHOT` describe a work with no serialisation
 #: to be running at all; `ACTIVE`, `SLOW` and `DORMANT` are thresholds over how recently a chapter
@@ -41,6 +42,24 @@ SAYS = (RUNNING, COMPLETED)
 #: being, and `unclassified` a row nothing has decided about.
 CHAPTER, EXTRA, ACCESS_CHANGE, UNCLASSIFIED = "chapter", "extra", "access-change", "unclassified"
 RELEASE_KINDS = (CHAPTER, ONESHOT, EXTRA, ACCESS_CHANGE, UNCLASSIFIED)
+
+
+#: WHAT A PLATFORM CALLS A WORK COMPLETE IN ONE SITTING. `読み切り` is the word and `読切` is the
+#: same word written short; 今日の10ページ is MAGCOMI's daily ten-page slot, where every entry is a
+#: complete short work and the piece's own name sits inside the title. The project owner ruled that
+#: last one on 2026-08-15, and the corpus already held thirteen of them as `state: oneshot` works
+#: while their RELEASE rows were typed `unclassified`: a reader met 未分類 on a row whose work page
+#: said 読み切り.
+#:
+#: HERE BECAUSE TWO PASSES ASK IT. The gigaviewer adapter types a row as it captures it, and
+#: `build.py` re-types a row a capture left `unclassified`, which is the only way the ruling
+#: reaches rows captured before it existed. STORE-PLAN §12: a rule asked twice becomes a module.
+ONESHOT_TITLE = re.compile(r"読み切り|読切|今日の10ページ")
+
+
+def is_oneshot_title(s):
+    """Whether a chapter or work title names something complete in one."""
+    return bool(s) and bool(ONESHOT_TITLE.search(str(s)))
 
 
 def states():

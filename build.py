@@ -3918,6 +3918,15 @@ def main():
         if r.get("type") == "unclassified" and ep_number(r.get("ep") or "") is not None:
             r["type"] = "chapter"
             r["type_basis"] = "numbered chapter, though the platform feed did not say so"
+        # AND THE SAME FOR A SLOT WHOSE EVERY ENTRY IS COMPLETE IN ONE. MAGCOMI's 今日の10ページ is
+        # a daily ten-page piece; the corpus holds thirteen of them as `state: oneshot` works and
+        # typed the release `unclassified`, so a reader met 未分類 on a row whose work page said
+        # 読み切り. Applied here as well as in the adapter because a capture written before the
+        # ruling keeps the type it was given, and nothing re-reads a row the feed window has left.
+        elif r.get("type") == "unclassified" and _ser.is_oneshot_title(r.get("ep") or ""):
+            r["type"] = "oneshot"
+            r["type_basis"] = "a slot whose every entry is complete in one, though the feed did " \
+                              "not say so"
 
     # ── ニコニコ漫画: work-level update dates ──────────────────────────────────────────────────
     # The platform states that a work updated on a date, and never which chapter. So these attest

@@ -44,6 +44,7 @@ import yaml
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import population as _population                                             # noqa: E402
+from facts import serialisation as _ser                                      # noqa: E402
 import series_feeds                                                          # noqa: E402
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
@@ -55,7 +56,21 @@ PAUSE = 1.0
 # raw string kept, never guessed into the nearest value (REQUIREMENTS §6).
 RELEASE_TYPES = [
     ("chapter", r"^第?\s*[0-9０-９]+\s*(話|回|章)|^#\s*[0-9]+"),
-    ("oneshot", r"読み切り|読切"),
+    # A SLOT WHOSE EVERY ENTRY IS A COMPLETE SHORT WORK IS A ONE-SHOT, whatever it calls itself.
+    # MAGCOMI runs 今日の10ページ as a daily ten-page piece and names each one in the title, so the
+    # corpus already holds thirteen of them as their own works, every one of them `state: oneshot`.
+    # The RELEASE was typed `unclassified`, so a reader met 未分類 on a row whose work page says
+    # 読み切り: the interface disagreeing with itself about the same thing, which is the shape the
+    # numbered-chapter rule below was written for. The project owner ruled on 2026-08-15 that this
+    # is a species of one-shot.
+    #
+    # THE BRACKETS ARE NOT REQUIRED. The work carries 【今日の10ページ】 and the chapter title
+    # carries 今日の10ページ「…」, so the slot's name without its furniture is what matches both.
+    #
+    # THE PATTERN IS `facts/serialisation`'s. `build.py` re-types a row a capture left
+    # `unclassified`, which is the only way a ruling reaches rows captured before it existed, and
+    # two copies of this list would have meant the two passes disagreeing about the same title.
+    ("oneshot", _ser.ONESHOT_TITLE.pattern),
     ("trial", r"試し読み|試読|お試し"),
     ("extra", r"番外編|特別編|外伝|おまけ|出張版|特別読切"),
     ("notice", r"休載|お知らせ|告知|重要"),

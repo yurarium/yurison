@@ -21,6 +21,25 @@ def main(s):
     s.eq(releases.jst_date("2026-08-03T14:59:59Z"), "2026-08-03",
          "one second before the boundary stays on the day")
 
+    # ── A SLOT WHOSE EVERY ENTRY IS A COMPLETE SHORT WORK ────────────────────────────────────
+    #
+    # MAGCOMI runs 今日の10ページ as a daily ten-page piece and names each in the title. The corpus
+    # holds thirteen of them as their own works, every one `state: oneshot`, while the release was
+    # typed `unclassified`: a reader met 未分類 on a row whose work page said 読み切り. The project
+    # owner ruled on 2026-08-15 that this is a species of one-shot.
+    import re as _re
+
+    def _typed(s):
+        return next((n for n, p in releases.RELEASE_TYPES if _re.search(p, s)), None)
+
+    s.eq(_typed("今日の10ページ「女子高生VS首切り地蔵」淀洞蝸牛"), "oneshot",
+         "the chapter title a platform writes for the slot is a one-shot")
+    s.eq(_typed("【今日の10ページ】せばまたな"), "oneshot",
+         "and so is the bracketed form the work itself carries")
+    s.eq(_typed("第5話 ふつうの回"), "chapter",
+         "a numbered chapter is still a chapter, the patterns being ordered")
+    s.eq(_typed("読み切り"), "oneshot", "as the word itself always was")
+
     # Title normalisation feeds cross-platform identity, so width and case must fold together or
     # the same work appears twice.
     a = releases.norm_title("ＹＵＲＩ　ガール")

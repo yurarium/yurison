@@ -156,6 +156,31 @@ def a_one_shot_states_one_date(s):
     # did not: refusing the stamp removed the only chapter, the work left the catalogue, and a
     # curated title then named nothing. `build.py` holds a guessed date at first sighting.
     #
+    # ── A PLATFORM THAT SERVES ITS CHAPTER LIST FROM AN API ──────────────────────────────────
+    #
+    # ヤンジャン+ renders a Nuxt shell and fetches the list a reader sees from `webapi.ynjn.jp`, so
+    # every route that reads markup found nothing and the work fell through to the one-shot
+    # heuristic: 横槍メンゴ新作読切シリーズ shipped as a single untitled 読み切り while the platform
+    # lists Vol.1 and Vol.2, both free. The project owner had read both.
+    api = ('{"data":{"all_count":2,"episodes":['
+           '{"cost":0,"id":296537,"name":" Vol.1","reading_condition":"EPISODE_READ_CONDITION_FREE"},'
+           '{"cost":330,"id":309195,"name":" Vol.2","reading_condition":"EPISODE_READ_CONDITION_PAY"}'
+           ']},"is_success":true}')
+    got = rm.from_ynjn("https://ynjn.jp/title/30352", lambda _u: api)
+    s.eq([e["title"] for e in got], ["Vol.1", "Vol.2"],
+         "the platform's own list, with the space it pads each name with taken off")
+    s.eq([e["access_modes"] for e in got], [["free"], ["purchase"]],
+         "and what it costs to open each, which no pattern in the page states")
+
+    # NO DATE IS INVENTED. The API states none, so the row carries the day it was read and
+    # `build.py` holds that at first sighting rather than letting it walk with the calendar.
+    s.eq({e["updated"] for e in got}, {rm.TODAY}, "a chapter with no stated date is dated today")
+
+    s.eq(rm.from_ynjn("https://comic-days.com/episode/1", lambda _u: api), [],
+         "another platform's address is not this platform's list")
+    s.eq(rm.from_ynjn("https://ynjn.jp/title/30352", lambda _u: "not json"), [],
+         "and an answer this cannot read is no chapter list rather than a guess")
+
     # AND THE GUARDS THAT WERE ALREADY THERE. Two dates mean the page is saying something this
     # cannot read, and a page that never calls itself a one-shot is not one.
     s.eq(rm.from_oneshot('読み切り 2026年6月17日 と 2026年7月1日'), [],

@@ -154,7 +154,13 @@ KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "revi
         # Stjepan Šejić; but るいす・まくられん is credited beside 楽時たらひ on Japanese anthologies
         # and is a pen name playing with a foreign sound. Katakana is not evidence of a foreign
         # name, so this is a ruling somebody records per name and never a detector.
-        "transliterates"}
+        "transliterates",
+        # AND A TITLE WHOSE ENGLISH OURS WOULD ONLY REPEAT, which no rule can detect
+        # either. `スカーレット` is the English word Scarlet in kana and the publisher
+        # printed `Scarlet`; `安達としまむら` is two surnames. `translation` is refused
+        # when it repeats the `en`, so those titles could say nothing at all and sat in
+        # `titles with no translation of our own` as work nobody could ever do.
+        "translation_refused"}
 
 # What we call ourselves in the store when a claim is our own judgement rather than a finding.
 OURS = "yurarium"
@@ -339,6 +345,22 @@ def problems(kind, ja, e):
             out.append(f"{where}: a translation needs a note saying what it rests on")
     elif e.get("translation_note"):
         out.append(f"{where}: translation_note with no translation")
+
+    if e.get("translation_refused"):
+        # THE RULING SAYS THERE IS NOTHING TO WRITE, so it has to be about a title that already has
+        # an English name and it has to carry the argument. Without the first it is a title nobody
+        # translated; without the second it is a decision with no reasoning behind it, which is the
+        # one thing this file exists to stop.
+        if e.get("translation"):
+            out.append(f"{where}: an entry either translates the title or records why it cannot, "
+                       f"and this does both")
+        if e.get("basis") not in ("official-jp", "licensed"):
+            out.append(f"{where}: `translation_refused` says our rendering would only repeat the "
+                       f"name the work already has, so the entry needs an `en` on basis "
+                       f"official-jp or licensed for it to repeat")
+        if len(str(e["translation_refused"]).split()) < 4:
+            out.append(f"{where}: `translation_refused` carries the argument rather than a flag; "
+                       f"say what our rendering would come out as and why that is the same name")
 
     if e.get("reading"):
         rb = e.get("reading_basis")
@@ -594,7 +616,7 @@ def apply(store, doc):
                      "en_source", "en_url", "en_source_kind",
                      "candidate_note", "reading", "reading_basis", "reading_note",
                      "reading_source_kind", "reading_source", "reading_url", "reading_boundary",
-                     "transliterates", "reviewed")}
+                     "transliterates", "translation_refused", "reviewed")}
             # `at` is the day the decision was reviewed, not the day this ran. Re-applying the file
             # after a rebuild must not restamp a name as freshly decided.
             fact["at"] = str(e.get("reviewed"))

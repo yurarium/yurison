@@ -985,11 +985,13 @@ def _load_all(db, source, put, counts, refused):
             # THE JUDGEMENT BELONGS TO THE RECORD THAT WAS JUDGED, §5h. These were columns on the
             # FOLD and two spellings folding together overwrote each other, losing 14 rulings.
             put("INSERT INTO name_record (kind, spelling, surface, verified, uncertain, ordinary,"
-                " transliterates, entity, basis) VALUES (?,?,?,?,?,?,?,?,?)",
+                " transliterates, entity, basis, translation_refused)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?)",
                 (surface_kind[f], name, sid,
                  None if r.get("verified") is None else int(bool(r["verified"])),
                  int(bool(r.get("reading_uncertain"))), int(bool(r.get("reading_ordinary"))),
-                 r.get("transliterates"), r.get("entity"), r.get("basis")),
+                 r.get("transliterates"), r.get("entity"), r.get("basis"),
+                 r.get("translation_refused")),
                 f"name_record {f} {name}")
             # AND THE SPANS IT SHOWS OVER ITS OWN SPELLING, where that is not the fold. `仲谷 鳰`
             # folds onto `仲谷鳰` and its furigana part the name where the fold's read it as one

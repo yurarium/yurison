@@ -180,6 +180,30 @@ def main(s):
                             dict(BOTH, translation="Otherside Picnic")),
             "a translation repeating the attributed name adds no second form")
 
+    # ── AND WHERE THAT IS TRUE OF EVERY RENDERING, THE RULING IS RECORDED ────────────────────────
+    #
+    # `スカーレット` is the English word Scarlet written in kana and the publisher printed
+    # `Scarlet`, so the check above refuses the only translation there is. Eleven titles could
+    # therefore say nothing at all and sat in `titles with no translation of our own` as work
+    # nobody could ever do. Which titles those are is a judgement, so it is recorded per title.
+    REFUSED = {"en": "Scarlet", "basis": "licensed", "source": "yenpress.com",
+               "source_kind": "licensor", "source_url": "https://example.invalid/s",
+               "reviewed": "2026-08-15",
+               "translation_refused": "スカーレット is the English word Scarlet written in kana, so "
+                                      "our rendering is the licensor's name over again."}
+    s.eq(curate.problems("titles", "スカーレット", REFUSED), [],
+         "a title whose English ours would only repeat records why, and is accepted")
+    s.check(curate.problems("titles", "スカーレット", dict(REFUSED, translation="Scarlett")),
+            "an entry either translates the title or records why it cannot, never both")
+    s.check(curate.problems("titles", "ワインガールズ",
+                            dict(OURS, translation_refused=REFUSED["translation_refused"])),
+            "and with no attributed name to repeat there is nothing for the ruling to be about")
+
+    # THE ARGUMENT IS THE FIELD. A flag would record that somebody decided and not what they
+    # decided, which is the shape this whole file exists to refuse.
+    s.check(curate.problems("titles", "スカーレット", dict(REFUSED, translation_refused="kana")),
+            "a ruling too short to be an argument is refused")
+
     with tempfile.TemporaryDirectory() as d:
         st = NameStore(d)
         curate.apply(st, {"titles": {"裏世界ピクニック": BOTH}})

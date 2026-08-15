@@ -108,6 +108,49 @@ def _unit(s):
          "no collections is no titles, which is the answer `population` refuses to invent")
     s.eq(doc["generated"], "2026-08-15", "the run's date rides along, as the file states it")
 
+    # ── A CATALOGUED SPELLING GAINS OUR RENDERING AND KEEPS ITS OWN ───────────────────────────
+    #
+    # A cataloguer writes the parallel English title into the title itself, so the record under
+    # 『おとなになっても=Even if we become adults』 holds the publisher's English and nothing of
+    # ours. It names the same work as the record it is an alias of, where the translation is
+    # already written, and 52 such spellings were counted as titles with no translation while a
+    # reader who moves official-jp down EN_ORDER read English on two tabs and a romanisation on
+    # the third.
+    SHOWN = {"en": "Even If We Grow Up", "basis": "translated", "reading": "オトナ ニ ナッテモ",
+             "en_forms": {"translated": "Even If We Grow Up"}}
+    CATALOGUED = {"en": "Even if we become adults", "basis": "official-jp",
+                  "reading": "オトナ ニ ナッテモ = Even if we become adults",
+                  "en_forms": {"official-jp": "Even if we become adults"}}
+    got = emit.our_form_from(CATALOGUED, SHOWN)
+    s.eq(got["en_forms"], {"official-jp": "Even if we become adults",
+                           "translated": "Even If We Grow Up"},
+         "the spelling gains the translation the work already has")
+    s.eq(got["en"], "Even if we become adults",
+         "and keeps the English of its own, which is what a reader is shown for that spelling")
+    s.eq(got["reading"], CATALOGUED["reading"],
+         "with its own reading untouched, that being an answer about THIS spelling")
+
+    # THE MAP IS A NEW OBJECT, which is the sharing that broke both earlier attempts. An entry made
+    # by copying another shallowly holds the SAME `en_forms`, so a form written into one would
+    # appear on the record a reader is shown as well.
+    s.check(got["en_forms"] is not CATALOGUED["en_forms"]
+            and got["en_forms"] is not SHOWN["en_forms"],
+            "on a forms map of its own rather than either record's")
+    s.eq(CATALOGUED["en_forms"], {"official-jp": "Even if we become adults"},
+         "so the entry handed in is not altered")
+    s.eq(SHOWN["en_forms"], {"translated": "Even If We Grow Up"},
+         "and neither is the record the form came from")
+
+    # AND NOTHING IS OVERWRITTEN. A spelling that already carries a translation of its own has
+    # been decided about, and the target's is not a better answer than the one somebody wrote.
+    MINE = dict(CATALOGUED, en_forms={"official-jp": "Even if we become adults",
+                                      "translated": "Even Once We Are Grown"})
+    s.eq(emit.our_form_from(MINE, SHOWN)["en_forms"]["translated"], "Even Once We Are Grown",
+         "a spelling with a translation of its own keeps it")
+    s.check(emit.our_form_from(CATALOGUED, {"en_forms": {"licensed": "Even If We Grow Up"}})
+            is CATALOGUED,
+            "and a target holding no translation of ours carries nothing across")
+
 
 def main(s):
     # ── THE UNIT ASSERTIONS RUN ALWAYS AND THE PARITY COMPARISON RUNS WHERE THERE IS A BUILD ──

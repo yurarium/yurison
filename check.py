@@ -3191,8 +3191,29 @@ def budget_titles_with_no_translation_of_our_own(ctx):
     # is the same string again, so the control this budget protects is already answered for them.
     # Counting them would put 96 items into a queue nobody can ever work off, which makes the
     # number stop meaning what its name says.
+    # AND A SPELLING THE CORPUS DOES NOT HOLD IS NOT A TITLE, which is the same argument as the
+    # paragraph above and was worth 50 of the count. The name map is keyed on every spelling a name
+    # was ever recorded under, and the ISBD parallel-title form 『おとなになっても=Even if we become
+    # adults』 is a spelling the works catalogue stopped carrying when `madb/extract` began splitting
+    # the title proper from the parallel title. Those records render nowhere and name nothing, so a
+    # translation written for one would reach no reader, and 50 of them sat in a queue that could
+    # never be worked off.
+    held = ctx.get("titles_held")
+    if held is not None:
+        titles = {k: v for k, v in titles.items() if k in held}
+    # ASKED FOR A JAPANESE CHARACTER RATHER THAN A JAPANESE CODE BLOCK. `JAPANESE` spans the CJK
+    # punctuation as well as the scripts, so `flower・flower` counted as Japanese on the interpunct
+    # the work prints between two English words, and the paragraph above already rules that a
+    # translation of `Distortion` is `Distortion`. Kana and kanji are what make a title translatable.
+    script = re.compile(r"[ぁ-ゖァ-ヺ一-鿿々]")
+    # AND WHERE OUR RENDERING WOULD REPEAT THE ATTRIBUTED NAME THERE IS NO SECOND FORM TO WRITE,
+    # which `curate.py` refuses outright rather than counting. `スカーレット` is the English word
+    # Scarlet in kana and the publisher's own English is `Scarlet`; `安達としまむら` is two
+    # surnames. The ruling is per title and recorded in `data/names/curated.yaml`, because which
+    # titles those are is a judgement and a rule that guessed would be answering it here.
     return sum(1 for k, v in titles.items()
-               if isinstance(v, dict) and not v.get("alias_of") and JAPANESE.search(str(k))
+               if isinstance(v, dict) and not v.get("alias_of") and script.search(str(k))
+               and not v.get("translation_refused")
                and set(v.get("en_forms") or {}) & {"official-jp", "licensed"}
                and not (v.get("en_forms") or {}).get("translated"))
 
@@ -4634,6 +4655,12 @@ def _emitted(db):
         "index": _emit.index(db) or [],
         "series": _emit.series(db, generated).get("series") or [],
         "names_shipped": _emit.names(db, generated),
+        # EVERY TITLE THE CORPUS HOLDS, asked of the one function that states the set. The shipped
+        # name map is keyed on every SPELLING a name was ever recorded under, which is a wider
+        # population than the corpus: a budget counting its rows counts spellings nothing holds.
+        "titles_held": set(_emit.titles(
+            _emit.series(db, generated).get("series") or [], _emit.feed(db),
+            _emit.works(db).get("works") or [], generated)["titles"]),
         "credit_pages": _emit.credits(db, generated),
         "publisher_pages": _emit.publishers(db, generated),
         # WHAT THE RUN REPORTED OF THE §6 RULINGS, which `run.json` carried and the store now

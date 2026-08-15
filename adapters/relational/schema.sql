@@ -811,6 +811,13 @@ CREATE TABLE name_record (
   uncertain      INTEGER NOT NULL DEFAULT 0 CHECK (uncertain IN (0, 1)),
   ordinary       INTEGER NOT NULL DEFAULT 0 CHECK (ordinary  IN (0, 1)),
   transliterates TEXT,
+  -- WHY THIS TITLE HAS NO RENDERING OF OURS BESIDE THE ONE IT CARRIES, holding the argument rather
+  -- than a flag, as `transliterates` does. `スカーレット` is the English word Scarlet written in
+  -- kana and the publisher's own English is `Scarlet`; `安達としまむら` is two surnames. There is no
+  -- second form to write, `curate.py` refuses a translation that repeats the attributed name, and
+  -- with nothing recorded those titles sat in `titles with no translation of our own` as work
+  -- nobody could ever do. Which titles they are is a judgement, so it is stated per title.
+  translation_refused TEXT,
   -- WHAT KIND OF THING THE CREDIT IS, where the name store says. `notation` is the one that answers
   -- NOTHING: `はいむらきよたか(キャラクターデザイン)` is a person with a role welded on, the store
   -- holds the person separately, and the RENDERING is withheld so a lookup reaches the person. The

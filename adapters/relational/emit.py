@@ -529,6 +529,28 @@ def _raw(db, kind):
     return out
 
 
+def our_form_from(here, there):
+    """`here` with the translation `there` holds, where it has one and `here` has none.
+
+    THE ONE FIELD A CATALOGUED SPELLING IS MISSING. A cataloguer writes the work's parallel English
+    title into the title itself, 『おとなになっても=Even if we become adults』, and the record under
+    that spelling then holds the publisher's English and nothing of ours. It is the same work as the
+    record it is an alias of, so the translation is already written; only this key cannot see it.
+
+    NOTHING ELSE MOVES. Filling the whole record from the target was tried twice and both attempts
+    broke `a work shows the English its record holds` on w03202, because the catalogued spelling has
+    a reading, a ruby and an English of its own, and each one is an answer about THAT spelling.
+
+    AND THE MAP IS A NEW OBJECT, which is the sharing the earlier attempts came off. An entry made
+    by copying another shallowly holds the SAME `en_forms` object, so writing a form into it would
+    put that form on the record a reader is shown as well.
+    """
+    ours = (there.get("en_forms") or {}).get("translated")
+    if not ours or (here.get("en_forms") or {}).get("translated"):
+        return here
+    return dict(here, en_forms=dict(here.get("en_forms") or {}, translated=ours))
+
+
 def _map(db, kind):
     """One population's entries, keyed by the fold the site joins on.
 
@@ -554,15 +576,23 @@ def _map(db, kind):
     for folded, target in db.execute(
             "SELECT s.folded, t.folded FROM surface s JOIN surface t ON t.id = s.alias_of"
             " WHERE s.kind = ? ORDER BY s.id", (kind,)):
-        # AN ENTRY THAT EXISTS IS LEFT ALONE, and READER-PLAN item 11 is why that is worth
-        # saying. A catalogued spelling with its own entry and no translation blocks the alias
-        # that would give it one, so the same work is named in English on two tabs and romanised
-        # on the third. Filling it from the target was tried twice, in the build and here, and
-        # both broke `a work shows the English its record holds` on w03202: a fact object here is
-        # SHARED between the catalogued spelling and the shown one, and the sharing has to be
-        # untangled before the fill is safe.
         if target in out and folded not in out:
             out[folded] = dict(out[target], alias_of=target)
+        elif target in out:
+            # AN ENTRY THAT EXISTS KEEPS ITS OWN NAME AND GAINS ONE FORM, READER-PLAN item 11.
+            # Filling the whole record from the target was tried twice, in the build and here, and
+            # both broke `a work shows the English its record holds` on w03202, because the
+            # catalogued spelling has an English of its own that the fill overwrote. What it is
+            # missing is only OUR rendering: a cataloguer writes 『おとなになっても=Even if we
+            # become adults』 for a work whose base record holds a translation, so 52 spellings of
+            # works already translated were counted as titles with none, and a reader who moves
+            # official-jp down EN_ORDER fell through to a romanisation on the bibliographic tab
+            # and read English everywhere else.
+            #
+            # ON A MAP OF ITS OWN, which is the sharing the earlier attempts came off. `en_forms`
+            # under a shallow copy is the SAME object as the target's, so writing into it would
+            # put this form on the shown record too. A fresh map is what makes the fill safe.
+            out[folded] = our_form_from(out[folded], out[target])
     return out
 
 
@@ -744,11 +774,12 @@ def _entry(db, rec_id, surface, kind, spelling):
     whichever record of the fold happened to hold each field, it would ship a name nobody wrote.
     """
     got = db.execute(
-        "SELECT verified, uncertain, ordinary, transliterates, entity, basis FROM name_record"
+        "SELECT verified, uncertain, ordinary, transliterates, entity, basis,"
+        " translation_refused FROM name_record"
         " WHERE id = ?", (rec_id,)).fetchone()
     if not got:
         return None
-    verified, uncertain, ordinary, transliterates, entity, en_basis = got
+    verified, uncertain, ordinary, transliterates, entity, en_basis, no_translation = got
     if entity == "notation":
         return None
     person = kind == "author" and not entity
@@ -795,6 +826,11 @@ def _entry(db, rec_id, surface, kind, spelling):
             out["division_basis"] = division[1]
     if transliterates:
         out["transliterates"] = transliterates
+    # WHY THIS TITLE CARRIES NO RENDERING OF OURS, which the budget over this map reads.
+    # Shipped as the argument rather than as a flag, so the file says why and not merely
+    # that somebody decided.
+    if no_translation:
+        out["translation_refused"] = no_translation
     english = live.get("english")
     if english:
         out["en"] = _latin(english[0])

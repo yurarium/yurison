@@ -7132,7 +7132,7 @@ def main():
     # that record was curated against that spelling and knows more than this does.
     _record_title = {w["work_id"]: ((w.get("title") or {}).get("ja") or "").strip()
                      for w in works if w.get("work_id")}
-    _alias_titles = 0
+    _alias_titles = _linked_titles = 0
     for r in series_rows:
         _row_cands = [x for x in (_title_names.get(r.get("work")),
                                   _title_folded.get(_fold(r.get("work")))) if x]
@@ -7157,9 +7157,25 @@ def main():
                 # notices the extra field.
                 _title_folded[_cat_key] = dict(_row_rec, alias_of=_fold(r.get("work")))
                 _alias_titles += 1
+            elif (_cat_key and _cat_key != _fold(r.get("work"))
+                  and not _title_folded[_cat_key].get("alias_of")):
+                # AND A SPELLING THAT ALREADY HAS A RECORD STILL GETS THE LINK. The guard above
+                # skipped it entirely, so `emit._map` never saw the pair and the record it wrote
+                # for 『おとなになっても=Even if we become adults』 held the cataloguer's parallel
+                # title and no rendering of ours. Recording the link and nothing else is what lets
+                # emit take the translation across while the spelling keeps its own English.
+                #
+                # NOT ONTO ITSELF. `surface.alias_of` refuses a name pointing at its own row, and
+                # a catalogued spelling that folds onto the shown one is that name.
+                _title_folded[_cat_key] = dict(_title_folded[_cat_key],
+                                               alias_of=_fold(r.get("work")))
+                _linked_titles += 1
     if _alias_titles:
         print(f"titles          : {_alias_titles} catalogued spelling(s) keyed onto the record of "
               f"the work they name")
+    if _linked_titles:
+        print(f"titles          : {_linked_titles} catalogued spelling(s) with a record of their "
+              f"own linked to the work they name")
 
     _named_w = _named_a = 0
     for r in series_rows + releases:

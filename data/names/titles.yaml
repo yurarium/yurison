@@ -2230,6 +2230,9 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_refused: ムルシエラゴ is the Spanish murciélago written in kana, and the licensor prints that
+      same word. Rendering the kana gives the word back, and rendering the Spanish would be Bat, which
+      is not a translation of the title but a translation of the name in it.
     verified: false
   Memories:
     basis: official-jp
@@ -20164,6 +20167,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: Two given names joined by と. Our rendering is Mi-chan and Airi, which is what
+      the publisher printed, so there is no second form for a reader to fall through to.
     verified: true
   みーちゃんとアイリ = Mi-chan and Airi:
     basis: official-jp
@@ -21605,6 +21610,8 @@ names:
     reading_source: comic-ogyaaa
     reading_source_kind: derived
     reading_url: https://comic-ogyaaa.com/episode/2551460909730247441
+    translation_refused: ゆり is the genre the database is named for and ゾン is a clipping the title never
+      spells out. Our rendering is the sound of the two, which is the publisher's YURISON in another case.
     verified: true
   ゆるおやこ:
     basis: translated
@@ -22829,6 +22836,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: The kana are the English phrase out of the cocoon, interpuncts and all. Our rendering
+      is that phrase, which is the name the licensor already prints.
     verified: true
   アオイくん♀がイケメンすぎてつらい:
     basis: translated
@@ -26344,6 +26353,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: The kana are the English killing me. Our rendering is the licensor's name over
+      again.
     verified: true
   キルミーベイベー:
     basis: translated
@@ -29055,6 +29066,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_refused: スカーレット is the English word Scarlet written in kana, so our rendering is the licensor's
+      name over again with nothing added.
     verified: true
   スキをスキなキミとキスしたい【同人版】:
     basis: translated
@@ -29279,6 +29292,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_refused: The kana are the two English words the publisher prints. Our rendering repeats
+      them.
     verified: true
   ストライク・オア・ガター:
     basis: official-jp
@@ -37808,6 +37823,8 @@ names:
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
+    translation_refused: Three English words written in kana, which the publisher prints as three English
+      words. Our rendering is the same string.
     verified: true
   ロンリーガールに花束を:
     basis: translated
@@ -51448,6 +51465,8 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_refused: Two surnames joined by と. Our rendering is Adachi and Shimamura, which is the
+      licensed name, and neither surname is a word the title is using for its meaning.
     verified: false
   安達としまむら 公式コミックアンソロジー:
     basis: translated
@@ -81555,6 +81574,8 @@ names:
     reading_source: wikidata
     reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q126684852
+    translation_refused: Two surnames with their honorifics, joined by と. Our rendering keeps both, as
+      the licensor's does, so the two forms are one string.
     verified: false
   高音さんと嵐ちゃん　はじめの話:
     basis: licensed

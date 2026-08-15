@@ -457,7 +457,8 @@ class NameStore:
         # transliteration of a name written in Latin letters somewhere. It can sit beside a found
         # spelling or alone, and it competes with nothing.
         for k in ("ja_family", "ja_given", "reading_family", "reading_given",
-                  "script", "note", "translation_note", "suspect_logo_title", "transliterates"):
+                  "script", "note", "translation_note", "suspect_logo_title", "transliterates",
+                  "translation_refused"):
             if fact.get(k) is not None:
                 cur[k] = fact[k]
         for k in ("handles",):

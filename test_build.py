@@ -54,6 +54,49 @@ def main(s):
     s.check(not b.is_skipped_slot(""), "an empty title is not a skipped slot")
     s.check(not b.is_skipped_slot(None), "None does not raise")
 
+
+    # ── THE RESOLVER'S ROWS, DROPPED PER CHAPTER RATHER THAN PER WORK ────────────────────────────
+    #
+    # WHAT A READER SAW. 運命は役に立たない showed "a chapter arrived today" in the works list and
+    # nothing at all in the updates feed on 2026-08-16. 花とゆめ+'s own pass read the work's page
+    # and returned fourteen chapters ending at 12話; the catch-all resolver read the same page and
+    # returned fifteen, ending at 13話 published that morning. Keyed on the WORK, this rule took the
+    # dedicated pass covering the work as licence to drop every resolver row for it, including the
+    # one chapter that pass had missed. Four chapters were being deleted this way, on four
+    # platforms, and nothing counted them because the drop is what the rule is for.
+    ADAPTER = {"work": "運命は役に立たない", "plat": "hanayume", "ep": "12話",
+               "url": "https://hanayume.com/series/ca4ef0eb47ea3",
+               "access_modes": ["purchase"]}
+    RESOLVER = {"work": "運命は役に立たない", "plat": "remaining", "ep": "13話",
+                "url": "https://hanayume.com/series/ca4ef0eb47ea3", "access_modes": []}
+    kept = b.resolver_superseded([ADAPTER, RESOLVER, dict(RESOLVER, ep="12話")])
+    s.eq([r["ep"] for r in kept if r["plat"] == "remaining"], ["13話"],
+         "a chapter only the resolver saw survives, and its copy of a read chapter does not")
+    s.eq(len([r for r in kept if r["plat"] != "remaining"]), 1,
+         "and the adapter's own row is never what gets dropped")
+
+    # THE REASON THE RULE EXISTS, UNCHANGED. コミックFUZ's adapter holds every chapter with a price
+    # and a free_from date; the resolver held the same chapters dateless-in-substance and labelled
+    # with whichever list named the work. Those are the same chapters, so they still go.
+    FUZ = [{"work": "一畳間まんきつ暮らし！", "plat": "comicfuz", "ep": f"第{i}話",
+            "url": "https://comic-fuz.com/manga/1", "access_modes": ["purchase"]}
+           for i in range(1, 5)]
+    THIN = [{"work": "一畳間まんきつ暮らし！", "plat": "remaining", "ep": f"第{i}話",
+             "url": "https://comic-fuz.com/manga/1", "access_modes": []} for i in range(1, 5)]
+    s.eq(len(b.resolver_superseded(FUZ + THIN)), 4,
+         "every resolver row for a chapter the adapter read is dropped, as before")
+
+    # AND COVERAGE IS PER HOST. The same work on another platform is another reading, so a resolver
+    # row there is not superseded by an adapter that never saw that page.
+    ELSEWHERE = dict(RESOLVER, ep="12話", url="https://manga-park.com/title/101442")
+    s.eq(len(b.resolver_superseded([ADAPTER, ELSEWHERE])), 2,
+         "an adapter on one host does not answer for a chapter on another")
+
+    # A ROW THE ADAPTER READ WITHOUT AN ACCESS STATE STATES NOTHING ABOUT COVERAGE, which is the
+    # existing condition and is kept: a sitemap-thin row must not silence the resolver.
+    s.eq(len(b.resolver_superseded([dict(ADAPTER, ep="13話", access_modes=[]), RESOLVER])), 2,
+         "an adapter row with no access state does not supersede anything")
+
     # EPISODE NUMBERING drives new-series against new-chapter, and a wrong answer tells a reader to
     # expect a second chapter that does not exist.
     s.eq(b.ep_number("第1話"), 1, "a numbered first chapter")

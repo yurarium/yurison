@@ -898,6 +898,41 @@ def _sched_fits(cadence, when):
     return schedule_text.fits(cadence, when) is True
 
 
+
+def resolver_superseded(releases):
+    """The releases minus the catch-all resolver's rows for chapters a real adapter already read.
+
+    THE RESOLVER IS A LAST RESORT AND BEHAVES LIKE ONE: it reads whatever markup a page offers,
+    which on コミックFUZ means the 公開予定 strip, chapter numbers against dates months ahead with no
+    access and the platform name inherited from whichever list named the work. That is right when
+    nothing else reaches a work and wrong the moment something does: コミックFUZ's own adapter holds
+    一畳間まんきつ暮らし！ with 67 chapters, each with a price and a free_from date, and the resolver
+    held the same work with 64 dateless-in-substance rows labelled ニコニコ.
+
+    PER CHAPTER, AND NOT PER WORK, WHICH IS WHAT IT USED TO BE. A dedicated adapter covering a work
+    does not mean it has read every chapter of it, and keyed on the work alone this deleted the ones
+    it had missed. 運命は役に立たない's 13話 arrived on 花とゆめ+ on 2026-08-16 through the resolver
+    and nowhere else, because the dedicated pass read the same page and returned fourteen chapters
+    ending at 12話. The work then showed "a chapter arrived today" in the works list with nothing in
+    the updates feed: two surfaces disagreeing about one day, which is what one producer silently
+    deleting another's row looks like to a reader. Four chapters were being dropped this way.
+
+    THE REASON THE RULE EXISTS IS UNCHANGED. Every one of those 64 コミックFUZ rows is a chapter the
+    adapter also holds, so keying on the chapter drops them exactly as before.
+    """
+    def host_of(u):
+        m = re.match(r"https?://([^/]+)", u or "")
+        return m.group(1).lower() if m else ""
+
+    def key(r):
+        return (norm_work(r.get("work") or ""), host_of(r.get("url")),
+                norm_work(r.get("ep") or ""))
+
+    covered = {key(r) for r in releases
+               if r.get("plat") != "remaining" and r.get("access_modes")}
+    return [r for r in releases if r.get("plat") != "remaining" or key(r) not in covered]
+
+
 def load_platform_history(files):
     """(work, platform) -> the dates that platform lists for that work, from whole-history sources.
 
@@ -5053,6 +5088,15 @@ def main():
                                               r["plat_name"] or r["plat"]) == r["preferred"])
         else:
             r["is_preferred"] = True
+        # AND THE ROW'S OWN NAME, which this loop folded for `preferred` and `also_on` and left
+        # alone. A row reaching a reader under an alias is the same fault one field along: the
+        # resolver route inherits the platform name from whichever list named the work, so
+        # 深海紺's 第41話 arrived as コミックオギャー!! where the platform's own capture writes
+        # COMIC OGYAAA!!, and `every platform a reader is shown is registered` had nothing to
+        # match. It was invisible only because that row was being dropped for other reasons.
+        _pn = r.get("plat_name") or r.get("plat")
+        if _pn and _canon.get(_pn):
+            r["plat_name"] = _canon[_pn]
     # Only the preferred source of each chapter is shown; alternatives ride along on that entry.
     # 試し読み-only series are not web publication (DEFINITIONS §6), so they are dropped from the
     # feed outright rather than hidden behind a filter — a hidden entry still inflates totals and
@@ -5100,23 +5144,9 @@ def main():
                 or (norm_work(r["work"]), r.get("plat_name") or r.get("plat")) not in rich]
     thin_dropped = before_thin - len(releases)
 
-    # The catch-all resolver is a last resort and behaves like one: it reads whatever markup a page
-    # offers, which on コミックFUZ means the 公開予定 strip — chapter numbers against dates months in
-    # the future, no access, and the platform name inherited from whichever list named the work.
-    # That is right when nothing else reaches a work and wrong the moment something does. コミック
-    # FUZ's own adapter holds 一畳間まんきつ暮らし！ with 67 chapters, each with a price and a free_from
-    # date; the resolver held the same work with 64 dateless-in-substance rows labelled ニコニコ.
-    # Drop the resolver's version wherever a real adapter covers the same work on the same host.
-    def host_of(u):
-        m = re.match(r"https?://([^/]+)", u or "")
-        return m.group(1).lower() if m else ""
-
-    covered = {(norm_work(r["work"]), host_of(r.get("url")))
-               for r in releases if r.get("plat") != "remaining" and r.get("access_modes")}
+    # The catch-all resolver's rows for chapters a real adapter already read, dropped.
     before_res = len(releases)
-    releases = [r for r in releases
-                if r.get("plat") != "remaining"
-                or (norm_work(r["work"]), host_of(r.get("url"))) not in covered]
+    releases = resolver_superseded(releases)
     resolver_dropped = before_res - len(releases)
 
     seen_chapter, deduped, dropped_dupes = {}, [], 0

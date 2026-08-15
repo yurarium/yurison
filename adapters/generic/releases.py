@@ -25,6 +25,7 @@ Usage:  releases.py --works data/coverage/webcomics-works.yaml \
                     --extract data/coverage/extract.yaml --out data/source/webpages \
                     --cache $YURI_CACHE/generic-cache --retrieved 2026-08-01
 """
+import html as _html
 import argparse, json, pathlib, re, sys, time, unicodedata, urllib.error, urllib.request
 from collections import Counter
 
@@ -148,6 +149,45 @@ def episodes(html, strategy, today=None, page_url=""):
     return out
 
 
+#: WHERE A PLATFORM PUTS ITS CREDIT, declared per platform because guessing it was wrong. See
+#: `page_author`: the two forms are `title` for `作品 - 作者 | サイト` and `labelled` for a
+#: `著者：` field, and a platform that declares neither has no author read from it.
+AUTHOR_FROM = "author_from"
+
+
+def page_author(html, where=None):
+    """The credit a work page states, read the way `adapters/remaining` reads one.
+
+    DECLARED, NOT GUESSED, AND THE FIRST VERSION GUESSED. Reading both forms against every platform
+    put `WEB読み`, a button, on every ファイアCROSS row and one author's name on every マンガPark
+    row: both platforms had been read correctly without an author for months, and this took a
+    working byline away from them. `credit pages listing a work that does not name them` went from
+    8 to 22 and that is what the number is for.
+
+    THE AUDIT IS WHAT ASKED FOR THIS. Rows from this pass carried no author at all, so a platform
+    onboarded here had every one of its rows missing the field and `adapters/fieldaudit.py` called
+    it a moved selector, which is exactly what a platform losing a field across its own rows looks
+    like. The difference is that these never had it: the extractors read a chapter list and the
+    credit sits elsewhere on the page.
+
+    BORROWED RATHER THAN WRITTEN AGAIN. `remaining/releases.py` reads the title's `作品 - 作者 |
+    プラットフォーム` shape and the labelled `著者：` form, and puts both through `people_only`, which
+    refuses a chapter label sitting where a name belongs. Two copies of that would be two answers.
+    """
+    import sys as _sys
+    _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "remaining"))
+    _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
+    import releases as _remaining
+    from names import credits as _credits
+    if where == "title":
+        m = re.search(r"<title>[^<|]*?\s+-\s+([^<|]+?)\s*\|", html or "")
+        return _credits.people_only(_html.unescape(m.group(1).strip())) if m else None
+    if where == "labelled":
+        lab = _remaining.LABELLED_CREDIT.search(html or "")
+        return _credits.people_only(_html.unescape(lab.group(1).strip())) if lab else None
+    return None
+
+
 def js(v):
     return json.dumps(v, ensure_ascii=False)
 
@@ -203,7 +243,8 @@ def main():
                                 # WHICH EXTRACTOR READS THE RENDERED DOM, where it is not the
                                 # default. A browser supplies markup and the markup still has to
                                 # be read by whichever extractor suits the page.
-                                "rendered_as": p.get("rendered_as", "pairs")}
+                                "rendered_as": p.get("rendered_as", "pairs"),
+                                AUTHOR_FROM: p.get(AUTHOR_FROM)}
     if not plans:
         sys.exit("no hosts with a proven extraction strategy")
 
@@ -232,7 +273,12 @@ def main():
                 failed += 1
                 continue
             if len(eps) >= MIN_EPISODES:
-                rows.append({"work_title": t["title"], "url": t["url"], "episodes": eps})
+                who = page_author(page, plan.get(AUTHOR_FROM))
+                if who:
+                    for e in eps:
+                        e.setdefault("author", who)
+                rows.append({"work_title": t["title"], "url": t["url"], "episodes": eps,
+                             "author": who})
         if not rows:
             print(f"{plan['platform'][:20]:22} nothing parsed ({failed} failed) — writing nothing")
             continue
@@ -254,12 +300,16 @@ def main():
              "date_confidence: low", "works:"]
         for w in rows:
             L.append(f"  - work_title: {js(w['work_title'])}")
+            if w.get("author"):
+                L.append(f"    author: {js(w['author'])}")
             L.append(f"    url: {js(w['url'])}")
             L.append(f"    chapter_count: {len(w['episodes'])}")
             L.append("    chapters:")
             for e in w["episodes"]:
                 L.append(f"      - title: {js(e['title'])}")
                 L.append(f"        updated: {e['updated']}")
+                if e.get("author"):
+                    L.append(f"        author: {js(e['author'])}")
                 L.append("        date_basis: heuristic")
         L.append("")
         (out / f"generic-{pid}.yaml").write_text("\n".join(L))

@@ -989,6 +989,24 @@ names:
     note: already Latin on the platform's own page; no romanisation involved
     script: latin
     verified: true
+  WEB読み:
+    basis: romaji
+    furigana_spans:
+    - - WEB
+      - null
+    - - 読
+      - よ
+    - - み
+      - null
+    reading: WEBヨミ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   WOOMA:
     basis: stated
     en: WOOMA
@@ -16247,6 +16265,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034650869
     verified: true
+  伏見七尾:
+    basis: romaji
+    furigana_spans:
+    - - 伏見
+      - ふしみ
+    - - 七尾
+      - ななお
+    reading: フシミナナオ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   会田小路ちょこぷでぃんぐ:
     basis: romaji
     reading: アイダコウジ チョコプディング
@@ -32001,6 +32035,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1061678
     verified: true
+  犬山　あむ:
+    basis: romaji
+    furigana_spans:
+    - - 犬山
+      - いぬやま
+    - - 　あむ
+      - null
+    reading: イヌヤマ アム
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   犬山あむ:
     basis: romaji
     furigana_spans:
@@ -40551,6 +40602,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A24599800000
     verified: true
+  霜月かいり:
+    basis: romaji
+    furigana_spans:
+    - - 霜月
+      - しもづき
+    - - かいり
+      - null
+    reading: シモヅキ カイリ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   霞ヨスガ:
     basis: romaji
     furigana_spans:

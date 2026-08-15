@@ -261,6 +261,7 @@ platforms:
   exclusive_works: 2
   strategy_note: "asked again 2026-08-15 with a browser: ten 第N話 labels on the page and no date beside any of them, so no release can be dated and none is recorded"
   # ASKED AGAIN 2026-08-15 WITH A BROWSER: ten 第N話 entries and no date on the listing, on an episode page, in the metadata or in the JSON-LD, which is a breadcrumb. The list is what there is and the day it was read is the date.
+  author_from: labelled
   strategy: rendered
   rendered_as: labels
 - platform: GANMA!(更新終了)
@@ -497,6 +498,7 @@ platforms:
   exclusive_works: 1
   strategy_note: "asked again 2026-08-15 with a browser: seven chapter labels under the work's own address and no date anywhere on the page, so the list is what there is and the day it was read is the date"
   # ASKED AGAIN 2026-08-15 WITH A BROWSER: seven chapter labels and no date anywhere on the page.
+  author_from: labelled
   strategy: rendered
   rendered_as: labels
 - platform: 栞

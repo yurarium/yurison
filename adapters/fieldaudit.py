@@ -44,7 +44,12 @@ SPREAD = 25
 #: it on nearly all, so a work reached only by the feed has none. Counted with the others, 26 of
 #: those consumed a tripwire set at 25 and would have hidden the first row that really did lose its
 #: title.
-NO_ACCESS = 60
+#:
+#: 60 TO 100 ON 2026-08-15, and the reason is three platforms rather than a route. コミックエッセイ
+#: 劇場, やわらかスピリッツ and てれびくんヒーローコミックス list their chapters and state nothing
+#: else: no author, no date and no access. That is what `try_labels` reads them for, and their 38
+#: rows are the whole of the rise. A threshold that refused them would be refusing the platforms.
+NO_ACCESS = 100
 
 
 #: THE QUESTION LIVES WITH THE CORPUS'S OTHER QUESTIONS, STORE-PLAN §10. What this module owns is

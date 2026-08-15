@@ -85,6 +85,37 @@ def of(url, known=None):
     return (owners() if known is None else known).get(str(url).split("/")[2])
 
 
+def ids(platforms=None):
+    """`{host: platform id}` for every host exactly one platform claims.
+
+    THE SAME ANSWER AS `owners` IN THE OTHER CURRENCY. A name is what a reader is shown and an id
+    is what an address is built from, and both are the register's to state.
+    """
+    if platforms is None:
+        platforms = registered()
+    by_name = {p["name"]: p.get("id") for p in platforms}
+    return {h: by_name[n] for h, n in owners(platforms).items() if by_name.get(n)}
+
+
+def id_of(url, known=None):
+    """The id of the platform a URL is on, where exactly one platform claims its host.
+
+    WHY AN ADDRESS MAY NOT BE BUILT FROM THE ROUTE THAT READ IT. A release id was minted from the
+    capture file's own `platform` field, which is the name of the PASS: `remaining` for the browser
+    route that reads whatever is left, `backfill` for the one that fills gaps. A work those routes
+    covered kept its id only until a platform got an adapter of its own, and then every chapter of
+    it was re-minted under a new address for no reason a reader could see. Three chapters of
+    公爵令嬢の籠絡ミッション left the published July archive that way on 2026-08-15.
+
+    THE PLATFORM IS A PROPERTY OF THE ADDRESS, not of the pass. `youngchampion.jp` is ヤングチャン
+    ピオン whoever read it, so an id built from the host survives a routing change, and the register
+    is the one place that maps the two.
+    """
+    if not url or "://" not in str(url):
+        return None
+    return (ids() if known is None else known).get(str(url).split("/")[2])
+
+
 def canonical(name, known=None):
     """The registered name for a platform, given any spelling the register lists for it.
 

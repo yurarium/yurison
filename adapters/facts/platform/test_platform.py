@@ -13,10 +13,11 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2]))
 import testkit                                                          # noqa: E402
 from facts import platform                                             # noqa: E402
 
-REGISTER = [{"name": "COMIC FUZ", "host": "comic-fuz.com"},
-            {"name": "カドコミ", "host": "comic-walker.com"},
-            {"name": "ComicWalker", "host": "comic-walker.com"},
-            {"name": "マイナビニュース", "host": "news.mynavi.jp"},
+REGISTER = [{"name": "COMIC FUZ", "host": "comic-fuz.com", "id": "comic-fuz"},
+            {"name": "カドコミ", "host": "comic-walker.com", "id": "kadokomi"},
+            {"name": "ComicWalker", "host": "comic-walker.com", "id": "comicwalker"},
+            {"name": "マイナビニュース", "host": "news.mynavi.jp", "id": "mynavi"},
+            {"name": "ヤングチャンピオン", "host": "youngchampion.jp"},
             {"name": "ヤンマガWeb"}]
 
 
@@ -39,8 +40,29 @@ def main(s):
     for got in (None, "", "not a url", "comic-fuz.com/manga/3612"):
         s.eq(platform.of(got, known), None, f"{got!r} names no platform")
 
+    # ── THE SAME ANSWER IN THE OTHER CURRENCY ─────────────────────────────────────────────────
+    #
+    # A NAME IS WHAT A READER IS SHOWN AND AN ID IS WHAT AN ADDRESS IS BUILT FROM. A release id was
+    # minted from the capture file's own `platform`, which is the name of the PASS: a work read by
+    # the `remaining` browser route kept its id until the platform got an adapter of its own, and
+    # then every chapter of it was re-minted for no reason a reader could see. Three chapters left
+    # the published July archive that way on 2026-08-15.
+    ids = platform.ids(REGISTER)
+    s.eq(ids.get("comic-fuz.com"), "comic-fuz", "a host one platform claims names its id")
+    s.check("comic-walker.com" not in ids,
+            "and a shared host names no id, exactly as it names no platform")
+    s.check("youngchampion.jp" not in ids,
+            "nor does a platform the register gives no id, rather than inventing one")
+    s.eq(platform.id_of("https://comic-fuz.com/manga/3612", ids), "comic-fuz",
+         "so an address answers with the id of the platform whose host it is on")
+    s.eq(platform.id_of("https://comic-walker.com/detail/KC_000188_S", ids), None,
+         "and a shared host answers nothing here too")
+    for got in (None, "", "not a url", "comic-fuz.com/manga/3612"):
+        s.eq(platform.id_of(got, ids), None, f"{got!r} names no platform id")
+
     # THE REGISTER IS READ FROM DISK WHERE THE CALLER NAMES NONE, which is what every caller does.
     s.check(isinstance(platform.owners(), dict), "the corpus's own register loads")
+    s.check(platform.ids(), "and it states an id for the hosts it claims")
 
 
 if __name__ == "__main__":

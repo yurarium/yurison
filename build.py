@@ -343,6 +343,23 @@ def platform_of(url, owners):
     return _platform.of(url, owners)
 
 
+#: `{host: platform id}`, read once. `facts/platform` reads three registers to build it.
+_PLATFORM_IDS = None
+
+
+def _release_pid(url, fallback):
+    """The id a release address is built from: the platform's, or the capture's where unknown.
+
+    A ROUTE READS A PLATFORM AND IS NOT ONE. See `facts/platform.id_of` for what minting an address
+    from the pass that read it cost. The fallback is the capture's own field, which is right for every file whose
+    `platform` really is a platform and is all there is for a host nobody has registered.
+    """
+    global _PLATFORM_IDS
+    if _PLATFORM_IDS is None:
+        _PLATFORM_IDS = _platform.ids()
+    return _platform.id_of(url, _PLATFORM_IDS) or fallback
+
+
 #: `{(folded work, platform): date}` for platforms that state when a WORK last updated without
 #: saying which chapter did. See the nicovideo block below for what this is and is not.
 _WORK_LEVEL_LATEST = {}
@@ -3846,8 +3863,18 @@ def main():
                     # chapters, so this asks for no fetch and no adapter change. The shape matches
                     # what the platforms with their own ids already produce: `nicovideo:77731:DATE`
                     # is platform, work, date, and `kadokomi:KC_…_E` is a work-scoped episode code.
-                    "id": (f"{pid}:{c['url']}" if c.get("url")
-                           else f"{pid}:{w.get('url') or norm_work(w.get('work_title') or '')}"
+                    # THE PLATFORM THE ADDRESS IS ON, NOT THE PASS THAT READ IT. `pid` is the
+                    # capture file's own `platform`, which for two of these files is the name of a
+                    # ROUTE: `remaining` reads whatever is left and `backfill` fills gaps. A work
+                    # they covered kept its id only until the platform got an adapter of its own,
+                    # and then every chapter was re-minted under a new address. Three chapters of
+                    # 公爵令嬢の籠絡ミッション left the published July archive that way on
+                    # 2026-08-15, and 274 of 1,250 rows were one routing change from the same.
+                    # `facts/platform` maps a host to the register's id for it.
+                    "id": (f"{_release_pid(c.get('url') or w.get('url'), pid_w or pid)}"
+                           f":{c['url']}" if c.get("url")
+                           else f"{_release_pid(w.get('url'), pid_w or pid)}"
+                                f":{w.get('url') or norm_work(w.get('work_title') or '')}"
                                 f":{c.get('title')}"),
                     "work": work_alias(w.get("work_title")),
                     # The platform's own count decides this: a series with one episode is a
@@ -5153,23 +5180,59 @@ def main():
                   ((yaml.safe_load(ledger_path.read_text()) or {}).get("first_seen") or {}).items()}
     today_iso = str(_dating.today())
     new_sightings = 0
+    # ── WHAT A SIGHTING IS KEYED ON, AND WHY IT IS NO LONGER THE PLATFORM'S NAME ──────────────
+    #
+    # The key was `work|episode|platform`, on the reasoning that a release whose key changes is a
+    # release we have not seen. That holds for the work and the chapter and it does not hold for
+    # the platform: correcting WHERE we say a chapter is does not make it a chapter nobody saw.
+    # 公爵令嬢の籠絡ミッション was filed under チャンピオンクロス and read from ヤングチャンピオン,
+    # the corrected attribution re-keyed all four of its chapters, and three June and July rows
+    # became sightings of 2026-08-15: they left the published July archive and arrived in the
+    # current window as news. A reader saw a re-attribution as a publication.
+    #
+    # A CHAPTER'S URL IS ITS OWN ADDRESS and it survives both a re-attribution and a change of
+    # route. Where a chapter has none, the old key is what there is, and it is also what the
+    # ledger already holds for every row: a key that finds nothing under its new form asks under
+    # the old one and carries the date across, so this migrates without making a single sighting
+    # new. `count` falls as the two forms of the same row merge.
+    # `adapters/sighting.py` HOLDS THE KEY AND THE MIGRATION, because two places here ask what a
+    # release is remembered as and the second one asking differently is what let a re-attributed
+    # work lose its months. See that module for what the key was, why it changed, and what the
+    # carry across costs.
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+    import sighting as _sighting
+    _legacy_key, _sighting_key = _sighting.legacy_key, _sighting.key
+    _by_ep = _sighting.by_episode(ledger)
+
+    carried = 0
     for r in releases:
-        key = f"{norm_work(r['work'])}|{norm_work(r.get('ep') or '')}|{r.get('plat_name') or r.get('plat')}"
+        key = _sighting_key(r)
         if key not in ledger:
-            ledger[key] = today_iso
-            new_sightings += 1
+            was = _sighting.carried(ledger, r, _by_ep)
+            if was:
+                ledger[key] = was
+                carried += 1
+            else:
+                ledger[key] = today_iso
+                new_sightings += 1
         # The ledger wins over the source file's retrieved date, always. A source rewritten today
         # does not make an old release new.
         if r.get("late_discovered"):
             r["discovered_on"] = ledger[key]
+    if carried:
+        print(f"first-seen ledger: {carried} row(s) keyed on their own address, carrying the date "
+              f"the old key held")
     ledger_path.write_text(
         "# When each release was FIRST seen by this pipeline. Written once per release and never\n"
         "# revised (REQUIREMENTS §5). Source files are snapshots and get overwritten every run;\n"
         "# this is the part that has to persist, and it is why the repo — not the working tree —\n"
         "# is the store of record.\n"
         "#\n"
-        "# Key: work|episode|platform, normalised. A release whose key changes is a new sighting,\n"
-        "# which is the correct behaviour: if the chapter title changed, it is not the row we saw.\n"
+        "# Key: `url|<the chapter's own address>`, or work|episode|platform where a chapter has no\n"
+        "# address of its own. A release whose key changes is a new sighting, which is right for a\n"
+        "# chapter title and was wrong for a platform: correcting where we say a chapter is does\n"
+        "# not make it a chapter nobody saw, and it moved three published rows into the current\n"
+        "# window as news on 2026-08-15.\n"
         "source: derived\nrole: first-seen-ledger\n"
         f"updated: {today_iso}\ncount: {len(ledger)}\nfirst_seen:\n"
         + "".join(f"  {json.dumps(k, ensure_ascii=False)}: {v}\n"
@@ -5211,8 +5274,12 @@ def main():
     for r in releases:
         if not r.get("web"):
             continue
-        seen_on = ledger.get(
-            f"{norm_work(r['work'])}|{norm_work(r.get('ep') or '')}|{r.get('plat_name') or r.get('plat')}")
+        # ASKED THE WAY THE LEDGER IS WRITTEN, which is `_sighting_key` and was spelled again here.
+        # Two producers of one key, and this is the copy that decides what a reader sees: the
+        # writer above moved to the chapter's own address, this one kept asking under the
+        # platform's name, and a work whose attribution was corrected therefore had no sighting at
+        # all. Its chapters fell back to the capture file's `retrieved` date and left their months.
+        seen_on = ledger.get(_sighting_key(r)) or ledger.get(_legacy_key(r))
         if not seen_on or seen_on <= LEDGER_SEEDED_ON:
             continue
         pub = str(r.get("pub") or "")[:10]

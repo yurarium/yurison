@@ -106,6 +106,12 @@ def main(s):
                 "and with no store and no file the run stops, rather than answering nothing")
         s.check(not (pathlib.Path(_rel.DB)).exists(),
                 "without leaving an empty database behind that the next caller would believe")
+        # THE REFUSAL IS WHAT A CAPTURE PASS CATCHES. `adapters/gigaviewer/releases.py` runs in
+        # stage A, before anything has compiled, so on a fresh runner this is the answer it gets
+        # and it says out loud what it is falling back to. It exited 1 instead for one run, and
+        # the platform went unread for the day.
+        s.check(raised.startswith("no store at"),
+                "and the refusal names the store it wanted, which is what a caller reports")
     finally:
         _rel.DB = was
 

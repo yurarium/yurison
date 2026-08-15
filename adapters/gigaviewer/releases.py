@@ -172,13 +172,28 @@ def known_titles(paths, build=None, store=True):
     older compile for either. `paths` is what is left: a platform's own series list, a source file.
     """
     out = {}
+    # THE CORPUS IS THERE OR IT IS NOT, AND SILENCE IS NOT AN EMPTY CORPUS. This pass runs in
+    # stage A, before the compile, so on a fresh runner there is no store to ask: `population`
+    # refuses to open one that does not exist, this exited 1, and the platform went unread for the
+    # day while the run published anyway. What a missing corpus costs is stated rather than
+    # assumed, because with nothing established every work is rediscovered through the Tier C
+    # yardstick, which is the weaker evidence.
+    #
+    # BOTH HALVES OR NEITHER. A run that got the web titles and lost the print catalogue would be
+    # comparing against half a corpus and reporting nothing about the other half.
     if store:
         at = pathlib.Path(build) if build else None
-        for title in _population.titles(at / "titles.json" if at else None):
-            out[norm_title(title)] = title
-        for row in _population.index(at / "index.json" if at else None):
-            if row.get("t"):
-                out[norm_title(row["t"])] = row["t"]
+        try:
+            got = {norm_title(t_): t_
+                   for t_ in _population.titles(at / "titles.json" if at else None)}
+            got.update({norm_title(r["t"]): r["t"]
+                        for r in _population.index(at / "index.json" if at else None)
+                        if r.get("t")})
+            out.update(got)
+        except SystemExit as why:
+            print(f"no compiled corpus to compare against ({why}), so identification rests on the "
+                  f"Tier C yardstick alone")
+
     for p_ in paths:
         f = pathlib.Path(p_)
         if not f.exists():

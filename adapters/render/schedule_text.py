@@ -96,6 +96,59 @@ def fits(cad, when):
     return None
 
 
+#: THE SPAN A STATED CADENCE PUTS ONE UPDATE IN. 毎月第2木曜 names one day a month and 毎週木曜
+#: names one a week, which is the fact `next_after` needs and `fits` has no reason to know.
+PERIOD = ((r"毎月", "month"), (r"毎週", "week"))
+
+
+def period(cad):
+    """`month`, `week`, or nothing where the cadence names no span of its own."""
+    for pattern, kind in PERIOD:
+        if re.match(pattern, str(cad or "")):
+            return kind
+    return None
+
+
+def _same_period(kind, a, b):
+    if kind == "month":
+        return (a.year, a.month) == (b.year, b.month)
+    if kind == "week":
+        return a.isocalendar()[:2] == b.isocalendar()[:2]
+    return False
+
+
+def next_after(cad, latest, within=70):
+    """The date this cadence next puts an update on, given the latest chapter there actually is.
+
+    THE MONTH THE LATEST CHAPTER IS IN IS SPOKEN FOR, and that is the whole of what this adds to a
+    search for the next fitting date. 怪獣ロマンティクス states 毎月第2木曜 and published its August
+    instalment on Friday 7 August, two days after that month's second Thursday would have been
+    reached from the previous chapter; the search from the day after 7 August then landed on
+    Thursday 13 August, the same month's slot, already served. On 15 August the site told a reader
+    the update was overdue while chapter 2 was sitting on the platform. アイ・ヘイ・チュー, 毎月第2
+    土曜, was the same fault a day apart. They were the only two entries under 近日更新予定 marked
+    overdue, and both were wrong.
+
+    THE COUNTER-CASE, SAID PLAINLY. A promotional post inside the month, of which マガポケ carries
+    plenty (【単行本宣伝話】 and 【特別読み切り】), also spends its month here, so a real update later
+    the same month goes unpredicted. That is a date this does not offer against a date it asserted
+    was missed, and the second is what a reader acts on.
+
+    Nothing where the cadence pins no day, which is the same silence `fits` keeps: 隔週金曜 names a
+    fortnight without saying which, and a bare 毎月 names no day at all.
+    """
+    kind = period(cad)
+    try:
+        last = datetime.date.fromisoformat(str(latest)[:10])
+    except (TypeError, ValueError):
+        return None
+    for k in range(1, within + 1):
+        d = last + datetime.timedelta(days=k)
+        if fits(cad, d.isoformat()) and not (kind and _same_period(kind, d, last)):
+            return d.isoformat()
+    return None
+
+
 def read(text, read_on):
     """Everything statable about the schedule on one page."""
     out = {}

@@ -339,6 +339,32 @@ BUDGETS = {
                   "INSERT INTO volume (work, record, seq) SELECT work, 'canary-unreached', 9002 "
                   "FROM volume LIMIT 1",
         "canary_rises_by": 1},
+    # ── A RHYTHM THAT HAS PASSED WITH NOTHING SINCE ───────────────────────────────────────────
+    #
+    # WHAT IT COUNTS AND WHY BOTH CAUSES DESERVE THE SAME LOOK. `next_from_cadence` is the date a
+    # platform's stated rhythm puts the next update on, worked out from the latest chapter there
+    # is, and the interface shows a work whose date has passed under 近日更新予定 marked overdue.
+    # A date behind the run is therefore either a series that has genuinely gone quiet, which is a
+    # reason to go and look, or arithmetic that predicted a slot already filled, which is what
+    # happened: 怪獣ロマンティクス published its August instalment on the 7th and was handed the
+    # 13th, the same month's second Thursday, and the site told a reader it was late while the
+    # chapter sat on the platform. Both are somebody opening the page.
+    #
+    # A BUDGET RATHER THAN AN INVARIANT, because a quiet series is a true state of the world and
+    # the interface exists to show it. Zero today, and a rise asks somebody to open the page.
+    #
+    # AGAINST THE STORE'S OWN STAMP, not against the clock this happens to run on. The corpus keeps
+    # the date it is in Japan and `store_stamp.generated` is where that is written down.
+    "predicted updates already behind the run": {
+        "sql": "SELECT count(*) FROM stated_next WHERE next_from_cadence IS NOT NULL "
+               "AND next_from_cadence < (SELECT value FROM store_stamp WHERE key = 'generated')",
+        "reads": ("stated_next", "store_stamp"),
+        "why": "works whose stated rhythm names a date the run has already passed, so the updates "
+               "tab reports them overdue. Either the series has gone quiet or the date was worked "
+               "out for a slot the month's chapter had already filled",
+        "canary": "UPDATE stated_next SET next_from_cadence = '1970-01-01' "
+                  "WHERE next_from_cadence IS NOT NULL",
+        "canary_rises_by": 2},
     # A RUN THE CATALOGUE COUNTS AND CANNOT LIST. The record states how many volumes there are and
     # the store holds fewer rows than that, which is a gap in what was captured.
     "volume rows a page counts but cannot list": {

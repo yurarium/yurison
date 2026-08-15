@@ -858,17 +858,20 @@ def _with_cadence_date(stated, latest):
     Only where the platform has not simply named a date, which is better evidence and needs no
     arithmetic at all. A rhythm that pins no particular day (隔週金曜 names a fortnight without
     saying which) yields nothing, which is the honest answer.
+
+    THE SEARCH WAS HERE AND IT PREDICTED A SLOT THAT HAD ALREADY BEEN FILLED. It walked forward
+    from the day after the latest chapter and took the first fitting date, so a work that published
+    its monthly instalment a couple of days early was handed the same month's slot: 怪獣ロマンティ
+    クス published on 7 August and was told 13 August, which then passed, and the site marked it
+    overdue with the chapter sitting on the platform. `schedule_text.next_after` knows that a
+    monthly cadence spends its month, which is a fact about the cadence and belongs beside `fits`.
     """
     if not stated or stated.get("next_update") or not stated.get("cadence") or not latest:
         return stated
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters" / "render"))
     import schedule_text
-    start = datetime.date.fromisoformat(latest) + datetime.timedelta(days=1)
-    for k in range(70):
-        d = start + datetime.timedelta(days=k)
-        if schedule_text.fits(stated["cadence"], d.isoformat()):
-            return dict(stated, next_from_cadence=d.isoformat())
-    return stated
+    got = schedule_text.next_after(stated["cadence"], latest)
+    return dict(stated, next_from_cadence=got) if got else stated
 
 
 def _sched_fits(cadence, when):

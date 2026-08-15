@@ -2021,8 +2021,7 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
         # store carries them failed on the run after a build and passed on the run after that: a
         # check alternating with nothing wrong is worse than no check, because the first person to
         # see it green stops reading it.
-        if table in ("quarantine", "derivation", "store_stamp",
-                     "run_source", "run_queue", "run_drop", "check_result", "check_finding"):
+        if table in THE_STORE_S_OWN:
             continue
         # WHAT A ROW STATES, WHICH IS NOT EVERY COLUMN IT HAS. A generated column cannot be written
         # at all, and a rowid handed out by an insert addresses the row and states nothing.
@@ -2110,8 +2109,22 @@ def ask(db):
     return {q: db.execute(sql).fetchone()[0] for q, sql in QUESTIONS.items()}
 
 
-def equivalent(db=None):
-    """Rebuild from nothing and set every derivation beside the store as it stands.
+REBUILT = ROOT / "data" / "relational-rebuilt.db"
+
+
+def equivalent(db=None, rebuilt=None):
+    """Set every derivation of a from-scratch store beside the store as it stands.
+
+    `rebuilt` IS A STORE SOMEBODY ELSE COMPILED, and `build.py --rebuild-to` is what compiles it.
+    This used to call `build()` with no source, which loads `data/build`; §13 stopped writing those
+    files, so the weekly run had nothing to read. Recreating them for this one comparison would put
+    the JSON back as an intermediate to keep an old code path alive, which is the opposite of what
+    §13 is for.
+
+    THE FROM-SCRATCH STORE IS THE ONE `build.py` ALREADY MAKES. Every run compiles a complete
+    scratch in memory from the compiler's own rows and reconciles the live store against it, and
+    that scratch shares nothing with the incremental path: it is what a rebuild means now, and no
+    file is involved.
 
     THE CHECK THAT SHARES NOTHING WITH THE INCREMENTAL PATH, which is what §14b asks for. Every
     focused test in `test_delta.py` is written against the same `reads` declarations the updater
@@ -2133,7 +2146,14 @@ def equivalent(db=None):
     # ordered digest per table.
     held_rows = _table_digests(db)
 
-    fresh, _counts, _refused = build(path=ROOT / "data" / "relational-rebuilt.db")
+    if rebuilt is None:
+        rebuilt = REBUILT
+    if not pathlib.Path(rebuilt).exists():
+        raise SystemExit(
+            f"no from-scratch store at {rebuilt}: compile one with "
+            "`python3 build.py --rebuild-to {rebuilt}`, which writes the scratch it already makes. "
+            "§13 stopped `data/build` existing, so there is nothing to rebuild from files.")
+    fresh = open_db(rebuilt)
     delta.ensure(fresh)
     delta.recompute(fresh)
     rebuilt = {n: delta.value(fresh, n) for n in delta.DERIVATIONS}
@@ -2232,12 +2252,34 @@ def _reaches_an_address(db, table, column, depth=4):
                for r in db.execute(f"PRAGMA foreign_key_list({table})"))
 
 
+#: WHAT A COMPILE DOES NOT PRODUCE. The quarantine and the derivations are the store's memory
+#: across rebuilds, §5g and §7, and the run's report is written after the compile by `build.py`,
+#: `check.py` and `ledger.py`. A scratch has none of them, so neither `apply` nor the weekly
+#: comparison may read their absence as a difference.
+THE_STORE_S_OWN = ("quarantine", "derivation", "store_stamp",
+                   "run_source", "run_queue", "run_drop", "check_result", "check_finding")
+
+#: AND ONE TABLE THAT IS BOTH. `run_report` takes four keys from the compile, the feed window and
+#: the run's date, and twelve more from `build.py`'s census, `check.py` and the ledger afterwards.
+#: `apply` must keep reconciling it or the live store's window would never be updated; a comparison
+#: against a scratch must not, because the scratch has only the four by construction.
+WRITTEN_AFTER_THE_COMPILE = THE_STORE_S_OWN + ("run_report",)
+
+
 def _table_digests(db):
-    """`{table: (rows, digest)}` over every row in a stable order, addresses read as what they mean."""
+    """`{table: (rows, digest)}` over every row in a stable order, addresses read as what they mean.
+
+    THE STORE'S OWN MEMORY IS LEFT OUT, the same list `apply` skips and for the same reason. The
+    quarantine, the derivations and the run's report are written AFTER a compile by the passes that
+    produce them, so a from-scratch store has none of them by construction: comparing them reported
+    `run_source 13 rows here, 0 in a rebuild` and said nothing about whether the delta had drifted.
+    """
     import hashlib
     labels = _labels(db)
     out = {}
     for t in _tables(db):
+        if t in WRITTEN_AFTER_THE_COMPILE:
+            continue
         cols = _comparable(db, t)
         ends = {c: _end_of_chain(db, t, c) for c in cols}
         order = ", ".join(f'"{c}"' for c in cols)

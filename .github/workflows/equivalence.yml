@@ -44,15 +44,16 @@ jobs:
       - name: Install what the pipeline needs
         run: pip install pyyaml pyflakes
 
-      # `build.py` IS THE COMPILE, and `--emit-json` because the step after this rebuilds from the
-      # emitted files. §13 stopped an ordinary run writing them, so this run asks for them by name:
-      # the whole point of the week's reconciliation is a SECOND load that shares nothing with the
-      # incremental path, and that second load reads files.
+      # ONE RUN MAKES BOTH STORES, and neither is a file of JSON. `build.py` compiles a complete
+      # scratch from the compiler's own rows and reconciles the live store against it, so the
+      # from-scratch half this comparison wants is something the run already has: `--rebuild-to`
+      # writes it out.
       #
-      # WITHOUT THEM IT FAILS LOUDLY. `relational.build` says so in one sentence rather than
-      # handing back 153 foreign-key refusals, which is how this was found.
-      - name: Compile the store from source
-        run: python3 build.py --emit-json
+      # THE FIRST ATTEMPT AT THIS PUT THE JSON BACK. It ran `--emit-json` so the old rebuild path
+      # would have files to load, which is resurrecting an intermediate §13 removed in order to
+      # keep a code path alive. The comparison is between two STORES and always was.
+      - name: Compile the store, and a from-scratch one beside it
+        run: python3 build.py --rebuild-to data/relational-rebuilt.db
 
       - name: Record every derivation
         run: |

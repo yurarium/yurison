@@ -3054,6 +3054,12 @@ def main():
     # THE CORPUS JSON IS NOT WRITTEN ANY MORE, §13. Nothing in this repository reads it and the
     # site emits what a reader is served from the store. This puts it back for a person who wants
     # to open one without writing a query, and for `test_emit`'s parity block.
+    # THE SCRATCH THIS RUN COMPILED, WRITTEN OUT, for §7's weekly reconciliation. That comparison
+    # wants a store compiled from source that shares nothing with the incremental path, and this
+    # run already makes one: `_store_db` is a complete store built from the compiler's own rows,
+    # in memory, before anything is reconciled. Writing it costs a copy and needs no JSON.
+    ap.add_argument("--rebuild-to", metavar="PATH",
+                    help="write this run's from-scratch store here, for `relational --equivalent`")
     ap.add_argument("--emit-json", action="store_true",
                     help="also write the corpus JSON into data/build, which nothing reads")
     ap.add_argument("--regenerate-archive", metavar="YYYY-MM", action="append", default=[],
@@ -7397,6 +7403,13 @@ def main():
         # of `_store_source` with the renderings left out of it.
         _rel.save(_store_db)
         print("store           : written from this run's compile, there being none to update")
+    # AND THE FROM-SCRATCH STORE, WHERE ONE WAS ASKED FOR. `_store_db` is what a rebuild means
+    # now: compiled from the compiler's rows, with the renderings in it, and never reconciled
+    # against anything. §7's weekly run compares it against the store the delta has been writing.
+    if getattr(ARGS, "rebuild_to", None):
+        _rel.save(_store_db, ARGS.rebuild_to)
+        print(f"store           : the from-scratch compile written to {ARGS.rebuild_to}")
+
     # AND THE FILE COMES BACK OUT OF THE STORE, §6. The map above is the compiler's rows, the same
     # way `series` and `works` are, and what ships is what the tables say: every key of every one of
     # its seven sections, on parsed equality rather than bytes, because a fact object here is SHARED

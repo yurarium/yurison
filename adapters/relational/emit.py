@@ -559,7 +559,19 @@ def _map(db, kind):
     so a record whose rendering is withheld, or whose ruby its reading contradicts, has to be ranked
     on its entry.
     """
-    out = _fold.fold_map(_raw(db, kind), _namekey.fold)[0]
+    raw = _raw(db, kind)
+    out = _fold.fold_map(raw, _namekey.fold)[0]
+
+    # A RULING IS ABOUT THE TITLE AND NOT ABOUT THE SPELLING IT WAS TYPED UNDER. `names/fold` ranks
+    # the entries and shows one, so `こい☆フラ　レボリューション` won the fold over
+    # `こい☆フラレボリューション` and took the ruling recorded on the second out of the shipped map.
+    # A reviewer would have had to know which of two spellings wins a fold before writing the
+    # decision down, which is a coupling nothing states.
+    for spelling, rec in raw.items():
+        why = (rec or {}).get("translation_refused")
+        folded = _namekey.fold(spelling)
+        if why and folded in out and not out[folded].get("translation_refused"):
+            out[folded] = dict(out[folded], translation_refused=why)
 
     # A WITHHELD WORK'S TITLE MUST NOT SHIP EITHER. The register refuses the WORK, and this map is
     # keyed by the folded title and is published, so leaving it here would put the name and its

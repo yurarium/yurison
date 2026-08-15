@@ -69,6 +69,18 @@ KANA_ANY = re.compile(r"[ぁ-ゖァ-ヺヽヾゝゞー]")
 KANA = re.compile(r"^[぀-ヿ\s・ー]*$")
 
 
+def _same_words(a, b):
+    """Whether two English strings are the same words, ignoring case, spacing and punctuation.
+
+    ONE FUNCTION, TWO CALLERS (§3). `names/curate._same_words` asks this of a file being reviewed and
+    this asks it of the record that shipped, and two spellings of "same words" would let a pair past
+    one and not the other.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    from names import curate
+    return curate._same_words(a, b)
+
+
 def _namekey_kinds():
     """The name populations, asked of `facts/namekey` rather than typed here again."""
     sys.path.insert(0, str(ROOT / "adapters"))
@@ -1305,6 +1317,38 @@ def _curated():
     return {k: (doc.get(k) or {}) for k in ("titles", "authors")}
 
 
+def inv_our_rendering_is_not_the_publisher_s(ctx):
+    """No record offers as OUR translation the English a publisher or licensor gave that same work.
+
+    EN_ORDER LETS A READER ASK FOR THE FORM THE PUBLISHER DID NOT CHOOSE, and a `translated` form
+    that is the attributed name in different letters answers that request with the very thing it
+    declined. 18 entries did exactly that: `Stella ★ Record` against the publisher's `STELLA★RECORD`,
+    `Bluer than Love` against `Bluer Than Love`, and one that was the licensor's string character
+    for character. Case, spacing and punctuation are folded away, so what must differ is the words.
+
+    ASKED OF THE SHIPPED RECORD AND NOT OF THE FILE (§14b). `curate.py` compares a translation with
+    the `en` its own entry states, which is the whole of what a reviewer can see. A record's licensed
+    form often arrives from somewhere the entry never names, so the entry passes and the pair a
+    reader is offered is still one name twice. This asks the question of the two forms as shipped.
+
+    OVER A TITLE THE CORPUS HOLDS, because the pair only reaches somebody where the record does.
+    The name map is keyed on every spelling a name was ever recorded under, and the ISBD
+    parallel-title form `クダンノフォークロア=FOLKLORE OF KUDAN` renders nowhere.
+    """
+    held = ctx.get("titles_held")
+    bad = []
+    for name, rec in ((ctx.get("names_shipped") or {}).get("titles") or {}).items():
+        if held is not None and name not in held:
+            continue
+        forms = (rec or {}).get("en_forms") or {}
+        ours = forms.get("translated")
+        for kind in ("official-jp", "licensed"):
+            theirs = forms.get(kind)
+            if ours and theirs and _same_words(ours, theirs):
+                bad.append(f"titles/{name}: our {ours!r} is the {kind} {theirs!r} in other letters")
+    return bad
+
+
 def inv_curated_values_reach_the_store(ctx):
     """A curated English name must be in the store the build reads, not only in the file it was
     written in.
@@ -1925,6 +1969,7 @@ INVARIANTS = [
     ("a kana name's reading spells it", inv_kana_reading_spells_its_name),
     ("a division cites its source", inv_a_division_cites_its_source),
     ("a division names its donor in a field", inv_a_division_names_its_donor_in_a_field),
+    ("our rendering is not the publisher's", inv_our_rendering_is_not_the_publisher_s),
     ("curated values reach the store", inv_curated_values_reach_the_store),
     ("ruby spells the reading", inv_ruby_spells_reading),
     ("one row per identifier", inv_one_row_per_identifier),
@@ -3205,9 +3250,16 @@ def budget_titles_with_no_translation_of_our_own(ctx):
     # the title proper from the parallel title. Those records render nowhere and name nothing, so a
     # translation written for one would reach no reader, and 50 of them sat in a queue that could
     # never be worked off.
+    # FOLDED, BECAUSE THAT IS HOW A TITLE REACHES ITS RECORD. The catalogue and the name map spell
+    # one title two ways, `京アミ！` against `京アミ!`, and comparing the raw strings put 8 titles
+    # outside the population that a reader resolves onto a record every time a page renders. The
+    # same fold `curate.unmatched` joins on, for the same reason.
     held = ctx.get("titles_held")
     if held is not None:
-        titles = {k: v for k, v in titles.items() if k in held}
+        sys.path.insert(0, str(ROOT / "adapters" / "names"))
+        from names import key as _key
+        folded = {_key.fold(k) for k in held}
+        titles = {k: v for k, v in titles.items() if _key.fold(k) in folded}
     # ASKED FOR A JAPANESE CHARACTER RATHER THAN A JAPANESE CODE BLOCK. `JAPANESE` spans the CJK
     # punctuation as well as the scripts, so `flower・flower` counted as Japanese on the interpunct
     # the work prints between two English words, and the paragraph above already rules that a
@@ -5150,6 +5202,16 @@ def self_test():
                                        "print": [{"first": "2000-01"}]})),
         ("curated values reach the store", inv_curated_values_reach_the_store,
          _plant_stale_translation),
+        # THE FAULT AS IT WAS WRITTEN: the publisher's own English offered back as our translation
+        # with the capitals changed, which is what 18 entries did.
+        # THE PLANTED TITLE HAS TO BE ONE THE CORPUS HOLDS, because the check asks only about those.
+        # A canary that skips the population it is aimed at proves the check runs and not that it
+        # can see, which is the shape §14b is about.
+        ("our rendering is not the publisher's", inv_our_rendering_is_not_the_publisher_s,
+         lambda c: (c["names_shipped"].setdefault("titles", {}).update(
+             {"CANARY": {"en_forms": {"official-jp": "STELLA★RECORD",
+                                      "translated": "Stella ★ Record"}}}),
+                    c.__setitem__("titles_held", set(c.get("titles_held") or ()) | {"CANARY"}))),
         # Ruby whose bases no longer add up to the title they annotate.
         ("ruby covers its surface", inv_ruby_covers_its_surface,
          lambda c: c["series"].append({"id": "CANARY", "work": "カナリア",

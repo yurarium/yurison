@@ -203,6 +203,24 @@ def main(s):
                             dict(BOTH, translation="Otherside Picnic")),
             "a translation repeating the attributed name adds no second form")
 
+    # ── TYPOGRAPHY IS NOT A TRANSLATION ──────────────────────────────────────────────────────────
+    #
+    # Exact equality was the whole of the test above, so 18 entries offered `Stella ★ Record`
+    # against the publisher's `STELLA★RECORD` and `Bluer than Love` against `Bluer Than Love`. A
+    # reader ranking our rendering first was handed the publisher's name in different capitals,
+    # which is the attributed name presented as ours: the one thing these two fields exist to keep
+    # apart. What has to differ is the words.
+    s.check(curate.problems("titles", "x", dict(BOTH, translation="otherside picnic")),
+            "the same words in different capitals are the attributed name, not a second form")
+    s.check(curate.problems("titles", "x", dict(BOTH, translation="Otherside  Picnic!")),
+            "and neither spacing nor punctuation makes a rendering of it")
+    s.eq(curate.problems("titles", "x", dict(BOTH, translation="Picnic in the World Behind")), [],
+         "a form that differs in its words is the one this field is for")
+    s.check(curate._same_words("Stella ★ Record", "STELLA★RECORD"),
+            "the fold sees through the star and the capitals")
+    s.check(not curate._same_words("The Yuyu Style", "Yuyushiki"),
+            "and does not collapse two genuinely different renderings")
+
     # ── AND WHERE THAT IS TRUE OF EVERY RENDERING, THE RULING IS RECORDED ────────────────────────
     #
     # `スカーレット` is the English word Scarlet written in kana and the publisher printed
@@ -226,6 +244,16 @@ def main(s):
     # reading correction whose note already says either translation would discard the other, and
     # its English is a romanisation no line of the file states. Demanding the entry copy that in
     # would make a reviewer restate a machine's answer for permission to rule on it.
+    # AND THE RULING MAY BE THE WHOLE ENTRY. 紗痲Fallin'Jail ships a machine romanisation this file
+    # never stated, so requiring a reading or an `en` to hang the ruling on would make a reviewer
+    # restate one to be allowed to rule that it stands.
+    s.eq(curate.problems("titles", "紗痲Fallin'Jail",
+                         {"source": "yurarium", "source_kind": "derived",
+                          "reviewed": "2026-08-15",
+                          "translation_refused": "A name against an English phrase the work "
+                                                 "prints, so our rendering is the romanisation."}),
+         [], "an entry may consist of the ruling and its argument")
+
     s.eq(curate.problems("titles", "球詠",
                          {"reading": "タマヨミ", "reading_basis": "stated",
                           "source": "comic-fuz", "source_kind": "platform",
@@ -263,6 +291,18 @@ def main(s):
              "the revised wording replaces the one it revises")
         curate.apply(st, {"titles": {"裏世界ピクニック": dict(BOTH, translation="Reverse-Side Picnic")}})
         s.eq(len(rec["en_conflicts"]), 1, "and re-applying the same file changes nothing")
+
+        # A RULING TAKES BACK THE FORM THAT WAS RECORDED. The store is journal-backed, so a
+        # translation the file stops claiming goes on shipping in `en_forms`, and a reader ranking
+        # ours first still meets it. 18 renderings that were the publisher's name in different
+        # capitals stayed exactly that after the file stopped claiming them.
+        curate.apply(st, {"titles": {"裏世界ピクニック": {
+            k: v for k, v in dict(LICENSED,
+                                  translation_refused="The licensor's own English is the literal "
+                                                      "rendering, so ours repeats it.").items()}}})
+        s.eq(rec.get("en_conflicts") or [], [],
+             "the translation is taken back rather than left shipping under a withdrawn claim")
+        s.eq(rec["en"], "Otherside Picnic", "and the attributed name is untouched by the ruling")
     # A REFUTATION THE FILE HAS WITHDRAWN LEAVES THE RECORD. A refutation says nothing can be put
     # in this slot, and research eventually putting something there is the outcome it was written
     # to wait for. 生肉's セイニク was dropped in August with nothing to replace it; まんが王国 files
@@ -295,6 +335,16 @@ def main(s):
     R = {"reading": "タマヨミ", "reading_basis": "stated", "source": "comic-fuz",
          "source_kind": "platform", "source_url": "https://example.invalid/441",
          "reviewed": "2026-08-03"}
+    # AND THE RULING MAY BE THE WHOLE ENTRY. 紗痲Fallin'Jail ships a machine romanisation this file
+    # never stated, so requiring a reading or an `en` to hang the ruling on would make a reviewer
+    # restate one to be allowed to rule that it stands.
+    s.eq(curate.problems("titles", "紗痲Fallin'Jail",
+                         {"source": "yurarium", "source_kind": "derived",
+                          "reviewed": "2026-08-15",
+                          "translation_refused": "A name against an English phrase the work "
+                                                 "prints, so our rendering is the romanisation."}),
+         [], "an entry may consist of the ruling and its argument")
+
     s.eq(curate.problems("titles", "球詠", R), [], "a reading stated by the platform")
     s.check(curate.problems("titles", "球詠", dict(R, reading="たまよみ")),
             "a hiragana reading is caught here rather than by a build invariant")
@@ -307,6 +357,16 @@ def main(s):
     # is, and they satisfy no test asking whether a source stated the reading.
     s.check(curate.problems("titles", "球詠", dict(R, source_kind="community-db")),
             "a community database does not state a reading")
+    # AND THE RULING MAY BE THE WHOLE ENTRY. 紗痲Fallin'Jail ships a machine romanisation this file
+    # never stated, so requiring a reading or an `en` to hang the ruling on would make a reviewer
+    # restate one to be allowed to rule that it stands.
+    s.eq(curate.problems("titles", "紗痲Fallin'Jail",
+                         {"source": "yurarium", "source_kind": "derived",
+                          "reviewed": "2026-08-15",
+                          "translation_refused": "A name against an English phrase the work "
+                                                 "prints, so our rendering is the romanisation."}),
+         [], "an entry may consist of the ruling and its argument")
+
     s.eq(curate.problems("titles", "球詠", dict(R, source_kind="community-db",
                                                reading_basis="community-printed")), [],
          "and the kana it prints are admissible as a floor under their own basis")
@@ -330,8 +390,28 @@ def main(s):
     # A READING CARRIES THE TITLE'S OWN MARKS, and these two arrived with titles settled by hand.
     # 鮮血王女 quotes 『死神』 inside its subtitle and 天華百剣 ‐瞬‐ brackets its subtitle in HYPHEN
     # and not in the ASCII one, so a pattern without them rejects a reading that is entirely kana.
+    # AND THE RULING MAY BE THE WHOLE ENTRY. 紗痲Fallin'Jail ships a machine romanisation this file
+    # never stated, so requiring a reading or an `en` to hang the ruling on would make a reviewer
+    # restate one to be allowed to rule that it stands.
+    s.eq(curate.problems("titles", "紗痲Fallin'Jail",
+                         {"source": "yurarium", "source_kind": "derived",
+                          "reviewed": "2026-08-15",
+                          "translation_refused": "A name against an English phrase the work "
+                                                 "prints, so our rendering is the romanisation."}),
+         [], "an entry may consist of the ruling and its argument")
+
     s.eq(curate.problems("titles", "球詠", dict(R, reading="『タマヨミ』")), [],
          "a reading keeps the corner brackets the title puts round a word")
+    # AND THE RULING MAY BE THE WHOLE ENTRY. 紗痲Fallin'Jail ships a machine romanisation this file
+    # never stated, so requiring a reading or an `en` to hang the ruling on would make a reviewer
+    # restate one to be allowed to rule that it stands.
+    s.eq(curate.problems("titles", "紗痲Fallin'Jail",
+                         {"source": "yurarium", "source_kind": "derived",
+                          "reviewed": "2026-08-15",
+                          "translation_refused": "A name against an English phrase the work "
+                                                 "prints, so our rendering is the romanisation."}),
+         [], "an entry may consist of the ruling and its argument")
+
     s.eq(curate.problems("titles", "球詠", dict(R, reading="タマ ‐ ヨミ ‐")), [],
          "and the HYPHEN a subtitle is bracketed in")
     s.check(curate.problems("titles", "球詠", dict(R, reading="『球詠』")),
@@ -379,6 +459,16 @@ def main(s):
     R2 = {"reading": "タマヨミ", "reading_basis": "researched", "source": "pixiv dictionary",
           "source_kind": "community-db", "reviewed": "2026-08-03",
           "reading_note": "readers write the title たまよみ, and 詠 takes よみ in the lead's name 詠深"}
+    # AND THE RULING MAY BE THE WHOLE ENTRY. 紗痲Fallin'Jail ships a machine romanisation this file
+    # never stated, so requiring a reading or an `en` to hang the ruling on would make a reviewer
+    # restate one to be allowed to rule that it stands.
+    s.eq(curate.problems("titles", "紗痲Fallin'Jail",
+                         {"source": "yurarium", "source_kind": "derived",
+                          "reviewed": "2026-08-15",
+                          "translation_refused": "A name against an English phrase the work "
+                                                 "prints, so our rendering is the romanisation."}),
+         [], "an entry may consist of the ruling and its argument")
+
     s.eq(curate.problems("titles", "球詠", R2), [], "a researched reading with its reasoning")
     s.check(curate.problems("titles", "球詠", {k: v for k, v in R2.items() if k != "reading_note"}),
             "and the same reading with none is refused")

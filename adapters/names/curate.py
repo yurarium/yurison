@@ -255,6 +255,14 @@ def _boundary_problems(kind, where, ja, e, rsk):
     return out
 
 
+def _same_words(a, b):
+    """Whether two English strings are the same words, ignoring case, spacing and punctuation."""
+    if not a or not b:
+        return False
+    fold = lambda s: re.sub(r"[^a-z0-9]+", " ", unicodedata.normalize("NFKC", str(s)).lower()).strip()
+    return fold(a) == fold(b)
+
+
 def problems(kind, ja, e):
     """Everything wrong with one entry. Empty means it may be applied."""
     out = []
@@ -302,7 +310,12 @@ def problems(kind, ja, e):
     if unknown:
         out.append(f"{where}: unknown key(s) {sorted(unknown)}")
 
-    if not (e.get("en") or e.get("candidate") or e.get("reading")):
+    # A REFUSAL IS ALSO SOMETHING THE ENTRY SAYS. `translation_refused` rules that the form the
+    # record already ships is the only one there is, which is a decision about the title and needs
+    # no value beside it: 紗痲Fallin'Jail carries a machine romanisation this file never stated,
+    # and demanding a reading or an `en` to hang the ruling on would make a reviewer restate one.
+    if not (e.get("en") or e.get("candidate") or e.get("reading")
+            or e.get("translation_refused")):
         out.append(f"{where}: says nothing; give an `en`, a `candidate` or a `reading`")
     if e.get("en") and e.get("candidate"):
         out.append(f"{where}: an entry is either attributed (`en`) or seen (`candidate`), not both")
@@ -352,8 +365,16 @@ def problems(kind, ja, e):
                        f"carries, so it needs an `en` on basis "
                        f"{' or '.join(sorted(NEEDS_A_SECOND_FORM))}; with nothing to sit beside, "
                        f"write the translation as `en` on basis translated")
-        if e.get("translation") == e.get("en"):
-            out.append(f"{where}: the translation repeats the attributed name and adds no form")
+        # TYPOGRAPHY IS NOT A TRANSLATION, and exact equality was the whole of this test. 18 entries
+        # offered `Stella ★ Record` against the publisher's `STELLA★RECORD` and `Bluer than Love`
+        # against `Bluer Than Love`, so a reader ranking our rendering first was handed the
+        # publisher's name with different capitals. That is the attributed name presented as ours,
+        # which is the one thing the two fields exist to keep apart. Compared with case, spacing and
+        # punctuation folded away, so what has to differ is the words.
+        if _same_words(e.get("translation"), e.get("en")):
+            out.append(f"{where}: the translation is {e.get('en')!r} in different letters rather "
+                       f"than a second form; where the words are the publisher's, say so in "
+                       f"`translation_refused`")
         if not (e.get("translation_note") or "").strip():
             out.append(f"{where}: a translation needs a note saying what it rests on")
     elif e.get("translation_note"):
@@ -686,6 +707,25 @@ def apply(store, doc):
                 store.record(kind, ja, en=tr, basis="translated", source=OURS,
                              source_kind="derived", translation_note=e.get("translation_note"),
                              at=str(e.get("reviewed")))
+            # AND A RULING THAT THERE IS NO SECOND FORM TAKES BACK THE ONE THAT WAS RECORDED. The
+            # store is journal-backed, so a translation withdrawn from the file goes on shipping in
+            # `en_forms` and a reader ranking ours first still meets it. 18 renderings that were the
+            # publisher's name in different capitals stayed exactly that way after the file stopped
+            # claiming them, so the ruling said one thing and the record said another.
+            if e.get("translation_refused"):
+                rec = store.records[kind].get(ja) or {}
+                ours = [c for c in (rec.get("en_conflicts") or [])
+                        if c.get("basis") == "translated" and c.get("source") == OURS]
+                if ours:
+                    rec["en_conflicts"] = [c for c in rec["en_conflicts"] if c not in ours]
+                # AND THE SHOWN NAME TOO, WHERE THE SHOWN NAME WAS THE ONE BEING RETRACTED.
+                # `セメルパルス semelparous` held the licensor's word with a capital on it as an `en`
+                # at basis `translated`, so the ruling on the entry sat beside the very claim it
+                # withdraws. Only where the entry now proposes no name of its own: an entry that
+                # states an `en` is claiming it, whatever else it rules.
+                if not e.get("en") and rec.get("basis") == "translated" \
+                        and rec.get("en_source") in (OURS, "derived", None):
+                    store.clear_claim(kind, ja, "en")
             # A REFUTATION THE FILE HAS WITHDRAWN LEAVES THE RECORD, which is the same rule the
             # store applies to a citation the file stops carrying and was missing here. A
             # refutation says nothing can be put in this slot, and research eventually putting

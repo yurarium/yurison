@@ -40,6 +40,27 @@ def main(s):
     s.eq(b.carry("いがらしゆみこ", " イガラシユミコ"), None,
          "a space at the edge is punctuation, not a claim about the name")
 
+    # ── THE SEPARATOR IS THE SURFACE'S, WHOEVER STATES THE OFFSET ─────────────────────────────
+    #
+    # A kana name IS its own reading, so `・` coming back as a space respells it. This was fixed in
+    # `from_surface`, then in `analyser_division.retire`, and `carry` was the third writer of the
+    # same rule: スタジオクロマト・スタジオコロリド reached the published status page on 2026-08-15
+    # as スタジオクロマト スタジオコロリド, with `a kana name's reading spells it` reporting it to a
+    # reader. `stated` is the one place that reads a surface's separators now.
+    s.eq(b.carry("スタジオクロマト・スタジオコロリド", "スタジオクロマト スタジオコロリド"),
+         "スタジオクロマト・スタジオコロリド",
+         "a donor states where the boundary is; the surface states what sits there")
+    s.eq(b.carry("トリイ・シヅク", "トリイ シヅク"), "トリイ・シヅク",
+         "and it holds for the pair the rule was first argued over")
+    s.eq(b.stated("スタジオクロマト・スタジオコロリド"), {8: "・"},
+         "an interpunct is stated at the offset it divides")
+    s.eq(b.stated("トリイ シヅク"), {},
+         "a space states nothing, being what `respace` writes anyway")
+    s.eq(b.stated("A・ B"), {},
+         "and a separator that is not all interpunct states a space, which asserts no character")
+    s.eq(b.stated("・トリイ・シヅク"), {3: "・"},
+         "a leading separator divides nothing, so it names no offset")
+
     # THE NAME THAT IS ONE WORD, which is the population this must never improve. ぬるめた's own
     # tankōbon cover prints こかむも in Latin as Kokamumo, set by the publisher, so the unsplit
     # rendering is already right and a rule that inferred a surname would break it against a

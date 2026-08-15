@@ -120,8 +120,23 @@ def _store_report(inv_results, budget_values, recorded, timings, skip_source, un
         # status page lists the gate as it is given it, so a report ordered by name put `adapters
         # fetching without net.py` where `citations withheld from readers` had been. The number is
         # per kind, which is what the primary key is too.
+        # ── THE ONE ANSWER THIS WRITE ITSELF DECIDES ──────────────────────────────────────────
+        #
+        # `the store carries what the checks answered` reads `check_result`, and it is evaluated
+        # BEFORE this fills it. On a store compiled fresh, which is every CI runner, it therefore
+        # reported `check_result is empty` and then this wrote 132 rows, so the published store
+        # carried a finding its own contents contradict and status.html showed it to a reader on
+        # 2026-08-15. A check that fails on the run that satisfies it is the shape
+        # `relational/__init__.py` already met once: a check alternating with nothing wrong is
+        # worse than no check.
+        #
+        # THE WRITE IS THE ANSWER, AND IT STILL FAILS WHERE IT SHOULD. Nothing below commits unless
+        # every row goes in, so a refused or locked write leaves the table as it was and the NEXT
+        # run evaluates it empty and says so. What stops is a violation that describes the instant
+        # before the fix rather than the state anybody can read.
+        carries = "the store carries what the checks answered"
         for name, _fn in INVARIANTS:
-            got = inv_results.get(name)
+            got = [] if name == carries else inv_results.get(name)
             rows.append({"kind": "invariant", "name": name, "value": len(got or []),
                          "budget": None, "why": None, "not_measured": None,
                          "seq": len([r for r in rows if r["kind"] == "invariant"]),

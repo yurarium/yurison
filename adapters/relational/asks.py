@@ -96,6 +96,12 @@ INVARIANTS = {
     # a second write is a thing that can quietly stop happening. It reports its own count every run
     # so a person watching CI would see it go, and this is the part that does not need watching.
     #
+    # WHAT THE RUN THAT WRITES IT RECORDS. `check.py`'s `_store_report` files this one as answered
+    # by the write it is doing, because the SQL below is evaluated before the table is filled and a
+    # store compiled fresh therefore published a violation its own rows contradict. The question
+    # here is still the honest one for every reader that is not that write: an empty table means
+    # the last write never landed.
+    #
     # EMPTINESS IS ALL IT CAN ASK, and that is deliberate rather than weak. A run's checks are
     # evaluated BEFORE the same run records them, so anything comparing this table against the
     # checks that exist today would fail on the run that adds a check and pass on the next one,

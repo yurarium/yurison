@@ -126,6 +126,33 @@ def cuts(reading):
     return tuple(a for a in at if 0 < a < seen)
 
 
+def stated(surface):
+    """`{offset: separator}` for every boundary the SURFACE writes with something but a space.
+
+    THE THIRD WRITER OF ONE RULE IS WHY THIS IS A FUNCTION. `flat` takes the interpunct out with the
+    spaces, because トリイ・シヅク and トリイ シヅク state the same division, and `respace` puts a
+    SPACE back at every offset. For a kana surface that respells the name, and a kana name IS its
+    own reading. `from_surface` was fixed, then `analyser_division.retire` turned out to be a second
+    producer and was fixed, and `carry` was a third: スタジオクロマト・スタジオコロリド came back as
+    スタジオクロマト スタジオコロリド on the run of 2026-08-15 and the status page carried the
+    violation to a reader. Three fixes to one rule in three places is the shape §3 refuses.
+
+    OFFSETS ARE INTO THE FLAT SURFACE, which is what both callers divide. Only a separator that is
+    entirely interpuncts is carried: a name written `A・ B` states a space as well, and a space
+    asserts no character.
+    """
+    out, seen = {}, 0
+    for token in re.split(r"([\s\u3000・･]+)", str(surface or "")):
+        if not token:
+            continue
+        if re.fullmatch(r"[\s\u3000・･]+", token):
+            if seen and set(token) <= set("・･"):
+                out[seen] = token
+        else:
+            seen += len(flat(token))
+    return out
+
+
 def respace(run, at, sep=None):
     """The run with a boundary at each offset, a space unless `sep` names another.
 
@@ -167,7 +194,9 @@ def carry(surface, donor):
     theirs = flat(donor)
     if len(theirs) != len(ours) or filing(theirs) != filing(ours):
         return None
-    return respace(ours, at)
+    # THE SURFACE'S OWN SEPARATORS, `stated` being the one place that reads them. The donor states
+    # WHERE the boundary is; what character sits there is the surface's to say.
+    return respace(ours, at, stated(surface))
 
 
 # Why a name was left whole, as a value a caller can count. Silence about which of these applied is
@@ -349,11 +378,7 @@ def from_surface(name, reading):
     # AN INTERPUNCT IS KEPT AND A RUN OF WHITESPACE BECOMES ONE SPACE, which is what the surface
     # said in each case. Only a separator that is entirely interpuncts is carried over: a name
     # written `A・ B` is stating a space as well and the space is the safer of the two.
-    marks = {}
-    for i, off in enumerate(at):
-        got = seps[i] if i < len(seps) else " "
-        if got and set(got) <= set("・･"):
-            marks[off] = got
+    marks = stated(text)
     if respace(ours, tuple(at), marks).replace(" ", "").replace("・", "").replace("･", "") != ours:
         return None
     pieces = re.split(r"[ ・･]", respace(ours, tuple(at), marks))

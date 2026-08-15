@@ -85,7 +85,14 @@ def registered():
                               "watched": bool(p.get("watched")),
                               AGE_GATED: bool(p.get(AGE_GATED)),
                               SERVES_WORKS: p.get(SERVES_WORKS) is not False,
-                              "host": hosts[0] if hosts else None, "hosts": hosts}
+                              # HOSTS ARE THE UNION, LIKE THE IDS. A platform moves and a site
+                              # runs a viewer on its own subdomain, and each register states what
+                              # it knows: `adapters/webpages/sites.yaml` holds HERO'S Web with
+                              # `viewer.heros-web.com` and the project's own file holds the bare
+                              # host, so the merge kept whichever came last and seven works
+                              # addressed at the viewer named no platform at all.
+                              "host": hosts[0] if hosts else was.get("host"),
+                              "hosts": sorted({*hosts, *(was.get("hosts") or ())})}
     return list(out.values())
 
 

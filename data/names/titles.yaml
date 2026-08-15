@@ -8766,6 +8766,37 @@ names:
     reading_source: derived
     reading_source_kind: derived
     verified: false
+  うまいものだけ食べて生きます。/読み切り:
+    basis: romaji
+    furigana_spans:
+    - - うまいものだけ
+      - null
+    - - 食
+      - た
+    - - べて
+      - null
+    - - 生
+      - い
+    - - きます。/
+      - null
+    - - 読
+      - よ
+    - - み
+      - null
+    - - 切
+      - き
+    - - り
+      - null
+    reading: ウマイ モノ ダケ タベテ イキマス。 / ヨミキリ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   うみねこには負けない!:
     basis: translated
     en: Won't Lose to the Seagulls!
@@ -10553,6 +10584,53 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  お風呂で○○する人は、美容室で大変な目に遭うらしい/読み切り:
+    basis: romaji
+    furigana_spans:
+    - - お
+      - null
+    - - 風呂
+      - ふろ
+    - - で○○する
+      - null
+    - - 人
+      - ひと
+    - - は、
+      - null
+    - - 美容室
+      - びようしつ
+    - - で
+      - null
+    - - 大変
+      - たいへん
+    - - な
+      - null
+    - - 目
+      - め
+    - - に
+      - null
+    - - 遭
+      - あ
+    - - うらしい/
+      - null
+    - - 読
+      - よ
+    - - み
+      - null
+    - - 切
+      - き
+    - - り
+      - null
+    reading: オ フロ デ ○ ○ スル ヒト ワ、 ビヨウシツ デ タイヘンナ メ ニ アウラシイ / ヨミキリ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   かいじゅう色の島:
@@ -16112,6 +16190,23 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  とくにある日々:
+    basis: romaji
+    furigana_spans:
+    - - とくにある
+      - null
+    - - 日々
+      - ひび
+    reading: トクニ アル ヒビ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   とどめをさして:
     basis: translated
     en: Finish Me Off
@@ -17085,6 +17180,20 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  のんちゃんとアカリ:
+    basis: romaji
+    furigana_spans:
+    - - のんちゃんとアカリ
+      - null
+    reading: ノンチャン ト アカリ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   のんべれケ。おかわり！！:
@@ -28668,6 +28777,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ストリーミング・ウォー:
+    basis: romaji
+    reading: ストリーミング・ ウォー
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   ストレッチ:
     basis: translated
     en: Stretch
@@ -33251,6 +33371,18 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ブランクスペース:
+    basis: romaji
+    reading: ブランク スペース
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   ブルーダイヤモンド:
     basis: translated
     en: Blue Diamond
@@ -34899,6 +35031,40 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  モダンドラキュラの堅実な生き方/読み切り:
+    basis: romaji
+    furigana_spans:
+    - - モダンドラキュラの
+      - null
+    - - 堅実
+      - けんじつ
+    - - な
+      - null
+    - - 生
+      - い
+    - - き
+      - null
+    - - 方
+      - かた
+    - - /
+      - null
+    - - 読
+      - よ
+    - - み
+      - null
+    - - 切
+      - き
+    - - り
+      - null
+    reading: モダン ドラキュラ ノ ケンジツナ イキカタ / ヨミキリ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   モデルちゃんと地味マネさん:
     basis: translated
     en: The Model and Her Plain Manager
@@ -37468,6 +37634,20 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  ㊙のライラ:
+    basis: romaji
+    furigana_spans:
+    - - ㊙のライラ
+      - null
+    reading: ㊙ ノ ライラ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   一位の女と二位の女:
@@ -59891,6 +60071,40 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜:
+    basis: romaji
+    furigana_spans:
+    - - 最
+      - さい
+    - - 恐
+      - おそれ
+    - - 呪物
+      - じゅぶつ
+    - - 令嬢
+      - れいじょう
+    - - ' 〜'
+      - null
+    - - 彼女
+      - かのじょ
+    - - は
+      - null
+    - - 呪物
+      - じゅぶつ
+    - - を
+      - null
+    - - 愛
+      - あい
+    - - しすぎている〜
+      - null
+    reading: サイ オソレ ジュブツ レイジョウ   〜 カノジョ ワ ジュブツ ヲ アイシ スギテ イル 〜
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   最果てのともだち:
     basis: translated
     en: Friend at the End of the World
@@ -70617,6 +70831,39 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  私の初恋は恥ずかしすぎて誰にも言えない:
+    basis: romaji
+    furigana_spans:
+    - - 私
+      - わたし
+    - - の
+      - null
+    - - 初恋
+      - はつこい
+    - - は
+      - null
+    - - 恥
+      - は
+    - - ずかしすぎて
+      - null
+    - - 誰
+      - だれ
+    - - にも
+      - null
+    - - 言
+      - い
+    - - えない
+      - null
+    reading: ワタシ ノ ハツコイ ワ ハズカシ スギテ ダレ ニ モ イエナイ
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   私の可愛い子猫ちゃん:
     basis: licensed
     en: My Cute Little Kitten
@@ -76683,6 +76930,28 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  贋作の第十番:
+    basis: romaji
+    furigana_spans:
+    - - 贋作
+      - がんさく
+    - - の
+      - null
+    - - 第
+      - だい
+    - - 十
+      - じゅう
+    - - 番
+      - ばん
+    reading: ガンサク ノ ダイ ジュウ バン
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   赤ずきんに食べられた狼:
     basis: translated
     en: The Wolf Who Was Eaten by Little Red Riding Hood
@@ -78555,6 +78824,32 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  除霊師ハルカは幽霊が怖い!:
+    basis: romaji
+    furigana_spans:
+    - - 除霊
+      - じょれい
+    - - 師
+      - し
+    - - ハルカは
+      - null
+    - - 幽霊
+      - ゆうれい
+    - - が
+      - null
+    - - 怖
+      - こわ
+    - - い!
+      - null
+    reading: ジョレイシ ハルカ ワ ユウレイ ガ コワイ!
+    reading_at: '2026-08-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   陰キャの私が何故かギャルにモテている:

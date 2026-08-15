@@ -6,70 +6,12 @@ platform: j-nbooks
 platform_name: "COMICリュエル"
 publisher: ""
 engine: comici
-retrieved: 2026-08-02
+retrieved: 2026-08-15
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
-  - work_title: "白と黒～Black & White～"
-    author: "Sal Jiang"
-    url: "https://comic.j-nbooks.jp/series/b334c297c6024"
-    chapter_count: 18
-    chapters:
-      - title: "第1話"
-        updated: "2024-10-04"
-        access_modes: ["free"]
-      - title: "第2話"
-        updated: "2024-10-04"
-        access_modes: ["free"]
-      - title: "第3話"
-        updated: "2024-10-04"
-        access_modes: ["free"]
-      - title: "第4話"
-        updated: "2024-10-04"
-        access_modes: ["free-timed"]
-      - title: "第5話"
-        updated: "2024-10-04"
-        access_modes: ["free-timed"]
-      - title: "第6話"
-        updated: "2024-10-04"
-        access_modes: ["free-timed"]
-      - title: "第7話"
-        updated: "2024-10-04"
-        access_modes: ["free-timed"]
-      - title: "第8話"
-        updated: "2024-10-04"
-        access_modes: ["free-timed"]
-      - title: "第9話"
-        updated: "2024-10-04"
-        access_modes: ["free-timed"]
-      - title: "第10話"
-        updated: "2024-10-04"
-        access_modes: ["free-timed"]
-      - title: "第11話"
-        updated: "2024-10-04"
-        access_modes: ["free-timed"]
-      - title: "第12話"
-        updated: "2024-10-04"
-        access_modes: ["free-timed"]
-      - title: "第13話"
-        updated: "2024-10-04"
-        access_modes: ["purchase"]
-      - title: "第14話"
-        updated: "2024-10-04"
-        access_modes: ["purchase"]
-      - title: "第15話"
-        updated: "2024-10-04"
-        access_modes: ["purchase"]
-      - title: "第16話"
-        updated: "2024-10-04"
-        access_modes: ["purchase"]
-      - title: "第17話"
-        updated: "2024-10-04"
-        access_modes: ["purchase"]
-      - title: "最終話"
-        updated: "2024-10-04"
-        access_modes: ["purchase"]
   - work_title: "SHWD《シュード》"
+    status: "完結"
     author: "sono.N"
     url: "https://comic.j-nbooks.jp/series/25f1325d1fd40"
     chapter_count: 19
@@ -129,5 +71,65 @@ works:
         updated: "2024-10-04"
         access_modes: ["purchase"]
       - title: "ep.18"
+        updated: "2024-10-04"
+        access_modes: ["purchase"]
+  - work_title: "白と黒～Black & White～"
+    status: "完結"
+    author: "Sal Jiang"
+    url: "https://comic.j-nbooks.jp/series/b334c297c6024"
+    chapter_count: 18
+    chapters:
+      - title: "第1話"
+        updated: "2024-10-04"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2024-10-04"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: "2024-10-04"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: "2024-10-04"
+        access_modes: ["free-timed"]
+      - title: "第5話"
+        updated: "2024-10-04"
+        access_modes: ["free-timed"]
+      - title: "第6話"
+        updated: "2024-10-04"
+        access_modes: ["free-timed"]
+      - title: "第7話"
+        updated: "2024-10-04"
+        access_modes: ["free-timed"]
+      - title: "第8話"
+        updated: "2024-10-04"
+        access_modes: ["free-timed"]
+      - title: "第9話"
+        updated: "2024-10-04"
+        access_modes: ["free-timed"]
+      - title: "第10話"
+        updated: "2024-10-04"
+        access_modes: ["free-timed"]
+      - title: "第11話"
+        updated: "2024-10-04"
+        access_modes: ["free-timed"]
+      - title: "第12話"
+        updated: "2024-10-04"
+        access_modes: ["free-timed"]
+      - title: "第13話"
+        updated: "2024-10-04"
+        access_modes: ["purchase"]
+      - title: "第14話"
+        updated: "2024-10-04"
+        access_modes: ["purchase"]
+      - title: "第15話"
+        updated: "2024-10-04"
+        access_modes: ["purchase"]
+      - title: "第16話"
+        updated: "2024-10-04"
+        access_modes: ["purchase"]
+      - title: "第17話"
+        updated: "2024-10-04"
+        access_modes: ["purchase"]
+      - title: "最終話"
         updated: "2024-10-04"
         access_modes: ["purchase"]

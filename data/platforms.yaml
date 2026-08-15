@@ -363,6 +363,38 @@ platforms:
   watched: true
   notes: Read by an adapter; entry added so the platform has metadata. Rank not yet assigned.
   host: comic-seasons.com
+# ビビビコミック and MAGKAN, enabled 2026-08-15 beside ヤングアニマルWeb. Both are comici sites the
+# reconnaissance pass had written off as unreadable, which was the generic heuristic failing.
+- id: bibibi
+  name: ビビビコミック
+  en: Bibibi Comic
+  host: bibibi-comic.com
+  watched: true
+  notes: comici engine, read by adapters/webpages.
+- id: magkan
+  name: MAGKAN
+  publisher: マッグガーデン
+  host: kansai.mag-garden.co.jp
+  watched: true
+  notes: comici engine, read by adapters/webpages.
+# 路草, which the generic pass has been reading all along on a proven markup strategy while no
+# register held the platform, so its work named nothing a reader could follow.
+- id: michikusa
+  name: 路草
+  en: Michikusa
+  host: michikusacomics.jp
+  watched: true
+  notes: markup strategy, read by adapters/generic.
+# ヤングアニマルWeb, enabled 2026-08-15. 白泉社 runs it on comici, the same engine as its 花とゆめ+,
+# and the antenna lists seven works reachable nowhere else watched. It was in no register at all
+# until a new serial announced on it was refused by the admission policy for want of one.
+- id: younganimal
+  name: ヤングアニマルWeb
+  en: Young Animal Web
+  publisher: 白泉社
+  host: younganimal.com
+  watched: true
+  notes: comici engine, read by adapters/webpages. Onboarded from a 百合ナビ announcement.
 - id: mynavi-news
   name: マイナビニュース
   en: Mynavi News
@@ -490,8 +522,6 @@ platforms:
   en: Manga Cross
 - name: 栞
   en: Shiori
-- name: 路草
-  en: Michikusa
 
 not_works:
 - title: ゆりひめ@ピクシブ

@@ -101,7 +101,12 @@ commands:
 
   - id: webpages
     optional: true
-    argv: [adapters/webpages/releases.py, --gap, data/coverage/webcomics-gap.yaml,
+    # THE FULL CANDIDATE LIST, NOT THE GAP, and the adapter's own docstring has said so all along:
+    # "the gap deliberately excludes everything already reachable, so an adapter reading it loses
+    # works the moment they are". Onboarding ヤングアニマルWeb is exactly that trap — its seven
+    # works are in the gap only until this reads them once, and then the platform would go quiet
+    # with nothing saying why. `--limit` is what bounds the fetching, per site.
+    argv: [adapters/webpages/releases.py, --gap, data/coverage/webcomics-works.yaml,
            --out, data/source/webpages, --cache, "{CACHE}/webpages", --retrieved, "{R}"]
 
   - id: generic

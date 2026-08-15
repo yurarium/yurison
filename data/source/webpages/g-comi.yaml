@@ -10,39 +10,99 @@ retrieved: 2026-08-15
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
-  - work_title: "暴走!?サキュバスせんぱい"
-    status: "連載中"
-    author: "ミナミト"
-    url: "https://g-comi.jp/series/5448ec9f6077b"
-    chapter_count: 9
+  - work_title: "いちこえ、にふり、タチアオイ"
+    status: "完結"
+    author: "ヨドカワ"
+    url: "https://g-comi.jp/series/063225706887f"
+    chapter_count: 7
     chapters:
       - title: "第1話"
-        updated: "2025-12-19"
+        updated: "2023-10-23"
         access_modes: ["free"]
       - title: "第2話"
-        updated: "2025-12-19"
-        access_modes: ["free"]
+        updated: "2023-10-23"
+        access_modes: ["free-timed"]
       - title: "第3話"
-        updated: "2026-01-23"
-        access_modes: ["free-timed"]
+        updated: "2023-10-23"
+        access_modes: ["purchase"]
       - title: "第4話"
-        updated: "2026-02-20"
-        access_modes: ["free-timed"]
+        updated: "2024-04-05"
+        access_modes: ["purchase"]
       - title: "第5話"
-        updated: "2026-03-20"
-        access_modes: ["free-timed"]
+        updated: "2024-10-11"
+        access_modes: ["purchase"]
       - title: "第6話"
-        updated: "2026-04-17"
-        access_modes: ["free-timed"]
-      - title: "第7話"
-        updated: "2026-05-22"
-        access_modes: ["free-timed"]
-      - title: "第8話"
-        updated: "2026-06-19"
+        updated: "2025-01-17"
         access_modes: ["purchase"]
-      - title: "第9話"
+      - title: "最終話"
+        updated: "2025-04-11"
+        access_modes: ["purchase"]
+  - work_title: "たゆたうふたり"
+    status: "連載中"
+    author: "ぷえぶろ"
+    url: "https://g-comi.jp/series/fef424c168c44"
+    chapter_count: 6
+    chapters:
+      - title: "1服目"
+        updated: "2026-06-28"
+        access_modes: ["free"]
+      - title: "2服目"
+        updated: "2026-06-28"
+        access_modes: ["free-timed"]
+      - title: "3服目"
+        updated: "2026-06-28"
+        access_modes: ["purchase"]
+      - title: "4服目"
+        updated: "2026-07-01"
+        access_modes: ["purchase"]
+      - title: "5服目"
+        updated: "2026-07-08"
+        access_modes: ["purchase"]
+      - title: "6服目"
+        updated: "2026-07-15"
+        access_modes: ["purchase"]
+  - work_title: "イヴとイヴたち"
+    status: "完結"
+    author: "長代ルージュ"
+    url: "https://g-comi.jp/series/bb5c13d2cf687"
+    chapter_count: 5
+    chapters:
+      - title: "後悔"
+        updated: "2025-09-05"
+        access_modes: ["free"]
+      - title: "二度目の浮気"
+        updated: "2025-09-12"
+        access_modes: ["free-timed"]
+      - title: "攻め？受け？三本勝負！"
+        updated: "2025-09-19"
+        access_modes: ["purchase"]
+      - title: "永遠一号二号はイヴとイヴ"
+        updated: "2025-09-26"
+        access_modes: ["purchase"]
+      - title: "でしいり！"
+        updated: "2025-11-28"
+        access_modes: ["purchase"]
+  - work_title: "世界をすくってもお腹はすくから"
+    status: "連載中"
+    author: "裏海マユ,ちょきんぎょ。"
+    url: "https://g-comi.jp/series/58238b3987c11"
+    chapter_count: 2
+    chapters:
+      - title: "第1話"
+        updated: "2026-07-03"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2026-08-07"
+        access_modes: ["free"]
+  - work_title: "喫茶 秘匿異"
+    status: "読み切り"
+    author: "おやすみまくら"
+    url: "https://g-comi.jp/series/82ac8f503cf40"
+    chapter_count: 1
+    chapters:
+      - title: "喫茶 秘匿異"
         updated: "2026-07-17"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
   - work_title: "多良さんのウワサ"
     status: "連載中"
     author: "窓口基"
@@ -85,17 +145,50 @@ works:
       - title: "第10話 外れ小路のウワサ"
         updated: "2026-08-07"
         access_modes: ["free"]
-  - work_title: "世界をすくってもお腹はすくから"
+  - work_title: "暴走!?サキュバスせんぱい"
     status: "連載中"
-    author: "裏海マユ,ちょきんぎょ。"
-    url: "https://g-comi.jp/series/58238b3987c11"
-    chapter_count: 2
+    author: "ミナミト"
+    url: "https://g-comi.jp/series/5448ec9f6077b"
+    chapter_count: 10
     chapters:
       - title: "第1話"
-        updated: "2026-07-03"
+        updated: "2025-12-19"
         access_modes: ["free"]
       - title: "第2話"
-        updated: "2026-08-07"
+        updated: "2025-12-19"
+        access_modes: ["free-timed"]
+      - title: "第3話"
+        updated: "2026-01-23"
+        access_modes: ["purchase"]
+      - title: "第4話"
+        updated: "2026-02-20"
+        access_modes: ["purchase"]
+      - title: "第5話"
+        updated: "2026-03-20"
+        access_modes: ["purchase"]
+      - title: "第6話"
+        updated: "2026-04-17"
+        access_modes: ["purchase"]
+      - title: "第7話"
+        updated: "2026-05-22"
+        access_modes: ["purchase"]
+      - title: "第8話"
+        updated: "2026-06-19"
+        access_modes: ["purchase"]
+      - title: "第9話"
+        updated: "2026-07-17"
+        access_modes: ["purchase"]
+      - title: "第10話"
+        updated: "2026-08-14"
+        access_modes: ["free"]
+  - work_title: "狙いはキミだけ!"
+    status: "読み切り"
+    author: "あまね"
+    url: "https://g-comi.jp/series/192003ee77e21"
+    chapter_count: 1
+    chapters:
+      - title: "狙いはキミだけ！"
+        updated: "2026-05-01"
         access_modes: ["free"]
   - work_title: "百合フェチLIFE"
     status: "連載中"
@@ -117,92 +210,4 @@ works:
         access_modes: ["purchase"]
       - title: "第5話"
         updated: "2026-07-22"
-        access_modes: ["purchase"]
-  - work_title: "喫茶 秘匿異"
-    status: "読み切り"
-    author: "おやすみまくら"
-    url: "https://g-comi.jp/series/82ac8f503cf40"
-    chapter_count: 1
-    chapters:
-      - title: "喫茶 秘匿異"
-        updated: "2026-07-17"
-        access_modes: ["free"]
-  - work_title: "たゆたうふたり"
-    status: "連載中"
-    author: "ぷえぶろ"
-    url: "https://g-comi.jp/series/fef424c168c44"
-    chapter_count: 6
-    chapters:
-      - title: "1服目"
-        updated: "2026-06-28"
-        access_modes: ["free"]
-      - title: "2服目"
-        updated: "2026-06-28"
-        access_modes: ["free-timed"]
-      - title: "3服目"
-        updated: "2026-06-28"
-        access_modes: ["purchase"]
-      - title: "4服目"
-        updated: "2026-07-01"
-        access_modes: ["purchase"]
-      - title: "5服目"
-        updated: "2026-07-08"
-        access_modes: ["purchase"]
-      - title: "6服目"
-        updated: "2026-07-15"
-        access_modes: ["purchase"]
-  - work_title: "狙いはキミだけ!"
-    status: "読み切り"
-    author: "あまね"
-    url: "https://g-comi.jp/series/192003ee77e21"
-    chapter_count: 1
-    chapters:
-      - title: "狙いはキミだけ！"
-        updated: "2026-05-01"
-        access_modes: ["free"]
-  - work_title: "イヴとイヴたち"
-    author: "長代ルージュ"
-    url: "https://g-comi.jp/series/bb5c13d2cf687"
-    chapter_count: 5
-    chapters:
-      - title: "後悔"
-        updated: "2025-09-05"
-        access_modes: ["free"]
-      - title: "二度目の浮気"
-        updated: "2025-09-12"
-        access_modes: ["free-timed"]
-      - title: "攻め？受け？三本勝負！"
-        updated: "2025-09-19"
-        access_modes: ["purchase"]
-      - title: "永遠一号二号はイヴとイヴ"
-        updated: "2025-09-26"
-        access_modes: ["purchase"]
-      - title: "でしいり！"
-        updated: "2025-11-28"
-        access_modes: ["purchase"]
-  - work_title: "いちこえ、にふり、タチアオイ"
-    author: "ヨドカワ"
-    url: "https://g-comi.jp/series/063225706887f"
-    chapter_count: 7
-    chapters:
-      - title: "第1話"
-        updated: "2023-10-23"
-        access_modes: ["free"]
-      - title: "第2話"
-        updated: "2023-10-23"
-        access_modes: ["free-timed"]
-      - title: "第3話"
-        updated: "2023-10-23"
-        access_modes: ["purchase"]
-      - title: "第4話"
-        updated: "2024-04-05"
-        access_modes: ["purchase"]
-      - title: "第5話"
-        updated: "2024-10-11"
-        access_modes: ["purchase"]
-      - title: "第6話"
-        updated: "2025-01-17"
-        access_modes: ["purchase"]
-      - title: "最終話"
-        updated: "2025-04-11"
         access_modes: ["purchase"]

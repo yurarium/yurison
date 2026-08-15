@@ -1,0 +1,24 @@
+# ビビビコミック (publisher not established) — chapters from server-rendered work pages.
+# Works named by a Tier C yardstick; the platform attests the chapters.
+# This platform applies no 百合 tag, so nothing here establishes marketing_label.
+source: webpages
+platform: bibibi
+platform_name: "ビビビコミック"
+publisher: ""
+engine: comici
+retrieved: 2026-08-15
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works:
+  - work_title: "㊙のライラ"
+    status: "読み切り"
+    author: "朝比奈ショウ"
+    url: "https://bibibi-comic.com/series/e889bd092d08d"
+    chapter_count: 2
+    chapters:
+      - title: "読み切り"
+        updated: "2026-08-07"
+        access_modes: ["free"]
+      - title: "連載予告イラスト！"
+        updated: "2026-08-07"
+        access_modes: ["free"]

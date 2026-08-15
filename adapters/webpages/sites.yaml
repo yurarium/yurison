@@ -132,10 +132,54 @@ sites:
     name: HERO'S Web
     publisher: ヒーローズ
     host: heros-web.com
+    # THE VIEWER IS THE SAME PLATFORM. Seven works reach us as `viewer.heros-web.com` addresses and
+    # the register held only the bare host, so those seven named no platform at all and the
+    # reconnaissance file wrote the viewer off as `no-response` in its own right. comici reads it:
+    # ten chapters for the work probed on 2026-08-15.
+    hosts: [heros-web.com, viewer.heros-web.com]
     engine: comici
     min_episodes: 1
     min_works: 1
     verified: 2026-08-02
+
+  # ビビビコミック — a comici site the reconnaissance pass filed as `strategy: none`, which was the
+  # generic heuristic failing rather than the platform being unreadable. Two chapters for ㊙のライラ
+  # when comici was asked, 2026-08-15.
+  - id: bibibi
+    name: ビビビコミック
+    host: bibibi-comic.com
+    engine: comici
+    min_episodes: 1
+    min_works: 1
+    verified: 2026-08-15
+
+  # MAGKAN — マッグガーデン's Kansai site, the same story: `none` in the recon file and one chapter
+  # for 除霊師ハルカは幽霊が怖い! when comici was asked. One work and one chapter is thin, and it is
+  # the platform's own statement rather than a pattern in a page.
+  - id: magkan
+    name: MAGKAN
+    publisher: マッグガーデン
+    host: kansai.mag-garden.co.jp
+    engine: comici
+    min_episodes: 1
+    min_works: 1
+    verified: 2026-08-15
+
+  # ヤングアニマルWeb — 白泉社's other comici site, beside 花とゆめ+ which has been here since
+  # August. Enabled by the project owner on 2026-08-15, after 最恐呪物令嬢 was announced with its
+  # article linking straight here and the admission policy refused it: the platform was in no
+  # register, so a work served openly by a publisher this database already reads was left in a
+  # queue. `data/coverage/extract.yaml` had written it off as `strategy: none`, which was the
+  # generic heuristic failing rather than the platform being unreadable; comici parses its pages
+  # and returns ten chapters for この百合はフィクションです with their access states.
+  - id: younganimal
+    name: ヤングアニマルWeb
+    publisher: 白泉社
+    host: younganimal.com
+    engine: comici
+    min_episodes: 1
+    min_works: 1
+    verified: 2026-08-15
 
   # コミックノヴァ — 一二三書房's own web arm. It was being read by the generic heuristic pass,
   # which cannot see this platform's chapter labels: the page names each instalment in a

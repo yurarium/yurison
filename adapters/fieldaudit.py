@@ -49,7 +49,23 @@ SPREAD = 25
 #: 劇場, やわらかスピリッツ and てれびくんヒーローコミックス list their chapters and state nothing
 #: else: no author, no date and no access. That is what `try_labels` reads them for, and their 38
 #: rows are the whole of the rise. A threshold that refused them would be refusing the platforms.
-NO_ACCESS = 100
+#:
+#: AND THEN IT TRIPPED AGAIN, WHICH IS THE NUMBER SAYING IT IS THE WRONG INSTRUMENT. Those three
+#: platforms grow as they publish, so a flat ceiling over them counts the corpus rather than a
+#: fault: コミックエッセイ劇場 alone went from a handful to 23 rows and took the total to 107 on
+#: 2026-08-16, stopping a run in which nothing had gone wrong. A route that states no access states
+#: none however many chapters it lists, so those rows are excluded by `route_states_no_access` and
+#: this counts what is left. Back to 80, above the 60 the same corpus showed before those platforms
+#: were onboarded and below the 107 that was being waved through.
+NO_ACCESS = 80
+
+#: WHERE A ROUTE READS NO ACCESS AT ALL, asked of the coverage register rather than inferred from
+#: the rows. A platform whose every row states no access is either a route that never reads it or a
+#: platform that has just lost it entirely, and one run's rows cannot tell those apart: inferring it
+#: would make the audit blind to exactly the failure it exists for. `data/coverage/extract.yaml`
+#: records how each platform is read, and `labels` is the route that takes a bare list of chapter
+#: labels off a page carrying no date, no byline and no price.
+COVERAGE = pathlib.Path(__file__).resolve().parents[1] / "data" / "coverage" / "extract.yaml"
 
 
 #: THE QUESTION LIVES WITH THE CORPUS'S OTHER QUESTIONS, STORE-PLAN §10. What this module owns is
@@ -69,10 +85,27 @@ def unnamed(got):
     return [r for r in got if not str(r.get("ep") or "").strip() or not r.get("author")]
 
 
-def unpriced(got):
-    """Rows that are named and state no access, which is usually the route rather than a fault."""
+def route_states_no_access(path=None):
+    """Platform names the coverage register reads by a route that states no access, as a set."""
+    import yaml
+    at = pathlib.Path(path or COVERAGE)
+    if not at.exists():
+        return set()
+    doc = yaml.safe_load(at.read_text()) or {}
+    return {p["platform"] for p in (doc.get("platforms") or [])
+            if p.get("platform") and p.get("rendered_as") == "labels"}
+
+
+def unpriced(got, silent_routes=None):
+    """Rows that are named, state no access, and are read by a route that reads access at all.
+
+    A ROUTE THAT READS NO ACCESS IS NOT A ROW THAT LOST ONE. Excluded by the register rather than
+    by what the rows happen to show, because a platform whose every row is silent may equally have
+    lost the field this morning, and a rule that inferred the exemption would excuse exactly that.
+    """
+    quiet = route_states_no_access() if silent_routes is None else silent_routes
     return [r for r in got if str(r.get("ep") or "").strip() and r.get("author")
-            and not r.get("access")]
+            and not r.get("access") and r.get("plat") not in quiet]
 
 
 def moved(got):
@@ -81,6 +114,29 @@ def moved(got):
     lost = collections.Counter(r["plat"] for r in unnamed(got))
     return sorted((p, n, seen[p]) for p, n in lost.items()
                   if n >= LOST_FLOOR and n >= seen[p] * LOST_SHARE)
+
+
+def access_moved(got, silent_routes=None):
+    """`[(platform, silent, total)]` for a route that reads access and has stopped on most rows.
+
+    THE PER-ROUTE RULE THE ACCESS SIDE NEVER HAD, and the reason the flat ceiling kept being the
+    only thing firing. A selector for a price belongs to a route exactly as a selector for a title
+    does, so the same floor and the same share apply. What makes it a LOSS rather than a route
+    reading no prices is that some row THAT ROUTE read does state access.
+
+    PER ROUTE AND NOT PER PLATFORM, which is the difference between a finding and a false one.
+    コミックゼノン is read by its own adapter, stating access on both its rows, and by the catch-all
+    resolver, stating it on neither; counted per platform that is three of four rows silent on a
+    platform that states access, and nothing has moved.
+    """
+    quiet = route_states_no_access() if silent_routes is None else silent_routes
+    key = lambda r: (r["plat"], r.get("route") or "")
+    seen = collections.Counter(key(r) for r in got)
+    priced = {key(r) for r in got if r.get("access")}
+    silent = collections.Counter(key(r) for r in unpriced(got, quiet))
+    return sorted((p, n, seen[k]) for k, n in silent.items()
+                  for p in [k[0]]
+                  if k in priced and n >= LOST_FLOOR and n >= seen[k] * LOST_SHARE)
 
 
 def findings(got):
@@ -93,6 +149,9 @@ def findings(got):
     if len(named) > SPREAD:
         out.append(f"{len(named)} attested rows have no episode title or no author, spread too "
                    f"widely to be one platform")
+    for p, n, total in access_moved(got):
+        out.append(f"{p}: {n} of {total} rows state no access on a platform that states it "
+                   f"elsewhere, so a price selector has probably moved")
     silent = unpriced(got)
     if len(silent) > NO_ACCESS:
         out.append(f"{len(silent)} attested rows state no access, which is more than the route "

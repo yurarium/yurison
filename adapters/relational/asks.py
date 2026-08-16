@@ -432,8 +432,12 @@ POPULATIONS = {
     # THE ACCESS COUNT COMES BACK AS A NUMBER, because what the audit asks is whether the row states
     # any access at all, and a join would return the row once per mode and make every count wrong.
     "attested releases and the fields a selector carries": {
-        "sql": "SELECT r.id AS id, r.platform AS plat, r.instalment AS ep, r.author AS author,"
-               " r.work_raw AS work,"
+        # THE ROUTE AS WELL AS THE PLATFORM, because a selector belongs to a route. コミックゼノン
+        # is read by its own adapter, which states access on every row, and by the catch-all
+        # resolver, which states it on none; asked per platform, that reads as a platform which has
+        # stopped reading prices on most of its rows. `plat_slug` is which pass read the row.
+        "sql": "SELECT r.id AS id, r.platform AS plat, r.plat_slug AS route,"
+               " r.instalment AS ep, r.author AS author, r.work_raw AS work,"
                " (SELECT count(*) FROM release_access_mode m WHERE m.release = r.id) AS access"
                " FROM release r WHERE r.provenance = 'attested' ORDER BY r.id",
         "reads": ("release", "release_access_mode")},

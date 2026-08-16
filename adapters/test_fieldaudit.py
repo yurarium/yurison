@@ -24,9 +24,9 @@ import testkit                                                          # noqa: 
 COVERS = ["adapters/fieldaudit.py"]
 
 
-def _rows(rows_):
+def _rows(rows_, route="own"):
     """Rows as the store's population returns them. `rows_` is (platform, ep, author, modes)."""
-    return [{"id": f"r{i}", "plat": plat, "ep": ep, "author": author,
+    return [{"id": f"r{i}", "plat": plat, "route": route, "ep": ep, "author": author,
              "work": f"work {i}", "access": modes}
             for i, (plat, ep, author, modes) in enumerate(rows_)]
 
@@ -38,7 +38,7 @@ def main(s):
     # columns are named here rather than assumed from the rows a run happens to have.
     from relational import asks
     sql = asks.POPULATIONS[fieldaudit.POPULATION]["sql"]
-    for column in ("plat", "ep", "author", "work", "access"):
+    for column in ("plat", "route", "ep", "author", "work", "access"):
         s.check(f" AS {column}" in sql, f"the population names {column}")
     s.check("provenance = 'attested'" in sql, "and asks only about attested rows")
 
@@ -88,13 +88,58 @@ def main(s):
     s.check("spread too widely" in fieldaudit.findings(wide)[0],
             "saying which rule fired, because they mean different things")
 
+    # ── A ROUTE THAT READS NO ACCESS IS NOT A ROW THAT LOST ONE ──────────────────────────────
+    #
+    # コミックエッセイ劇場, やわらかスピリッツ and てれびくんヒーローコミックス are read by
+    # `try_labels`, which takes a bare list of chapter labels off a page carrying no date, no byline
+    # and no price. Their rows grow as they publish, so a flat ceiling over them counts the corpus
+    # rather than a fault: コミックエッセイ劇場 alone reached 23 rows and took the total to 107 on
+    # 2026-08-16, stopping a run in which nothing had gone wrong.
+    LABELS = {"コミックエッセイ劇場"}
+    quiet = _rows([("コミックエッセイ劇場", "第1話", "作者", 0)] * 40)
+    s.eq(fieldaudit.unpriced(quiet, LABELS), [],
+         "a route the register says reads no access contributes no silent rows")
+    s.eq(len(fieldaudit.unpriced(quiet, set())), 40,
+         "and the same rows count where the register says nothing about the route")
+
+    # ASKED OF THE REGISTER RATHER THAN OF THE ROWS, which is the whole of why it is safe. A
+    # platform whose every row is silent may equally have lost the field this morning, and a rule
+    # that inferred the exemption from the rows would excuse exactly the failure this exists for.
+    s.check("コミックエッセイ劇場" in fieldaudit.route_states_no_access(),
+            "the coverage register names the labels routes")
+    s.check("マガポケ" not in fieldaudit.route_states_no_access(),
+            "and a platform read by a route that does state access is not among them")
+
+    # ── A PRICE SELECTOR MOVES THE SAME WAY A TITLE SELECTOR DOES ────────────────────────────
+    #
+    # The access side had only a flat ceiling, so the one instrument that could fire was the one
+    # that counts the corpus. Same floor, same share, and what makes it a loss rather than a route
+    # is that some row THAT ROUTE read does state access.
+    lost_price = _rows([("P", "第1話", "作者", 0)] * 3 + [("P", "第2話", "作者", 1)])
+    s.eq(fieldaudit.access_moved(lost_price, set()), [("P", 3, 4)],
+         "three of four rows silent on a route that states access elsewhere")
+    s.eq(fieldaudit.access_moved(_rows([("P", "第1話", "作者", 0)] * 4), set()), [],
+         "a route that states access on none of its rows is a route and not a loss")
+
+    # PER ROUTE AND NOT PER PLATFORM, which is the difference between a finding and a false one.
+    # コミックゼノン is read by its own adapter, stating access on both its rows, and by the
+    # catch-all resolver, stating it on neither. Counted per platform that is three of four rows
+    # silent on a platform that states access, and nothing has moved.
+    zenon = (_rows([("コミックゼノン", "読切 ゲームフレンド", "作者", 1),
+                    ("コミックゼノン", "読切 予行練習", "作者", 1)], route="comic-zenon")
+             + _rows([("コミックゼノン", "読み切り", "作者", 0),
+                      ("コミックゼノン", "読み切り2", "作者", 0)], route="remaining"))
+    s.eq(fieldaudit.access_moved(zenon, set()), [],
+         "two routes on one platform are two readings, and neither has stopped")
+    s.eq(fieldaudit.findings(zenon), [], "so the run is not stopped")
+
     # ── ROWS STATING NO ACCESS ARE THEIR OWN NUMBER ──────────────────────────────────────────
     #
     # マガポケ is read by two routes and one of them carries access on none of its chapters, so a
     # work reached only by the feed states none. Counted with the lost titles, those consumed the
     # tripwire meant to catch the first row that really lost one.
-    quiet = _rows([("マガポケ", "第1話", "作者", 0)] * fieldaudit.NO_ACCESS)
-    s.eq(fieldaudit.findings(quiet), [], "the route asymmetry is allowed for")
+    allowed = _rows([("マガポケ", "第1話", "作者", 0)] * fieldaudit.NO_ACCESS)
+    s.eq(fieldaudit.findings(allowed), [], "the route asymmetry is allowed for")
     louder = _rows([("マガポケ", "第1話", "作者", 0)] * (fieldaudit.NO_ACCESS + 1))
     s.eq(len(fieldaudit.findings(louder)), 1, "one row past it is a finding")
     s.check("state no access" in fieldaudit.findings(louder)[0], "and says so in its own words")

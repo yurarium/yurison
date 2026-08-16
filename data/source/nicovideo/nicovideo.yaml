@@ -9,12 +9,22 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-16
+retrieved: 2026-08-17
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 492
 works:
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-08-16"
+    started: "2019-10-20"
+    episode_count: 111
+    free_episodes: 111
+    latest_episode: "ロボ19-3"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1124185"
   - work_title: "私を喰べたい、ひとでなし"
     author: "苗川采(著者)"
     url: "https://manga.nicovideo.jp/comic/49677"
@@ -71,16 +81,6 @@ works:
     started: "2018-05-10"
     channel: "もっとやわらかスピリッツ"
     channel_slug: "yawaspi"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-08-15"
-    started: "2019-10-20"
-    episode_count: 110
-    free_episodes: 110
-    latest_episode: "ロボ19-2"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1124018"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"

@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-16
+retrieved: 2026-08-17
 record_type: candidate_works
 works: 316
 candidates:
@@ -439,7 +439,7 @@ candidates:
   - title: "こいのおわりをねがうとき"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019946_S"]
-    tags: ["百合", "読み切り"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "こえでおしごと!!"
     platforms: ["げつあくWEB(更新終了)"]
     urls: ["https://getsuaku.com/episode/001_gaw_koedeoshigoto"]
@@ -3801,7 +3801,7 @@ candidates:
   - title: "運命は役に立たない"
     platforms: ["マンガPark", "花とゆめ+"]
     urls: ["https://hanayume.com/series/ca4ef0eb47ea3", "https://manga-park.com/title/101442"]
-    tags: ["百合"]
+    tags: ["最近のコメント数", "百合"]
   - title: "遠山えま百合集 センセイとの時間。"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965919401307"]

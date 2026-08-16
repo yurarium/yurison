@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-08-16
+retrieved: 2026-08-17
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -422,6 +422,11 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_016753_S"
+    antenna_id: "210354"
+    tags: ["百合"]
   - title: "私を喰べたい、ひとでなし"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_003258_S"
@@ -431,12 +436,12 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019946_S"
     antenna_id: "213569"
-    tags: ["百合", "読み切り"]
+    tags: ["最近のコメント数"]
   - title: "怪異部～M県Y市の怪現象について～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006547_S"
     antenna_id: "187688"
-    tags: ["最近のコメント数"]
+    tags: ["オカルト", "サスペンス", "ホラー", "残酷・グロテスク", "架空の部活", "女子高生", "デスゲーム", "百合"]
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008429_S"
@@ -477,11 +482,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006092_S"
     antenna_id: "178772"
     tags: ["百合", "オムニバス・短編集"]
-  - title: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_016753_S"
-    antenna_id: "210354"
-    tags: ["百合"]
   - title: "大崎さんと小森さん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_014277_S"
@@ -901,7 +901,7 @@ works_missing:
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/65"
     antenna_id: "163124"
-    tags: ["最近のコメント数"]
+    tags: ["異能・超能力", "近未来SF", "バディ", "警察", "百合"]
   - title: "獄門撫子此処ニ在リ"
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/773"
@@ -937,6 +937,11 @@ works_missing:
     url: "https://ddnavi.com/sazametorio/"
     antenna_id: "213473"
     tags: ["百合"]
+  - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
+    platform: "チャンピオンクロス"
+    url: "https://championcross.jp/series/21fe5b3d50300"
+    antenna_id: "199771"
+    tags: ["百合", "アイドル"]
   - title: "お葉花を愛でる"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/46c8d0a17ed62"
@@ -952,11 +957,6 @@ works_missing:
     url: "https://championcross.jp/series/ae4257e66bab5"
     antenna_id: "87443"
     tags: ["百合", "大学生", "アニメ化"]
-  - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/21fe5b3d50300"
-    antenna_id: "199771"
-    tags: ["百合", "アイドル"]
   - title: "フェアウェイの声をきかせて"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/8178b4fc09df9"
@@ -1277,6 +1277,11 @@ works_missing:
     url: "https://flowercomics.jp/title/1409"
     antenna_id: "172525"
     tags: ["百合", "悪役"]
+  - title: "今日はカノジョがいないから"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/01839"
+    antenna_id: "140928"
+    tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -1327,11 +1332,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/02367"
     antenna_id: "166574"
     tags: ["百合", "女子高生"]
-  - title: "今日はカノジョがいないから"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/01839"
-    antenna_id: "140928"
-    tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
   - title: "怪獣ロマンティクス"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03196"
@@ -1647,6 +1647,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "白き乙女の人狼"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/d8e8c084c4c6c"
+    antenna_id: "134693"
+    tags: ["百合"]
   - title: "「触れたい」は恋の始まり"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/5a87d01128492"
@@ -1656,7 +1661,7 @@ works_missing:
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/ae1cf555c8b01"
     antenna_id: "189230"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "エロ", "女子高生", "教師", "先生と生徒・師弟"]
   - title: "私だけが宮地美雪を愛している"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/e060f5eef826c"
@@ -1707,11 +1712,6 @@ works_missing:
     url: "https://takecomic.jp/series/b3efcd5f3a6a7"
     antenna_id: "146783"
     tags: ["百合", "スポーツ"]
-  - title: "白き乙女の人狼"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/d8e8c084c4c6c"
-    antenna_id: "134693"
-    tags: ["百合"]
   - title: "ウは宇宙ヤバイのウ!"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/135220287d820"
@@ -1737,16 +1737,16 @@ works_missing:
     url: "https://takecomic.jp/series/4e4bb1b935407"
     antenna_id: "126252"
     tags: ["フェチ・性癖", "百合", "ヒューマンドラマ", "エロ", "お色気・微エロ", "ギャグ・コメディ"]
+  - title: "運命は役に立たない"
+    platform: "花とゆめ+"
+    url: "https://hanayume.com/series/ca4ef0eb47ea3"
+    antenna_id: "206126"
+    tags: ["最近のコメント数"]
   - title: "フレンドガールフレンド"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"
     antenna_id: "206108"
     tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
-  - title: "運命は役に立たない"
-    platform: "花とゆめ+"
-    url: "https://hanayume.com/series/ca4ef0eb47ea3"
-    antenna_id: "206126"
-    tags: ["百合"]
   - title: "魔法使いの作庭/よみきり"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/96cd6ffadb9ee"

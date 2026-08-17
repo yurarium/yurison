@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-08-17
+retrieved: 2026-08-18
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -993,8 +993,16 @@ works:
     url: "https://comic-days.com/episode/14079602755160898551"
     platform_name: "マガポケ"
     route: "gigaviewer"
-    chapter_count: 91
+    chapter_count: 93
     chapters:
+      - title: "第32話 ほどいて(2)"
+        updated: 2026-08-17
+        author: "くわばらたもつ"
+        access_modes: ["purchase"]
+      - title: "第32話 ほどいて(1)"
+        updated: 2026-08-17
+        author: "くわばらたもつ"
+        access_modes: ["purchase"]
       - title: "第31話 再会(3)"
         updated: 2026-07-17
         author: "くわばらたもつ"
@@ -4725,11 +4733,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

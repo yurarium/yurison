@@ -41,23 +41,27 @@ SPREAD = 25
 
 #: ROWS STATING NO ACCESS AT ALL, counted apart from the two above. マガポケ is read by two routes
 #: and `magapoke-feeds.yaml` carries access on none of its chapters while the rendered route carries
-#: it on nearly all, so a work reached only by the feed has none. Counted with the others, 26 of
-#: those consumed a tripwire set at 25 and would have hidden the first row that really did lose its
-#: title.
+#: it on nearly all, so a work reached only by the feed has none.
 #:
-#: 60 TO 100 ON 2026-08-15, and the reason is three platforms rather than a route. コミックエッセイ
-#: 劇場, やわらかスピリッツ and てれびくんヒーローコミックス list their chapters and state nothing
-#: else: no author, no date and no access. That is what `try_labels` reads them for, and their 38
-#: rows are the whole of the rise. A threshold that refused them would be refusing the platforms.
+#: A SHARE AND NOT A COUNT, AFTER A COUNT TRIPPED THREE TIMES IN THREE DAYS AND WAS RIGHT ONCE. It
+#: went 25 to 60 to 100 to 80, and each move was the corpus rather than a fault: first three
+#: `try_labels` platforms, then those platforms publishing, then a work's backlist arriving in one
+#: go. コミックDAYS listed 第39話 to 第46話 of ドリーム☆ジャンボ☆ガール on one day and ＧＵＲＵ
+#: eleven chapters on another, both stated `observed` by the platform's own atom feed, which is a
+#: real event and not a selector. A number that has to be raised whenever the corpus does something
+#: ordinary is measuring the corpus.
 #:
-#: AND THEN IT TRIPPED AGAIN, WHICH IS THE NUMBER SAYING IT IS THE WRONG INSTRUMENT. Those three
-#: platforms grow as they publish, so a flat ceiling over them counts the corpus rather than a
-#: fault: コミックエッセイ劇場 alone went from a handful to 23 rows and took the total to 107 on
-#: 2026-08-16, stopping a run in which nothing had gone wrong. A route that states no access states
-#: none however many chapters it lists, so those rows are excluded by `route_states_no_access` and
-#: this counts what is left. Back to 80, above the 60 the same corpus showed before those platforms
-#: were onboarded and below the 107 that was being waved through.
-NO_ACCESS = 80
+#: WHAT THE SHARE IS FOR, now that `access_moved` exists. That rule catches the fault this was
+#: written for, a route that stops reading prices, per route and against its own rows. What is left
+#: for a ceiling is a drift across everything that no single route shows enough of, so it is asked
+#: as a proportion of the attested rows and stays put as the corpus grows. It has run between 4.6
+#: and 6.3 per cent across the days above; a tenth is above every one of them and far below a
+#: collapse.
+NO_ACCESS_SHARE = 0.10
+
+#: AND A FLOOR UNDER IT, because a share of a handful of rows is noise: a run that captured twenty
+#: rows and stated access on none of them is a run to look at, and 10 per cent of twenty is two.
+NO_ACCESS_FLOOR = 25
 
 #: WHERE A ROUTE READS NO ACCESS AT ALL, asked of the coverage register rather than inferred from
 #: the rows. A platform whose every row states no access is either a route that never reads it or a
@@ -139,7 +143,7 @@ def access_moved(got, silent_routes=None):
                   if k in priced and n >= LOST_FLOOR and n >= seen[k] * LOST_SHARE)
 
 
-def findings(got):
+def findings(got, silent_routes=None):
     """Every reason this capture may not be published, as sentences. Empty is the healthy answer."""
     out = []
     for p, n, total in moved(got):
@@ -149,13 +153,13 @@ def findings(got):
     if len(named) > SPREAD:
         out.append(f"{len(named)} attested rows have no episode title or no author, spread too "
                    f"widely to be one platform")
-    for p, n, total in access_moved(got):
+    for p, n, total in access_moved(got, silent_routes):
         out.append(f"{p}: {n} of {total} rows state no access on a platform that states it "
                    f"elsewhere, so a price selector has probably moved")
-    silent = unpriced(got)
-    if len(silent) > NO_ACCESS:
-        out.append(f"{len(silent)} attested rows state no access, which is more than the route "
-                   f"asymmetry accounts for")
+    silent = unpriced(got, silent_routes)
+    if len(silent) > NO_ACCESS_FLOOR and len(silent) > len(got) * NO_ACCESS_SHARE:
+        out.append(f"{len(silent)} of {len(got)} attested rows state no access, over "
+                   f"{NO_ACCESS_SHARE:.0%}, which is wider than any one route")
     return out
 
 

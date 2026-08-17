@@ -138,11 +138,32 @@ def main(s):
     # マガポケ is read by two routes and one of them carries access on none of its chapters, so a
     # work reached only by the feed states none. Counted with the lost titles, those consumed the
     # tripwire meant to catch the first row that really lost one.
-    allowed = _rows([("マガポケ", "第1話", "作者", 0)] * fieldaudit.NO_ACCESS)
-    s.eq(fieldaudit.findings(allowed), [], "the route asymmetry is allowed for")
-    louder = _rows([("マガポケ", "第1話", "作者", 0)] * (fieldaudit.NO_ACCESS + 1))
-    s.eq(len(fieldaudit.findings(louder)), 1, "one row past it is a finding")
-    s.check("state no access" in fieldaudit.findings(louder)[0], "and says so in its own words")
+    # A SHARE AND NOT A COUNT, after a count tripped three times in three days and was right once.
+    # It went 25 to 60 to 100 to 80, and each move was the corpus rather than a fault: three
+    # `try_labels` platforms, then those platforms publishing, then コミックDAYS listing 第39話 to
+    # 第46話 of ドリーム☆ジャンボ☆ガール in one go, stated `observed` by the platform's own atom
+    # feed. A number that has to be raised whenever the corpus does something ordinary is measuring
+    # the corpus. Spread across platforms so no route is over its own share.
+    quiet = 60
+    under = (_rows([(f"P{i}", "第1話", "作者", 0) for i in range(quiet)])
+             + _rows([(f"P{i}", "第2話", "作者", 1) for i in range(quiet) for _ in range(9)]))
+    s.eq(fieldaudit.findings(under, set()), [],
+         "six per cent of the rows silent is where this corpus has run all week")
+    over = (_rows([(f"P{i}", "第1話", "作者", 0) for i in range(quiet)])
+            + _rows([(f"P{i}", "第2話", "作者", 1) for i in range(quiet) for _ in range(4)]))
+    s.eq(len(fieldaudit.findings(over, set())), 1, "a fifth of them is a finding")
+    s.check("state no access" in fieldaudit.findings(over, set())[0], "which says so in its words")
+
+    # AND IT STAYS PUT AS THE CORPUS GROWS, which is the whole point of asking a proportion. The
+    # same six per cent on twice the rows is the same answer.
+    s.eq(fieldaudit.findings(under + under, set()), [],
+         "twice the corpus at the same share is still not a finding")
+
+    # A FLOOR UNDER THE SHARE, because a share of a handful is noise: a run that captured twenty
+    # rows and stated access on none is a run to look at, and a tenth of twenty is two.
+    s.eq(fieldaudit.findings(_rows([("P", "第1話", "作者", 0)] * fieldaudit.NO_ACCESS_FLOOR),
+                             set()), [],
+         "a capture too small to have a share is not judged on one")
 
     # ── THE HEALTHY ANSWER ───────────────────────────────────────────────────────────────────
     s.eq(fieldaudit.findings(_rows([("A", "第1話", "作者", 1)] * 40)), [],

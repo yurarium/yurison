@@ -182,9 +182,20 @@ def _store_report(inv_results, budget_values, recorded, timings, skip_source, un
         print(f"store           : {held} check(s) recorded, {kept} finding(s)"
               + ("" if held == len(rows)
                  else f"; EXPECTED {len(rows)}, so something else is writing this table"))
+        # AND THE READ-BACK IS WHAT ASSERTS IT NOW. `the store carries what the checks answered` is
+        # no longer asserted before this runs, so this is the only thing standing between a refused
+        # write and a store published with no report in it. Returned rather than printed, because a
+        # line on stderr is what let the old failure be invisible.
+        if held == 0:
+            return [f"{carries}: the write put nothing in check_result"]
+        if held != len(rows):
+            return [f"{carries}: {held} rows in check_result, expected {len(rows)}"]
+        return []
     except Exception as why:                                                # noqa: BLE001
         print(f"store           : the checks were not recorded ({why.__class__.__name__}: {why})",
               file=sys.stderr)
+        return [f"the store carries what the checks answered: the write raised "
+                f"{why.__class__.__name__}"]
 
 
 def _yaml(p, default=None):
@@ -3297,6 +3308,21 @@ def budget_titles_with_no_translation_of_our_own(ctx):
 # builds its own data from the store, so the question it asked cannot be posed here.
 NOT_ASSERTED_BEFORE_A_DEPLOY = set()
 
+#: AN INVARIANT THIS RUN IS ABOUT TO ANSWER CANNOT BE ASSERTED BEFORE IT ANSWERS IT. `the store
+#: carries what the checks answered` reads `check_result`, and `_store_report` fills that table with
+#: the results of this very pass, afterwards. On a store compiled fresh, which is every CI runner
+#: and every equivalence run, the table is legitimately empty until then, so the gate reported a
+#: violation describing the instant before its own fix and went red with nothing wrong: it is what
+#: stopped the equivalence run of 2026-08-17, and it would have stopped every one before it that
+#: reached this step. `_store_report` already excludes it from the row it writes for exactly this
+#: reason; the verdict was the half that still counted it.
+#:
+#: WHAT HOLDS THE LINE INSTEAD is the write's own read-back. It counts the rows it put in and
+#: returns a problem where the table is empty or short afterwards, and that problem fails the gate.
+#: A refused or locked write is still loud; what stops is the run that succeeded being called a
+#: failure for the moment before it did.
+NOT_ASSERTED_BEFORE_THE_WRITE = {"the store carries what the checks answered"}
+
 
 SOURCE_BUDGETS = {"stock phrasing in comments", "three as an organising shape",
                   "facts with more than one home",
@@ -5904,6 +5930,10 @@ def main():
         # them is worth keeping. This one asserts BYTE EQUALITY of a tree nothing has copied into,
         # which is a different claim, so it is named here rather than taken from a derivation that
         # answers a different question. Reported where it is skipped, never silently dropped.
+        if bad and name in NOT_ASSERTED_BEFORE_THE_WRITE:
+            print(f"  --    {name}: {len(bad)}, not asserted before the write that answers it; "
+                  f"the write reports what it recorded")
+            continue
         if bad and a.gate and name in NOT_ASSERTED_BEFORE_A_DEPLOY:
             print(f"  --    {name}: {len(bad)}, not asserted here; this gate builds and does not "
                   f"deploy, and deploy.sh answers it after copying")
@@ -6010,7 +6040,13 @@ def main():
             # ONE HOME FOR THE SENTENCE, in the emitter that writes the site's copy of this file.
             "note": _checks_note(),
         }, ensure_ascii=False, indent=1))
-    _store_report(inv_results, budget_values, recorded, timings, skip_source, _unroot)
+    for _name, _bad in [("the store carries what the checks answered", w) for w in
+                        [_store_report(inv_results, budget_values, recorded, timings,
+                                       skip_source, _unroot) or []] if w]:
+        failed.append((_name, _bad))
+        print(f"  FAIL  {_name}: {len(_bad)}")
+        for _x in _bad[:4]:
+            print(f"          {_x}")
     _phase["writing the report"] = time.perf_counter() - _t0
 
     if a.incremental:

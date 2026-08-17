@@ -37,6 +37,7 @@ class Suite:
         self.name = name
         self.checks = 0
         self.failures = []
+        self.skipped = []
 
     def check(self, cond, msg):
         """Assert `cond`, reporting `msg` when it does not hold."""
@@ -53,6 +54,23 @@ class Suite:
 
     def ne(self, got, bad, msg):
         return self.check(got != bad, f"{msg}: got the forbidden value {got!r}")
+
+    def skip(self, msg):
+        """Record that a check could not run, loudly, and go on.
+
+        THE METHOD THE SUITES ALREADY CALLED. `test_analyser` guards its five dictionary checks with
+        `except ImportError: s.skip("sudachipy absent")`, written so a missing optional dependency
+        would degrade rather than fail. Nothing had ever taken that branch, so the AttributeError it
+        actually raised sat there until the equivalence workflow installed a shorter list than the
+        pipeline's and the run died inside its own fallback.
+
+        IT IS NOT A PASS AND IT IS NOT SILENT. A skipped check proves nothing, so it is not counted
+        among `checks`, which is what `report` calls a suite vacuous for; and it prints, because the
+        failure being guarded against here is a check that stops running and says nothing.
+        """
+        self.skipped.append(msg)
+        print(f"  SKIP    {self.name}: {msg}")
+        return False
 
     def raises(self, exc, fn, msg):
         try:

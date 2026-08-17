@@ -299,10 +299,30 @@ BUDGETS = {
         "why": "name records whose stored furigana do not reconstruct the name they sit over, so a "
                "renderer splicing them lands them on the wrong characters"},
     # THE CLASSIC SIGN OF A MOVED CSS SELECTOR: the adapter still returns rows, just emptier ones.
+    #
+    # A ROUTE THAT READS NO ACCESS IS NOT A ROW THAT LOST ONE, and counting those made this number
+    # climb as those platforms PUBLISHED. コミックエッセイ劇場, やわらかスピリッツ and てれびくん
+    # ヒーローコミックス are read by `try_labels`, which takes a bare list of chapter labels off a
+    # page carrying no date, no byline and no price; their 38 rows are most of the rise from 101 to
+    # 110 that stopped the equivalence run on 2026-08-17, in which nothing had gone wrong. The
+    # access clause therefore asks only about a platform some attested row of which states access.
+    #
+    # THE MISSING NAME AND THE MISSING AUTHOR ARE UNCONDITIONAL, because those are what a moved
+    # selector takes out and no route is entitled to return them empty.
+    #
+    # WHAT THIS CANNOT SEE, SAID PLAINLY: a platform that loses access on EVERY row at once leaves
+    # no priced row behind, so it drops out of this count instead of raising it. That is why the
+    # tripwire is not this number. `adapters/fieldaudit.py` counts silent rows against a ceiling
+    # and exempts only the routes `data/coverage/extract.yaml` DECLARES read no access, so a
+    # platform going silent unannounced still stops the run there.
     "incomplete attested rows": {
         "sql": "SELECT count(*) FROM release WHERE provenance = 'attested' "
                "AND (trim(coalesce(instalment, '')) = '' OR author IS NULL "
-               "OR NOT EXISTS (SELECT 1 FROM release_access_mode m WHERE m.release = release.id))",
+               "OR (NOT EXISTS (SELECT 1 FROM release_access_mode m WHERE m.release = release.id)"
+               "    AND EXISTS (SELECT 1 FROM release o"
+               "                JOIN release_access_mode am ON am.release = o.id"
+               "                WHERE o.platform = release.platform"
+               "                  AND o.provenance = 'attested')))",
         "reads": ("release", "release_access_mode"),
         "why": "attested releases missing a chapter name, author or access state. The classic sign "
                "of a moved CSS selector: the adapter still returns rows, just emptier ones. It "

@@ -45,6 +45,28 @@ def main(s):
 sys.exit(testkit.run(main, "real"))
 '''
 
+SKIPPING = '''
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+import testkit
+def main(s):
+    s.eq(1 + 1, 2, "arithmetic")
+    try:
+        import a_module_that_is_not_installed                          # noqa: F401
+    except ImportError:
+        s.skip("the optional dependency is absent")
+sys.exit(testkit.run(main, "skipping"))
+'''
+
+SKIP_ONLY = '''
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
+import testkit
+def main(s):
+    s.skip("everything this suite tests is absent")
+sys.exit(testkit.run(main, "skip-only"))
+'''
+
 VACUOUS = '''
 import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
@@ -73,6 +95,23 @@ def main(s):
     rc, out = _run(VACUOUS)
     s.eq(rc, 2, "a suite with no checks is vacuous")
     s.check("VACUOUS" in out, "and says so")
+
+    # ── AN OPTIONAL DEPENDENCY MISSING IS NOT A SUITE CRASHING ────────────────────────────────
+    #
+    # `test_analyser` guards its five dictionary checks with `except ImportError: s.skip(...)`,
+    # written so a missing `sudachipy` would degrade rather than fail. Nothing had ever taken that
+    # branch, because every workflow installed the dictionary, so the AttributeError it actually
+    # raised sat there until the equivalence workflow installed a shorter list and the run died
+    # inside its own fallback.
+    rc, out = _run(SKIPPING)
+    s.eq(rc, 0, "a suite whose optional dependency is absent still passes on what it could run")
+    s.check("SKIP" in out, "and says out loud which checks did not run")
+
+    # A SKIP IS NOT A CHECK, which is what stops it becoming a way to pass by asserting nothing.
+    # A suite that skipped everything ran nothing and is vacuous, exactly as an empty one is.
+    rc, out = _run(SKIP_ONLY)
+    s.eq(rc, 2, "a suite that skipped everything is vacuous")
+    s.check("VACUOUS" in out, "and says so rather than reporting a pass")
 
     # Discovery must not depend on a hand-maintained list.
     sys.path.insert(0, str(ROOT))

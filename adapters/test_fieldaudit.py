@@ -110,28 +110,22 @@ def main(s):
     s.check("マガポケ" not in fieldaudit.route_states_no_access(),
             "and a platform read by a route that does state access is not among them")
 
-    # ── A PRICE SELECTOR MOVES THE SAME WAY A TITLE SELECTOR DOES ────────────────────────────
+    # ── AND NO PER-ROUTE RULE FOR ACCESS, WHICH IS A DECISION AND NOT AN OMISSION ────────────
     #
-    # The access side had only a flat ceiling, so the one instrument that could fire was the one
-    # that counts the corpus. Same floor, same share, and what makes it a loss rather than a route
-    # is that some row THAT ROUTE read does state access.
-    lost_price = _rows([("P", "第1話", "作者", 0)] * 3 + [("P", "第2話", "作者", 1)])
-    s.eq(fieldaudit.access_moved(lost_price, set()), [("P", 3, 4)],
-         "three of four rows silent on a route that states access elsewhere")
-    s.eq(fieldaudit.access_moved(_rows([("P", "第1話", "作者", 0)] * 4), set()), [],
-         "a route that states access on none of its rows is a route and not a loss")
-
-    # PER ROUTE AND NOT PER PLATFORM, which is the difference between a finding and a false one.
-    # コミックゼノン is read by its own adapter, stating access on both its rows, and by the
-    # catch-all resolver, stating it on neither. Counted per platform that is three of four rows
-    # silent on a platform that states access, and nothing has moved.
-    zenon = (_rows([("コミックゼノン", "読切 ゲームフレンド", "作者", 1),
-                    ("コミックゼノン", "読切 予行練習", "作者", 1)], route="comic-zenon")
-             + _rows([("コミックゼノン", "読み切り", "作者", 0),
-                      ("コミックゼノン", "読み切り2", "作者", 0)], route="remaining"))
-    s.eq(fieldaudit.access_moved(zenon, set()), [],
-         "two routes on one platform are two readings, and neither has stopped")
-    s.eq(fieldaudit.findings(zenon), [], "so the run is not stopped")
+    # A moved price selector is a reading that USED to carry access and stopped, and one capture
+    # cannot see "used to": a reading that is mostly silent looks exactly like one that never read
+    # prices. The rule written on 2026-08-17 fired twice and was wrong both times, on コミックゼノン
+    # where two routes read one platform and on MAGCOMI where one route reads it through two files,
+    # and keyed tighter it reported コミックDAYS, whose atom reading carries access on 3 of 31 rows.
+    s.check(not hasattr(fieldaudit, "access_moved"),
+            "the rule that could not be stated from one capture is gone rather than tuned again")
+    # Padded with a priced corpus around it, so what is under test is the per-route rule's absence
+    # rather than the share ceiling, which 28 silent rows in 31 would trip on its own and should.
+    mixed = (_rows([("コミックDAYS", "第1話", "作者", 0)] * 28, route="comic-days")
+             + _rows([("コミックDAYS", "第2話", "作者", 1)] * 3, route="comic-days")
+             + _rows([(f"P{i}", "第1話", "作者", 1) for i in range(400)]))
+    s.eq(fieldaudit.findings(mixed, set()), [],
+         "a reading that prices three rows in thirty-one is not a platform that lost a selector")
 
     # ── ROWS STATING NO ACCESS ARE THEIR OWN NUMBER ──────────────────────────────────────────
     #

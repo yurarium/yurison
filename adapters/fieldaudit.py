@@ -120,28 +120,20 @@ def moved(got):
                   if n >= LOST_FLOOR and n >= seen[p] * LOST_SHARE)
 
 
-def access_moved(got, silent_routes=None):
-    """`[(platform, silent, total)]` for a route that reads access and has stopped on most rows.
-
-    THE PER-ROUTE RULE THE ACCESS SIDE NEVER HAD, and the reason the flat ceiling kept being the
-    only thing firing. A selector for a price belongs to a route exactly as a selector for a title
-    does, so the same floor and the same share apply. What makes it a LOSS rather than a route
-    reading no prices is that some row THAT ROUTE read does state access.
-
-    PER ROUTE AND NOT PER PLATFORM, which is the difference between a finding and a false one.
-    コミックゼノン is read by its own adapter, stating access on both its rows, and by the catch-all
-    resolver, stating it on neither; counted per platform that is three of four rows silent on a
-    platform that states access, and nothing has moved.
-    """
-    quiet = route_states_no_access() if silent_routes is None else silent_routes
-    key = lambda r: (r["plat"], r.get("route") or "")
-    seen = collections.Counter(key(r) for r in got)
-    priced = {key(r) for r in got if r.get("access")}
-    silent = collections.Counter(key(r) for r in unpriced(got, quiet))
-    return sorted((p, n, seen[k]) for k, n in silent.items()
-                  for p in [k[0]]
-                  if k in priced and n >= LOST_FLOOR and n >= seen[k] * LOST_SHARE)
-
+#: WHY THERE IS NO PER-ROUTE RULE FOR ACCESS, after two days of trying to write one. A moved price
+#: selector is a reading that USED to carry access and stopped, and a single run cannot see "used
+#: to": within one capture, a reading that is mostly silent looks exactly like a reading that never
+#: read prices at all. The rule written on 2026-08-17 fired twice and was wrong both times, on
+#: コミックゼノン where two routes read one platform, and on MAGCOMI where one route reads it
+#: through two files; keyed tighter each time, it then reported コミックDAYS, whose atom reading
+#: carries access on 3 of 31 rows, which satisfies "states it elsewhere" on noise. A check whose
+#: pattern has never matched a real fault and stops good runs is worse than none, so it is gone
+#: rather than tuned again.
+#:
+#: WHAT WOULD ACTUALLY CATCH IT is the previous run: the store is journal-backed and holds what each
+#: reading carried yesterday, so "this reading dropped access on rows it used to price" is a
+#: question with an answer. That is a different instrument from anything here, which reads one
+#: capture, and it is written down as a gap rather than approximated by a rule that cannot mean it.
 
 def findings(got, silent_routes=None):
     """Every reason this capture may not be published, as sentences. Empty is the healthy answer."""
@@ -153,9 +145,6 @@ def findings(got, silent_routes=None):
     if len(named) > SPREAD:
         out.append(f"{len(named)} attested rows have no episode title or no author, spread too "
                    f"widely to be one platform")
-    for p, n, total in access_moved(got, silent_routes):
-        out.append(f"{p}: {n} of {total} rows state no access on a platform that states it "
-                   f"elsewhere, so a price selector has probably moved")
     silent = unpriced(got, silent_routes)
     if len(silent) > NO_ACCESS_FLOOR and len(silent) > len(got) * NO_ACCESS_SHARE:
         out.append(f"{len(silent)} of {len(got)} attested rows state no access, over "

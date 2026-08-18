@@ -456,7 +456,11 @@ POPULATIONS = {
         # is read by its own adapter, which states access on every row, and by the catch-all
         # resolver, which states it on none; asked per platform, that reads as a platform which has
         # stopped reading prices on most of its rows. `plat_slug` is which pass read the row.
-        "sql": "SELECT r.id AS id, r.platform AS plat, r.plat_slug AS route,"
+        # AND THE SHAPE OF THE CAPTURE, which is one level below the route. コミックDAYS is read by
+        # one route through two files: the platform's atom feed, which states a release and carries
+        # no price, and the per-series feeds, which carry one on every row. `basis` is what the store
+        # already records to tell those apart, `observed` against `bootstrap`.
+        "sql": "SELECT r.id AS id, r.platform AS plat, r.plat_slug AS route, r.basis AS reading,"
                " r.instalment AS ep, r.author AS author, r.work_raw AS work,"
                " (SELECT count(*) FROM release_access_mode m WHERE m.release = r.id) AS access"
                " FROM release r WHERE r.provenance = 'attested' ORDER BY r.id",

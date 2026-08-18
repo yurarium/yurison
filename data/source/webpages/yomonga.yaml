@@ -13,7 +13,7 @@ source: webpages
 platform: yomonga
 platform_name: "マンガよもんが"
 publisher: "ぶんか社"
-retrieved: 2026-08-18
+retrieved: 2026-08-19
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -24,6 +24,10 @@ works:
     url: "https://www.yomonga.com/titles/2532/"
     chapter_count: 6
     chapters:
+      - title: "Chapter.18 第17話"
+        updated: 2026-08-18
+        access_modes: ["free"]
+        free_until: 2026-10-06
       - title: "Chapter.17 第16話"
         updated: 2026-08-04
         access_modes: ["free"]
@@ -32,10 +36,6 @@ works:
         updated: 2026-07-21
         access_modes: ["free"]
         free_until: 2026-09-01
-      - title: "Chapter.15 第14話"
-        updated: 2026-07-07
-        access_modes: ["free"]
-        free_until: 2026-08-18
       - title: "Chapter.3 第2話"
         updated: 2026-01-06
         access_modes: ["free"]
@@ -64,6 +64,10 @@ works:
     url: "https://www.yomonga.com/titles/2546/"
     chapter_count: 6
     chapters:
+      - title: "Chapter.15　第8話-1"
+        updated: 2026-08-18
+        access_modes: ["free"]
+        free_until: 2026-10-06
       - title: "Chapter.14　第7話-2"
         updated: 2026-08-04
         access_modes: ["free"]
@@ -72,10 +76,6 @@ works:
         updated: 2026-07-21
         access_modes: ["free"]
         free_until: 2026-09-01
-      - title: "Chapter.12　第6話-2"
-        updated: 2026-07-07
-        access_modes: ["free"]
-        free_until: 2026-08-18
       - title: "Chapter.3　第2話-1"
         updated: 2026-03-03
         access_modes: ["free"]
@@ -104,6 +104,10 @@ works:
     url: "https://www.yomonga.com/titles/2558/"
     chapter_count: 6
     chapters:
+      - title: "Chapter.8　第4話_1"
+        updated: 2026-08-18
+        access_modes: ["free"]
+        free_until: 2026-10-06
       - title: "Chapter.7　第3話_2"
         updated: 2026-08-04
         access_modes: ["free"]
@@ -112,10 +116,6 @@ works:
         updated: 2026-07-21
         access_modes: ["free"]
         free_until: 2026-09-01
-      - title: "Chapter.5　第2話_2"
-        updated: 2026-07-07
-        access_modes: ["free"]
-        free_until: 2026-08-18
       - title: "Chapter.3　第1話_3"
         updated: 2026-06-16
         access_modes: ["free"]

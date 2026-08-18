@@ -6,11 +6,28 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-08-18
+retrieved: 2026-08-19
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "tonarino_yj:episode:12207421983966653065"
+    work_title: "英雄少女と呪われの銀姫"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "[第7話 後編] 英雄少女と呪われの銀姫"
+    release_type: "unclassified"
+    date: "2026-08-18"
+    date_basis: "observed"
+    first_seen: "2026-08-19"
+    first_reported: "2026-08-18T03:00:00Z"
+    platform_updated: "2026-08-18T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421983966653065"
+    author: "アルト/絵本奈央"
+    free_term_start: "2026-08-18T03:00:00Z"
+    raw_title: "[第7話 後編] 英雄少女と呪われの銀姫"
+    advances_narrative: false
   - release_id: "tonarino_yj:episode:12207421984080790252"
     work_title: "凛としてきゅん"
     web_status: "serialised"

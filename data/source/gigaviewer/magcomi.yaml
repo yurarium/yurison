@@ -6,11 +6,26 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-08-18
+retrieved: 2026-08-19
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "magcomi:episode:12207421984023174237"
+    work_title: "ボイタボイネ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第19話「生肌魅惑のマーメイド」"
+    release_type: "chapter"
+    date: "2026-08-18"
+    date_basis: "observed"
+    first_seen: "2026-08-19"
+    first_reported: "2026-08-18T03:00:00Z"
+    platform_updated: "2026-08-18T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984023174237"
+    author: "夏草"
+    advances_narrative: true
   - release_id: "magcomi:episode:12207421984065499859"
     work_title: "【今日の10ページ】女子高生VS首切り地蔵"
     web_status: "serialised"

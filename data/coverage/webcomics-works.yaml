@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-18
+retrieved: 2026-08-19
 record_type: candidate_works
 works: 316
 candidates:
@@ -1558,6 +1558,10 @@ candidates:
   - title: "バニーズクエスト"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E3%83%90%E3%83%8B%E3%83%BC%E3%82%BA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88"]
+  - title: "バリキャリJKモネ先輩"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984038651592"]
+    tags: ["最近のコメント数"]
   - title: "パパのセクシードール"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001748_S", "https://manga.nicovideo.jp/comic/61282"]
@@ -1952,7 +1956,7 @@ candidates:
   - title: "乙女のおかず"
     platforms: ["コミックDAYS", "ヤンマガWeb"]
     urls: ["https://comic-days.com/episode/12207421983352147752", "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"]
-    tags: ["エロ", "ギャグ・コメディ", "女子高生", "日常", "百合"]
+    tags: ["エロ", "ギャグ・コメディ", "女子高生", "日常", "最近のコメント数", "百合"]
   - title: "予行練習"
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/12207421984039817859"]
@@ -2130,7 +2134,7 @@ candidates:
   - title: "優等生がアダルトグッズを買いに来た"
     platforms: ["コミックガルド"]
     urls: ["https://comic-gardo.com/episode/12207421984094260425"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合"]
   - title: "先輩と後輩、大暴れの週末"
     platforms: ["くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/2550912965269449845"]
@@ -2516,6 +2520,10 @@ candidates:
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983584564641", "https://ichicomi.com/episode/2551460910021695025"]
     tags: ["女子高生", "百合"]
+  - title: "姫野姫子の奴隷みてえな彼氏"
+    platforms: ["マガポケ"]
+    urls: ["https://pocket.shonenmagazine.com/title/03301"]
+    tags: ["最近のコメント数"]
   - title: "娘が彼女を連れてきた話"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2532/"]
@@ -2575,7 +2583,7 @@ candidates:
   - title: "小林さんちのメイドラゴン"
     platforms: ["webアクション"]
     urls: ["https://comic-action.com/episode/13933686331613879685"]
-    tags: ["お色気・微エロ", "アニメ化", "ドラゴン・竜", "メイド", "現代ファンタジー", "百合", "社会人"]
+    tags: ["お色気・微エロ", "アニメ化", "ドラゴン・竜", "メイド", "最近のコメント数", "現代ファンタジー", "百合", "社会人"]
   - title: "小柳ちゃんの守り方!"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550912964579096267"]
@@ -2912,6 +2920,10 @@ candidates:
     platforms: ["pixivコミック", "カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_002743_S", "https://comic.pixiv.net/works/3287", "https://manga.nicovideo.jp/comic/18981"]
     tags: ["ホームドラマ", "レシピ", "女子高生", "実写化", "料理・グルメ", "日常", "百合", "義理の兄弟姉妹", "雑学・豆知識"]
+  - title: "新米錬金術師の店舗経営"
+    platforms: ["キミコミ"]
+    urls: ["https://kimicomi.com/series/3e22b763a1c0f"]
+    tags: ["アニメ化", "スローライフ", "ファンタジー", "仕事", "店舗経営", "百合", "錬金術師"]
   - title: "日常の片隅で…百合が咲く"
     platforms: ["少年ジャンプルーキー"]
     urls: ["https://rookie.shonenjump.com/series/zGZPbQ8x_Jk"]
@@ -3444,6 +3456,10 @@ candidates:
   - title: "神の右手"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/4856001361242313205"]
+  - title: "神は私を撮りたいって言ってます!"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984038651597"]
+    tags: ["最近のコメント数"]
   - title: "神ゲーってそういうことですか"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002614_S"]

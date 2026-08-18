@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-08-18
+retrieved: 2026-08-19
 record_type: discovery_queue
 candidates:
   - work_title: "にせものターコイズ"
@@ -27,15 +27,6 @@ candidates:
     work_url: "https://comic-walker.com/detail/KC_019658_S"
     headline: "相性最悪のバディが怪異事件に挑む百合アクション「ハウリング・ブレイズ」WEBで連載"
     status: unconfirmed
-  - work_title: "今夜、エーテルで待ちあわせ"
-    signal: "new-serial"
-    announced: "Sun, 02 Aug 2026 11:36:58 +0000"
-    url: "https://yurinavi.com/2026/08/02/konya-start/"
-    platform: "seasons"
-    platform_code: "12207421983858404523"
-    work_url: "https://comic-seasons.com/episode/12207421983858404523"
-    headline: "オンラインゲームで出会ったふたりの時間を描く百合漫画「今夜、エーテルで待ちあわせ」WEBでスタート"
-    status: unconfirmed
   - work_title: "最恐呪物令嬢"
     signal: "new-serial"
     announced: "Sat, 15 Aug 2026 11:00:19 +0000"
@@ -52,6 +43,15 @@ candidates:
     platform_code: "KC_016898_S"
     work_url: "https://comic-walker.com/detail/KC_016898_S"
     headline: "天使と人間のちょっとえっちな百合読み切り「天瀬ましろはイきたくない！」WEBで公開"
+    status: unconfirmed
+  - work_title: "今夜、エーテルで待ちあわせ"
+    signal: "new-serial"
+    announced: "2026-08-02"
+    url: "https://yurinavi.com/2026/08/02/konya-start/"
+    platform: "seasons"
+    platform_code: "12207421983858404523"
+    work_url: "https://comic-seasons.com/episode/12207421983858404523"
+    headline: "オンラインゲームで出会ったふたりの時間を描く百合漫画「今夜、エーテルで待ちあわせ」WEBでスタート"
     status: unconfirmed
   - work_title: "この湯で、あなたと"
     signal: "new-serial"

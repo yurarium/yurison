@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-08-18
+retrieved: 2026-08-19
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -2411,8 +2411,12 @@ works:
     title_id: "2901"
     url: "https://pocket.shonenmagazine.com/title/02901"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2901/feed.xml"
-    chapter_count: 53
+    chapter_count: 54
     chapters:
+      - title: "【#50】サファイア"
+        updated: 2026-08-19
+        author: "原作/大鷹シン 漫画/ホマレ"
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/442458"
       - title: "【#49】Pair"
         updated: 2026-08-05
         author: "原作/大鷹シン 漫画/ホマレ"

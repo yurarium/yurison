@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-08-18
+retrieved: 2026-08-19
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -17,8 +17,12 @@ works:
     url: "https://tonarinoyj.jp/episode/2551460910044575820"
     platform_name: "ヤンジャン+"
     route: "gigaviewer"
-    chapter_count: 12
+    chapter_count: 13
     chapters:
+      - title: "[第7話 後編] 英雄少女と呪われの銀姫"
+        updated: 2026-08-18
+        author: "アルト/絵本奈央"
+        access_modes: ["free"]
       - title: "[第7話 前編] 英雄少女と呪われの銀姫"
         updated: 2026-08-04
         author: "アルト/絵本奈央"
@@ -1483,27 +1487,27 @@ works:
       - title: "第6話 旅は道連れ（中編）2"
         updated: 2025-04-25
         author: "U-temo"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第6話 旅は道連れ（中編）1"
         updated: 2025-03-28
         author: "U-temo"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第5話 旅は道連れ（前編）2"
         updated: 2025-02-28
         author: "U-temo"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第5話 旅は道連れ（前編）1"
         updated: 2025-01-31
         author: "U-temo"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第4話 顔なし女が出るトンネル（後編）"
         updated: 2024-12-27
         author: "U-temo"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第3話 顔なし女が出るトンネル（前編）"
         updated: 2024-11-22
         author: "U-temo"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第2話 運命のきつねうどん （後編）"
         updated: 2024-11-22
         author: "U-temo"
@@ -1517,16 +1521,20 @@ works:
     url: "https://comic-action.com/episode/13933686331613879685"
     platform_name: "webアクション"
     route: "gigaviewer"
-    chapter_count: 191
+    chapter_count: 192
     chapters:
+      - title: "第190話 ルコアとゲーム大会"
+        updated: 2026-08-18
+        author: "クール教信者"
+        access_modes: ["purchase"]
       - title: "第189話 エルマとユタラマ"
         updated: 2026-08-04
         author: "クール教信者"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第188話 トールと傍観勢"
         updated: 2026-07-07
         author: "クール教信者"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第187話 カンナとイルルと姉妹ゲンカ"
         updated: 2026-06-16
         author: "クール教信者"
@@ -2423,7 +2431,7 @@ works:
     url: "https://youngchampion.jp/series/86c1162f34a04"
     platform_name: "チャンピオンクロス"
     route: "comici"
-    chapter_count: 29
+    chapter_count: 30
     chapters:
       - title: "第1話①"
         updated: 2025-11-05
@@ -2560,9 +2568,14 @@ works:
       - title: "第10話①"
         updated: 2026-08-05
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第10話②"
         updated: 2026-08-12
+        author: "りんご飴サード,川田暁生"
+        access_modes: ["free"]
+      - title: "第10話③"
+        updated: 2026-08-19
         author: "りんご飴サード,川田暁生"
         access_modes: ["purchase"]
   - work_title: "平良深姉妹はどっちもヤんでる"
@@ -4733,11 +4746,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-08-17
+        updated: 2026-08-18
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-08-17
+        updated: 2026-08-18
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"
@@ -4866,8 +4879,12 @@ works:
     url: "https://ichicomi.com/episode/12207421983347947242"
     platform_name: "ニコニコ漫画"
     route: "gigaviewer"
-    chapter_count: 5
+    chapter_count: 6
     chapters:
+      - title: "第6話"
+        updated: 2026-08-18
+        author: "餡実ツキ"
+        access_modes: ["purchase"]
       - title: "第5話"
         updated: 2026-05-18
         author: "餡実ツキ"
@@ -4919,8 +4936,12 @@ works:
     url: "https://ichicomi.com/episode/2550912965923204004"
     platform_name: "一迅プラス"
     route: "gigaviewer"
-    chapter_count: 33
+    chapter_count: 34
     chapters:
+      - title: "第35話"
+        updated: 2026-08-18
+        author: "伊月クロ"
+        access_modes: ["purchase"]
       - title: "第34話"
         updated: 2026-06-17
         author: "伊月クロ"

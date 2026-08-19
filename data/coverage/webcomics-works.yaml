@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-19
+retrieved: 2026-08-20
 record_type: candidate_works
-works: 316
+works: 317
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -959,7 +959,7 @@ candidates:
   - title: "アイドラトリィ"
     platforms: ["コミックDAYS", "マガポケ"]
     urls: ["https://comic-days.com/episode/2551460909661028261", "https://pocket.shonenmagazine.com/title/02901"]
-    tags: ["アイドル", "ギャグ・コメディ", "推し活", "百合"]
+    tags: ["アイドル", "ギャグ・コメディ", "推し活", "最近のコメント数", "百合"]
   - title: "アイ・ヘイ・チュー"
     platforms: ["pixivコミック", "マガポケ"]
     urls: ["https://comic.pixiv.net/works/13324", "https://pocket.shonenmagazine.com/title/03273"]
@@ -1323,7 +1323,7 @@ candidates:
   - title: "スカベンジャーズアナザースカイ"
     platforms: ["ヤンチャンWeb"]
     urls: ["https://youngchampion.jp/series/81d9b296d7bc7"]
-    tags: ["アクション", "ディストピア", "ミリタリー", "幽霊", "残酷・グロテスク", "百合"]
+    tags: ["アクション", "ディストピア", "ミリタリー", "幽霊", "最近のコメント数", "残酷・グロテスク", "百合"]
   - title: "スクールゾーン"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/4617"]
@@ -1561,7 +1561,7 @@ candidates:
   - title: "バリキャリJKモネ先輩"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984038651592"]
-    tags: ["最近のコメント数"]
+    tags: ["コスプレ", "最近のコメント数", "百合"]
   - title: "パパのセクシードール"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001748_S", "https://manga.nicovideo.jp/comic/61282"]
@@ -2319,7 +2319,7 @@ candidates:
   - title: "咲きそめコンプレックス"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_006662_S", "https://manga.nicovideo.jp/comic/72944"]
-    tags: ["おねロリ", "女子小学生", "女子高生", "年の差", "百合"]
+    tags: ["おねロリ", "女子小学生", "女子高生", "年の差", "最近のコメント数", "百合"]
   - title: "喫茶 秘匿異"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/82ac8f503cf40"]
@@ -2523,7 +2523,7 @@ candidates:
   - title: "姫野姫子の奴隷みてえな彼氏"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03301"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "娘が彼女を連れてきた話"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2532/"]
@@ -2566,7 +2566,7 @@ candidates:
   - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_002994_S", "https://manga.nicovideo.jp/comic/47294"]
-    tags: ["アニメ化", "ギャグ・コメディ", "ゲーム・eスポーツ", "メスガキ", "令嬢", "動画配信者", "女子高生", "学園", "百合", "青春"]
+    tags: ["アニメ化", "ギャグ・コメディ", "ゲーム・eスポーツ", "メスガキ", "令嬢", "動画配信者", "女子高生", "学園", "最近のコメント数", "百合", "青春"]
   - title: "寿命をゆずる友達の話。"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002199_S"]
@@ -2990,6 +2990,10 @@ candidates:
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/13425", "https://ichicomi.com/episode/2551460909807196609"]
     tags: ["女子高生", "百合"]
+  - title: "暗殺組合の山田さん"
+    platforms: ["キミコミ"]
+    urls: ["https://kimicomi.com/series/397963f4f9cfd"]
+    tags: ["最近のコメント数"]
   - title: "暴走!?サキュバスせんぱい"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/5448ec9f6077b"]
@@ -3459,7 +3463,7 @@ candidates:
   - title: "神は私を撮りたいって言ってます!"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984038651597"]
-    tags: ["最近のコメント数"]
+    tags: ["コスプレ", "最近のコメント数", "百合"]
   - title: "神ゲーってそういうことですか"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002614_S"]
@@ -3482,7 +3486,7 @@ candidates:
   - title: "私がモテないのはどう考えてもお前らが悪い!"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/29"]
-    tags: ["アニメ化", "ギャグ・コメディ", "ボーイミーツガール", "女子高生", "学園", "日常", "現代", "百合"]
+    tags: ["アニメ化", "ギャグ・コメディ", "ボーイミーツガール", "女子高生", "学園", "日常", "最近のコメント数", "現代", "百合"]
   - title: "私が負けヒロインなんて認めませんわ!"
     platforms: ["きら星ポータル"]
     urls: ["https://kirapo.jp/meteor/titles/watamake"]
@@ -3998,6 +4002,10 @@ candidates:
     platforms: ["ニコニコ漫画", "竹コミ‎‏‎"]
     urls: ["https://manga.nicovideo.jp/comic/40675", "https://takecomic.jp/series/0d7dee548d547"]
     tags: ["お色気・微エロ", "アニメ化", "エロ", "ギャグ・コメディ", "バトル", "変態", "怪人", "百合", "魔法少女"]
+  - title: "魔法少女は嘘をつく"
+    platforms: ["マガポケ"]
+    urls: ["https://pocket.shonenmagazine.com/title/03302"]
+    tags: ["最近のコメント数"]
   - title: "魔法少女リインカーネーション"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2551460909881731454"]

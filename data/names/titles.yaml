@@ -1,4 +1,4 @@
-generated: '2026-08-18'
+generated: '2026-08-19'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -60999,6 +60999,28 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  暗殺組合の山田さん:
+    basis: romaji
+    furigana_spans:
+    - - 暗殺
+      - あんさつ
+    - - 組合
+      - くみあい
+    - - の
+      - null
+    - - 山田
+      - やまだ
+    - - さん
+      - null
+    reading: アンサツ クミアイ ノ ヤマダサン
+    reading_at: '2026-08-19'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   暗黒騎士団長と青春ガール:

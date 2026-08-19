@@ -6,9 +6,18 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-08-19
+retrieved: 2026-08-20
 record_type: discovery_queue
 candidates:
+  - work_title: "優等生がアダルトグッズを買いに来た"
+    signal: "new-serial"
+    announced: "Wed, 19 Aug 2026 11:00:12 +0000"
+    url: "https://yurinavi.com/2026/08/19/yuutouseiga-comic-start/"
+    platform: "comic-gardo"
+    platform_code: "12207421984094260425"
+    work_url: "https://comic-gardo.com/episode/12207421984094260425"
+    headline: "優等生の秘密を知ってしまった女子高生のガールミーツガール「優等生がアダルトグッズを買いに来た」WEBでスタート"
+    status: unconfirmed
   - work_title: "にせものターコイズ"
     signal: "oneshot"
     announced: "Tue, 11 Aug 2026 10:10:16 +0000"

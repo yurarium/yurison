@@ -9,12 +9,46 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-19
+retrieved: 2026-08-20
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 492
 works:
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-08-20"
+    started: "2019-10-20"
+    episode_count: 115
+    free_episodes: 115
+    latest_episode: "ロボ20-1"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1127283"
+  - work_title: "咲きそめコンプレックス"
+    author: "んみ(著者)"
+    url: "https://manga.nicovideo.jp/comic/72944"
+    comic_id: "72944"
+    updated: "2026-08-19"
+    started: "2025-06-04"
+    episode_count: 4
+    free_episodes: 4
+    channel: "カドコミオリジナル　ニコニコ出張所"
+    channel_slug: "kadocomi"
+    latest_episode: "第12話-3"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1125355"
+  - work_title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
+    author: "江島絵理(著者)"
+    url: "https://manga.nicovideo.jp/comic/47294"
+    comic_id: "47294"
+    updated: "2026-08-19"
+    started: "2020-04-19"
+    episode_count: 2
+    free_episodes: 2
+    channel: "ほぼほぼ週刊フラッパー"
+    channel_slug: "flapper"
+    latest_episode: "第65話：力の差"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1121721"
   - work_title: "ささやくように恋を唄う"
     author: "竹嶋えく"
     url: "https://manga.nicovideo.jp/comic/56012"
@@ -111,16 +145,6 @@ works:
     channel_slug: "mangatime"
     latest_episode: "第146話　前半"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1115609"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-08-18"
-    started: "2019-10-20"
-    episode_count: 113
-    free_episodes: 113
-    latest_episode: "ロボ19-5"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1125481"
   - work_title: "女子高生の無駄づかい"
     author: "ビーノ(著者)"
     url: "https://manga.nicovideo.jp/comic/18905"
@@ -553,18 +577,6 @@ works:
     channel_slug: "ultrajump"
     latest_episode: "第54話②"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1120568"
-  - work_title: "咲きそめコンプレックス"
-    author: "んみ(著者)"
-    url: "https://manga.nicovideo.jp/comic/72944"
-    comic_id: "72944"
-    updated: "2026-08-05"
-    started: "2025-06-04"
-    episode_count: 4
-    free_episodes: 4
-    channel: "カドコミオリジナル　ニコニコ出張所"
-    channel_slug: "kadocomi"
-    latest_episode: "第12話-2"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1120098"
   - work_title: "映しちゃダメな顔"
     author: "FLOWERCHILD"
     url: "https://manga.nicovideo.jp/comic/66620"
@@ -987,18 +999,6 @@ works:
     free_episodes: 6
     latest_episode: "永遠の愛にも毎日のルーティンが必須なのです"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1115178"
-  - work_title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
-    author: "江島絵理(著者)"
-    url: "https://manga.nicovideo.jp/comic/47294"
-    comic_id: "47294"
-    updated: "2026-07-19"
-    started: "2020-04-19"
-    episode_count: 2
-    free_episodes: 2
-    channel: "ほぼほぼ週刊フラッパー"
-    channel_slug: "flapper"
-    latest_episode: "第64話：終わりは一瞬"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112238"
   - work_title: "星屑テレパス"
     author: "大熊らすこ"
     url: "https://manga.nicovideo.jp/comic/48976"

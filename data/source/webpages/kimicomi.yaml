@@ -6,7 +6,7 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-08-19
+retrieved: 2026-08-20
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -745,6 +745,15 @@ works:
       - title: "59th management"
         updated: "2026-08-10"
         access_modes: ["purchase"]
+  - work_title: "暗殺組合の山田さん"
+    status: "連載中"
+    author: "BLZ"
+    url: "https://kimicomi.com/series/397963f4f9cfd"
+    chapter_count: 1
+    chapters:
+      - title: "第一話"
+        updated: "2026-08-19"
+        access_modes: ["free"]
   - work_title: "田所さん"
     status: "完結"
     author: "TATSUBON"

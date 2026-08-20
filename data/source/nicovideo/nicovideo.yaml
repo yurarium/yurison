@@ -9,12 +9,24 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-20
+retrieved: 2026-08-21
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
-works_resolved: 492
+works_resolved: 493
 works:
+  - work_title: "妄執女と芥川"
+    author: "鈴木二三江(著者)"
+    url: "https://manga.nicovideo.jp/comic/74964"
+    comic_id: "74964"
+    updated: "2026-08-20"
+    started: "2025-11-13"
+    episode_count: 5
+    free_episodes: 5
+    channel: "カドコミオリジナル　ニコニコ出張所"
+    channel_slug: "kadocomi"
+    latest_episode: "第十二話-2"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1126091"
   - work_title: "ロボットJSにスキはありません!!"
     author: "とりから"
     url: "https://manga.nicovideo.jp/comic/44519"

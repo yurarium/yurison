@@ -2,10 +2,1433 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-08-20
+retrieved: 2026-08-21
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "うさぎはかく語りき"
+    yomi: "うさぎはかくかたりき"
+    url: "https://comic-fuz.com/manga/3572"
+    latest_updated: "2026-08-07"
+    is_original: true
+    authors: ["鴻巣覚"]
+    tags: ["金曜日", "オリジナル", "男性向け", "SF・ファンタジー", "お仕事・趣味", "バトル・アクション", "FUZコミックス", "オリジナル作品の最新話が無料化！", "異世界", "8/3発売 FUZオリジナル作品新刊"]
+    chapter_count: 63
+    chapters:
+      - chapter_id: 79841
+        title: "第21話(2)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-09
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 79838
+        title: "第21話(1)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-09-25
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 79577
+        title: "3巻発売フェア"
+        updated: 2026-07-24
+        access_modes: ["free"]
+      - chapter_id: 78680
+        title: "第20話(2)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-09-11
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 78677
+        title: "第20話(1)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-08-28
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 78458
+        title: "第19話(2)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-08-14
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 78455
+        title: "第19話(1)"
+        updated: 2026-07-31
+        access_modes: ["free"]
+      - chapter_id: 77770
+        title: "第18.5話"
+        updated: 2026-07-17
+        access_modes: ["free"]
+      - chapter_id: 76513
+        title: "第18話(2)"
+        updated: 2026-07-03
+        access_modes: ["free"]
+      - chapter_id: 76510
+        title: "第18話(1)"
+        updated: 2026-06-19
+        access_modes: ["free"]
+      - chapter_id: 75862
+        title: "第17.5話"
+        updated: 2026-06-05
+        access_modes: ["free"]
+      - chapter_id: 75271
+        title: "第17話(2)"
+        updated: 2026-05-22
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 75268
+        title: "第17話(1)"
+        updated: 2026-05-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 75176
+        title: "第16.5話"
+        updated: 2026-04-24
+        access_modes: ["free"]
+      - chapter_id: 74969
+        title: "第16話(2)"
+        updated: 2026-04-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 74966
+        title: "第16話(1)"
+        updated: 2026-02-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 74748
+        title: "第15.5話"
+        updated: 2026-02-13
+        access_modes: ["free"]
+      - chapter_id: 74592
+        title: "第15話(2)"
+        updated: 2026-02-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 74589
+        title: "第15話(1)"
+        updated: 2026-01-30
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 73107
+        title: "第14.5話"
+        updated: 2026-01-30
+        access_modes: ["free"]
+      - chapter_id: 73104
+        title: "第14話(2)"
+        updated: 2026-01-16
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 73101
+        title: "第14話(1)"
+        updated: 2026-01-02
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 72774
+        title: "第2巻 書店フェア"
+        updated: 2025-11-21
+        access_modes: ["free"]
+      - chapter_id: 71591
+        title: "第13話(3)"
+        updated: 2025-12-19
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 71588
+        title: "第13話(2)"
+        updated: 2025-12-05
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 71585
+        title: "第13話(1)"
+        updated: 2025-11-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 70907
+        title: "第12.5話"
+        updated: 2025-11-14
+        access_modes: ["free"]
+      - chapter_id: 70682
+        title: "第12話(3)"
+        updated: 2025-11-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 70679
+        title: "第12話(2)"
+        updated: 2025-10-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 70676
+        title: "第12話(1)"
+        updated: 2025-10-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 70262
+        title: "第11.5話"
+        updated: 2025-09-26
+        access_modes: ["free"]
+      - chapter_id: 69779
+        title: "第11話(2)"
+        updated: 2025-09-19
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 69776
+        title: "第11話(1)"
+        updated: 2025-09-05
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 69407
+        title: "第10.5話"
+        updated: 2025-09-05
+        access_modes: ["free"]
+      - chapter_id: 69257
+        title: "第10話(2)"
+        updated: 2025-08-22
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 69254
+        title: "第10話(1)"
+        updated: 2025-08-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 68312
+        title: "第9.5話"
+        updated: 2025-07-25
+        access_modes: ["free"]
+      - chapter_id: 68165
+        title: "第9話(2)"
+        updated: 2025-07-11
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 68162
+        title: "第9話(1)"
+        updated: 2025-06-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 66306
+        title: "第8.5話"
+        updated: 2025-06-13
+        access_modes: ["free"]
+      - chapter_id: 65853
+        title: "第8話(2)"
+        updated: 2025-05-30
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 65850
+        title: "第8話(1)"
+        updated: 2025-05-16
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 65181
+        title: "第7.5話"
+        updated: 2025-04-18
+        access_modes: ["free"]
+      - chapter_id: 64143
+        title: "第7話(2)"
+        updated: 2025-04-04
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 64140
+        title: "第7話(1)"
+        updated: 2025-03-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 62620
+        title: "第6話(2)"
+        updated: 2025-03-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 62617
+        title: "第6話(1)"
+        updated: 2025-02-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 64098
+        title: "第1巻 書店フェア"
+        updated: 2025-02-21
+        access_modes: ["free"]
+      - chapter_id: 61255
+        title: "第5.5話"
+        updated: 2025-02-07
+        access_modes: ["free"]
+      - chapter_id: 61171
+        title: "第5話(2)"
+        updated: 2025-01-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 61168
+        title: "第5話(1)"
+        updated: 2025-01-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 60516
+        title: "第4.5話"
+        updated: 2024-12-27
+        access_modes: ["free"]
+      - chapter_id: 59928
+        title: "第4話(3)"
+        updated: 2024-12-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 59925
+        title: "第4話(2)"
+        updated: 2024-11-29
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 59922
+        title: "第4話(1)"
+        updated: 2024-11-15
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 59022
+        title: "第3.5話"
+        updated: 2024-11-01
+        access_modes: ["free"]
+      - chapter_id: 58536
+        title: "第3話(3)"
+        updated: 2024-10-18
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 58533
+        title: "第3話(2)"
+        updated: 2024-10-04
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 58530
+        title: "第3話(1)"
+        updated: 2024-09-20
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 57548
+        title: "第2.5話"
+        updated: 2024-09-06
+        access_modes: ["free"]
+      - chapter_id: 57449
+        title: "第2話(2)"
+        updated: 2024-08-23
+        access_modes: ["free"]
+      - chapter_id: 57446
+        title: "第2話(1)"
+        updated: 2024-08-09
+        access_modes: ["free"]
+      - chapter_id: 57443
+        title: "第1話"
+        updated: 2024-08-02
+        access_modes: ["free"]
+  - work_title: "球詠"
+    yomi: "たまよみ"
+    url: "https://comic-fuz.com/manga/441"
+    latest_updated: "2026-08-07"
+    authors: ["マウンテンプクイチ"]
+    tags: ["金曜日", "男性向け", "学園", "メディア化", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "スポーツ"]
+    chapter_count: 228
+    chapters:
+      - chapter_id: 76444
+        title: "１９巻 第１１４球 「何かおありになりますね」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76441
+        title: "１９巻 第１１４球 「何かおありになりますね」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76438
+        title: "１９巻 第１１３球 「二人で作った直球」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76435
+        title: "１９巻 第１１３球 「二人で作った直球」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76432
+        title: "１９巻 第１１２球 「思わぬ収穫」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76429
+        title: "１９巻 第１１２球 「思わぬ収穫」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76426
+        title: "１９巻 第１１１球 「思った通りに」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76423
+        title: "１９巻 第１１１球 「思った通りに」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76420
+        title: "１９巻 第１１０球 「夏が終わる確率」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76417
+        title: "１９巻 第１１０球 「夏が終わる確率」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76414
+        title: "１９巻 第１０９球 「想像もつかない領域」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 76411
+        title: "１９巻 第１０９球 「想像もつかない領域」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71714
+        title: "１８巻 第１０８球 「三年生」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71711
+        title: "１８巻 第１０８球 「三年生」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71708
+        title: "１８巻 第１０７球 「共同作業」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71705
+        title: "１８巻 第１０７球 「共同作業」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71702
+        title: "１８巻 第１０６球 「確率論無視」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71699
+        title: "１８巻 第１０６球 「確率論無視」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71696
+        title: "１８巻 第１０５球 「ミスもないはずなのに」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71693
+        title: "１８巻 第１０５球 「ミスもないはずなのに」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71690
+        title: "１８巻 第１０４球 「主将らしいこと」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71687
+        title: "１８巻 第１０４球 「主将らしいこと」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71684
+        title: "１８巻 第１０３球 「勝ちにいくなら」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 71681
+        title: "１８巻 第１０３球 「勝ちにいくなら」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65586
+        title: "１７巻 第１０２球 「戦略的なダメ押し」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65583
+        title: "１７巻 第１０２球 「戦略的なダメ押し」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65580
+        title: "１７巻 第１０１球 「呼び込んだ流れ」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65577
+        title: "１７巻 第１０１球 「呼び込んだ流れ」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65574
+        title: "１７巻 第１００球 「隠し玉」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65571
+        title: "１７巻 第１００球 「隠し玉」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65568
+        title: "１７巻 第９９球 「重たいね」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65565
+        title: "１７巻 第９９球 「重たいね」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65562
+        title: "１７巻 第９８球 「お前に照準を当てている」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65559
+        title: "１７巻 第９８球 「お前に照準を当てている」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65556
+        title: "１７巻 第９７球 「レギュラー確定」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 65553
+        title: "１７巻 第９７球 「レギュラー確定」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60237
+        title: "１６巻 第９６球 「一年最強はどっちか」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60234
+        title: "１６巻 第９６球 「一年最強はどっちか」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60231
+        title: "１６巻 第９５球 「詠深と珠姫」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60228
+        title: "１６巻 第９５球 「詠深と珠姫」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60225
+        title: "１６巻 第９４球 「わがままなヨミちゃん」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60222
+        title: "１６巻 第９４球 「わがままなヨミちゃん」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60219
+        title: "１６巻 第９３球 「違うチームになっても」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60216
+        title: "１６巻 第９３球 「違うチームになっても」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60213
+        title: "１６巻 第９２球 「一番怖そうな先輩は誰だ」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60210
+        title: "１６巻 第９２球 「一番怖そうな先輩は誰だ」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60207
+        title: "１６巻 第９１球 「才能と根性」（２）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 60204
+        title: "１６巻 第９１球 「才能と根性」（１）"
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
+      - chapter_id: 53783
+        title: "１５巻 第９０球 「示すしかなかろ」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2027-01-01
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53780
+        title: "１５巻 第９０球 「示すしかなかろ」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-25
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53777
+        title: "１５巻 第８９球 「言うことが聞けんと？」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-18
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53774
+        title: "１５巻 第８９球 「言うことが聞けんと？」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-11
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53771
+        title: "１５巻 第８８球 「ただの壁じゃない」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-04
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53768
+        title: "１５巻 第８８球 「ただの壁じゃない」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-11-27
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53765
+        title: "１５巻 第８７球 「顔面に当ててでも」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-11-20
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53762
+        title: "１５巻 第８７球 「顔面に当ててでも」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-11-13
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53759
+        title: "１５巻 第８６球 「無理してないかな」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-11-06
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53756
+        title: "１５巻 第８６球 「無理してないかな」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-30
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53753
+        title: "１５巻 第８５球 「暴挙！」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-23
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 53750
+        title: "１５巻 第８５球 「暴挙！」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-16
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47977
+        title: "１４巻 第８４球 「背番号」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-09
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47974
+        title: "１４巻 第８４球 「背番号」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-02
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47971
+        title: "１４巻 第８３球 「嫌われてるのかなぁ」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-09-25
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47968
+        title: "１４巻 第８３球 「嫌われてるのかなぁ」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47965
+        title: "１４巻 第８２球 「ど真ん中」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-09-11
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47962
+        title: "１４巻 第８２球 「ど真ん中」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-09-04
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47959
+        title: "１４巻 第８１球 「一年生」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-08-28
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47956
+        title: "１４巻 第８１球 「一年生」（１）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-08-21
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47953
+        title: "１４巻 第８０球 「実感」（２）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-08-14
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 47950
+        title: "１４巻 第８０球 「実感」（１）"
+        updated: 2026-08-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 47947
+        title: "１４巻 第７９球 「冬合宿」（２）"
+        updated: 2026-07-31
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 47944
+        title: "１４巻 第７９球 「冬合宿」（１）"
+        updated: 2026-07-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45778
+        title: "１３巻 第７８球 「体力と自信」（２）"
+        updated: 2026-07-17
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45775
+        title: "１３巻 第７８球 「体力と自信」（１）"
+        updated: 2026-07-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45772
+        title: "１３巻 第７７球 「今やりたい事」（２）"
+        updated: 2026-07-03
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45769
+        title: "１３巻 第７７球 「今やりたい事」（１）"
+        updated: 2026-06-26
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45766
+        title: "１３巻 第７６球 「移行期間」（２）"
+        updated: 2026-06-19
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45763
+        title: "１３巻 第７６球 「移行期間」（１）"
+        updated: 2026-06-12
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45760
+        title: "１３巻 第７５球 「少しの準備」（２）"
+        updated: 2026-06-05
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45757
+        title: "１３巻 第７５球 「少しの準備」（１）"
+        updated: 2026-05-29
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45754
+        title: "１３巻 第７４球 「初球」（２）"
+        updated: 2026-05-22
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45751
+        title: "１３巻 第７４球 「初球」（１）"
+        updated: 2026-05-15
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45748
+        title: "１３巻 第７３球 「解禁」（２）"
+        updated: 2026-05-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45745
+        title: "１３巻 第７３球 「解禁」（１）"
+        updated: 2026-05-01
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45742
+        title: "１２巻 第７２球 「打てそうだった」（２）"
+        updated: 2026-04-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45739
+        title: "１２巻 第７２球 「打てそうだった」（１）"
+        updated: 2026-04-17
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45736
+        title: "１２巻 第７１球 「わくわくしてきた」（２）"
+        updated: 2026-04-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45733
+        title: "１２巻 第７１球 「わくわくしてきた」（１）"
+        updated: 2026-04-03
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45730
+        title: "１２巻 第７０球 「三振とられた」（２）"
+        updated: 2026-03-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45727
+        title: "１２巻 第７０球 「三振とられた」（１）"
+        updated: 2026-03-20
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45724
+        title: "１２巻 第６９球 「じわじわ効いて…」（２）"
+        updated: 2026-03-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45721
+        title: "１２巻 第６９球 「じわじわ効いて…」（１）"
+        updated: 2026-03-06
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45718
+        title: "１２巻 第６８球 「止まったんじゃない」（２）"
+        updated: 2026-02-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45715
+        title: "１２巻 第６８球 「止まったんじゃない」（１）"
+        updated: 2026-02-20
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45712
+        title: "１２巻 第６７球 「深くないし」（２）"
+        updated: 2026-02-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45709
+        title: "１２巻 第６７球 「深くないし」（１）"
+        updated: 2026-02-06
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45706
+        title: "１１巻 第６６球 「私達の野球」（２）"
+        updated: 2026-01-30
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45703
+        title: "１１巻 第６６球 「私達の野球」（１）"
+        updated: 2026-01-23
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45700
+        title: "１１巻 第６５球 「バッテリー」（２）"
+        updated: 2026-01-16
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45697
+        title: "１１巻 第６５球 「バッテリー」（１）"
+        updated: 2026-01-09
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45694
+        title: "１１巻 第６４球 「意地なんかじゃない」（２）"
+        updated: 2026-01-02
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45691
+        title: "１１巻 第６４球 「意地なんかじゃない」（１）"
+        updated: 2025-12-26
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45688
+        title: "１１巻 第６３球 「一人で勝とうとしてるの？」（２）"
+        updated: 2025-12-19
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45685
+        title: "１１巻 第６３球 「一人で勝とうとしてるの？」（１）"
+        updated: 2025-12-12
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45682
+        title: "１１巻 第６２球 「想定外の」（２）"
+        updated: 2025-12-05
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45679
+        title: "１１巻 第６２球 「想定外の」（１）"
+        updated: 2025-11-28
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45676
+        title: "１１巻 第６１球 「一人の走者も」（２）"
+        updated: 2025-11-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45673
+        title: "１１巻 第６１球 「一人の走者も」（１）"
+        updated: 2025-11-14
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45670
+        title: "１０巻 第６０球 「気づいてあげられなかった」（２）"
+        updated: 2025-11-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45667
+        title: "１０巻 第６０球 「気づいてあげられなかった」（１）"
+        updated: 2025-10-31
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45664
+        title: "１０巻 第５９球 「5分前とは別人」（２）"
+        updated: 2025-10-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45661
+        title: "１０巻 第５９球 「5分前とは別人」（１）"
+        updated: 2025-10-17
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45658
+        title: "１０巻 第５８球 「こっち見てますね」（２）"
+        updated: 2025-10-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45655
+        title: "１０巻 第５８球 「こっち見てますね」（１）"
+        updated: 2025-10-03
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45652
+        title: "１０巻 第５７球 「ありのまま」（２）"
+        updated: 2025-09-26
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45649
+        title: "１０巻 第５７球 「ありのまま」（１）"
+        updated: 2025-09-19
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45646
+        title: "１０巻 第５６球 「何のつもりなん」（２）"
+        updated: 2025-09-12
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45643
+        title: "１０巻 第５６球 「何のつもりなん」（１）"
+        updated: 2025-09-05
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45640
+        title: "１０巻 第５５球 「特別な相手」（２）"
+        updated: 2025-08-29
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 45637
+        title: "１０巻 第５５球 「特別な相手」（１）"
+        updated: 2025-08-22
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24604
+        title: "９巻 第５４球 「主将と主将」（２）"
+        updated: 2025-08-15
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24603
+        title: "９巻 第５４球 「主将と主将」（１）"
+        updated: 2025-08-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24602
+        title: "９巻 第５３球 「外されるほどかいな」（２）"
+        updated: 2025-08-01
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24601
+        title: "９巻 第５３球 「外されるほどかいな」（１）"
+        updated: 2025-07-25
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24600
+        title: "９巻 第５２球 「どっちがいいのかな」（２）"
+        updated: 2025-07-18
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24599
+        title: "９巻 第５２球 「どっちがいいのかな」（１）"
+        updated: 2025-07-11
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24598
+        title: "９巻 第５１球 「ダブルヘッダー」（２）"
+        updated: 2025-07-04
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24597
+        title: "９巻 第５１球 「ダブルヘッダー」（１）"
+        updated: 2025-06-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24596
+        title: "９巻 第５０球 「先輩たちと…」（２）"
+        updated: 2025-06-20
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24595
+        title: "９巻 第５０球 「先輩たちと…」（１）"
+        updated: 2025-06-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24594
+        title: "９巻 第４９球 「私の持ち味って？」（２）"
+        updated: 2025-06-06
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 24593
+        title: "９巻 第４９球 「私の持ち味って？」（１）"
+        updated: 2025-05-30
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22762
+        title: "８巻 第４８球 「久しぶりの野球」（２）"
+        updated: 2025-05-23
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22761
+        title: "８巻 第４８球 「久しぶりの野球」（１）"
+        updated: 2025-05-16
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22760
+        title: "８巻 第４７球 「ポジションは？」（２）"
+        updated: 2025-05-09
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22759
+        title: "８巻 第４７球 「ポジションは？」（１）"
+        updated: 2025-05-02
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22758
+        title: "８巻 第４６球 「私たちの分まで」（２）"
+        updated: 2025-04-25
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22757
+        title: "８巻 第４６球 「私たちの分まで」（１）"
+        updated: 2025-04-18
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22756
+        title: "８巻 第４５球 「このチームでね」（２）"
+        updated: 2025-04-11
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22755
+        title: "８巻 第４５球 「このチームでね」（１）"
+        updated: 2025-04-04
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22754
+        title: "８巻 第４４球 「攻略法は…」（２）"
+        updated: 2025-03-28
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22753
+        title: "８巻 第４４球 「攻略法は…」（１）"
+        updated: 2025-03-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22752
+        title: "８巻 第４３球 「こういうときこそ」（２）"
+        updated: 2025-03-14
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22751
+        title: "８巻 第４３球 「こういうときこそ」（１）"
+        updated: 2025-03-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22750
+        title: "７巻 第４２球 「ライバル」（２）"
+        updated: 2025-02-28
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22749
+        title: "７巻 第４２球 「ライバル」（１）"
+        updated: 2025-02-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22748
+        title: "７巻 第４１球 「100％の…」（２）"
+        updated: 2025-02-14
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22747
+        title: "７巻 第４１球 「100％の…」（１）"
+        updated: 2025-02-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22746
+        title: "７巻 第４０球 「再戦」（２）"
+        updated: 2025-01-31
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22745
+        title: "７巻 第４０球 「再戦」（１）"
+        updated: 2025-01-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22744
+        title: "７巻 第３９球 「終わらせた夏の先へ」（２）"
+        updated: 2025-01-17
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22743
+        title: "７巻 第３９球 「終わらせた夏の先へ」（１）"
+        updated: 2025-01-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22742
+        title: "７巻 第３８球 「ターニングポイント」（２）"
+        updated: 2025-01-03
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22741
+        title: "７巻 第３８球 「ターニングポイント」（１）"
+        updated: 2024-12-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22740
+        title: "７巻 第３７球 「県内最速投手」（２）"
+        updated: 2024-12-20
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 22739
+        title: "７巻 第３７球 「県内最速投手」（１）"
+        updated: 2024-12-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21514
+        title: "６巻 第３６球 「マグレじゃない」（２）"
+        updated: 2024-12-06
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21513
+        title: "６巻 第３６球 「マグレじゃない」（１）"
+        updated: 2024-11-29
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21512
+        title: "６巻 第３５球 「みんなの勝利」（２）"
+        updated: 2024-11-22
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21511
+        title: "６巻 第３５球 「みんなの勝利」（１）"
+        updated: 2024-11-15
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21510
+        title: "６巻 第３４球 「一瞬でも早く」（２）"
+        updated: 2024-11-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21509
+        title: "６巻 第３４球 「一瞬でも早く」（１）"
+        updated: 2024-11-01
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21508
+        title: "６巻 第３３球 「ないばっち」（２）"
+        updated: 2024-10-25
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21507
+        title: "６巻 第３３球 「ないばっち」（１）"
+        updated: 2024-10-18
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21506
+        title: "６巻 第３２球 「希」（２）"
+        updated: 2024-10-11
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21505
+        title: "６巻 第３２球 「希」（１）"
+        updated: 2024-10-04
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21504
+        title: "６巻 第３１球 「悔いなく投げよう」（２）"
+        updated: 2024-09-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 21503
+        title: "６巻 第３１球 「悔いなく投げよう」（１）"
+        updated: 2024-09-20
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8692
+        title: "５巻 第３０球 「なんでさっき敬遠したん？」（２）"
+        updated: 2024-09-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8691
+        title: "５巻 第３０球 「なんでさっき敬遠したん？」（１）"
+        updated: 2024-09-06
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8690
+        title: "５巻 第２９球 「どうよ私の投球は」（２）"
+        updated: 2024-08-30
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8689
+        title: "５巻 第２９球 「どうよ私の投球は」（１）"
+        updated: 2024-08-23
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8688
+        title: "５巻 第２８球 「本来の直球」（２）"
+        updated: 2024-08-16
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8687
+        title: "５巻 第２８球 「本来の直球」（１）"
+        updated: 2024-08-09
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8686
+        title: "５巻 第２７球 「勝負の綾」（２）"
+        updated: 2024-08-02
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8685
+        title: "５巻 第２７球 「勝負の綾」（１）"
+        updated: 2024-07-26
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8684
+        title: "５巻 第２６球 「いい流れだね」（２）"
+        updated: 2024-07-19
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8683
+        title: "５巻 第２６球 「いい流れだね」（１）"
+        updated: 2024-07-12
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8682
+        title: "５巻 第２５球 「私が好きなのは」（２）"
+        updated: 2024-07-05
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8681
+        title: "５巻 第２５球 「私が好きなのは」（１）"
+        updated: 2024-06-28
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8680
+        title: "４巻 第２４球 「見せつけてやろう」（２）"
+        updated: 2024-06-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8679
+        title: "４巻 第２４球 「見せつけてやろう」（１）"
+        updated: 2024-06-14
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8678
+        title: "４巻 第２３球 「走れ！カワサキ」（２）"
+        updated: 2024-06-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8677
+        title: "４巻 第２３球 「走れ！カワサキ」（１）"
+        updated: 2024-05-31
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8676
+        title: "４巻 第２２球 「この打順でいくからね」（２）"
+        updated: 2024-05-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8675
+        title: "４巻 第２２球 「この打順でいくからね」（１）"
+        updated: 2024-05-17
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8674
+        title: "４巻 第２１球 「シミュレーション」（２）"
+        updated: 2024-05-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8673
+        title: "４巻 第２１球 「シミュレーション」（１）"
+        updated: 2024-05-03
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8672
+        title: "４巻 第２０球 「流れの作り方」（２）"
+        updated: 2024-04-26
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8671
+        title: "４巻 第２０球 「流れの作り方」（１）"
+        updated: 2024-04-19
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8670
+        title: "４巻 第１９球 「影からの視線」（２）"
+        updated: 2024-04-12
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8669
+        title: "４巻 第１９球 「影からの視線」（１）"
+        updated: 2024-04-05
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8668
+        title: "３巻 第１８球 「私なりに・・・」（２）"
+        updated: 2024-03-29
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8667
+        title: "３巻 第１８球 「私なりに・・・」（１）"
+        updated: 2024-03-22
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8666
+        title: "３巻 第１７球 「イレギュラー」（２）"
+        updated: 2024-03-15
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8665
+        title: "３巻 第１７球 「イレギュラー」（１）"
+        updated: 2024-03-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8664
+        title: "３巻 第１６球 「静かなはじまり」（２）"
+        updated: 2024-03-01
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8663
+        title: "３巻 第１６球 「静かなはじまり」（１）"
+        updated: 2024-02-23
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8662
+        title: "３巻 第１５球 「夏の幕開け」（２）"
+        updated: 2024-02-16
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8661
+        title: "３巻 第１５球 「夏の幕開け」（１）"
+        updated: 2024-02-09
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8660
+        title: "３巻 第１４球 「雨あがりの夜空に」（２）"
+        updated: 2024-02-02
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8659
+        title: "３巻 第１４球 「雨あがりの夜空に」（１）"
+        updated: 2024-01-26
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8658
+        title: "３巻 第１３球 「頼みますよ主将」（２）"
+        updated: 2024-01-19
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 8657
+        title: "３巻 第１３球 「頼みますよ主将」（１）"
+        updated: 2024-01-12
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6537
+        title: "２巻 第１２球 「希望を胸に・・・」（２）"
+        updated: 2024-01-05
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6536
+        title: "２巻 第１２球 「希望を胸に・・・」（１）"
+        updated: 2023-12-29
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6535
+        title: "２巻 第１１球 「ススメ!!泥沼連敗街道」（２）"
+        updated: 2023-12-22
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6534
+        title: "２巻 第１１球 「ススメ!!泥沼連敗街道」（１）"
+        updated: 2023-12-15
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6533
+        title: "２巻 第１０球 「親睦・・・ですか」（２）"
+        updated: 2023-12-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6532
+        title: "２巻 第１０球 「親睦・・・ですか」（１）"
+        updated: 2023-12-01
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6531
+        title: "２巻 第９球 「埼玉の空に笑え！」（２）"
+        updated: 2023-11-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6530
+        title: "２巻 第９球 「埼玉の空に笑え！」（１）"
+        updated: 2023-11-17
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6529
+        title: "２巻 第８球 「朝の・・・釣りの人」（２）"
+        updated: 2023-11-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6528
+        title: "２巻 第８球 「朝の・・・釣りの人」（１）"
+        updated: 2023-11-03
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6527
+        title: "２巻 第７球 「エースの誇り」（２）"
+        updated: 2023-10-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 6526
+        title: "２巻 第７球 「エースの誇り」（１）"
+        updated: 2023-10-20
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2942
+        title: "１巻 第６球 「誓いのあの球」（２）"
+        updated: 2023-10-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2941
+        title: "１巻 第６球 「誓いのあの球」（１）"
+        updated: 2023-10-06
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2940
+        title: "１巻 第５球 「頑張れ！新越谷」（２）"
+        updated: 2023-09-29
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2939
+        title: "１巻 第５球 「頑張れ！新越谷」（１）"
+        updated: 2023-09-22
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2938
+        title: "１巻 第４球 「湖畔の野球部」（２）"
+        updated: 2023-09-15
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2937
+        title: "１巻 第４球 「湖畔の野球部」（１）"
+        updated: 2023-09-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2936
+        title: "１巻 第３球 「野球部はいかがですかぁ」（２）"
+        updated: 2023-09-01
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2935
+        title: "１巻 第３球 「野球部はいかがですかぁ」（１）"
+        updated: 2023-08-25
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2934
+        title: "１巻 第２球 「黒い霧を抜けて」（２）"
+        updated: 2023-08-18
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 2933
+        title: "１巻 第２球 「黒い霧を抜けて」（１）"
+        updated: 2023-08-11
+        access_modes: ["free"]
+      - chapter_id: 2932
+        title: "１巻 第１球 「あの魔球を、もう一球」（２）"
+        updated: 2023-08-11
+        access_modes: ["free"]
+      - chapter_id: 2931
+        title: "１巻 第１球 「あの魔球を、もう一球」（１）"
+        updated: 2023-08-11
+        access_modes: ["free"]
   - work_title: "IDOL×IDOL STORY！"
     yomi: "あいどるあいどるすとーりー"
     url: "https://comic-fuz.com/manga/3140"
@@ -1860,1429 +3283,6 @@ works:
       - chapter_id: 21352
         title: "第1話(1)"
         updated: 2020-03-22
-        access_modes: ["free"]
-  - work_title: "うさぎはかく語りき"
-    yomi: "うさぎはかくかたりき"
-    url: "https://comic-fuz.com/manga/3572"
-    latest_updated: "2026-08-07"
-    is_original: true
-    authors: ["鴻巣覚"]
-    tags: ["金曜日", "オリジナル", "男性向け", "SF・ファンタジー", "お仕事・趣味", "バトル・アクション", "FUZコミックス", "オリジナル作品の最新話が無料化！", "異世界", "8/3発売 FUZオリジナル作品新刊"]
-    chapter_count: 63
-    chapters:
-      - chapter_id: 79841
-        title: "第21話(2)"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-09
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 79838
-        title: "第21話(1)"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-25
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 79577
-        title: "3巻発売フェア"
-        updated: 2026-07-24
-        access_modes: ["free"]
-      - chapter_id: 78680
-        title: "第20話(2)"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-11
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 78677
-        title: "第20話(1)"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-08-28
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 78458
-        title: "第19話(2)"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-08-14
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 78455
-        title: "第19話(1)"
-        updated: 2026-07-31
-        access_modes: ["free"]
-      - chapter_id: 77770
-        title: "第18.5話"
-        updated: 2026-07-17
-        access_modes: ["free"]
-      - chapter_id: 76513
-        title: "第18話(2)"
-        updated: 2026-07-03
-        access_modes: ["free"]
-      - chapter_id: 76510
-        title: "第18話(1)"
-        updated: 2026-06-19
-        access_modes: ["free"]
-      - chapter_id: 75862
-        title: "第17.5話"
-        updated: 2026-06-05
-        access_modes: ["free"]
-      - chapter_id: 75271
-        title: "第17話(2)"
-        updated: 2026-05-22
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 75268
-        title: "第17話(1)"
-        updated: 2026-05-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 75176
-        title: "第16.5話"
-        updated: 2026-04-24
-        access_modes: ["free"]
-      - chapter_id: 74969
-        title: "第16話(2)"
-        updated: 2026-04-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 74966
-        title: "第16話(1)"
-        updated: 2026-02-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 74748
-        title: "第15.5話"
-        updated: 2026-02-13
-        access_modes: ["free"]
-      - chapter_id: 74592
-        title: "第15話(2)"
-        updated: 2026-02-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 74589
-        title: "第15話(1)"
-        updated: 2026-01-30
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 73107
-        title: "第14.5話"
-        updated: 2026-01-30
-        access_modes: ["free"]
-      - chapter_id: 73104
-        title: "第14話(2)"
-        updated: 2026-01-16
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 73101
-        title: "第14話(1)"
-        updated: 2026-01-02
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 72774
-        title: "第2巻 書店フェア"
-        updated: 2025-11-21
-        access_modes: ["free"]
-      - chapter_id: 71591
-        title: "第13話(3)"
-        updated: 2025-12-19
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 71588
-        title: "第13話(2)"
-        updated: 2025-12-05
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 71585
-        title: "第13話(1)"
-        updated: 2025-11-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 70907
-        title: "第12.5話"
-        updated: 2025-11-14
-        access_modes: ["free"]
-      - chapter_id: 70682
-        title: "第12話(3)"
-        updated: 2025-11-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 70679
-        title: "第12話(2)"
-        updated: 2025-10-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 70676
-        title: "第12話(1)"
-        updated: 2025-10-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 70262
-        title: "第11.5話"
-        updated: 2025-09-26
-        access_modes: ["free"]
-      - chapter_id: 69779
-        title: "第11話(2)"
-        updated: 2025-09-19
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 69776
-        title: "第11話(1)"
-        updated: 2025-09-05
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 69407
-        title: "第10.5話"
-        updated: 2025-09-05
-        access_modes: ["free"]
-      - chapter_id: 69257
-        title: "第10話(2)"
-        updated: 2025-08-22
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 69254
-        title: "第10話(1)"
-        updated: 2025-08-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 68312
-        title: "第9.5話"
-        updated: 2025-07-25
-        access_modes: ["free"]
-      - chapter_id: 68165
-        title: "第9話(2)"
-        updated: 2025-07-11
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 68162
-        title: "第9話(1)"
-        updated: 2025-06-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 66306
-        title: "第8.5話"
-        updated: 2025-06-13
-        access_modes: ["free"]
-      - chapter_id: 65853
-        title: "第8話(2)"
-        updated: 2025-05-30
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 65850
-        title: "第8話(1)"
-        updated: 2025-05-16
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 65181
-        title: "第7.5話"
-        updated: 2025-04-18
-        access_modes: ["free"]
-      - chapter_id: 64143
-        title: "第7話(2)"
-        updated: 2025-04-04
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 64140
-        title: "第7話(1)"
-        updated: 2025-03-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 62620
-        title: "第6話(2)"
-        updated: 2025-03-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 62617
-        title: "第6話(1)"
-        updated: 2025-02-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 64098
-        title: "第1巻 書店フェア"
-        updated: 2025-02-21
-        access_modes: ["free"]
-      - chapter_id: 61255
-        title: "第5.5話"
-        updated: 2025-02-07
-        access_modes: ["free"]
-      - chapter_id: 61171
-        title: "第5話(2)"
-        updated: 2025-01-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 61168
-        title: "第5話(1)"
-        updated: 2025-01-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 60516
-        title: "第4.5話"
-        updated: 2024-12-27
-        access_modes: ["free"]
-      - chapter_id: 59928
-        title: "第4話(3)"
-        updated: 2024-12-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 59925
-        title: "第4話(2)"
-        updated: 2024-11-29
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 59922
-        title: "第4話(1)"
-        updated: 2024-11-15
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 59022
-        title: "第3.5話"
-        updated: 2024-11-01
-        access_modes: ["free"]
-      - chapter_id: 58536
-        title: "第3話(3)"
-        updated: 2024-10-18
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 58533
-        title: "第3話(2)"
-        updated: 2024-10-04
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 58530
-        title: "第3話(1)"
-        updated: 2024-09-20
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 57548
-        title: "第2.5話"
-        updated: 2024-09-06
-        access_modes: ["free"]
-      - chapter_id: 57449
-        title: "第2話(2)"
-        updated: 2024-08-23
-        access_modes: ["free"]
-      - chapter_id: 57446
-        title: "第2話(1)"
-        updated: 2024-08-09
-        access_modes: ["free"]
-      - chapter_id: 57443
-        title: "第1話"
-        updated: 2024-08-02
-        access_modes: ["free"]
-  - work_title: "球詠"
-    yomi: "たまよみ"
-    url: "https://comic-fuz.com/manga/441"
-    latest_updated: "2026-08-07"
-    authors: ["マウンテンプクイチ"]
-    tags: ["金曜日", "男性向け", "学園", "メディア化", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "スポーツ"]
-    chapter_count: 228
-    chapters:
-      - chapter_id: 76444
-        title: "１９巻 第１１４球 「何かおありになりますね」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76441
-        title: "１９巻 第１１４球 「何かおありになりますね」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76438
-        title: "１９巻 第１１３球 「二人で作った直球」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76435
-        title: "１９巻 第１１３球 「二人で作った直球」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76432
-        title: "１９巻 第１１２球 「思わぬ収穫」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76429
-        title: "１９巻 第１１２球 「思わぬ収穫」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76426
-        title: "１９巻 第１１１球 「思った通りに」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76423
-        title: "１９巻 第１１１球 「思った通りに」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76420
-        title: "１９巻 第１１０球 「夏が終わる確率」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76417
-        title: "１９巻 第１１０球 「夏が終わる確率」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76414
-        title: "１９巻 第１０９球 「想像もつかない領域」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 76411
-        title: "１９巻 第１０９球 「想像もつかない領域」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71714
-        title: "１８巻 第１０８球 「三年生」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71711
-        title: "１８巻 第１０８球 「三年生」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71708
-        title: "１８巻 第１０７球 「共同作業」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71705
-        title: "１８巻 第１０７球 「共同作業」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71702
-        title: "１８巻 第１０６球 「確率論無視」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71699
-        title: "１８巻 第１０６球 「確率論無視」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71696
-        title: "１８巻 第１０５球 「ミスもないはずなのに」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71693
-        title: "１８巻 第１０５球 「ミスもないはずなのに」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71690
-        title: "１８巻 第１０４球 「主将らしいこと」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71687
-        title: "１８巻 第１０４球 「主将らしいこと」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71684
-        title: "１８巻 第１０３球 「勝ちにいくなら」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 71681
-        title: "１８巻 第１０３球 「勝ちにいくなら」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65586
-        title: "１７巻 第１０２球 「戦略的なダメ押し」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65583
-        title: "１７巻 第１０２球 「戦略的なダメ押し」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65580
-        title: "１７巻 第１０１球 「呼び込んだ流れ」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65577
-        title: "１７巻 第１０１球 「呼び込んだ流れ」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65574
-        title: "１７巻 第１００球 「隠し玉」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65571
-        title: "１７巻 第１００球 「隠し玉」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65568
-        title: "１７巻 第９９球 「重たいね」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65565
-        title: "１７巻 第９９球 「重たいね」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65562
-        title: "１７巻 第９８球 「お前に照準を当てている」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65559
-        title: "１７巻 第９８球 「お前に照準を当てている」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65556
-        title: "１７巻 第９７球 「レギュラー確定」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 65553
-        title: "１７巻 第９７球 「レギュラー確定」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60237
-        title: "１６巻 第９６球 「一年最強はどっちか」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60234
-        title: "１６巻 第９６球 「一年最強はどっちか」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60231
-        title: "１６巻 第９５球 「詠深と珠姫」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60228
-        title: "１６巻 第９５球 「詠深と珠姫」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60225
-        title: "１６巻 第９４球 「わがままなヨミちゃん」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60222
-        title: "１６巻 第９４球 「わがままなヨミちゃん」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60219
-        title: "１６巻 第９３球 「違うチームになっても」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60216
-        title: "１６巻 第９３球 「違うチームになっても」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60213
-        title: "１６巻 第９２球 「一番怖そうな先輩は誰だ」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60210
-        title: "１６巻 第９２球 「一番怖そうな先輩は誰だ」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60207
-        title: "１６巻 第９１球 「才能と根性」（２）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 60204
-        title: "１６巻 第９１球 「才能と根性」（１）"
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=2 amount=60 badge=2 — coin"
-      - chapter_id: 53783
-        title: "１５巻 第９０球 「示すしかなかろ」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2027-01-01
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53780
-        title: "１５巻 第９０球 「示すしかなかろ」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-12-25
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53777
-        title: "１５巻 第８９球 「言うことが聞けんと？」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-12-18
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53774
-        title: "１５巻 第８９球 「言うことが聞けんと？」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-12-11
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53771
-        title: "１５巻 第８８球 「ただの壁じゃない」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-12-04
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53768
-        title: "１５巻 第８８球 「ただの壁じゃない」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-11-27
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53765
-        title: "１５巻 第８７球 「顔面に当ててでも」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-11-20
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53762
-        title: "１５巻 第８７球 「顔面に当ててでも」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-11-13
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53759
-        title: "１５巻 第８６球 「無理してないかな」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-11-06
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53756
-        title: "１５巻 第８６球 「無理してないかな」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-30
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53753
-        title: "１５巻 第８５球 「暴挙！」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-23
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 53750
-        title: "１５巻 第８５球 「暴挙！」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-16
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47977
-        title: "１４巻 第８４球 「背番号」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-09
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47974
-        title: "１４巻 第８４球 「背番号」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-02
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47971
-        title: "１４巻 第８３球 「嫌われてるのかなぁ」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-25
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47968
-        title: "１４巻 第８３球 「嫌われてるのかなぁ」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47965
-        title: "１４巻 第８２球 「ど真ん中」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-11
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47962
-        title: "１４巻 第８２球 「ど真ん中」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-04
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47959
-        title: "１４巻 第８１球 「一年生」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-08-28
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47956
-        title: "１４巻 第８１球 「一年生」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-08-21
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47953
-        title: "１４巻 第８０球 「実感」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-08-14
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 47950
-        title: "１４巻 第８０球 「実感」（１）"
-        updated: 2026-08-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 47947
-        title: "１４巻 第７９球 「冬合宿」（２）"
-        updated: 2026-07-31
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 47944
-        title: "１４巻 第７９球 「冬合宿」（１）"
-        updated: 2026-07-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45778
-        title: "１３巻 第７８球 「体力と自信」（２）"
-        updated: 2026-07-17
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45775
-        title: "１３巻 第７８球 「体力と自信」（１）"
-        updated: 2026-07-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45772
-        title: "１３巻 第７７球 「今やりたい事」（２）"
-        updated: 2026-07-03
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45769
-        title: "１３巻 第７７球 「今やりたい事」（１）"
-        updated: 2026-06-26
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45766
-        title: "１３巻 第７６球 「移行期間」（２）"
-        updated: 2026-06-19
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45763
-        title: "１３巻 第７６球 「移行期間」（１）"
-        updated: 2026-06-12
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45760
-        title: "１３巻 第７５球 「少しの準備」（２）"
-        updated: 2026-06-05
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45757
-        title: "１３巻 第７５球 「少しの準備」（１）"
-        updated: 2026-05-29
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45754
-        title: "１３巻 第７４球 「初球」（２）"
-        updated: 2026-05-22
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45751
-        title: "１３巻 第７４球 「初球」（１）"
-        updated: 2026-05-15
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45748
-        title: "１３巻 第７３球 「解禁」（２）"
-        updated: 2026-05-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45745
-        title: "１３巻 第７３球 「解禁」（１）"
-        updated: 2026-05-01
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45742
-        title: "１２巻 第７２球 「打てそうだった」（２）"
-        updated: 2026-04-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45739
-        title: "１２巻 第７２球 「打てそうだった」（１）"
-        updated: 2026-04-17
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45736
-        title: "１２巻 第７１球 「わくわくしてきた」（２）"
-        updated: 2026-04-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45733
-        title: "１２巻 第７１球 「わくわくしてきた」（１）"
-        updated: 2026-04-03
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45730
-        title: "１２巻 第７０球 「三振とられた」（２）"
-        updated: 2026-03-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45727
-        title: "１２巻 第７０球 「三振とられた」（１）"
-        updated: 2026-03-20
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45724
-        title: "１２巻 第６９球 「じわじわ効いて…」（２）"
-        updated: 2026-03-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45721
-        title: "１２巻 第６９球 「じわじわ効いて…」（１）"
-        updated: 2026-03-06
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45718
-        title: "１２巻 第６８球 「止まったんじゃない」（２）"
-        updated: 2026-02-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45715
-        title: "１２巻 第６８球 「止まったんじゃない」（１）"
-        updated: 2026-02-20
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45712
-        title: "１２巻 第６７球 「深くないし」（２）"
-        updated: 2026-02-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45709
-        title: "１２巻 第６７球 「深くないし」（１）"
-        updated: 2026-02-06
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45706
-        title: "１１巻 第６６球 「私達の野球」（２）"
-        updated: 2026-01-30
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45703
-        title: "１１巻 第６６球 「私達の野球」（１）"
-        updated: 2026-01-23
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45700
-        title: "１１巻 第６５球 「バッテリー」（２）"
-        updated: 2026-01-16
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45697
-        title: "１１巻 第６５球 「バッテリー」（１）"
-        updated: 2026-01-09
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45694
-        title: "１１巻 第６４球 「意地なんかじゃない」（２）"
-        updated: 2026-01-02
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45691
-        title: "１１巻 第６４球 「意地なんかじゃない」（１）"
-        updated: 2025-12-26
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45688
-        title: "１１巻 第６３球 「一人で勝とうとしてるの？」（２）"
-        updated: 2025-12-19
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45685
-        title: "１１巻 第６３球 「一人で勝とうとしてるの？」（１）"
-        updated: 2025-12-12
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45682
-        title: "１１巻 第６２球 「想定外の」（２）"
-        updated: 2025-12-05
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45679
-        title: "１１巻 第６２球 「想定外の」（１）"
-        updated: 2025-11-28
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45676
-        title: "１１巻 第６１球 「一人の走者も」（２）"
-        updated: 2025-11-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45673
-        title: "１１巻 第６１球 「一人の走者も」（１）"
-        updated: 2025-11-14
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45670
-        title: "１０巻 第６０球 「気づいてあげられなかった」（２）"
-        updated: 2025-11-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45667
-        title: "１０巻 第６０球 「気づいてあげられなかった」（１）"
-        updated: 2025-10-31
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45664
-        title: "１０巻 第５９球 「5分前とは別人」（２）"
-        updated: 2025-10-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45661
-        title: "１０巻 第５９球 「5分前とは別人」（１）"
-        updated: 2025-10-17
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45658
-        title: "１０巻 第５８球 「こっち見てますね」（２）"
-        updated: 2025-10-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45655
-        title: "１０巻 第５８球 「こっち見てますね」（１）"
-        updated: 2025-10-03
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45652
-        title: "１０巻 第５７球 「ありのまま」（２）"
-        updated: 2025-09-26
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45649
-        title: "１０巻 第５７球 「ありのまま」（１）"
-        updated: 2025-09-19
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45646
-        title: "１０巻 第５６球 「何のつもりなん」（２）"
-        updated: 2025-09-12
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45643
-        title: "１０巻 第５６球 「何のつもりなん」（１）"
-        updated: 2025-09-05
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45640
-        title: "１０巻 第５５球 「特別な相手」（２）"
-        updated: 2025-08-29
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 45637
-        title: "１０巻 第５５球 「特別な相手」（１）"
-        updated: 2025-08-22
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24604
-        title: "９巻 第５４球 「主将と主将」（２）"
-        updated: 2025-08-15
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24603
-        title: "９巻 第５４球 「主将と主将」（１）"
-        updated: 2025-08-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24602
-        title: "９巻 第５３球 「外されるほどかいな」（２）"
-        updated: 2025-08-01
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24601
-        title: "９巻 第５３球 「外されるほどかいな」（１）"
-        updated: 2025-07-25
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24600
-        title: "９巻 第５２球 「どっちがいいのかな」（２）"
-        updated: 2025-07-18
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24599
-        title: "９巻 第５２球 「どっちがいいのかな」（１）"
-        updated: 2025-07-11
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24598
-        title: "９巻 第５１球 「ダブルヘッダー」（２）"
-        updated: 2025-07-04
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24597
-        title: "９巻 第５１球 「ダブルヘッダー」（１）"
-        updated: 2025-06-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24596
-        title: "９巻 第５０球 「先輩たちと…」（２）"
-        updated: 2025-06-20
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24595
-        title: "９巻 第５０球 「先輩たちと…」（１）"
-        updated: 2025-06-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24594
-        title: "９巻 第４９球 「私の持ち味って？」（２）"
-        updated: 2025-06-06
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 24593
-        title: "９巻 第４９球 「私の持ち味って？」（１）"
-        updated: 2025-05-30
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22762
-        title: "８巻 第４８球 「久しぶりの野球」（２）"
-        updated: 2025-05-23
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22761
-        title: "８巻 第４８球 「久しぶりの野球」（１）"
-        updated: 2025-05-16
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22760
-        title: "８巻 第４７球 「ポジションは？」（２）"
-        updated: 2025-05-09
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22759
-        title: "８巻 第４７球 「ポジションは？」（１）"
-        updated: 2025-05-02
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22758
-        title: "８巻 第４６球 「私たちの分まで」（２）"
-        updated: 2025-04-25
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22757
-        title: "８巻 第４６球 「私たちの分まで」（１）"
-        updated: 2025-04-18
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22756
-        title: "８巻 第４５球 「このチームでね」（２）"
-        updated: 2025-04-11
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22755
-        title: "８巻 第４５球 「このチームでね」（１）"
-        updated: 2025-04-04
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22754
-        title: "８巻 第４４球 「攻略法は…」（２）"
-        updated: 2025-03-28
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22753
-        title: "８巻 第４４球 「攻略法は…」（１）"
-        updated: 2025-03-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22752
-        title: "８巻 第４３球 「こういうときこそ」（２）"
-        updated: 2025-03-14
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22751
-        title: "８巻 第４３球 「こういうときこそ」（１）"
-        updated: 2025-03-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22750
-        title: "７巻 第４２球 「ライバル」（２）"
-        updated: 2025-02-28
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22749
-        title: "７巻 第４２球 「ライバル」（１）"
-        updated: 2025-02-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22748
-        title: "７巻 第４１球 「100％の…」（２）"
-        updated: 2025-02-14
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22747
-        title: "７巻 第４１球 「100％の…」（１）"
-        updated: 2025-02-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22746
-        title: "７巻 第４０球 「再戦」（２）"
-        updated: 2025-01-31
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22745
-        title: "７巻 第４０球 「再戦」（１）"
-        updated: 2025-01-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22744
-        title: "７巻 第３９球 「終わらせた夏の先へ」（２）"
-        updated: 2025-01-17
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22743
-        title: "７巻 第３９球 「終わらせた夏の先へ」（１）"
-        updated: 2025-01-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22742
-        title: "７巻 第３８球 「ターニングポイント」（２）"
-        updated: 2025-01-03
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22741
-        title: "７巻 第３８球 「ターニングポイント」（１）"
-        updated: 2024-12-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22740
-        title: "７巻 第３７球 「県内最速投手」（２）"
-        updated: 2024-12-20
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 22739
-        title: "７巻 第３７球 「県内最速投手」（１）"
-        updated: 2024-12-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21514
-        title: "６巻 第３６球 「マグレじゃない」（２）"
-        updated: 2024-12-06
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21513
-        title: "６巻 第３６球 「マグレじゃない」（１）"
-        updated: 2024-11-29
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21512
-        title: "６巻 第３５球 「みんなの勝利」（２）"
-        updated: 2024-11-22
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21511
-        title: "６巻 第３５球 「みんなの勝利」（１）"
-        updated: 2024-11-15
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21510
-        title: "６巻 第３４球 「一瞬でも早く」（２）"
-        updated: 2024-11-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21509
-        title: "６巻 第３４球 「一瞬でも早く」（１）"
-        updated: 2024-11-01
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21508
-        title: "６巻 第３３球 「ないばっち」（２）"
-        updated: 2024-10-25
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21507
-        title: "６巻 第３３球 「ないばっち」（１）"
-        updated: 2024-10-18
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21506
-        title: "６巻 第３２球 「希」（２）"
-        updated: 2024-10-11
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21505
-        title: "６巻 第３２球 「希」（１）"
-        updated: 2024-10-04
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21504
-        title: "６巻 第３１球 「悔いなく投げよう」（２）"
-        updated: 2024-09-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 21503
-        title: "６巻 第３１球 「悔いなく投げよう」（１）"
-        updated: 2024-09-20
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8692
-        title: "５巻 第３０球 「なんでさっき敬遠したん？」（２）"
-        updated: 2024-09-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8691
-        title: "５巻 第３０球 「なんでさっき敬遠したん？」（１）"
-        updated: 2024-09-06
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8690
-        title: "５巻 第２９球 「どうよ私の投球は」（２）"
-        updated: 2024-08-30
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8689
-        title: "５巻 第２９球 「どうよ私の投球は」（１）"
-        updated: 2024-08-23
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8688
-        title: "５巻 第２８球 「本来の直球」（２）"
-        updated: 2024-08-16
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8687
-        title: "５巻 第２８球 「本来の直球」（１）"
-        updated: 2024-08-09
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8686
-        title: "５巻 第２７球 「勝負の綾」（２）"
-        updated: 2024-08-02
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8685
-        title: "５巻 第２７球 「勝負の綾」（１）"
-        updated: 2024-07-26
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8684
-        title: "５巻 第２６球 「いい流れだね」（２）"
-        updated: 2024-07-19
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8683
-        title: "５巻 第２６球 「いい流れだね」（１）"
-        updated: 2024-07-12
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8682
-        title: "５巻 第２５球 「私が好きなのは」（２）"
-        updated: 2024-07-05
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8681
-        title: "５巻 第２５球 「私が好きなのは」（１）"
-        updated: 2024-06-28
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8680
-        title: "４巻 第２４球 「見せつけてやろう」（２）"
-        updated: 2024-06-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8679
-        title: "４巻 第２４球 「見せつけてやろう」（１）"
-        updated: 2024-06-14
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8678
-        title: "４巻 第２３球 「走れ！カワサキ」（２）"
-        updated: 2024-06-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8677
-        title: "４巻 第２３球 「走れ！カワサキ」（１）"
-        updated: 2024-05-31
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8676
-        title: "４巻 第２２球 「この打順でいくからね」（２）"
-        updated: 2024-05-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8675
-        title: "４巻 第２２球 「この打順でいくからね」（１）"
-        updated: 2024-05-17
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8674
-        title: "４巻 第２１球 「シミュレーション」（２）"
-        updated: 2024-05-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8673
-        title: "４巻 第２１球 「シミュレーション」（１）"
-        updated: 2024-05-03
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8672
-        title: "４巻 第２０球 「流れの作り方」（２）"
-        updated: 2024-04-26
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8671
-        title: "４巻 第２０球 「流れの作り方」（１）"
-        updated: 2024-04-19
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8670
-        title: "４巻 第１９球 「影からの視線」（２）"
-        updated: 2024-04-12
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8669
-        title: "４巻 第１９球 「影からの視線」（１）"
-        updated: 2024-04-05
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8668
-        title: "３巻 第１８球 「私なりに・・・」（２）"
-        updated: 2024-03-29
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8667
-        title: "３巻 第１８球 「私なりに・・・」（１）"
-        updated: 2024-03-22
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8666
-        title: "３巻 第１７球 「イレギュラー」（２）"
-        updated: 2024-03-15
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8665
-        title: "３巻 第１７球 「イレギュラー」（１）"
-        updated: 2024-03-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8664
-        title: "３巻 第１６球 「静かなはじまり」（２）"
-        updated: 2024-03-01
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8663
-        title: "３巻 第１６球 「静かなはじまり」（１）"
-        updated: 2024-02-23
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8662
-        title: "３巻 第１５球 「夏の幕開け」（２）"
-        updated: 2024-02-16
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8661
-        title: "３巻 第１５球 「夏の幕開け」（１）"
-        updated: 2024-02-09
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8660
-        title: "３巻 第１４球 「雨あがりの夜空に」（２）"
-        updated: 2024-02-02
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8659
-        title: "３巻 第１４球 「雨あがりの夜空に」（１）"
-        updated: 2024-01-26
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8658
-        title: "３巻 第１３球 「頼みますよ主将」（２）"
-        updated: 2024-01-19
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 8657
-        title: "３巻 第１３球 「頼みますよ主将」（１）"
-        updated: 2024-01-12
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6537
-        title: "２巻 第１２球 「希望を胸に・・・」（２）"
-        updated: 2024-01-05
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6536
-        title: "２巻 第１２球 「希望を胸に・・・」（１）"
-        updated: 2023-12-29
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6535
-        title: "２巻 第１１球 「ススメ!!泥沼連敗街道」（２）"
-        updated: 2023-12-22
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6534
-        title: "２巻 第１１球 「ススメ!!泥沼連敗街道」（１）"
-        updated: 2023-12-15
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6533
-        title: "２巻 第１０球 「親睦・・・ですか」（２）"
-        updated: 2023-12-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6532
-        title: "２巻 第１０球 「親睦・・・ですか」（１）"
-        updated: 2023-12-01
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6531
-        title: "２巻 第９球 「埼玉の空に笑え！」（２）"
-        updated: 2023-11-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6530
-        title: "２巻 第９球 「埼玉の空に笑え！」（１）"
-        updated: 2023-11-17
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6529
-        title: "２巻 第８球 「朝の・・・釣りの人」（２）"
-        updated: 2023-11-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6528
-        title: "２巻 第８球 「朝の・・・釣りの人」（１）"
-        updated: 2023-11-03
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6527
-        title: "２巻 第７球 「エースの誇り」（２）"
-        updated: 2023-10-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 6526
-        title: "２巻 第７球 「エースの誇り」（１）"
-        updated: 2023-10-20
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2942
-        title: "１巻 第６球 「誓いのあの球」（２）"
-        updated: 2023-10-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2941
-        title: "１巻 第６球 「誓いのあの球」（１）"
-        updated: 2023-10-06
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2940
-        title: "１巻 第５球 「頑張れ！新越谷」（２）"
-        updated: 2023-09-29
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2939
-        title: "１巻 第５球 「頑張れ！新越谷」（１）"
-        updated: 2023-09-22
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2938
-        title: "１巻 第４球 「湖畔の野球部」（２）"
-        updated: 2023-09-15
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2937
-        title: "１巻 第４球 「湖畔の野球部」（１）"
-        updated: 2023-09-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2936
-        title: "１巻 第３球 「野球部はいかがですかぁ」（２）"
-        updated: 2023-09-01
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2935
-        title: "１巻 第３球 「野球部はいかがですかぁ」（１）"
-        updated: 2023-08-25
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2934
-        title: "１巻 第２球 「黒い霧を抜けて」（２）"
-        updated: 2023-08-18
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 2933
-        title: "１巻 第２球 「黒い霧を抜けて」（１）"
-        updated: 2023-08-11
-        access_modes: ["free"]
-      - chapter_id: 2932
-        title: "１巻 第１球 「あの魔球を、もう一球」（２）"
-        updated: 2023-08-11
-        access_modes: ["free"]
-      - chapter_id: 2931
-        title: "１巻 第１球 「あの魔球を、もう一球」（１）"
-        updated: 2023-08-11
         access_modes: ["free"]
   - work_title: "好都合セミフレンド"
     yomi: "こうつごうせみふれんど"

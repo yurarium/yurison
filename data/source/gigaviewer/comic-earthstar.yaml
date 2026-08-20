@@ -6,12 +6,13 @@ source: gigaviewer
 platform: comic-earthstar
 platform_name: "コミック アース・スター"
 publisher: "アース・スター エンターテイメント"
-retrieved: 2026-08-19
+retrieved: 2026-08-21
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "earthstar:episode:12207421984034840843"
+    in_current_window: false
     work_title: "ガイド役の天使を殴り倒したら、死霊術師になりました　～激カワゴスロリ魔神様、サイコー！～"
     web_status: "serialised"
     identified_via: "discovery-candidate"

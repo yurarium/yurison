@@ -6,11 +6,27 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-08-20
+retrieved: 2026-08-21
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421983484134387"
+    work_title: "新刊１００億冊ください"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "３３冊目：好きだから(前編)"
+    release_type: "unclassified"
+    date: "2026-08-20"
+    date_basis: "observed"
+    first_seen: "2026-08-21"
+    first_reported: "2026-08-20T03:00:00Z"
+    platform_updated: "2026-08-20T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983484134387"
+    author: "破賀ミチル"
+    raw_title: "３３冊目：好きだから(前編)"
+    advances_narrative: false
   - release_id: "comicdays:episode:12207421984052110395"
     work_title: "きみが死ぬまで恋をしたい"
     web_status: "serialised"

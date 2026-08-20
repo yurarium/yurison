@@ -9285,6 +9285,29 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  アロマ講師 松岡真衣:
+    basis: romaji
+    furigana_spans:
+    - - アロマ
+      - null
+    - - 講師
+      - こうし
+    - - ' '
+      - null
+    - - 松岡
+      - まつおか
+    - - 真衣
+      - まい
+    reading: アロマ コウシマツオカマイ
+    reading_at: '2026-08-20'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   アンソロジー:
     basis: romaji
     en_at: '2026-08-02'
@@ -14479,6 +14502,24 @@ names:
       weakest on pen names and coinages
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  三谷てぃつ丸:
+    basis: romaji
+    furigana_spans:
+    - - 三谷
+      - みたに
+    - - てぃつ
+      - null
+    - - 丸
+      - まる
+    reading: ミタニティツマル
+    reading_at: '2026-08-20'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   三鼓詩:
@@ -28652,6 +28693,23 @@ names:
       weakest on pen names and coinages
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  森柾みどり:
+    basis: romaji
+    furigana_spans:
+    - - 森柾
+      - もりまさ
+    - - みどり
+      - null
+    reading: モリマサ ミドリ
+    reading_at: '2026-08-20'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   森永　ミキ:

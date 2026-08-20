@@ -12,7 +12,7 @@ source: webpages
 platform: flowercomics
 platform_name: "フラコミlike!"
 publisher: "小学館"
-retrieved: 2026-08-20
+retrieved: 2026-08-21
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -21,7 +21,7 @@ works:
   - work_title: "銀の河に星の城"
     author: "空木帆子"
     url: "https://flowercomics.jp/title/2780"
-    chapter_count: 7
+    chapter_count: 8
     chapters:
       - title: "Episode.1 -1"
         updated: 2025-08-22
@@ -43,4 +43,7 @@ works:
         access_modes: ["purchase"]
       - title: "Episode.4 -1"
         updated: 2026-07-24
+        access_modes: ["purchase"]
+      - title: "Episode.4 -2"
+        updated: 2026-08-21
         access_modes: ["purchase"]

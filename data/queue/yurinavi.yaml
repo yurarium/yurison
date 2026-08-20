@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-08-20
+retrieved: 2026-08-21
 record_type: discovery_queue
 candidates:
   - work_title: "優等生がアダルトグッズを買いに来た"
@@ -27,14 +27,14 @@ candidates:
     work_url: "https://www.sunday-webry.com/episode/12207421983913735230"
     headline: "痛いほど眩しい、少女ふたりの青春を描いた読み切り「にせものターコイズ」WEBで公開"
     status: unconfirmed
-  - work_title: "ハウリング・ブレイズ"
+  - work_title: "バリキャリJKモネ先輩"
     signal: "new-serial"
-    announced: "Tue, 04 Aug 2026 11:00:02 +0000"
-    url: "https://yurinavi.com/2026/08/04/howling-start/"
-    platform: "kadokomi"
-    platform_code: "KC_019658_S"
-    work_url: "https://comic-walker.com/detail/KC_019658_S"
-    headline: "相性最悪のバディが怪異事件に挑む百合アクション「ハウリング・ブレイズ」WEBで連載"
+    announced: "Thu, 20 Aug 2026 11:00:10 +0000"
+    url: "https://yurinavi.com/2026/08/20/barikyarijk-start/"
+    platform: "ichicomi"
+    platform_code: "12207421984038651592"
+    work_url: "https://ichicomi.com/episode/12207421984038651592"
+    headline: "27歳会社員がセーラー服姿で青春をやり直す百合姫新連載「バリキャリJKモネ先輩」WEBで公開"
     status: unconfirmed
   - work_title: "最恐呪物令嬢"
     signal: "new-serial"
@@ -52,6 +52,15 @@ candidates:
     platform_code: "KC_016898_S"
     work_url: "https://comic-walker.com/detail/KC_016898_S"
     headline: "天使と人間のちょっとえっちな百合読み切り「天瀬ましろはイきたくない！」WEBで公開"
+    status: unconfirmed
+  - work_title: "ハウリング・ブレイズ"
+    signal: "new-serial"
+    announced: "2026-08-04"
+    url: "https://yurinavi.com/2026/08/04/howling-start/"
+    platform: "kadokomi"
+    platform_code: "KC_019658_S"
+    work_url: "https://comic-walker.com/detail/KC_019658_S"
+    headline: "相性最悪のバディが怪異事件に挑む百合アクション「ハウリング・ブレイズ」WEBで連載"
     status: unconfirmed
   - work_title: "今夜、エーテルで待ちあわせ"
     signal: "new-serial"

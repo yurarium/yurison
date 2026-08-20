@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-20
+retrieved: 2026-08-21
 record_type: candidate_works
-works: 317
+works: 316
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -321,7 +321,7 @@ candidates:
   - title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_003240_S"]
-    tags: ["チートなし", "ファンタジー", "反社・ヤクザ", "姉妹", "残酷・グロテスク", "異種族・人外", "百合", "転生"]
+    tags: ["チートなし", "ファンタジー", "反社・ヤクザ", "姉妹", "最近のコメント数", "残酷・グロテスク", "異種族・人外", "百合", "転生"]
   - title: "お姉さんは女子小学生に興味があります。"
     platforms: ["ニコニコ漫画", "竹コミ‎‏‎"]
     urls: ["https://manga.nicovideo.jp/comic/31194", "https://takecomic.jp/series/2ff377e5bc873"]
@@ -2481,8 +2481,8 @@ candidates:
     urls: ["https://comic-fuz.com/manga/3397", "https://manga.nicovideo.jp/comic/63674"]
     tags: ["4コマ", "エロ", "同性愛・LGBTQ+", "女子高生", "百合"]
   - title: "妄執女と芥川"
-    platforms: ["カドコミ"]
-    urls: ["https://comic-walker.com/detail/KC_007176_S"]
+    platforms: ["カドコミ", "ニコニコ漫画"]
+    urls: ["https://comic-walker.com/detail/KC_007176_S", "https://manga.nicovideo.jp/comic/74964"]
     tags: ["作家", "百合"]
   - title: "妄想アカデミズム"
     platforms: ["ニコニコ漫画"]
@@ -2628,6 +2628,10 @@ candidates:
   - title: "幼馴染BIGLOVE"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005886_S", "https://comic.pixiv.net/works/10912"]
+  - title: "幼馴染の方程式"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984115855223"]
+    tags: ["百合"]
   - title: "幼馴染の異常可愛い妹ちゃん"
     platforms: ["ストーリアダッシュ(更新終了)"]
     urls: ["https://storia.takeshobo.co.jp/manga/ijou_kawaii/"]
@@ -2719,7 +2723,7 @@ candidates:
   - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
     platforms: ["ニコニコ漫画", "マガポケ"]
     urls: ["https://manga.nicovideo.jp/comic/67469", "https://pocket.shonenmagazine.com/title/02328"]
-    tags: ["ギャグ・コメディ", "バトル", "乙女ゲーム", "学園", "悪役令嬢", "無自覚チート", "猫", "百合", "聖女", "転生"]
+    tags: ["ギャグ・コメディ", "バトル", "乙女ゲーム", "学園", "悪役令嬢", "最近のコメント数", "無自覚チート", "猫", "百合", "聖女", "転生"]
   - title: "性別「モナリザ」の君へ。"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/12"]
@@ -2993,7 +2997,7 @@ candidates:
   - title: "暗殺組合の山田さん"
     platforms: ["キミコミ"]
     urls: ["https://kimicomi.com/series/397963f4f9cfd"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合"]
   - title: "暴走!?サキュバスせんぱい"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/5448ec9f6077b"]
@@ -3775,7 +3779,7 @@ candidates:
   - title: "超かぐや姫!"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008281_S"]
-    tags: ["コミカライズ", "百合"]
+    tags: ["コミカライズ", "最近のコメント数", "百合"]
   - title: "超深宇宙より愛をこめて"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/11521", "https://ichicomi.com/episode/2550912965923204780"]
@@ -4005,7 +4009,7 @@ candidates:
   - title: "魔法少女は嘘をつく"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03302"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "魔法少女リインカーネーション"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2551460909881731454"]

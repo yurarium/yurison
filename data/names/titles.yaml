@@ -81558,6 +81558,31 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  香り屋さんの纏さん:
+    basis: romaji
+    furigana_spans:
+    - - 香
+      - かお
+    - - り
+      - null
+    - - 屋
+      - や
+    - - さんの
+      - null
+    - - 纏
+      - まとい
+    - - さん
+      - null
+    reading: カオリヤサン ノ マトイサン
+    reading_at: '2026-08-20'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   香原さんのふぇちのーと:
     basis: translated
     en: Kahara's Fetish Notebook

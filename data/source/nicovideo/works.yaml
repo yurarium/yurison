@@ -10,10 +10,10 @@
 source: nicovideo
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-19
+retrieved: 2026-08-20
 record_type: web_work_chapters
 identification_mode: known-works
-works_resolved: 492
+works_resolved: 493
 works:
   - work_title: "ひとりぼっちの○○生活"
     author: "カツヲ(著者)"
@@ -25289,6 +25289,57 @@ works:
       - title: "第1話 終末の恋人"
         access_modes: ["free"]
       - title: "番外編①"
+        access_modes: ["free"]
+  - work_title: "妄執女と芥川"
+    author: "鈴木二三江(著者)"
+    url: "https://manga.nicovideo.jp/comic/74964"
+    platform_code: "74964"
+    started: "2025-11-13"
+    updated: "2026-08-20"
+    episode_count_stated: 5
+    chapter_count: 21
+    chapters:
+      - title: "第一話"
+        access_modes: ["free"]
+      - title: "第二話"
+        access_modes: ["free"]
+      - title: "第三話"
+        access_modes: ["free"]
+      - title: "第四話-1"
+        app_only: true
+      - title: "第四話-2"
+        app_only: true
+      - title: "第五話-1"
+        app_only: true
+      - title: "第五話-2"
+        app_only: true
+      - title: "第六話-1"
+        app_only: true
+      - title: "第六話-2"
+        app_only: true
+      - title: "第七話-1"
+        app_only: true
+      - title: "第七話-2"
+        app_only: true
+      - title: "第八話-1"
+        app_only: true
+      - title: "第八話-2"
+        app_only: true
+      - title: "第九話-1"
+        app_only: true
+      - title: "第九話-2"
+        app_only: true
+      - title: "第十話-1"
+        app_only: true
+      - title: "第十話-2"
+        app_only: true
+      - title: "第十一話-1"
+        app_only: true
+      - title: "第十一話-2"
+        app_only: true
+      - title: "第十二話-1"
+        access_modes: ["free"]
+      - title: "第十二話-2"
         access_modes: ["free"]
   - work_title: "ぷくちょらりファミリア"
     author: "圷　見南子(著者)"

@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-08-20
+retrieved: 2026-08-21
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -756,13 +756,11 @@ works:
       - title: "#4①"
         updated: 2026-04-20
         author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["free"]
       - title: "#4②"
         updated: 2026-04-20
         author: "瑠夏子"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["free"]
       - title: "#5①"
         updated: 2026-04-20
         author: "瑠夏子"
@@ -2912,12 +2910,16 @@ works:
     url: "https://comic-days.com/episode/2550912965415315207"
     platform_name: "コミックDAYS"
     route: "gigaviewer"
-    chapter_count: 35
+    chapter_count: 36
     chapters:
+      - title: "３３冊目：好きだから(前編)"
+        updated: 2026-08-20
+        author: "破賀ミチル"
+        access_modes: ["purchase"]
       - title: "３２冊目：作中に登場した食べ物やグッズの再現って特に嬉しい"
         updated: 2026-08-06
         author: "破賀ミチル"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "３１冊目：己の中のケモノ"
         updated: 2026-07-16
         author: "破賀ミチル"
@@ -2929,7 +2931,7 @@ works:
       - title: "３０冊目：告白"
         updated: 2026-07-02
         author: "破賀ミチル"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "２９冊目：好きなままで"
         updated: 2026-06-18
         author: "破賀ミチル"
@@ -4718,11 +4720,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-08-19
+        updated: 2026-08-20
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-08-19
+        updated: 2026-08-20
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"
@@ -4908,7 +4910,7 @@ works:
     url: "https://ichicomi.com/episode/2550912965923204004"
     platform_name: "一迅プラス"
     route: "gigaviewer"
-    chapter_count: 34
+    chapter_count: 35
     chapters:
       - title: "第35話"
         updated: 2026-08-18
@@ -4956,6 +4958,10 @@ works:
         access_modes: ["purchase"]
       - title: "第24話"
         updated: 2025-08-08
+        author: "伊月クロ"
+        access_modes: ["purchase"]
+      - title: "第23話"
+        updated: 2026-08-20
         author: "伊月クロ"
         access_modes: ["purchase"]
       - title: "第22話"

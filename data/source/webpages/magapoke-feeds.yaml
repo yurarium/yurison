@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-08-21
+retrieved: 2026-08-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -7463,8 +7463,12 @@ works:
     title_id: "2202"
     url: "https://pocket.shonenmagazine.com/title/02202"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2202/feed.xml"
-    chapter_count: 120
+    chapter_count: 121
     chapters:
+      - title: "【第50話(3)】夢現"
+        updated: 2026-08-22
+        author: "くずしろ"
+        url: "https://pocket.shonenmagazine.com/title/02202/episode/442921"
       - title: "【第50話(2)】夢現"
         updated: 2026-08-01
         author: "くずしろ"

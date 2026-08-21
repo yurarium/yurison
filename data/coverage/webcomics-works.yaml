@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-21
+retrieved: 2026-08-22
 record_type: candidate_works
-works: 316
+works: 315
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -318,7 +318,7 @@ candidates:
     platforms: ["ライコミ"]
     urls: ["https://comicride.jp/series/7b86cbca64ebe"]
     tags: ["アニメ化", "コミカライズ", "バトル", "ファンタジー", "ホラー", "勇者", "残酷・グロテスク", "百合", "追放", "魔王"]
-  - title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
+  - title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_003240_S"]
     tags: ["チートなし", "ファンタジー", "反社・ヤクザ", "姉妹", "最近のコメント数", "残酷・グロテスク", "異種族・人外", "百合", "転生"]
@@ -514,8 +514,8 @@ candidates:
     urls: ["https://comic-days.com/episode/3269754496321192668", "https://comic.pixiv.net/works/5758", "https://ichicomi.com/episode/2550912965923203770", "https://manga.nicovideo.jp/comic/56012", "https://pocket.shonenmagazine.com/title/01045"]
     tags: ["アニメ化", "女子高生", "百合", "音楽"]
   - title: "さざめとりお"
-    platforms: ["ダ・ヴィンチニュース"]
-    urls: ["https://ddnavi.com/sazametorio/"]
+    platforms: ["カドコミ", "ダ・ヴィンチニュース"]
+    urls: ["https://comic-walker.com/detail/KC_019937_S", "https://ddnavi.com/sazametorio/"]
     tags: ["百合"]
   - title: "さよなら"
     platforms: ["となりのヤングジャンプ"]
@@ -1561,7 +1561,7 @@ candidates:
   - title: "バリキャリJKモネ先輩"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984038651592"]
-    tags: ["コスプレ", "最近のコメント数", "百合"]
+    tags: ["ギャグ・コメディ", "コスプレ", "最近のコメント数", "百合"]
   - title: "パパのセクシードール"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001748_S", "https://manga.nicovideo.jp/comic/61282"]
@@ -2631,7 +2631,7 @@ candidates:
   - title: "幼馴染の方程式"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984115855223"]
-    tags: ["百合"]
+    tags: ["百合", "読み切り"]
   - title: "幼馴染の異常可愛い妹ちゃん"
     platforms: ["ストーリアダッシュ(更新終了)"]
     urls: ["https://storia.takeshobo.co.jp/manga/ijou_kawaii/"]
@@ -4005,7 +4005,7 @@ candidates:
   - title: "魔法少女にあこがれて"
     platforms: ["ニコニコ漫画", "竹コミ‎‏‎"]
     urls: ["https://manga.nicovideo.jp/comic/40675", "https://takecomic.jp/series/0d7dee548d547"]
-    tags: ["お色気・微エロ", "アニメ化", "エロ", "ギャグ・コメディ", "バトル", "変態", "怪人", "百合", "魔法少女"]
+    tags: ["お色気・微エロ", "アニメ化", "エロ", "ギャグ・コメディ", "バトル", "変態", "怪人", "最近のコメント数", "百合", "魔法少女"]
   - title: "魔法少女は嘘をつく"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03302"]

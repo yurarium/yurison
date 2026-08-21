@@ -6,8 +6,24 @@ source: gigaviewer
 platform: comic-seasons
 platform_name: "Seasons"
 publisher: ""
-retrieved: 2026-08-20
+retrieved: 2026-08-22
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "seasons:episode:12207421983962879135"
+    work_title: "今夜、エーテルで待ちあわせ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第2話"
+    release_type: "chapter"
+    date: "2026-08-21"
+    date_basis: "observed"
+    first_seen: "2026-08-22"
+    first_reported: "2026-08-21T03:00:00Z"
+    platform_updated: "2026-08-21T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-seasons.com/episode/12207421983962879135"
+    author: "ヨン"
+    free_term_start: "2026-08-21T03:00:00Z"
+    advances_narrative: true

@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-08-21
+retrieved: 2026-08-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -211,8 +211,12 @@ works:
   - work_title: "ステラ・ステップ"
     author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
     url: "https://comic.pixiv.net/works/10790"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "Step.14② 夜風に約束"
+        updated: 2026-08-18
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "Step.14① 夜風に約束"
         updated: 2026-08-04
         access_modes: ["free"]
@@ -599,8 +603,12 @@ works:
   - work_title: "超深宇宙より愛をこめて"
     author: "アシダカヲズ"
     url: "https://comic.pixiv.net/works/11521"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "第13話 嫌われたくない"
+        updated: 2026-08-18
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第12話 恋願う"
         updated: 2026-07-17
         access_modes: ["free"]
@@ -635,8 +643,8 @@ works:
     url: "https://comic.pixiv.net/works/11664"
     chapter_count: 3
     chapters:
-      - title: "第１７話"
-        updated: 2026-07-16
+      - title: "第１８話 1日前UP"
+        updated: 2026-08-20
         access_modes: ["free"]
         date_basis: rendered
       - title: "第２話"
@@ -710,6 +718,10 @@ works:
     url: "https://comic.pixiv.net/works/12194"
     chapter_count: 6
     chapters:
+      - title: "第21話 決闘スタンバイ(中編)"
+        updated: 2026-08-17
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第20話 決闘スタンバイ(前編)"
         updated: 2026-08-03
         access_modes: ["free"]
@@ -720,10 +732,6 @@ works:
         date_basis: rendered
       - title: "第18話 心の準備"
         updated: 2026-07-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第17話 The next station is"
-        updated: 2026-06-15
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 男子制服の理由"
@@ -877,8 +885,12 @@ works:
   - work_title: "アイ・ヘイ・チュー"
     author: "長門知大"
     url: "https://comic.pixiv.net/works/13324"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
+      - title: "第3話 手も品も変えるな"
+        updated: 2026-08-15
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第2話 悪夢にも勝る"
         updated: 2026-07-18
         access_modes: ["free"]
@@ -905,8 +917,8 @@ works:
     url: "https://comic.pixiv.net/works/13373"
     chapter_count: 2
     chapters:
-      - title: "第6話 隣にいるのに寂しい話①"
-        updated: 2026-08-08
+      - title: "第7話 隣にいるのに寂しい話②"
+        updated: 2026-08-15
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話 たぬき女に迫られる話"
@@ -916,8 +928,12 @@ works:
   - work_title: "壊していいよ、すいかちゃん"
     author: "虫歯"
     url: "https://comic.pixiv.net/works/13400"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "5 絶対そうだ！"
+        updated: 2026-08-21
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "4 うそみたいな日"
         updated: 2026-07-24
         access_modes: ["free"]
@@ -939,7 +955,7 @@ works:
     url: "https://comic.pixiv.net/works/13425"
     chapter_count: 4
     chapters:
-      - title: "第4話 6日前UP"
+      - title: "第4話"
         updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
@@ -953,6 +969,19 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2026-07-17
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "怪獣ロマンティクス"
+    author: "じぃと"
+    url: "https://comic.pixiv.net/works/13457"
+    chapter_count: 2
+    chapters:
+      - title: "第2-1話 Totsuzenタンデム!? ドギマギ山頂でぇと"
+        updated: 2026-08-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 ぐっすん！ ドキドキ! 別れは出会いのシグナル"
+        updated: 2026-07-18
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "紅殻のパンドラ"
@@ -1056,7 +1085,7 @@ works:
     url: "https://comic.pixiv.net/works/4810"
     chapter_count: 8
     chapters:
-      - title: "第121話 6日前UP"
+      - title: "第121話"
         updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
@@ -1135,8 +1164,8 @@ works:
     url: "https://comic.pixiv.net/works/5364"
     chapter_count: 4
     chapters:
-      - title: "第６８話"
-        updated: 2026-07-21
+      - title: "第６８．５話 3日前UP"
+        updated: 2026-08-18
         access_modes: ["free"]
         date_basis: rendered
       - title: "第３話"
@@ -1203,19 +1232,6 @@ works:
         date_basis: rendered
       - title: "第1話 はじめまして"
         updated: 2019-01-08
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "かいじゅう色の島"
-    author: "はっとりみつる"
-    url: "https://comic.pixiv.net/works/5470"
-    chapter_count: 2
-    chapters:
-      - title: "第33話"
-        updated: 2026-07-24
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 棔と歩流夏の色（１）"
-        updated: 2019-01-25
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "ささやくように恋を唄う"
@@ -1481,35 +1497,6 @@ works:
         date_basis: rendered
       - title: "1日目"
         updated: 2020-12-28
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "作りたい女と食べたい女"
-    author: "ゆざきさかおみ"
-    url: "https://comic.pixiv.net/works/7182"
-    chapter_count: 6
-    chapters:
-      - title: "第40話 互いを確認すること"
-        updated: 2023-07-05
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第39話 良い家"
-        updated: 2023-06-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4話 この世に同じ女はいない"
-        updated: 2021-02-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 あなたの食費はどのくらい"
-        updated: 2021-02-03
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 唐揚げ定食とカレー"
-        updated: 2021-01-27
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 二人の女"
-        updated: 2021-01-20
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "百合SMでふたりの気持ちはつながりますか?"
@@ -2141,7 +2128,7 @@ works:
     url: "https://comic.pixiv.net/works/9380"
     chapter_count: 4
     chapters:
-      - title: "#25 6日前UP"
+      - title: "#25"
         updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
@@ -2315,5 +2302,47 @@ works:
         date_basis: rendered
       - title: "ep01 夜明けの光"
         updated: 2023-11-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "かいじゅう色の島"
+    author: "はっとりみつる"
+    url: "https://comic.pixiv.net/works/5470"
+    chapter_count: 2
+    chapters:
+      - title: "第33話"
+        updated: 2026-07-24
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 棔と歩流夏の色（１）"
+        updated: 2019-01-25
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "作りたい女と食べたい女"
+    author: "ゆざきさかおみ"
+    url: "https://comic.pixiv.net/works/7182"
+    chapter_count: 6
+    chapters:
+      - title: "第40話 互いを確認すること"
+        updated: 2023-07-05
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第39話 良い家"
+        updated: 2023-06-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第4話 この世に同じ女はいない"
+        updated: 2021-02-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話 あなたの食費はどのくらい"
+        updated: 2021-02-03
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 唐揚げ定食とカレー"
+        updated: 2021-01-27
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 二人の女"
+        updated: 2021-01-20
         access_modes: ["free"]
         date_basis: rendered

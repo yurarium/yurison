@@ -1,4 +1,4 @@
-generated: '2026-08-20'
+generated: '2026-08-21'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -53477,6 +53477,25 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  幼馴染の方程式:
+    basis: romaji
+    furigana_spans:
+    - - 幼馴染
+      - おさななじみ
+    - - の
+      - null
+    - - 方程式
+      - ほうていしき
+    reading: オサナナジミ ノ ホウテイシキ
+    reading_at: '2026-08-21'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   幼馴染の異常可愛い妹ちゃん:

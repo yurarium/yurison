@@ -5,25 +5,23 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-08-21
+retrieved: 2026-08-22
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 316
-works_on_watched_platform: 292
+distinct_works: 315
+works_on_watched_platform: 293
 platforms_total: 57
 platforms_watched: 43
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
-    works: 9
+    works: 8
   - platform: "きら星ポータル"
     works: 3
   - platform: "ヤンジャン+"
     works: 2
   - platform: "pixivコミックマガジン"
-    works: 1
-  - platform: "ダ・ヴィンチニュース"
     works: 1
   - platform: "新都社"
     works: 1
@@ -177,16 +175,16 @@ works_missing:
     url: "https://magcomi.com/episode/12207421983866622005"
     antenna_id: "210428"
     tags: ["読み切り", "群像劇", "百合"]
-  - title: "悪役令嬢のお嫁さま"
-    platform: "Seasons"
-    url: "https://comic-seasons.com/episode/2550912965184704375"
-    antenna_id: "183401"
-    tags: ["悪役令嬢", "婚約破棄", "百合", "異種族・人外"]
   - title: "今夜、エーテルで待ちあわせ"
     platform: "Seasons"
     url: "https://comic-seasons.com/episode/2551460909766158255"
     antenna_id: "198917"
     tags: ["百合"]
+  - title: "悪役令嬢のお嫁さま"
+    platform: "Seasons"
+    url: "https://comic-seasons.com/episode/2550912965184704375"
+    antenna_id: "183401"
+    tags: ["悪役令嬢", "婚約破棄", "百合", "異種族・人外"]
   - title: "ステラ・ステップ"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/10790"
@@ -347,6 +345,16 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003240_S"
+    antenna_id: "128693"
+    tags: ["最近のコメント数"]
+  - title: "さざめとりお"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_019937_S"
+    antenna_id: "213832"
+    tags: ["百合"]
   - title: "妄執女と芥川"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007176_S"
@@ -426,7 +434,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008281_S"
     antenna_id: "201505"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "コミカライズ"]
   - title: "君となら、明日を歌えるの"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007138_S"
@@ -587,11 +595,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_005923_S"
     antenna_id: "177085"
     tags: ["百合"]
-  - title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_003240_S"
-    antenna_id: "128693"
-    tags: ["最近のコメント数"]
   - title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005942_S"
@@ -671,7 +674,7 @@ works_missing:
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/29"
     antenna_id: "745"
-    tags: ["最近のコメント数"]
+    tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -897,6 +900,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "魔法少女にあこがれて"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/40675"
+    antenna_id: "89771"
+    tags: ["お色気・微エロ", "バトル", "魔法少女", "百合", "アニメ化"]
   - title: "妄執女と芥川"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/74964"
@@ -1057,11 +1065,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/48976"
     antenna_id: "106821"
     tags: ["宇宙人", "百合", "4コマ", "青春", "アニメ化", "実写化"]
-  - title: "魔法少女にあこがれて"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/40675"
-    antenna_id: "89771"
-    tags: ["お色気・微エロ", "バトル", "魔法少女", "百合", "アニメ化"]
   - title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/70139"
@@ -1217,11 +1220,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03196"
     antenna_id: "211384"
     tags: ["百合", "怪獣"]
-  - title: "シュガーガール・ドリップ"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/02604"
-    antenna_id: "173792"
-    tags: ["サスペンス", "百合"]
   - title: "黒の世界は白墨に染まる"
     platform: "マンガよもんが"
     url: "https://www.yomonga.com/titles/2558/"
@@ -1307,11 +1305,6 @@ works_missing:
     url: "https://comicride.jp/series/b95a6b1493469"
     antenna_id: "165083"
     tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
-  - title: "幼馴染の方程式"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/12207421984115855223"
-    antenna_id: "213774"
-    tags: ["百合"]
   - title: "残骸少女、きらきらな世界の底"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/12207421983456056454"
@@ -1427,6 +1420,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "魔法少女にあこがれて"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/0d7dee548d547"
+    antenna_id: "87811"
+    tags: ["最近のコメント数"]
   - title: "白き乙女の人狼"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/d8e8c084c4c6c"
@@ -1482,11 +1480,6 @@ works_missing:
     url: "https://takecomic.jp/series/1c1afe76da717"
     antenna_id: "177609"
     tags: ["漫画家・絵描き", "料理・グルメ", "百合", "片思い"]
-  - title: "魔法少女にあこがれて"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/0d7dee548d547"
-    antenna_id: "87811"
-    tags: ["魔法少女", "お色気・微エロ", "百合", "バトル", "ギャグ・コメディ", "アニメ化", "エロ", "怪人", "変態"]
   - title: "灼熱の卓球娘 REBURN!!"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/b3efcd5f3a6a7"

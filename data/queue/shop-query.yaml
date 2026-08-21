@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-08-21
+retrieved: 2026-08-22
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 205
   hits_on_the_title_alone: 78
   hits_stating_a_print_edition_date: 159
-  works_asked: 693
+  works_asked: 694
   works_with_a_hit: 205
 works:
   - work_url: "https://bigcomics.jp/series/003c4bf48a97f"
@@ -3590,6 +3590,16 @@ works:
     author: "長門知大"
     platform: "pixivコミック"
     retrieved: "2026-08-07"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic.pixiv.net/works/13457"
+    id: "w00198"
+    work: "怪獣ロマンティクス"
+    author: "じぃと"
+    platform: "pixivコミック"
+    retrieved: "2026-08-22"
     hits: []
     notes:
       - "author query returned no title this database recognises"

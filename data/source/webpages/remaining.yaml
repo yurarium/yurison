@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-08-21
+retrieved: 2026-08-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -84,7 +84,7 @@ works:
     url: "https://www.corocoro.jp/title/65"
     platform_name: "コロコロオンライン"
     route: "rendered"
-    chapter_count: 9
+    chapter_count: 8
     chapters:
       - title: "第101話"
         updated: 2026-08-15
@@ -97,9 +97,6 @@ works:
         date_basis: rendered
       - title: "第98話"
         updated: 2026-07-04
-        date_basis: rendered
-      - title: "第97話"
-        updated: 2026-06-27
         date_basis: rendered
       - title: "第4話"
         updated: 2024-02-03
@@ -1373,7 +1370,7 @@ works:
     url: "https://flowercomics.jp/title/2780"
     platform_name: "フラコミlike!"
     route: "markup"
-    chapter_count: 7
+    chapter_count: 8
     chapters:
       - title: "Episode.1 -1"
         updated: 2025-08-22
@@ -1395,6 +1392,9 @@ works:
         date_basis: heuristic
       - title: "Episode.4 -1"
         updated: 2026-07-24
+        date_basis: heuristic
+      - title: "Episode.4 -2"
+        updated: 2026-08-21
         date_basis: heuristic
   - work_title: "ニセアイホンアイ"
     author: "いくたはな"
@@ -2851,8 +2851,12 @@ works:
     url: "https://comic-ogyaaa.com/episode/2550912965818317820"
     platform_name: "コミックオギャー!!"
     route: "gigaviewer"
-    chapter_count: 13
+    chapter_count: 14
     chapters:
+      - title: "第12話"
+        updated: 2026-08-21
+        author: "当麻"
+        access_modes: ["free"]
       - title: "第11話"
         updated: 2026-07-17
         author: "当麻"
@@ -4720,11 +4724,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-08-20
+        updated: 2026-08-21
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-08-20
+        updated: 2026-08-21
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

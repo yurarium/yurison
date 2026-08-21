@@ -10,7 +10,7 @@ source: webpages
 platform: mangaone
 platform_name: "マンガワン"
 publisher: "小学館"
-retrieved: 2026-08-21
+retrieved: 2026-08-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -20,14 +20,18 @@ works:
     url: "https://manga-one.com/manga/27253/chapter/307792"
     chapter_count: 10
     chapters:
-      - title: "第9話(前編)"
-        updated: 2026-08-16
+      - title: "第9話(後編)"
+        updated: 2026-09-20
         access_modes: ["purchase"]
         access_note: "released early to paying readers (先読)"
         date_basis: rendered
+      - title: "第9話(前編)"
+        updated: 2026-08-16
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第8話(後編)"
         updated: 2026-07-19
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "1巻コミックPR"
         updated: 2026-07-05
@@ -55,10 +59,6 @@ works:
         date_basis: rendered
       - title: "第5.5話"
         updated: 2026-03-15
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第5話"
-        updated: 2026-03-01
         access_modes: ["purchase"]
         date_basis: rendered
   - work_title: "私の焦がれる彼女"
@@ -91,16 +91,24 @@ works:
         date_basis: rendered
   - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
     url: "https://manga-one.com/manga/28129/chapter/355684"
-    chapter_count: 8
+    chapter_count: 10
     chapters:
-      - title: "Memory5(前編)"
+      - title: "単行本第1集発売PR!!"
         updated: 2026-08-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "Memory5(後編)"
+        updated: 2026-08-29
         access_modes: ["purchase"]
         access_note: "released early to paying readers (先読)"
         date_basis: rendered
+      - title: "Memory5(前編)"
+        updated: 2026-08-15
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "Memory4(後編)"
         updated: 2026-07-25
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "Memory4(前編)"
         updated: 2026-07-11
@@ -128,16 +136,15 @@ works:
         date_basis: rendered
   - work_title: "妖怪殲滅のサイコリリー"
     url: "https://manga-one.com/viewer/225633"
-    chapter_count: 10
+    chapter_count: 9
     chapters:
       - title: "第15話(前編)"
         updated: 2026-08-20
-        access_modes: ["purchase"]
-        access_note: "released early to paying readers (先読)"
+        access_modes: ["free"]
         date_basis: rendered
       - title: "第14話(後編)"
         updated: 2026-08-13
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "第14話(前編)"
         updated: 2026-08-06
@@ -165,10 +172,6 @@ works:
         date_basis: rendered
       - title: "第11話(後編)"
         updated: 2024-05-09
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第11話(前編)"
-        updated: 2024-05-02
         access_modes: ["purchase"]
         date_basis: rendered
   - work_title: "かわいい同盟"

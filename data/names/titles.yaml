@@ -53480,7 +53480,12 @@ names:
     reading_source_kind: analyser
     verified: false
   幼馴染の方程式:
-    basis: romaji
+    basis: translated
+    en: The Childhood Friend Equation
+    en_at: '2026-08-22'
+    en_reviewed: '2026-08-22'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 幼馴染
       - おさななじみ
@@ -53488,6 +53493,8 @@ names:
       - null
     - - 方程式
       - ほうていしき
+    note: 方程式 is an equation in the mathematical sense, the thing you solve, and 幼馴染 is the friend known
+      since childhood that a Japanese story treats as its own relation.
     reading: オサナナジミ ノ ホウテイシキ
     reading_at: '2026-08-21'
     reading_basis: analyser
@@ -81578,7 +81585,12 @@ names:
     reading_source_kind: analyser
     verified: false
   香り屋さんの纏さん:
-    basis: romaji
+    basis: translated
+    en: Matoi of the Scent Shop
+    en_at: '2026-08-22'
+    en_reviewed: '2026-08-22'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 香
       - かお
@@ -81592,6 +81604,9 @@ names:
       - まとい
     - - さん
       - null
+    note: 香り屋 is a shop selling scent, and 纏 read マトイ is a given name as well as the standard an Edo fire
+      brigade carried. The さん on both halves is the shop being spoken of politely alongside the person,
+      which English drops.
     reading: カオリヤサン ノ マトイサン
     reading_at: '2026-08-20'
     reading_basis: analyser

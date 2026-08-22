@@ -11,6 +11,22 @@ record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421983645810033"
+    work_title: "雨夜の月"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第５０−３話　夢現"
+    release_type: "unclassified"
+    date: "2026-08-22"
+    date_basis: "observed"
+    first_seen: "2026-08-22"
+    first_reported: "2026-08-22T03:00:00Z"
+    platform_updated: "2026-08-22T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983645810033"
+    author: "くずしろ"
+    raw_title: "第５０−３話　夢現"
+    advances_narrative: false
   - release_id: "comicdays:episode:12207421983484134387"
     work_title: "新刊１００億冊ください"
     web_status: "serialised"

@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-08-22
+retrieved: 2026-08-23
 record_type: discovery_queue
 candidates:
   - work_title: "優等生がアダルトグッズを買いに来た"
@@ -35,6 +35,15 @@ candidates:
     platform_code: "12207421984038651592"
     work_url: "https://ichicomi.com/episode/12207421984038651592"
     headline: "27歳会社員がセーラー服姿で青春をやり直す百合姫新連載「バリキャリJKモネ先輩」WEBで公開"
+    status: unconfirmed
+  - work_title: "神は私を撮りたいって言ってます！"
+    signal: "new-serial"
+    announced: "Sun, 23 Aug 2026 11:00:58 +0000"
+    url: "https://yurinavi.com/2026/08/23/kamihawatashiwo-start/"
+    platform: "ichicomi"
+    platform_code: "12207421984038651597"
+    work_url: "https://ichicomi.com/episode/12207421984038651597"
+    headline: "女の感情がぶつかり合うコスプレイヤーたちの百合姫新連載「神は私を撮りたいって言ってます！」WEBで公開"
     status: unconfirmed
   - work_title: "最恐呪物令嬢"
     signal: "new-serial"

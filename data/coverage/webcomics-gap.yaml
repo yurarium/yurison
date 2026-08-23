@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-08-22
+retrieved: 2026-08-23
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -40,6 +40,16 @@ platforms_missing:
   - platform: "ゼロサムオンライン"
     works: 1
 works_missing:
+  - title: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/4133"
+    antenna_id: "212772"
+    tags: ["百合"]
+  - title: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3776"
+    antenna_id: "209939"
+    tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
   - title: "うさぎはかく語りき"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3572"
@@ -59,16 +69,6 @@ works_missing:
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
     antenna_id: "203870"
-    tags: ["百合", "サキュバス"]
-  - title: "君が一等星に光るまで"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/4133"
-    antenna_id: "212772"
-    tags: ["百合"]
-  - title: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3776"
-    antenna_id: "209939"
     tags: ["百合", "サキュバス"]
   - title: "百合SMでふたりの気持ちはつながりますか?"
     platform: "COMIC FUZ"
@@ -149,12 +149,12 @@ works_missing:
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
     antenna_id: "186534"
-    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
+    tags: ["最近のコメント数"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
     antenna_id: "174744"
-    tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
+    tags: ["最近のコメント数"]
   - title: "ナキノン"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/696d291fa1769"
@@ -170,6 +170,11 @@ works_missing:
     url: "https://comic-seasons.com/episode/2550912965184704375"
     antenna_id: "183401"
     tags: ["悪役令嬢", "婚約破棄", "百合", "異種族・人外"]
+  - title: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13373"
+    antenna_id: "211154"
+    tags: ["百合"]
   - title: "ステラ・ステップ"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/10790"
@@ -184,11 +189,6 @@ works_missing:
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13457"
     antenna_id: "211990"
-    tags: ["百合"]
-  - title: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13373"
-    antenna_id: "211154"
     tags: ["百合"]
   - title: "アイ・ヘイ・チュー"
     platform: "pixivコミック"
@@ -325,6 +325,11 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_016753_S"
+    antenna_id: "210354"
+    tags: ["百合"]
   - title: "ココロメイク コスメティカ"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_009488_S"
@@ -349,17 +354,12 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006662_S"
     antenna_id: "188908"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
+    tags: ["最近のコメント数"]
   - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002994_S"
     antenna_id: "102702"
     tags: ["学園", "ゲーム・eスポーツ", "令嬢", "女子高生", "百合", "アニメ化", "ギャグ・コメディ", "青春", "動画配信者", "メスガキ"]
-  - title: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_016753_S"
-    antenna_id: "210354"
-    tags: ["百合"]
   - title: "大崎さんと小森さん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_014277_S"
@@ -679,7 +679,7 @@ works_missing:
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
     antenna_id: "213718"
-    tags: ["百合"]
+    tags: ["最近のコメント数"]
   - title: "ステラ・ステップ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
@@ -834,7 +834,7 @@ works_missing:
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
     antenna_id: "200285"
-    tags: ["百合", "吸血鬼・ヴァンパイア"]
+    tags: ["最近のコメント数"]
   - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/21fe5b3d50300"
@@ -1120,6 +1120,11 @@ works_missing:
     url: "https://flowercomics.jp/title/2780"
     antenna_id: "193062"
     tags: ["百合"]
+  - title: "ファタールゲーム"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03056"
+    antenna_id: "200175"
+    tags: ["百合", "漫画家・絵描き"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -1129,7 +1134,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/02328"
     antenna_id: "159062"
-    tags: ["最近のコメント数"]
+    tags: ["転生", "百合", "猫", "学園", "バトル", "無自覚チート", "ギャグ・コメディ", "悪役令嬢", "乙女ゲーム", "聖女"]
   - title: "魔法少女は嘘をつく"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03302"
@@ -1160,11 +1165,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03273"
     antenna_id: "209730"
     tags: ["百合", "ラブコメ", "悪魔"]
-  - title: "ファタールゲーム"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03056"
-    antenna_id: "200175"
-    tags: ["百合", "漫画家・絵描き"]
   - title: "御贖事処 煮るばあな"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03292"
@@ -1389,7 +1389,7 @@ works_missing:
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/0d7dee548d547"
     antenna_id: "87811"
-    tags: ["最近のコメント数"]
+    tags: ["魔法少女", "お色気・微エロ", "百合", "バトル", "ギャグ・コメディ", "アニメ化", "エロ", "怪人", "変態"]
   - title: "白き乙女の人狼"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/d8e8c084c4c6c"

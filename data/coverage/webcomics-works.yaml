@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-23
+retrieved: 2026-08-24
 record_type: candidate_works
 works: 314
 candidates:
@@ -208,6 +208,10 @@ candidates:
   - title: "あの子のシザーは誰のもの"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/10044607041198524920"]
+  - title: "あの子のスカート/よみきり"
+    platforms: ["花とゆめ+"]
+    urls: ["https://hanayume.com/series/dcaacd8b4831f"]
+    tags: ["百合", "読み切り"]
   - title: "あの子は優しすぎる。"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/2550912964477004522"]

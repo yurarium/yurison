@@ -1,4 +1,4 @@
-generated: '2026-08-23'
+generated: '2026-08-24'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -7672,6 +7672,25 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  あの子のスカート/よみきり:
+    basis: romaji
+    furigana_spans:
+    - - あの
+      - null
+    - - 子
+      - こ
+    - - のスカート/よみきり
+      - null
+    reading: アノ コ ノ スカート / ヨミ キリ
+    reading_at: '2026-08-24'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   あの子は優しすぎる。:

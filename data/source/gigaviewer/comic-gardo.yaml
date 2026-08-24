@@ -6,12 +6,13 @@ source: gigaviewer
 platform: comic-gardo
 platform_name: "コミックガルド"
 publisher: "オーバーラップ"
-retrieved: 2026-08-23
+retrieved: 2026-08-24
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "gardo:episode:12207421984094260445"
+    in_current_window: false
     work_title: "優等生がアダルトグッズを買いに来た"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -28,6 +29,7 @@ releases:
     author: "コナタエル/4kaえんぴつ/千種みのり"
     advances_narrative: true
   - release_id: "gardo:episode:12207421984094260440"
+    in_current_window: false
     work_title: "優等生がアダルトグッズを買いに来た"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -44,6 +46,7 @@ releases:
     author: "コナタエル/4kaえんぴつ/千種みのり"
     advances_narrative: true
   - release_id: "gardo:episode:12207421984094260433"
+    in_current_window: false
     work_title: "優等生がアダルトグッズを買いに来た"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -61,6 +64,7 @@ releases:
     free_term_start: "2026-08-17T03:00:00Z"
     advances_narrative: true
   - release_id: "gardo:episode:12207421984094260425"
+    in_current_window: false
     work_title: "優等生がアダルトグッズを買いに来た"
     web_status: "serialised"
     identified_via: "discovery-candidate"

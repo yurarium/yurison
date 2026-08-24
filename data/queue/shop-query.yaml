@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-08-23
+retrieved: 2026-08-24
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 205
   hits_on_the_title_alone: 78
   hits_stating_a_print_edition_date: 159
-  works_asked: 694
+  works_asked: 695
   works_with_a_hit: 205
 works:
   - work_url: "https://bigcomics.jp/series/003c4bf48a97f"
@@ -6038,6 +6038,16 @@ works:
     author: "長門知大"
     platform: "マガポケ"
     retrieved: "2026-08-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03273/episode/442381"
+    id: "w03170"
+    work: "アイ・ヘイ・チュー"
+    author: "長門知大"
+    platform: "マガポケ"
+    retrieved: "2026-08-24"
     hits: []
     notes:
       - "author query returned no title this database recognises"

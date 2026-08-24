@@ -6,10 +6,19 @@ platform: hanayume
 platform_name: "花とゆめ+"
 publisher: "白泉社"
 engine: comici
-retrieved: 2026-08-23
+retrieved: 2026-08-24
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "あの子のスカート/よみきり"
+    status: "読み切り"
+    author: "伊田いつき"
+    url: "https://hanayume.com/series/dcaacd8b4831f"
+    chapter_count: 1
+    chapters:
+      - title: "あの子のスカート"
+        updated: "2026-08-20"
+        access_modes: ["free"]
   - work_title: "フレンドガールフレンド"
     status: "連載中"
     author: "瑠夏子"

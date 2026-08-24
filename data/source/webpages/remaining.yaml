@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-08-23
+retrieved: 2026-08-24
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -145,7 +145,7 @@ works:
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     platform_name: "キミコミ"
     route: "comici"
-    chapter_count: 5
+    chapter_count: 6
     chapters:
       - title: "OPERATION1"
         updated: 2026-07-20
@@ -158,13 +158,17 @@ works:
       - title: "OPERATION3"
         updated: 2026-08-03
         author: "涼海来夏"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "OPERATION4"
         updated: 2026-08-10
         author: "涼海来夏"
         access_modes: ["free"]
       - title: "OPERATION5"
         updated: 2026-08-17
+        author: "涼海来夏"
+        access_modes: ["free"]
+      - title: "OPERATION6"
+        updated: 2026-08-24
         author: "涼海来夏"
         access_modes: ["purchase"]
   - work_title: "雨夜の月"
@@ -770,7 +774,7 @@ works:
     url: "https://hanayume.com/series/f3ce082d639de"
     platform_name: "花とゆめ+"
     route: "comici"
-    chapter_count: 32
+    chapter_count: 33
     chapters:
       - title: "#1"
         updated: 2026-04-20
@@ -917,9 +921,14 @@ works:
       - title: "＃16①"
         updated: 2026-08-10
         author: "瑠夏子"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃16②"
         updated: 2026-08-17
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "＃17①"
+        updated: 2026-08-24
         author: "瑠夏子"
         access_modes: ["purchase"]
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
@@ -4758,11 +4767,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-08-23
+        updated: 2026-08-24
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-08-23
+        updated: 2026-08-24
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

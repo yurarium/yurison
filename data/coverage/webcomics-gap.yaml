@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-08-23
+retrieved: 2026-08-24
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -290,16 +290,16 @@ works_missing:
     url: "https://comic-action.com/episode/2550912964909179818"
     antenna_id: "179169"
     tags: ["百合", "妖怪", "現代", "女子高生"]
-  - title: "たっぷりお嬢様とちょっぴりギャルの幸せシェアごはん"
-    platform: "きら星ポータル"
-    url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
-    antenna_id: "213409"
-    tags: ["読み切り", "百合"]
   - title: "君めく夜に焦がれて"
     platform: "きら星ポータル"
     url: "https://kirapo.jp/ambre/titles/kimimeku"
     antenna_id: "192477"
     tags: ["百合", "不良・ヤンキー"]
+  - title: "たっぷりお嬢様とちょっぴりギャルの幸せシェアごはん"
+    platform: "きら星ポータル"
+    url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
+    antenna_id: "213409"
+    tags: ["読み切り", "百合"]
   - title: "ツイてるギャルとミエてる陰キャ"
     platform: "きら星ポータル"
     url: "https://kirapo.jp/meteor/titles/tuimie"
@@ -325,6 +325,16 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "堕天使そぷらのちゃんの復讐"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006778_S"
+    antenna_id: "190226"
+    tags: ["百合", "女子高生", "学園"]
+  - title: "バカに告白"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006660_S"
+    antenna_id: "188798"
+    tags: ["百合", "学園", "ラブコメ", "女子高生"]
   - title: "彼氏の女友達がぐいぐい来る(私に)"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_016753_S"
@@ -354,7 +364,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006662_S"
     antenna_id: "188908"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002994_S"
@@ -455,21 +465,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_000188_S"
     antenna_id: "76553"
     tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
-  - title: "堕天使そぷらのちゃんの復讐"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006778_S"
-    antenna_id: "190226"
-    tags: ["百合", "女子高生", "学園"]
   - title: "真先輩の前ではかっこつけられない!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006747_S"
     antenna_id: "189542"
     tags: ["ラブコメ", "百合"]
-  - title: "バカに告白"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006660_S"
-    antenna_id: "188798"
-    tags: ["百合", "学園", "ラブコメ", "女子高生"]
   - title: "彼女のカノジョと不純な初恋"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_009359_S"
@@ -679,7 +679,7 @@ works_missing:
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
     antenna_id: "213718"
-    tags: ["最近のコメント数"]
+    tags: ["百合"]
   - title: "ステラ・ステップ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
@@ -1105,11 +1105,6 @@ works_missing:
     url: "https://bigcomics.jp/series/9a5ca4fa0d6af"
     antenna_id: "208903"
     tags: ["百合", "読み切り"]
-  - title: "終点まで、ふたりで"
-    platform: "ビッコミ"
-    url: "https://bigcomics.jp/series/1323acdbab2aa"
-    antenna_id: "208329"
-    tags: ["百合", "読み切り"]
   - title: "㊙のライラ"
     platform: "ビビビコミック"
     url: "https://bibibi-comic.com/series/e889bd092d08d"
@@ -1475,6 +1470,11 @@ works_missing:
     url: "https://takecomic.jp/series/4e4bb1b935407"
     antenna_id: "126252"
     tags: ["フェチ・性癖", "百合", "ヒューマンドラマ", "エロ", "お色気・微エロ", "ギャグ・コメディ"]
+  - title: "あの子のスカート/よみきり"
+    platform: "花とゆめ+"
+    url: "https://hanayume.com/series/dcaacd8b4831f"
+    antenna_id: "213961"
+    tags: ["百合", "読み切り"]
   - title: "運命は役に立たない"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"

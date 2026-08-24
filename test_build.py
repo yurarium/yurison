@@ -97,6 +97,30 @@ def main(s):
     s.eq(len(b.resolver_superseded([dict(ADAPTER, ep="13話", access_modes=[]), RESOLVER])), 2,
          "an adapter row with no access state does not supersede anything")
 
+
+    # ── AN ADAPTER'S MODULE NAME IS NOT A SOURCE'S NAME ──────────────────────────────────────────
+    #
+    # `sourced_from` is rendered in the work page's "Other data" table, and a pass that reads many
+    # hosts is named by the row's own address. Where the address resolves, or where the work runs in
+    # exactly one place, that place is the answer.
+    s.eq(b.source_named("ichijinsha"), "一迅社", "a pass that reads one site is named for the site")
+    s.eq(b.source_named("comparators", None, {}, ("マガポケ",)), "マガポケ",
+         "and a single-platform work says where the pass must have read it")
+
+    # TWO PLATFORMS AND NO ADDRESS IS GENUINELY AMBIGUOUS, and what it may not do is fall back to
+    # the module name. 怪獣ロマンティクス runs on マガポケ and pixivコミック and carries one
+    # `comparators` row, so nothing can say WHICH comparator claimed it, and the reader was shown
+    # the name of the pass. Not guessing which is right; printing the adapter because we cannot is
+    # the part `no source a reader sees is an adapter` was failing on.
+    s.eq(b.source_named("comparators", None, {}, ("マガポケ", "pixivコミック")),
+         "a comparator listing",
+         "an unresolvable row says what kind of source it was, not which module fetched it")
+    mods = {p.name for p in (pathlib.Path(__file__).resolve().parent / "adapters").iterdir()
+            if p.is_dir() and not p.name.startswith(("_", "."))}
+    for key in b.GENERIC_ADAPTER:
+        s.check(b.GENERIC_ADAPTER[key] not in mods,
+                f"what {key!r} falls back to is not itself the name of an adapter")
+
     # EPISODE NUMBERING drives new-series against new-chapter, and a wrong answer tells a reader to
     # expect a second chapter that does not exist.
     s.eq(b.ep_number("第1話"), 1, "a numbered first chapter")

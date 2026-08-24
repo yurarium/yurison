@@ -495,9 +495,13 @@ names:
     verified: true
   2人の蒼とあおい:
     basis: translated
-    en: The Two Blues, and Aoi
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
+    en: Ao and Aoi, the Two of Them
+    en_at: '2026-08-24'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Two Blues, and Aoi
+    en_reviewed: '2026-08-24'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -509,7 +513,10 @@ names:
       - あお
     - - とあおい
       - null
-    note: 蒼 and あおい are the same word in two spellings, one of them a name, which is the pun.
+    note: '蒼 and あおい are the same word in two spellings, one of them a name, which is the pun, and the
+      two of them are the two the title counts. `The Two Blues, and Aoi` read as a pair and then a third
+      person beside them: 2人の governs both names rather than the first alone. The same fault as あの子とふたりで。
+      and found by going looking for it.'
     reading: フタリ ノ アオ ト アオイ
     reading_at: '2026-08-06'
     reading_basis: analyser
@@ -7647,14 +7654,16 @@ names:
     verified: false
   あの子とふたりで。:
     basis: translated
-    en: Just the Two of Us, with Her.
-    en_at: '2026-08-04'
+    en: Just the Two of Us, Her and Me.
+    en_at: '2026-08-24'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
       value: Ano Ko to Futari de.
-    en_pass: 2
-    en_reviewed: '2026-08-04'
+    - basis: translated
+      source: yurarium
+      value: Just the Two of Us, with Her.
+    en_reviewed: '2026-08-24'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -7664,6 +7673,10 @@ names:
       - こ
     - - とふたりで。
       - null
+    note: 'あの子 IS ONE OF THE TWO, which the earlier rendering lost. `Just the Two of Us, with Her` reads
+      in English as a pair and then her beside them, so the title counted three people where the Japanese
+      counts two: ふたりで does the whole of the counting and あの子と names who the other one is. The full stop
+      is the title''s own.'
     reading: アノ コ ト フタリ デ。
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -26348,12 +26361,19 @@ names:
     verified: false
   キャンディ:ふたりの約束:
     basis: translated
-    en: 'Candy: A Promise Between the Two of Them'
-    en_at: '2026-08-15'
-    en_reviewed: '2026-08-15'
+    en: 'Candy: Our Promise'
+    en_at: '2026-08-24'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Candy: A Promise Between the Two of Them'
+    en_reviewed: '2026-08-24'
     en_source: yurarium
     en_source_kind: derived
-    note: Plain.
+    note: 'The catalogued spelling of キャンディ ふたりの約束, rendered as that entry renders it because that is
+      the one that did the research: the author is Shí Yīèr of the Chinese studio Mùxīng per the platform''s
+      own credit, and the katakana glosses 糖果 directly. Two spellings of one work were showing a reader
+      two different English titles.'
     verified: false
   キュウに1000年:
     basis: translated

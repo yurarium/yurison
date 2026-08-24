@@ -313,8 +313,16 @@ def host_platforms(platforms):
 # cannot be mapped and are resolved from the address the row already carries.
 ADAPTER_IS_NOT_A_SOURCE = {"ichijinsha": "一迅社", "kadokomi": "カドコミ", "comicfuz": "COMIC FUZ"}
 
-#: Passes that read many hosts, so the row's own address is the only thing that can name them.
-GENERIC_ADAPTER = {"gigaviewer", "webpages", "comparators", "generic"}
+#: Passes that read many hosts, so the row's own address is the only thing that can name them, and
+#: WHAT TO SAY WHERE THE ADDRESS CANNOT. A row whose host is unresolvable and whose work runs in more
+#: than one place can still say what KIND of source it was, which is what a reader needs from the
+#: "Other data" table; what it may not say is the name of the module that fetched it.
+GENERIC_ADAPTER = {
+    "gigaviewer": "a publisher's own site",
+    "webpages": "a publisher's own site",
+    "comparators": "a comparator listing",
+    "generic": "a publisher's own site",
+}
 
 
 def source_named(key, url=None, owners=None, on=()):
@@ -322,8 +330,14 @@ def source_named(key, url=None, owners=None, on=()):
 
     `on` is the platforms the work runs on. A pass that reads many hosts records no address on
     every row, and where the work runs in exactly one place that place is where the pass read it:
-    all seven rows left unresolved by the address are on single-platform works. Two platforms and
-    no address is genuinely ambiguous, and the key is left to stand rather than guessed at.
+    all seven rows left unresolved by the address are on single-platform works.
+
+    TWO PLATFORMS AND NO ADDRESS IS GENUINELY AMBIGUOUS, and what it may not do is fall back to the
+    module name. 怪獣ロマンティクス runs on マガポケ and pixivコミック and carries one `comparators`
+    row read on 2026-08-02, so neither the address nor the platform can say which site made the
+    claim, and the reader was shown the pass. Not guessing WHICH comparator is right; printing the
+    adapter's name because we cannot is the part that was wrong, and `GENERIC_ADAPTER` says what
+    kind of thing each pass reads so the row can say that much honestly.
     """
     k = str(key or "").strip()
     if k.lower() in ADAPTER_IS_NOT_A_SOURCE:
@@ -334,7 +348,7 @@ def source_named(key, url=None, owners=None, on=()):
         if named:
             return named
         only = {p for p in on if p}
-        return next(iter(only)) if len(only) == 1 else k
+        return next(iter(only)) if len(only) == 1 else GENERIC_ADAPTER[k.lower()]
     return credence.named(k)
 
 

@@ -2738,6 +2738,27 @@ and dates and no chapter list, so they produce feed rows and no work row.
 without `--candidates`. Reaching コミックゼノン and サンデーうぇぶり that way needs the platform
 registry extended rather than a worklist widened, which is why it was left.
 
+**SIX IS NOW TWENTY-ONE, and the daily run has not refreshed a per-series feed since 2 August.**
+Measured 2026-08-24: 50 feed rows name 24 works with no record, of which 21 are held nowhere under
+any fold and 3 are joins onto a spelling the corpus already has. Seven of the 21 are also counted by
+`announced works the corpus does not hold`, which is the same works arriving by the other door.
+
+The registry limitation above is not idle: `stage-a.yaml` passes `--platform ichicomi` and says in
+its own comment that "the rest exit immediately and always have", so on 2026-08-18 sixteen of the
+nineteen `*-series-feeds.yaml` files still carried `retrieved: 2026-08-02`. Those per-series feeds
+are what carry ACCESS, and the platform-wide atom feed carries none, so every chapter published on
+those platforms since 2 August arrives priced by nothing. コミックDAYS is 43 of 43 priced under
+`bootstrap` and 3 of 23 under `observed`, one route throughout, which is that split exactly.
+
+**WHAT THE ADMISSION POLICY DOES AND DOES NOT REACH.** A work served openly by a known platform is
+promoted into the target list automatically, and that is working: the adapters reach these works and
+publish their releases. What no pass does is turn an attested release into a WORK record, because a
+work record comes from the bibliographic sources or from the web-works confirmation, and a web
+serialisation with no volume reaches neither. `budget_announced_works_the_corpus_does_not_hold` names
+three causes for a rise and this is a fourth: the promotion ran, the adapter reached the work, the
+fold reconciles the title, and the work still has no record. Each one needs an inclusion ruling in
+`data/queue/unheld-works.yaml`, which is the slow half and the half worth not repeating.
+
 ## Four translated editions name a base work the corpus does not hold. Noted 2026-08-13
 
 `facts/edition` matches a translated edition to the work it translates through the reading the two

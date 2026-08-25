@@ -6,11 +6,89 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-08-24
+retrieved: 2026-08-26
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421984143919173"
+    work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第２４話　チョコレートパニック"
+    release_type: "chapter"
+    date: "2026-08-26"
+    date_basis: "observed"
+    first_seen: "2026-08-26"
+    first_reported: "2026-08-25T15:00:00Z"
+    platform_updated: "2026-08-25T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421984143919173"
+    author: "空山トキ/五色安未/泉乃せん/伍長"
+    advances_narrative: true
+  - release_id: "comicdays:episode:12207421983566481739"
+    work_title: "サタノファニ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第３３８話　「発破」"
+    release_type: "chapter"
+    date: "2026-08-26"
+    date_basis: "observed"
+    first_seen: "2026-08-26"
+    first_reported: "2026-08-25T15:00:00Z"
+    platform_updated: "2026-08-25T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983566481739"
+    author: "山田恵庸"
+    advances_narrative: true
+  - release_id: "comicdays:episode:12207421984126358496"
+    work_title: "ファタールゲーム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "１５話　あたしが証明します！（３）"
+    release_type: "chapter"
+    date: "2026-08-25"
+    date_basis: "observed"
+    first_seen: "2026-08-26"
+    first_reported: "2026-08-24T15:00:00Z"
+    platform_updated: "2026-08-24T15:00:00Z"
+    date_confidence: "low"
+    date_note: "3 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
+    url: "https://comic-days.com/episode/12207421984126358496"
+    author: "ばったん"
+    advances_narrative: true
+  - release_id: "comicdays:episode:12207421984126358488"
+    work_title: "ファタールゲーム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "１５話　あたしが証明します！（２）"
+    release_type: "chapter"
+    date: "2026-08-25"
+    date_basis: "observed"
+    first_seen: "2026-08-26"
+    first_reported: "2026-08-24T15:00:00Z"
+    platform_updated: "2026-08-24T15:00:00Z"
+    date_confidence: "low"
+    date_note: "3 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
+    url: "https://comic-days.com/episode/12207421984126358488"
+    author: "ばったん"
+    advances_narrative: true
+  - release_id: "comicdays:episode:12207421984126358483"
+    work_title: "ファタールゲーム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "１５話　あたしが証明します！（１）"
+    release_type: "chapter"
+    date: "2026-08-25"
+    date_basis: "observed"
+    first_seen: "2026-08-26"
+    first_reported: "2026-08-24T15:00:00Z"
+    platform_updated: "2026-08-24T15:00:00Z"
+    date_confidence: "low"
+    date_note: "3 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
+    url: "https://comic-days.com/episode/12207421984126358483"
+    author: "ばったん"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421983645810033"
     work_title: "雨夜の月"
     web_status: "serialised"
@@ -44,6 +122,7 @@ releases:
     raw_title: "３３冊目：好きだから(前編)"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984052110395"
+    in_current_window: false
     work_title: "きみが死ぬまで恋をしたい"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -60,6 +139,7 @@ releases:
     author: "あおのなち"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984052110392"
+    in_current_window: false
     work_title: "きみが死ぬまで恋をしたい"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -76,6 +156,7 @@ releases:
     author: "あおのなち"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984052110389"
+    in_current_window: false
     work_title: "きみが死ぬまで恋をしたい"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -92,6 +173,7 @@ releases:
     author: "あおのなち"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984052110402"
+    in_current_window: false
     work_title: "私の百合はお仕事です！"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -108,6 +190,7 @@ releases:
     raw_title: "シフト.76 お姉さまの家庭事情(2)"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984052110398"
+    in_current_window: false
     work_title: "私の百合はお仕事です！"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -124,6 +207,7 @@ releases:
     raw_title: "シフト.76 お姉さまの家庭事情(1)"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984052110371"
+    in_current_window: false
     work_title: "大室家"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -140,6 +224,7 @@ releases:
     raw_title: "大室家の136"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984052110368"
+    in_current_window: false
     work_title: "ぜんぶ壊して地獄で愛して"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -155,6 +240,7 @@ releases:
     author: "くわばらたもつ"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984052110365"
+    in_current_window: false
     work_title: "ぜんぶ壊して地獄で愛して"
     web_status: "serialised"
     identified_via: "known-work-match"

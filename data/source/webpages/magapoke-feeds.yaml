@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-08-24
+retrieved: 2026-08-26
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -2411,8 +2411,12 @@ works:
     title_id: "2901"
     url: "https://pocket.shonenmagazine.com/title/02901"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2901/feed.xml"
-    chapter_count: 54
+    chapter_count: 55
     chapters:
+      - title: "【#51】princess"
+        updated: 2026-08-26
+        author: "原作/大鷹シン 漫画/ホマレ"
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
       - title: "【#50】サファイア"
         updated: 2026-08-19
         author: "原作/大鷹シン 漫画/ホマレ"
@@ -2935,8 +2939,12 @@ works:
     title_id: "2758"
     url: "https://pocket.shonenmagazine.com/title/02758"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2758/feed.xml"
-    chapter_count: 59
+    chapter_count: 60
     chapters:
+      - title: "【第54話】力を合わせて☆生き残れ☆ガール"
+        updated: 2026-08-26
+        author: "ヒロユキ"
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
       - title: "【単行本宣伝話】"
         updated: 2026-08-12
         author: "ヒロユキ"
@@ -3343,8 +3351,16 @@ works:
     title_id: "3056"
     url: "https://pocket.shonenmagazine.com/title/03056"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3056/feed.xml"
-    chapter_count: 25
+    chapter_count: 27
     chapters:
+      - title: "【15話(2)】あたしが証明します！"
+        updated: 2026-08-25
+        author: "ばったん"
+        url: "https://pocket.shonenmagazine.com/title/03056/episode/443065"
+      - title: "【15話(1)】あたしが証明します！"
+        updated: 2026-08-25
+        author: "ばったん"
+        url: "https://pocket.shonenmagazine.com/title/03056/episode/443064"
       - title: "【14話(2)】これはほとんど愛かもしれない"
         updated: 2026-07-24
         author: "ばったん"

@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-08-24
+retrieved: 2026-08-26
 record_type: discovery_queue
 candidates:
   - work_title: "優等生がアダルトグッズを買いに来た"
@@ -17,15 +17,6 @@ candidates:
     platform_code: "12207421984094260425"
     work_url: "https://comic-gardo.com/episode/12207421984094260425"
     headline: "優等生の秘密を知ってしまった女子高生のガールミーツガール「優等生がアダルトグッズを買いに来た」WEBでスタート"
-    status: unconfirmed
-  - work_title: "にせものターコイズ"
-    signal: "oneshot"
-    announced: "Tue, 11 Aug 2026 10:10:16 +0000"
-    url: "https://yurinavi.com/2026/08/11/nisemono-yomikiri/"
-    platform: "sundaywebry"
-    platform_code: "12207421983913735230"
-    work_url: "https://www.sunday-webry.com/episode/12207421983913735230"
-    headline: "痛いほど眩しい、少女ふたりの青春を描いた読み切り「にせものターコイズ」WEBで公開"
     status: unconfirmed
   - work_title: "バリキャリJKモネ先輩"
     signal: "new-serial"
@@ -61,6 +52,15 @@ candidates:
     platform_code: "KC_016898_S"
     work_url: "https://comic-walker.com/detail/KC_016898_S"
     headline: "天使と人間のちょっとえっちな百合読み切り「天瀬ましろはイきたくない！」WEBで公開"
+    status: unconfirmed
+  - work_title: "にせものターコイズ"
+    signal: "oneshot"
+    announced: "2026-08-11"
+    url: "https://yurinavi.com/2026/08/11/nisemono-yomikiri/"
+    platform: "sundaywebry"
+    platform_code: "12207421983913735230"
+    work_url: "https://www.sunday-webry.com/episode/12207421983913735230"
+    headline: "痛いほど眩しい、少女ふたりの青春を描いた読み切り「にせものターコイズ」WEBで公開"
     status: unconfirmed
   - work_title: "ハウリング・ブレイズ"
     signal: "new-serial"

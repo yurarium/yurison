@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-08-24
+retrieved: 2026-08-26
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -74,42 +74,12 @@ works:
   - work_title: "オカルトタイムズ"
     url: "https://pocket.shonenmagazine.com/title/03282"
     platform_name: "マガポケ"
-    route: "rendered"
-    chapter_count: 11
+    route: "markup"
+    chapter_count: 1
     chapters:
       - title: "第1話】ハザマ学園怪奇新聞部"
         updated: 2026-06-30
-        date_basis: rendered
-      - title: "5話】メイド・イン・学園祭！"
-        updated: 2026-08-05
-        date_basis: rendered
-      - title: "第24話】厄立たずの新聞 中編"
-        updated: 2026-07-22
-        date_basis: rendered
-      - title: "第23話】厄立たずの新聞 前編"
-        updated: 2026-07-08
-        date_basis: rendered
-      - title: "第22話】キケンな学園祭デート!? 後編"
-        updated: 2026-06-30
-        date_basis: rendered
-      - title: "第21話】キケンな学園祭デート!? 前編 もっと見る"
-        updated: 2026-06-30
-        date_basis: rendered
-      - title: "第5話】UMAい話にご用心"
-        updated: 2026-06-30
-        date_basis: rendered
-      - title: "第4話】山に潜む獣"
-        updated: 2026-06-30
-        date_basis: rendered
-      - title: "第3話】空からの侵略者"
-        updated: 2026-06-30
-        date_basis: rendered
-      - title: "第2話】暗闇に響く声"
-        updated: 2026-06-30
-        date_basis: rendered
-      - title: "第1話】ハザマ学園怪奇新聞部 コメント 【第1話】ハザマ学園怪奇新聞部 名前未設定さん"
-        updated: 2026-06-30
-        date_basis: rendered
+        date_basis: heuristic
   - work_title: "DOUBLE HELIX BLOSSOM"
     url: "https://www.corocoro.jp/title/65"
     platform_name: "コロコロオンライン"
@@ -936,8 +906,12 @@ works:
     url: "https://comic-days.com/episode/2550912964518073379"
     platform_name: "コミックDAYS"
     route: "gigaviewer"
-    chapter_count: 23
+    chapter_count: 24
     chapters:
+      - title: "第２４話　チョコレートパニック"
+        updated: 2026-08-25
+        author: "空山トキ/五色安未/泉乃せん/伍長"
+        access_modes: ["purchase"]
       - title: "第２３話　襲撃２"
         updated: 2026-07-23
         author: "空山トキ/五色安未/泉乃せん/伍長"
@@ -949,11 +923,11 @@ works:
       - title: "第２１話　結成４"
         updated: 2026-05-25
         author: "空山トキ/五色安未/泉乃せん/伍長"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第２０話　結成３"
         updated: 2026-04-23
         author: "空山トキ/五色安未/泉乃せん/伍長"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１９話　結成２"
         updated: 2026-03-25
         author: "空山トキ/五色安未/泉乃せん/伍長"
@@ -4767,11 +4741,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-08-24
+        updated: 2026-08-25
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-08-24
+        updated: 2026-08-25
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-24
+retrieved: 2026-08-26
 record_type: candidate_works
-works: 314
+works: 311
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -110,6 +110,10 @@ candidates:
   - title: "Never boring Map"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/Never_boring_Map"]
+  - title: "No marriage, No magic"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_020013_S"]
+    tags: ["最近のコメント数"]
   - title: "OL Vtuberと推しJKちゃん"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/0e7fd362c2c11"]
@@ -1265,7 +1269,7 @@ candidates:
   - title: "サタノファニ"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"]
-    tags: ["エロ", "バトル", "偉人・歴史上の人物", "百合", "裏社会", "雑学・豆知識"]
+    tags: ["エロ", "バトル", "偉人・歴史上の人物", "最近のコメント数", "百合", "裏社会", "雑学・豆知識"]
   - title: "サニーサイド"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094912231079369"]
@@ -1611,7 +1615,7 @@ candidates:
   - title: "ファーストペンギン・レクイエム"
     platforms: ["kuragebunch", "くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/12207421983893652478"]
-    tags: ["ホラー", "現代ファンタジー", "異能・超能力", "百合"]
+    tags: ["ホラー", "最近のコメント数", "現代ファンタジー", "異能・超能力", "百合"]
   - title: "フェアウェイの声をきかせて"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/8178b4fc09df9"]
@@ -1651,7 +1655,7 @@ candidates:
   - title: "ベイビー車中ハッカーズ"
     platforms: ["となりのヤングジャンプ", "ヤンジャン+"]
     urls: ["https://tonarinoyj.jp/episode/2550912964606721429", "https://ynjn.jp/title/16787"]
-    tags: ["ブロ・シスマンス", "女子高生", "旅・紀行", "百合", "車"]
+    tags: ["ブロ・シスマンス", "女子高生", "旅・紀行", "百合", "車", "青春"]
   - title: "ベリアル"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008577_S"]
@@ -2288,7 +2292,7 @@ candidates:
   - title: "君のせいなんだから、責任とってよね。"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/13225", "https://ichicomi.com/episode/2551460909807196614"]
-    tags: ["百合", "社会人"]
+    tags: ["最近のコメント数", "百合", "社会人"]
   - title: "君のためのカーテンコール"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203959"]

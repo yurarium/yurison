@@ -1,4 +1,4 @@
-generated: '2026-08-24'
+generated: '2026-08-25'
 names:
   '*sow*':
     basis: stated
@@ -40698,6 +40698,22 @@ names:
     reading_at: '2026-08-15'
     reading_basis: analyser
     reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
+  霜月汐:
+    basis: romaji
+    furigana_spans:
+    - - 霜月
+      - しもつき
+    - - 汐
+      - しお
+    reading: シモツキシオ
+    reading_at: '2026-08-25'
+    reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
     reading_pass: 4

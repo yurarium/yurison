@@ -6,11 +6,26 @@ source: gigaviewer
 platform: kuragebunch
 platform_name: "くらげバンチ"
 publisher: "新潮社"
-retrieved: 2026-08-24
+retrieved: 2026-08-26
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "kuragebunch:episode:12207421984005057856"
+    work_title: "ファーストペンギン・レクイエム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第4話 ノブレス・オブリージュ"
+    release_type: "chapter"
+    date: "2026-08-25"
+    date_basis: "observed"
+    first_seen: "2026-08-26"
+    first_reported: "2026-08-25T03:00:00Z"
+    platform_updated: "2026-08-25T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://kuragebunch.com/episode/12207421984005057856"
+    author: "タダノなつ"
+    advances_narrative: true
   - release_id: "kuragebunch:episode:12207421984030246278"
     in_current_window: false
     work_title: "友達からでもいいですか"

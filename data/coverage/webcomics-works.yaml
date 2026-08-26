@@ -9,7 +9,7 @@ source: webcomics.jp
 role: discovery-only
 retrieved: 2026-08-26
 record_type: candidate_works
-works: 311
+works: 310
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -113,7 +113,7 @@ candidates:
   - title: "No marriage, No magic"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_020013_S"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "OL Vtuberと推しJKちゃん"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/0e7fd362c2c11"]
@@ -744,8 +744,8 @@ candidates:
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094914454630645"]
   - title: "ひとりみです"
-    platforms: ["カドコミ"]
-    urls: ["https://comic-walker.com/detail/KC_006607_S"]
+    platforms: ["pixivコミック", "カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_006607_S", "https://comic.pixiv.net/works/13604"]
     tags: ["おばあちゃん", "ヒューマンドラマ", "百合"]
   - title: "ひなちゃんが生きてるなら"
     platforms: ["pixivコミック", "ニコニコ漫画", "一迅プラス"]
@@ -1615,7 +1615,7 @@ candidates:
   - title: "ファーストペンギン・レクイエム"
     platforms: ["kuragebunch", "くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/12207421983893652478"]
-    tags: ["ホラー", "最近のコメント数", "現代ファンタジー", "異能・超能力", "百合"]
+    tags: ["バディ", "ホラー", "最近のコメント数", "残酷・グロテスク", "現代ファンタジー", "異能・超能力", "百合"]
   - title: "フェアウェイの声をきかせて"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/8178b4fc09df9"]
@@ -1782,6 +1782,10 @@ candidates:
   - title: "ライオンと不時着(第17回NC佳作)"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/series/899b7db428f7b"]
+  - title: "ライバルアライバル"
+    platforms: ["pixivコミック"]
+    urls: ["https://comic.pixiv.net/works/13605"]
+    tags: ["百合"]
   - title: "ラストサマー・バケーション"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_001877_S"]
@@ -1917,7 +1921,7 @@ candidates:
   - title: "上伊那ぼたん、酔へる姿は百合の花"
     platforms: ["チャンピオンクロス", "ニコニコ漫画"]
     urls: ["https://championcross.jp/series/ae4257e66bab5", "https://manga.nicovideo.jp/comic/58777"]
-    tags: ["アニメ化", "大学生", "百合"]
+    tags: ["アニメ化", "大学生", "最近のコメント数", "百合"]
   - title: "上杉くんは女の子をやめたい"
     platforms: ["ちゃおプラス"]
     urls: ["https://ciao.shogakukan.co.jp/comics/title/00577/episode/22025"]
@@ -2533,6 +2537,10 @@ candidates:
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03301"]
     tags: ["最近のコメント数", "百合", "読み切り"]
+  - title: "姫騎士と姫巫女"
+    platforms: ["pixivコミック"]
+    urls: ["https://comic.pixiv.net/works/13609"]
+    tags: ["百合"]
   - title: "娘が彼女を連れてきた話"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2532/"]
@@ -2956,8 +2964,8 @@ candidates:
     platforms: ["WEBコミックガンマ(更新終了)"]
     urls: ["http://webcomicgamma.takeshobo.co.jp/manga/akebosijeny/"]
   - title: "星の体温、巡る夢"
-    platforms: ["カドコミ"]
-    urls: ["https://comic-walker.com/detail/KC_006791_S"]
+    platforms: ["pixivコミック", "カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_006791_S", "https://comic.pixiv.net/works/13608"]
     tags: ["百合"]
   - title: "星の指輪"
     platforms: ["サンデーうぇぶり"]
@@ -3116,6 +3124,10 @@ candidates:
   - title: "死守れ日常系ヲ"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/3270375685393122652"]
+  - title: "死神デリート"
+    platforms: ["となりのヤングジャンプ"]
+    urls: ["https://tonarinoyj.jp/episode/12207421984115943558"]
+    tags: ["百合", "読み切り"]
   - title: "残り香に牙"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983947227343"]
@@ -4018,7 +4030,7 @@ candidates:
   - title: "魔法少女は嘘をつく"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03302"]
-    tags: ["最近のコメント数", "百合", "読み切り"]
+    tags: ["最近のコメント数", "百合", "読み切り", "魔法少女"]
   - title: "魔法少女リインカーネーション"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2551460909881731454"]

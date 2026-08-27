@@ -49,6 +49,41 @@ def main(s):
     except ImportError:
         s.skip("sudachipy absent")
 
+    # ── A WORD BREAK MAY NOT FALL ON A DOUBLING ──────────────────────────────────────────────
+    #
+    # っ doubles the consonant that FOLLOWS it, so a token ending in one cannot be the end of a
+    # word: whatever it doubles is in the next token. Sudachi cuts まっぴるま into まっ and ぴるま,
+    # and the romaniser wrote what it was handed. `Shiranaima Ppiruma` is a word beginning on a
+    # doubled consonant, which no Japanese word does. 63 phrases were spelled that way, including a
+    # person: はっとりみつる as `Ha Ttori Mitsuru`.
+    try:
+        from sudachipy import Dictionary, SplitMode
+        _tk2, _md2 = Dictionary().create(), [SplitMode.C, SplitMode.A]
+        for ja, want in (("知らないまっぴるま", "シラナイマッピルマ"),
+                         ("ばっどがーる", "バッド ガール"),
+                         ("はっとりみつる", "ハットリ ミツル"),
+                         ("ぬっく", "ヌック")):
+            got, _ = p4.analyse_best(_tk2, ja, _md2)
+            s.eq(got, want, f"{ja} keeps its doubling and the sound it doubles in one word")
+
+        # BOTH SIDES OF THE BOUNDARY, because Sudachi cuts either way. It ends a token on the っ in
+        # まっ|ぴるま and it OPENS one with the っ of the quotative って, which came out `Suki Tte`.
+        for ja, want in (("好きって気付いてほしい", "スキッテ キヅイテ ホシイ"),
+                         ("あたし達って付き合ってるよね", "アタシタチッテ ツキアッテル ヨ ネ")):
+            got, _ = p4.analyse_best(_tk2, ja, _md2)
+            s.eq(got, want, f"{ja}: a token opening on って joins the word it doubles into")
+
+        # AND THE COUNTER-CASE, because a rule that glued everything would read as a pass here. A
+        # break that falls nowhere near a っ is left where the analyser put it, and a っ INSIDE a
+        # token was never the problem.
+        got, _ = p4.analyse_best(_tk2, "小春と湊", _md2)
+        s.check(got and " " in got, "an ordinary two-word title still divides")
+        got, _ = p4.analyse_best(_tk2, "ぎゅっとにぎって", _md2)
+        s.eq(got, "ギュット ニギッテ",
+             "and a word whose own っ is medial divides from the next word as before")
+    except ImportError:
+        s.skip("sudachipy absent")
+
     # An override table exists because some readings are simply known: 私 in a title is watashi,
     # and the analyser preferred ワタクシ until told otherwise.
     s.check(isinstance(p4.READING_OVERRIDE, dict), "an override table exists")

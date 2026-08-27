@@ -432,7 +432,21 @@ def analyse(tokenizer, s, mode=None, want_flag=False, prefer_kun=False):
             continue
         surf = m.surface()
         r = m.reading_form()
-        glue = attaches_left(m.part_of_speech()) or (out and out[-1].endswith("\x02"))
+        # A っ DOUBLES THE CONSONANT THAT FOLLOWS IT, so a token ending in one cannot be the end of
+        # a word: whatever it doubles is in the next token. Sudachi cuts まっぴるま into まっ and
+        # ぴるま and the romaniser wrote what it was handed, `Shiranaima Ppiruma`, a word beginning
+        # on a doubled consonant, which no Japanese word does. 63 phrases were spelled that way,
+        # `ばっどがーる` as `Ba Ddo Gāru` and `はっとりみつる`, a person, as `Ha Ttori Mitsuru`. The
+        # rule is about the language rather than about this analyser: the doubling and the sound it
+        # doubles are one syllable and a word break cannot fall between them.
+        # BOTH SIDES OF THE BOUNDARY, because Sudachi cuts either way and the fault is the same. It
+        # ends a token on the っ in まっ|ぴるま, and it opens one with the っ of the quotative って,
+        # which came out `Suki Tte` and `Atashitachi Tte`. Neither can stand: a doubling and the
+        # sound it doubles are one syllable.
+        _sokuon = ("\u30c3", "\u3063")
+        glue = (attaches_left(m.part_of_speech()) or (out and out[-1].endswith("\x02"))
+                or (out and out[-1].rstrip("\x00\x02").endswith(_sokuon))
+                or (m.reading_form() or "").startswith(_sokuon))
         # SURFACE FIRST. Sudachi does not decline to read a symbol — it returns キゴウ, the reading
         # of 記号, the WORD "symbol". So a space, ～, ×, ♡ or ◎ each came back as a legitimate-looking
         # kana reading and sailed past a check for empty or unreadable output: 森島 明子 became

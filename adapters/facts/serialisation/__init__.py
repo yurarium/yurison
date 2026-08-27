@@ -18,6 +18,7 @@ WHAT THIS DOES NOT OWN. When a work enters each state, which is `build.py`'s thr
 release feed and is judgement rather than vocabulary.
 """
 import re
+import unicodedata
 
 #: WHAT A WORK'S SERIALISATION IS DOING. `PRINT` and `ONESHOT` describe a work with no serialisation
 #: to be running at all; `ACTIVE`, `SLOW` and `DORMANT` are thresholds over how recently a chapter
@@ -83,3 +84,52 @@ def release_kinds():
 ACTIVE_DAYS, SLOW_DAYS = 45, 365
 THRESHOLDS = {"active": f"latest chapter within {ACTIVE_DAYS} days",
               "slow": "within a year", "dormant": "older than a year"}
+
+#: KANJI NUMERALS, WHICH A CHAPTER TITLE MAY COUNT IN. `第三話` is chapter 3 and reads as nothing to
+#: a pattern wanting digits, which is how カドコミ's rotation guard came to skip every kanji-numbered
+#: chapter: 寿命をゆずる友だちの話。's 第三話①②③ re-entered the free rotation on 2026-08-27, the guard
+#: could not tell they sat before a 第七話 dated 2024, and three chapters of a series finished in
+#: 2024 entered the feed as today's news with `[Final]` on the newest of them.
+_KANJI_DIGIT = {"〇": 0, "零": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
+                "六": 6, "七": 7, "八": 8, "九": 9}
+_KANJI_UNIT = {"十": 10, "百": 100}
+
+#: How a platform introduces a chapter number, and what it puts after one. Digits and kanji both,
+#: because a title uses whichever it likes and 第10話 and 第十話 are the same chapter numbered twice.
+_CHAPTER_NO = re.compile(
+    r"(?:Chapter|Episode|第|#|＃)\s*([0-9０-９]+|[〇零一二三四五六七八九十百]+)")
+
+
+def kanji_number(s):
+    """`七` to 7, `十二` to 12, `二十三` to 23, or nothing where it does not read as one."""
+    total = cur = 0
+    seen = False
+    for ch in s or "":
+        if ch in _KANJI_DIGIT:
+            cur = _KANJI_DIGIT[ch]
+            seen = True
+        elif ch in _KANJI_UNIT:
+            total += (cur or 1) * _KANJI_UNIT[ch]
+            cur = 0
+            seen = True
+        else:
+            return None
+    return (total + cur) if seen else None
+
+
+def chapter_number(title):
+    """The chapter number a title states, counted in digits or in kanji, or nothing.
+
+    ONE PRODUCER FOR A NUMBER TWO PASSES READ (§3). `build.ep_number` decides what KIND of update a
+    row is and this decides whether a platform's date can be a publication date, and they were
+    separate implementations of one question: whether 第三話 is chapter 3. One of them knew about
+    kanji and the other did not, so a work numbering its chapters that way was protected by the pass
+    that classified it and unprotected by the pass that dated it.
+    """
+    m = _CHAPTER_NO.search(str(title or ""))
+    if not m:
+        return None
+    got = unicodedata.normalize("NFKC", m.group(1))
+    if got.isdigit():
+        return int(got)
+    return kanji_number(got)

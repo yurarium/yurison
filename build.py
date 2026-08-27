@@ -1184,18 +1184,6 @@ _KANJI = {"〇": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
           "六": 6, "七": 7, "八": 8, "九": 9}
 
 
-def kanji_number(s):
-    """Kanji numerals 1–99 — 第十一話 is chapter 11. Titles using them were falling to `unknown`."""
-    m = re.search(r"[一二三四五六七八九十]+", s or "")
-    if not m:
-        return None
-    k = m.group(0)
-    if "十" not in k:
-        return _KANJI.get(k) if len(k) == 1 else None
-    tens, _, ones = k.partition("十")
-    return (_KANJI.get(tens, 1) if tens else 1) * 10 + (_KANJI.get(ones, 0) if ones else 0)
-
-
 def ep_number(title):
     """Chapter number where the title states one.
 
@@ -1216,8 +1204,13 @@ def ep_number(title):
         m = re.search(pat, s, re.I)
         if m:
             return int(m.group(1))
+    # KANJI NUMERALS ARE `facts/serialisation`'s (§3). What stays here is which SHAPES a chapter
+    # numbers itself in, which this knows far more of: その7, File.30, 2皿目 and the rest. The
+    # arithmetic was written out three times and the カドコミ adapter had none of it, so its
+    # rotation guard skipped every kanji-numbered chapter.
     if re.search(r"第[一二三四五六七八九十]+[話回章]", s):
-        return kanji_number(s)
+        m = re.search(r"[一二三四五六七八九十]+", s)
+        return _ser.kanji_number(m.group(0)) if m else None
     return None
 
 

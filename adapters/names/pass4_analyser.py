@@ -936,27 +936,17 @@ WRAPPED_PAT = re.compile(
 # it for ７ and not for 七, so 第七話 missed the structure branch entirely and was romanised whole as
 # `Dai Nana Hanashi`: the word "chapter" spelled out in Latin as though it were the chapter's name.
 # Chapter numbers are small, so this reads the everyday 1-999 forms and nothing cleverer.
-_KANJI_DIGIT = {"〇": 0, "零": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
-                "六": 6, "七": 7, "八": 8, "九": 9}
-_KANJI_UNIT = {"十": 10, "百": 100}
-KANJI_NUM = re.compile(r"[〇零一二三四五六七八九十百]+")
+def _serialisation():
+    """`facts/serialisation`, which reads a kanji numeral for everything that needs one (§3).
+
+    IT WAS WRITTEN OUT THREE TIMES, here, in `build.py`, and nowhere at all in the カドコミ adapter,
+    whose rotation guard therefore could not read 第三話 and let three chapters of a series finished
+    in 2024 into the feed as today's news.
+    """
+    from facts import serialisation as _ser
+    return _ser
 
 
-def kanji_number(s):
-    """`七` -> 7, `十二` -> 12, `二十三` -> 23, or None where it does not read as one."""
-    total = cur = 0
-    seen = False
-    for ch in s:
-        if ch in _KANJI_DIGIT:
-            cur = _KANJI_DIGIT[ch]
-            seen = True
-        elif ch in _KANJI_UNIT:
-            total += (cur or 1) * _KANJI_UNIT[ch]
-            cur = 0
-            seen = True
-        else:
-            return None
-    return (total + cur) if seen else None
 
 
 def digits_for_kanji(n):
@@ -967,7 +957,7 @@ def digits_for_kanji(n):
     the counters a chapter wears, which is what makes it structure rather than content.
     """
     def sub(m):
-        v = kanji_number(m.group(2))
+        v = _serialisation().kanji_number(m.group(2))
         return f"{m.group(1)}{v}{m.group(3)}" if v is not None else m.group(0)
     return re.sub(r"([第#＃])\s*([〇零一二三四五六七八九十百]+)\s*(話|回|話目|幕|章|夜|日目)",
                   sub, n)

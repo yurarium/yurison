@@ -27,6 +27,35 @@ def page(work):
 
 
 def main(s):
+    # ── A CHAPTER NUMBERED IN KANJI IS STILL NUMBERED ────────────────────────────────────────
+    #
+    # `drop_rotated` refuses a date that cannot be a publication date, and it does that by comparing
+    # a chapter against the ones AFTER it. A number it cannot read is a chapter it skips entirely.
+    # `chapter_no` wanted digits, so 寿命をゆずる友だちの話。's 第三話①②③ went back into カドコミ's
+    # free rotation on 2026-08-27, nothing could see they sit before a 第七話 dated 2024, and three
+    # chapters of a series that finished in 2024 entered the feed as today's news with `[Final]` on
+    # the newest of them.
+    s.eq(k.chapter_no({"title": "第三話③"}), 3, "a chapter counted in kanji states its number")
+    s.eq(k.chapter_no({"title": "第十二話"}), 12, "and so does a two-digit one")
+    s.eq(k.chapter_no({"title": "第10話"}), 10, "while digits go on reading as they did")
+    s.eq(k.chapter_no({"title": "おまけ"}), None, "and a title stating no number states none")
+
+    # THE GUARD ITSELF, on the shape that got past it. A chapter dated after every higher-numbered
+    # chapter cannot have been published then, whichever script its number is written in.
+    rotated = k.drop_rotated([{"title": "第三話③", "updated": "2026-08-27"},
+                              {"title": "第七話①", "updated": "2024-02-07"}])
+    s.eq(rotated[0].get("updated"), None, "the rotated date is refused as a publication date")
+    s.eq(rotated[0].get("rotated_date"), "2026-08-27",
+         "and kept, so a later pass can tell it from a chapter nobody ever dated")
+    s.eq(rotated[1].get("updated"), "2024-02-07", "while the chapter after it is untouched")
+
+    # AND THE COUNTER-CASE. A work whose chapters run in order states no contradiction, so nothing
+    # is refused: a guard that dropped dates from ordinary works would empty the feed.
+    intact = k.drop_rotated([{"title": "第一話", "updated": "2024-01-01"},
+                             {"title": "第二話", "updated": "2024-01-08"}])
+    s.eq([x.get("updated") for x in intact], ["2024-01-01", "2024-01-08"],
+         "chapters published in their own order keep their dates")
+
     work = {"work": {"title": "t"}, "latestEpisodes": {"result": [
         {"code": "A", "title": "第1話", "updateDate": "2026-08-03T02:00:00Z", "isActive": True},
         {"code": "B", "title": "第2話", "updateDate": "2026-08-10T02:00:00Z", "isActive": False},

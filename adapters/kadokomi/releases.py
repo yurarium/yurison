@@ -28,6 +28,8 @@ import yaml
 # one did not, and every CI run of it died on `No module named 'facts'` before it read a page.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
+from facts import serialisation as _ser                              # noqa: E402
+
 from facts import marketing as _marketing                               # noqa: E402
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
@@ -132,9 +134,15 @@ _NUM = re.compile(r"(?:Chapter|第|#)\s*(\d+)", re.I)
 
 
 def chapter_no(row):
-    """The chapter's own number, where its title states one."""
-    m = _NUM.search(row.get("title") or "")
-    return int(m.group(1)) if m else None
+    """The chapter's own number, where its title states one. `facts/serialisation` reads it.
+
+    IT USED TO WANT DIGITS, and a title counting in kanji states its number just as plainly.
+    `drop_rotated` below is the only caller and it compares a chapter against the ones after it, so
+    a number it cannot read is a chapter the guard skips: 寿命をゆずる友だちの話。's 第三話①②③ went
+    back into the free rotation on 2026-08-27, nothing could see that they sit before a 第七話 dated
+    2024, and three chapters of a series that finished in 2024 entered the feed as today's news.
+    """
+    return _ser.chapter_number(row.get("title") or "")
 
 
 def drop_rotated(rows):

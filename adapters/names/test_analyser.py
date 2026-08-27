@@ -286,7 +286,8 @@ def main(s):
     s.eq(p4.digits_for_kanji("千歳の話"), "千歳の話",
          "kanji digits loose in a subtitle are words, not a number")
     s.eq(p4.digits_for_kanji("十七歳の夏"), "十七歳の夏", "and an age is not a chapter")
-    s.eq(p4.kanji_number("x"), None, "a string that is not a number reads as none")
+    s.eq(p4._serialisation().kanji_number("x"), None,
+         "a string that is not a number reads as none, asked of the one producer")
 
     # AN ELLIPSIS IS ONE CHARACTER AND SUDACHI SPELLS IT OUT. `…` tokenises into three morphemes:
     # one carrying the character and two carrying an EMPTY surface and a full-width dot each. The

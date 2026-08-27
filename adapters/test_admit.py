@@ -80,6 +80,16 @@ def main(s):
     s.eq(admit.admits({"work_title": "ムルシエラゴ"}, KNOWN), (False, "names no platform"),
          "an announcement naming no platform names nowhere to look")
 
+    # AN ADAPTATION ANNOUNCEMENT NAMES NO PLACE TO READ THE MANGA, and the refusal has to say that
+    # rather than blame the register. ムルシエラゴ was announced as a TV anime on
+    # `magazine.jp.square-enix.com`, the page 集英社 posted the news on, and the old reason read
+    # "a platform the register does not hold": an invitation to register a press page as somewhere
+    # works are served. The work is already held and there was never anything to admit.
+    s.eq(admit.admits({"work_title": "ムルシエラゴ", "signal": "adaptation",
+                       "platform_host": "magazine.jp.square-enix.com"}, KNOWN),
+         (False, "an adaptation was announced, which names nowhere to read the work"),
+         "an adaptation is refused for being an adaptation, not for its host")
+
     # AND A PLATFORM NOBODY HAS REGISTERED IS NOT NO PLATFORM. 最恐呪物令嬢's article links straight
     # to `younganimal.com`, which 白泉社 runs and the register does not hold. Told apart because the
     # two need different things done: one is a work with nowhere to look, the other is one edit.

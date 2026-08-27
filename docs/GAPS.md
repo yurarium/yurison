@@ -2738,10 +2738,13 @@ and dates and no chapter list, so they produce feed rows and no work row.
 without `--candidates`. Reaching コミックゼノン and サンデーうぇぶり that way needs the platform
 registry extended rather than a worklist widened, which is why it was left.
 
-**SIX IS NOW TWENTY-ONE, and the daily run has not refreshed a per-series feed since 2 August.**
+**SIX IS NOW TWENTY-FOUR, and the daily run has not refreshed a per-series feed since 2 August.**
 Measured 2026-08-24: 50 feed rows name 24 works with no record, of which 21 are held nowhere under
 any fold and 3 are joins onto a spelling the corpus already has. Seven of the 21 are also counted by
 `announced works the corpus does not hold`, which is the same works arriving by the other door.
+Measured again 2026-08-27: 53 rows, 27 works, the same 3 joins and 24 held nowhere. Three more works
+in three days, and 15 of the 19 per-series feeds still carry `retrieved: 2026-08-02`, so the rate is
+roughly one new unheld work a day and nothing is taking any of them off the pile.
 
 The registry limitation above is not idle: `stage-a.yaml` passes `--platform ichicomi` and says in
 its own comment that "the rest exit immediately and always have", so on 2026-08-18 sixteen of the

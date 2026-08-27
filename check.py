@@ -847,9 +847,19 @@ def inv_state_agrees_with_its_own_date(ctx):
     The thresholds are build.py's: active within 45 days, slow within a year, dormant beyond it.
     This does not recompute the state, which would only restate the same arithmetic; it checks that
     whatever decided it did not leave a date behind that says something else.
+
+    ONE CLOCK, WHICH IS `facts/dating.today` AND NOT THE MACHINE'S. This read `date.today()` and so
+    disagreed with the build for nine hours of every day: 田所さん was decided `slow` against a JST
+    2026-08-28 and reported here as 45 days old against a local 2026-08-27, one day either side of
+    the 45-day threshold, and the state and the check were both right about their own dates. The
+    corpus keeps Japanese dates and `no capture is dated after the run that read it` was the same
+    fault in the other direction. A check on a different clock from its subject reports a fault
+    nobody can fix.
     """
+    sys.path.insert(0, str(ROOT / "adapters"))
     import datetime
-    today = datetime.date.today()
+    from facts import dating as _dating
+    today = _dating.today()
     bad = []
     for r in ctx["series"]:
         st, lat = r.get("state"), r.get("latest")

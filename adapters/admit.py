@@ -50,6 +50,13 @@ def admits(candidate, known=None):
     want of an address is a discovery pass to improve, and one refused for its platform is the
     register answering as it should.
     """
+    # AN ADAPTATION ANNOUNCEMENT NAMES NO PLACE TO READ THE MANGA, and saying anything else about
+    # it invites the wrong edit. ムルシエラゴ was announced as a TV anime on
+    # `magazine.jp.square-enix.com`, which is where 集英社 posted the NEWS, and the refusal read
+    # "a platform the register does not hold", which invites somebody to register a magazine's
+    # press page as somewhere works are served. The signal is in the candidate and says so already.
+    if candidate.get("signal") == "adaptation":
+        return False, "an adaptation was announced, which names nowhere to read the work"
     if not all(candidate.get(k) for k in NEEDS):
         # A PLATFORM NOBODY HAS REGISTERED IS NOT NO PLATFORM, and the difference is what somebody
         # acts on. 最恐呪物令嬢's article links straight to `younganimal.com`, which 白泉社 runs and

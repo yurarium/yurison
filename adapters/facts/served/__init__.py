@@ -198,6 +198,12 @@ STORE_ANSWERS = (
     # 1,121 print blocks and was never declared, which nobody saw because this budget was reading a
     # directory §13 had stopped filling.
     "series.json:series[].print[].delivered_from",
+    # AND WHO DISTRIBUTES THE RUN, from `print_row.distributor`, which `_print_blocks` reads in the
+    # same SELECT as the line above. `works.json:works[].distributor` was declared and this path was
+    # not, and the field is written onto a block only where the row HAS a distributor, so it stayed
+    # invisible until a work that has one arrived. The same shape as `delivered_from`: a field the
+    # store answers, served for as long as it has existed, never named here.
+    "series.json:series[].print[].distributor",
     "series.json:series[].print[].volumes", "series.json:series[].print[].shop_url",
     "series.json:series[].state",
     "series.json:series[].state_basis",

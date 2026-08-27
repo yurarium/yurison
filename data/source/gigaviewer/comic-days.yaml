@@ -6,7 +6,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-08-26
+retrieved: 2026-08-28
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -106,6 +106,7 @@ releases:
     raw_title: "第５０−３話　夢現"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421983484134387"
+    in_current_window: false
     work_title: "新刊１００億冊ください"
     web_status: "serialised"
     identified_via: "discovery-candidate"

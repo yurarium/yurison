@@ -13,7 +13,7 @@ source: webpages
 platform: ganganonline
 platform_name: "ガンガンONLINE"
 publisher: "スクウェア・エニックス"
-retrieved: 2026-08-26
+retrieved: 2026-08-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -73,9 +73,12 @@ works:
     author: "漫画／森柾みどり　監修／アロマ講師 松岡真衣"
     url: "https://www.ganganonline.com/title/2286"
     stated_schedule:
-      next_update: "2026-08-28"
-    chapter_count: 1
+      next_update: "2026-09-04"
+    chapter_count: 2
     chapters:
+      - title: "2滴目-2 眠れない夜の香り"
+        updated: 2026-08-28
+        access_modes: ["free"]
       - title: "2滴目-1 眠れない夜の香り"
         updated: 2026-08-21
-        access_modes: ["free"]
+        access_modes: ["purchase"]

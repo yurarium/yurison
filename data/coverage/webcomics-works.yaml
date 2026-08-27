@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-26
+retrieved: 2026-08-28
 record_type: candidate_works
 works: 310
 candidates:
@@ -2503,7 +2503,7 @@ candidates:
   - title: "妖怪殲滅のサイコリリー"
     platforms: ["マンガワン", "裏サンデー"]
     urls: ["https://manga-one.com/viewer/225633", "https://urasunday.com/title/2565"]
-    tags: ["オカルト", "ホラー", "女子高生", "百合"]
+    tags: ["オカルト", "ホラー", "女子高生", "最近のコメント数", "百合"]
   - title: "姉になりたい義姉VS百合になりたい義妹"
     platforms: ["MAGCOMI", "pixivコミック", "ニコニコ漫画"]
     urls: ["https://comic.pixiv.net/works/8567", "https://magcomi.com/episode/4856001361097282599", "https://manga.nicovideo.jp/comic/62763"]
@@ -3139,7 +3139,7 @@ candidates:
   - title: "残光再撮"
     platforms: ["kadokomi", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_011927_S"]
-    tags: ["写真", "大学生", "百合"]
+    tags: ["写真", "大学生", "最近のコメント数", "百合"]
   - title: "残存の竜"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203756"]
@@ -3476,6 +3476,10 @@ candidates:
   - title: "真夜中ぱんチ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005409_S"]
+  - title: "知らないまっぴるま"
+    platforms: ["となりのヤングジャンプ"]
+    urls: ["https://tonarinoyj.jp/episode/12207421984115943564"]
+    tags: ["百合", "読み切り"]
   - title: "研究棟の真夜中ごはん"
     platforms: ["ファイアCROSS"]
     urls: ["https://firecross.jp/ebook/series/405"]

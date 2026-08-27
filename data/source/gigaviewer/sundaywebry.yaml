@@ -6,12 +6,47 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-08-26
+retrieved: 2026-08-28
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984152624491"
+    work_title: "てくのぱにっくゆにばーす"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "ショートショート 助手の心得"
+    release_type: "unclassified"
+    date: "2026-08-28"
+    date_basis: "observed"
+    first_seen: "2026-08-28"
+    first_reported: "2026-08-27T15:00:00Z"
+    platform_updated: "2026-08-27T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984152624491"
+    author: "伏見ダイキ"
+    free_term_start: "2026-08-27T15:00:00Z"
+    raw_title: "ショートショート 助手の心得"
+    advances_narrative: false
+  - release_id: "sunday_webry:episode:12207421984152643384"
+    work_title: "メイド＆ロイドはお嬢様のお役に立ちたい！"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "Memory6 ひきこもり猫とお嬢様 (1)"
+    release_type: "unclassified"
+    date: "2026-08-28"
+    date_basis: "observed"
+    first_seen: "2026-08-28"
+    first_reported: "2026-08-27T15:00:00Z"
+    platform_updated: "2026-08-27T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984152643384"
+    author: "みやしろ"
+    free_term_start: "2026-08-27T15:00:00Z"
+    raw_title: "Memory6 ひきこもり猫とお嬢様 (1)"
+    advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984122496896"
+    in_current_window: false
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"
     identified_via: "discovery-candidate"

@@ -6,12 +6,13 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-08-26
+retrieved: 2026-08-28
 record_type: web_releases
 identification_mode: genre
 yuri_series_count: 168
 releases:
   - release_id: "ichijinsha:episode:2550912965923218552"
+    in_current_window: false
     work_title: "彩純ちゃんはレズ風俗に興味があります！"
     web_status: "serialised"
     identified_via: "platform-genre"
@@ -27,6 +28,7 @@ releases:
     author: "伊月クロ"
     advances_narrative: true
   - release_id: "ichijinsha:episode:12207421984115855223"
+    in_current_window: false
     work_title: "幼馴染の方程式"
     web_status: "serialised"
     identified_via: "platform-genre"

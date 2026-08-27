@@ -6,11 +6,27 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-08-26
+retrieved: 2026-08-28
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "tonarino_yj:episode:12207421984115943564"
+    work_title: "知らないまっぴるま"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "[10Pショート読切] 知らないまっぴるま"
+    release_type: "oneshot"
+    date: "2026-08-27"
+    date_basis: "observed"
+    first_seen: "2026-08-28"
+    first_reported: "2026-08-27T03:00:00Z"
+    platform_updated: "2026-08-27T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421984115943564"
+    author: "肋骨兄妹"
+    free_term_start: "2026-08-27T03:00:00Z"
+    advances_narrative: true
   - release_id: "tonarino_yj:episode:12207421984115943558"
     work_title: "死神デリート"
     web_status: "serialised"

@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-28
+retrieved: 2026-08-29
 record_type: candidate_works
 works: 310
 candidates:
@@ -168,7 +168,7 @@ candidates:
   - title: "あくまで!アットホームな職場です。"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/cad403cdddf52"]
-    tags: ["ギャグ・コメディ", "ファンタジー", "仕事", "悪魔", "百合", "社畜・過重労働者"]
+    tags: ["ギャグ・コメディ", "ファンタジー", "仕事", "悪魔", "最近のコメント数", "百合", "社畜・過重労働者"]
   - title: "あこがれを結んで"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204074"]
@@ -878,6 +878,10 @@ candidates:
   - title: "やしろの魔王"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005369_S"]
+  - title: "ゆあとさき"
+    platforms: ["コミックDAYS"]
+    urls: ["https://comic-days.com/episode/12207421984094554382"]
+    tags: ["百合", "読み切り"]
   - title: "ゆうやけトリップ"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/2399"]
@@ -2088,7 +2092,7 @@ candidates:
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008429_S"]
-    tags: ["VTuber", "お色気・微エロ", "料理・グルメ", "百合"]
+    tags: ["VTuber", "お色気・微エロ", "メイド", "女子高生", "料理・グルメ", "百合"]
   - title: "伊勢さんと志摩さん"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/875"]
@@ -2118,7 +2122,7 @@ candidates:
   - title: "作りたい女と食べたい女"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002798_S", "https://comic.pixiv.net/works/7182"]
-    tags: ["実写化", "料理・グルメ", "百合"]
+    tags: ["実写化", "料理・グルメ", "最近のコメント数", "百合"]
   - title: "侵略のプリマステラ!"
     platforms: ["コミックボーダー"]
     urls: ["https://comicborder.com/episode/12207421983750440973"]
@@ -2704,7 +2708,7 @@ candidates:
   - title: "彼氏の女友達がぐいぐい来る(私に)"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016753_S", "https://comic.pixiv.net/works/13373"]
-    tags: ["百合"]
+    tags: ["百合", "社会人"]
   - title: "徒花の約束"
     platforms: ["カドコミ", "ヤングエースUP(更新終了)"]
     urls: ["https://comic-walker.com/detail/KC_007123_S", "https://web-ace.jp/youngaceup/contents/1000322/"]
@@ -3300,14 +3304,14 @@ candidates:
   - title: "狼の皮をかぶった羊姫"
     platforms: ["ストーリアダッシュ(更新終了)", "竹コミ‎‏‎"]
     urls: ["https://storia.takeshobo.co.jp/manga/hitsujihime/", "https://takecomic.jp/series/edb5080d3a3a1"]
-    tags: ["百合"]
+    tags: ["最近のコメント数", "百合"]
   - title: "猫とシュガーポット"
     platforms: ["comicブースト"]
     urls: ["https://comic-boost.com/content/01560001"]
   - title: "猫に白鳥、蛍に小判"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006798_S"]
-    tags: ["百合"]
+    tags: ["女子高生", "百合"]
   - title: "猫のまにまに"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000278_S"]
@@ -3696,7 +3700,7 @@ candidates:
   - title: "胡蝶の夢"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019442_S"]
-    tags: ["百合", "読み切り"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "脱いでもいいよね?"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005755_S"]
@@ -3970,7 +3974,7 @@ candidates:
   - title: "香り屋さんの纏さん"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2286"]
-    tags: ["百合", "読み切り"]
+    tags: ["サトリ", "百合", "読み切り"]
   - title: "香原さんのふぇちのーと"
     platforms: ["ニコニコ漫画", "竹コミ‎‏‎"]
     urls: ["https://manga.nicovideo.jp/comic/56509", "https://takecomic.jp/series/4e4bb1b935407"]

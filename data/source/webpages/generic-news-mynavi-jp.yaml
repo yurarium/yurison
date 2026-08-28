@@ -12,7 +12,7 @@ source: webpages
 platform: news-mynavi-jp
 platform_name: "マイナビニュース"
 publisher: ""
-retrieved: 2026-08-28
+retrieved: 2026-08-29
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 extraction: markup
@@ -21,7 +21,7 @@ date_confidence: low
 works:
   - work_title: "自動車の妖精 パッソちゃんの恩返し"
     url: "https://news.mynavi.jp/series/carfairy/"
-    chapter_count: 4
+    chapter_count: 3
     chapters:
       - title: "相談室 第8回 バイクのブレーキ交換にかかる費用は?ブレーキパッドの種類についても解説"
         updated: 2026-08-26
@@ -31,7 +31,4 @@ works:
         date_basis: heuristic
       - title: "クイズ 第65回 直4&amp;アルミフレーム全盛時代に現れた反逆児! なんてバイク?"
         updated: 2026-08-18
-        date_basis: heuristic
-      - title: "相談室 第1回 故障したのに修理してくれない…バイクの「修理難民」にならないためには?"
-        updated: 2026-04-30
         date_basis: heuristic

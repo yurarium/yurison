@@ -6,12 +6,13 @@ source: gigaviewer
 platform: comic-ogyaaa
 platform_name: "COMIC OGYAAA!!"
 publisher: "一迅社"
-retrieved: 2026-08-26
+retrieved: 2026-08-29
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "comic_ogyaaa:episode:12207421984118168859"
+    in_current_window: false
     work_title: "あの子とふたりで。"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -28,6 +29,7 @@ releases:
     free_term_start: "2026-08-21T03:00:00Z"
     advances_narrative: true
   - release_id: "comic_ogyaaa:episode:12207421984118168855"
+    in_current_window: false
     work_title: "壊していいよ、すいかちゃん"
     web_status: "serialised"
     identified_via: "discovery-candidate"

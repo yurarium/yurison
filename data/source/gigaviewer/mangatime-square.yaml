@@ -6,11 +6,28 @@ source: gigaviewer
 platform: mangatime-square
 platform_name: "まんがタイムSquare"
 publisher: ""
-retrieved: 2026-08-26
+retrieved: 2026-08-29
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "mangatime:episode:12207421984001577949"
+    work_title: "ニセアイホンアイ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第4話"
+    release_type: "chapter"
+    date: "2026-08-06"
+    date_basis: "observed"
+    first_seen: "2026-08-10"
+    first_reported: "2026-08-06T03:00:00Z"
+    platform_updated: "2026-08-28T03:00:00Z"
+    platform_date_changed: "was 2026-08-06T03:00:00Z, now 2026-08-28T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://mangatime-square.com/episode/12207421984001577949"
+    author: "いくたはな"
+    free_term_start: "2026-08-06T03:00:00Z"
+    advances_narrative: true
   - release_id: "mangatime:episode:12207421983656607521"
     in_current_window: false
     work_title: "腹割るウチらの秘密ごと！"
@@ -133,24 +150,6 @@ releases:
     date_confidence: "low"
     date_note: "7 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
     url: "https://mangatime-square.com/episode/12207421984001577953"
-    author: "いくたはな"
-    free_term_start: "2026-08-06T03:00:00Z"
-    advances_narrative: true
-  - release_id: "mangatime:episode:12207421984001577949"
-    in_current_window: false
-    work_title: "ニセアイホンアイ"
-    web_status: "serialised"
-    identified_via: "discovery-candidate"
-    episode_title: "第4話"
-    release_type: "chapter"
-    date: "2026-08-06"
-    date_basis: "observed"
-    first_seen: "2026-08-10"
-    first_reported: "2026-08-06T03:00:00Z"
-    platform_updated: "2026-08-06T03:00:00Z"
-    date_confidence: "low"
-    date_note: "7 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
-    url: "https://mangatime-square.com/episode/12207421984001577949"
     author: "いくたはな"
     free_term_start: "2026-08-06T03:00:00Z"
     advances_narrative: true

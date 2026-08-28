@@ -10,7 +10,7 @@ source: webpages
 platform: mangaone
 platform_name: "マンガワン"
 publisher: "小学館"
-retrieved: 2026-08-28
+retrieved: 2026-08-29
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -93,18 +93,22 @@ works:
     url: "https://manga-one.com/manga/28129/chapter/355684"
     chapter_count: 10
     chapters:
+      - title: "Memory6(前編)"
+        updated: 2026-09-12
+        access_modes: ["purchase"]
+        access_note: "released early to paying readers (先読)"
+        date_basis: rendered
       - title: "単行本第1集発売PR!!"
         updated: 2026-08-15
         access_modes: ["free"]
         date_basis: rendered
       - title: "Memory5(後編)"
         updated: 2026-08-29
-        access_modes: ["purchase"]
-        access_note: "released early to paying readers (先読)"
+        access_modes: ["free"]
         date_basis: rendered
       - title: "Memory5(前編)"
         updated: 2026-08-15
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "Memory4(後編)"
         updated: 2026-07-25
@@ -130,17 +134,21 @@ works:
         updated: 2026-06-13
         access_modes: ["purchase"]
         date_basis: rendered
-      - title: "Memory1"
-        updated: 2026-06-13
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "妖怪殲滅のサイコリリー"
     url: "https://manga-one.com/viewer/225633"
-    chapter_count: 9
+    chapter_count: 10
     chapters:
+      - title: "読者の皆様へ"
+        updated: 2026-08-27
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第15話(後編)"
+        updated: 2026-08-27
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第15話(前編)"
         updated: 2026-08-20
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "第14話(後編)"
         updated: 2026-08-13
@@ -168,10 +176,6 @@ works:
         date_basis: rendered
       - title: "第12話(前編)"
         updated: 2024-05-16
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第11話(後編)"
-        updated: 2024-05-09
         access_modes: ["purchase"]
         date_basis: rendered
   - work_title: "かわいい同盟"

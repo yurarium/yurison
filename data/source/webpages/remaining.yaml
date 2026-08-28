@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-08-28
+retrieved: 2026-08-29
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -1418,8 +1418,12 @@ works:
     url: "https://mangatime-square.com/episode/12207421984001577937"
     platform_name: "まんがタイムSquare"
     route: "gigaviewer"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "第4話"
+        updated: 2026-08-28
+        author: "いくたはな"
+        access_modes: ["free"]
       - title: "第3話"
         updated: 2026-07-24
         author: "いくたはな"
@@ -1437,8 +1441,12 @@ works:
     url: "https://comic-action.com/episode/2550912964909179818"
     platform_name: "webアクション"
     route: "gigaviewer"
-    chapter_count: 16
+    chapter_count: 17
     chapters:
+      - title: "第12話 E・E・S①"
+        updated: 2026-08-28
+        author: "U-temo"
+        access_modes: ["free"]
       - title: "第11話 丑の刻参り（後編）"
         updated: 2026-07-24
         author: "U-temo"
@@ -2325,7 +2333,7 @@ works:
       - title: "第10話"
         updated: 2026-08-14
         author: "ミナミト"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
   - work_title: "運命は役に立たない"
     author: "まめ魚"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
@@ -4741,11 +4749,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-08-27
+        updated: 2026-08-28
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-08-27
+        updated: 2026-08-28
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

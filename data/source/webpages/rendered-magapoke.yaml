@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-08-28
+retrieved: 2026-08-29
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -326,7 +326,7 @@ works:
     author: "田口囁一"
     url: "https://pocket.shonenmagazine.com/title/01357"
     stated_schedule:
-      cadence: "隔週日曜"
+      cadence: "毎週木曜"
     chapter_count: 10
     chapters:
       - title: "【その32】ふたりエスケープ(2)"
@@ -378,7 +378,7 @@ works:
     author: "樫風"
     url: "https://pocket.shonenmagazine.com/title/01376"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎月第1木曜"
     chapter_count: 10
     chapters:
       - title: "【第32話(3)】"
@@ -480,7 +480,7 @@ works:
     author: "サスケ"
     url: "https://pocket.shonenmagazine.com/title/01509"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎月第1木曜"
     chapter_count: 10
     chapters:
       - title: "【最終話(3)】"
@@ -531,7 +531,7 @@ works:
   - work_title: "ハロー、メランコリック!"
     url: "https://pocket.shonenmagazine.com/title/01544"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎月第1木曜"
     chapter_count: 10
     chapters:
       - title: "【track14】ハロー、メランコリック！(2)"
@@ -583,7 +583,7 @@ works:
     author: "まにお"
     url: "https://pocket.shonenmagazine.com/title/01645"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎月第1木曜"
     chapter_count: 10
     chapters:
       - title: "【act.26(5)】"
@@ -688,7 +688,7 @@ works:
     author: "雨水汐"
     url: "https://pocket.shonenmagazine.com/title/01837"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎月第1木曜"
     chapter_count: 10
     chapters:
       - title: "【32日目】"
@@ -792,7 +792,7 @@ works:
   - work_title: "甘えさせて雛森さん!"
     url: "https://pocket.shonenmagazine.com/title/02043"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎月第1木曜"
     chapter_count: 10
     chapters:
       - title: "【第21話】"
@@ -845,7 +845,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/02202"
     stated_schedule:
       cadence: "毎週火曜"
-      next_update: "2027-08-25"
+      next_update: "2026-09-08"
     chapter_count: 10
     chapters:
       - title: "【第50話(3)】夢現"
@@ -861,7 +861,7 @@ works:
       - title: "【第50話(1)】夢現"
         updated: 2026-07-18
         access_modes: ["purchase"]
-        access_note: "point price 70"
+        access_note: "point price 55"
         date_basis: rendered
       - title: "【第49話(2)】相思"
         updated: 2026-07-04
@@ -1000,13 +1000,17 @@ works:
     url: "https://pocket.shonenmagazine.com/title/02328"
     stated_schedule:
       cadence: "毎週金曜"
-      next_update: "2026-08-28"
+      next_update: "2026-11-27"
     chapter_count: 10
     chapters:
-      - title: "【第103話】消滅した呪い"
-        updated: 2026-08-21
+      - title: "【第104話】竜神祭"
+        updated: 2026-08-28
         access_modes: ["purchase"]
         access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第103話】消滅した呪い"
+        updated: 2026-08-21
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第102話】最後の一撃"
         updated: 2026-08-07
@@ -1018,19 +1022,15 @@ works:
         date_basis: rendered
       - title: "【第100話】心あわせて"
         updated: 2026-07-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第99話】竜の叫び声"
-        updated: 2026-07-10
         access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【第5話】神の使い"
         updated: 2023-11-10
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第4話】本編スタート"
         updated: 2023-11-03
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第3話】成長しました"
         updated: 2023-10-27
@@ -1151,7 +1151,7 @@ works:
     author: "山座一心"
     url: "https://pocket.shonenmagazine.com/title/02596"
     stated_schedule:
-      cadence: "毎週水曜"
+      cadence: "毎週火曜"
     chapter_count: 10
     chapters:
       - title: "【第23話(2)】アリス・ジャバウォックに花束を"
@@ -1251,7 +1251,7 @@ works:
     author: "やとさきはる"
     url: "https://pocket.shonenmagazine.com/title/02709"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎月第1木曜"
     chapter_count: 10
     chapters:
       - title: "【最終回(2)】聖夜の天使たち"
@@ -1304,14 +1304,18 @@ works:
       cadence: "毎週水曜"
     chapter_count: 10
     chapters:
+      - title: "【第54話】力を合わせて☆生き残れ☆ガール"
+        updated: 2026-08-26
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
       - title: "【単行本宣伝話】"
         updated: 2026-08-12
         access_modes: ["free"]
         date_basis: rendered
       - title: "【第53話】脳筋☆アホアホ☆ガール"
         updated: 2026-08-05
-        access_modes: ["purchase"]
-        access_note: "point price 70"
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第52話】ラピスの☆お姉ちゃん☆ガール"
         updated: 2026-07-29
@@ -1319,10 +1323,6 @@ works:
         date_basis: rendered
       - title: "【第51話】急げ☆師匠の元へ☆ガール"
         updated: 2026-07-22
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第50話】バズって☆チヤホヤ☆ガール"
-        updated: 2026-07-15
         access_modes: ["free"]
         date_basis: rendered
       - title: "【第5話】芸能事務所☆突撃☆ガール"
@@ -1350,13 +1350,17 @@ works:
     url: "https://pocket.shonenmagazine.com/title/02901"
     stated_schedule:
       cadence: "毎週水曜"
-      next_update: "2027-08-26"
+      next_update: "2026-09-09"
     chapter_count: 10
     chapters:
-      - title: "【#50】サファイア"
-        updated: 2026-08-19
+      - title: "【#51】princess"
+        updated: 2026-08-26
         access_modes: ["purchase"]
         access_note: "point price 90"
+        date_basis: rendered
+      - title: "【#50】サファイア"
+        updated: 2026-08-19
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【#49】Pair"
         updated: 2026-08-05
@@ -1368,10 +1372,6 @@ works:
         date_basis: rendered
       - title: "【#47】No.1？"
         updated: 2026-07-22
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【#46】Million"
-        updated: 2026-07-15
         access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【#5】Pinkie swan"
@@ -1399,9 +1399,19 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03056"
     stated_schedule:
       cadence: "隔週日曜"
-      next_update: "2027-08-23"
+      next_update: "2026-09-13"
     chapter_count: 10
     chapters:
+      - title: "【15話(2)】あたしが証明します！"
+        updated: 2026-08-25
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【15話(1)】あたしが証明します！"
+        updated: 2026-08-25
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
       - title: "【14話(2)】これはほとんど愛かもしれない"
         updated: 2026-07-24
         access_modes: ["purchase"]
@@ -1409,20 +1419,10 @@ works:
         date_basis: rendered
       - title: "【14話(1)】これはほとんど愛かもしれない"
         updated: 2026-07-24
-        access_modes: ["purchase"]
-        access_note: "point price 90"
+        access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【13話(2)】ほんとに死んじゃったんだ あの女"
         updated: 2026-05-25
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【13話(1)】ほんとに死んじゃったんだ あの女"
-        updated: 2026-05-25
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【12話(2)】アタシ初めてひとを殺したいと思った"
-        updated: 2026-04-24
         access_modes: ["free"]
         date_basis: rendered
       - title: "【4話(2)】あたし以外の全部が灰色になっちゃうくらい"
@@ -1449,7 +1449,7 @@ works:
     author: "陣ノ内康暉"
     url: "https://pocket.shonenmagazine.com/title/03068"
     stated_schedule:
-      cadence: "隔週木曜"
+      cadence: "毎週火曜"
     chapter_count: 10
     chapters:
       - title: "【単行本宣伝話】"
@@ -1458,7 +1458,8 @@ works:
         date_basis: rendered
       - title: "【23.】Never See Me Again"
         updated: 2026-07-02
-        access_modes: ["free"]
+        access_modes: ["purchase"]
+        access_note: "point price 65"
         date_basis: rendered
       - title: "【22.】水上のガンマン"
         updated: 2026-06-18
@@ -1467,7 +1468,8 @@ works:
         date_basis: rendered
       - title: "【21.】過ぎ去りし思い出"
         updated: 2026-06-04
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
+        access_note: "point price 65"
         date_basis: rendered
       - title: "【20.】それが黒魔女"
         updated: 2026-05-21
@@ -1556,7 +1558,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03282"
     stated_schedule:
       cadence: "毎週土曜"
-      next_update: "2026-08-29"
+      next_update: "2026-09-05"
     chapter_count: 10
     chapters:
       - title: "【第24.5話】メイド・イン・学園祭！"

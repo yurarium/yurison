@@ -1829,6 +1829,42 @@ def _load_feed(db, source, put, counts):
 
 
 
+
+def _index_columns(db, name):
+    """The columns a unique index addresses, read from its SQL where `index_info` gives none.
+
+    ONLY `coalesce(column, default)`, which is the whole of what this schema writes. The default
+    maps NULL onto a sentinel and changes nothing about WHICH column identifies the row, so keying
+    on the column is keying on the index. Anything else in an expression is something this has not
+    been taught to read, and it answers nothing rather than guessing.
+    """
+    sql = db.execute("SELECT sql FROM sqlite_master WHERE type = 'index' AND name = ?",
+                     (name,)).fetchone()
+    if not sql or not sql[0]:
+        return None
+    inside = sql[0][sql[0].index("(") + 1:sql[0].rindex(")")]
+    out, depth, item = [], 0, ""
+    for ch in inside:
+        if ch == "," and depth == 0:
+            out.append(item.strip())
+            item = ""
+            continue
+        depth += (ch == "(") - (ch == ")")
+        item += ch
+    out.append(item.strip())
+    cols = []
+    for part in out:
+        m = re.fullmatch(r"coalesce\s*\(\s*([A-Za-z_][A-Za-z0-9_]*)\s*,.*\)", part,
+                         re.I | re.S)
+        if m:
+            cols.append(m.group(1))
+        elif re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", part):
+            cols.append(part)
+        else:
+            return None
+    return cols
+
+
 def natural_key(db, table):
     """The columns that address a row of `table`, for a delta to write against.
 
@@ -1849,7 +1885,17 @@ def natural_key(db, table):
             continue
         cols = [r[2] for r in db.execute(f"PRAGMA index_info({name})")]
         # AN EXPRESSION HAS NO COLUMN NAME, and `coalesce(source, '')` is half of what identifies a
-        # claim. An index this cannot read is an index this may not key on.
+        # claim. `PRAGMA index_info` gives None for it, so the index has to be read from its own SQL.
+        #
+        # WHAT IT COST WHILE THIS GAVE UP. Seven unique indexes in this schema are written that way
+        # and every one of them named a table whose delta was refused: `claim`, `state_claim`,
+        # `romanisation`, `ruby`, `names`, `admission`, `work_credit`. The key fell through to EVERY
+        # COLUMN, which addresses more rows than the index does, so the reconcile wrote two rows the
+        # index holds as one and SQLite refused the commit. The run recovers by rebuilding the file
+        # whole, which is why this was a line of noise on most builds rather than a failure, and it
+        # meant the incremental path was doing nothing on the tables that matter most.
+        if not all(cols):
+            cols = _index_columns(db, name) or cols
         #
         # AND AN INDEX HOLDING THE ROWID IS NO KEY AT ALL. `surface` declares `UNIQUE (kind, folded)`
         # and `UNIQUE (id, kind)`, both two columns wide, and taking the second made every row look

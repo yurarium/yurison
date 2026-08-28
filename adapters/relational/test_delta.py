@@ -231,6 +231,32 @@ def main(s):
         s.eq(sorted(relational.natural_key(db, "work_credit")), ["credit", "role", "work"],
              "and an edge by the three columns its unique index names")
 
+        # ── AN INDEX WRITTEN AS AN EXPRESSION STILL NAMES ITS COLUMNS ────────────────────────
+        #
+        # `PRAGMA index_info` gives None for `coalesce(record, 0)`, and this used to give up and
+        # key on EVERY COLUMN, which addresses more rows than the index does. The reconcile then
+        # wrote two rows the index holds as one and SQLite refused the commit: seven tables in this
+        # schema are indexed that way and every one of them was refused on most builds, the run
+        # recovering by rebuilding the file whole. The incremental path was doing nothing on
+        # `claim`, `state_claim`, `romanisation`, `ruby`, `names`, `admission` and `work_credit`.
+        #
+        # `work_credit` ABOVE PASSED FOR THE WRONG REASON, which is how this stayed invisible: its
+        # only other column is the rowid, so every-column and the index happen to agree. The tables
+        # below are the ones where they do not.
+        s.eq(relational.natural_key(db, "romanisation"), ["surface", "record", "style"],
+             "the expression's own column is what the key names, and `value` is not in it")
+        s.eq(relational.natural_key(db, "state_claim"), ["work", "source", "says"],
+             "and a claim about a state is addressed by the three the index declares")
+        s.check("note" not in relational.natural_key(db, "claim"),
+                "a claim's key is its identity index rather than everything it states")
+
+        # ONLY `coalesce`, WHICH IS THE WHOLE OF WHAT THIS SCHEMA WRITES. An expression this has
+        # not been taught to read answers nothing rather than guessing a column out of it.
+        db.execute("CREATE TABLE probe (a TEXT, b TEXT)")
+        db.execute("CREATE UNIQUE INDEX probe_one ON probe (a, lower(b))")
+        s.eq(relational._index_columns(db, "probe_one"), None,
+             "an expression that is not a coalesce is one this may not key on")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "delta"))

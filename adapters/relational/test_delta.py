@@ -250,6 +250,28 @@ def main(s):
         s.check("note" not in relational.natural_key(db, "claim"),
                 "a claim's key is its identity index rather than everything it states")
 
+        # ── A COLUMN POINTING AT ITS OWN TABLE IS RESOLVED AFTER THE ROWS EXIST ──────────────
+        #
+        # `surface.alias_of` names another surface, and the map from the scratch's numbers to this
+        # store's is built FROM the reconcile, so on the way in there is nothing to translate it
+        # with. It carried the scratch's id across untranslated, and where that number happened to
+        # be the live id of the row carrying it, `alias_of IS NULL OR alias_of <> id` refused the
+        # whole commit. The full rebuild resolves aliases in a second pass for this reason.
+        db.execute("INSERT INTO surface (kind, folded) VALUES ('title', 'canon')")
+        db.execute("INSERT INTO surface (kind, folded) VALUES ('title', 'variant')")
+        canon = db.execute("SELECT id FROM surface WHERE folded = 'canon'").fetchone()[0]
+        variant = db.execute("SELECT id FROM surface WHERE folded = 'variant'").fetchone()[0]
+        db.execute("UPDATE surface SET alias_of = ? WHERE id = ?", (canon, variant))
+        s.eq(db.execute("SELECT alias_of FROM surface WHERE id = ?", (variant,)).fetchone()[0],
+             canon, "a variant points at the spelling it stands for")
+        import sqlite3 as _sq
+        try:
+            db.execute("UPDATE surface SET alias_of = id WHERE id = ?", (variant,))
+            s.check(False, "no surface may stand for itself")
+        except _sq.IntegrityError:
+            s.check(True,
+                    "no surface may stand for itself, which is the check the delta was tripping")
+
         # ONLY `coalesce`, WHICH IS THE WHOLE OF WHAT THIS SCHEMA WRITES. An expression this has
         # not been taught to read answers nothing rather than guessing a column out of it.
         db.execute("CREATE TABLE probe (a TEXT, b TEXT)")

@@ -2082,14 +2082,24 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
         # than one hop: `credit_dropped.surface` points at `credit_division.surface`, which is
         # itself a surface id, so translating only the tables that own a rowid left the second hop
         # holding the scratch's numbers and the commit refused it.
+        # A COLUMN POINTING AT THIS TABLE'S OWN ROWS CANNOT BE TRANSLATED ON THE WAY IN, because the
+        # map from the scratch's numbers to this store's is built from the reconcile that has not
+        # happened yet. `surface.alias_of` is the one: it carried the SCRATCH's id into the live
+        # store untranslated, and where that number happened to be the live id of the row carrying
+        # it, `alias_of IS NULL OR alias_of <> id` refused the whole commit. The full rebuild
+        # resolves aliases in a second pass for exactly this reason, and the delta now does too.
+        deferred = [r[3] for r in db.execute(f"PRAGMA foreign_key_list({table})") if r[2] == table]
         points_at = {}
         for r in db.execute(f"PRAGMA foreign_key_list({table})"):
             parent, column, parent_col = r[2], r[3], r[4]
+            if parent == table:
+                continue
             if parent_col is None:
                 parent_col = next(iter(_addresses(db, parent)), None)
             got = translate.get((parent, parent_col))
             if got:
                 points_at[column] = got
+        stated = [c for c in stated if c not in deferred]
         rows = []
         for r in fresh.execute(f"SELECT {', '.join(cols)} FROM {table}"):
             row = dict(zip(cols, r))
@@ -2108,6 +2118,27 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
         counts[table] = (written, dropped, unchanged)
         if written or dropped:
             touched.add(table)
+        # AND NOW THE SELF-REFERENCE, once every row of this table has its own address. The fresh
+        # row names its target by the scratch's number; the target's KEY is what both sides agree
+        # about, so the scratch is asked what that number addresses and this store is asked for the
+        # id of the same key.
+        if deferred and mine:
+            addr = next(iter(mine))
+            live = {tuple(r[:-1]): r[-1] for r in db.execute(
+                f"SELECT {', '.join(key)}, {addr} FROM {table}")}
+            scratch = {r[0]: tuple(r[1:]) for r in fresh.execute(
+                f"SELECT {addr}, {', '.join(key)} FROM {table}")}
+            for column in deferred:
+                for r in fresh.execute(
+                        f"SELECT {', '.join(key)}, {column} FROM {table}"
+                        f" WHERE {column} IS NOT NULL"):
+                    want = live.get(scratch.get(r[-1]))
+                    mine_id = live.get(tuple(r[:-1]))
+                    if want and mine_id and want != mine_id:
+                        put_sql = (f"UPDATE {table} SET {column} = ? WHERE {addr} = ?"
+                                   f" AND ({column} IS NULL OR {column} <> ?)")
+                        db.execute(put_sql, (want, mine_id, want))
+                        touched.add(table)
         # AND WHAT THIS TABLE'S OWN NUMBERS BECAME, for the children walked after it. Its address,
         # which the insert handed out here and there and which agree about nothing; and any column
         # already translated on the way in, since a child pointing at THAT column needs the same map.

@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-29
+retrieved: 2026-08-30
 record_type: candidate_works
 works: 310
 candidates:
@@ -2092,7 +2092,7 @@ candidates:
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008429_S"]
-    tags: ["VTuber", "お色気・微エロ", "メイド", "女子高生", "料理・グルメ", "百合"]
+    tags: ["VTuber", "お色気・微エロ", "メイド", "女子高生", "料理・グルメ", "最近のコメント数", "百合"]
   - title: "伊勢さんと志摩さん"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/875"]
@@ -2122,7 +2122,7 @@ candidates:
   - title: "作りたい女と食べたい女"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002798_S", "https://comic.pixiv.net/works/7182"]
-    tags: ["実写化", "料理・グルメ", "最近のコメント数", "百合"]
+    tags: ["ぽっちゃり", "実写化", "料理・グルメ", "最近のコメント数", "百合"]
   - title: "侵略のプリマステラ!"
     platforms: ["コミックボーダー"]
     urls: ["https://comicborder.com/episode/12207421983750440973"]
@@ -3304,7 +3304,7 @@ candidates:
   - title: "狼の皮をかぶった羊姫"
     platforms: ["ストーリアダッシュ(更新終了)", "竹コミ‎‏‎"]
     urls: ["https://storia.takeshobo.co.jp/manga/hitsujihime/", "https://takecomic.jp/series/edb5080d3a3a1"]
-    tags: ["最近のコメント数", "百合"]
+    tags: ["最近のコメント数", "百合", "糖度高め"]
   - title: "猫とシュガーポット"
     platforms: ["comicブースト"]
     urls: ["https://comic-boost.com/content/01560001"]
@@ -3564,6 +3564,10 @@ candidates:
   - title: "私の幽霊"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550912965183085999"]
+  - title: "私の彼女はボディビルダー"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_019973_S"]
+    tags: ["最近のコメント数"]
   - title: "私の推しは悪役令嬢。"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/7319", "https://ichicomi.com/episode/2550912965923202772"]

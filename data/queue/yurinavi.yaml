@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-08-29
+retrieved: 2026-08-30
 record_type: discovery_queue
 candidates:
   - work_title: "優等生がアダルトグッズを買いに来た"
@@ -45,6 +45,15 @@ candidates:
     work_url: "https://ichicomi.com/episode/12207421984038651597"
     headline: "女の感情がぶつかり合うコスプレイヤーたちの百合姫新連載「神は私を撮りたいって言ってます！」WEBで公開"
     status: unconfirmed
+  - work_title: "私の彼女はボディビルダー"
+    signal: "oneshot"
+    announced: "Sat, 29 Aug 2026 11:18:10 +0000"
+    url: "https://yurinavi.com/2026/08/29/watashino-kanojyoha-body-yomikiri/"
+    platform: "kadokomi"
+    platform_code: "KC_019973_S"
+    work_url: "https://comic-walker.com/detail/KC_019973_S"
+    headline: "筋肉がつなぐ絆を描く大人百合読み切り「私の彼女はボディビルダー」WEBで公開"
+    status: unconfirmed
   - work_title: "最恐呪物令嬢"
     signal: "new-serial"
     announced: "Sat, 15 Aug 2026 11:00:19 +0000"
@@ -55,7 +64,7 @@ candidates:
     status: unconfirmed
   - work_title: "天瀬ましろはイきたくない！"
     signal: "oneshot"
-    announced: "Fri, 14 Aug 2026 11:00:48 +0000"
+    announced: "2026-08-14"
     url: "https://yurinavi.com/2026/08/14/amasemashiro-yomikiri/"
     platform: "kadokomi"
     platform_code: "KC_016898_S"

@@ -10,17 +10,17 @@ pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 310
-works_on_watched_platform: 288
+works_on_watched_platform: 287
 platforms_total: 57
 platforms_watched: 43
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
     works: 8
+  - platform: "ヤンジャン+"
+    works: 3
   - platform: "きら星ポータル"
     works: 3
-  - platform: "ヤンジャン+"
-    works: 2
   - platform: "pixivコミックマガジン"
     works: 1
   - platform: "ドリコミ+"
@@ -344,7 +344,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006547_S"
     antenna_id: "187688"
-    tags: ["オカルト", "サスペンス", "ホラー", "残酷・グロテスク", "架空の部活", "女子高生", "デスゲーム", "百合"]
+    tags: ["最近のコメント数"]
   - title: "私を喰べたい、ひとでなし"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_003258_S"
@@ -1205,6 +1205,11 @@ works_missing:
     url: "https://younganimal.com/series/060a6130e55b2"
     antenna_id: "212464"
     tags: ["オカルト", "女子高生", "百合"]
+  - title: "エリオと電気人形"
+    platform: "ヤンジャン+"
+    url: "https://ynjn.jp/title/6108"
+    antenna_id: "173220"
+    tags: ["百合", "ロボ・人造人間"]
   - title: "ベイビー車中ハッカーズ"
     platform: "ヤンジャン+"
     url: "https://ynjn.jp/title/16787"
@@ -1319,11 +1324,6 @@ works_missing:
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2550912965923204597"
     antenna_id: "209611"
-    tags: ["百合"]
-  - title: "会長と副会長"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/12207421983782306950"
-    antenna_id: "209610"
     tags: ["百合"]
   - title: "バトル・ウィッチーズ"
     platform: "新都社"

@@ -3087,3 +3087,51 @@ kept so that losing the evidence is not how the deliberation ends.
 **RELATED.** `A published release can leave its month, and a published release can vanish` above is
 the same subject from the other side, and it stands: this closes the route by which a row was never
 filed at all, and says nothing about whether `release` should be append-only.
+
+## The pass that mints an identifier cannot see the works that lack one
+
+Found 2026-08-31, working the induction half of a maintenance pass. 49 works reach no reader.
+
+**THE LOOP.** `build.py` compiles a series row for every work a capture reached. A row with no
+identifier becomes no `work` row in the store, which the run has said out loud since the day the
+store arrived: "A WORK WITH NO IDENTIFIER REACHES NO READER". `facts/identity` is what mints one,
+and under §13 it reads its population from the STORE. So a work with no identifier is absent from
+the store, absent from the population the minter reads, and never minted. It is the minter sharing
+its subject's blind spot, which is the fault STANDING-INSTRUCTIONS §14b names for CHECKS, arriving
+in a pass that was supposed to fix the thing.
+
+**MEASURED.** `population.series(None)` returns 3,036 rows and holds none of キジとイナサ,
+私の彼女はボディビルダー, 骨に願いを、星に呪いを or 贋作の第十番, which are four of the 49 the same
+build reports as awaiting an identifier. A work already carrying an id from a print record, ゆるゆり
+and 大室家 among them, IS visible, which is the loop stated from the other side: sight depends on
+the very thing the pass would supply.
+
+**WHAT IT COSTS.** 49 works are compiled, named, dated and then dropped: no work row, no page, no
+entry in the works list, no search. 29 of them also publish updates a reader can see, which is what
+`updates naming a work we do not hold` counts, at 76 rows today. The number rises by roughly one
+work a day.
+
+**WHAT IS NOT THE CAUSE, each ruled out by measurement rather than by argument.** The target list
+already holds 25 of the 28: they are admitted, fetched and captured, and カドコミ's
+`chapters.yaml` carries a full `web_work_chapters` record for 私の彼女はボディビルダー with its
+label and tags. `data/queue/address-work-level-gigaviewer.yaml` was 20 days stale and refreshing it
+changed nothing: the assignment mints 10 either way. Running the assignment as it stands does not
+help the 49 at all and raises `one work under two names in a list` from 3 to 11, because the 10 it
+mints are contested rows gaining a SECOND identifier for a work already held. That was tried and
+reverted.
+
+**WHY THIS IS NOT A MAINTENANCE PASS'S TO CLOSE.** Assignment is append-only and
+`facts/identity/BLINDSPOT.md` is plain about the consequence: a wrongly minted identifier cannot be
+withdrawn, only retired. Minting 49 unexamined would repeat, permanently, the duplication the
+10-row attempt above produced reversibly. The route is to give the minter sight of the rows that
+lack an identifier, `--series` already reads a file rather than the store, and then to separate the
+genuinely new works from those already held under another anchor before anything is minted. The
+separation is the half that needs a person.
+
+**TWO SMALLER THINGS FOUND ON THE WAY.** `adapters/gigaviewer/workaddress.py` and
+`facts/identity` run in NO workflow: the registry was last written on 2026-08-13 and the joins file
+on 2026-08-10, so nothing has minted an identifier for eighteen days. And 13 platform slugs the
+feed carries are absent from the register, `ganganonline` against its `gangan-online` and
+`www-comic-essay-com` against its `comic-essay` among them, carrying 130 rows. The reader is
+unaffected, `plat_name` being correct on every one, but `platform.serves_openly` answers False for a
+platform the register does hold, so `admit` would refuse a candidate from it.

@@ -18927,13 +18927,25 @@ names:
     reading_source_kind: analyser
     verified: false
   ふちゅれ！オトメ:
-    basis: romaji
-    en: Futule! Otome
-    en_at: '2026-08-10'
-    en_reviewed: '2026-08-10'
-    en_source: derived
+    basis: translated
+    en: Future! Maiden
+    en_at: '2026-08-30'
+    en_conflicts:
+    - basis: romaji
+      source: derived
+      value: Futule! Otome
+    en_reviewed: '2026-08-30'
+    en_source: https://bookwalker.jp/de6c826983-2a12-4b7d-8df7-e2d5968051f8/
     en_source_kind: derived
-    note: ふちゅれ is a coined word and オトメ is 乙女 written in katakana as a name. Neither half states a phrase.
+    note: 'REFUSED ON 2026-08-10 AS A COINAGE AND REOPENED ON 2026-08-30 BECAUSE THE PUBLISHER''S PAGE
+      SAYS WHAT IT IS. That refusal read ふちゅれ as a coined word and オトメ as a name, and it was made from
+      the bare title. ナンバーナイン''s own listing calls the book SF×百合をテーマにした百合短編集, eight stories about a sun
+      going out, a dragon that swallows the Earth and a heartbeat fast enough to pass the speed of light,
+      and files it under SF and セカイ系. Against that, ふちゅれ is フューチャー softened into hiragana rather than
+      a coinage, and オトメ is 乙女: the collection is about pairs of women living in those futures, and no
+      character called オトメ appears in a synopsis covering all eight. The shipped name was `Futule! Otome`,
+      which is neither our romanisation, Fuchure, nor a translation, so a reader was shown a misspelling
+      of a word nobody had decided on.'
     reading: フチュレ！オトメ
     reading_at: '2026-08-12'
     reading_basis: surface

@@ -22,10 +22,10 @@ it measures nothing about the data.
 | 5 | one work under two names in a list | 71 | **done, 53** (9 merged on identical title plus shared credit; the rest fold equal with titles that differ, which is where an earlier round found 3 of 41 were bad anchors, so each wants a ruling) |
 | 6 | labels with nothing to quote | 49 | **done, 0** (the YH spellings placed on 百合姫コミックス, so the line the reader is shown carries the term; bare IDコミックス still not the yuri line) |
 | 7 | credits carrying their own cataloguing | 38 | **examined, unchanged**: this counts a working filter and not a debt. All 38 are a person with a role welded on, correctly withheld so the lookup reaches the person; 34 of the 38 have a person record that reads BETTER than the welded one, which reads the notation aloud (`アオ ト ヒビキ ( エ )` against `アオト ヒビキ`). It falls when captures stop welding, which is upstream in the capture and not curation. |
-| 8 | updates naming a work we do not hold | 27 | queued |
+| 8 | updates naming a work we do not hold | 27 | queued, and **raised 28 -> 76 on 2026-08-30** because the month in progress is now published as an archive. The 48 extra rows are August's, which the store always held and no served file carried, so no measure could read them. Withholding `feed/2026-08.json` returns the number to 28 exactly, which is the §9 test for whether a rise is new rows or a defect. 29 works now, against 18. |
 | 9 | titles carrying cataloguing punctuation | 23 | **done, 0** (8 editions merged; the measure now counts what a reader is shown and not a record's faithful transcription of an edition; two publisher rulings; the last edition filed under its canonical name) |
 | 10 | credits the corpus files as a venue | 20 | **done, 16** (4 ruled companies; the 16 left are artists who self-publish, which the measure was written to expect) |
-| 11 | credit fields an identifier does not cover | 19 | queued |
+| 11 | credit fields an identifier does not cover | 19 | queued, and **raised 55 -> 63 on 2026-08-30** for the same reason and by the same test: the measure reads every published feed file, August is now one of them, and withholding it returns the number to 55. |
 | 12 | unreadable bookwalker rows | 15 | queued |
 | 13 | incomplete attested rows | 14 | queued |
 | 14 | one page cited for two claims | 12 | queued |

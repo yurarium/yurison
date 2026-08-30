@@ -111,6 +111,27 @@ def main(s):
             "THE MAP AND ITS CONTENTS ARE TWO PATHS: `{}` is not a field separator, so claiming "
             "`titles{}` leaves `titles` uncovered and the map itself counted")
 
+    # ── AN ARCHIVED MONTH IS DECLARED BY SHAPE, so a new month is not a new gap ───────────────
+    #
+    # `feed/2026-07.json` was spelled out in the declaration and it was the only month there was. On
+    # the first build that published a second one the budget rose by 79 for a file emitted by the
+    # same function from the same tables, and a number that climbs every month for that reason stops
+    # being read. What has to keep working is the other half: a field nothing claims is still
+    # counted, whichever month it turns up in.
+    import json as _json
+    month = _json.dumps({"releases": [{"id": "x"}], "month": "2026-08", "generated": "2026-08-31"})
+    s.eq(served.around(texts={"feed/2026-08.json": month}), [],
+         "a month nobody wrote into the declaration is answered by the shape every month shares")
+    strange = _json.dumps({"releases": [], "month": "2026-08", "generated": "x", "invented": 1})
+    s.eq(served.around(texts={"feed/2026-08.json": strange}), ["feed/2026-08.json:invented"],
+         "and a field the store cannot answer is still counted in a month file")
+    s.eq(served.around(texts={"feed/2026-07.json": strange.replace("2026-08", "2026-07")}),
+         ["feed/2026-07.json:invented"],
+         "which is the answer July already gave, the two months being one shape")
+    s.check(not served.MONTH_FILE.match("feed/current.json")
+            and not served.MONTH_FILE.match("feed/meta.json"),
+            "the window and the census are not months and keep their own declarations")
+
     # A CLAIM COVERS WHAT HANGS OFF IT. `series.json:series[].id` answers for the id itself, and a
     # deeper path under a claimed prefix is answered with it rather than counted again.
     s.check(served.CORPUS and "checks.json" not in served.CORPUS,

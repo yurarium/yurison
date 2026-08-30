@@ -1,0 +1,1164 @@
+# Rows the site published in August 2026 that no file now carries, and what to do about each.
+#
+# HOW THEY WERE LOST. `feed/current.json` is a 14-day window and a month file used to be written
+# only once the month had ended, so a row published on 3 August sat in no served file from 17 August
+# until September. The site carries forward the rows a published file holds; a row in no file has
+# nothing to carry it. So when the store stopped stating one of these, it was erased from the record
+# after a reader had already been shown it.
+#
+# THE PROCEDURE IS FIXED and this file is the residue. `emit.archived_months` publishes the month in
+# progress from its first day, so every row now enters an archive the day it appears and the
+# carry-forward covers it. Nothing new can join this list.
+#
+# WHY THIS IS A QUEUE AND NOT A RESTORE. 246 rows were lost and 105 of them are still published,
+# under an id that changed when a platform slug or an address format did: `remaining` became
+# `comic-zenon`, `corocoro` became `corocoro-online`. Restoring those would show a reader the same
+# chapter twice, and seven of them would file a July chapter under August. The 141 below have no
+# replacement at all, and they are not one class either. 44 dated 2026-08-13 are consecutive
+# chapters of the same comic-fuz series, which is a back catalogue being read for the first time
+# rather than six chapters published in one day; 25 sit in the 2026-08-07 bucket `build.py` itself
+# flags as bulk re-dating. Restoring those would assert updates that did not happen, which is the
+# opposite of what the register is for.
+#
+# SO EACH ROW NEEDS A READING: an update that happened and should be in August, or a first sighting
+# of an older chapter that never was one. The rows are kept here because deciding is the slow half
+# and losing the evidence while deciding is how this happened in the first place.
+#
+# WHERE THEY CAME FROM. The published `kari/data/feed/current.json` in the site repository's own
+# history, every commit from 2026-08-01, taking each row's first appearance. Reproduce with the
+# recovery described in docs/PLAN-feed-archives.md.
+source: yurarium.github.io, kari/data/feed/current.json, every published revision since 2026-08-01
+role: archive-recovery
+record_type: published_release
+reviewed: 2026-08-30
+reviewed_by: agent, against the store built from run 33322546985
+disposition: undecided
+rows:
+- id: nicovideo:49677:2026-08-01
+  work: 私を喰べたい、ひとでなし
+  ep: 第59話①
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-01'
+  pub: '2026-08-01'
+  url: https://manga.nicovideo.jp/watch/mg1117510
+- id: nicovideo:71182:2026-08-01
+  work: アクアリウムは踊らない
+  ep: 第１６話①
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-01'
+  pub: '2026-08-01'
+  url: https://manga.nicovideo.jp/watch/mg1117523
+- id: comic-ogyaaa:https://comic-ogyaaa.com/episode/12207421983855324363
+  work: あの子とふたりで。
+  ep: 番外編②
+  plat: comic-ogyaaa
+  kind: new-chapter
+  feed_date: '2026-08-03'
+  pub: '2026-06-19'
+  url: https://comic-ogyaaa.com/episode/12207421983855324363
+- id: nicovideo:41839:2026-08-03
+  work: 安達としまむら
+  ep: 第59話「Cherry Blossoms for the Two of Us1」①
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-03'
+  pub: '2026-08-03'
+  url: https://manga.nicovideo.jp/watch/mg1116534
+- id: nicovideo:80236:2026-08-03
+  work: 魔法少女三十路
+  ep: 第44話　もし魔法少女と敵が戦いの準備をしたら（後編）
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-03'
+  pub: '2026-08-03'
+  url: https://manga.nicovideo.jp/watch/mg1099704
+- id: comicfuz:79877
+  work: 百合SMでふたりの気持ちはつながりますか？
+  ep: 36話(3)掲載予定について／お詫び
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-04'
+  pub: '2026-08-04'
+  url: https://comic-fuz.com/manga/viewer/79877
+- id: kadokomi:KC_0044320000200011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter2 神定日葵
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320000200011_E
+- id: kadokomi:KC_0044320000300011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter3 河野るる香
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320000300011_E
+- id: kadokomi:KC_0044320000400011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter4 四方塚まこと②
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320000400011_E
+- id: kadokomi:KC_0044320000600011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter5 大門 翼
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320000600011_E
+- id: kadokomi:KC_0044320000700011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter6 大門 翼②
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320000700011_E
+- id: kadokomi:KC_0044320000800011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter7 羽根井 凛
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320000800011_E
+- id: kadokomi:KC_0044320000900011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter8 白城 黒姫
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320000900011_E
+- id: kadokomi:KC_0044320001000011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter9 四方塚まこと③
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320001000011_E
+- id: kadokomi:KC_0044320001300011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter10【前編】 神定日葵×大門 翼
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320001300011_E
+- id: kadokomi:KC_0044320001300021_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter10【後編】 神定日葵×大門 翼
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320001300021_E
+- id: kadokomi:KC_0044320001400011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter11 岩垣結菜
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320001400011_E
+- id: kadokomi:KC_0044320001500011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter12 藤堂いつみの復讐【前編】
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320001500011_E
+- id: kadokomi:KC_0044320001600011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter13 藤堂いつみの復讐【後編】
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320001600011_E
+- id: kadokomi:KC_0044320001700011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter14 羽根井 凛②
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320001700011_E
+- id: kadokomi:KC_0044320001800011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter15 柳 弥生
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320001800011_E
+- id: kadokomi:KC_0044320001900011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter16 加賀谷 花
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320001900011_E
+- id: kadokomi:KC_0044320002000011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter17 幡龍佐智枝
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002000011_E
+- id: kadokomi:KC_0044320002100011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter18 ケイドロ編①
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002100011_E
+- id: kadokomi:KC_0044320002200011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter19 ケイドロ編②
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002200011_E
+- id: kadokomi:KC_0044320002300011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter20 ケイドロ編③
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002300011_E
+- id: kadokomi:KC_0044320002400011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter21 ケイドロ編④
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002400011_E
+- id: kadokomi:KC_0044320002500011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter22 ケイドロ編⑤
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002500011_E
+- id: kadokomi:KC_0044320002600011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter23 鬼怒柄 風嘉
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002600011_E
+- id: kadokomi:KC_0044320002700011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter24 逢魔夜見子
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002700011_E
+- id: kadokomi:KC_0044320002800011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter25 羽根井 凛③
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002800011_E
+- id: kadokomi:KC_0044320002900011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter26 幡龍佐智枝②
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320002900011_E
+- id: kadokomi:KC_0044320003000011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter27 白城黒姫②
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320003000011_E
+- id: kadokomi:KC_0044320003100011_E
+  work: 悪いが私は百合じゃない
+  ep: Chapter28 大門 翼③
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320003100011_E
+- id: nicovideo:49048:2026-06-26
+  work: 転生王女と天才令嬢の魔法革命
+  ep: コミックス第9巻発売告知
+  plat: nicovideo
+  kind: other
+  feed_date: '2026-08-06'
+  pub: '2026-06-26'
+  url: https://manga.nicovideo.jp/watch/mg1070334
+- id: nicovideo:65870:2026-08-06
+  work: 魔法少女201
+  ep: 第54話②
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://manga.nicovideo.jp/watch/mg1120568
+- id: nicovideo:72637:2026-08-06
+  work: きみとボドゲが作りたい！
+  ep: ただの女友達『お見合い前日の巻』
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-06'
+  pub: '2026-08-06'
+  url: https://manga.nicovideo.jp/watch/mg1120865
+- id: comicfuz:51378
+  work: ちょっといっぱい！
+  ep: ９巻 注文６０ 知らないこと（２）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-12'
+  url: https://comic-fuz.com/manga/viewer/51378
+- id: comicfuz:51381
+  work: ちょっといっぱい！
+  ep: ９巻 注文６１ あふれたものは（１）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-19'
+  url: https://comic-fuz.com/manga/viewer/51381
+- id: comicfuz:51384
+  work: ちょっといっぱい！
+  ep: ９巻 注文６１ あふれたものは（２）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-26'
+  url: https://comic-fuz.com/manga/viewer/51384
+- id: comicfuz:64962
+  work: スローループ
+  ep: １０巻 第７４話 自分が一番釣りたい（２）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-12'
+  url: https://comic-fuz.com/manga/viewer/64962
+- id: comicfuz:64965
+  work: スローループ
+  ep: １０巻 第７５話 すくすく育てよ（１）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-19'
+  url: https://comic-fuz.com/manga/viewer/64965
+- id: comicfuz:64968
+  work: スローループ
+  ep: １０巻 第７５話 すくすく育てよ（２）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-26'
+  url: https://comic-fuz.com/manga/viewer/64968
+- id: comicfuz:77827
+  work: 花唄メモワール
+  ep: 第三十三唄(2)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-24'
+  url: https://comic-fuz.com/manga/viewer/77827
+- id: comicfuz:78370
+  work: 蝶乃センパイは泳がせたい！
+  ep: 最終話(1)
+  plat: comic-fuz
+  kind: final
+  feed_date: '2026-08-07'
+  pub: '2026-06-15'
+  url: https://comic-fuz.com/manga/viewer/78370
+- id: comicfuz:78373
+  work: 蝶乃センパイは泳がせたい！
+  ep: 最終話(2)
+  plat: comic-fuz
+  kind: final
+  feed_date: '2026-08-07'
+  pub: '2026-06-29'
+  url: https://comic-fuz.com/manga/viewer/78373
+- id: comicfuz:78764
+  work: スローループ
+  ep: 単行本第11巻情報！
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-12'
+  url: https://comic-fuz.com/manga/viewer/78764
+- id: comicfuz:79061
+  work: スローループ
+  ep: 単行本第11巻特典情報！
+  plat: comic-fuz
+  kind: other
+  feed_date: '2026-08-07'
+  pub: '2026-06-26'
+  url: https://comic-fuz.com/manga/viewer/79061
+- id: comicfuz:79139
+  work: 蝶乃センパイは泳がせたい！
+  ep: コミックス第３巻　書店特典
+  plat: comic-fuz
+  kind: other
+  feed_date: '2026-08-07'
+  pub: '2026-06-29'
+  url: https://comic-fuz.com/manga/viewer/79139
+- id: kadokomi:KC_0006960019100011_E
+  work: 女子高生の無駄づかい
+  ep: 第145話　ちこく
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-16'
+  url: https://comic-walker.com/detail/KC_000696_S/episodes/KC_0006960019100011_E
+- id: kadokomi:KC_0032760001500031_E
+  work: わたし、二番目の彼女でいいから。
+  ep: 第13話③：100パーセントの彼女
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-26'
+  url: https://comic-walker.com/detail/KC_003276_S/episodes/KC_0032760001500031_E
+- id: kadokomi:KC_0039230004500021_E
+  work: とある魔術の禁書目録外伝　とある科学の心理掌握
+  ep: 第36話後編
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-30'
+  url: https://comic-walker.com/detail/KC_003923_S/episodes/KC_0039230004500021_E
+- id: kadokomi:KC_0047670003000011_E
+  work: 死亡遊戯で飯を食う。
+  ep: 第28話-1
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-12'
+  url: https://comic-walker.com/detail/KC_004767_S/episodes/KC_0047670003000011_E
+- id: kadokomi:KC_0047670003000021_E
+  work: 死亡遊戯で飯を食う。
+  ep: 第28話-2
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-26'
+  url: https://comic-walker.com/detail/KC_004767_S/episodes/KC_0047670003000021_E
+- id: kadokomi:KC_0049730008600011_E
+  work: どうやら私の身体は完全無敵のようですね
+  ep: 第80話
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-18'
+  url: https://comic-walker.com/detail/KC_004973_S/episodes/KC_0049730008600011_E
+- id: kadokomi:KC_0066570001400011_E
+  work: 竜王さまの気ままな異世界ライフ
+  ep: 第12話
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-25'
+  url: https://comic-walker.com/detail/KC_006657_S/episodes/KC_0066570001400011_E
+- id: kadokomi:KC_0083870000300011_E
+  work: ウェイバーズ
+  ep: 第二話
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-29'
+  url: https://comic-walker.com/detail/KC_008387_S/episodes/KC_0083870000300011_E
+- id: kadokomi:KC_0083870000400011_E
+  work: ウェイバーズ
+  ep: 第三話
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-29'
+  url: https://comic-walker.com/detail/KC_008387_S/episodes/KC_0083870000400011_E
+- id: kadokomi:KC_0083870000500011_E
+  work: ウェイバーズ
+  ep: 第四話
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-29'
+  url: https://comic-walker.com/detail/KC_008387_S/episodes/KC_0083870000500011_E
+- id: kadokomi:KC_0083870000700011_E
+  work: ウェイバーズ
+  ep: 第六話
+  plat: kadokomi
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-06-29'
+  url: https://comic-walker.com/detail/KC_008387_S/episodes/KC_0083870000700011_E
+- id: nicovideo:70296:2026-08-07
+  work: 不器用ビンボーダンス　３
+  ep: 第267話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-08-07'
+  url: https://manga.nicovideo.jp/watch/mg1121851
+- id: nicovideo:83152:2026-08-07
+  work: きょうもバレずに過ごせた！
+  ep: 4かめ：四人なら!?
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-07'
+  pub: '2026-08-07'
+  url: https://manga.nicovideo.jp/watch/mg1095959
+- id: nicovideo:44519:2026-08-10
+  work: ロボットJSにスキはありません!!
+  ep: ロボ18-3
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-08-10'
+  url: https://manga.nicovideo.jp/watch/mg1122168
+- id: nicovideo:62230:2026-08-10
+  work: ララのうた
+  ep: 第22話　ララと歌②
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-08-10'
+  url: https://manga.nicovideo.jp/watch/mg1111991
+- id: nicovideo:64844:2026-07-28
+  work: 幼女魔術師と同居人
+  ep: 第58話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-07-28'
+  url: https://manga.nicovideo.jp/watch/mg1117257
+- id: nicovideo:70758:2026-06-23
+  work: 保健室の鍵閉めてっ
+  ep: 第20話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-06-23'
+  url: https://manga.nicovideo.jp/watch/mg1046552
+- id: nicovideo:71212:2026-07-31
+  work: 転生して成長チートを手に入れたら、最凶スキルもついたのですが!?
+  ep: 第28話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-07-31'
+  url: https://manga.nicovideo.jp/watch/mg1105802
+- id: nicovideo:71836:2026-07-09
+  work: 海のみちるごはん
+  ep: 第15話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-07-09'
+  url: https://manga.nicovideo.jp/watch/mg1100114
+- id: nicovideo:73172:2026-07-23
+  work: 愛焦がれキャラメリゼ
+  ep: 第15話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-07-23'
+  url: https://manga.nicovideo.jp/watch/mg1100619
+- id: nicovideo:73403:2026-07-28
+  work: かっさい！
+  ep: 第15話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-07-28'
+  url: https://manga.nicovideo.jp/watch/mg1100694
+- id: nicovideo:73923:2026-06-27
+  work: やみつきリリィホリックちゅう♪
+  ep: 第6話　残された時間を悔いなく生きる
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-06-27'
+  url: https://manga.nicovideo.jp/watch/mg1102035
+- id: nicovideo:74042:2026-07-14
+  work: ざこのみなさんお大事に
+  ep: 第13話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-07-14'
+  url: https://manga.nicovideo.jp/watch/mg1100321
+- id: nicovideo:74043:2026-07-09
+  work: ウイニングアンサー！
+  ep: 第13話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-10'
+  pub: '2026-07-09'
+  url: https://manga.nicovideo.jp/watch/mg1100118
+- id: nicovideo:81731:2026-06-29
+  work: 元ヤンちゃんとゆるふわ彼女 【単話売】
+  ep: 元ヤンちゃんとゆるふわ彼女 10話 【単話売】
+  plat: nicovideo
+  kind: new-series
+  feed_date: '2026-08-10'
+  pub: '2026-06-29'
+  url: https://manga.nicovideo.jp/watch/mg1076518
+- id: nicovideo:82261:2026-06-29
+  work: 私の女神が今日も推せる 【単話版】
+  ep: 私の女神が今日も推せる 【単話版】（９）
+  plat: nicovideo
+  kind: new-series
+  feed_date: '2026-08-10'
+  pub: '2026-06-29'
+  url: https://manga.nicovideo.jp/watch/mg1077644
+- id: nicovideo:82302:2026-06-29
+  work: TSロリシリーズ（コスモブルー）
+  ep: TSしちゃったからスパチャ暮らし求めてVRゲームの実況者になります　～見た目メスガキ、頭脳は修羅～【単話売】 第7話
+  plat: nicovideo
+  kind: new-series
+  feed_date: '2026-08-10'
+  pub: '2026-06-29'
+  url: https://manga.nicovideo.jp/watch/mg1078081
+- id: nicovideo:83356:2026-07-06
+  work: アイドル総選挙4位だった私が魔王を倒すんですか？（Lilie comics）
+  ep: アイドル総選挙4位だった私が魔王を倒すんですか？11
+  plat: nicovideo
+  kind: new-series
+  feed_date: '2026-08-10'
+  pub: '2026-07-06'
+  url: https://manga.nicovideo.jp/watch/mg1097834
+- id: nicovideo:83357:2026-07-06
+  work: ファインダー越しのあの子（Lilie comics）
+  ep: ファインダー越しのあの子 9
+  plat: nicovideo
+  kind: new-series
+  feed_date: '2026-08-10'
+  pub: '2026-07-06'
+  url: https://manga.nicovideo.jp/watch/mg1097852
+- id: nicovideo:83386:2026-07-06
+  work: LatteComi コミックアンソロジー【百合】（単話版）（LatteComi）
+  ep: True Blue Baby
+  plat: nicovideo
+  kind: new-series
+  feed_date: '2026-08-10'
+  pub: '2026-07-06'
+  url: https://manga.nicovideo.jp/watch/mg1098104
+- id: comicfuz:79442
+  work: あまねくシグナル
+  ep: 第13話（1）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-11'
+  pub: '2026-08-11'
+  url: https://comic-fuz.com/manga/viewer/79442
+- id: kirapo:https://kirapo.jp/meteor/titles/tuimie:読み切り
+  work: ツイてるギャルとミエてる陰キャ
+  ep: 読み切り
+  plat: remaining
+  kind: oneshot
+  feed_date: '2026-08-11'
+  pub: '2026-06-17'
+  url: https://kirapo.jp/meteor/titles/tuimie
+- id: nicovideo:22768:2026-08-11
+  work: 球詠
+  ep: 第118球：どうしようもないってほどじゃ(前編)
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-11'
+  pub: '2026-08-11'
+  url: https://manga.nicovideo.jp/watch/mg1119471
+- id: nicovideo:44519:2026-08-11
+  work: ロボットJSにスキはありません!!
+  ep: ロボ18-4
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-11'
+  pub: '2026-08-11'
+  url: https://manga.nicovideo.jp/watch/mg1122558
+- id: nicovideo:53991:2026-08-11
+  work: ばっどがーる
+  ep: 100年後にコミュ強になる水鳥さん その4
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-11'
+  pub: '2026-08-11'
+  url: https://manga.nicovideo.jp/watch/mg1122377
+- id: nicovideo:62230:2026-08-11
+  work: ララのうた
+  ep: 第23話　ヨンカ①
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-11'
+  pub: '2026-08-11'
+  url: https://manga.nicovideo.jp/watch/mg1112057
+- id: pixivcomic:https://comic.pixiv.net/works/3287:71品目 せいろ蒸しパーティー
+  work: 新米姉妹のふたりごはん
+  ep: 71品目 せいろ蒸しパーティー
+  plat: pixivcomic
+  kind: new-chapter
+  feed_date: '2026-08-11'
+  pub: '2026-08-11'
+  url: https://comic.pixiv.net/works/3287
+- id: remaining:https://kirapo.jp/meteor/titles/tuimie:読み切り
+  work: ツイてるギャルとミエてる陰キャ
+  ep: 読み切り
+  plat: remaining
+  kind: oneshot
+  feed_date: '2026-08-11'
+  pub: '2026-06-17'
+  url: https://kirapo.jp/meteor/titles/tuimie
+- id: remaining:読み切り
+  work: ツイてるギャルとミエてる陰キャ
+  ep: 読み切り
+  plat: remaining
+  kind: oneshot
+  feed_date: '2026-08-11'
+  pub: '2026-06-17'
+  url: https://kirapo.jp/meteor/titles/tuimie
+- id: nicovideo:44519:2026-08-12
+  work: ロボットJSにスキはありません!!
+  ep: ロボ18-5
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-12'
+  pub: '2026-08-12'
+  url: https://manga.nicovideo.jp/watch/mg1122766
+- id: nicovideo:62230:2026-08-12
+  work: ララのうた
+  ep: 第23話　ヨンカ②
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-12'
+  pub: '2026-08-12'
+  url: https://manga.nicovideo.jp/watch/mg1112058
+- id: comicfuz-free:39224
+  work: IDOL×IDOL STORY！
+  ep: Episode.3（1）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:39227
+  work: IDOL×IDOL STORY！
+  ep: Episode.3（2）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:39854
+  work: IDOL×IDOL STORY！
+  ep: Episode.4（1）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:39857
+  work: IDOL×IDOL STORY！
+  ep: Episode.4（2）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:40110
+  work: IDOL×IDOL STORY！
+  ep: Episode.5
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:40410
+  work: IDOL×IDOL STORY！
+  ep: Episode.6（1）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:40413
+  work: IDOL×IDOL STORY！
+  ep: Episode.6（2）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:40464
+  work: IDOL×IDOL STORY！
+  ep: Episode.7（1）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:40467
+  work: IDOL×IDOL STORY！
+  ep: Episode.7（2）
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:41043
+  work: IDOL×IDOL STORY！
+  ep: Episode.8
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:41772
+  work: IDOL×IDOL STORY！
+  ep: Episode.9
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:41851
+  work: IDOL×IDOL STORY！
+  ep: Episode.10
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:42217
+  work: IDOL×IDOL STORY！
+  ep: Episode.11
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:42685
+  work: IDOL×IDOL STORY！
+  ep: Episode.12
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:42937
+  work: IDOL×IDOL STORY！
+  ep: Episode.13
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:43906
+  work: IDOL×IDOL STORY！
+  ep: Episode.14
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:44272
+  work: IDOL×IDOL STORY！
+  ep: Episode.15
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:44454
+  work: IDOL×IDOL STORY！
+  ep: Episode.16
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:44649
+  work: IDOL×IDOL STORY！
+  ep: Episode.17
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:44796
+  work: IDOL×IDOL STORY！
+  ep: Episode.18
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:44910
+  work: IDOL×IDOL STORY！
+  ep: Episode.19
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:45135
+  work: IDOL×IDOL STORY！
+  ep: Episode.20
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3140
+- id: comicfuz-free:52481
+  work: 踊町コミックハウス
+  ep: 第2話(1)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:52484
+  work: 踊町コミックハウス
+  ep: 第2話(2)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:52487
+  work: 踊町コミックハウス
+  ep: 第2話(3)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:52793
+  work: 踊町コミックハウス
+  ep: 第3話(1)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:52796
+  work: 踊町コミックハウス
+  ep: 第3話(2)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:52799
+  work: 踊町コミックハウス
+  ep: 第3話(3)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:54392
+  work: 踊町コミックハウス
+  ep: 第4話(1)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:54902
+  work: 踊町コミックハウス
+  ep: 第4話(2)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:55601
+  work: 踊町コミックハウス
+  ep: 第5話(1)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:56534
+  work: 踊町コミックハウス
+  ep: 第5話(2)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:57155
+  work: 踊町コミックハウス
+  ep: 第5話(3)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3461
+- id: comicfuz-free:58530
+  work: うさぎはかく語りき
+  ep: 第3話(1)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz-free:58533
+  work: うさぎはかく語りき
+  ep: 第3話(2)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz-free:58536
+  work: うさぎはかく語りき
+  ep: 第3話(3)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz-free:59922
+  work: うさぎはかく語りき
+  ep: 第4話(1)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz-free:59925
+  work: うさぎはかく語りき
+  ep: 第4話(2)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz-free:59928
+  work: うさぎはかく語りき
+  ep: 第4話(3)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz-free:61168
+  work: うさぎはかく語りき
+  ep: 第5話(1)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz-free:61171
+  work: うさぎはかく語りき
+  ep: 第5話(2)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz-free:62617
+  work: うさぎはかく語りき
+  ep: 第6話(1)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz-free:62620
+  work: うさぎはかく語りき
+  ep: 第6話(2)
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/3572
+- id: comicfuz:44877
+  work: キルミーベイベー
+  ep: １４巻 第１７９話
+  plat: comic-fuz
+  kind: new-chapter
+  feed_date: '2026-08-13'
+  pub: '2026-08-13'
+  url: https://comic-fuz.com/manga/viewer/44877
+- id: nicovideo:44519:2026-08-14
+  work: ロボットJSにスキはありません!!
+  ep: ロボ19-1
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-14'
+  pub: '2026-08-14'
+  url: https://manga.nicovideo.jp/watch/mg1123747
+- id: nicovideo:62230:2026-08-14
+  work: ララのうた
+  ep: 第24話　ミカの話②
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-14'
+  pub: '2026-08-14'
+  url: https://manga.nicovideo.jp/watch/mg1112061
+- id: pixivcomic:https://comic.pixiv.net/works/12886:6 紅血
+  work: まるせっせんす
+  ep: 6 紅血
+  plat: pixivcomic
+  kind: new-chapter
+  feed_date: '2026-08-14'
+  pub: '2026-08-14'
+  url: https://comic.pixiv.net/works/12886
+- id: nicovideo:44519:2026-08-15
+  work: ロボットJSにスキはありません!!
+  ep: ロボ19-2
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-15'
+  pub: '2026-08-15'
+  url: https://manga.nicovideo.jp/watch/mg1124018
+- id: nicovideo:62230:2026-08-15
+  work: ララのうた
+  ep: 第25話　遭遇
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-15'
+  pub: '2026-08-15'
+  url: https://manga.nicovideo.jp/watch/mg1112071
+- id: nicovideo:44519:2026-08-16
+  work: ロボットJSにスキはありません!!
+  ep: ロボ19-3
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-16'
+  pub: '2026-08-16'
+  url: https://manga.nicovideo.jp/watch/mg1124185
+- id: nicovideo:70296:2026-08-17
+  work: 不器用ビンボーダンス　３
+  ep: 第268話
+  plat: nicovideo
+  kind: new-chapter
+  feed_date: '2026-08-17'
+  pub: '2026-08-17'
+  url: https://manga.nicovideo.jp/watch/mg1125407

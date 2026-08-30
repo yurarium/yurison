@@ -88,6 +88,25 @@ def _unit(s):
     s.eq(skipped["not_measured"], "source-quality budget; measured at check-in",
          "and says why, rather than reporting the best possible number")
 
+    # ── WHICH MONTHS GET AN ARCHIVE, AND WHY THE MONTH IN PROGRESS IS ONE OF THEM ─────────────
+    #
+    # THE MONTH IN PROGRESS USED TO BE WITHHELD and that erased updates readers had been shown. A
+    # row leaves the 14-day window long before its month ends, and until the month closed there was
+    # no file holding it, so the site's carry-forward had nothing to carry and a row the store
+    # stopped building simply vanished. 246 of August's rows went that way. The rule is asserted
+    # here because it is the kind that gets tidied back to `<` by anyone who reads the ceiling as an
+    # off-by-one.
+    s.eq(emit.archived_months(["2026-08-30", "2026-08-05", "2026-07-05"], "2026-07", "2026-08-31"),
+         ["2026-08", "2026-07"],
+         "the month the run was made in is archived, alongside the months that are done")
+    s.eq(emit.archived_months(["2026-06-30"], "2026-07", "2026-08-31"), [],
+         "and a month below `archive_from` is not, being a back catalogue imported in one pass "
+         "rather than updates as they happened")
+    s.eq(emit.archived_months(["2026-09-01"], "2026-07", "2026-08-31"), [],
+         "nor is a month AFTER the run, which a date the platform states in advance can reach")
+    s.eq(emit.archived_months(["2026-08", "bad", ""], "2026-07", "2026-08-31"),
+         ["2026-08"], "and a date too short to name a month names none, rather than raising")
+
     # ── EVERY TITLE THE CORPUS HOLDS, FROM WHICHEVER SIDE ASKS ────────────────────────────────
     #
     # `emit.titles` is pure over the three collections that carry a title, because `build.py` has

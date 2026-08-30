@@ -3045,3 +3045,45 @@ stops returning, so a release nobody captures again is a release the store drops
 loses. That is a real change in what "a published update does not stop having happened" can mean,
 and the choice it forces is whether `release` is append-only with a mark for what is no longer
 listed, or whether an archive may lose a row when its source does.
+
+## The month a run happens in had no archive, and 246 published updates went through the hole
+
+Found 2026-08-30. The procedure is fixed; 141 rows are recoverable and undecided.
+
+**WHAT THE HOLE WAS.** `feed/current.json` is a 14-day window, and a month was archived only once it
+had ended. So a row published on 3 August left the window on 17 August and entered no other file
+until September. For up to seventeen days it was in the store and served to nobody.
+
+**WHY THAT ERASED RECORDS RATHER THAN MERELY HIDING THEM.** The site carries forward the rows a
+published file holds, which is what the owner asked for on 2026-08-29 after July lost rows. A row in
+no file has nothing to carry it. So when the store stopped stating one of these, as it does whenever
+ニコニコ re-mints a work-level id or マンガよもんが expires a chapter, the row was gone with no
+record it had existed. 427 August rows were unreachable when this was measured and 246 more had
+already gone that way.
+
+**THE EXCLUSION OUTLIVED ITS REASON.** Both producers said the same thing: writing an unfinished
+month would either publish it incomplete or require rewriting it tomorrow, "and rewriting is the one
+thing an archive may not do". The owner retired that on 2026-08-11. A month locks its ROW SET and
+not its bytes, and every published month is already rewritten on every build. The rule the exclusion
+rested on was gone and the exclusion stayed.
+
+**FIXED BY PUBLISHING THE MONTH IN PROGRESS**, so a row enters an archive the day it is published
+and the carry-forward covers it from that day. `emit.archived_months` is now the one producer of
+which months are archived; `build.py` asks it instead of stating the rule a second time, which is
+how the two came to disagree with the store's side of the argument in the first place.
+`adapters/relational/test_emit.py` pins the ceiling as inclusive, because it reads like an
+off-by-one to anyone who has not lost 246 rows to it.
+
+**WHAT IS NOT DECIDED, and why it is not a restore.** 105 of the 246 are still published under an id
+that changed when a platform slug or an address format did, `remaining` to `comic-zenon` and
+`corocoro` to `corocoro-online`; restoring those would show a chapter twice, and seven would file a
+July chapter under August. The remaining 141 are in `data/queue/archive-recovery-2026-08.yaml`, and
+they are not one class either: 44 dated 2026-08-13 are consecutive chapters of one comic-fuz series,
+which is a back catalogue read for the first time rather than six chapters published in a day, and
+25 sit in the 2026-08-07 bucket `build.py` itself flags as bulk re-dating. Restoring those would
+assert updates that did not happen. Each row needs a reading, which is the slow half; the rows are
+kept so that losing the evidence is not how the deliberation ends.
+
+**RELATED.** `A published release can leave its month, and a published release can vanish` above is
+the same subject from the other side, and it stands: this closes the route by which a row was never
+filed at all, and says nothing about whether `release` should be append-only.

@@ -1343,6 +1343,21 @@ def meta(db, generated, window_days, archive_from, archive_months, samples_dropp
         "generated": generated}
 
 
+#: THE MONTHS A BUILD PUBLISHES AS ARCHIVES, newest first, and the one place that decides it.
+#: `build.py` writes the same files from the compiler's rows and stated this rule a second time, so
+#: the two could disagree about which months exist and only a reader would find out. STANDING-
+#: INSTRUCTIONS §3: one producer of a fact.
+#:
+#: THE FLOOR IS `archive_from` and the ceiling is the month the run was made in, INCLUSIVE. Months
+#: below the floor are a back catalogue imported in one pass rather than updates as they happened,
+#: which is why they are not published; the month in progress is published because a row nobody
+#: files anywhere is a row nothing can carry forward. See `feed_files`.
+def archived_months(dates, archive_from, generated):
+    """`['2026-08', '2026-07']` for the months these dates put in an archive, newest first."""
+    return sorted({d[:7] for d in dates if len(d) >= 7
+                   and archive_from <= d[:7] <= (generated or "")[:7]}, reverse=True)
+
+
 def feed_files(db):
     """The feed as the site serves it: a window, one file per archived month, and the report.
 
@@ -1355,10 +1370,19 @@ def feed_files(db):
     makes a file's contents depend on the day the build ran, so a month written once would be frozen
     half complete and the same month written a week later would disagree with it.
 
-    THE MONTH IN PROGRESS IS NOT ARCHIVED. It is not finished, so writing it would either publish an
-    incomplete month or require rewriting it tomorrow. What IS rewritten every build is the months
-    that are done: the row set is what is locked, not the bytes, so a name the store has since
-    corrected reaches a month published before the correction.
+    THE MONTH IN PROGRESS IS ARCHIVED TOO, decided 2026-08-30. It used to be withheld until it was
+    finished, on the reasoning that publishing it would either publish an incomplete month or
+    require rewriting it tomorrow. Rewriting it tomorrow is what already happens to every month that
+    IS published: what a month locks is its row set and not its bytes, so the objection was answered
+    by a design that arrived after it.
+
+    WITHHOLDING IT COST 246 UPDATES. Between the window rolling past a row and the month closing,
+    the row was in no file the site serves, and a row in no file is a row the site's carry-forward
+    cannot carry. So the store dropping it, which ニコニコ does to every chapter row it re-mints and
+    マンガよもんが does to every chapter it expires, erased an update a reader had already been
+    shown, with nothing left to say it had happened. 427 rows of August were unreachable when this
+    was measured and 246 more had already gone. Publishing the month from its first day puts every
+    row in an archive the day it is published, which is what the protection needs to hold.
     """
     import datetime
     report = dict(db.execute("SELECT key, value FROM run_report"))
@@ -1380,8 +1404,7 @@ def feed_files(db):
             "releases": [r for d, r in dated if d >= first],
             "window_days": window, "from": first, "to": generated, "generated": generated})
 
-    months = sorted({d[:7] for d, _r in dated if len(d) >= 7
-                     and archive_from <= d[:7] < generated[:7]}, reverse=True)
+    months = archived_months([d for d, _r in dated], archive_from, generated)
     for month in months:
         out[f"feed/{month}.json"] = as_text({
             "releases": [r for d, r in dated if d[:7] == month],

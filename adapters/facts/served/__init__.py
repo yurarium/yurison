@@ -355,14 +355,31 @@ STORE_ANSWERS = (
 )
 
 
+#: AN ARCHIVED MONTH IS DECLARED BY SHAPE AND NOT BY NAME. `feed/2026-07.json` was spelled out, so
+#: the first build to publish a second month raised this budget by 79 for a file whose shape had not
+#: changed and whose rows are the same rows `feed/current.json` already claims. That is a budget
+#: rising every month for a reason nobody would call a defect, which is how a number stops being
+#: read. Every month file is emitted by `emit.feed_files` from the same tables, so what is true of
+#: one is true of all of them.
+MONTH_FILE = re.compile(r"^feed/[0-9]{4}-[0-9]{2}\.json$")
+
+
+def _claims(name):
+    """The declared prefixes that apply to a served file, under the name they are written as."""
+    if MONTH_FILE.match(name):
+        return [c[len("feed/2026-07.json"):] for c in STORE_ANSWERS
+                if c.startswith("feed/2026-07.json")]
+    return [c[len(name):] for c in STORE_ANSWERS if c.startswith(name + ":")]
+
+
 def around(build="data/build", texts=None):
     """Every `file:path` the site is served that the store could not answer, sorted."""
-    claimed = set(STORE_ANSWERS)
     out = []
     for name, ps in served(build, texts).items():
+        claimed = set(_claims(name))
         for p in sorted(ps):
-            key = f"{name}:{p}"
+            key = f":{p}"
             if key in claimed or any(key.startswith(c + ".") for c in claimed):
                 continue
-            out.append(key)
+            out.append(f"{name}:{p}")
     return sorted(out)

@@ -2679,19 +2679,19 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
             by_month[d[:7]].append(r)
 
     _archive_withheld = withheld_works()
-    this_month = str(_today)[:7]
     # NOT `warnings` — that name already holds the works with no content_tier, collected at the
     # top of main(). Rebinding it here made the closing line report this block's warning count (0)
     # instead of 302 works awaiting human review, so real outstanding work silently read as done.
     archived, skipped_pre, archive_warnings = [], 0, []
+    # WHICH MONTHS ARE PUBLISHED IS ASKED RATHER THAN RESTATED. `emit.archived_months` decides it
+    # for the store's side of the same files, and this loop stated the rule a second time: two
+    # producers of one fact, which is what §3 forbids and what let the current-month exclusion sit
+    # here after the store's side had been argued out of it.
+    from relational import emit as _months
+    _publish = set(_months.archived_months(list(by_month), ARCHIVE_FROM_MONTH, str(_today)))
     for m in sorted(by_month):
-        if m < ARCHIVE_FROM_MONTH:
+        if m not in _publish:
             skipped_pre += len(by_month[m])
-            continue
-        # The month in progress is not archived. It is not finished, so writing it would either
-        # publish an incomplete month or require rewriting it tomorrow — and rewriting is the one
-        # thing an archive may not do.
-        if m >= this_month:
             continue
         path = feed_dir / f"{m}.json"
         payload = {"releases": _rows_of(by_month[m]), "month": m, "generated": str(_today)}

@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-08-30
+retrieved: 2026-08-31
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -40,6 +40,21 @@ platforms_missing:
   - platform: "ゼロサムオンライン"
     works: 1
 works_missing:
+  - title: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/4133"
+    antenna_id: "212772"
+    tags: ["百合"]
+  - title: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3776"
+    antenna_id: "209939"
+    tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
+  - title: "百合SMでふたりの気持ちはつながりますか?"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/2391"
+    antenna_id: "102691"
+    tags: ["百合", "フェチ・性癖"]
   - title: "うさぎはかく語りき"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3572"
@@ -70,21 +85,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3108"
     antenna_id: "166358"
     tags: ["百合", "学園", "料理・グルメ", "女子高生"]
-  - title: "君が一等星に光るまで"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/4133"
-    antenna_id: "212772"
-    tags: ["百合"]
-  - title: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3776"
-    antenna_id: "209939"
-    tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
-  - title: "百合SMでふたりの気持ちはつながりますか?"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/2391"
-    antenna_id: "102691"
-    tags: ["百合", "フェチ・性癖"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -394,7 +394,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008429_S"
     antenna_id: "206316"
-    tags: ["最近のコメント数"]
+    tags: ["VTuber", "百合", "お色気・微エロ", "料理・グルメ", "女子高生", "メイド"]
   - title: "この恋、一旦持ち帰らせていただきます!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008367_S"
@@ -685,6 +685,11 @@ works_missing:
     url: "https://www.ganganonline.com/title/2643"
     antenna_id: "211061"
     tags: ["百合", "読み切り", "群像劇", "パンデミック", "メンタルヘルス"]
+  - title: "魔王城デート大作戦!"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/0cd32d6a7efc2"
+    antenna_id: "212084"
+    tags: ["百合"]
   - title: "暗殺組合の山田さん"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
@@ -695,11 +700,6 @@ works_missing:
     url: "https://kimicomi.com/series/f42014b3e7df6"
     antenna_id: "205919"
     tags: ["百合", "擬人化"]
-  - title: "魔王城デート大作戦!"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    antenna_id: "212084"
-    tags: ["百合"]
   - title: "ステラ・ステップ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/8acb58b98ca8f"

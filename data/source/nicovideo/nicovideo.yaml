@@ -9,7 +9,7 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-08-30
+retrieved: 2026-08-31
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
@@ -19,12 +19,34 @@ works:
     author: "とりから"
     url: "https://manga.nicovideo.jp/comic/44519"
     comic_id: "44519"
-    updated: "2026-08-29"
+    updated: "2026-08-30"
     started: "2019-10-20"
-    episode_count: 124
-    free_episodes: 124
-    latest_episode: "ロボ21-4"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1130392"
+    episode_count: 125
+    free_episodes: 125
+    latest_episode: "ロボ21-5"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1130535"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-08-30"
+    started: "2022-08-31"
+    episode_count: 100
+    free_episodes: 100
+    latest_episode: "第7話の2"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1130536"
+  - work_title: "私を喰べたい、ひとでなし"
+    author: "苗川采(著者)"
+    url: "https://manga.nicovideo.jp/comic/49677"
+    comic_id: "49677"
+    updated: "2026-08-29"
+    started: "2020-09-26"
+    episode_count: 27
+    free_episodes: 27
+    channel: "電撃マオウ"
+    channel_slug: "maoh"
+    latest_episode: "第59話④"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1117511"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"
@@ -115,8 +137,8 @@ works:
     comic_id: "71212"
     updated: "2026-08-28"
     started: "2025-04-30"
-    episode_count: 5
-    free_episodes: 5
+    episode_count: 4
+    free_episodes: 4
     channel: "ニコニコボックス"
     channel_slug: "niconicobox"
     latest_episode: "第29話"
@@ -377,18 +399,6 @@ works:
     started: "2018-05-10"
     channel: "もっとやわらかスピリッツ"
     channel_slug: "yawaspi"
-  - work_title: "私を喰べたい、ひとでなし"
-    author: "苗川采(著者)"
-    url: "https://manga.nicovideo.jp/comic/49677"
-    comic_id: "49677"
-    updated: "2026-08-22"
-    started: "2020-09-26"
-    episode_count: 26
-    free_episodes: 26
-    channel: "電撃マオウ"
-    channel_slug: "maoh"
-    latest_episode: "第59話③"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1117513"
   - work_title: "ぬるめた"
     author: "こかむも"
     url: "https://manga.nicovideo.jp/comic/54003"
@@ -3195,16 +3205,6 @@ works:
     channel_slug: "comicbridge"
     latest_episode: "第18話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg701629"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2022-12-06"
-    started: "2022-08-31"
-    episode_count: 98
-    free_episodes: 98
-    latest_episode: "第6話の19"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg701107"
   - work_title: "ギャルとネクラの吸血関係"
     author: "カコベン"
     url: "https://manga.nicovideo.jp/comic/60565"

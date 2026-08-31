@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-09-01
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 205
+  hits_agreeing_on_a_creator: 207
   hits_on_the_title_alone: 78
   hits_stating_a_print_edition_date: 159
-  works_asked: 695
-  works_with_a_hit: 205
+  works_asked: 697
+  works_with_a_hit: 207
 works:
   - work_url: "https://bigcomics.jp/series/003c4bf48a97f"
     id: "w00450"
@@ -4140,6 +4140,36 @@ works:
         publisher: "一迅社"
         agreement: "creator"
         volumes_stated: 3
+        completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421984089197889"
+    id: "w00286"
+    work: "誰かオオカミさんのしつけ方知りませんか！？"
+    author: "餡実ツキ"
+    platform: "一迅プラス"
+    query: "author"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: null
+        title_listed: "誰かオオカミさんのしつけ方知りませんか!?: 1【イラスト特典付】"
+        shop_author: "餡実 ツキ"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421984089197897"
+    id: "w00068"
+    work: "骨に願いを、星に呪いを"
+    author: "いくたはな"
+    platform: "一迅プラス"
+    query: "author"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: null
+        title_listed: "骨に願いを、星に呪いを: 1【イラスト特典付】"
+        shop_author: "いくたはな"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        agreement: "creator"
         completed_marker: false
   - work_url: "https://ichicomi.com/episode/2550912965913104445"
     id: "w00481"

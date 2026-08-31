@@ -3195,9 +3195,13 @@ platform adapter reads. So one comparator being slow costs the run its whole int
 admission policy of 2026-08-15. `update.yml` already argues this exact case for Stage A, "ONE
 ADAPTER MUST NOT COST THE NIGHT", and Stage 0 was written before that argument and never got it.
 
-**TRANSIENT THIS TIME.** yurinavi.com answered 200 in two seconds when checked by hand afterwards,
-so nothing is wrong with the source and the next run will pick the day up. What is worth fixing is
-that a slow host can silently cost a day of intake, and that the record says success either way.
+**IT HAPPENED TWICE, AND IT STARTED TODAY.** Both of 2026-08-31's runs died the same way, on
+`https://yurinavi.com/feed` with a 45-second timeout, while 28, 29 and 30 August carry no failure in
+that step at all. From here the feed answers in 1.5 seconds: a 301 to `/feed/` and then 200
+`application/rss+xml`. So the source is up and something between it and a GitHub runner is not,
+which is a different problem from a slow morning and is not one the next run necessarily fixes.
+Two days of intake are the cost so far. What compounds it is that the record says success either
+way, so nobody would have looked.
 
 **THE SHAPE OF THE FIX.** Two steps rather than one, or each command allowed to fail on its own, so
 a timeout costs one source instead of both; and something that reports what discovery actually did,

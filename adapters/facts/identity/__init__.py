@@ -168,7 +168,20 @@ def for_row(row, anchors, shared=None):
     address the row holds is one the registry knows.
     """
     seen, title = [], (row.get("work") if hasattr(row, "get") else None)
-    for u in [row.get("url")] + [s.get("url") for s in (row.get("sources") or [])]:
+    # AND THE WORK-LEVEL ADDRESS LAST, which is the one address on the row that does not move when
+    # the work publishes. `build.py` computes it into `series_url` from the captures
+    # `gigaviewer/workaddress.py` reads, and the registry holds 506 feed addresses and 337 reader
+    # addresses that came from exactly there. Not one of them was ever looked up: this function
+    # tried the headline and the sources, and a GigaViewer headline is a chapter address that
+    # `stable_url` cannot reduce, so every publication presented a key the registry had never seen.
+    # 49 works were compiled, named and then dropped for want of an identifier, 16 of them works
+    # already held under an id of their own.
+    #
+    # LAST, SO IT CAN ONLY ANSWER WHERE NOTHING ELSE DOES. Putting it first would be the better
+    # anchor and would also move rows that resolve today, and an identifier that moves is an address
+    # that stops resolving. Consulted after everything else, this adds answers and changes none.
+    for u in ([row.get("url")] + [s.get("url") for s in (row.get("sources") or [])]
+              + [row.get("series_url")]):
         if not u or u in seen:
             continue
         seen.append(u)

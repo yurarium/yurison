@@ -3090,6 +3090,12 @@ filed at all, and says nothing about whether `release` should be append-only.
 
 ## The pass that mints an identifier cannot see the works that lack one
 
+**PARTLY CLOSED 2026-08-31, and the cause was not where this entry put it.** 16 of the 49 were
+works the corpus already held, kept out by a lookup that never read the address it was given. See
+the entry below. 33 remain and they are the genuinely new works, which still need minting and still
+need a person, so everything this entry says about append-only assignment stands.
+
+
 Found 2026-08-31, working the induction half of a maintenance pass. 49 works reach no reader.
 
 **THE LOOP.** `build.py` compiles a series row for every work a capture reached. A row with no
@@ -3135,3 +3141,64 @@ feed carries are absent from the register, `ganganonline` against its `gangan-on
 `www-comic-essay-com` against its `comic-essay` among them, carrying 130 rows. The reader is
 unaffected, `plat_name` being correct on every one, but `platform.serves_openly` answers False for a
 platform the register does hold, so `admit` would refuse a candidate from it.
+
+## The work-level address was captured, stored, and never looked up
+
+Found 2026-08-31. 16 works reached no reader because of it, and it is fixed.
+
+**WHAT WAS ALREADY THERE.** `build.py` computes `series_address` into the row's `series_url`, from
+the captures `gigaviewer/workaddress.py` reads; that pass fetches a chapter page, follows the atom
+link the platform puts on it, and confirms the og:title names the same work. The registry holds 506
+feed addresses and 337 reader addresses that came from exactly there. Both halves were built for
+this, deliberately, and documented at both ends.
+
+**WHAT NOTHING DID.** `identity.for_row` tried the row's headline and each of its sources, and never
+`series_url`. Measured: of the 843 work-level anchors in the registry, not one appears among the
+1,796 addresses the rows carry. So every one of them was dead the day it was written.
+
+**WHY IT COST WHOLE WORKS.** A GigaViewer headline is a chapter address, and `stable_url` cannot
+reduce `ichicomi.com/episode/<opaque>` because the series id is nowhere in the string. So the lookup
+key changed every time a work published, the registry had never seen it, the row got no identifier,
+and a row with no identifier becomes no work row. w00145 shows the shape from the other side: it has
+accumulated three ichicomi chapter anchors from three different runs, one per publication, plus the
+atom anchor that would have settled it.
+
+**A WORK SURVIVED ONLY BY BEING SOMEWHERE ELSE.** ささやくように恋を唄う keeps its identifier through
+pixivコミック's `works/5758` and ニコニコ's `comic/56012`, which are work-level addresses. A work
+serialising ONLY on a GigaViewer instance had nothing stable at all, which is why ゆるゆり and 大室家
+were among the missing.
+
+**THE FIX IS ONE ADDRESS ADDED TO THE LOOKUP, LAST.** Last is what makes it additive: a better
+anchor consulted first would move rows that resolve today, and an identifier that moves is a
+published address that stops resolving. Proved rather than argued, by building both ways and
+comparing all 1,424 rows: 16 gained an identifier, 0 moved, 0 were lost. `one row per identifier`
+holds, `one work under two names in a list` stays at 3, and `updates naming a work we do not hold`
+falls 76 to 57.
+
+**WHAT IT DOES NOT REACH.** The 33 works that have no identifier anywhere. Those need minting, which
+is append-only, and the entry above says why that is not a maintenance pass's to do.
+
+## A discovery source that times out takes the other one with it, and the run reports success
+
+Found 2026-08-31, in run 33409338399.
+
+**WHAT HAPPENED.** `yurinavi/discover.py` hit `urlopen error timed out` on its first fetch. The step
+runs both discovery passes under one `bash -e`, so `webcomics/coverage.py` never started, and the
+step carries `continue-on-error: true`, so the job went green. The run committed no change to
+`data/queue/yurinavi.yaml` or `data/coverage/`, which is how it was found; `gh run view` reports the
+step as `success` on all four of the last runs, so the outside view cannot distinguish a run that
+discovered nothing from one that discovered nothing new.
+
+**WHY THE COUPLING IS THE WORSE HALF.** The two passes read different sites and answer different
+questions, and `coverage.py` is what merges an admitted candidate into the target list every
+platform adapter reads. So one comparator being slow costs the run its whole intake, including the
+admission policy of 2026-08-15. `update.yml` already argues this exact case for Stage A, "ONE
+ADAPTER MUST NOT COST THE NIGHT", and Stage 0 was written before that argument and never got it.
+
+**TRANSIENT THIS TIME.** yurinavi.com answered 200 in two seconds when checked by hand afterwards,
+so nothing is wrong with the source and the next run will pick the day up. What is worth fixing is
+that a slow host can silently cost a day of intake, and that the record says success either way.
+
+**THE SHAPE OF THE FIX.** Two steps rather than one, or each command allowed to fail on its own, so
+a timeout costs one source instead of both; and something that reports what discovery actually did,
+since `continue-on-error` is right here and hiding the outcome is not.

@@ -7,6 +7,20 @@ from one nobody has looked at.
 **How to resume.** Read the table. The first row not marked done is the next one. Each closed row
 names the commit so the reasoning can be found without re-deriving it.
 
+## Two rises accepted on 2026-08-31, both the same 16 works arriving
+
+`for_row` began consulting the work-level address, so 16 works that had been compiled and dropped
+for want of an identifier entered the corpus. They bring their rows with them, and two budgets
+counted the arrivals:
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| ruby asserting a reading per character | 196 | 197 | 超深宇宙より愛をこめて is one of the 16, and 超深 is named in that budget's own docstring as a compound SudachiDict has no entry for, so the analyser reads each character alone |
+| works holding fewer volumes than the shop states | 69 | 70 | ゆるゆり arrived with 23 volumes against a shop row stating more, which is what that budget was written to notice |
+
+Neither is a defect and neither is silence: both numbers describe works a reader can now open and
+could not before. See docs/GAPS.md for the fault that had been hiding them.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

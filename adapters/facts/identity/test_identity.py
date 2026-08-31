@@ -345,6 +345,29 @@ def main(s):
                         "sources": [{"url": "https://b.example/2"}]}, both), "w00001",
          "the row's own address is asked before any of its sources")
 
+    # ── THE WORK-LEVEL ADDRESS IS TRIED, AND TRIED LAST ──────────────────────────────────────
+    #
+    # A GigaViewer headline is a chapter address that `stable_url` cannot reduce, so the work looks
+    # new on every publication. `build.py` puts the work's own address on the row as `series_url`
+    # and the registry held 506 feed addresses and 337 reader addresses that came from exactly
+    # there, and this function tried neither: 49 works were compiled, named and then dropped for
+    # want of an identifier, 16 of them works already held under an id of their own.
+    giga = ident.index([{"id": "w00174", "anchors":
+                         ["web:https://ichicomi.com/atom/series/2550912965923183706"]}])
+    row = {"work": "ゆるゆり", "url": "https://ichicomi.com/episode/12207421984089197988",
+           "series_url": "https://ichicomi.com/atom/series/2550912965923183706"}
+    s.eq(ident.web_anchor(row["url"]) in giga, False,
+         "today's chapter address is one the registry has never seen, and tomorrow's differs again")
+    s.eq(ident.for_row(row, giga), "w00174",
+         "so the work-level address is what carries the identifier across a publication")
+
+    # LAST, WHICH IS WHAT MAKES THE CHANGE ADDITIVE. A better anchor consulted FIRST would move
+    # rows that resolve today, and an identifier that moves is a published address that stops
+    # resolving. Asked after everything else, it can only answer where nothing else did.
+    s.eq(ident.for_row({"work": "x", "url": "https://a.example/1",
+                        "series_url": "https://b.example/2"}, both), "w00001",
+         "a row the headline answers for keeps that answer, whatever its work-level address says")
+
     # AND A ROW NO ADDRESS ANSWERS FOR IS A ROW WITHOUT AN IDENTIFIER, which is a state the
     # interface has to tolerate: a work registered since the last identity run has none yet.
     s.eq(ident.for_row({"work": "x", "url": "https://nowhere.example/9"}, both), None,

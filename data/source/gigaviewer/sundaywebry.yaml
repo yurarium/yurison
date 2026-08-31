@@ -6,11 +6,43 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-08-31
+retrieved: 2026-09-01
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984173613088"
+    work_title: "#ギャルとギャルの百合"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "#25 #きさらぎ駅"
+    release_type: "chapter"
+    date: "2026-09-01"
+    date_basis: "observed"
+    first_seen: "2026-09-01"
+    first_reported: "2026-08-31T15:00:00Z"
+    platform_updated: "2026-08-31T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984173613088"
+    author: "イノウエ"
+    free_term_start: "2026-08-31T15:00:00Z"
+    advances_narrative: true
+  - release_id: "sunday_webry:episode:12207421984173617692"
+    work_title: "なとりとしずは"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第7話 晴々"
+    release_type: "chapter"
+    date: "2026-09-01"
+    date_basis: "observed"
+    first_seen: "2026-09-01"
+    first_reported: "2026-08-31T15:00:00Z"
+    platform_updated: "2026-08-31T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984173617692"
+    author: "鮎川あお"
+    free_term_start: "2026-08-31T15:00:00Z"
+    advances_narrative: true
   - release_id: "sunday_webry:episode:12207421984152624491"
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"

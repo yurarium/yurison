@@ -3241,3 +3241,41 @@ row would close all twenty.
 chapter page carries no atom link to follow: four ヒーローズウェブ rows, one チャンピオンクロス, one
 コミックエッセイ劇場, one ヤングアニマルWeb and 阿佐ヶ谷サキュバス同人物語. Those works have no
 work-level address to find, which is what `rows with a moving address` counts, now at 9.
+
+## Eighteen of the nineteen per-series feeds had been frozen for a month
+
+Found 2026-09-02, working the induction half of a maintenance pass. Thawed; the minting behind it
+is not done.
+
+**WHY IT MATTERED.** A platform-wide feed states a CHAPTER address, and `identity.stable_url`
+cannot reduce a GigaViewer one to the work. The per-series feed states `/atom/series/<id>`, which
+does not move, and its records are `web_work_chapters`, the record type `build.py` turns into a
+work row. So a work reached only by the platform-wide feed publishes updates for ever and never
+becomes a work: eleven of them on 2026-09-01, which `updates naming a work we do not hold` counts.
+
+**WHY IT WAS FROZEN.** `stage-a.yaml` ran `series_feeds.py` for ichicomi alone, under a note saying
+the other platforms "exit immediately and always have". That was true of the form it was written
+in: without `--candidates` a platform must declare `series_pages`, which in practice only ichicomi
+does. WITH `--candidates` the pass takes its targets from the list every other adapter already
+reads. Run by hand against となりのヤングジャンプ it resolved 87 series and wrote 87 work records
+against a file last touched on 2026-08-02.
+
+**WHAT THE THAW COST AND BROUGHT.** Six platforms run by hand: 306 series and 3,686 episodes, of
+which コミックDAYS alone was 110 series and 2,989 episodes and took about 25 minutes. Stage A runs
+six adapters at a time, so nineteen of these add roughly a third of an hour of wall clock rather
+than the sum. Each entry is `optional`, so a platform that fails costs its own records.
+
+**THE ROUTE THAT WORKS, END TO END.** A work seen only in a platform's own feed is written into
+`data/queue/feed-discovered.yaml` as a discovery candidate; `admit` takes it under the standing
+ruling of 2026-08-15; `coverage.py` merges it into the target list; `series_feeds.py` resolves its
+episode address to a series feed and writes a `web_work_chapters` record; `build.py` makes a work
+row. Nine works were carried through that on 2026-09-02 and gained rows.
+
+**WHAT STOPS THERE, AND WHY IT STOPS THERE.** Those rows have no identifier, and the assignment
+would mint 38 while reporting 30 CONTESTED anchors, each one a web row whose print anchor another
+work already holds: かわいい同盟 against w00313, ロックは淑女の嗜みでして against w00432,
+この恋を星には願わない against w00372. Minting is append-only. Running it as it stands would create
+a second identifier for works the corpus already holds, which is the duplication a smaller version
+of this produced on 2026-08-31 and had to be reverted. Refreshing the joins file first does not
+change the count, which was tried. The contested set wants attaching one at a time with a basis,
+and that is a person's call rather than a pass's.

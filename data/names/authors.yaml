@@ -26971,6 +26971,23 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
+  松まか:
+    basis: romaji
+    furigana_spans:
+    - - 松
+      - まつ
+    - - まか
+      - null
+    reading: マツ マカ
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   松井琳:
     basis: romaji
     furigana_spans:

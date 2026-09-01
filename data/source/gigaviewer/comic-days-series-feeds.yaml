@@ -10,11 +10,11 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-08-06
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 108
-series_held: 109
+series_resolved: 110
+series_held: 111
 works:
   - work_title: "14gの逃避行"
     series_id: "4856001361139111458"
@@ -575,8 +575,63 @@ works:
   - work_title: "GURU"
     series_id: "12207421983429980772"
     url: "https://comic-days.com/atom/series/12207421983429980772"
-    chapter_count: 12
+    chapter_count: 23
     chapters:
+      - title: "２３．　Ｎｅｖｅｒ　Ｓｅｅ　Ｍｅ　Ａｇａｉｎ"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027208760"
+        access_modes: ["purchase"]
+      - title: "２２．　水上のガンマン"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027208175"
+        access_modes: ["purchase"]
+      - title: "２１．　過ぎ去りし思い出"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027207564"
+        access_modes: ["purchase"]
+      - title: "２０．　それが黒魔女"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027206774"
+        access_modes: ["purchase"]
+      - title: "１９．　海に沈める"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027205914"
+        access_modes: ["purchase"]
+      - title: "１８．　世界が終わるまでは"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027205108"
+        access_modes: ["purchase"]
+      - title: "１７．　夜を延ばして"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027204275"
+        access_modes: ["purchase"]
+      - title: "１６．　あなたは海の底"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027203363"
+        access_modes: ["purchase"]
+      - title: "１５．　サバトとハント"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027202496"
+        access_modes: ["purchase"]
+      - title: "１４．　魔法少女たちの百年祭"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027201649"
+        access_modes: ["purchase"]
+      - title: "１３．　ＳＬＡＹ！！"
+        updated: 2026-08-07
+        author: "陣ノ内康暉"
+        url: "https://comic-days.com/episode/12207421984027200790"
+        access_modes: ["purchase"]
       - title: "１２．ハートに火をつけて"
         updated: 2026-05-08
         author: "陣ノ内康暉"
@@ -1873,8 +1928,23 @@ works:
   - work_title: "きみが死ぬまで恋をしたい"
     series_id: "3269754496319977808"
     url: "https://comic-days.com/atom/series/3269754496319977808"
-    chapter_count: 121
+    chapter_count: 124
     chapters:
+      - title: "第41話 うそつき(3)"
+        updated: 2026-08-18
+        author: "あおのなち"
+        url: "https://comic-days.com/episode/12207421984052110395"
+        access_modes: ["purchase"]
+      - title: "第41話 うそつき(2)"
+        updated: 2026-08-18
+        author: "あおのなち"
+        url: "https://comic-days.com/episode/12207421984052110392"
+        access_modes: ["purchase"]
+      - title: "第41話 うそつき(1)"
+        updated: 2026-08-18
+        author: "あおのなち"
+        url: "https://comic-days.com/episode/12207421984052110389"
+        access_modes: ["purchase"]
       - title: "第40話 ママ(2)"
         updated: 2026-07-18
         author: "あおのなち"
@@ -3431,8 +3501,18 @@ works:
   - work_title: "ぜんぶ壊して地獄で愛して"
     series_id: "14079602755154111846"
     url: "https://comic-days.com/atom/series/14079602755154111846"
-    chapter_count: 91
+    chapter_count: 93
     chapters:
+      - title: "第32話 ほどいて(2)"
+        updated: 2026-08-18
+        author: "くわばらたもつ"
+        url: "https://comic-days.com/episode/12207421984052110368"
+        access_modes: ["purchase"]
+      - title: "第32話 ほどいて(1)"
+        updated: 2026-08-18
+        author: "くわばらたもつ"
+        url: "https://comic-days.com/episode/12207421984052110365"
+        access_modes: ["purchase"]
       - title: "第31話 再会(3)"
         updated: 2026-07-18
         author: "くわばらたもつ"
@@ -4626,6 +4706,17 @@ works:
         url: "https://comic-days.com/episode/3269754496571931493"
         free_from: 2021-12-27
         access_modes: ["free"]
+  - work_title: "ゆあとさき"
+    series_id: "12207421984094553405"
+    url: "https://comic-days.com/atom/series/12207421984094553405"
+    chapter_count: 1
+    chapters:
+      - title: "【コミックDAYS読み切り】ゆあとさき"
+        updated: 2026-08-28
+        author: "灯立夏"
+        url: "https://comic-days.com/episode/12207421984094554382"
+        free_from: 2026-08-27
+        access_modes: ["free"]
   - work_title: "ゆめみるがらくた"
     series_id: "4856001361024871468"
     url: "https://comic-days.com/atom/series/4856001361024871468"
@@ -4746,31 +4837,37 @@ works:
         updated: 2022-11-05
         author: "原田重光/蘇募ロウ"
         url: "https://comic-days.com/episode/316190246926614429"
+        free_from: 2023-01-05
         access_modes: ["purchase"]
       - title: "【第4話(1)】愛♡（ラブ）地味娘（じみこ）"
         updated: 2022-11-05
         author: "原田重光/蘇募ロウ"
         url: "https://comic-days.com/episode/316190246926614423"
+        free_from: 2023-01-05
         access_modes: ["purchase"]
       - title: "【第3話(2)】愛♡（ラブ）相棒"
         updated: 2022-10-06
         author: "原田重光/蘇募ロウ"
         url: "https://comic-days.com/episode/316112896902040613"
+        free_from: 2022-12-05
         access_modes: ["purchase"]
       - title: "【第3話(1)】愛♡（ラブ）相棒"
         updated: 2022-10-06
         author: "原田重光/蘇募ロウ"
         url: "https://comic-days.com/episode/316112896902040604"
+        free_from: 2022-12-05
         access_modes: ["purchase"]
       - title: "【第2話(2)】愛♡（ラブ）バド部"
         updated: 2022-10-06
         author: "原田重光/蘇募ロウ"
         url: "https://comic-days.com/episode/316112896880068311"
+        free_from: 2022-11-04
         access_modes: ["purchase"]
       - title: "【第2話(1)】愛♡（ラブ）バド部"
         updated: 2022-10-06
         author: "原田重光/蘇募ロウ"
         url: "https://comic-days.com/episode/316112896880068302"
+        free_from: 2022-11-04
         access_modes: ["purchase"]
       - title: "【第1話】愛♡（ラブ）生徒会"
         updated: 2022-10-06
@@ -5120,8 +5217,13 @@ works:
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     series_id: "2550912964454042523"
     url: "https://comic-days.com/atom/series/2550912964454042523"
-    chapter_count: 23
+    chapter_count: 24
     chapters:
+      - title: "第２４話　チョコレートパニック"
+        updated: 2026-08-26
+        author: "空山トキ/五色安未/泉乃せん/伍長"
+        url: "https://comic-days.com/episode/12207421984143919173"
+        access_modes: ["purchase"]
       - title: "第２３話　襲撃２"
         updated: 2026-07-24
         author: "空山トキ/五色安未/泉乃せん/伍長"
@@ -5136,13 +5238,13 @@ works:
         updated: 2026-05-26
         author: "空山トキ/五色安未/泉乃せん/伍長"
         url: "https://comic-days.com/episode/12207421983753676263"
-        access_modes: ["purchase"]
+        free_from: 2026-08-25
+        access_modes: ["free"]
       - title: "第２０話　結成３"
         updated: 2026-04-24
         author: "空山トキ/五色安未/泉乃せん/伍長"
         url: "https://comic-days.com/episode/12207421983637851899"
-        free_from: 2026-07-23
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１９話　結成２"
         updated: 2026-03-26
         author: "空山トキ/五色安未/泉乃せん/伍長"
@@ -6640,8 +6742,23 @@ works:
   - work_title: "ファタールゲーム"
     series_id: "2550912965643936966"
     url: "https://comic-days.com/atom/series/2550912965643936966"
-    chapter_count: 41
+    chapter_count: 44
     chapters:
+      - title: "１５話　あたしが証明します！（３）"
+        updated: 2026-08-25
+        author: "ばったん"
+        url: "https://comic-days.com/episode/12207421984126358496"
+        access_modes: ["purchase"]
+      - title: "１５話　あたしが証明します！（２）"
+        updated: 2026-08-25
+        author: "ばったん"
+        url: "https://comic-days.com/episode/12207421984126358488"
+        access_modes: ["purchase"]
+      - title: "１５話　あたしが証明します！（１）"
+        updated: 2026-08-25
+        author: "ばったん"
+        url: "https://comic-days.com/episode/12207421984126358483"
+        access_modes: ["purchase"]
       - title: "１４話　これはほとんど愛かもしれない（３）"
         updated: 2026-07-24
         author: "ばったん"
@@ -6661,35 +6778,35 @@ works:
         updated: 2026-05-25
         author: "ばったん"
         url: "https://comic-days.com/episode/12207421983746010862"
-        access_modes: ["purchase"]
+        free_from: 2026-08-24
+        access_modes: ["free"]
       - title: "１３話　ほんとに死んじゃったんだ　あの女（２）"
         updated: 2026-05-25
         author: "ばったん"
         url: "https://comic-days.com/episode/12207421983746010853"
-        access_modes: ["purchase"]
+        free_from: 2026-08-24
+        access_modes: ["free"]
       - title: "１３話　ほんとに死んじゃったんだ　あの女（１）"
         updated: 2026-05-25
         author: "ばったん"
         url: "https://comic-days.com/episode/12207421983746010842"
-        access_modes: ["purchase"]
+        free_from: 2026-08-24
+        access_modes: ["free"]
       - title: "１２話　アタシ初めてひとを殺したいと思った（３）"
         updated: 2026-04-24
         author: "ばったん"
         url: "https://comic-days.com/episode/12207421983634743176"
-        free_from: 2026-07-23
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "１２話　アタシ初めてひとを殺したいと思った（２）"
         updated: 2026-04-24
         author: "ばったん"
         url: "https://comic-days.com/episode/12207421983634743170"
-        free_from: 2026-07-23
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "１２話　アタシ初めてひとを殺したいと思った（１）"
         updated: 2026-04-24
         author: "ばったん"
         url: "https://comic-days.com/episode/12207421983634743165"
-        free_from: 2026-07-23
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "１１話　あたしだけに全部教えて（３）"
         updated: 2026-03-25
         author: "ばったん"
@@ -8916,8 +9033,13 @@ works:
   - work_title: "大室家"
     series_id: "3269754496319982074"
     url: "https://comic-days.com/atom/series/3269754496319982074"
-    chapter_count: 107
+    chapter_count: 108
     chapters:
+      - title: "大室家の136"
+        updated: 2026-08-18
+        author: "なもり"
+        url: "https://comic-days.com/episode/12207421984052110371"
+        access_modes: ["purchase"]
       - title: "大室家の135"
         updated: 2026-07-18
         author: "なもり"
@@ -10384,117 +10506,140 @@ works:
         updated: 2024-09-09
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550912964542556249"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第２３話　変貌"
         updated: 2024-09-09
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550912964542555570"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第２２話　裏ボス対決！？"
         updated: 2024-09-09
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550912964542554993"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第２１話　デスバーン襲来"
         updated: 2024-09-09
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550912964542554233"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第２０話　湯煙の先に"
         updated: 2024-09-09
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550912964542553323"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１９話　学院の森"
         updated: 2024-09-09
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550912964542551792"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１８話　懲罰委員会の後で"
         updated: 2024-09-09
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550912964542550627"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１７話　懲罰委員会"
         updated: 2024-09-09
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550912964542549316"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１６話　土の騎士ルクス"
         updated: 2024-09-09
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550912964542547765"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１５話　新入生歓迎パーティー"
         updated: 2024-06-07
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798630136269"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１４話　原始の森の伝説"
         updated: 2024-06-07
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798630135573"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１３話　火魔法奥義"
         updated: 2024-06-07
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798630134672"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１２話　レウス、猛攻！"
         updated: 2024-06-07
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798630133440"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１１話　神前決闘裁判"
         updated: 2024-06-07
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798630131991"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１０話　聖女カレンの力"
         updated: 2024-06-07
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798630130965"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第９話　エリザベート無双"
         updated: 2024-06-07
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798630129685"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第８話　レベル９９"
         updated: 2024-06-07
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798630127848"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第７話　因果の乱れ"
         updated: 2024-03-08
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798271539799"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第６話　魔力測定試験"
         updated: 2024-03-08
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798271539547"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第５話　神の使い"
         updated: 2024-03-08
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798271539391"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第４話　本編スタート"
         updated: 2024-03-08
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798271539142"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第３話　成長しました"
         updated: 2024-03-08
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798271538962"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第２話　健康になったので、やってみた"
         updated: 2024-03-08
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
         url: "https://comic-days.com/episode/2550689798271538684"
-        access_modes: ["purchase"]
+        free_from: 2026-08-27
+        access_modes: ["free"]
       - title: "第１話　悪役令嬢の身体を手に入れたぞ"
         updated: 2024-03-08
         author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
@@ -11169,13 +11314,26 @@ works:
   - work_title: "新刊100億冊ください"
     series_id: "2550912965415291249"
     url: "https://comic-days.com/atom/series/2550912965415291249"
-    chapter_count: 34
+    chapter_count: 36
     chapters:
+      - title: "３３冊目：好きだから(前編)"
+        updated: 2026-08-20
+        author: "破賀ミチル"
+        url: "https://comic-days.com/episode/12207421983484134387"
+        free_from: 2026-09-03
+        access_modes: ["purchase"]
+      - title: "３２冊目：作中に登場した食べ物やグッズの再現って特に嬉しい"
+        updated: 2026-08-06
+        author: "破賀ミチル"
+        url: "https://comic-days.com/episode/12207421983484134374"
+        free_from: 2026-08-20
+        access_modes: ["free"]
       - title: "３１冊目：己の中のケモノ"
         updated: 2026-07-16
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/12207421983484134356"
-        access_modes: ["purchase"]
+        free_from: 2026-08-06
+        access_modes: ["free"]
       - title: "3巻発売記念書き下ろし"
         updated: 2026-07-02
         author: "破賀ミチル"
@@ -11186,14 +11344,12 @@ works:
         updated: 2026-07-02
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/2550912965415315349"
-        free_from: 2026-07-16
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "２９冊目：好きなままで"
         updated: 2026-06-18
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/2550912965415315343"
-        free_from: 2026-07-02
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "２８冊目：階段"
         updated: 2026-06-04
         author: "破賀ミチル"
@@ -12796,6 +12952,17 @@ works:
         url: "https://comic-days.com/episode/12207421983805333018"
         free_from: 2026-07-26
         access_modes: ["free"]
+  - work_title: "私の好きな人はとても〇〇"
+    series_id: "12207421983805331696"
+    url: "https://comic-days.com/atom/series/12207421983805331696"
+    chapter_count: 1
+    chapters:
+      - title: "【コミックDAYS読み切り】私の好きな人はとても〇〇"
+        updated: 2026-07-27
+        author: "松まか"
+        url: "https://comic-days.com/episode/12207421983805333025"
+        free_from: 2026-07-26
+        access_modes: ["free"]
   - work_title: "私の幽霊"
     series_id: "2550912965183083653"
     url: "https://comic-days.com/atom/series/2550912965183083653"
@@ -12810,8 +12977,18 @@ works:
   - work_title: "私の百合はお仕事です!"
     series_id: "3269754496319980855"
     url: "https://comic-days.com/atom/series/3269754496319980855"
-    chapter_count: 191
+    chapter_count: 193
     chapters:
+      - title: "シフト.76 お姉さまの家庭事情(2)"
+        updated: 2026-08-18
+        author: "未幡"
+        url: "https://comic-days.com/episode/12207421984052110402"
+        access_modes: ["purchase"]
+      - title: "シフト.76 お姉さまの家庭事情(1)"
+        updated: 2026-08-18
+        author: "未幡"
+        url: "https://comic-days.com/episode/12207421984052110398"
+        access_modes: ["purchase"]
       - title: "シフト.75 お姉さまの授業参観(3)"
         updated: 2026-05-18
         author: "未幡"
@@ -14166,14 +14343,20 @@ works:
   - work_title: "雨夜の月"
     series_id: "3269632237268447047"
     url: "https://comic-days.com/atom/series/3269632237268447047"
-    chapter_count: 121
+    chapter_count: 122
     chapters:
+      - title: "第５０−３話　夢現"
+        updated: 2026-08-22
+        author: "くずしろ"
+        url: "https://comic-days.com/episode/12207421983645810033"
+        free_from: 2026-09-05
+        access_modes: ["purchase"]
       - title: "第５０−２話　夢現"
         updated: 2026-08-01
         author: "くずしろ"
         url: "https://comic-days.com/episode/12207421983645810020"
         free_from: 2026-08-22
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第５０−１話　夢現"
         updated: 2026-07-18
         author: "くずしろ"
@@ -14184,8 +14367,7 @@ works:
         updated: 2026-07-04
         author: "くずしろ"
         url: "https://comic-days.com/episode/2551460909710194619"
-        free_from: 2026-07-18
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第４９−１話　相思"
         updated: 2026-06-20
         author: "くずしろ"

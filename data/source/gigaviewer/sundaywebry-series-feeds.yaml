@@ -10,127 +10,12 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-08-02
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 65
+series_resolved: 67
+series_held: 67
 works:
-  - work_title: "#ギャルとギャルの百合"
-    series_id: "2550912965813599150"
-    url: "https://www.sunday-webry.com/atom/series/2550912965813599150"
-    chapter_count: 21
-    chapters:
-      - title: "#22 #デジャブってる"
-        updated: 2026-07-28
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/12207421984022269059"
-        free_from: 2026-07-27
-        access_modes: ["free"]
-      - title: "#18 #育てましょう"
-        updated: 2026-06-30
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/12207421983906643496"
-        access_modes: ["purchase"]
-      - title: "#17 #お久しぶりです"
-        updated: 2026-06-23
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/12207421983877404304"
-        access_modes: ["purchase"]
-      - title: "#16 #生配信"
-        updated: 2026-06-16
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/12207421983849808827"
-        access_modes: ["purchase"]
-      - title: "#15 #いえいっ！"
-        updated: 2026-06-09
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/12207421983821988219"
-        access_modes: ["purchase"]
-      - title: "#14 #お休みしゅる"
-        updated: 2026-06-02
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/12207421983792590165"
-        access_modes: ["purchase"]
-      - title: "#13 #ギャルサーありますか？"
-        updated: 2026-05-26
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/12207421983765030664"
-        access_modes: ["purchase"]
-      - title: "#12 #くっつきたい"
-        updated: 2026-05-19
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/12207421983737699938"
-        access_modes: ["purchase"]
-      - title: "#アニラン #ありがとー♡"
-        updated: 2026-03-04
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/12207421983452545320"
-        free_from: 2026-03-04
-        access_modes: ["free"]
-      - title: "#特別編 #炎上しちゃう"
-        updated: 2025-12-26
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909968584080"
-        free_from: 2025-12-25
-        access_modes: ["free"]
-      - title: "#11 #ありがと"
-        updated: 2025-11-04
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909766326898"
-        access_modes: ["purchase"]
-      - title: "#10 #お姫様"
-        updated: 2025-10-28
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909751898064"
-        access_modes: ["purchase"]
-      - title: "#9 #バイトしたい"
-        updated: 2025-10-21
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909725959711"
-        access_modes: ["purchase"]
-      - title: "#8 #仲良くなって♡"
-        updated: 2025-10-14
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909687576323"
-        access_modes: ["purchase"]
-      - title: "#7 #いーことあるっしょ"
-        updated: 2025-10-07
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909672547585"
-        access_modes: ["purchase"]
-      - title: "#6 #お泊まり"
-        updated: 2025-09-30
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909646012247"
-        access_modes: ["purchase"]
-      - title: "#5 #かんせいっ"
-        updated: 2025-09-23
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909605514247"
-        access_modes: ["purchase"]
-      - title: "#4 #なりたいもの"
-        updated: 2025-09-16
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909576252979"
-        access_modes: ["purchase"]
-      - title: "#3 #なんでも知ってるよ"
-        updated: 2025-09-09
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909559824639"
-        free_from: 2025-09-08
-        access_modes: ["free"]
-      - title: "#2 #記念日"
-        updated: 2025-09-09
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2551460909559824630"
-        free_from: 2025-09-08
-        access_modes: ["free"]
-      - title: "#1 #ギャルとギャルの百合"
-        updated: 2025-06-10
-        author: "イノウエ"
-        url: "https://www.sunday-webry.com/episode/2550912965814192510"
-        free_from: 2025-06-09
-        access_modes: ["free"]
   - work_title: "contact"
     series_id: "3270296674373045696"
     url: "https://www.sunday-webry.com/atom/series/3270296674373045696"
@@ -280,13 +165,25 @@ works:
   - work_title: "てくのぱにっくゆにばーす"
     series_id: "2551460909679434702"
     url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
-    chapter_count: 37
+    chapter_count: 39
     chapters:
-      - title: "第１２話 未知なる味を湯呑みに求めて"
-        updated: 2026-07-24
+      - title: "ショートショート 助手の心得"
+        updated: 2026-08-28
         author: "伏見ダイキ"
-        url: "https://www.sunday-webry.com/episode/12207421984001879444"
-        free_from: 2026-07-23
+        url: "https://www.sunday-webry.com/episode/12207421984152624491"
+        free_from: 2026-08-27
+        access_modes: ["free"]
+      - title: "ショートショート これが彼女らの戦車道"
+        updated: 2026-08-21
+        author: "伏見ダイキ"
+        url: "https://www.sunday-webry.com/episode/12207421984122496896"
+        free_from: 2026-08-20
+        access_modes: ["free"]
+      - title: "第１３話 助手戦線異状あり！"
+        updated: 2026-08-14
+        author: "伏見ダイキ"
+        url: "https://www.sunday-webry.com/episode/12207421984093442305"
+        free_from: 2026-08-13
         access_modes: ["free"]
       - title: "ショートショート 人類学生化計画"
         updated: 2026-07-17
@@ -502,11 +399,11 @@ works:
     url: "https://www.sunday-webry.com/atom/series/12207421983745469823"
     chapter_count: 4
     chapters:
-      - title: "第5話 約束"
-        updated: 2026-07-21
+      - title: "第7話 晴々"
+        updated: 2026-09-01
         author: "鮎川あお"
-        url: "https://www.sunday-webry.com/episode/12207421983978194749"
-        free_from: 2026-07-20
+        url: "https://www.sunday-webry.com/episode/12207421984173617692"
+        free_from: 2026-08-31
         access_modes: ["free"]
       - title: "第3話 負けず嫌い"
         updated: 2026-06-23
@@ -1401,6 +1298,17 @@ works:
         url: "https://www.sunday-webry.com/episode/3269754496551508294"
         free_from: 2017-11-23
         access_modes: ["free"]
+  - work_title: "ももと宮村"
+    series_id: "12207421984030835270"
+    url: "https://www.sunday-webry.com/atom/series/12207421984030835270"
+    chapter_count: 1
+    chapters:
+      - title: "ももと宮村"
+        updated: 2026-08-13
+        author: "光彩"
+        url: "https://www.sunday-webry.com/episode/12207421984030879903"
+        free_from: 2026-08-12
+        access_modes: ["free"]
   - work_title: "もらったもの"
     series_id: "2551460909787863854"
     url: "https://www.sunday-webry.com/atom/series/2551460909787863854"
@@ -1472,6 +1380,122 @@ works:
         author: "ミトガワワタル"
         url: "https://www.sunday-webry.com/episode/3269754496551508619"
         free_from: 2019-11-30
+        access_modes: ["free"]
+  - work_title: "#ギャルとギャルの百合"
+    series_id: "2550912965813599150"
+    url: "https://www.sunday-webry.com/atom/series/2550912965813599150"
+    chapter_count: 21
+    chapters:
+      - title: "#25 #きさらぎ駅"
+        updated: 2026-09-01
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/12207421984173613088"
+        free_from: 2026-08-31
+        access_modes: ["free"]
+      - title: "#18 #育てましょう"
+        updated: 2026-06-30
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/12207421983906643496"
+        access_modes: ["purchase"]
+      - title: "#17 #お久しぶりです"
+        updated: 2026-06-23
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/12207421983877404304"
+        access_modes: ["purchase"]
+      - title: "#16 #生配信"
+        updated: 2026-06-16
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/12207421983849808827"
+        access_modes: ["purchase"]
+      - title: "#15 #いえいっ！"
+        updated: 2026-06-09
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/12207421983821988219"
+        access_modes: ["purchase"]
+      - title: "#14 #お休みしゅる"
+        updated: 2026-06-02
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/12207421983792590165"
+        access_modes: ["purchase"]
+      - title: "#13 #ギャルサーありますか？"
+        updated: 2026-05-26
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/12207421983765030664"
+        access_modes: ["purchase"]
+      - title: "#12 #くっつきたい"
+        updated: 2026-05-19
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/12207421983737699938"
+        access_modes: ["purchase"]
+      - title: "#アニラン #ありがとー♡"
+        updated: 2026-03-04
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/12207421983452545320"
+        free_from: 2026-03-04
+        access_modes: ["free"]
+      - title: "#特別編 #炎上しちゃう"
+        updated: 2025-12-26
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909968584080"
+        free_from: 2025-12-25
+        access_modes: ["free"]
+      - title: "#11 #ありがと"
+        updated: 2025-11-04
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909766326898"
+        access_modes: ["purchase"]
+      - title: "#10 #お姫様"
+        updated: 2025-10-28
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909751898064"
+        access_modes: ["purchase"]
+      - title: "#9 #バイトしたい"
+        updated: 2025-10-21
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909725959711"
+        access_modes: ["purchase"]
+      - title: "#8 #仲良くなって♡"
+        updated: 2025-10-14
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909687576323"
+        access_modes: ["purchase"]
+      - title: "#7 #いーことあるっしょ"
+        updated: 2025-10-07
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909672547585"
+        access_modes: ["purchase"]
+      - title: "#6 #お泊まり"
+        updated: 2025-09-30
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909646012247"
+        access_modes: ["purchase"]
+      - title: "#5 #かんせいっ"
+        updated: 2025-09-23
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909605514247"
+        access_modes: ["purchase"]
+      - title: "#4 #なりたいもの"
+        updated: 2025-09-16
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909576252979"
+        access_modes: ["purchase"]
+      - title: "#3 #なんでも知ってるよ"
+        updated: 2025-09-09
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909559824639"
+        free_from: 2025-09-08
+        access_modes: ["free"]
+      - title: "#2 #記念日"
+        updated: 2025-09-09
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2551460909559824630"
+        free_from: 2025-09-08
+        access_modes: ["free"]
+      - title: "#1 #ギャルとギャルの百合"
+        updated: 2025-06-10
+        author: "イノウエ"
+        url: "https://www.sunday-webry.com/episode/2550912965814192510"
+        free_from: 2025-06-09
         access_modes: ["free"]
   - work_title: "シャッターチャンス"
     series_id: "14079602755173424535"
@@ -2001,6 +2025,17 @@ works:
         author: "光莉"
         url: "https://www.sunday-webry.com/episode/14079602755607769324"
         free_from: 2024-01-07
+        access_modes: ["free"]
+  - work_title: "高井さんの見える世界"
+    series_id: "12207421983909941207"
+    url: "https://www.sunday-webry.com/atom/series/12207421983909941207"
+    chapter_count: 1
+    chapters:
+      - title: "高井さんの見える世界"
+        updated: 2026-08-05
+        author: "安藤いも"
+        url: "https://www.sunday-webry.com/episode/12207421983909949999"
+        free_from: 2026-08-04
         access_modes: ["free"]
   - work_title: "魔女ケイリーのポーション店"
     series_id: "2550912964978527598"

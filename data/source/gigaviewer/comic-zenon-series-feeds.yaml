@@ -10,10 +10,11 @@ source: gigaviewer
 platform: comic-zenon
 platform_name: "コミックゼノン"
 publisher: "コアミックス"
-retrieved: 2026-08-02
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 14
+series_resolved: 15
+series_held: 15
 works:
   - work_title: "My Friend Mana"
     series_id: "3269754496817875492"
@@ -101,6 +102,17 @@ works:
         author: "Nemuisemi"
         url: "https://comic-zenon.com/episode/4856001361489767244"
         free_from: 2023-09-29
+        access_modes: ["free"]
+  - work_title: "予行練習"
+    series_id: "12207421984039815854"
+    url: "https://comic-zenon.com/atom/series/12207421984039815854"
+    chapter_count: 1
+    chapters:
+      - title: "読切 予行練習"
+        updated: 2026-08-05
+        author: "Ciwaz"
+        url: "https://comic-zenon.com/episode/12207421984039817859"
+        free_from: 2026-08-05
         access_modes: ["free"]
   - work_title: "人喰い姫のカヴァリエーレ"
     series_id: "4856001361222609125"

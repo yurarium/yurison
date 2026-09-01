@@ -120,13 +120,36 @@ jobs:
       # BEFORE `coverage.py`, because that is what merges an admitted candidate into the target
       # list, and both run before the adapters that read it. A work announced this morning is
       # therefore fetched this morning. See `adapters/admit.py` for what admits one.
+      # ONE DISCOVERY SOURCE MUST NOT COST THE OTHER, which is the argument Stage A already makes
+      # below and this step was written before it. Both passes ran under one `bash -e`, so when
+      # `yurinavi/discover.py` hit a 45-second timeout the second command never started, and
+      # `webcomics/coverage.py` is the one that merges an admitted candidate into the target list
+      # every platform adapter reads. A slow comparator therefore cost the run its whole intake.
+      #
+      # IT WAS NOT A SLOW MORNING. Runs 33409338399, 33411484140 and 33535976837 all died on
+      # `https://yurinavi.com/feed`, while the same address answers in under two seconds from
+      # outside Actions, so something between that host and a runner is refusing and the next run
+      # does not fix it. Three days of intake went that way.
+      #
+      # AND THE STEP SAID SUCCESS THROUGHOUT. `continue-on-error` is right here, because a
+      # comparator being down is not a reason to withhold the day's releases, but it also meant
+      # `gh run view` reported the step green on every one of those runs and nothing distinguished
+      # a run that discovered nothing from a run that discovered nothing NEW. So each pass now
+      # reports its own outcome, and the step ends by saying which of them ran.
       - name: Stage 0 — discovery queue
         continue-on-error: true
         run: |
+          set +e
           python3 adapters/yurinavi/discover.py --out data/queue \
             --cache "$CACHE/yurinavi-cache" --retrieved "$R"
+          yurinavi=$?
           python3 adapters/webcomics/coverage.py --out data/coverage \
             --cache "$CACHE/webcomics-cache" --pages 8 --retrieved "$R" --force
+          webcomics=$?
+          echo "discovery: 百合ナビ exit $yurinavi, Web漫画アンテナ exit $webcomics"
+          [ "$yurinavi" -eq 0 ]  || echo "::warning title=Discovery::百合ナビ did not run; its queue is as stale as its last success"
+          [ "$webcomics" -eq 0 ] || echo "::warning title=Discovery::Web漫画アンテナ did not run, so no announced work was admitted to the target list this run"
+          [ "$yurinavi" -eq 0 ] || [ "$webcomics" -eq 0 ]
 
       # ── Stage A — feeds, APIs and server-rendered markup. No browser. ────────────────────
       # The commands live in adapters/stage-a.yaml so they can be run by hand exactly as CI runs

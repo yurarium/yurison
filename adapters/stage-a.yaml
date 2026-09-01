@@ -16,12 +16,117 @@ commands:
     argv: [adapters/gigaviewer/releases.py, --platforms, adapters/gigaviewer/platforms.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga", --retrieved, "{R}"]
 
-  # Per-series feeds. Only platforms declaring series_pages do work without --candidates, which in
-  # practice is ichicomi; the rest exit immediately and always have. Left in place because the
-  # registry is the thing that should change, not this list.
+  # Per-series feeds, which are where a work's own address comes from. A platform-wide feed states
+  # a CHAPTER address, and `identity.stable_url` cannot reduce a GigaViewer one to the work, so a
+  # work reached only that way looks new on every publication. The per-series feed states
+  # `/atom/series/<id>`, which does not move, and its records are `web_work_chapters`, which is the
+  # record type `build.py` turns into a work row.
+  #
+  # THE OLD NOTE HERE SAID THE OTHER PLATFORMS "EXIT IMMEDIATELY AND ALWAYS HAVE", and that was
+  # true only of the form it was written in. Without `--candidates` a platform must declare
+  # `series_pages` to have anything to walk, which in practice is ichicomi alone; WITH it the pass
+  # takes its targets from the list every other adapter already reads. Run by hand against
+  # となりのヤングジャンプ on 2026-09-02 it resolved 87 series and wrote 39 work records, on a file
+  # that had not moved since 2026-08-02.
+  #
+  # WHAT THE STALENESS COST. Eighteen of the nineteen per-series files were frozen at the start of
+  # August, so every work first served on those platforms since then reached the feed as releases
+  # and never became a work: eleven of them today, which `updates naming a work we do not hold`
+  # counts. Each is `optional`, so a platform that fails costs its own records and not the night.
   - id: gigaviewer-series-feeds
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, ichicomi,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+
+  - id: gigaviewer-series-feeds-comic-action
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-action,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-comic-days
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-days,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-comic-earthstar
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-earthstar,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-comic-gardo
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-gardo,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-comic-ogyaaa
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-ogyaaa,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-comic-seasons
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-seasons,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-comic-trail
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-trail,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-comic-y-ours
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-y-ours,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-comic-zenon
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-zenon,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-comicborder
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, comicborder,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-feelweb
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, feelweb,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-kuragebunch
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, kuragebunch,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-magcomi
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, magcomi,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-mangatime-square
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, mangatime-square,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-ourfeel
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, ourfeel,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-shonenjumpplus
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, shonenjumpplus,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-sundaywebry
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, sundaywebry,
+           --candidates, data/coverage/webcomics-works.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
+  - id: gigaviewer-series-feeds-tonarinoyj
+    optional: true
+    argv: [adapters/gigaviewer/series_feeds.py, --platform, tonarinoyj,
+           --candidates, data/coverage/webcomics-works.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
 
   - id: comicfuz

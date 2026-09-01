@@ -10,17 +10,50 @@ source: gigaviewer
 platform: comic-gardo
 platform_name: "コミックガルド"
 publisher: "オーバーラップ"
-retrieved: 2026-08-06
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 1
-series_held: 1
+series_resolved: 2
+series_held: 2
 works:
+  - work_title: "優等生がアダルトグッズを買いに来た"
+    series_id: "12207421983996994170"
+    url: "https://comic-gardo.com/atom/series/12207421983996994170"
+    chapter_count: 4
+    chapters:
+      - title: "第2話「放っといたら、寝覚めが悪いから」(3)"
+        updated: 2026-08-17
+        author: "コナタエル/4kaえんぴつ/千種みのり"
+        url: "https://comic-gardo.com/episode/12207421984094260445"
+        access_modes: ["purchase"]
+      - title: "第2話「放っといたら、寝覚めが悪いから」(2)"
+        updated: 2026-08-17
+        author: "コナタエル/4kaえんぴつ/千種みのり"
+        url: "https://comic-gardo.com/episode/12207421984094260440"
+        free_from: 2026-09-07
+        access_modes: ["purchase"]
+      - title: "第2話「放っといたら、寝覚めが悪いから」(1)"
+        updated: 2026-08-17
+        author: "コナタエル/4kaえんぴつ/千種みのり"
+        url: "https://comic-gardo.com/episode/12207421984094260433"
+        free_from: 2026-08-17
+        access_modes: ["free"]
+      - title: "第1話「学校と親には内緒にしてください……」"
+        updated: 2026-08-17
+        author: "コナタエル/4kaえんぴつ/千種みのり"
+        url: "https://comic-gardo.com/episode/12207421984094260425"
+        free_from: 2026-08-17
+        access_modes: ["free"]
   - work_title: "病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～"
     series_id: "2550912965959809012"
     url: "https://comic-gardo.com/atom/series/2550912965959809012"
-    chapter_count: 23
+    chapter_count: 24
     chapters:
+      - title: "第11話「フィアナ、無事クエストを達成する」(2)"
+        updated: 2026-08-11
+        author: "あらた伊里/アトハ/狐印"
+        url: "https://comic-gardo.com/episode/12207421984065286876"
+        access_modes: ["purchase"]
       - title: "第11話「フィアナ、無事クエストを達成する」(1)"
         updated: 2026-07-28
         author: "あらた伊里/アトハ/狐印"
@@ -30,7 +63,8 @@ works:
         updated: 2026-07-14
         author: "あらた伊里/アトハ/狐印"
         url: "https://comic-gardo.com/episode/12207421983943379938"
-        access_modes: ["purchase"]
+        free_from: 2026-08-11
+        access_modes: ["free"]
       - title: "第10話「フィアナ、初のボス戦に挑む！」(2)"
         updated: 2026-07-07
         author: "あらた伊里/アトハ/狐印"
@@ -47,8 +81,7 @@ works:
         updated: 2026-05-26
         author: "あらた伊里/アトハ/狐印"
         url: "https://comic-gardo.com/episode/12207421983750131500"
-        free_from: 2026-07-07
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第9話「フィアナ、ダンジョンを突き進む」(1)"
         updated: 2026-05-12
         author: "あらた伊里/アトハ/狐印"

@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-01
+retrieved: 2026-09-02
 record_type: candidate_works
 works: 310
 candidates:
@@ -1980,7 +1980,7 @@ candidates:
     urls: ["https://comic-days.com/episode/12207421983352147752", "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"]
     tags: ["エロ", "ギャグ・コメディ", "女子高生", "日常", "最近のコメント数", "百合"]
   - title: "予行練習"
-    platforms: ["ゼノン編集部"]
+    platforms: ["コミックゼノン", "ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/12207421984039817859"]
     tags: ["百合", "読み切り"]
   - title: "二人の人魚姫"
@@ -3091,6 +3091,10 @@ candidates:
   - title: "来航怪異の音がする ～横濱外来妖対策局～"
     platforms: ["コミック アース・スター"]
     urls: ["https://comic-earthstar.com/episode/12207421983605265777"]
+  - title: "東京つけものがたり"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/12207421984122057940"]
+    tags: ["百合"]
   - title: "板の上で君と死ねたら"
     platforms: ["LINEマンガ(更新終了)"]
     urls: ["https://manga.line.me/product/periodic?id=Z0001882"]

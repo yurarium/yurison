@@ -6118,9 +6118,34 @@ names:
     en_reviewed: '2026-08-15'
     en_source: yurarium
     en_source_kind: derived
+    furigana_spans:
+    - - 【
+      - null
+    - - 今日
+      - きょう
+    - - の10ページ】
+      - null
+    - - 女子高生
+      - じょしこうせい
+    - - VS
+      - null
+    - - 首切
+      - くびき
+    - - り
+      - null
+    - - 地蔵
+      - じぞう
     note: 今日の10ページ is the slot a platform prints above a short piece, ten pages for today, and it marks
       a oneshot rather than naming this work. 首切り地蔵 is a roadside Jizo statue that local story attaches
       to an execution ground.
+    reading: 【キョウ ノ 10 ページ】 ジョシコウセイ VS クビキリ ジゾウ
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
     verified: false
   【今日の10ページ】怪異調査室:
     basis: translated
@@ -20693,8 +20718,23 @@ names:
     en_reviewed: '2026-08-15'
     en_source: yurarium
     en_source_kind: derived
+    furigana_spans:
+    - - ももと
+      - null
+    - - 宮
+      - みや
+    - - 村
+      - むら
     note: A given name in kana against a surname in kanji, which is the pairing the title is made of and
       the English cannot show.
+    reading: モモ ト ミヤ ムラ
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
     verified: false
   もらったもの:
     basis: translated
@@ -42965,8 +43005,30 @@ names:
     en_reviewed: '2026-08-20'
     en_source: yurarium
     en_source_kind: derived
+    furigana_spans:
+    - - 優等生
+      - ゆうとうせい
+    - - がアダルトグッズを
+      - null
+    - - 買
+      - か
+    - - いに
+      - null
+    - - 来
+      - き
+    - - た
+      - null
     note: 優等生 is the pupil held up as the model. アダルトグッズ is the shop's own euphemism, and 来た puts the
       narrator behind the counter.
+    reading: ユウトウセイ ガ アダルト グッズ ヲ カイ ニ キタ
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
     verified: false
   元カノに幻想を抱くなバーカ:
     basis: translated
@@ -44188,8 +44250,22 @@ names:
     en_reviewed: '2026-08-15'
     en_source: yurarium
     en_source_kind: derived
+    furigana_spans:
+    - - 凛
+      - りん
+    - - としてきゅん
+      - null
     note: 凛として is bearing oneself with composure, and きゅん is the tightening in the chest at the sight
       of someone. The title sets the two against each other in four beats.
+    reading: リント シテ キュン
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
     verified: false
   凛としてカレンな花のように:
     basis: translated
@@ -61590,7 +61666,11 @@ names:
     en_reviewed: '2026-08-15'
     en_source: yurarium
     en_source_kind: derived
-    note: 最恐 puts the character for fear where 最強, strongest, would be.
+    note: 最恐 puts the character for fear where 最強, strongest, would be. THE SHORT KEY WENT WITH THE ALIAS.
+      最恐呪物令嬢 alone was curated separately while the feed carried both spellings; 白泉社 gives the full title
+      on the series page and on the chapter page, so the short one is where a title gets cut at its full-width
+      space rather than a name anybody uses. data/work-aliases.yaml sends it here, and a second entry
+      keyed on the truncation would answer for nothing.
     verified: false
   最愛のお姉様が悪役令嬢だったので、神が定めた運命に抗います@COMIC:
     basis: romaji
@@ -62470,6 +62550,22 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  東京つけものがたり:
+    basis: romaji
+    furigana_spans:
+    - - 東京
+      - とうきょう
+    - - つけものがたり
+      - null
+    reading: トウキョウ ツケ モノガタリ
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   東方Project二次創作シリーズ　SPELL:
@@ -63687,6 +63783,23 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  死神デリート:
+    basis: romaji
+    furigana_spans:
+    - - 死神
+      - しにがみ
+    - - デリート
+      - null
+    reading: シニガミ デリート
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   死神少女は陰から推しを眺めたい　─悪役にTS転生したけど、こっそり原作キャラを観察しに行きます！─:
@@ -72796,6 +72909,30 @@ names:
     translation_note: '推せる is the fan''s verb: she is someone one can back, publicly and at length. Precious
       is a quality she has rather than something the speaker does, and the licensor drops the subtitle.'
     verified: false
+  私の好きな人はとても〇〇:
+    basis: romaji
+    furigana_spans:
+    - - 私
+      - わたし
+    - - の
+      - null
+    - - 好
+      - す
+    - - きな
+      - null
+    - - 人
+      - ひと
+    - - はとても〇〇
+      - null
+    reading: ワタシ ノ スキナ ヒト ワ トテモ 〇〇
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   私の好きは雪に解けない。:
     basis: translated
     en: My Love Does Not Melt Away in the Snow.
@@ -73228,9 +73365,13 @@ names:
     verified: false
   '私の百合はお仕事です! : 公式コミックアンソロジー':
     basis: translated
-    en: 'Yuri Is My Job!: The Official Comic Anthology'
-    en_at: '2026-08-05'
-    en_reviewed: '2026-08-05'
+    en: 'My Yuri Is My Job!: The Official Comic Anthology'
+    en_at: '2026-09-02'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'Yuri Is My Job!: The Official Comic Anthology'
+    en_reviewed: '2026-09-02'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -73250,8 +73391,16 @@ names:
       - こうしき
     - - コミックアンソロジー
       - null
-    note: The parent series is published in English as Yuri Is My Job!, so the anthology takes the name
-      its readers will look for. The subtitle is ours.
+    note: 'OURS HAS TO AGREE WITH ITSELF FIRST. This read Yuri Is My Job! on 2026-08-05, on the ground
+      that the parent series is published in English under that name, while the parent''s own entry of
+      2026-08-04 renders the same Japanese phrase My Yuri Is My Job!. Two rows of one work spelled one
+      phrase two ways, which `one work named two ways across its rows` is the measure for, and it went
+      to 1 the day the anthology gained a row. THE PUBLISHED ENGLISH IS PROBABLY THE OTHER ONE and this
+      is not the entry that can say so. A `licensed` form needs the licensor''s own catalogue page, kodansha.us
+      answers 403 behind a challenge, and the 2026-08-05 note asserted the published name without citing
+      anything. So the claim stays at the basis its evidence supports: both rows now render OUR translation,
+      which keeps 私の, and the licensed form is left to be recorded when somebody can reach the page that
+      states it. The subtitle is ours either way.'
     reading: 'ワタシ ノ ユリ ワ オ シゴトデス !   :   コウシキ コミックアンソロジー'
     reading_at: '2026-08-05'
     reading_basis: analyser

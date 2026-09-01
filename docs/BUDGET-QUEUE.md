@@ -50,6 +50,24 @@ identifiers, so a pass that asked the row instead would close them. Recorded in 
 `works showing a romanisation` does NOT appear above. It rose 24 to 41 as the thirty arrived and is
 back to 24, because each of them was given an English title in the same pass.
 
+## Five rises accepted on 2026-09-02, all the per-series feeds thawing
+
+Eighteen of the nineteen `*-series-feeds.yaml` files had been frozen since 2 August, because
+`stage-a.yaml` ran `series_feeds.py` for ichicomi alone. Running the other platforms brought a
+month of work-level records in at once, and five budgets counted the arrivals.
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| announced works the corpus does not hold | 3 | 12 | the nine in `data/queue/feed-discovered.yaml`. They are announced the moment they enter the target list and held once a capture makes a work of them, so this is the gap being STATED rather than widening |
+| updates naming a work we do not hold | 19 | 22 | 最恐呪物令嬢 left it, being one work this database spelled two ways, and 高井さんの見える世界 left it by becoming a work. The fresh feeds then surfaced 東京つけものがたり and 私の好きな人はとても〇〇, which nothing had seen before |
+| rows with a moving address | 9 | 11 | that budget's own docstring calls a rise "the notice to run adapters/gigaviewer/workaddress.py", which was run: 513 chapter pages read, 803 attachments written |
+| author readings no source states | 430 | 431 | one arriving work's byline, which no source states a reading for |
+| credit fields an identifier does not cover | 70 | 71 | the same arithmetic on the same arrivals |
+
+`one work named two ways across its rows` went to 1 in the same run and is back at 0: 私の百合はお仕事です!
+rendered one Japanese phrase two ways across the series and its anthology. That was a real fault and
+it was fixed rather than banked.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

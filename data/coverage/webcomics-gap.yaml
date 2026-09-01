@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-01
+retrieved: 2026-09-02
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -162,11 +162,41 @@ works_missing:
     url: "https://heros-web.com/series/696d291fa1769"
     antenna_id: "168546"
     tags: ["百合", "幽霊"]
+  - title: "東京つけものがたり"
+    platform: "MAGCOMI"
+    url: "https://magcomi.com/episode/12207421984122057940"
+    antenna_id: "214351"
+    tags: ["百合"]
   - title: "さかなでは足もつかない"
     platform: "MAGCOMI"
     url: "https://magcomi.com/episode/12207421983866622005"
     antenna_id: "210428"
     tags: ["読み切り", "群像劇", "百合"]
+  - title: "星の体温、巡る夢"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13608"
+    antenna_id: "214045"
+    tags: ["百合"]
+  - title: "ライバルアライバル"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13605"
+    antenna_id: "214042"
+    tags: ["百合"]
+  - title: "姫騎士と姫巫女"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13609"
+    antenna_id: "214046"
+    tags: ["百合"]
+  - title: "ひとりみです"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13604"
+    antenna_id: "214041"
+    tags: ["百合"]
+  - title: "作りたい女と食べたい女"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/7182"
+    antenna_id: "113830"
+    tags: ["百合", "料理・グルメ"]
   - title: "怪獣ロマンティクス"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13457"
@@ -182,31 +212,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/13324"
     antenna_id: "209922"
     tags: ["百合"]
-  - title: "姫騎士と姫巫女"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13609"
-    antenna_id: "214046"
-    tags: ["百合"]
-  - title: "星の体温、巡る夢"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13608"
-    antenna_id: "214045"
-    tags: ["百合"]
-  - title: "ライバルアライバル"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13605"
-    antenna_id: "214042"
-    tags: ["百合"]
-  - title: "ひとりみです"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13604"
-    antenna_id: "214041"
-    tags: ["百合"]
-  - title: "作りたい女と食べたい女"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/7182"
-    antenna_id: "113830"
-    tags: ["百合", "料理・グルメ"]
   - title: "ステラ・ステップ"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/10790"
@@ -337,6 +342,11 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "リリィズコンプレックス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005531_S"
+    antenna_id: "168421"
+    tags: ["百合", "エロ"]
   - title: "私の彼女はボディビルダー"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019973_S"
@@ -562,11 +572,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_005943_S"
     antenna_id: "176305"
     tags: ["百合", "ファッション・服飾", "病人"]
-  - title: "リリィズコンプレックス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_005531_S"
-    antenna_id: "168421"
-    tags: ["百合", "エロ"]
   - title: "ニニンがシノブ伝ぷらす"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_003297_S"
@@ -872,6 +877,16 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "私に天使が舞い降りた!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56284"
+    antenna_id: "128039"
+    tags: ["百合", "アニメ化"]
+  - title: "忍者と殺し屋のふたりぐらし"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54592"
+    antenna_id: "123953"
+    tags: ["忍者", "百合", "暗殺者・殺し屋", "シュール", "アニメ化"]
   - title: "タイムトラベル少女 ～ミライのサキ～"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/77287"
@@ -1017,11 +1032,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/69335"
     antenna_id: "178408"
     tags: ["百合"]
-  - title: "私に天使が舞い降りた!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/56284"
-    antenna_id: "128039"
-    tags: ["百合", "アニメ化"]
   - title: "おちこぼれフルーツタルト"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -1037,11 +1047,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/49574"
     antenna_id: "108870"
     tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
-  - title: "忍者と殺し屋のふたりぐらし"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/54592"
-    antenna_id: "123953"
-    tags: ["忍者", "百合", "暗殺者・殺し屋", "シュール", "アニメ化"]
   - title: "星屑テレパス"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/48976"
@@ -1107,11 +1112,6 @@ works_missing:
     url: "https://bigcomics.jp/series/ebdafc2131db0"
     antenna_id: "209944"
     tags: ["百合", "読み切り"]
-  - title: "セイ少女黙示録 ですぺあ"
-    platform: "ビッコミ"
-    url: "https://bigcomics.jp/series/2c1db177ce231"
-    antenna_id: "181120"
-    tags: ["百合", "バトル", "ファンタジー", "残酷・グロテスク"]
   - title: "㊙のライラ"
     platform: "ビビビコミック"
     url: "https://bibibi-comic.com/series/e889bd092d08d"
@@ -1256,7 +1256,7 @@ works_missing:
     platform: "ヤンマガWeb"
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
     antenna_id: "194831"
-    tags: ["エロ", "女子高生", "日常", "ギャグ・コメディ", "百合"]
+    tags: ["最近のコメント数"]
   - title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
     platform: "ライコミ"
     url: "https://comicride.jp/series/7b86cbca64ebe"
@@ -1431,7 +1431,7 @@ works_missing:
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"
     antenna_id: "206108"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
   - title: "あの子のスカート/よみきり"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/dcaacd8b4831f"

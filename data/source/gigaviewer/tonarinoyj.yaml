@@ -6,11 +6,28 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-09-01
+retrieved: 2026-09-02
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "tonarino_yj:episode:12207421984173978504"
+    work_title: "英雄少女と呪われの銀姫"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "[第8話 前編] 英雄少女と呪われの銀姫"
+    release_type: "unclassified"
+    date: "2026-09-01"
+    date_basis: "observed"
+    first_seen: "2026-09-02"
+    first_reported: "2026-09-01T03:00:00Z"
+    platform_updated: "2026-09-01T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421984173978504"
+    author: "アルト/絵本奈央"
+    free_term_start: "2026-09-01T03:00:00Z"
+    raw_title: "[第8話 前編] 英雄少女と呪われの銀姫"
+    advances_narrative: false
   - release_id: "tonarino_yj:episode:12207421984115943564"
     work_title: "知らないまっぴるま"
     web_status: "serialised"
@@ -28,6 +45,7 @@ releases:
     free_term_start: "2026-08-27T03:00:00Z"
     advances_narrative: true
   - release_id: "tonarino_yj:episode:12207421984115943558"
+    in_current_window: false
     work_title: "死神デリート"
     web_status: "serialised"
     identified_via: "discovery-candidate"

@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-09-01
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -2659,8 +2659,12 @@ works:
     title_id: "3282"
     url: "https://pocket.shonenmagazine.com/title/03282"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3282/feed.xml"
-    chapter_count: 25
+    chapter_count: 26
     chapters:
+      - title: "【第25話】厄立たずの新聞　後編"
+        updated: 2026-09-02
+        author: "いどんち"
+        url: "https://pocket.shonenmagazine.com/title/03282/episode/443278"
       - title: "【第24.5話】メイド・イン・学園祭！"
         updated: 2026-08-05
         author: "いどんち"
@@ -2939,8 +2943,12 @@ works:
     title_id: "2758"
     url: "https://pocket.shonenmagazine.com/title/02758"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2758/feed.xml"
-    chapter_count: 60
+    chapter_count: 61
     chapters:
+      - title: "【第55話】全力☆買収☆ガール"
+        updated: 2026-09-02
+        author: "ヒロユキ"
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443414"
       - title: "【第54話】力を合わせて☆生き残れ☆ガール"
         updated: 2026-08-26
         author: "ヒロユキ"

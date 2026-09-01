@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-01
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -17,8 +17,12 @@ works:
     url: "https://tonarinoyj.jp/episode/2551460910044575820"
     platform_name: "ヤンジャン+"
     route: "gigaviewer"
-    chapter_count: 13
+    chapter_count: 14
     chapters:
+      - title: "[第8話 前編] 英雄少女と呪われの銀姫"
+        updated: 2026-09-01
+        author: "アルト/絵本奈央"
+        access_modes: ["free"]
       - title: "[第7話 後編] 英雄少女と呪われの銀姫"
         updated: 2026-08-18
         author: "アルト/絵本奈央"
@@ -1495,27 +1499,27 @@ works:
       - title: "第6話 旅は道連れ（中編）2"
         updated: 2025-04-25
         author: "U-temo"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第6話 旅は道連れ（中編）1"
         updated: 2025-03-28
         author: "U-temo"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話 旅は道連れ（前編）2"
         updated: 2025-02-28
         author: "U-temo"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話 旅は道連れ（前編）1"
         updated: 2025-01-31
         author: "U-temo"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話 顔なし女が出るトンネル（後編）"
         updated: 2024-12-27
         author: "U-temo"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第3話 顔なし女が出るトンネル（前編）"
         updated: 2024-11-22
         author: "U-temo"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第2話 運命のきつねうどん （後編）"
         updated: 2024-11-22
         author: "U-temo"
@@ -1529,12 +1533,16 @@ works:
     url: "https://comic-action.com/episode/13933686331613879685"
     platform_name: "webアクション"
     route: "gigaviewer"
-    chapter_count: 192
+    chapter_count: 193
     chapters:
+      - title: "第191話 シンとプライベートスペース"
+        updated: 2026-09-01
+        author: "クール教信者"
+        access_modes: ["purchase"]
       - title: "第190話 ルコアとゲーム大会"
         updated: 2026-08-18
         author: "クール教信者"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第189話 エルマとユタラマ"
         updated: 2026-08-04
         author: "クール教信者"
@@ -2443,7 +2451,7 @@ works:
     url: "https://youngchampion.jp/series/86c1162f34a04"
     platform_name: "チャンピオンクロス"
     route: "comici"
-    chapter_count: 30
+    chapter_count: 31
     chapters:
       - title: "第1話①"
         updated: 2025-11-05
@@ -2585,9 +2593,14 @@ works:
       - title: "第10話②"
         updated: 2026-08-12
         author: "りんご飴サード,川田暁生"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第10話③"
         updated: 2026-08-19
+        author: "りんご飴サード,川田暁生"
+        access_modes: ["free"]
+      - title: "第11話①"
+        updated: 2026-09-02
         author: "りんご飴サード,川田暁生"
         access_modes: ["purchase"]
   - work_title: "平良深姉妹はどっちもヤんでる"

@@ -3175,8 +3175,23 @@ comparing all 1,424 rows: 16 gained an identifier, 0 moved, 0 were lost. `one ro
 holds, `one work under two names in a list` stays at 3, and `updates naming a work we do not hold`
 falls 76 to 57.
 
-**WHAT IT DOES NOT REACH.** The 33 works that have no identifier anywhere. Those need minting, which
-is append-only, and the entry above says why that is not a maintenance pass's to do.
+**WHAT IT DID NOT REACH, AND WHAT CLOSED IT.** The 33 works with no identifier anywhere were minted
+on 2026-09-01 at the project owner's instruction: 29 new identifiers, 3 anchors attached to works
+the corpus already held, and one pair of rows that turned out to be one work. Every row now carries
+an identifier, 1,423 of 1,423, and the run no longer prints `awaiting an identifier` at all.
+
+**THREE OF THE 33 WOULD HAVE SPLIT A WORK IN TWO, and finding them took two tries.** A check on
+folded titles found nothing, because a print-only registry entry carries `title: None` and is
+reachable only through its `madb:` anchor; those were 3分待って むぎ先輩 against w02200 and
+さざめとりお against w01998. The third, 新米錬金術師の店舗経営 against w01987, survived even that and
+was caught by the gate: `one work named two ways across its rows` went 0 to 1, because the
+cataloguer's シリーズ suffix keeps the two titles from folding together and that budget strips it.
+Each is attached with its evidence rather than minted, and each rests on a shared credit as well as
+a shared title.
+
+**THE LESSON IS THE SHAPE OF THE CHECK.** A registry entry with no title cannot be found by title,
+so a duplicate check reading the registry alone is blind to exactly the entries a print-only work
+leaves. The check that worked reads the shipped index, where the print record carries its title.
 
 ## A discovery source that times out takes the other one with it, and the run reports success
 
@@ -3206,3 +3221,23 @@ way, so nobody would have looked.
 **THE SHAPE OF THE FIX.** Two steps rather than one, or each command allowed to fail on its own, so
 a timeout costs one source instead of both; and something that reports what discovery actually did,
 since `continue-on-error` is right here and hiding the outcome is not.
+
+## The work-address pass resolves an address and then cannot say whose it is
+
+Found 2026-09-01, running `gigaviewer/workaddress.py` after 30 works were minted.
+
+**WHAT IT REPORTS.** `{'resolved': 503, 'reader': 336, 'no-identifier': 20, 'no-series': 8}`. The 20
+are ichicomi rows whose series address it read successfully and then wrote to the unresolved file
+instead of the joins file, because it could not name the work the address belongs to. ゆるゆり,
+大室家, 骨に願いを、星に呪いを and seventeen more are in that list, and every one of them now carries
+an identifier.
+
+It looks the work up by the row's own address, which on these platforms is a chapter address, and
+that is precisely the address resolving to nothing. So the pass written to repair moving anchors is
+defeated by the moving anchor. The row it is already holding states its identifier, and asking the
+row would close all twenty.
+
+**THE OTHER EIGHT ARE A DIFFERENT STATE and are no fault of this pass.** `no-series` means the
+chapter page carries no atom link to follow: four ヒーローズウェブ rows, one チャンピオンクロス, one
+コミックエッセイ劇場, one ヤングアニマルWeb and 阿佐ヶ谷サキュバス同人物語. Those works have no
+work-level address to find, which is what `rows with a moving address` counts, now at 9.

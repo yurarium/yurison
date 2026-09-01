@@ -21,6 +21,35 @@ counted the arrivals:
 Neither is a defect and neither is silence: both numbers describe works a reader can now open and
 could not before. See docs/GAPS.md for the fault that had been hiding them.
 
+## Five rises accepted on 2026-09-01, all thirty newly minted works arriving
+
+The 33 rows that had no identifier were resolved into 29 new works and 3 attachments onto works the
+corpus already held, and one pair of rows turned out to be one work. Thirty works that were compiled
+and dropped every night now reach a reader, and they bring their rows with them.
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| credit fields an identifier does not cover | 63 | 70 | the new works' bylines name people the credit registry has never been asked about |
+| credit pages listing a work that does not name them | 8 | 9 | one arriving credit is on a page whose work does not carry the name back |
+| ruby asserting a reading per character | 197 | 200 | three arriving titles hold a compound SudachiDict has no entry for, so the analyser reads each character alone |
+| incomplete attested rows | 91 | 93 | two arriving rows state less than an attested row is expected to |
+| rows with a moving address | 3 | 9 | see below, and this one is not merely arrival |
+
+**THE MOVING ADDRESSES ARE THE ONE WORTH READING TWICE.** Six of the thirty are anchored on a
+chapter address because their platform offers nothing else: four on ヒーローズウェブ, one on
+チャンピオンクロス and one on コミックエッセイ劇場. `workaddress.py` was run against them and answered
+`no-series` for each, meaning the chapter page carries no atom link to follow. So their anchor moves
+whenever the work publishes, which is the fault that budget exists to count, and it is counted
+honestly rather than hidden by anchoring on something invented.
+
+**AND TWENTY MORE ARE WAITING ON A SECOND FAULT.** That same run resolved a work-level address for
+twenty ichicomi rows and wrote none of them, reporting `no-identifier`: it looks the work up by the
+row's own chapter address, which is exactly the address that does not resolve. Those twenty now have
+identifiers, so a pass that asked the row instead would close them. Recorded in docs/GAPS.md.
+
+`works showing a romanisation` does NOT appear above. It rose 24 to 41 as the thirty arrived and is
+back to 24, because each of them was given an English title in the same pass.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

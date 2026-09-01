@@ -16,7 +16,7 @@
 # Written by adapters/gigaviewer/workaddress.py. READ BY: identity.py --attachments.
 source: data/build/series.json
 role: address-stabilise
-retrieved: 2026-08-31
+retrieved: 2026-09-01
 record_type: stable_address
 joins:
   - id: w00105
@@ -1449,11 +1449,6 @@ joins:
     url: "https://ichicomi.com/episode/2550912965919401725"
     anchor: "web:https://ichicomi.com/atom/series/2550912965919360579"
     basis: "the chapter page at https://ichicomi.com/episode/2550912965919401725 links its own series feed at https://ichicomi.com/atom/series/2550912965919360579, so the platform places this chapter in series 2550912965919360579, and the og:title there names the work: 好きな人が指輪をつけてきた - しらいぬ / 読み切り作品 | 一迅プラス"
-  - id: w00156
-    title: "超深宇宙より愛をこめて【読み切り版】"
-    url: "https://ichicomi.com/episode/2550912965919401588"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965919360655"
-    basis: "the chapter page at https://ichicomi.com/episode/2550912965919401588 links its own series feed at https://ichicomi.com/atom/series/2550912965919360655, so the platform places this chapter in series 2550912965919360655, and the og:title there names the work: 超深宇宙より愛をこめて【読み切り版】 - アシダカヲズ / 読み切り作品 | 一迅プラス"
   - id: w00487
     title: "電波系Xエンカウント"
     url: "https://ichicomi.com/episode/2550912965919401669"

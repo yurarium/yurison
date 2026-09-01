@@ -10,38 +10,39 @@ source: gigaviewer
 platform: comic-seasons
 platform_name: "Seasons"
 publisher: ""
-retrieved: 2026-08-02
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 2
+series_held: 3
 works:
   - work_title: "今夜、エーテルで待ちあわせ"
-    series_id: "2551460909766155404"
-    url: "https://comic-seasons.com/atom/series/2551460909766155404"
-    chapter_count: 1
+    series_id: "12207421983858392884"
+    url: "https://comic-seasons.com/atom/series/12207421983858392884"
+    chapter_count: 2
     chapters:
-      - title: "読切"
-        updated: 2025-12-05
+      - title: "第2話"
+        updated: 2026-08-21
         author: "ヨン"
-        url: "https://comic-seasons.com/episode/2551460909766158255"
-        free_from: 2025-12-05
+        url: "https://comic-seasons.com/episode/12207421983962879135"
+        free_from: 2026-08-21
+        access_modes: ["free"]
+      - title: "第1話"
+        updated: 2026-07-17
+        author: "ヨン"
+        url: "https://comic-seasons.com/episode/12207421983858404523"
+        free_from: 2026-07-17
         access_modes: ["free"]
   - work_title: "悪役令嬢のお嫁さま"
     series_id: "2550912965184685912"
     url: "https://comic-seasons.com/atom/series/2550912965184685912"
-    chapter_count: 10
+    chapter_count: 9
     chapters:
-      - title: "番外編"
-        updated: 2026-07-24
+      - title: "第17話 前編"
+        updated: 2026-08-28
         author: "かわのあきこ"
-        url: "https://comic-seasons.com/episode/12207421983970431851"
-        free_from: 2026-07-24
-        access_modes: ["free"]
-      - title: "第16話 後編"
-        updated: 2026-07-10
-        author: "かわのあきこ"
-        url: "https://comic-seasons.com/episode/12207421983878163863"
-        free_from: 2026-07-10
+        url: "https://comic-seasons.com/episode/12207421984144415519"
+        free_from: 2026-08-28
         access_modes: ["free"]
       - title: "第9話 後編"
         updated: 2025-11-14
@@ -84,4 +85,15 @@ works:
         author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/2550912965184704375"
         free_from: 2025-02-14
+        access_modes: ["free"]
+  - work_title: "今夜、エーテルで待ちあわせ"
+    series_id: "2551460909766155404"
+    url: "https://comic-seasons.com/atom/series/2551460909766155404"
+    chapter_count: 1
+    chapters:
+      - title: "読切"
+        updated: 2025-12-05
+        author: "ヨン"
+        url: "https://comic-seasons.com/episode/2551460909766158255"
+        free_from: 2025-12-05
         access_modes: ["free"]

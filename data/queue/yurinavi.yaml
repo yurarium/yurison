@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-01
+retrieved: 2026-09-02
 record_type: discovery_queue
 candidates:
   - work_title: "優等生がアダルトグッズを買いに来た"
@@ -17,6 +17,15 @@ candidates:
     platform_code: "12207421984094260425"
     work_url: "https://comic-gardo.com/episode/12207421984094260425"
     headline: "優等生の秘密を知ってしまった女子高生のガールミーツガール「優等生がアダルトグッズを買いに来た」WEBでスタート"
+    status: unconfirmed
+  - work_title: "幼馴染の方程式"
+    signal: "oneshot"
+    announced: "Tue, 01 Sep 2026 11:00:34 +0000"
+    url: "https://yurinavi.com/2026/09/01/osananajimino-houteishiki-yomikiri/"
+    platform: "ichicomi"
+    platform_code: "12207421984115855223"
+    work_url: "https://ichicomi.com/episode/12207421984115855223"
+    headline: "ずっと一緒だった幼馴染ふたりの進路と恋を描く百合読み切り「幼馴染の方程式」WEBで公開"
     status: unconfirmed
   - work_title: "残り香に牙"
     signal: "oneshot"

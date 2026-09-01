@@ -13,7 +13,7 @@ platform_name: ニコニコ漫画
 retrieved: 2026-09-01
 record_type: web_work_chapters
 identification_mode: known-works
-works_resolved: 495
+works_resolved: 496
 works:
   - work_title: "ひとりぼっちの○○生活"
     author: "カツヲ(著者)"
@@ -25541,6 +25541,22 @@ works:
       - title: "第2話"
         access_modes: ["free"]
       - title: "第5話"
+        access_modes: ["free"]
+  - work_title: "#ギャルとギャルの百合"
+    author: "イノウエ"
+    url: "https://manga.nicovideo.jp/comic/76421"
+    platform_code: "76421"
+    started: "2026-01-20"
+    updated: "2026-09-01"
+    episode_count_stated: 3
+    partial: true
+    chapter_count: 3
+    chapters:
+      - title: "#1"
+        access_modes: ["free"]
+      - title: "#2"
+        access_modes: ["free"]
+      - title: "#9"
         access_modes: ["free"]
   - work_title: "線の上で前を向く"
     author: "時和輝"

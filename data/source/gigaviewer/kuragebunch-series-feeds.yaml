@@ -10,10 +10,11 @@ source: gigaviewer
 platform: kuragebunch
 platform_name: "くらげバンチ"
 publisher: "新潮社"
-retrieved: 2026-08-02
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 13
+series_held: 13
 works:
   - work_title: "さえちゃんのとなり"
     series_id: "2550912964605789737"
@@ -51,13 +52,20 @@ works:
   - work_title: "ファーストペンギン・レクイエム"
     series_id: "12207421983893646743"
     url: "https://kuragebunch.com/atom/series/12207421983893646743"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "第4話 ノブレス・オブリージュ"
+        updated: 2026-08-25
+        author: "タダノなつ"
+        url: "https://kuragebunch.com/episode/12207421984005057856"
+        free_from: 2026-09-29
+        access_modes: ["purchase"]
       - title: "第3話 人類を守る仕事"
         updated: 2026-07-28
         author: "タダノなつ"
         url: "https://kuragebunch.com/episode/12207421983906416219"
-        access_modes: ["purchase"]
+        free_from: 2026-08-25
+        access_modes: ["free"]
       - title: "第2話 ドアの向こうは"
         updated: 2026-06-30
         author: "タダノなつ"

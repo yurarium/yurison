@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-09-02
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 210
+  hits_agreeing_on_a_creator: 214
   hits_on_the_title_alone: 85
-  hits_stating_a_print_edition_date: 167
-  works_asked: 726
-  works_with_a_hit: 216
+  hits_stating_a_print_edition_date: 170
+  works_asked: 734
+  works_with_a_hit: 220
 works:
   - work_url: "https://bibibi-comic.com/series/e889bd092d08d"
     id: "w03256"
@@ -2128,6 +2128,23 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://comic-gardo.com/episode/12207421984065286876"
+    id: "w00059"
+    work: "病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～"
+    author: "あらた伊里 / アトハ / 狐印"
+    platform: "コミックガルド"
+    query: "author"
+    retrieved: "2026-09-02"
+    hits:
+      - series_url: "https://bookwalker.jp/series/572180/list/"
+        title_listed: "病弱少女、転生して健康な肉体（最強）を手に入れる（ガルドコミックス）"
+        shop_author: "あらた伊里"
+        imprint: "ガルドコミックス"
+        publisher: "オーバーラップ"
+        printed: "2026/1/25"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://comic-ogyaaa.com/episode/12207421983939282915"
     id: "w00192"
     work: "まるせっせんす"
@@ -2165,6 +2182,48 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984090423400"
+    id: "w00192"
+    work: "まるせっせんす"
+    author: "畳ゆか"
+    platform: "COMIC OGYAAA!!"
+    query: "author"
+    retrieved: "2026-09-02"
+    hits:
+      - series_url: null
+        title_listed: "まるせっせんす 1"
+        shop_author: "畳ゆか"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984118168855"
+    id: "w00108"
+    work: "壊していいよ、すいかちゃん"
+    author: "虫歯"
+    platform: "COMIC OGYAAA!!"
+    retrieved: "2026-09-02"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984118168859"
+    id: "w00158"
+    work: "あの子とふたりで。"
+    author: "当麻"
+    platform: "COMIC OGYAAA!!"
+    query: "author"
+    retrieved: "2026-09-02"
+    hits:
+      - series_url: "https://bookwalker.jp/series/570214/list/"
+        title_listed: "あの子とふたりで。（ヤングジャンプコミックスDIGITAL）"
+        shop_author: "当麻"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        printed: "2025/12/23"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://comic-ogyaaa.com/episode/2550689798875510910"
     id: "w00681"
     work: "サバーキ"
@@ -4883,6 +4942,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://kuragebunch.com/episode/12207421984005057856"
+    id: "w00073"
+    work: "ファーストペンギン・レクイエム"
+    author: "タダノなつ"
+    platform: "くらげバンチ"
+    retrieved: "2026-09-02"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://kuragebunch.com/episode/12207421984030246278"
     id: "w00039"
     work: "友達からでもいいですか"
@@ -7025,6 +7094,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984173978504"
+    id: "w00130"
+    work: "英雄少女と呪われの銀姫"
+    author: "アルト / 絵本奈央"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-09-02"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://tonarinoyj.jp/episode/13933686331772859580"
     id: "w00982"
     work: "ストライク・オア・ガター"
@@ -8458,6 +8537,32 @@ works:
         agreement: "creator"
         volumes_stated: 30
         completed_marker: false
+  - work_url: "https://www.sunday-webry.com/episode/12207421984173613088"
+    id: "w00060"
+    work: "#ギャルとギャルの百合"
+    author: "イノウエ"
+    platform: "サンデーうぇぶり"
+    query: "author"
+    retrieved: "2026-09-02"
+    hits:
+      - series_url: null
+        title_listed: "＃ギャルとギャルの百合（１）"
+        shop_author: "イノウエ(著)"
+        imprint: "サンデーうぇぶりコミックス"
+        publisher: "小学館"
+        printed: "2025/12/31"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://www.sunday-webry.com/episode/12207421984173617692"
+    id: "w00131"
+    work: "なとりとしずは"
+    author: "鮎川あお"
+    platform: "サンデーうぇぶり"
+    retrieved: "2026-09-02"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
   - work_url: "https://www.sunday-webry.com/episode/14079602755180542200"
     id: "w00815"
     work: "君に惹かれた理由"

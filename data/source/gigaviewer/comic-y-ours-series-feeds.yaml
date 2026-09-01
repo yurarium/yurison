@@ -10,12 +10,13 @@ source: gigaviewer
 platform: comic-y-ours
 platform_name: "COMIC Y-OURS"
 publisher: ""
-retrieved: 2026-08-02
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 3
+series_held: 3
 works:
-  - work_title: "ユアーズ)（アンラッキースケベ"
+  - work_title: "アンラッキースケベ"
     series_id: "12207421983387276073"
     url: "https://comic-y-ours.com/atom/series/12207421983387276073"
     chapter_count: 1
@@ -26,7 +27,7 @@ works:
         url: "https://comic-y-ours.com/episode/12207421983394553051"
         free_from: 2026-03-06
         access_modes: ["free"]
-  - work_title: "ユアーズ)（ホントのキモチ"
+  - work_title: "ホントのキモチ"
     series_id: "12207421983499052823"
     url: "https://comic-y-ours.com/atom/series/12207421983499052823"
     chapter_count: 1
@@ -37,7 +38,7 @@ works:
         url: "https://comic-y-ours.com/episode/12207421983499079730"
         free_from: 2026-04-14
         access_modes: ["free"]
-  - work_title: "ユアーズ)（愛でたいセンセイ"
+  - work_title: "愛でたいセンセイ"
     series_id: "2551460909766306523"
     url: "https://comic-y-ours.com/atom/series/2551460909766306523"
     chapter_count: 16

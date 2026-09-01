@@ -10,10 +10,11 @@ source: gigaviewer
 platform: comic-earthstar
 platform_name: "コミック アース・スター"
 publisher: "アース・スター エンターテイメント"
-retrieved: 2026-08-02
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 6
+series_held: 6
 works:
   - work_title: "アオハルに憑き物"
     series_id: "2550912964936716188"
@@ -29,13 +30,19 @@ works:
   - work_title: "ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～"
     series_id: "2550912965247410451"
     url: "https://comic-earthstar.com/atom/series/2550912965247410451"
-    chapter_count: 27
+    chapter_count: 28
     chapters:
+      - title: "第14話②"
+        updated: 2026-08-13
+        author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
+        url: "https://comic-earthstar.com/episode/12207421984034840843"
+        access_modes: ["purchase"]
       - title: "第14話①"
         updated: 2026-07-30
         author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
         url: "https://comic-earthstar.com/episode/12207421983861577217"
-        access_modes: ["purchase"]
+        free_from: 2026-08-13
+        access_modes: ["free"]
       - title: "第13話②"
         updated: 2026-06-18
         author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
@@ -46,8 +53,7 @@ works:
         updated: 2026-06-04
         author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
         url: "https://comic-earthstar.com/episode/12207421983718641731"
-        free_from: 2026-06-18
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第12話②"
         updated: 2026-05-14
         author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"

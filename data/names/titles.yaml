@@ -23654,6 +23654,18 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  アンラッキースケベ:
+    basis: romaji
+    reading: アンラッキー スケベ
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   アーシェラ将軍と秘書サディ:
     basis: translated
     en: General Ashera and Her Secretary Sadie
@@ -34796,6 +34808,21 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  ホントのキモチ:
+    basis: romaji
+    furigana_spans:
+    - - ホントのキモチ
+      - null
+    reading: ホント ノ キモチ
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   ホームズさんは推理ができない:
@@ -60269,6 +60296,35 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  明日の空を見る人よ:
+    basis: romaji
+    furigana_spans:
+    - - 明日
+      - あす
+    - - の
+      - null
+    - - 空
+      - そら
+    - - を
+      - null
+    - - 見
+      - み
+    - - る
+      - null
+    - - 人
+      - ひと
+    - - よ
+      - null
+    reading: アス ノ ソラ ヲ ミル ヒト ヨ
+    reading_at: '2026-09-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   明日はきっと優しい:

@@ -10,16 +10,23 @@ source: gigaviewer
 platform: comic-ogyaaa
 platform_name: "COMIC OGYAAA!!"
 publisher: "一迅社"
-retrieved: 2026-08-03
+retrieved: 2026-09-02
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 11
+series_held: 11
 works:
   - work_title: "あの子とふたりで。"
     series_id: "2550912965818312577"
     url: "https://comic-ogyaaa.com/atom/series/2550912965818312577"
-    chapter_count: 13
+    chapter_count: 14
     chapters:
+      - title: "第12話"
+        updated: 2026-08-21
+        author: "当麻"
+        url: "https://comic-ogyaaa.com/episode/12207421984118168859"
+        free_from: 2026-08-21
+        access_modes: ["free"]
       - title: "第11話"
         updated: 2026-07-17
         author: "当麻"
@@ -236,26 +243,29 @@ works:
   - work_title: "まるせっせんす"
     series_id: "12207421983372417929"
     url: "https://comic-ogyaaa.com/atom/series/12207421983372417929"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
+      - title: "番外編①"
+        updated: 2026-08-14
+        author: "畳ゆか"
+        url: "https://comic-ogyaaa.com/episode/12207421984090423400"
+        free_from: 2026-08-14
+        access_modes: ["free"]
       - title: "第6話 紅血"
         updated: 2026-07-10
         author: "畳ゆか"
         url: "https://comic-ogyaaa.com/episode/12207421983939282915"
-        free_from: 2026-07-10
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話 日常"
         updated: 2026-06-12
         author: "畳ゆか"
         url: "https://comic-ogyaaa.com/episode/12207421983826592694"
-        free_from: 2026-06-12
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話 証明"
         updated: 2026-05-08
         author: "畳ゆか"
         url: "https://comic-ogyaaa.com/episode/12207421983660420413"
-        free_from: 2026-05-08
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第3話 発見"
         updated: 2026-04-10
         author: "畳ゆか"
@@ -382,8 +392,14 @@ works:
   - work_title: "壊していいよ、すいかちゃん"
     series_id: "12207421983608475749"
     url: "https://comic-ogyaaa.com/atom/series/12207421983608475749"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
+      - title: "第7話 屈しない！"
+        updated: 2026-08-21
+        author: "虫歯"
+        url: "https://comic-ogyaaa.com/episode/12207421984118168855"
+        free_from: 2026-08-21
+        access_modes: ["free"]
       - title: "第6話 アカツキ"
         updated: 2026-07-17
         author: "虫歯"
@@ -423,8 +439,14 @@ works:
   - work_title: "恋より青く"
     series_id: "4856001361171639719"
     url: "https://comic-ogyaaa.com/atom/series/4856001361171639719"
-    chapter_count: 42
+    chapter_count: 43
     chapters:
+      - title: "第41話"
+        updated: 2026-08-14
+        author: "深海 紺"
+        url: "https://comic-ogyaaa.com/episode/12207421984086096607"
+        free_from: 2026-08-14
+        access_modes: ["free"]
       - title: "第40話"
         updated: 2026-07-10
         author: "深海 紺"

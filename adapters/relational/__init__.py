@@ -2088,7 +2088,15 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
         # store untranslated, and where that number happened to be the live id of the row carrying
         # it, `alias_of IS NULL OR alias_of <> id` refused the whole commit. The full rebuild
         # resolves aliases in a second pass for exactly this reason, and the delta now does too.
-        deferred = [r[3] for r in db.execute(f"PRAGMA foreign_key_list({table})") if r[2] == table]
+        # ONLY THE COLUMNS THAT HOLD THIS TABLE'S OWN ADDRESS, which is narrower than "every column
+        # of a foreign key naming this table". `surface` declares a composite one,
+        # `(alias_of, wants, kind) REFERENCES surface (id, retired, kind)`, so keying on the source
+        # column collected `wants` and `kind` as well: `kind` is half the natural key and stopped
+        # being compared, and `wants` is GENERATED, which `cols` excludes and an insert may not
+        # write. Asking what each column points AT keeps `alias_of` and drops both.
+        deferred = list(dict.fromkeys(
+            r[3] for r in db.execute(f"PRAGMA foreign_key_list({table})")
+            if r[2] == table and r[4] in mine and r[3] in cols))
         points_at = {}
         for r in db.execute(f"PRAGMA foreign_key_list({table})"):
             parent, column, parent_col = r[2], r[3], r[4]
@@ -2106,6 +2114,20 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
             for column, mapping in points_at.items():
                 if row.get(column) is not None:
                     row[column] = mapping.get(row[column], row[column])
+            # AND THE SELF-REFERENCE IS NOT CARRIED IN AT ALL, which taking it out of `stated` was
+            # not enough to do. `stated` decides what a delta COMPARES; the insert still wrote the
+            # column, so a row arriving for the first time carried the scratch's number, and where
+            # the id this store then handed it happened to equal that number,
+            # `alias_of IS NULL OR alias_of <> id` refused the commit before the pass below could
+            # correct it. The pass below fills it once every row has its own address.
+            #
+            # DROPPED FROM THE ROW RATHER THAN SET TO NULL, and the difference is convergence.
+            # Taking `alias_of` out of `stated` leaves `surface` stating nothing at all, and
+            # `reconcile` infers the value columns back off the row when it is given none. A row
+            # still carrying the key wrote NULL over all 118 aliases on every build, which the pass
+            # below then put back: 118 rows written for ever, on a store that had not moved.
+            for column in deferred:
+                row.pop(column, None)
             rows.append(row)
         try:
             written, dropped, unchanged = _delta.reconcile(db, table, key, rows, stated, mine)

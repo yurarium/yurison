@@ -272,6 +272,37 @@ def main(s):
             s.check(True,
                     "no surface may stand for itself, which is the check the delta was tripping")
 
+        # ── AND THE DELTA CARRIES IT ACROSS, ONCE, AND THEN STOPS ────────────────────────────
+        #
+        # TWO FAULTS LIVED HERE AND THE SECOND WAS HIDDEN BY THE FIRST. `surface` declares a
+        # composite self-reference, `(alias_of, wants, kind) REFERENCES surface (id, retired,
+        # kind)`, so deferring every column of a key that names this table deferred `wants`, which
+        # is GENERATED and may not be inserted, and `kind`, which is half the natural key and
+        # stopped being compared. Only `alias_of` actually holds this table's address.
+        #
+        # AND DEFERRING IT LEAVES `surface` STATING NOTHING, so `reconcile` infers the value
+        # columns back off the row it was handed. A row still carrying the key wrote NULL over
+        # every alias on every build and the second pass put them back: a store that had not moved
+        # reported 118 rows written, for ever. The row must not carry the column at all.
+        scratch = relational.create(":memory:")
+        scratch.execute("INSERT INTO surface (kind, folded) VALUES ('title', 'canon2')")
+        scratch.execute("INSERT INTO surface (kind, folded) VALUES ('title', 'variant2')")
+        c2 = scratch.execute("SELECT id FROM surface WHERE folded = 'canon2'").fetchone()[0]
+        v2 = scratch.execute("SELECT id FROM surface WHERE folded = 'variant2'").fetchone()[0]
+        scratch.execute("UPDATE surface SET alias_of = ? WHERE id = ?", (c2, v2))
+        live = relational.create(":memory:")
+        counts, refused, _moved = relational.apply(live, fresh=scratch)
+        s.eq(refused, [], "a scratch holding an alias is applied without the commit being refused")
+        got = live.execute("SELECT alias_of FROM surface WHERE folded = 'variant2'").fetchone()[0]
+        mine = live.execute("SELECT id FROM surface WHERE folded = 'canon2'").fetchone()[0]
+        s.eq(got, mine,
+             "and the alias names THIS store's canonical row, not the number the scratch used")
+        counts2, refused2, _m2 = relational.apply(live, fresh=scratch)
+        s.eq(refused2, [], "applying the same scratch again refuses nothing")
+        s.eq(counts2.get("surface", (0, 0, 0))[0], 0,
+             "AND WRITES NOTHING, which is what a delta converging means; the alias is already "
+             "where it belongs and re-stating it every build is the bug this asserts against")
+
         # ONLY `coalesce`, WHICH IS THE WHOLE OF WHAT THIS SCHEMA WRITES. An expression this has
         # not been taught to read answers nothing rather than guessing a column out of it.
         db.execute("CREATE TABLE probe (a TEXT, b TEXT)")

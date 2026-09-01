@@ -5,13 +5,13 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-08-31
+retrieved: 2026-09-01
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 310
-works_on_watched_platform: 287
-platforms_total: 57
+works_on_watched_platform: 286
+platforms_total: 58
 platforms_watched: 43
 # ranked by works reachable on NO watched platform
 platforms_missing:
@@ -22,6 +22,8 @@ platforms_missing:
   - platform: "きら星ポータル"
     works: 3
   - platform: "pixivコミックマガジン"
+    works: 1
+  - platform: "COMIC ポルタ"
     works: 1
   - platform: "ドリコミ+"
     works: 1
@@ -40,6 +42,11 @@ platforms_missing:
   - platform: "ゼロサムオンライン"
     works: 1
 works_missing:
+  - title: "このままモブじゃ終われない!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3700"
+    antenna_id: "203870"
+    tags: ["百合", "サキュバス"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -75,11 +82,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3140"
     antenna_id: "138856"
     tags: ["百合", "アイドル"]
-  - title: "このままモブじゃ終われない!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3700"
-    antenna_id: "203870"
-    tags: ["百合", "サキュバス"]
   - title: "しゅがー・みーつ・がーる!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3108"
@@ -100,6 +102,11 @@ works_missing:
     url: "https://comic-y-ours.com/episode/2551460909791888785"
     antenna_id: "201134"
     tags: ["百合", "教師", "完結"]
+  - title: "OLと人魚"
+    platform: "COMIC ポルタ"
+    url: "https://comic-porta.com/series/7981/"
+    antenna_id: "214163"
+    tags: ["百合"]
   - title: "私の魂を食べて下さい!"
     platform: "COMICリュウ"
     url: "https://www.comic-ryu.jp/series/watashinotamashiiwotabetekudasai/"
@@ -334,7 +341,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019973_S"
     antenna_id: "214234"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "ギャグ・コメディ", "筋肉", "読み切り", "運動・筋トレ"]
   - title: "ひとりみです"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006607_S"
@@ -344,7 +351,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006547_S"
     antenna_id: "187688"
-    tags: ["最近のコメント数"]
+    tags: ["オカルト", "サスペンス", "ホラー", "残酷・グロテスク", "架空の部活", "女子高生", "デスゲーム", "百合"]
   - title: "私を喰べたい、ひとでなし"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_003258_S"
@@ -650,6 +657,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006299_S"
     antenna_id: "183083"
     tags: ["百合", "女子高生", "コミカライズ", "エロ"]
+  - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/2349"
+    antenna_id: "194497"
+    tags: ["百合", "犯罪"]
   - title: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
@@ -665,11 +677,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/29"
     antenna_id: "745"
     tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
-  - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2349"
-    antenna_id: "194497"
-    tags: ["百合", "犯罪"]
   - title: "ひきこまり吸血姫の悶々"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/1593"
@@ -685,6 +692,11 @@ works_missing:
     url: "https://www.ganganonline.com/title/2643"
     antenna_id: "211061"
     tags: ["百合", "読み切り", "群像劇", "パンデミック", "メンタルヘルス"]
+  - title: "ワインガールズ"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    antenna_id: "205919"
+    tags: ["百合", "擬人化"]
   - title: "魔王城デート大作戦!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
@@ -695,11 +707,6 @@ works_missing:
     url: "https://kimicomi.com/series/397963f4f9cfd"
     antenna_id: "213718"
     tags: ["百合"]
-  - title: "ワインガールズ"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    antenna_id: "205919"
-    tags: ["百合", "擬人化"]
   - title: "ステラ・ステップ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
@@ -865,6 +872,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "タイムトラベル少女 ～ミライのサキ～"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/77287"
+    antenna_id: "204961"
+    tags: ["百合"]
   - title: "私を喰べたい、ひとでなし"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/49677"
@@ -1030,11 +1042,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/54592"
     antenna_id: "123953"
     tags: ["忍者", "百合", "暗殺者・殺し屋", "シュール", "アニメ化"]
-  - title: "タイムトラベル少女 ～ミライのサキ～"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/77287"
-    antenna_id: "204961"
-    tags: ["百合"]
   - title: "星屑テレパス"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/48976"
@@ -1320,11 +1327,6 @@ works_missing:
     url: "https://ichicomi.com/episode/12207421983829237024"
     antenna_id: "210178"
     tags: ["百合", "読み切り"]
-  - title: "たとえとどかぬ糸だとしても"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965923204597"
-    antenna_id: "209611"
-    tags: ["百合"]
   - title: "バトル・ウィッチーズ"
     platform: "新都社"
     url: "http://neetsha.jp/inside/comic.php?id=24919"
@@ -1429,7 +1431,7 @@ works_missing:
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"
     antenna_id: "206108"
-    tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
+    tags: ["最近のコメント数"]
   - title: "あの子のスカート/よみきり"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/dcaacd8b4831f"

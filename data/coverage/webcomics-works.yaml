@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-08-31
+retrieved: 2026-09-01
 record_type: candidate_works
 works: 310
 candidates:
@@ -118,6 +118,10 @@ candidates:
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/0e7fd362c2c11"]
     tags: ["VTuber", "百合"]
+  - title: "OLと人魚"
+    platforms: ["COMIC ポルタ"]
+    urls: ["https://comic-porta.com/series/7981/"]
+    tags: ["百合"]
   - title: "Queentopia Project【タテスク】"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008652_S"]
@@ -1634,7 +1638,7 @@ candidates:
   - title: "フレンドガールフレンド"
     platforms: ["マンガPark", "花とゆめ+"]
     urls: ["https://hanayume.com/series/f3ce082d639de", "https://manga-park.com/title/100223"]
-    tags: ["うぶ恋・ピュア恋", "女子高生", "百合"]
+    tags: ["うぶ恋・ピュア恋", "女子高生", "最近のコメント数", "百合"]
   - title: "フードコートで、また明日。"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005741_S"]
@@ -3568,7 +3572,7 @@ candidates:
   - title: "私の彼女はボディビルダー"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019973_S"]
-    tags: ["最近のコメント数"]
+    tags: ["ギャグ・コメディ", "最近のコメント数", "百合", "筋肉", "読み切り", "運動・筋トレ"]
   - title: "私の推しは悪役令嬢。"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/7319", "https://ichicomi.com/episode/2550912965923202772"]

@@ -40,12 +40,22 @@ record_type: shop_work_query
 retrieved: 2026-09-01
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 207
-  hits_on_the_title_alone: 78
-  hits_stating_a_print_edition_date: 159
-  works_asked: 697
-  works_with_a_hit: 207
+  hits_agreeing_on_a_creator: 210
+  hits_on_the_title_alone: 85
+  hits_stating_a_print_edition_date: 167
+  works_asked: 726
+  works_with_a_hit: 216
 works:
+  - work_url: "https://bibibi-comic.com/series/e889bd092d08d"
+    id: "w03256"
+    work: "㊙のライラ"
+    author: "朝比奈ショウ"
+    platform: "ビビビコミック"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://bigcomics.jp/series/003c4bf48a97f"
     id: "w00450"
     work: "目には目を"
@@ -365,6 +375,20 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://championcross.jp/episodes/b52d54db17eb4"
+    id: "w03266"
+    work: "贋作の第十番"
+    platform: "チャンピオンクロス"
+    query: "title"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: null
+        title_listed: "贋作の第十番【電子特別版】 1"
+        shop_author: "梶本レイカ(著)"
+        imprint: "ボニータ・コミックス"
+        publisher: "秋田書店"
+        agreement: "title-only"
+        completed_marker: false
   - work_url: "https://championcross.jp/series/21fe5b3d50300"
     id: "w00143"
     work: "Killer♡Twinkle～アンチはステージに上がれません♡～"
@@ -3339,6 +3363,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_019452_S"
+    id: "w03254"
+    work: "メイドinお嬢さま"
+    author: "初瀬白"
+    platform: "カドコミ"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-walker.com/detail/KC_019475_S"
     id: "w00133"
     work: "姉妹傭兵"
@@ -3369,6 +3403,36 @@ works:
     notes:
       - "author query answered nothing"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_019946_S"
+    id: "w03245"
+    work: "こいのおわりをねがうとき"
+    author: "冬元はつみ"
+    platform: "カドコミ"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_019973_S"
+    id: "w03265"
+    work: "私の彼女はボディビルダー"
+    author: "sono.N"
+    platform: "カドコミ"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_020013_S"
+    id: "w03241"
+    work: "No marriage, No magic"
+    author: "霜月汐"
+    platform: "カドコミ"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://comic-zenon.com/episode/12207421983426102334"
     id: "w00342"
     work: "夜明けのアリス"
@@ -3872,6 +3936,16 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://hanayume.com/series/dcaacd8b4831f"
+    id: "w03242"
+    work: "あの子のスカート/よみきり"
+    author: "伊田いつき"
+    platform: "花とゆめ+"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://hanayume.com/series/f3ce082d639de"
     id: "w00007"
     work: "フレンドガールフレンド"
@@ -4141,6 +4215,26 @@ works:
         agreement: "creator"
         volumes_stated: 3
         completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421984038651592"
+    id: "w03252"
+    work: "バリキャリJKモネ先輩"
+    author: "椋木ななつ"
+    platform: "一迅プラス"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984038651597"
+    id: "w03263"
+    work: "神は私を撮りたいって言ってます！"
+    author: "散葉ちんみ"
+    platform: "一迅プラス"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://ichicomi.com/episode/12207421984089197889"
     id: "w00286"
     work: "誰かオオカミさんのしつけ方知りませんか！？"
@@ -4171,6 +4265,16 @@ works:
         publisher: "一迅社"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421984115855223"
+    id: "w03258"
+    work: "幼馴染の方程式"
+    author: "三谷てぃつ丸"
+    platform: "一迅プラス"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://ichicomi.com/episode/2550912965913104445"
     id: "w00481"
     work: "今宵、悪役令嬢の手をとれたら"
@@ -4668,6 +4772,32 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://kansai.mag-garden.co.jp/series/76bb18d479f8c"
+    id: "w03267"
+    work: "除霊師ハルカは幽霊が怖い!"
+    author: "モんぺ"
+    platform: "MAGKAN"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://kimicomi.com/series/397963f4f9cfd"
+    id: "w03262"
+    work: "暗殺組合の山田さん"
+    author: "BLZ"
+    platform: "キミコミ"
+    query: "author"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: null
+        title_listed: "暗殺組合の山田さん1"
+        shop_author: "BLZ(漫画)"
+        imprint: "ヴァルキリーコミックス"
+        publisher: "キルタイムコミュニケーション"
+        printed: "2020/4/3"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://kimicomi.com/series/617d2958d4953"
     id: "w00292"
     work: "さきゅりふぁいす!"
@@ -6098,6 +6228,38 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://rookie.shonenjump.com/series/X1vJnKYQKqw"
+    id: "w03259"
+    work: "愛の夢"
+    platform: "少年ジャンプルーキー"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
+  - work_url: "https://rookie.shonenjump.com/series/fmRli8MBymM"
+    id: "w03248"
+    work: "イトの国家転覆記"
+    platform: "少年ジャンプルーキー"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "title query answered nothing"
+  - work_url: "https://rookie.shonenjump.com/series/zGZPbQ8wNYE"
+    id: "w03251"
+    work: "デキ婚百合「デキちゃったので私たち結婚します♡」"
+    platform: "少年ジャンプルーキー"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "title query answered nothing"
+  - work_url: "https://rookie.shonenjump.com/series/zGZPbQ8x_Jk"
+    id: "w03261"
+    work: "日常の片隅で…百合が咲く"
+    platform: "少年ジャンプルーキー"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
   - work_url: "https://shonenjumpplus.com/episode/14079602755227529683"
     id: "w00811"
     work: "肉の女王は愛の月"
@@ -6707,6 +6869,22 @@ works:
         imprint: "バンブーコミックス"
         publisher: "竹書房"
         agreement: "creator"
+        volumes_stated: 3
+        completed_marker: true
+  - work_url: "https://to-corona-ex.com/comics/20000000049417"
+    id: "w03260"
+    work: "打撃系鬼っ娘が征く配信道!@COMIC"
+    platform: "コロナEX"
+    query: "title"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: "https://bookwalker.jp/series/280139/list/"
+        title_listed: "打撃系鬼っ娘が征く配信道！@COMIC"
+        shop_author: "ありのかまち(漫画) 箱入蛇猫(原作) 片桐(キャラクター原案)"
+        imprint: "コロナ・コミックス"
+        publisher: "TOブックス"
+        printed: "2021/2/1"
+        agreement: "title-only"
         volumes_stated: 3
         completed_marker: true
   - work_url: "https://tonarinoyj.jp/episode/10044607041200390693"
@@ -7956,6 +8134,78 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://viewer.heros-web.com/episode/10834108156740407901"
+    id: "w03247"
+    work: "のんちゃんとアカリ"
+    platform: "HERO'S Web"
+    query: "title"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: "https://bookwalker.jp/series/260107/list/"
+        title_listed: "のんちゃんとアカリ（ヒーローズコミックス ふらっと）"
+        shop_author: "日日ねるこ(著)"
+        imprint: "ヒーローズコミックス ふらっと"
+        publisher: "ヒーローズ"
+        printed: "2020/8/31"
+        agreement: "title-only"
+        volumes_stated: 3
+        completed_marker: true
+  - work_url: "https://viewer.heros-web.com/episode/13933686331689971929"
+    id: "w03253"
+    work: "ブランクスペース"
+    platform: "HERO'S Web"
+    query: "title"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: "https://bookwalker.jp/series/285135/list/"
+        title_listed: "ブランクスペース（ヒーローズコミックス ふらっと）"
+        shop_author: "熊倉献(著)"
+        imprint: "ヒーローズコミックス ふらっと"
+        publisher: "ヒーローズ"
+        printed: "2021/1/31"
+        agreement: "title-only"
+        volumes_stated: 3
+        completed_marker: true
+      - series_url: null
+        title_listed: "ブランクスペース補遺"
+        shop_author: "熊倉献(著)"
+        imprint: "ヒーローズコミックス ふらっと"
+        publisher: "ヒーローズ"
+        printed: "2025/9/30"
+        agreement: "title-only"
+        completed_marker: false
+  - work_url: "https://viewer.heros-web.com/episode/14079602755511903989"
+    id: "w03250"
+    work: "ストリーミング・ウォー"
+    platform: "HERO'S Web"
+    query: "title"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: "https://bookwalker.jp/series/477403/list/"
+        title_listed: "ストリーミング・ウォー（ヒーローズコミックス わいるど）"
+        shop_author: "シガマ(著)"
+        imprint: "ヒーローズコミックス わいるど"
+        publisher: "ヒーローズ"
+        printed: "2024/6/30"
+        agreement: "title-only"
+        volumes_stated: 3
+        completed_marker: false
+  - work_url: "https://viewer.heros-web.com/episode/3269632237305675090"
+    id: "w03246"
+    work: "とくにある日々"
+    platform: "HERO'S Web"
+    query: "title"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: "https://bookwalker.jp/series/339733/list/"
+        title_listed: "とくにある日々（ヒーローズコミックス わいるど）"
+        shop_author: "なか憲人(著)"
+        imprint: "ヒーローズコミックス わいるど"
+        publisher: "ヒーローズ"
+        printed: "2022/1/31"
+        agreement: "title-only"
+        volumes_stated: 8
+        completed_marker: true
   - work_url: "https://www.123hon.com/vw/manga_award/princess/sv_pt0006242aefa1d5b9/index.html"
     id: "w00940"
     work: "プリンセ「ス」"
@@ -7982,6 +8232,30 @@ works:
         printed: "2024/2/24"
         agreement: "creator"
         volumes_stated: 2
+        completed_marker: false
+  - work_url: "https://www.alphapolis.co.jp/manga/official/791000435"
+    id: "w03257"
+    work: "君の初恋を私は知らない"
+    platform: "アルファポリス"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
+  - work_url: "https://www.comic-essay.com/episode/a1006/"
+    id: "w03249"
+    work: "キジとイナサ"
+    author: "棚木防衛"
+    platform: "コミックエッセイ劇場"
+    query: "author"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: null
+        title_listed: "キジとイナサ"
+        shop_author: "棚木防衛"
+        imprint: "コミックエッセイ"
+        publisher: "KADOKAWA"
+        printed: "2026/3/26"
+        agreement: "creator"
         completed_marker: false
   - work_url: "https://www.comicnettai.com/book/30"
     id: "w00703"
@@ -8036,6 +8310,16 @@ works:
         completed_marker: false
     notes:
       - "author query returned no title this database recognises"
+  - work_url: "https://www.ganganonline.com/title/2286"
+    id: "w03268"
+    work: "香り屋さんの纏さん"
+    author: "森柾みどり / アロマ講師 松岡真衣"
+    platform: "ガンガンONLINE"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
   - work_url: "https://www.ganganonline.com/title/29"
     id: "w00197"
     work: "私がモテないのはどう考えてもお前らが悪い!"
@@ -8961,6 +9245,64 @@ works:
     hits: []
     notes:
       - "title query returned no title this database recognises"
+  - work_url: "https://younganimal.com/episodes/24a3e6bcb998e"
+    id: "w03269"
+    work: "最恐呪物令嬢"
+    author: "保坂歩, 藤津一, 法螺貝こゐ"
+    platform: "ヤングアニマルWeb"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://younganimal.com/series/061d7bbd35a86"
+    id: "w03243"
+    work: "うまいものだけ食べて生きます。/読み切り"
+    author: "山本さほ"
+    platform: "ヤングアニマルWeb"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://younganimal.com/series/7bcd9a013096f"
+    id: "w03255"
+    work: "モダンドラキュラの堅実な生き方/読み切り"
+    author: "飴井涼"
+    platform: "ヤングアニマルWeb"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://younganimal.com/series/8e1eef4347853"
+    id: "w03244"
+    work: "お風呂で○○する人は、美容室で大変な目に遭うらしい/読み切り"
+    author: "丸いねぎ"
+    platform: "ヤングアニマルWeb"
+    retrieved: "2026-09-01"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://younganimal.com/series/93338c16f7719"
+    id: "w03264"
+    work: "私の初恋は恥ずかしすぎて誰にも言えない"
+    author: "じゃこ, 伏見つかさ, かんざきひろ, ©️Tsukasa Fushimi"
+    platform: "ヤングアニマルWeb"
+    query: "title"
+    retrieved: "2026-09-01"
+    hits:
+      - series_url: "https://bookwalker.jp/series/490115/list/"
+        title_listed: "私の初恋は恥ずかしすぎて誰にも言えない（ヤングアニマル）"
+        shop_author: "じゃこ(漫画) 伏見つかさ(原作) かんざきひろ(キャラクター原案)"
+        imprint: "ヤングアニマル"
+        publisher: "白泉社"
+        agreement: "creator"
+        volumes_stated: 4
+        completed_marker: true
+    notes:
+      - "author query answered nothing"
   - work_url: "https://youngchampion.jp/series/f82a97494ac07"
     id: "w00713"
     work: "隣人/読み切り"

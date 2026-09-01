@@ -17625,20 +17625,17 @@ names:
     en_reviewed: '2026-09-01'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - のんちゃんとアカリ
-      - null
     note: Two given names joined by と. のん keeps its honorific because the pairing of a nickname with a
       bar e name is what the title sets up.
-    reading: ノンチャン ト アカリ
-    reading_at: '2026-08-15'
-    reading_basis: analyser
+    reading: ノンチャントアカリ
+    reading_at: '2026-09-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   のんべれケ。おかわり！！:
     basis: translated
     en: Blind Drunk. Another Round!!
@@ -29532,15 +29529,15 @@ names:
     en_source_kind: derived
     note: Two English words in katakana with the interpunct that joins them. Ours is the words written
       as  English.
-    reading: ストリーミング・ ウォー
-    reading_at: '2026-08-15'
-    reading_basis: analyser
+    reading: ストリーミング・ウォー
+    reading_at: '2026-09-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ストレッチ:
     basis: translated
     en: Stretch
@@ -34257,16 +34254,15 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: The English words blank space in katakana.
-    reading: ブランク スペース
-    reading_at: '2026-08-15'
-    reading_basis: analyser
+    reading: ブランクスペース
+    reading_at: '2026-09-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ブルーダイヤモンド:
     basis: translated
     en: Blue Diamond

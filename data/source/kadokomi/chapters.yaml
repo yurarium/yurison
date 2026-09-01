@@ -4310,6 +4310,7 @@ works:
         title: "第78話"
         updated: "2026-08-25"
         access_modes: ["free"]
+        free_until: "2026-10-27"
       - code: "KC_0027430009300011_E"
         title: "番外編 はじめての卵焼き"
         updated: "2026-05-26"
@@ -5072,73 +5073,45 @@ works:
       - code: "KC_0029940001500011_E"
         title: "第15話：チキンレース"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940001400011_E"
         title: "第14話：画面越しの世界"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940001300011_E"
         title: "第13話：一生繰り返してきた"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940001200011_E"
         title: "第12話：崇高なる決戦"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940001100011_E"
         title: "第11話：バランス調整"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940001000011_E"
         title: "第10話：真夜中の勉強会"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940000900011_E"
         title: "第9話：「この国は狂っている」"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940000800011_E"
         title: "第8話：EXjp"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940000700011_E"
         title: "第7話：真夜中の対戦会"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940000600011_E"
         title: "第6話：寮務委員"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940000500011_E"
         title: "第5話：人生の浪費"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940000400011_E"
         title: "第4話：対ありでした"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940000300011_E"
         title: "第3話：だから否定する"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940000200011_E"
         title: "第2話：格ゲーはもうやめる"
         updated: "2026-07-01"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0029940000100011_E"
         title: "第1話：π４"
         updated: "2020-04-19"
@@ -11658,6 +11631,7 @@ works:
         title: "#018②"
         updated: "2026-05-08"
         access_modes: ["free"]
+        free_until: "2026-09-12"
       - code: "KC_0055060002300011_E"
         title: "#018①"
         updated: "2026-04-10"
@@ -11937,6 +11911,7 @@ works:
         title: "第24話"
         updated: "2026-07-01"
         access_modes: ["free"]
+        free_until: "2026-09-01"
       - code: "KC_0055310002400011_E"
         title: "第23話"
         updated: "2026-06-01"
@@ -12933,6 +12908,7 @@ works:
         title: "第18話-1"
         updated: "2026-07-15"
         access_modes: ["free"]
+        free_until: "2026-09-02"
       - code: "KC_0057100003100021_E"
         title: "第17話-2"
         updated: "2026-07-01"
@@ -15941,7 +15917,7 @@ works:
       retrieved: 2026-09-01
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-09-02"
+      next_update_undecided: true
     chapter_count: 24
     chapters:
       - code: "KC_0066620001300031_E"
@@ -16203,14 +16179,16 @@ works:
       retrieved: 2026-09-01
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-08-31"
-    chapter_count: 9
+      next_update_undecided: true
+    chapter_count: 10
     chapters:
+      - code: "KC_0066710001100011_E"
+        title: "第9話"
+        updated: "2026-08-31"
+        access_modes: ["free"]
       - code: "KC_0066710001000011_E"
         title: "第8話"
         updated: "2026-07-10"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0066710000900011_E"
         title: "第7話"
         updated: "2026-04-28"
@@ -18492,7 +18470,7 @@ works:
     url: "https://comic-walker.com/detail/KC_014262_S"
     status: "unknown"
     marketing_label: "yuri"
-    tags: ["現代", "学園モノ", "美少女", "女主人公", "女子高校生(JK)", "ドキドキハラハラ", "友情・仲間", "切ない", "カッコいい", "笑える", "百合", "高校生", "スカッとする", "お色気", "アツい", "ダーク", "ざまぁ", "クセになる", "ギャップ女子", "ツンデレ", "裏社会・アングラ", "吸血鬼", "オカルト", "地味女子", "死に戻り"]
+    tags: ["現代", "学園モノ", "美少女", "女主人公", "女子高校生(JK)", "ドキドキハラハラ", "友情・仲間", "切ない", "カッコいい", "笑える", "百合", "高校生", "スカッとする", "お色気", "ダーク", "アツい", "ざまぁ", "クセになる", "ギャップ女子", "ツンデレ", "裏社会・アングラ", "吸血鬼", "オカルト", "地味女子", "死に戻り"]
     authors: ["三家本　礼"]
     marketing_label_basis:
       source: kadokomi
@@ -18542,7 +18520,7 @@ works:
     url: "https://comic-walker.com/detail/KC_014277_S"
     status: "unknown"
     marketing_label: "yuri"
-    tags: ["ラブコメ", "ほのぼの", "胸キュン", "いちゃラブ", "笑える", "百合", "癒やされる", "4コマ", "おっぱい", "巨乳", "性癖", "女子大生"]
+    tags: ["ラブコメ", "ほのぼの", "胸キュン", "いちゃラブ", "笑える", "百合", "癒やされる", "おっぱい", "4コマ", "巨乳", "性癖", "女子大生"]
     authors: ["犬山あむ"]
     marketing_label_basis:
       source: kadokomi
@@ -18782,9 +18760,14 @@ works:
       retrieved: 2026-09-01
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-08-31"
-    chapter_count: 2
+      next_update: "2026-09-28"
+    chapter_count: 3
     chapters:
+      - code: "KC_0181630000400011_E"
+        title: "3皿目"
+        updated: "2026-08-31"
+        access_modes: ["free"]
+        free_until: "2026-09-28"
       - code: "KC_0181630000300011_E"
         title: "2皿目"
         updated: "2026-07-27"
@@ -21657,14 +21640,17 @@ works:
     tags: ["現代", "学園モノ", "ドラマ", "高校生", "異能力", "ダーク", "群像劇"]
     authors: ["山本和音"]
     stated_schedule:
-      next_update: "2026-08-31"
-    chapter_count: 7
+      next_update: "2026-09-28"
+    chapter_count: 8
     chapters:
+      - code: "KC_0083870000900011_E"
+        title: "第八話"
+        updated: "2026-08-31"
+        access_modes: ["free"]
+        free_until: "2026-09-28"
       - code: "KC_0083870000800011_E"
         title: "第七話"
         updated: "2026-07-27"
-        access_modes: ["free"]
-        free_until: "2026-08-31"
       - code: "KC_0083870000700011_E"
         title: "第六話"
         updated: "2026-06-29"

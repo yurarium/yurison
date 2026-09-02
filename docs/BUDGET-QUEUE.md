@@ -68,6 +68,25 @@ month of work-level records in at once, and five budgets counted the arrivals.
 rendered one Japanese phrase two ways across the series and its anthology. That was a real fault and
 it was fixed rather than banked.
 
+## Seven rises accepted on 2026-09-02, all one day's intake
+
+Run 33646109103 brought 64 release rows across 29 works dated 2026-09. Its own runtime check
+reported the same seven, so this is the corpus growing rather than a local artefact, and running
+the naming passes first does not settle any of them: the readings are new and nothing states them.
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| updates naming a work we do not hold | 22 | 25 | 今夜、エーテルで待ちあわせ arrived on Seasons with three rows and no record behind them |
+| announced works the corpus does not hold | 12 | 13 | the same work, counted from the other side |
+| titles read by a machine, unmarked | 1174 | 1177 | three arriving titles the analyser read and no source spells |
+| author readings no source states | 431 | 433 | two arriving bylines in the same position |
+| author names romanised as one word | 1198 | 1200 | the same two, whose division nothing states either |
+| uncertain readings | 53 | 54 | one title assembled character by character because no analyser could read the word |
+| nicovideo works with no rights | 81 | 82 | one arriving ニコニコ work whose page carries no rights line |
+
+Every one of these falls by a person reading a page, which is what the naming work is. None is a
+regression and none is a widened rule.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

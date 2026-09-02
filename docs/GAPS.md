@@ -3279,3 +3279,41 @@ a second identifier for works the corpus already holds, which is the duplication
 of this produced on 2026-08-31 and had to be reverted. Refreshing the joins file first does not
 change the count, which was tried. The contested set wants attaching one at a time with a basis,
 and that is a person's call rather than a pass's.
+
+## The minter and the lookup disagree about which address names a work
+
+Found 2026-09-02, narrowing the reason the 15 idless works cannot simply be minted. Not fixed, and
+the reason it is not fixed is in the last paragraph.
+
+**THE TWO HALVES.** `identity.for_row` is what `build.py` asks, and it tries every address a row
+holds: its headline, each of its sources, and its work-level address. `identity.assign` is what
+mints, and it keys on ONE, `web_anchor(row.url)`, the headline alone. So a row whose identifier the
+build finds perfectly well is a row the minter believes it has never seen, and it mints a second
+identifier for a work already held.
+
+**MEASURED.** A dry run mints 38 and reports 30 contested anchors. Every contested one is the same
+shape: an existing work and a would-be new id under the SAME title, ゆるゆり as w00174 and w03282,
+大室家 as w00150 and w03283, 私の百合はお仕事です! as w00164 and w03284. In each case the registry
+title matches the row's title exactly and the row's headline anchor, today's chapter address, is
+held by nobody. One duplicate has already landed: 異種族女子に○○する話's ニコニコ address is held by
+w03202 while the work is w00961.
+
+**WHY ATTACHING THE HEADLINE IS NOT THE ANSWER.** `--attach` would bind today's chapter address to
+the held id, and a GigaViewer chapter address changes on every publication, so tomorrow presents a
+new one and the mint comes back. w00145 shows the treadmill from the other side: three ichicomi
+chapter anchors from three runs, one per publication.
+
+**AND WHY THE OBVIOUS CODE CHANGE IS NOT THE ANSWER EITHER.** Making `assign` look a work up by any
+anchor is what `assign`'s own docstring refuses, with a worked example: 超深宇宙より愛をこめて is a
+serialisation and a 読み切り版, two rows with two URLs, and one MADB record matches both titles, so
+lookup by any anchor merges them, and merging is a decision with a basis. That objection is about a
+shared PRINT anchor rather than a row's own web addresses, which is the distinction a fix would
+have to argue and hold to.
+
+**SO THE SHAPE OF THE FIX IS NARROW.** The identifying anchor for a web row should be its
+work-level address where it has one, falling back to its URL, and the fallback has to prefer
+whichever is ALREADY held or it will mint against a new key for rows that resolve today. That is a
+change to append-only assignment, its blast radius is every work's identity, and it wants proving
+the way `for_row` was proved: build both ways and assert that no existing identifier moves. It is
+the owner's to take, and until it is taken the minter must not be run, which is why 15 works have
+rows and no identifier and reach no reader.

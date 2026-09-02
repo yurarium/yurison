@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-02
+retrieved: 2026-09-03
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -117,6 +117,11 @@ works_missing:
     url: "https://feelweb.jp/episode/3269754496401056101"
     antenna_id: "123156"
     tags: ["百合"]
+  - title: "百合フェチLIFE"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/7e3c698bca968"
+    antenna_id: "211227"
+    tags: ["最近のコメント数"]
   - title: "暴走!?サキュバスせんぱい"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/5448ec9f6077b"
@@ -132,11 +137,6 @@ works_missing:
     url: "https://g-comi.jp/series/58238b3987c11"
     antenna_id: "211263"
     tags: ["百合", "ファンタジー", "エルフ・ハーフエルフ", "魔女", "料理・グルメ"]
-  - title: "百合フェチLIFE"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/7e3c698bca968"
-    antenna_id: "211227"
-    tags: ["百合", "エロ"]
   - title: "喫茶 秘匿異"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/82ac8f503cf40"
@@ -337,6 +337,16 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "大崎さんと小森さん"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_014277_S"
+    antenna_id: "210131"
+    tags: ["百合"]
+  - title: "咲きそめコンプレックス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006662_S"
+    antenna_id: "188908"
+    tags: ["最近のコメント数"]
   - title: "リリィズコンプレックス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005531_S"
@@ -432,11 +442,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_016753_S"
     antenna_id: "210354"
     tags: ["百合", "社会人"]
-  - title: "大崎さんと小森さん"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_014277_S"
-    antenna_id: "210131"
-    tags: ["百合"]
   - title: "No marriage, No magic"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020013_S"
@@ -472,11 +477,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007176_S"
     antenna_id: "197816"
     tags: ["百合", "作家"]
-  - title: "咲きそめコンプレックス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006662_S"
-    antenna_id: "188908"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002994_S"
@@ -1227,21 +1227,21 @@ works_missing:
     url: "https://ynjn.jp/title/30352"
     antenna_id: "203570"
     tags: ["百合", "オムニバス・短編集"]
-  - title: "スカベンジャーズアナザースカイ"
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/81d9b296d7bc7"
-    antenna_id: "148792"
-    tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
-  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/86c1162f34a04"
-    antenna_id: "197348"
-    tags: ["ファンタジー", "令嬢", "百合"]
   - title: "限界OLさんは悪役令嬢さまに仕えたい"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/90af950945671"
     antenna_id: "148787"
     tags: ["召喚", "乙女ゲーム", "百合", "中世ヨーロッパ風", "悪役令嬢", "ファンタジー"]
+  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/86c1162f34a04"
+    antenna_id: "197348"
+    tags: ["ファンタジー", "令嬢", "百合"]
+  - title: "スカベンジャーズアナザースカイ"
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/81d9b296d7bc7"
+    antenna_id: "148792"
+    tags: ["最近のコメント数"]
   - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/e95df2815bad1"

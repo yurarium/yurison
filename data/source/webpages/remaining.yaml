@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-02
+retrieved: 2026-09-03
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -773,11 +773,13 @@ works:
       - title: "#4①"
         updated: 2026-04-20
         author: "瑠夏子"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#4②"
         updated: 2026-04-20
         author: "瑠夏子"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "#5①"
         updated: 2026-04-20
         author: "瑠夏子"
@@ -4779,11 +4781,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-01
+        updated: 2026-09-02
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-01
+        updated: 2026-09-02
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

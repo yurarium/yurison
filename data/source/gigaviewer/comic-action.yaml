@@ -6,7 +6,7 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-09-03
+retrieved: 2026-09-04
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -27,6 +27,7 @@ releases:
     author: "クール教信者"
     advances_narrative: true
   - release_id: "action:episode:12207421984152696647"
+    in_current_window: false
     work_title: "オカワリいただけただろうか?"
     web_status: "serialised"
     identified_via: "discovery-candidate"

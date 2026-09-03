@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-09-03
+retrieved: 2026-09-04
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 110
@@ -5014,22 +5014,26 @@ works:
         updated: 2025-10-17
         author: "大鷹シン/ホマレ"
         url: "https://comic-days.com/episode/2551460909661030896"
-        access_modes: ["purchase"]
+        free_from: 2026-09-03
+        access_modes: ["free"]
       - title: "＃４　シンデレラ"
         updated: 2025-10-17
         author: "大鷹シン/ホマレ"
         url: "https://comic-days.com/episode/2551460909661030588"
-        access_modes: ["purchase"]
+        free_from: 2026-09-03
+        access_modes: ["free"]
       - title: "＃３　Ｓｅｔ　ｓａｉｌ"
         updated: 2025-10-17
         author: "大鷹シン/ホマレ"
         url: "https://comic-days.com/episode/2551460909661029952"
-        access_modes: ["purchase"]
+        free_from: 2026-09-03
+        access_modes: ["free"]
       - title: "＃２　アクマ　ノ　ケイヤク"
         updated: 2025-10-17
         author: "大鷹シン/ホマレ"
         url: "https://comic-days.com/episode/2551460909661029266"
-        access_modes: ["purchase"]
+        free_from: 2026-09-03
+        access_modes: ["free"]
       - title: "＃１　ハルミ　ジュンナ"
         updated: 2025-10-17
         author: "大鷹シン/ホマレ"
@@ -11314,14 +11318,20 @@ works:
   - work_title: "新刊100億冊ください"
     series_id: "2550912965415291249"
     url: "https://comic-days.com/atom/series/2550912965415291249"
-    chapter_count: 36
+    chapter_count: 37
     chapters:
+      - title: "３４冊目：好きだから(後編)"
+        updated: 2026-09-03
+        author: "破賀ミチル"
+        url: "https://comic-days.com/episode/12207421983484134401"
+        free_from: 2026-09-17
+        access_modes: ["purchase"]
       - title: "３３冊目：好きだから(前編)"
         updated: 2026-08-20
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/12207421983484134387"
         free_from: 2026-09-03
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "３２冊目：作中に登場した食べ物やグッズの再現って特に嬉しい"
         updated: 2026-08-06
         author: "破賀ミチル"
@@ -11332,8 +11342,7 @@ works:
         updated: 2026-07-16
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/12207421983484134356"
-        free_from: 2026-08-06
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "3巻発売記念書き下ろし"
         updated: 2026-07-02
         author: "破賀ミチル"
@@ -14818,163 +14827,163 @@ works:
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496695884885"
         free_from: 2022-08-13
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第１２−２話　悔悟"
         updated: 2022-07-09
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496695884880"
         free_from: 2022-07-30
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第１２−１話　悔悟"
         updated: 2022-06-25
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496695884874"
         free_from: 2022-07-09
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第１１−２話　将来"
         updated: 2022-06-11
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496695884869"
         free_from: 2022-06-25
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第１１−１話　将来"
         updated: 2022-05-28
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496695884861"
         free_from: 2022-06-11
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第１０−２話　ハードル"
         updated: 2022-05-14
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496695884853"
         free_from: 2022-05-28
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第１０−１話　ハードル"
         updated: 2022-04-30
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496695884846"
         free_from: 2022-05-14
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第９−３話　贅沢"
         updated: 2022-04-16
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496695884841"
         free_from: 2022-04-30
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第９−２話　贅沢"
         updated: 2022-04-02
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496695884836"
         free_from: 2022-04-16
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第９−１話　贅沢"
         updated: 2022-03-12
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496537407829"
         free_from: 2022-04-02
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "特別編"
         updated: 2022-02-26
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496537407824"
         free_from: 2022-03-12
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第８−３話　不平等"
         updated: 2022-02-12
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496537407819"
         free_from: 2022-02-26
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第８−２話　不平等"
         updated: 2022-01-22
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496537407813"
         free_from: 2022-02-12
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第８−１話　不平等"
         updated: 2022-01-08
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269754496537407807"
         free_from: 2022-01-22
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第７−３話　邪魔者"
         updated: 2021-12-25
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869120"
         free_from: 2022-01-08
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第７−２話　邪魔者"
         updated: 2021-12-11
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869111"
         free_from: 2021-12-25
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第７−１話　邪魔者"
         updated: 2021-11-27
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869103"
         free_from: 2021-12-11
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第６−２話　理解者"
         updated: 2021-11-13
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869096"
         free_from: 2021-11-27
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第６−１話　理解者"
         updated: 2021-10-23
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869086"
         free_from: 2021-11-13
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第５−２話　領会"
         updated: 2021-10-09
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869081"
         free_from: 2021-10-23
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第５−１話　領会"
         updated: 2021-09-25
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869076"
         free_from: 2021-10-09
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第４−２話　願い"
         updated: 2021-09-11
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869068"
         free_from: 2021-09-25
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第４−１話　願い"
         updated: 2021-08-28
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869061"
         free_from: 2021-09-11
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第３−２話　聖域"
         updated: 2021-08-14
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869054"
         free_from: 2021-08-28
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第３−１話　聖域"
         updated: 2021-07-24
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869049"
         free_from: 2021-08-14
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第２−２話　鍵"
         updated: 2021-07-10
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869044"
         free_from: 2021-07-24
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第２−１話　鍵"
         updated: 2021-06-26
         author: "くずしろ"
         url: "https://comic-days.com/episode/3269632237276869039"
         free_from: 2021-07-10
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第１−２話　奏音と咲希"
         updated: 2021-06-12
         author: "くずしろ"

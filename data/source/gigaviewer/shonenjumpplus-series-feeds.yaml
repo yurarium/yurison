@@ -10,7 +10,7 @@ source: gigaviewer
 platform: shonenjumpplus
 platform_name: "少年ジャンプ+"
 publisher: "集英社"
-retrieved: 2026-09-03
+retrieved: 2026-09-04
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 51
@@ -3309,8 +3309,14 @@ works:
   - work_title: "春雷卓球"
     series_id: "17107094912912919707"
     url: "https://shonenjumpplus.com/atom/series/17107094912912919707"
-    chapter_count: 36
+    chapter_count: 37
     chapters:
+      - title: "[第23打]春雷卓球"
+        updated: 2026-09-04
+        author: "平方昌宏"
+        url: "https://shonenjumpplus.com/episode/9253191256340472659"
+        free_from: 2026-09-03
+        access_modes: ["free"]
       - title: "[おまけ14]春雷卓球"
         updated: 2026-08-28
         author: "平方昌宏"
@@ -3345,8 +3351,7 @@ works:
         updated: 2026-07-24
         author: "平方昌宏"
         url: "https://shonenjumpplus.com/episode/9253191255348930434"
-        free_from: 2026-07-23
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "[おまけ11]春雷卓球"
         updated: 2026-07-17
         author: "平方昌宏"

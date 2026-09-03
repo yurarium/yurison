@@ -6,11 +6,44 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-09-03
+retrieved: 2026-09-04
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "tonarino_yj:episode:12207421984147413209"
+    work_title: "17歳"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "[特別読切] 17歳"
+    release_type: "oneshot"
+    date: "2026-09-03"
+    date_basis: "observed"
+    first_seen: "2026-09-04"
+    first_reported: "2026-09-03T03:00:00Z"
+    platform_updated: "2026-09-03T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421984147413209"
+    author: "吉田ユウマ"
+    free_term_start: "2026-09-03T03:00:00Z"
+    advances_narrative: true
+  - release_id: "tonarino_yj:episode:12207421984183316998"
+    work_title: "獄宝"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "獄宝"
+    release_type: "unclassified"
+    date: "2026-09-03"
+    date_basis: "observed"
+    first_seen: "2026-09-04"
+    first_reported: "2026-09-02T15:00:00Z"
+    platform_updated: "2026-09-02T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421984183316998"
+    author: "河なみ"
+    free_term_start: "2026-09-02T15:00:00Z"
+    raw_title: "獄宝"
+    advances_narrative: false
   - release_id: "tonarino_yj:episode:12207421984173978504"
     work_title: "英雄少女と呪われの銀姫"
     web_status: "serialised"

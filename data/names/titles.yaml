@@ -1,4 +1,4 @@
-generated: '2026-09-02'
+generated: '2026-09-03'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -301,6 +301,22 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  17歳:
+    basis: romaji
+    furigana_spans:
+    - - '17'
+      - null
+    - - 歳
+      - さい
+    reading: 17サイ
+    reading_at: '2026-09-03'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   1×1/2-イチトニブンノイチ-:
@@ -43308,6 +43324,18 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  先生ェェェェ服着て下さい!!:
+    basis: romaji
+    reading: サキ ナマ ェェェェ フク キテ クダサイ!!
+    reading_at: '2026-09-03'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   先生観察女子高生。:
     basis: translated
     en: The Schoolgirl Who Watches Her Teacher.
@@ -54647,6 +54675,23 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  彼岸でランデヴー:
+    basis: romaji
+    furigana_spans:
+    - - 彼岸
+      - ひがん
+    - - でランデヴー
+      - null
+    reading: ヒガン デ ランデヴー
+    reading_at: '2026-09-03'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   彼氏の女友達がぐいぐい来る(私に):
@@ -66683,6 +66728,23 @@ names:
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
     reading_source_kind: derived
+    verified: false
+  獄宝:
+    basis: romaji
+    furigana_spans:
+    - - 獄
+      - ごく
+    - - 宝
+      - たから
+    reading: ゴク タカラ
+    reading_at: '2026-09-03'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    reading_uncertain: true
     verified: false
   獄門撫子此処ニ在リ:
     basis: translated

@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-03
+retrieved: 2026-09-04
 record_type: candidate_works
-works: 310
+works: 312
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -23,6 +23,10 @@ candidates:
   - title: "14gの逃避行"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/4856001361139111747"]
+  - title: "17歳"
+    platforms: ["となりのヤングジャンプ", "ヤンジャン+"]
+    urls: ["https://tonarinoyj.jp/episode/12207421984147413209", "https://ynjn.jp/title/38368"]
+    tags: ["百合", "読み切り"]
   - title: "1×1/2-イチトニブンノイチ-"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/7685"]
@@ -1315,6 +1319,7 @@ candidates:
   - title: "シュナイダーラリー"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/86a4f1e41d627"]
+    tags: ["スポーツ", "レース", "女子高生", "学園", "架空の部活", "百合", "青春"]
   - title: "シルフの花姫"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004255_S"]
@@ -1978,7 +1983,7 @@ candidates:
   - title: "乙女のおかず"
     platforms: ["コミックDAYS", "ヤンマガWeb"]
     urls: ["https://comic-days.com/episode/12207421983352147752", "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"]
-    tags: ["エロ", "ギャグ・コメディ", "女子高生", "日常", "最近のコメント数", "百合"]
+    tags: ["エロ", "ギャグ・コメディ", "フェチ・性癖", "女子高生", "日常", "最近のコメント数", "百合"]
   - title: "予行練習"
     platforms: ["コミックゼノン", "ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/12207421984039817859"]
@@ -2094,6 +2099,7 @@ candidates:
   - title: "付き合ってあげてもいいかな"
     platforms: ["マンガワン", "裏サンデー"]
     urls: ["https://manga-one.com/manga/603/chapter/60189", "https://manga-one.com/viewer/70173", "https://urasunday.com/title/603"]
+    tags: ["大学生", "百合"]
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008429_S"]
@@ -2157,6 +2163,10 @@ candidates:
     platforms: ["コミックガルド"]
     urls: ["https://comic-gardo.com/episode/12207421984094260425"]
     tags: ["最近のコメント数", "百合"]
+  - title: "先生ェェェェ服着て下さい!!"
+    platforms: ["ヤンマガWeb"]
+    urls: ["https://yanmaga.jp/comics/%E5%85%88%E7%94%9F%E3%82%A7%E3%82%A7%E3%82%A7%E3%82%A7%E6%9C%8D%E7%9D%80%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84"]
+    tags: ["最近のコメント数"]
   - title: "先輩と後輩、大暴れの週末"
     platforms: ["くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/2550912965269449845"]
@@ -2710,6 +2720,10 @@ candidates:
   - title: "彼女は誰時"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/3269754496440339139"]
+  - title: "彼岸でランデヴー"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_020017_S"]
+    tags: ["百合"]
   - title: "彼氏の女友達がぐいぐい来る(私に)"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016753_S", "https://comic.pixiv.net/works/13373"]
@@ -3330,6 +3344,10 @@ candidates:
   - title: "猫魔法が世界に革命を起こすそうですよ?"
     platforms: ["コミックノヴァ"]
     urls: ["https://www.123hon.com/nova/web-comic/nekomaho/"]
+  - title: "獄宝"
+    platforms: ["となりのヤングジャンプ"]
+    urls: ["https://tonarinoyj.jp/episode/12207421984183316998"]
+    tags: ["百合", "読み切り"]
   - title: "獄門撫子此処ニ在リ"
     platforms: ["てれびくんヒーローコミックス", "コロコロオンライン"]
     urls: ["https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/", "https://www.corocoro.jp/title/773"]

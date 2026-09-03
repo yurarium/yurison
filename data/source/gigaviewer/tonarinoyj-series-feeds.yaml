@@ -10,12 +10,23 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-09-03
+retrieved: 2026-09-04
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 86
-series_held: 87
+series_resolved: 88
+series_held: 89
 works:
+  - work_title: "17歳"
+    series_id: "12207421984147412782"
+    url: "https://tonarinoyj.jp/atom/series/12207421984147412782"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 17歳"
+        updated: 2026-09-03
+        author: "吉田ユウマ"
+        url: "https://tonarinoyj.jp/episode/12207421984147413209"
+        free_from: 2026-09-03
+        access_modes: ["free"]
   - work_title: "CONTINUE?"
     series_id: "2550912964443147835"
     url: "https://tonarinoyj.jp/atom/series/2550912964443147835"
@@ -920,6 +931,17 @@ works:
         author: "蚊帳りく"
         url: "https://tonarinoyj.jp/episode/2550689798871007144"
         free_from: 2024-07-31
+        access_modes: ["free"]
+  - work_title: "獄宝"
+    series_id: "12207421984183304439"
+    url: "https://tonarinoyj.jp/atom/series/12207421984183304439"
+    chapter_count: 1
+    chapters:
+      - title: "獄宝"
+        updated: 2026-09-03
+        author: "河なみ"
+        url: "https://tonarinoyj.jp/episode/12207421984183316998"
+        free_from: 2026-09-02
         access_modes: ["free"]
   - work_title: "痛かったら喜んでください"
     series_id: "2551460910093671955"

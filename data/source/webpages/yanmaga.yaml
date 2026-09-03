@@ -6,7 +6,7 @@ platform: yanmaga
 platform_name: "ヤンマガWeb"
 publisher: "講談社"
 engine: yanmaga
-retrieved: 2026-09-03
+retrieved: 2026-09-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -289,6 +289,14 @@ works:
       - title: "描きおろし特別話"
         updated: "2022-09-29"
         url: "https://yanmaga.jp/comics/%E4%BB%8A%E6%97%A5%E3%81%AF%E3%82%AB%E3%83%8E%E3%82%B8%E3%83%A7%E3%81%8C%E3%81%84%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89/ff715ea44f13754ebf000e0eff90407b"
+        access_modes: ["purchase"]
+  - work_title: "先生ェェェェ服着て下さい!!"
+    url: "https://yanmaga.jp/comics/%E5%85%88%E7%94%9F%E3%82%A7%E3%82%A7%E3%82%A7%E3%82%A7%E6%9C%8D%E7%9D%80%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84"
+    chapter_count: 1
+    chapters:
+      - title: "先生ェェェェ服着て下さい!!"
+        updated: "2026-09-03"
+        url: "https://yanmaga.jp/comics/%E5%85%88%E7%94%9F%E3%82%A7%E3%82%A7%E3%82%A7%E3%82%A7%E6%9C%8D%E7%9D%80%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84/e52cbbdeec531e99dbd119bc7d656fe8"
         access_modes: ["purchase"]
   - work_title: "同じ時を生きたい"
     url: "https://yanmaga.jp/comics/%E5%90%8C%E3%81%98%E6%99%82%E3%82%92%E7%94%9F%E3%81%8D%E3%81%9F%E3%81%84"

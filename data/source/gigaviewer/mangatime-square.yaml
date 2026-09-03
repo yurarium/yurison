@@ -6,12 +6,13 @@ source: gigaviewer
 platform: mangatime-square
 platform_name: "まんがタイムSquare"
 publisher: ""
-retrieved: 2026-09-03
+retrieved: 2026-09-04
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "mangatime:episode:12207421984001577949"
+    in_current_window: false
     work_title: "ニセアイホンアイ"
     web_status: "serialised"
     identified_via: "discovery-candidate"

@@ -10,7 +10,7 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-09-03
+retrieved: 2026-09-04
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 67
@@ -167,6 +167,12 @@ works:
     url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
     chapter_count: 39
     chapters:
+      - title: "第１４話 あるいは思い出いっぱいの海"
+        updated: 2026-09-04
+        author: "伏見ダイキ"
+        url: "https://www.sunday-webry.com/episode/12207421984186215640"
+        free_from: 2026-09-03
+        access_modes: ["free"]
       - title: "ショートショート 助手の心得"
         updated: 2026-08-28
         author: "伏見ダイキ"
@@ -178,12 +184,6 @@ works:
         author: "伏見ダイキ"
         url: "https://www.sunday-webry.com/episode/12207421984122496896"
         free_from: 2026-08-20
-        access_modes: ["free"]
-      - title: "第１３話 助手戦線異状あり！"
-        updated: 2026-08-14
-        author: "伏見ダイキ"
-        url: "https://www.sunday-webry.com/episode/12207421984093442305"
-        free_from: 2026-08-13
         access_modes: ["free"]
       - title: "ショートショート 人類学生化計画"
         updated: 2026-07-17

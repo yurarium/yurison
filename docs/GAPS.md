@@ -3317,3 +3317,31 @@ change to append-only assignment, its blast radius is every work's identity, and
 the way `for_row` was proved: build both ways and assert that no existing identifier moves. It is
 the owner's to take, and until it is taken the minter must not be run, which is why 15 works have
 rows and no identifier and reach no reader.
+
+## A measure counted 23 renderings that every reader could already read
+
+Found and fixed 2026-09-04, during routine maintenance.
+
+**WHAT IT WAS COUNTING.** `renderings with nothing to show` asked each series row whether it held
+an English name or a romanisation, and counted the row where it held neither and the surface was
+Japanese. All 23 it counted were author fields, and every one of them reaches a reader in English:
+`ＮＯＡＨ編集部` renders as `NOAH Editorial Department[?]` and 渡辺零・駿馬京 / くわばらたもつ as
+`Watanabe Rei / Shunme Kei / Kuwabara Tamotsu (manga)`, both read off the live site rather than
+argued from the code.
+
+**WHY THE ROW IS THE WRONG PLACE TO ASK.** `_person_shown` in `build.py` states the order and
+`personShown` in `app.js` gives the same answers: the store, then a name already in Latin, then the
+floor, which is total in English. The floor holds 9,800 spellings and had one for every one of the
+23. So the row not carrying a rendering says nothing about whether a reader sees one.
+
+**THE SAME FAULT WAS FOUND AND FIXED ON THE OTHER HALF OF THIS MEASURE.** Its docstring already
+records the release half counting 140 rows that rendered correctly, and the argument for fixing it:
+a measure that counts rows nobody can see broken cannot reach zero, and it buries the rows that
+are. The series half was never given the same treatment, so the same argument sat in the same
+function beside code that contradicted it.
+
+**WHAT GUARDS THE FIX.** A budget that drops to zero because the measure went blind is worse than
+the number it replaced, so `--self-test` now plants a series row whose surface no floor entry and no
+divided parts can spell, and the canary is caught. Five shapes were checked by hand first: nothing
+spells it, the floor spells it, every part of a composite is spelled, one part is not, and an
+unspellable work title rather than an author.

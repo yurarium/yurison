@@ -3657,13 +3657,6 @@ def budget_renderings_with_nothing_to_show(ctx):
     import re as _re
     ja = _re.compile(r"[぀-ヿ一-鿿々]")
     bad = 0
-    for r in ctx["series"]:
-        for key, surface in (("work_en", r.get("work")), ("author_en", r.get("author"))):
-            e = r.get(key) or {}
-            if e.get("romaji") or e.get("en"):
-                continue
-            if ja.search(str(surface or "")):
-                bad += 1
     shipped = ctx["names_shipped"] or {}
     authors = shipped.get("authors") or {}
     phrases = shipped.get("phrases") or {}
@@ -3674,6 +3667,38 @@ def budget_renderings_with_nothing_to_show(ctx):
         # ASKED OF `facts/namekey`, which owns the identity key. check.py held three copies.
         from facts import namekey as _nk
         return _nk.fold(t)
+
+    # AND THE SERIES HALF ASKS THE FLOOR TOO, which it did not until 2026-09-03. The release half
+    # was given this treatment when it was found counting 140 rows that rendered correctly; the
+    # series half kept asking the ROW, and the interface asks the row and THEN the floor.
+    # `_person_shown` says the order in this file and `personShown` gives the same answers in
+    # `app.js`: the store, then a name already in Latin, then the floor, which is total in English.
+    #
+    # ALL 23 IT COUNTED WERE SPELLED. `ＮＯＡＨ編集部` reaches a reader as `NOAH Editorial
+    # Department[?]` and 渡辺零・駿馬京 / くわばらたもつ as `Watanabe Rei / Shunme Kei / Kuwabara
+    # Tamotsu (manga)`, both read off the live site. A measure that counts rows nobody can see
+    # broken cannot reach zero and buries the row that is, which is the argument the release half
+    # already carries.
+    def spelled(surface):
+        """Whether anything a reader's page reaches can put this name in Latin."""
+        f = fold(surface)
+        if floor.get(f):
+            return True
+        div = parts.get(f) or {}
+        people = [x.get("n") for x in (div.get("p") or []) if x.get("n")]
+        return bool(people) and all(
+            (authors.get(fold(n)) or {}).get("romaji")
+            or (authors.get(fold(n)) or {}).get("en")
+            or not ja.search(str(n))
+            or floor.get(fold(n)) for n in people)
+
+    for r in ctx["series"]:
+        for key, surface in (("work_en", r.get("work")), ("author_en", r.get("author"))):
+            e = r.get(key) or {}
+            if e.get("romaji") or e.get("en"):
+                continue
+            if ja.search(str(surface or "")) and not spelled(surface):
+                bad += 1
 
     for r in ctx["releases"]:
         surface = str(r.get("author") or "")
@@ -5195,6 +5220,13 @@ def self_test():
              {"source": "webpages", "holds": "attribution", "read": "2026-08-10"})),
         ("readings are stored as kana", inv_readings_are_kana,
          lambda c: c["names"]["titles"].update({"カナリア": {"reading": "Kanaria Romaji"}})),
+        # A NAME NOTHING CAN PUT IN LATIN, planted on a series row, which is the only thing this
+        # measure should count. It read 23 before 2026-09-03 and every one of them was spelled by
+        # the floor and shown to readers; the risk in fixing that is a measure that now counts
+        # nothing at all, so the canary is a surface with no floor entry and no divided parts.
+        ("renderings with nothing to show", budget_renderings_with_nothing_to_show,
+         lambda c: c["series"].append({"work": "カナリア誰某", "author": "カナリア誰某",
+                                       "work_en": {}, "author_en": {}})),
         # BOTH CANARIES ARE RECORDS THE PIPELINE REALLY WROTE, which is §14b's requirement and not
         # a stylistic preference: a canary invented for the test proves the check can fail on
         # something nothing produces. The first is #ふれない as curate.py left it, the second is

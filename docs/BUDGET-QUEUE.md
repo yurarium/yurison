@@ -87,6 +87,32 @@ the naming passes first does not settle any of them: the readings are new and no
 Every one of these falls by a person reading a page, which is what the naming work is. None is a
 regression and none is a widened rule.
 
+## Eight rises accepted on 2026-09-04, and one measure corrected downward
+
+Run 33770934982 brought four new works the corpus holds no record of: 17歳 and 獄宝 on
+となりのヤングジャンプ, 彼岸でランデヴー on カドコミ, 先生ェェェェ服着て下さい!! on ヤンマガWeb. Its own
+runtime check reported the same eight, so this is the corpus growing.
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| updates naming a work we do not hold | 24 | 32 | the four arriving works, eight rows between them |
+| announced works the corpus does not hold | 13 | 14 | the same works, counted from the other side |
+| uncertain readings | 54 | 56 | 獄宝 and one more assembled character by character, no analyser reading the compound |
+| author readings no source states | 433 | 435 | two arriving bylines nothing states a reading for |
+| author names romanised as one word | 1200 | 1201 | one of those, whose division nothing states either |
+| credit fields an identifier does not cover | 71 | 73 | two arriving credits no identifier accounts for yet |
+| titles read by a machine, unmarked | 1177 | 1178 | one arriving title the analyser read and no source spells |
+| incomplete attested rows | 42 | 44 | two arriving rows a capture reached without every field |
+
+**AND `renderings with nothing to show` GOES 23 TO 0, which is a correction rather than work done.**
+It asked the series ROW whether it held a rendering, and the interface asks the row and then the
+floor. Every one of the 23 was spelled and shown: `ＮＯＡＨ編集部` reaches a reader as
+`NOAH Editorial Department[?]` and 渡辺零・駿馬京 / くわばらたもつ as
+`Watanabe Rei / Shunme Kei / Kuwabara Tamotsu (manga)`, both read off the live site. The release
+half of the same measure was given this treatment when it was caught counting 140 rows that
+rendered correctly; the series half never was. It now asks the floor and the divided parts, and
+`--self-test` plants a name nothing can spell to prove it can still fail.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

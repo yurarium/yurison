@@ -9036,8 +9036,9 @@ names:
     reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
-    translation_refused: A coinage in kana with nothing under it, so our rendering spells the kana and
-      is the romanisation already recorded.
+    translation_refused: 'A pairing name, which the publisher''s listing settles: 2008年からの東方同人誌, a Touhou
+      collection, so うど and みょん are the two characters it pairs in the shape こい☆フラ takes. Nothing is under
+      it to render and our rendering spells the kana. Checked 2026-09-04.'
     verified: false
   うどみょん１:
     basis: romaji
@@ -9056,9 +9057,13 @@ names:
     reading_source_kind: derived
     verified: false
   うなうさ:
-    basis: romaji
-    en: Unausa
+    basis: translated
+    en: Eel-Rabbit
     en_at: '2026-08-12'
+    en_conflicts:
+    - basis: romaji
+      source: derived
+      value: Unausa
     en_reviewed: '2026-08-12'
     en_source: derived
     en_source_kind: derived
@@ -14452,8 +14457,9 @@ names:
     reading_reviewed: '2026-08-10'
     reading_source: derived
     reading_source_kind: derived
-    translation_refused: A coinage built on Salome. Our rendering spells the kana, as the romanisation
-      does, because the suffix answers to no English word.
+    translation_refused: 'さろめ is the girl herself, which the publisher''s synopsis settles: 転校生のさろめには秘密が
+      あった, a transfer student who can work magic. So the title is her name against a suffix, and our rendering
+      spells the kana as the romanisation does. Checked 2026-09-04.'
     verified: false
   ざこのみなさんお大事に:
     basis: translated
@@ -17626,16 +17632,19 @@ names:
     furigana_spans:
     - - のだ
       - null
-    note: Two kana standing as a whole title on an anthology of three artists, with no phrase under it
-      and nothing the publisher glosses. A romanisation is the finished name.
+    note: NOT AN ANTHOLOGY, which the earlier note called it. KADOKAWA's listing says 大人気楽曲『のだ』の小説をコミック化,
+      a comic of the novel of the song, and the story turns on a girl finding karaoke through a ずんだもん
+      video; のだ is that character's sentence ending and the song wears it as its name. A title that is
+      the name of a song is not a phrase to render, and the four credits are its manga, its story, its
+      character designs and its music rather than three artists sharing a book.
     reading: ノダ
     reading_at: '2026-08-12'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
-    translation_refused: Two kana that read as a surname or as a sentence ending, and the title says which
-      nowhere. Our rendering is Noda either way, which the romanisation already gives.
+    translation_refused: The title of the song this adapts, and ずんだもん's own copula. Either way it is a
+      name rather than a phrase, so our rendering is Noda, which the romanisation already gives.
     verified: true
   のっぽと不登校:
     basis: translated

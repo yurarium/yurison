@@ -2086,6 +2086,34 @@ def budget_data_reaching_the_site_around_the_store(ctx):
 
 
 
+def budget_romanisations_nobody_has_ruled_on(ctx):
+    """Titles a reader is shown a romanisation for that nobody has examined.
+
+    THE HALF OF `works showing a romanisation` THAT IS WORK OUTSTANDING. That number counts every
+    title falling through to a romanisation, which is what a reader meets and is right to count;
+    it cannot reach zero, because a romanisation is the finished answer for a name. This counts
+    only the titles nobody has looked at, and it CAN reach zero, which is what makes it a queue.
+
+    WHAT TAKES A TITLE OUT OF IT is a ruling under DEFINITIONS §10 recorded as
+    `translation_refused` on the curated entry, with the reason beside it. Twenty-five were put in
+    front of a publisher's or a platform's own page over 2026-08 and 2026-09; two of them fell,
+    ふちゅれ！オトメ and うなうさ, both because a synopsis said something the first reviewer could
+    not see, and two more were right about the answer and wrong about why, のだ and ゆずせん. So a
+    ruling is a claim somebody can overturn with evidence rather than a way of closing the row.
+
+    §14b, WHAT IT CANNOT SEE. Whether a ruling is CORRECT. It reads whether one was made, which is
+    arithmetic on the shipped field, and the reasons are prose a person has to weigh. What guards
+    that is the record: each entry names the page it was read from, so the next reader spends the
+    argument rather than the fetch.
+    """
+    shipped = (ctx["names_shipped"] or {}).get("titles") or {}
+    from facts import namekey as _nk
+    keyed = {_nk.fold(k): v for k, v in shipped.items()}
+    return sum(1 for r in ctx["series"]
+               if (r.get("work_en") or {}).get("basis") == "romaji"
+               and not (keyed.get(_nk.fold(r.get("work") or "")) or {}).get("translation_refused"))
+
+
 def budget_works_without_an_english_name(ctx):
     """Works that show a romanisation where an English name should be.
 
@@ -2097,8 +2125,15 @@ def budget_works_without_an_english_name(ctx):
 
     A romanisation is a finished answer for a coinage, a portmanteau of two characters' names, or
     a title that is already a name. It is not a finished answer for あなたのとなり, which is four
-    kana meaning next to you. Nothing here can tell those apart, so the count includes both and
-    comes down as titles are reviewed rather than to zero.
+    kana meaning next to you.
+
+    IT CAN TELL THOSE APART NOW, which it could not when this was written, and the docstring said
+    so: "nothing here can tell those apart, so the count includes both". A title ruled under
+    DEFINITIONS §10 carries `translation_refused` and its reason, so the two populations are
+    separable and are separated: `titles showing a romanisation nobody has ruled on` is the half
+    that is work outstanding, and this stays the whole, because the whole is what a reader falls
+    through to whatever anybody has decided about it. Today the whole is 23 and the outstanding
+    half is 0.
 
     WHAT IT COUNTS AND WHAT IT DOES NOT, because a sweep taken from `feed/names.json` answered a
     different question with a similar name and the two numbers were compared as though they were
@@ -4529,6 +4564,12 @@ BUDGETS_DEF = [
      "the store becomes the sole compiled form, and this is what says whether a migration is "
      "happening. Asked of what the site SERVES, so it cannot fall by adding a table nobody "
      "reads, and it reaches 0 when the plan is done."),
+    ("titles showing a romanisation nobody has ruled on",
+     budget_romanisations_nobody_has_ruled_on,
+     "titles falling through to a romanisation that nobody has examined. Distinct from the "
+     "budget below, which counts every such title and cannot reach zero because a romanisation "
+     "finishes a name; this counts the ones still owed a reading of the work, and it can. A rise "
+     "means a new title nobody has looked at, which is ordinary and is the queue doing its job."),
     ("works showing a romanisation", budget_works_without_an_english_name,
      "works with no English name, showing a romanisation instead. Distinct from the budget above, "
      "which a romanisation satisfies: this is the one that answers 'can a reader tell what this "
@@ -5227,6 +5268,14 @@ def self_test():
         ("renderings with nothing to show", budget_renderings_with_nothing_to_show,
          lambda c: c["series"].append({"work": "カナリア誰某", "author": "カナリア誰某",
                                        "work_en": {}, "author_en": {}})),
+        # A TITLE FALLING THROUGH TO A ROMANISATION THAT NOBODY HAS RULED ON, which is the whole
+        # of what this queue counts. It reads 0 today because all 23 carry a §10 ruling, and a
+        # queue at zero is exactly the shape that stops being read, so the canary plants the row
+        # the measure exists to catch: a romanisation with no `translation_refused` behind it.
+        ("titles showing a romanisation nobody has ruled on",
+         budget_romanisations_nobody_has_ruled_on,
+         lambda c: c["series"].append({"work": "カナリアまだ誰も見ていない",
+                                       "work_en": {"basis": "romaji", "en": "Kanaria"}})),
         # BOTH CANARIES ARE RECORDS THE PIPELINE REALLY WROTE, which is §14b's requirement and not
         # a stylistic preference: a canary invented for the test proves the check can fail on
         # something nothing produces. The first is #ふれない as curate.py left it, the second is

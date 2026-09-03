@@ -564,3 +564,37 @@ declining to decide, which is the section above rather than a gap in it.
 Neither is deletion, and nothing here removes a record. A reader following a published address still
 arrives somewhere that tells them what is known, which is the commitment that makes the cheaper
 error cheap.
+
+## 10. Titles a translation cannot finish
+
+Decided by the project owner on 2026-09-04. **A title whose meaning a translation cannot carry is
+shown as a romanisation, and that is a finished state rather than an outstanding one.** The ruling
+is recorded on the curated entry as `translation_refused`, with the reason beside it, and the title
+leaves the naming queue as a decision.
+
+**What falls in it, from the twenty-three ruled so far.** A pairing of two characters' names, which
+is こい☆フラ（Koishi and Flandre）, ハクせつ（Hak and Sekka, whom the publisher spells itself）,
+うどみょん and ハナヤマタ, four leads run together. A circle's or a label's own name, which is
+よぬりめ. The name of the song a book adapts, のだ. A character's name against a suffix or a
+loanword, さろめりっく and ゆずせん, whose circle prints the expansion ゆず『の』せんぱい itself. A
+coinage with no word underneath, ぐがぐもぐるてん, オグナンジェ, サナトクラマ. And the genre word
+this database is named for, ゆりゆり.
+
+**Two harder cases belong here for a different reason, and they are the reason the section is not
+called "titles that are names".** 球詠 reads as ball and song AND is 山崎珠姫 and 武田詠深, so any
+English picks one reading and suppresses the other the work holds together. サバーキ prints Собаки
+under its own katakana, Russian for dogs, so rendering it Dogs would say in English what the work
+chose to say in Cyrillic. In both, a translation is available and would tell a reader LESS than the
+romanisation plus the work does.
+
+**What this is not.** It is not a way of closing a row. A ruling is a claim, and evidence overturns
+it: of twenty-five put in front of a publisher's or platform's own page, ふちゅれ！オトメ and
+うなうさ were wrong on the answer and のだ and ゆずせん were right on the answer and wrong on why.
+うなうさ is the shape to expect, refused as an opaque coinage until ナンバーナイン's listing
+introduced うなぎみたいに長くクネクネしたうさぎ、うなうさ, and it reads Eel-Rabbit now.
+
+**And it is not an excuse to stop counting.** `works showing a romanisation` counts every title
+falling through to one, ruled or not, because that is what a reader meets; it cannot reach zero and
+is not meant to. `titles showing a romanisation nobody has ruled on` counts the half that is work
+outstanding, it can reach zero, and `--self-test` plants an unruled romanisation to prove it still
+catches one.

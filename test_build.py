@@ -22,6 +22,28 @@ spec.loader.exec_module(b)
 
 
 def main(s):
+    # ── A COMPLETE SERIES DOES NOT MAKE THE TRAILING PLATFORM'S CHAPTER THE FINALE ────────────
+    #
+    # 彼氏の女友達がぐいぐい来る(私に) is carried to 第20話 on カドコミ, whose capture says
+    # `status: finished`, and stands at 第10話 on pixivコミック, which published it later than
+    # カドコミ published its last. `completed` and `latest` are both keyed on the work's title with
+    # no platform in them, so the newest row by DATE was the trailing platform's back catalogue and
+    # a reader was told chapter 10 of 20 was the last one.
+    later = b.a_later_chapter_exists
+    siblings = [{"ep": "第20話　紗優と真央の話"}, {"ep": "第10話 彼氏の女友達とデート(？)する話①"}]
+    s.check(later("第10話 彼氏の女友達とデート(？)する話①", siblings),
+            "a work holding a higher-numbered chapter has not ended at the lower one")
+    s.check(not later("第20話　紗優と真央の話", siblings),
+            "and the highest-numbered chapter it holds is still allowed to be the finale")
+
+    # A ROW WITH NO NUMBER ANSWERS FALSE rather than being suppressed by every numbered sibling.
+    # `最終話` carries no number and needs none: it matches FINAL_RE and never reaches this test,
+    # and answering True here would have made the guard swallow the finales it is not about.
+    s.check(not later("最終話", siblings),
+            "an unnumbered instalment is not ruled out by its numbered siblings")
+    s.check(not later("第10話", []),
+            "and a work with no siblings at all has nothing later than its own chapter")
+
     # A §2 REBUTTAL KEEPS THE WORK AND TAKES IT OUT OF THE LISTING. `out` is a source disagreeing
     # with a source; `marginal` is the operator declining to decide. Neither is deletion, and the
     # two are kept apart because they mean different things.

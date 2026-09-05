@@ -1217,6 +1217,28 @@ def ep_number(title):
 JST = datetime.timezone(datetime.timedelta(hours=9))
 
 
+def a_later_chapter_exists(ep, siblings):
+    """Whether this work holds a higher-numbered instalment than the one named here.
+
+    WHAT IT GUARDS. `completed` says a SERIES has ended and is keyed on the work's title, so it
+    holds however one platform answered; `latest` is the newest row by DATE and is keyed the same
+    way. Neither knows about platforms, and one platform running ahead of another makes the newest
+    row by date the trailing platform's back catalogue rather than the finale.
+
+    彼氏の女友達がぐいぐい来る(私に) IS THE CASE. カドコミ carries it to 第20話 and its capture says
+    `status: finished`; pixivコミック is at 第10話 and published that on 2026-09-05, later than
+    カドコミ's last. So the series was marked complete, pixiv's chapter 10 was the newest row we
+    held, and a reader was told that chapter 10 of 20 was the last one.
+
+    A NUMBER IS REQUIRED OF THE ROW ITSELF, and where it has none this answers False. `最終話`
+    carries no number and needs none: it matches `FINAL_RE` and never reaches this test.
+    """
+    mine = ep_number(ep)
+    if mine is None:
+        return False
+    return any((ep_number(o.get("ep") or "") or 0) > mine for o in siblings)
+
+
 def jst_date(stamp):
     """The date a Japanese platform considers a timestamp to fall on.
 
@@ -4957,10 +4979,16 @@ def main():
         # the ending is the more informative fact about it.
         if FINAL_RE.search(unicodedata.normalize("NFKC", ep)):
             r["kind"], r["kind_basis"] = "final", "title states this is the last chapter"
-        elif completed.get(norm_work(r["work"])) and r["pub"] == latest.get(norm_work(r["work"])):
+        elif (completed.get(norm_work(r["work"])) and r["pub"] == latest.get(norm_work(r["work"]))
+              and not a_later_chapter_exists(ep, by_work_rows.get(norm_work(r["work"]), []))):
             # The platform marks the series 完結 and this is the newest release we hold for it.
             # Weaker than the title saying so — the tag may have been applied after the fact — so
             # it is flagged as inferred and the interface marks it.
+            #
+            # AND NOT WHERE A HIGHER-NUMBERED CHAPTER EXISTS. Both maps above are keyed on the
+            # work's title with no platform in them, so a work complete on one platform and
+            # mid-run on another had the trailing platform's newest row called the finale. See
+            # `a_later_chapter_exists`.
             r["kind"], r["kind_basis"] = "final", "series marked 完結; newest release we hold"
             # Distinct from the blanket `kind_inferred` set at the end of this loop, which is true
             # of every kind. This marks the weaker of the two routes to `final` specifically.

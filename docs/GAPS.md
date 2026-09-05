@@ -3424,3 +3424,60 @@ C341206 and C357166, each メディア芸術データベース, each volumes, ea
 leaves 7,442 distinct citations against the published store's 7,442, none lost and none gained, and
 removes 33 exact duplicates. That was caught by diffing the built store against the published one
 rather than by trusting that no refusal meant no harm.
+
+## A finished platform made another platform's mid-run chapter the finale
+
+Reported by the project owner 2026-09-06, fixed the same day.
+
+**WHAT A READER WAS TOLD.** 彼氏の女友達がぐいぐい来る(私に) showed
+`第10話 彼氏の女友達とデート(？)する話①` on pixivコミック as the last chapter of the series. It is
+chapter 10 of at least 20 and the work is still running.
+
+**HOW.** `kind = final` has two routes. The first reads the title, `FINAL_RE`, and is right. The
+second says the series is marked 完結 and this is the newest release we hold. Both `completed` and
+`latest` are keyed on the work's TITLE with no platform in them, so they answer for the work across
+every platform at once. カドコミ carries this work to 第20話 and its capture states
+`status: finished`; pixivコミック stands at 第10話 and published it on 2026-09-05, later than
+カドコミ published its last. The series was complete, pixiv's row was the newest by date, and the
+newest row by date is not the last chapter when one platform runs ahead of another.
+
+**FIXED BY ASKING WHETHER A HIGHER-NUMBERED CHAPTER EXISTS.** `a_later_chapter_exists` answers from
+the work's own rows, and route two now declines where one does. It requires a number ON THE ROW and
+answers False without one, so `最終話` is untouched: that carries no number, matches `FINAL_RE` and
+never reaches the test. Route two claimed exactly one row today and that row was the fault; the six
+finales that remain are all the title route.
+
+**WHAT IS NOT ADDRESSED.** `completed` still holds one answer for a work across every platform, and
+a work genuinely complete on one platform while running on another has no way to say so. The guard
+stops the visible harm and does not make completion a per-platform fact, which is a schema change.
+
+## A platform restating an old chapter's date announces a years-finished work as ending
+
+Reported by the project owner 2026-09-06. Diagnosed, not fixed.
+
+**WHAT A READER WAS TOLD.** 付き合ってあげてもいいかな showed `第133話(最終話)` dated 2026-09-04.
+The work ended long before that, and the owner read it as a metadata bump. It is.
+
+**THE CLASSIFICATION IS RIGHT AND THE DATE IS THE PLATFORM'S.** The title says 最終話, so route one
+is correct that this is the last chapter. `rendered-mangaone.yaml` states `updated: 2026-09-04` for
+it, and the corpus does not invent that. The same capture carries `最終14巻コミックスPR` dated
+2025-03-14, a promotion for the FINAL collected volume, so the work demonstrably ended by early 2025
+and マンガワン has restamped the ending eighteen months later. Seven chapters, 127 to 133, all carry
+2026-09-04.
+
+**IT IS THE FREE-ROTATION QUESTION WITH A SHARPER EDGE.** マンガワン rotates chapters into a free
+window and stamps them with the rotation, so its `updated` is an AVAILABILITY date rather than a
+publication one. `facts/serialisation` already models `ACCESS_CHANGE` as a kind of release and
+nothing routes these to it, which was recorded as an open question on 2026-08-29 without a case
+attached. This is the case: it does not merely misdate a row, it announces an ending that happened
+in 2025 as this week's news.
+
+**WHY THE EXISTING DETECTOR MISSES IT.** `bulk re-dating` compares each (platform, date) bucket
+against that platform's own median and needs 20 rows before it says anything; this bucket holds
+eight. It is also a diagnostic by design and alters no date, which is the right posture for it and
+leaves this untouched either way.
+
+**WHAT A FIX WOULD HAVE TO DECIDE,** and why a maintenance pass should not decide it: whether a
+platform's restatement of an old chapter is an update at all, and if it is, whether it belongs in
+the feed as an access change rather than as a chapter. Both are the owner's, and both change what
+the updates tab means.

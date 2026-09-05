@@ -6,11 +6,27 @@ source: gigaviewer
 platform: mangatime-square
 platform_name: "まんがタイムSquare"
 publisher: ""
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "mangatime:episode:12207421983715352414"
+    work_title: "腹割るウチらの秘密ごと！"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第7話"
+    release_type: "chapter"
+    date: "2026-09-04"
+    date_basis: "observed"
+    first_seen: "2026-09-06"
+    first_reported: "2026-09-04T03:00:00Z"
+    platform_updated: "2026-09-04T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://mangatime-square.com/episode/12207421983715352414"
+    author: "夏村東和"
+    free_term_start: "2026-09-04T03:00:00Z"
+    advances_narrative: true
   - release_id: "mangatime:episode:12207421984001577949"
     in_current_window: false
     work_title: "ニセアイホンアイ"

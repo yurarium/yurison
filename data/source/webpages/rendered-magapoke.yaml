@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -73,7 +73,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/01045"
     stated_schedule:
       cadence: "隔週火曜"
-      next_update: "2027-09-01"
+      next_update: "2026-09-15"
     chapter_count: 10
     chapters:
       - title: "【第64話】出会いと、別れと、後悔と。(6)"
@@ -228,13 +228,11 @@ works:
     url: "https://pocket.shonenmagazine.com/title/01052"
     stated_schedule:
       cadence: "毎月第1水曜"
-      next_update: "2027-09-02"
     chapter_count: 10
     chapters:
       - title: "【第132話(2)】"
         updated: 2025-05-18
-        access_modes: ["purchase"]
-        access_note: "point price 130"
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第132話(1)】"
         updated: 2025-05-18
@@ -246,7 +244,8 @@ works:
         date_basis: rendered
       - title: "【第130話】"
         updated: 2025-03-18
-        access_modes: ["free"]
+        access_modes: ["purchase"]
+        access_note: "point price 115"
         date_basis: rendered
       - title: "【第129話】"
         updated: 2025-02-18
@@ -326,7 +325,7 @@ works:
     author: "田口囁一"
     url: "https://pocket.shonenmagazine.com/title/01357"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎月第1木曜"
     chapter_count: 10
     chapters:
       - title: "【その32】ふたりエスケープ(2)"
@@ -848,6 +847,11 @@ works:
       next_update: "2026-09-08"
     chapter_count: 10
     chapters:
+      - title: "【第51話(1)】静聴"
+        updated: 2026-09-05
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
       - title: "【第50話(3)】夢現"
         updated: 2026-08-22
         access_modes: ["purchase"]
@@ -860,15 +864,10 @@ works:
         date_basis: rendered
       - title: "【第50話(1)】夢現"
         updated: 2026-07-18
-        access_modes: ["purchase"]
-        access_note: "point price 55"
+        access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【第49話(2)】相思"
         updated: 2026-07-04
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第49話(1)】相思"
-        updated: 2026-06-20
         access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【第3話(1)】聖域"
@@ -948,7 +947,7 @@ works:
     author: "シクシク"
     url: "https://pocket.shonenmagazine.com/title/02260"
     stated_schedule:
-      cadence: "毎週水曜"
+      cadence: "毎週木曜"
     chapter_count: 10
     chapters:
       - title: "【第15話】終着点（３）"
@@ -1003,6 +1002,10 @@ works:
       next_update: "2026-11-27"
     chapter_count: 10
     chapters:
+      - title: "【単行本宣伝話】"
+        updated: 2026-09-04
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "【第104話】竜神祭"
         updated: 2026-08-28
         access_modes: ["purchase"]
@@ -1019,10 +1022,6 @@ works:
       - title: "【第101話】飛行戦闘"
         updated: 2026-07-24
         access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第100話】心あわせて"
-        updated: 2026-07-17
-        access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【第5話】神の使い"
         updated: 2023-11-10
@@ -1101,7 +1100,7 @@ works:
     author: "ひの宙子"
     url: "https://pocket.shonenmagazine.com/title/02390"
     stated_schedule:
-      cadence: "毎週火曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【第20話(2)】"
@@ -1151,7 +1150,7 @@ works:
     author: "山座一心"
     url: "https://pocket.shonenmagazine.com/title/02596"
     stated_schedule:
-      cadence: "毎週火曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【第23話(2)】アリス・ジャバウォックに花束を"
@@ -1201,7 +1200,7 @@ works:
     author: "月野和青"
     url: "https://pocket.shonenmagazine.com/title/02604"
     stated_schedule:
-      cadence: "毎週火曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【第25話】正しい愛し方(後編）"
@@ -1304,6 +1303,11 @@ works:
       cadence: "毎週水曜"
     chapter_count: 10
     chapters:
+      - title: "【第55話】全力☆買収☆ガール"
+        updated: 2026-09-02
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
       - title: "【第54話】力を合わせて☆生き残れ☆ガール"
         updated: 2026-08-26
         access_modes: ["purchase"]
@@ -1321,17 +1325,13 @@ works:
         updated: 2026-07-29
         access_modes: ["free"]
         date_basis: rendered
-      - title: "【第51話】急げ☆師匠の元へ☆ガール"
-        updated: 2026-07-22
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "【第5話】芸能事務所☆突撃☆ガール"
         updated: 2025-06-25
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第4話】全力☆推し活☆ガール"
         updated: 2025-06-18
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第3話】かわいい☆メイド☆ガール"
         updated: 2025-06-11
@@ -1449,7 +1449,7 @@ works:
     author: "陣ノ内康暉"
     url: "https://pocket.shonenmagazine.com/title/03068"
     stated_schedule:
-      cadence: "毎週火曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【単行本宣伝話】"
@@ -1558,9 +1558,14 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03282"
     stated_schedule:
       cadence: "毎週土曜"
-      next_update: "2026-09-05"
+      next_update: "2026-09-12"
     chapter_count: 10
     chapters:
+      - title: "【第25話】厄立たずの新聞 後編"
+        updated: 2026-09-02
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
       - title: "【第24.5話】メイド・イン・学園祭！"
         updated: 2026-08-05
         access_modes: ["free"]
@@ -1568,7 +1573,7 @@ works:
       - title: "【第24話】厄立たずの新聞 中編"
         updated: 2026-07-22
         access_modes: ["purchase"]
-        access_note: "point price 90"
+        access_note: "point price 65"
         date_basis: rendered
       - title: "【第23話】厄立たずの新聞 前編"
         updated: 2026-07-08
@@ -1576,11 +1581,6 @@ works:
         access_note: "point price 65"
         date_basis: rendered
       - title: "【第22話】キケンな学園祭デート!? 後編"
-        updated: 2026-06-30
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第21話】キケンな学園祭デート!? 前編"
         updated: 2026-06-30
         access_modes: ["free-timed"]
         date_basis: rendered

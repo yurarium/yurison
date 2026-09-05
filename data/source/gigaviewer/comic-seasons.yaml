@@ -6,12 +6,13 @@ source: gigaviewer
 platform: comic-seasons
 platform_name: "Seasons"
 publisher: ""
-retrieved: 2026-09-03
+retrieved: 2026-09-06
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "seasons:episode:12207421984144415519"
+    in_current_window: false
     work_title: "悪役令嬢のお嫁さま"
     web_status: "serialised"
     identified_via: "discovery-candidate"

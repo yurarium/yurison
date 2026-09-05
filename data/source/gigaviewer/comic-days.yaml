@@ -6,11 +6,27 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421983645810044"
+    work_title: "雨夜の月"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第５１−１話　静聴"
+    release_type: "unclassified"
+    date: "2026-09-05"
+    date_basis: "observed"
+    first_seen: "2026-09-06"
+    first_reported: "2026-09-05T03:00:00Z"
+    platform_updated: "2026-09-05T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983645810044"
+    author: "くずしろ"
+    raw_title: "第５１−１話　静聴"
+    advances_narrative: false
   - release_id: "comicdays:episode:12207421983484134401"
     work_title: "新刊１００億冊ください"
     web_status: "serialised"

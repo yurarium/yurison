@@ -6,11 +6,27 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "action:episode:12207421984056083521"
+    work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "事案18 動物園：かるおもside"
+    release_type: "unclassified"
+    date: "2026-09-04"
+    date_basis: "observed"
+    first_seen: "2026-09-06"
+    first_reported: "2026-09-04T03:00:00Z"
+    platform_updated: "2026-09-04T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-action.com/episode/12207421984056083521"
+    author: "中村カンコ"
+    raw_title: "事案18 動物園：かるおもside"
+    advances_narrative: false
   - release_id: "action:episode:12207421984090057892"
     work_title: "小林さんちのメイドラゴン"
     web_status: "serialised"

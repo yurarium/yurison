@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 110
@@ -14352,14 +14352,20 @@ works:
   - work_title: "雨夜の月"
     series_id: "3269632237268447047"
     url: "https://comic-days.com/atom/series/3269632237268447047"
-    chapter_count: 122
+    chapter_count: 123
     chapters:
+      - title: "第５１−１話　静聴"
+        updated: 2026-09-05
+        author: "くずしろ"
+        url: "https://comic-days.com/episode/12207421983645810044"
+        free_from: 2026-09-26
+        access_modes: ["purchase"]
       - title: "第５０−３話　夢現"
         updated: 2026-08-22
         author: "くずしろ"
         url: "https://comic-days.com/episode/12207421983645810033"
         free_from: 2026-09-05
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第５０−２話　夢現"
         updated: 2026-08-01
         author: "くずしろ"
@@ -14370,8 +14376,7 @@ works:
         updated: 2026-07-18
         author: "くずしろ"
         url: "https://comic-days.com/episode/2551460909710194626"
-        free_from: 2026-08-01
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第４９−２話　相思"
         updated: 2026-07-04
         author: "くずしろ"

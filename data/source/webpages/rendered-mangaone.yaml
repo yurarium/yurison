@@ -10,7 +10,7 @@ source: webpages
 platform: mangaone
 platform_name: "マンガワン"
 publisher: "小学館"
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -220,8 +220,12 @@ works:
         date_basis: rendered
   - work_title: "付き合ってあげてもいいかな"
     url: "https://manga-one.com/viewer/70173"
-    chapter_count: 2
+    chapter_count: 10
     chapters:
+      - title: "重大発表！その2"
+        updated: 2026-09-04
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "オンラインくじ第2弾告知PR"
         updated: 2025-07-04
         access_modes: ["free"]
@@ -229,4 +233,32 @@ works:
       - title: "最終14巻コミックスPR"
         updated: 2025-03-14
         access_modes: ["free"]
+        date_basis: rendered
+      - title: "第133話(最終話)"
+        updated: 2026-09-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第132話"
+        updated: 2026-09-04
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第131話"
+        updated: 2026-09-04
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第130話"
+        updated: 2026-09-04
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第129話"
+        updated: 2026-09-04
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第128話"
+        updated: 2026-09-04
+        access_modes: ["purchase"]
+        date_basis: rendered
+      - title: "第127話"
+        updated: 2026-09-04
+        access_modes: ["purchase"]
         date_basis: rendered

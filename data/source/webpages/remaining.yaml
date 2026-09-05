@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -88,7 +88,7 @@ works:
     url: "https://www.corocoro.jp/title/65"
     platform_name: "コロコロオンライン"
     route: "rendered"
-    chapter_count: 9
+    chapter_count: 8
     chapters:
       - title: "第102話"
         updated: 2026-08-29
@@ -101,9 +101,6 @@ works:
         date_basis: rendered
       - title: "第99話"
         updated: 2026-07-18
-        date_basis: rendered
-      - title: "第98話"
-        updated: 2026-07-04
         date_basis: rendered
       - title: "第4話"
         updated: 2024-02-03
@@ -121,49 +118,28 @@ works:
     author: "涼海来夏"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     platform_name: "キミコミ"
-    route: "comici"
-    chapter_count: 7
+    route: "rendered"
+    chapter_count: 1
     chapters:
-      - title: "OPERATION1"
+      - title: "1話 最新話から 1 - 7 OPER"
         updated: 2026-07-20
         author: "涼海来夏"
-        access_modes: ["free"]
-      - title: "OPERATION2"
-        updated: 2026-07-27
-        author: "涼海来夏"
-        access_modes: ["free"]
-      - title: "OPERATION3"
-        updated: 2026-08-03
-        author: "涼海来夏"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
-      - title: "OPERATION4"
-        updated: 2026-08-10
-        author: "涼海来夏"
-        access_modes: ["purchase"]
-      - title: "OPERATION5"
-        updated: 2026-08-17
-        author: "涼海来夏"
-        access_modes: ["free"]
-      - title: "OPERATION6"
-        updated: 2026-08-24
-        author: "涼海来夏"
-        access_modes: ["free"]
-      - title: "OPERATION7"
-        updated: 2026-08-31
-        author: "涼海来夏"
-        access_modes: ["purchase"]
+        date_basis: rendered
   - work_title: "雨夜の月"
     author: "くずしろ / 第１−１話　奏音と咲希"
     url: "https://comic-days.com/episode/3269632237276869027"
     platform_name: "マガポケ"
     route: "gigaviewer"
-    chapter_count: 122
+    chapter_count: 123
     chapters:
+      - title: "第５１−１話　静聴"
+        updated: 2026-09-05
+        author: "くずしろ"
+        access_modes: ["purchase"]
       - title: "第５０−３話　夢現"
         updated: 2026-08-22
         author: "くずしろ"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第５０−２話　夢現"
         updated: 2026-08-01
         author: "くずしろ"
@@ -171,7 +147,7 @@ works:
       - title: "第５０−１話　夢現"
         updated: 2026-07-18
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第４９−２話　相思"
         updated: 2026-07-04
         author: "くずしろ"
@@ -2440,11 +2416,8 @@ works:
     url: "https://www.ganganonline.com/title/38"
     platform_name: "ガンガンONLINE"
     route: "markup"
-    chapter_count: 2
+    chapter_count: 1
     chapters:
-      - title: "第91話-1 トイレット・ペーパームーンI"
-        updated: 2026-08-30
-        date_basis: heuristic
       - title: "第1話-1 くねくねハンティングI 作品インフォメーション 『裏世界ピクニック』コミッ"
         updated: 2026-05-12
         date_basis: heuristic
@@ -3998,7 +3971,7 @@ works:
     url: "https://g-comi.jp/series/58238b3987c11"
     platform_name: "Gコミ"
     route: "comici"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
       - title: "第1話"
         updated: 2026-07-03
@@ -4006,6 +3979,11 @@ works:
         access_modes: ["free"]
       - title: "第2話"
         updated: 2026-08-07
+        author: "裏海マユ,ちょきんぎょ。"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第3話"
+        updated: 2026-09-04
         author: "裏海マユ,ちょきんぎょ。"
         access_modes: ["free"]
   - work_title: "銀輪ボイス"
@@ -4785,11 +4763,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-03
+        updated: 2026-09-05
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-03
+        updated: 2026-09-05
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

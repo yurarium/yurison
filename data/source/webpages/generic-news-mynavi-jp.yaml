@@ -12,7 +12,7 @@ source: webpages
 platform: news-mynavi-jp
 platform_name: "マイナビニュース"
 publisher: ""
-retrieved: 2026-09-03
+retrieved: 2026-09-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 extraction: markup
@@ -23,9 +23,9 @@ works:
     url: "https://news.mynavi.jp/series/carfairy/"
     chapter_count: 2
     chapters:
-      - title: "相談室 第7回 バイクのブレーキパッドやシューはどのくらいで交換すればいい? メンテナンスの目"
-        updated: 2026-08-25
+      - title: "相談室 第1回 故障したのに修理してくれない…バイクの「修理難民」にならないためには?"
+        updated: 2026-04-30
         date_basis: heuristic
-      - title: "相談室 第8回 バイクのブレーキ交換にかかる費用は?ブレーキパッドの種類についても解説"
-        updated: 2026-08-26
+      - title: "マたち｜Vol. 84 エルヴァ Mk7"
+        updated: 2026-09-04
         date_basis: heuristic

@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: candidate_works
 works: 312
 candidates:
@@ -696,7 +696,7 @@ candidates:
   - title: "なとりとしずは"
     platforms: ["sundaywebry", "サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983745504350"]
-    tags: ["女子高生", "百合", "運動系部活"]
+    tags: ["女子高生", "柔道", "百合", "運動系部活"]
   - title: "にせものターコイズ"
     platforms: ["sundaywebry", "サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983913735230"]
@@ -1025,7 +1025,7 @@ candidates:
   - title: "イジめてイジられて"
     platforms: ["kadokomi", "カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_019052_S", "https://manga.nicovideo.jp/comic/83472"]
-    tags: ["お色気・微エロ", "フェチ・性癖", "ラブコメ", "最近のコメント数", "百合"]
+    tags: ["お色気・微エロ", "フェチ・性癖", "ラブコメ", "変態", "最近のコメント数", "百合"]
   - title: "イタズラっ子世に憚らず!!"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2268"]
@@ -2009,7 +2009,7 @@ candidates:
   - title: "『人斬り』少女、公爵令嬢の護衛になる"
     platforms: ["ライコミ"]
     urls: ["https://comicride.jp/series/b95a6b1493469"]
-    tags: ["ファンタジー", "ブロ・シスマンス", "武士・侍", "百合"]
+    tags: ["ファンタジー", "ブロ・シスマンス", "最近のコメント数", "武士・侍", "百合"]
   - title: "人間のペット飼いたい"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/4856001361163769575"]
@@ -2166,7 +2166,7 @@ candidates:
   - title: "先生ェェェェ服着て下さい!!"
     platforms: ["ヤンマガWeb"]
     urls: ["https://yanmaga.jp/comics/%E5%85%88%E7%94%9F%E3%82%A7%E3%82%A7%E3%82%A7%E3%82%A7%E6%9C%8D%E7%9D%80%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84"]
-    tags: ["最近のコメント数"]
+    tags: ["作家", "最近のコメント数", "百合", "編集", "読み切り"]
   - title: "先輩と後輩、大暴れの週末"
     platforms: ["くらげバンチ"]
     urls: ["https://kuragebunch.com/episode/2550912965269449845"]
@@ -2305,7 +2305,7 @@ candidates:
   - title: "君になれたら"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008317_S"]
-    tags: ["アイドル", "百合"]
+    tags: ["アイドル", "入れ替わり", "百合"]
   - title: "君に惹かれた理由"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/14079602755180542200"]
@@ -2760,6 +2760,7 @@ candidates:
   - title: "念願の悪役令嬢の身体を手に入れたぞ!"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550689798271538198"]
+    tags: ["ギャグ・コメディ", "乙女ゲーム", "悪役令嬢", "異世界", "百合", "転生"]
   - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
     platforms: ["ニコニコ漫画", "マガポケ"]
     urls: ["https://manga.nicovideo.jp/comic/67469", "https://pocket.shonenmagazine.com/title/02328"]

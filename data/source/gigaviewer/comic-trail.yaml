@@ -6,11 +6,27 @@ source: gigaviewer
 platform: comic-trail
 platform_name: "コミックトレイル"
 publisher: "白泉社"
-retrieved: 2026-09-03
+retrieved: 2026-09-06
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comic_trail:episode:12207421984098141837"
+    work_title: "お嬢様、懺悔する。"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第12話〈１〉"
+    release_type: "chapter"
+    date: "2026-09-04"
+    date_basis: "observed"
+    first_seen: "2026-09-06"
+    first_reported: "2026-09-04T03:00:00Z"
+    platform_updated: "2026-09-04T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-trail.com/episode/12207421984098141837"
+    author: "しる"
+    free_term_start: "2026-09-04T03:00:00Z"
+    advances_narrative: true
   - release_id: "comic_trail:episode:12207421983905863255"
     in_current_window: false
     work_title: "お嬢様、懺悔する。"

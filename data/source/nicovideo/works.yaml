@@ -10,7 +10,7 @@
 source: nicovideo
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-09-03
+retrieved: 2026-09-05
 record_type: web_work_chapters
 identification_mode: known-works
 works_resolved: 496
@@ -25433,9 +25433,9 @@ works:
     url: "https://manga.nicovideo.jp/comic/74964"
     platform_code: "74964"
     started: "2025-11-13"
-    updated: "2026-08-20"
+    updated: "2026-09-03"
     episode_count_stated: 5
-    chapter_count: 21
+    chapter_count: 22
     chapters:
       - title: "第一話"
         access_modes: ["free"]
@@ -25476,8 +25476,10 @@ works:
       - title: "第十一話-2"
         app_only: true
       - title: "第十二話-1"
-        access_modes: ["free"]
+        app_only: true
       - title: "第十二話-2"
+        access_modes: ["free"]
+      - title: "最終話"
         access_modes: ["free"]
   - work_title: "ぷくちょらりファミリア"
     author: "圷　見南子(著者)"

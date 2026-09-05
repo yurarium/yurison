@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 19
@@ -212,14 +212,20 @@ works:
   - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     series_id: "2550912964579611664"
     url: "https://comic-action.com/atom/series/2550912964579611664"
-    chapter_count: 25
+    chapter_count: 26
     chapters:
+      - title: "事案18 動物園：かるおもside"
+        updated: 2026-09-04
+        author: "中村カンコ"
+        url: "https://comic-action.com/episode/12207421984056083521"
+        free_from: 2026-10-02
+        access_modes: ["purchase"]
       - title: "事案17 バードゾーンサバイブ！②"
         updated: 2026-08-07
         author: "中村カンコ"
         url: "https://comic-action.com/episode/12207421983913993746"
         free_from: 2026-09-04
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "事案17 バードゾーンサバイブ！①"
         updated: 2026-07-03
         author: "中村カンコ"
@@ -230,8 +236,7 @@ works:
         updated: 2026-06-05
         author: "中村カンコ"
         url: "https://comic-action.com/episode/12207421983659469059"
-        free_from: 2026-07-03
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "事案16 貸切！ 全校遠足①"
         updated: 2026-05-01
         author: "中村カンコ"

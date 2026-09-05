@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-09-04
+retrieved: 2026-09-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -431,8 +431,8 @@ works:
     url: "https://comic.pixiv.net/works/11081"
     chapter_count: 4
     chapters:
-      - title: "第16話②"
-        updated: 2026-08-01
+      - title: "第17話① 本日UP"
+        updated: 2026-09-05
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3話"
@@ -656,11 +656,11 @@ works:
     url: "https://comic.pixiv.net/works/11800"
     chapter_count: 5
     chapters:
-      - title: "16-② 本日UP"
+      - title: "16-②"
         updated: 2026-08-28
         access_modes: ["free"]
         date_basis: rendered
-      - title: "16-① 本日UP"
+      - title: "16-①"
         updated: 2026-08-28
         access_modes: ["free"]
         date_basis: rendered
@@ -820,7 +820,7 @@ works:
     url: "https://comic.pixiv.net/works/13225"
     chapter_count: 4
     chapters:
-      - title: "第4話 本日UP"
+      - title: "第4話"
         updated: 2026-08-28
         access_modes: ["free"]
         date_basis: rendered
@@ -841,7 +841,7 @@ works:
     url: "https://comic.pixiv.net/works/13226"
     chapter_count: 4
     chapters:
-      - title: "第4話 本日UP"
+      - title: "第4話"
         updated: 2026-08-28
         access_modes: ["free"]
         date_basis: rendered
@@ -877,8 +877,12 @@ works:
   - work_title: "アイ・ヘイ・チュー"
     author: "長門知大"
     url: "https://comic.pixiv.net/works/13324"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "第4話 水泡にすら帰さず"
+        updated: 2026-08-29
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第3話 手も品も変えるな"
         updated: 2026-08-15
         access_modes: ["free"]
@@ -896,7 +900,7 @@ works:
     url: "https://comic.pixiv.net/works/13345"
     chapter_count: 3
     chapters:
-      - title: "第3片 本日UP"
+      - title: "第3片"
         updated: 2026-08-28
         access_modes: ["free"]
         date_basis: rendered
@@ -913,8 +917,8 @@ works:
     url: "https://comic.pixiv.net/works/13373"
     chapter_count: 2
     chapters:
-      - title: "第8話 たぬき女に看病される話①"
-        updated: 2026-08-22
+      - title: "第10話 彼氏の女友達とデート(？)する話①"
+        updated: 2026-09-05
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話 たぬき女に迫られる話"
@@ -970,8 +974,12 @@ works:
   - work_title: "怪獣ロマンティクス"
     author: "じぃと"
     url: "https://comic.pixiv.net/works/13457"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
+      - title: "第2-2話 Totsuzenタンデム!? ドギマギ山頂でぇと"
+        updated: 2026-08-29
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第2-1話 Totsuzenタンデム!? ドギマギ山頂でぇと"
         updated: 2026-08-15
         access_modes: ["free"]
@@ -1494,8 +1502,12 @@ works:
   - work_title: "作りたい女と食べたい女"
     author: "ゆざきさかおみ"
     url: "https://comic.pixiv.net/works/7182"
-    chapter_count: 7
+    chapter_count: 8
     chapters:
+      - title: "第42話 引っ越し"
+        updated: 2026-09-01
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第41話 受け入れてくれる場所"
         updated: 2026-08-25
         access_modes: ["free"]

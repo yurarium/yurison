@@ -3345,3 +3345,47 @@ the number it replaced, so `--self-test` now plants a series row whose surface n
 divided parts can spell, and the canary is caught. Five shapes were checked by hand first: nothing
 spells it, the floor spells it, every part of a composite is spelled, one part is not, and an
 unspellable work title rather than an author.
+
+## How much of an archive is history rather than derivation, and nothing counts it
+
+Found 2026-09-06, checking whether a shrinking July archive was churn or a broken capture.
+
+**IT IS CHURN, AND THE CARRY-FORWARD IS ABSORBING IT AS DESIGNED.** July serves 655 rows; today's
+compile produces 511 of them; the other 144 are carried because the store no longer builds them. The
+site is right and the reader loses nothing. The loss is spread across 30 platforms rather than
+concentrated in one, which is what says it is the world moving rather than a pass that stopped
+working: 46 カドコミ, 20 ニコニコ, 10 COMIC FUZ, and a long tail of ones and twos.
+
+**THE RATE IS THE PART WORTH KNOWING.** July is 22.0% carried, August 2.8%, September 10.4%, and
+July was 111 carried on 2026-09-02 against 144 four days later. A month therefore becomes MORE
+historical as it ages, which is expected, and the interesting number is how fast.
+
+**NOTHING WATCHES IT (§13).** `build/from_store.py` prints `carried forward: N published row(s)` on
+every build and no measure reads it. A jump would be indistinguishable from ordinary ageing, and a
+capture that quietly stopped returning a platform's back catalogue would present as exactly this
+shape: rows the store no longer builds, carried, reported once in a log nobody reads.
+
+**WHY IT IS NOT A PIPELINE BUDGET.** §11 leaves the published files in the other repository, so the
+pipeline cannot see what was served and cannot compute this. It belongs with the site's own checks,
+which already read both sides, and it wants the count to come from `from_store`'s own carry rather
+than being recomputed beside it, or there would be two producers of one number.
+
+## Eight print rows are refused on every build, correctly, and say so loudly
+
+Found 2026-09-06. The outcome is right and the noise is the problem.
+
+**WHAT IT SAYS.** `store refused 8 row(s): print_row madb-t-91483dd6f954: UNIQUE constraint failed:
+print_row.record`, on every build since 2026-09-02 and on none before it. That is the day the thirty
+identifiers were minted, and the record belongs to 超深宇宙より愛をこめて, w00156, which is the work
+that exists twice: a fifteen-chapter serialisation and a one-chapter 読み切り版.
+
+The outcome is correct. `print_row.record` is UNIQUE and the compiler offers the same record once per
+(work, platform) row the work has, so eight identical offers are refused and one is kept. The store
+holds 2,512 print rows against 2,512 distinct records, and the survivor is on w00156, which is the
+work that owns it. Nothing a reader sees is wrong and nothing is lost.
+
+**WHY IT IS STILL WORTH FIXING.** A build that reports eight refusals every night teaches whoever
+reads it that refusals are furniture, and the next one will be real. `store refused` is the line that
+carried the `surface` alias fault twice, and it is the wrong line to have a standing false positive
+on. The record is a property of the WORK and is offered once per platform row; offering it once per
+work would leave the count at zero and leave the message meaning something.

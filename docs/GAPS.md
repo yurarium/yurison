@@ -3372,6 +3372,11 @@ than being recomputed beside it, or there would be two producers of one number.
 
 ## Eight print rows are refused on every build, correctly, and say so loudly
 
+**FIXED 2026-09-06.** The count was eight and only the first was named, so the entry below is about
+one of them; all eight were the same cause. A work with two series rows and one identifier had every
+work-level fact offered twice. See the entry at the end of this document.
+
+
 Found 2026-09-06. The outcome is right and the noise is the problem.
 
 **WHAT IT SAYS.** `store refused 8 row(s): print_row madb-t-91483dd6f954: UNIQUE constraint failed:
@@ -3389,3 +3394,33 @@ reads it that refusals are furniture, and the next one will be real. `store refu
 carried the `surface` alias fault twice, and it is the wrong line to have a standing false positive
 on. The record is a property of the WORK and is offered once per platform row; offering it once per
 work would leave the count at zero and leave the message meaning something.
+
+## A work-level fact was written once per row, and the row is not the work
+
+Found and fixed 2026-09-06, chasing the eight refusals above.
+
+**ALL EIGHT WERE ONE CAUSE.** The build printed `store refused 8 row(s)` and named only the first, a
+`print_row`, so the entry above is about a fifth of it. The full set is `print_row`, `work_state`,
+`evidence`, four `provenance` rows and `serialisation`, every one keyed on w00156.
+
+**AND THE MERGE BEHIND IT IS CORRECT.** 超深宇宙より愛をこめて is a serialisation and a 読み切り版.
+w00486 was merged into w00156 with a basis recorded on the entry: a 読み切り版 is an EDITION, and
+DEFINITIONS binds the inclusion test to the work rather than to the edition. So two series rows carry
+one identifier by design, and `assign`'s docstring warning against merging those two predates the
+ruling that merged them. Nothing about the identity was wrong; the loader was writing a work's facts
+once per row.
+
+**FIXED PER TABLE RATHER THAN BY ONE SWEEP,** because the tables mean different things.
+`print_row` keys on the record, since a work holds several and skipping the row would lose one.
+`work_state` and `serialisation` are one per work and take the first row, which is the fuller one, so
+超深宇宙より愛をこめて is `active` from its serialisation rather than `oneshot` from the pilot.
+`evidence` is a set and became `INSERT OR IGNORE`, which keeps DISTINCT evidence that deduplicating
+on the work would have thrown away. `provenance` is numbered across the work instead of restarting
+per row, which is what made it collide on (work, seq) whatever it held.
+
+**THE FIRST ATTEMPT AT PROVENANCE WAS WRONG AND THE STORE SAID SO.** Keyed on (work, source, holds)
+it dropped 161 rows, and 116 of those groups were CITATIONS rather than repeats: w00174 holds both
+C341206 and C357166, each メディア芸術データベース, each volumes, each real. Keying on the whole row
+leaves 7,442 distinct citations against the published store's 7,442, none lost and none gained, and
+removes 33 exact duplicates. That was caught by diffing the built store against the published one
+rather than by trusting that no refusal meant no harm.

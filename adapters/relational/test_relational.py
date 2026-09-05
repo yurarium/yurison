@@ -446,6 +446,52 @@ def main(s):
     _refuses(s, db, "INSERT INTO surface (kind, folded, alias_of) VALUES ('author','wrongkind',?)",
              (canon,), "an alias points at a surface of its own kind, by the same composite key")
 
+    # ── A WORK WITH TWO SERIES ROWS STATES ITS WORK-LEVEL FACTS ONCE ──────────────────────────
+    #
+    # 超深宇宙より愛をこめて is a serialisation and a 読み切り版, and w00486 was merged into w00156
+    # on the recorded basis that a 読み切り版 is an EDITION. So two rows carry one `id`, correctly,
+    # and the loader offered every work-level fact twice: eight refusals a night, every one the
+    # schema doing its job against a caller that should not have asked. `store refused` is the line
+    # that carried the `surface` alias fault twice and is the wrong one to leave a false positive on.
+    SHARED = {
+        "works": {"works": [{"work_id": "rec-1", "title": {"ja": "テスト作品"}}]},
+        "series": {"series": [
+            {"id": "w90001", "work": "テスト作品", "state": "active", "state_basis": "b",
+             "sources": [{"platform": "P", "url": "https://x.test/1"}], "chapters": 5,
+             "print": [{"work_id": "rec-1", "publisher": "H"}],
+             "evidence": [{"kind": "imprint", "source": "S", "term": "T"}],
+             "sourced_from": [{"source": "S", "holds": "volumes", "url": "https://a"},
+                              {"source": "S", "holds": "volumes", "url": "https://b"}]},
+            {"id": "w90001", "work": "テスト作品【読み切り版】", "state": "oneshot",
+             "state_basis": "c", "sources": [{"platform": "P", "url": "https://x.test/2"}],
+             "chapters": 1, "print": [{"work_id": "rec-1", "publisher": "H"}],
+             "evidence": [{"kind": "imprint", "source": "S", "term": "T"}],
+             "sourced_from": [{"source": "S", "holds": "volumes", "url": "https://a"}]}]}}
+    two, _c2, refused_two = relational.build(path=":memory:", source=SHARED)
+    mine = [w for w, _e in refused_two
+            if w.split()[0] in ("print_row", "work_state", "serialisation", "evidence",
+                                "provenance")]
+    s.eq(mine, [], "a work whose two rows share an identifier is loaded without a single refusal")
+    for table in ("print_row", "work_state", "serialisation"):
+        s.eq(two.execute(f"SELECT count(*) FROM {table}").fetchone()[0], 1,
+             f"`{table}` states the work once, from the first row rather than from both")
+    s.eq(two.execute("SELECT state FROM work_state").fetchone()[0], "active",
+         "and the state is the serialisation's, the rows arriving fullest first, rather than the "
+         "読み切り版's")
+    s.eq(two.execute("SELECT count(*) FROM evidence").fetchone()[0], 1,
+         "evidence is a set: the same kind, source and term twice is not two pieces of evidence")
+
+    # THE CITATIONS ARE THE HALF THAT MUST NOT COLLAPSE. Both rows cite S/volumes, and the first
+    # cites it at two different URLs. A key of (source, holds) would have kept one of the three;
+    # keying on the whole row keeps both real ones and drops the repeat. Comparing the built store
+    # against the published one caught this, having dropped 161 rows of which 116 were citations.
+    s.eq(two.execute("SELECT count(*) FROM provenance").fetchone()[0], 2,
+         "two citations of one source survive and the row restating one of them does not")
+    s.eq(sorted(u for (u,) in two.execute("SELECT url FROM provenance")),
+         ["https://a", "https://b"], "and they are the two distinct pages, not the same page twice")
+    s.eq(sorted(q for (q,) in two.execute("SELECT seq FROM provenance")), [0, 1],
+         "numbered across the work rather than restarted per row, which is what collided")
+
     # AN ISBN IS THE IDENTIFIER AND NOT A SPELLING OF IT. 940 of 3,371 arrived hyphenated, so
     # `9784091572882` and `978-4-09-157288-2` were two rows and one ISBN was not one book. It hid
     # two duplicate WORKS for as long as it stood.

@@ -1223,6 +1223,23 @@ def _load_all(db, source, put, counts, refused):
     # spelling covers from them, so neither file can be emitted while they are only in the JSON.
     pub_id = {n: i for i, n in db.execute("SELECT id, name FROM publisher")}
     print_block = {}
+    # ── A WORK-LEVEL FACT IS WRITTEN ONCE PER WORK, NOT ONCE PER ROW ─────────────────────────
+    #
+    # A WORK CAN HAVE SEVERAL SERIES ROWS AND ONE IDENTIFIER. 超深宇宙より愛をこめて is a
+    # serialisation and a 読み切り版, and w00486 was merged into w00156 on the recorded basis that
+    # a 読み切り版 is an EDITION and DEFINITIONS binds the test to the work. So two rows carry one
+    # `id`, correctly, and this loader offered every work-level fact twice: the print record, the
+    # state, the evidence, four provenance rows and the serialisation. Eight refusals a night,
+    # every one of them the schema doing its job against a caller that should not have asked.
+    #
+    # WHY THE NOISE MATTERED MORE THAN THE DUPLICATES. Nothing was lost, the two rows carrying
+    # identical provenance and evidence and the fuller row winning the state. But `store refused`
+    # is the line that carried the `surface` alias fault twice, and a standing false positive on it
+    # teaches whoever reads the log that refusals are furniture.
+    #
+    # KEYED ON THE RECORD HERE rather than on the work, because that is what the UNIQUE is on and
+    # a work legitimately holds several print records. Skipping the row would lose one.
+    print_seen = {}
     for _k, r in _rows("series", "series", source):
         wid = r.get("id")
         for blk in (r.get("print") or []):
@@ -1230,6 +1247,13 @@ def _load_all(db, source, put, counts, refused):
             if rec:
                 print_block[rec] = blk
             if not wid or not rec:
+                continue
+            if rec in print_seen:
+                # THE SAME RECORD FROM A SECOND ROW OF THE SAME WORK. Its `work_ids` still reach
+                # `print_row_record`, since a second row may name a record the first did not.
+                for other in (blk.get("work_ids") or [rec]):
+                    put("INSERT OR IGNORE INTO print_row_record (print_row, record) VALUES (?,?)",
+                        (print_seen[rec], other), f"print record {other}")
                 continue
             if not put("INSERT INTO print_row (work, record, publisher, publisher_raw,"
                        " imprint_raw, distributor, label, first, last, volumes, shop_url,"
@@ -1241,6 +1265,7 @@ def _load_all(db, source, put, counts, refused):
                         int(bool(blk.get("periodical")))), f"print_row {rec}"):
                 continue
             pid = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+            print_seen[rec] = pid
             for other in (blk.get("work_ids") or [rec]):
                 put("INSERT OR IGNORE INTO print_row_record (print_row, record) VALUES (?,?)",
                     (pid, other), f"print record {other}")
@@ -1304,10 +1329,16 @@ def _load_all(db, source, put, counts, refused):
     counts["work_publisher"] = db.execute("SELECT count(*) FROM work_publisher").fetchone()[0]
 
     # ── whether a work is running, and the byline it prints, §5e ────────────────────────────────
+    # ONE STATE PER WORK, AND THE FIRST ROW CARRIES IT. `work_state.work` is the primary key, so
+    # this was always the behaviour; what changes is that the caller stops asking twice. The rows
+    # arrive fullest first, which is why 超深宇宙より愛をこめて is `active` from its serialisation
+    # rather than `oneshot` from the 読み切り版 that was merged into it.
+    state_seen = set()
     for _k, r in _rows("series", "series", source):
         wid = r.get("id")
-        if not wid or r.get("state") is None:
+        if not wid or r.get("state") is None or wid in state_seen:
             continue
+        state_seen.add(wid)
         put("INSERT INTO work_state (work, state, basis, basis_ja, completed_basis,"
             " completed_basis_ja) VALUES (?,?,?,?,?,?)",
             (wid, r["state"], r.get("state_basis"), r.get("state_basis_ja"),
@@ -1325,22 +1356,46 @@ def _load_all(db, source, put, counts, refused):
     # WHY A WORK IS FILED AS YURI, AND WHAT ELSE WAS READ FOR IT. Two lists kept apart on purpose:
     # a volume count says nothing about whether a work is yuri, and running them together would make
     # the classification look better supported than it is.
+    # EVIDENCE IS A SET AND SAYS SO. Its identity is (work, kind, source, term) and a unique index
+    # enforces it, so a second row of the same work restating the same evidence is not new and is
+    # not a fault either. `OR IGNORE` keeps every DISTINCT piece, which deduplicating on the work
+    # would have thrown away.
+    #
+    # PROVENANCE IS NUMBERED PER WORK, NOT PER ROW. `seq` came from `enumerate` over one row, so a
+    # second row restarted at 0 and collided on (work, seq) whatever it held: different provenance
+    # would have been lost rather than merely refused. Counted across the work's rows instead, and
+    # skipped only where the work already holds that citation EXACTLY.
+    #
+    # THE WHOLE ROW IS THE KEY, WHICH (source, holds) IS NOT. A work with several MADB records
+    # cites each of them, so 116 of the 149 repeated (work, source, holds) groups differ in their
+    # url: w00174 holds C341206 and C357166, both メディア芸術データベース, both volumes, and both
+    # real. Keying on the pair dropped 161 rows and 116 groups of them were citations rather than
+    # repeats. Caught by comparing the built store against the published one rather than by
+    # trusting that the refusals had been the whole of it.
+    prov_n, prov_seen = {}, set()
     for _k, r in _rows("series", "series", source):
         wid = r.get("id")
         if wid not in held_work:
             continue
         for ev in (r.get("evidence") or []):
             if ev.get("kind") and ev.get("source") and ev.get("term"):
-                put("INSERT INTO evidence (work, kind, source, term, url, page, read)"
+                put("INSERT OR IGNORE INTO evidence (work, kind, source, term, url, page, read)"
                     " VALUES (?,?,?,?,?,?,?)",
                     (wid, ev["kind"], ev["source"], ev["term"], ev.get("url"), ev.get("page"),
                      ev.get("read")), f"evidence {wid} {ev['kind']}")
-        for i, ph in enumerate(r.get("sourced_from") or []):
-            if ph.get("source") and ph.get("holds"):
-                put("INSERT INTO provenance (work, seq, source, holds, url, read)"
-                    " VALUES (?,?,?,?,?,?)",
-                    (wid, i, ph["source"], ph["holds"], ph.get("url"), ph.get("read")),
-                    f"provenance {wid} {i}")
+        for ph in (r.get("sourced_from") or []):
+            if not (ph.get("source") and ph.get("holds")):
+                continue
+            _cite = (wid, ph["source"], ph["holds"], ph.get("url"), ph.get("read"))
+            if _cite in prov_seen:
+                continue
+            prov_seen.add(_cite)
+            i = prov_n.get(wid, 0)
+            prov_n[wid] = i + 1
+            put("INSERT INTO provenance (work, seq, source, holds, url, read)"
+                " VALUES (?,?,?,?,?,?)",
+                (wid, i, ph["source"], ph["holds"], ph.get("url"), ph.get("read")),
+                f"provenance {wid} {i}")
     counts["evidence"] = db.execute("SELECT count(*) FROM evidence").fetchone()[0]
     counts["provenance"] = db.execute("SELECT count(*) FROM provenance").fetchone()[0]
     counts["state_claim"] = db.execute("SELECT count(*) FROM state_claim").fetchone()[0]
@@ -1738,10 +1793,14 @@ def _load_feed(db, source, put, counts):
     # THE ROW THE FILE SHOWS IS THE FIRST OFFER, which `build.py` sorted so the platform that can
     # speak for the work comes first: a listing whose every date is an import stamp cannot say when
     # a work last updated, however many instalments it holds.
+    # ONE SERIALISATION PER WORK, AND THE FIRST ROW CARRIES IT, for the same reason `work_state`
+    # does: `serialisation.work` is unique and a work with two rows offered it twice.
+    ser_seen = set()
     for _k, r in _rows("series", "series", source):
         wid = r.get("id")
-        if wid not in held:
+        if wid not in held or wid in ser_seen:
             continue
+        ser_seen.add(wid)
         first = (r.get("sources") or [{}])[0]
         chosen = db.execute("SELECT id FROM offer WHERE work = ? AND platform = ? AND url = ?",
                             (wid, first.get("platform"), first.get("url"))).fetchone()

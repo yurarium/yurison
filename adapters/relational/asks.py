@@ -382,9 +382,20 @@ BUDGETS = {
         "why": "works whose stated rhythm names a date the run has already passed, so the updates "
                "tab reports them overdue. Either the series has gone quiet or the date was worked "
                "out for a slot the month's chapter had already filled",
-        "canary": "UPDATE stated_next SET next_from_cadence = '1970-01-01' "
-                  "WHERE next_from_cadence IS NOT NULL",
-        "canary_rises_by": 2},
+        # PLANTED, NOT REWRITTEN, and the difference took down a night's run. This used to set
+        # EVERY stated prediction to 1970 and expect the count to rise by 2, which is not a
+        # property of the check: it is however many predictions happen to be AHEAD of the run that
+        # day. Two platforms shifting a rhythm changes it, and on 2026-09-06 it changed, so
+        # `--self-test` reported that the check could no longer be made to fail and the run died
+        # before it published. The check was fine; the canary was pinned to the weather.
+        #
+        # ONE ROW FOR A WORK THAT HAS NO PREDICTION, dated far enough back that no run's stamp can
+        # be behind it. `work` is the primary key here, so it has to be a work without a row, and
+        # the corpus holds 2,574 works against 2 predictions.
+        "canary": "INSERT INTO stated_next (work, platform, next_from_cadence) "
+                  "SELECT w.id, (SELECT name FROM platform LIMIT 1), '1970-01-01' FROM work w "
+                  "WHERE w.id NOT IN (SELECT work FROM stated_next) LIMIT 1",
+        "canary_rises_by": 1},
     # A RUN THE CATALOGUE COUNTS AND CANNOT LIST. The record states how many volumes there are and
     # the store holds fewer rows than that, which is a gap in what was captured.
     "volume rows a page counts but cannot list": {

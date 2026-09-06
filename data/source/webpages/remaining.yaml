@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-06
+retrieved: 2026-09-07
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -118,13 +118,43 @@ works:
     author: "涼海来夏"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     platform_name: "キミコミ"
-    route: "rendered"
-    chapter_count: 1
+    route: "comici"
+    chapter_count: 8
     chapters:
-      - title: "1話 最新話から 1 - 7 OPER"
+      - title: "OPERATION1"
         updated: 2026-07-20
         author: "涼海来夏"
-        date_basis: rendered
+        access_modes: ["free"]
+      - title: "OPERATION2"
+        updated: 2026-07-27
+        author: "涼海来夏"
+        access_modes: ["free"]
+      - title: "OPERATION3"
+        updated: 2026-08-03
+        author: "涼海来夏"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "OPERATION4"
+        updated: 2026-08-10
+        author: "涼海来夏"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "OPERATION5"
+        updated: 2026-08-17
+        author: "涼海来夏"
+        access_modes: ["purchase"]
+      - title: "OPERATION6"
+        updated: 2026-08-24
+        author: "涼海来夏"
+        access_modes: ["free"]
+      - title: "OPERATION7"
+        updated: 2026-08-31
+        author: "涼海来夏"
+        access_modes: ["free"]
+      - title: "OPERATION8"
+        updated: 2026-09-07
+        author: "涼海来夏"
+        access_modes: ["purchase"]
   - work_title: "雨夜の月"
     author: "くずしろ / 第１−１話　奏音と咲希"
     url: "https://comic-days.com/episode/3269632237276869027"
@@ -732,7 +762,7 @@ works:
     url: "https://hanayume.com/series/f3ce082d639de"
     platform_name: "花とゆめ+"
     route: "comici"
-    chapter_count: 34
+    chapter_count: 35
     chapters:
       - title: "#1"
         updated: 2026-04-20
@@ -891,9 +921,14 @@ works:
       - title: "＃17①"
         updated: 2026-08-24
         author: "瑠夏子"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃17②"
         updated: 2026-08-31
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "＃18①"
+        updated: 2026-09-07
         author: "瑠夏子"
         access_modes: ["purchase"]
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
@@ -2416,8 +2451,11 @@ works:
     url: "https://www.ganganonline.com/title/38"
     platform_name: "ガンガンONLINE"
     route: "markup"
-    chapter_count: 1
+    chapter_count: 2
     chapters:
+      - title: "第91話-2 トイレット・ペーパームーンI"
+        updated: 2026-09-06
+        date_basis: heuristic
       - title: "第1話-1 くねくねハンティングI 作品インフォメーション 『裏世界ピクニック』コミッ"
         updated: 2026-05-12
         date_basis: heuristic
@@ -4763,11 +4801,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-05
+        updated: 2026-09-06
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-05
+        updated: 2026-09-06
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

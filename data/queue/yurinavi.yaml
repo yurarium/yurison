@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-04
+retrieved: 2026-09-07
 record_type: discovery_queue
 candidates:
   - work_title: "幼馴染の方程式"
@@ -26,15 +26,6 @@ candidates:
     platform_code: "12207421983947227343"
     work_url: "https://ichicomi.com/episode/12207421983947227343"
     headline: "ヒモ女子大生とOLの歪んだ執着を描いた百合読み切り「残り香に牙」WEBで公開"
-    status: unconfirmed
-  - work_title: "バリキャリJKモネ先輩"
-    signal: "new-serial"
-    announced: "Thu, 20 Aug 2026 11:00:10 +0000"
-    url: "https://yurinavi.com/2026/08/20/barikyarijk-start/"
-    platform: "ichicomi"
-    platform_code: "12207421984038651592"
-    work_url: "https://ichicomi.com/episode/12207421984038651592"
-    headline: "27歳会社員がセーラー服姿で青春をやり直す百合姫新連載「バリキャリJKモネ先輩」WEBで公開"
     status: unconfirmed
   - work_title: "彼岸でランデヴー"
     signal: "new-serial"
@@ -62,6 +53,24 @@ candidates:
     platform_code: "KC_019973_S"
     work_url: "https://comic-walker.com/detail/KC_019973_S"
     headline: "筋肉がつなぐ絆を描く大人百合読み切り「私の彼女はボディビルダー」WEBで公開"
+    status: unconfirmed
+  - work_title: "東京つけものがたり"
+    signal: "new-serial"
+    announced: "Sat, 05 Sep 2026 11:00:00 +0000"
+    url: "https://yurinavi.com/2026/09/05/toukyo-tsukemono-start/"
+    platform: "magcomi"
+    platform_code: "12207421984122057940"
+    work_url: "https://magcomi.com/episode/12207421984122057940"
+    headline: "漬物が繋ぐ、人気モデル×新人編集者の社会人ガールズストーリー「東京つけものがたり」WEBでスタート"
+    status: unconfirmed
+  - work_title: "バリキャリJKモネ先輩"
+    signal: "new-serial"
+    announced: "2026-08-20"
+    url: "https://yurinavi.com/2026/08/20/barikyarijk-start/"
+    platform: "ichicomi"
+    platform_code: "12207421984038651592"
+    work_url: "https://ichicomi.com/episode/12207421984038651592"
+    headline: "27歳会社員がセーラー服姿で青春をやり直す百合姫新連載「バリキャリJKモネ先輩」WEBで公開"
     status: unconfirmed
   - work_title: "優等生がアダルトグッズを買いに来た"
     signal: "new-serial"

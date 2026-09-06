@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-06
+retrieved: 2026-09-07
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -1247,7 +1247,7 @@ works_missing:
     platform: "ライコミ"
     url: "https://comicride.jp/series/b95a6b1493469"
     antenna_id: "165083"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
   - title: "現実世界でも幸せにしてくださいね?"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2550912965923204058"
@@ -1382,7 +1382,7 @@ works_missing:
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/1c1afe76da717"
     antenna_id: "177609"
-    tags: ["漫画家・絵描き", "料理・グルメ", "百合", "片思い"]
+    tags: ["漫画家・絵描き", "料理・グルメ", "百合", "片思い", "完結"]
   - title: "灼熱の卓球娘 REBURN!!"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/b3efcd5f3a6a7"

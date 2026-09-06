@@ -3120,8 +3120,22 @@ def budget_announced_works_the_corpus_does_not_hold(ctx):
     # string. Reading one shape for both handed `norm_work` a dict and took the run down.
     held = {_norm_work((w.get("title") or {}).get("ja") or "") for w in ctx["works"]}
     held |= {_norm_work(r.get("work") or "") for r in ctx["series"]}
+    # AND THE ADDRESS IS ASKED BEFORE THE NAME, because the name is the weaker question. A listing
+    # announces 最恐呪物令嬢 and ヤングアニマルWeb serves it as
+    # 最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜; `norm_work` keeps a subtitle, correctly, since
+    # nothing in a string says whether one marks another work. So three works the corpus holds were
+    # counted as absent, each announced at the very address the row it is already on carries:
+    # ハウリング・ブレイズ at KC_019658_S and クレアちゃん飼育日記 at KC_016896_S are the others.
+    # A platform's own address for a work is not a resemblance between two titles, it is the same
+    # page, so it settles what a fold cannot.
+    addresses = set()
+    for r in ctx["series"]:
+        for u in [r.get("url")] + [s.get("url") for s in (r.get("sources") or [])]:
+            if u:
+                addresses.add(str(u).rstrip("/"))
     return sum(1 for t in _admit.targets(queues)
-               if _norm_work(t["title"]) not in held)
+               if _norm_work(t["title"]) not in held
+               and str(t.get("url") or "~").rstrip("/") not in addresses)
 
 
 def budget_updates_naming_an_unheld_work(ctx):

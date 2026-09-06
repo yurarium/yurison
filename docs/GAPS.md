@@ -3481,3 +3481,33 @@ leaves this untouched either way.
 platform's restatement of an old chapter is an update at all, and if it is, whether it belongs in
 the feed as an access change rather than as a chapter. Both are the owner's, and both change what
 the updates tab means.
+
+## Three works the corpus holds were counted as absent, because a subtitle is not a resemblance
+
+Found 2026-09-07, working a rise in `announced works the corpus does not hold`. Fixed.
+
+**THE BUDGET PROMISES THAT A RISE IS NEVER NOTHING.** Its docstring says a rise means an adapter
+cannot reach the work, or the platform serves it under a title the fold does not reconcile, or the
+promotion stopped happening. It rose 14 to 15, and the answer was the middle one, for three of the
+fifteen rather than for the one that moved.
+
+**WHAT THE THREE ARE.** A listing announces 最恐呪物令嬢 and ヤングアニマルWeb serves it as
+最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜. カドコミ carries ハウリング・ブレイズ as
+ハウリング・ブレイズ　葬焔の剣士と不死の魔女 and クレアちゃん飼育日記 as
+クレアちゃん飼育日記―カブトムシ少女にお世話されてます―. `norm_work` keeps a subtitle, and it is
+right to: nothing in a string says whether a suffix marks another work, which is the argument
+`data/work-aliases.yaml` opens with and 超深宇宙より愛をこめて【読み切り版】 is the counter-case for.
+
+**SETTLED BY THE ADDRESS RATHER THAN BY THE NAME.** Each announcement carries the platform's own URL
+for the work, and in all three the row the corpus already holds carries that same URL: the ヤングアニマル
+episode `24a3e6bcb998e`, and カドコミ's `KC_019658_S` and `KC_016896_S`. That is not two titles
+resembling each other, it is one page, so it answers what a fold cannot. The measure asks the address
+first and falls back to the fold, and the count went 15 to 12 with the three excused each traced to
+the row holding its address.
+
+**WHY NOT AN ALIAS,** which is the other mechanism available. `data/work-aliases.yaml` would work and
+would need three curated rulings to say what the URL already says exactly. It stays for the cases the
+address cannot settle, which is where two platforms disagree about a name and neither is wrong.
+
+**WHAT IS LEFT IS REAL.** The twelve that remain are works announced on a platform the pipeline
+reads openly and genuinely absent, which is the coverage gap the budget was written for.

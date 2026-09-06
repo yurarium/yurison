@@ -3511,3 +3511,29 @@ address cannot settle, which is where two platforms disagree about a name and ne
 
 **WHAT IS LEFT IS REAL.** The twelve that remain are works announced on a platform the pipeline
 reads openly and genuinely absent, which is the coverage gap the budget was written for.
+
+## 裏サンデー's page furniture is reaching readers as chapter titles
+
+Found 2026-09-07, following the second of the owner's two `final` reports to its source. Not fixed.
+
+**WHAT A READER IS SHOWN.** `最終話) 10年後… 無料` and `10話ずつ 前へ 1` are in the updates feed as
+chapter names. Neither is one: the first is a chapter title with the free badge's text run into it
+and a bracket left unclosed, the second is the paginator, "ten at a time, previous, 1".
+
+**MEASURED AND LOCALISED.** 14 of the 462 chapter titles the generic adapter captured look like page
+furniture, and all 14 are `generic-urasunday-com.yaml`. No other generic capture has one. Three
+works carry them: 付き合ってあげてもいいかな, かわいい同盟 and 3分待って むぎ先輩.
+
+**THREE SHAPES, ONE CAUSE.** The paginator read as a chapter; the page `<title>` read as a chapter,
+which is why `第1話 恋、しちゃいましょうか…？ | 付き合ってあげてもいいかな` carries the site name
+after a pipe; and the free badge run into the chapter's own name, `第20話 無料`. 裏サンデー lays its
+series page out differently from what the generic adapter expects, and the adapter is taking
+whatever sits where it looks.
+
+**NOTHING COUNTS IT.** `scraped counters in chapter names` is 0 and does not see `10話ずつ 前へ 1`;
+`series names holding a page title` is about series names rather than chapter names. So this is
+reader-visible and unmeasured, which is the shape §13 is about.
+
+**WHY A MAINTENANCE PASS SHOULD NOT FIX IT.** The remedy is a selector in a capture adapter, and §9
+keeps those out of an unattended pass because changing one alters what the next capture MEANS. It
+wants a person, and it wants the budget that would have caught it.

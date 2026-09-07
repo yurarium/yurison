@@ -113,6 +113,13 @@ half of the same measure was given this treatment when it was caught counting 14
 rendered correctly; the series half never was. It now asks the floor and the divided parts, and
 `--self-test` plants a name nothing can spell to prove it can still fail.
 
+## 32 -> 34 on 2026-09-08, one unheld work publishing twice
+
+The seventeen works are the same seventeen as yesterday. 優等生がアダルトグッズを買いに来た went
+from four rows to six, which is コミックガルド publishing two more chapters of a work the corpus
+still holds no record of. The count is rows rather than works, so a work that stays unheld raises it
+every time it updates. It falls when the work gains a record, not when it stops publishing.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

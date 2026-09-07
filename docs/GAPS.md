@@ -3537,3 +3537,36 @@ reader-visible and unmeasured, which is the shape §13 is about.
 **WHY A MAINTENANCE PASS SHOULD NOT FIX IT.** The remedy is a selector in a capture adapter, and §9
 keeps those out of an unattended pass because changing one alters what the next capture MEANS. It
 wants a person, and it wants the budget that would have caught it.
+
+## A compile lost 154 releases from captures that had not changed, and I could not say why
+
+Found 2026-09-08, checking a fix. Not explained. Readers are unaffected and the store is published.
+
+**THE NUMBERS.** Compiled releases have run 1207, 1211, 1213, 1193 and then 1039. The captures
+between the last two runs are the same: counting chapters across every file in `data/source` at both
+commits gives a net difference of THREE, and the only file that moved meaningfully is
+`generic-urasunday-com.yaml`, down 8, which is the furniture fix removing junk.
+
+**IT IS NOT THE CODE THAT CHANGED.** `adapters/recon/extract.py` was the only pipeline change in
+that window. Replaying all 42 cached generic pages and all 309 cached rendered pages through both
+versions of `try_pairs` gives identical output, 2,662 rows either way on the rendered set. Building
+with the file reverted to its previous state produces 1039 releases as well. So the drop is
+reproducible without the change and is not caused by it.
+
+**WHAT A READER LOSES IS SEVEN ROWS.** The current window holds 168 against the previous 179, and of
+the rows inside the new window that the new build does not carry, three are the urasunday junk this
+was meant to remove and four are ニコニコ re-minting chapter ids, which this document already
+records. The rest of the difference is in the archives, where the carry-forward held everything:
+July still serves 657 rows with 323 carried, August 644, September 104.
+
+**WHAT IS NOT ESTABLISHED** is the mechanism. The obvious candidate is the late-discovery rule, which
+files a row under the month it was SEEN when that is later than the month it was published, and whose
+exception for the ledger's seed date expires as those rows age. That moves a row between months and
+does not remove one, so it does not by itself account for a smaller total. Ruled out: the captures,
+the code, and any single adapter, since the per-adapter counts the run prints differ by one line and
+two chapters.
+
+**WHY IT IS WRITTEN DOWN RATHER THAN CHASED FURTHER.** The visible cost is seven rows, all accounted
+for, and the archives are protected. But a compile that produces 154 fewer releases from the same
+inputs is a thing this project should be able to explain, and the next person to see this number move
+should not start where I started.

@@ -41,6 +41,11 @@ TITLE_KEY = re.compile(r"(title|name|subtitle|label|heading)", re.I)
 CHAPTERISH = re.compile(
     r"第?\s*[0-9０-９]+\s*(話|回|章|品|皿|杯|夜)|#\s*\d+|"
     r"(?:episode|ep|file|case|act|vol|chapter)\s*\.?\s*\d+|最終(話|回)", re.I)
+#: A QUANTITY OF CHAPTERS, NOT A CHAPTER. 裏サンデー offers 「10話ずつ」, ten at a time, and
+#: まんがライフWIN banners 「27話分無料」, twenty-seven chapters' worth; `CHAPTERISH` sees the `10話`
+#: and the `27話` in them. Both count instalments and neither names one, and `ずつ` and `分` are the
+#: words that say so.
+PAGER = re.compile(r"[0-9０-９]+\s*話\s*(ずつ|分)")
 ISO = re.compile(r"(\d{4})[-/.年](\d{1,2})[-/.月](\d{1,2})")
 # A JAPANESE PLATFORM WRITING ITS DATES IN ENGLISH. ちゃおプラス prints
 # <p class="c-episode-item__date">15 Aug 2026</p> beside <h3 class="c-episode-item__ttl">第35話</h3>,
@@ -247,6 +252,23 @@ def try_pairs(html):
         # Rendered pages carry comment and sort controls next to the chapter list, and they were
         # ending up inside the label: 「第1話 出遭いのコメント いいね順 新着順 568コメント」.
         label = re.split(r"のコメント|いいね順|新着順|\d+コメント", label)[0].strip()
+        # AND THE REST OF THE FURNITURE, which 裏サンデー made visible. A run of tag boundaries
+        # collapses to ONE space here, so the `\s{2,}` split above almost never fires and whatever
+        # sits beside the chapter in the markup arrives inside its name. Three shapes reached
+        # readers: an access badge, `第14話(後編) 剣が峰 無料` and `最終話 … 先読`; the reader page's
+        # own heading, `第1話 恋、しちゃいましょうか…？ | 付き合ってあげてもいいかな`, where the
+        # work's title follows the separator every site uses for one; and the pager, `10話ずつ 前へ 1`.
+        #
+        # CUT RATHER THAN COUNTED. A boundary count would tell a badge from a subtitle on this host,
+        # four boundaries against two, and 裏サンデー puts 第246話's own subtitle seventeen away, so
+        # the count is about this markup rather than about chapters. These are words, and they are
+        # words no chapter is called.
+        label = re.split(r"\s\|\s|先読|無料|前へ|次へ|表示件数", label)[0].strip()
+        # `10話ずつ` IS A DISPLAY CONTROL AND NOT A CHAPTER. `CHAPTERISH` matches the `10話` in it,
+        # so the pager was pairing with whatever date came next: on five of six 裏サンデー pages it
+        # produced a release. `ずつ` after a counter is "N at a time" and names no instalment.
+        if PAGER.search(label):
+            continue
         if not label or (label, d) in seen:
             continue
         seen.add((label, d))

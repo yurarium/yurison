@@ -143,6 +143,38 @@ def main(s):
     s.check(not extract.CHAPTERISH.search("千夜一夜物語"),
             "while a title that merely contains the word is not a chapter label")
 
+    # ── PAGE FURNITURE STOPS ARRIVING INSIDE A CHAPTER'S NAME ─────────────────────────────────
+    #
+    # A run of tag boundaries collapses to ONE space in `try_pairs`, so the `\s{2,}` split almost
+    # never fires and whatever sits beside a chapter in the markup lands inside its label. Three
+    # shapes reached readers from 裏サンデー: an access badge, the reader page's own heading with the
+    # work's title after a separator, and the pager.
+    def one(html):
+        got = extract.try_pairs(html)
+        return got[0]["title"] if got else None
+
+    s.eq(one('<li><span>第14話(後編)</span><i>剣が峰</i><b>無料</b><time>2026/08/13</time></li>'),
+         "第14話(後編) 剣が峰",
+         "an access badge is cut off and the chapter keeps its own subtitle")
+    s.eq(one('<li><span>最終話</span><i>卒業式</i><b>先読</b><time>2024/11/10</time></li>'),
+         "最終話 卒業式", "and so is 先読, which marks a chapter readable early rather than naming one")
+    s.eq(one('<h1>第1話 出遭い | 妖怪殲滅のサイコリリー</h1><time>2023/10/19</time>'),
+         "第1話 出遭い",
+         "the reader page's heading loses the work's title, which follows the separator every site "
+         "uses for one")
+
+    # THE PAGER IS NOT A CHAPTER AT ALL, so it is refused rather than trimmed. `CHAPTERISH` sees the
+    # `10話` in 「10話ずつ」 and paired it with whatever date came next, which produced a release on
+    # five of six 裏サンデー pages. まんがライフWIN banners 「27話分無料」 for the same reason.
+    s.eq(extract.try_pairs('<div>表示件数</div><div>10話ずつ</div><time>2025/07/04</time>'), [],
+         "ten chapters at a time is a display control and names no instalment")
+    s.eq(extract.try_pairs('<div>27話分無料</div><time>2026/06/15</time>'), [],
+         "nor does a banner counting how many are free")
+    s.check(extract.PAGER.search("10話ずつ") and extract.PAGER.search("27話分"),
+            "both count instalments, and `ずつ` and `分` are the words that say so")
+    s.check(not extract.PAGER.search("第10話") and not extract.PAGER.search("最終話"),
+            "while an ordinary chapter and a finale are not counts of anything")
+
     # FURNITURE IS NOT A CHAPTER LIST. A page that only offers a button says nothing about how many
     # chapters it has, and the two-episode minimum is what refuses one row.
     s.eq(extract.try_labels('<h2>第1話を読む</h2><p>第2話 とても長い</p>', "https://x.jp/works/1"), [],

@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-07
+retrieved: 2026-09-08
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -38,6 +38,16 @@ platforms_missing:
   - platform: "コミックPASH! neo"
     works: 1
 works_missing:
+  - title: "このままモブじゃ終われない!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3700"
+    antenna_id: "203870"
+    tags: ["百合", "サキュバス"]
+  - title: "しゅがー・みーつ・がーる!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3108"
+    antenna_id: "166358"
+    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -58,11 +68,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3140"
     antenna_id: "138856"
     tags: ["百合", "アイドル"]
-  - title: "このままモブじゃ終われない!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3700"
-    antenna_id: "203870"
-    tags: ["百合", "サキュバス"]
   - title: "百合SMでふたりの気持ちはつながりますか?"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/2391"
@@ -78,11 +83,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3423"
     antenna_id: "187224"
     tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
-  - title: "しゅがー・みーつ・がーる!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3108"
-    antenna_id: "166358"
-    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -333,6 +333,31 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "どれが恋かがわからない"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001190_S"
+    antenna_id: "131238"
+    tags: ["百合", "大学生", "恋愛"]
+  - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008429_S"
+    antenna_id: "206316"
+    tags: ["VTuber", "百合", "お色気・微エロ", "料理・グルメ", "女子高生", "メイド"]
+  - title: "堕天使そぷらのちゃんの復讐"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006778_S"
+    antenna_id: "190226"
+    tags: ["百合", "女子高生", "学園"]
+  - title: "バカに告白"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006660_S"
+    antenna_id: "188798"
+    tags: ["最近のコメント数"]
+  - title: "安達としまむら"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004197_S"
+    antenna_id: "90973"
+    tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
   - title: "君になれたら"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008317_S"
@@ -428,11 +453,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_009359_S"
     antenna_id: "208406"
     tags: ["百合", "恋愛"]
-  - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_008429_S"
-    antenna_id: "206316"
-    tags: ["VTuber", "百合", "お色気・微エロ", "料理・グルメ", "女子高生", "メイド"]
   - title: "この恋、一旦持ち帰らせていただきます!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008367_S"
@@ -473,16 +493,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_002743_S"
     antenna_id: "36257"
     tags: ["レシピ", "料理・グルメ", "日常", "雑学・豆知識", "実写化", "百合", "ホームドラマ", "義理の兄弟姉妹"]
-  - title: "堕天使そぷらのちゃんの復讐"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006778_S"
-    antenna_id: "190226"
-    tags: ["百合", "女子高生", "学園"]
-  - title: "バカに告白"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006660_S"
-    antenna_id: "188798"
-    tags: ["百合", "学園", "ラブコメ", "女子高生"]
   - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002994_S"
@@ -503,11 +513,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_001277_S"
     antenna_id: "136506"
     tags: ["百合", "社会人", "女子高生", "同棲"]
-  - title: "安達としまむら"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_004197_S"
-    antenna_id: "90973"
-    tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
   - title: "こいのおわりをねがうとき"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019946_S"
@@ -608,11 +613,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019393_S"
     antenna_id: "211792"
     tags: ["百合", "読み切り"]
-  - title: "どれが恋かがわからない"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_001190_S"
-    antenna_id: "131238"
-    tags: ["百合", "大学生", "恋愛"]
   - title: "オタクサキュバスの才能がありすぎる!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_016705_S"
@@ -828,6 +828,11 @@ works_missing:
     url: "https://ddnavi.com/sazametorio/"
     antenna_id: "213473"
     tags: ["百合"]
+  - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
+    platform: "チャンピオンクロス"
+    url: "https://championcross.jp/series/21fe5b3d50300"
+    antenna_id: "199771"
+    tags: ["百合", "アイドル"]
   - title: "ガールズ×ヴァンパイア"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
@@ -838,11 +843,6 @@ works_missing:
     url: "https://championcross.jp/series/ae4257e66bab5"
     antenna_id: "87443"
     tags: ["百合", "大学生", "アニメ化"]
-  - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/21fe5b3d50300"
-    antenna_id: "199771"
-    tags: ["百合", "アイドル"]
   - title: "お葉花を愛でる"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/46c8d0a17ed62"
@@ -858,6 +858,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "安達としまむら"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/41839"
+    antenna_id: "92017"
+    tags: ["百合", "女子高生", "コミカライズ", "アニメ化"]
   - title: "おちこぼれフルーツタルト"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -978,11 +983,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/70137"
     antenna_id: "176431"
     tags: ["百合"]
-  - title: "安達としまむら"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/41839"
-    antenna_id: "92017"
-    tags: ["百合", "女子高生", "コミカライズ", "アニメ化"]
   - title: "わたしのために脱ぎなさいっ!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/34328"
@@ -1188,16 +1188,16 @@ works_missing:
     url: "https://younganimal.com/series/060a6130e55b2"
     antenna_id: "212464"
     tags: ["オカルト", "女子高生", "百合"]
-  - title: "エリオと電気人形"
-    platform: "ヤンジャン+"
-    url: "https://ynjn.jp/title/6108"
-    antenna_id: "173220"
-    tags: ["百合", "ロボ・人造人間"]
   - title: "ベイビー車中ハッカーズ"
     platform: "ヤンジャン+"
     url: "https://ynjn.jp/title/16787"
     antenna_id: "174151"
     tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
+  - title: "エリオと電気人形"
+    platform: "ヤンジャン+"
+    url: "https://ynjn.jp/title/6108"
+    antenna_id: "173220"
+    tags: ["百合", "ロボ・人造人間"]
   - title: "バカ女26時"
     platform: "ヤンジャン+"
     url: "https://ynjn.jp/title/12102"
@@ -1238,16 +1238,16 @@ works_missing:
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
     antenna_id: "194831"
     tags: ["エロ", "女子高生", "日常", "ギャグ・コメディ", "百合", "フェチ・性癖"]
-  - title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
-    platform: "ライコミ"
-    url: "https://comicride.jp/series/7b86cbca64ebe"
-    antenna_id: "84661"
-    tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
   - title: "『人斬り』少女、公爵令嬢の護衛になる"
     platform: "ライコミ"
     url: "https://comicride.jp/series/b95a6b1493469"
     antenna_id: "165083"
     tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
+  - title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
+    platform: "ライコミ"
+    url: "https://comicride.jp/series/7b86cbca64ebe"
+    antenna_id: "84661"
+    tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
   - title: "現実世界でも幸せにしてくださいね?"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2550912965923204058"

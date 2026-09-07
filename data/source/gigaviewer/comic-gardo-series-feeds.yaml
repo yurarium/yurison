@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-gardo
 platform_name: "コミックガルド"
 publisher: "オーバーラップ"
-retrieved: 2026-09-07
+retrieved: 2026-09-08
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 2
@@ -19,19 +19,25 @@ works:
   - work_title: "優等生がアダルトグッズを買いに来た"
     series_id: "12207421983996994170"
     url: "https://comic-gardo.com/atom/series/12207421983996994170"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "第3話「そっちの穴も開けてあげるから」(1)"
+        updated: 2026-09-07
+        author: "コナタエル/4kaえんぴつ/千種みのり"
+        url: "https://comic-gardo.com/episode/12207421984188204280"
+        access_modes: ["purchase"]
       - title: "第2話「放っといたら、寝覚めが悪いから」(3)"
         updated: 2026-08-17
         author: "コナタエル/4kaえんぴつ/千種みのり"
         url: "https://comic-gardo.com/episode/12207421984094260445"
+        free_from: 2026-09-21
         access_modes: ["purchase"]
       - title: "第2話「放っといたら、寝覚めが悪いから」(2)"
         updated: 2026-08-17
         author: "コナタエル/4kaえんぴつ/千種みのり"
         url: "https://comic-gardo.com/episode/12207421984094260440"
         free_from: 2026-09-07
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第2話「放っといたら、寝覚めが悪いから」(1)"
         updated: 2026-08-17
         author: "コナタエル/4kaえんぴつ/千種みのり"

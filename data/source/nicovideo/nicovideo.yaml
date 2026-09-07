@@ -9,12 +9,78 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-09-07
+retrieved: 2026-09-08
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 494
 works:
+  - work_title: "安達としまむら"
+    author: "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)"
+    url: "https://manga.nicovideo.jp/comic/41839"
+    comic_id: "41839"
+    updated: "2026-09-07"
+    started: "2019-06-03"
+    episode_count: 6
+    free_episodes: 6
+    channel: "電撃大王"
+    channel_slug: "daioh"
+    latest_episode: "第60話「Cherry Blossoms for the Two of Us2」①"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129808"
+  - work_title: "ララのうた"
+    author: "河野スイ"
+    url: "https://manga.nicovideo.jp/comic/62230"
+    comic_id: "62230"
+    updated: "2026-09-07"
+    started: "2023-02-02"
+    episode_count: 29
+    free_episodes: 29
+    channel: "コミックPASH! ver.N"
+    channel_slug: "comicpash"
+    latest_episode: "第33話　捕獲作戦"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112081"
+  - work_title: "魔法少女三十路"
+    author: "三倉ゆめ"
+    url: "https://manga.nicovideo.jp/comic/80236"
+    comic_id: "80236"
+    updated: "2026-09-07"
+    started: "2026-06-15"
+    episode_count: 2
+    free_episodes: 2
+    channel: "ニコニコヒーローズ"
+    channel_slug: "niconicoheros"
+    latest_episode: "第45話　もし敵が来なかったら…（後編）"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1114271"
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-09-07"
+    started: "2019-10-20"
+    episode_count: 133
+    free_episodes: 133
+    latest_episode: "ロボ23-1"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1132554"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-09-07"
+    started: "2022-08-31"
+    episode_count: 108
+    free_episodes: 108
+    latest_episode: "第7話の10"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1132555"
+  - work_title: "不器用ビンボーダンス　３"
+    author: "なをををををを"
+    url: "https://manga.nicovideo.jp/comic/70296"
+    comic_id: "70296"
+    updated: "2026-09-06"
+    started: "2024-10-05"
+    episode_count: 70
+    free_episodes: 70
+    latest_episode: "第270話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1132525"
   - work_title: "おちこぼれフルーツタルト"
     author: "浜弓場 双"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -63,18 +129,6 @@ works:
     channel_slug: "flapper"
     latest_episode: "#47"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1122779"
-  - work_title: "ララのうた"
-    author: "河野スイ"
-    url: "https://manga.nicovideo.jp/comic/62230"
-    comic_id: "62230"
-    updated: "2026-09-05"
-    started: "2023-02-02"
-    episode_count: 27
-    free_episodes: 27
-    channel: "コミックPASH! ver.N"
-    channel_slug: "comicpash"
-    latest_episode: "第32話　来客①"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112079"
   - work_title: "アクアリウムは踊らない"
     author: "冬眠結(漫画) 橙々(原作)"
     url: "https://manga.nicovideo.jp/comic/71182"
@@ -87,26 +141,6 @@ works:
     channel_slug: "maoh"
     latest_episode: "閑話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1131753"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-09-05"
-    started: "2019-10-20"
-    episode_count: 131
-    free_episodes: 131
-    latest_episode: "ロボ22-5"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1132309"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-09-05"
-    started: "2022-08-31"
-    episode_count: 106
-    free_episodes: 106
-    latest_episode: "第7話の8"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1132314"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"
@@ -469,16 +503,6 @@ works:
     channel_slug: "dradraflat"
     latest_episode: "第14話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129271"
-  - work_title: "不器用ビンボーダンス　３"
-    author: "なをををををを"
-    url: "https://manga.nicovideo.jp/comic/70296"
-    comic_id: "70296"
-    updated: "2026-08-27"
-    started: "2024-10-05"
-    episode_count: 69
-    free_episodes: 69
-    latest_episode: "第269話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129896"
   - work_title: "きみが死ぬまで恋をしたい"
     author: "あおのなち"
     url: "https://manga.nicovideo.jp/comic/56065"
@@ -827,30 +851,6 @@ works:
     channel_slug: "comicnewtype"
     latest_episode: "第148話　けつろん"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1123669"
-  - work_title: "安達としまむら"
-    author: "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)"
-    url: "https://manga.nicovideo.jp/comic/41839"
-    comic_id: "41839"
-    updated: "2026-08-17"
-    started: "2019-06-03"
-    episode_count: 7
-    free_episodes: 7
-    channel: "電撃大王"
-    channel_slug: "daioh"
-    latest_episode: "第59話「Cherry Blossoms for the Two of Us1」②"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1116535"
-  - work_title: "魔法少女三十路"
-    author: "三倉ゆめ"
-    url: "https://manga.nicovideo.jp/comic/80236"
-    comic_id: "80236"
-    updated: "2026-08-17"
-    started: "2026-06-15"
-    episode_count: 2
-    free_episodes: 2
-    channel: "ニコニコヒーローズ"
-    channel_slug: "niconicoheros"
-    latest_episode: "第45話　もし敵が来なかったら…（前編）"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1114260"
   - work_title: "十字トンボは空を飛ばない"
     author: "織日ちひろ 虫原"
     url: "https://manga.nicovideo.jp/comic/71834"

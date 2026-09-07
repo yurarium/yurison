@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-07
+retrieved: 2026-09-08
 record_type: discovery_queue
 candidates:
   - work_title: "幼馴染の方程式"
@@ -36,15 +36,6 @@ candidates:
     work_url: "https://comic-walker.com/detail/KC_020017_S"
     headline: "新入社員とイケメン先輩が心霊スポットを巡る百合オカルトコメディ「彼岸でランデヴー」WEBでスタート"
     status: unconfirmed
-  - work_title: "神は私を撮りたいって言ってます！"
-    signal: "new-serial"
-    announced: "Sun, 23 Aug 2026 11:00:58 +0000"
-    url: "https://yurinavi.com/2026/08/23/kamihawatashiwo-start/"
-    platform: "ichicomi"
-    platform_code: "12207421984038651597"
-    work_url: "https://ichicomi.com/episode/12207421984038651597"
-    headline: "女の感情がぶつかり合うコスプレイヤーたちの百合姫新連載「神は私を撮りたいって言ってます！」WEBで公開"
-    status: unconfirmed
   - work_title: "私の彼女はボディビルダー"
     signal: "oneshot"
     announced: "Sat, 29 Aug 2026 11:18:10 +0000"
@@ -62,6 +53,15 @@ candidates:
     platform_code: "12207421984122057940"
     work_url: "https://magcomi.com/episode/12207421984122057940"
     headline: "漬物が繋ぐ、人気モデル×新人編集者の社会人ガールズストーリー「東京つけものがたり」WEBでスタート"
+    status: unconfirmed
+  - work_title: "神は私を撮りたいって言ってます！"
+    signal: "new-serial"
+    announced: "2026-08-23"
+    url: "https://yurinavi.com/2026/08/23/kamihawatashiwo-start/"
+    platform: "ichicomi"
+    platform_code: "12207421984038651597"
+    work_url: "https://ichicomi.com/episode/12207421984038651597"
+    headline: "女の感情がぶつかり合うコスプレイヤーたちの百合姫新連載「神は私を撮りたいって言ってます！」WEBで公開"
     status: unconfirmed
   - work_title: "バリキャリJKモネ先輩"
     signal: "new-serial"

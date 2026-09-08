@@ -120,6 +120,34 @@ from four rows to six, which is コミックガルド publishing two more chapte
 still holds no record of. The count is rows rather than works, so a work that stays unheld raises it
 every time it updates. It falls when the work gains a record, not when it stops publishing.
 
+## Six rises on 2026-09-09, five of them arrivals and one a measure counting a route
+
+Run 34245016984 brought two more works the corpus holds no record of, taking the unheld set to 19
+works and 37 rows, and 21 works now compile without an identifier. Four budgets moved by one each
+and are those arrivals: `titles read by a machine, unmarked` 1178 to 1179, `author readings no
+source states` 435 to 436, `author names romanised as one word` 1201 to 1202, and `credit fields an
+identifier does not cover` 73 to 74.
+
+**`incomplete attested rows` 40 to 54 is not an arrival and is worth reading.** 52 of the 54 are
+rows with a chapter name and an author and no ACCESS state, on コミックDAYS, サンデーうぇぶり,
+マガポケ and まんがタイムSquare. Every one comes from the platform-wide Atom feed, and every
+GigaViewer platform-wide feed carries zero access data: `comic-days.yaml` holds 52 releases with
+access on none of them, and has held none across every run checked. The per-series feed for the
+same platform carries access on 2,991 of 2,991.
+
+So the clause asks whether SOME attested row of the platform states access, and on GigaViewer the
+answer is yes from one route while the other never states it. The number therefore climbs whenever
+the platform-wide feed publishes: it went 42 releases to 52 on comic-days this run alone. That is
+the exact failure the check's own docstring describes for コミックエッセイ劇場 and やわらかスピリッツ,
+where the clause was narrowed from all rows to the platform's rows; the same argument now points one
+level further down, at the route.
+
+**Fixing it needs the release to carry its route, and the store does not hold one.** `ident`,
+`basis` and `date_means` are identical across the two, so nothing in the store separates a row that
+came from the series feed from one that came from the platform feed. Recorded rather than narrowed,
+because a measure narrowed without the evidence to narrow it correctly is worse than one that reads
+high for a reason somebody wrote down.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

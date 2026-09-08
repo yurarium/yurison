@@ -3588,3 +3588,34 @@ number the report is about.
 
 **NOTHING IS WRONG AND NOTHING WAS LOST.** The rows stay in the source layer, and the site's
 carry-forward keeps them in the published archive: July still serves 657.
+
+## One platform, two routes, and a measure that can only see the platform
+
+Found 2026-09-09, working a rise in `incomplete attested rows`. Recorded, not fixed.
+
+**WHAT THE MEASURE IS FOR.** "The classic sign of a moved CSS selector: the adapter still returns
+rows, just emptier ones." It counts attested releases missing a chapter name, an author or an access
+state, and it is one of the few things that would notice a platform quietly going thin.
+
+**WHY IT READS HIGH.** 52 of today's 54 are rows carrying a chapter name and an author and no access
+state, on コミックDAYS, サンデーうぇぶり, マガポケ and まんがタイムSquare. Every GigaViewer platform
+is read by TWO routes: a per-series feed that states access on every row, 2,991 of 2,991 for
+コミックDAYS, and a platform-wide Atom feed that states it on none. `comic-days.yaml` has carried zero
+access on every run checked, and grew from 42 releases to 52 in this one.
+
+**THE CLAUSE IS SCOPED TO THE PLATFORM AND THE ROUTES ARE NOT.** It asks whether SOME attested row of
+the platform states access, so the series feed answers yes on behalf of the platform feed, and every
+platform-feed row counts as one that lost something. The number climbs as those feeds PUBLISH, which
+is precisely the fault the check's own docstring records for コミックエッセイ劇場 and
+やわらかスピリッツ. That round narrowed the clause from every row to the platform's rows; the same
+argument points one level further, at the route.
+
+**WHAT STOPS THE FIX.** A release does not carry the route that produced it. `ident`, `basis` and
+`date_means` are identical across rows from the two feeds, so nothing in the store tells them apart,
+and scoping the clause by route means giving `release` a field that says which pass wrote it. That is
+a schema change and it is worth doing: the same missing field is why the run's own report cannot say
+which route a thin row came from, and why `fieldaudit` has to carry the tripwire separately.
+
+**WHY IT IS NOT NARROWED IN THE MEANTIME.** A measure narrowed without the evidence to narrow it
+correctly stops counting the thing it was written for. Reading high with a reason recorded is the
+better of the two, and `adapters/fieldaudit.py` remains the tripwire for a route going silent.

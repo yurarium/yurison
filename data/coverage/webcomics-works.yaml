@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-08
+retrieved: 2026-09-09
 record_type: candidate_works
 works: 312
 candidates:
@@ -2224,7 +2224,7 @@ candidates:
   - title: "創る庭"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007254_S"]
-    tags: ["不動産", "同人活動", "百合"]
+    tags: ["不動産", "同人活動", "最近のコメント数", "百合"]
   - title: "勇者の旅の裏側で"
     platforms: ["ドリコミ+"]
     urls: ["https://drecomi-plus.jp/series/CD00038"]
@@ -2455,6 +2455,10 @@ candidates:
   - title: "天使と書いて悪魔と読む。逆もまた然り。"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550912965159409071"]
+  - title: "天使なんかにならないで"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/12207421984187016919"]
+    tags: ["百合", "読み切り"]
   - title: "天才を描く"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/316190247056983381"]
@@ -2687,7 +2691,7 @@ candidates:
   - title: "彩純ちゃんはレズ風俗に興味があります!"
     platforms: ["ニコニコ漫画", "ヤンマガWeb", "一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204004", "https://manga.nicovideo.jp/comic/56286", "https://yanmaga.jp/comics/%E5%BD%A9%E7%B4%94%E3%81%A1%E3%82%83%E3%82%93%E3%81%AF%E3%83%AC%E3%82%BA%E9%A2%A8%E4%BF%97%E3%81%AB%E8%88%88%E5%91%B3%E3%81%8C%E3%81%82%E3%82%8A%E3%81%BE%E3%81%99"]
-    tags: ["エロ", "性風俗・娼館", "百合"]
+    tags: ["エロ", "性風俗・娼館", "最近のコメント数", "百合"]
   - title: "彩香ちゃんは弘子先輩に恋してる"
     platforms: ["webアクション", "ニコニコ漫画"]
     urls: ["https://comic-action.com/episode/13933686331668792399", "https://manga.nicovideo.jp/comic/48640"]
@@ -2943,6 +2947,10 @@ candidates:
   - title: "描くこと。"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550912964971198636"]
+  - title: "放課後の恋バナ"
+    platforms: ["サンデーうぇぶり"]
+    urls: ["https://www.sunday-webry.com/episode/12207421984204046950"]
+    tags: ["百合", "読み切り"]
   - title: "散らないで菊"
     platforms: ["ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/12207421983944323839"]
@@ -3067,7 +3075,7 @@ candidates:
   - title: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
     platforms: ["ヤングアニマルWeb"]
     urls: ["https://younganimal.com/series/060a6130e55b2"]
-    tags: ["オカルト", "女子高生", "百合"]
+    tags: ["オカルト", "女子高生", "最近のコメント数", "百合"]
   - title: "最愛のお姉様が悪役令嬢だったので、神が定めた運命(シナリオ)に抗います@COMIC"
     platforms: ["コロナEX"]
     urls: ["https://to-corona-ex.com/comics/44610925887524"]
@@ -3420,7 +3428,7 @@ candidates:
   - title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platforms: ["コミックガルド"]
     urls: ["https://comic-gardo.com/episode/2550912966011803878"]
-    tags: ["学園", "無自覚チート", "異世界", "百合", "転生"]
+    tags: ["学園", "最近のコメント数", "無自覚チート", "異世界", "百合", "転生"]
   - title: "病月"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004384_S"]

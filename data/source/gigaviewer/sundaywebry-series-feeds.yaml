@@ -10,11 +10,11 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-09-08
+retrieved: 2026-09-09
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 67
-series_held: 67
+series_resolved: 68
+series_held: 68
 works:
   - work_title: "contact"
     series_id: "3270296674373045696"
@@ -1882,6 +1882,17 @@ works:
         author: "諸隈俊志"
         url: "https://www.sunday-webry.com/episode/3270375685398712945"
         free_from: 2022-08-07
+        access_modes: ["free"]
+  - work_title: "放課後の恋バナ"
+    series_id: "12207421984204045633"
+    url: "https://www.sunday-webry.com/atom/series/12207421984204045633"
+    chapter_count: 1
+    chapters:
+      - title: "放課後の恋バナ"
+        updated: 2026-09-08
+        author: "両備イエリ/竹内和成"
+        url: "https://www.sunday-webry.com/episode/12207421984204046950"
+        free_from: 2026-09-07
         access_modes: ["free"]
   - work_title: "星の指輪"
     series_id: "3269754496872126208"

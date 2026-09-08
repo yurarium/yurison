@@ -10,11 +10,11 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-09-08
+retrieved: 2026-09-09
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 23
-series_held: 23
+series_resolved: 24
+series_held: 24
 works:
   - work_title: "お嬢様マッチングアプリ"
     series_id: "4856001361369138636"
@@ -416,6 +416,17 @@ works:
         author: "相模"
         url: "https://magcomi.com/episode/2551460909751834866"
         free_from: 2025-11-28
+        access_modes: ["free"]
+  - work_title: "天使なんかにならないで"
+    series_id: "12207421984187014169"
+    url: "https://magcomi.com/atom/series/12207421984187014169"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切"
+        updated: 2026-09-08
+        author: "鍵野"
+        url: "https://magcomi.com/episode/12207421984187016919"
+        free_from: 2026-09-08
         access_modes: ["free"]
   - work_title: "姉になりたい義姉VS百合になりたい義妹"
     series_id: "4856001361097102289"

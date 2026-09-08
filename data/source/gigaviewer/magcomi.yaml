@@ -6,11 +6,27 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-09-08
+retrieved: 2026-09-09
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "magcomi:episode:12207421984187016919"
+    work_title: "天使なんかにならないで"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "特別読切"
+    release_type: "oneshot"
+    date: "2026-09-08"
+    date_basis: "observed"
+    first_seen: "2026-09-09"
+    first_reported: "2026-09-08T03:00:00Z"
+    platform_updated: "2026-09-08T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984187016919"
+    author: "鍵野"
+    free_term_start: "2026-09-08T03:00:00Z"
+    advances_narrative: true
   - release_id: "magcomi:episode:12207421984112495343"
     in_current_window: false
     work_title: "ボイタボイネ"

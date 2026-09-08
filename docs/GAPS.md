@@ -3538,7 +3538,7 @@ reader-visible and unmeasured, which is the shape §13 is about.
 keeps those out of an unattended pass because changing one alters what the next capture MEANS. It
 wants a person, and it wants the budget that would have caught it.
 
-## A compile lost 154 releases from captures that had not changed, and I could not say why
+## A compile lost 154 releases from captures that had not changed. It was the 60-day window
 
 Found 2026-09-08, checking a fix. Not explained. Readers are unaffected and the store is published.
 
@@ -3566,7 +3566,25 @@ does not remove one, so it does not by itself account for a smaller total. Ruled
 the code, and any single adapter, since the per-adapter counts the run prints differ by one line and
 two chapters.
 
-**WHY IT IS WRITTEN DOWN RATHER THAN CHASED FURTHER.** The visible cost is seven rows, all accounted
-for, and the archives are protected. But a compile that produces 154 fewer releases from the same
-inputs is a thing this project should be able to explain, and the next person to see this number move
-should not start where I started.
+**ANSWERED 2026-09-08.** The feed is a rolling 60-day window, `FEED_DAYS`, and only recent chapters
+join it; the rest stay in the source layer. サンデーうぇぶり's capture holds 123 chapters all stamped
+2026-07-09, and on a run dated 2026-09-07 the window began exactly on 2026-07-09, so the whole bucket
+was inside it by one day. On 2026-09-08 the window began on the 10th and all 123 left together.
+
+**PROVED BY MOVING THE CLOCK AND NOTHING ELSE.** Building the same captures with the same code and
+`dating.today` pinned to 2026-09-07 gives 1,157 releases, July at 488, and the bucket present;
+2026-09-08 gives 1,039, July at 334, and the bucket gone. The remaining thirty of the 154 are the
+ordinary churn already described above.
+
+**WHAT MADE IT LOOK LIKE A FAULT** is that the bucket shares ONE date. A day's real chapters age out
+of the window a few at a time; 123 rows carrying a single import stamp leave in one step. The
+`bulk re-dating` diagnostic had been flagging that exact bucket for weeks, and nothing connected the
+flag to the window, so the cliff arrived as a surprise on a day it was always going to arrive.
+
+**SO THE DIAGNOSTIC NOW SAYS WHEN.** It prints the date each bucket leaves the feed, which turns the
+next one into a forecast: カドコミ 2026-08-07 holds 118 rows and goes on 2026-10-07. `FEED_DAYS` was
+a local in `main` and is a module constant now, because the run's report on itself could not see the
+number the report is about.
+
+**NOTHING IS WRONG AND NOTHING WAS LOST.** The rows stay in the source layer, and the site's
+carry-forward keeps them in the published archive: July still serves 657.

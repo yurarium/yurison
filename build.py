@@ -132,6 +132,17 @@ def jsonable(o):
 # second could not ask and the question was answered by an adapter's own cutoff instead.
 CURRENT_WINDOW_DAYS = 14
 
+#: HOW FAR BACK A CHAPTER MAY BE AND STILL ENTER THE FEED. Only recent chapters join it; the rest
+#: stay in the source layer, where they are the project's only real access_modes data.
+#:
+#: HOISTED OUT OF `main` ON 2026-09-08, where it was a local and the run's own report could not see
+#: it. `write_run_record` flags a (platform, date) bucket far above that platform's median and could
+#: not say when the bucket would leave, which is the fact that makes one worth watching: a day's
+#: ordinary chapters age out a few at a time, and a bucket sharing ONE import stamp leaves together.
+#: サンデーうぇぶり's 2026-07-09 bucket held 123 rows, sat inside the window on 2026-09-07 by a
+#: single day, and took the compile from 1,157 releases to 1,039 overnight.
+FEED_DAYS = 60
+
 #: THE FIRST MONTH THE ARCHIVE HOLDS. Update tracking began when this pipeline first ran, and
 #: everything dated before that was bootstrap-imported in one pass from what each platform states
 #: about its own back catalogue: real dates, mostly, and not a record of updates AS THEY HAPPENED.
@@ -2990,11 +3001,21 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
             # and rebinding it here turned 302 dicts into a set of title strings 30 lines later.
             bulk_works = {r["work"] for r in releases
                           if (r.get("plat_name") or r.get("plat")) == pn and r["pub"][:10] == d0}
+            # WHEN IT LEAVES THE FEED, which is the half that was missing and the reason a bucket
+            # arrives as a surprise. The feed is a rolling `FEED_DAYS` window, so an ordinary day's
+            # chapters age out a few at a time; a bucket sharing ONE import stamp leaves all at
+            # once. サンデーうぇぶり's 2026-07-09 bucket held 123 rows and was inside the window on
+            # 2026-09-07 by a single day, so the compile went from 1,157 releases to 1,039 overnight
+            # and looked like a fault. It was this, on the day it was always going to be.
+            _out = (datetime.date.fromisoformat(d0)
+                    + datetime.timedelta(days=FEED_DAYS + 1)) if d0 else None
             bulk.append({"platform": pn, "date": d0, "releases": n,
                          "distinct_works": len(bulk_works), "median_per_day": med,
+                         "leaves_feed_on": str(_out) if _out else None,
                          "example_work": sorted(bulk_works)[0] if bulk_works else None})
     if bulk:
-        _s = ", ".join(f"{b['platform']} {b['date']} x{b['releases']}" for b in bulk[:4])
+        _s = ", ".join(f"{b['platform']} {b['date']} x{b['releases']} "
+                       f"(leaves the feed {b['leaves_feed_on']})" for b in bulk[:4])
         print(f"bulk re-dating  : {len(bulk)} (platform, date) bucket(s) far above that "
               f"platform's own median — {_s}")
 
@@ -3742,7 +3763,6 @@ def main():
     # could never be superseded by the chapter it duplicated, and every such work was counted a
     # miss. クレアちゃん飼育日記 was reported missing while its chapter sat in the source layer one
     # day the wrong side of the cutoff.
-    FEED_DAYS = 60
     FUZ_FEED_DAYS = FEED_DAYS
     fuz_ahead = {}
     fz = pathlib.Path("data/source/comicfuz/works.yaml")

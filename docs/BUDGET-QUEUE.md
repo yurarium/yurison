@@ -148,6 +148,21 @@ came from the series feed from one that came from the platform feed. Recorded ra
 because a measure narrowed without the evidence to narrow it correctly is worse than one that reads
 high for a reason somebody wrote down.
 
+## Two rises on 2026-09-10, and ニコニコ has withdrawn six works
+
+`targets a capture wrote no row for` 4 to 6. All six are ニコニコ漫画, and the run's own pass agrees:
+it reports `failed : 6 [('no meta_info date', 6)]`. The budget's docstring says what that shape is,
+and it was checked live rather than taken on trust. 将来的に死んでくれ, 打撃系鬼っ娘が征く配信道!@COMIC,
+ミモザの柩, てあとるりりぃ and both entries for ハッピーシュート！ each answer HTTP 200 with a
+10,383-byte shell carrying no `meta_info` at all, while two works the platform still serves render
+122,483 and 203,748 bytes with three `meta_info` blocks apiece. So the platform has stopped serving
+them, which the budget exists to tolerate: refusing a build because the world moved would be the
+wrong answer.
+
+`announced works the corpus does not hold` 12 to 13, and the arrival is 天使なんかにならないで on
+MAGCOMI. The same work is in the run's `awaiting an identifier` list, so it is announced, captured
+and not yet keyed, which is the ordinary path a new work takes on its first day.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

@@ -6,12 +6,13 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-09-09
+retrieved: 2026-09-10
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "tonarino_yj:episode:12207421984147413209"
+    in_current_window: false
     work_title: "17歳"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -28,6 +29,7 @@ releases:
     free_term_start: "2026-09-03T03:00:00Z"
     advances_narrative: true
   - release_id: "tonarino_yj:episode:12207421984183316998"
+    in_current_window: false
     work_title: "獄宝"
     web_status: "serialised"
     identified_via: "discovery-candidate"

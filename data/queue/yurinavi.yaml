@@ -6,9 +6,18 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-09
+retrieved: 2026-09-10
 record_type: discovery_queue
 candidates:
+  - work_title: "天使なんかにならないで"
+    signal: "oneshot"
+    announced: "Wed, 09 Sep 2026 10:58:34 +0000"
+    url: "https://yurinavi.com/2026/09/09/tenshinankani-yomikiri/"
+    platform: "magcomi"
+    platform_code: "12207421984187016919"
+    work_url: "https://magcomi.com/episode/12207421984187016919"
+    headline: "双子の妹への依存感情を描く百合読み切り「天使なんかにならないで」WEBで公開"
+    status: unconfirmed
   - work_title: "幼馴染の方程式"
     signal: "oneshot"
     announced: "Tue, 01 Sep 2026 11:00:34 +0000"

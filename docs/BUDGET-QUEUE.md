@@ -163,6 +163,18 @@ wrong answer.
 MAGCOMI. The same work is in the run's `awaiting an identifier` list, so it is announced, captured
 and not yet keyed, which is the ordinary path a new work takes on its first day.
 
+## 43 to 46 on 2026-09-11, the same route the entry below describes
+
+`incomplete attested rows` again, and the composition has not changed: 44 of the 46 carry a chapter
+name and an author and no ACCESS state, on サンデーうぇぶり, コミックDAYS, マガポケ and
+まんがタイムSquare. Those are the GigaViewer platform-wide Atom feeds, which state access on no row
+at all while the per-series feed for the same platform states it on every one.
+
+The number rises and falls with how many platform-feed rows are inside the window on the day, which
+is why it read 54 on 2026-09-09, 43 yesterday and 46 now. It is not tracking anything about the
+data's quality. See docs/GAPS.md, "One platform, two routes, and a measure that can only see the
+platform": the fix wants `release` to carry the route that wrote it, which the store does not hold.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

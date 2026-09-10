@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-10
+retrieved: 2026-09-11
 record_type: candidate_works
-works: 312
+works: 313
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -664,7 +664,7 @@ candidates:
   - title: "ときときチャンネル"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007121_S"]
-    tags: ["SF", "ギャグ・コメディ", "コミカライズ", "シュール", "動画配信者", "同居人・居候", "現代", "百合"]
+    tags: ["SF", "ギャグ・コメディ", "コミカライズ", "シュール", "動画配信者", "同居人・居候", "最近のコメント数", "現代", "百合"]
   - title: "ときめけ魔法幼女ココピュア"
     platforms: ["ストーリアダッシュ(更新終了)", "ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/61103", "https://storia.takeshobo.co.jp/manga/cocopure/"]
@@ -2099,7 +2099,7 @@ candidates:
   - title: "付き合ってあげてもいいかな"
     platforms: ["マンガワン", "裏サンデー"]
     urls: ["https://manga-one.com/manga/603/chapter/60189", "https://manga-one.com/viewer/70173", "https://urasunday.com/title/603"]
-    tags: ["大学生", "百合"]
+    tags: ["大学生", "完結", "現代", "百合"]
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008429_S"]
@@ -2555,7 +2555,7 @@ candidates:
   - title: "姫虐が止まらない白桃さん"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983584564641", "https://ichicomi.com/episode/2551460910021695025"]
-    tags: ["女子高生", "百合"]
+    tags: ["女子高生", "最近のコメント数", "百合"]
   - title: "姫野姫子の奴隷みてえな彼氏"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03301"]
@@ -2784,7 +2784,7 @@ candidates:
   - title: "怨霊日和"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03125"]
-    tags: ["最近のコメント数"]
+    tags: ["ホラー", "女子高生", "幽霊", "最近のコメント数", "百合"]
   - title: "怪物の友達"
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/3bd48e69edc37"]

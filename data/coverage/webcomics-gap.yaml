@@ -5,12 +5,12 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-10
+retrieved: 2026-09-11
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 312
-works_on_watched_platform: 291
+distinct_works: 313
+works_on_watched_platform: 292
 platforms_total: 54
 platforms_watched: 42
 # ranked by works reachable on NO watched platform
@@ -36,6 +36,16 @@ platforms_missing:
   - platform: "アサコミ"
     works: 1
 works_missing:
+  - title: "うさぎはかく語りき"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3572"
+    antenna_id: "173581"
+    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
+  - title: "球詠"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/441"
+    antenna_id: "88071"
+    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "IDOL×IDOL STORY!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3140"
@@ -66,21 +76,11 @@ works_missing:
     url: "https://comic-fuz.com/manga/3776"
     antenna_id: "209939"
     tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
-  - title: "球詠"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/441"
-    antenna_id: "88071"
-    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "百合SMでふたりの気持ちはつながりますか?"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/2391"
     antenna_id: "102691"
     tags: ["百合", "フェチ・性癖"]
-  - title: "うさぎはかく語りき"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3572"
-    antenna_id: "173581"
-    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
   - title: "エイティエイトを2でわって"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3423"
@@ -326,6 +326,21 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "拝啓、在りし日に咲く花たちへ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006092_S"
+    antenna_id: "178772"
+    tags: ["百合", "オムニバス・短編集"]
+  - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007220_S"
+    antenna_id: "198866"
+    tags: ["百合"]
+  - title: "ときときチャンネル"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007121_S"
+    antenna_id: "197088"
+    tags: ["最近のコメント数"]
   - title: "大崎さんと小森さん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_014277_S"
@@ -466,11 +481,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008367_S"
     antenna_id: "203364"
     tags: ["百合", "社会人"]
-  - title: "拝啓、在りし日に咲く花たちへ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006092_S"
-    antenna_id: "178772"
-    tags: ["百合", "オムニバス・短編集"]
   - title: "あたし達って付き合ってるよね!?"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_011928_S"
@@ -551,16 +561,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_004432_S"
     antenna_id: "99613"
     tags: ["百合", "ギャグ・コメディ", "エロ", "女子高生", "女性向け", "お色気・微エロ", "現代", "同性愛・LGBTQ+", "青春"]
-  - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007220_S"
-    antenna_id: "198866"
-    tags: ["百合"]
-  - title: "ときときチャンネル"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007121_S"
-    antenna_id: "197088"
-    tags: ["百合", "SF", "動画配信者", "シュール", "現代", "同居人・居候", "ギャグ・コメディ", "コミカライズ"]
   - title: "カムパネルラの塔"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005943_S"
@@ -651,6 +651,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006299_S"
     antenna_id: "183083"
     tags: ["百合", "女子高生", "コミカライズ", "エロ"]
+  - title: "香り屋さんの纏さん"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/2286"
+    antenna_id: "189564"
+    tags: ["百合", "読み切り", "サトリ"]
   - title: "私がモテないのはどう考えてもお前らが悪い!"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/29"
@@ -661,11 +666,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/38"
     antenna_id: "77857"
     tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
-  - title: "香り屋さんの纏さん"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2286"
-    antenna_id: "189564"
-    tags: ["百合", "読み切り", "サトリ"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -686,16 +686,16 @@ works_missing:
     url: "https://www.ganganonline.com/title/2643"
     antenna_id: "211061"
     tags: ["百合", "読み切り", "群像劇", "パンデミック", "メンタルヘルス"]
-  - title: "ワインガールズ"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    antenna_id: "205919"
-    tags: ["百合", "擬人化"]
   - title: "魔王城デート大作戦!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     antenna_id: "212084"
     tags: ["百合"]
+  - title: "ワインガールズ"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    antenna_id: "205919"
+    tags: ["百合", "擬人化"]
   - title: "暗殺組合の山田さん"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
@@ -836,6 +836,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "拝啓、在りし日に咲く花たちへ"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70738"
+    antenna_id: "178754"
+    tags: ["百合", "女子高生"]
   - title: "球詠"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/22768"
@@ -901,11 +906,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/67280"
     antenna_id: "166483"
     tags: ["百合", "同居人・居候", "日常", "娘", "4コマ"]
-  - title: "拝啓、在りし日に咲く花たちへ"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/70738"
-    antenna_id: "178754"
-    tags: ["百合", "女子高生"]
   - title: "桃色カンパネラ"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/74044"
@@ -1070,7 +1070,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["最近のコメント数"]
+    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "アイドラトリィ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/02901"
@@ -1186,16 +1186,16 @@ works_missing:
     url: "https://ynjn.jp/title/30352"
     antenna_id: "203570"
     tags: ["百合", "オムニバス・短編集"]
-  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/86c1162f34a04"
-    antenna_id: "197348"
-    tags: ["最近のコメント数"]
   - title: "限界OLさんは悪役令嬢さまに仕えたい"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/90af950945671"
     antenna_id: "148787"
     tags: ["召喚", "乙女ゲーム", "百合", "中世ヨーロッパ風", "悪役令嬢", "ファンタジー"]
+  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/86c1162f34a04"
+    antenna_id: "197348"
+    tags: ["ファンタジー", "令嬢", "百合"]
   - title: "スカベンジャーズアナザースカイ"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
@@ -1226,6 +1226,21 @@ works_missing:
     url: "https://comicride.jp/series/7b86cbca64ebe"
     antenna_id: "84661"
     tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
+  - title: "姫虐が止まらない白桃さん"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421983584564641"
+    antenna_id: "200994"
+    tags: ["最近のコメント数"]
+  - title: "私の推しは悪役令嬢。"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923202772"
+    antenna_id: "130770"
+    tags: ["百合", "乙女ゲーム", "悪役令嬢", "アニメ化"]
+  - title: "今日はカノジョがいないから"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/2550912965923203802"
+    antenna_id: "126420"
+    tags: ["百合", "女子高生", "浮気・不倫", "エロ"]
   - title: "現実世界でも幸せにしてくださいね?"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2550912965923204058"
@@ -1240,21 +1255,6 @@ works_missing:
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2551460909807196609"
     antenna_id: "197810"
-    tags: ["百合", "女子高生"]
-  - title: "私の推しは悪役令嬢。"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965923202772"
-    antenna_id: "130770"
-    tags: ["百合", "乙女ゲーム", "悪役令嬢", "アニメ化"]
-  - title: "今日はカノジョがいないから"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/2550912965923203802"
-    antenna_id: "126420"
-    tags: ["百合", "女子高生", "浮気・不倫", "エロ"]
-  - title: "姫虐が止まらない白桃さん"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/12207421983584564641"
-    antenna_id: "200994"
     tags: ["百合", "女子高生"]
   - title: "残り香に牙"
     platform: "一迅プラス"
@@ -1416,6 +1416,11 @@ works_missing:
     url: "https://hanayume.com/series/1191c17a3f374"
     antenna_id: "206123"
     tags: ["百合"]
+  - title: "付き合ってあげてもいいかな"
+    platform: "裏サンデー"
+    url: "https://urasunday.com/title/603"
+    antenna_id: "80449"
+    tags: ["百合", "現代", "大学生", "完結"]
   - title: "妖怪殲滅のサイコリリー"
     platform: "裏サンデー"
     url: "https://urasunday.com/title/2565"

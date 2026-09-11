@@ -175,6 +175,21 @@ is why it read 54 on 2026-09-09, 43 yesterday and 46 now. It is not tracking any
 data's quality. See docs/GAPS.md, "One platform, two routes, and a measure that can only see the
 platform": the fix wants `release` to carry the route that wrote it, which the store does not hold.
 
+## Five rises on 2026-09-12, all of them one work arriving
+
+Run 34625052624 brought 悪役令嬢覇王伝　転生したら身長245cm体重210kgの恵体でした。だから無双します to
+カドコミ with five rows, and the corpus holds no record of it yet. That is
+`updates naming a work we do not hold` 35 to 40 on its own.
+
+The other four are its two credits. The run added exactly two entries to
+`data/names/authors.yaml`, 伝子れんぢ and 砂礫レキ, and they are the byline on every one of those
+rows. `author readings no source states` 436 to 438 and `credit fields an identifier does not cover`
+74 to 76 are the pair; `author names romanised as one word` 1202 to 1203 is the one of them that
+folds to a single word; `uncertain readings` 56 to 57 is the title, which no analyser could read and
+which was assembled character by character.
+
+Every one falls when somebody reads a page. None is a regression and none is a widened rule.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-seasons
 platform_name: "Seasons"
 publisher: ""
-retrieved: 2026-09-11
+retrieved: 2026-09-12
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 2
@@ -36,8 +36,14 @@ works:
   - work_title: "悪役令嬢のお嫁さま"
     series_id: "2550912965184685912"
     url: "https://comic-seasons.com/atom/series/2550912965184685912"
-    chapter_count: 9
+    chapter_count: 10
     chapters:
+      - title: "第17話 後編"
+        updated: 2026-09-11
+        author: "かわのあきこ"
+        url: "https://comic-seasons.com/episode/12207421984144415526"
+        free_from: 2026-09-11
+        access_modes: ["free"]
       - title: "第17話 前編"
         updated: 2026-08-28
         author: "かわのあきこ"

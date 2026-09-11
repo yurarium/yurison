@@ -1,4 +1,4 @@
-generated: '2026-09-10'
+generated: '2026-09-11'
 names:
   '*sow*':
     basis: stated
@@ -16375,6 +16375,25 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034731965
     verified: true
+  伝子れんぢ:
+    basis: romaji
+    furigana_spans:
+    - - 伝
+      - でん
+    - - 子
+      - こ
+    - - れんぢ
+      - null
+    reading: デンコレンヂ
+    reading_at: '2026-09-11'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   低東走:
     basis: romaji
     reading: テイトウハシリ
@@ -34141,6 +34160,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I9784049721812
     verified: true
+  砂礫レキ:
+    basis: romaji
+    furigana_spans:
+    - - 砂礫
+      - されき
+    - - レキ
+      - null
+    reading: サレキ レキ
+    reading_at: '2026-09-11'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   砂音鈴:
     basis: romaji
     reading: サオリ

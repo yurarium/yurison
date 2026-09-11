@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-09-11
+retrieved: 2026-09-12
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 215
+  hits_agreeing_on_a_creator: 216
   hits_on_the_title_alone: 85
   hits_stating_a_print_edition_date: 171
-  works_asked: 737
-  works_with_a_hit: 221
+  works_asked: 738
+  works_with_a_hit: 222
 works:
   - work_url: "https://bibibi-comic.com/series/e889bd092d08d"
     id: "w03256"
@@ -2240,6 +2240,21 @@ works:
         printed: "2025/12/23"
         agreement: "creator"
         volumes_stated: 2
+        completed_marker: false
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984209269805"
+    id: "w00192"
+    work: "まるせっせんす"
+    author: "畳ゆか"
+    platform: "COMIC OGYAAA!!"
+    query: "author"
+    retrieved: "2026-09-12"
+    hits:
+      - series_url: null
+        title_listed: "まるせっせんす 1"
+        shop_author: "畳ゆか"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        agreement: "creator"
         completed_marker: false
   - work_url: "https://comic-ogyaaa.com/episode/2550689798875510910"
     id: "w00681"

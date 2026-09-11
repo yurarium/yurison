@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-ogyaaa
 platform_name: "COMIC OGYAAA!!"
 publisher: "一迅社"
-retrieved: 2026-09-11
+retrieved: 2026-09-12
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 11
@@ -243,8 +243,14 @@ works:
   - work_title: "まるせっせんす"
     series_id: "12207421983372417929"
     url: "https://comic-ogyaaa.com/atom/series/12207421983372417929"
-    chapter_count: 7
+    chapter_count: 8
     chapters:
+      - title: "第8話 人形"
+        updated: 2026-09-11
+        author: "畳ゆか"
+        url: "https://comic-ogyaaa.com/episode/12207421984209269805"
+        free_from: 2026-09-11
+        access_modes: ["free"]
       - title: "番外編①"
         updated: 2026-08-14
         author: "畳ゆか"
@@ -439,8 +445,14 @@ works:
   - work_title: "恋より青く"
     series_id: "4856001361171639719"
     url: "https://comic-ogyaaa.com/atom/series/4856001361171639719"
-    chapter_count: 43
+    chapter_count: 44
     chapters:
+      - title: "第42話"
+        updated: 2026-09-11
+        author: "深海 紺"
+        url: "https://comic-ogyaaa.com/episode/12207421984209269815"
+        free_from: 2026-09-11
+        access_modes: ["free"]
       - title: "第41話"
         updated: 2026-08-14
         author: "深海 紺"

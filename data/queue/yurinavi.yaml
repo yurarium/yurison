@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-10
+retrieved: 2026-09-12
 record_type: discovery_queue
 candidates:
   - work_title: "天使なんかにならないで"
@@ -18,24 +18,6 @@ candidates:
     work_url: "https://magcomi.com/episode/12207421984187016919"
     headline: "双子の妹への依存感情を描く百合読み切り「天使なんかにならないで」WEBで公開"
     status: unconfirmed
-  - work_title: "幼馴染の方程式"
-    signal: "oneshot"
-    announced: "Tue, 01 Sep 2026 11:00:34 +0000"
-    url: "https://yurinavi.com/2026/09/01/osananajimino-houteishiki-yomikiri/"
-    platform: "ichicomi"
-    platform_code: "12207421984115855223"
-    work_url: "https://ichicomi.com/episode/12207421984115855223"
-    headline: "ずっと一緒だった幼馴染ふたりの進路と恋を描く百合読み切り「幼馴染の方程式」WEBで公開"
-    status: unconfirmed
-  - work_title: "残り香に牙"
-    signal: "oneshot"
-    announced: "Thu, 27 Aug 2026 11:33:13 +0000"
-    url: "https://yurinavi.com/2026/08/27/nokorigani-yomikiri/"
-    platform: "ichicomi"
-    platform_code: "12207421983947227343"
-    work_url: "https://ichicomi.com/episode/12207421983947227343"
-    headline: "ヒモ女子大生とOLの歪んだ執着を描いた百合読み切り「残り香に牙」WEBで公開"
-    status: unconfirmed
   - work_title: "彼岸でランデヴー"
     signal: "new-serial"
     announced: "Thu, 03 Sep 2026 11:06:14 +0000"
@@ -45,15 +27,6 @@ candidates:
     work_url: "https://comic-walker.com/detail/KC_020017_S"
     headline: "新入社員とイケメン先輩が心霊スポットを巡る百合オカルトコメディ「彼岸でランデヴー」WEBでスタート"
     status: unconfirmed
-  - work_title: "私の彼女はボディビルダー"
-    signal: "oneshot"
-    announced: "Sat, 29 Aug 2026 11:18:10 +0000"
-    url: "https://yurinavi.com/2026/08/29/watashino-kanojyoha-body-yomikiri/"
-    platform: "kadokomi"
-    platform_code: "KC_019973_S"
-    work_url: "https://comic-walker.com/detail/KC_019973_S"
-    headline: "筋肉がつなぐ絆を描く大人百合読み切り「私の彼女はボディビルダー」WEBで公開"
-    status: unconfirmed
   - work_title: "東京つけものがたり"
     signal: "new-serial"
     announced: "Sat, 05 Sep 2026 11:00:00 +0000"
@@ -62,6 +35,33 @@ candidates:
     platform_code: "12207421984122057940"
     work_url: "https://magcomi.com/episode/12207421984122057940"
     headline: "漬物が繋ぐ、人気モデル×新人編集者の社会人ガールズストーリー「東京つけものがたり」WEBでスタート"
+    status: unconfirmed
+  - work_title: "幼馴染の方程式"
+    signal: "oneshot"
+    announced: "2026-09-01"
+    url: "https://yurinavi.com/2026/09/01/osananajimino-houteishiki-yomikiri/"
+    platform: "ichicomi"
+    platform_code: "12207421984115855223"
+    work_url: "https://ichicomi.com/episode/12207421984115855223"
+    headline: "ずっと一緒だった幼馴染ふたりの進路と恋を描く百合読み切り「幼馴染の方程式」WEBで公開"
+    status: unconfirmed
+  - work_title: "私の彼女はボディビルダー"
+    signal: "oneshot"
+    announced: "2026-08-29"
+    url: "https://yurinavi.com/2026/08/29/watashino-kanojyoha-body-yomikiri/"
+    platform: "kadokomi"
+    platform_code: "KC_019973_S"
+    work_url: "https://comic-walker.com/detail/KC_019973_S"
+    headline: "筋肉がつなぐ絆を描く大人百合読み切り「私の彼女はボディビルダー」WEBで公開"
+    status: unconfirmed
+  - work_title: "残り香に牙"
+    signal: "oneshot"
+    announced: "2026-08-27"
+    url: "https://yurinavi.com/2026/08/27/nokorigani-yomikiri/"
+    platform: "ichicomi"
+    platform_code: "12207421983947227343"
+    work_url: "https://ichicomi.com/episode/12207421983947227343"
+    headline: "ヒモ女子大生とOLの歪んだ執着を描いた百合読み切り「残り香に牙」WEBで公開"
     status: unconfirmed
   - work_title: "神は私を撮りたいって言ってます！"
     signal: "new-serial"

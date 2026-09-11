@@ -10,7 +10,7 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-09-11
+retrieved: 2026-09-12
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 68
@@ -165,8 +165,14 @@ works:
   - work_title: "てくのぱにっくゆにばーす"
     series_id: "2551460909679434702"
     url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
-    chapter_count: 39
+    chapter_count: 40
     chapters:
+      - title: "ショートショート 初見の二人"
+        updated: 2026-09-11
+        author: "伏見ダイキ"
+        url: "https://www.sunday-webry.com/episode/12207421984217395007"
+        free_from: 2026-09-10
+        access_modes: ["free"]
       - title: "第１４話 あるいは思い出いっぱいの海"
         updated: 2026-09-04
         author: "伏見ダイキ"

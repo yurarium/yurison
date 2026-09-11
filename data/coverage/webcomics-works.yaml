@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-11
+retrieved: 2026-09-12
 record_type: candidate_works
 works: 313
 candidates:
@@ -267,7 +267,7 @@ candidates:
   - title: "うさぎはかく語りき"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/3572"]
-    tags: ["バトル", "獣人", "現代ファンタジー", "百合"]
+    tags: ["バトル", "最近のコメント数", "獣人", "現代ファンタジー", "百合"]
   - title: "うそつきのんちゃん、地獄に堕ちろ"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17106371859967550978"]
@@ -653,7 +653,7 @@ candidates:
   - title: "てくのぱにっくゆにばーす"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2551460909679507683"]
-    tags: ["SF", "ギャグ・コメディ", "ロボ・人造人間", "大学生", "教師", "発明", "百合"]
+    tags: ["SF", "ギャグ・コメディ", "ロボ・人造人間", "大学生", "教師", "最近のコメント数", "発明", "百合"]
   - title: "できそこないの姫君たち"
     platforms: ["ストーリアダッシュ(更新終了)", "竹コミ‎‏‎"]
     urls: ["https://storia.takeshobo.co.jp/manga/himegimi/", "https://takecomic.jp/series/21c8e22896612"]
@@ -800,7 +800,7 @@ candidates:
   - title: "ぷれいめ～と"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008613_S"]
-    tags: ["百合"]
+    tags: ["最近のコメント数", "百合"]
   - title: "ほうかご再テンセイ!"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/2979"]
@@ -2860,6 +2860,10 @@ candidates:
   - title: "悪役令嬢の中の人〜断罪された転生者のため嘘つきヒロインに復讐いたします〜"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/7926"]
+  - title: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_019660_S"]
+    tags: ["百合", "筋肉"]
   - title: "悪魔のモカちゃん"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/6807"]

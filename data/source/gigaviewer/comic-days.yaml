@@ -6,7 +6,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-09-11
+retrieved: 2026-09-12
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -172,6 +172,7 @@ releases:
     author: "羽田遼亮/中島零/潮一葉/赤衣丸歩郎"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421983645810044"
+    in_current_window: false
     work_title: "雨夜の月"
     web_status: "serialised"
     identified_via: "discovery-candidate"

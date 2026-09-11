@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-11
+retrieved: 2026-09-12
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -137,12 +137,11 @@ works:
       - title: "OPERATION4"
         updated: 2026-08-10
         author: "涼海来夏"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["purchase"]
       - title: "OPERATION5"
         updated: 2026-08-17
         author: "涼海来夏"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "OPERATION6"
         updated: 2026-08-24
         author: "涼海来夏"
@@ -150,7 +149,7 @@ works:
       - title: "OPERATION7"
         updated: 2026-08-31
         author: "涼海来夏"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "OPERATION8"
         updated: 2026-09-07
         author: "涼海来夏"
@@ -3348,8 +3347,12 @@ works:
     url: "https://comic-ogyaaa.com/episode/4856001361171643976"
     platform_name: "コミックオギャー!!"
     route: "gigaviewer"
-    chapter_count: 43
+    chapter_count: 44
     chapters:
+      - title: "第42話"
+        updated: 2026-09-11
+        author: "深海 紺"
+        access_modes: ["free"]
       - title: "第41話"
         updated: 2026-08-14
         author: "深海 紺"
@@ -4515,8 +4518,146 @@ works:
     url: "https://championcross.jp/series/8178b4fc09df9"
     platform_name: "チャンピオンクロス"
     route: "comici"
-    chapter_count: 37
+    chapter_count: 67
     chapters:
+      - title: "第1話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第5話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第6話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第7話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第8話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第9話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第10話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第11話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第12話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第13話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第14話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第15話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第16話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第17話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第18話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第19話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第20話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第21話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第22話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第23話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第24話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第25話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第26話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第26.5話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第27話"
+        updated: 2024-03-15
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第28話"
+        updated: 2024-04-04
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
+      - title: "第29話"
+        updated: 2024-04-04
+        author: "椎葉裕巳"
+        access_modes: ["purchase"]
       - title: "第30話"
         updated: 2024-04-04
         author: "椎葉裕巳"
@@ -4672,11 +4813,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-10
+        updated: 2026-09-11
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-10
+        updated: 2026-09-11
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

@@ -3619,3 +3619,32 @@ which route a thin row came from, and why `fieldaudit` has to carry the tripwire
 **WHY IT IS NOT NARROWED IN THE MEANTIME.** A measure narrowed without the evidence to narrow it
 correctly stops counting the thing it was written for. Reading high with a reason recorded is the
 better of the two, and `adapters/fieldaudit.py` remains the tripwire for a route going silent.
+
+## A budget over a churning population cannot ratchet, and two of them are doing it
+
+Found 2026-09-13, after five days of recording the same number moving in both directions.
+
+**THE OBSERVATION.** `incomplete attested rows` has read 40, 54, 43, 46, 42 and 43 on consecutive
+runs. It is not drifting toward anything. Its population is the rows currently inside the 60-day
+feed window, and which rows those are changes daily, so the number is a random walk within a band.
+
+**WHY THAT BREAKS THE INSTRUMENT.** The ratchet banks a fall and blocks a rise, which is right for a
+measure that only improves when somebody does work. Over a walk it banks every trough: 40 was
+recorded on 2026-09-08 and 42 on 2026-09-12, so the ceiling is now the lowest value ever observed
+rather than one anybody chose. Every ordinary upswing then stops the gate and asks for a manual
+accept, and a control that demands assent on days when nothing is wrong is one whose assent stops
+meaning anything. That is the failure this project names in §4 and §13, reached from the other side.
+
+**IT IS NOT ONE MEASURE.** `renderings resting on a mechanical romanisation` in the site repository
+is the same shape for a different reason: it counts MARKUP, so it moves with how many rows an
+arriving chapter name appears on, and it has been accepted on five of the last six days, 638, 648,
+654, 658, 678, 679, 719, 725, 727. Both are honest about what they count and neither is a ratchet.
+
+**WHAT WOULD FIX THE FIRST ONE PROPERLY** is the route, recorded above: most of what it counts are
+GigaViewer platform-wide feed rows, and that route states access on nothing. Give `release` the pass
+that wrote it and the measure stops seeing them at all, and what is left may well ratchet.
+
+**WHAT THE SECOND ONE WANTS IS A DECISION,** because there is nothing wrong with it. A number that
+churns needs a different control from one that improves: a band it must stay inside, or a tripwire on
+the rate of change rather than the level. Choosing between those is the owner's, and inventing one
+unasked would be a third kind of control nobody reads.

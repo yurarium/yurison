@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-12
+retrieved: 2026-09-13
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -88,8 +88,11 @@ works:
     url: "https://www.corocoro.jp/title/65"
     platform_name: "コロコロオンライン"
     route: "rendered"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
+      - title: "第103話"
+        updated: 2026-09-12
+        date_basis: rendered
       - title: "第102話"
         updated: 2026-08-29
         date_basis: rendered
@@ -2376,7 +2379,7 @@ works:
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     platform_name: "花とゆめ+"
     route: "comici"
-    chapter_count: 16
+    chapter_count: 17
     chapters:
       - title: "1話"
         updated: 2026-04-20
@@ -2441,24 +2444,26 @@ works:
       - title: "12話"
         updated: 2026-08-02
         author: "まめ魚"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "13話"
         updated: 2026-08-16
         author: "まめ魚"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "おまけ"
         updated: 2026-08-30
         author: "まめ魚"
         access_modes: ["free"]
+      - title: "14話"
+        updated: 2026-09-13
+        author: "まめ魚"
+        access_modes: ["purchase"]
   - work_title: "裏世界ピクニック"
     url: "https://www.ganganonline.com/title/38"
     platform_name: "ガンガンONLINE"
     route: "markup"
-    chapter_count: 2
+    chapter_count: 1
     chapters:
-      - title: "第91話-2 トイレット・ペーパームーンI"
-        updated: 2026-09-06
-        date_basis: heuristic
       - title: "第1話-1 くねくねハンティングI 作品インフォメーション 『裏世界ピクニック』コミッ"
         updated: 2026-05-12
         date_basis: heuristic
@@ -4813,11 +4818,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-11
+        updated: 2026-09-12
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-11
+        updated: 2026-09-12
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

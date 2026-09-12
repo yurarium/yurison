@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-12
+retrieved: 2026-09-13
 record_type: discovery_queue
 candidates:
   - work_title: "天使なんかにならないで"
@@ -26,6 +26,15 @@ candidates:
     platform_code: "KC_020017_S"
     work_url: "https://comic-walker.com/detail/KC_020017_S"
     headline: "新入社員とイケメン先輩が心霊スポットを巡る百合オカルトコメディ「彼岸でランデヴー」WEBでスタート"
+    status: unconfirmed
+  - work_title: "香り屋さんの纏さん"
+    signal: "new-serial"
+    announced: "Sat, 12 Sep 2026 11:06:23 +0000"
+    url: "https://yurinavi.com/2026/09/12/kaoriyasanno-start/"
+    platform: "gangan-online"
+    platform_code: "2286"
+    work_url: "https://www.ganganonline.com/title/2286"
+    headline: "ハートフルでちょっぴり胸キュンな大人百合調香譚「香り屋さんの纏さん」WEBで連載"
     status: unconfirmed
   - work_title: "東京つけものがたり"
     signal: "new-serial"

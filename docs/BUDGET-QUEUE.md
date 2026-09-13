@@ -190,6 +190,27 @@ which was assembled character by character.
 
 Every one falls when somebody reads a page. None is a regression and none is a widened rule.
 
+## `predicted updates already behind the run` 0 to 1 on 2026-09-14, and the page was opened
+
+That budget's docstring says a rise asks somebody to go and look, so somebody did. The row is
+怨霊日和 on マガポケ: cadence 毎週水曜, predicted next update 2026-03-18, run date 2026-09-14. Six
+months behind, which is not the arithmetic-overshoot case the budget was written around.
+
+マガポケ's own page settles what it is. It redirects to the work's first episode and reads
+「怨霊日和【読み切り版】 イマイ悠 短期集中連載」: a 読み切り版 published as a SHORT LIMITED RUN. Four
+chapters, the last on 2026-03-11, silent for 187 days since. The capture retrieved 2026-09-14 still
+carries `stated_schedule: {cadence: 毎週水曜}`, so the platform is still advertising a weekly slot
+for a run that finished.
+
+**No completion verdict recorded, and that is deliberate.** `data/completion-reviewed.yaml` takes a
+verdict where the platform SAYS so, `"status":"完結"` or `読み切り` in the work's own page data.
+短期集中連載 describes the format rather than the state, and a run that has stopped is not the same
+claim as a run that has ended. The evidence is strong and it is an inference, so it is written down
+rather than banked.
+
+What a reader currently sees is the work under 近日更新予定 marked overdue, which is the interface
+being honest about a date the platform published and has not withdrawn.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

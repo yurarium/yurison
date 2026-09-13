@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-09-13
+retrieved: 2026-09-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -45,12 +45,8 @@ works:
   - work_title: "伽藍の姫-がらんのひめ-"
     author: "こるせ"
     url: "https://comic.pixiv.net/works/10090"
-    chapter_count: 3
+    chapter_count: 2
     chapters:
-      - title: "第二十一話 終幕、そして…"
-        updated: 2026-07-08
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "第二話 樹海を越えて"
         updated: 2024-02-08
         access_modes: ["free"]
@@ -397,12 +393,12 @@ works:
     url: "https://comic.pixiv.net/works/11079"
     chapter_count: 4
     chapters:
-      - title: "EPISODE.16 主様のとなりに"
-        updated: 2026-08-08
+      - title: "EPISODE.17 み～んなだいすき！"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "EPISODE.15 お帰りなさいませお嬢様"
-        updated: 2026-07-08
+      - title: "EPISODE.16 主様のとなりに"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "EPISODE.02 我が家に姫がやってきた"
@@ -431,7 +427,7 @@ works:
     url: "https://comic.pixiv.net/works/11081"
     chapter_count: 4
     chapters:
-      - title: "第17話① 本日UP"
+      - title: "第17話①"
         updated: 2026-09-05
         access_modes: ["free"]
         date_basis: rendered
@@ -712,7 +708,7 @@ works:
   - work_title: "ボイタボイネ"
     author: "夏草"
     url: "https://comic.pixiv.net/works/12194"
-    chapter_count: 6
+    chapter_count: 5
     chapters:
       - title: "第21話 決闘スタンバイ(中編)"
         updated: 2026-08-17
@@ -724,10 +720,6 @@ works:
         date_basis: rendered
       - title: "第19話 生肌魅惑のマーメイド"
         updated: 2026-07-20
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第18話 心の準備"
-        updated: 2026-07-06
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 男子制服の理由"
@@ -877,8 +869,12 @@ works:
   - work_title: "アイ・ヘイ・チュー"
     author: "長門知大"
     url: "https://comic.pixiv.net/works/13324"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "第5話 罪のお味は"
+        updated: 2026-09-12
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第4話 水泡にすら帰さず"
         updated: 2026-08-29
         access_modes: ["free"]
@@ -917,8 +913,8 @@ works:
     url: "https://comic.pixiv.net/works/13373"
     chapter_count: 2
     chapters:
-      - title: "第10話 彼氏の女友達とデート(？)する話①"
-        updated: 2026-09-05
+      - title: "第11話 彼氏の女友達とデート(？)する話②"
+        updated: 2026-09-12
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話 たぬき女に迫られる話"
@@ -955,12 +951,12 @@ works:
     url: "https://comic.pixiv.net/works/13425"
     chapter_count: 4
     chapters:
-      - title: "第4話"
-        updated: 2026-08-08
+      - title: "第5話 5日前UP"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第3話"
-        updated: 2026-07-17
+      - title: "第4話"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話"
@@ -974,8 +970,12 @@ works:
   - work_title: "怪獣ロマンティクス"
     author: "じぃと"
     url: "https://comic.pixiv.net/works/13457"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "第3-1話 ライバルとーじょー!? 小さくたって大怪獣！"
+        updated: 2026-09-12
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第2-2話 Totsuzenタンデム!? ドギマギ山頂でぇと"
         updated: 2026-08-29
         access_modes: ["free"]
@@ -1085,12 +1085,12 @@ works:
     url: "https://comic.pixiv.net/works/4810"
     chapter_count: 8
     chapters:
-      - title: "第121話"
-        updated: 2026-08-08
+      - title: "第122話 5日前UP"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第120話"
-        updated: 2026-07-08
+      - title: "第121話"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第5話"
@@ -1200,14 +1200,10 @@ works:
   - work_title: "きみが死ぬまで恋をしたい"
     author: "あおのなち"
     url: "https://comic.pixiv.net/works/5424"
-    chapter_count: 8
+    chapter_count: 7
     chapters:
       - title: "第42話 わたしの恋"
         updated: 2026-08-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第41話 うそつき"
-        updated: 2026-07-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第6話 ともだち"
@@ -1239,12 +1235,12 @@ works:
     url: "https://comic.pixiv.net/works/5758"
     chapter_count: 5
     chapters:
-      - title: "第60話 放課後と、テストと、音楽と。"
-        updated: 2026-08-08
+      - title: "第61話 バズと、歓喜と、戸惑いと。"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第59話 あいさつと、謝罪と、将来と。"
-        updated: 2026-07-08
+      - title: "第60話 放課後と、テストと、音楽と。"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3話 放課後、2人の時間。"
@@ -1502,8 +1498,12 @@ works:
   - work_title: "作りたい女と食べたい女"
     author: "ゆざきさかおみ"
     url: "https://comic.pixiv.net/works/7182"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
+      - title: "第43話 あなたと明日も"
+        updated: 2026-09-08
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第42話 引っ越し"
         updated: 2026-09-01
         access_modes: ["free"]
@@ -1636,12 +1636,12 @@ works:
     url: "https://comic.pixiv.net/works/7319"
     chapter_count: 4
     chapters:
-      - title: "第57話 炎"
-        updated: 2026-08-08
+      - title: "第58話 王国歴二〇一五年十一月十一日"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第56話 利害調整"
-        updated: 2026-07-08
+      - title: "第57話 炎"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 最初の勝負①"
@@ -2165,12 +2165,12 @@ works:
     url: "https://comic.pixiv.net/works/9380"
     chapter_count: 4
     chapters:
-      - title: "#25"
-        updated: 2026-08-08
+      - title: "#26 5日前UP"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "#24"
-        updated: 2026-07-08
+      - title: "#25"
+        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "#2"
@@ -2277,8 +2277,12 @@ works:
   - work_title: "陰キャギャルでもイキがりたい!"
     author: "かしわぎつきこ"
     url: "https://comic.pixiv.net/works/9888"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
+      - title: "♥25 「あした地球がこなごなになっても、可愛い服着て、君といる」"
+        updated: 2026-09-08
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "♥2 「結局好きな人に撮ってもらうのが一番盛れる」"
         updated: 2023-12-08
         access_modes: ["free"]

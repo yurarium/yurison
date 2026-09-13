@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-13
+retrieved: 2026-09-14
 record_type: candidate_works
-works: 313
+works: 312
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -2419,7 +2419,7 @@ candidates:
     platforms: ["pixivコミック", "となりのヤングジャンプ"]
     urls: ["https://comic.pixiv.net/works/8146", "https://tonarinoyj.jp/episode/3269754496660932934"]
   - title: "夜明けのアリス"
-    platforms: ["ゼノン編集部"]
+    platforms: ["コミックゼノン", "ゼノン編集部"]
     urls: ["https://comic-zenon.com/episode/12207421983426102334"]
   - title: "夜明け前が一番暗いとかドヤ顔するヤツ絶対殺す"
     platforms: ["コミックDAYS"]
@@ -3047,7 +3047,7 @@ candidates:
   - title: "晴れた日のドレスコード"
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/13425", "https://ichicomi.com/episode/2551460909807196609"]
-    tags: ["女子高生", "百合"]
+    tags: ["女子高生", "最近のコメント数", "百合"]
   - title: "暗殺組合の山田さん"
     platforms: ["キミコミ"]
     urls: ["https://kimicomi.com/series/397963f4f9cfd"]
@@ -3843,7 +3843,7 @@ candidates:
   - title: "貴女へささげるサディスティック"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/ae1cf555c8b01"]
-    tags: ["エロ", "先生と生徒・師弟", "女子高生", "教師", "最近のコメント数", "百合"]
+    tags: ["エロ", "先生と生徒・師弟", "女子高生", "完結", "教師", "最近のコメント数", "百合"]
   - title: "賭けっ娘"
     platforms: ["きら星ポータル"]
     urls: ["https://kirapo.jp/meteor/titles/kakekko"]
@@ -3954,7 +3954,7 @@ candidates:
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/2349"]
-    tags: ["犯罪", "百合"]
+    tags: ["ヤンデレ", "犯罪", "百合"]
   - title: "除霊師ハルカは幽霊が怖い!"
     platforms: ["MAGKAN"]
     urls: ["https://kansai.mag-garden.co.jp/series/76bb18d479f8c"]

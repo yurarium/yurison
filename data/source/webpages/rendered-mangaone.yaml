@@ -10,7 +10,7 @@ source: webpages
 platform: mangaone
 platform_name: "マンガワン"
 publisher: "小学館"
-retrieved: 2026-09-13
+retrieved: 2026-09-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -93,10 +93,14 @@ works:
     url: "https://manga-one.com/manga/28129/chapter/355684"
     chapter_count: 10
     chapters:
-      - title: "Memory6(前編)"
-        updated: 2026-09-12
+      - title: "Memory6(後編)"
+        updated: 2026-09-26
         access_modes: ["purchase"]
         access_note: "released early to paying readers (先読)"
+        date_basis: rendered
+      - title: "Memory6(前編)"
+        updated: 2026-09-12
+        access_modes: ["free"]
         date_basis: rendered
       - title: "単行本第1集発売PR!!"
         updated: 2026-08-15
@@ -104,7 +108,7 @@ works:
         date_basis: rendered
       - title: "Memory5(後編)"
         updated: 2026-08-29
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "Memory5(前編)"
         updated: 2026-08-15
@@ -127,10 +131,6 @@ works:
         access_modes: ["purchase"]
         date_basis: rendered
       - title: "Memory2(後編)"
-        updated: 2026-06-13
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "Memory2(前編)"
         updated: 2026-06-13
         access_modes: ["purchase"]
         date_basis: rendered
@@ -222,6 +222,19 @@ works:
     url: "https://manga-one.com/viewer/70173"
     chapter_count: 10
     chapters:
+      - title: "番外編①"
+        updated: 2026-09-25
+        access_modes: ["purchase"]
+        access_note: "released early to paying readers (先読)"
+        date_basis: rendered
+      - title: "TVドラマレポ漫画①"
+        updated: 2026-09-11
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "TVドラマ対談記事 前編"
+        updated: 2026-09-11
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "重大発表！その2"
         updated: 2026-09-04
         access_modes: ["free"]
@@ -247,18 +260,6 @@ works:
         access_modes: ["purchase"]
         date_basis: rendered
       - title: "第130話"
-        updated: 2026-09-04
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第129話"
-        updated: 2026-09-04
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第128話"
-        updated: 2026-09-04
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第127話"
         updated: 2026-09-04
         access_modes: ["purchase"]
         date_basis: rendered

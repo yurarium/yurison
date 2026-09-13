@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-09-13
+retrieved: 2026-09-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -325,7 +325,7 @@ works:
     author: "田口囁一"
     url: "https://pocket.shonenmagazine.com/title/01357"
     stated_schedule:
-      cadence: "毎月第1木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【その32】ふたりエスケープ(2)"
@@ -377,7 +377,7 @@ works:
     author: "樫風"
     url: "https://pocket.shonenmagazine.com/title/01376"
     stated_schedule:
-      cadence: "毎月第1木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【第32話(3)】"
@@ -429,7 +429,7 @@ works:
     author: "戌井だいじ"
     url: "https://pocket.shonenmagazine.com/title/01418"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【最終話】「彼女は彼女が好き」"
@@ -479,7 +479,7 @@ works:
     author: "サスケ"
     url: "https://pocket.shonenmagazine.com/title/01509"
     stated_schedule:
-      cadence: "毎月第1木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【最終話(3)】"
@@ -530,7 +530,7 @@ works:
   - work_title: "ハロー、メランコリック!"
     url: "https://pocket.shonenmagazine.com/title/01544"
     stated_schedule:
-      cadence: "毎月第1木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【track14】ハロー、メランコリック！(2)"
@@ -582,7 +582,7 @@ works:
     author: "まにお"
     url: "https://pocket.shonenmagazine.com/title/01645"
     stated_schedule:
-      cadence: "毎月第1木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【act.26(5)】"
@@ -687,7 +687,7 @@ works:
     author: "雨水汐"
     url: "https://pocket.shonenmagazine.com/title/01837"
     stated_schedule:
-      cadence: "毎月第1木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【32日目】"
@@ -791,7 +791,7 @@ works:
   - work_title: "甘えさせて雛森さん!"
     url: "https://pocket.shonenmagazine.com/title/02043"
     stated_schedule:
-      cadence: "毎月第1木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【第21話】"
@@ -844,7 +844,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/02202"
     stated_schedule:
       cadence: "毎週火曜"
-      next_update: "2027-09-08"
+      next_update: "2026-10-06"
     chapter_count: 10
     chapters:
       - title: "【第51話(1)】静聴"
@@ -860,7 +860,7 @@ works:
       - title: "【第50話(2)】夢現"
         updated: 2026-08-01
         access_modes: ["purchase"]
-        access_note: "point price 70"
+        access_note: "point price 55"
         date_basis: rendered
       - title: "【第50話(1)】夢現"
         updated: 2026-07-18
@@ -947,7 +947,7 @@ works:
     author: "シクシク"
     url: "https://pocket.shonenmagazine.com/title/02260"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎週水曜"
     chapter_count: 10
     chapters:
       - title: "【第15話】終着点（３）"
@@ -1025,11 +1025,11 @@ works:
         date_basis: rendered
       - title: "【第5話】神の使い"
         updated: 2023-11-10
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【第4話】本編スタート"
         updated: 2023-11-03
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【第3話】成長しました"
         updated: 2023-10-27
@@ -1100,7 +1100,7 @@ works:
     author: "ひの宙子"
     url: "https://pocket.shonenmagazine.com/title/02390"
     stated_schedule:
-      cadence: "毎週金曜"
+      cadence: "毎週月曜"
     chapter_count: 10
     chapters:
       - title: "【第20話(2)】"
@@ -1150,7 +1150,7 @@ works:
     author: "山座一心"
     url: "https://pocket.shonenmagazine.com/title/02596"
     stated_schedule:
-      cadence: "毎週金曜"
+      cadence: "毎週月曜"
     chapter_count: 10
     chapters:
       - title: "【第23話(2)】アリス・ジャバウォックに花束を"
@@ -1200,7 +1200,7 @@ works:
     author: "月野和青"
     url: "https://pocket.shonenmagazine.com/title/02604"
     stated_schedule:
-      cadence: "毎週金曜"
+      cadence: "毎週月曜"
     chapter_count: 10
     chapters:
       - title: "【第25話】正しい愛し方(後編）"
@@ -1250,7 +1250,7 @@ works:
     author: "やとさきはる"
     url: "https://pocket.shonenmagazine.com/title/02709"
     stated_schedule:
-      cadence: "毎月第1木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【最終回(2)】聖夜の天使たち"
@@ -1303,6 +1303,11 @@ works:
       cadence: "毎週水曜"
     chapter_count: 10
     chapters:
+      - title: "【第56話】仲間全員☆NTR☆ガール"
+        updated: 2026-09-09
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
       - title: "【第55話】全力☆買収☆ガール"
         updated: 2026-09-02
         access_modes: ["purchase"]
@@ -1321,17 +1326,13 @@ works:
         updated: 2026-08-05
         access_modes: ["free"]
         date_basis: rendered
-      - title: "【第52話】ラピスの☆お姉ちゃん☆ガール"
-        updated: 2026-07-29
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "【第5話】芸能事務所☆突撃☆ガール"
         updated: 2025-06-25
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【第4話】全力☆推し活☆ガール"
         updated: 2025-06-18
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【第3話】かわいい☆メイド☆ガール"
         updated: 2025-06-11
@@ -1350,13 +1351,17 @@ works:
     url: "https://pocket.shonenmagazine.com/title/02901"
     stated_schedule:
       cadence: "毎週水曜"
-      next_update: "2027-09-09"
+      next_update: "2026-09-23"
     chapter_count: 10
     chapters:
-      - title: "【#51】princess"
-        updated: 2026-08-26
+      - title: "【#52】Midnight"
+        updated: 2026-09-09
         access_modes: ["purchase"]
         access_note: "point price 90"
+        date_basis: rendered
+      - title: "【#51】princess"
+        updated: 2026-08-26
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【#50】サファイア"
         updated: 2026-08-19
@@ -1368,10 +1373,6 @@ works:
         date_basis: rendered
       - title: "【#48】アフターステージ"
         updated: 2026-07-29
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【#47】No.1？"
-        updated: 2026-07-22
         access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【#5】Pinkie swan"
@@ -1399,7 +1400,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03056"
     stated_schedule:
       cadence: "隔週日曜"
-      next_update: "2026-09-13"
+      next_update: "2026-10-25"
     chapter_count: 10
     chapters:
       - title: "【15話(2)】あたしが証明します！"
@@ -1419,7 +1420,7 @@ works:
         date_basis: rendered
       - title: "【14話(1)】これはほとんど愛かもしれない"
         updated: 2026-07-24
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【13話(2)】ほんとに死んじゃったんだ あの女"
         updated: 2026-05-25
@@ -1449,7 +1450,7 @@ works:
     author: "陣ノ内康暉"
     url: "https://pocket.shonenmagazine.com/title/03068"
     stated_schedule:
-      cadence: "毎週金曜"
+      cadence: "毎週月曜"
     chapter_count: 10
     chapters:
       - title: "【単行本宣伝話】"
@@ -1496,7 +1497,10 @@ works:
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "怨霊日和"
+    author: "あなたへのオススメ！"
     url: "https://pocket.shonenmagazine.com/title/03125"
+    stated_schedule:
+      cadence: "毎週水曜"
     chapter_count: 4
     chapters:
       - title: "【第4話】怨天様"
@@ -1520,8 +1524,12 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03196"
     stated_schedule:
       cadence: "毎月第2木曜"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
+      - title: "【第3話】ライバルとーじょー!?小さくたって大怪獣！"
+        updated: 2026-09-09
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "【第2話】Totsuzen(突然)タンデム!?ドギマギ山頂でぇと"
         updated: 2026-08-07
         access_modes: ["free"]
@@ -1534,8 +1542,13 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03273"
     stated_schedule:
       cadence: "毎月第2土曜"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "【第5話】罪のお味は"
+        updated: 2026-09-09
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
       - title: "【第4話】水泡にすら帰さず"
         updated: 2026-08-07
         access_modes: ["purchase"]
@@ -1558,7 +1571,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03282"
     stated_schedule:
       cadence: "毎週土曜"
-      next_update: "2027-09-12"
+      next_update: "2026-09-19"
     chapter_count: 10
     chapters:
       - title: "【第25話】厄立たずの新聞 後編"

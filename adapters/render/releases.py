@@ -220,7 +220,15 @@ def episodes(html):
 
 
 # Interface words that can follow a title and are not an author.
-_NOT_AUTHOR = re.compile(r"^(UP|NEW|更新|無料|お気に入り|シェア|クリップ|[0-9]|次回|最新話|全話|第|話数|続きを読む)")
+#
+# TWO MORE ON 2026-09-14, both of them a control that sits where a byline sits on a page that has
+# none. 怨霊日和 went quiet on マガポケ in March, its page stopped printing a byline, and this took
+# the heading of the recommendations block underneath: 怨霊日和 had shipped as あなたへのオススメ！,
+# "recommended for you", against the イマイ悠 the site was already serving. pixivコミック's
+# フォローする is the same shape and reaches five works, and the page writes it behind a non-breaking
+# space, so the text is unescaped before it is tested or the entity hides it from a prefix match.
+_NOT_AUTHOR = re.compile(r"^(UP|NEW|更新|無料|お気に入り|シェア|クリップ|[0-9]|次回|最新話|全話|第|話数"
+                         r"|続きを読む|あなたへの|オススメ|おすすめ|フォロー)")
 
 
 def author_near_title(html, title):
@@ -238,6 +246,9 @@ def author_near_title(html, title):
     for i, line in enumerate(lines):
         if title in line and len(line) <= len(title) + 4:
             for nxt in lines[i + 1: i + 3]:
+                # UNESCAPED AND STRIPPED FIRST. pixivコミック writes `&nbsp;フォローする`, so the
+                # entity sat in front of the word and a prefix match never saw it.
+                nxt = _html.unescape(nxt).replace("\xa0", " ").strip()
                 if 1 <= len(nxt) <= 24 and not _NOT_AUTHOR.match(nxt):
                     return nxt
             return None

@@ -13,6 +13,29 @@ import releases as rd
 
 
 def main(s):
+    # ── A CONTROL SITTING WHERE A BYLINE SITS IS NOT A BYLINE ─────────────────────────────────
+    #
+    # `author_near_title` is positional: it takes the first short line under the work's title that
+    # is not interface furniture. On a page that HAS a byline that is right, and 怨霊日和 went quiet
+    # on マガポケ in March and its page stopped printing one, so the line underneath was the heading
+    # of the recommendations block. The work shipped as あなたへのオススメ！ against the イマイ悠 the
+    # site was already serving, which is a capture overwriting a good value with a worse one.
+    s.eq(rd.author_near_title(
+        "<body><h1>怨霊日和</h1><div>あなたへのオススメ！</div><div>イマイ悠</div></body>", "怨霊日和"),
+        "イマイ悠", "the recommendations heading is stepped over and the byline under it is taken")
+
+    # pixivコミック WRITES ITS FOLLOW BUTTON BEHIND A NON-BREAKING SPACE, so the entity sat in front
+    # of the word and a prefix match never saw it. Five works carried `フォローする` as their author.
+    s.eq(rd.author_near_title(
+        "<body><h1>蝶と帝国</h1><div>&nbsp;フォローする</div><div>もち</div></body>", "蝶と帝国"),
+        "もち", "an entity in front of a control does not hide it from the stop list")
+
+    # AND THE ORDINARY CASE IS UNTOUCHED, which is the whole risk of widening a stop list: マガポケ
+    # renders 「オカルトタイムズ」 and then 「いどんち」, and that is what this function is for.
+    s.eq(rd.author_near_title(
+        "<body><h1>オカルトタイムズ</h1><div>いどんち</div></body>", "オカルトタイムズ"),
+        "いどんち", "a byline directly under the title is still read")
+
     # THREE BADGES, NOT TWO. マガポケ marks a chapter --free, --point, or --ticket-free, the last
     # meaning readable now by spending a ticket the platform hands out. It was invisible twice
     # over: the capture was (\w+) and '-' is not a word character, so --ticket-free captured as

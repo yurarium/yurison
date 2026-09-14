@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-14
+retrieved: 2026-09-15
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -36,6 +36,11 @@ platforms_missing:
   - platform: "アサコミ"
     works: 1
 works_missing:
+  - title: "このままモブじゃ終われない!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3700"
+    antenna_id: "203870"
+    tags: ["百合", "サキュバス"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -46,6 +51,11 @@ works_missing:
     url: "https://comic-fuz.com/manga/3776"
     antenna_id: "209939"
     tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
+  - title: "6億年の博物旅"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3818"
+    antenna_id: "194415"
+    tags: ["自然科学・科学技術", "学問・研究", "大学生", "百合"]
   - title: "百合SMでふたりの気持ちはつながりますか?"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/2391"
@@ -71,11 +81,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3397"
     antenna_id: "159994"
     tags: ["百合", "女子高生", "4コマ"]
-  - title: "このままモブじゃ終われない!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3700"
-    antenna_id: "203870"
-    tags: ["百合", "サキュバス"]
   - title: "しゅがー・みーつ・がーる!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3108"
@@ -326,6 +331,16 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "どれが恋かがわからない"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001190_S"
+    antenna_id: "131238"
+    tags: ["百合", "大学生", "恋愛"]
+  - title: "わたしのために脱ぎなさいっ!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000188_S"
+    antenna_id: "76553"
+    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
   - title: "怪異部～M県Y市の怪現象について～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006547_S"
@@ -421,11 +436,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007254_S"
     antenna_id: "198357"
     tags: ["百合", "不動産", "同人活動"]
-  - title: "どれが恋かがわからない"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_001190_S"
-    antenna_id: "131238"
-    tags: ["百合", "大学生", "恋愛"]
   - title: "堕天使そぷらのちゃんの復讐"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006778_S"
@@ -556,11 +566,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019452_S"
     antenna_id: "213446"
     tags: ["百合", "読み切り"]
-  - title: "わたしのために脱ぎなさいっ!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_000188_S"
-    antenna_id: "76553"
-    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
   - title: "真先輩の前ではかっこつけられない!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006747_S"
@@ -780,7 +785,7 @@ works_missing:
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/65"
     antenna_id: "163124"
-    tags: ["最近のコメント数"]
+    tags: ["異能・超能力", "近未来SF", "バディ", "警察", "百合"]
   - title: "獄門撫子此処ニ在リ"
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/773"
@@ -841,6 +846,16 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "わたしのために脱ぎなさいっ!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34328"
+    antenna_id: "77574"
+    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
+  - title: "どれが恋かがわからない"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56504"
+    antenna_id: "131227"
+    tags: ["百合", "大学生"]
   - title: "このままモブじゃ終われない!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/67095"
@@ -981,11 +996,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/70137"
     antenna_id: "176431"
     tags: ["百合"]
-  - title: "わたしのために脱ぎなさいっ!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/34328"
-    antenna_id: "77574"
-    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
   - title: "見える子ちゃん"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/37662"
@@ -1026,11 +1036,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/70139"
     antenna_id: "177729"
     tags: ["百合", "現代"]
-  - title: "どれが恋かがわからない"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/56504"
-    antenna_id: "131227"
-    tags: ["百合", "大学生"]
   - title: "夢でフラれてはじまる百合"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/58368"
@@ -1071,6 +1076,11 @@ works_missing:
     url: "https://flowercomics.jp/title/2780"
     antenna_id: "193062"
     tags: ["百合"]
+  - title: "踊り場にスカートが鳴る"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/01646"
+    antenna_id: "137359"
+    tags: ["百合", "女子高生", "運動系部活", "男装"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -1111,11 +1121,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03301"
     antenna_id: "213683"
     tags: ["百合", "読み切り"]
-  - title: "踊り場にスカートが鳴る"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/01646"
-    antenna_id: "137359"
-    tags: ["百合", "女子高生", "運動系部活", "男装"]
   - title: "今日はカノジョがいないから"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01839"
@@ -1220,7 +1225,7 @@ works_missing:
     platform: "ヤンマガWeb"
     url: "https://yanmaga.jp/comics/%E5%85%88%E7%94%9F%E3%82%A7%E3%82%A7%E3%82%A7%E3%82%A7%E6%9C%8D%E7%9D%80%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84"
     antenna_id: "214428"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "読み切り", "作家", "編集"]
   - title: "『人斬り』少女、公爵令嬢の護衛になる"
     platform: "ライコミ"
     url: "https://comicride.jp/series/b95a6b1493469"
@@ -1260,7 +1265,7 @@ works_missing:
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/2551460909807196609"
     antenna_id: "197810"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "女子高生"]
   - title: "残り香に牙"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/12207421983947227343"
@@ -1276,11 +1281,6 @@ works_missing:
     url: "https://ichicomi.com/episode/2550912965923204623"
     antenna_id: "173556"
     tags: ["百合", "フェチ・性癖"]
-  - title: "溺愛理想主義～岩見樹代子作品集～"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/12207421983829237030"
-    antenna_id: "210180"
-    tags: ["百合"]
   - title: "バトル・ウィッチーズ"
     platform: "新都社"
     url: "http://neetsha.jp/inside/comic.php?id=24919"

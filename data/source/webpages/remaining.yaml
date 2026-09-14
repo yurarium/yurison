@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-14
+retrieved: 2026-09-15
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -2352,23 +2352,23 @@ works:
       - title: "第3話"
         updated: 2026-01-23
         author: "ミナミト"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第4話"
         updated: 2026-02-20
         author: "ミナミト"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第5話"
         updated: 2026-03-20
         author: "ミナミト"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第6話"
         updated: 2026-04-17
         author: "ミナミト"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第7話"
         updated: 2026-05-22
         author: "ミナミト"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第8話"
         updated: 2026-06-19
         author: "ミナミト"
@@ -4045,8 +4045,7 @@ works:
       - title: "第2話"
         updated: 2026-08-07
         author: "裏海マユ,ちょきんぎょ。"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["free"]
       - title: "第3話"
         updated: 2026-09-04
         author: "裏海マユ,ちょきんぎょ。"
@@ -4828,11 +4827,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-13
+        updated: 2026-09-14
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-13
+        updated: 2026-09-14
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

@@ -6,12 +6,13 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-09-14
+retrieved: 2026-09-15
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "magcomi:episode:12207421984187016919"
+    in_current_window: false
     work_title: "天使なんかにならないで"
     web_status: "serialised"
     identified_via: "discovery-candidate"

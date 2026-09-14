@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-14
+retrieved: 2026-09-15
 record_type: discovery_queue
 candidates:
   - work_title: "天使なんかにならないで"
@@ -44,6 +44,24 @@ candidates:
     platform_code: "12207421984122057940"
     work_url: "https://magcomi.com/episode/12207421984122057940"
     headline: "漬物が繋ぐ、人気モデル×新人編集者の社会人ガールズストーリー「東京つけものがたり」WEBでスタート"
+    status: unconfirmed
+  - work_title: "超かぐや姫！"
+    signal: "new-serial"
+    announced: "Mon, 14 Sep 2026 11:00:20 +0000"
+    url: "https://yurinavi.com/2026/09/14/chokaguyameshi-start/"
+    platform: "bibibi"
+    platform_code: "41de76fc8df5f"
+    work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
+    headline: "「超かぐや姫！」公式スピンオフグルメコメディ「超かぐやメシ！」WEBで連載開始"
+    status: unconfirmed
+  - work_title: "超かぐやメシ！"
+    signal: "new-serial"
+    announced: "Mon, 14 Sep 2026 11:00:20 +0000"
+    url: "https://yurinavi.com/2026/09/14/chokaguyameshi-start/"
+    platform: "bibibi"
+    platform_code: "41de76fc8df5f"
+    work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
+    headline: "「超かぐや姫！」公式スピンオフグルメコメディ「超かぐやメシ！」WEBで連載開始"
     status: unconfirmed
   - work_title: "彼岸でランデヴー"
     signal: "new-serial"

@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-14
+retrieved: 2026-09-15
 record_type: candidate_works
 works: 312
 candidates:
@@ -43,6 +43,10 @@ candidates:
   - title: "4時半、コインランドリーにて"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203933"]
+  - title: "6億年の博物旅"
+    platforms: ["COMIC FUZ"]
+    urls: ["https://comic-fuz.com/manga/3818"]
+    tags: ["大学生", "学問・研究", "百合", "自然科学・科学技術"]
   - title: "7日間限定彼女"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005863_S"]
@@ -3850,9 +3854,12 @@ candidates:
   - title: "贋作の第十番"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/episodes/b52d54db17eb4"]
+  - title: "超かぐやメシ！"
+    platforms: ["ビビビコミック"]
+    urls: ["https://bibibi-comic.com/series/41de76fc8df5f"]
   - title: "超かぐや姫!"
-    platforms: ["カドコミ"]
-    urls: ["https://comic-walker.com/detail/KC_008281_S"]
+    platforms: ["カドコミ", "ビビビコミック"]
+    urls: ["https://bibibi-comic.com/series/41de76fc8df5f", "https://comic-walker.com/detail/KC_008281_S"]
     tags: ["コミカライズ", "最近のコメント数", "百合"]
   - title: "超深宇宙より愛をこめて"
     platforms: ["pixivコミック", "一迅プラス"]

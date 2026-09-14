@@ -211,6 +211,26 @@ rather than banked.
 What a reader currently sees is the work under 近日更新予定 marked overdue, which is the interface
 being honest about a date the platform published and has not withdrawn.
 
+## Six rises on 2026-09-15, two works and five credits between them
+
+Checked before recording, because yesterday three of four rises turned out to be a junk byline the
+capture had just started producing. These are arrivals. The run added five author entries and each
+one belongs to a work the corpus does not hold yet:
+
+| work | platform | byline |
+|---|---|---|
+| ６億年の博物旅 | COMIC FUZ | みなぱか, 泉賢太郎 |
+| 超かぐやメシ！ | ビビビコミック | テルヤ, 山下清悟 / フジヤマルリ |
+
+`author names romanised as one word` 1203 to 1208 and `credit fields an identifier does not cover`
+76 to 81 are those five. `author readings no source states` 438 to 440 and
+`kana names with no stated division` 269 to 271 are the two of them written in kana with nothing
+stating where the name parts. `updates naming a work we do not hold` 40 to 45 is the rows the two
+works published, and the unheld set is 22 works against 20.
+
+`incomplete attested rows` 39 to 41 is the route-blind measure again, which the entry above and
+docs/GAPS.md describe: it walks with the window rather than tracking anything about the data.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

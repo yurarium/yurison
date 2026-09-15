@@ -6,11 +6,26 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-09-15
+retrieved: 2026-09-16
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "action:episode:12207421984152696708"
+    work_title: "小林さんちのメイドラゴン"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第192話 カンナとメンシーラー才川（前編）"
+    release_type: "chapter"
+    date: "2026-09-15"
+    date_basis: "observed"
+    first_seen: "2026-09-16"
+    first_reported: "2026-09-15T03:00:00Z"
+    platform_updated: "2026-09-15T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-action.com/episode/12207421984152696708"
+    author: "クール教信者"
+    advances_narrative: true
   - release_id: "action:episode:12207421984056083521"
     in_current_window: false
     work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～"

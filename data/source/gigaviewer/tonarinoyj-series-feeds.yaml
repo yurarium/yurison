@@ -10,7 +10,7 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-09-15
+retrieved: 2026-09-16
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 88
@@ -1056,8 +1056,14 @@ works:
   - work_title: "英雄少女と呪われの銀姫"
     series_id: "2551460910044574466"
     url: "https://tonarinoyj.jp/atom/series/2551460910044574466"
-    chapter_count: 14
+    chapter_count: 15
     chapters:
+      - title: "[第8話 後編] 英雄少女と呪われの銀姫"
+        updated: 2026-09-15
+        author: "アルト/絵本奈央"
+        url: "https://tonarinoyj.jp/episode/12207421984173978509"
+        free_from: 2026-09-15
+        access_modes: ["free"]
       - title: "[第8話 前編] 英雄少女と呪われの銀姫"
         updated: 2026-09-01
         author: "アルト/絵本奈央"

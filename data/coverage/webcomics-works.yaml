@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-15
+retrieved: 2026-09-16
 record_type: candidate_works
 works: 312
 candidates:
@@ -2485,6 +2485,10 @@ candidates:
   - title: "女ともだちと結婚してみた。"
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画", "マガポケ", "一迅プラス"]
     urls: ["https://comic-days.com/episode/3270296674372407303", "https://comic.pixiv.net/works/7133", "https://ichicomi.com/episode/2550912965923203128", "https://manga.nicovideo.jp/comic/56283", "https://pocket.shonenmagazine.com/title/01837"]
+  - title: "女にはそれぞれ裏がある"
+    platforms: ["マンガよもんが"]
+    urls: ["https://www.yomonga.com/titles/2571/"]
+    tags: ["百合"]
   - title: "女の友情"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550668105997208149"]

@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-15
+retrieved: 2026-09-16
 record_type: discovery_queue
 candidates:
   - work_title: "天使なんかにならないで"
@@ -36,15 +36,6 @@ candidates:
     work_url: "https://www.ganganonline.com/title/2286"
     headline: "ハートフルでちょっぴり胸キュンな大人百合調香譚「香り屋さんの纏さん」WEBで連載"
     status: unconfirmed
-  - work_title: "東京つけものがたり"
-    signal: "new-serial"
-    announced: "Sat, 05 Sep 2026 11:00:00 +0000"
-    url: "https://yurinavi.com/2026/09/05/toukyo-tsukemono-start/"
-    platform: "magcomi"
-    platform_code: "12207421984122057940"
-    work_url: "https://magcomi.com/episode/12207421984122057940"
-    headline: "漬物が繋ぐ、人気モデル×新人編集者の社会人ガールズストーリー「東京つけものがたり」WEBでスタート"
-    status: unconfirmed
   - work_title: "超かぐや姫！"
     signal: "new-serial"
     announced: "Mon, 14 Sep 2026 11:00:20 +0000"
@@ -62,6 +53,15 @@ candidates:
     platform_code: "41de76fc8df5f"
     work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     headline: "「超かぐや姫！」公式スピンオフグルメコメディ「超かぐやメシ！」WEBで連載開始"
+    status: unconfirmed
+  - work_title: "東京つけものがたり"
+    signal: "new-serial"
+    announced: "2026-09-05"
+    url: "https://yurinavi.com/2026/09/05/toukyo-tsukemono-start/"
+    platform: "magcomi"
+    platform_code: "12207421984122057940"
+    work_url: "https://magcomi.com/episode/12207421984122057940"
+    headline: "漬物が繋ぐ、人気モデル×新人編集者の社会人ガールズストーリー「東京つけものがたり」WEBでスタート"
     status: unconfirmed
   - work_title: "彼岸でランデヴー"
     signal: "new-serial"

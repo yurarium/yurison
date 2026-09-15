@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-09-15
+retrieved: 2026-09-16
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 216
+  hits_agreeing_on_a_creator: 217
   hits_on_the_title_alone: 85
-  hits_stating_a_print_edition_date: 171
-  works_asked: 738
-  works_with_a_hit: 222
+  hits_stating_a_print_edition_date: 172
+  works_asked: 741
+  works_with_a_hit: 223
 works:
   - work_url: "https://bibibi-comic.com/series/e889bd092d08d"
     id: "w03256"
@@ -7156,6 +7156,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984173978509"
+    id: "w00130"
+    work: "英雄少女と呪われの銀姫"
+    author: "アルト / 絵本奈央"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-09-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://tonarinoyj.jp/episode/13933686331772859580"
     id: "w00982"
     work: "ストライク・オア・ガター"
@@ -8615,6 +8625,32 @@ works:
     notes:
       - "author query answered nothing"
       - "title query returned no title this database recognises"
+  - work_url: "https://www.sunday-webry.com/episode/12207421984235263191"
+    id: "w00131"
+    work: "なとりとしずは"
+    author: "鮎川あお"
+    platform: "サンデーうぇぶり"
+    retrieved: "2026-09-16"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
+  - work_url: "https://www.sunday-webry.com/episode/12207421984237603748"
+    id: "w00060"
+    work: "#ギャルとギャルの百合"
+    author: "イノウエ"
+    platform: "サンデーうぇぶり"
+    query: "author"
+    retrieved: "2026-09-16"
+    hits:
+      - series_url: null
+        title_listed: "＃ギャルとギャルの百合（１）"
+        shop_author: "イノウエ(著)"
+        imprint: "サンデーうぇぶりコミックス"
+        publisher: "小学館"
+        printed: "2025/12/31"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://www.sunday-webry.com/episode/14079602755180542200"
     id: "w00815"
     work: "君に惹かれた理由"

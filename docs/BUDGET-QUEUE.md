@@ -120,34 +120,6 @@ from four rows to six, which is コミックガルド publishing two more chapte
 still holds no record of. The count is rows rather than works, so a work that stays unheld raises it
 every time it updates. It falls when the work gains a record, not when it stops publishing.
 
-## Six rises on 2026-09-09, five of them arrivals and one a measure counting a route
-
-Run 34245016984 brought two more works the corpus holds no record of, taking the unheld set to 19
-works and 37 rows, and 21 works now compile without an identifier. Four budgets moved by one each
-and are those arrivals: `titles read by a machine, unmarked` 1178 to 1179, `author readings no
-source states` 435 to 436, `author names romanised as one word` 1201 to 1202, and `credit fields an
-identifier does not cover` 73 to 74.
-
-**`incomplete attested rows` 40 to 54 is not an arrival and is worth reading.** 52 of the 54 are
-rows with a chapter name and an author and no ACCESS state, on コミックDAYS, サンデーうぇぶり,
-マガポケ and まんがタイムSquare. Every one comes from the platform-wide Atom feed, and every
-GigaViewer platform-wide feed carries zero access data: `comic-days.yaml` holds 52 releases with
-access on none of them, and has held none across every run checked. The per-series feed for the
-same platform carries access on 2,991 of 2,991.
-
-So the clause asks whether SOME attested row of the platform states access, and on GigaViewer the
-answer is yes from one route while the other never states it. The number therefore climbs whenever
-the platform-wide feed publishes: it went 42 releases to 52 on comic-days this run alone. That is
-the exact failure the check's own docstring describes for コミックエッセイ劇場 and やわらかスピリッツ,
-where the clause was narrowed from all rows to the platform's rows; the same argument now points one
-level further down, at the route.
-
-**Fixing it needs the release to carry its route, and the store does not hold one.** `ident`,
-`basis` and `date_means` are identical across the two, so nothing in the store separates a row that
-came from the series feed from one that came from the platform feed. Recorded rather than narrowed,
-because a measure narrowed without the evidence to narrow it correctly is worse than one that reads
-high for a reason somebody wrote down.
-
 ## Two rises on 2026-09-10, and ニコニコ has withdrawn six works
 
 `targets a capture wrote no row for` 4 to 6. All six are ニコニコ漫画, and the run's own pass agrees:
@@ -162,18 +134,6 @@ wrong answer.
 `announced works the corpus does not hold` 12 to 13, and the arrival is 天使なんかにならないで on
 MAGCOMI. The same work is in the run's `awaiting an identifier` list, so it is announced, captured
 and not yet keyed, which is the ordinary path a new work takes on its first day.
-
-## 43 to 46 on 2026-09-11, the same route the entry below describes
-
-`incomplete attested rows` again, and the composition has not changed: 44 of the 46 carry a chapter
-name and an author and no ACCESS state, on サンデーうぇぶり, コミックDAYS, マガポケ and
-まんがタイムSquare. Those are the GigaViewer platform-wide Atom feeds, which state access on no row
-at all while the per-series feed for the same platform states it on every one.
-
-The number rises and falls with how many platform-feed rows are inside the window on the day, which
-is why it read 54 on 2026-09-09, 43 yesterday and 46 now. It is not tracking anything about the
-data's quality. See docs/GAPS.md, "One platform, two routes, and a measure that can only see the
-platform": the fix wants `release` to carry the route that wrote it, which the store does not hold.
 
 ## Five rises on 2026-09-12, all of them one work arriving
 
@@ -230,6 +190,32 @@ works published, and the unheld set is 22 works against 20.
 
 `incomplete attested rows` 39 to 41 is the route-blind measure again, which the entry above and
 docs/GAPS.md describe: it walks with the window rather than tracking anything about the data.
+
+## STANDING: `incomplete attested rows` walks with the window and is not a queue item
+
+Recorded once rather than on every run, because it has been accepted on seven of the last eight and
+each entry said the same thing. Consolidated 2026-09-16 from the entries of 2026-09-09 and
+2026-09-11.
+
+**WHAT IT COUNTS ON ANY GIVEN DAY.** Almost all of it is rows carrying a chapter name and an author
+and no ACCESS state, on サンデーうぇぶり, コミックDAYS, マガポケ and まんがタイムSquare. Those come
+from the GigaViewer platform-wide Atom feeds, which state access on no row at all, while the
+per-series feed for the same platform states it on every one: 2,991 of 2,991 for コミックDAYS. The
+clause asks whether SOME attested row of the PLATFORM states access, so one route answers on the
+other's behalf.
+
+**THE SERIES OF VALUES.** 40, 54, 43, 46, 42, 43, 39, 41, 43. It does not drift toward anything: the
+population is whichever platform-feed rows sit inside the 60-day window on the day.
+
+**SO THE RATCHET IS THE WRONG CONTROL FOR IT,** which docs/GAPS.md argues under "A budget over a
+churning population cannot ratchet": banking every trough makes the ceiling the lowest value ever
+seen and turns every ordinary rise into a manual accept.
+
+**THE FIX IS THE ROUTE,** in docs/GAPS.md under "One platform, two routes, and a measure that can
+only see the platform". A release does not carry the pass that wrote it, so nothing separates a
+series-feed row from a platform-feed row. Give `release` that field and this measure stops seeing
+them at all. Until then a rise here is worth a glance at the composition and nothing more.
+
 
 ## Order, and why
 

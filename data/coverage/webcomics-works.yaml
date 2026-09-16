@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-16
+retrieved: 2026-09-17
 record_type: candidate_works
 works: 312
 candidates:
@@ -243,6 +243,10 @@ candidates:
   - title: "いじめっこ♡いじめられっこ"
     platforms: ["新都社"]
     urls: ["http://neetsha.jp/inside/comic.php?id=23916"]
+  - title: "いじめてくれる君がすき"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984151786084"]
+    tags: ["最近のコメント数"]
   - title: "いちこえ、にふり、タチアオイ"
     platforms: ["Gコミ", "pixivコミック"]
     urls: ["https://comic.pixiv.net/works/12328", "https://g-comi.jp/series/063225706887f"]
@@ -3059,7 +3063,7 @@ candidates:
   - title: "暗殺組合の山田さん"
     platforms: ["キミコミ"]
     urls: ["https://kimicomi.com/series/397963f4f9cfd"]
-    tags: ["最近のコメント数", "百合"]
+    tags: ["暗殺者・殺し屋", "最近のコメント数", "百合"]
   - title: "暴走!?サキュバスせんぱい"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/5448ec9f6077b"]
@@ -3747,6 +3751,10 @@ candidates:
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/12207421983765928461"]
     tags: ["女子高生", "百合"]
+  - title: "聖なる姫のかくしごと"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984151786081"]
+    tags: ["最近のコメント数"]
   - title: "肉の女王は愛の月"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/14079602755227529683"]

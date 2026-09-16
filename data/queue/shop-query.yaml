@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-09-16
+retrieved: 2026-09-17
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 217
+  hits_agreeing_on_a_creator: 219
   hits_on_the_title_alone: 85
   hits_stating_a_print_edition_date: 172
-  works_asked: 741
-  works_with_a_hit: 223
+  works_asked: 746
+  works_with_a_hit: 225
 works:
   - work_url: "https://bibibi-comic.com/series/e889bd092d08d"
     id: "w03256"
@@ -4366,6 +4366,66 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984222532884"
+    id: "w03252"
+    work: "バリキャリJKモネ先輩"
+    author: "椋木ななつ"
+    platform: "一迅プラス"
+    retrieved: "2026-09-17"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984222532889"
+    id: "w03263"
+    work: "神は私を撮りたいって言ってます！"
+    author: "散葉ちんみ"
+    platform: "一迅プラス"
+    retrieved: "2026-09-17"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984222532901"
+    id: "w00171"
+    work: "残骸少女、きらきらな世界の底"
+    author: "うさみみき"
+    platform: "一迅プラス"
+    retrieved: "2026-09-17"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984222532905"
+    id: "w00161"
+    work: "晴れた日のドレスコード"
+    author: "あげはる"
+    platform: "一迅プラス"
+    query: "author"
+    retrieved: "2026-09-17"
+    hits:
+      - series_url: null
+        title_listed: "晴れた日のドレスコード: 1【イラスト特典付】"
+        shop_author: "あげはる"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421984222532920"
+    id: "w00068"
+    work: "骨に願いを、星に呪いを"
+    author: "いくたはな"
+    platform: "一迅プラス"
+    query: "author"
+    retrieved: "2026-09-17"
+    hits:
+      - series_url: null
+        title_listed: "骨に願いを、星に呪いを: 1【イラスト特典付】"
+        shop_author: "いくたはな"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://ichicomi.com/episode/2550912965913104445"
     id: "w00481"
     work: "今宵、悪役令嬢の手をとれたら"

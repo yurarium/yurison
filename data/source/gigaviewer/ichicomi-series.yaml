@@ -1,7 +1,7 @@
 # Series whose own publisher labelling marks them yuri (DEFINITIONS §4).
 source: gigaviewer
 platform: ichicomi
-retrieved: 2026-09-16
+retrieved: 2026-09-17
 record_type: web_series
 series:
   - title: "2DK、Gペン、目覚まし時計。"
@@ -38,6 +38,12 @@ series:
     author: "神戸いちご"
     label: "コミック百合姫"
     genres: ["百合", "ラブコメ", "学園・青春"]
+    marketing_label: yuri
+    basis: publisher genre on 一迅プラス
+  - title: "いじめてくれる君がすき"
+    author: "まにお"
+    label: "コミック百合姫"
+    genres: ["百合"]
     marketing_label: yuri
     basis: publisher genre on 一迅プラス
   - title: "いとしこいし"
@@ -908,6 +914,12 @@ series:
     author: "黄井ぴかち"
     label: "コミック百合姫"
     genres: ["百合"]
+    marketing_label: yuri
+    basis: publisher genre on 一迅プラス
+  - title: "聖なる姫のかくしごと"
+    author: "葵季むつみ"
+    label: "コミック百合姫"
+    genres: ["百合", "ラブコメ", "ファンタジー"]
     marketing_label: yuri
     basis: publisher genre on 一迅プラス
   - title: "行進子犬に恋文を"

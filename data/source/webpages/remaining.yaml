@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-16
+retrieved: 2026-09-17
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -3968,13 +3968,11 @@ works:
       - title: "4話"
         updated: 2025-10-17
         author: "しのぎあさ"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["free"]
       - title: "5話"
         updated: 2025-10-17
         author: "しのぎあさ"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["free"]
       - title: "6話"
         updated: 2025-10-17
         author: "しのぎあさ"
@@ -4043,7 +4041,8 @@ works:
       - title: "20話"
         updated: 2026-05-29
         author: "しのぎあさ"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
   - work_title: "世界をすくってもお腹はすくから"
     author: "裏海マユ,ちょきんぎょ。"
     url: "https://g-comi.jp/series/58238b3987c11"
@@ -4840,11 +4839,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-15
+        updated: 2026-09-16
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-15
+        updated: 2026-09-16
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

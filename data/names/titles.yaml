@@ -1,4 +1,4 @@
-generated: '2026-09-15'
+generated: '2026-09-16'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -8383,6 +8383,25 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  いじめてくれる君がすき:
+    basis: romaji
+    furigana_spans:
+    - - いじめてくれる
+      - null
+    - - 君
+      - きみ
+    - - がすき
+      - null
+    reading: イジメテ クレル キミ ガ スキ
+    reading_at: '2026-09-16'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   いじわるしないで:
     basis: translated
     en: Don't Be Mean
@@ -76506,6 +76525,27 @@ names:
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
     reading_source_kind: derived
+    verified: false
+  聖なる姫のかくしごと:
+    basis: romaji
+    furigana_spans:
+    - - 聖
+      - せい
+    - - なる
+      - null
+    - - 姫
+      - ひめ
+    - - のかくしごと
+      - null
+    reading: セイナル ヒメ ノ カクシゴト
+    reading_at: '2026-09-16'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
     verified: false
   聖夜大作戦！恋と仕事のフィニッシュライン:
     basis: translated

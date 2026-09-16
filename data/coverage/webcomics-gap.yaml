@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-16
+retrieved: 2026-09-17
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -21,9 +21,9 @@ platforms_missing:
     works: 3
   - platform: "きら星ポータル"
     works: 2
-  - platform: "新都社"
-    works: 1
   - platform: "pixivコミックマガジン"
+    works: 1
+  - platform: "新都社"
     works: 1
   - platform: "COMIC ポルタ"
     works: 1
@@ -150,7 +150,7 @@ works_missing:
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
     antenna_id: "186534"
-    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
+    tags: ["最近のコメント数"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
@@ -166,6 +166,11 @@ works_missing:
     url: "https://magcomi.com/episode/12207421983866622005"
     antenna_id: "210428"
     tags: ["読み切り", "群像劇", "百合"]
+  - title: "バカ女26時"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/9913"
+    antenna_id: "160314"
+    tags: ["百合", "海外", "現代"]
   - title: "姫騎士と姫巫女"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13609"
@@ -251,11 +256,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/10005"
     antenna_id: "161448"
     tags: ["百合", "大学生", "異種族・人外", "現代", "料理・グルメ"]
-  - title: "バカ女26時"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/9913"
-    antenna_id: "160314"
-    tags: ["百合", "海外", "現代"]
   - title: "バクガタリzzZ"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/12795"
@@ -291,11 +291,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/13322"
     antenna_id: "210602"
     tags: ["百合"]
-  - title: "異種族女子に〇〇する話"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/7840"
-    antenna_id: "125993"
-    tags: ["異種族・人外", "学園", "百合", "完結"]
   - title: "ゆりひめ@ピクシブ"
     platform: "pixivコミックマガジン"
     url: "https://comic.pixiv.net/magazines/206"
@@ -331,6 +326,11 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "咲きそめコンプレックス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006662_S"
+    antenna_id: "188908"
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "リリィズコンプレックス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005531_S"
@@ -481,11 +481,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007176_S"
     antenna_id: "197816"
     tags: ["百合", "作家"]
-  - title: "咲きそめコンプレックス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006662_S"
-    antenna_id: "188908"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "私の彼女はボディビルダー"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019973_S"
@@ -656,11 +651,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008416_S"
     antenna_id: "203344"
     tags: ["百合"]
-  - title: "月はヒツジを数えない"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006665_S"
-    antenna_id: "188288"
-    tags: ["百合", "異世界", "恋愛", "男装"]
   - title: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
@@ -710,7 +700,7 @@ works_missing:
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
     antenna_id: "213718"
-    tags: ["百合"]
+    tags: ["百合", "暗殺者・殺し屋"]
   - title: "ステラ・ステップ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
@@ -756,11 +746,6 @@ works_missing:
     url: "https://comic-days.com/episode/12207421983885192770"
     antenna_id: "211281"
     tags: ["百合", "読み切り"]
-  - title: "アイドラトリィ"
-    platform: "コミックDAYS"
-    url: "https://comic-days.com/episode/2551460909661028261"
-    antenna_id: "196259"
-    tags: ["百合", "アイドル", "ギャグ・コメディ"]
   - title: "résonance"
     platform: "コミックDAYS"
     url: "https://comic-days.com/episode/12207421983793418075"
@@ -816,16 +801,16 @@ works_missing:
     url: "https://ddnavi.com/sazametorio/"
     antenna_id: "213473"
     tags: ["百合"]
-  - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/21fe5b3d50300"
-    antenna_id: "199771"
-    tags: ["百合", "アイドル"]
   - title: "ガールズ×ヴァンパイア"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
     antenna_id: "200285"
     tags: ["百合", "吸血鬼・ヴァンパイア"]
+  - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
+    platform: "チャンピオンクロス"
+    url: "https://championcross.jp/series/21fe5b3d50300"
+    antenna_id: "199771"
+    tags: ["百合", "アイドル"]
   - title: "上伊那ぼたん、酔へる姿は百合の花"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/ae4257e66bab5"
@@ -846,6 +831,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "咲きそめコンプレックス"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72944"
+    antenna_id: "188893"
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
   - title: "今日はカノジョがいないから"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/56450"
@@ -986,11 +976,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/47294"
     antenna_id: "103430"
     tags: ["百合", "女子高生", "ゲーム・eスポーツ", "青春", "ギャグ・コメディ", "アニメ化"]
-  - title: "咲きそめコンプレックス"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/72944"
-    antenna_id: "188893"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
   - title: "ユリノコ"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/70137"
@@ -1076,6 +1061,11 @@ works_missing:
     url: "https://flowercomics.jp/title/2780"
     antenna_id: "193062"
     tags: ["百合"]
+  - title: "怨霊日和"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    antenna_id: "202785"
+    tags: ["最近のコメント数"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"
@@ -1086,16 +1076,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03282"
     antenna_id: "211531"
     tags: ["百合", "オカルト"]
-  - title: "怨霊日和"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03125"
-    antenna_id: "202785"
-    tags: ["最近のコメント数"]
-  - title: "アイドラトリィ"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/02901"
-    antenna_id: "191089"
-    tags: ["百合", "アイドル", "推し活"]
   - title: "怪獣ロマンティクス"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03196"
@@ -1201,21 +1181,21 @@ works_missing:
     url: "https://ynjn.jp/title/30352"
     antenna_id: "203570"
     tags: ["百合", "オムニバス・短編集"]
-  - title: "限界OLさんは悪役令嬢さまに仕えたい"
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/90af950945671"
-    antenna_id: "148787"
-    tags: ["召喚", "乙女ゲーム", "百合", "中世ヨーロッパ風", "悪役令嬢", "ファンタジー"]
-  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/86c1162f34a04"
-    antenna_id: "197348"
-    tags: ["ファンタジー", "令嬢", "百合"]
   - title: "スカベンジャーズアナザースカイ"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
     antenna_id: "148792"
     tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
+  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/86c1162f34a04"
+    antenna_id: "197348"
+    tags: ["ファンタジー", "令嬢", "百合"]
+  - title: "限界OLさんは悪役令嬢さまに仕えたい"
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/90af950945671"
+    antenna_id: "148787"
+    tags: ["召喚", "乙女ゲーム", "百合", "中世ヨーロッパ風", "悪役令嬢", "ファンタジー"]
   - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/e95df2815bad1"
@@ -1241,6 +1221,16 @@ works_missing:
     url: "https://comicride.jp/series/7b86cbca64ebe"
     antenna_id: "84661"
     tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
+  - title: "聖なる姫のかくしごと"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984151786081"
+    antenna_id: "215149"
+    tags: ["最近のコメント数"]
+  - title: "いじめてくれる君がすき"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984151786084"
+    antenna_id: "215148"
+    tags: ["最近のコメント数"]
   - title: "姫虐が止まらない白桃さん"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/12207421983584564641"
@@ -1395,7 +1385,7 @@ works_missing:
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"
     antenna_id: "206108"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
   - title: "運命は役に立たない"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"

@@ -204,8 +204,8 @@ per-series feed for the same platform states it on every one: 2,991 of 2,991 for
 clause asks whether SOME attested row of the PLATFORM states access, so one route answers on the
 other's behalf.
 
-**THE SERIES OF VALUES.** 40, 54, 43, 46, 42, 43, 39, 41, 43. It does not drift toward anything: the
-population is whichever platform-feed rows sit inside the 60-day window on the day.
+**THE SERIES OF VALUES.** 40, 54, 43, 46, 42, 43, 39, 41, 43, 44. It does not drift toward anything:
+the population is whichever platform-feed rows sit inside the 60-day window on the day.
 
 **SO THE RATCHET IS THE WRONG CONTROL FOR IT,** which docs/GAPS.md argues under "A budget over a
 churning population cannot ratchet": banking every trough makes the ceiling the lowest value ever
@@ -216,6 +216,16 @@ only see the platform". A release does not carry the pass that wrote it, so noth
 series-feed row from a platform-feed row. Give `release` that field and this measure stops seeing
 them at all. Until then a rise here is worth a glance at the composition and nothing more.
 
+
+## Two rises on 2026-09-17, two works arriving on 一迅プラス
+
+`titles read by a machine, unmarked` 1179 to 1181 and `updates naming a work we do not hold` 44 to
+46 are both いじめてくれる君がすき and 聖なる姫のかくしごと, which arrived on 一迅プラス and which the
+corpus holds no record of yet. The run added those two titles to the name store and no authors,
+because both bylines were already known: まにお and 葵季むつみ. 第1話 of the first is typed
+`new-series`, which is what a work's opening instalment should read as.
+
+The unheld set is 24 works. Both fall when the works gain a record.
 
 ## Order, and why
 

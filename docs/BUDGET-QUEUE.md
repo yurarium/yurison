@@ -204,8 +204,10 @@ per-series feed for the same platform states it on every one: 2,991 of 2,991 for
 clause asks whether SOME attested row of the PLATFORM states access, so one route answers on the
 other's behalf.
 
-**THE SERIES OF VALUES.** 40, 54, 43, 46, 42, 43, 39, 41, 43, 44. It does not drift toward anything:
-the population is whichever platform-feed rows sit inside the 60-day window on the day.
+**THE SERIES OF VALUES.** 40, 54, 43, 46, 42, 43, 39, 41, 43, 44, 59. It does not drift toward
+anything: the population is whichever platform-feed rows sit inside the 60-day window on the day,
+and a step can be large. The 44 to 59 of 2026-09-18 is `comic-days.yaml` going from 75 releases to
+93, none of them stating access, which is that feed publishing rather than anything changing.
 
 **SO THE RATCHET IS THE WRONG CONTROL FOR IT,** which docs/GAPS.md argues under "A budget over a
 churning population cannot ratchet": banking every trough makes the ceiling the lowest value ever
@@ -226,6 +228,27 @@ because both bylines were already known: まにお and 葵季むつみ. 第1話 
 `new-series`, which is what a work's opening instalment should read as.
 
 The unheld set is 24 works. Both fall when the works gain a record.
+
+## Six rises on 2026-09-18, and 一迅プラス listing two works is all of them
+
+`listing series with no feed of their own` 0 to 2 is the one worth reading, because it had been at
+zero and its docstring says a rise means the name-to-id pairing has slipped again. It has not. The
+listing went 168, 170, 172 over three runs while the feeds run resolved 168, 170, 170, so the two
+runs before this were exactly in step and the shortfall equals the arrivals. Comparing titles names
+them outright: キミに触れて、感じたい by 宇留米いわし, tagged 新人・読切, and ホテルの外でもあいたいよ
+by らぱ☆, both under コミック百合姫. A pairing slip is off by one from the listing's SECOND entry
+and shows nothing when titles are compared, which is the signature this does not have.
+
+The budget's docstring assumed an early listing still resolves an id and returns no episodes, so it
+concluded the honest value is zero. A work listed before it has a feed at all resolves nothing, which
+puts the floor above zero for as long as the platform stays ahead of itself. Corrected in place,
+with the test that tells the two causes apart.
+
+The other five are the same two works. `author names romanised as one word` 1208 to 1209,
+`author readings no source states` 440 to 441 and `credit fields an identifier does not cover` 80 to
+82 are 宇留米いわし and らぱ☆, the only two entries the run added to the name store.
+`announced works the corpus does not hold` 13 to 14 and `updates naming a work we do not hold` 46 to
+49 are their rows. The unheld set is 26 works.
 
 ## Order, and why
 

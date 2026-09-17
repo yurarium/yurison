@@ -3030,7 +3030,15 @@ def budget_listing_series_with_no_feed_of_their_own(ctx):
 
     COUNTED, because a listing entry announced before its first chapter resolves an id and returns
     no episodes, which is the platform being early. Both passes run in the same Stage A against the
-    same page, so the honest value is zero and a rise is the pairing slipping again.
+    same page, so a rise is USUALLY the pairing slipping again.
+
+    AND THE FLOOR IS NOT ALWAYS ZERO, corrected 2026-09-18 by a case the paragraph above assumed
+    away. 一迅プラス listed キミに触れて、感じたい and ホテルの外でもあいたいよ on the day this rose
+    to 2, and a work the listing names before it has a feed AT ALL resolves no id, so it is short
+    rather than empty. The two runs before it were exactly in step, 168 against 168 and 170 against
+    170, and the shortfall equalled the arrivals, which is what tells the two causes apart: a
+    pairing slip is off by one from the listing's second entry and shows nothing when the titles are
+    compared, while an early listing shows exactly the works it named. Compare the titles first.
     """
     d = ROOT / "data" / "source" / "gigaviewer"
     if not d.is_dir():

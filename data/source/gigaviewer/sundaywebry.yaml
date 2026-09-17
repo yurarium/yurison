@@ -6,11 +6,28 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-09-17
+retrieved: 2026-09-18
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984247359814"
+    work_title: "てくのぱにっくゆにばーす"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "ショートショート 目指せ爆裂球技日本一！"
+    release_type: "unclassified"
+    date: "2026-09-18"
+    date_basis: "observed"
+    first_seen: "2026-09-18"
+    first_reported: "2026-09-17T15:00:00Z"
+    platform_updated: "2026-09-17T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984247359814"
+    author: "伏見ダイキ"
+    free_term_start: "2026-09-17T15:00:00Z"
+    raw_title: "ショートショート 目指せ爆裂球技日本一！"
+    advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984237603748"
     work_title: "#ギャルとギャルの百合"
     web_status: "serialised"
@@ -44,6 +61,7 @@ releases:
     free_term_start: "2026-09-14T15:00:00Z"
     advances_narrative: true
   - release_id: "sunday_webry:episode:12207421984217395007"
+    in_current_window: false
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -61,6 +79,7 @@ releases:
     raw_title: "ショートショート 初見の二人"
     advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984217401079"
+    in_current_window: false
     work_title: "メイド＆ロイドはお嬢様のお役に立ちたい！"
     web_status: "serialised"
     identified_via: "discovery-candidate"

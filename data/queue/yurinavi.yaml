@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-17
+retrieved: 2026-09-18
 record_type: discovery_queue
 candidates:
   - work_title: "天使なんかにならないで"
@@ -17,6 +17,15 @@ candidates:
     platform_code: "12207421984187016919"
     work_url: "https://magcomi.com/episode/12207421984187016919"
     headline: "双子の妹への依存感情を描く百合読み切り「天使なんかにならないで」WEBで公開"
+    status: unconfirmed
+  - work_title: "いじめてくれる君がすき"
+    signal: "new-serial"
+    announced: "Thu, 17 Sep 2026 11:00:29 +0000"
+    url: "https://yurinavi.com/2026/09/17/ijimetekurerukimigasuki-start/"
+    platform: "ichicomi"
+    platform_code: "12207421984151786084"
+    work_url: "https://ichicomi.com/episode/12207421984151786084"
+    headline: "“きたかわ”のまにお先生が描く、少女たちの歪んだ関係――百合姫新連載「いじめてくれる君がすき」WEBで公開"
     status: unconfirmed
   - work_title: "夜明けのアリス"
     signal: "oneshot"

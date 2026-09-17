@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-17
+retrieved: 2026-09-18
 record_type: candidate_works
-works: 312
+works: 311
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -697,7 +697,7 @@ candidates:
   - title: "どれが恋かがわからない"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001190_S", "https://manga.nicovideo.jp/comic/56504"]
-    tags: ["大学生", "恋愛", "百合"]
+    tags: ["大学生", "恋愛", "最近のコメント数", "百合"]
   - title: "ないしょのおふたりさま。"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_001599_S", "https://manga.nicovideo.jp/comic/62478"]
@@ -921,8 +921,9 @@ candidates:
     urls: ["https://www.comic-ryu.jp/series/yuridenaruespoir/"]
     tags: ["女子高生", "百合"]
   - title: "ゆりでなる♥えすぽわーる"
-    platforms: ["ニコニコ漫画"]
-    urls: ["https://manga.nicovideo.jp/comic/42275"]
+    platforms: ["COMICリュウライブ", "ニコニコ漫画"]
+    urls: ["https://comic-ryu.jp/series/b90143637a741", "https://manga.nicovideo.jp/comic/42275"]
+    tags: ["女子高生", "百合"]
   - title: "ゆりひめ@ピクシブ"
     platforms: ["pixivコミックマガジン"]
     urls: ["https://comic.pixiv.net/magazines/206"]
@@ -1181,6 +1182,10 @@ candidates:
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923203479"]
     tags: ["百合", "青春", "音楽"]
+  - title: "キミに触れて、感じたい"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984222943969"]
+    tags: ["百合", "読み切り"]
   - title: "キャッチユー・キャッチミー"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/3269754496613350277"]
@@ -1694,6 +1699,10 @@ candidates:
   - title: "ペンションライフ・ヴァンパイア"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/4856001361094389428"]
+  - title: "ホテルの外でもあいたいよ"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984222944066"]
+    tags: ["百合", "読み切り"]
   - title: "ホントのキモチ"
     platforms: ["COMIC Y-OURS"]
     urls: ["https://comic-y-ours.com/episode/12207421983499079730"]
@@ -2982,7 +2991,7 @@ candidates:
   - title: "新刊100億冊ください"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/2550912965415315207"]
-    tags: ["オタク", "ブロ・シスマンス", "中二病", "同人活動", "漫画家・絵描き", "百合"]
+    tags: ["オタク", "ブロ・シスマンス", "中二病", "同人活動", "最近のコメント数", "漫画家・絵描き", "百合"]
   - title: "新米勇者のおしながき～乃木若葉は勇者である すぴんあうと4コマ～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002860_S"]
@@ -3046,7 +3055,7 @@ candidates:
   - title: "春雷卓球"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094912913096422"]
-    tags: ["スポーツ", "卓球", "女子高生", "百合", "運動系部活"]
+    tags: ["スポーツ", "卓球", "女子高生", "最近のコメント数", "百合", "運動系部活"]
   - title: "春風のふり"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007149_S"]
@@ -3642,8 +3651,8 @@ candidates:
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965919401648"]
   - title: "私の魂を食べて下さい!"
-    platforms: ["COMICリュウ"]
-    urls: ["https://www.comic-ryu.jp/series/watashinotamashiiwotabetekudasai/"]
+    platforms: ["COMICリュウ", "COMICリュウライブ"]
+    urls: ["https://comic-ryu.jp/series/faa2bad81d17a", "https://www.comic-ryu.jp/series/watashinotamashiiwotabetekudasai/"]
     tags: ["お色気・微エロ", "獣人", "百合"]
   - title: "私の魔法使い"
     platforms: ["コミックDAYS"]
@@ -3823,10 +3832,10 @@ candidates:
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/38"]
     tags: ["アニメ化", "オカルト", "コミカライズ", "ホラー", "同性愛・LGBTQ+", "恋愛", "最近のコメント数", "現代ファンタジー", "百合"]
-  - title: "見えてますよ!愛沢さん"
+  - title: "見えてますよ! 愛沢さん"
     platforms: ["キミコミ", "ニコニコ漫画"]
     urls: ["https://kimicomi.com/series/330f3ad1270c8", "https://manga.nicovideo.jp/comic/60277"]
-    tags: ["アイドル", "ホラー", "女子高生", "幽霊", "百合"]
+    tags: ["アイドル", "ホラー", "女子高生", "幽霊", "最近のコメント数", "百合"]
   - title: "見える子ちゃん"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/37662"]
@@ -3841,7 +3850,7 @@ candidates:
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/5a87d01128492"]
     tags: ["学園", "百合"]
-  - title: "誰かオオカミさんのしつけ方知りませんか⁉"
+  - title: "誰かオオカミさんのしつけ方知りませんか!?"
     platforms: ["ニコニコ漫画", "一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983347947242", "https://manga.nicovideo.jp/comic/76631"]
     tags: ["ラブコメ", "女子高生", "現代", "百合"]

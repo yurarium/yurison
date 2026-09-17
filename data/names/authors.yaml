@@ -1,4 +1,4 @@
-generated: '2026-09-16'
+generated: '2026-09-17'
 names:
   '*sow*':
     basis: stated
@@ -8511,6 +8511,14 @@ names:
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
     reading_url: http://id.ndl.go.jp/auth/entity/001247543
+    verified: true
+  らぱ☆:
+    basis: romaji
+    reading: ラパ☆
+    reading_at: '2026-09-17'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
     verified: true
   りいちゅ:
     basis: romaji
@@ -21384,6 +21392,27 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784832241954
     verified: true
+  宇留米いわし:
+    basis: romaji
+    furigana_spans:
+    - - 宇
+      - う
+    - - 留
+      - とめ
+    - - 米
+      - べい
+    - - いわし
+      - null
+    reading: ウトメベイ イワシ
+    reading_at: '2026-09-17'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   宇藤あかり:
     basis: romaji
     reading: ウドウアカリ

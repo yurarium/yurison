@@ -3648,3 +3648,38 @@ that wrote it and the measure stops seeing them at all, and what is left may wel
 churns needs a different control from one that improves: a band it must stay inside, or a tripwire on
 the rate of change rather than the level. Choosing between those is the owner's, and inventing one
 unasked would be a third kind of control nobody reads.
+
+## A platform renamed a work in place, and what said so was a curated name four steps away
+
+Found 2026-09-18, after runs 35362930615, 35367515038 and 35369966831 all died on the same line.
+
+**WHAT THE RUNS SAID.** `curate.py --apply` exited 1 on `titles/私の彼女はボディビルダー: names no
+work in the catalogue`, which is the check for a hand-typed key off by a wave dash or a bracket. The
+key was typed correctly and had joined every day since 2026-09-01.
+
+**WHAT HAD HAPPENED.** カドコミ changed the work's own title from `私の彼女はボディビルダー` to
+`私の彼女はボディビルダー／読切版`, keeping the code `KC_019973_S`, the author, the summary, the tags
+and `isOneShot`. The suffix marks the one-shot apart from something, and the platform serves it as
+the work's title, so `work_title` carries it into the capture and the corpus holds the work under the
+new spelling. `w03265` never moved. Only its name did, and the curated file keys on the name.
+
+**WHAT I CHASED FIRST, AND WHY.** The カドコミ capture went from 6899 episodes with 6508 dated to
+6903 with 6504 across the same days, so a read that came back four dates thinner looked like the
+cause, and the fetch cache reuses a page for a day, which explained why the next run reported the
+same shortfall to the digit. Both observations are true and neither is the fault. Deleting the two
+`fetch-` caches bought a genuine thousand-second re-read that reproduced 6903 and 6504 exactly, which
+is what said the capture was stable and sent the question back to the title. A timing signature is
+worth keeping either way: a run that re-reads カドコミ takes about a thousand seconds and one that
+replays its cache takes twelve.
+
+**WHAT THE STORE ALREADY KNOWS.** The work is one row with one identity across the rename, and
+`surface.alias_of` exists for one title standing for another. Nothing joins the two spellings here,
+because that link is made from print catalogue records and this work has none, so the old name simply
+stopped existing and the curated ruling detached.
+
+**WHAT IS OPEN FOR THE OWNER.** A platform renaming a work in place is an ordinary event and the
+corpus holds both spellings across the two runs that straddle it, so the run could say `w03265 was
+私の彼女はボディビルダー and is now 私の彼女はボディビルダー／読切版` on the day it happens and name
+the curated entry that follows it. What it says instead is that a key names nothing, four steps
+downstream, as the fatal that stops the night. The pieces for the better message are the work id, the
+previous compile's title for it, and the curated key that folded onto the old one.

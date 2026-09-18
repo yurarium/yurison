@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-18
+retrieved: 2026-09-19
 record_type: candidate_works
 works: 311
 candidates:
@@ -246,7 +246,7 @@ candidates:
   - title: "いじめてくれる君がすき"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984151786084"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合"]
   - title: "いちこえ、にふり、タチアオイ"
     platforms: ["Gコミ", "pixivコミック"]
     urls: ["https://comic.pixiv.net/works/12328", "https://g-comi.jp/series/063225706887f"]
@@ -935,6 +935,7 @@ candidates:
   - title: "ゆりゾン"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/2550912965728497650"]
+    tags: ["最近のコメント数"]
   - title: "ゆるおやこ"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/7440"]
@@ -2953,8 +2954,9 @@ candidates:
     platforms: ["comicブースト"]
     urls: ["https://comic-boost.com/content/01000001"]
   - title: "推しが武道館いってくれたら死ぬ"
-    platforms: ["COMICリュウ", "ニコニコ漫画"]
-    urls: ["https://manga.nicovideo.jp/comic/45194", "https://www.comic-ryu.jp/series/osibudo/"]
+    platforms: ["COMICリュウ", "COMICリュウライブ", "ニコニコ漫画"]
+    urls: ["https://comic-ryu.jp/series/326efc41c1767", "https://manga.nicovideo.jp/comic/45194", "https://www.comic-ryu.jp/series/osibudo/"]
+    tags: ["最近のコメント数"]
   - title: "推しが死んだのでタイムリープして生存ルート確保します!"
     platforms: ["pixivコミック", "コミックDAYS"]
     urls: ["https://comic-days.com/episode/316112896845687903", "https://comic.pixiv.net/works/9026"]
@@ -3076,7 +3078,7 @@ candidates:
   - title: "暴走!?サキュバスせんぱい"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/series/5448ec9f6077b"]
-    tags: ["お色気・微エロ", "サキュバス", "異世界", "百合"]
+    tags: ["お色気・微エロ", "サキュバス", "最近のコメント数", "異世界", "百合"]
   - title: "最低な君が好き"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2550912965974316524"]
@@ -3763,7 +3765,7 @@ candidates:
   - title: "聖なる姫のかくしごと"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984151786081"]
-    tags: ["最近のコメント数"]
+    tags: ["エロ", "ファンタジー", "最近のコメント数", "百合"]
   - title: "肉の女王は愛の月"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/14079602755227529683"]
@@ -3853,7 +3855,7 @@ candidates:
   - title: "誰かオオカミさんのしつけ方知りませんか!?"
     platforms: ["ニコニコ漫画", "一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983347947242", "https://manga.nicovideo.jp/comic/76631"]
-    tags: ["ラブコメ", "女子高生", "現代", "百合"]
+    tags: ["ラブコメ", "女子高生", "最近のコメント数", "現代", "百合"]
   - title: "謎のユリイカ"
     platforms: ["マンガよもんが"]
     urls: ["https://www.yomonga.com/titles/2546/"]

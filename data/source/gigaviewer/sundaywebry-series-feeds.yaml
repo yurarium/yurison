@@ -10,7 +10,7 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-09-18
+retrieved: 2026-09-19
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 68
@@ -165,8 +165,14 @@ works:
   - work_title: "てくのぱにっくゆにばーす"
     series_id: "2551460909679434702"
     url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
-    chapter_count: 40
+    chapter_count: 41
     chapters:
+      - title: "ショートショート 目指せ爆裂球技日本一！"
+        updated: 2026-09-18
+        author: "伏見ダイキ"
+        url: "https://www.sunday-webry.com/episode/12207421984247359814"
+        free_from: 2026-09-17
+        access_modes: ["free"]
       - title: "ショートショート 初見の二人"
         updated: 2026-09-11
         author: "伏見ダイキ"

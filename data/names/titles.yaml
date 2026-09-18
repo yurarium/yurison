@@ -26341,6 +26341,29 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  キミに触れて、感じたい:
+    basis: romaji
+    furigana_spans:
+    - - キミに
+      - null
+    - - 触
+      - ふ
+    - - れて、
+      - null
+    - - 感
+      - かん
+    - - じたい
+      - null
+    reading: キミ ニ フレテ、 カンジタイ
+    reading_at: '2026-09-18'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
   キミイロ少女:
     basis: translated
     en: The Girl in Your Colour
@@ -34862,6 +34885,25 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  ホテルの外でもあいたいよ:
+    basis: romaji
+    furigana_spans:
+    - - ホテルの
+      - null
+    - - 外
+      - そと
+    - - でもあいたいよ
+      - null
+    reading: ホテル ノ ソト デ モ アイタイ ヨ
+    reading_at: '2026-09-18'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
   ホテル・ローレルの渡り鳥たち:
@@ -73355,6 +73397,39 @@ names:
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
     reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
+  私の彼女はボディビルダー／読切版:
+    basis: translated
+    en: My Girlfriend Is a Bodybuilder / One-Shot Edition
+    en_at: '2026-09-19'
+    en_reviewed: '2026-09-19'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 私
+      - わたし
+    - - の
+      - null
+    - - 彼女
+      - かのじょ
+    - - はボディビルダー／
+      - null
+    - - 読切
+      - よみきり
+    - - 版
+      - ばん
+    note: "私の彼女 is my girlfriend and ボディビルダー is the English bodybuilder in katakana. A plain statement\
+      \ with\n nothing coined in it. カドコミ added ／読切版 to the work's own title on 2026-09-18 while keeping\
+      \ the code\n KC_019973_S, the author and the summary, so the key moved with it. 読切 is a one-shot\
+      \ and 版 is the edition\n it marks, and the English keeps the break the way ガール／フレンド does."
+    reading: ワタシ ノ カノジョ ワ ボディ ビルダー ／ ヨミキリ バン
+    reading_at: '2026-09-18'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser

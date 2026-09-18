@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-09-18
+retrieved: 2026-09-19
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 219
+  hits_agreeing_on_a_creator: 220
   hits_on_the_title_alone: 85
-  hits_stating_a_print_edition_date: 172
-  works_asked: 746
-  works_with_a_hit: 225
+  hits_stating_a_print_edition_date: 173
+  works_asked: 749
+  works_with_a_hit: 226
 works:
   - work_url: "https://bibibi-comic.com/series/e889bd092d08d"
     id: "w03256"
@@ -2256,6 +2256,43 @@ works:
         publisher: "集英社"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984242426040"
+    id: "w00108"
+    work: "壊していいよ、すいかちゃん"
+    author: "虫歯"
+    platform: "COMIC OGYAAA!!"
+    retrieved: "2026-09-19"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984242426056"
+    id: "w00158"
+    work: "あの子とふたりで。"
+    author: "当麻"
+    platform: "COMIC OGYAAA!!"
+    query: "author"
+    retrieved: "2026-09-19"
+    hits:
+      - series_url: "https://bookwalker.jp/series/570214/list/"
+        title_listed: "あの子とふたりで。（ヤングジャンプコミックスDIGITAL）"
+        shop_author: "当麻"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        printed: "2025/12/23"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984242426061"
+    id: "w00415"
+    work: "ゆりゾン"
+    author: "倉田英之 / 森山大輔"
+    platform: "COMIC OGYAAA!!"
+    retrieved: "2026-09-19"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://comic-ogyaaa.com/episode/2550689798875510910"
     id: "w00681"
     work: "サバーキ"

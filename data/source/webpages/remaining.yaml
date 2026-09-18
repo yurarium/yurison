@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-18
+retrieved: 2026-09-19
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -2358,7 +2358,7 @@ works:
     url: "https://g-comi.jp/series/5448ec9f6077b"
     platform_name: "Gコミ"
     route: "comici"
-    chapter_count: 10
+    chapter_count: 11
     chapters:
       - title: "第1話"
         updated: 2025-12-19
@@ -2400,6 +2400,10 @@ works:
         updated: 2026-08-14
         author: "ミナミト"
         access_modes: ["purchase"]
+      - title: "第11話"
+        updated: 2026-09-18
+        author: "ミナミト"
+        access_modes: ["free"]
   - work_title: "運命は役に立たない"
     author: "まめ魚"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
@@ -2966,8 +2970,12 @@ works:
     url: "https://comic-ogyaaa.com/episode/2550912965818317820"
     platform_name: "コミックオギャー!!"
     route: "gigaviewer"
-    chapter_count: 14
+    chapter_count: 15
     chapters:
+      - title: "第13話"
+        updated: 2026-09-18
+        author: "当麻"
+        access_modes: ["free"]
       - title: "第12話"
         updated: 2026-08-21
         author: "当麻"
@@ -4866,11 +4874,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

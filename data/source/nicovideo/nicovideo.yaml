@@ -9,12 +9,140 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-09-18
+retrieved: 2026-09-19
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 494
 works:
+  - work_title: "イジめてイジられて"
+    author: "千田大輔(著者)"
+    url: "https://manga.nicovideo.jp/comic/83472"
+    comic_id: "83472"
+    updated: "2026-09-18"
+    started: "2026-07-17"
+    episode_count: 10
+    free_episodes: 10
+    channel: "ヤングエースUP"
+    channel_slug: "youngaceup"
+    latest_episode: "番外編①"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1133298"
+  - work_title: "人妻教師が教え子の女子高生にドはまりする話"
+    author: "川上しをん(作画) 入間人間(原作) 猫屋敷ぷしお(キャラクターデザイン)"
+    url: "https://manga.nicovideo.jp/comic/74091"
+    comic_id: "74091"
+    updated: "2026-09-18"
+    started: "2025-09-18"
+    episode_count: 4
+    free_episodes: 4
+    channel: "電撃だいおうじ"
+    channel_slug: "daiohg"
+    latest_episode: "第10話前半"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129743"
+  - work_title: "魔法少女にあこがれて"
+    author: "小野中彰大"
+    url: "https://manga.nicovideo.jp/comic/40675"
+    comic_id: "40675"
+    updated: "2026-09-18"
+    started: "2019-04-26"
+    episode_count: 8
+    free_episodes: 8
+    channel: "竹コミ！"
+    channel_slug: "takecomic"
+    latest_episode: "番外編④"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1123323"
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-09-18"
+    started: "2019-10-20"
+    episode_count: 144
+    free_episodes: 144
+    latest_episode: "ロボ24-6"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1150860"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-09-18"
+    started: "2022-08-31"
+    episode_count: 119
+    free_episodes: 119
+    latest_episode: "第8話の8"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1150866"
+  - work_title: "好都合セミフレンド"
+    author: "千種みのり"
+    url: "https://manga.nicovideo.jp/comic/63674"
+    comic_id: "63674"
+    updated: "2026-09-17"
+    started: "2023-06-15"
+    episode_count: 4
+    free_episodes: 4
+    channel: "きららベース"
+    channel_slug: "kirara"
+    latest_episode: "第43話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129933"
+  - work_title: "誰かオオカミさんのしつけ方知りませんか⁉"
+    author: "餡実ツキ"
+    url: "https://manga.nicovideo.jp/comic/76631"
+    comic_id: "76631"
+    updated: "2026-09-17"
+    started: "2026-02-18"
+    episode_count: 3
+    free_episodes: 3
+    channel: "ニコニコ百合姫"
+    channel_slug: "nico-yurihime"
+    latest_episode: "第6話　オオカミさんとお家で二人っきりはピンチですか⁉"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1132180"
+  - work_title: "運命のヤマダダダダダダダダダダ"
+    author: "おにぎりパクパク"
+    url: "https://manga.nicovideo.jp/comic/72312"
+    comic_id: "72312"
+    updated: "2026-09-17"
+    started: "2025-06-19"
+    episode_count: 5
+    free_episodes: 5
+    channel: "きららベース"
+    channel_slug: "kirara"
+    latest_episode: "第18話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129934"
+  - work_title: "きみとボドゲが作りたい！"
+    author: "赤城ナツイチ"
+    url: "https://manga.nicovideo.jp/comic/72637"
+    comic_id: "72637"
+    updated: "2026-09-17"
+    started: "2025-06-19"
+    episode_count: 18
+    free_episodes: 18
+    channel: "きららベース"
+    channel_slug: "kirara"
+    latest_episode: "第18話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129936"
+  - work_title: "魔法少女201"
+    author: "むちゃ"
+    url: "https://manga.nicovideo.jp/comic/65870"
+    comic_id: "65870"
+    updated: "2026-09-17"
+    started: "2023-10-19"
+    episode_count: 9
+    free_episodes: 9
+    channel: "ウルトラジャンプ ニコニコ版"
+    channel_slug: "ultrajump"
+    latest_episode: "第56話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1144291"
+  - work_title: "ララのうた"
+    author: "河野スイ"
+    url: "https://manga.nicovideo.jp/comic/62230"
+    comic_id: "62230"
+    updated: "2026-09-17"
+    started: "2023-02-02"
+    episode_count: 31
+    free_episodes: 31
+    channel: "コミックPASH! ver.N"
+    channel_slug: "comicpash"
+    latest_episode: "第35話　アリデラの日記①"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112083"
   - work_title: "おやすみシェヘラザード"
     author: "篠房六郎"
     url: "https://manga.nicovideo.jp/comic/34558"
@@ -35,26 +163,6 @@ works:
     channel_slug: "kadocomi"
     latest_episode: "第13話-1"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1143562"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-09-16"
-    started: "2019-10-20"
-    episode_count: 142
-    free_episodes: 142
-    latest_episode: "ロボ24-4"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1145041"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-09-16"
-    started: "2022-08-31"
-    episode_count: 117
-    free_episodes: 117
-    latest_episode: "第8話の6"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1145042"
   - work_title: "不器用ビンボーダンス　３"
     author: "なをををををを"
     url: "https://manga.nicovideo.jp/comic/70296"
@@ -203,8 +311,8 @@ works:
     comic_id: "74657"
     updated: "2026-09-13"
     started: "2025-10-26"
-    episode_count: 4
-    free_episodes: 4
+    episode_count: 2
+    free_episodes: 2
     channel: "電撃大王"
     channel_slug: "daioh"
     latest_episode: "第10話 欲望を覗くもの①"
@@ -245,18 +353,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第22話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129918"
-  - work_title: "イジめてイジられて"
-    author: "千田大輔(著者)"
-    url: "https://manga.nicovideo.jp/comic/83472"
-    comic_id: "83472"
-    updated: "2026-09-11"
-    started: "2026-07-17"
-    episode_count: 9
-    free_episodes: 9
-    channel: "ヤングエースUP"
-    channel_slug: "youngaceup"
-    latest_episode: "第9話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1131373"
   - work_title: "彼なんかより、私のほうがいいでしょ？"
     author: "ぷらぱ(漫画) アサクラネル(原作) さわやか鮫肌(キャラクター原案)"
     url: "https://manga.nicovideo.jp/comic/71625"
@@ -293,18 +389,6 @@ works:
     channel_slug: "apanta"
     latest_episode: "休載イラスト"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1131153"
-  - work_title: "きみとボドゲが作りたい！"
-    author: "赤城ナツイチ"
-    url: "https://manga.nicovideo.jp/comic/72637"
-    comic_id: "72637"
-    updated: "2026-09-10"
-    started: "2025-06-19"
-    episode_count: 18
-    free_episodes: 18
-    channel: "きららベース"
-    channel_slug: "kirara"
-    latest_episode: "今年も水着回ありません"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1132861"
   - work_title: "アルバート家の令嬢は没落をご所望です"
     author: "彩月つかさ(著者) さき(原作) 双葉はづき(キャラクター原案)"
     url: "https://manga.nicovideo.jp/comic/34789"
@@ -317,18 +401,6 @@ works:
     channel_slug: "flos"
     latest_episode: "第42話 前編"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1133214"
-  - work_title: "ララのうた"
-    author: "河野スイ"
-    url: "https://manga.nicovideo.jp/comic/62230"
-    comic_id: "62230"
-    updated: "2026-09-10"
-    started: "2023-02-02"
-    episode_count: 30
-    free_episodes: 30
-    channel: "コミックPASH! ver.N"
-    channel_slug: "comicpash"
-    latest_episode: "第34話　石板"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112082"
   - work_title: "海のみちるごはん"
     author: "花宮みぃ"
     url: "https://manga.nicovideo.jp/comic/71836"
@@ -575,24 +647,12 @@ works:
     comic_id: "74964"
     updated: "2026-09-03"
     started: "2025-11-13"
-    episode_count: 5
-    free_episodes: 5
+    episode_count: 4
+    free_episodes: 4
     channel: "カドコミオリジナル　ニコニコ出張所"
     channel_slug: "kadocomi"
     latest_episode: "最終話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1131148"
-  - work_title: "魔法少女201"
-    author: "むちゃ"
-    url: "https://manga.nicovideo.jp/comic/65870"
-    comic_id: "65870"
-    updated: "2026-09-03"
-    started: "2023-10-19"
-    episode_count: 9
-    free_episodes: 9
-    channel: "ウルトラジャンプ ニコニコ版"
-    channel_slug: "ultrajump"
-    latest_episode: "第55話②"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1131075"
   - work_title: "タイムトラベル少女 ～ミライのサキ～"
     author: "ぱぺっときゃすと！"
     url: "https://manga.nicovideo.jp/comic/77287"
@@ -685,18 +745,6 @@ works:
     free_episodes: 30
     latest_episode: "第30話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1130839"
-  - work_title: "人妻教師が教え子の女子高生にドはまりする話"
-    author: "川上しをん(作画) 入間人間(原作) 猫屋敷ぷしお(キャラクターデザイン)"
-    url: "https://manga.nicovideo.jp/comic/74091"
-    comic_id: "74091"
-    updated: "2026-08-28"
-    started: "2025-09-18"
-    episode_count: 4
-    free_episodes: 4
-    channel: "電撃だいおうじ"
-    channel_slug: "daiohg"
-    latest_episode: "第9話後半"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1117299"
   - work_title: "見えてますよ！愛沢さん"
     author: "棘尾どろしー"
     url: "https://manga.nicovideo.jp/comic/60277"
@@ -959,18 +1007,6 @@ works:
     channel_slug: "dradrasharp"
     latest_episode: "休載イラスト"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1127704"
-  - work_title: "魔法少女にあこがれて"
-    author: "小野中彰大"
-    url: "https://manga.nicovideo.jp/comic/40675"
-    comic_id: "40675"
-    updated: "2026-08-21"
-    started: "2019-04-26"
-    episode_count: 7
-    free_episodes: 7
-    channel: "竹コミ！"
-    channel_slug: "takecomic"
-    latest_episode: "番外編④"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1123323"
   - work_title: "魔法少女イナバ"
     author: "猫にゃん(漫画)"
     url: "https://manga.nicovideo.jp/comic/75854"
@@ -981,32 +1017,8 @@ works:
     free_episodes: 3
     channel: "コミックグロウル"
     channel_slug: "bushiroad"
-    latest_episode: "第7話"
+    latest_episode: "第7話-1"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1127217"
-  - work_title: "好都合セミフレンド"
-    author: "千種みのり"
-    url: "https://manga.nicovideo.jp/comic/63674"
-    comic_id: "63674"
-    updated: "2026-08-20"
-    started: "2023-06-15"
-    episode_count: 4
-    free_episodes: 4
-    channel: "きららベース"
-    channel_slug: "kirara"
-    latest_episode: "第42話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1119311"
-  - work_title: "運命のヤマダダダダダダダダダダ"
-    author: "おにぎりパクパク"
-    url: "https://manga.nicovideo.jp/comic/72312"
-    comic_id: "72312"
-    updated: "2026-08-20"
-    started: "2025-06-19"
-    episode_count: 5
-    free_episodes: 5
-    channel: "きららベース"
-    channel_slug: "kirara"
-    latest_episode: "第17話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1119445"
   - work_title: "我が焔炎にひれ伏せ世界"
     author: "すめらぎひよこ(原作) こゆき(作画) Mika Pikazo(キャラクター原案) mocha(背景画)"
     url: "https://manga.nicovideo.jp/comic/61155"
@@ -1425,18 +1437,6 @@ works:
     channel_slug: "kadocomi"
     latest_episode: "episode.16-2"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1014623"
-  - work_title: "誰かオオカミさんのしつけ方知りませんか⁉"
-    author: "餡実ツキ"
-    url: "https://manga.nicovideo.jp/comic/76631"
-    comic_id: "76631"
-    updated: "2026-03-19"
-    started: "2026-02-18"
-    episode_count: 2
-    free_episodes: 2
-    channel: "ニコニコ百合姫"
-    channel_slug: "nico-yurihime"
-    latest_episode: "第2話　オオカミさんと面談ってできますか⁉"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1006144"
   - work_title: "鈴木りつ短編集考幻学入門"
     author: "鈴木　りつ(著者)"
     url: "https://manga.nicovideo.jp/comic/76698"

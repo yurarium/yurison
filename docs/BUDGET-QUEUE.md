@@ -250,6 +250,48 @@ The other five are the same two works. `author names romanised as one word` 1208
 `announced works the corpus does not hold` 13 to 14 and `updates naming a work we do not hold` 46 to
 49 are their rows. The unheld set is 26 works.
 
+## Three moved on 2026-09-19, one fixed and two accepted
+
+`rows with a moving address` 10 to 11 is the one with a remedy written into its own description, and
+three of the eleven had it. `workaddress.py` read 512 exposed rows and came back with a work-level
+address for 画家の肖像 and 散らないで菊 on コミックゼノン and for 姫虐が止まらない白桃さん on
+一迅プラス, each of them the series feed the chapter page links. The count is 8 now and the ratchet
+holds it there.
+
+The arrival itself stays. きみが死ぬまで恋をしたい on コミックDAYS has answered `state: resolved,
+id: null` since 2026-09-01 and answered the same today against a fresh read, and its chapter page
+carries no series link in the markup and no JSON beside the episode. Closing it means changing how
+the pass reads that host, which STORE-PLAN §9 keeps outside a maintenance pass.
+
+**ATTACHING THREE ADDRESSES MINTED FIFTY-FIVE IDENTIFIERS,** which is the finding worth keeping.
+`identity --attach` runs the whole pass before it writes, so three anchors arrived with w03270 to
+w03324, and the same pass's dry run reports those ids contesting anchors that works already hold:
+w03300 雨夜の月 against w00016, w03314 私の百合はお仕事です! against w00164, 41 in all. That is the
+minter and lookup disagreeing, which docs/GAPS.md carries, reached from a direction nobody had tried.
+Minting is append-only, so the registry went back to what it was and the three anchors were written
+into it by hand.
+
+`updates naming a work we do not hold` 49 to 53 is two works already in the unheld set publishing
+twice each, 今夜、エーテルで待ちあわせ and 悪役令嬢覇王伝　転生したら身長245cm体重210kgの恵体でした。
+だから無双します. The set is the same 26 as yesterday, name for name, with nothing arriving and
+nothing leaving, established by rebuilding both days' sets from the site data each day published
+rather than by reading the two numbers against each other.
+
+`titles read by a machine, unmarked` 1181 to 1183 is キミに触れて、感じたい and
+ホテルの外でもあいたいよ, the two 一迅プラス works recorded here yesterday, one step on. They arrived
+as names then, and the analyser has now read both titles in ordinary vocabulary, which is where the
+2026-08-10 ruling takes the mark off. The same step shows in the site repository, where
+キミに触れて、感じたい left the romanisation floor on the day this rose.
+
+**NINE TITLES GAINED AN ENGLISH NAME in the same pass, and no budget asked for it.** Eight of them
+were shipping `basis: romaji` with no `en` at all, so a reader met a romanisation and nothing else,
+and `works showing a romanisation` counts series rows, which a work the corpus holds no record of
+does not have. The queue that sees them is `curate.py --todo`, and the measure is blind to exactly
+the works most likely to need it. Each entry was written against the platform's own synopsis:
+超かぐやメシ！ is a spin-off of 『超かぐや姫！』 by ビビビコミック's own account, so its English swaps
+princess for grub the way the Japanese swaps 姫 for メシ, and 聖なる姫のかくしごと is 隠し事 rather
+than the 描く仕事 the same kana spells elsewhere, which 一迅プラス's synopsis settles.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

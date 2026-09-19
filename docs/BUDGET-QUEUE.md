@@ -292,6 +292,37 @@ the works most likely to need it. Each entry was written against the platform's 
 princess for grub the way the Japanese swaps 姫 for メシ, and 聖なる姫のかくしごと is 隠し事 rather
 than the 描く仕事 the same kana spells elsewhere, which 一迅プラス's synopsis settles.
 
+## One rise on 2026-09-20, and the cause its own docstring does not list
+
+`announced works the corpus does not hold` 14 to 15 is ホテルの外でもあいたいよ, which 百合ナビ
+announced on 2026-09-19 and the queue picked up on this run. Its sibling キミに触れて、感じたい
+entered the same number a day earlier and both are 一迅プラス one-shots under コミック百合姫.
+
+**THE DOCSTRING NAMES THREE CAUSES FOR A RISE AND THIS IS NONE OF THEM.** It says an adapter cannot
+reach the work, or the platform titles it differently, or the promotion stopped happening. The work
+is reached: it has two rows in the feed and 一迅プラス serves it at the address the queue names. It
+is titled the same way in both places. The promotion had nothing to do, because
+`data/coverage/webcomics-works.yaml` already lists it, which is why the run reports `admitted: 0`
+and names only the two adaptations it refused. What the work lacks is a RECORD, and it lacks one
+because it is in the unheld register awaiting a DEFINITIONS §2 ruling, which is the same 26 works
+`updates naming a work we do not hold` counts. Two budgets over one population, and the narrower of
+them describes a rise in terms that cannot produce this one.
+
+Whether that wants a fourth clause in the docstring or a measure that stops counting a work already
+registered as unheld is a question about what the number is for, so it goes to the owner rather than
+being settled here.
+
+**THE NAMING QUEUE WAS READING A FILE FROM 2026-08-15,** which is in docs/GAPS.md under "A build
+artefact nothing writes any more, which ten passes still prefer over the store".
+`curate.py --todo` offered ten works as still showing a romanisation and every one of them already
+ships a translated English to a reader. Removing the stale `data/build/feed/names.json` takes the
+queue to zero against the same store. The nine titles curated yesterday came off the same queue and
+were each checked against the shipped map first, so all nine were real, which is the only reason
+this cost nothing.
+
+Nothing else moved. The unheld set is the same 26 works and 56 rows, quarantine is empty, and
+`rows with a moving address` held at the 8 it was ratcheted to yesterday.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

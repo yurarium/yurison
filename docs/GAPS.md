@@ -3683,3 +3683,41 @@ corpus holds both spellings across the two runs that straddle it, so the run cou
 the curated entry that follows it. What it says instead is that a key names nothing, four steps
 downstream, as the fatal that stops the night. The pieces for the better message are the work id, the
 previous compile's title for it, and the curated key that folded onto the old one.
+
+## A build artefact nothing writes any more, which ten passes still prefer over the store
+
+Found 2026-09-19, working the naming queue. Recorded, not fixed, because the fix is pipeline code.
+
+**WHAT IT LOOKED LIKE.** `curate.py --todo` named ten works as still showing a romanisation, among
+them 不器用ビンボーダンス　３ and ㊙のライラ. All ten already ship a translated English and a reader
+has been seeing it: `㊙のライラ` reads Top-Secret Laila on the published site today. The queue meant
+to find works that need an English name was offering works that have one.
+
+**WHAT IT WAS.** `data/build/feed/names.json` on this machine is dated 2026-08-15. `build.py` writes
+it only under `--emit-json`, which nothing passes and CI does not, so it is a snapshot from the one
+run weeks ago that did, and `todo` prefers a named file over the store whenever the file is there.
+Removing it takes the queue from ten to zero on the same tree and the same store.
+
+**IT IS A CLASS AND NOT A FILE.** Ten passes read a `data/build` JSON in preference to the store,
+`bwingest`, `credit_identity`, `publisher_identity`, `facts/imprint`, `names/publishers`,
+`names/worklist`, `names/curate`, `names/inputs`, `gigaviewer/releases` and `relational` itself, over
+five artefacts: `names.json`, `titles.json`, `series.json`, `index.json` and `credit-keys.json`.
+Every one of the five is behind the same `--emit-json` guard. `population._named` states the rule
+they all follow, that a named path which is not there means use the store, and it reasons about a
+caller asking for an older build on purpose. What it does not cover is a file left behind by a run
+nobody remembers.
+
+**WHY CI NEVER SEES IT.** A runner checks out a tree with no `data/build` at all, so every one of
+these falls through to the store and agrees with it. The exposure is entirely on a working copy, and
+the naming queue is chosen on a working copy, which is how this reached a pass that decides what a
+person spends an evening translating.
+
+**WHAT I BELIEVE IS HAPPENING AND WHAT WOULD SETTLE IT.** `population.titles` already carries this
+class in its own docstring for `titles.json`, and the pair was closed by moving the readers to the
+store rather than by deleting anything. The same move closes the other four. What a check cannot do
+is notice the file, because reading a stale artefact and reading a current one look identical from
+inside: the honest control is to stop writing these under any flag, or to make a named path carry
+the day it was built so a reader can refuse one older than the store it is standing next to.
+
+**WHAT IT DID NOT COST.** The nine titles curated on 2026-09-18 came from the same stale queue and
+were each checked against the shipped map before being written, which is why all nine were real.

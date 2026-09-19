@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-19
+retrieved: 2026-09-20
 record_type: candidate_works
 works: 311
 candidates:
@@ -935,7 +935,7 @@ candidates:
   - title: "ゆりゾン"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/2550912965728497650"]
-    tags: ["最近のコメント数"]
+    tags: ["AI", "SF", "ギャグ・コメディ", "最近のコメント数", "百合"]
   - title: "ゆるおやこ"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/7440"]
@@ -2956,7 +2956,7 @@ candidates:
   - title: "推しが武道館いってくれたら死ぬ"
     platforms: ["COMICリュウ", "COMICリュウライブ", "ニコニコ漫画"]
     urls: ["https://comic-ryu.jp/series/326efc41c1767", "https://manga.nicovideo.jp/comic/45194", "https://www.comic-ryu.jp/series/osibudo/"]
-    tags: ["最近のコメント数"]
+    tags: ["アイドル", "アニメ化", "オタク", "完結", "最近のコメント数", "百合"]
   - title: "推しが死んだのでタイムリープして生存ルート確保します!"
     platforms: ["pixivコミック", "コミックDAYS"]
     urls: ["https://comic-days.com/episode/316112896845687903", "https://comic.pixiv.net/works/9026"]

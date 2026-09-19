@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-19
+retrieved: 2026-09-20
 record_type: discovery_queue
 candidates:
   - work_title: "天使なんかにならないで"
@@ -35,6 +35,15 @@ candidates:
     platform_code: "12207421983426102334"
     work_url: "https://comic-zenon.com/episode/12207421983426102334"
     headline: "正反対の少女ふたりの関係を描く青春読み切り「夜明けのアリス」WEBで公開"
+    status: unconfirmed
+  - work_title: "ホテルの外でもあいたいよ"
+    signal: "oneshot"
+    announced: "Sat, 19 Sep 2026 11:33:17 +0000"
+    url: "https://yurinavi.com/2026/09/19/hoterunosotodemo-yomikiri/"
+    platform: "ichicomi"
+    platform_code: "12207421984222944066"
+    work_url: "https://ichicomi.com/episode/12207421984222944066"
+    headline: "セフレから恋人になりたい――曖昧な関係に揺れるふたりを描く読み切り百合漫画「ホテルの外でもあいたいよ」WEBで公開"
     status: unconfirmed
   - work_title: "香り屋さんの纏さん"
     signal: "new-serial"

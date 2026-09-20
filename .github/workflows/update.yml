@@ -146,7 +146,30 @@ jobs:
           python3 adapters/webcomics/coverage.py --out data/coverage \
             --cache "$CACHE/webcomics-cache" --pages 8 --retrieved "$R" --force
           webcomics=$?
-          echo "discovery: 百合ナビ exit $yurinavi, Web漫画アンテナ exit $webcomics"
+          # THE YARDSTICK `adapters/acceptance.py` MEASURES AGAINST, and it ran nowhere until
+          # 2026-09-21. data/coverage/yurinavi-webyuri.yaml was written on 2026-08-01 and stood
+          # there for fifty days while the acceptance floor compared it against a feed window that
+          # moves every day. A fixed listing loses hits to the trailing edge while its misses stay,
+          # so the percentage falls on the calendar and says nothing about coverage, and when it
+          # finally broke the floor the cause was six weeks old. Refreshing it by hand took the
+          # watched population from 49 works to 74 and uncovered eleven platforms frozen by a
+          # fetcher with no age test.
+          #
+          # `--force` IS LOAD-BEARING. `webyuri.fetch` returns any cached file it finds, with no
+          # test of how old it is, and this workflow carries `.cache` between runs. Without the
+          # flag this entry would read the host once and replay that page for ever, which is the
+          # exact fault it exists to close.
+          #
+          # ITS FAILURE IS NOT THE STEP'S. A yardstick is what measures intake rather than intake
+          # itself, so a run that cannot read it has lost a measurement and nothing else. The pass
+          # exits non-zero and writes nothing when it parses fewer rows than it expects, which
+          # leaves the committed file standing, so the acceptance floor keeps comparing against the
+          # last good listing and says so by its age.
+          python3 adapters/yurinavi/webyuri.py --out data/coverage \
+            --cache "$CACHE/yurinavi-cache" --retrieved "$R" --force
+          webyuri=$?
+          echo "discovery: 百合ナビ exit $yurinavi, Web漫画アンテナ exit $webcomics, 百合ナビ WEB連載 exit $webyuri"
+          [ "$webyuri" -eq 0 ]   || echo "::warning title=Discovery::百合ナビ's WEB連載 listing did not run; the acceptance yardstick is as stale as its last success"
           [ "$yurinavi" -eq 0 ]  || echo "::warning title=Discovery::百合ナビ did not run; its queue is as stale as its last success"
           [ "$webcomics" -eq 0 ] || echo "::warning title=Discovery::Web漫画アンテナ did not run, so no announced work was admitted to the target list this run"
           [ "$yurinavi" -eq 0 ] || [ "$webcomics" -eq 0 ]

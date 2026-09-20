@@ -3776,9 +3776,19 @@ rather than the extent of it: キミコミ gained 19, 竹コミ！ 17, ヤング
 チャンピオンクロス 9 each. 百合ナビ acceptance went from 68 of 74 to 71 of 74, and all three works
 that stopped being missed are 竹コミ！ ones.
 
-**THE SECOND HALF IS STILL OPEN.** `yurinavi/webyuri.py` writes the yardstick this measure compares
-against, exists, and runs in no workflow, so the file was fifty days old when it was refreshed here
-by hand. That is the same fault the update workflow already records for `yurinavi/discover.py` under
-"A discovery source nothing runs is a discovery source that has stopped", and a yardstick that ages
-while the window it is compared against rolls forward is a measure whose value drifts for reasons
-that have nothing to do with what it measures.
+**THE SECOND HALF IS CLOSED TOO.** `yurinavi/webyuri.py` writes the yardstick this measure compares
+against, and it ran in no workflow, so the file was fifty days old when it was refreshed by hand.
+That is the same fault the update workflow already records for `yurinavi/discover.py` under "A
+discovery source nothing runs is a discovery source that has stopped", and a yardstick that ages
+while the window it is compared against rolls forward drifts for reasons that have nothing to do
+with what it measures. It runs in stage 0 now, under `--force`, because its own `fetch` has the
+ageless shape this entry is about and the flag is the only thing standing between a daily entry and
+a page read once.
+
+**HOW MANY MORE FETCHERS HAVE THAT SHAPE, which nobody has counted until now.** Six read a cache
+with no test of its age: `net`, `cmoa_volumes`, `booksorjp`, `comicfuz/releases`,
+`yurinavi/discover` and `yurinavi/webyuri`, against six that do. `comicfuz/releases` is the one to
+look at first, because it runs daily against a platform in the corpus and its capture stamps
+`retrieved: 2026-09-21` over a newest chapter of 2026-09-13. That gap is suspicious and is not
+evidence: COMIC FUZ may simply be quiet. The way to tell is the way this entry was settled, by
+reading one work page and comparing it against what the capture holds.

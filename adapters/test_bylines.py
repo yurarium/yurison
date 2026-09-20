@@ -198,6 +198,57 @@ def main(s):
     s.eq(bylines.byline("https://comic-boost.com/content/00010001", BOOST), [("天乃咲哉", "")],
          "and a listed host is read by its own shape")
 
+    cache_age(s)
+
+
+def cache_age(s):
+    """A cached page past its age is not the answer, which is the bug of 2026-09-21.
+
+    THE HOST IS STUBBED RATHER THAN REACHED, so a hit and a miss are told apart by whether it was
+    asked. `cached_page` sits at module level for this: the rule was inside a closure in `main`
+    and nothing could reach it.
+    """
+    import os, re as _re, tempfile, time as _t
+    tmp = pathlib.Path(tempfile.mkdtemp())
+    url = "https://example.test/series/1"
+    f = tmp / (_re.sub(r"[^A-Za-z0-9]", "_", url)[-140:] + ".html")
+    f.write_text("cached page")
+    asked = []
+
+    class _R:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def read(self, n=None):
+            return "live page".encode()
+
+    def _stub(req, timeout=None):
+        asked.append(getattr(req, "full_url", req))
+        return _R()
+
+    real_open, real_sleep = bylines.urllib.request.urlopen, bylines.time.sleep
+    bylines.urllib.request.urlopen, bylines.time.sleep = _stub, lambda *_a: None
+    try:
+        s.eq(bylines.cached_page(url, tmp, "ua"), "cached page",
+             "a page cached today is read from the cache")
+        s.eq(len(asked), 0, "and the host is not asked for it")
+
+        old = _t.time() - (bylines.AGE + 5) * 86400
+        os.utime(f, (old, old))
+        s.eq(bylines.cached_page(url, tmp, "ua"), "live page",
+             "one past AGE is read from the host instead")
+        s.eq(len(asked), 1, "which is the request an unbounded cache never made")
+
+        os.utime(f, (old, old))
+        s.eq(bylines.cached_page(url, tmp, "ua", offline=True), "live page",
+             "while offline reads the cache at any age, having no other answer")
+        s.eq(len(asked), 1, "without reaching for the host")
+    finally:
+        bylines.urllib.request.urlopen, bylines.time.sleep = real_open, real_sleep
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, __file__))

@@ -25,9 +25,16 @@ URL = "https://yurinavi.com/2017/02/28/web_yuri/"
 MIN_ROWS = 30
 
 
-def fetch(cache, force=False):
+def fetch(cache, force=False, max_age_days=1):
+    """The listing, from the cache while it is younger than `max_age_days`. `force` ignores age.
+
+    ONE DAY, BECAUSE A YARDSTICK IS COMPARED AGAINST A WINDOW THAT MOVES EVERY DAY. This file sat
+    at 2026-08-01 for fifty days, and the acceptance floor it feeds fell on the calendar rather
+    than on coverage. `--force` in the workflow says the same thing more loudly and both are kept:
+    the flag is an instruction, the age is the floor under a caller who forgets it.
+    """
     f = cache / "web_yuri.html"
-    if f.exists() and not force:
+    if f.exists() and not force and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
         return f.read_text()
     req = urllib.request.Request(URL, headers={"User-Agent": UA})
     try:

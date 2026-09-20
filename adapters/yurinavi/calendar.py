@@ -31,9 +31,15 @@ URL = "https://yurinavi.com/yuri-calendar/"
 MIN_ROWS = 20
 
 
-def fetch(cache, force=False):
+def fetch(cache, force=False, max_age_days=1):
+    """The calendar, from the cache while it is younger than `max_age_days`. `force` ignores age.
+
+    ONE DAY, for the reason `webyuri.fetch` beside it states: a page that says what is publishing
+    is worth nothing once it is a fortnight old, and `if f.exists()` alone made every run after
+    the first read a page nobody chose.
+    """
     f = cache / "calendar.html"
-    if f.exists() and not force:
+    if f.exists() and not force and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
         return f.read_text()
     req = urllib.request.Request(URL, headers={"User-Agent": UA})
     try:

@@ -66,6 +66,47 @@ def main(s):
          "one page per ISBN, which is the whole of what this asks the site")
     s.check(bj.PAUSE > 5, "the host refuses a sequential reader at net.PAUSE, so this one is slower")
 
+    cache_age(s)
+
+
+def cache_age(s):
+    """A record cached past `AGE` is fetched again, which `if f.exists()` stepped over.
+
+    `net.fetch` IS STUBBED, because that is the call this module hands `max_age_days=AGE` and the
+    short-circuit above it was what stopped the age ever being consulted. Asking whether the stub
+    ran is asking whether the cache was declined.
+    """
+    import os, tempfile, time as _t
+    d = pathlib.Path(tempfile.mkdtemp())
+    isbn = "9784088900001"
+    f = d / bj.net.cache_key(bj.url(isbn))
+    f.write_text("cached page")
+    asked = []
+
+    class _Result:
+        text = "live page"
+
+    def _stub(u, cache, max_age_days=None, **k):
+        asked.append((u, max_age_days))
+        return _Result()
+
+    real_fetch, real_sleep = bj.net.fetch, bj.time.sleep
+    bj.net.fetch, bj.time.sleep = _stub, lambda *_a: None
+    try:
+        s.eq(bj.fetch(isbn, d), "cached page", "a record cached today is read from the cache")
+        s.eq(len(asked), 0, "and the host is not asked for it")
+
+        old = _t.time() - (bj.AGE + 5) * 86400
+        os.utime(f, (old, old))
+        s.eq(bj.fetch(isbn, d), "live page", "one past AGE is fetched again")
+        s.eq(asked[0][1], bj.AGE, "and the age this module declares is what it asks for")
+
+        s.eq(bj.fetch(isbn, d, offline=True), "cached page",
+             "while offline reads the cache at any age, having no other answer")
+        s.eq(len(asked), 1, "without reaching for the host")
+    finally:
+        bj.net.fetch, bj.time.sleep = real_fetch, real_sleep
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

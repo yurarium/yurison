@@ -323,13 +323,25 @@ def settle(w):
     return w
 
 
-def fetch(url, cache, offline=False):
-    """One page, from the cache where it is held. Returns the body or None, never raising."""
+#: A shop's volume listing gains a row when a volume is published, so it goes stale on the
+#: publisher's schedule rather than the reader's. Fourteen days is `net.AGE_LISTING`, which is the
+#: number this project already chose for a listing, written here because this module does not go
+#: through `net`.
+AGE = 14
+
+
+def fetch(url, cache, offline=False, max_age_days=AGE):
+    """One page, from the cache while it is younger than `max_age_days`. Returns the body or None.
+
+    OFFLINE READS THE CACHE AT ANY AGE, because the alternative offline is no answer at all, and a
+    pass told not to use the network is asking for what is on disk. Online, an unbounded cache is
+    what froze this at whatever the volume count was the first time each page was read.
+    """
     cache = pathlib.Path(cache)
     cache.mkdir(parents=True, exist_ok=True)
     f = cache / (url.replace("https://www.cmoa.jp/", "").replace("/", "_").replace("?", "_")
                  .replace("&", "_").replace("=", "-") + ".html")
-    if f.exists():
+    if f.exists() and (offline or (time.time() - f.stat().st_mtime) / 86400 < max_age_days):
         return f.read_text(encoding="utf-8", errors="replace")
     if offline:
         return None

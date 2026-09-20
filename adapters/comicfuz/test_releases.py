@@ -147,6 +147,49 @@ def main(s):
     s.eq(fz.fuz_targets([{"title": "z"}]), [],
          "a row stating no address at all is skipped and does not raise")
 
+    cache_age(s)
+
+
+def cache_age(s):
+    """A cached page past its age is not the answer, which is the bug of 2026-09-21.
+
+    THE HOST IS STUBBED RATHER THAN REACHED, so a hit and a miss are told apart by whether it was
+    asked. Reaching the network here would fail under the runner's block for a reason that has
+    nothing to do with the rule.
+    """
+    import os, tempfile, time as _t
+    d = pathlib.Path(tempfile.mkdtemp())
+    url = "https://comic-fuz.com/manga/4321"
+    f = d / "4321.html"
+    f.write_text("cached page")
+    asked = []
+
+    class _R:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def read(self):
+            return "live page".encode()
+
+    def _stub(req, timeout=None):
+        asked.append(getattr(req, "full_url", req))
+        return _R()
+
+    real_open, real_sleep = fz.urllib.request.urlopen, fz.time.sleep
+    fz.urllib.request.urlopen, fz.time.sleep = _stub, lambda *_a: None
+    try:
+        s.eq(fz.fetch(url, d), "cached page", "a page cached today is read from the cache")
+        s.eq(len(asked), 0, "and the host is not asked for it")
+        old = _t.time() - 8 * 86400
+        os.utime(f, (old, old))
+        s.eq(fz.fetch(url, d), "live page", "one past its age is read from the host instead")
+        s.eq(len(asked), 1, "which is the request an unbounded cache never made")
+    finally:
+        fz.urllib.request.urlopen, fz.time.sleep = real_open, real_sleep
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "comicfuz.releases"))

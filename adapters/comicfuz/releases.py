@@ -32,10 +32,17 @@ PAUSE = 1.5
 MIN_WORKS = 5
 
 
-def fetch(url, cache):
+def fetch(url, cache, max_age_days=1):
+    """One work page, from the cache while it is younger than `max_age_days`.
+
+    ONE DAY, BECAUSE THIS IS A CHAPTER LIST. `kadokomi`, `generic`, `nicovideo` and `webpages` all
+    read their platform pages on the same footing. This one had no age test at all and the
+    workflow carries `.cache` between runs, which is what left eleven platforms in `webpages`
+    frozen at the day each was first read before 2026-09-21.
+    """
     key = re.sub(r"[^0-9]", "", url.rsplit("/", 1)[-1]) or "x"
     f = cache / f"{key}.html"
-    if f.exists():
+    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
         return f.read_text()
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:

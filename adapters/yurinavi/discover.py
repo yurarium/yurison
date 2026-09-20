@@ -48,12 +48,19 @@ PLATFORMS = [
 ]
 
 
-def fetch_article(url, cache):
-    """Articles are fetched only to find the outbound platform link."""
+def fetch_article(url, cache, max_age_days=30):
+    """Articles are fetched only to find the outbound platform link.
+
+    THIRTY DAYS RATHER THAN ONE, and rather than for ever. A published article does not change, so
+    re-reading every one of them daily would be traffic spent on an answer nobody expects to move.
+    What an unbounded cache cannot do is heal: a page that arrived truncated is the page every
+    later run reads, and there is no way back. The discovery window is 60 days, so this reads each
+    article about twice in its life, which bounds the damage without paying for it daily.
+    """
     key = re.sub(r"[^a-z0-9]+", "_", url)[-70:]
     f = cache / "articles" / f"{key}.html"
     f.parent.mkdir(parents=True, exist_ok=True)
-    if f.exists():
+    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
         return f.read_text()
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:

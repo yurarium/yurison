@@ -330,6 +330,49 @@ def main(s):
     s.eq(cv.volumes_outstanding({"works": {"167439": digital}}, printed_only=False),
          [("167439", 2)], "unless the caller says to ask about them anyway")
 
+    cache_age(s)
+
+
+def cache_age(s):
+    """A cached page past its age is not the answer, which is the bug of 2026-09-21.
+
+    THE HOST IS STUBBED RATHER THAN REACHED, so a hit and a miss are told apart by whether it was
+    asked. Reaching the network here would fail under the runner's block for a reason that has
+    nothing to do with the rule.
+    """
+    import os, tempfile, time as _t
+    d = pathlib.Path(tempfile.mkdtemp())
+    url = "https://www.cmoa.jp/title/167439/"
+    f = d / (url.replace("https://www.cmoa.jp/", "").replace("/", "_") + ".html")
+    f.write_text("cached page")
+    asked = []
+
+    class _R:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def read(self):
+            return "live page".encode()
+
+    def _stub(req, timeout=None):
+        asked.append(getattr(req, "full_url", req))
+        return _R()
+
+    real_open, real_sleep = cv.urllib.request.urlopen, cv.time.sleep
+    cv.urllib.request.urlopen, cv.time.sleep = _stub, lambda *_a: None
+    try:
+        s.eq(cv.fetch(url, d), "cached page", "a page cached today is read from the cache")
+        s.eq(len(asked), 0, "and the host is not asked for it")
+        old = _t.time() - 20 * 86400
+        os.utime(f, (old, old))
+        s.eq(cv.fetch(url, d), "live page", "one past its age is read from the host instead")
+        s.eq(len(asked), 1, "which is the request an unbounded cache never made")
+    finally:
+        cv.urllib.request.urlopen, cv.time.sleep = real_open, real_sleep
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

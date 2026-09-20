@@ -39,6 +39,8 @@ WHAT IS DELIBERATELY NOT HERE.
 """
 import html as _html
 import json
+import time
+import urllib.request
 import pathlib
 import sys
 
@@ -302,6 +304,40 @@ def series_url(url):
     return u
 
 
+AGE = 14
+
+
+def cached_page(url, cache, ua, offline=False, max_age_days=AGE):
+    """One page, from the cache while it is younger than `max_age_days`.
+
+    FOURTEEN DAYS, WHICH IS `net.AGE_LISTING`, because these are author and work pages whose credit
+    lines move when a platform re-files a work. This read `if f.exists()` and returned the first
+    copy for ever, and the cache is the one this pass also writes its FAILURES into: an `__ERROR__`
+    body from a host that was briefly down was the answer every later run read, with no way back.
+    `net._adopt` exists to delete those where it meets them, and an age is what stops one being
+    written into a file nothing reconsiders. Offline reads the cache at any age, having no other
+    answer to give.
+
+    AT MODULE LEVEL BECAUSE THE RULE IS WORTH TESTING. It was a closure inside `main`, which made
+    the one line that decides whether a page is stale unreachable from a test.
+    """
+    key = re.sub(r"[^A-Za-z0-9]", "_", url)[-140:] + ".html"
+    f = pathlib.Path(cache) / key
+    if f.exists() and (offline or (time.time() - f.stat().st_mtime) / 86400 < max_age_days):
+        return f.read_text()
+    if offline:
+        return ""
+    req = urllib.request.Request(url, headers={"User-Agent": ua, **host_headers(url)})
+    try:
+        with urllib.request.urlopen(req, timeout=40) as r:
+            body = r.read(2_000_000).decode("utf-8", "replace")
+    except Exception as e:                                                    # noqa: BLE001
+        body = f"__ERROR__ {type(e).__name__} {e}"
+    f.write_text(body)
+    time.sleep(1.5)
+    return body
+
+
 def host_headers(url):
     """Whatever a host requires beyond the User-Agent."""
     return dict(PIXIV_HEADERS) if host_of(url) == "comic.pixiv.net" else {}
@@ -399,8 +435,6 @@ def main(argv=None):
     import json as _json
     import pathlib
     import sys
-    import time
-    import urllib.request
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--build", default="data/build")
@@ -427,23 +461,6 @@ def main(argv=None):
 
     ua = ("Mozilla/5.0 (compatible; yurarium/1.0; +https://yurarium.github.io) "
           "bibliographic metadata collection")
-
-    def fetch(url):
-        key = re.sub(r"[^A-Za-z0-9]", "_", url)[-140:] + ".html"
-        f = cache / key
-        if f.exists():
-            return f.read_text()
-        if a.offline:
-            return ""
-        req = urllib.request.Request(url, headers={"User-Agent": ua, **host_headers(url)})
-        try:
-            with urllib.request.urlopen(req, timeout=40) as r:
-                t = r.read(2_000_000).decode("utf-8", "replace")
-        except Exception as e:                                                # noqa: BLE001
-            t = f"__ERROR__ {type(e).__name__} {e}"
-        f.write_text(t)
-        time.sleep(1.5)
-        return t
 
     import yaml                                                              # noqa: E402
 
@@ -473,7 +490,7 @@ def main(argv=None):
     rows, unread = [], []
     for w in sorted(wanted, key=lambda x: x["work"]):
         u = series_url(w["url"])
-        page = fetch(u)
+        page = cached_page(u, cache, ua, a.offline)
         pairs = byline(u, page) if page and not page.startswith("__ERROR__") else []
         if pairs:
             rows.append((w["work"], u, credit_line(pairs), ""))

@@ -3785,10 +3785,24 @@ with what it measures. It runs in stage 0 now, under `--force`, because its own 
 ageless shape this entry is about and the flag is the only thing standing between a daily entry and
 a page read once.
 
-**HOW MANY MORE FETCHERS HAVE THAT SHAPE, which nobody has counted until now.** Six read a cache
-with no test of its age: `net`, `cmoa_volumes`, `booksorjp`, `comicfuz/releases`,
-`yurinavi/discover` and `yurinavi/webyuri`, against six that do. `comicfuz/releases` is the one to
-look at first, because it runs daily against a platform in the corpus and its capture stamps
-`retrieved: 2026-09-21` over a newest chapter of 2026-09-13. That gap is suspicious and is not
-evidence: COMIC FUZ may simply be quiet. The way to tell is the way this entry was settled, by
-reading one work page and comparing it against what the capture holds.
+**HOW MANY MORE FETCHERS HAD THAT SHAPE, and the first count of them was wrong in both
+directions.** It named six including `net`, and `net` is the one module in the family that gets
+this right: its `if f.exists()` is inside `_adopt`, which migrates a page cached under an older
+key, and `net.fetch` applies the age at line 326 under a policy it argues for, `AGE_FEED = 1` for
+a chapter feed against `AGE_LISTING = 14` for a listing. Counting it was reading a line without
+reading the function around it. The same sweep missed `yurinavi/calendar` and `bylines`, whose
+fetcher was a closure inside `main` and so matched no pattern aimed at module level.
+
+Seven were real and all seven have an age now, each chosen for what it fetches rather than copied:
+one day for `comicfuz/releases`, `yurinavi/webyuri` and `yurinavi/calendar`, which read chapter
+lists and listings; fourteen for `cmoa_volumes` and `bylines`, which read pages that move when a
+publisher acts; thirty for `yurinavi/discover`, which reads published articles that do not change
+and needs an age only so a truncated capture can heal; and `booksorjp`, which declared `AGE = 365`
+and then returned the cached file before the line that would have applied it.
+
+**THE SHAPE UNDER ALL OF THEM IS §3.** One rule about when a cached page is too old now exists in
+thirteen places, and the count above is what happens when a rule has no single home: a sweep for
+it finds the wrong set twice. `net.fetch` already is that home, with pacing, retry, a refusal it
+never caches and the healing `_adopt` does. Routing the rest through it is the real fix and it is
+not a small one, because each caller has its own error semantics and its own idea of what an
+absent body means. Recorded rather than attempted.

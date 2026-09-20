@@ -114,7 +114,11 @@ def fetch(isbn, cache, offline=False):
     """One book page, at this host's pace. Returns the body or None."""
     u = url(isbn)
     f = pathlib.Path(cache) / net.cache_key(u)
-    if f.exists():
+    # THE AGE WAS DECLARED AND THEN STEPPED OVER. `net.fetch` below is handed `max_age_days=AGE`,
+    # and this read returned whatever was on disk before that line could run, so a record cached
+    # four hundred days ago was still the answer. Offline reads the cache at any age, because a
+    # pass told not to use the network is asking for exactly what is there.
+    if f.exists() and (offline or (time.time() - f.stat().st_mtime) / 86400 < AGE):
         return f.read_text(encoding="utf-8", errors="replace")
     if offline:
         return None

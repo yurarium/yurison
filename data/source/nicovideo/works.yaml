@@ -10,7 +10,7 @@
 source: nicovideo
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-09-19
+retrieved: 2026-09-20
 record_type: web_work_chapters
 identification_mode: known-works
 works_resolved: 494
@@ -25254,7 +25254,7 @@ works:
     platform_code: "74964"
     started: "2025-11-13"
     updated: "2026-09-03"
-    episode_count_stated: 5
+    episode_count_stated: 4
     chapter_count: 22
     chapters:
       - title: "第一話"
@@ -25298,7 +25298,7 @@ works:
       - title: "第十二話-1"
         app_only: true
       - title: "第十二話-2"
-        access_modes: ["free"]
+        app_only: true
       - title: "最終話"
         access_modes: ["free"]
   - work_title: "ぷくちょらりファミリア"

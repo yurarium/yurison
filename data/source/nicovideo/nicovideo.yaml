@@ -9,12 +9,88 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-09-20
+retrieved: 2026-09-21
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 494
 works:
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-09-20"
+    started: "2019-10-20"
+    episode_count: 146
+    free_episodes: 146
+    latest_episode: "ロボ25-2"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154352"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-09-20"
+    started: "2022-08-31"
+    episode_count: 121
+    free_episodes: 121
+    latest_episode: "第8話の10"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154354"
+  - work_title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
+    author: "江島絵理(著者)"
+    url: "https://manga.nicovideo.jp/comic/47294"
+    comic_id: "47294"
+    updated: "2026-09-19"
+    started: "2020-04-19"
+    episode_count: 2
+    free_episodes: 2
+    channel: "ほぼほぼ週刊フラッパー"
+    channel_slug: "flapper"
+    latest_episode: "第66話：期待外れだったぜ"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1132050"
+  - work_title: "星屑テレパス"
+    author: "大熊らすこ"
+    url: "https://manga.nicovideo.jp/comic/48976"
+    comic_id: "48976"
+    updated: "2026-09-19"
+    started: "2020-07-20"
+    episode_count: 11
+    free_episodes: 11
+    channel: "きららベース"
+    channel_slug: "kirara"
+    latest_episode: "第68話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129942"
+  - work_title: "十字トンボは空を飛ばない"
+    author: "織日ちひろ 虫原"
+    url: "https://manga.nicovideo.jp/comic/71834"
+    comic_id: "71834"
+    updated: "2026-09-19"
+    started: "2025-03-17"
+    episode_count: 4
+    free_episodes: 4
+    channel: "きららベース"
+    channel_slug: "kirara"
+    latest_episode: "第20話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129939"
+  - work_title: "男子高校生だけどギャルにTSしました"
+    author: "太陽まりい(著者)"
+    url: "https://manga.nicovideo.jp/comic/67976"
+    comic_id: "67976"
+    updated: "2026-09-19"
+    started: "2024-03-23"
+    episode_count: 12
+    free_episodes: 12
+    channel: "ドラドラしゃーぷ#"
+    channel_slug: "dradrasharp"
+    latest_episode: "第29話前編"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1147959"
+  - work_title: "おやすみシェヘラザード"
+    author: "篠房六郎"
+    url: "https://manga.nicovideo.jp/comic/34558"
+    comic_id: "34558"
+    updated: "2026-09-19"
+    started: "2018-05-10"
+    channel: "もっとやわらかスピリッツ"
+    channel_slug: "yawaspi"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"
@@ -51,26 +127,6 @@ works:
     channel_slug: "takecomic"
     latest_episode: "番外編④"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1123323"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-09-18"
-    started: "2019-10-20"
-    episode_count: 144
-    free_episodes: 144
-    latest_episode: "ロボ24-6"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1150860"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-09-18"
-    started: "2022-08-31"
-    episode_count: 119
-    free_episodes: 119
-    latest_episode: "第8話の8"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1150866"
   - work_title: "好都合セミフレンド"
     author: "千種みのり"
     url: "https://manga.nicovideo.jp/comic/63674"
@@ -143,14 +199,6 @@ works:
     channel_slug: "comicpash"
     latest_episode: "第35話　アリデラの日記①"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112083"
-  - work_title: "おやすみシェヘラザード"
-    author: "篠房六郎"
-    url: "https://manga.nicovideo.jp/comic/34558"
-    comic_id: "34558"
-    updated: "2026-09-17"
-    started: "2018-05-10"
-    channel: "もっとやわらかスピリッツ"
-    channel_slug: "yawaspi"
   - work_title: "咲きそめコンプレックス"
     author: "んみ(著者)"
     url: "https://manga.nicovideo.jp/comic/72944"
@@ -995,18 +1043,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第56話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1119321"
-  - work_title: "男子高校生だけどギャルにTSしました"
-    author: "太陽まりい(著者)"
-    url: "https://manga.nicovideo.jp/comic/67976"
-    comic_id: "67976"
-    updated: "2026-08-22"
-    started: "2024-03-23"
-    episode_count: 13
-    free_episodes: 13
-    channel: "ドラドラしゃーぷ#"
-    channel_slug: "dradrasharp"
-    latest_episode: "休載イラスト"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1127704"
   - work_title: "魔法少女イナバ"
     author: "猫にゃん(漫画)"
     url: "https://manga.nicovideo.jp/comic/75854"
@@ -1031,30 +1067,6 @@ works:
     channel_slug: "dradraflat"
     latest_episode: "第18話後編"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1125750"
-  - work_title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
-    author: "江島絵理(著者)"
-    url: "https://manga.nicovideo.jp/comic/47294"
-    comic_id: "47294"
-    updated: "2026-08-19"
-    started: "2020-04-19"
-    episode_count: 2
-    free_episodes: 2
-    channel: "ほぼほぼ週刊フラッパー"
-    channel_slug: "flapper"
-    latest_episode: "第65話：力の差"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1121721"
-  - work_title: "十字トンボは空を飛ばない"
-    author: "織日ちひろ 虫原"
-    url: "https://manga.nicovideo.jp/comic/71834"
-    comic_id: "71834"
-    updated: "2026-08-15"
-    started: "2025-03-17"
-    episode_count: 4
-    free_episodes: 4
-    channel: "きららベース"
-    channel_slug: "kirara"
-    latest_episode: "第19話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1119305"
   - work_title: "柚子森さん"
     author: "江島絵理"
     url: "https://manga.nicovideo.jp/comic/22191"
@@ -1201,18 +1213,6 @@ works:
     free_episodes: 6
     latest_episode: "永遠の愛にも毎日のルーティンが必須なのです"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1115178"
-  - work_title: "星屑テレパス"
-    author: "大熊らすこ"
-    url: "https://manga.nicovideo.jp/comic/48976"
-    comic_id: "48976"
-    updated: "2026-07-18"
-    started: "2020-07-20"
-    episode_count: 11
-    free_episodes: 11
-    channel: "きららベース"
-    channel_slug: "kirara"
-    latest_episode: "第67話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1100584"
   - work_title: "アイドル総選挙4位だった私が魔王を倒すんですか？（Lilie comics）"
     author: "高坂 はしやん(著) 伊予嶺つく(著)"
     url: "https://manga.nicovideo.jp/comic/83356"

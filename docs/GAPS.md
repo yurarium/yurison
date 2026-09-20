@@ -3635,11 +3635,11 @@ rather than one anybody chose. Every ordinary upswing then stops the gate and as
 accept, and a control that demands assent on days when nothing is wrong is one whose assent stops
 meaning anything. That is the failure this project names in §4 and §13, reached from the other side.
 
-**IT HAS GONE ON DOING IT.** The recorded ceiling has been 43, 39, 41, 43, 44, 59, 45 and 45 over
-the days since, which is a control following the data rather than holding it, and 2026-09-20 banks
-43 again off a run where nobody touched the measure and nothing was wrong. The figure here is
-updated in place rather than gaining a paragraph a day, since the argument is the same one each
-time and only the floor moves.
+**IT HAS GONE ON DOING IT.** The recorded ceiling has been 43, 39, 41, 43, 44, 59, 45, 45, 43 and
+42 over the days since, which is a control following the data rather than holding it, and each of
+the last two banked a trough off a run where nobody touched the measure and nothing was wrong. The
+figure here is updated in place rather than gaining a paragraph a day, since the argument is the
+same one each time and only the floor moves.
 
 **IT IS NOT ONE MEASURE.** `renderings resting on a mechanical romanisation` in the site repository
 is the same shape for a different reason: it counts MARKUP, so it moves with how many rows an

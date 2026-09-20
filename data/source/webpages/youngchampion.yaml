@@ -107,7 +107,7 @@ works:
     status: "連載中"
     author: "古部亮"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
-    chapter_count: 89
+    chapter_count: 92
     chapters:
       - title: "第1話"
         updated: "2022-08-16"
@@ -366,21 +366,30 @@ works:
         access_modes: ["free-timed"]
       - title: "第47話①"
         updated: "2026-06-17"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第47話②"
         updated: "2026-07-01"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第48話①"
         updated: "2026-07-22"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第48話②"
         updated: "2026-08-05"
+        access_modes: ["free"]
+      - title: "第49話①"
+        updated: "2026-08-19"
+        access_modes: ["free"]
+      - title: "第49話②"
+        updated: "2026-09-02"
+        access_modes: ["purchase"]
+      - title: "第50話①"
+        updated: "2026-09-16"
         access_modes: ["purchase"]
   - work_title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～"
     status: "連載中"
     author: "りんご飴サード,川田暁生"
     url: "https://youngchampion.jp/series/86c1162f34a04"
-    chapter_count: 28
+    chapter_count: 33
     chapters:
       - title: "第1話①"
         updated: "2025-11-05"
@@ -462,9 +471,24 @@ works:
         access_modes: ["free-timed"]
       - title: "第9話③"
         updated: "2026-07-15"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第10話①"
         updated: "2026-08-05"
+        access_modes: ["free-timed"]
+      - title: "第10話②"
+        updated: "2026-08-12"
+        access_modes: ["free-timed"]
+      - title: "第10話③"
+        updated: "2026-08-19"
+        access_modes: ["free-timed"]
+      - title: "第11話①"
+        updated: "2026-09-02"
+        access_modes: ["free-timed"]
+      - title: "第11話②"
+        updated: "2026-09-09"
+        access_modes: ["free"]
+      - title: "第11話③"
+        updated: "2026-09-16"
         access_modes: ["purchase"]
   - work_title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     status: "連載中"
@@ -569,7 +593,7 @@ works:
     status: "連載中"
     author: "ネコ太郎"
     url: "https://youngchampion.jp/series/90af950945671"
-    chapter_count: 69
+    chapter_count: 72
     chapters:
       - title: "第1話"
         updated: "2023-03-28"
@@ -771,12 +795,21 @@ works:
         access_modes: ["free-timed"]
       - title: "第38話①"
         updated: "2026-07-01"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第38話②"
         updated: "2026-07-08"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第39話①"
         updated: "2026-08-05"
+        access_modes: ["free-timed"]
+      - title: "第39話②"
+        updated: "2026-08-12"
+        access_modes: ["free"]
+      - title: "第40話①"
+        updated: "2026-09-02"
+        access_modes: ["free"]
+      - title: "第40話②"
+        updated: "2026-09-09"
         access_modes: ["purchase"]
   - work_title: "隣人/読み切り"
     status: "読み切り"

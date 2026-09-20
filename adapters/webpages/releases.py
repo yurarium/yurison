@@ -34,9 +34,22 @@ PAUSE = 1.5
 MIN_WORKS = 3
 
 
-def fetch(url, cache):
+def fetch(url, cache, max_age_days=1):
+    """The page, from the cache while it is younger than `max_age_days`, else from the host.
+
+    THE AGE TEST IS THE WHOLE POINT AND IT WAS MISSING. This read `if f.exists()` and returned
+    whatever was there, so a page fetched once was the page every later run read. The workflow
+    carries `.cache` between runs, which made that for ever: on 2026-09-21 ビッコミ was serving a
+    chapter dated 2026-08-27 while this pass held nothing after 2026-07-27, and four more platforms
+    were frozen the same way, each at the day its own pages were first fetched.
+
+    NOTHING THE RUN PRINTED SAID SO. The rows are complete, so the step reported
+    `takecomic works= 22/ 22 chapters= 506` and a full access breakdown, and only the three seconds
+    it took across 107 works gave it away. `kadokomi/releases.py` and `generic/releases.py` both
+    take this argument; this is the one fetcher in the family that did not.
+    """
     f = cache / (re.sub(r"[^a-zA-Z0-9]+", "_", url)[-80:] + ".html")
-    if f.exists():
+    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
         return f.read_text()
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:

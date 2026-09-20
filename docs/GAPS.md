@@ -3635,6 +3635,12 @@ rather than one anybody chose. Every ordinary upswing then stops the gate and as
 accept, and a control that demands assent on days when nothing is wrong is one whose assent stops
 meaning anything. That is the failure this project names in §4 and §13, reached from the other side.
 
+**IT HAS GONE ON DOING IT.** The recorded ceiling has been 43, 39, 41, 43, 44, 59, 45 and 45 over
+the days since, which is a control following the data rather than holding it, and 2026-09-20 banks
+43 again off a run where nobody touched the measure and nothing was wrong. The figure here is
+updated in place rather than gaining a paragraph a day, since the argument is the same one each
+time and only the floor moves.
+
 **IT IS NOT ONE MEASURE.** `renderings resting on a mechanical romanisation` in the site repository
 is the same shape for a different reason: it counts MARKUP, so it moves with how many rows an
 arriving chapter name appears on, and it has been accepted on five of the last six days, 638, 648,
@@ -3721,3 +3727,58 @@ the day it was built so a reader can refuse one older than the store it is stand
 
 **WHAT IT DID NOT COST.** The nine titles curated on 2026-09-18 came from the same stale queue and
 were each checked against the shipped map before being written, which is why all nine were real.
+
+## Five platforms have been frozen since the day each was first read, and the capture says today
+
+Found 2026-09-21, working an acceptance floor that had just started failing. Written up as a §9
+deferral and then fixed, because the owner took the decision the boundary reserves for them.
+
+**THE FETCHER HAS NO AGE TEST.** `adapters/webpages/releases.py` reads its cache like this:
+
+    f = cache / (re.sub(r"[^a-zA-Z0-9]+", "_", url)[-80:] + ".html")
+    if f.exists():
+        return f.read_text()
+
+Every sibling takes a `max_age_days` and compares it against the file's mtime. `kadokomi/releases.py`
+does, `generic/releases.py` does. This one returns a cached page whenever one exists, for ever, and
+the workflow carries `.cache` from run to run under `restore-keys: fetch-`, so a page fetched once is
+the page this pass reads on every run after it.
+
+**WHAT IT COSTS.** Five platforms, each frozen at the day its pages were first fetched.
+
+| platform | newest chapter held | verified against the live page |
+|---|---|---|
+| ビッコミ | 2026-07-27 | 第19話 dated 2026-08-27 is served and not held |
+| チャンピオンクロス | 2026-08-05 | |
+| 竹コミ！ | 2026-08-07 | 19話 dated 2026-09-10 is served and not held |
+| キミコミ | 2026-08-19 | |
+| ヤンマガWeb | 2026-09-03 | |
+
+**IT LOOKS HEALTHY FROM EVERY ANGLE THE RUN REPORTS.** Today's step prints
+`takecomic works= 22/ 22 chapters= 506` and a full access breakdown, because the rows are complete.
+They are simply old. The step took 3 seconds for 107 works across the five, which is the tell, and it
+is the same signature as カドコミ taking 12 seconds instead of a thousand. Worse, every one of the
+five capture files stamps `retrieved: 2026-09-21`, so the artefact asserts it was read today. A
+freshness field written by the pass rather than by the fetch cannot say anything about the fetch.
+
+**WHAT FOUND IT, AND WHAT HID IT.** `adapters/acceptance.py` began failing its 百合ナビ floor. The
+yardstick it compares against, `data/coverage/yurinavi-webyuri.yaml`, was dated 2026-08-01 and no
+workflow refreshes it, so for fifty days the measure compared a rolling 60-day window against a fixed
+August listing: the misses stayed at three across every window width while the hits aged out, and the
+percentage fell for reasons that had nothing to do with coverage. Refreshing the yardstick by hand
+took the population from 49 works to 74 and the misses from 3 to 6, and three of the six new ones are
+竹コミ！ works this pass has not read since August.
+
+**WHAT SETTLED IT.** `fetch` has the age test its siblings have, with the three states covered
+offline in `adapters/webpages/test_releases.py`. Re-reading against a clean cache brought back 89
+chapters over ELEVEN platforms, so the five above were the ones a spot check happened to look at
+rather than the extent of it: キミコミ gained 19, 竹コミ！ 17, ヤングチャンピオン 11, 花とゆめ+ and
+チャンピオンクロス 9 each. 百合ナビ acceptance went from 68 of 74 to 71 of 74, and all three works
+that stopped being missed are 竹コミ！ ones.
+
+**THE SECOND HALF IS STILL OPEN.** `yurinavi/webyuri.py` writes the yardstick this measure compares
+against, exists, and runs in no workflow, so the file was fifty days old when it was refreshed here
+by hand. That is the same fault the update workflow already records for `yurinavi/discover.py` under
+"A discovery source nothing runs is a discovery source that has stopped", and a yardstick that ages
+while the window it is compared against rolls forward is a measure whose value drifts for reasons
+that have nothing to do with what it measures.

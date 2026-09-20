@@ -21,10 +21,10 @@ works:
         access_modes: ["free"]
       - title: "第2話"
         updated: "2023-10-23"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第3話"
         updated: "2023-10-23"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第4話"
         updated: "2024-04-05"
         access_modes: ["purchase"]
@@ -48,10 +48,10 @@ works:
         access_modes: ["free"]
       - title: "2服目"
         updated: "2026-06-28"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "3服目"
         updated: "2026-06-28"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "4服目"
         updated: "2026-07-01"
         access_modes: ["purchase"]
@@ -72,10 +72,10 @@ works:
         access_modes: ["free"]
       - title: "二度目の浮気"
         updated: "2025-09-12"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "攻め？受け？三本勝負！"
         updated: "2025-09-19"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "永遠一号二号はイヴとイヴ"
         updated: "2025-09-26"
         access_modes: ["purchase"]
@@ -86,13 +86,16 @@ works:
     status: "連載中"
     author: "裏海マユ,ちょきんぎょ。"
     url: "https://g-comi.jp/series/58238b3987c11"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
       - title: "第1話"
         updated: "2026-07-03"
         access_modes: ["free"]
       - title: "第2話"
         updated: "2026-08-07"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: "2026-09-04"
         access_modes: ["free"]
   - work_title: "喫茶 秘匿異"
     status: "読み切り"
@@ -117,25 +120,25 @@ works:
         access_modes: ["free"]
       - title: "第3話 呪いのカセットテープのウワサ"
         updated: "2023-10-27"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第4話 人形呪物のウワサ"
         updated: "2024-03-01"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話 妙な間取りの家のウワサ"
         updated: "2024-07-12"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5.5話 404号室の双子のウワサ"
         updated: "2024-09-06"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "単行本第①巻発売記念！描き下ろしイラスト！"
         updated: "2024-10-25"
         access_modes: ["free"]
       - title: "第6話 口大習村のウワサ①"
         updated: "2025-01-03"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第7話 口大習村のウワサ②"
         updated: "2025-03-14"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "第8話 心霊“加工”写真のウワサ"
         updated: "2025-10-24"
         access_modes: ["purchase"]
@@ -144,12 +147,12 @@ works:
         access_modes: ["purchase"]
       - title: "第10話 外れ小路のウワサ"
         updated: "2026-08-07"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
   - work_title: "暴走!?サキュバスせんぱい"
     status: "連載中"
     author: "ミナミト"
     url: "https://g-comi.jp/series/5448ec9f6077b"
-    chapter_count: 9
+    chapter_count: 11
     chapters:
       - title: "第1話"
         updated: "2025-12-19"
@@ -159,25 +162,31 @@ works:
         access_modes: ["free"]
       - title: "第3話"
         updated: "2026-01-23"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第4話"
         updated: "2026-02-20"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第5話"
         updated: "2026-03-20"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第6話"
         updated: "2026-04-17"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第7話"
         updated: "2026-05-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第8話"
         updated: "2026-06-19"
         access_modes: ["purchase"]
       - title: "第9話"
         updated: "2026-07-17"
         access_modes: ["purchase"]
+      - title: "第10話"
+        updated: "2026-08-14"
+        access_modes: ["purchase"]
+      - title: "第11話"
+        updated: "2026-09-18"
+        access_modes: ["free"]
   - work_title: "狙いはキミだけ!"
     status: "読み切り"
     author: "あまね"
@@ -191,20 +200,26 @@ works:
     status: "連載中"
     author: "館山けーた"
     url: "https://g-comi.jp/series/7e3c698bca968"
-    chapter_count: 5
+    chapter_count: 7
     chapters:
       - title: "第1話"
         updated: "2026-06-28"
         access_modes: ["free"]
       - title: "第2話"
         updated: "2026-06-28"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第3話"
         updated: "2026-06-28"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第4話"
         updated: "2026-07-01"
         access_modes: ["purchase"]
       - title: "第5話"
         updated: "2026-07-22"
         access_modes: ["purchase"]
+      - title: "第6話"
+        updated: "2026-09-02"
+        access_modes: ["purchase"]
+      - title: "第7話"
+        updated: "2026-09-16"
+        access_modes: ["free"]

@@ -44,7 +44,7 @@ works:
     status: "連載中"
     author: "南瓜かぷちー"
     url: "https://kimicomi.com/series/617d2958d4953"
-    chapter_count: 23
+    chapter_count: 24
     chapters:
       - title: "TARGET.1"
         updated: "2025-08-22"
@@ -54,28 +54,28 @@ works:
         access_modes: ["free"]
       - title: "TARGET.3①"
         updated: "2025-08-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "TARGET.3②"
         updated: "2025-08-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "TARGET.4①"
         updated: "2025-08-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "TARGET.4②"
         updated: "2025-08-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "TARGET.5①"
         updated: "2025-08-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "TARGET.5②"
         updated: "2025-08-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "TARGET.6①"
         updated: "2025-08-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "TARGET.6②"
         updated: "2025-08-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "EX TARGET.1"
         updated: "2025-08-22"
         access_modes: ["free-timed"]
@@ -111,9 +111,12 @@ works:
         access_modes: ["purchase"]
       - title: "TARGET.FINAL①"
         updated: "2026-04-27"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "TARGET.FINAL②"
         updated: "2026-05-11"
+        access_modes: ["purchase"]
+      - title: "コミックス第2巻 本日発売！"
+        updated: "2026-09-19"
         access_modes: ["free"]
   - work_title: "サキュバスじゃないモン!"
     status: "完結"
@@ -197,7 +200,7 @@ works:
     status: "連載中"
     author: "りんご水,林星悟,餡こたく"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
-    chapter_count: 25
+    chapter_count: 26
     chapters:
       - title: "Step.0"
         updated: "2025-08-22"
@@ -258,7 +261,7 @@ works:
         access_modes: ["free-timed"]
       - title: "Step.11②"
         updated: "2026-04-06"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "Step.12①"
         updated: "2026-04-27"
         access_modes: ["purchase"]
@@ -270,9 +273,12 @@ works:
         access_modes: ["purchase"]
       - title: "Step.13②"
         updated: "2026-07-06"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "Step.14①"
         updated: "2026-08-03"
+        access_modes: ["free"]
+      - title: "Step.14②"
+        updated: "2026-08-18"
         access_modes: ["free"]
   - work_title: "タコと天使たち"
     status: "完結"
@@ -371,7 +377,7 @@ works:
     status: "連載中"
     author: "真田一輝"
     url: "https://kimicomi.com/series/f42014b3e7df6"
-    chapter_count: 17
+    chapter_count: 23
     chapters:
       - title: "熟成01"
         updated: "2026-04-19"
@@ -414,15 +420,33 @@ works:
         access_modes: ["free-timed"]
       - title: "熟成14"
         updated: "2026-07-19"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "熟成15"
         updated: "2026-07-26"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "熟成16"
         updated: "2026-08-02"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "熟成17"
         updated: "2026-08-09"
+        access_modes: ["free-timed"]
+      - title: "熟成18"
+        updated: "2026-08-16"
+        access_modes: ["free-timed"]
+      - title: "熟成19"
+        updated: "2026-08-23"
+        access_modes: ["purchase"]
+      - title: "熟成20"
+        updated: "2026-08-30"
+        access_modes: ["free"]
+      - title: "熟成21"
+        updated: "2026-09-06"
+        access_modes: ["free"]
+      - title: "熟成22"
+        updated: "2026-09-13"
+        access_modes: ["purchase"]
+      - title: "熟成23"
+        updated: "2026-09-20"
         access_modes: ["purchase"]
   - work_title: "人妻とJK"
     status: "連載中"
@@ -749,11 +773,23 @@ works:
     status: "連載中"
     author: "BLZ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
-    chapter_count: 1
+    chapter_count: 5
     chapters:
       - title: "第一話"
         updated: "2026-08-19"
         access_modes: ["free"]
+      - title: "第ニ話"
+        updated: "2026-08-26"
+        access_modes: ["free"]
+      - title: "第三話"
+        updated: "2026-09-02"
+        access_modes: ["free"]
+      - title: "第四話"
+        updated: "2026-09-09"
+        access_modes: ["purchase"]
+      - title: "第五話"
+        updated: "2026-09-16"
+        access_modes: ["purchase"]
   - work_title: "田所さん"
     status: "完結"
     author: "TATSUBON"
@@ -950,7 +986,7 @@ works:
     status: "連載中"
     author: "棘尾どろしー"
     url: "https://kimicomi.com/series/330f3ad1270c8"
-    chapter_count: 35
+    chapter_count: 36
     chapters:
       - title: "第1話"
         updated: "2025-08-22"
@@ -1047,21 +1083,24 @@ works:
         access_modes: ["free"]
       - title: "第31話"
         updated: "2026-04-16"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第32話"
         updated: "2026-06-04"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第33話"
         updated: "2026-07-02"
         access_modes: ["free"]
       - title: "第34話"
         updated: "2026-07-23"
+        access_modes: ["free"]
+      - title: "第35話"
+        updated: "2026-09-17"
         access_modes: ["purchase"]
   - work_title: "魔王城デート大作戦!"
     status: "連載中"
     author: "涼海来夏"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    chapter_count: 4
+    chapter_count: 10
     chapters:
       - title: "OPERATION1"
         updated: "2026-07-20"
@@ -1071,7 +1110,25 @@ works:
         access_modes: ["free"]
       - title: "OPERATION3"
         updated: "2026-08-03"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "OPERATION4"
         updated: "2026-08-10"
+        access_modes: ["free-timed"]
+      - title: "OPERATION5"
+        updated: "2026-08-17"
+        access_modes: ["free-timed"]
+      - title: "OPERATION6"
+        updated: "2026-08-24"
+        access_modes: ["purchase"]
+      - title: "OPERATION7"
+        updated: "2026-08-31"
+        access_modes: ["free"]
+      - title: "OPERATION8"
+        updated: "2026-09-07"
+        access_modes: ["free"]
+      - title: "OPERATION9"
+        updated: "2026-09-14"
+        access_modes: ["purchase"]
+      - title: "OPERATION10"
+        updated: "2026-09-21"
         access_modes: ["purchase"]

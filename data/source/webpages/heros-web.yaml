@@ -258,7 +258,7 @@ works:
         updated: "2026-02-01"
         access_modes: ["free"]
   - work_title: "散り損ないのヒラエス"
-    status: "連載中"
+    status: "完結"
     author: "にたもと"
     url: "https://heros-web.com/series/cd04567a696bb"
     chapter_count: 23
@@ -307,25 +307,25 @@ works:
         access_modes: ["free-timed"]
       - title: "第10話①"
         updated: "2026-05-18"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "第10話②"
         updated: "2026-05-18"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "第11話①"
         updated: "2026-05-18"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "第11話②"
         updated: "2026-05-18"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "第12話①"
         updated: "2026-05-18"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "第12話②"
         updated: "2026-05-18"
-        access_modes: ["free-timed"]
+        access_modes: ["purchase"]
       - title: "第13話①"
         updated: "2026-05-18"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第13話②"
         updated: "2026-05-18"
         access_modes: ["purchase"]
@@ -336,7 +336,7 @@ works:
     status: "連載中"
     author: "朱白あおい,糀もろみ,村田真哉,柳井伸彦"
     url: "https://heros-web.com/series/ec09a10dc9490"
-    chapter_count: 26
+    chapter_count: 29
     chapters:
       - title: "第１輪「ヤってしまいましたわ」"
         updated: "2026-05-18"
@@ -406,16 +406,25 @@ works:
         access_modes: ["free-timed"]
       - title: "第18輪「お前達との関係も終わりですわ」②"
         updated: "2026-06-19"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第19輪「来ちゃった」①"
         updated: "2026-07-03"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第19輪「来ちゃった」②"
         updated: "2026-07-17"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "【４巻告知イラスト】"
         updated: "2026-08-07"
         access_modes: ["free"]
+      - title: "第20輪「正々堂々爛れた生活を謳歌してやりますわ」①"
+        updated: "2026-08-21"
+        access_modes: ["free"]
+      - title: "第20輪「正々堂々爛れた生活を謳歌してやりますわ」②"
+        updated: "2026-09-04"
+        access_modes: ["purchase"]
+      - title: "第20輪「正々堂々爛れた生活を謳歌してやりますわ」③"
+        updated: "2026-09-18"
+        access_modes: ["purchase"]
   - work_title: "神絵師JKとOL腐女子"
     status: "完結"
     url: "https://viewer.heros-web.com/episode/10834108156641210811"
@@ -455,7 +464,7 @@ works:
     status: "連載中"
     author: "柴田康平"
     url: "https://heros-web.com/series/2b64bc0622a2a"
-    chapter_count: 35
+    chapter_count: 39
     chapters:
       - title: "第一服「魔女と再会」"
         updated: "2026-05-18"
@@ -532,6 +541,9 @@ works:
       - title: "単行本2巻発売記念イラスト"
         updated: "2026-05-18"
         access_modes: ["free"]
+      - title: "魔女とひととき"
+        updated: "2026-05-18"
+        access_modes: ["free-timed"]
       - title: "第十四服「魔女と恋慕」前編"
         updated: "2026-05-18"
         access_modes: ["free-timed"]
@@ -555,10 +567,19 @@ works:
         access_modes: ["free-timed"]
       - title: "第十七服「魔女と禁域」後編"
         updated: "2026-07-08"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第十八服「魔女と秘匿」前編"
         updated: "2026-07-22"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第十八服「魔女と秘匿」後編"
         updated: "2026-08-05"
+        access_modes: ["free-timed"]
+      - title: "第十九服「魔女と欲望」"
+        updated: "2026-08-19"
+        access_modes: ["free"]
+      - title: "魔女とひととき　パート２"
+        updated: "2026-09-02"
+        access_modes: ["purchase"]
+      - title: "第二十服「魔女と再起」前編"
+        updated: "2026-09-16"
         access_modes: ["purchase"]

@@ -14,7 +14,7 @@ works:
     status: "連載中"
     author: "田中こめ"
     url: "https://championcross.jp/series/21fe5b3d50300"
-    chapter_count: 13
+    chapter_count: 16
     chapters:
       - title: "第1話"
         updated: "2025-12-21"
@@ -48,12 +48,21 @@ works:
         access_modes: ["free-timed"]
       - title: "第11話"
         updated: "2026-06-21"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第12話"
         updated: "2026-07-05"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第13話"
         updated: "2026-07-19"
+        access_modes: ["free-timed"]
+      - title: "第14話"
+        updated: "2026-08-16"
+        access_modes: ["free"]
+      - title: "第15話"
+        updated: "2026-09-06"
+        access_modes: ["purchase"]
+      - title: "第16話"
+        updated: "2026-09-20"
         access_modes: ["purchase"]
   - work_title: "おしえごと 同人教師と天才ギャル"
     status: "完結"
@@ -386,7 +395,7 @@ works:
     status: "連載中"
     author: "みかみてれん,千種みのり"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
-    chapter_count: 17
+    chapter_count: 21
     chapters:
       - title: "第1話"
         updated: "2025-12-31"
@@ -429,15 +438,27 @@ works:
         access_modes: ["free-timed"]
       - title: "第13話"
         updated: "2026-06-17"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第14話"
         updated: "2026-07-01"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第15話"
         updated: "2026-07-15"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第16話"
         updated: "2026-08-05"
+        access_modes: ["free"]
+      - title: "第17話"
+        updated: "2026-08-19"
+        access_modes: ["free"]
+      - title: "第18話"
+        updated: "2026-08-26"
+        access_modes: ["purchase"]
+      - title: "描き下ろし番外編 1話"
+        updated: "2026-09-02"
+        access_modes: ["free"]
+      - title: "第19話"
+        updated: "2026-09-16"
         access_modes: ["purchase"]
   - work_title: "ダブルピース/読み切り"
     status: "読み切り"
@@ -668,7 +689,7 @@ works:
     status: "連載中"
     author: "塀"
     url: "https://championcross.jp/series/ae4257e66bab5"
-    chapter_count: 75
+    chapter_count: 76
     chapters:
       - title: "#1"
         updated: "2024-04-06"
@@ -681,25 +702,25 @@ works:
         access_modes: ["free"]
       - title: "#4"
         updated: "2024-04-06"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "#5"
         updated: "2024-04-06"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "#6"
         updated: "2024-04-06"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "#7"
         updated: "2024-04-06"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "#8"
         updated: "2024-04-06"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "#9"
         updated: "2024-04-06"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "#9.5"
         updated: "2024-04-06"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "#10"
         updated: "2024-04-06"
         access_modes: ["free-timed"]
@@ -846,7 +867,7 @@ works:
         access_modes: ["free-timed"]
       - title: "#56"
         updated: "2025-01-28"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "#57"
         updated: "2025-02-25"
         access_modes: ["purchase"]
@@ -888,12 +909,15 @@ works:
         access_modes: ["purchase"]
       - title: "#69"
         updated: "2026-05-26"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "#特別版"
         updated: "2026-06-09"
         access_modes: ["free"]
       - title: "#70"
         updated: "2026-07-28"
+        access_modes: ["free"]
+      - title: "#71"
+        updated: "2026-08-25"
         access_modes: ["free"]
   - work_title: "吸えない吸血鬼の蔵書票/読み切り"
     status: "読み切り"
@@ -1021,16 +1045,19 @@ works:
   - work_title: "贋作の第十番"
     status: "連載中"
     url: "https://championcross.jp/episodes/b52d54db17eb4"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
       - title: "第1話"
         updated: "2026-05-20"
         access_modes: ["free"]
       - title: "第2話"
         updated: "2026-06-17"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第3話"
         updated: "2026-07-15"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: "2026-08-19"
         access_modes: ["purchase"]
   - work_title: "足が大好き足羽さん/読み切り"
     status: "読み切り"

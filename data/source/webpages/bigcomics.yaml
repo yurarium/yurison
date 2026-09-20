@@ -23,7 +23,7 @@ works:
     status: "連載中"
     author: "たるはる"
     url: "https://bigcomics.jp/series/cad403cdddf52"
-    chapter_count: 18
+    chapter_count: 19
     chapters:
       - title: "(第1話) 魔界のカニ漁"
         updated: "2024-12-27"
@@ -69,15 +69,18 @@ works:
         access_modes: ["free-timed"]
       - title: "(第15話) 吸血と愛"
         updated: "2026-04-27"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "(第16話) カネノナル樹"
         updated: "2026-05-27"
         access_modes: ["free"]
       - title: "(第17話) ドキッ！　サウナデスマッチ!!"
         updated: "2026-06-26"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "(第18話) 失敗の達人"
         updated: "2026-07-27"
+        access_modes: ["purchase"]
+      - title: "(第19話) 入れ替わっちゃった！"
+        updated: "2026-08-27"
         access_modes: ["purchase"]
   - work_title: "あの子が嫌いな17から18の理由"
     status: "読み切り"

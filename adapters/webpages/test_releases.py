@@ -9,7 +9,9 @@ platform read here (キミコミ, 竹コミ, ビッコミ, ライコミ, Gコミ
 three-state model and the range navigation had been worked out once and left in another file.
 """
 import pathlib
+import re
 import sys
+import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -164,6 +166,57 @@ def a_refusal_on_a_continuation_page(s):
     s.check("502" in failed[0][1], "with the code, so a run says what refused")
     s.raises(urllib.error.HTTPError, lambda: page("https://x.test/3"),
              "while the unguarded call is what used to reach the loop and end the adapter")
+
+    cache_age(s)
+
+
+def cache_age(s):
+    """A cached page older than the limit is not the answer, which is what froze eleven platforms.
+
+    THE HOST IS STUBBED RATHER THAN REACHED, which is what makes this a test of the decision and
+    not of the network. `urlopen` records whether it was called, so a cache hit and a cache miss
+    are told apart by the thing that actually distinguishes them.
+    """
+    import os, time as _t
+    d = pathlib.Path(tempfile.mkdtemp())
+    url = "https://frozen.test/series/1"
+    f = d / (re.sub(r"[^a-zA-Z0-9]+", "_", url)[-80:] + ".html")
+    f.write_text("cached page")
+
+    asked = []
+
+    class _Resp:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def read(self):
+            return "live page".encode()
+
+    def _stub(req, timeout=None):
+        asked.append(req.full_url)
+        return _Resp()
+
+    real_open, real_sleep = wp.urllib.request.urlopen, wp.time.sleep
+    wp.urllib.request.urlopen, wp.time.sleep = _stub, lambda *_a: None
+    try:
+        s.eq(wp.fetch(url, d), "cached page", "a page fetched today is read from the cache")
+        s.eq(len(asked), 0, "and the host is not asked for it")
+
+        old = _t.time() - 8 * 86400
+        os.utime(f, (old, old))
+        s.eq(wp.fetch(url, d), "live page", "one eight days old is read from the host instead")
+        s.eq(len(asked), 1, "which is the fetch that five months of runs never made")
+        s.eq(f.read_text(), "live page", "and what came back replaces what was there")
+
+        os.utime(f, (old, old))
+        s.eq(wp.fetch(url, d, max_age_days=30), "live page",
+             "while a caller wanting an older page still gets the cache")
+        s.eq(len(asked), 1, "without a second request")
+    finally:
+        wp.urllib.request.urlopen, wp.time.sleep = real_open, real_sleep
 
 
 if __name__ == "__main__":

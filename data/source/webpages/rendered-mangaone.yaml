@@ -20,14 +20,18 @@ works:
     url: "https://manga-one.com/manga/27253/chapter/307792"
     chapter_count: 10
     chapters:
-      - title: "第9話(後編)"
-        updated: 2026-09-20
+      - title: "第10話"
+        updated: 2026-10-18
         access_modes: ["purchase"]
         access_note: "released early to paying readers (先読)"
         date_basis: rendered
+      - title: "第9話(後編)"
+        updated: 2026-09-20
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第9話(前編)"
         updated: 2026-08-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "第8話(後編)"
         updated: 2026-07-19
@@ -55,10 +59,6 @@ works:
         date_basis: rendered
       - title: "第6話(前編)"
         updated: 2026-04-12
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第5.5話"
-        updated: 2026-03-15
         access_modes: ["purchase"]
         date_basis: rendered
   - work_title: "私の焦がれる彼女"
@@ -222,6 +222,10 @@ works:
     url: "https://manga-one.com/viewer/70173"
     chapter_count: 10
     chapters:
+      - title: "TVドラマレポ漫画②"
+        updated: 2026-09-18
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "番外編①"
         updated: 2026-09-25
         access_modes: ["purchase"]
@@ -256,10 +260,6 @@ works:
         access_modes: ["purchase"]
         date_basis: rendered
       - title: "第131話"
-        updated: 2026-09-04
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第130話"
         updated: 2026-09-04
         access_modes: ["purchase"]
         date_basis: rendered

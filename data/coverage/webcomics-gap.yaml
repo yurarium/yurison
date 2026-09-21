@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-21
+retrieved: 2026-09-22
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -38,6 +38,16 @@ platforms_missing:
   - platform: "アサコミ"
     works: 1
 works_missing:
+  - title: "このままモブじゃ終われない!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3700"
+    antenna_id: "203870"
+    tags: ["百合", "サキュバス"]
+  - title: "しゅがー・みーつ・がーる!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3108"
+    antenna_id: "166358"
+    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -58,11 +68,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3140"
     antenna_id: "138856"
     tags: ["百合", "アイドル"]
-  - title: "このままモブじゃ終われない!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3700"
-    antenna_id: "203870"
-    tags: ["百合", "サキュバス"]
   - title: "6億年の博物旅"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3818"
@@ -83,11 +88,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3397"
     antenna_id: "159994"
     tags: ["百合", "女子高生", "4コマ"]
-  - title: "しゅがー・みーつ・がーる!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3108"
-    antenna_id: "166358"
-    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "エイティエイトを2でわって"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3423"
@@ -298,6 +298,21 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "堕天使そぷらのちゃんの復讐"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006778_S"
+    antenna_id: "190226"
+    tags: ["百合", "女子高生", "学園"]
+  - title: "ケイヤクシマイ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001277_S"
+    antenna_id: "136506"
+    tags: ["百合", "社会人", "女子高生", "同棲"]
+  - title: "安達としまむら"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004197_S"
+    antenna_id: "90973"
+    tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
   - title: "ぐがぐもぐるてん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008419_S"
@@ -433,21 +448,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007254_S"
     antenna_id: "198357"
     tags: ["百合", "不動産", "同人活動"]
-  - title: "堕天使そぷらのちゃんの復讐"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006778_S"
-    antenna_id: "190226"
-    tags: ["百合", "女子高生", "学園"]
   - title: "バカに告白"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006660_S"
     antenna_id: "188798"
     tags: ["百合", "学園", "ラブコメ", "女子高生"]
-  - title: "安達としまむら"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_004197_S"
-    antenna_id: "90973"
-    tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
   - title: "君になれたら"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008317_S"
@@ -518,11 +523,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_005941_S"
     antenna_id: "176462"
     tags: ["百合"]
-  - title: "ケイヤクシマイ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_001277_S"
-    antenna_id: "136506"
-    tags: ["百合", "社会人", "女子高生", "同棲"]
   - title: "こいのおわりをねがうとき"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019946_S"
@@ -793,6 +793,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "安達としまむら"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/41839"
+    antenna_id: "92017"
+    tags: ["百合", "女子高生", "コミカライズ", "アニメ化"]
   - title: "星屑テレパス"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/48976"
@@ -873,11 +878,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/53991"
     antenna_id: "121994"
     tags: ["百合", "女子高生", "4コマ", "アニメ化"]
-  - title: "安達としまむら"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/41839"
-    antenna_id: "92017"
-    tags: ["百合", "女子高生", "コミカライズ", "アニメ化"]
   - title: "おちこぼれフルーツタルト"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -1182,7 +1182,7 @@ works_missing:
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/8e32550d65684"
     antenna_id: "133566"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "恋愛", "ラブコメ", "うぶ恋・ピュア恋", "カップル", "片思い"]
   - title: "白き乙女の人狼"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/d8e8c084c4c6c"

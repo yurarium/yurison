@@ -9,32 +9,64 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-09-21
+retrieved: 2026-09-22
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 494
 works:
+  - work_title: "安達としまむら"
+    author: "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)"
+    url: "https://manga.nicovideo.jp/comic/41839"
+    comic_id: "41839"
+    updated: "2026-09-21"
+    started: "2019-06-03"
+    episode_count: 7
+    free_episodes: 7
+    channel: "電撃大王"
+    channel_slug: "daioh"
+    latest_episode: "第60話「Cherry Blossoms for the Two of Us2」②"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129809"
+  - work_title: "魔法少女三十路"
+    author: "三倉ゆめ"
+    url: "https://manga.nicovideo.jp/comic/80236"
+    comic_id: "80236"
+    updated: "2026-09-21"
+    started: "2026-06-15"
+    episode_count: 2
+    free_episodes: 2
+    channel: "ニコニコヒーローズ"
+    channel_slug: "niconicoheros"
+    latest_episode: "第46話　もしスーパーが征服されたら…（前編）"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1128760"
+  - work_title: "おやすみシェヘラザード"
+    author: "篠房六郎"
+    url: "https://manga.nicovideo.jp/comic/34558"
+    comic_id: "34558"
+    updated: "2026-09-21"
+    started: "2018-05-10"
+    channel: "もっとやわらかスピリッツ"
+    channel_slug: "yawaspi"
   - work_title: "ロボットJSにスキはありません!!"
     author: "とりから"
     url: "https://manga.nicovideo.jp/comic/44519"
     comic_id: "44519"
-    updated: "2026-09-20"
+    updated: "2026-09-21"
     started: "2019-10-20"
-    episode_count: 146
-    free_episodes: 146
-    latest_episode: "ロボ25-2"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154352"
+    episode_count: 147
+    free_episodes: 147
+    latest_episode: "ロボ25-3"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154477"
   - work_title: "ハッピーシュート！"
     author: "とりから"
     url: "https://manga.nicovideo.jp/comic/60084"
     comic_id: "60084"
-    updated: "2026-09-20"
+    updated: "2026-09-21"
     started: "2022-08-31"
-    episode_count: 121
-    free_episodes: 121
-    latest_episode: "第8話の10"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154354"
+    episode_count: 122
+    free_episodes: 122
+    latest_episode: "第8話の11"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154478"
   - work_title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     author: "江島絵理(著者)"
     url: "https://manga.nicovideo.jp/comic/47294"
@@ -83,14 +115,6 @@ works:
     channel_slug: "dradrasharp"
     latest_episode: "第29話前編"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1147959"
-  - work_title: "おやすみシェヘラザード"
-    author: "篠房六郎"
-    url: "https://manga.nicovideo.jp/comic/34558"
-    comic_id: "34558"
-    updated: "2026-09-19"
-    started: "2018-05-10"
-    channel: "もっとやわらかスピリッツ"
-    channel_slug: "yawaspi"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"
@@ -569,30 +593,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第14話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129906"
-  - work_title: "安達としまむら"
-    author: "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)"
-    url: "https://manga.nicovideo.jp/comic/41839"
-    comic_id: "41839"
-    updated: "2026-09-07"
-    started: "2019-06-03"
-    episode_count: 6
-    free_episodes: 6
-    channel: "電撃大王"
-    channel_slug: "daioh"
-    latest_episode: "第60話「Cherry Blossoms for the Two of Us2」①"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129808"
-  - work_title: "魔法少女三十路"
-    author: "三倉ゆめ"
-    url: "https://manga.nicovideo.jp/comic/80236"
-    comic_id: "80236"
-    updated: "2026-09-07"
-    started: "2026-06-15"
-    episode_count: 2
-    free_episodes: 2
-    channel: "ニコニコヒーローズ"
-    channel_slug: "niconicoheros"
-    latest_episode: "第45話　もし敵が来なかったら…（後編）"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1114271"
   - work_title: "おちこぼれフルーツタルト"
     author: "浜弓場 双"
     url: "https://manga.nicovideo.jp/comic/53909"

@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-09-21
+retrieved: 2026-09-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -1395,6 +1395,57 @@ works:
         updated: 2025-07-16
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "ファタールゲーム"
+    author: "ばったん"
+    url: "https://pocket.shonenmagazine.com/title/03056"
+    stated_schedule:
+      cadence: "隔週日曜"
+      next_update: "2026-10-25"
+    chapter_count: 10
+    chapters:
+      - title: "【15話(2)】あたしが証明します！"
+        updated: 2026-08-25
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【15話(1)】あたしが証明します！"
+        updated: 2026-08-25
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【14話(2)】これはほとんど愛かもしれない"
+        updated: 2026-07-24
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【14話(1)】これはほとんど愛かもしれない"
+        updated: 2026-07-24
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【13話(2)】ほんとに死んじゃったんだ あの女"
+        updated: 2026-05-25
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【4話(2)】あたし以外の全部が灰色になっちゃうくらい"
+        updated: 2025-12-11
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【4話(1)】あたし以外の全部が灰色になっちゃうくらい"
+        updated: 2025-12-11
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【3話】神様がわたしのために用意した人"
+        updated: 2025-12-11
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【2話】友達よりも親密だけど恋人じゃない"
+        updated: 2025-12-11
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【1話】地獄だっていけるんです"
+        updated: 2025-12-11
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "GURU"
     author: "陣ノ内康暉"
     url: "https://pocket.shonenmagazine.com/title/03068"
@@ -1563,53 +1614,5 @@ works:
         date_basis: rendered
       - title: "【第1話】ハザマ学園怪奇新聞部"
         updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ファタールゲーム"
-    author: "ばったん"
-    url: "https://pocket.shonenmagazine.com/title/03056"
-    chapter_count: 10
-    chapters:
-      - title: "【15話(2)】あたしが証明します！"
-        updated: 2026-08-25
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【15話(1)】あたしが証明します！"
-        updated: 2026-08-25
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【14話(2)】これはほとんど愛かもしれない"
-        updated: 2026-07-24
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【14話(1)】これはほとんど愛かもしれない"
-        updated: 2026-07-24
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【13話(2)】ほんとに死んじゃったんだ あの女"
-        updated: 2026-05-25
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【4話(2)】あたし以外の全部が灰色になっちゃうくらい"
-        updated: 2025-12-11
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【4話(1)】あたし以外の全部が灰色になっちゃうくらい"
-        updated: 2025-12-11
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【3話】神様がわたしのために用意した人"
-        updated: 2025-12-11
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【2話】友達よりも親密だけど恋人じゃない"
-        updated: 2025-12-11
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【1話】地獄だっていけるんです"
-        updated: 2025-12-11
         access_modes: ["free"]
         date_basis: rendered

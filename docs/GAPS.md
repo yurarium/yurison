@@ -3222,6 +3222,15 @@ way, so nobody would have looked.
 a timeout costs one source instead of both; and something that reports what discovery actually did,
 since `continue-on-error` is right here and hiding the outcome is not.
 
+**BOTH HALVES OF THE FIX ARE IN, AND THE CONDITION IS STILL THERE.** Each command keeps its own
+exit and the step ends by printing all three, which is how run 35619402619 on 2026-09-21 reads
+`discovery: 百合ナビ exit 1, Web漫画アンテナ exit 0, 百合ナビ WEB連載 exit 1`. Both 百合ナビ passes
+timed out from the runner on the same day the listing answered 200 in 1.9 seconds from a desk, so
+the host is up and the path to a runner is what refuses, as it did on 2026-08-31. What changed is
+that the run now says so, and the cost was one comparator rather than the night: Web漫画アンテナ
+carried the intake, and the acceptance yardstick stood at the date of its last success instead of
+being quietly replaced by nothing. The condition itself is a host and a runner, which is neither
+this project's to fix nor something the next run reliably clears.
 ## The work-address pass resolves an address and then cannot say whose it is
 
 Found 2026-09-01, running `gigaviewer/workaddress.py` after 30 works were minted.

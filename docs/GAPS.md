@@ -3223,8 +3223,10 @@ a timeout costs one source instead of both; and something that reports what disc
 since `continue-on-error` is right here and hiding the outcome is not.
 
 **BOTH HALVES OF THE FIX ARE IN, AND THE CONDITION IS STILL THERE.** Each command keeps its own
-exit and the step ends by printing all three, which is how run 35619402619 on 2026-09-21 reads
-`discovery: 百合ナビ exit 1, Web漫画アンテナ exit 0, 百合ナビ WEB連載 exit 1`. Both 百合ナビ passes
+exit and the step ends by printing all three, which is how runs 35619402619 and 35757049604, on
+2026-09-21 and 2026-09-22, both read
+`discovery: 百合ナビ exit 1, Web漫画アンテナ exit 0, 百合ナビ WEB連載 exit 1`. Two consecutive days,
+and the listing answered 200 in under four seconds from a desk on each of them. Both 百合ナビ passes
 timed out from the runner on the same day the listing answered 200 in 1.9 seconds from a desk, so
 the host is up and the path to a runner is what refuses, as it did on 2026-08-31. What changed is
 that the run now says so, and the cost was one comparator rather than the night: Web漫画アンテナ
@@ -3649,6 +3651,15 @@ meaning anything. That is the failure this project names in §4 and §13, reache
 the last two banked a trough off a run where nobody touched the measure and nothing was wrong. The
 figure here is updated in place rather than gaining a paragraph a day, since the argument is the
 same one each time and only the floor moves.
+
+**AND THE PREDICTION CAME TRUE THE NEXT DAY.** The paragraph above says an ordinary upswing then
+stops the gate and asks for an assent on a day when nothing is wrong. On 2026-09-21 the gate banked
+42; on 2026-09-22 the measure read 44 and stopped the run. The composition settles what happened:
+the same nine platforms both days, `no_name` and `no_author` unchanged at zero everywhere except
+ニコニコ漫画's standing two, and the whole difference is one more row on コミックDAYS and one on
+マガポケ. Every row this counts is the access clause, which is the route asymmetry recorded above,
+so the number moved because two GigaViewer platform feeds published and for no other reason. That
+is the assent this control now asks for, and it is the kind that stops meaning anything.
 
 **IT IS NOT ONE MEASURE.** `renderings resting on a mechanical romanisation` in the site repository
 is the same shape for a different reason: it counts MARKUP, so it moves with how many rows an

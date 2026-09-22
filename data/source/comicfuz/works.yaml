@@ -2,24 +2,32 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-09-22
+retrieved: 2026-09-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "このままモブじゃ終われない！"
     yomi: "このままもぶじゃおわれない"
     url: "https://comic-fuz.com/manga/3700"
-    latest_updated: "2026-09-15"
+    latest_updated: "2026-09-22"
     authors: ["優しい内臓"]
     tags: ["火曜日", "男性向け", "４コマ", "SF・ファンタジー", "まんがタイムきららキャラット", "まんがタイムKRコミックス", "ギャグ・コメディ"]
-    chapter_count: 30
+    chapter_count: 31
     chapters:
-      - chapter_id: 79589
-        title: "第３０話"
+      - chapter_id: 80776
+        title: "第３１話"
         advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-22
+        free_from: 2026-10-06
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 79589
+        title: "第３０話"
+        updated: 2026-09-22
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-09-23"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 79586
         title: "第２９話"
         updated: 2026-09-15
@@ -167,11 +175,23 @@ works:
   - work_title: "しゅがー・みーつ・がーる！"
     yomi: "しゅがーみーつがーる"
     url: "https://comic-fuz.com/manga/3108"
-    latest_updated: "2026-09-08"
+    latest_updated: "2026-09-22"
     authors: ["白野アキヒロ"]
     tags: ["火曜日", "男性向け", "学園", "グルメ", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "百合", "日常"]
-    chapter_count: 73
+    chapter_count: 75
     chapters:
+      - chapter_id: 80977
+        title: "第32皿(2)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-27
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 80974
+        title: "第32皿(1)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-13
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 80071
         title: "特別編5"
         updated: 2026-09-08
@@ -5193,8 +5213,11 @@ works:
       - chapter_id: 64779
         title: "５巻 番外編「茜色ダイアリー」"
         updated: 2026-09-21
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=8 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-09-23"
+        became_free: true
+        access_note: "pointConsumption type=None amount=8 badge=None — チャージ, one per series per day"
       - chapter_id: 64776
         title: "５巻 第０話"
         updated: 2026-09-14
@@ -17277,17 +17300,28 @@ works:
   - work_title: "花唄メモワール"
     yomi: "はなうためもわーる"
     url: "https://comic-fuz.com/manga/3274"
-    latest_updated: "2026-09-09"
+    latest_updated: "2026-09-23"
     authors: ["一ノ瀬けい"]
     tags: ["水曜日", "男性向け", "SF・ファンタジー", "お仕事・趣味", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "日常"]
-    chapter_count: 87
+    chapter_count: 89
     chapters:
-      - chapter_id: 80083
-        title: "第三十五唄(2)"
+      - chapter_id: 80965
+        title: "第三十六唄(2)"
         advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-23
+        free_from: 2026-10-28
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 80962
+        title: "第三十六唄(1)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-14
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 80083
+        title: "第三十五唄(2)"
+        updated: 2026-09-23
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 80080
         title: "第三十五唄(1)"
         updated: 2026-09-09
@@ -22480,17 +22514,31 @@ works:
   - work_title: "あまねくシグナル"
     yomi: "あまねくしぐなる"
     url: "https://comic-fuz.com/manga/3896"
-    latest_updated: "2026-09-08"
+    latest_updated: "2026-09-22"
     authors: ["はうあゆ"]
     tags: ["火曜日", "男性向け", "SF・ファンタジー", "まんがタイムきららフォワード", "まんがタイムKRコミックス"]
-    chapter_count: 28
+    chapter_count: 30
     chapters:
-      - chapter_id: 80077
-        title: "第14話（2）"
+      - chapter_id: 80998
+        title: "第15話（2）"
         advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-22
+        free_from: 2026-10-27
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 80995
+        title: "第15話（1）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-10-13
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 80077
+        title: "第14話（2）"
+        updated: 2026-09-22
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-09-23"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80074
         title: "第14話（1）"
         updated: 2026-09-08

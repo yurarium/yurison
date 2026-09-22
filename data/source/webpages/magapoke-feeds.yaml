@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-09-22
+retrieved: 2026-09-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -2447,8 +2447,12 @@ works:
     title_id: "2901"
     url: "https://pocket.shonenmagazine.com/title/02901"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2901/feed.xml"
-    chapter_count: 57
+    chapter_count: 58
     chapters:
+      - title: "【#53】Cuteness"
+        updated: 2026-09-23
+        author: "原作/大鷹シン 漫画/ホマレ"
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/444087"
       - title: "【単行本宣伝話】"
         updated: 2026-09-16
         author: "原作/大鷹シン 漫画/ホマレ"

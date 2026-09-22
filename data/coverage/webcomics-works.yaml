@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-22
+retrieved: 2026-09-23
 record_type: candidate_works
-works: 311
+works: 310
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -246,7 +246,7 @@ candidates:
   - title: "いじめてくれる君がすき"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984151786084"]
-    tags: ["最近のコメント数", "百合"]
+    tags: ["いじめ", "最近のコメント数", "百合"]
   - title: "いちこえ、にふり、タチアオイ"
     platforms: ["Gコミ", "pixivコミック"]
     urls: ["https://comic.pixiv.net/works/12328", "https://g-comi.jp/series/063225706887f"]
@@ -1981,6 +1981,7 @@ candidates:
   - title: "世が夜なら!"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/01147"]
+    tags: ["お色気・微エロ", "ギャグ・コメディ", "吸血鬼・ヴァンパイア", "完結", "異種族・人外", "百合"]
   - title: "世界で一番おっぱいが好き!"
     platforms: ["カドコミ", "ニコニコ漫画", "マンガボックス"]
     urls: ["https://comic-walker.com/detail/KC_000034_S", "https://manga.nicovideo.jp/comic/30902", "https://www.mangabox.me/reader/262412/"]
@@ -2807,6 +2808,7 @@ candidates:
   - title: "性悪天才幼馴染との勝負に負けて初体験を全部奪われる話"
     platforms: ["カドコミ", "ヤングエースUP(更新終了)"]
     urls: ["https://comic-walker.com/detail/KC_005405_S", "https://web-ace.jp/youngaceup/contents/1000259/"]
+    tags: ["百合"]
   - title: "怨霊日和"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03125"]

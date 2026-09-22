@@ -6,11 +6,26 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-09-22
+retrieved: 2026-09-23
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421983566481748"
+    work_title: "サタノファニ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第３３９話②　「射銃」"
+    release_type: "chapter"
+    date: "2026-09-23"
+    date_basis: "observed"
+    first_seen: "2026-09-23"
+    first_reported: "2026-09-22T15:00:00Z"
+    platform_updated: "2026-09-22T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983566481748"
+    author: "山田恵庸"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197907"
     work_title: "きみが死ぬまで恋をしたい"
     web_status: "serialised"
@@ -508,6 +523,7 @@ releases:
     author: "藤川よつ葉/かかとぶし"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186878333"
+    in_current_window: false
     work_title: "アイドラトリィ"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -525,6 +541,7 @@ releases:
     raw_title: "＃４０　Ｐｅｒｆｏｒｍａｎｃｅ"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984186877671"
+    in_current_window: false
     work_title: "アイドラトリィ"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -542,6 +559,7 @@ releases:
     raw_title: "＃３９　ゴウドウライブ"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984186876857"
+    in_current_window: false
     work_title: "アイドラトリィ"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -559,6 +577,7 @@ releases:
     raw_title: "＃３８　Ｂｕｔｔｅｒｆｌｙ"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984186875869"
+    in_current_window: false
     work_title: "アイドラトリィ"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -576,6 +595,7 @@ releases:
     raw_title: "＃３７　ファン"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984186874896"
+    in_current_window: false
     work_title: "アイドラトリィ"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -593,6 +613,7 @@ releases:
     raw_title: "＃３６　レスバ"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984186874076"
+    in_current_window: false
     work_title: "アイドラトリィ"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -610,6 +631,7 @@ releases:
     raw_title: "＃３５　ｓｅｔ　ｕｐ"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984186873072"
+    in_current_window: false
     work_title: "アイドラトリィ"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -627,6 +649,7 @@ releases:
     raw_title: "＃３４　カイタク"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984186871898"
+    in_current_window: false
     work_title: "アイドラトリィ"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -644,6 +667,7 @@ releases:
     raw_title: "＃３３　ｆｌａｍｅ"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984186870188"
+    in_current_window: false
     work_title: "アイドラトリィ"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -661,6 +685,7 @@ releases:
     raw_title: "＃３２　４ｔｈ　ｓｔａｇｅ"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421983566481744"
+    in_current_window: false
     work_title: "サタノファニ"
     web_status: "serialised"
     identified_via: "discovery-candidate"

@@ -6,7 +6,7 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-09-22
+retrieved: 2026-09-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -773,7 +773,7 @@ works:
     status: "連載中"
     author: "BLZ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
-    chapter_count: 5
+    chapter_count: 6
     chapters:
       - title: "第一話"
         updated: "2026-08-19"
@@ -786,9 +786,12 @@ works:
         access_modes: ["free"]
       - title: "第四話"
         updated: "2026-09-09"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第五話"
         updated: "2026-09-16"
+        access_modes: ["purchase"]
+      - title: "第六話"
+        updated: "2026-09-23"
         access_modes: ["purchase"]
   - work_title: "田所さん"
     status: "完結"

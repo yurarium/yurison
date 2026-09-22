@@ -6,7 +6,7 @@ platform: comicride
 platform_name: "ライコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-09-22
+retrieved: 2026-09-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,7 +14,7 @@ works:
     status: "連載中"
     author: "南方純,kiki,キンタ"
     url: "https://comicride.jp/series/7b86cbca64ebe"
-    chapter_count: 73
+    chapter_count: 74
     chapters:
       - title: "第1話"
         updated: "2023-11-30"
@@ -216,7 +216,7 @@ works:
         access_modes: ["free-timed"]
       - title: "第36話中編"
         updated: "2026-03-18"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第36話後編"
         updated: "2026-04-22"
         access_modes: ["free"]
@@ -225,7 +225,7 @@ works:
         access_modes: ["free"]
       - title: "第37話中編"
         updated: "2026-06-17"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第37話後編①"
         updated: "2026-07-15"
         access_modes: ["purchase"]
@@ -234,6 +234,9 @@ works:
         access_modes: ["purchase"]
       - title: "第38話前編"
         updated: "2026-08-19"
+        access_modes: ["purchase"]
+      - title: "第38話中編"
+        updated: "2026-09-23"
         access_modes: ["purchase"]
   - work_title: "『人斬り』少女、公爵令嬢の護衛になる"
     status: "完結"

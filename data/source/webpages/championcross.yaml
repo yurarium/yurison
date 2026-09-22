@@ -6,7 +6,7 @@ platform: championcross
 platform_name: "チャンピオンクロス"
 publisher: "秋田書店"
 engine: comici
-retrieved: 2026-09-22
+retrieved: 2026-09-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -395,7 +395,7 @@ works:
     status: "連載中"
     author: "みかみてれん,千種みのり"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
-    chapter_count: 21
+    chapter_count: 22
     chapters:
       - title: "第1話"
         updated: "2025-12-31"
@@ -447,18 +447,21 @@ works:
         access_modes: ["free-timed"]
       - title: "第16話"
         updated: "2026-08-05"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第17話"
         updated: "2026-08-19"
         access_modes: ["free"]
       - title: "第18話"
         updated: "2026-08-26"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "描き下ろし番外編 1話"
         updated: "2026-09-02"
         access_modes: ["free"]
       - title: "第19話"
         updated: "2026-09-16"
+        access_modes: ["purchase"]
+      - title: "第20話"
+        updated: "2026-09-23"
         access_modes: ["purchase"]
   - work_title: "ダブルピース/読み切り"
     status: "読み切り"
@@ -689,7 +692,7 @@ works:
     status: "連載中"
     author: "塀"
     url: "https://championcross.jp/series/ae4257e66bab5"
-    chapter_count: 76
+    chapter_count: 77
     chapters:
       - title: "#1"
         updated: "2024-04-06"
@@ -870,7 +873,7 @@ works:
         access_modes: ["free-timed"]
       - title: "#57"
         updated: "2025-02-25"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "#58"
         updated: "2025-03-25"
         access_modes: ["purchase"]
@@ -915,9 +918,12 @@ works:
         access_modes: ["free"]
       - title: "#70"
         updated: "2026-07-28"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "#71"
         updated: "2026-08-25"
+        access_modes: ["free"]
+      - title: "#72"
+        updated: "2026-09-22"
         access_modes: ["free"]
   - work_title: "吸えない吸血鬼の蔵書票/読み切り"
     status: "読み切り"

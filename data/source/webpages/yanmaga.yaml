@@ -6,7 +6,7 @@ platform: yanmaga
 platform_name: "ヤンマガWeb"
 publisher: "講談社"
 engine: yanmaga
-retrieved: 2026-09-22
+retrieved: 2026-09-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -124,7 +124,7 @@ works:
         access_modes: ["purchase"]
   - work_title: "サタノファニ"
     url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
-    chapter_count: 7
+    chapter_count: 6
     chapters:
       - title: "第１話　「甘城千歌」"
         updated: "2020-06-01"
@@ -138,10 +138,6 @@ works:
         updated: "2020-07-06"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/cdb72517f48da888f270d863dc8c06f0"
         access_modes: ["free"]
-      - title: "第３３７話　「仇（かたき）討ち」"
-        updated: "2026-08-12"
-        url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/8e3374a90301bdd278e437e63a2e0773"
-        access_modes: ["purchase"]
       - title: "第３３８話　「発破」"
         updated: "2026-08-26"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/63d807ac7b79ac44aec8cb7477431214"
@@ -151,6 +147,8 @@ works:
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/43cc48dccec11db9a8378916eab81dbf"
         access_modes: ["purchase"]
       - title: "第３３９話　「射銃」②"
+        updated: "2026-09-23"
+        url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/1f8a17ed8b3f5ed30554b3d998396fe6"
         access_modes: ["purchase"]
   - work_title: "シュガーガール・ドリップ"
     url: "https://yanmaga.jp/comics/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB_%E3%83%89%E3%83%AA%E3%83%83%E3%83%97"
@@ -234,7 +232,7 @@ works:
         access_modes: ["purchase"]
   - work_title: "乙女のおかず"
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
-    chapter_count: 8
+    chapter_count: 7
     chapters:
       - title: "第１話　乙女のぬくもり"
         updated: "2025-09-23"
@@ -248,10 +246,6 @@ works:
         updated: "2025-09-23"
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/2ed50467765e0dfbc674f60d9a5a58d4"
         access_modes: ["free"]
-      - title: "第４２話　悩める乙女たち"
-        updated: "2026-09-01"
-        url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/dd842b32b475959bda5abda046a9d7ea"
-        access_modes: ["purchase"]
       - title: "第４３話　乙女と勤労"
         updated: "2026-09-08"
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/612de15bd64a40bfb3f5ffed91ba0753"
@@ -265,6 +259,8 @@ works:
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/b80d92895520ad2d7e73e32d52437365"
         access_modes: ["purchase"]
       - title: "第４５話　スキスキダイスキダイキライ！"
+        updated: "2026-09-22"
+        url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/1ec86d134e5b543beda8617177191331"
         access_modes: ["purchase"]
   - work_title: "今日はカノジョがいないから"
     url: "https://yanmaga.jp/comics/%E4%BB%8A%E6%97%A5%E3%81%AF%E3%82%AB%E3%83%8E%E3%82%B8%E3%83%A7%E3%81%8C%E3%81%84%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89"

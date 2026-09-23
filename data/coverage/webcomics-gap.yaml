@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-23
+retrieved: 2026-09-24
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -38,6 +38,16 @@ platforms_missing:
   - platform: "アサコミ"
     works: 1
 works_missing:
+  - title: "エイティエイトを2でわって"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3423"
+    antenna_id: "187224"
+    tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
+  - title: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3140"
+    antenna_id: "138856"
+    tags: ["百合", "アイドル"]
   - title: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
@@ -63,11 +73,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/441"
     antenna_id: "88071"
     tags: ["野球", "女子高生", "アニメ化", "百合"]
-  - title: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3140"
-    antenna_id: "138856"
-    tags: ["百合", "アイドル"]
   - title: "6億年の博物旅"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3818"
@@ -88,11 +93,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3397"
     antenna_id: "159994"
     tags: ["百合", "女子高生", "4コマ"]
-  - title: "エイティエイトを2でわって"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3423"
-    antenna_id: "187224"
-    tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
   - title: "星野ヒバナはみつがれる"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3612"
@@ -712,7 +712,7 @@ works_missing:
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
     antenna_id: "191960"
-    tags: ["最近のコメント数"]
+    tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
   - title: "ケモノとワルツ"
     platform: "コミックグロウル"
     url: "https://comic-growl.com/series/5ec689382839e"
@@ -758,6 +758,11 @@ works_missing:
     url: "https://ddnavi.com/sazametorio/"
     antenna_id: "213473"
     tags: ["百合"]
+  - title: "ガールズ×ヴァンパイア"
+    platform: "チャンピオンクロス"
+    url: "https://championcross.jp/series/f30e2f58bbbdf"
+    antenna_id: "200285"
+    tags: ["百合", "吸血鬼・ヴァンパイア"]
   - title: "上伊那ぼたん、酔へる姿は百合の花"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/ae4257e66bab5"
@@ -768,11 +773,6 @@ works_missing:
     url: "https://championcross.jp/series/21fe5b3d50300"
     antenna_id: "199771"
     tags: ["百合", "アイドル"]
-  - title: "ガールズ×ヴァンパイア"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/f30e2f58bbbdf"
-    antenna_id: "200285"
-    tags: ["百合", "吸血鬼・ヴァンパイア"]
   - title: "お葉花を愛でる"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/46c8d0a17ed62"
@@ -1133,16 +1133,16 @@ works_missing:
     url: "https://yanmaga.jp/comics/%E5%85%88%E7%94%9F%E3%82%A7%E3%82%A7%E3%82%A7%E3%82%A7%E6%9C%8D%E7%9D%80%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84"
     antenna_id: "214428"
     tags: ["百合", "読み切り", "作家", "編集"]
-  - title: "『人斬り』少女、公爵令嬢の護衛になる"
-    platform: "ライコミ"
-    url: "https://comicride.jp/series/b95a6b1493469"
-    antenna_id: "165083"
-    tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
   - title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
     platform: "ライコミ"
     url: "https://comicride.jp/series/7b86cbca64ebe"
     antenna_id: "84661"
     tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
+  - title: "『人斬り』少女、公爵令嬢の護衛になる"
+    platform: "ライコミ"
+    url: "https://comicride.jp/series/b95a6b1493469"
+    antenna_id: "165083"
+    tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
   - title: "姫虐が止まらない白桃さん"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/12207421983584564641"
@@ -1163,6 +1163,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "OL Vtuberと推しJKちゃん"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/0e7fd362c2c11"
+    antenna_id: "142760"
+    tags: ["VTuber", "百合"]
   - title: "魔法少女にあこがれて"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/0d7dee548d547"
@@ -1248,11 +1253,6 @@ works_missing:
     url: "https://takecomic.jp/series/2706e9d937d5f"
     antenna_id: "170811"
     tags: ["百合", "女子中学生", "完結"]
-  - title: "OL Vtuberと推しJKちゃん"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/0e7fd362c2c11"
-    antenna_id: "142760"
-    tags: ["VTuber", "百合"]
   - title: "銀輪ボイス"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/de0a74a9b5715"

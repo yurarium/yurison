@@ -9,12 +9,32 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-09-23
+retrieved: 2026-09-24
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 494
 works:
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-09-23"
+    started: "2019-10-20"
+    episode_count: 149
+    free_episodes: 149
+    latest_episode: "ロボ25-5"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154746"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-09-23"
+    started: "2022-08-31"
+    episode_count: 124
+    free_episodes: 124
+    latest_episode: "第9話の2"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154747"
   - work_title: "きみが死ぬまで恋をしたい"
     author: "あおのなち"
     url: "https://manga.nicovideo.jp/comic/56065"
@@ -143,26 +163,6 @@ works:
     started: "2018-05-10"
     channel: "もっとやわらかスピリッツ"
     channel_slug: "yawaspi"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-09-22"
-    started: "2019-10-20"
-    episode_count: 148
-    free_episodes: 148
-    latest_episode: "ロボ25-4"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154631"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-09-22"
-    started: "2022-08-31"
-    episode_count: 123
-    free_episodes: 123
-    latest_episode: "第9話の1"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1154632"
   - work_title: "安達としまむら"
     author: "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)"
     url: "https://manga.nicovideo.jp/comic/41839"

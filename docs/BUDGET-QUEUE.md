@@ -323,6 +323,31 @@ this cost nothing.
 Nothing else moved. The unheld set is the same 26 works and 56 rows, quarantine is empty, and
 `rows with a moving address` held at the 8 it was ratcheted to yesterday.
 
+## The 百合ナビ yardstick measures coverage and feeds nothing that extends it. 2026-09-24
+
+The WEB連載 listing moved its current month above the first `▼N月更新` header, so `webyuri.parse`
+dated 10 of its 129 rows. `acceptance.py` skips an undated row, so its population fell to zero and
+its floor read 0.0% against 94.0. The parser reads the leading section from `--retrieved` now, the
+weekday arithmetic having settled which month it is, and a guard refuses to write when fewer than
+half the rows carry a month, which is the check the row count could not give.
+
+**THE FLOOR IS RE-ESTABLISHED AT 90.9 FROM 93.4,** the first reading taken against a listing this
+could date. The population it was set against has not been stable: 49 works on 2026-09-20 with a
+yardstick fifty days old, 74 once refreshed, 76 now.
+
+**THE FIVE IT IS SHORT OF ARE THE QUEUE.** ガヴリールドロップアウト and 彗星、ロック・ユー on
+カドコミ are works the corpus does not hold, and so is スライム倒して300年 on ガンガンONLINE, already
+diagnosed as a claim naming no URL. The other two are worse and are the reason this entry exists:
+笑顔のたえない職場です。 on コミックDAYS and 阿佐ヶ谷サキュバス同人物語 on チャンピオンクロス are
+works the corpus HOLDS, w00091 and w00092, with no release row between them, and neither appears in
+`data/coverage/webcomics-works.yaml`, so no pass is told to read them.
+
+That is the shape under all five. The target list every platform adapter reads is built from
+Web漫画アンテナ alone, so 百合ナビ's listing scores coverage and feeds nothing that extends it, and a
+work the antenna misses and 百合ナビ names can never stop being a miss however long it sits here.
+Whether the admission policy of 2026-08-15 should read this listing too is the owner's, and it is
+the difference between a queue that drains and a number that cannot reach its floor.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

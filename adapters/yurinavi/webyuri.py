@@ -23,6 +23,11 @@ import yaml
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 URL = "https://yurinavi.com/2017/02/28/web_yuri/"
 MIN_ROWS = 30
+#: The share of rows that must carry a month for the file to be worth writing. Every consumer joins
+#: on `last_update_seen`, and a page parsing into rows with no month is one this cannot measure
+#: anything against. Half sits well clear of the whole a healthy read gives and well above the
+#: 7.7% the broken one gave.
+MIN_DATED_SHARE = 0.5
 
 
 def fetch(cache, force=False, max_age_days=1):
@@ -50,9 +55,22 @@ def text(html):
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", html)).strip()
 
 
-def parse(html):
-    """Rows are `<day> <weekday> | <title> <author>(<platform>)`, grouped under ▼<n>月更新 headers."""
-    out, month, day = [], None, None
+def parse(html, month=None):
+    """Rows are `<day> <weekday> | <title> <author>(<platform>)`, grouped under ▼<n>月更新 headers.
+
+    `month` IS THE PAGE'S OWN CURRENT MONTH, WHICH IT STATES NOWHERE. 百合ナビ leads with the works
+    updating THIS month and heads only the months after it, so on 2026-09-24 the page carried one
+    unlabelled section of 161 rows followed by `▼10月更新` and `▼11月更新`. Rows before the first
+    header therefore had no month, `last_update_seen` is written only where a month is known, and
+    the yardstick went from 128 dated rows to 10 in a single run. `acceptance.py` skips an undated
+    row, so its population fell to zero and its floor read 0.0%.
+
+    The weekday settles that the leading section is the current month and not an older one: it
+    opens `1 火` while `▼10月更新` opens `1 木`, which are 2026-09-01 and 2026-10-01. The caller
+    passes the month of `--retrieved`, so what fills the gap is the run's own date rather than a
+    guess about the page.
+    """
+    out, day = [], None
     for r in re.findall(r"<tr[^>]*>(.*?)</tr>", html, re.S):
         cells = [text(c) for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", r, re.S)]
         if not cells:
@@ -75,6 +93,16 @@ def parse(html):
     return out
 
 
+def dated_share(rows):
+    """How many rows carry a month, and whether that is enough to write. `(dated, enough)`.
+
+    A PREDICATE, SO THE RULE CAN BE PUT IN FRONT OF A TEST. The guard it serves is the one the row
+    count could not give: 129 rows parsed cleanly on the run where only 10 of them carried a date.
+    """
+    dated = sum(1 for r in rows if r["month"])
+    return dated, dated >= len(rows) * MIN_DATED_SHARE
+
+
 def norm(s):
     # Strip zero-width and bidi control characters: the antenna emits platform names carrying
     # U+200E/U+200F (竹コミ‎‏‎), which are invisible and silently break every comparison.
@@ -94,10 +122,20 @@ def main():
 
     cache = pathlib.Path(a.cache).expanduser()
     cache.mkdir(parents=True, exist_ok=True)
-    rows = parse(fetch(cache, a.force))
+    rows = parse(fetch(cache, a.force), month=int(a.retrieved[5:7]))
     if len(rows) < MIN_ROWS:
         sys.exit(f"HEALTH: parsed {len(rows)} rows (< {MIN_ROWS}). Markup has probably changed; "
                  "refusing to write.")
+    # A ROW COUNT THE MARKUP SATISFIES WHILE THE FIELD EVERY READER JOINS ON GOES MISSING. The
+    # guard above counts rows and passed at 129 on the run where dates collapsed to 10, because
+    # the rows were all present and only the month had gone. `acceptance.py` skips an undated row,
+    # so the damage surfaced as a floor reading 0.0% four steps away instead of as this pass
+    # declining to write. §14b: a health check sharing its subject's blind spot reports clean
+    # through the very failure it exists to catch.
+    dated, enough = dated_share(rows)
+    if not enough:
+        sys.exit(f"HEALTH: {dated} of {len(rows)} rows carry a month (< {MIN_DATED_SHARE:.0%}). "
+                 "The section headers have probably moved; refusing to write.")
 
     # Dedupe on raw text + platform; a work recurs on every date it updated.
     works, seen = [], set()

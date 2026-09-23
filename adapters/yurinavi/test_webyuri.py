@@ -46,6 +46,7 @@ def main(s):
     s.eq(wy.norm("竹コミ‎‏"), wy.norm("竹コミ"), "bidi marks are stripped")
     s.eq(wy.norm("ＹＵＲＩ"), wy.norm("yuri"), "width and case fold")
 
+    leading_section(s)
     cache_age(s)
 
 
@@ -87,6 +88,37 @@ def cache_age(s):
         s.eq(len(asked), 1, "which is the request an unbounded cache never made")
     finally:
         wy.urllib.request.urlopen, wy.time.sleep = real_open, real_sleep
+
+
+def leading_section(s):
+    """The page's own current month, which it heads nothing with, and the guard over it.
+
+    THE SHAPE THAT BROKE IT on 2026-09-24: 百合ナビ leads with the works updating this month under
+    no header and labels only the months after, so every row above the first `▼N月更新` parsed with
+    no month. The file still held 129 rows and the row-count guard passed, while `acceptance.py`
+    skipped all of them and read 0.0% against a floor of 94.
+    """
+    page = """
+    <table>
+      <tr><td>1 火</td><td>今月の話 甲（コミックDAYS）</td></tr>
+      <tr><td>2 水</td><td>今月の続き 乙（一迅プラス）</td></tr>
+      <tr><td>▼10月更新の百合漫画</td></tr>
+      <tr><td>1 木</td><td>来月の話 丙（カドコミ）</td></tr>
+    </table>"""
+    rows = wy.parse(page, month=9)
+    s.eq([r["month"] for r in rows], [9, 9, 10],
+         "the leading section takes the month it was handed and a header still overrides it")
+    s.eq([r["day"] for r in rows], [1, 2, 1], "each row keeps its own day across the boundary")
+
+    s.eq([r["month"] for r in wy.parse(page)], [None, None, 10],
+         "and with no month handed over the leading rows stay undated rather than guessing")
+
+    # The guard the row count could not give.
+    s.eq(wy.dated_share(rows), (3, True), "a page whose rows all carry a month is worth writing")
+    s.eq(wy.dated_share(wy.parse(page)), (1, False),
+         "one dated row in three is the collapse that read 10 of 129, and it refuses")
+    s.eq(wy.dated_share([]), (0, True),
+         "an empty parse is left to the row-count guard, which is the one that speaks to it")
 
 
 if __name__ == "__main__":

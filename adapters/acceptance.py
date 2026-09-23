@@ -246,8 +246,23 @@ FLOORS = {
     # moving, which is churn and not a regression, and a measure that cries every week stops being
     # read. The 25 works this is short of are named in the run's own output and listed in
     # docs/BUDGET-QUEUE.md as the queue they are.
+    # RE-ESTABLISHED AGAIN 2026-09-24, from the first reading taken against a listing this could
+    # actually date. 百合ナビ moved its current month above the first `▼N月更新` header, so
+    # `webyuri.parse` dated 10 of 129 rows, this measure skipped every undated one, and its
+    # population fell to zero against a floor of 94.0. The parser reads the leading section now and
+    # the yardstick carries 129 dated rows, which is a larger population than the floor was ever set
+    # against: 49 works on 2026-09-20 with a yardstick fifty days old, 74 once it was refreshed, 76
+    # now. 90.9 is 2.5 below the 93.4 measured here, which is the headroom the line above carries
+    # and the amount that lets a work move without crying.
+    #
+    # THE FIVE IT IS SHORT OF ARE A QUEUE AND ARE NAMED IN THE RUN'S OWN OUTPUT. Three are works the
+    # corpus does not hold. Two, 笑顔のたえない職場です。 and 阿佐ヶ谷サキュバス同人物語, it holds
+    # with no release row at all, and neither is in `webcomics-works.yaml`, so no pass reads them.
+    # That is the shape worth knowing: this listing MEASURES coverage and feeds nothing that extends
+    # it, because the target list is built from Web漫画アンテナ alone. A work 百合ナビ names and the
+    # antenna misses stays uncovered and shows up here for ever.
     "webcomics adjusted": 87.4,      # measured 89.9 on 2026-08-10, 223/248
-    "yurinavi watched": 94.0,        # measured 97.4
+    "yurinavi watched": 90.9,        # measured 93.4 on 2026-09-24, 71/76
 }
 
 

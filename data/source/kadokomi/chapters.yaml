@@ -4615,6 +4615,7 @@ works:
         title: "第56話"
         updated: "2026-07-24"
         access_modes: ["free"]
+        free_until: "2026-09-25"
       - code: "KC_0027980007100011_E"
         title: "第55話"
         updated: "2026-07-10"
@@ -9452,14 +9453,24 @@ works:
       retrieved: 2026-09-25
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-09-24"
-    chapter_count: 59
+      next_update: "2026-10-22"
+    chapter_count: 62
     chapters:
+      - code: "KC_0044320006300031_E"
+        title: "Chapter56-3 クラス旅行編①"
+        updated: "2026-09-24"
+        access_modes: ["free"]
+      - code: "KC_0044320006300021_E"
+        title: "Chapter56-2 クラス旅行編①"
+        updated: "2026-09-24"
+        access_modes: ["free"]
+      - code: "KC_0044320006300011_E"
+        title: "Chapter56-1 クラス旅行編①"
+        updated: "2026-09-24"
+        access_modes: ["free"]
       - code: "KC_0044320006200011_E"
         title: "Chapter55 羽根井 凛④"
         updated: "2026-06-23"
-        access_modes: ["free"]
-        free_until: "2026-09-24"
       - code: "KC_0044320006100011_E"
         title: "Chapter54 班分け"
         updated: "2026-05-23"
@@ -9540,64 +9551,64 @@ works:
         updated: "2023-08-23"
       - code: "KC_0044320003100011_E"
         title: "Chapter28 大門 翼③"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320003000011_E"
         title: "Chapter27 白城黒姫②"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002900011_E"
         title: "Chapter26 幡龍佐智枝②"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002800011_E"
         title: "Chapter25 羽根井 凛③"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002700011_E"
         title: "Chapter24 逢魔夜見子"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002600011_E"
         title: "Chapter23 鬼怒柄 風嘉"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002500011_E"
         title: "Chapter22 ケイドロ編⑤"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002400011_E"
         title: "Chapter21 ケイドロ編④"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002300011_E"
         title: "Chapter20 ケイドロ編③"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002200011_E"
         title: "Chapter19 ケイドロ編②"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002100011_E"
         title: "Chapter18 ケイドロ編①"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320002000011_E"
         title: "Chapter17 幡龍佐智枝"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320001900011_E"
         title: "Chapter16 加賀谷 花"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320001800011_E"
         title: "Chapter15 柳 弥生"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320001700011_E"
         title: "Chapter14 羽根井 凛②"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320001600011_E"
         title: "Chapter13 藤堂いつみの復讐【後編】"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320001500011_E"
         title: "Chapter12 藤堂いつみの復讐【前編】"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320001400011_E"
         title: "Chapter11 岩垣結菜"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320001300021_E"
         title: "Chapter10【後編】 神定日葵×大門 翼"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320001300011_E"
         title: "Chapter10【前編】 神定日葵×大門 翼"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320001200011_E"
         title: "「中性的な隣人」#2 露出度"
         updated: "2021-01-26"
@@ -9608,32 +9619,32 @@ works:
         access_modes: ["free"]
       - code: "KC_0044320001000011_E"
         title: "Chapter9 四方塚まこと③"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320000900011_E"
         title: "Chapter8 白城 黒姫"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320000800011_E"
         title: "Chapter7 羽根井 凛"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320000700011_E"
         title: "Chapter6 大門 翼②"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320000600011_E"
         title: "Chapter5 大門 翼"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320000500011_E"
         title: "Bonus Comic　保健室で同級生に魔が差した話"
         updated: "2020-03-11"
         access_modes: ["free"]
       - code: "KC_0044320000400011_E"
         title: "Chapter4 四方塚まこと②"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320000300011_E"
         title: "Chapter3 河野るる香"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320000200011_E"
         title: "Chapter2 神定日葵"
-        rotated_date: "2026-08-06"
+        updated: "2026-08-06"
       - code: "KC_0044320000100011_E"
         title: "Chapter1 四方塚まこと"
         updated: "2020-02-03"
@@ -11620,7 +11631,7 @@ works:
     chapter_count: 42
     chapters:
       - code: "KC_0055060002600011_E"
-        title: "#021①"
+        title: "#021"
         updated: "2026-09-12"
         access_modes: ["free"]
       - code: "KC_0055060002500021_E"
@@ -11647,7 +11658,8 @@ works:
         updated: "2026-04-10"
       - code: "KC_0055060002200011_E"
         title: "#EX01"
-        updated: "2026-03-13"
+        updated: "2026-09-24"
+        access_modes: ["free"]
       - code: "KC_0055060002100011_E"
         title: "コミックス第３巻好評発売中！"
         updated: "2026-03-02"
@@ -14448,9 +14460,13 @@ works:
       retrieved: 2026-09-25
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-09-24"
-    chapter_count: 45
+      next_update_undecided: true
+    chapter_count: 46
     chapters:
+      - code: "KC_0060920003200011_E"
+        title: "第20話前編"
+        updated: "2026-09-24"
+        access_modes: ["free"]
       - code: "KC_0060920003100011_E"
         title: "休載イラスト"
         updated: "2026-09-10"
@@ -14470,8 +14486,6 @@ works:
       - code: "KC_0060920002800011_E"
         title: "番外編"
         updated: "2026-07-09"
-        access_modes: ["free"]
-        free_until: "2026-09-24"
       - code: "KC_0060920002700021_E"
         title: "第18話後編"
         updated: "2026-06-25"
@@ -16511,7 +16525,7 @@ works:
   - work_title: "推し恋カプリチオ"
     platform_code: "KC_006789_S"
     url: "https://comic-walker.com/detail/KC_006789_S"
-    status: "ongoing"
+    status: "finished"
     marketing_label: "yuri"
     tags: ["ラブコメ", "日常系", "学園モノ", "美少女", "ほのぼの", "胸キュン", "女主人公", "女子高校生(JK)", "イケメン", "ドキドキハラハラ", "友情・仲間", "いちゃラブ", "笑える", "百合", "高校生", "ハッピー", "ギャップ女子", "幼馴染", "ギャル", "オタク", "推し活", "萌え", "ブロマンス"]
     authors: ["美鈴ちょこ"]
@@ -16520,8 +16534,6 @@ works:
       url: "https://comic-walker.com/detail/KC_006789_S"
       retrieved: 2026-09-25
       note: "Publisher applies the tag 百合 on カドコミ."
-    stated_schedule:
-      next_update_undecided: true
     chapter_count: 21
     chapters:
       - code: "KC_0067890001400021_E"
@@ -18272,7 +18284,7 @@ works:
       retrieved: 2026-09-25
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update_undecided: true
+      next_update: "2026-09-25"
     chapter_count: 9
     chapters:
       - code: "KC_0087550000600021_E"
@@ -19141,9 +19153,13 @@ works:
       retrieved: 2026-09-25
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-09-24"
-    chapter_count: 5
+      next_update_undecided: true
+    chapter_count: 6
     chapters:
+      - code: "KC_0197400000700011_E"
+        title: "お知らせ"
+        updated: "2026-09-24"
+        access_modes: ["free"]
       - code: "KC_0197400000600011_E"
         title: "第５話"
         updated: "2026-08-22"

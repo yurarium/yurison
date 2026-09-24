@@ -23,7 +23,7 @@ works:
     status: "連載中"
     author: "たるはる"
     url: "https://bigcomics.jp/series/cad403cdddf52"
-    chapter_count: 19
+    chapter_count: 20
     chapters:
       - title: "(第1話) 魔界のカニ漁"
         updated: "2024-12-27"
@@ -72,15 +72,18 @@ works:
         access_modes: ["free-timed"]
       - title: "(第16話) カネノナル樹"
         updated: "2026-05-27"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "(第17話) ドキッ！　サウナデスマッチ!!"
         updated: "2026-06-26"
         access_modes: ["free"]
       - title: "(第18話) 失敗の達人"
         updated: "2026-07-27"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "(第19話) 入れ替わっちゃった！"
         updated: "2026-08-27"
+        access_modes: ["purchase"]
+      - title: "(第20話) ミルモの夢"
+        updated: "2026-09-25"
         access_modes: ["purchase"]
   - work_title: "あの子が嫌いな17から18の理由"
     status: "読み切り"

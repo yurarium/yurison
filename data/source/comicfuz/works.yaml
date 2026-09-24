@@ -9,7 +9,7 @@ works:
   - work_title: "うさぎはかく語りき"
     yomi: "うさぎはかくかたりき"
     url: "https://comic-fuz.com/manga/3572"
-    latest_updated: "2026-09-11"
+    latest_updated: "2026-09-25"
     is_original: true
     authors: ["鴻巣覚"]
     tags: ["金曜日", "オリジナル", "男性向け", "SF・ファンタジー", "お仕事・趣味", "バトル・アクション", "FUZコミックス", "オリジナル作品の最新話が無料化！", "異世界"]
@@ -41,10 +41,11 @@ works:
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 79838
         title: "第21話(1)"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-25
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+        updated: 2026-09-25
+        access_modes: ["free"]
+        access_changed: "purchase -> free"
+        access_changed_on: "2026-09-25"
+        became_free: true
       - chapter_id: 79577
         title: "3巻発売フェア"
         updated: 2026-07-24
@@ -60,7 +61,11 @@ works:
       - chapter_id: 78458
         title: "第19話(2)"
         updated: 2026-08-14
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-09-25"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78455
         title: "第19話(1)"
         updated: 2026-07-31
@@ -329,7 +334,7 @@ works:
   - work_title: "球詠"
     yomi: "たまよみ"
     url: "https://comic-fuz.com/manga/441"
-    latest_updated: "2026-09-18"
+    latest_updated: "2026-09-25"
     authors: ["マウンテンプクイチ"]
     tags: ["金曜日", "男性向け", "学園", "メディア化", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "スポーツ"]
     chapter_count: 228
@@ -612,10 +617,9 @@ works:
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 47971
         title: "１４巻 第８３球 「嫌われてるのかなぁ」（２）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-09-25
+        updated: 2026-09-25
         access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 47968
         title: "１４巻 第８３球 「嫌われてるのかなぁ」（１）"
         updated: 2026-09-18
@@ -1455,8 +1459,11 @@ works:
       - chapter_id: 79679
         title: "第４４話"
         updated: 2026-09-24
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-09-25"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 79592
         title: "第４３話"
         updated: 2026-08-27
@@ -5909,8 +5916,11 @@ works:
       - chapter_id: 58944
         title: "３巻 第３５話"
         updated: 2026-09-24
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-09-25"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 58941
         title: "３巻 第３４話"
         updated: 2026-09-17
@@ -12576,8 +12586,11 @@ works:
       - chapter_id: 44895
         title: "１４巻 第１８５話"
         updated: 2026-09-24
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-09-25"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 44892
         title: "１４巻 第１８４話"
         updated: 2026-09-17

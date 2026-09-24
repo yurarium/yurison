@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-09-24
+retrieved: 2026-09-25
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -3423,8 +3423,16 @@ works:
     title_id: "3056"
     url: "https://pocket.shonenmagazine.com/title/03056"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3056/feed.xml"
-    chapter_count: 27
+    chapter_count: 29
     chapters:
+      - title: "【16話(2)】世界はどうでもいい人と双海さんしかいない"
+        updated: 2026-09-25
+        author: "ばったん"
+        url: "https://pocket.shonenmagazine.com/title/03056/episode/444333"
+      - title: "【16話(1)】世界はどうでもいい人と双海さんしかいない"
+        updated: 2026-09-25
+        author: "ばったん"
+        url: "https://pocket.shonenmagazine.com/title/03056/episode/444332"
       - title: "【15話(2)】あたしが証明します！"
         updated: 2026-08-25
         author: "ばったん"

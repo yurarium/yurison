@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-24
+retrieved: 2026-09-25
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -38,6 +38,16 @@ platforms_missing:
   - platform: "アサコミ"
     works: 1
 works_missing:
+  - title: "うさぎはかく語りき"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3572"
+    antenna_id: "173581"
+    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
+  - title: "球詠"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/441"
+    antenna_id: "88071"
+    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "エイティエイトを2でわって"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3423"
@@ -68,11 +78,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3776"
     antenna_id: "209939"
     tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
-  - title: "球詠"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/441"
-    antenna_id: "88071"
-    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "6億年の博物旅"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3818"
@@ -83,11 +88,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/2391"
     antenna_id: "102691"
     tags: ["百合", "フェチ・性癖"]
-  - title: "うさぎはかく語りき"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3572"
-    antenna_id: "173581"
-    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -288,6 +288,16 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "拝啓、在りし日に咲く花たちへ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006092_S"
+    antenna_id: "178772"
+    tags: ["最近のコメント数"]
+  - title: "悪いが私は百合じゃない"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004432_S"
+    antenna_id: "99613"
+    tags: ["最近のコメント数"]
   - title: "新米姉妹のふたりごはん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002743_S"
@@ -392,7 +402,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008281_S"
     antenna_id: "201505"
-    tags: ["百合", "コミカライズ"]
+    tags: ["最近のコメント数"]
   - title: "君となら、明日を歌えるの"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007138_S"
@@ -413,11 +423,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006299_S"
     antenna_id: "183083"
     tags: ["百合", "女子高生", "コミカライズ", "エロ"]
-  - title: "拝啓、在りし日に咲く花たちへ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006092_S"
-    antenna_id: "178772"
-    tags: ["百合", "オムニバス・短編集"]
   - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007220_S"
@@ -543,11 +548,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006666_S"
     antenna_id: "189098"
     tags: ["百合", "学園", "お色気・微エロ", "ラブコメ"]
-  - title: "悪いが私は百合じゃない"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_004432_S"
-    antenna_id: "99613"
-    tags: ["百合", "ギャグ・コメディ", "エロ", "女子高生", "女性向け", "お色気・微エロ", "現代", "同性愛・LGBTQ+", "青春"]
   - title: "カムパネルラの塔"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005943_S"
@@ -643,6 +643,11 @@ works_missing:
     url: "https://www.ganganonline.com/title/2643"
     antenna_id: "211061"
     tags: ["百合", "読み切り", "群像劇", "パンデミック", "メンタルヘルス"]
+  - title: "魔王城デート大作戦!"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/0cd32d6a7efc2"
+    antenna_id: "212084"
+    tags: ["百合"]
   - title: "暗殺組合の山田さん"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
@@ -658,11 +663,6 @@ works_missing:
     url: "https://kimicomi.com/series/330f3ad1270c8"
     antenna_id: "136634"
     tags: ["幽霊", "アイドル", "百合", "女子高生", "ホラー"]
-  - title: "魔王城デート大作戦!"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    antenna_id: "212084"
-    tags: ["百合"]
   - title: "ワインガールズ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/f42014b3e7df6"
@@ -788,6 +788,21 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "押しかけ女房、コドモ付き!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/67280"
+    antenna_id: "166483"
+    tags: ["百合", "同居人・居候", "日常", "娘", "4コマ"]
+  - title: "拝啓、在りし日に咲く花たちへ"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70738"
+    antenna_id: "178754"
+    tags: ["百合", "女子高生"]
+  - title: "桃色カンパネラ"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/74044"
+    antenna_id: "198457"
+    tags: ["百合", "お色気・微エロ", "異種族・人外", "4コマ"]
   - title: "球詠"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/22768"
@@ -873,11 +888,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/71625"
     antenna_id: "183055"
     tags: ["百合", "女子高生", "コミカライズ"]
-  - title: "拝啓、在りし日に咲く花たちへ"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/70738"
-    antenna_id: "178754"
-    tags: ["百合", "女子高生"]
   - title: "おちこぼれフルーツタルト"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -918,16 +928,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/73060"
     antenna_id: "189012"
     tags: ["百合", "学園", "ラブコメ", "お色気・微エロ", "糖度高め"]
-  - title: "押しかけ女房、コドモ付き!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/67280"
-    antenna_id: "166483"
-    tags: ["百合", "同居人・居候", "日常", "娘", "4コマ"]
-  - title: "桃色カンパネラ"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/74044"
-    antenna_id: "198457"
-    tags: ["百合", "お色気・微エロ", "異種族・人外", "4コマ"]
   - title: "ユリノコ"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/70137"
@@ -973,11 +973,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/58368"
     antenna_id: "134462"
     tags: ["百合", "女子高生"]
-  - title: "転生王女と天才令嬢の魔法革命"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/49048"
-    antenna_id: "108970"
-    tags: ["転生", "魔法使い", "百合", "異世界", "アニメ化", "完結"]
   - title: "あくまで!アットホームな職場です。"
     platform: "ビッコミ"
     url: "https://bigcomics.jp/series/cad403cdddf52"

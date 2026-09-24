@@ -6,11 +6,74 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-09-24
+retrieved: 2026-09-25
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421984256404121"
+    work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第２５話　チョコレートパニック２"
+    release_type: "chapter"
+    date: "2026-09-25"
+    date_basis: "observed"
+    first_seen: "2026-09-25"
+    first_reported: "2026-09-24T15:00:00Z"
+    platform_updated: "2026-09-24T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421984256404121"
+    author: "空山トキ/五色安未/泉乃せん/伍長"
+    advances_narrative: true
+  - release_id: "comicdays:episode:12207421984251525831"
+    work_title: "ファタールゲーム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "１６話　世界はどうでもいい人と双海さんしかいない（３）"
+    release_type: "chapter"
+    date: "2026-09-25"
+    date_basis: "observed"
+    first_seen: "2026-09-25"
+    first_reported: "2026-09-24T15:00:00Z"
+    platform_updated: "2026-09-24T15:00:00Z"
+    date_confidence: "low"
+    date_note: "3 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
+    url: "https://comic-days.com/episode/12207421984251525831"
+    author: "ばったん"
+    advances_narrative: true
+  - release_id: "comicdays:episode:12207421984251525826"
+    work_title: "ファタールゲーム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "１６話　世界はどうでもいい人と双海さんしかいない（２）"
+    release_type: "chapter"
+    date: "2026-09-25"
+    date_basis: "observed"
+    first_seen: "2026-09-25"
+    first_reported: "2026-09-24T15:00:00Z"
+    platform_updated: "2026-09-24T15:00:00Z"
+    date_confidence: "low"
+    date_note: "3 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
+    url: "https://comic-days.com/episode/12207421984251525826"
+    author: "ばったん"
+    advances_narrative: true
+  - release_id: "comicdays:episode:12207421984251525821"
+    work_title: "ファタールゲーム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "１６話　世界はどうでもいい人と双海さんしかいない（１）"
+    release_type: "chapter"
+    date: "2026-09-25"
+    date_basis: "observed"
+    first_seen: "2026-09-25"
+    first_reported: "2026-09-24T15:00:00Z"
+    platform_updated: "2026-09-24T15:00:00Z"
+    date_confidence: "low"
+    date_note: "3 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
+    url: "https://comic-days.com/episode/12207421984251525821"
+    author: "ばったん"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421983566481748"
     work_title: "サタノファニ"
     web_status: "serialised"
@@ -27,6 +90,7 @@ releases:
     author: "山田恵庸"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197907"
+    in_current_window: false
     work_title: "きみが死ぬまで恋をしたい"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -43,6 +107,7 @@ releases:
     author: "あおのなち"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197904"
+    in_current_window: false
     work_title: "きみが死ぬまで恋をしたい"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -59,6 +124,7 @@ releases:
     author: "あおのなち"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197901"
+    in_current_window: false
     work_title: "きみが死ぬまで恋をしたい"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -75,6 +141,7 @@ releases:
     author: "あおのなち"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197925"
+    in_current_window: false
     work_title: "ささやくように恋を唄う"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -91,6 +158,7 @@ releases:
     author: "竹嶋えく"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197915"
+    in_current_window: false
     work_title: "ささやくように恋を唄う"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -107,6 +175,7 @@ releases:
     author: "竹嶋えく"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197912"
+    in_current_window: false
     work_title: "ささやくように恋を唄う"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -123,6 +192,7 @@ releases:
     author: "竹嶋えく"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197889"
+    in_current_window: false
     work_title: "大室家"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -139,6 +209,7 @@ releases:
     raw_title: "大室家の137"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984186197953"
+    in_current_window: false
     work_title: "私の推しは悪役令嬢。"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -155,6 +226,7 @@ releases:
     author: "青乃下/いのり。/花ヶ田"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197947"
+    in_current_window: false
     work_title: "私の推しは悪役令嬢。"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -171,6 +243,7 @@ releases:
     author: "青乃下/いのり。/花ヶ田"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197941"
+    in_current_window: false
     work_title: "私の推しは悪役令嬢。"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -187,6 +260,7 @@ releases:
     author: "青乃下/いのり。/花ヶ田"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197933"
+    in_current_window: false
     work_title: "私の推しは悪役令嬢。"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -203,6 +277,7 @@ releases:
     author: "青乃下/いのり。/花ヶ田"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197865"
+    in_current_window: false
     work_title: "今日はカノジョがいないから"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -219,6 +294,7 @@ releases:
     author: "岩見樹代子"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197856"
+    in_current_window: false
     work_title: "今日はカノジョがいないから"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -235,6 +311,7 @@ releases:
     author: "岩見樹代子"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197851"
+    in_current_window: false
     work_title: "今日はカノジョがいないから"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -251,6 +328,7 @@ releases:
     author: "岩見樹代子"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197873"
+    in_current_window: false
     work_title: "ぜんぶ壊して地獄で愛して"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -267,6 +345,7 @@ releases:
     author: "くわばらたもつ"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197868"
+    in_current_window: false
     work_title: "ぜんぶ壊して地獄で愛して"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -283,6 +362,7 @@ releases:
     author: "くわばらたもつ"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984186197860"
+    in_current_window: false
     work_title: "ぜんぶ壊して地獄で愛して"
     web_status: "serialised"
     identified_via: "known-work-match"

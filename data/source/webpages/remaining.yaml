@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-24
+retrieved: 2026-09-25
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -967,8 +967,12 @@ works:
     url: "https://comic-days.com/episode/2550912964518073379"
     platform_name: "コミックDAYS"
     route: "gigaviewer"
-    chapter_count: 24
+    chapter_count: 25
     chapters:
+      - title: "第２５話　チョコレートパニック２"
+        updated: 2026-09-24
+        author: "空山トキ/五色安未/泉乃せん/伍長"
+        access_modes: ["purchase"]
       - title: "第２４話　チョコレートパニック"
         updated: 2026-08-25
         author: "空山トキ/五色安未/泉乃せん/伍長"
@@ -980,11 +984,11 @@ works:
       - title: "第２２話　襲撃"
         updated: 2026-06-24
         author: "空山トキ/五色安未/泉乃せん/伍長"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第２１話　結成４"
         updated: 2026-05-25
         author: "空山トキ/五色安未/泉乃せん/伍長"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第２０話　結成３"
         updated: 2026-04-23
         author: "空山トキ/五色安未/泉乃せん/伍長"
@@ -4888,11 +4892,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-23
+        updated: 2026-09-24
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-23
+        updated: 2026-09-24
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

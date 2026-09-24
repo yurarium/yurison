@@ -3826,3 +3826,50 @@ it finds the wrong set twice. `net.fetch` already is that home, with pacing, ret
 never caches and the healing `_adopt` does. Routing the rest through it is the real fix and it is
 not a small one, because each caller has its own error semantics and its own idea of what an
 absent body means. Recorded rather than attempted.
+
+## An unpinned analyser changed forty of the corpus's verdicts overnight
+
+Found 2026-09-24, working a budget that fell 35 with nobody doing naming work.
+
+**WHAT MOVED.** `titles read by a machine, unmarked` read 1183 on 2026-09-23 and 1148 on 2026-09-24.
+The 36 titles that left it are all still in the shipped map under the same keys; each gained
+`"unverified": true`. In the store, titles whose `ordinary` flag is set fell from 1212 to 1172.
+
+**WHY.** The workflow installs `pyyaml pyflakes sudachipy sudachidict-core` with no versions. The
+runs either side of the change record what pip resolved: `sudachipy-0.6.11` with
+`sudachidict-core-20260723` on the 23rd, `sudachipy-0.7.0` with `sudachidict-core-20260723.1` on the
+24th. `facts/reading/vocabulary.doubt` returns `OUT_OF_VOCABULARY` where any morpheme is out of
+vocabulary, and `ordinary` is that answer inverted.
+
+**IT IS NOT THE SEGMENTATION, which was the first guess and was wrong.** Both versions cut
+`TSロリシリーズ` into `TS` and `ロリシリーズ` and agree on every reading. What changed is `is_oov()`:
+0.6.11 answers False for `ロリシリーズ`, `アオハル` and `メルティア`, and 0.7.0 answers True. The
+older version was reporting words it had synthesised as words it held, so the newer one is telling
+the truth and 36 coinages a reader saw unmarked now carry the mark. Reproduced side by side in a
+throwaway environment rather than inferred from the correlation.
+
+**WHY IT IS A GAP AND NOT A HAPPY ACCIDENT.** The budget banked it as a fall, which is what the
+ratchet does with an improvement, and it would have banked a loss the same way and as quietly. The
+measure's own docstring says a move means new works arrived or `facts/reading/vocabulary` widened,
+and neither happened: the analyser under the rule moved, which is a cause the number cannot express
+and nothing in the run reports. What a reader is told about 36 works changed because a third party
+published a release.
+
+**IT HAS ALREADY SPLIT THE DEVELOPMENT ENVIRONMENT FROM CI.** This working copy holds 0.6.11 and
+counts 1212 ordinary titles against the runner's 1172, on the same corpus and the same commit. A
+local `--gate` therefore banks the older verdict, and the first person to bank CI's 1148 by hand
+will meet a gate that measures 1183 and cannot pass.
+
+It is sharper than a gate disagreeing. The build here rewrote `data/names/titles.yaml` with
+`reading_ordinary: true` on the titles the runner had just decided are not, so a pass run on this
+machine and committed would have put the older analyser's verdicts back into the name store and
+taken the mark off 36 works again. The file was left to CI on this pass, and the only thing that
+caught it was reading the diff.
+
+**WHAT WOULD SETTLE IT.** Pinning both packages in the workflow makes the corpus reproducible and
+makes an upgrade a decision somebody takes, which is what this project asks of every other input.
+The cost is that a pin nobody revisits is how an analyser stays wrong for a year, so the pin wants a
+companion: `reading_source` already records the version beside each reading it made, and a check
+comparing the versions in that field against the one the run is using would say when the corpus is
+holding answers no current analyser would give. Choosing between a pin, that check, or both is the
+owner's.

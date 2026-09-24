@@ -348,6 +348,21 @@ work the antenna misses and 百合ナビ names can never stop being a miss howev
 Whether the admission policy of 2026-08-15 should read this listing too is the owner's, and it is
 the difference between a queue that drains and a number that cannot reach its floor.
 
+## `incomplete attested rows` 44 to 51, and an analyser upgrade under it. 2026-09-24
+
+The rise is the access clause and nothing else. `no_name` and `no_author` are zero on every
+platform but ニコニコ漫画's standing two, both days, so no row lost what a moved selector takes.
+What moved is コミックDAYS 12 to 15, サンデーうぇぶり 15 to 17, コロコロオンライン 1 to 2, and
+少年ジャンプ+ arriving with its first such row, which is the GigaViewer route asymmetry recorded in
+docs/GAPS.md reaching a fifth platform. The measure has read 59 before, so 51 sits inside its band.
+
+**THE FALL BESIDE IT IS THE ONE WORTH READING.** `titles read by a machine, unmarked` fell 1183 to
+1148 because the runner installed sudachipy 0.7.0 where the day before it installed 0.6.11, and the
+newer version reports a synthesised word as out of vocabulary where the older one claimed to hold
+it. 36 coinages a reader saw unmarked now carry the mark. GAPS carries it under "An unpinned
+analyser changed forty of the corpus's verdicts overnight", with the reproduction and with what it
+has already done to the difference between this working copy and CI.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

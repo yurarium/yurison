@@ -217,6 +217,8 @@ CHECKS = {
     "author_readings_no_source_states": lambda ctx, _n="author_readings_no_source_states": getattr(_checks(), _n)(ctx),
     "publisher_readings_nobody_has_settled": lambda ctx, _n="publisher_readings_nobody_has_settled": getattr(_checks(), _n)(ctx),
     "titles_read_by_a_machine_unmarked": lambda ctx, _n="titles_read_by_a_machine_unmarked": getattr(_checks(), _n)(ctx),
+    "readings_from_an_analyser_no_longer_installed":
+        lambda ctx: _checks().readings_from_an_analyser_no_longer_installed(ctx),
     "kana_reading_spells_its_name": lambda ctx, _n="kana_reading_spells_its_name": getattr(_checks(), _n)(ctx),
     "ruby_spells_reading": lambda ctx, _n="ruby_spells_reading": getattr(_checks(), _n)(ctx),
     "facts_fetched_with_no_citation":

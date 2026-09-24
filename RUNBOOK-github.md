@@ -33,7 +33,7 @@ So: build in `yurison`, push artefacts to `yurarium.github.io`.
 
 | need | how |
 |---|---|
-| Python 3 + PyYAML | `actions/setup-python`, `pip install pyyaml` |
+| Python 3 + PyYAML | `actions/setup-python`, `pip install -r requirements.txt` |
 | Chromium | preinstalled on `ubuntu-latest` as Google Chrome — **verify on first run** |
 | Source credentials | none. Every adapter fetches public pages unauthenticated |
 | Write access to the site repo | a deploy key or fine-grained PAT, repo secret |

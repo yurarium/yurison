@@ -3866,10 +3866,15 @@ machine and committed would have put the older analyser's verdicts back into the
 taken the mark off 36 works again. The file was left to CI on this pass, and the only thing that
 caught it was reading the diff.
 
-**WHAT WOULD SETTLE IT.** Pinning both packages in the workflow makes the corpus reproducible and
-makes an upgrade a decision somebody takes, which is what this project asks of every other input.
-The cost is that a pin nobody revisits is how an analyser stays wrong for a year, so the pin wants a
-companion: `reading_source` already records the version beside each reading it made, and a check
-comparing the versions in that field against the one the run is using would say when the corpus is
-holding answers no current analyser would give. Choosing between a pin, that check, or both is the
-owner's.
+**WHAT SETTLED IT, both halves, on the owner's decision.** `requirements.txt` pins
+`sudachipy==0.7.0` and `sudachidict-core==20260723.1` and the three workflows install from it rather
+than each carrying its own copy of the line, which is also how a working copy is made to agree with
+the runner. Beside it, `readings an analyser no longer installed produced` asks `analyser_version`
+what is installed and counts the readings stamped with anything else. It reads 194, which is the
+number a pin alone would have left silent: the store holds 194 readings the analyser now running
+would not give. It falls as those are re-made and rises the day the pin moves, which is the only
+time it should.
+
+Records stamped with the bare name `sudachi` are outside it. There are 3,189 of them and they
+predate the practice of recording a version, so counting them would bury the signal under rows
+nobody can act on. What a reading made before 2026-08 was read by is a separate and older gap.

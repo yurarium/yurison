@@ -1,0 +1,22 @@
+# What the pipeline runs on, in one place because three workflows install it and §3 asks for one
+# producer of a fact. A person matching this checkout to CI runs `pip install -r requirements.txt`
+# and gets the analyser CI uses, which is the difference between a local `--gate` that agrees with
+# the runner and one that quietly disagrees.
+#
+# THE ANALYSER IS PINNED BECAUSE IT DECIDES WHAT THE CORPUS SAYS. On 2026-09-24 pip resolved
+# sudachipy 0.7.0 where the day before it gave 0.6.11, and `is_oov()` began answering True for
+# coinages the older version claimed to hold. Forty titles lost their `ordinary` verdict overnight
+# and 36 gained the mark a reader sees, with nothing in the run reporting a cause. That change was
+# an improvement and it arrived by accident; the next one arrives the same way.
+#
+# A PIN NOBODY REVISITS IS HOW AN ANALYSER STAYS WRONG FOR A YEAR, which is the cost of this line
+# and is why `readings an analyser no longer installed produced` sits beside it in check.py. Moving
+# these versions is a decision, and that number is what says the decision has readings behind it
+# still holding the old answer.
+sudachipy==0.7.0
+sudachidict-core==20260723.1
+
+# Unpinned on purpose. Neither decides anything the corpus records: pyyaml parses files whose
+# meaning is in the files, and pyflakes reports on code without changing it.
+pyyaml
+pyflakes

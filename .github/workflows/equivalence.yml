@@ -48,7 +48,7 @@ jobs:
       # and `test_analyser` reached a fallback nothing had ever run. A comparison whose two halves
       # are built from different dependencies is not the comparison this workflow is named for.
       - name: Install what the pipeline needs
-        run: pip install pyyaml pyflakes sudachipy sudachidict-core
+        run: pip install -r requirements.txt
 
       # ONE RUN MAKES BOTH STORES, and neither is a file of JSON. `build.py` compiles a complete
       # scratch from the compiler's own rows and reconciles the live store against it, so the

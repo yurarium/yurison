@@ -3559,6 +3559,12 @@ def budget_titles_read_by_a_machine_unmarked(ctx):
     return _rd.CHECKS["titles_read_by_a_machine_unmarked"](ctx)
 
 
+def budget_readings_from_an_analyser_no_longer_installed(ctx):
+    """Defined in `adapters/facts/reading/checks.py`, beside the rulings it applies."""
+    from facts import reading as _rd
+    return _rd.CHECKS["readings_from_an_analyser_no_longer_installed"](ctx)
+
+
 def budget_credits_the_corpus_files_as_a_venue(ctx):
     """Credits in the author store that the corpus records elsewhere as a publisher or an imprint.
 
@@ -4572,6 +4578,15 @@ BUDGETS_DEF = [
     ("implausible ruby spans", budget_implausible_ruby_spans,
      "furigana runs holding fewer kana than they have kanji. A rise means the aligner placed a "
      "boundary somewhere no reading could fall, which the spelling check cannot see."),
+    ("readings an analyser no longer installed produced",
+     budget_readings_from_an_analyser_no_longer_installed,
+     "analyser readings stamped with a version other than the one this run holds. "
+     "requirements.txt pins the analyser so an upgrade is a decision rather than whatever pip "
+     "resolved that morning, and this is the other half of that: the day the pin moves, every "
+     "reading made under the old version still says what that analyser thought. It falls as those "
+     "are re-made or overridden and it rises when the pin does, which is the only time it should. "
+     "On 2026-09-24 an unpinned upgrade took 40 titles out of `ordinary` and put the mark on 36, "
+     "and no measure was asking whether the analyser under the rule had changed."),
     ("titles read by a machine, unmarked", budget_titles_read_by_a_machine_unmarked,
      "titles a reader is shown spelled from an analyser's reading with no mark on it. Created by "
      "the 2026-08-10 ruling that ordinary vocabulary in a title needs no mark; falls when a title "
@@ -5298,6 +5313,17 @@ def self_test():
          budget_romanisations_nobody_has_ruled_on,
          lambda c: c["series"].append({"work": "カナリアまだ誰も見ていない",
                                        "work_en": {"basis": "romaji", "en": "Kanaria"}})),
+        # A READING STAMPED WITH AN ANALYSER THAT IS NO LONGER INSTALLED, which is the row this
+        # budget exists for and is one the pipeline really wrote: `SudachiPy 0.6.11,
+        # SudachiDict-core 20260723` is the stamp on 194 readings in the store on 2026-09-24, made
+        # the day before pip resolved 0.7.0. The version here is deliberately older than any pin
+        # so the canary keeps working after the pin moves.
+        ("readings an analyser no longer installed produced",
+         budget_readings_from_an_analyser_no_longer_installed,
+         lambda c: c["names"]["titles"].update({"カナリア古い解析器": {
+             "reading": "カナリア", "reading_basis": "analyser",
+             "reading_source": "SudachiPy 0.0.1, SudachiDict-core 19700101",
+             "reading_source_kind": "analyser"}})),
         # BOTH CANARIES ARE RECORDS THE PIPELINE REALLY WROTE, which is §14b's requirement and not
         # a stylistic preference: a canary invented for the test proves the check can fail on
         # something nothing produces. The first is #ふれない as curate.py left it, the second is

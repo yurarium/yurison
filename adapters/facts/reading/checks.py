@@ -55,6 +55,52 @@ def readings_are_kana(ctx):
     return bad
 
 
+def readings_from_an_analyser_no_longer_installed(ctx):
+    """Analyser readings stamped with a version other than the one this run has.
+
+    WHAT A PIN CANNOT DO ON ITS OWN. `requirements.txt` fixes the analyser so an upgrade is a
+    decision somebody takes rather than whatever pip resolved that morning, and the cost of a pin
+    is that nobody revisits it. This is the other half: the day the version moves, every reading
+    made under the old one is still in the store saying what that analyser thought, and this counts
+    them. It falls as those readings are re-made or overridden and it rises the moment the pin does,
+    which is the only time it should.
+
+    WHY IT IS WORTH COUNTING AT ALL, from 2026-09-24. pip gave the runner sudachipy 0.7.0 where the
+    day before it gave 0.6.11, and `is_oov()` began answering True for coinages the older version
+    claimed to hold. Forty titles lost their `ordinary` verdict and 36 gained the mark a reader
+    sees. Nothing in the run named a cause, because no measure was asking whether the analyser under
+    the rule was still the analyser that had answered.
+
+    §14b, WHAT IT SHARES WITH ITS SUBJECT: `analyser_version`, which is the one producer of the
+    string and is asked rather than reimplemented. What it therefore cannot see is a version that
+    lies about itself, or a dictionary changing under a version number that does not move. It reads
+    the recorded stamp against the installed one, which is arithmetic on two strings, and the
+    readings it counts are the ones a re-run would have to reconsider.
+
+    Records stamped with the bare name `sudachi` predate the practice of recording a version and
+    are not counted here: they are a different and older gap, and counting them would bury today's
+    signal under 3,000 rows nobody can act on.
+    """
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    try:
+        from pass4_analyser import analyser_version
+    except Exception:                                                       # noqa: BLE001
+        # `check.UNMEASURED` IS None, AND IT IS PRINTED AND NEVER BANKED. An analyser this cannot
+        # import is a version it cannot compare against, and answering 0 there would ratchet the
+        # budget to a number nobody measured, which is the failure that sentinel exists for.
+        return None
+    now = analyser_version()
+    n = 0
+    for kind in ("titles", "authors"):
+        for rec in (ctx["names"].get(kind) or {}).values():
+            rec = rec or {}
+            src = str(rec.get("reading_source") or "")
+            if rec.get("reading_source_kind") == "analyser" and src.startswith("SudachiPy ") \
+                    and src != now:
+                n += 1
+    return n
+
+
 def reading_can_show_its_source(ctx):
     """A reading that says a source states it must be able to show that source.
 

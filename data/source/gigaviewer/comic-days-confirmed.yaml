@@ -10,20 +10,39 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-08-01
+retrieved: 2026-09-26
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 1
+works_confirmed: 3
 works:
+  - work_title: "私の好きな人はとても〇〇"
+    author: "松まか"
+    url: "https://comic-days.com/episode/12207421983805333025"
+    series_id: "12207421983805331696"
+    is_oneshot: true
+    discovered_via:
+    chapter_count: 1
+    chapters:
+      - title: "【コミックDAYS読み切り】私の好きな人はとても〇〇"
+        updated: 2026-07-26
+        url: "https://comic-days.com/episode/12207421983805333025"
+  - work_title: "ゆあとさき"
+    author: "灯立夏"
+    url: "https://comic-days.com/episode/12207421984094554382"
+    series_id: "12207421984094553405"
+    is_oneshot: true
+    discovered_via:
+    chapter_count: 1
+    chapters:
+      - title: "【コミックDAYS読み切り】ゆあとさき"
+        updated: 2026-08-27
+        url: "https://comic-days.com/episode/12207421984094554382"
   - work_title: "下部七花はかく語りき"
     author: "暮みちる"
     url: "https://comic-days.com/episode/12207421983885192770"
     series_id: "12207421983885192394"
     is_oneshot: true
     discovered_via:
-      signal: "oneshot"
-      article: "https://yurinavi.com/2026/07/20/shimobenanaha-yomikiri/"
-      headline: "クラスの陽キャ美少女との不思議な主従関係を描く百合読み切り「下部七花はかく語りき」WEBで公開"
     chapter_count: 1
     chapters:
       - title: "【コミックDAYS読み切り】下部七花はかく語りき"

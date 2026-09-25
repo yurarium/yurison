@@ -6228,6 +6228,22 @@ def main():
               if v["_srcs"] != {"remaining"} or v["chapters"] > _real[k[0]]}
 
     _cands |= {norm_work(r["work"]) for r in releases}
+    # THE COMPARATOR'S OWN LISTING IS THE INCLUSION BASIS, ruled by the project owner 2026-09-25,
+    # and it has to be read from the file the comparator actually writes. `claim-targets.yaml`
+    # above is derived and was last written on 2026-08-02, so scope was anchored to a list two
+    # months old while Web漫画アンテナ went on listing works under its 百合 tag every day.
+    #
+    # WHAT THAT COST, and it is the same shape as the line below about print records. Without this,
+    # a work the comparator lists is in scope only while it has a release inside the 60-day window,
+    # so a one-shot leaves the corpus the day its single chapter ages out: 私の好きな人はとても〇〇
+    # published on コミックDAYS on 2026-07-27, was held for sixty days, and on the sixty-first its
+    # series bucket was dropped here, its work record went with it, and the curated name written
+    # for it stopped naming anything. Twenty-one curated entries were resting on that window.
+    _wcf = pathlib.Path("data/coverage/webcomics-works.yaml")
+    if _wcf.exists():
+        _cands |= {norm_work(c["title"])
+                   for c in (yaml.safe_load(_wcf.read_text()) or {}).get("candidates") or []
+                   if c.get("title")}
     # A work with a print record HAS been assessed: it is in the print corpus under a publisher's
     # imprint, with a marketing_label and a basis. Leaving it out of scope made in-scope-ness
     # depend on having a release inside the feed window, which a work whose whole run carries one

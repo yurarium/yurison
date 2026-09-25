@@ -3878,3 +3878,51 @@ time it should.
 Records stamped with the bare name `sudachi` are outside it. There are 3,189 of them and they
 predate the practice of recording a version, so counting them would bury the signal under rows
 nobody can act on. What a reading made before 2026-08 was read by is a separate and older gap.
+
+## Inducting a work found only by a comparator, and where the chain breaks
+
+Found 2026-09-25, on the owner's ruling that a work from a known non age-gated platform is inducted
+by default and the comparator listing is its inclusion basis. The ruling stands; this records how
+far the mechanism reaches and the one link that is missing, because four plausible routes turned out
+not to be it.
+
+**WHAT PROMPTED IT.** `curate.py --apply` exited 1 on `titles/私の好きな人はとても〇〇`. Its only
+release is 2026-07-27 and the 60-day window moved past it, so the title left `emit.titles` and the
+curated key stopped naming anything. It is one of **21 curated entries that name works with no
+record**, each of which reaches the catalogue only through a feed row and becomes a stray on the day
+that row expires. Nine of the 21 were written on 2026-09-18, checked for joining and not for joining
+durably. The next two fall around 2026-10-04.
+
+**WHAT IS NOT THE BLOCKER, each ruled out by looking.** The target list holds 25 of the 26: they
+carry the antenna's 百合 tag, have per-series captures with dated chapter lists, and publish attested
+releases. `gigaviewer/confirm.py` is the pass the policy describes, asks the platform what a work is
+and reads `is_oneshot` rather than guessing; it confirmed all 20 GigaViewer candidates cleanly and
+runs in no workflow, five works having ever been through it. Its output is read at build.py:3892 and
+4224 for RELEASES. `web_works` at build.py:5446 reads `kadokomi/confirmed.yaml` alone, and widening
+that glob does not help either, because `web_works` loads the `web_work` table, which is not `work`.
+
+**WHERE THE CHAIN ACTUALLY BREAKS.** A `work` row is inserted from a `series.json` row carrying an
+id that starts with `w` (`relational/__init__.py:662`). 私の好きな人はとても〇〇 has no row in
+series.json at all and no entry in `data/identity/works.yaml`. So the missing link is upstream of
+identity: what puts a work into `series_rows`. Held works have a `serialisation` row and these 25 do
+not, though they have the captures and releases that ought to produce one.
+
+**THE CONDITION, FOUND, AND THE WHOLE CHAIN WITH IT.** build.py:5585 takes any file declaring
+`record_type: web_work_chapters`, so a confirmed work does reach the `series` buckets. What dropped
+it was the scope filter at build.py:6258, which keeps a bucket only where its title is in `_cands`
+or its address is already in the registry. `_cands` is seeded from `claim-targets.yaml`, derived and
+last written 2026-08-02, then topped up from the releases inside the 60-day window, so a
+comparator-listed work was in scope only while it had a release in that window. Reading the
+comparator's own listing into `_cands` is the fix and is the owner's ruling of 2026-09-25. After it
+the rows reach `series_rows` carrying no identifier, 28 of them, and minting is the last step.
+
+Traced by instrumenting the build rather than by reading it. The work reached `bucket_key` twice and
+was absent by `works_out`, which is what said the fault was a filter and not a missing input.
+
+Everything else is already in place: the captures, the releases, the comparator listing, and
+`discovered_via` on each confirmed work naming the 百合ナビ article and headline that listed it,
+which is the inclusion basis the owner ruled and which is already recorded per work.
+
+**WHAT WAS LEFT ALONE.** The confirmations were reverted. They add releases without records, which
+took the unheld set from 26 works to 29 and improved nothing. One genuine omission was kept:
+不器用ビンボーダンス　３ was missing from the target list and is in it now.

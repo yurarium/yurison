@@ -363,6 +363,38 @@ it. 36 coinages a reader saw unmarked now carry the mark. GAPS carries it under 
 analyser changed forty of the corpus's verdicts overnight", with the reproduction and with what it
 has already done to the difference between this working copy and CI.
 
+## Twenty-eight works were inducted, and four budgets moved with them. 2026-09-26
+
+The owner ruled that a work from a known non age-gated platform is inducted by default and that the
+comparator's listing is its inclusion basis. `build.py` reads that listing into `_cands` now, which
+is the gate that had been dropping these works: scope was anchored to `claim-targets.yaml`, a
+derived file last written on 2026-08-02, topped up from the releases inside the 60-day window. A
+work the comparator lists was therefore in scope only while it had a release in the window, so a
+one-shot left the corpus the day its single chapter aged out. That is the same fault the comment
+below it in build.py records fixing for works with print records.
+
+The corpus went from 3,066 works to 3,094, every one of the 1,450 rows carries an identifier where
+1,422 did, and the unheld set went from 25 works to 1. The 21 curated entries that were resting on
+the feed window are resting on records now.
+
+**`rows with a moving address` 8 to 31 and back to 8.** The 28 new works are anchored on the episode
+address each was found at, which is what that measure watches: a chapter address moves when the work
+publishes. `workaddress.py` read 535 exposed rows and found work-level addresses for 23 of them, 38
+anchors in all, and the count returned to where it started.
+
+`titles showing a romanisation nobody has ruled on` went 0 to 7 and back to 0, by writing the seven
+English names the newly visible works needed. Each rests on the platform's own synopsis: 彼岸 is the
+far shore rather than the equinox because カドコミ has the pair touring places with a story attached,
+and アンラッキースケベ inverts the lucky-lecher convention, which its synopsis spells out by asking
+who the luck is lucky for. 獄宝 was read from its two characters alone and the note says so, because
+となりのヤングジャンプ carries only its award line.
+
+**Three are accepted.** `works showing a romanisation` 23 to 24 is ゆあとさき, which already carries
+a §10 refusal written before today and reached a reader for the first time now. `credit fields an
+identifier does not cover` 80 to 83 and `ruby asserting a reading per character` 199 to 202 are the
+new works' credits and readings arriving. All three are the same event counted from three sides, and
+the event is 28 works becoming visible rather than anything going wrong.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

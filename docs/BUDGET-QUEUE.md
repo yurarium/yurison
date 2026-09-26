@@ -395,6 +395,34 @@ identifier does not cover` 80 to 83 and `ruby asserting a reading per character`
 new works' credits and readings arriving. All three are the same event counted from three sides, and
 the event is 28 works becoming visible rather than anything going wrong.
 
+## One work inducted, one author shipped, and five budgets. 2026-09-27
+
+GOOD HUNT arrived on となりのヤングジャンプ and was inducted under the policy of 2026-08-15 the way
+yesterday's twenty-eight were: confirm it against the platform, then mint. It is `w03298`, the
+unheld set is back to one work, and `updates naming a work we do not hold` cleared with it.
+
+**CONFIRMING IT MADE A SECOND ROW, which is worth knowing before the next one.** となりのヤングジャンプ
+prints `[10Pショート読切]` in front of the title and its own feed does not, and a series bucket is
+keyed on the title, so the work arrived twice and minting both would have published one one-shot as
+two. `data/work-aliases.yaml` is where that question belongs and its own note draws the line:
+【タテスク】 is the same work in another format and 【読み切り版】 is a different work. A marker
+giving the length and the format, with no serialisation beside it, is the first kind.
+
+`rows with a moving address` 8 to 9 and back to 8. The work was anchored on the episode address it
+was found at, and `gigaviewer/confirm.py` had already recorded its series id, so the work-level
+anchor cost nothing: no second walk of 500 pages was needed for one work.
+
+**FOUR BUDGETS MOVED BY EXACTLY ONE AND IT IS ONE PERSON.** 森数機 is GOOD HUNT's author, and the
+shipped record for them is `undivided`, read by the analyser with no source behind it, and
+`uncertain`. That is `author names romanised as one word` 1209 to 1210, `author readings no source
+states` 441 to 442, `uncertain readings` 57 to 58 and `credit fields an identifier does not cover`
+83 to 84, all at once. The name was already in `data/names/authors.yaml`; what changed is that it
+reaches a reader now, because a name is shipped when its work is in the corpus.
+
+`incomplete attested rows` 45 to 48 is the access clause again, with `no_name` and `no_author` at
+zero on every platform but ニコニコ漫画's standing two. くらげバンチ is the tenth platform to show
+the GigaViewer route asymmetry recorded in docs/GAPS.md.
+
 ## Order, and why
 
 Value first, where value is what a reader meets, then tractability. Engineering debt is last because

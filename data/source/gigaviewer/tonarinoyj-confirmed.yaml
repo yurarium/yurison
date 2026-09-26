@@ -1,0 +1,28 @@
+# となりのヤングジャンプ — works confirmed from the discovery queue.
+#
+# 百合ナビ named these and linked to them; the platform supplies the fields. Tier C
+# names a work and establishes nothing about it (REQUIREMENTS §1).
+#
+# is_oneshot is read, not guessed: a series feed holding exactly one episode is a
+# one-shot. These platforms apply no genre label, so nothing here establishes
+# marketing_label (DEFINITIONS §4).
+source: gigaviewer
+platform: tonarinoyj
+platform_name: "となりのヤングジャンプ"
+publisher: "集英社"
+retrieved: 2026-09-27
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works_confirmed: 1
+works:
+  - work_title: "[10Pショート読切] GOOD HUNT"
+    author: "森数機"
+    url: "https://tonarinoyj.jp/episode/12207421984252566649"
+    series_id: "12207421984252565950"
+    is_oneshot: true
+    discovered_via:
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] GOOD HUNT"
+        updated: 2026-09-26
+        url: "https://tonarinoyj.jp/episode/12207421984252566649"

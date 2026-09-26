@@ -23,6 +23,17 @@
 # exactly. Adding a row merges two rows in the build: check the chapter count afterwards, because
 # two coverages of one story should dedupe to the longer, never sum.
 aliases:
+  - variant: "[10Pショート読切] GOOD HUNT"
+    canonical: "GOOD HUNT"
+    note: >-
+      となりのヤングジャンプ prints the length and the format in front of the title, [10Pショート読切],
+      and its own feed carries the work without them, so confirming the work against the platform
+      produced a second row for a one-shot the feed already held. The bracket here says how long
+      the thing is and that it is a 読切, which is the same work in the same format rather than
+      another edition of it, so it comes off. 超深宇宙より愛をこめて【読み切り版】 is the other kind
+      and keeps its bracket, because there the marker separates a one-shot from the serialisation
+      beside it and there is no serialisation here.
+    retrieved: 2026-09-27
   - variant: "フィダンツァートのためいき : 完全版"
     canonical: "フィダンツァートのためいき"
     note: >-

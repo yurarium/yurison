@@ -3926,3 +3926,27 @@ which is the inclusion basis the owner ruled and which is already recorded per w
 **WHAT WAS LEFT ALONE.** The confirmations were reverted. They add releases without records, which
 took the unheld set from 26 works to 29 and improved nothing. One genuine omission was kept:
 不器用ビンボーダンス　３ was missing from the target list and is in it now.
+
+## A work admitted by the antenna carries no record of what admitted it
+
+Found 2026-09-27, inducting GOOD HUNT under the policy of 2026-08-15.
+
+**THE ASYMMETRY.** A work 百合ナビ announces carries `discovered_via` on its confirmed record, with
+the signal, the article and the headline, so the page that listed it is one field away from anybody
+reading the work. A work Web漫画アンテナ lists carries nothing: its basis is the row in
+`data/coverage/webcomics-works.yaml`, which is committed and dated and names the tags, but the work
+itself says nothing about why it is here. GOOD HUNT is the first inducted this way since the owner
+ruled on 2026-09-25 that the comparator listing IS the inclusion basis, and it reached the corpus
+with `discovered_via: None`.
+
+**WHY IT IS NOT NOTHING.** §2 requires knowing WHICH comparator admitted a work, and the print half
+of the corpus does this properly: `admitted_by` carries the shelf and the day it was read, cited, so
+a reader can tell a work here because a publisher called it yuri from one here because a shop
+shelved it. The web half has that for 百合ナビ and not for the antenna, which is now the larger
+route: 28 works came in on 2026-09-26 and every one of them is antenna-admitted.
+
+What would settle it is the shape `admitted_by` already has, filled from the antenna row the build
+now reads into `_cands` anyway: the list, the tags it carried, and the day the listing was
+retrieved. The file is right there and the join is by title, which is how `_cands` uses it. What
+stops this being a five-line change is that `web_works` and the series row are different objects
+from the print record `admitted_by` hangs on, so where the field lives is a decision for the owner.

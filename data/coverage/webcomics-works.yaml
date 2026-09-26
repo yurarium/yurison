@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-26
+retrieved: 2026-09-27
 record_type: candidate_works
-works: 310
+works: 311
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -81,6 +81,10 @@ candidates:
   - title: "Gesso,"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008729_S"]
+    tags: ["百合", "読み切り"]
+  - title: "GOOD HUNT"
+    platforms: ["となりのヤングジャンプ"]
+    urls: ["https://tonarinoyj.jp/episode/12207421984252566649"]
     tags: ["百合", "読み切り"]
   - title: "GURU"
     platforms: ["コミックDAYS", "マガポケ"]

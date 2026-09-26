@@ -6,11 +6,27 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-09-26
+retrieved: 2026-09-27
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "tonarino_yj:episode:12207421984252566649"
+    work_title: "GOOD HUNT"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "[10Pショート読切] GOOD HUNT"
+    release_type: "oneshot"
+    date: "2026-09-26"
+    date_basis: "observed"
+    first_seen: "2026-09-27"
+    first_reported: "2026-09-26T03:00:00Z"
+    platform_updated: "2026-09-26T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421984252566649"
+    author: "森数機"
+    free_term_start: "2026-09-26T03:00:00Z"
+    advances_narrative: true
   - release_id: "tonarino_yj:episode:12207421984212870806"
     in_current_window: false
     work_title: "バカ女26時"

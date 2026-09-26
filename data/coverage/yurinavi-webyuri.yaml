@@ -4,15 +4,15 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-09-26
+retrieved: 2026-09-27
 record_type: coverage_gap
-works_listed: 134
+works_listed: 135
 platforms_total: 21
 platforms_watched: 16
-works_on_watched_platforms: 106
+works_on_watched_platforms: 107
 platforms:
   - platform: "カドコミ"
-    works: 55
+    works: 56
     watched: true
   - platform: "一迅プラス"
     works: 23
@@ -246,6 +246,10 @@ works:
   - raw: "ケイヤクシマイ ヒジキ"
     platform: "カドコミ"
     last_update_seen: 09-21
+    watched_platform: true
+  - raw: "ダメ犬彼女 くわばらたもつ"
+    platform: "カドコミ"
+    last_update_seen: 09-26
     watched_platform: true
   - raw: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女 koko/志瑞祐"
     platform: "カドコミ"

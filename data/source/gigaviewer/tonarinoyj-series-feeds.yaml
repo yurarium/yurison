@@ -10,11 +10,11 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-09-26
+retrieved: 2026-09-27
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 88
-series_held: 89
+series_resolved: 89
+series_held: 90
 works:
   - work_title: "17歳"
     series_id: "12207421984147412782"
@@ -48,6 +48,17 @@ works:
         author: "嶋原翌"
         url: "https://tonarinoyj.jp/episode/2550689798901526126"
         free_from: 2024-08-07
+        access_modes: ["free"]
+  - work_title: "GOOD HUNT"
+    series_id: "12207421984252565950"
+    url: "https://tonarinoyj.jp/atom/series/12207421984252565950"
+    chapter_count: 1
+    chapters:
+      - title: "[10Pショート読切] GOOD HUNT"
+        updated: 2026-09-26
+        author: "森数機"
+        url: "https://tonarinoyj.jp/episode/12207421984252566649"
+        free_from: 2026-09-26
         access_modes: ["free"]
   - work_title: "あの子が泳いでいた水槽"
     series_id: "2551460909564404266"

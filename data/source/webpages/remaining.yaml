@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-26
+retrieved: 2026-09-27
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -176,12 +176,16 @@ works:
     url: "https://comic-days.com/episode/3269632237276869027"
     platform_name: "マガポケ"
     route: "gigaviewer"
-    chapter_count: 123
+    chapter_count: 124
     chapters:
+      - title: "第５１−２話　静聴"
+        updated: 2026-09-26
+        author: "くずしろ"
+        access_modes: ["purchase"]
       - title: "第５１−１話　静聴"
         updated: 2026-09-05
         author: "くずしろ"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第５０−３話　夢現"
         updated: 2026-08-22
         author: "くずしろ"
@@ -189,7 +193,7 @@ works:
       - title: "第５０−２話　夢現"
         updated: 2026-08-01
         author: "くずしろ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第５０−１話　夢現"
         updated: 2026-07-18
         author: "くずしろ"
@@ -2438,7 +2442,7 @@ works:
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     platform_name: "花とゆめ+"
     route: "comici"
-    chapter_count: 17
+    chapter_count: 18
     chapters:
       - title: "1話"
         updated: 2026-04-20
@@ -2508,13 +2512,18 @@ works:
       - title: "13話"
         updated: 2026-08-16
         author: "まめ魚"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "おまけ"
         updated: 2026-08-30
         author: "まめ魚"
         access_modes: ["free"]
       - title: "14話"
         updated: 2026-09-13
+        author: "まめ魚"
+        access_modes: ["free"]
+      - title: "15話"
+        updated: 2026-09-27
         author: "まめ魚"
         access_modes: ["purchase"]
   - work_title: "裏世界ピクニック"

@@ -28878,6 +28878,25 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  森数機:
+    basis: romaji
+    furigana_spans:
+    - - 森
+      - もり
+    - - 数
+      - すう
+    - - 機
+      - き
+    reading: モリスウキ
+    reading_at: '2026-09-26'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   森柾みどり:
     basis: romaji
     furigana_spans:

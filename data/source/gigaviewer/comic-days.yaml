@@ -6,11 +6,27 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-09-26
+retrieved: 2026-09-27
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421983645810052"
+    work_title: "雨夜の月"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第５１−２話　静聴"
+    release_type: "unclassified"
+    date: "2026-09-26"
+    date_basis: "observed"
+    first_seen: "2026-09-27"
+    first_reported: "2026-09-26T03:00:00Z"
+    platform_updated: "2026-09-26T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983645810052"
+    author: "くずしろ"
+    raw_title: "第５１−２話　静聴"
+    advances_narrative: false
   - release_id: "comicdays:episode:12207421984256404121"
     work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     web_status: "serialised"

@@ -10,7 +10,7 @@
 source: nicovideo
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 record_type: web_work_chapters
 identification_mode: known-works
 works_resolved: 494
@@ -803,7 +803,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/18981"
     platform_code: "18981"
     started: "2015-12-12"
-    updated: "2026-08-25"
+    updated: "2026-09-22"
     episode_count_stated: 4
     partial: true
     rights: ["2015 Hiiragi Yutaka"]
@@ -985,9 +985,9 @@ works:
         app_only: true
       - title: "番外編 バーベキュー前夜"
         app_only: true
-      - title: "番外編 はじめての卵焼き"
-        access_modes: ["free"]
       - title: "第78話"
+        access_modes: ["free"]
+      - title: "第79話①"
         access_modes: ["free"]
   - work_title: "たくのみ。"
     author: "火野遥人"
@@ -1446,21 +1446,19 @@ works:
     url: "https://manga.nicovideo.jp/comic/22768"
     platform_code: "22768"
     started: "2016-08-13"
-    updated: "2026-09-08"
-    episode_count_stated: 5
+    updated: "2026-09-22"
+    episode_count_stated: 4
     partial: true
     rights: ["マウンテンプクイチ", "芳文社"]
-    chapter_count: 5
+    chapter_count: 4
     chapters:
       - title: "【コミックス版】第1球:あの魔球を、もう一球"
         access_modes: ["free"]
       - title: "番外編〜新変化球？〜"
         access_modes: ["free"]
-      - title: "第118球：どうしようもないってほどじゃ(前編)"
-        access_modes: ["free"]
-      - title: "第118球：どうしようもないってほどじゃ(後編)"
-        access_modes: ["free"]
       - title: "第119球：披露する場(前編)"
+        access_modes: ["free"]
+      - title: "第119球：披露する場(後編)"
         access_modes: ["free"]
   - work_title: "ステラのまほう"
     author: "くろば・U"
@@ -5416,11 +5414,11 @@ works:
     url: "https://manga.nicovideo.jp/comic/34328"
     platform_code: "34328"
     started: "2018-05-14"
-    updated: "2026-08-10"
+    updated: "2026-09-14"
     episode_count_stated: 9
     partial: true
     rights: ["Kurou 2018"]
-    chapter_count: 108
+    chapter_count: 109
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -5637,6 +5635,8 @@ works:
       - title: "第95話"
         app_only: true
       - title: "第96話"
+        app_only: true
+      - title: "第97話"
         access_modes: ["free"]
   - work_title: "おやすみシェヘラザード"
     author: "篠房六郎"
@@ -8078,10 +8078,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/40675"
     platform_code: "40675"
     started: "2019-04-26"
-    updated: "2026-08-21"
-    episode_count_stated: 7
+    updated: "2026-09-25"
+    episode_count_stated: 8
     rights: ["小野中彰大", "竹書房"]
-    chapter_count: 124
+    chapter_count: 125
     chapters:
       - title: "第1話(前編)"
         access_modes: ["free"]
@@ -8330,6 +8330,8 @@ works:
       - title: "Episode62"
         access_modes: ["free"]
       - title: "番外編④"
+        access_modes: ["free"]
+      - title: "Episode63"
         access_modes: ["free"]
   - work_title: "ハッピーアワーガールズ"
     author: "揚立しの"
@@ -9132,11 +9134,11 @@ works:
     url: "https://manga.nicovideo.jp/comic/41839"
     platform_code: "41839"
     started: "2019-06-03"
-    updated: "2026-09-07"
-    episode_count_stated: 6
+    updated: "2026-09-21"
+    episode_count_stated: 7
     partial: true
     rights: ["Moke Yuzuhara", "Hitoma Iruma 2019"]
-    chapter_count: 125
+    chapter_count: 126
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -9387,6 +9389,8 @@ works:
       - title: "第59話「Cherry Blossoms for the Two of Us1」②"
         access_modes: ["free"]
       - title: "第60話「Cherry Blossoms for the Two of Us2」①"
+        access_modes: ["free"]
+      - title: "第60話「Cherry Blossoms for the Two of Us2」②"
         access_modes: ["free"]
   - work_title: "宝石省の新人"
     author: "まりむぅ(著者)"
@@ -10689,7 +10693,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/44944"
     platform_code: "44944"
     started: "2019-11-19"
-    updated: "2026-08-18"
+    updated: "2026-09-15"
     episode_count_stated: 9
     partial: true
     rights: ["ひさまくまこ", "芳文社"]
@@ -10711,7 +10715,7 @@ works:
         access_modes: ["free"]
       - title: "第42話"
         access_modes: ["free"]
-      - title: "第65話"
+      - title: "第66話"
         access_modes: ["free"]
   - work_title: "センゲンス"
     author: "ニョニョトマコト"
@@ -12035,7 +12039,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/47294"
     platform_code: "47294"
     started: "2020-04-19"
-    updated: "2026-08-19"
+    updated: "2026-09-19"
     episode_count_stated: 2
     partial: true
     rights: ["Eri Ejima 2020"]
@@ -12049,7 +12053,7 @@ works:
         app_only: true
       - title: "第4話：対ありでした"
         app_only: true
-      - title: "第65話：力の差"
+      - title: "第66話：期待外れだったぜ"
         access_modes: ["free"]
   - work_title: "吸血鬼と呼ばれたい！"
     author: "ぴゃあ(著者)"
@@ -12786,7 +12790,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/48976"
     platform_code: "48976"
     started: "2020-07-20"
-    updated: "2026-07-18"
+    updated: "2026-09-19"
     episode_count_stated: 11
     partial: true
     rights: ["大熊らすこ", "芳文社"]
@@ -12812,7 +12816,7 @@ works:
         access_modes: ["free"]
       - title: "コミックス発売告知！"
         access_modes: ["free"]
-      - title: "第67話"
+      - title: "第68話"
         access_modes: ["free"]
   - work_title: "転生王女と天才令嬢の魔法革命"
     author: "南高春告(漫画) 鴉ぴえろ(原作) きさらぎゆり(キャラクターデザイン)"
@@ -13224,10 +13228,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/49574"
     platform_code: "49574"
     started: "2020-09-02"
-    updated: "2026-07-31"
+    updated: "2026-09-25"
     episode_count_stated: 6
     rights: ["Koga Ryoichi 2021"]
-    chapter_count: 71
+    chapter_count: 72
     chapters:
       - title: "第0話"
         access_modes: ["free"]
@@ -13368,8 +13372,10 @@ works:
       - title: "第61話"
         app_only: true
       - title: "第62話"
-        access_modes: ["free"]
+        app_only: true
       - title: "第63話"
+        access_modes: ["free"]
+      - title: "第63.5話"
         access_modes: ["free"]
   - work_title: "みんな私のはらのなか"
     author: "ちさこ"
@@ -15544,7 +15550,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/53991"
     platform_code: "53991"
     started: "2021-07-27"
-    updated: "2026-09-08"
+    updated: "2026-09-22"
     episode_count_stated: 44
     partial: true
     rights: ["肉丸", "芳文社"]
@@ -15634,9 +15640,9 @@ works:
         access_modes: ["free"]
       - title: "100年後にコミュ強になる水鳥さん その4"
         access_modes: ["free"]
-      - title: "第62話"
-        access_modes: ["free"]
       - title: "アルハラ上司の理想と現実"
+        access_modes: ["free"]
+      - title: "第63話"
         access_modes: ["free"]
   - work_title: "ポンポコタヌキとへっぽこ王子"
     author: "桜Qり"
@@ -15697,7 +15703,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/54003"
     platform_code: "54003"
     started: "2021-07-17"
-    updated: "2026-08-22"
+    updated: "2026-09-26"
     episode_count_stated: 4
     partial: true
     rights: ["こかむも", "芳文社"]
@@ -15709,7 +15715,7 @@ works:
         access_modes: ["free"]
       - title: "第3話"
         access_modes: ["free"]
-      - title: "第75話"
+      - title: "第76話"
         access_modes: ["free"]
   - work_title: "瑠東さんには敵いません！"
     author: "相崎うたう"
@@ -17270,7 +17276,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/56450"
     platform_code: "56450"
     started: "2021-12-23"
-    updated: "2026-08-18"
+    updated: "2026-09-15"
     episode_count_stated: 3
     partial: true
     rights: ["岩見樹代子", "一迅社"]
@@ -17280,17 +17286,17 @@ works:
         access_modes: ["free"]
       - title: "第2話「懐柔」"
         access_modes: ["free"]
-      - title: "第36話「懐孤」"
+      - title: "第37話「姦穽」"
         access_modes: ["free"]
   - work_title: "どれが恋かがわからない"
     author: "奥たまむし(著者)"
     url: "https://manga.nicovideo.jp/comic/56504"
     platform_code: "56504"
     started: "2022-02-28"
-    updated: "2026-07-13"
-    episode_count_stated: 5
+    updated: "2026-09-14"
+    episode_count_stated: 6
     rights: ["Oku Tamamushi 2022"]
-    chapter_count: 54
+    chapter_count: 56
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -17397,8 +17403,12 @@ works:
       - title: "第48話"
         app_only: true
       - title: "第49話"
-        access_modes: ["free"]
+        app_only: true
       - title: "第50話"
+        access_modes: ["free"]
+      - title: "第51話-1"
+        access_modes: ["free"]
+      - title: "第51話-2"
         access_modes: ["free"]
   - work_title: "香原さんのふぇちのーと"
     author: "鬼無サケル"
@@ -19117,10 +19127,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/60277"
     platform_code: "60277"
     started: "2022-10-21"
-    updated: "2026-08-28"
+    updated: "2026-09-25"
     episode_count_stated: 4
     rights: ["棘尾どろしー"]
-    chapter_count: 34
+    chapter_count: 35
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -19185,10 +19195,12 @@ works:
       - title: "第31話"
         app_only: true
       - title: "第32話"
-        access_modes: ["free"]
+        app_only: true
       - title: "第33話"
         access_modes: ["free"]
       - title: "第34話"
+        access_modes: ["free"]
+      - title: "第35話"
         access_modes: ["free"]
   - work_title: "おかしなエルフと女子高生"
     author: "東３８５"
@@ -21270,7 +21282,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/63674"
     platform_code: "63674"
     started: "2023-06-15"
-    updated: "2026-08-20"
+    updated: "2026-09-17"
     episode_count_stated: 4
     partial: true
     rights: ["千種みのり", "芳文社"]
@@ -21282,7 +21294,7 @@ works:
         access_modes: ["free"]
       - title: "第3話"
         access_modes: ["free"]
-      - title: "第42話"
+      - title: "第43話"
         access_modes: ["free"]
   - work_title: "かみねぐしまい"
     author: "若鶏にこみ"
@@ -21383,7 +21395,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/63799"
     platform_code: "63799"
     started: "2023-05-18"
-    updated: "2026-08-18"
+    updated: "2026-09-15"
     episode_count_stated: 3
     partial: true
     rights: ["金子ある", "一迅社"]
@@ -21393,7 +21405,7 @@ works:
         access_modes: ["free"]
       - title: "#2"
         access_modes: ["free"]
-      - title: "#26"
+      - title: "#27"
         access_modes: ["free"]
   - work_title: "死亡遊戯で飯を食う。"
     author: "万歳寿大宴会(漫画) 鵜飼有志(原作) ねこめたる(キャラクター原案)"
@@ -21719,7 +21731,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/65189"
     platform_code: "65189"
     started: "2023-08-24"
-    updated: "2026-08-25"
+    updated: "2026-09-22"
     episode_count_stated: 3
     partial: true
     rights: ["くわばらたもつ", "一迅社"]
@@ -21729,7 +21741,7 @@ works:
         access_modes: ["free"]
       - title: "第2話 逃げ場なんてない"
         access_modes: ["free"]
-      - title: "第28話 メッキの下"
+      - title: "第29話 記憶の檻"
         access_modes: ["free"]
   - work_title: "不死犠コネクト"
     author: "shimazaki"
@@ -22123,9 +22135,9 @@ works:
     url: "https://manga.nicovideo.jp/comic/65870"
     platform_code: "65870"
     started: "2023-10-19"
-    updated: "2026-09-03"
+    updated: "2026-09-17"
     episode_count_stated: 9
-    chapter_count: 65
+    chapter_count: 66
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -22254,8 +22266,10 @@ works:
       - title: "第54話②"
         app_only: true
       - title: "第55話①"
-        access_modes: ["free"]
+        app_only: true
       - title: "第55話②"
+        access_modes: ["free"]
+      - title: "第56話"
         access_modes: ["free"]
   - work_title: "異世界魔王ごっこ～魔王は姫を倒したくない！～"
     author: "むつをむつ 蒼井ゆん"
@@ -22644,7 +22658,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/67280"
     platform_code: "67280"
     started: "2024-03-28"
-    updated: "2026-08-27"
+    updated: "2026-09-24"
     episode_count_stated: 8
     partial: true
     rights: ["とめきち", "芳文社"]
@@ -22664,7 +22678,7 @@ works:
         access_modes: ["free"]
       - title: "第16話"
         access_modes: ["free"]
-      - title: "第18話"
+      - title: "第19話"
         access_modes: ["free"]
   - work_title: "シャイなあの子に懐かれたい"
     author: "千葉らき(著者)"
@@ -23211,7 +23225,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/69333"
     platform_code: "69333"
     started: "2024-10-24"
-    updated: "2026-08-27"
+    updated: "2026-09-24"
     episode_count_stated: 4
     partial: true
     rights: ["海老川ケイ", "芳文社"]
@@ -23223,7 +23237,7 @@ works:
         access_modes: ["free"]
       - title: "第3話"
         access_modes: ["free"]
-      - title: "第19話"
+      - title: "第20話"
         access_modes: ["free"]
   - work_title: "プロジェクト・ユリフォーミング！"
     author: "御家かえる"
@@ -23550,17 +23564,14 @@ works:
     url: "https://manga.nicovideo.jp/comic/70137"
     platform_code: "70137"
     started: "2024-10-01"
-    updated: "2026-08-18"
-    episode_count_stated: 3
-    partial: true
+    updated: "2024-10-15"
+    episode_count_stated: 2
     rights: ["Masumi Yotsuba"]
-    chapter_count: 3
+    chapter_count: 2
     chapters:
       - title: "第1話-1"
         access_modes: ["free"]
       - title: "第1話-2"
-        access_modes: ["free"]
-      - title: "第18話-4"
         access_modes: ["free"]
   - work_title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
     author: "はちこ(漫画) 能代リョウ(原作)"
@@ -23811,31 +23822,31 @@ works:
     url: "https://manga.nicovideo.jp/comic/70413"
     platform_code: "70413"
     started: "2024-10-24"
-    updated: "2024-11-28"
-    episode_count_stated: 2
+    updated: "2026-09-22"
+    episode_count_stated: 3
+    partial: true
     rights: ["玉崎たま", "一迅社"]
-    chapter_count: 2
+    chapter_count: 3
     chapters:
       - title: "第1話　田村七夕"
         access_modes: ["free"]
       - title: "第2話　重大な欠陥"
+        access_modes: ["free"]
+      - title: "第15話　目覚め"
         access_modes: ["free"]
   - work_title: "現実世界でも幸せにしてくださいね？"
     author: "しぼりかすこ"
     url: "https://manga.nicovideo.jp/comic/70414"
     platform_code: "70414"
     started: "2024-10-24"
-    updated: "2026-08-25"
-    episode_count_stated: 3
-    partial: true
+    updated: "2024-11-28"
+    episode_count_stated: 2
     rights: ["しぼりかすこ", "一迅社"]
-    chapter_count: 3
+    chapter_count: 2
     chapters:
       - title: "EPISODE.01　運命の出会い"
         access_modes: ["free"]
       - title: "EPISODE.02　我が家に姫がやってきた"
-        access_modes: ["free"]
-      - title: "EPISODE.17　み～んなだいすき！"
         access_modes: ["free"]
   - work_title: "ガチ恋カウント２.９"
     author: "天海杏菜"
@@ -23987,10 +23998,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/70738"
     platform_code: "70738"
     started: "2024-11-14"
-    updated: "2026-09-10"
+    updated: "2026-09-24"
     episode_count_stated: 14
     rights: ["Jun Igarashi"]
-    chapter_count: 45
+    chapter_count: 46
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -24073,7 +24084,7 @@ works:
       - title: "第18話後編"
         app_only: true
       - title: "番外編"
-        access_modes: ["free"]
+        app_only: true
       - title: "おまけイラスト"
         access_modes: ["free"]
       - title: "第19話前編"
@@ -24081,6 +24092,8 @@ works:
       - title: "第19話後編"
         access_modes: ["free"]
       - title: "休載イラスト"
+        access_modes: ["free"]
+      - title: "第20話前編"
         access_modes: ["free"]
   - work_title: "ラブかライクか分からない！"
     author: "sasa熊"
@@ -24564,7 +24577,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/71834"
     platform_code: "71834"
     started: "2025-03-17"
-    updated: "2026-08-15"
+    updated: "2026-09-19"
     episode_count_stated: 4
     partial: true
     rights: ["織日ちひろ＆虫原", "芳文社"]
@@ -24576,7 +24589,7 @@ works:
         access_modes: ["free"]
       - title: "第3話"
         access_modes: ["free"]
-      - title: "第19話"
+      - title: "第20話"
         access_modes: ["free"]
   - work_title: "海のみちるごはん"
     author: "花宮みぃ"
@@ -24857,7 +24870,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/72637"
     platform_code: "72637"
     started: "2025-06-19"
-    updated: "2026-09-10"
+    updated: "2026-09-17"
     episode_count_stated: 18
     partial: true
     rights: ["赤城ナツイチ", "芳文社"]
@@ -24895,9 +24908,9 @@ works:
         access_modes: ["free"]
       - title: "ただの女友達『お見合い前日の巻』"
         access_modes: ["free"]
-      - title: "第17話"
-        access_modes: ["free"]
       - title: "今年も水着回ありません"
+        access_modes: ["free"]
+      - title: "第18話"
         access_modes: ["free"]
   - work_title: "子供部屋ドラゴン"
     author: "*sow*"
@@ -24942,10 +24955,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/72944"
     platform_code: "72944"
     started: "2025-06-04"
-    updated: "2026-08-19"
+    updated: "2026-09-16"
     episode_count_stated: 4
     rights: ["Nmi"]
-    chapter_count: 24
+    chapter_count: 25
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -24994,6 +25007,8 @@ works:
       - title: "第12話-2"
         app_only: true
       - title: "第12話-3"
+        app_only: true
+      - title: "第13話-1"
         access_modes: ["free"]
   - work_title: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     author: "漫画／倉崎もろこ 原作／みかみてれん キャラクター原案／未幡"
@@ -25178,7 +25193,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/74044"
     platform_code: "74044"
     started: "2025-11-27"
-    updated: "2026-08-27"
+    updated: "2026-09-24"
     episode_count_stated: 7
     partial: true
     rights: ["リンリココ", "芳文社"]
@@ -25196,17 +25211,17 @@ works:
         access_modes: ["free"]
       - title: "第6話"
         access_modes: ["free"]
-      - title: "第12話"
+      - title: "第13話"
         access_modes: ["free"]
   - work_title: "人妻教師が教え子の女子高生にドはまりする話"
     author: "川上しをん(作画) 入間人間(原作) 猫屋敷ぷしお(キャラクターデザイン)"
     url: "https://manga.nicovideo.jp/comic/74091"
     platform_code: "74091"
     started: "2025-09-18"
-    updated: "2026-08-28"
+    updated: "2026-09-18"
     episode_count_stated: 4
     rights: ["Kawakami Shiwon", "Hitoma Iruma", "Nekoyashiki Pushio"]
-    chapter_count: 18
+    chapter_count: 19
     chapters:
       - title: "第1話前半"
         access_modes: ["free"]
@@ -25241,8 +25256,10 @@ works:
       - title: "第8話後半"
         app_only: true
       - title: "第9話前半"
-        access_modes: ["free"]
+        app_only: true
       - title: "第9話後半"
+        access_modes: ["free"]
+      - title: "第10話前半"
         access_modes: ["free"]
   - work_title: "ガールズ・スキャット・オーケストラ！"
     author: "ゐぬゐ"
@@ -25489,14 +25506,17 @@ works:
     url: "https://manga.nicovideo.jp/comic/76631"
     platform_code: "76631"
     started: "2026-02-18"
-    updated: "2026-03-19"
-    episode_count_stated: 2
+    updated: "2026-09-17"
+    episode_count_stated: 3
+    partial: true
     rights: ["餡実ツキ", "一迅社"]
-    chapter_count: 2
+    chapter_count: 3
     chapters:
       - title: "第1話　オオカミさんの教育係って本当ですか⁉"
         access_modes: ["free"]
       - title: "第2話　オオカミさんと面談ってできますか⁉"
+        access_modes: ["free"]
+      - title: "第6話　オオカミさんとお家で二人っきりはピンチですか⁉"
         access_modes: ["free"]
   - work_title: "鈴木りつ短編集考幻学入門"
     author: "鈴木　りつ(著者)"
@@ -25805,17 +25825,14 @@ works:
     url: "https://manga.nicovideo.jp/comic/78555"
     platform_code: "78555"
     started: "2026-05-26"
-    updated: "2026-08-25"
-    episode_count_stated: 3
-    partial: true
+    updated: "2026-06-23"
+    episode_count_stated: 2
     rights: ["紬めめ", "一迅社"]
-    chapter_count: 3
+    chapter_count: 2
     chapters:
       - title: "第1話"
         access_modes: ["free"]
       - title: "第2話"
-        access_modes: ["free"]
-      - title: "第4話"
         access_modes: ["free"]
   - work_title: "百合色ミュージアム（OrangeVox）"
     author: "城之内寧々(著者)"
@@ -26171,10 +26188,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/83472"
     platform_code: "83472"
     started: "2026-07-17"
-    updated: "2026-09-11"
-    episode_count_stated: 9
+    updated: "2026-09-25"
+    episode_count_stated: 11
     rights: ["Daisuke Chida"]
-    chapter_count: 9
+    chapter_count: 11
     chapters:
       - title: "第1話"
         access_modes: ["free"]
@@ -26193,6 +26210,10 @@ works:
       - title: "第8話"
         access_modes: ["free"]
       - title: "第9話"
+        access_modes: ["free"]
+      - title: "番外編①"
+        access_modes: ["free"]
+      - title: "第10話"
         access_modes: ["free"]
   - work_title: "のだ"
     author: "沢田かに(漫画) 真野真央(ストーリー) Oda Kogane(キャラクター原案)"

@@ -37,15 +37,25 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 221
-  hits_on_the_title_alone: 85
-  hits_stating_a_print_edition_date: 174
-  works_asked: 750
-  works_with_a_hit: 227
+  hits_agreeing_on_a_creator: 223
+  hits_on_the_title_alone: 101
+  hits_stating_a_print_edition_date: 186
+  works_asked: 779
+  works_with_a_hit: 231
 works:
+  - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
+    id: "w03278"
+    work: "超かぐやメシ！"
+    author: "テルヤ / 山下清悟 / フジヤマルリ"
+    platform: "ビビビコミック"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
   - work_url: "https://bibibi-comic.com/series/e889bd092d08d"
     id: "w03256"
     work: "㊙のライラ"
@@ -869,6 +879,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-days.com/episode/12207421983805333025"
+    id: "w03294"
+    work: "私の好きな人はとても〇〇"
+    author: "松まか"
+    platform: "コミックDAYS"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-days.com/episode/12207421983885192770"
     id: "w00209"
     work: "下部七花はかく語りき"
@@ -905,6 +925,16 @@ works:
         agreement: "creator"
         volumes_stated: 6
         completed_marker: false
+  - work_url: "https://comic-days.com/episode/12207421984094554382"
+    id: "w03286"
+    work: "ゆあとさき"
+    author: "灯立夏"
+    platform: "コミックDAYS"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-days.com/episode/14079602755122004379"
     id: "w00821"
     work: "おとなになっても"
@@ -2037,6 +2067,23 @@ works:
         agreement: "creator"
         volumes_stated: 4
         completed_marker: true
+  - work_url: "https://comic-fuz.com/manga/3818"
+    id: "w03277"
+    work: "６億年の博物旅"
+    author: "みなぱか / 泉賢太郎"
+    platform: "COMIC FUZ"
+    query: "author"
+    retrieved: "2026-09-26"
+    hits:
+      - series_url: "https://bookwalker.jp/series/538270/list/"
+        title_listed: "６億年の博物旅（まんがタイムKRコミックス）"
+        shop_author: "みなぱか(漫画) 泉賢太郎(監修)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        printed: "2025/8/23"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://comic-fuz.com/manga/390"
     id: "w00728"
     work: "こはる日和。"
@@ -2162,6 +2209,16 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://comic-gardo.com/episode/12207421984251695869"
+    id: "w03270"
+    work: "優等生がアダルトグッズを買いに来た"
+    author: "コナタエル / 4kaえんぴつ / 千種みのり"
+    platform: "コミックガルド"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://comic-gardo.com/episode/12207421984251695895"
     id: "w00059"
     work: "病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～"
@@ -2310,6 +2367,16 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984276173446"
+    id: "w00415"
+    work: "ゆりゾン"
+    author: "倉田英之 / 森山大輔"
+    platform: "COMIC OGYAAA!!"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://comic-ogyaaa.com/episode/2550689798875510910"
     id: "w00681"
     work: "サバーキ"
@@ -2356,6 +2423,16 @@ works:
     author: "深海 紺"
     platform: "COMIC OGYAAA!!"
     retrieved: "2026-08-07"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-seasons.com/episode/12207421984208940962"
+    id: "w03271"
+    work: "今夜、エーテルで待ちあわせ"
+    author: "ヨン"
+    platform: "Seasons"
+    retrieved: "2026-09-26"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -3538,6 +3615,22 @@ works:
     notes:
       - "author query answered nothing"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_019660_S"
+    id: "w03272"
+    work: "悪役令嬢覇王伝　転生したら身長245cm体重210kgの恵体でした。だから無双します"
+    author: "伝子れんぢ / 砂礫レキ"
+    platform: "カドコミ"
+    query: "author"
+    retrieved: "2026-09-26"
+    hits:
+      - series_url: null
+        title_listed: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します 1"
+        shop_author: "伝子れんぢ(漫画) 砂礫レキ(原作)"
+        imprint: "MFC ジーンピクシブシリーズ"
+        publisher: "KADOKAWA"
+        printed: "2026/8/27"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://comic-walker.com/detail/KC_019740_S"
     id: "w00025"
     work: "この湯で、あなたと"
@@ -3578,6 +3671,44 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_020017_S"
+    id: "w03283"
+    work: "彼岸でランデヴー"
+    author: "臼井ともみ"
+    platform: "カドコミ"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://comic-y-ours.com/episode/12207421983394553051"
+    id: "w03296"
+    work: "アンラッキースケベ"
+    author: "華目金"
+    platform: "COMIC Y-OURS"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-y-ours.com/episode/12207421983499079730"
+    id: "w03295"
+    work: "ホントのキモチ"
+    author: "しおやてるこ"
+    platform: "COMIC Y-OURS"
+    query: "title"
+    retrieved: "2026-09-26"
+    hits:
+      - series_url: "https://bookwalker.jp/series/383595/list/"
+        title_listed: "ホントのキモチに気付かせてあげる～夏輝短編集～（プリンセス・コミックス）"
+        shop_author: "夏輝(著)"
+        imprint: "プリンセス・コミックス"
+        publisher: "秋田書店"
+        agreement: "title-only"
+        volumes_stated: 2
+        completed_marker: true
+    notes:
+      - "author query returned no title this database recognises"
   - work_url: "https://comic-zenon.com/episode/12207421983426102334"
     id: "w00342"
     work: "夜明けのアリス"
@@ -3618,6 +3749,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-zenon.com/episode/12207421984039817859"
+    id: "w03292"
+    work: "予行練習"
+    author: "Ciwaz"
+    platform: "コミックゼノン"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-zenon.com/episode/14079602755346320251"
     id: "w00802"
     work: "神様の手"
@@ -4420,6 +4561,26 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984151786081"
+    id: "w03275"
+    work: "聖なる姫のかくしごと"
+    author: "葵季むつみ"
+    platform: "一迅プラス"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984151786084"
+    id: "w03276"
+    work: "いじめてくれる君がすき"
+    author: "まにお"
+    platform: "一迅プラス"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://ichicomi.com/episode/12207421984222532884"
     id: "w03252"
     work: "バリキャリJKモネ先輩"
@@ -4480,6 +4641,26 @@ works:
         publisher: "一迅社"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421984222943969"
+    id: "w03273"
+    work: "キミに触れて、感じたい"
+    author: "宇留米いわし"
+    platform: "一迅プラス"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984222944066"
+    id: "w03274"
+    work: "ホテルの外でもあいたいよ"
+    author: "らぱ☆"
+    platform: "一迅プラス"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://ichicomi.com/episode/2550912965913104445"
     id: "w00481"
     work: "今宵、悪役令嬢の手をとれたら"
@@ -5204,6 +5385,36 @@ works:
     author: "讃歌かのん"
     platform: "MAGCOMI"
     retrieved: "2026-08-07"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://magcomi.com/episode/12207421984065499859"
+    id: "w03289"
+    work: "【今日の10ページ】女子高生VS首切り地蔵"
+    author: "淀洞蝸牛"
+    platform: "MAGCOMI"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://magcomi.com/episode/12207421984122057940"
+    id: "w03285"
+    work: "東京つけものがたり"
+    author: "ぜろわん / あずやちとせ"
+    platform: "MAGCOMI"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://magcomi.com/episode/12207421984187016919"
+    id: "w03279"
+    work: "天使なんかにならないで"
+    author: "鍵野"
+    platform: "MAGCOMI"
+    retrieved: "2026-09-26"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -6220,6 +6431,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://ourfeel.jp/episode/2550912966077179576"
+    id: "w03297"
+    work: "明日の空を見る人よ"
+    author: "出路かし魚"
+    platform: "OUR FEEL"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://pocket.shonenmagazine.com/title/00195/episode/296085"
     id: "w00991"
     work: "将来的に死んでくれ"
@@ -7260,6 +7481,167 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984080790252"
+    id: "w03290"
+    work: "凛としてきゅん"
+    author: "古川楊也"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984115943558"
+    id: "w03288"
+    work: "死神デリート"
+    author: "谷之しぶき"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984115943564"
+    id: "w03287"
+    work: "知らないまっぴるま"
+    author: "肋骨兄妹"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984147413209"
+    id: "w03281"
+    work: "17歳"
+    author: "吉田ユウマ"
+    platform: "となりのヤングジャンプ"
+    query: "title"
+    retrieved: "2026-09-26"
+    hits:
+      - series_url: "https://bookwalker.jp/series/11077/list/"
+        title_listed: "17歳（漫画アクション）"
+        shop_author: "鎌田洋次(作画) 藤井誠二(原作)"
+        imprint: "漫画アクション"
+        publisher: "双葉社"
+        agreement: "title-only"
+        volumes_stated: 4
+        completed_marker: true
+      - series_url: "https://bookwalker.jp/series/164821/list/"
+        title_listed: "17歳（デジコレ ＧENERAL）"
+        shop_author: "清水洋三(著)"
+        imprint: "デジコレ"
+        publisher: "小学館"
+        printed: "2009/11/30"
+        agreement: "title-only"
+        volumes_stated: 2
+        completed_marker: true
+      - series_url: null
+        title_listed: "１７歳"
+        shop_author: "みきもと凜(著)"
+        imprint: "別冊フレンド"
+        publisher: "講談社"
+        printed: "2007/10/12"
+        agreement: "title-only"
+        completed_marker: false
+      - series_url: null
+        title_listed: "17歳のママ Second Story"
+        shop_author: "樋口真里奈(著)"
+        imprint: "プチプリンセス"
+        publisher: "秋田書店"
+        agreement: "title-only"
+        completed_marker: false
+      - series_url: "https://bookwalker.jp/series/126203/list/"
+        title_listed: "１７歳、キスとジレンマ（フラワーコミックス）"
+        shop_author: "夜神里奈(著)"
+        imprint: "フラワーコミックス"
+        publisher: "小学館"
+        printed: "2013/6/26"
+        agreement: "title-only"
+        volumes_stated: 4
+        completed_marker: true
+      - series_url: "https://bookwalker.jp/series/125262/list/"
+        title_listed: "１７歳のチズ（ビッグコミックス）"
+        shop_author: "佐藤智一(著)"
+        imprint: "ビッグコミックス"
+        publisher: "小学館"
+        printed: "2016/11/30"
+        agreement: "title-only"
+        volumes_stated: 2
+        completed_marker: true
+      - series_url: "https://bookwalker.jp/series/144027/list/"
+        title_listed: "17歳のリアル・ラブ（別冊フレンド）"
+        shop_author: "豊田美加(原作) 大内理加(漫画)"
+        imprint: "別冊フレンド"
+        publisher: "講談社"
+        agreement: "title-only"
+        volumes_stated: 2
+        completed_marker: false
+      - series_url: null
+        title_listed: "17歳のママ"
+        shop_author: "樋口真里奈(著)"
+        imprint: "プリンセス・コミックス プチプリ"
+        publisher: "秋田書店"
+        printed: "2005/10/15"
+        agreement: "title-only"
+        completed_marker: false
+      - series_url: "https://bookwalker.jp/series/307005/list/"
+        title_listed: "17歳、恋と呼ぶには不十分【マイクロ】"
+        shop_author: "逆巻詩音(著)"
+        imprint: "フラワーコミックス"
+        publisher: "小学館"
+        agreement: "title-only"
+        volumes_stated: 4
+        completed_marker: false
+      - series_url: null
+        title_listed: "１７歳℃"
+        shop_author: "麦盛なぎ(著)"
+        imprint: "マッグガーデンコミックスBeat&#039;sシリーズ"
+        publisher: "マッグガーデン"
+        printed: "2013/5/14"
+        agreement: "title-only"
+        completed_marker: false
+      - series_url: null
+        title_listed: "17歳の解剖学"
+        shop_author: "池沢理美(著)"
+        imprint: "――"
+        publisher: "電書バト"
+        agreement: "title-only"
+        completed_marker: false
+      - series_url: null
+        title_listed: "17歳、あいつ限定"
+        shop_author: "京町妃紗(著)"
+        imprint: "フラワーコミックス"
+        publisher: "小学館"
+        printed: "2016/9/26"
+        agreement: "title-only"
+        completed_marker: false
+      - series_url: null
+        title_listed: "17歳、はじめて～発熱～"
+        shop_author: "華夜(著) 星森ゆきも(著) 心あゆみ(著) 千葉コズエ(著) 仰木さえ(著) 花本麻実(著) 藤中千聖(著) 北村咲都子(著)"
+        imprint: "フラワーコミックススペシャル"
+        publisher: "小学館"
+        printed: "2015/4/24"
+        agreement: "title-only"
+        completed_marker: false
+      - series_url: null
+        title_listed: "17歳、夏。～制服の情事～"
+        shop_author: "わたなべ志穂(著)"
+        imprint: "フラワーコミックス"
+        publisher: "小学館"
+        printed: "2006/9/26"
+        agreement: "title-only"
+        completed_marker: false
+      - series_url: null
+        title_listed: "17歳の夏 恋に死ぬ"
+        shop_author: "樹本祐季(著)"
+        imprint: "フラワーコミックス"
+        publisher: "小学館"
+        printed: "2003/8/23"
+        agreement: "title-only"
+        completed_marker: false
+    notes:
+      - "author query returned no title this database recognises"
   - work_url: "https://tonarinoyj.jp/episode/12207421984173978504"
     id: "w00130"
     work: "英雄少女と呪われの銀姫"
@@ -7276,6 +7658,16 @@ works:
     author: "アルト / 絵本奈央"
     platform: "となりのヤングジャンプ"
     retrieved: "2026-09-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984183316998"
+    id: "w03282"
+    work: "獄宝"
+    author: "河なみ"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-09-26"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -8642,6 +9034,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://www.sunday-webry.com/episode/12207421983909949999"
+    id: "w03293"
+    work: "高井さんの見える世界"
+    author: "安藤いも"
+    platform: "サンデーうぇぶり"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://www.sunday-webry.com/episode/12207421983913735230"
     id: "w00090"
     work: "にせものターコイズ"
@@ -8688,6 +9090,16 @@ works:
         printed: "2025/12/31"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://www.sunday-webry.com/episode/12207421984030879903"
+    id: "w03291"
+    work: "ももと宮村"
+    author: "光彩"
+    platform: "サンデーうぇぶり"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://www.sunday-webry.com/episode/12207421984039246490"
     id: "w00033"
     work: "上杉くんは女の子をやめたい"
@@ -8735,6 +9147,16 @@ works:
     author: "鮎川あお"
     platform: "サンデーうぇぶり"
     retrieved: "2026-09-02"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
+  - work_url: "https://www.sunday-webry.com/episode/12207421984204046950"
+    id: "w03280"
+    work: "放課後の恋バナ"
+    author: "両備イエリ / 竹内和成"
+    platform: "サンデーうぇぶり"
+    retrieved: "2026-09-26"
     hits: []
     notes:
       - "author query answered nothing"
@@ -9474,6 +9896,14 @@ works:
         agreement: "creator"
         volumes_stated: 3
         completed_marker: false
+  - work_url: "https://yanmaga.jp/comics/%E5%85%88%E7%94%9F%E3%82%A7%E3%82%A7%E3%82%A7%E3%82%A7%E6%9C%8D%E7%9D%80%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84/e52cbbdeec531e99dbd119bc7d656fe8"
+    id: "w03284"
+    work: "先生ェェェェ服着て下さい!!"
+    platform: "ヤンマガWeb"
+    retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "title query answered nothing"
   - work_url: "https://yanmaga.jp/comics/%E5%90%B8%E8%A1%80%E9%AC%BC%E3%81%A8%E5%A5%B3%E5%AD%90%E9%AB%98%E7%94%9F/e5804b20c449a08b25e492cb2dfb4e53"
     id: "w00641"
     work: "吸血鬼と女子高生"

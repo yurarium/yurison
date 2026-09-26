@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -7583,8 +7583,12 @@ works:
     title_id: "2202"
     url: "https://pocket.shonenmagazine.com/title/02202"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2202/feed.xml"
-    chapter_count: 122
+    chapter_count: 123
     chapters:
+      - title: "【第51話(2)】静聴"
+        updated: 2026-09-26
+        author: "くずしろ"
+        url: "https://pocket.shonenmagazine.com/title/02202/episode/444591"
       - title: "【第51話(1)】静聴"
         updated: 2026-09-05
         author: "くずしろ"

@@ -1,4 +1,4 @@
-generated: '2026-09-24'
+generated: '2026-09-26'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -304,12 +304,20 @@ names:
     reading_source_kind: analyser
     verified: false
   17歳:
-    basis: romaji
+    basis: translated
+    en: Seventeen
+    en_at: '2026-09-26'
+    en_reviewed: '2026-09-26'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - '17'
       - null
     - - 歳
       - さい
+    note: 歳 counts years and the title is the number alone, which English says as the word. となりの ヤングジャンプ's
+      page carries no synopsis beyond the line わたしではないわたしを、わたしたらしめる ために, so nothing argues for reading
+      more into it than the age.
     reading: 17サイ
     reading_at: '2026-09-03'
     reading_basis: analyser
@@ -23736,17 +23744,25 @@ names:
     reading_source_kind: analyser
     verified: true
   アンラッキースケベ:
-    basis: romaji
-    reading: アンラッキー スケベ
-    reading_at: '2026-09-01'
-    reading_basis: analyser
+    basis: translated
+    en: Unlucky Lecher
+    en_at: '2026-09-26'
+    en_reviewed: '2026-09-26'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ラッキースケベ is the manga convention of an accidental compromising encounter, which English fandom
+      says as lucky lecher, and the title negates it. The synopsis is about who the luck is lucky FOR,
+      世の紳士たちが喜ぶ最高のイベント, そうそれは、男子にとってはだが, so the joke is the inversion and the English keeps the pair of
+      words that make it.
+    reading: アンラッキースケベ
+    reading_at: '2026-09-26'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   アーシェラ将軍と秘書サディ:
     basis: translated
     en: General Ashera and Her Secretary Sadie
@@ -34942,20 +34958,24 @@ names:
     reading_source_kind: analyser
     verified: false
   ホントのキモチ:
-    basis: romaji
-    furigana_spans:
-    - - ホントのキモチ
-      - null
-    reading: ホント ノ キモチ
-    reading_at: '2026-09-01'
-    reading_basis: analyser
+    basis: translated
+    en: How I Really Feel
+    en_at: '2026-09-26'
+    en_reviewed: '2026-09-26'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ホント and キモチ are 本当 and 気持ち in katakana, which softens them the way a spoken phrase is softer
+      than a written one. コミックヨルズ's synopsis has 律 blurt her feelings to 杏子 after a night's drinking,
+      so the phrase is the confession itself rather than a description of it.
+    reading: ホントノキモチ
+    reading_at: '2026-09-26'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ホームズさんは推理ができない:
     basis: translated
     en: Ms Holmes Can't Deduce
@@ -43414,7 +43434,15 @@ names:
     reading_source_kind: analyser
     verified: false
   先生ェェェェ服着て下さい!!:
-    basis: romaji
+    basis: translated
+    en: Sensei, Pleeeease Put Some Clothes On!!
+    en_at: '2026-09-26'
+    en_reviewed: '2026-09-26'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ェェェェ is the cry drawn out, so the English stretches the word it is attached to rather than adding
+      punctuation the Japanese does not have. 服着て下さい is a plain request to put clothes on, and 先生 is left
+      as it is because what she teaches is not stated.
     reading: サキ ナマ ェェェェ フク キテ クダサイ!!
     reading_at: '2026-09-03'
     reading_basis: analyser
@@ -54788,12 +54816,21 @@ names:
     reading_source_kind: analyser
     verified: false
   彼岸でランデヴー:
-    basis: romaji
+    basis: translated
+    en: Rendezvous on the Far Shore
+    en_at: '2026-09-26'
+    en_reviewed: '2026-09-26'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 彼岸
       - ひがん
     - - でランデヴー
       - null
+    note: '彼岸 is the far shore, which Buddhism uses for the world beyond and the calendar uses for the
+      equinox. カドコミ''s synopsis settles which: the pair tour いわくつきスポット, places with a story attached,
+      so the shore is the one the dead are on. ランデヴー is the French rendezvous in katakana and stays a
+      rendezvous.'
     reading: ヒガン デ ランデヴー
     reading_at: '2026-09-03'
     reading_basis: analyser
@@ -60550,7 +60587,12 @@ names:
     reading_source_kind: analyser
     verified: false
   明日の空を見る人よ:
-    basis: romaji
+    basis: translated
+    en: You Who Will See Tomorrow's Sky
+    en_at: '2026-09-26'
+    en_reviewed: '2026-09-26'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 明日
       - あす
@@ -60568,6 +60610,10 @@ names:
       - ひと
     - - よ
       - null
+    note: よ after 人 addresses somebody, which English does with the pronoun rather than a particle. ourfeel's
+      synopsis places it in wartime Hokkaido at a weather station, where ふみ watches the sky for a living
+      and loves キリ, so 明日の空 is both the forecast and the future and the English keeps a phrase that can
+      be read either way.
     reading: アス ノ ソラ ヲ ミル ヒト ヨ
     reading_at: '2026-09-01'
     reading_basis: analyser
@@ -66918,12 +66964,21 @@ names:
     reading_source_kind: derived
     verified: false
   獄宝:
-    basis: romaji
+    basis: translated
+    en: Prison Treasure
+    en_at: '2026-09-26'
+    en_reviewed: '2026-09-26'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 獄
       - ごく
     - - 宝
       - たから
+    note: 獄 is the gaol of 監獄 and 宝 is treasure, welded into a two-character coinage the way a title does
+      and not a word a dictionary holds. となりのヤングジャンプ carries only the award line for it, ヤングジャンプ新人漫画大賞#047
+      佳作, so the characters are all there is to read and the English keeps them both rather than choosing
+      one.
     reading: ゴク タカラ
     reading_at: '2026-09-03'
     reading_basis: analyser

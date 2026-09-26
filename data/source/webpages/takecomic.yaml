@@ -6,7 +6,7 @@ platform: takecomic
 platform_name: "竹コミ"
 publisher: "竹書房"
 engine: comici
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -908,7 +908,7 @@ works:
     status: "連載中"
     author: "ミト"
     url: "https://takecomic.jp/series/edb5080d3a3a1"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
       - title: "1話"
         updated: "2026-01-30"
@@ -918,7 +918,7 @@ works:
         access_modes: ["free"]
       - title: "3話"
         updated: "2026-03-27"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "4話"
         updated: "2026-04-24"
         access_modes: ["purchase"]
@@ -930,9 +930,12 @@ works:
         access_modes: ["purchase"]
       - title: "7話"
         updated: "2026-07-31"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "8話"
         updated: "2026-08-28"
+        access_modes: ["free"]
+      - title: "9話"
+        updated: "2026-09-25"
         access_modes: ["purchase"]
   - work_title: "白き乙女の人狼"
     status: "連載中"
@@ -1091,7 +1094,7 @@ works:
     status: "連載中"
     author: "橘まなり"
     url: "https://takecomic.jp/series/5b8e11d2274cc"
-    chapter_count: 15
+    chapter_count: 16
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -1137,6 +1140,9 @@ works:
         access_modes: ["purchase"]
       - title: "番外編1"
         updated: "2026-08-28"
+        access_modes: ["free"]
+      - title: "番外編2"
+        updated: "2026-09-25"
         access_modes: ["free"]
   - work_title: "私だけが宮地美雪を愛している"
     status: "連載中"

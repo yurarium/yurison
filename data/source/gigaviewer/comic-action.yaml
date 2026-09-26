@@ -6,11 +6,27 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "action:episode:12207421984252214207"
+    work_title: "オカワリいただけただろうか?"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第12話 E・E・S②"
+    release_type: "chapter"
+    date: "2026-09-25"
+    date_basis: "observed"
+    first_seen: "2026-09-26"
+    first_reported: "2026-09-25T03:00:00Z"
+    platform_updated: "2026-09-25T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-action.com/episode/12207421984252214207"
+    author: "U-temo"
+    free_term_start: "2026-09-25T03:00:00Z"
+    advances_narrative: true
   - release_id: "action:episode:12207421984152696708"
     in_current_window: false
     work_title: "小林さんちのメイドラゴン"

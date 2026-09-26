@@ -6,7 +6,7 @@ platform: yanmaga
 platform_name: "ヤンマガWeb"
 publisher: "講談社"
 engine: yanmaga
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -380,7 +380,7 @@ works:
         access_modes: ["purchase"]
   - work_title: "雨夜の月"
     url: "https://yanmaga.jp/comics/%E9%9B%A8%E5%A4%9C%E3%81%AE%E6%9C%88"
-    chapter_count: 5
+    chapter_count: 4
     chapters:
       - title: "第１−１話　奏音と咲希"
         updated: "2021-06-12"
@@ -390,13 +390,11 @@ works:
         updated: "2021-06-12"
         url: "https://yanmaga.jp/comics/%E9%9B%A8%E5%A4%9C%E3%81%AE%E6%9C%88/a0eb708ecb5a08191ce32b896a53b4c1"
         access_modes: ["purchase"]
-      - title: "第５０−２話　夢現"
-        updated: "2026-08-01"
-        url: "https://yanmaga.jp/comics/%E9%9B%A8%E5%A4%9C%E3%81%AE%E6%9C%88/edf4a420e5bcd04c82adb4920db9ae23"
-        access_modes: ["purchase"]
       - title: "第５０−３話　夢現"
         updated: "2026-08-22"
         url: "https://yanmaga.jp/comics/%E9%9B%A8%E5%A4%9C%E3%81%AE%E6%9C%88/39b26fb3f33866defcaad12c2631b25b"
         access_modes: ["purchase"]
-      - title: "第５１−２話　静聴"
+      - title: "第５１−１話　静聴"
+        updated: "2026-09-05"
+        url: "https://yanmaga.jp/comics/%E9%9B%A8%E5%A4%9C%E3%81%AE%E6%9C%88/2826a101497ff4af29ad855964092402"
         access_modes: ["purchase"]

@@ -4,12 +4,12 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 record_type: coverage_gap
-works_listed: 133
+works_listed: 134
 platforms_total: 21
 platforms_watched: 16
-works_on_watched_platforms: 105
+works_on_watched_platforms: 106
 platforms:
   - platform: "カドコミ"
     works: 55
@@ -21,7 +21,7 @@ platforms:
     works: 22
     watched: false
   - platform: "竹コミ！"
-    works: 5
+    works: 6
     watched: true
   - platform: "ガンガンONLINE"
     works: 4
@@ -590,6 +590,10 @@ works:
   - raw: "白き乙女の人狼 アジイチ/王月よう"
     platform: "竹コミ！"
     last_update_seen: 09-11
+    watched_platform: true
+  - raw: "百合神さまの言うとおり！ 橘まなり"
+    platform: "竹コミ！"
+    last_update_seen: 09-25
     watched_platform: true
   - raw: "魔法少女にあこがれて 小野中彰大"
     platform: "竹コミ！"

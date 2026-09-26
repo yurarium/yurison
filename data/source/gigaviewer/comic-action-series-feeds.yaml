@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 19
@@ -588,8 +588,14 @@ works:
   - work_title: "オカワリいただけただろうか?"
     series_id: "2550912964905642274"
     url: "https://comic-action.com/atom/series/2550912964905642274"
-    chapter_count: 17
+    chapter_count: 18
     chapters:
+      - title: "第12話 E・E・S②"
+        updated: 2026-09-25
+        author: "U-temo"
+        url: "https://comic-action.com/episode/12207421984252214207"
+        free_from: 2026-09-25
+        access_modes: ["free"]
       - title: "第12話 E・E・S①"
         updated: 2026-08-28
         author: "U-temo"
@@ -600,8 +606,7 @@ works:
         updated: 2026-07-24
         author: "U-temo"
         url: "https://comic-action.com/episode/12207421983881261105"
-        free_from: 2026-07-24
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第10話 丑の刻参り（前編）"
         updated: 2026-04-24
         author: "U-temo"

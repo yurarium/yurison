@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -92,8 +92,11 @@ works:
     url: "https://www.corocoro.jp/title/65"
     platform_name: "コロコロオンライン"
     route: "rendered"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
+      - title: "第104話"
+        updated: 2026-09-26
+        date_basis: rendered
       - title: "第103話"
         updated: 2026-09-12
         date_basis: rendered
@@ -1495,8 +1498,12 @@ works:
     url: "https://mangatime-square.com/episode/12207421984001577937"
     platform_name: "まんがタイムSquare"
     route: "gigaviewer"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "第5話"
+        updated: 2026-09-25
+        author: "いくたはな"
+        access_modes: ["free"]
       - title: "第4話"
         updated: 2026-08-28
         author: "いくたはな"
@@ -1518,8 +1525,12 @@ works:
     url: "https://comic-action.com/episode/2550912964909179818"
     platform_name: "webアクション"
     route: "gigaviewer"
-    chapter_count: 17
+    chapter_count: 18
     chapters:
+      - title: "第12話 E・E・S②"
+        updated: 2026-09-25
+        author: "U-temo"
+        access_modes: ["free"]
       - title: "第12話 E・E・S①"
         updated: 2026-08-28
         author: "U-temo"
@@ -1527,7 +1538,7 @@ works:
       - title: "第11話 丑の刻参り（後編）"
         updated: 2026-07-24
         author: "U-temo"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第10話 丑の刻参り（前編）"
         updated: 2026-04-24
         author: "U-temo"
@@ -4892,11 +4903,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-24
+        updated: 2026-09-26
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-24
+        updated: 2026-09-26
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

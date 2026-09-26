@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-ogyaaa
 platform_name: "COMIC OGYAAA!!"
 publisher: "一迅社"
-retrieved: 2026-09-25
+retrieved: 2026-09-26
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 11
@@ -299,8 +299,14 @@ works:
   - work_title: "ゆりゾン"
     series_id: "2550912965728492745"
     url: "https://comic-ogyaaa.com/atom/series/2550912965728492745"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "第3話 いつか観た映画みたいに(後編)"
+        updated: 2026-09-25
+        author: "倉田英之/森山大輔"
+        url: "https://comic-ogyaaa.com/episode/12207421984276173446"
+        free_from: 2026-09-25
+        access_modes: ["free"]
       - title: "第3話 いつか観た映画みたいに(前編)"
         updated: 2026-09-18
         author: "倉田英之/森山大輔"

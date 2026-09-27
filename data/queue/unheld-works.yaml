@@ -281,3 +281,26 @@ rulings:
       presumption stands, the work is recorded, and its record stays out of the default listing
       until a source says something. That is `marginal` doing the job §9 built it for, and it is
       not an exclusion: the work has a page and the page answers.
+  - work: "不器用ビンボーダンス　３"
+    platform: "ニコニコ漫画"
+    platform_url: "https://manga.nicovideo.jp/comic/70296"
+    disposition: in
+    admitted_under: "DEFINITIONS §2, and already admitted: this is a held work under another name"
+    held_as: w02110
+    why: >-
+      NOT AN INCLUSION QUESTION. ニコニコ漫画 files one serialisation as three numbered series
+      pages, comic/41035, comic/56736 and comic/70296, and w02110 anchors all three and carries an
+      offer for each. What settles that they are one story is the chapter numbering: the parts hold
+      100, 100 and 71 instalments and the newest is 第272話, so part 3 counts on from where part 2
+      stopped. The work is held in full and a reader reaches every part of it.
+      WHY IT IS COUNTED ANYWAY. `feedgap` joins a feed row to a work by folded title, which
+      adapters/feedgap.py states as its own blind spot, and the database's name for w02110 is
+      不器用ビンボーダンス ２, the second part's. No fold reconciles that with 不器用ビンボーダンス　３,
+      so two rows sitting on a held work are counted as naming one we lack.
+      WHY NO ALIAS. `data/work-aliases.yaml` was the obvious instrument and is the wrong one, tried
+      on 2026-09-27 and reverted. Aliasing the parts to one title merged the three offers into one
+      at part 1's address claiming 271 instalments, so the two other addresses left the corpus and
+      the count stood on a page holding 100. That file is for one work written two ways; this is
+      one work published at three addresses in sequence, and nothing in the corpus can yet say the
+      second thing. Left for the owner: whether a work's several addresses on one platform should
+      fold by title at all.

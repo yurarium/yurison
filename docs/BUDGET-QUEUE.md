@@ -1026,3 +1026,28 @@ kana exactly as あの冨田 does. `analyser_division.py --apply` writes that ma
 its CLI asked for a corrected reading before saving, so a run reporting 136 accounted for and 0
 corrected discarded every mark it had just made. It compares the document now, which is what
 `retire_store` beside it already did, and is why the autopilot never hit this.
+
+## Four budgets rose on inducting two カドコミ works. Accepted 2026-09-27
+
+リユナイテッド・ルナ and 真夜中に愛してよ came in on run 36343509237, both tagged 百合 by KADOKAWA
+on its own カドコミ pages, so DEFINITIONS §2 admits them publisher-side and not only on the
+antenna's listing. They were the two series rows carrying no work identifier, `w03299` and `w03300`,
+and the four rises are what two unnamed works cost.
+
+`works showing a romanisation` 24 to 25 is リユナイテッド・ルナ, whose kana spell Reunited Luna.
+That number counts what a reader meets and cannot reach zero, because a romanisation is the
+finished answer for a name the kana are already spelling in English. Its queue half,
+`titles showing a romanisation nobody has ruled on`, went to 2 and back to 0 in the same pass: both
+titles are ruled, one translated and one with the translation refused for repeating the rendering.
+
+`titles read by a machine, unmarked` 1146 to 1147 is 真夜中に愛してよ, whose reading the analyser
+supplies and whose vocabulary is ordinary throughout, which the 2026-08-10 ruling says needs no
+mark. The English is ours and the reading is the machine's, which is the ordinary shape.
+
+`author names romanised as one word` 1210 to 1211 and `author readings no source states` 442 to 443
+are both 梢, the artist of リユナイテッド・ルナ. A single-kanji pen name IS one word, so the first
+is right about it; the second is the honest state, an analyser's コズエ with a note saying no source
+states it. 甘崎水菓 cost nothing, already carrying AMAZAKI Suika from MangaUpdates.
+
+Nothing here is a defect and none of it was narrowed. The route down is a source for 梢's reading,
+which is the queue these two budgets have always been.

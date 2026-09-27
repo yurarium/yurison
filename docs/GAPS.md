@@ -3950,3 +3950,63 @@ now reads into `_cands` anyway: the list, the tags it carried, and the day the l
 retrieved. The file is right there and the join is by title, which is how `_cands` uses it. What
 stops this being a five-line change is that `web_works` and the series row are different objects
 from the print record `admitted_by` hangs on, so where the field lives is a decision for the owner.
+
+**CLOSED 2026-09-27.** `admitted_by` is on the series row, filled from the antenna row the build
+already reads into `_cands`, and 618 web rows carry it. It goes through the store: `admission.record`
+is nullable now, NULL meaning the grounds are the work's, and `emit.series` reads them back.
+`inclusion.admission` is the one place the block's shape is written, so the two halves cannot drift.
+
+## An aggregator's link to the wrong work is absorbed by the address, not refused
+
+Found 2026-09-27, working the one row in quarantine after run 36343509237.
+
+**THE ROW AND WHAT REFUSED IT.** `offer` for `w03278` on ビビビコミック, refused by
+`UNIQUE constraint failed: offer.work, offer.platform, offer.url`, from the capture
+`offer w03278@ビビビコミック`. The refused row is byte for byte the row already stored, so nothing
+was lost and the door this leaves by is a deferral.
+
+**WHY THE SAME OFFER ARRIVED TWICE.** `data/coverage/webcomics-works.yaml` holds 超かぐや姫! with
+two addresses, its own カドコミ page and `bibibi-comic.com/series/41de76fc8df5f`. That second one
+is not its page: 百合ナビ's own headline says 超かぐやメシ！ is the 公式スピンオフ of 超かぐや姫！,
+and the address belongs to the spin-off. Both are works we hold, `w00320` and `w03278`. The address
+is `w03278`'s anchor in `data/identity/works.yaml`, so the capture entry titled for the parent
+resolved to the spin-off, and the two entries arrive as ONE series row whose `sources` list carries
+the identical platform and address twice. Measured by dumping `series_rows`, because reading the
+fold gives the shape of the fault and not its multiplicity.
+
+The outcome in the corpus is right. `w00320` carries its カドコミ offer alone and `w03278` its
+ビビビコミック offer alone. What refused the second copy was the uniqueness constraint, and what
+made it a duplicate instead of a wrong offer on `w00320` was the page being anchored to the
+spin-off already. Identity resolves an address to its anchor and the title it arrived under is not
+consulted, which is correct for a platform page and is what makes a wrong link silent: had the
+spin-off not been held, the parent would have taken an offer for a page that is not its own.
+
+**HOW MANY SHARE THE SHAPE.** Four of the antenna's 1,603 addresses are listed under more than one
+candidate title. Three are one work under a short title and a long one, クレアちゃん飼育日記,
+ハウリング・ブレイズ and citrus, which folding to one work is right for. This is the only one where
+the two titles are two works, and the ratio is what makes it worth writing down instead of acting
+on: a rule refusing every shared address would refuse three correct folds to catch one wrong one.
+
+**WHAT A PERSON WOULD DECIDE.** Whether a candidate's address is checked against the title the
+anchor already carries, and what happens when they disagree. The cheap version reports the
+disagreement and admits nothing, which turns a silent absorption into a queue row. A second, milder
+question is whether one row offering the same address twice should reach the loader at all, since
+the `sources` list is built here and deduplicating it would cost nothing.
+
+## The published quarantine can hold a row the final compile did not produce
+
+Found 2026-09-27, trying to reproduce the row above.
+
+A rebuild carries the quarantine forward: `relational.rebuild` reads the old rows, drops the file,
+recreates it and re-inserts them, which is right, because a rebuild establishes only that the
+loader still refuses a row and is not a ruling on it. The update workflow compiles twice, once at
+Stage Compile and again after the naming passes have written, so a row refused by the first compile
+survives into the published store whether or not the second compile still refuses it. Both stores
+carry this one with `at` set to their own run's date, so it is made fresh each run and not aged.
+
+A rebuild from the committed tree produces no quarantine at all, which is the part worth knowing:
+the state that refused the row is an intermediate one inside the run, and a person working the
+quarantine from a local build sees an empty one. What that means in practice is that "the
+quarantine is empty" and "this run refused nothing" are different statements, and only the
+published store can answer the second. Not chased further, because the row it produced here is a
+duplicate of a row already stored and the corpus is right either way.

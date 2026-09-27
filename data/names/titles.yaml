@@ -37413,14 +37413,29 @@ names:
     verified: false
   リユナイテッド・ルナ:
     basis: romaji
+    en: Reunited Luna
+    en_at: '2026-09-27'
+    en_reviewed: '2026-09-27'
+    en_source: read off the title itself
+    en_source_kind: derived
+    note: 'Two English words in kana, リユナイテッド for reunited and ルナ for Luna, so the English here is what
+      the kana spell and nothing is translated. ルナ is left as a name: カドコミ tags the work 人外 and 女主人公 and
+      carries no synopsis, so whether the moon is meant as well as the character is not settled, and Luna
+      holds both the way the kana do.'
     reading: リユナイテッド・ルナ
     reading_at: '2026-09-27'
     reading_basis: surface
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
+    reading_corroborated:
+    - read off the title itself
+    reading_note: Katakana throughout, so the surface is the reading.
     reading_pass: 1
-    reading_source: surface
-    reading_source_kind: analyser
+    reading_reviewed: '2026-09-27'
+    reading_source: read off the title itself
+    reading_source_kind: derived
+    translation_refused: 'Ours would come out Reunited Luna, which is what the entry already ships. The
+      kana spell two English words and nothing is being carried across, so a reader who ranks a translation
+      above a romanisation would be handed the same string twice: the スカーレット case, where the rendering
+      and the translation are one name.'
     verified: true
   リリィシステム:
     basis: official-jp
@@ -71089,7 +71104,12 @@ names:
     reading_source_kind: analyser
     verified: false
   真夜中に愛してよ:
-    basis: romaji
+    basis: translated
+    en: Love Me at Midnight
+    en_at: '2026-09-27'
+    en_reviewed: '2026-09-27'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 真夜中
       - まよなか
@@ -71099,6 +71119,9 @@ names:
       - あい
     - - してよ
       - null
+    note: 愛してよ is the imperative with よ, which asks rather than orders, and English carries that in the
+      plain imperative. カドコミ files it 百合 with ラブコメ and 秘密の関係 beside it, so 真夜中 is the hour the secret
+      is kept at and the English keeps it as a time and not as a mood.
     reading: マヨナカ ニ アイシテ ヨ
     reading_at: '2026-09-27'
     reading_basis: analyser

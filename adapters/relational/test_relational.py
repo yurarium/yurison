@@ -871,6 +871,36 @@ def main(s):
         "SELECT count(*) FROM surface").fetchone()[0], 0,
         "and writing again replaces the file rather than adding to it")
 
+    # ── AN ADMISSION ABOUT THE WORK, WITH NO RECORD BEHIND IT ────────────────────────────────
+    #
+    # §2 requires knowing WHICH comparator admitted a work. The print half keys that on the
+    # catalogue record, which a web-native work does not have, so `admission.record` is NULL for
+    # one and the row belongs to the work. Writing the work's own id into that column instead
+    # would make it mean a record here and a work there, which is the fault its own comment in
+    # schema.sql is about.
+    db = _fresh()
+    # The aggregator is registered by `load_rulings` beside the shops, because `admission.comparator`
+    # is a foreign key into that table and a work it admits could not be recorded without it.
+    s.eq(db.execute("SELECT shelf FROM comparator WHERE name='webcomics.jp'").fetchone(),
+         ("百合 tag",), "the antenna is a comparator the store knows")
+    db.execute("INSERT INTO admission (record, work, comparator, url, retrieved, note)"
+               " VALUES (NULL,'w00001','webcomics.jp','https://webcomics.jp/tag/x',"
+               "'2026-09-27','listed under the tag')")
+    got = db.execute("SELECT record, work FROM admission WHERE comparator='webcomics.jp'").fetchone()
+    s.eq(got, (None, "w00001"), "an admission may name a work and no record")
+
+    # AND BOTH LAYERS COEXIST ON ONE WORK, which is the case a work held in print and on the web
+    # would produce. The unique index has to separate them by the record rather than collapse them.
+    db.execute("INSERT INTO admission (record, work, comparator, url, retrieved)"
+               " VALUES ('r1','w00001','webcomics.jp','https://webcomics.jp/tag/x','2026-09-27')")
+    s.eq(db.execute("SELECT count(*) FROM admission WHERE work='w00001'").fetchone()[0], 2,
+         "a record-level and a work-level admission from one comparator are two rows")
+    _refuses(s, db,
+             "INSERT INTO admission (record, work, comparator, url, retrieved)"
+             " VALUES (NULL,'w00001','webcomics.jp','https://webcomics.jp/tag/x','2026-09-27')",
+             (), "and the same work-level admission twice is refused")
+
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

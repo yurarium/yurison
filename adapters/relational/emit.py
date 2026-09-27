@@ -39,6 +39,7 @@ from names import attach as _attach                                     # noqa: 
 from names import publishers as _pubmod                                 # noqa: E402
 from facts import imprint as _impmod                                    # noqa: E402
 from facts import namekey as _namekey                                   # noqa: E402
+from facts import inclusion as _inclusion                              # noqa: E402
 try:
     import pass4_analyser as _p4                                        # noqa: E402
 except Exception:                                                       # noqa: BLE001
@@ -357,7 +358,10 @@ def works(db):
     for rec, comparator, shelf, shop_url, url, retrieved, note, page in db.execute(
             "SELECT a.record, a.comparator, c.shelf, a.shop_url, a.url, a.retrieved, a.note,"
             " a.page FROM admission a LEFT JOIN comparator c ON c.name = a.comparator"
-            " ORDER BY a.id"):
+            # THE RECORD ADMISSIONS ONLY. A web-native work's grounds are keyed on the work with no
+            # record at all, and this file is the record layer: a NULL would group under a key no
+            # row here has and the rows would vanish silently rather than by being excluded.
+            " WHERE a.record IS NOT NULL ORDER BY a.id"):
         # AN ABSENT KEY, NOT A NULL ONE. A ground admitted from a shelf with no shop page for the
         # work simply has no `shop_url`, and the file says so by leaving the key out.
         ground = {"comparator": comparator, "shelf": shelf, "retrieved": retrieved}
@@ -936,6 +940,19 @@ def series(db, generated):
     titles_raw, authors_raw = _raw(db, "title"), _raw(db, "author")
     titles_folded = _fold.fold_map(titles_raw, _namekey.fold)[0]
     authors_folded = _fold.fold_map(authors_raw, _namekey.fold)[0]
+    # WHAT ADMITTED A WORK THAT HAS NO CATALOGUE RECORD. `works.json` carries the print half's
+    # grounds per record; a web-native work has none, so its admission is keyed on the work and
+    # `record` is NULL. §2 requires knowing WHICH comparator, and this is where the web half says.
+    _web_grounds = {}
+    for _w, _comp, _shelf, _url, _ret, _note in db.execute(
+            "SELECT a.work, a.comparator, c.shelf, a.url, a.retrieved, a.note FROM admission a"
+            " LEFT JOIN comparator c ON c.name = a.comparator"
+            " WHERE a.record IS NULL ORDER BY a.id"):
+        # THE SHAPE IS `inclusion`'s AND THE VALUES ARE THE STORE'S. What the block SAYS is read
+        # back out of the rows a capture wrote; what an admission IS belongs to the module that
+        # owns inclusion, so the two routes cannot drift into two blocks (§3).
+        _web_grounds.setdefault(_w, []).append(
+            _inclusion.admission(_comp, _shelf, _ret, _note, _url))
     rows = []
     for (wid, chapters, stated, latest, latest_ep, first, oneshot, inferred, collection,
          series_url, offer_id) in db.execute(
@@ -1069,6 +1086,8 @@ def series(db, generated):
         got = _attach.author(row["author"], authors_raw, authors_folded, _namekey.fold)
         if got:
             row["author_en"] = got
+        if _web_grounds.get(wid):
+            row["admitted_by"] = _web_grounds[wid]
         rows.append(row)
     return {"series": rows, "generated": generated, "note": SERIES_NOTE,
             "credence": {k: v for k, v in db.execute(

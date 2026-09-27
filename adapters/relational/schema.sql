@@ -77,7 +77,13 @@ CREATE TABLE admission (
   -- catalogue record, and holding them per work put one record's grounds on another's row. §5c
   -- deduped 20 rows that were the same grounds seen through two records; they are two records'
   -- grounds and the dedupe was hiding the layer rather than a duplicate.
-  record     TEXT NOT NULL,
+  --
+  -- NULL WHERE THE ADMISSION IS ABOUT THE WORK AND NOT ABOUT A RECORD OF IT. A web-native work has
+  -- no catalogue record to key on, and Web漫画アンテナ's 百合 tag admits 29 of them as of
+  -- 2026-09-27 with more arriving on that route than on any other. Writing the work's own id into
+  -- this column instead would make it mean two things, which is the fault the paragraph above is
+  -- about; an absent record says plainly that there is no record layer here.
+  record     TEXT,
   work       TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   comparator TEXT REFERENCES comparator(name),
   shop_url   TEXT,
@@ -91,7 +97,7 @@ CREATE TABLE admission (
 
 -- ADDRESSABLE, for the reason `volume` is. §5c added this table and §5g gave it a key.
 CREATE UNIQUE INDEX admission_one ON admission
-  (record, coalesce(comparator, ''), coalesce(url, ''));
+  (coalesce(record, ''), work, coalesce(comparator, ''), coalesce(url, ''));
 
 CREATE INDEX admission_work ON admission (work);
 

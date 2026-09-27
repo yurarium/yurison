@@ -450,6 +450,8 @@ NOT_DRAWN = {
                                                "for the years that spelling covers",
     "works[].title.yomi": "the reading, a Japanese-side aid",
     "works[].admitted_by[].shelf": "the shop shelf that admitted the work, quoted",
+    "series[].admitted_by[].shelf": "the aggregator's own tag that admitted a work with no "
+                                    "catalogue record, quoted",
 
     "releases[].plat_name": "a platform's own name",
     "releases[].preferred": "a platform's own name",

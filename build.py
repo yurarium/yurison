@@ -13,6 +13,10 @@ import argparse, datetime, glob, json, pathlib, re, statistics, sys, unicodedata
 import urllib.parse as urlparse
 from collections import Counter, defaultdict
 
+#: The antenna's own yuri listing, which `webcomics/coverage.py` walks and which an
+#: admission has to name so a reader can return to the page that admitted the work.
+_WEBCOMICS_TAG_URL = "https://webcomics.jp/tag/%E7%99%BE%E5%90%88"
+
 sys.path.insert(0, "adapters")
 from crossplatform import carriage, episode_key, merge_releases  # noqa: E402
 
@@ -27,6 +31,7 @@ from facts import credit as _credit_fact  # noqa: E402
 from facts import reading as _reading  # noqa: E402
 from facts import script as _script  # noqa: E402
 from facts import serialisation as _ser  # noqa: E402
+from facts import inclusion as _inclusion  # noqa: E402
 from facts import division as _division  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
@@ -6239,11 +6244,24 @@ def main():
     # published on コミックDAYS on 2026-07-27, was held for sixty days, and on the sixty-first its
     # series bucket was dropped here, its work record went with it, and the curated name written
     # for it stopped naming anything. Twenty-one curated entries were resting on that window.
+    #
+    # AND THE LISTING IS KEPT, NOT ONLY COUNTED. §2 admits a work a comparator lists and then
+    # requires knowing WHICH comparator, so a reader can tell a work here because a publisher
+    # called it yuri from one here because an aggregator tagged it. The print half has carried that
+    # since 2026-08-04 in `admitted_by`; the web half carried nothing, and the antenna is the
+    # larger route now. `_antenna_admits` is the same block keyed by folded title, attached to the
+    # rows below.
     _wcf = pathlib.Path("data/coverage/webcomics-works.yaml")
+    _antenna_admits = {}
     if _wcf.exists():
-        _cands |= {norm_work(c["title"])
-                   for c in (yaml.safe_load(_wcf.read_text()) or {}).get("candidates") or []
-                   if c.get("title")}
+        _wcd = yaml.safe_load(_wcf.read_text()) or {}
+        _wc_at = str(_wcd.get("retrieved") or "")
+        for c in _wcd.get("candidates") or []:
+            if not c.get("title"):
+                continue
+            _cands.add(norm_work(c["title"]))
+            _antenna_admits[norm_work(c["title"])] = _inclusion.admitted_by_tag(
+                "webcomics.jp", _wc_at, _WEBCOMICS_TAG_URL)
     # A work with a print record HAS been assessed: it is in the print corpus under a publisher's
     # imprint, with a marketing_label and a basis. Leaving it out of scope made in-scope-ness
     # depend on having a release inside the feed window, which a work whose whole run carries one
@@ -6562,6 +6580,22 @@ def main():
                 if _eds:
                     _srow["print"] = [_print_block(_e2) for _e2 in _eds]
                     _joined += 1
+        # THE GROUNDS GO ON THE ROW THAT HAS NO RECORD TO HANG THEM ON. A print work carries its
+        # admission per catalogue record, which is right there and wrong here: a web-native work
+        # has no record, so the grounds belong to the work. Only a row the print half has not
+        # already answered for gets one, because a work held in both halves is admitted by whatever
+        # put it in the print corpus and saying so twice would be two answers to one question.
+        _antenna_cited = 0
+        for _srow in series_rows:
+            if _srow.get("print") or _srow.get("admitted_by"):
+                continue
+            _antenna_row = _antenna_admits.get(norm_work(_srow.get("work") or ""))
+            if _antenna_row:
+                _srow["admitted_by"] = [_antenna_row]
+                _antenna_cited += 1
+        if _antenna_cited:
+            print(f"admitted by the antenna: {_antenna_cited} web row(s) carry the listing that "
+                  f"let them in")
         print(f"work identifiers: {_named} of {len(series_rows)} rows carry one; "
               f"{_joined} also carry their print edition"
               + (f"; {_by_source} answered by a source address rather than the row's own"

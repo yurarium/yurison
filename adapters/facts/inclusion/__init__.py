@@ -31,6 +31,56 @@ SHELVES = {
 SHELF_NOTE = ("A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive "
               "and rebuttable, and never a marketing_label (§4).")
 
+#: THE AGGREGATOR'S TAG, WHICH IS A COMPARATOR AND IS NOT A SHELF. §2 admits a work "a comparator
+#: lists", and the unheld register names three: 百合ナビ's WEB連載 list, Web漫画アンテナ's 百合 tag,
+#: and a licensed retailer's own 百合 shelf. Only the third is a shop, so `SHELF_NOTE` says the
+#: wrong thing about the other two: an aggregator is not a retailer and shelves nothing.
+#:
+#: IT IS THE LARGER ROUTE NOW AND CARRIED NO RECORD AT ALL. 29 works were inducted in the week to
+#: 2026-09-27 and every one came in on the antenna, while the works a shelf admits have carried
+#: their grounds since 2026-08-04. A work whose own row cannot say what let it in is a work a
+#: reader has to take on trust, which is the thing §2 asks the record to prevent.
+TAG_LISTS = {
+    "webcomics.jp": "百合 tag",
+}
+
+#: WHAT A TAG ADMISSION MEANS. Weaker than a shelf and said so: a shop stakes its catalogue on where
+#: it files a book, while an aggregator collects what it notices. Presumptive and rebuttable like
+#: the shelf, and a marketing_label like neither of them (§4).
+TAG_NOTE = ("An aggregator listing a work under its yuri tag is a comparator (DEFINITIONS §2). "
+            "It says the work exists and where, attests nothing about it, and is never a "
+            "marketing_label (§4).")
+
+
+def tag_of(site):
+    """The tag a site's yuri listing is, or the generic phrase for one nobody has recorded."""
+    return TAG_LISTS.get(site, "yuri tag")
+
+
+def admission(comparator, shelf, retrieved, note, url=None):
+    """One admission block, as the dict both the build and the store hand a reader.
+
+    THE ONE PLACE THE SHAPE IS WRITTEN, §3. It was typed twice for a day: `admitted_by_tag` below
+    builds the block a capture attaches, and `emit.series` rebuilds it out of the `admission` rows
+    the loader wrote, and two spellings of one shape is how a reader comes to be served two. The
+    values differ between the callers and the keys cannot, which is exactly the split this makes:
+    the caller says what the admission SAYS and this says what an admission IS.
+    """
+    out = {"comparator": comparator, "shelf": shelf, "retrieved": retrieved, "note": note}
+    if url:
+        out["url"] = url
+    return out
+
+
+def admitted_by_tag(site, retrieved, url=None):
+    """The admission a work gets from an aggregator's yuri tag, as a dict.
+
+    A DICT, because this hands a row to `build.py` where `admitted_by` below writes YAML lines
+    into a record file. The keys are `admission`'s keys either way, so what reaches a reader is one
+    block whichever comparator put the work here.
+    """
+    return admission(site, tag_of(site), retrieved, TAG_NOTE, url)
+
 
 def shelf_of(shop):
     """The shelf a shop's yuri section is, or the generic phrase for a shop nobody has recorded."""

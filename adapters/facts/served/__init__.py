@@ -350,6 +350,11 @@ STORE_ANSWERS = (
     "series.json:series[].stated_next.next_update_undecided",
     "credits.json:merged",
     "publishers.json:merged",
+    # §5c ON THE WEB HALF. A work with no catalogue record has no `works.json` entry to carry its
+    # grounds, so the block is served on the series row instead, out of `admission` rows whose
+    # `record` is NULL. The same field under two paths because the corpus keeps the two halves in
+    # two files, and the same table answers both.
+    "series.json:series[].admitted_by", "series.json:series[].admitted_by[]",
     "series.json:series[].work_en",
     "series.json:series[].author_en",
 )

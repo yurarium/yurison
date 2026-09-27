@@ -212,6 +212,11 @@ def load_rulings(db):
     from facts import inclusion as _inc
     for shop, shelf in _inc.SHELVES.items():
         db.execute("INSERT INTO comparator (name, shelf) VALUES (?,?)", (shop, shelf))
+    # AND THE AGGREGATORS, which are comparators under §2 exactly as the shops are and were missing
+    # from the one table that says what a comparator is. `admission.comparator` is a foreign key
+    # into this, so a work the antenna admits could not be recorded until its name was here.
+    for site, tag in _inc.TAG_LISTS.items():
+        db.execute("INSERT INTO comparator (name, shelf) VALUES (?,?)", (site, tag))
     # THE VOCABULARIES §5j GAVE A HOME TO, each asked of the fact that states it. A list written out
     # here instead would be the second copy every one of these was moved to avoid.
     from facts import dating as _dating
@@ -664,6 +669,17 @@ def _load_all(db, source, put, counts, refused):
             (wid, r.get("work") or "", r.get("first"), r.get("first_event"),
              int(bool(r["explicit_content"])) if r.get("explicit_content") is not None else None),
             f"work {wid}")
+        # AN ADMISSION WITH NO RECORD BEHIND IT, which is what a web-native work has. `works.json`
+        # carries the print half's grounds per catalogue record and this row has none, so the
+        # admission is keyed on the work and `record` is left NULL to say so. After the work rather
+        # than before it, because `admission.work` is a foreign key into the row above.
+        for _g in (r.get("admitted_by") or []):
+            if isinstance(_g, dict):
+                put("INSERT OR IGNORE INTO admission (record, work, comparator, shop_url, url,"
+                    " page, retrieved, note) VALUES (NULL,?,?,?,?,?,?,?)",
+                    (wid, _g.get("comparator"), _g.get("shop_url"), _g.get("url"),
+                     _g.get("page"), _g.get("retrieved"), _g.get("note")),
+                    f"web admission {wid}")
     counts["work"] = db.execute("SELECT count(*) FROM work").fetchone()[0]
 
     # FROM THE REGISTRY AND NOT FROM `credits.json`, WHICH THIS STORE NOW EMITS. §6 moved that file

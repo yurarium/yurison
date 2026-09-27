@@ -78,6 +78,34 @@ def main(s):
             < pair.index("  - comparator: cmoa.jp"),
             "and each address sits under the shop it belongs to, not the next one")
 
+    # ── AN AGGREGATOR'S TAG, WHICH IS A COMPARATOR AND IS NOT A SHELF ─────────────────────────
+    #
+    # §2 admits a work "a comparator lists" and names three: 百合ナビ's WEB連載 list, the antenna's
+    # 百合 tag, and a retailer's 百合 shelf. Only the third is a shop, and until 2026-09-27 the
+    # only sentence this module had said "a licensed retailer's yuri shelf", which is false of the
+    # route that admitted all 29 works inducted in the week to that date.
+    tag = inclusion.admitted_by_tag("webcomics.jp", "2026-09-27",
+                                    "https://webcomics.jp/tag/%E7%99%BE%E5%90%88")
+    s.eq(tag["comparator"], "webcomics.jp", "the entry names the site that listed the work")
+    s.eq(tag["shelf"], "百合 tag", "and the listing in the site's own terms")
+    s.eq(tag["retrieved"], "2026-09-27", "with the day the listing was read")
+    s.eq(tag["url"], "https://webcomics.jp/tag/%E7%99%BE%E5%90%88",
+         "and an address a reader can return to")
+    s.check("never a marketing_label" in tag["note"],
+            "the note carries §4, because a comparator listing is not a publisher calling it yuri")
+    s.check("retailer" not in tag["note"] and "shelf" not in tag["note"],
+            "and says nothing about shops, which is what SHELF_NOTE would have claimed")
+
+    s.eq(set(tag) - {"url"}, set(inclusion.admitted_by_tag("webcomics.jp", "2026-09-27")),
+         "an entry with no address simply has no url, since absence is a state (§5)")
+    s.eq(tag.keys() | {"shop_url"},
+         {"comparator", "shelf", "retrieved", "note", "url", "shop_url"},
+         "and the keys are the shelf entry's keys, so a reader meets one block either way")
+
+    s.eq(inclusion.tag_of("webcomics.jp"), "百合 tag", "a site nobody has recorded is not assumed")
+    s.eq(inclusion.tag_of("nowhere.test"), "yuri tag",
+         "and one nobody has recorded gets the generic phrase rather than a guess")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "inclusion"))

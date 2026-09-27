@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-27
+retrieved: 2026-09-28
 record_type: candidate_works
 works: 311
 candidates:
@@ -1852,6 +1852,10 @@ candidates:
   - title: "リスカとキバ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006177_S"]
+  - title: "リユナイテッド・ルナ"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_020317_S"]
+    tags: ["最近のコメント数"]
   - title: "リリィズコンプレックス"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005531_S"]
@@ -3515,8 +3519,8 @@ candidates:
     platforms: ["LINEマンガ(更新終了)", "comicブースト", "ダ・ヴィンチニュース"]
     urls: ["https://comic-boost.com/content/01280001", "https://ddnavi.com/yurini-sinebaii/", "https://manga.line.me/product/periodic?id=Z0001152"]
   - title: "百合のはじまりは奴隷から"
-    platforms: ["カドコミ"]
-    urls: ["https://comic-walker.com/detail/KC_005678_S"]
+    platforms: ["pixivコミック", "カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_005678_S", "https://comic.pixiv.net/works/13537"]
     tags: ["三角関係", "女子高生", "百合"]
   - title: "百合オタに百合はご法度です!?"
     platforms: ["pixivコミック", "webアクション", "ニコニコ漫画"]
@@ -3554,6 +3558,10 @@ candidates:
   - title: "真夏のスピカ"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/316190246984111706"]
+  - title: "真夜中に愛してよ"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_020158_S"]
+    tags: ["百合"]
   - title: "真夜中ぱんチ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005409_S"]

@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-27
+retrieved: 2026-09-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -126,7 +126,7 @@ works:
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     platform_name: "キミコミ"
     route: "comici"
-    chapter_count: 10
+    chapter_count: 11
     chapters:
       - title: "OPERATION1"
         updated: 2026-07-20
@@ -154,11 +154,12 @@ works:
       - title: "OPERATION6"
         updated: 2026-08-24
         author: "涼海来夏"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "OPERATION7"
         updated: 2026-08-31
         author: "涼海来夏"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "OPERATION8"
         updated: 2026-09-07
         author: "涼海来夏"
@@ -166,9 +167,13 @@ works:
       - title: "OPERATION9"
         updated: 2026-09-14
         author: "涼海来夏"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "OPERATION10"
         updated: 2026-09-21
+        author: "涼海来夏"
+        access_modes: ["purchase"]
+      - title: "OPERATION11"
+        updated: 2026-09-28
         author: "涼海来夏"
         access_modes: ["purchase"]
   - work_title: "雨夜の月"
@@ -790,7 +795,7 @@ works:
     url: "https://hanayume.com/series/f3ce082d639de"
     platform_name: "花とゆめ+"
     route: "comici"
-    chapter_count: 37
+    chapter_count: 38
     chapters:
       - title: "#1"
         updated: 2026-04-20
@@ -964,9 +969,14 @@ works:
       - title: "＃18②"
         updated: 2026-09-14
         author: "瑠夏子"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃19①"
         updated: 2026-09-21
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "＃19②"
+        updated: 2026-09-28
         author: "瑠夏子"
         access_modes: ["purchase"]
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
@@ -4912,11 +4922,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-26
+        updated: 2026-09-27
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-26
+        updated: 2026-09-27
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

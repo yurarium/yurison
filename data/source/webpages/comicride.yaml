@@ -6,7 +6,7 @@ platform: comicride
 platform_name: "ライコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-09-27
+retrieved: 2026-09-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -242,7 +242,7 @@ works:
     status: "完結"
     author: "スメラギ,笹塔五郎,ミユキルリア"
     url: "https://comicride.jp/series/b95a6b1493469"
-    chapter_count: 50
+    chapter_count: 51
     chapters:
       - title: "第1話"
         updated: "2024-04-01"
@@ -375,7 +375,7 @@ works:
         access_modes: ["free-timed"]
       - title: "第18話①"
         updated: "2026-04-13"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第18話②"
         updated: "2026-04-27"
         access_modes: ["free"]
@@ -384,7 +384,7 @@ works:
         access_modes: ["free"]
       - title: "第20話①"
         updated: "2026-07-13"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第20話②"
         updated: "2026-07-27"
         access_modes: ["purchase"]
@@ -393,6 +393,9 @@ works:
         access_modes: ["purchase"]
       - title: "第21話②"
         updated: "2026-09-21"
+        access_modes: ["purchase"]
+      - title: "第21話③"
+        updated: "2026-09-28"
         access_modes: ["purchase"]
   - work_title: "殺し屋メイドは茨姫の夢を見る"
     status: "読み切り"

@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-09-27
+retrieved: 2026-09-28
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 223
   hits_on_the_title_alone: 101
   hits_stating_a_print_edition_date: 186
-  works_asked: 779
+  works_asked: 780
   works_with_a_hit: 231
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -7668,6 +7668,16 @@ works:
     author: "河なみ"
     platform: "となりのヤングジャンプ"
     retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984252566649"
+    id: "w03298"
+    work: "GOOD HUNT"
+    author: "森数機"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-09-28"
     hits: []
     notes:
       - "author query returned no title this database recognises"

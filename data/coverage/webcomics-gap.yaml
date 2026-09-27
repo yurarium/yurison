@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-27
+retrieved: 2026-09-28
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -93,11 +93,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3397"
     antenna_id: "159994"
     tags: ["百合", "女子高生", "4コマ"]
-  - title: "星野ヒバナはみつがれる"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3612"
-    antenna_id: "177852"
-    tags: ["百合"]
   - title: "愛でたいセンセイ"
     platform: "COMIC Y-OURS"
     url: "https://comic-y-ours.com/episode/2551460909791888785"
@@ -108,6 +103,11 @@ works_missing:
     url: "https://comic-porta.com/series/7981/"
     antenna_id: "214163"
     tags: ["百合"]
+  - title: "ゆりでなる♥えすぽわーる"
+    platform: "COMICリュウライブ"
+    url: "https://comic-ryu.jp/series/b90143637a741"
+    antenna_id: "87719"
+    tags: ["百合", "女子高生"]
   - title: "私の魂を食べて下さい!"
     platform: "COMICリュウライブ"
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
@@ -118,11 +118,6 @@ works_missing:
     url: "https://comic-ryu.jp/series/326efc41c1767"
     antenna_id: "79180"
     tags: ["アイドル", "百合", "アニメ化", "オタク", "完結"]
-  - title: "ゆりでなる♥えすぽわーる"
-    platform: "COMICリュウライブ"
-    url: "https://comic-ryu.jp/series/b90143637a741"
-    antenna_id: "87719"
-    tags: ["百合", "女子高生"]
   - title: "月とすっぴん"
     platform: "FEEL web"
     url: "https://feelweb.jp/episode/3269754496401056101"
@@ -168,6 +163,11 @@ works_missing:
     url: "https://heros-web.com/series/2b64bc0622a2a"
     antenna_id: "186534"
     tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
+  - title: "百合のはじまりは奴隷から"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13537"
+    antenna_id: "213216"
+    tags: ["百合"]
   - title: "怪獣ロマンティクス"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13457"
@@ -283,15 +283,35 @@ works_missing:
     url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
     antenna_id: "181056"
     tags: ["百合", "妖怪", "女子高生", "コミカライズ", "ざまぁ", "頭脳戦・心理戦", "現代", "チート"]
-  - title: "GOOD HUNT"
-    platform: "となりのヤングジャンプ"
-    url: "https://tonarinoyj.jp/episode/12207421984252566649"
-    antenna_id: "215669"
-    tags: ["百合", "読み切り"]
   - title: "ガールミートガール"
     platform: "アサコミ"
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
+    tags: ["百合"]
+  - title: "リユナイテッド・ルナ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_020317_S"
+    antenna_id: "215728"
+    tags: ["最近のコメント数"]
+  - title: "真夜中に愛してよ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_020158_S"
+    antenna_id: "215727"
+    tags: ["百合"]
+  - title: "あたし達って付き合ってるよね!?"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_011928_S"
+    antenna_id: "210688"
+    tags: ["百合", "ラブコメ", "女子高生"]
+  - title: "この恋、一旦持ち帰らせていただきます!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008367_S"
+    antenna_id: "203364"
+    tags: ["百合", "社会人"]
+  - title: "或いは、私の名探偵"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007014_S"
+    antenna_id: "195108"
     tags: ["百合"]
   - title: "ダメ犬彼女"
     platform: "カドコミ"
@@ -513,16 +533,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_005923_S"
     antenna_id: "177085"
     tags: ["百合"]
-  - title: "この恋、一旦持ち帰らせていただきます!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_008367_S"
-    antenna_id: "203364"
-    tags: ["百合", "社会人"]
-  - title: "あたし達って付き合ってるよね!?"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_011928_S"
-    antenna_id: "210688"
-    tags: ["百合", "ラブコメ", "女子高生"]
   - title: "彼氏の女友達がぐいぐい来る(私に)"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_016753_S"
@@ -583,11 +593,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006431_S"
     antenna_id: "185280"
     tags: ["ファンタジー", "異世界", "ダンジョン", "百合", "手芸・工作・DIY", "召喚"]
-  - title: "或いは、私の名探偵"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007014_S"
-    antenna_id: "195108"
-    tags: ["百合"]
   - title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005942_S"
@@ -648,16 +653,16 @@ works_missing:
     url: "https://www.ganganonline.com/title/2643"
     antenna_id: "211061"
     tags: ["百合", "読み切り", "群像劇", "パンデミック", "メンタルヘルス"]
-  - title: "暗殺組合の山田さん"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/397963f4f9cfd"
-    antenna_id: "213718"
-    tags: ["百合", "暗殺者・殺し屋"]
   - title: "ワインガールズ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/f42014b3e7df6"
     antenna_id: "205919"
     tags: ["百合", "擬人化"]
+  - title: "暗殺組合の山田さん"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/397963f4f9cfd"
+    antenna_id: "213718"
+    tags: ["百合", "暗殺者・殺し屋"]
   - title: "魔王城デート大作戦!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
@@ -753,11 +758,6 @@ works_missing:
     url: "https://comic-zenon.com/episode/12207421983944323839"
     antenna_id: "211608"
     tags: ["百合", "読み切り"]
-  - title: "ゲームフレンド"
-    platform: "ゼノン編集部"
-    url: "https://comic-zenon.com/episode/12207421983889328876"
-    antenna_id: "210752"
-    tags: ["読み切り", "百合"]
   - title: "さざめとりお"
     platform: "ダ・ヴィンチニュース"
     url: "https://ddnavi.com/sazametorio/"
@@ -1133,16 +1133,16 @@ works_missing:
     url: "https://yanmaga.jp/comics/%E5%85%88%E7%94%9F%E3%82%A7%E3%82%A7%E3%82%A7%E3%82%A7%E6%9C%8D%E7%9D%80%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84"
     antenna_id: "214428"
     tags: ["百合", "読み切り", "作家", "編集"]
-  - title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
-    platform: "ライコミ"
-    url: "https://comicride.jp/series/7b86cbca64ebe"
-    antenna_id: "84661"
-    tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
   - title: "『人斬り』少女、公爵令嬢の護衛になる"
     platform: "ライコミ"
     url: "https://comicride.jp/series/b95a6b1493469"
     antenna_id: "165083"
     tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
+  - title: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
+    platform: "ライコミ"
+    url: "https://comicride.jp/series/7b86cbca64ebe"
+    antenna_id: "84661"
+    tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
   - title: "姫虐が止まらない白桃さん"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/12207421983584564641"

@@ -6,7 +6,7 @@ platform: hanayume
 platform_name: "花とゆめ+"
 publisher: "白泉社"
 engine: comici
-retrieved: 2026-09-27
+retrieved: 2026-09-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -23,7 +23,7 @@ works:
     status: "連載中"
     author: "瑠夏子"
     url: "https://hanayume.com/series/f3ce082d639de"
-    chapter_count: 37
+    chapter_count: 38
     chapters:
       - title: "#1"
         updated: "2026-04-20"
@@ -132,9 +132,12 @@ works:
         access_modes: ["free-timed"]
       - title: "＃18②"
         updated: "2026-09-14"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "＃19①"
         updated: "2026-09-21"
+        access_modes: ["free"]
+      - title: "＃19②"
+        updated: "2026-09-28"
         access_modes: ["purchase"]
   - work_title: "男装メイドは尽くしたい"
     status: "完結"
@@ -167,7 +170,7 @@ works:
     status: "連載中"
     author: "まめ魚"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
-    chapter_count: 17
+    chapter_count: 18
     chapters:
       - title: "1話"
         updated: "2026-04-20"
@@ -213,12 +216,15 @@ works:
         access_modes: ["free-timed"]
       - title: "13話"
         updated: "2026-08-16"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "おまけ"
         updated: "2026-08-30"
         access_modes: ["free"]
       - title: "14話"
         updated: "2026-09-13"
+        access_modes: ["free"]
+      - title: "15話"
+        updated: "2026-09-27"
         access_modes: ["purchase"]
   - work_title: "魔法使いの作庭/よみきり"
     status: "読み切り"

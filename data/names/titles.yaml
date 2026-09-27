@@ -1,4 +1,4 @@
-generated: '2026-09-26'
+generated: '2026-09-27'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -37411,6 +37411,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  リユナイテッド・ルナ:
+    basis: romaji
+    reading: リユナイテッド・ルナ
+    reading_at: '2026-09-27'
+    reading_basis: surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 1
+    reading_source: surface
+    reading_source_kind: analyser
+    verified: true
   リリィシステム:
     basis: official-jp
     en: LILY SYSTEM
@@ -71075,6 +71086,27 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  真夜中に愛してよ:
+    basis: romaji
+    furigana_spans:
+    - - 真夜中
+      - まよなか
+    - - に
+      - null
+    - - 愛
+      - あい
+    - - してよ
+      - null
+    reading: マヨナカ ニ アイシテ ヨ
+    reading_at: '2026-09-27'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   真夜中ぱんチ:

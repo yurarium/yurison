@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 223
   hits_on_the_title_alone: 101
   hits_stating_a_print_edition_date: 186
-  works_asked: 780
+  works_asked: 782
   works_with_a_hit: 231
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -3677,6 +3677,26 @@ works:
     author: "臼井ともみ"
     platform: "カドコミ"
     retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_020158_S"
+    id: "w03300"
+    work: "真夜中に愛してよ"
+    author: "甘崎水菓"
+    platform: "カドコミ"
+    retrieved: "2026-09-28"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_020317_S"
+    id: "w03299"
+    work: "リユナイテッド・ルナ"
+    author: "梢"
+    platform: "カドコミ"
+    retrieved: "2026-09-28"
     hits: []
     notes:
       - "author query returned no title this database recognises"

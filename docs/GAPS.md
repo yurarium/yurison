@@ -4010,3 +4010,32 @@ quarantine from a local build sees an empty one. What that means in practice is 
 quarantine is empty" and "this run refused nothing" are different statements, and only the
 published store can answer the second. Not chased further, because the row it produced here is a
 duplicate of a row already stored and the corpus is right either way.
+
+## `awaiting an identifier` counts a work that has one
+
+Found 2026-09-28, chasing the residual 1 after two inductions took it from 3 to 1.
+
+**WHAT THE PAGE SAYS.** `kari/status.html` reports `awaiting_identifier`, which
+`adapters/status.py` computes as the build's `series_rows` minus the number of rows emitted, and
+whose comment calls it "the works the corpus holds and nobody can reach". It has read 1 since
+2026-09-27 and read 2 and 3 before that.
+
+**WHAT IS ACTUALLY THERE.** Dumping the list handed to `write_run_record`: 3,098 rows, none
+without an identifier, none carrying an identifier the store does not hold, and one identifier on
+two rows. `w00156` assembles twice, as 超深宇宙より愛をこめて and as
+超深宇宙より愛をこめて【読み切り版】, because `w00486` is retired into it in
+`data/identity/works.yaml` on the basis that a 読み切り版 is an edition and the test binds the work,
+while the title keeps its bracket so the two spellings do not fold. The store keeps one row per
+work and the two collapse, so the subtraction yields 1 and the corpus is right.
+
+The measure catches two different things and is named for one of them. A row with no identifier is
+a work nobody can reach and was the whole of this number on 2026-09-27, when two such rows were
+found and inducted. A duplicate row is a work everybody can reach, counted twice on the way in.
+Both move the number the same way, so the page cannot distinguish the state it exists to show from
+the state that is fine, and the reader is told a work is unreachable when none is.
+
+**WHY IT IS NOT FIXED HERE.** The fix is `adapters/status.py`, which is code, and STORE-PLAN §9
+forbids the maintenance pass changing the pipeline. What it would take is small: count the rows
+carrying no identifier, which the build already knows, rather than subtracting two populations that
+are only nearly the same size. The name is then true and the duplicate-row case gets a number of
+its own, or none, since nothing is wrong with it.

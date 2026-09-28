@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-09-28
+retrieved: 2026-09-29
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -206,16 +206,8 @@ works:
   - work_title: "ステラ・ステップ"
     author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
     url: "https://comic.pixiv.net/works/10790"
-    chapter_count: 5
+    chapter_count: 3
     chapters:
-      - title: "Step.14② 夜風に約束"
-        updated: 2026-08-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.14① 夜風に約束"
-        updated: 2026-08-04
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "Step.1② 砂漠に降る雨"
         updated: 2024-11-15
         access_modes: ["free"]
@@ -445,12 +437,8 @@ works:
   - work_title: "カナリアは綺羅星の夢をみる"
     author: "sheepD"
     url: "https://comic.pixiv.net/works/11180"
-    chapter_count: 3
+    chapter_count: 2
     chapters:
-      - title: "第十五織"
-        updated: 2026-07-28
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "第二織"
         updated: 2024-12-28
         access_modes: ["free"]
@@ -623,8 +611,12 @@ works:
   - work_title: "オカワリいただけただろうか?"
     author: "U-temo"
     url: "https://comic.pixiv.net/works/11565"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
+      - title: "第11話① 丑の刻参り（後編）"
+        updated: 2026-09-26
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第2話 運命のきつねうどん　後編"
         updated: 2025-04-12
         access_modes: ["free"]
@@ -638,7 +630,7 @@ works:
     url: "https://comic.pixiv.net/works/11664"
     chapter_count: 3
     chapters:
-      - title: "第１９話 3日前UP"
+      - title: "第１９話"
         updated: 2026-09-17
         access_modes: ["free"]
         date_basis: rendered
@@ -655,12 +647,12 @@ works:
     url: "https://comic.pixiv.net/works/11800"
     chapter_count: 5
     chapters:
-      - title: "16-②"
-        updated: 2026-08-28
+      - title: "17-② 本日UP"
+        updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
-      - title: "16-①"
-        updated: 2026-08-28
+      - title: "17-① 本日UP"
+        updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "1-③"
@@ -709,16 +701,16 @@ works:
     url: "https://comic.pixiv.net/works/12194"
     chapter_count: 5
     chapters:
+      - title: "第22話 決闘スタンバイ(後編)"
+        updated: 2026-09-21
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第21話 決闘スタンバイ(中編)"
         updated: 2026-08-17
         access_modes: ["free"]
         date_basis: rendered
       - title: "第20話 決闘スタンバイ(前編)"
         updated: 2026-08-03
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第19話 生肌魅惑のマーメイド"
-        updated: 2026-07-20
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 男子制服の理由"
@@ -788,14 +780,10 @@ works:
   - work_title: "たゆたう恋の散り際に"
     author: "ゆあま"
     url: "https://comic.pixiv.net/works/13224"
-    chapter_count: 4
+    chapter_count: 3
     chapters:
       - title: "第4話 最低ね"
         updated: 2026-08-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 みっともない"
-        updated: 2026-07-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 失恋の穴"
@@ -811,12 +799,12 @@ works:
     url: "https://comic.pixiv.net/works/13225"
     chapter_count: 4
     chapters:
-      - title: "第4話"
-        updated: 2026-08-28
+      - title: "第5話 本日UP"
+        updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第3話"
-        updated: 2026-07-28
+      - title: "第4話"
+        updated: 2026-08-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話"
@@ -830,14 +818,10 @@ works:
   - work_title: "ひなちゃんが生きてるなら"
     author: "紬めめ"
     url: "https://comic.pixiv.net/works/13226"
-    chapter_count: 4
+    chapter_count: 3
     chapters:
       - title: "第4話"
         updated: 2026-08-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話"
-        updated: 2026-07-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話"
@@ -893,8 +877,12 @@ works:
   - work_title: "骨に願いを、星に呪いを"
     author: "いくたはな"
     url: "https://comic.pixiv.net/works/13345"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "第4片 本日UP"
+        updated: 2026-09-28
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第3片"
         updated: 2026-08-28
         access_modes: ["free"]
@@ -912,8 +900,8 @@ works:
     url: "https://comic.pixiv.net/works/13373"
     chapter_count: 2
     chapters:
-      - title: "第12話 彼氏とお別れする話①"
-        updated: 2026-09-19
+      - title: "第13話 彼氏とお別れする話②"
+        updated: 2026-09-26
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話 たぬき女に迫られる話"
@@ -973,8 +961,12 @@ works:
   - work_title: "怪獣ロマンティクス"
     author: "じぃと"
     url: "https://comic.pixiv.net/works/13457"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "第3-2話 ライバルとーじょー!? 小さくたって大怪獣！"
+        updated: 2026-09-26
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第3-1話 ライバルとーじょー!? 小さくたって大怪獣！"
         updated: 2026-09-12
         access_modes: ["free"]
@@ -1167,7 +1159,7 @@ works:
     url: "https://comic.pixiv.net/works/5364"
     chapter_count: 4
     chapters:
-      - title: "第６９話 5日前UP"
+      - title: "第６９話"
         updated: 2026-09-15
         access_modes: ["free"]
         date_basis: rendered
@@ -1501,8 +1493,12 @@ works:
   - work_title: "作りたい女と食べたい女"
     author: "ゆざきさかおみ"
     url: "https://comic.pixiv.net/works/7182"
-    chapter_count: 10
+    chapter_count: 11
     chapters:
+      - title: "第45話 クローゼット"
+        updated: 2026-09-22
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第44話 家具量販店へ行こう！"
         updated: 2026-09-15
         access_modes: ["free"]
@@ -2048,12 +2044,12 @@ works:
     url: "https://comic.pixiv.net/works/9018"
     chapter_count: 4
     chapters:
-      - title: "第36話 「懐孤」"
-        updated: 2026-08-28
+      - title: "第37話 「姦穽」"
+        updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第35話 「儚常」"
-        updated: 2026-07-28
+      - title: "第36話 「懐孤」"
+        updated: 2026-08-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 「懐柔」"
@@ -2207,12 +2203,12 @@ works:
     url: "https://comic.pixiv.net/works/9628"
     chapter_count: 4
     chapters:
-      - title: "第28話 メッキの下"
-        updated: 2026-08-28
+      - title: "第29話 記憶の檻"
+        updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第27話 錯綜"
-        updated: 2026-07-28
+      - title: "第28話 メッキの下"
+        updated: 2026-08-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 逃げ場なんてない"
@@ -2299,7 +2295,7 @@ works:
     url: "https://comic.pixiv.net/works/9913"
     chapter_count: 10
     chapters:
-      - title: "EPISODE 32 4日前UP"
+      - title: "EPISODE 32"
         updated: 2026-09-16
         access_modes: ["free"]
         date_basis: rendered

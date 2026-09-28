@@ -10,7 +10,7 @@ source: webpages
 platform: mangaone
 platform_name: "マンガワン"
 publisher: "小学館"
-retrieved: 2026-09-28
+retrieved: 2026-09-29
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -93,14 +93,18 @@ works:
     url: "https://manga-one.com/manga/28129/chapter/355684"
     chapter_count: 10
     chapters:
-      - title: "Memory6(後編)"
-        updated: 2026-09-26
+      - title: "Memory7(前編)"
+        updated: 2026-10-17
         access_modes: ["purchase"]
         access_note: "released early to paying readers (先読)"
         date_basis: rendered
+      - title: "Memory6(後編)"
+        updated: 2026-09-26
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "Memory6(前編)"
         updated: 2026-09-12
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "単行本第1集発売PR!!"
         updated: 2026-08-15
@@ -127,10 +131,6 @@ works:
         access_modes: ["purchase"]
         date_basis: rendered
       - title: "Memory3(前編)"
-        updated: 2026-06-13
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "Memory2(後編)"
         updated: 2026-06-13
         access_modes: ["purchase"]
         date_basis: rendered
@@ -222,14 +222,22 @@ works:
     url: "https://manga-one.com/viewer/70173"
     chapter_count: 10
     chapters:
+      - title: "番外編②"
+        updated: 2026-10-16
+        access_modes: ["purchase"]
+        access_note: "released early to paying readers (先読)"
+        date_basis: rendered
+      - title: "TVドラマレポ漫画③"
+        updated: 2026-09-25
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "TVドラマレポ漫画②"
         updated: 2026-09-18
         access_modes: ["free"]
         date_basis: rendered
       - title: "番外編①"
         updated: 2026-09-25
-        access_modes: ["purchase"]
-        access_note: "released early to paying readers (先読)"
+        access_modes: ["free"]
         date_basis: rendered
       - title: "TVドラマレポ漫画①"
         updated: 2026-09-11
@@ -252,14 +260,6 @@ works:
         access_modes: ["free"]
         date_basis: rendered
       - title: "第133話(最終話)"
-        updated: 2026-09-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第132話"
-        updated: 2026-09-04
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第131話"
         updated: 2026-09-04
         access_modes: ["purchase"]
         date_basis: rendered

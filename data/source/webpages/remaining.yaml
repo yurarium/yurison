@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-09-28
+retrieved: 2026-09-29
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -92,7 +92,7 @@ works:
     url: "https://www.corocoro.jp/title/65"
     platform_name: "コロコロオンライン"
     route: "rendered"
-    chapter_count: 9
+    chapter_count: 8
     chapters:
       - title: "第104話"
         updated: 2026-09-26
@@ -105,9 +105,6 @@ works:
         date_basis: rendered
       - title: "第101話"
         updated: 2026-08-15
-        date_basis: rendered
-      - title: "第100話"
-        updated: 2026-08-01
         date_basis: rendered
       - title: "第4話"
         updated: 2024-02-03
@@ -4922,11 +4919,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-27
+        updated: 2026-09-28
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-27
+        updated: 2026-09-28
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

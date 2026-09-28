@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-09-28
+retrieved: 2026-09-29
 record_type: candidate_works
-works: 311
+works: 310
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -1855,7 +1855,7 @@ candidates:
   - title: "リユナイテッド・ルナ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_020317_S"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "リリィズコンプレックス"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005531_S"]
@@ -2834,7 +2834,7 @@ candidates:
   - title: "怪異部～M県Y市の怪現象について～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006547_S"]
-    tags: ["オカルト", "サスペンス", "デスゲーム", "ホラー", "女子高生", "最近のコメント数", "架空の部活", "残酷・グロテスク", "百合"]
+    tags: ["オカルト", "サスペンス", "デスゲーム", "ホラー", "女子高生", "完結", "最近のコメント数", "架空の部活", "残酷・グロテスク", "百合"]
   - title: "恋する小惑星"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/40132"]
@@ -3561,7 +3561,7 @@ candidates:
   - title: "真夜中に愛してよ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_020158_S"]
-    tags: ["百合"]
+    tags: ["最近のコメント数", "百合"]
   - title: "真夜中ぱんチ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005409_S"]
@@ -3735,6 +3735,7 @@ candidates:
   - title: "紅魔館の女たち"
     platforms: ["カドコミ", "ニコニコ漫画"]
     urls: ["https://comic-walker.com/detail/KC_002973_S", "https://manga.nicovideo.jp/comic/67189"]
+    tags: ["最近のコメント数", "東方", "百合"]
   - title: "紡ぐ乙女と大正の月"
     platforms: ["COMIC FUZ", "ニコニコ漫画"]
     urls: ["https://comic-fuz.com/manga/1964", "https://manga.nicovideo.jp/comic/48439"]

@@ -1051,3 +1051,28 @@ states it. 甘崎水菓 cost nothing, already carrying AMAZAKI Suika from MangaU
 
 Nothing here is a defect and none of it was narrowed. The route down is a source for 梢's reading,
 which is the queue these two budgets have always been.
+
+## `incomplete attested rows` 45 to 49, and the ratchet banked a trough. Accepted 2026-09-29
+
+Four rows, all on マガポケ and コミックDAYS, every one of them carrying a chapter name and an
+author and failing only the third arm of the measure: no access state, on a platform whose other
+attested rows have one. That arm is the moved-selector arm, so it was worth establishing rather
+than waving through.
+
+It is not a moved selector. マガポケ took five new attested rows this run and two of them carry an
+access state, so the reader still fires. Across the six published stores from 2026-09-16 the gap
+there has run 5, 3, 5, 3, 3 and now 6, and コミックDAYS 11, 11, 12, 12, 12 and now 13. Today sits at
+the top of a range it has been inside all fortnight. `adapters/fieldaudit.py`, which the measure's
+own docstring names as the real tripwire because it counts silent rows against a declared ceiling,
+passes: 1,259 attested, 51 missing access, no platform over its ceiling.
+
+What made this fail is the ratchet meeting an oscillation. The population is a rolling window, the
+number rises and falls with it, and `--gate` banks every fall, so the budget walks down to the
+trough and the next ordinary peak is a NO GO. It was 48 on 2026-09-27, banked to 47 the same day
+and 45 on 2026-09-28, both troughs, and 49 today is inside the same band those came from.
+
+`renderings resting on a mechanical romanisation` in the site repository did the same thing the
+same evening and stopped a deploy, on its fifth consecutive window rise. Two budgets, one shape.
+What would settle it is a band or a rate for a windowed population instead of a floor, which is the
+control the owner has had open since the churning budgets came up, and this is the second and third
+number now waiting on it.

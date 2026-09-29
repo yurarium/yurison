@@ -2,7 +2,7 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-09-29
+retrieved: 2026-09-30
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -11,7 +11,7 @@ works:
     url: "https://comic-fuz.com/manga/4133"
     latest_updated: "2026-09-27"
     authors: ["なうち"]
-    tags: ["日曜日", "男性向け", "学園", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "新規連載作品", "百合"]
+    tags: ["日曜日", "男性向け", "学園", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "百合"]
     chapter_count: 12
     chapters:
       - chapter_id: 79556
@@ -4840,8 +4840,11 @@ works:
       - chapter_id: 64782
         title: "５巻 第４５話「足跡コンステレーション」"
         updated: 2026-09-28
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-09-30"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 64779
         title: "５巻 番外編「茜色ダイアリー」"
         updated: 2026-09-21

@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-29
+retrieved: 2026-09-30
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -163,6 +163,36 @@ works_missing:
     url: "https://heros-web.com/series/2b64bc0622a2a"
     antenna_id: "186534"
     tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
+  - title: "姫騎士と姫巫女"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13609"
+    antenna_id: "214046"
+    tags: ["百合"]
+  - title: "星の体温、巡る夢"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13608"
+    antenna_id: "214045"
+    tags: ["百合"]
+  - title: "ライバルアライバル"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13605"
+    antenna_id: "214042"
+    tags: ["百合"]
+  - title: "ひとりみです"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13604"
+    antenna_id: "214041"
+    tags: ["百合"]
+  - title: "バクガタリzzZ"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/12795"
+    antenna_id: "202751"
+    tags: ["百合", "不動産", "擬人化", "女子高生"]
+  - title: "作りたい女と食べたい女"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/7182"
+    antenna_id: "113830"
+    tags: ["百合", "料理・グルメ"]
   - title: "冷たくて 柔らか"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/11800"
@@ -188,31 +218,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/13522"
     antenna_id: "213547"
     tags: ["百合"]
-  - title: "姫騎士と姫巫女"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13609"
-    antenna_id: "214046"
-    tags: ["百合"]
-  - title: "星の体温、巡る夢"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13608"
-    antenna_id: "214045"
-    tags: ["百合"]
-  - title: "ライバルアライバル"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13605"
-    antenna_id: "214042"
-    tags: ["百合"]
-  - title: "ひとりみです"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13604"
-    antenna_id: "214041"
-    tags: ["百合"]
-  - title: "作りたい女と食べたい女"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/7182"
-    antenna_id: "113830"
-    tags: ["百合", "料理・グルメ"]
   - title: "ふたりべや"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/5364"
@@ -243,11 +248,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/10005"
     antenna_id: "161448"
     tags: ["百合", "大学生", "異種族・人外", "現代", "料理・グルメ"]
-  - title: "バクガタリzzZ"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/12795"
-    antenna_id: "202751"
-    tags: ["百合", "不動産", "擬人化", "女子高生"]
   - title: "かいじゅう色の島"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/5470"
@@ -288,6 +288,11 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "ホームセンターごと呼び出された私の大迷宮リノベーション!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006431_S"
+    antenna_id: "185280"
+    tags: ["最近のコメント数"]
   - title: "人妻教師が教え子の女子高生にドはまりする話"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006978_S"
@@ -297,7 +302,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002973_S"
     antenna_id: "163756"
-    tags: ["最近のコメント数"]
+    tags: ["東方", "百合", "ギャグ・コメディ"]
   - title: "彼女のカノジョと不純な初恋"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_009359_S"
@@ -593,11 +598,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019441_S"
     antenna_id: "212575"
     tags: ["百合", "読み切り"]
-  - title: "ホームセンターごと呼び出された私の大迷宮リノベーション!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006431_S"
-    antenna_id: "185280"
-    tags: ["ファンタジー", "異世界", "ダンジョン", "百合", "手芸・工作・DIY", "召喚"]
   - title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005942_S"
@@ -1027,7 +1027,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["最近のコメント数"]
+    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"
@@ -1272,12 +1272,12 @@ works_missing:
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     antenna_id: "206126"
-    tags: ["最近のコメント数"]
+    tags: ["百合"]
   - title: "フレンドガールフレンド"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"
     antenna_id: "206108"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
   - title: "あの子のスカート/よみきり"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/dcaacd8b4831f"

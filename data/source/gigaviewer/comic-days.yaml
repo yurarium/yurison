@@ -6,11 +6,26 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-09-29
+retrieved: 2026-09-30
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421983566481752"
+    work_title: "サタノファニ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第３４０話　「キングレイパー」"
+    release_type: "chapter"
+    date: "2026-09-30"
+    date_basis: "observed"
+    first_seen: "2026-09-30"
+    first_reported: "2026-09-29T15:00:00Z"
+    platform_updated: "2026-09-29T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983566481752"
+    author: "山田恵庸"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421983645810052"
     work_title: "雨夜の月"
     web_status: "serialised"
@@ -91,6 +106,7 @@ releases:
     author: "ばったん"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421983566481748"
+    in_current_window: false
     work_title: "サタノファニ"
     web_status: "serialised"
     identified_via: "discovery-candidate"

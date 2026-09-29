@@ -6,9 +6,18 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-09-29
+retrieved: 2026-09-30
 record_type: discovery_queue
 candidates:
+  - work_title: "真夜中に愛してよ"
+    signal: "new-serial"
+    announced: "Tue, 29 Sep 2026 11:08:00 +0000"
+    url: "https://yurinavi.com/2026/09/29/mayonakani-start/"
+    platform: "kadokomi"
+    platform_code: "KC_020158_S"
+    work_url: "https://comic-walker.com/detail/KC_020158_S"
+    headline: "レズ風俗嬢×女性教師の秘密の関係を描く大人百合ラブコメ「真夜中に愛してよ」WEBでスタート"
+    status: unconfirmed
   - work_title: "いじめてくれる君がすき"
     signal: "new-serial"
     announced: "Thu, 17 Sep 2026 11:00:29 +0000"
@@ -18,15 +27,6 @@ candidates:
     work_url: "https://ichicomi.com/episode/12207421984151786084"
     headline: "“きたかわ”のまにお先生が描く、少女たちの歪んだ関係――百合姫新連載「いじめてくれる君がすき」WEBで公開"
     status: unconfirmed
-  - work_title: "夜明けのアリス"
-    signal: "oneshot"
-    announced: "Sun, 13 Sep 2026 10:40:10 +0000"
-    url: "https://yurinavi.com/2026/09/13/yoakeno-yomikiri/"
-    platform: "comic-zenon"
-    platform_code: "12207421983426102334"
-    work_url: "https://comic-zenon.com/episode/12207421983426102334"
-    headline: "正反対の少女ふたりの関係を描く青春読み切り「夜明けのアリス」WEBで公開"
-    status: unconfirmed
   - work_title: "ホテルの外でもあいたいよ"
     signal: "oneshot"
     announced: "Sat, 19 Sep 2026 11:33:17 +0000"
@@ -35,15 +35,6 @@ candidates:
     platform_code: "12207421984222944066"
     work_url: "https://ichicomi.com/episode/12207421984222944066"
     headline: "セフレから恋人になりたい――曖昧な関係に揺れるふたりを描く読み切り百合漫画「ホテルの外でもあいたいよ」WEBで公開"
-    status: unconfirmed
-  - work_title: "香り屋さんの纏さん"
-    signal: "new-serial"
-    announced: "Sat, 12 Sep 2026 11:06:23 +0000"
-    url: "https://yurinavi.com/2026/09/12/kaoriyasanno-start/"
-    platform: "gangan-online"
-    platform_code: "2286"
-    work_url: "https://www.ganganonline.com/title/2286"
-    headline: "ハートフルでちょっぴり胸キュンな大人百合調香譚「香り屋さんの纏さん」WEBで連載"
     status: unconfirmed
   - work_title: "超かぐや姫！"
     signal: "new-serial"
@@ -62,6 +53,24 @@ candidates:
     platform_code: "41de76fc8df5f"
     work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     headline: "「超かぐや姫！」公式スピンオフグルメコメディ「超かぐやメシ！」WEBで連載開始"
+    status: unconfirmed
+  - work_title: "夜明けのアリス"
+    signal: "oneshot"
+    announced: "2026-09-13"
+    url: "https://yurinavi.com/2026/09/13/yoakeno-yomikiri/"
+    platform: "comic-zenon"
+    platform_code: "12207421983426102334"
+    work_url: "https://comic-zenon.com/episode/12207421983426102334"
+    headline: "正反対の少女ふたりの関係を描く青春読み切り「夜明けのアリス」WEBで公開"
+    status: unconfirmed
+  - work_title: "香り屋さんの纏さん"
+    signal: "new-serial"
+    announced: "2026-09-12"
+    url: "https://yurinavi.com/2026/09/12/kaoriyasanno-start/"
+    platform: "gangan-online"
+    platform_code: "2286"
+    work_url: "https://www.ganganonline.com/title/2286"
+    headline: "ハートフルでちょっぴり胸キュンな大人百合調香譚「香り屋さんの纏さん」WEBで連載"
     status: unconfirmed
   - work_title: "天使なんかにならないで"
     signal: "oneshot"

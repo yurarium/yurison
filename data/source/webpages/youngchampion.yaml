@@ -6,7 +6,7 @@ platform: youngchampion
 platform_name: "ヤングチャンピオン"
 publisher: "秋田書店"
 engine: comici
-retrieved: 2026-09-29
+retrieved: 2026-09-30
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -107,7 +107,7 @@ works:
     status: "連載中"
     author: "古部亮"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
-    chapter_count: 92
+    chapter_count: 93
     chapters:
       - title: "第1話"
         updated: "2022-08-16"
@@ -375,15 +375,18 @@ works:
         access_modes: ["free-timed"]
       - title: "第48話②"
         updated: "2026-08-05"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第49話①"
         updated: "2026-08-19"
         access_modes: ["free"]
       - title: "第49話②"
         updated: "2026-09-02"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第50話①"
         updated: "2026-09-16"
+        access_modes: ["purchase"]
+      - title: "第50話②"
+        updated: "2026-09-30"
         access_modes: ["purchase"]
   - work_title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～"
     status: "連載中"

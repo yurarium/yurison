@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-09-29
+retrieved: 2026-09-30
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 223
+  hits_agreeing_on_a_creator: 225
   hits_on_the_title_alone: 101
-  hits_stating_a_print_edition_date: 186
-  works_asked: 782
-  works_with_a_hit: 231
+  hits_stating_a_print_edition_date: 188
+  works_asked: 785
+  works_with_a_hit: 233
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -5309,6 +5309,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://kuragebunch.com/episode/12207421984130957366"
+    id: "w00073"
+    work: "ファーストペンギン・レクイエム"
+    author: "タダノなつ"
+    platform: "くらげバンチ"
+    retrieved: "2026-09-30"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://kuragebunch.com/episode/14079602755430095088"
     id: "w00786"
     work: "スウィングが無ければ意味が無い"
@@ -9216,6 +9226,39 @@ works:
         publisher: "小学館"
         printed: "2025/12/31"
         agreement: "creator"
+        completed_marker: false
+  - work_url: "https://www.sunday-webry.com/episode/12207421984303420116"
+    id: "w00131"
+    work: "なとりとしずは"
+    author: "鮎川あお"
+    platform: "サンデーうぇぶり"
+    query: "author"
+    retrieved: "2026-09-30"
+    hits:
+      - series_url: null
+        title_listed: "なとりとしずは（１）"
+        shop_author: "鮎川あお(著)"
+        imprint: "サンデーうぇぶりコミックス"
+        publisher: "小学館"
+        printed: "2026/10/14"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://www.sunday-webry.com/episode/12207421984304690970"
+    id: "w00060"
+    work: "#ギャルとギャルの百合"
+    author: "イノウエ"
+    platform: "サンデーうぇぶり"
+    query: "author"
+    retrieved: "2026-09-30"
+    hits:
+      - series_url: "https://bookwalker.jp/series/568145/list/"
+        title_listed: "＃ギャルとギャルの百合（サンデーうぇぶりコミックス）"
+        shop_author: "イノウエ(著)"
+        imprint: "サンデーうぇぶりコミックス"
+        publisher: "小学館"
+        printed: "2025/12/31"
+        agreement: "creator"
+        volumes_stated: 3
         completed_marker: false
   - work_url: "https://www.sunday-webry.com/episode/14079602755180542200"
     id: "w00815"

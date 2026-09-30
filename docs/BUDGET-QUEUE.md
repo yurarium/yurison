@@ -1076,3 +1076,12 @@ same evening and stopped a deploy, on its fifth consecutive window rise. Two bud
 What would settle it is a band or a rate for a windowed population instead of a floor, which is the
 control the owner has had open since the churning budgets came up, and this is the second and third
 number now waiting on it.
+
+**The site half was ruled on 2026-09-30, after it blocked a second deploy.** It reports and no
+longer gates: the owner's call, on the reasoning that the same data gap is gated here by
+`author readings no source states`, which counts records and does not move with the window. An
+overrun there now emits a run warning, because that file writes nothing and its exit code had been
+the whole of the number's audience. That leaves `incomplete attested rows` as the one still on a
+floor over a windowed population, and the band or rate is still what would settle it. Reporting
+instead of gating is available to this one too and is a worse fit: it IS the moved-selector
+tripwire's neighbour, and its arms about a missing name and a missing author are not windowed.

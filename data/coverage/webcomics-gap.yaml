@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-09-30
+retrieved: 2026-10-01
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -38,6 +38,11 @@ platforms_missing:
   - platform: "アサコミ"
     works: 1
 works_missing:
+  - title: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3140"
+    antenna_id: "138856"
+    tags: ["百合", "アイドル"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -73,11 +78,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3423"
     antenna_id: "187224"
     tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
-  - title: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3140"
-    antenna_id: "138856"
-    tags: ["百合", "アイドル"]
   - title: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
@@ -103,6 +103,11 @@ works_missing:
     url: "https://comic-porta.com/series/7981/"
     antenna_id: "214163"
     tags: ["百合"]
+  - title: "推しが武道館いってくれたら死ぬ"
+    platform: "COMICリュウライブ"
+    url: "https://comic-ryu.jp/series/326efc41c1767"
+    antenna_id: "79180"
+    tags: ["最近のコメント数"]
   - title: "ゆりでなる♥えすぽわーる"
     platform: "COMICリュウライブ"
     url: "https://comic-ryu.jp/series/b90143637a741"
@@ -113,26 +118,21 @@ works_missing:
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
     antenna_id: "161471"
     tags: ["百合", "獣人", "お色気・微エロ"]
-  - title: "推しが武道館いってくれたら死ぬ"
-    platform: "COMICリュウライブ"
-    url: "https://comic-ryu.jp/series/326efc41c1767"
-    antenna_id: "79180"
-    tags: ["アイドル", "百合", "アニメ化", "オタク", "完結"]
   - title: "月とすっぴん"
     platform: "FEEL web"
     url: "https://feelweb.jp/episode/3269754496401056101"
     antenna_id: "123156"
     tags: ["百合"]
-  - title: "暴走!?サキュバスせんぱい"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/5448ec9f6077b"
-    antenna_id: "200185"
-    tags: ["百合", "異世界", "サキュバス", "お色気・微エロ"]
   - title: "百合フェチLIFE"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/7e3c698bca968"
     antenna_id: "211227"
     tags: ["百合", "エロ"]
+  - title: "暴走!?サキュバスせんぱい"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/5448ec9f6077b"
+    antenna_id: "200185"
+    tags: ["百合", "異世界", "サキュバス", "お色気・微エロ"]
   - title: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/58238b3987c11"
@@ -288,6 +288,11 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "咲きそめコンプレックス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006662_S"
+    antenna_id: "188908"
+    tags: ["最近のコメント数"]
   - title: "ホームセンターごと呼び出された私の大迷宮リノベーション!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006431_S"
@@ -317,7 +322,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020158_S"
     antenna_id: "215727"
-    tags: ["最近のコメント数"]
+    tags: ["百合"]
   - title: "あたし達って付き合ってるよね!?"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_011928_S"
@@ -438,11 +443,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_002994_S"
     antenna_id: "102702"
     tags: ["学園", "ゲーム・eスポーツ", "令嬢", "女子高生", "百合", "アニメ化", "ギャグ・コメディ", "青春", "動画配信者", "メスガキ"]
-  - title: "咲きそめコンプレックス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006662_S"
-    antenna_id: "188908"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "リリィズコンプレックス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005531_S"
@@ -623,6 +623,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_003176_S"
     antenna_id: "108480"
     tags: ["王宮・貴族社会", "異世界", "転生", "ファンタジー", "百合", "令嬢", "アニメ化", "完結", "国家経営・内政"]
+  - title: "私がモテないのはどう考えてもお前らが悪い!"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/29"
+    antenna_id: "745"
+    tags: ["最近のコメント数"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -638,11 +643,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/38"
     antenna_id: "77857"
     tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
-  - title: "私がモテないのはどう考えてもお前らが悪い!"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/29"
-    antenna_id: "745"
-    tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
   - title: "ひきこまり吸血姫の悶々"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/1593"
@@ -798,6 +798,21 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "タイムトラベル少女 ～ミライのサキ～"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/77287"
+    antenna_id: "204961"
+    tags: ["百合"]
+  - title: "忍者と殺し屋のふたりぐらし"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/54592"
+    antenna_id: "123953"
+    tags: ["忍者", "百合", "暗殺者・殺し屋", "シュール", "アニメ化"]
+  - title: "咲きそめコンプレックス"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72944"
+    antenna_id: "188893"
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
   - title: "紅魔館の女たち"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/67189"
@@ -878,11 +893,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/72312"
     antenna_id: "189669"
     tags: ["百合", "ギャグ・コメディ"]
-  - title: "咲きそめコンプレックス"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/72944"
-    antenna_id: "188893"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
   - title: "ラブかライクか分からない!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/70757"
@@ -933,16 +943,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/56284"
     antenna_id: "128039"
     tags: ["百合", "アニメ化"]
-  - title: "忍者と殺し屋のふたりぐらし"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/54592"
-    antenna_id: "123953"
-    tags: ["忍者", "百合", "暗殺者・殺し屋", "シュール", "アニメ化"]
-  - title: "タイムトラベル少女 ～ミライのサキ～"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/77287"
-    antenna_id: "204961"
-    tags: ["百合"]
   - title: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/73060"
@@ -1027,7 +1027,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["ホラー", "幽霊", "百合", "女子高生"]
+    tags: ["最近のコメント数"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"

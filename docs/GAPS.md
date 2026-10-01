@@ -4039,3 +4039,24 @@ forbids the maintenance pass changing the pipeline. What it would take is small:
 carrying no identifier, which the build already knows, rather than subtracting two populations that
 are only nearly the same size. The name is then true and the duplicate-row case gets a number of
 its own, or none, since nothing is wrong with it.
+
+## A release's access state is read once and never again
+
+Found 2026-10-01, establishing why `incomplete attested rows` rose to 52.
+
+Comparing the attested rows present in two consecutive published stores, 1,259 of them: none lost
+an access state and none gained one. The rows that arrive without a state are new releases,
+usually the newest of their work and dated the day of the run, while earlier releases of the same
+work carry free or purchase normally. Once recorded empty they stay empty: four from 2026-09-30
+were still empty two runs later, and two サンデーうぇぶり rows from 2026-09-15 for a fortnight.
+
+What is NOT established is why the state is missing at capture. It could be the route, a feed that
+names a chapter before the page reader visits it, or the page itself not yet showing the access
+mark on release day. Nobody has looked, and the distinction decides the fix.
+
+Why it matters beyond one budget. The access state is what tells a reader whether a chapter is
+free, and a release that never gets one is shown with nothing on that line for as long as it is
+in the window. The budget it inflates is a floor over a windowed population, so this is also most
+of why that number climbs, and the climb is real coverage lost and not only a ratchet artefact.
+Re-reading the access state of releases that lack one, on a later run, would close it whichever
+cause it turns out to be.

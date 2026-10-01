@@ -1085,3 +1085,21 @@ the whole of the number's audience. That leaves `incomplete attested rows` as th
 floor over a windowed population, and the band or rate is still what would settle it. Reporting
 instead of gating is available to this one too and is a worse fit: it IS the moved-selector
 tripwire's neighbour, and its arms about a missing name and a missing author are not windowed.
+
+## `incomplete attested rows` 49 to 52. Accepted 2026-10-01
+
+Three rows, each the newest release of its work and dated the day of the run: コミック アース・スター
+第15話①, 少年ジャンプ+ [第25打]春雷卓球 and サンデーうぇぶり 第１５話. Each has a chapter name and
+an author and fails only on the access state, and the earlier rows of all three works carry one.
+
+THE MOVED-SELECTOR TEST, done directly this time instead of by platform ratio. Of the 1,259
+attested rows present in both the 2026-10-01 and 2026-10-02 stores, none that had an access state
+lost it. A selector that moves strips the state from rows the reader used to read, and that did
+not happen on any platform. The fourth new row this run, on コミックDAYS, did get its state.
+
+The same comparison found the reason the number only ever climbs between window exits: none of
+those 1,259 gained a state either. The four rows that arrived without one on 2026-09-30 still lack
+it two runs later, and the two サンデーうぇぶり rows from 2026-09-15 have lacked it for a fortnight
+while newer chapters of the same works arrived with theirs. A release that is recorded without an
+access state stays that way until it leaves the window. Deferred to docs/GAPS.md, since the remedy
+is in the pipeline.

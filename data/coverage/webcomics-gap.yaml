@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-01
+retrieved: 2026-10-02
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -38,6 +38,16 @@ platforms_missing:
   - platform: "アサコミ"
     works: 1
 works_missing:
+  - title: "うさぎはかく語りき"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3572"
+    antenna_id: "173581"
+    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
+  - title: "球詠"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/441"
+    antenna_id: "88071"
+    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "IDOL×IDOL STORY!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3140"
@@ -63,16 +73,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/2391"
     antenna_id: "102691"
     tags: ["百合", "フェチ・性癖"]
-  - title: "うさぎはかく語りき"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3572"
-    antenna_id: "173581"
-    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
-  - title: "球詠"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/441"
-    antenna_id: "88071"
-    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "エイティエイトを2でわって"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3423"
@@ -107,7 +107,7 @@ works_missing:
     platform: "COMICリュウライブ"
     url: "https://comic-ryu.jp/series/326efc41c1767"
     antenna_id: "79180"
-    tags: ["最近のコメント数"]
+    tags: ["アイドル", "百合", "アニメ化", "オタク", "完結"]
   - title: "ゆりでなる♥えすぽわーる"
     platform: "COMICリュウライブ"
     url: "https://comic-ryu.jp/series/b90143637a741"
@@ -127,7 +127,7 @@ works_missing:
     platform: "Gコミ"
     url: "https://g-comi.jp/series/7e3c698bca968"
     antenna_id: "211227"
-    tags: ["百合", "エロ"]
+    tags: ["最近のコメント数"]
   - title: "暴走!?サキュバスせんぱい"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/5448ec9f6077b"
@@ -288,16 +288,26 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "彼岸でランデヴー"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_020017_S"
+    antenna_id: "214461"
+    tags: ["百合"]
+  - title: "リリィズコンプレックス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_005531_S"
+    antenna_id: "168421"
+    tags: ["百合", "エロ"]
   - title: "咲きそめコンプレックス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006662_S"
     antenna_id: "188908"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "ホームセンターごと呼び出された私の大迷宮リノベーション!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006431_S"
     antenna_id: "185280"
-    tags: ["最近のコメント数"]
+    tags: ["ファンタジー", "異世界", "ダンジョン", "百合", "手芸・工作・DIY", "召喚", "犬", "猫"]
   - title: "人妻教師が教え子の女子高生にドはまりする話"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006978_S"
@@ -443,11 +453,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_002994_S"
     antenna_id: "102702"
     tags: ["学園", "ゲーム・eスポーツ", "令嬢", "女子高生", "百合", "アニメ化", "ギャグ・コメディ", "青春", "動画配信者", "メスガキ"]
-  - title: "リリィズコンプレックス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_005531_S"
-    antenna_id: "168421"
-    tags: ["百合", "エロ"]
   - title: "どれが恋かがわからない"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_001190_S"
@@ -518,11 +523,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_003258_S"
     antenna_id: "109477"
     tags: ["異種族・人外", "百合", "女子高生", "妖怪", "アニメ化"]
-  - title: "彼岸でランデヴー"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_020017_S"
-    antenna_id: "214461"
-    tags: ["百合"]
   - title: "妄執女と芥川"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007176_S"
@@ -627,7 +627,7 @@ works_missing:
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/29"
     antenna_id: "745"
-    tags: ["最近のコメント数"]
+    tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -658,16 +658,16 @@ works_missing:
     url: "https://www.ganganonline.com/title/2643"
     antenna_id: "211061"
     tags: ["百合", "読み切り", "群像劇", "パンデミック", "メンタルヘルス"]
-  - title: "ワインガールズ"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    antenna_id: "205919"
-    tags: ["百合", "擬人化"]
   - title: "暗殺組合の山田さん"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
     antenna_id: "213718"
     tags: ["百合", "暗殺者・殺し屋"]
+  - title: "ワインガールズ"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    antenna_id: "205919"
+    tags: ["百合", "擬人化"]
   - title: "魔王城デート大作戦!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
@@ -1027,7 +1027,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["最近のコメント数"]
+    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"
@@ -1168,6 +1168,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "シュナイダーラリー"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/86a4f1e41d627"
+    antenna_id: "185512"
+    tags: ["百合", "レース", "青春", "架空の部活", "女子高生", "学園", "スポーツ"]
   - title: "百合神さまの言うとおり!"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/5b8e11d2274cc"
@@ -1218,11 +1223,6 @@ works_missing:
     url: "https://takecomic.jp/series/b53a116d9f0e7"
     antenna_id: "171566"
     tags: ["百合", "運動系部活", "女子高生", "マイナースポーツ"]
-  - title: "シュナイダーラリー"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/86a4f1e41d627"
-    antenna_id: "185512"
-    tags: ["百合", "レース", "青春", "架空の部活", "女子高生", "学園", "スポーツ"]
   - title: "ペアリングギア"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/f6b42b56cc099"

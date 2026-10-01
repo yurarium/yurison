@@ -6,11 +6,27 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-10-01
+retrieved: 2026-10-02
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984317356462"
+    work_title: "てくのぱにっくゆにばーす"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第１５話 郵便ポストで洋服を"
+    release_type: "chapter"
+    date: "2026-10-02"
+    date_basis: "observed"
+    first_seen: "2026-10-02"
+    first_reported: "2026-10-01T15:00:00Z"
+    platform_updated: "2026-10-01T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984317356462"
+    author: "伏見ダイキ"
+    free_term_start: "2026-10-01T15:00:00Z"
+    advances_narrative: true
   - release_id: "sunday_webry:episode:12207421984304690970"
     work_title: "#ギャルとギャルの百合"
     web_status: "serialised"
@@ -44,6 +60,7 @@ releases:
     free_term_start: "2026-09-28T15:00:00Z"
     advances_narrative: true
   - release_id: "sunday_webry:episode:12207421984284721644"
+    in_current_window: false
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -61,6 +78,7 @@ releases:
     raw_title: "ショートショート 時には昔の話を"
     advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984284725783"
+    in_current_window: false
     work_title: "メイド＆ロイドはお嬢様のお役に立ちたい！"
     web_status: "serialised"
     identified_via: "discovery-candidate"

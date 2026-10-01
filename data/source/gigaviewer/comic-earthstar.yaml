@@ -6,11 +6,26 @@ source: gigaviewer
 platform: comic-earthstar
 platform_name: "コミック アース・スター"
 publisher: "アース・スター エンターテイメント"
-retrieved: 2026-09-30
+retrieved: 2026-10-02
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "earthstar:episode:12207421984094164648"
+    work_title: "ガイド役の天使を殴り倒したら、死霊術師になりました　～激カワゴスロリ魔神様、サイコー！～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第15話①"
+    release_type: "chapter"
+    date: "2026-10-01"
+    date_basis: "observed"
+    first_seen: "2026-10-02"
+    first_reported: "2026-10-01T09:00:00Z"
+    platform_updated: "2026-10-01T09:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-earthstar.com/episode/12207421984094164648"
+    author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
+    advances_narrative: true
   - release_id: "earthstar:episode:12207421984034840843"
     in_current_window: false
     work_title: "ガイド役の天使を殴り倒したら、死霊術師になりました　～激カワゴスロリ魔神様、サイコー！～"

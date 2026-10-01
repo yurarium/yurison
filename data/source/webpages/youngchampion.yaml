@@ -6,10 +6,103 @@ platform: youngchampion
 platform_name: "ヤングチャンピオン"
 publisher: "秋田書店"
 engine: comici
-retrieved: 2026-10-01
+retrieved: 2026-10-02
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "おしえごと 同人教師と天才ギャル"
+    status: "完結"
+    author: "とみさー"
+    url: "https://youngchampion.jp/series/d141a795a719e"
+    chapter_count: 29
+    chapters:
+      - title: "第1話"
+        updated: "2023-09-12"
+        access_modes: ["free"]
+      - title: "第2話①"
+        updated: "2023-09-12"
+        access_modes: ["free"]
+      - title: "第2話②"
+        updated: "2023-09-12"
+        access_modes: ["free"]
+      - title: "第3話①"
+        updated: "2023-09-12"
+        access_modes: ["free"]
+      - title: "第3話②"
+        updated: "2023-09-12"
+        access_modes: ["free"]
+      - title: "第4話①"
+        updated: "2023-09-12"
+        access_modes: ["free-timed"]
+      - title: "第4話②"
+        updated: "2023-09-12"
+        access_modes: ["free-timed"]
+      - title: "第5話①"
+        updated: "2023-09-12"
+        access_modes: ["free-timed"]
+      - title: "第5話②"
+        updated: "2023-09-12"
+        access_modes: ["free-timed"]
+      - title: "第6話①"
+        updated: "2023-10-13"
+        access_modes: ["free-timed"]
+      - title: "第6話②"
+        updated: "2023-10-27"
+        access_modes: ["free-timed"]
+      - title: "第7話①"
+        updated: "2023-11-10"
+        access_modes: ["free-timed"]
+      - title: "第7話②"
+        updated: "2023-11-24"
+        access_modes: ["free-timed"]
+      - title: "第8話①"
+        updated: "2023-12-08"
+        access_modes: ["free-timed"]
+      - title: "第8話②"
+        updated: "2023-12-22"
+        access_modes: ["free-timed"]
+      - title: "第9話①"
+        updated: "2024-01-12"
+        access_modes: ["free-timed"]
+      - title: "第9話②"
+        updated: "2024-01-26"
+        access_modes: ["free-timed"]
+      - title: "第10話①"
+        updated: "2024-02-09"
+        access_modes: ["purchase"]
+      - title: "第10話②"
+        updated: "2024-02-23"
+        access_modes: ["purchase"]
+      - title: "第11話①"
+        updated: "2024-05-17"
+        access_modes: ["purchase"]
+      - title: "第11話②"
+        updated: "2024-06-07"
+        access_modes: ["purchase"]
+      - title: "第12話①"
+        updated: "2024-06-21"
+        access_modes: ["purchase"]
+      - title: "第12話②"
+        updated: "2024-07-05"
+        access_modes: ["purchase"]
+      - title: "第13話①"
+        updated: "2024-07-19"
+        access_modes: ["purchase"]
+      - title: "第13話②"
+        updated: "2024-08-02"
+        access_modes: ["purchase"]
+      - title: "第14話①"
+        updated: "2024-08-16"
+        access_modes: ["purchase"]
+      - title: "第14話②"
+        updated: "2024-09-06"
+        access_modes: ["purchase"]
+      - title: "最終話①"
+        updated: "2024-09-20"
+        access_modes: ["purchase"]
+      - title: "最終話②"
+        updated: "2024-10-04"
+        access_modes: ["purchase"]
   - work_title: "スカベンジャーズアナザースカイ"
     status: "連載中"
     author: "古部亮"
@@ -730,96 +823,3 @@ works:
       - title: "隣人"
         updated: "2024-04-30"
         access_modes: ["free"]
-  - work_title: "おしえごと 同人教師と天才ギャル"
-    status: "完結"
-    author: "とみさー"
-    url: "https://youngchampion.jp/series/d141a795a719e"
-    chapter_count: 29
-    chapters:
-      - title: "第1話"
-        updated: "2023-09-12"
-        access_modes: ["free"]
-      - title: "第2話①"
-        updated: "2023-09-12"
-        access_modes: ["free"]
-      - title: "第2話②"
-        updated: "2023-09-12"
-        access_modes: ["free"]
-      - title: "第3話①"
-        updated: "2023-09-12"
-        access_modes: ["free"]
-      - title: "第3話②"
-        updated: "2023-09-12"
-        access_modes: ["free"]
-      - title: "第4話①"
-        updated: "2023-09-12"
-        access_modes: ["free-timed"]
-      - title: "第4話②"
-        updated: "2023-09-12"
-        access_modes: ["free-timed"]
-      - title: "第5話①"
-        updated: "2023-09-12"
-        access_modes: ["free-timed"]
-      - title: "第5話②"
-        updated: "2023-09-12"
-        access_modes: ["free-timed"]
-      - title: "第6話①"
-        updated: "2023-10-13"
-        access_modes: ["free-timed"]
-      - title: "第6話②"
-        updated: "2023-10-27"
-        access_modes: ["free-timed"]
-      - title: "第7話①"
-        updated: "2023-11-10"
-        access_modes: ["free-timed"]
-      - title: "第7話②"
-        updated: "2023-11-24"
-        access_modes: ["free-timed"]
-      - title: "第8話①"
-        updated: "2023-12-08"
-        access_modes: ["free-timed"]
-      - title: "第8話②"
-        updated: "2023-12-22"
-        access_modes: ["free-timed"]
-      - title: "第9話①"
-        updated: "2024-01-12"
-        access_modes: ["free-timed"]
-      - title: "第9話②"
-        updated: "2024-01-26"
-        access_modes: ["free-timed"]
-      - title: "第10話①"
-        updated: "2024-02-09"
-        access_modes: ["purchase"]
-      - title: "第10話②"
-        updated: "2024-02-23"
-        access_modes: ["purchase"]
-      - title: "第11話①"
-        updated: "2024-05-17"
-        access_modes: ["purchase"]
-      - title: "第11話②"
-        updated: "2024-06-07"
-        access_modes: ["purchase"]
-      - title: "第12話①"
-        updated: "2024-06-21"
-        access_modes: ["purchase"]
-      - title: "第12話②"
-        updated: "2024-07-05"
-        access_modes: ["purchase"]
-      - title: "第13話①"
-        updated: "2024-07-19"
-        access_modes: ["purchase"]
-      - title: "第13話②"
-        updated: "2024-08-02"
-        access_modes: ["purchase"]
-      - title: "第14話①"
-        updated: "2024-08-16"
-        access_modes: ["purchase"]
-      - title: "第14話②"
-        updated: "2024-09-06"
-        access_modes: ["purchase"]
-      - title: "最終話①"
-        updated: "2024-09-20"
-        access_modes: ["purchase"]
-      - title: "最終話②"
-        updated: "2024-10-04"
-        access_modes: ["purchase"]

@@ -6,11 +6,27 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-10-01
+retrieved: 2026-10-02
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421983484134435"
+    work_title: "新刊１００億冊ください"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "３６冊目：禁忌の会話"
+    release_type: "unclassified"
+    date: "2026-10-01"
+    date_basis: "observed"
+    first_seen: "2026-10-02"
+    first_reported: "2026-10-01T03:00:00Z"
+    platform_updated: "2026-10-01T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983484134435"
+    author: "破賀ミチル"
+    raw_title: "３６冊目：禁忌の会話"
+    advances_narrative: false
   - release_id: "comicdays:episode:12207421983566481752"
     work_title: "サタノファニ"
     web_status: "serialised"
@@ -43,6 +59,7 @@ releases:
     raw_title: "第５１−２話　静聴"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984256404121"
+    in_current_window: false
     work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -58,6 +75,7 @@ releases:
     author: "空山トキ/五色安未/泉乃せん/伍長"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984251525831"
+    in_current_window: false
     work_title: "ファタールゲーム"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -74,6 +92,7 @@ releases:
     author: "ばったん"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984251525826"
+    in_current_window: false
     work_title: "ファタールゲーム"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -90,6 +109,7 @@ releases:
     author: "ばったん"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984251525821"
+    in_current_window: false
     work_title: "ファタールゲーム"
     web_status: "serialised"
     identified_via: "discovery-candidate"

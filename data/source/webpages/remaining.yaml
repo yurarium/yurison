@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-10-01
+retrieved: 2026-10-02
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -3082,12 +3082,16 @@ works:
     url: "https://comic-days.com/episode/2550912965415315207"
     platform_name: "コミックDAYS"
     route: "gigaviewer"
-    chapter_count: 38
+    chapter_count: 39
     chapters:
+      - title: "３６冊目：禁忌の会話"
+        updated: 2026-10-01
+        author: "破賀ミチル"
+        access_modes: ["purchase"]
       - title: "３５冊目：オタクライフハック3選"
         updated: 2026-09-17
         author: "破賀ミチル"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "３４冊目：好きだから(後編)"
         updated: 2026-09-03
         author: "破賀ミチル"
@@ -3095,7 +3099,7 @@ works:
       - title: "３３冊目：好きだから(前編)"
         updated: 2026-08-20
         author: "破賀ミチル"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "３２冊目：作中に登場した食べ物やグッズの再現って特に嬉しい"
         updated: 2026-08-06
         author: "破賀ミチル"
@@ -3400,13 +3404,11 @@ works:
       - title: "8話"
         updated: 2025-10-17
         author: "サスケ"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["purchase"]
       - title: "9話"
         updated: 2025-10-17
         author: "サスケ"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["purchase"]
       - title: "10話"
         updated: 2025-10-17
         author: "サスケ"
@@ -4091,13 +4093,11 @@ works:
       - title: "13話"
         updated: 2025-10-17
         author: "しのぎあさ"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["purchase"]
       - title: "14話"
         updated: 2025-10-17
         author: "しのぎあさ"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["purchase"]
       - title: "15話"
         updated: 2025-10-17
         author: "しのぎあさ"
@@ -4210,8 +4210,7 @@ works:
       - title: "12話"
         updated: 2025-10-17
         author: "もくふう"
-        access_modes: ["free-timed"]
-        access_note: "作品チケット — one free chapter per series per day, per account"
+        access_modes: ["purchase"]
       - title: "13話"
         updated: 2025-10-17
         author: "もくふう"
@@ -4919,11 +4918,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-09-30
+        updated: 2026-10-01
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-09-30
+        updated: 2026-10-01
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

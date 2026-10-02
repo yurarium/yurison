@@ -130,7 +130,40 @@ def main(s):
              "a site with no file yet carries nothing over")
 
 
+    a_byline_from_the_series_page(s)
     a_refusal_on_a_continuation_page(s)
+
+
+def a_byline_from_the_series_page(s):
+    """An episode page names nobody in its title, and its series page does.
+
+    The two titles are the real ones キミコミ served on 2026-10-02 for 午後4時。透明、ときどき声優,
+    at /episodes/9f79b9c018e62/ and at the /series/699382e254c67 that page links.
+    """
+    site = {"engine": "comici", "host": "kimicomi.com"}
+    series = "<title>午後4時。透明、ときどき声優 - 漆赤,岬鷺宮,いちかわはる | キミコミ</title>"
+    episode = ('<title>午後4時。透明、ときどき声優・第1話 | キミコミ</title>'
+               '<a href="/series/699382e254c67">作品</a>')
+    asked = []
+
+    def page(u):
+        asked.append(u)
+        return series if u == "https://kimicomi.com/series/699382e254c67" else ""
+
+    s.eq(wp.author_of(series, site, page), "漆赤,岬鷺宮,いちかわはる",
+         "a series page states its byline in its own title")
+    s.eq(asked, [], "and nothing else is asked for")
+    s.eq(wp.author_of(episode, site, page), "漆赤,岬鷺宮,いちかわはる",
+         "an episode page is followed to the series it links, and the byline read there")
+    s.eq(asked, ["https://kimicomi.com/series/699382e254c67"], "which is one request, to that page")
+
+    # §5: WHERE NO PAGE STATES ONE, NONE IS WRITTEN.
+    s.eq(wp.author_of('<title>午後4時・第1話 | キミコミ</title>', site, page), None,
+         "an episode page linking no series yields no author")
+    s.eq(wp.author_of(episode, site, lambda u: ""), None,
+         "and a series page that will not load costs the byline and raises nothing")
+    s.eq(wp.author_of(episode, {"engine": "gigaviewer", "host": "x.jp"}, page), None,
+         "another engine is not followed, its pages not being comici's")
 
 
 def a_refusal_on_a_continuation_page(s):

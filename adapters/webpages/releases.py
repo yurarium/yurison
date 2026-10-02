@@ -94,6 +94,36 @@ def carry_over(path, urls):
     return keep
 
 
+#: comici states the author in the page title as "作品 - 作者 | プラットフォーム".
+TITLE_AUTHOR = re.compile(r"<title>[^<|]*?\s+-\s+([^<|]+?)\s*\|")
+
+
+def author_of(html, site, page):
+    """The byline a work page states in its title, or None.
+
+    AN EPISODE PAGE NAMES NOBODY. comici titles a series page `作品 - 作者 | キミコミ` and an
+    episode page `作品・第1話 | キミコミ`, so a work whose target address is a chapter came back
+    with no author while its own series page credited three people: 午後4時。透明、ときどき声優,
+    the one キミコミ work of sixteen captured from `/episodes/`, reached readers with no credits on
+    2026-10-02. The episode page links its series, which is how its work-level anchor was found,
+    and that page is asked for the byline when the first page states none.
+
+    ONLY THE BYLINE, AND THE TARGET ADDRESS IS LEFT ALONE. Reading the whole row from the series
+    page instead would change the address the row is filed under, and release identifiers are
+    built from it, so every chapter already published would be minted again beside itself.
+
+    `page` is the caller's guarded fetch, which answers "" on a refusal, so a series page that
+    will not load costs this work its byline and nothing else. §5: no author is stated where no
+    page states one.
+    """
+    au = TITLE_AUTHOR.search(html or "")
+    if not au and site.get("engine") == "comici":
+        h = comici.series_link(html)
+        if h:
+            au = TITLE_AUTHOR.search(page(comici.series_address(site["host"], h)) or "")
+    return _html.unescape(au.group(1).strip()) if au else None
+
+
 def untruncated(target_title, html):
     """The page's own name for the work, where the one we were given is a truncation of it.
 
@@ -252,9 +282,9 @@ def main():
             if len(eps) < site.get("min_episodes", 1):
                 failed.append((tgt["title"], f"{len(eps)} episodes parsed"))
                 continue
-            # comici states the author in the page title as "作品 - 作者 | プラットフォーム".
-            # It was never read, so every comici platform reported chapters with no author.
-            au = re.search(r"<title>[^<|]*?\s+-\s+([^<|]+?)\s*\|", html)
+            # The byline, which was never read, so every comici platform reported chapters with no
+            # author; and from the series page where the target is a chapter. See `author_of`.
+            au = author_of(html, site, _page)
             row = {"work_title": untruncated(tgt["title"], html), "url": tgt["url"],
                    "episodes": eps}
             # THE PLATFORM'S OWN WORD ON THE SERIALISATION, which nothing was reading. comici
@@ -267,7 +297,7 @@ def main():
             if st:
                 row["status"] = st
             if au:
-                row["author"] = _html.unescape(au.group(1).strip())
+                row["author"] = au
             works.append(row)
 
         # The floor exists to catch a site redesign silently emptying a parser. It has to scale

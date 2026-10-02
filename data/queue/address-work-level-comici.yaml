@@ -1,4 +1,4 @@
-# The work-level address for the one comici row anchored on an episode.
+# The work-level address for each comici row anchored on an episode.
 #
 # WHY. build.py gives a row the address of its newest chapter and identity.py anchors the work
 # on it, so the row moves when the work publishes. comici writes an episode as
@@ -22,3 +22,8 @@ joins:
     url: "https://championcross.jp/episodes/c588f534a4870"
     anchor: "web:https://championcross.jp/series/cbacd0530b63f"
     basis: "the episode page at https://championcross.jp/episodes/c588f534a4870 links its own series at https://championcross.jp/series/cbacd0530b63f; that page was fetched 2026-08-07, answered 200 and titles itself 阿佐ヶ谷サキュバス同人物語 - 縁山 | チャンピオンクロス"
+  - id: w03303
+    title: "午後4時。透明、ときどき声優"
+    url: "https://kimicomi.com/episodes/9f79b9c018e62/"
+    anchor: "web:https://kimicomi.com/series/699382e254c67"
+    basis: "the episode page at https://kimicomi.com/episodes/9f79b9c018e62/ links one series, https://kimicomi.com/series/699382e254c67; that page was fetched 2026-10-02, answered 200 and titles itself 午後4時。透明、ときどき声優 - 漆赤,岬鷺宮,いちかわはる | キミコミ"

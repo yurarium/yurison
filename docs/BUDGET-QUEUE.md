@@ -1103,3 +1103,27 @@ it two runs later, and the two サンデーうぇぶり rows from 2026-09-15 hav
 while newer chapters of the same works arrived with theirs. A release that is recorded without an
 access state stays that way until it leaves the window. Deferred to docs/GAPS.md, since the remedy
 is in the pipeline.
+
+## Five budgets rose on inducting three works. Accepted 2026-10-02
+
+Run 37034737564 brought three works the antenna lists under its 百合 tag and the corpus did not hold:
+仕事のあとは同じ教室で on カドコミ, はるは巡る on コミック アース・スター and 午後4時。透明、ときどき声優
+on キミコミ. The first is also KADOKAWA's own 百合 tag, so §2 admits it publisher-side. Minted
+`w03301` to `w03303` by hand, and `updates naming a work we do not hold` and `announced works the
+corpus does not hold` went back to where they were.
+
+`titles read by a machine, unmarked` 1147 to 1150 is the three titles, whose readings the analyser
+supplies over ordinary vocabulary. `works showing a romanisation` 25 to 26 is はるは巡る, ruled
+`translation_refused` because はる in kana is 春 or a given name and nothing captured says which.
+The other two are translated.
+
+`author names romanised as one word` 1211 to 1212, `author readings no source states` 443 to 444
+and `credit fields an identifier does not cover` 84 to 85 are 藤鶉, the artist of はるは巡る, read
+フジウズラ by the analyser alone and credited `漫画：藤鶉`. 藤松盟 cost nothing, already holding
+Mei Fujimatsu from Wikidata.
+
+`rows with a moving address` went 8 to 9 and back within the pass, which is worth saying because the
+rise was this pass's own: 午後4時 arrived on a chapter address, `/episodes/9f79b9c018e62/`, and the
+first mint anchored only that. Its episode page links one series, `/series/699382e254c67`, which
+answers 200 and titles itself as the work, and that is anchored now with the evidence in
+`data/queue/address-work-level-comici.yaml`, so its fourth chapter will find it.

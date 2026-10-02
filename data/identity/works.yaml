@@ -21405,6 +21405,24 @@ works:
     title: "真夜中に愛してよ"
     anchors:
       - "web:https://comic-walker.com/detail/KC_020158_S"
+  - id: w03301
+    title: "仕事のあとは同じ教室で"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_020132_S"
+  - id: w03302
+    title: "はるは巡る"
+    anchors:
+      - "web:https://comic-earthstar.com/episode/12207421984241521945"
+      - "web:https://comic-earthstar.com/atom/series/12207421984241511954"
+  - id: w03303
+    title: "午後4時。透明、ときどき声優"
+    anchors:
+      - "web:https://kimicomi.com/episodes/9f79b9c018e62/"
+      - "web:https://kimicomi.com/series/699382e254c67"
+    attached:
+      - anchor: "web:https://kimicomi.com/series/699382e254c67"
+        basis: "the episode page at https://kimicomi.com/episodes/9f79b9c018e62/ links one series, https://kimicomi.com/series/699382e254c67; that page was fetched 2026-10-02, answered 200 and titles itself 午後4時。透明、ときどき声優 - 漆赤,岬鷺宮,いちかわはる | キミコミ"
+        retrieved: 2026-10-02
 related:
   - a: w00957
     b: w01587

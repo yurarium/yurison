@@ -18006,6 +18006,11 @@ names:
     verified: false
   はるは巡る:
     basis: romaji
+    en: Haru wa Meguru
+    en_at: '2026-10-02'
+    en_reviewed: '2026-10-02'
+    en_source: https://comic-earthstar.com/episode/12207421984241521945
+    en_source_kind: derived
     furigana_spans:
     - - はるは
       - null
@@ -18013,6 +18018,8 @@ names:
       - めぐ
     - - る
       - null
+    note: 'A one-shot on コミック アース・スター from 2026-10-01, 漫画 藤鶉. The ゆあとさき case: the kana are the only form
+      that holds both readings, and a romanisation keeps them as the kana do.'
     reading: ハル ワ メグル
     reading_at: '2026-10-02'
     reading_basis: analyser
@@ -18022,6 +18029,11 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
+    translation_refused: 'はる in kana is 春, and 春は巡る is the set phrase for spring coming round again; it
+      is also ハル, a given name, and then the title is about a person coming round. Nothing captured settles
+      which: コミック アース・スター''s feed carries 【読切】はるは巡る and a byline, and no synopsis. A translation would
+      have to drop one reading to state the other, so ours is the romanisation until somebody reads the
+      one-shot.'
     verified: false
   ばけーしょん魔王とペット:
     basis: translated
@@ -41967,7 +41979,12 @@ names:
     reading_source_kind: analyser
     verified: false
   仕事のあとは同じ教室で:
-    basis: romaji
+    basis: translated
+    en: After Work, in the Same Classroom
+    en_at: '2026-10-02'
+    en_reviewed: '2026-10-02'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 仕事
       - しごと
@@ -41981,6 +41998,9 @@ names:
       - きょうしつ
     - - で
       - null
+    note: 'A KADOKAWA one-shot on カドコミ, tagged 社会人 and 働く女子 alongside 百合, so the classroom is one adults
+      go back to in the evening and not a school they attend. The comma keeps the order the title gives:
+      the work comes first, and where they meet after it is the point.'
     reading: シゴト ノ アト ワ オナジ キョウシツデ
     reading_at: '2026-10-02'
     reading_basis: analyser
@@ -45631,7 +45651,12 @@ names:
     reading_source_kind: analyser
     verified: false
   午後4時。透明、ときどき声優:
-    basis: romaji
+    basis: translated
+    en: 4 PM. Invisible, with Occasional Voice Acting
+    en_at: '2026-10-02'
+    en_reviewed: '2026-10-02'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 午後
       - ごご
@@ -45647,6 +45672,10 @@ names:
       - null
     - - 声優
       - せいゆう
+    note: '透明、ときどき声優 is the shape of a weather forecast, 晴れ、ときどき雨, clear with occasional rain, and English
+      forecasts say "with occasional showers", so the English keeps the forecast and puts the joke where
+      the Japanese does: unnoticed most of the time, and now and then a voice actor. 透明 is invisible in
+      the sense of nobody seeing you. The full stop after 午後4時 is the title''s own and stays.'
     reading: ゴゴ 4 ジ。 トウメイ、 トキドキ セイユウ
     reading_at: '2026-10-02'
     reading_basis: analyser

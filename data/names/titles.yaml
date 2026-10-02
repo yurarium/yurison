@@ -1,4 +1,4 @@
-generated: '2026-10-01'
+generated: '2026-10-02'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -18002,6 +18002,25 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  はるは巡る:
+    basis: romaji
+    furigana_spans:
+    - - はるは
+      - null
+    - - 巡
+      - めぐ
+    - - る
+      - null
+    reading: ハル ワ メグル
+    reading_at: '2026-10-02'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   ばけーしょん魔王とペット:
@@ -41947,6 +41966,31 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  仕事のあとは同じ教室で:
+    basis: romaji
+    furigana_spans:
+    - - 仕事
+      - しごと
+    - - のあとは
+      - null
+    - - 同
+      - おな
+    - - じ
+      - null
+    - - 教室
+      - きょうしつ
+    - - で
+      - null
+    reading: シゴト ノ アト ワ オナジ キョウシツデ
+    reading_at: '2026-10-02'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   仕事の後はぬくもりを:
     basis: translated
     en: Warmth After Work
@@ -45584,6 +45628,33 @@ names:
       weakest on pen names and coinages
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  午後4時。透明、ときどき声優:
+    basis: romaji
+    furigana_spans:
+    - - 午後
+      - ごご
+    - - '4'
+      - null
+    - - 時
+      - じ
+    - - 。
+      - null
+    - - 透明
+      - とうめい
+    - - 、ときどき
+      - null
+    - - 声優
+      - せいゆう
+    reading: ゴゴ 4 ジ。 トウメイ、 トキドキ セイユウ
+    reading_at: '2026-10-02'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   半熟女子:

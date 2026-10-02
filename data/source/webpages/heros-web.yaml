@@ -6,7 +6,7 @@ platform: heros-web
 platform_name: "HERO'S Web"
 publisher: "ヒーローズ"
 engine: comici
-retrieved: 2026-10-02
+retrieved: 2026-10-03
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -336,7 +336,7 @@ works:
     status: "連載中"
     author: "朱白あおい,糀もろみ,村田真哉,柳井伸彦"
     url: "https://heros-web.com/series/ec09a10dc9490"
-    chapter_count: 29
+    chapter_count: 30
     chapters:
       - title: "第１輪「ヤってしまいましたわ」"
         updated: "2026-05-18"
@@ -418,12 +418,15 @@ works:
         access_modes: ["free"]
       - title: "第20輪「正々堂々爛れた生活を謳歌してやりますわ」①"
         updated: "2026-08-21"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第20輪「正々堂々爛れた生活を謳歌してやりますわ」②"
         updated: "2026-09-04"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第20輪「正々堂々爛れた生活を謳歌してやりますわ」③"
         updated: "2026-09-18"
+        access_modes: ["purchase"]
+      - title: "第21輪「本当に誰なんですの？」①"
+        updated: "2026-10-02"
         access_modes: ["purchase"]
   - work_title: "神絵師JKとOL腐女子"
     status: "完結"

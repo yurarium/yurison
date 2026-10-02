@@ -6,12 +6,13 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-10-02
+retrieved: 2026-10-03
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "tonarino_yj:episode:12207421984252566649"
+    in_current_window: false
     work_title: "GOOD HUNT"
     web_status: "serialised"
     identified_via: "discovery-candidate"

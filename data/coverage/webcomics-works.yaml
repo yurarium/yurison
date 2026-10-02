@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-10-02
+retrieved: 2026-10-03
 record_type: candidate_works
 works: 310
 candidates:
@@ -712,7 +712,7 @@ candidates:
   - title: "なとりとしずは"
     platforms: ["sundaywebry", "サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983745504350"]
-    tags: ["女子高生", "柔道", "百合", "運動系部活"]
+    tags: ["女子高生", "最近のコメント数", "柔道", "百合", "運動系部活"]
   - title: "にせものターコイズ"
     platforms: ["sundaywebry", "サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/12207421983913735230"]
@@ -750,6 +750,10 @@ candidates:
   - title: "はるのほてりのそのさきに"
     platforms: ["FEEL web"]
     urls: ["https://feelweb.jp/episode/2551460909968321477"]
+  - title: "はるは巡る"
+    platforms: ["コミック アース・スター"]
+    urls: ["https://comic-earthstar.com/episode/12207421984241521945"]
+    tags: ["最近のコメント数"]
   - title: "ばっどがーる"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/53991"]
@@ -939,7 +943,7 @@ candidates:
   - title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     platforms: ["pixivコミック", "webアクション", "がうがうモンスター"]
     urls: ["https://comic-action.com/episode/2550912964579811935", "https://comic.pixiv.net/works/11081", "https://gaugau.futabanet.jp/list/work/u4FdNLFgU91kEXBufRsVlnzEw"]
-    tags: ["ギャグ・コメディ", "女子高生", "宇宙人", "百合"]
+    tags: ["ギャグ・コメディ", "女子高生", "宇宙人", "最近のコメント数", "百合"]
   - title: "ゆりゾン"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/2550912965728497650"]
@@ -2127,13 +2131,17 @@ candidates:
   - title: "今日、小柴葵に会えたら。"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/3269754496320104155"]
+  - title: "仕事のあとは同じ教室で"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_020132_S"]
+    tags: ["百合", "読み切り"]
   - title: "仕事の後は抱きしめて"
     platforms: ["Matogrosso(更新終了)"]
     urls: ["https://matogrosso.jp/serial/shigokoi_02-136/"]
   - title: "付き合ってあげてもいいかな"
     platforms: ["マンガワン", "裏サンデー"]
     urls: ["https://manga-one.com/manga/603/chapter/60189", "https://manga-one.com/viewer/70173", "https://urasunday.com/title/603"]
-    tags: ["大学生", "完結", "現代", "百合"]
+    tags: ["大学生", "完結", "実写化", "現代", "百合"]
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008429_S"]
@@ -2269,6 +2277,9 @@ candidates:
   - title: "午前二時は食卓で"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006232_S"]
+  - title: "午後4時。透明、ときどき声優"
+    platforms: ["キミコミ"]
+    urls: ["https://kimicomi.com/episodes/9f79b9c018e62/"]
   - title: "半熟女子"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421983782244654"]
@@ -3836,6 +3847,10 @@ candidates:
   - title: "葬られたきみへ"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005851_S"]
+  - title: "葵とおねーちゃん"
+    platforms: ["comicブースト"]
+    urls: ["https://comic-boost.com/content/01780001"]
+    tags: ["最近のコメント数"]
   - title: "蓼食う君も好き好き"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/3269754496488681033"]

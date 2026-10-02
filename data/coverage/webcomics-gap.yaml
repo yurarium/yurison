@@ -5,13 +5,13 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-02
+retrieved: 2026-10-03
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 310
-works_on_watched_platform: 285
-platforms_total: 54
+works_on_watched_platform: 284
+platforms_total: 55
 platforms_watched: 41
 # ranked by works reachable on NO watched platform
 platforms_missing:
@@ -23,6 +23,8 @@ platforms_missing:
     works: 2
   - platform: "きら星ポータル"
     works: 2
+  - platform: "comicブースト"
+    works: 1
   - platform: "pixivコミックマガジン"
     works: 1
   - platform: "新都社"
@@ -127,7 +129,7 @@ works_missing:
     platform: "Gコミ"
     url: "https://g-comi.jp/series/7e3c698bca968"
     antenna_id: "211227"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "エロ"]
   - title: "暴走!?サキュバスせんぱい"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/5448ec9f6077b"
@@ -153,16 +155,21 @@ works_missing:
     url: "https://g-comi.jp/series/fef424c168c44"
     antenna_id: "210855"
     tags: ["百合", "先輩と後輩", "大学生"]
+  - title: "魔女とくゅらす"
+    platform: "HERO'S Web"
+    url: "https://heros-web.com/series/2b64bc0622a2a"
+    antenna_id: "186534"
+    tags: ["最近のコメント数"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
     antenna_id: "174744"
     tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
-  - title: "魔女とくゅらす"
-    platform: "HERO'S Web"
-    url: "https://heros-web.com/series/2b64bc0622a2a"
-    antenna_id: "186534"
-    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
+  - title: "葵とおねーちゃん"
+    platform: "comicブースト"
+    url: "https://comic-boost.com/content/01780001"
+    antenna_id: "216014"
+    tags: ["最近のコメント数"]
   - title: "姫騎士と姫巫女"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13609"
@@ -288,6 +295,21 @@ works_missing:
     url: "https://asacomi.jp/series/d67c4f256e18f"
     antenna_id: "205877"
     tags: ["百合"]
+  - title: "仕事のあとは同じ教室で"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_020132_S"
+    antenna_id: "216023"
+    tags: ["百合", "読み切り"]
+  - title: "さざめとりお"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_019937_S"
+    antenna_id: "213832"
+    tags: ["百合"]
+  - title: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_019660_S"
+    antenna_id: "213830"
+    tags: ["百合", "筋肉"]
   - title: "彼岸でランデヴー"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020017_S"
@@ -373,16 +395,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006798_S"
     antenna_id: "192330"
     tags: ["百合", "女子高生"]
-  - title: "さざめとりお"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_019937_S"
-    antenna_id: "213832"
-    tags: ["百合"]
-  - title: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_019660_S"
-    antenna_id: "213830"
-    tags: ["百合", "筋肉"]
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008429_S"
@@ -618,11 +630,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019408_S"
     antenna_id: "211258"
     tags: ["百合", "読み切り"]
-  - title: "転生王女と天才令嬢の魔法革命"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_003176_S"
-    antenna_id: "108480"
-    tags: ["王宮・貴族社会", "異世界", "転生", "ファンタジー", "百合", "令嬢", "アニメ化", "完結", "国家経営・内政"]
   - title: "私がモテないのはどう考えてもお前らが悪い!"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/29"
@@ -703,6 +710,11 @@ works_missing:
     url: "https://kimicomi.com/series/a869ecfca8da9"
     antenna_id: "200536"
     tags: ["百合"]
+  - title: "はるは巡る"
+    platform: "コミック アース・スター"
+    url: "https://comic-earthstar.com/episode/12207421984241521945"
+    antenna_id: "215958"
+    tags: ["最近のコメント数"]
   - title: "私の好きな人はとても〇〇"
     platform: "コミックDAYS"
     url: "https://comic-days.com/episode/12207421983805333025"
@@ -788,16 +800,16 @@ works_missing:
     url: "https://championcross.jp/series/46c8d0a17ed62"
     antenna_id: "192556"
     tags: ["百合"]
-  - title: "フェアウェイの声をきかせて"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/8178b4fc09df9"
-    antenna_id: "157188"
-    tags: ["百合", "スポーツ", "運動系部活", "女子高生", "青春"]
   - title: "勇者の旅の裏側で"
     platform: "ドリコミ+"
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "見えてますよ!愛沢さん"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/60277"
+    antenna_id: "141380"
+    tags: ["百合", "アイドル", "幽霊"]
   - title: "タイムトラベル少女 ～ミライのサキ～"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/77287"
@@ -833,11 +845,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/49574"
     antenna_id: "108870"
     tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
-  - title: "見えてますよ!愛沢さん"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/60277"
-    antenna_id: "141380"
-    tags: ["百合", "アイドル", "幽霊"]
   - title: "押しかけ女房、コドモ付き!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/67280"
@@ -1013,16 +1020,21 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03282"
     antenna_id: "211531"
     tags: ["百合", "オカルト"]
+  - title: "怪獣ロマンティクス"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03196"
+    antenna_id: "211384"
+    tags: ["百合", "怪獣"]
+  - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/02328"
+    antenna_id: "159062"
+    tags: ["最近のコメント数"]
   - title: "世が夜なら!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01147"
     antenna_id: "105649"
     tags: ["お色気・微エロ", "百合", "異種族・人外", "ギャグ・コメディ", "吸血鬼・ヴァンパイア", "完結"]
-  - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/02328"
-    antenna_id: "159062"
-    tags: ["転生", "百合", "猫", "学園", "バトル", "無自覚チート", "ギャグ・コメディ", "悪役令嬢", "乙女ゲーム", "聖女"]
   - title: "怨霊日和"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
@@ -1033,11 +1045,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/01646"
     antenna_id: "137359"
     tags: ["百合", "女子高生", "運動系部活", "男装"]
-  - title: "怪獣ロマンティクス"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03196"
-    antenna_id: "211384"
-    tags: ["百合", "怪獣"]
   - title: "私に天使が舞い降りた!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01052"
@@ -1092,7 +1099,7 @@ works_missing:
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/70173"
     antenna_id: "180171"
-    tags: ["百合", "大学生"]
+    tags: ["百合", "大学生", "実写化"]
   - title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
     platform: "マンガワン"
     url: "https://manga-one.com/manga/27253/chapter/307792"
@@ -1122,7 +1129,7 @@ works_missing:
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
     antenna_id: "148792"
-    tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
+    tags: ["最近のコメント数"]
   - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/86c1162f34a04"
@@ -1263,11 +1270,6 @@ works_missing:
     url: "https://takecomic.jp/series/de0a74a9b5715"
     antenna_id: "128082"
     tags: ["百合", "自転車", "女子高生", "サトリ"]
-  - title: "香原さんのふぇちのーと"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/4e4bb1b935407"
-    antenna_id: "126252"
-    tags: ["フェチ・性癖", "百合", "ヒューマンドラマ", "エロ", "お色気・微エロ", "ギャグ・コメディ"]
   - title: "運命は役に立たない"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
@@ -1297,7 +1299,7 @@ works_missing:
     platform: "裏サンデー"
     url: "https://urasunday.com/title/603"
     antenna_id: "80449"
-    tags: ["百合", "現代", "大学生", "完結"]
+    tags: ["百合", "現代", "大学生", "完結", "実写化"]
   - title: "妖怪殲滅のサイコリリー"
     platform: "裏サンデー"
     url: "https://urasunday.com/title/2565"

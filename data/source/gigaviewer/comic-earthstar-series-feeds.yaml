@@ -10,12 +10,23 @@ source: gigaviewer
 platform: comic-earthstar
 platform_name: "コミック アース・スター"
 publisher: "アース・スター エンターテイメント"
-retrieved: 2026-10-02
+retrieved: 2026-10-03
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 6
-series_held: 6
+series_resolved: 7
+series_held: 7
 works:
+  - work_title: "はるは巡る"
+    series_id: "12207421984241511954"
+    url: "https://comic-earthstar.com/atom/series/12207421984241511954"
+    chapter_count: 1
+    chapters:
+      - title: "【読切】はるは巡る"
+        updated: 2026-10-01
+        author: "漫画：藤鶉"
+        url: "https://comic-earthstar.com/episode/12207421984241521945"
+        free_from: 2026-10-01
+        access_modes: ["free"]
   - work_title: "アオハルに憑き物"
     series_id: "2550912964936716188"
     url: "https://comic-earthstar.com/atom/series/2550912964936716188"
@@ -30,13 +41,19 @@ works:
   - work_title: "ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～"
     series_id: "2550912965247410451"
     url: "https://comic-earthstar.com/atom/series/2550912965247410451"
-    chapter_count: 28
+    chapter_count: 29
     chapters:
+      - title: "第15話①"
+        updated: 2026-10-01
+        author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
+        url: "https://comic-earthstar.com/episode/12207421984094164648"
+        access_modes: ["purchase"]
       - title: "第14話②"
         updated: 2026-08-13
         author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
         url: "https://comic-earthstar.com/episode/12207421984034840843"
-        access_modes: ["purchase"]
+        free_from: 2026-10-01
+        access_modes: ["free"]
       - title: "第14話①"
         updated: 2026-07-30
         author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
@@ -47,8 +64,7 @@ works:
         updated: 2026-06-18
         author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
         url: "https://comic-earthstar.com/episode/12207421983804903957"
-        free_from: 2026-07-30
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第13話①"
         updated: 2026-06-04
         author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"

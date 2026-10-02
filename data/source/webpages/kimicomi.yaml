@@ -6,7 +6,7 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-10-02
+retrieved: 2026-10-03
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -54,28 +54,28 @@ works:
         access_modes: ["free"]
       - title: "TARGET.3①"
         updated: "2025-08-22"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "TARGET.3②"
         updated: "2025-08-22"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "TARGET.4①"
         updated: "2025-08-22"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "TARGET.4②"
         updated: "2025-08-22"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "TARGET.5①"
         updated: "2025-08-22"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "TARGET.5②"
         updated: "2025-08-22"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "TARGET.6①"
         updated: "2025-08-22"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "TARGET.6②"
         updated: "2025-08-22"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "EX TARGET.1"
         updated: "2025-08-22"
         access_modes: ["free-timed"]
@@ -582,6 +582,20 @@ works:
         access_modes: ["free"]
       - title: "第41話"
         updated: "2026-06-08"
+        access_modes: ["purchase"]
+  - work_title: "午後4時。透明、ときどき声優"
+    status: "連載中"
+    url: "https://kimicomi.com/episodes/9f79b9c018e62/"
+    chapter_count: 3
+    chapters:
+      - title: "第1話"
+        updated: "2026-09-19"
+        access_modes: ["free"]
+      - title: "第2話①"
+        updated: "2026-09-19"
+        access_modes: ["purchase"]
+      - title: "第2話②"
+        updated: "2026-09-19"
         access_modes: ["purchase"]
   - work_title: "新米錬金術師の店舗経営"
     status: "連載中"

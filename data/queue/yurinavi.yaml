@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-10-01
+retrieved: 2026-10-03
 record_type: discovery_queue
 candidates:
   - work_title: "真夜中に愛してよ"
@@ -18,14 +18,13 @@ candidates:
     work_url: "https://comic-walker.com/detail/KC_020158_S"
     headline: "レズ風俗嬢×女性教師の秘密の関係を描く大人百合ラブコメ「真夜中に愛してよ」WEBでスタート"
     status: unconfirmed
-  - work_title: "いじめてくれる君がすき"
+  - work_title: "午後4時。透明、ときどき声優"
     signal: "new-serial"
-    announced: "Thu, 17 Sep 2026 11:00:29 +0000"
-    url: "https://yurinavi.com/2026/09/17/ijimetekurerukimigasuki-start/"
-    platform: "ichicomi"
-    platform_code: "12207421984151786084"
-    work_url: "https://ichicomi.com/episode/12207421984151786084"
-    headline: "“きたかわ”のまにお先生が描く、少女たちの歪んだ関係――百合姫新連載「いじめてくれる君がすき」WEBで公開"
+    announced: "Thu, 01 Oct 2026 11:00:14 +0000"
+    url: "https://yurinavi.com/2026/10/01/gogoyojino-comic-start/"
+    platform: "kimicomi"
+    work_url: "https://kimicomi.com/episodes/9f79b9c018e62/"
+    headline: "人気声優の“替え玉”になる女子高生を描く青春声優ストーリー「午後4時。透明、ときどき声優」コミカライズ連載スタート"
     status: unconfirmed
   - work_title: "ホテルの外でもあいたいよ"
     signal: "oneshot"
@@ -35,6 +34,15 @@ candidates:
     platform_code: "12207421984222944066"
     work_url: "https://ichicomi.com/episode/12207421984222944066"
     headline: "セフレから恋人になりたい――曖昧な関係に揺れるふたりを描く読み切り百合漫画「ホテルの外でもあいたいよ」WEBで公開"
+    status: unconfirmed
+  - work_title: "いじめてくれる君がすき"
+    signal: "new-serial"
+    announced: "2026-09-17"
+    url: "https://yurinavi.com/2026/09/17/ijimetekurerukimigasuki-start/"
+    platform: "ichicomi"
+    platform_code: "12207421984151786084"
+    work_url: "https://ichicomi.com/episode/12207421984151786084"
+    headline: "“きたかわ”のまにお先生が描く、少女たちの歪んだ関係――百合姫新連載「いじめてくれる君がすき」WEBで公開"
     status: unconfirmed
   - work_title: "超かぐや姫！"
     signal: "new-serial"

@@ -6,12 +6,29 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-10-01
+retrieved: 2026-10-03
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "action:episode:12207421984312649338"
+    work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "おまけ漫画②"
+    release_type: "extra"
+    date: "2026-10-02"
+    date_basis: "observed"
+    first_seen: "2026-10-03"
+    first_reported: "2026-10-02T03:00:00Z"
+    platform_updated: "2026-10-02T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-action.com/episode/12207421984312649338"
+    author: "中村カンコ"
+    free_term_start: "2026-10-02T03:00:00Z"
+    advances_narrative: true
   - release_id: "action:episode:12207421984252214207"
+    in_current_window: false
     work_title: "オカワリいただけただろうか?"
     web_status: "serialised"
     identified_via: "discovery-candidate"

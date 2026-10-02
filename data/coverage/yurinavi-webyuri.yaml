@@ -4,12 +4,12 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-10-01
+retrieved: 2026-10-03
 record_type: coverage_gap
-works_listed: 135
+works_listed: 136
 platforms_total: 26
 platforms_watched: 18
-works_on_watched_platforms: 104
+works_on_watched_platforms: 105
 platforms:
   - platform: "カドコミ"
     works: 53
@@ -21,7 +21,7 @@ platforms:
     works: 22
     watched: true
   - platform: "竹コミ！"
-    works: 5
+    works: 6
     watched: true
   - platform: "ガンガンONLINE"
     works: 4
@@ -598,6 +598,10 @@ works:
     platform: "一迅社プラス"
     last_update_seen: 10-15
     watched_platform: false
+  - raw: "30まで独りだったら一緒に暮らそうって言ったよね？ くずしろ"
+    platform: "竹コミ！"
+    last_update_seen: 10-02
+    watched_platform: true
   - raw: "ウは宇宙ヤバイのウ！ 宮澤伊織/ぴよぴよ丸"
     platform: "竹コミ！"
     last_update_seen: 10-10

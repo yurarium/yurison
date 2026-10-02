@@ -10,7 +10,7 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-10-02
+retrieved: 2026-10-03
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 68
@@ -167,6 +167,12 @@ works:
     url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
     chapter_count: 42
     chapters:
+      - title: "第１５話 郵便ポストで洋服を"
+        updated: 2026-10-02
+        author: "伏見ダイキ"
+        url: "https://www.sunday-webry.com/episode/12207421984317356462"
+        free_from: 2026-10-01
+        access_modes: ["free"]
       - title: "ショートショート 時には昔の話を"
         updated: 2026-09-25
         author: "伏見ダイキ"
@@ -184,12 +190,6 @@ works:
         author: "伏見ダイキ"
         url: "https://www.sunday-webry.com/episode/12207421984217395007"
         free_from: 2026-09-10
-        access_modes: ["free"]
-      - title: "第１４話 あるいは思い出いっぱいの海"
-        updated: 2026-09-04
-        author: "伏見ダイキ"
-        url: "https://www.sunday-webry.com/episode/12207421984186215640"
-        free_from: 2026-09-03
         access_modes: ["free"]
       - title: "ショートショート 助手の心得"
         updated: 2026-08-28

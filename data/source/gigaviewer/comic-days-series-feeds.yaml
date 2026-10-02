@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-10-02
+retrieved: 2026-10-03
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 110
@@ -11556,14 +11556,20 @@ works:
   - work_title: "新刊100億冊ください"
     series_id: "2550912965415291249"
     url: "https://comic-days.com/atom/series/2550912965415291249"
-    chapter_count: 38
+    chapter_count: 39
     chapters:
+      - title: "３６冊目：禁忌の会話"
+        updated: 2026-10-01
+        author: "破賀ミチル"
+        url: "https://comic-days.com/episode/12207421983484134435"
+        free_from: 2026-10-15
+        access_modes: ["purchase"]
       - title: "３５冊目：オタクライフハック3選"
         updated: 2026-09-17
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/12207421983484134422"
         free_from: 2026-10-01
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "３４冊目：好きだから(後編)"
         updated: 2026-09-03
         author: "破賀ミチル"
@@ -11574,8 +11580,7 @@ works:
         updated: 2026-08-20
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/12207421983484134387"
-        free_from: 2026-09-03
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "３２冊目：作中に登場した食べ物やグッズの再現って特に嬉しい"
         updated: 2026-08-06
         author: "破賀ミチル"

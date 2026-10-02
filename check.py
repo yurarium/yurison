@@ -571,10 +571,19 @@ def inv_no_absolute_paths_in_published_files(ctx):
     import re as _re
     bad = []
     pat = _re.compile(r"(/home/|/Users/|C:\\Users\\)[^\s\"']+")
-    for f, text in sorted((ctx.get("emitted") or {}).items()):
-        hits = pat.findall(text)
+    # BOTH THE CORPUS AND THE REPORT. This read only the corpus, so the file the fault above was
+    # found in was the one file it never opened.
+    files = {**(ctx.get("emitted") or {}), **(ctx.get("reports") or {})}
+    for f, text in sorted(files.items()):
+        # THE WHOLE MATCH, because `findall` returns the group and the group is only the prefix:
+        # a report naming `/home/` says a path leaked and not which one.
+        hits = [m.group(0) for m in pat.finditer(text)]
         if hits:
-            bad.append(f"{f.relative_to(BUILD)}: {len(hits)} absolute path(s)")
+            # THE NAME IS ALREADY THE PUBLISHED PATH. This called `f.relative_to(BUILD)` from when
+            # the texts were files under `data/build`; since §13 they are keyed by name, so the
+            # first real finding would have raised instead of being reported, and with no canary
+            # nothing ever made it fire to find out.
+            bad.append(f"{f}: {len(hits)} absolute path(s), first {hits[0]!r}")
     return bad
 
 
@@ -4882,8 +4891,18 @@ def _emitted(db):
                           ("publishers.json", _emit.publishers(db, generated)),
                           ("feed/names.json", _emit.names(db, generated))):
         emitted[name] = _emit.as_text(payload)
+    # THE RUN'S REPORT ON ITSELF, AS THE SITE SERVES IT. `run.json`, `checks.json` and
+    # `status.json` are built by the site from the store with these same producers, and they are
+    # where a build machine's path once reached a public repository: a failing lint's finding
+    # carried its absolute path into `checks.json`. Kept apart from `emitted`, which is the corpus
+    # and is what `served.around` and the withheld-title scans read; a report is not the corpus.
+    import status as _status
+    reports = {"run.json": _emit.as_text(_emit.run(db)),
+               "checks.json": _emit.as_text(_emit.checks(db)),
+               "status.json": _emit.as_text(_status.from_store(db, None))}
     return {
         "emitted": emitted,
+        "reports": reports,
         "releases": releases,
         "works": _emit.works(db).get("works") or [],
         "index": _emit.index(db) or [],
@@ -5303,6 +5322,22 @@ INVARIANTS += STORE_INVARIANTS
 BUDGETS_DEF += STORE_BUDGETS
 
 
+def _plant_a_build_path_in_the_report(c):
+    """A finding carrying the path of the machine that ran it, as `checks.json` once did.
+
+    §14b: the shape is the real one, a lint's `<file>:<line>: <what>` with an absolute path in
+    front, which is how a home directory reached a public repository. Planted in the report and
+    not the corpus, because the report is where it happened and where this check never looked.
+    """
+    # ASSEMBLED, NOT WRITTEN OUT. `.githooks/leak-guard.sh` refuses a committed `/home/<user>/`, which
+    # is the same rule this check enforces on the published files, so the canary's path is put
+    # together at run time and the source never holds one.
+    path = "/".join(["", "home", "runner", "work", "yurison", "adapters", "lint", "tics.py"])
+    c["reports"] = dict(c.get("reports") or {})
+    c["reports"]["checks.json"] = (c["reports"].get("checks.json") or "{}").replace(
+        "{", '{"example": "' + path + ':41: em dash", ', 1)
+
+
 def _plant_a_late_row_above_its_day(c):
     """The fault as it arrived: an older row lifted to the head of the feed, keeping its own date.
 
@@ -5334,6 +5369,8 @@ def self_test():
     probes = [tuple(p) for p in STORE_PROBES] + [
         ("the feed is newest first", inv_the_feed_is_newest_first,
          _plant_a_late_row_above_its_day),
+        ("no build-machine paths in published files", inv_no_absolute_paths_in_published_files,
+         _plant_a_build_path_in_the_report),
         # THE JOIN BETWEEN THE STORE AND THE ROW, planted as the fault would arrive: a title the
         # store has an English name for whose row carries none. That is what a fold quietly ceasing
         # to match looks like, and it would otherwise show only as a reader seeing romaji.

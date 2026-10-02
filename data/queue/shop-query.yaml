@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 225
   hits_on_the_title_alone: 101
   hits_stating_a_print_edition_date: 188
-  works_asked: 785
+  works_asked: 788
   works_with_a_hit: 233
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -1647,6 +1647,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-earthstar.com/episode/12207421984241521945"
+    id: "w03302"
+    work: "はるは巡る"
+    author: "藤鶉"
+    platform: "コミック アース・スター"
+    retrieved: "2026-10-03"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-earthstar.com/episode/2550689798369117852"
     id: "w00725"
     work: "ソリスターズ・ハイ"
@@ -3681,6 +3691,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_020132_S"
+    id: "w03301"
+    work: "仕事のあとは同じ教室で"
+    author: "藤松盟"
+    platform: "カドコミ"
+    retrieved: "2026-10-03"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-walker.com/detail/KC_020158_S"
     id: "w03300"
     work: "真夜中に愛してよ"
@@ -5187,6 +5207,14 @@ works:
     hits: []
     notes:
       - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://kimicomi.com/episodes/9f79b9c018e62/"
+    id: "w03303"
+    work: "午後4時。透明、ときどき声優"
+    platform: "キミコミ"
+    retrieved: "2026-10-03"
+    hits: []
+    notes:
       - "title query answered nothing"
   - work_url: "https://kimicomi.com/series/397963f4f9cfd"
     id: "w03262"

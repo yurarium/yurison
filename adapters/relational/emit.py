@@ -1410,6 +1410,14 @@ def feed_files(db):
     archive_from = report.get("archive_from") or "9999-99"
     rows = feed(db)
     dated = [(str(r.get("feed_date") or r.get("pub") or "")[:10], r) for r in rows]
+    # NEWEST FIRST, STATED HERE AND NOT INHERITED. `feed` returns rows in the order they were loaded,
+    # which is whatever order the loader's source handed over: a full compile hands it the build's
+    # sorted list, a store rebuilt from `data/build/feed` hands it a window and then each month, and
+    # an incremental update appends. The interface draws each day where that day's first row falls,
+    # so the order IS the page, and on 2026-10-03 a reader met 27 Sep between 3 Oct and 2 Oct. This
+    # is the file a reader is served, so this is where its order is a property instead of an
+    # accident. Stable, so the rows of one day keep the order the build gave them.
+    dated.sort(key=lambda dr: dr[0], reverse=True)
 
     out = {}
     if generated:

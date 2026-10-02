@@ -578,6 +578,35 @@ def inv_no_absolute_paths_in_published_files(ctx):
     return bad
 
 
+def inv_the_feed_is_newest_first(ctx):
+    """Every published feed file lists its rows newest first, by the date each is filed under.
+
+    WHY THE ORDER IS A FACT A READER DEPENDS ON. The interface files a row under its `feed_date`
+    and places each day where that day's first row falls, so one row out of place carries its
+    whole day with it. On 2026-10-03 リユナイテッド・ルナ, a one-shot found late, sat third in
+    `feed/current.json` dated 27 Sep, and a reader met 27 Sep between 3 Oct and 2 Oct with all
+    seventeen of that day's other rows. `build.py` had sorted the list and then re-dated the late
+    rows of finished works in place, and the build log reported the re-dating every run.
+
+    ASKED OF THE EMITTED FILES, because the emitter keeps the order the build loaded and nothing
+    downstream sorts. A finding names the row standing above a newer one, which is the row that
+    moved, so the report points at the cause and not at its neighbour.
+
+    fallback: none. A feed in the wrong order is a page in the wrong order.
+    """
+    out = []
+    for name, text in sorted((ctx.get("emitted") or {}).items()):
+        if not (name == "feed/current.json" or re.fullmatch(r"feed/[0-9]{4}-[0-9]{2}\.json", name)):
+            continue
+        rows = (json.loads(text) or {}).get("releases") or []
+        dated = [(str(r.get("feed_date") or r.get("pub") or "")[:10], r) for r in rows]
+        for (d0, r0), (d1, _r1) in zip(dated, dated[1:]):
+            if d0 and d1 and d1 > d0:
+                out.append(f"{name}: {str(r0.get('work'))[:30]} filed {d0} stands above a row "
+                           f"filed {d1}")
+    return out
+
+
 def inv_fixture_states_where_it_came_from(ctx):
     """A committed fixture names the page it was cut from, and matches its own digest.
 
@@ -2038,6 +2067,7 @@ INVARIANTS = [
      inv_no_source_a_reader_sees_is_an_adapter),
     ("no workflow step reads a file the run emits",
      inv_no_workflow_step_reads_a_file_the_run_emits),
+    ("the feed is newest first", inv_the_feed_is_newest_first),
 ]
 
 
@@ -5273,6 +5303,25 @@ INVARIANTS += STORE_INVARIANTS
 BUDGETS_DEF += STORE_BUDGETS
 
 
+def _plant_a_late_row_above_its_day(c):
+    """The fault as it arrived: an older row lifted to the head of the feed, keeping its own date.
+
+    §14b. Not an invented bad value: this is `feed/current.json` exactly as published on
+    2026-10-03, rebuilt from today's file by moving the first row filed earlier than the head up to
+    third place, which is where リユナイテッド・ルナ stood.
+    """
+    name = "feed/current.json"
+    doc = json.loads(c["emitted"][name])
+    rows = doc.get("releases") or []
+    head = str(rows[0].get("feed_date") or rows[0].get("pub") or "")[:10] if rows else ""
+    i = next((i for i, r in enumerate(rows)
+              if str(r.get("feed_date") or r.get("pub") or "")[:10] < head), None)
+    if i is None:
+        raise RuntimeError("the feed holds one date only, so no row can be planted out of order")
+    rows.insert(min(2, i), rows.pop(i))
+    c["emitted"][name] = json.dumps(doc, ensure_ascii=False)
+
+
 def self_test():
     """Prove the invariants can fail. A check that cannot demonstrate a catch is not a check."""
     import copy
@@ -5283,6 +5332,8 @@ def self_test():
         print("  self-test SKIPPED — no build output to plant a canary in")
         return True
     probes = [tuple(p) for p in STORE_PROBES] + [
+        ("the feed is newest first", inv_the_feed_is_newest_first,
+         _plant_a_late_row_above_its_day),
         # THE JOIN BETWEEN THE STORE AND THE ROW, planted as the fault would arrive: a title the
         # store has an English name for whose row carries none. That is what a fold quietly ceasing
         # to match looks like, and it would otherwise show only as a reader seeing romaji.

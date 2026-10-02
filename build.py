@@ -6319,6 +6319,14 @@ def main():
             r["feed_date"] = r["pub"]
             _unsurfaced += 1
     if _unsurfaced:
+        # AND MOVED TO THAT DATE, which re-dating alone does not do. The list was sorted on
+        # `feed_date` 880 lines up, when these rows still carried the day they were found, so each
+        # sat at the head of the feed holding an older date. The interface files a row under its
+        # date and places each day where its first row falls, so one such row lifted its whole day
+        # out of order: on 2026-10-03 リユナイテッド・ルナ, a one-shot found late, sat third in the
+        # list dated 27 Sep, and a reader met 27 Sep between 3 Oct and 2 Oct with all seventeen of
+        # that day's other rows beside it. Stable, so rows sharing a date keep the order they had.
+        releases.sort(key=lambda r: r["feed_date"], reverse=True)
         print(f"finished series : {_unsurfaced} late-found row(s) filed under their publication "
               f"date, the work having ended")
 

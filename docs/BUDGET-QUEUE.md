@@ -1127,3 +1127,27 @@ rise was this pass's own: 午後4時 arrived on a chapter address, `/episodes/9f
 first mint anchored only that. Its episode page links one series, `/series/699382e254c67`, which
 answers 200 and titles itself as the work, and that is anchored now with the evidence in
 `data/queue/address-work-level-comici.yaml`, so its fourth chapter will find it.
+
+## Five naming budgets rose as bylines arrived where there were none. Accepted 2026-10-03
+
+No new works and no new credit identifiers: the store held 2,249 credits before and after. What
+arrived is bylines. The 2026-10-02 fix that reads a comici work's byline off its series page when
+the page captured is a chapter was written for 午後4時。透明、ときどき声優, and it reached further
+than that work: 贋作の第十番 on チャンピオンクロス, とくにある日々, のんちゃんとアカリ,
+ストリーミング・ウォー and ブランクスペース on HERO'S Web, and 最恐呪物令嬢 on ヤングアニマル all
+showed readers no credits before it and show their bylines now. Eight author names entered
+`data/names/authors.yaml` with them: 漆赤, 岬鷺宮, いちかわはる, 梶本レイカ, なか憲人, 日日ねるこ,
+シガマ and 熊倉献.
+
+`author names romanised as one word` 1212 to 1217, `kana names with no stated division` 271 to 272,
+`author readings no source states` 444 to 450 and `credit fields an identifier does not cover` 85
+to 93 are those names as they arrive: read by the analyser, divided by nobody, and with no credit
+identifier minted for them yet. Every one of these is coverage a reader did not have on 2026-10-01.
+
+`credits sharing a reading nobody has ruled on` 22 to 23 is the one that is a question.
+なか憲人, credited on とくにある日々 (HERO'S Web), reads ナカケント, and so does 中憲人, credited on
+雑な生活 (KADOKAWA, on カドコミ). Writing 中 as なか is a common way for one pen name to be spelled
+two ways, and that resemblance is all there is: different works, different houses, and no page in
+hand naming both. A `merge` would assert one person and a `keep` two, and neither is established,
+so the pair is left unruled in `data/identity/credit-rulings.yaml` and this number says so. What
+would settle it is the artist's own page or a publisher's listing that names both works.

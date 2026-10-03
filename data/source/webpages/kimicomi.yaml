@@ -6,7 +6,7 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-10-03
+retrieved: 2026-10-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -377,7 +377,7 @@ works:
     status: "連載中"
     author: "真田一輝"
     url: "https://kimicomi.com/series/f42014b3e7df6"
-    chapter_count: 24
+    chapter_count: 25
     chapters:
       - title: "熟成01"
         updated: "2026-04-19"
@@ -438,18 +438,21 @@ works:
         access_modes: ["free-timed"]
       - title: "熟成20"
         updated: "2026-08-30"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "熟成21"
         updated: "2026-09-06"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "熟成22"
         updated: "2026-09-13"
         access_modes: ["free"]
       - title: "熟成23"
         updated: "2026-09-20"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "熟成24"
         updated: "2026-09-27"
+        access_modes: ["purchase"]
+      - title: "熟成25"
+        updated: "2026-10-04"
         access_modes: ["purchase"]
   - work_title: "人妻とJK"
     status: "連載中"

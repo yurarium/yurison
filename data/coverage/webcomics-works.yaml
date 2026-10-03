@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-10-03
+retrieved: 2026-10-04
 record_type: candidate_works
 works: 310
 candidates:
@@ -753,7 +753,7 @@ candidates:
   - title: "はるは巡る"
     platforms: ["コミック アース・スター"]
     urls: ["https://comic-earthstar.com/episode/12207421984241521945"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "ばっどがーる"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/53991"]
@@ -2913,7 +2913,7 @@ candidates:
   - title: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_019660_S"]
-    tags: ["百合", "筋肉"]
+    tags: ["最近のコメント数", "百合", "筋肉"]
   - title: "悪魔のモカちゃん"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/6807"]
@@ -3850,7 +3850,7 @@ candidates:
   - title: "葵とおねーちゃん"
     platforms: ["comicブースト"]
     urls: ["https://comic-boost.com/content/01780001"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "蓼食う君も好き好き"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/3269754496488681033"]

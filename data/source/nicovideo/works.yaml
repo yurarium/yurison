@@ -10,7 +10,7 @@
 source: nicovideo
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-10-03
+retrieved: 2026-10-04
 record_type: web_work_chapters
 identification_mode: known-works
 works_resolved: 494
@@ -25347,7 +25347,7 @@ works:
     platform_code: "74964"
     started: "2025-11-13"
     updated: "2026-09-03"
-    episode_count_stated: 4
+    episode_count_stated: 3
     chapter_count: 22
     chapters:
       - title: "第一話"
@@ -25393,7 +25393,7 @@ works:
       - title: "第十二話-2"
         app_only: true
       - title: "最終話"
-        access_modes: ["free"]
+        app_only: true
   - work_title: "ぷくちょらりファミリア"
     author: "圷　見南子(著者)"
     url: "https://manga.nicovideo.jp/comic/75486"

@@ -2,7 +2,7 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-10-04
+retrieved: 2026-10-05
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -248,9 +248,6 @@ works:
         title: "おまけ"
         updated: 2026-10-04
         access_modes: ["free"]
-        access_changed: "purchase -> free"
-        access_changed_on: "2026-10-04"
-        became_free: true
       - chapter_id: 79874
         title: "第36話(3)"
         updated: 2026-09-27
@@ -5766,9 +5763,6 @@ works:
         title: "５巻 第６０話"
         updated: 2026-10-03
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-10-04"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78506
         title: "５巻 第５９話"
@@ -9927,9 +9921,6 @@ works:
         title: "１３巻 第１６７話"
         updated: 2026-10-03
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-10-04"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 68264
         title: "１３巻 第１６６話"

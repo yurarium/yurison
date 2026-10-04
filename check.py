@@ -5341,9 +5341,14 @@ def _plant_a_build_path_in_the_report(c):
 def _plant_a_late_row_above_its_day(c):
     """The fault as it arrived: an older row lifted to the head of the feed, keeping its own date.
 
-    §14b. Not an invented bad value: this is `feed/current.json` exactly as published on
-    2026-10-03, rebuilt from today's file by moving the first row filed earlier than the head up to
-    third place, which is where リユナイテッド・ルナ stood.
+    §14b. Not an invented bad value: this is `feed/current.json` as published, with the first row
+    filed earlier than the head lifted above it, which is the shape リユナイテッド・ルナ had.
+
+    TO THE HEAD AND NOT TO THIRD PLACE, which is where the real row stood and where this first put
+    it. Third place is only above a newer row when the newest day holds three; a run early in the
+    Japanese morning finds that day one or two rows old, the move put the row back where it was,
+    and on 2026-10-04 the self-test failed the run with nothing planted. The head is above every
+    other row whatever the day holds.
     """
     name = "feed/current.json"
     doc = json.loads(c["emitted"][name])
@@ -5353,7 +5358,11 @@ def _plant_a_late_row_above_its_day(c):
               if str(r.get("feed_date") or r.get("pub") or "")[:10] < head), None)
     if i is None:
         raise RuntimeError("the feed holds one date only, so no row can be planted out of order")
-    rows.insert(min(2, i), rows.pop(i))
+    rows.insert(0, rows.pop(i))
+    # A PLANT THAT MOVED NOTHING SAYS SO, instead of handing the check an unchanged feed and letting
+    # the self-test report the check as blind when it was the canary that was.
+    if str(rows[0].get("feed_date") or rows[0].get("pub") or "")[:10] >= head:
+        raise RuntimeError("the planted row is not older than the one it was put above")
     c["emitted"][name] = json.dumps(doc, ensure_ascii=False)
 
 

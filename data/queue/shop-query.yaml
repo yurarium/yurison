@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 225
   hits_on_the_title_alone: 101
   hits_stating_a_print_edition_date: 188
-  works_asked: 788
+  works_asked: 789
   works_with_a_hit: 233
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -3721,6 +3721,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_020962_S"
+    id: "w03304"
+    work: "JKのストレス発散方法"
+    author: "野際凰生"
+    platform: "カドコミ"
+    retrieved: "2026-10-05"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-y-ours.com/episode/12207421983394553051"
     id: "w03296"
     work: "アンラッキースケベ"

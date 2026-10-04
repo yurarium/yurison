@@ -1151,3 +1151,16 @@ two ways, and that resemblance is all there is: different works, different house
 hand naming both. A `merge` would assert one person and a `keep` two, and neither is established,
 so the pair is left unruled in `data/identity/credit-rulings.yaml` and this number says so. What
 would settle it is the artist's own page or a publisher's listing that names both works.
+
+## Four budgets rose by one name. Accepted 2026-10-04
+
+JKのストレス発散方法, a KADOKAWA special one-shot on カドコミ dated 2026-10-04, arrived on the
+antenna's 百合 tag with KADOKAWA's own 百合 tag on its page, so §2 admits it publisher-side. It was
+the one series row of 1,457 with no identifier; `w03304` is minted by hand and the title is
+translated, How a High School Girl Blows Off Steam.
+
+`author names romanised as one word`, `author readings no source states`, `credit fields an
+identifier does not cover` and `uncertain readings` each rose by one, and all four are its artist,
+野際凰生. The analyser reads ノギワコウナマ, which takes 生 as なま and looks wrong for a given name;
+that doubt is what `uncertain readings` exists to carry, and a reading of ours would be a second
+guess with a cleaner look. The route down is a source that states it.

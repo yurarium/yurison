@@ -21423,6 +21423,10 @@ works:
       - anchor: "web:https://kimicomi.com/series/699382e254c67"
         basis: "the episode page at https://kimicomi.com/episodes/9f79b9c018e62/ links one series, https://kimicomi.com/series/699382e254c67; that page was fetched 2026-10-02, answered 200 and titles itself 午後4時。透明、ときどき声優 - 漆赤,岬鷺宮,いちかわはる | キミコミ"
         retrieved: 2026-10-02
+  - id: w03304
+    title: "JKのストレス発散方法"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_020962_S"
 related:
   - a: w00957
     b: w01587

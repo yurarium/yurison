@@ -6,7 +6,7 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-10-05
+retrieved: 2026-10-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -590,16 +590,19 @@ works:
     status: "連載中"
     author: "漆赤,岬鷺宮,いちかわはる"
     url: "https://kimicomi.com/episodes/9f79b9c018e62/"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
       - title: "第1話"
         updated: "2026-09-19"
         access_modes: ["free"]
       - title: "第2話①"
         updated: "2026-09-19"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第2話②"
         updated: "2026-09-19"
+        access_modes: ["purchase"]
+      - title: "第3話①"
+        updated: "2026-10-06"
         access_modes: ["purchase"]
   - work_title: "新米錬金術師の店舗経営"
     status: "連載中"
@@ -1127,7 +1130,7 @@ works:
     status: "連載中"
     author: "涼海来夏"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    chapter_count: 11
+    chapter_count: 12
     chapters:
       - title: "OPERATION1"
         updated: "2026-07-20"
@@ -1149,16 +1152,19 @@ works:
         access_modes: ["free-timed"]
       - title: "OPERATION7"
         updated: "2026-08-31"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "OPERATION8"
         updated: "2026-09-07"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "OPERATION9"
         updated: "2026-09-14"
         access_modes: ["free"]
       - title: "OPERATION10"
         updated: "2026-09-21"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "OPERATION11"
         updated: "2026-09-28"
+        access_modes: ["purchase"]
+      - title: "OPERATION12"
+        updated: "2026-10-05"
         access_modes: ["purchase"]

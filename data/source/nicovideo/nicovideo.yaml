@@ -9,12 +9,100 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-10-05
+retrieved: 2026-10-06
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 494
 works:
+  - work_title: "安達としまむら"
+    author: "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)"
+    url: "https://manga.nicovideo.jp/comic/41839"
+    comic_id: "41839"
+    updated: "2026-10-05"
+    started: "2019-06-03"
+    episode_count: 6
+    free_episodes: 6
+    channel: "電撃大王"
+    channel_slug: "daioh"
+    latest_episode: "番外編「日野と永藤」①"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1159872"
+  - work_title: "リコリス・リコイル"
+    author: "備前やすのり(作画) Spider Lily(原作)"
+    url: "https://manga.nicovideo.jp/comic/61397"
+    comic_id: "61397"
+    updated: "2026-10-05"
+    started: "2022-12-10"
+    episode_count: 3
+    free_episodes: 3
+    channel: "ほぼほぼ週刊フラッパー"
+    channel_slug: "flapper"
+    latest_episode: "#48"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1135341"
+  - work_title: "ララのうた"
+    author: "河野スイ"
+    url: "https://manga.nicovideo.jp/comic/62230"
+    comic_id: "62230"
+    updated: "2026-10-05"
+    started: "2023-02-02"
+    episode_count: 11
+    free_episodes: 11
+    channel: "コミックPASH! ver.N"
+    channel_slug: "comicpash"
+    latest_episode: "第37話　アリデラの日記③"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112085"
+  - work_title: "魔法少女三十路"
+    author: "三倉ゆめ"
+    url: "https://manga.nicovideo.jp/comic/80236"
+    comic_id: "80236"
+    updated: "2026-10-05"
+    started: "2026-06-15"
+    episode_count: 2
+    free_episodes: 2
+    channel: "ニコニコヒーローズ"
+    channel_slug: "niconicoheros"
+    latest_episode: "第46話　もしスーパーが征服されたら…（後編）"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1128761"
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-10-05"
+    started: "2019-10-20"
+    episode_count: 161
+    free_episodes: 161
+    latest_episode: "ロボ27-5"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1163266"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-10-05"
+    started: "2022-08-31"
+    episode_count: 136
+    free_episodes: 136
+    latest_episode: "第9話の14"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1163267"
+  - work_title: "祖母ドル ～余命わずかのおばあちゃん、若返って孫とアイドルになる～"
+    author: "狐ヶ崎(著者)"
+    url: "https://manga.nicovideo.jp/comic/70067"
+    comic_id: "70067"
+    updated: "2026-10-04"
+    started: "2024-10-04"
+    episode_count: 5
+    free_episodes: 5
+    channel: "ヤングエース"
+    channel_slug: "youngace"
+    latest_episode: "第26話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1143498"
+  - work_title: "おやすみシェヘラザード"
+    author: "篠房六郎"
+    url: "https://manga.nicovideo.jp/comic/34558"
+    comic_id: "34558"
+    updated: "2026-10-04"
+    started: "2018-05-10"
+    channel: "もっとやわらかスピリッツ"
+    channel_slug: "yawaspi"
   - work_title: "おちこぼれフルーツタルト"
     author: "浜弓場 双"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -51,18 +139,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第21話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1159945"
-  - work_title: "ララのうた"
-    author: "河野スイ"
-    url: "https://manga.nicovideo.jp/comic/62230"
-    comic_id: "62230"
-    updated: "2026-10-03"
-    started: "2023-02-02"
-    episode_count: 9
-    free_episodes: 9
-    channel: "コミックPASH! ver.N"
-    channel_slug: "comicpash"
-    latest_episode: "第37話　アリデラの日記③"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112085"
   - work_title: "男子高校生だけどギャルにTSしました"
     author: "太陽まりい(著者)"
     url: "https://manga.nicovideo.jp/comic/67976"
@@ -87,26 +163,6 @@ works:
     channel_slug: "maoh"
     latest_episode: "第１７話①"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1162513"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-10-03"
-    started: "2019-10-20"
-    episode_count: 159
-    free_episodes: 159
-    latest_episode: "ロボ27-3"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1162933"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-10-03"
-    started: "2022-08-31"
-    episode_count: 134
-    free_episodes: 134
-    latest_episode: "第9話の12"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1162934"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"
@@ -177,14 +233,6 @@ works:
     channel_slug: "asuka"
     latest_episode: "ANOTHER SCENE 4 Side B"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1136120"
-  - work_title: "おやすみシェヘラザード"
-    author: "篠房六郎"
-    url: "https://manga.nicovideo.jp/comic/34558"
-    comic_id: "34558"
-    updated: "2026-10-01"
-    started: "2018-05-10"
-    channel: "もっとやわらかスピリッツ"
-    channel_slug: "yawaspi"
   - work_title: "タイムトラベル少女 ～ミライのサキ～"
     author: "ぱぺっときゃすと！"
     url: "https://manga.nicovideo.jp/comic/77287"
@@ -585,30 +633,6 @@ works:
     channel_slug: "mangatime"
     latest_episode: "第147話　後半"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1127437"
-  - work_title: "安達としまむら"
-    author: "柚原もけ(漫画) 入間人間(原作) のん(キャラクターデザイン)"
-    url: "https://manga.nicovideo.jp/comic/41839"
-    comic_id: "41839"
-    updated: "2026-09-21"
-    started: "2019-06-03"
-    episode_count: 7
-    free_episodes: 7
-    channel: "電撃大王"
-    channel_slug: "daioh"
-    latest_episode: "第60話「Cherry Blossoms for the Two of Us2」②"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129809"
-  - work_title: "魔法少女三十路"
-    author: "三倉ゆめ"
-    url: "https://manga.nicovideo.jp/comic/80236"
-    comic_id: "80236"
-    updated: "2026-09-21"
-    started: "2026-06-15"
-    episode_count: 2
-    free_episodes: 2
-    channel: "ニコニコヒーローズ"
-    channel_slug: "niconicoheros"
-    latest_episode: "第46話　もしスーパーが征服されたら…（前編）"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1128760"
   - work_title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
     author: "江島絵理(著者)"
     url: "https://manga.nicovideo.jp/comic/47294"
@@ -969,18 +993,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第14話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1129906"
-  - work_title: "リコリス・リコイル"
-    author: "備前やすのり(作画) Spider Lily(原作)"
-    url: "https://manga.nicovideo.jp/comic/61397"
-    comic_id: "61397"
-    updated: "2026-09-05"
-    started: "2022-12-10"
-    episode_count: 3
-    free_episodes: 3
-    channel: "ほぼほぼ週刊フラッパー"
-    channel_slug: "flapper"
-    latest_episode: "#47"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1122779"
   - work_title: "オレが私になるまで"
     author: "佐藤はつき(著者)"
     url: "https://manga.nicovideo.jp/comic/40175"
@@ -993,18 +1005,6 @@ works:
     channel_slug: "comicwalker"
     latest_episode: "第76話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1131504"
-  - work_title: "祖母ドル ～余命わずかのおばあちゃん、若返って孫とアイドルになる～"
-    author: "狐ヶ崎(著者)"
-    url: "https://manga.nicovideo.jp/comic/70067"
-    comic_id: "70067"
-    updated: "2026-09-04"
-    started: "2024-10-04"
-    episode_count: 5
-    free_episodes: 5
-    channel: "ヤングエース"
-    channel_slug: "youngace"
-    latest_episode: "第25話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1121757"
   - work_title: "妄執女と芥川"
     author: "鈴木二三江(著者)"
     url: "https://manga.nicovideo.jp/comic/74964"
@@ -1149,8 +1149,8 @@ works:
     comic_id: "37662"
     updated: "2026-08-07"
     started: "2018-11-02"
-    episode_count: 32
-    free_episodes: 32
+    episode_count: 53
+    free_episodes: 53
     channel: "アパンダ"
     channel_slug: "apanta"
     latest_episode: "第72話"

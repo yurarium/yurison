@@ -6,7 +6,7 @@ platform: hanayume
 platform_name: "花とゆめ+"
 publisher: "白泉社"
 engine: comici
-retrieved: 2026-10-05
+retrieved: 2026-10-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -23,7 +23,7 @@ works:
     status: "連載中"
     author: "瑠夏子"
     url: "https://hanayume.com/series/f3ce082d639de"
-    chapter_count: 38
+    chapter_count: 39
     chapters:
       - title: "#1"
         updated: "2026-04-20"
@@ -135,9 +135,12 @@ works:
         access_modes: ["free-timed"]
       - title: "＃19①"
         updated: "2026-09-21"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "＃19②"
         updated: "2026-09-28"
+        access_modes: ["free"]
+      - title: "＃20①"
+        updated: "2026-10-05"
         access_modes: ["purchase"]
   - work_title: "男装メイドは尽くしたい"
     status: "完結"

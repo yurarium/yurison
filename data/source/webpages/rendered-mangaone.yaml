@@ -10,7 +10,7 @@ source: webpages
 platform: mangaone
 platform_name: "マンガワン"
 publisher: "小学館"
-retrieved: 2026-10-05
+retrieved: 2026-10-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -222,8 +222,12 @@ works:
     url: "https://manga-one.com/viewer/70173"
     chapter_count: 10
     chapters:
+      - title: "TVドラマレポ漫画④"
+        updated: 2026-10-02
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "番外編②"
-        updated: 2026-10-16
+        updated: 2026-10-09
         access_modes: ["purchase"]
         access_note: "released early to paying readers (先読)"
         date_basis: rendered
@@ -258,8 +262,4 @@ works:
       - title: "最終14巻コミックスPR"
         updated: 2025-03-14
         access_modes: ["free"]
-        date_basis: rendered
-      - title: "第133話(最終話)"
-        updated: 2026-09-04
-        access_modes: ["purchase"]
         date_basis: rendered

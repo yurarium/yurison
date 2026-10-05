@@ -6,7 +6,7 @@ platform: yanmaga
 platform_name: "ヤンマガWeb"
 publisher: "講談社"
 engine: yanmaga
-retrieved: 2026-10-05
+retrieved: 2026-10-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -124,7 +124,7 @@ works:
         access_modes: ["purchase"]
   - work_title: "サタノファニ"
     url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
       - title: "第１話　「甘城千歌」"
         updated: "2020-06-01"
@@ -149,6 +149,8 @@ works:
       - title: "第３４０話　「キングレイパー」"
         updated: "2026-09-30"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/d335ff04b482b3902dcf1ce53559a131"
+        access_modes: ["purchase"]
+      - title: "第３４１話　「エンペラーオブレイパー」"
         access_modes: ["purchase"]
   - work_title: "シュガーガール・ドリップ"
     url: "https://yanmaga.jp/comics/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB_%E3%83%89%E3%83%AA%E3%83%83%E3%83%97"
@@ -232,7 +234,7 @@ works:
         access_modes: ["purchase"]
   - work_title: "乙女のおかず"
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
-    chapter_count: 8
+    chapter_count: 7
     chapters:
       - title: "第１話　乙女のぬくもり"
         updated: "2025-09-23"
@@ -246,10 +248,6 @@ works:
         updated: "2025-09-23"
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/2ed50467765e0dfbc674f60d9a5a58d4"
         access_modes: ["free"]
-      - title: "第４３話　乙女と勤労"
-        updated: "2026-09-08"
-        url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/612de15bd64a40bfb3f5ffed91ba0753"
-        access_modes: ["purchase"]
       - title: "第４４話　疎外感"
         updated: "2026-09-15"
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/78b820fc8bf25a58eeb1037b5b787286"
@@ -263,6 +261,8 @@ works:
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/1ec86d134e5b543beda8617177191331"
         access_modes: ["purchase"]
       - title: "第４６話　スキスキダイスキダイキライ！後編"
+        updated: "2026-10-06"
+        url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/bd7c5a801f3225a9e3e75814af7dcf23"
         access_modes: ["purchase"]
   - work_title: "今日はカノジョがいないから"
     url: "https://yanmaga.jp/comics/%E4%BB%8A%E6%97%A5%E3%81%AF%E3%82%AB%E3%83%8E%E3%82%B8%E3%83%A7%E3%81%8C%E3%81%84%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89"

@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-10-05
+retrieved: 2026-10-06
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -418,8 +418,8 @@ works:
     url: "https://comic.pixiv.net/works/11081"
     chapter_count: 4
     chapters:
-      - title: "第17話①"
-        updated: 2026-09-05
+      - title: "第17話② 2日前UP"
+        updated: 2026-10-03
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3話"
@@ -647,11 +647,11 @@ works:
     url: "https://comic.pixiv.net/works/11800"
     chapter_count: 5
     chapters:
-      - title: "17-② 本日UP"
+      - title: "17-②"
         updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
-      - title: "17-① 本日UP"
+      - title: "17-①"
         updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
@@ -699,7 +699,7 @@ works:
   - work_title: "ボイタボイネ"
     author: "夏草"
     url: "https://comic.pixiv.net/works/12194"
-    chapter_count: 5
+    chapter_count: 4
     chapters:
       - title: "第22話 決闘スタンバイ(後編)"
         updated: 2026-09-21
@@ -707,10 +707,6 @@ works:
         date_basis: rendered
       - title: "第21話 決闘スタンバイ(中編)"
         updated: 2026-08-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第20話 決闘スタンバイ(前編)"
-        updated: 2026-08-03
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 男子制服の理由"
@@ -739,8 +735,8 @@ works:
     url: "https://comic.pixiv.net/works/12795"
     chapter_count: 2
     chapters:
-      - title: "第6.5話"
-        updated: 2026-07-28
+      - title: "第7話 6日前UP"
+        updated: 2026-09-29
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話"
@@ -799,7 +795,7 @@ works:
     url: "https://comic.pixiv.net/works/13225"
     chapter_count: 4
     chapters:
-      - title: "第5話 本日UP"
+      - title: "第5話"
         updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
@@ -879,7 +875,7 @@ works:
     url: "https://comic.pixiv.net/works/13345"
     chapter_count: 4
     chapters:
-      - title: "第4片 本日UP"
+      - title: "第4片"
         updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
@@ -900,8 +896,8 @@ works:
     url: "https://comic.pixiv.net/works/13373"
     chapter_count: 2
     chapters:
-      - title: "第13話 彼氏とお別れする話②"
-        updated: 2026-09-26
+      - title: "第14話 元教え子と距離が縮まる話①"
+        updated: 2026-10-03
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話 たぬき女に迫られる話"
@@ -1493,22 +1489,10 @@ works:
   - work_title: "作りたい女と食べたい女"
     author: "ゆざきさかおみ"
     url: "https://comic.pixiv.net/works/7182"
-    chapter_count: 11
+    chapter_count: 8
     chapters:
-      - title: "第45話 クローゼット"
-        updated: 2026-09-22
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第44話 家具量販店へ行こう！"
-        updated: 2026-09-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第43話 あなたと明日も"
-        updated: 2026-09-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第42話 引っ越し"
-        updated: 2026-09-01
+      - title: "第46話 あなたの味方"
+        updated: 2026-09-29
         access_modes: ["free"]
         date_basis: rendered
       - title: "第41話 受け入れてくれる場所"

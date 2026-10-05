@@ -1164,3 +1164,22 @@ identifier does not cover` and `uncertain readings` each rose by one, and all fo
 野際凰生. The analyser reads ノギワコウナマ, which takes 生 as なま and looks wrong for a given name;
 that doubt is what `uncertain readings` exists to carry, and a reading of ours would be a second
 guess with a cleaner look. The route down is a source that states it.
+
+## `incomplete attested rows` 49 to 50, and a correction to the entry of 2026-10-01. Accepted 2026-10-05
+
+The moved-selector test again, rows present in both the 2026-10-05 and 2026-10-06 stores: two lost an
+access state and three gained one, the first movement either way since this was first measured.
+All five are マガポケ. The two that lost one are chapters from 2026-08-19 and 2026-08-26 that read
+`free` the day before; the three that gained one are the newest chapters of 2026-09-30, which had
+been empty for five days and now read `purchase`.
+
+That is not a moved selector, which strips the state from rows across a platform, and it is
+`adapters/magapoke.py`'s documented limit: マガポケ shows access only for a ten-episode window on
+the rendered page, so a chapter has a state while it is inside the window and none outside it. The
+net rise is that window plus ordinary arrivals, two on webアクション and one ニコニコ row replacing
+another.
+
+THE ENTRY OF 2026-10-01 SAID A RECORDED-EMPTY ROW "STAYS THAT WAY UNTIL IT LEAVES THE WINDOW", and
+that was wrong. It rested on two consecutive stores in which nothing moved, and the rows it cited
+are among the three that gained a state today. Every run re-reads every row. The GAPS entry it
+pointed to is corrected in place, retitled, with the remedy it proposed withdrawn.

@@ -4040,7 +4040,7 @@ carrying no identifier, which the build already knows, rather than subtracting t
 are only nearly the same size. The name is then true and the duplicate-row case gets a number of
 its own, or none, since nothing is wrong with it.
 
-## A release's access state is read once and never again
+## Some マガポケ chapters pass through an access state nothing reads
 
 Found 2026-10-01, establishing why `incomplete attested rows` rose to 52.
 
@@ -4060,3 +4060,26 @@ in the window. The budget it inflates is a floor over a windowed population, so 
 of why that number climbs, and the climb is real coverage lost and not only a ratchet artefact.
 Re-reading the access state of releases that lack one, on a later run, would close it whichever
 cause it turns out to be.
+
+**CORRECTED 2026-10-05: the state IS re-read, and the title this entry first had was wrong.**
+Comparing the stores of 2026-10-05 and 2026-10-06, three rows gained a state and two lost one, all
+on マガポケ. The three newest chapters of 2026-09-30, which had sat empty for five days and were the
+evidence above for "stay empty", now read `purchase`. Two older chapters, from 2026-08-19 and
+2026-08-26, read `free` the day before and nothing now. So every run reads every row, and two
+consecutive stores agreeing was too short a look to say otherwise; the remedy proposed above would
+re-read rows that are already re-read.
+
+THE MECHANISM IS ALREADY WRITTEN DOWN, in `adapters/magapoke.py`: the feed carries no access
+state, so it is read off the rendered page, which shows one only for a ten-episode window, and
+everything outside that window is silent. A chapter gains a state when it enters the window and
+loses it when it leaves, which is both directions seen here: two August chapters fell out as newer
+ones arrived, and three from 2026-09-30 came in. Why the newest chapters were outside the window
+for their first five days is not established; it fits the window being placed by something other
+than recency, and opening the page would say. The サンデーうぇぶり rows above have not been looked
+at since and may be another platform's version of the same limit.
+
+So the gap is coverage the page itself does not offer, not a reading the pipeline drops, and the
+honest state for a chapter outside the window is the empty one it already has.
+
+What stays true: the budget this inflates is a floor over a windowed population, and an empty row
+is a chapter shown with no line saying whether it is free.

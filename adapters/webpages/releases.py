@@ -28,6 +28,8 @@ import yaml
 import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
 _sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
 import htmlbits as _htmlbits                                            # noqa: E402
+from facts import identity as _identity                                  # noqa: E402
+from facts.worktitle import norm_work as _norm_work                      # noqa: E402
 
 UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 PAUSE = 1.5
@@ -92,6 +94,59 @@ def carry_over(path, urls):
         w.pop("chapter_count", None)
         keep.append(w)
     return keep
+
+
+#: The work a page names in its own title, before the byline and the platform.
+PAGE_WORK = re.compile(r"<title>\s*([^<|]+?)(?:\s+-\s+[^<|]*)?\s*\|")
+
+
+def _related(a, b):
+    """Whether two titles are one work, one of them perhaps the short form of the other."""
+    x, y = _norm_work(a or ""), _norm_work(b or "")
+    return bool(x) and bool(y) and (x.startswith(y) or y.startswith(x))
+
+
+def misdirected(title, url, html, owner_of, title_of, addresses=()):
+    """`(work id, title)` of the held work an address belongs to, where the candidate is another work.
+
+    THE CASE. Web漫画アンテナ lists 超かぐや姫! at two addresses: its own カドコミ page, held as
+    w00320, and `bibibi-comic.com/series/41de76fc8df5f`, which is the page of its spin-off
+    超かぐやメシ！, held as w03278. Reading the second under the candidate's title wrote the
+    spin-off's chapters and byline as an entry named 超かぐや姫!, and that entry offered one address
+    twice, which has sat in quarantine since 2026-09-27, and on 2026-10-06 won the title-keyed author
+    lookup and put テルヤ / 山下清悟 / フジヤマルリ on 超かぐや姫！'s own page.
+
+    THE REGISTRY DECIDES THAT TWO WORKS ARE TWO, NOT THE TITLES. A first version compared the
+    candidate's title with the held one, and over the 1,612 aggregator candidates it refused
+    噓つき花嫁と同性結婚論, the held 嘘つき花嫁と同性結婚論 written with the other form of 噓, while
+    友達/友だち and ―/- escaped only because the page happened to use the candidate's spelling. So a
+    refusal needs all three of: this address is held work A; ANOTHER of the candidate's own addresses
+    is held work B, a different work, whose title is the candidate's; and this page does not title
+    itself as the candidate. Every test that fails to fire errs toward reading the row as before.
+    """
+    here = owner_of.get(_identity.web_anchor(url))
+    if not here:
+        return None
+    elsewhere = {owner_of.get(_identity.web_anchor(u)) for u in addresses if u != url}
+    own = [w for w in elsewhere - {None, here} if _related(title, title_of.get(w))]
+    if not own:
+        return None
+    page = PAGE_WORK.search(html or "")
+    if not page or _related(page.group(1), title):
+        return None
+    return here, title_of.get(here) or ""
+
+
+def floor_for(site, targets, refused):
+    """The fewest works a healthy parse of this site yields, counted over the candidates it read.
+
+    REFUSED CANDIDATES ARE NOT COUNTED, because the floor asks whether the parser emptied and a
+    refusal is a decision made before parsing. ビビビコミック has three candidates and MIN_WORKS is
+    three, so counting the refused one would have put the site under its floor and written nothing
+    for it at all.
+    """
+    read = max(1, len(targets) - len(refused))
+    return site.get("min_works", min(MIN_WORKS, read))
 
 
 #: comici states the author in the page title as "作品 - 作者 | プラットフォーム".
@@ -223,7 +278,16 @@ def main():
     ap.add_argument("--retrieved", required=True)
     ap.add_argument("--sites", default="adapters/webpages/sites.yaml")
     ap.add_argument("--limit", type=int, default=60)
+    ap.add_argument("--registry", default="data/identity/works.yaml")
     a = ap.parse_args()
+
+    # WHICH HELD WORK EACH ADDRESS BELONGS TO, so a candidate the aggregator filed at another work's
+    # page can be refused instead of written under the wrong title. See `misdirected`.
+    _reg = pathlib.Path(a.registry)
+    _entries = ((yaml.safe_load(_reg.read_text(encoding="utf-8")) or {}).get("works") or []) \
+        if _reg.exists() else []
+    owner_of = _identity.index(_entries)
+    title_of = {e["id"]: e.get("title") for e in _entries}
 
     spec = yaml.safe_load(open(a.sites))
     engines = spec["engines"]
@@ -237,7 +301,11 @@ def main():
     # (works_missing/url). The full list is what should be used — the gap deliberately excludes
     # everything already reachable, so an adapter reading it loses works the moment they are.
     missing = []
+    # EVERY ADDRESS A CANDIDATE IS LISTED AT, which is how `misdirected` knows the candidate is
+    # already held as some other work.
+    addresses_of = {}
     for w in gap.get("candidates") or []:
+        addresses_of.setdefault(w.get("title"), []).extend(w.get("urls") or [])
         for u in w.get("urls") or []:
             missing.append({"title": w.get("title"), "url": u})
     for w in gap.get("works_missing") or []:
@@ -252,7 +320,7 @@ def main():
             print(f"{site['id']:12} no works in the gap file")
             continue
 
-        works, failed = [], []
+        works, failed, refused = [], [], []
         for tgt in targets:
             try:
                 html = fetch(tgt["url"], cache)
@@ -278,6 +346,11 @@ def main():
                     _f.append((_t["title"], f"{type(e).__name__} on a continuation page"))
                     return ""
 
+            mis = misdirected(tgt["title"], tgt["url"], html, owner_of, title_of,
+                              addresses_of.get(tgt["title"], ()))
+            if mis:
+                refused.append((tgt["title"], tgt["url"]) + mis)
+                continue
             eps = episodes(html, eng, f"https://{site['host']}", tgt["url"], _page)
             if len(eps) < site.get("min_episodes", 1):
                 failed.append((tgt["title"], f"{len(eps)} episodes parsed"))
@@ -304,7 +377,7 @@ def main():
         # with how many works the site actually has, or a platform carrying one yuri title is
         # permanently indistinguishable from a broken one — which is what happened to 花とゆめ+
         # (4 candidates) and COMICリュエル (1) the first time they ran.
-        floor = site.get("min_works", min(MIN_WORKS, max(1, len(targets))))
+        floor = floor_for(site, targets, refused)
         if len(works) < floor:
             print(f"HEALTH: {site['id']} — {len(works)} works parsed (< {floor}); "
                   "markup may have changed. Writing nothing for this site.", file=sys.stderr)
@@ -347,7 +420,10 @@ def main():
         grand["chapters"] += ne
         print(f"{site['id']:12} works={len(works):3}/{len(targets):3} chapters={ne:5}"
               + (f"  access={dict(acc)}" if acc else "")
-              + (f"  failed={len(failed)}" if failed else ""))
+              + (f"  failed={len(failed)}" if failed else "")
+              + (f"  refused={len(refused)}" if refused else ""))
+        for title, url, wid, held in refused:
+            print(f"    refused {title!r}: {url} is {wid} {held!r}, so not written under that title")
 
     print()
     print(f"total: {grand['works']} works, {grand['chapters']} chapters -> {out}")

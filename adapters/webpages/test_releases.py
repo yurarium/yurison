@@ -131,6 +131,7 @@ def main(s):
 
 
     a_byline_from_the_series_page(s)
+    a_candidate_at_another_works_page(s)
     a_refusal_on_a_continuation_page(s)
 
 
@@ -164,6 +165,45 @@ def a_byline_from_the_series_page(s):
          "and a series page that will not load costs the byline and raises nothing")
     s.eq(wp.author_of(episode, {"engine": "gigaviewer", "host": "x.jp"}, page), None,
          "another engine is not followed, its pages not being comici's")
+
+
+def a_candidate_at_another_works_page(s):
+    """The aggregator files a work at its spin-off's address, and the row is refused.
+
+    Real strings, read 2026-10-06: Web漫画アンテナ's candidate 超かぐや姫! at its own カドコミ page
+    (w00320) and at the ビビビコミック page of 超かぐやメシ！ (w03278), whose own title is below.
+    The second half is the false refusal a first version made over the real candidate list.
+    """
+    kadokomi = "https://comic-walker.com/detail/KC_008281_S"
+    bibibi = "https://bibibi-comic.com/series/41de76fc8df5f"
+    page = "<title>超かぐやメシ！ - テルヤ,山下清悟 / フジヤマルリ | ビビビコミック</title>"
+    owner_of = {"web:" + kadokomi: "w00320", "web:" + bibibi: "w03278",
+                "web:https://ichicomi.com/episode/2550912965919401644": "w01215"}
+    title_of = {"w00320": "超かぐや姫！", "w03278": "超かぐやメシ！", "w01215": "嘘つき花嫁と同性結婚論"}
+    both = (kadokomi, bibibi)
+
+    s.eq(wp.misdirected("超かぐや姫!", bibibi, page, owner_of, title_of, both),
+         ("w03278", "超かぐやメシ！"),
+         "a candidate held elsewhere, listed at another held work's page, is refused there")
+    s.eq(wp.misdirected("超かぐや姫!", kadokomi, "<title>超かぐや姫！ | カドコミ</title>", owner_of,
+                        title_of, both), None, "and read at its own page as before")
+    s.eq(wp.misdirected("超かぐやメシ！", bibibi, page, owner_of, title_of, (bibibi,)), None,
+         "the work the page belongs to is read as before")
+    s.eq(wp.misdirected("超かぐや姫!", bibibi, page, owner_of, title_of, (bibibi,)), None,
+         "with no other address held as another work, nothing says the candidate is elsewhere")
+
+    # ONE WORK SPELLED TWO WAYS, which the first version refused: 噓 and 嘘 are one character.
+    url = "https://ichicomi.com/episode/2550912965919401644"
+    s.eq(wp.misdirected("噓つき花嫁と同性結婚論", url, "<title>嘘つき花嫁と同性結婚論 - x | 一迅プラス</title>",
+                        owner_of, title_of, (url,)), None,
+         "a variant spelling of the held work at its own page is not refused")
+
+    # THE FLOOR, which is what would have made the refusal cost a whole platform.
+    targets = [{"title": t} for t in ("㊙のライラ", "超かぐやメシ！", "超かぐや姫!")]
+    s.eq(wp.floor_for({}, targets, []), 3, "three candidates and none refused ask for three")
+    s.eq(wp.floor_for({}, targets, [("超かぐや姫!",)]), 2,
+         "one refused asks for two, so ビビビコミック is not written off for the refusal")
+    s.eq(wp.floor_for({"min_works": 1}, targets, [("x",)]), 1, "a site's own floor still wins")
 
 
 def a_refusal_on_a_continuation_page(s):

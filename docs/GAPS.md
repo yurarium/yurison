@@ -3993,6 +3993,16 @@ disagreement and admits nothing, which turns a silent absorption into a queue ro
 question is whether one row offering the same address twice should reach the loader at all, since
 the `sources` list is built here and deduplicating it would cost nothing.
 
+
+This was closed on 2026-10-06, after it reached readers. That day the mis-titled entry won the
+title-keyed author lookup and 超かぐや姫！'s page showed its spin-off's byline, which
+`credit pages listing a work that does not name them` caught. The owner ruled the cheap version
+named above, and `adapters/webpages/releases.py` now refuses a candidate at an address held as
+another work when another of the candidate's own addresses is held as the work it names and the
+page does not title itself as the candidate. The registry, not the titles, decides that the works
+are two: a title comparison refused 噓つき花嫁と同性結婚論 for being spelled with the other form of
+噓. Over the 1,612 candidates the rule refuses this one address and nothing else, and with the
+entry gone the duplicate offer leaves the quarantine.
 ## The published quarantine can hold a row the final compile did not produce
 
 Found 2026-09-27, trying to reproduce the row above.

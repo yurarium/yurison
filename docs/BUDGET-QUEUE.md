@@ -1183,3 +1183,25 @@ THE ENTRY OF 2026-10-01 SAID A RECORDED-EMPTY ROW "STAYS THAT WAY UNTIL IT LEAVE
 that was wrong. It rested on two consecutive stores in which nothing moved, and the rows it cited
 are among the three that gained a state today. Every run re-reads every row. The GAPS entry it
 pointed to is corrected in place, retitled, with the remedy it proposed withdrawn.
+
+## `credit pages listing a work that does not name them` 9 to 12, a wrong credit fixed at capture. Accepted 2026-10-06
+
+All three new pairings are one work. 超かぐや姫！'s page showed テルヤ / 山下清悟 / フジヤマルリ from
+2026-10-06, the byline of its spin-off 超かぐやメシ！, so its credit page's three credits, 米田タロウ,
+スタジオクロマト and スタジオコロリド, no longer appeared in its field. Neither work's own capture
+changed. Web漫画アンテナ lists 超かぐや姫! at the spin-off's ビビビコミック address as well as its
+own, the capture wrote that page's chapters and byline as an entry titled 超かぐや姫!, and the build
+fills a カドコミ row's author from a map keyed by folded title where the first source met wins. It
+was the only byline in the corpus that changed overnight. This is the fault docs/GAPS.md recorded
+on 2026-09-27, reaching readers.
+
+Fixed in `adapters/webpages/releases.py` on the owner's ruling of 2026-10-06: a candidate is refused
+at an address held as another work when another of its own addresses is held as the work it names,
+and the page does not title itself as the candidate. Over the 1,612 aggregator candidates it refuses
+that one address and nothing else. Simulated on the build, 超かぐや姫！ reads its own byline again
+and the address carries one offer, which also empties the quarantine. The number is accepted because
+the committed capture still holds the entry until the next run recaptures, and it banks back down
+then.
+
+`incomplete attested rows` 50 to 51 is one row, today's コミックDAYS chapter of w00054 on its release
+day; no attested row lost or gained an access state between the two stores.

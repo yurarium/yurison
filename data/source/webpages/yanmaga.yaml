@@ -6,7 +6,7 @@ platform: yanmaga
 platform_name: "ヤンマガWeb"
 publisher: "講談社"
 engine: yanmaga
-retrieved: 2026-10-06
+retrieved: 2026-10-07
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -124,7 +124,7 @@ works:
         access_modes: ["purchase"]
   - work_title: "サタノファニ"
     url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
-    chapter_count: 7
+    chapter_count: 6
     chapters:
       - title: "第１話　「甘城千歌」"
         updated: "2020-06-01"
@@ -138,10 +138,6 @@ works:
         updated: "2020-07-06"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/cdb72517f48da888f270d863dc8c06f0"
         access_modes: ["free"]
-      - title: "第３３９話　「射銃」①"
-        updated: "2026-09-16"
-        url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/43cc48dccec11db9a8378916eab81dbf"
-        access_modes: ["purchase"]
       - title: "第３３９話　「射銃」②"
         updated: "2026-09-23"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/1f8a17ed8b3f5ed30554b3d998396fe6"
@@ -151,6 +147,8 @@ works:
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/d335ff04b482b3902dcf1ce53559a131"
         access_modes: ["purchase"]
       - title: "第３４１話　「エンペラーオブレイパー」"
+        updated: "2026-10-07"
+        url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/68e9f1a5c9f44e15085cdab36f3e6a90"
         access_modes: ["purchase"]
   - work_title: "シュガーガール・ドリップ"
     url: "https://yanmaga.jp/comics/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB_%E3%83%89%E3%83%AA%E3%83%83%E3%83%97"

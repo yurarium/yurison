@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-10-06
+retrieved: 2026-10-07
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 19
@@ -927,14 +927,20 @@ works:
   - work_title: "小林さんちのメイドラゴン"
     series_id: "13933686331613280406"
     url: "https://comic-action.com/atom/series/13933686331613280406"
-    chapter_count: 194
+    chapter_count: 195
     chapters:
+      - title: "第193話 カンナとメンシーラー才川（後編）"
+        updated: 2026-10-06
+        author: "クール教信者"
+        url: "https://comic-action.com/episode/12207421984213076743"
+        free_from: 2026-10-20
+        access_modes: ["purchase"]
       - title: "第192話 カンナとメンシーラー才川（前編）"
         updated: 2026-09-15
         author: "クール教信者"
         url: "https://comic-action.com/episode/12207421984152696708"
         free_from: 2026-10-06
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第191話 シンとプライベートスペース"
         updated: 2026-09-01
         author: "クール教信者"
@@ -945,8 +951,7 @@ works:
         updated: 2026-08-18
         author: "クール教信者"
         url: "https://comic-action.com/episode/12207421984031277502"
-        free_from: 2026-09-01
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第189話 エルマとユタラマ"
         updated: 2026-08-04
         author: "クール教信者"

@@ -6,7 +6,7 @@ platform: youngchampion
 platform_name: "ヤングチャンピオン"
 publisher: "秋田書店"
 engine: comici
-retrieved: 2026-10-06
+retrieved: 2026-10-07
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -392,7 +392,7 @@ works:
     status: "連載中"
     author: "りんご飴サード,川田暁生"
     url: "https://youngchampion.jp/series/86c1162f34a04"
-    chapter_count: 33
+    chapter_count: 30
     chapters:
       - title: "第1話①"
         updated: "2025-11-05"
@@ -484,15 +484,6 @@ works:
       - title: "第10話③"
         updated: "2026-08-19"
         access_modes: ["free-timed"]
-      - title: "第11話①"
-        updated: "2026-09-02"
-        access_modes: ["free-timed"]
-      - title: "第11話②"
-        updated: "2026-09-09"
-        access_modes: ["free"]
-      - title: "第11話③"
-        updated: "2026-09-16"
-        access_modes: ["purchase"]
   - work_title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     status: "連載中"
     author: "右腹,羽田 宇佐,U35"
@@ -596,7 +587,7 @@ works:
     status: "連載中"
     author: "ネコ太郎"
     url: "https://youngchampion.jp/series/90af950945671"
-    chapter_count: 72
+    chapter_count: 73
     chapters:
       - title: "第1話"
         updated: "2023-03-28"
@@ -807,12 +798,15 @@ works:
         access_modes: ["free-timed"]
       - title: "第39話②"
         updated: "2026-08-12"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第40話①"
         updated: "2026-09-02"
         access_modes: ["free"]
       - title: "第40話②"
         updated: "2026-09-09"
+        access_modes: ["free"]
+      - title: "第41話①"
+        updated: "2026-10-07"
         access_modes: ["purchase"]
   - work_title: "隣人/読み切り"
     status: "読み切り"

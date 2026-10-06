@@ -6,11 +6,26 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-10-06
+retrieved: 2026-10-07
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421983566481756"
+    work_title: "サタノファニ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第３４１話　「エンペラーオブレイパー」"
+    release_type: "chapter"
+    date: "2026-10-07"
+    date_basis: "observed"
+    first_seen: "2026-10-07"
+    first_reported: "2026-10-06T15:00:00Z"
+    platform_updated: "2026-10-06T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983566481756"
+    author: "山田恵庸"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421983484134435"
     work_title: "新刊１００億冊ください"
     web_status: "serialised"
@@ -28,6 +43,7 @@ releases:
     raw_title: "３６冊目：禁忌の会話"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421983566481752"
+    in_current_window: false
     work_title: "サタノファニ"
     web_status: "serialised"
     identified_via: "discovery-candidate"

@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-06
+retrieved: 2026-10-07
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -153,40 +153,25 @@ works_missing:
     url: "https://g-comi.jp/series/fef424c168c44"
     antenna_id: "210855"
     tags: ["百合", "先輩と後輩", "大学生"]
-  - title: "魔女とくゅらす"
-    platform: "HERO'S Web"
-    url: "https://heros-web.com/series/2b64bc0622a2a"
-    antenna_id: "186534"
-    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
     antenna_id: "174744"
     tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
+  - title: "魔女とくゅらす"
+    platform: "HERO'S Web"
+    url: "https://heros-web.com/series/2b64bc0622a2a"
+    antenna_id: "186534"
+    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
   - title: "葵とおねーちゃん"
     platform: "comicブースト"
     url: "https://comic-boost.com/content/01780001"
     antenna_id: "216014"
     tags: ["百合", "読み切り"]
-  - title: "百合のはじまりは奴隷から"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13537"
-    antenna_id: "213216"
-    tags: ["百合"]
-  - title: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13373"
-    antenna_id: "211154"
-    tags: ["百合"]
   - title: "姫騎士と姫巫女"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13609"
     antenna_id: "214046"
-    tags: ["百合"]
-  - title: "星の体温、巡る夢"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13608"
-    antenna_id: "214045"
     tags: ["百合"]
   - title: "ライバルアライバル"
     platform: "pixivコミック"
@@ -198,16 +183,31 @@ works_missing:
     url: "https://comic.pixiv.net/works/13604"
     antenna_id: "214041"
     tags: ["百合"]
-  - title: "バクガタリzzZ"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/12795"
-    antenna_id: "202751"
-    tags: ["百合", "不動産", "擬人化", "女子高生"]
   - title: "作りたい女と食べたい女"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/7182"
     antenna_id: "113830"
     tags: ["百合", "料理・グルメ"]
+  - title: "百合のはじまりは奴隷から"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13537"
+    antenna_id: "213216"
+    tags: ["百合"]
+  - title: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13373"
+    antenna_id: "211154"
+    tags: ["百合"]
+  - title: "星の体温、巡る夢"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13608"
+    antenna_id: "214045"
+    tags: ["百合"]
+  - title: "バクガタリzzZ"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/12795"
+    antenna_id: "202751"
+    tags: ["百合", "不動産", "擬人化", "女子高生"]
   - title: "冷たくて 柔らか"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/11800"
@@ -288,6 +288,16 @@ works_missing:
     url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
     antenna_id: "181056"
     tags: ["百合", "妖怪", "女子高生", "コミカライズ", "ざまぁ", "頭脳戦・心理戦", "現代", "チート"]
+  - title: "ときときチャンネル"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007121_S"
+    antenna_id: "197088"
+    tags: ["百合", "SF", "動画配信者", "シュール", "現代", "同居人・居候", "ギャグ・コメディ", "コミカライズ"]
+  - title: "妄執女と芥川"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007176_S"
+    antenna_id: "197816"
+    tags: ["百合", "作家"]
   - title: "堕天使そぷらのちゃんの復讐"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006778_S"
@@ -503,11 +513,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007220_S"
     antenna_id: "198866"
     tags: ["百合"]
-  - title: "ときときチャンネル"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007121_S"
-    antenna_id: "197088"
-    tags: ["百合", "SF", "動画配信者", "シュール", "現代", "同居人・居候", "ギャグ・コメディ", "コミカライズ"]
   - title: "大崎さんと小森さん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_014277_S"
@@ -533,11 +538,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008317_S"
     antenna_id: "200532"
     tags: ["百合", "アイドル", "入れ替わり"]
-  - title: "妄執女と芥川"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007176_S"
-    antenna_id: "197816"
-    tags: ["百合", "作家"]
   - title: "私の彼女はボディビルダー"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019973_S"
@@ -798,6 +798,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "私に天使が舞い降りた!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56284"
+    antenna_id: "128039"
+    tags: ["百合", "アニメ化"]
   - title: "安達としまむら"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/41839"
@@ -938,11 +943,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/74964"
     antenna_id: "197798"
     tags: ["作家", "百合"]
-  - title: "私に天使が舞い降りた!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/56284"
-    antenna_id: "128039"
-    tags: ["百合", "アニメ化"]
   - title: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/73060"
@@ -1032,7 +1032,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["ホラー", "幽霊", "百合", "女子高生"]
+    tags: ["最近のコメント数"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"
@@ -1053,7 +1053,7 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03301"
     antenna_id: "213683"
     tags: ["百合", "読み切り"]
-  - title: "アイ・ヘイ・チュー!"
+  - title: "アイ・ヘイ・チュー"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03273"
     antenna_id: "209730"

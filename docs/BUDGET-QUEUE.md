@@ -1205,3 +1205,23 @@ then.
 
 `incomplete attested rows` 50 to 51 is one row, today's コミックDAYS chapter of w00054 on its release
 day; no attested row lost or gained an access state between the two stores.
+
+## Three budgets rose with one induction and a quiet Wednesday. Accepted 2026-10-07
+
+八尺様とコロポックル-215cmと135cmの女子高生- arrived on Gコミ, on the antenna's 百合 tag at its
+`/series/` address, running since 2026-06-28 with four chapters. Gコミ applies no 百合 tag, so it is
+admitted on the comparator. It was the one row of 1,458 with no identifier; `w03305` is minted by
+hand and the title translated, Hasshaku-sama and a Koropokkur -High School Girls of 215 cm and
+135 cm-. Its byline is `Hiramedousa, いとまん`: いとまん holds c00758 and Hiramedousa holds no
+identifier, which is `credit fields an identifier does not cover` 91 to 92.
+
+`incomplete attested rows` 51 to 59 is eight rows, all dated 2026-10-08 and all without an access
+state on the day they appeared: chapters 1 to 5 of w03170 landing on コミックDAYS together, which is
+an import, its 第6話 on マガポケ, and two マガポケ chapters of w00198. No attested row in both the
+2026-10-07 and 2026-10-08 stores lost or gained a state, so no reader stopped working.
+
+`predicted updates already behind the run` 1 to 2 is ドリーム☆ジャンボ☆ガール, stated as 毎週水曜 on
+マガポケ and predicted for 2026-10-07. The measure asks for the page to be opened, and three routes
+to it were read on 2026-10-08, the rendered page, the series feed and the sitemap, and all three
+hold 第59話 of 2026-09-30 as the newest. The series skipped a week, which is the true state the
+updates tab is right to show as overdue. 怨霊日和 is the other, behind since March.

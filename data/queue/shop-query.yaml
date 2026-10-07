@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-06
+retrieved: 2026-10-08
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 225
+  hits_agreeing_on_a_creator: 226
   hits_on_the_title_alone: 101
   hits_stating_a_print_edition_date: 188
-  works_asked: 789
-  works_with_a_hit: 233
+  works_asked: 792
+  works_with_a_hit: 234
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -5477,6 +5477,16 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://magcomi.com/episode/12207421984174948885"
+    id: "w03285"
+    work: "東京つけものがたり"
+    author: "ぜろわん / あずやちとせ"
+    platform: "MAGCOMI"
+    retrieved: "2026-10-08"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://magcomi.com/episode/12207421984187016919"
     id: "w03279"
     work: "天使なんかにならないで"
@@ -6706,6 +6716,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03196/episode/445172"
+    id: "w00198"
+    work: "怪獣ロマンティクス"
+    author: "じぃと"
+    platform: "マガポケ"
+    retrieved: "2026-10-08"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://pocket.shonenmagazine.com/title/03273/episode/442380"
     id: "w03170"
     work: "アイ・ヘイ・チュー"
@@ -6736,6 +6756,21 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03273/episode/445153"
+    id: "w03170"
+    work: "アイ・ヘイ・チュー"
+    author: "長門知大"
+    platform: "マガポケ"
+    query: "author"
+    retrieved: "2026-10-08"
+    hits:
+      - series_url: null
+        title_listed: "アイ・ヘイ・チュー（１）"
+        shop_author: "長門知大(著)"
+        imprint: "別冊少年マガジン"
+        publisher: "講談社"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://pocket.shonenmagazine.com/title/03282/episode/442124"
     id: "w01226"
     work: "オカルトタイムズ"

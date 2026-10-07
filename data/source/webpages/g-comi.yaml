@@ -6,7 +6,7 @@ platform: g-comi
 platform_name: "Gコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-10-07
+retrieved: 2026-10-08
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -99,6 +99,24 @@ works:
         access_modes: ["free"]
       - title: "第4話"
         updated: "2026-10-02"
+        access_modes: ["free"]
+  - work_title: "八尺様とコロポックル-215cmと135cmの女子高生-"
+    status: "連載中"
+    author: "Hiramedousa,いとまん"
+    url: "https://g-comi.jp/series/3f172ce77f966"
+    chapter_count: 4
+    chapters:
+      - title: "第1話"
+        updated: "2026-06-28"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2026-06-28"
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: "2026-06-28"
+        access_modes: ["free"]
+      - title: "第4話"
+        updated: "2026-10-07"
         access_modes: ["free"]
   - work_title: "喫茶 秘匿異"
     status: "読み切り"

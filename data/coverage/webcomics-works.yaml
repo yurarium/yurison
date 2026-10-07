@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-10-07
+retrieved: 2026-10-08
 record_type: candidate_works
-works: 310
+works: 311
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -450,6 +450,10 @@ candidates:
   - title: "ぎゅっとにぎって"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/316112896821567303"]
+  - title: "ぎるてぃらいぶらり"
+    platforms: ["マガポケ"]
+    urls: ["https://pocket.shonenmagazine.com/title/03349"]
+    tags: ["お色気・微エロ", "百合"]
   - title: "くちびるへのリビドー"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007151_S"]
@@ -2228,6 +2232,10 @@ candidates:
   - title: "全部君のせいだ"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/3270296674427703426"]
+  - title: "八尺様とコロポックル-215cmと135cmの女子高生-"
+    platforms: ["Gコミ"]
+    urls: ["https://g-comi.jp/series/3f172ce77f966"]
+    tags: ["最近のコメント数"]
   - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
     platforms: ["ヤンチャンWeb"]
     urls: ["https://youngchampion.jp/series/86c1162f34a04"]

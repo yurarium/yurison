@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-07
+retrieved: 2026-10-08
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -2689,8 +2689,12 @@ works:
     title_id: "3273"
     url: "https://pocket.shonenmagazine.com/title/03273"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3273/feed.xml"
-    chapter_count: 5
+    chapter_count: 6
     chapters:
+      - title: "【第6話】今に木阿弥"
+        updated: 2026-10-08
+        author: "長門知大"
+        url: "https://pocket.shonenmagazine.com/title/03273/episode/445153"
       - title: "【第5話】罪のお味は"
         updated: 2026-09-09
         author: "長門知大"
@@ -5523,8 +5527,16 @@ works:
     title_id: "3196"
     url: "https://pocket.shonenmagazine.com/title/03196"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3196/feed.xml"
-    chapter_count: 3
+    chapter_count: 5
     chapters:
+      - title: "【第4話(2)】地獄の特訓！たえFly High!"
+        updated: 2026-10-08
+        author: "じぃと"
+        url: "https://pocket.shonenmagazine.com/title/03196/episode/445173"
+      - title: "【第4話(1)】地獄の特訓！たえFly High!"
+        updated: 2026-10-08
+        author: "じぃと"
+        url: "https://pocket.shonenmagazine.com/title/03196/episode/445172"
       - title: "【第3話】ライバルとーじょー!?小さくたって大怪獣！"
         updated: 2026-09-09
         author: "じぃと"

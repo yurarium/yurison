@@ -5,18 +5,18 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-07
+retrieved: 2026-10-08
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 310
-works_on_watched_platform: 285
-platforms_total: 54
+distinct_works: 311
+works_on_watched_platform: 286
+platforms_total: 53
 platforms_watched: 41
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
-    works: 11
+    works: 12
   - platform: "COMICリュウライブ"
     works: 3
   - platform: "ヤンジャン+"
@@ -35,9 +35,12 @@ platforms_missing:
     works: 1
   - platform: "マンガボックス"
     works: 1
-  - platform: "コミックグロウル"
-    works: 1
 works_missing:
+  - title: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3140"
+    antenna_id: "138856"
+    tags: ["百合", "アイドル"]
   - title: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
@@ -68,11 +71,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/441"
     antenna_id: "88071"
     tags: ["野球", "女子高生", "アニメ化", "百合"]
-  - title: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3140"
-    antenna_id: "138856"
-    tags: ["百合", "アイドル"]
   - title: "6億年の博物旅"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3818"
@@ -123,6 +121,11 @@ works_missing:
     url: "https://feelweb.jp/episode/3269754496401056101"
     antenna_id: "123156"
     tags: ["百合"]
+  - title: "八尺様とコロポックル-215cmと135cmの女子高生-"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/3f172ce77f966"
+    antenna_id: "216310"
+    tags: ["最近のコメント数"]
   - title: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/58238b3987c11"
@@ -157,7 +160,7 @@ works_missing:
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
     antenna_id: "174744"
-    tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
+    tags: ["最近のコメント数"]
   - title: "魔女とくゅらす"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
@@ -663,16 +666,16 @@ works_missing:
     url: "https://www.ganganonline.com/title/2643"
     antenna_id: "211061"
     tags: ["百合", "読み切り", "群像劇", "パンデミック", "メンタルヘルス"]
-  - title: "ワインガールズ"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    antenna_id: "205919"
-    tags: ["百合", "擬人化"]
   - title: "魔王城デート大作戦!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     antenna_id: "212084"
     tags: ["百合"]
+  - title: "ワインガールズ"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    antenna_id: "205919"
+    tags: ["百合", "擬人化"]
   - title: "暗殺組合の山田さん"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
@@ -733,11 +736,6 @@ works_missing:
     url: "https://comic-gardo.com/episode/2550912966011803878"
     antenna_id: "191960"
     tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
-  - title: "ケモノとワルツ"
-    platform: "コミックグロウル"
-    url: "https://comic-growl.com/series/5ec689382839e"
-    antenna_id: "116946"
-    tags: ["百合"]
   - title: "侵略のプリマステラ!"
     platform: "コミックボーダー"
     url: "https://comicborder.com/episode/12207421983750440973"
@@ -1008,6 +1006,11 @@ works_missing:
     url: "https://flowercomics.jp/title/2780"
     antenna_id: "193062"
     tags: ["百合"]
+  - title: "ぎるてぃらいぶらり"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03349"
+    antenna_id: "216326"
+    tags: ["お色気・微エロ", "百合"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -1032,7 +1035,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["最近のコメント数"]
+    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"
@@ -1118,6 +1121,11 @@ works_missing:
     url: "https://ynjn.jp/title/6108"
     antenna_id: "173220"
     tags: ["百合", "ロボ・人造人間"]
+  - title: "限界OLさんは悪役令嬢さまに仕えたい"
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/90af950945671"
+    antenna_id: "148787"
+    tags: ["召喚", "乙女ゲーム", "百合", "中世ヨーロッパ風", "悪役令嬢", "ファンタジー"]
   - title: "スカベンジャーズアナザースカイ"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
@@ -1128,11 +1136,6 @@ works_missing:
     url: "https://youngchampion.jp/series/86c1162f34a04"
     antenna_id: "197348"
     tags: ["ファンタジー", "令嬢", "百合"]
-  - title: "限界OLさんは悪役令嬢さまに仕えたい"
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/90af950945671"
-    antenna_id: "148787"
-    tags: ["召喚", "乙女ゲーム", "百合", "中世ヨーロッパ風", "悪役令嬢", "ファンタジー"]
   - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/e95df2815bad1"

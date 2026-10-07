@@ -1,4 +1,4 @@
-generated: '2026-10-06'
+generated: '2026-10-07'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -44051,6 +44051,28 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  八尺様とコロポックル-215cmと135cmの女子高生-:
+    basis: romaji
+    furigana_spans:
+    - - 八尺
+      - やさか
+    - - 様
+      - さま
+    - - とコロポックル-215cmと135cmの
+      - null
+    - - 女子高生
+      - じょしこうせい
+    - - '-'
+      - null
+    reading: ヤサカサマ ト コロポックル - 215 cm ト 135 cm ノ ジョシコウセイ -
+    reading_at: '2026-10-07'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   八重へ:

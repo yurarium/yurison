@@ -6,7 +6,7 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -1015,11 +1015,11 @@ works:
       - title: "電子コミックス 本日発売！"
         updated: "2026-04-10"
         access_modes: ["free"]
-  - work_title: "見えてますよ!愛沢さん"
+  - work_title: "見えてますよ! 愛沢さん"
     status: "連載中"
     author: "棘尾どろしー"
     url: "https://kimicomi.com/series/330f3ad1270c8"
-    chapter_count: 36
+    chapter_count: 37
     chapters:
       - title: "第1話"
         updated: "2025-08-22"
@@ -1119,15 +1119,18 @@ works:
         access_modes: ["free-timed"]
       - title: "第32話"
         updated: "2026-06-04"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第33話"
         updated: "2026-07-02"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第34話"
         updated: "2026-07-23"
         access_modes: ["free"]
       - title: "第35話"
         updated: "2026-09-17"
+        access_modes: ["free"]
+      - title: "第36話"
+        updated: "2026-10-08"
         access_modes: ["purchase"]
   - work_title: "魔王城デート大作戦!"
     status: "連載中"

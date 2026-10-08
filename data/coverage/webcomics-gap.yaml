@@ -5,12 +5,12 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 311
-works_on_watched_platform: 286
+distinct_works: 310
+works_on_watched_platform: 285
 platforms_total: 53
 platforms_watched: 41
 # ranked by works reachable on NO watched platform
@@ -23,9 +23,9 @@ platforms_missing:
     works: 2
   - platform: "きら星ポータル"
     works: 2
-  - platform: "comicブースト"
-    works: 1
   - platform: "pixivコミックマガジン"
+    works: 1
+  - platform: "comicブースト"
     works: 1
   - platform: "新都社"
     works: 1
@@ -36,6 +36,16 @@ platforms_missing:
   - platform: "マンガボックス"
     works: 1
 works_missing:
+  - title: "うさぎはかく語りき"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3572"
+    antenna_id: "173581"
+    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
+  - title: "球詠"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/441"
+    antenna_id: "88071"
+    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "IDOL×IDOL STORY!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3140"
@@ -61,16 +71,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/2391"
     antenna_id: "102691"
     tags: ["百合", "フェチ・性癖"]
-  - title: "うさぎはかく語りき"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3572"
-    antenna_id: "173581"
-    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
-  - title: "球詠"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/441"
-    antenna_id: "88071"
-    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "6億年の博物旅"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3818"
@@ -135,7 +135,7 @@ works_missing:
     platform: "Gコミ"
     url: "https://g-comi.jp/series/3f172ce77f966"
     antenna_id: "216310"
-    tags: ["最近のコメント数"]
+    tags: ["百合"]
   - title: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/58238b3987c11"
@@ -171,6 +171,11 @@ works_missing:
     url: "https://comic-boost.com/content/01780001"
     antenna_id: "216014"
     tags: ["百合", "読み切り"]
+  - title: "私に天使が舞い降りた!"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/4810"
+    antenna_id: "88637"
+    tags: ["百合", "アニメ化", "4コマ"]
   - title: "姫騎士と姫巫女"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13609"
@@ -231,11 +236,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/5364"
     antenna_id: "89009"
     tags: ["日常", "百合", "4コマ"]
-  - title: "私に天使が舞い降りた!"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/4810"
-    antenna_id: "88637"
-    tags: ["百合", "アニメ化", "4コマ"]
   - title: "ステラ・ステップ"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/10790"
@@ -286,6 +286,16 @@ works_missing:
     url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
     antenna_id: "181056"
     tags: ["百合", "妖怪", "女子高生", "コミカライズ", "ざまぁ", "頭脳戦・心理戦", "現代", "チート"]
+  - title: "拝啓、在りし日に咲く花たちへ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006092_S"
+    antenna_id: "178772"
+    tags: ["百合", "オムニバス・短編集"]
+  - title: "バカに告白"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006660_S"
+    antenna_id: "188798"
+    tags: ["百合", "学園", "ラブコメ", "女子高生"]
   - title: "ときときチャンネル"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007121_S"
@@ -310,7 +320,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020962_S"
     antenna_id: "216120"
-    tags: ["百合", "読み切り"]
+    tags: ["最近のコメント数"]
   - title: "ココロメイク コスメティカ"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_009488_S"
@@ -436,11 +446,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007122_S"
     antenna_id: "196622"
     tags: ["百合", "忍者", "ギャグ・コメディ", "女子高生"]
-  - title: "拝啓、在りし日に咲く花たちへ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006092_S"
-    antenna_id: "178772"
-    tags: ["百合", "オムニバス・短編集"]
   - title: "悪いが私は百合じゃない"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_004432_S"
@@ -526,11 +531,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007254_S"
     antenna_id: "198357"
     tags: ["百合", "不動産", "同人活動"]
-  - title: "バカに告白"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006660_S"
-    antenna_id: "188798"
-    tags: ["百合", "学園", "ラブコメ", "女子高生"]
   - title: "君になれたら"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008317_S"
@@ -626,6 +626,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019408_S"
     antenna_id: "211258"
     tags: ["百合", "読み切り"]
+  - title: "香り屋さんの纏さん"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/2286"
+    antenna_id: "189564"
+    tags: ["百合", "読み切り", "サトリ"]
   - title: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
@@ -641,11 +646,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/2349"
     antenna_id: "194497"
     tags: ["百合", "ヤンデレ"]
-  - title: "香り屋さんの纏さん"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2286"
-    antenna_id: "189564"
-    tags: ["百合", "読み切り", "サトリ"]
   - title: "ひきこまり吸血姫の悶々"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/1593"
@@ -656,11 +656,11 @@ works_missing:
     url: "https://www.ganganonline.com/title/2649"
     antenna_id: "211625"
     tags: ["百合"]
-  - title: "温室のアトリエ"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2643"
-    antenna_id: "211061"
-    tags: ["百合", "読み切り", "群像劇", "パンデミック", "メンタルヘルス"]
+  - title: "見えてますよ! 愛沢さん"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/330f3ad1270c8"
+    antenna_id: "136634"
+    tags: ["幽霊", "アイドル", "百合", "女子高生", "ホラー"]
   - title: "魔王城デート大作戦!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
@@ -681,11 +681,6 @@ works_missing:
     url: "https://kimicomi.com/series/617d2958d4953"
     antenna_id: "193762"
     tags: ["百合"]
-  - title: "見えてますよ! 愛沢さん"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/330f3ad1270c8"
-    antenna_id: "136634"
-    tags: ["幽霊", "アイドル", "百合", "女子高生", "ホラー"]
   - title: "ステラ・ステップ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
@@ -791,6 +786,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "拝啓、在りし日に咲く花たちへ"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70738"
+    antenna_id: "178754"
+    tags: ["百合", "女子高生"]
   - title: "私に天使が舞い降りた!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/56284"
@@ -856,11 +856,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/67280"
     antenna_id: "166483"
     tags: ["百合", "同居人・居候", "日常", "娘", "4コマ"]
-  - title: "拝啓、在りし日に咲く花たちへ"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/70738"
-    antenna_id: "178754"
-    tags: ["百合", "女子高生"]
   - title: "桃色カンパネラ"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/74044"
@@ -1005,7 +1000,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
-    tags: ["お色気・微エロ", "百合"]
+    tags: ["最近のコメント数"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -1161,6 +1156,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "魔性の乙女の役廻り"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/2706e9d937d5f"
+    antenna_id: "170811"
+    tags: ["百合", "女子中学生", "完結"]
   - title: "「触れたい」は恋の始まり"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/5a87d01128492"
@@ -1251,11 +1251,6 @@ works_missing:
     url: "https://takecomic.jp/series/b3efcd5f3a6a7"
     antenna_id: "146783"
     tags: ["百合", "スポーツ"]
-  - title: "魔性の乙女の役廻り"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/2706e9d937d5f"
-    antenna_id: "170811"
-    tags: ["百合", "女子中学生", "完結"]
   - title: "フレンドガールフレンド"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"

@@ -6,7 +6,7 @@ platform: bibibi
 platform_name: "ビビビコミック"
 publisher: ""
 engine: comici
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -26,7 +26,7 @@ works:
     status: "連載中"
     author: "テルヤ,山下清悟 / フジヤマルリ"
     url: "https://bibibi-comic.com/series/41de76fc8df5f"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
       - title: "0話"
         updated: "2026-08-07"
@@ -34,3 +34,6 @@ works:
       - title: "1話「夜明けの大盛りつゆだくギョク！」"
         updated: "2026-09-11"
         access_modes: ["free"]
+      - title: "2話「かぐやのガチビリヤニ！」"
+        updated: "2026-10-09"
+        access_modes: ["purchase"]

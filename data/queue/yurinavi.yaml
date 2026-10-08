@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 record_type: discovery_queue
 candidates:
   - work_title: "真夜中に愛してよ"
@@ -17,6 +17,15 @@ candidates:
     platform_code: "KC_020158_S"
     work_url: "https://comic-walker.com/detail/KC_020158_S"
     headline: "レズ風俗嬢×女性教師の秘密の関係を描く大人百合ラブコメ「真夜中に愛してよ」WEBでスタート"
+    status: unconfirmed
+  - work_title: "ぎるてぃらいぶらり"
+    signal: "new-serial"
+    announced: "Thu, 08 Oct 2026 11:03:38 +0000"
+    url: "https://yurinavi.com/2026/10/08/guilty-library-newstart/"
+    platform: "magapoke"
+    platform_code: "03349"
+    work_url: "https://pocket.shonenmagazine.com/title/03349/episode/444683?s"
+    headline: "大反響につき連載！二人の図書委員が織り成す小声系インモラルコメディ「ぎるてぃらいぶらり」がWEBでスタート"
     status: unconfirmed
   - work_title: "午後4時。透明、ときどき声優"
     signal: "new-serial"

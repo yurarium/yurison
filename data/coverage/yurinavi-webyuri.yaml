@@ -4,24 +4,27 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 record_type: coverage_gap
-works_listed: 125
+works_listed: 127
 platforms_total: 26
 platforms_watched: 18
-works_on_watched_platforms: 94
+works_on_watched_platforms: 95
 platforms:
   - platform: "カドコミ"
     works: 51
     watched: true
   - platform: "きららベース"
-    works: 22
+    works: 23
     watched: false
   - platform: "一迅プラス"
     works: 18
     watched: true
   - platform: "ガンガンONLINE"
     works: 4
+    watched: true
+  - platform: "竹コミ！"
+    works: 3
     watched: true
   - platform: "サンデーうぇぶり"
     works: 3
@@ -33,9 +36,6 @@ platforms:
     works: 2
     watched: true
   - platform: "チャンピオンクロス"
-    works: 2
-    watched: true
-  - platform: "竹コミ！"
     works: 2
     watched: true
   - platform: "Seasons"
@@ -186,6 +186,10 @@ works:
     platform: "きららベース"
     last_update_seen: 10-08
     watched_platform: false
+  - raw: "海のみちるごはん 花宮みぃ"
+    platform: "きららベース"
+    last_update_seen: 10-08
+    watched_platform: false
   - raw: "球詠 マウンテンプクイチ"
     platform: "きららベース"
     last_update_seen: 10-22
@@ -256,7 +260,7 @@ works:
     watched_platform: true
   - raw: "アフタヌーンティーはいかがですか？ 私と先輩の、不純で一途なふたり暮らし 文尾文/桃田ロウ"
     platform: "カドコミ"
-    last_update_seen: 10-08
+    last_update_seen: 10-15
     watched_platform: true
   - raw: "イジめてイジられて 千田大輔"
     platform: "カドコミ"
@@ -573,6 +577,10 @@ works:
   - raw: "30まで独りだったら一緒に暮らそうって言ったよね？ くずしろ"
     platform: "竹コミ！"
     last_update_seen: 10-02
+    watched_platform: true
+  - raw: "ウは宇宙ヤバイのウ！ 宮澤伊織/ぴよぴよ丸"
+    platform: "竹コミ！"
+    last_update_seen: 10-08
     watched_platform: true
   - raw: "百合神さまの言うとおり！ 橘まなり"
     platform: "竹コミ！"

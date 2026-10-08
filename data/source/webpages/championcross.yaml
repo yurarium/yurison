@@ -6,7 +6,7 @@ platform: championcross
 platform_name: "チャンピオンクロス"
 publisher: "秋田書店"
 engine: comici
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -1055,7 +1055,7 @@ works:
     status: "連載中"
     author: "梶本レイカ"
     url: "https://championcross.jp/episodes/b52d54db17eb4"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
       - title: "第1話"
         updated: "2026-05-20"
@@ -1068,6 +1068,9 @@ works:
         access_modes: ["free"]
       - title: "第4話"
         updated: "2026-08-19"
+        access_modes: ["purchase"]
+      - title: "第2.5話（電子版特典）"
+        updated: "2026-10-07"
         access_modes: ["purchase"]
   - work_title: "足が大好き足羽さん/読み切り"
     status: "読み切り"

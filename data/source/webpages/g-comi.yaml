@@ -6,7 +6,7 @@ platform: g-comi
 platform_name: "Gコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -41,7 +41,7 @@ works:
     status: "連載中"
     author: "ぷえぶろ"
     url: "https://g-comi.jp/series/fef424c168c44"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
       - title: "1服目"
         updated: "2026-06-28"
@@ -61,6 +61,9 @@ works:
       - title: "6服目"
         updated: "2026-07-15"
         access_modes: ["purchase"]
+      - title: "7服目"
+        updated: "2026-10-07"
+        access_modes: ["free"]
   - work_title: "イヴとイヴたち"
     status: "完結"
     author: "長代ルージュ"
@@ -141,22 +144,22 @@ works:
         access_modes: ["free"]
       - title: "第3話 呪いのカセットテープのウワサ"
         updated: "2023-10-27"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第4話 人形呪物のウワサ"
         updated: "2024-03-01"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第5話 妙な間取りの家のウワサ"
         updated: "2024-07-12"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第5.5話 404号室の双子のウワサ"
         updated: "2024-09-06"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "単行本第①巻発売記念！描き下ろしイラスト！"
         updated: "2024-10-25"
         access_modes: ["free"]
       - title: "第6話 口大習村のウワサ①"
         updated: "2025-01-03"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第7話 口大習村のウワサ②"
         updated: "2025-03-14"
         access_modes: ["purchase"]
@@ -221,7 +224,7 @@ works:
     status: "連載中"
     author: "館山けーた"
     url: "https://g-comi.jp/series/7e3c698bca968"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
       - title: "第1話"
         updated: "2026-06-28"
@@ -246,4 +249,7 @@ works:
         access_modes: ["purchase"]
       - title: "第8話"
         updated: "2026-09-30"
+        access_modes: ["purchase"]
+      - title: "第9話"
+        updated: "2026-10-07"
         access_modes: ["free"]

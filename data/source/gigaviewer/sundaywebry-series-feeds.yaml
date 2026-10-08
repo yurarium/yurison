@@ -10,7 +10,7 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 68
@@ -165,8 +165,14 @@ works:
   - work_title: "てくのぱにっくゆにばーす"
     series_id: "2551460909679434702"
     url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
-    chapter_count: 42
+    chapter_count: 43
     chapters:
+      - title: "コミックス２巻発売記念イラスト！"
+        updated: 2026-10-09
+        author: "伏見ダイキ"
+        url: "https://www.sunday-webry.com/episode/12207421984349543116"
+        free_from: 2026-10-08
+        access_modes: ["free"]
       - title: "第１５話 郵便ポストで洋服を"
         updated: 2026-10-02
         author: "伏見ダイキ"

@@ -6,7 +6,7 @@ platform: takecomic
 platform_name: "竹コミ"
 publisher: "竹書房"
 engine: comici
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -395,7 +395,7 @@ works:
     status: "連載中"
     author: "宮澤伊織,ぴよぴよ丸,今井哲也"
     url: "https://takecomic.jp/series/135220287d820"
-    chapter_count: 19
+    chapter_count: 20
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -450,9 +450,12 @@ works:
         access_modes: ["purchase"]
       - title: "18話"
         updated: "2026-07-09"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "19話"
         updated: "2026-09-10"
+        access_modes: ["free"]
+      - title: "20話"
+        updated: "2026-10-08"
         access_modes: ["purchase"]
   - work_title: "シュナイダーラリー"
     status: "連載中"

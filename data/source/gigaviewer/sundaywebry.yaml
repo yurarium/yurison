@@ -6,11 +6,45 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-10-08
+retrieved: 2026-10-09
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984349543116"
+    work_title: "てくのぱにっくゆにばーす"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "コミックス２巻発売記念イラスト！"
+    release_type: "unclassified"
+    date: "2026-10-09"
+    date_basis: "observed"
+    first_seen: "2026-10-09"
+    first_reported: "2026-10-08T15:00:00Z"
+    platform_updated: "2026-10-08T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984349543116"
+    author: "伏見ダイキ"
+    free_term_start: "2026-10-08T15:00:00Z"
+    raw_title: "コミックス２巻発売記念イラスト！"
+    advances_narrative: false
+  - release_id: "sunday_webry:episode:12207421984349557611"
+    work_title: "メイド＆ロイドはお嬢様のお役に立ちたい！"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "Memory7 ガチ映えの日 (2)"
+    release_type: "unclassified"
+    date: "2026-10-09"
+    date_basis: "observed"
+    first_seen: "2026-10-09"
+    first_reported: "2026-10-08T15:00:00Z"
+    platform_updated: "2026-10-08T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984349557611"
+    author: "みやしろ"
+    free_term_start: "2026-10-08T15:00:00Z"
+    raw_title: "Memory7 ガチ映えの日 (2)"
+    advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984321657717"
     work_title: "上杉くんは女の子をやめたい"
     web_status: "serialised"
@@ -29,6 +63,7 @@ releases:
     raw_title: "イラスト"
     advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984317356462"
+    in_current_window: false
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"
     identified_via: "discovery-candidate"

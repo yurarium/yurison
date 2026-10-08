@@ -1225,3 +1225,20 @@ an import, its 第6話 on マガポケ, and two マガポケ chapters of w00198.
 to it were read on 2026-10-08, the rendered page, the series feed and the sitemap, and all three
 hold 第59話 of 2026-09-30 as the newest. The series skipped a week, which is the true state the
 updates tab is right to show as overdue. 怨霊日和 is the other, behind since March.
+
+## Two budgets rose by one. Accepted 2026-10-08
+
+`announced works the corpus does not hold` 0 to 1 is ぎるてぃらいぶらり, which 百合ナビ announced on
+2026-10-08 as a new serialisation on マガポケ, title 03349, after a one-shot that drew a response.
+Web漫画アンテナ has listed it under its 百合 tag since 2026-10-07, so it is admissible on either
+comparator, but none of the three マガポケ routes has captured it in two runs: it is absent from the
+sitemap, the series feeds and the rendered pages, and `data/coverage/webcomics-gap.yaml` carries it
+as not yet reachable. A work with no captured chapters has no row to give an identifier to, so
+nothing is minted, and this number is the honest state of a work announced the day it started. If
+it is still uncaptured in a few runs, the rendered マガポケ step is the place to look: it reported
+four works with no dated chapters this run without naming them, and a brand-new series is the
+likeliest of those.
+
+`incomplete attested rows` 59 to 60 is one サンデーうぇぶり chapter of w00095 on its release day, and
+ニコニコ漫画's untitled row for w01352 moving from 2026-10-04 to 2026-10-08. No attested row lost or
+gained an access state between the two stores.

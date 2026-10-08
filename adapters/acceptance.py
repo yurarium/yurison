@@ -63,6 +63,27 @@ def antenna_date(txt, today):
     return None
 
 
+#: HOW OLD THE NEWEST LISTING PAGE MAY BE, against the feed's last day, and still say what updated in
+#: the period. CI rewrites the pages every run, so a week covers missed runs and nothing more.
+LISTING_MAX_AGE_DAYS = 7
+
+
+def listing_age(pages, d_hi):
+    """Days between the newest listing page being read and the feed's last day; None for no pages.
+
+    WHY AGE AND NOT JUST PRESENCE. A listing read once says what updated up to that day, and the
+    feed's window moves every day after it. Its early entries leave the window while nothing new
+    arrives, so the comparison shrinks to the few listings dated at the window's trailing edge and
+    a couple of edge cases decide the percentage. On 2026-10-08 a local cache read on 2026-08-10 was
+    compared against a feed starting that same day: eight works, two of them a series that ended in
+    June and a one-shot, and 75% against a floor of 87.4%. The update workflow says the same of the
+    百合ナビ listing: a fixed listing's percentage falls on the calendar and says nothing about
+    coverage.
+    """
+    stamps = [datetime.date.fromtimestamp(f.stat().st_mtime) for f in pages]
+    return (d_hi - max(stamps)).days if stamps else None
+
+
 def main():
     # Collected as we go and returned, so the floors below compare against what was actually
     # measured rather than re-deriving it and risking the two disagreeing.
@@ -113,9 +134,10 @@ def main():
     # ── Web漫画アンテナ ────────────────────────────────────────────────
     cache = paths.cache("webcomics-cache")
     rows = []
-    for f in sorted(cache.glob("page*.html"),
-                    key=lambda p: int(re.search(r"\d+", p.name).group())):
+    pages = sorted(cache.glob("page*.html"), key=lambda p: int(re.search(r"\d+", p.name).group()))
+    for f in pages:
         rows += parse(f.read_text())
+    age = listing_age(pages, d_hi)
     in_window, seen = [], set()
     for r in rows:
         d = antenna_date(r["updated_text"], d_hi)
@@ -167,6 +189,11 @@ def main():
         measured["webcomics adjusted"] = None
         print(f"  ADJUSTED : not measured. {cache} holds no page this pass could read, so there "
               f"is no listing to compare the feed against. This is not 0% coverage.")
+    elif age is not None and age > LISTING_MAX_AGE_DAYS:
+        measured["webcomics adjusted"] = None
+        print(f"  ADJUSTED : not measured. The newest page in {cache} was read {age} days before "
+              f"the feed's last day, more than {LISTING_MAX_AGE_DAYS}, so it can no longer say what "
+              f"updated in this period. Refresh it with adapters/webcomics/coverage.py.")
     else:
         measured["webcomics adjusted"] = 100 * len(a_w_hit) / max(adj_w, 1)
         print(f"  ADJUSTED (excluding deliberate exclusions and contradictions) : "

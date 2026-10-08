@@ -55,5 +55,24 @@ def main(s):
             "with every measure taken and every floor raised, every one of them fails")
 
 
+    # A LISTING READ LONG BEFORE THE FEED'S LAST DAY IS NOT A MEASUREMENT, which is what a local
+    # cache from 2026-08-10 produced on 2026-10-08: 75% over eight edge cases. Ages from real files.
+    import datetime, os, tempfile, time
+    d_hi = datetime.date(2026, 10, 9)
+    with tempfile.TemporaryDirectory() as d:
+        fresh, old = pathlib.Path(d) / "page1.html", pathlib.Path(d) / "page2.html"
+        for f in (fresh, old):
+            f.write_text("x", encoding="utf-8")
+        day = lambda dt: time.mktime(datetime.datetime.combine(dt, datetime.time(12)).timetuple())
+        os.utime(fresh, (day(d_hi), day(d_hi)))
+        os.utime(old, (day(datetime.date(2026, 8, 10)),) * 2)
+        s.eq(acceptance.listing_age([old], d_hi), 60, "a page read on 2026-08-10 is 60 days old")
+        s.check(acceptance.listing_age([old], d_hi) > acceptance.LISTING_MAX_AGE_DAYS,
+                "and too old to measure against")
+        s.eq(acceptance.listing_age([old, fresh], d_hi), 0,
+             "the newest page decides, since a run rewrites them together")
+        s.eq(acceptance.listing_age([], d_hi), None, "no pages is no age, which is the other branch")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "acceptance-floors"))

@@ -160,5 +160,27 @@ def main(s):
             "and a statement about the series is not evidence about any chapter of it")
     s.check(not sf.TICKET_RE.search("80ptで購入して読む"), "a price is not a ticket")
 
+    # A HELD SERIES IS READ AGAIN, NOT JUST KEPT. 笑顔のたえない職場です。 was resolved once in July,
+    # left the candidates, and was carried unchanged until it stood at 第120話 against a feed at
+    # 第123話. Series id 10834108156652406186 is its real one.
+    held = {"笑顔のたえない職場です。": "10834108156652406186", "既に解決": "111"}
+    got = sf.with_held({"既に解決": "111", "新しい候補": "222"}, held)
+    s.eq(got.get("笑顔のたえない職場です。"), "10834108156652406186",
+         "a held series the candidates no longer name is resolved, so its feed is fetched")
+    s.eq(got.get("新しい候補"), "222", "and a fresh candidate is kept as found")
+    s.eq(sf.with_held({"同じ作品": "333"}, {"別名": "333"}), {"同じ作品": "333"},
+         "a series already reached under another name is not fetched twice")
+    s.eq(sf.with_held({"作品": "444"}, {"作品": "555"}), {"作品": "444"},
+         "and a name found this run keeps the series it was found with")
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        f = pathlib.Path(d) / "comic-days-series-feeds.yaml"
+        f.write_text("works:\n  - work_title: 笑顔のたえない職場です。\n"
+                     "    series_id: \"10834108156652406186\"\n", encoding="utf-8")
+        s.eq(sf.held_series(f), {"笑顔のたえない職場です。": "10834108156652406186"},
+             "held series are read back off the platform's own file")
+    s.eq(sf.held_series("/nonexistent/x.yaml"), {}, "and a platform with no file yet holds none")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "series_feeds"))

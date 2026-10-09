@@ -246,6 +246,38 @@ def carry_over(path, series_ids):
     return keep
 
 
+def held_series(path):
+    """`{work title: series id}` for every series the platform's file already holds."""
+    f = pathlib.Path(path)
+    if not f.exists():
+        return {}
+    old = yaml.safe_load(f.read_text()) or {}
+    return {str(w.get("work_title")): str(w.get("series_id"))
+            for w in old.get("works") or [] if w.get("work_title") and w.get("series_id")}
+
+
+def with_held(found, held):
+    """`found`, plus every held series it does not already reach, so a held series is re-read.
+
+    WHAT CARRY_OVER COULD NOT DO. A series is resolved only from the listing page or the
+    candidates, and a held work that leaves both is never fetched again. `carry_over` keeps it,
+    rightly, since not fetching a feed is not a finding about the work, but it keeps it as it was:
+    笑顔のたえない職場です。 was resolved once in July, has never been on Web漫画アンテナ's 百合 tag,
+    and its entry was rewritten unchanged every run since, stopping at 第120話 of 2026-07-25 in a
+    file stamped with each day's date, while the series' own feed had reached 第123話.
+
+    A name already found keeps the series it was found with, since a fresh resolution beats a
+    remembered one, and a series already reached under another name is not fetched twice.
+    """
+    out = dict(found)
+    reached = set(out.values())
+    for name, sid in held.items():
+        if name not in out and sid not in reached:
+            out[name] = sid
+            reached.add(sid)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--platform", required=True)
@@ -300,6 +332,10 @@ def main():
                     # match anything and stayed unattested. The yardstick's title is the work's.
                     found[w.get("title") or u] = m.group(1)
                 break
+
+    # EVERY SERIES ALREADY HELD IS READ AGAIN, after the candidates so it cannot crowd them out of
+    # the limit. See `with_held`.
+    found = with_held(found, held_series(out / f"{p['id']}-series-feeds.yaml"))
 
     floor = MIN_RESOLVED if not a.candidates else 1
     if len(found) < floor:

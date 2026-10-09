@@ -12267,6 +12267,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ぎるてぃらいぶらり:
+    basis: romaji
+    reading: ギルティライブラリ
+    reading_at: '2026-10-09'
+    reading_basis: surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 1
+    reading_source: surface
+    reading_source_kind: analyser
+    verified: true
   くされ女子！:
     basis: translated
     en: Rotten Girls!
@@ -17500,6 +17511,13 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  なーんもうまくいかん！:
+    reading: ナーンモウマクイカン！
+    reading_at: '2026-10-09'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   にじいろシークレット:
     basis: translated
     en: Rainbow Secret
@@ -23049,6 +23067,13 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  アイドルビーバック！:
+    reading: アイドルビーバック！
+    reading_at: '2026-10-09'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   アイドル残酷物語:
     basis: translated
     en: Cruel Tales of an Idol
@@ -30029,6 +30054,32 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  スライム倒して300年、知らないうちにレベルMAXになってました:
+    basis: romaji
+    furigana_spans:
+    - - スライム
+      - null
+    - - 倒
+      - たお
+    - - して300
+      - null
+    - - 年
+      - ねん
+    - - 、
+      - null
+    - - 知
+      - し
+    - - らないうちにレベルMAXになってました
+      - null
+    reading: スライム タオシテ 300 ネン、 シラナイ ウチ ニ レベル MAX ニ ナッテマシタ
+    reading_at: '2026-10-09'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   スリーピングビューティーの見た夢:
     basis: translated
     en: The Dream Sleeping Beauty Had
@@ -51971,6 +52022,28 @@ names:
     reading_source: yurarium
     reading_source_kind: derived
     verified: false
+  姫騎士と姫巫女:
+    basis: romaji
+    furigana_spans:
+    - - 姫
+      - ひめ
+    - - 騎士
+      - きし
+    - - と
+      - null
+    - - 姫
+      - ひめ
+    - - 巫女
+      - みこ
+    reading: ヒメ キシ ト ヒメ ミコ
+    reading_at: '2026-10-09'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   娘が彼女を連れてきた話:
     basis: translated
     en: My Daughter Brought Her Girlfriend Home
@@ -54452,6 +54525,23 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  彗星、ロック・ユー:
+    basis: romaji
+    furigana_spans:
+    - - 彗星
+      - すいせい
+    - - 、ロック・ユー
+      - null
+    reading: スイセイ、 ロック・ ユー
+    reading_at: '2026-10-09'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   彩純ちゃんはレズ風俗に興味があります!:
     basis: romaji
     furigana_spans:
@@ -55347,6 +55437,18 @@ names:
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
     reading_source_kind: derived
+    verified: false
+  御贖事処 煮るばあな:
+    basis: romaji
+    reading: ゴ ショクコト トコロ   ニルバ アナ
+    reading_at: '2026-10-09'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    reading_uncertain: true
     verified: false
   心に依りて:
     basis: translated
@@ -77493,6 +77595,30 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  舞ちゃんのお姉さん飼育ごはん。:
+    basis: romaji
+    furigana_spans:
+    - - 舞
+      - まい
+    - - ちゃんのお
+      - null
+    - - 姉
+      - ねえ
+    - - さん
+      - null
+    - - 飼育
+      - しいく
+    - - ごはん。
+      - null
+    reading: マイチャン ノ オネエサン シイク ゴハン。
+    reading_at: '2026-10-09'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   舞と里乃が部下をやめて普通の女の子に戻った話。:

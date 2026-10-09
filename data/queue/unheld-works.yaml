@@ -304,3 +304,24 @@ rulings:
       one work published at three addresses in sequence, and nothing in the corpus can yet say the
       second thing. Left for the owner: whether a work's several addresses on one platform should
       fold by title at all.
+  - work: "アイドルビーバック！"
+    platform: "ニコニコ漫画"
+    platform_url: "https://manga.nicovideo.jp/comic/64462"
+    disposition: in
+    admitted_under: "DEFINITIONS §2, a comparator lists it: 百合ナビ's WEB連載 list"
+    why: >-
+      Ruled 2026-10-09. 百合ナビ lists it under WEB連載 (はんざわかおり, きららベース), which is the
+      inclusion basis the owner ruled on 2026-09-25. It is captured: `data/source/nicovideo/
+      nicovideo.yaml` holds its update date from run 37962136793. It has no work row yet because
+      Stage A runs its adapters side by side, so `nicovideo/works.py` read the copy of that file the
+      run checked out, which did not name it. The next run reads its episode list and the row forms
+      then; it is inducted when it does.
+  - work: "なーんもうまくいかん！"
+    platform: "ニコニコ漫画"
+    platform_url: "https://manga.nicovideo.jp/comic/75450"
+    disposition: in
+    admitted_under: "DEFINITIONS §2, a comparator lists it: 百合ナビ's WEB連載 list"
+    why: >-
+      Ruled 2026-10-09 on the same grounds and in the same state as アイドルビーバック！ above:
+      listed by 百合ナビ (ミナミト, きららベース), captured in run 37962136793, and its row forms on
+      the next run, one run behind the file that names it.

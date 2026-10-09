@@ -1249,3 +1249,28 @@ Two rows on their release day: COMIC OGYAAA!!'s 第8話 of w00192 and Seasons' �
 w00106, both dated 2026-10-09. No attested row lost or gained an access state between the stores of
 2026-10-09 and 2026-10-10. `works showing a romanisation` fell to 24 the same day, which is
 まるせっせんす shipping the publisher's MARCESCENCE instead of Marusessensu.
+
+## Four budgets rose with six inductions and two works a run behind. Accepted 2026-10-09
+
+Six works the comparators list were captured for the first time in run 37962136793, once the render
+targets were derived each run and 百合ナビ's links reached the capture steps, and were minted by
+hand as `w03306` to `w03311`: 舞ちゃんのお姉さん飼育ごはん。, 彗星、ロック・ユー, スライム倒して300年、
+知らないうちにレベルMAXになってました, ぎるてぃらいぶらり, 御贖事処 煮るばあな and 姫騎士と姫巫女. All six
+are named in `data/names/curated.yaml`, スライム under Yen Press's licensed title with our own
+translation beside it, and 御贖事処 with a reading: the analyser put ご over all four kanji, which was
+the one `implausible ruby spans`, now back at 0. `announced works the corpus does not hold` banks 1
+to 0 on ぎるてぃらいぶらり.
+
+`author names romanised as one word` 1218 to 1221 and `author readings no source states` 451 to 454
+are the same three people, 秋津貴央 (舞ちゃん), 閉伊川広輔 (ぎるてぃらいぶらり) and 城生 (御贖事処),
+whose bylines arrived with their works and were read by the analyser. No page captured states their
+readings. `credit fields an identifier does not cover` 92 to 96 is those three and ひな姫, the byline
+of w03199 on ニコニコ漫画, which holds no credit identifier and was first counted in the same run; the
+first run of the day measured 92 on the same work, and why it moved was not established.
+
+`updates naming a work we do not hold` 2 to 6 is two works with two feed rows each, アイドルビーバック！
+and なーんもうまくいかん！, on ニコニコ漫画's きららベース channel and listed by 百合ナビ. Both are ruled
+in in `data/queue/unheld-works.yaml`. Their update dates were captured in the second run of the day,
+and Stage A runs its adapters side by side, so `nicovideo/works.py` read the copy of
+`nicovideo.yaml` the run had checked out, which did not yet name them. Their episode lists are read
+on the next run, the rows form, and this banks back to 2 when they are minted.

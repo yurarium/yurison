@@ -1305,3 +1305,20 @@ the same kind as 原作 and 柾みどり監修 already in the count.
 two rhythms, 毎月第2木曜 and 毎月9日前後, and the prediction took the first, 2026-10-08. The newest
 chapter captured is from 2026-09-09, and the page opened on 2026-10-09 shows nothing newer, so the
 series is a day behind its own statement at the store's stamp of 2026-10-10.
+
+## One budget rose for one run, and a held work lost its identifier. Accepted 2026-10-09
+
+Run 37973227207 was the first with the candidates fix, and the list now keeps all six works only
+百合ナビ names. Two consequences followed, one expected and one not.
+
+`updates naming a work we do not hold` 2 to 6 is アイドルビーバック！ and なーんもうまくいかん！ again. The
+run before had already dropped them from `nicovideo.yaml`, and the episode-list step reads the copy
+the run checks out, so their rows were missing for this run. This run's `nicovideo.yaml` names both,
+their rows form on the next run, and this banks back to 2.
+
+The unexpected one: 阿佐ヶ谷サキュバス同人物語, `w00092`, came back on the list because it is held only
+at its own address, and the capture wrote 百合ナビ's link for it with a trailing slash. The registry
+holds the address without one, so the row stood unkeyed and the published store dropped a work it
+had held since August. `facts/identity.index` now answers each web anchor in both forms, never over
+a form somebody registered for another work, and every one of the 1,464 rows carries an identifier
+again.

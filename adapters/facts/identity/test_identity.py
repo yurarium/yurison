@@ -127,6 +127,19 @@ def main(s):
          "and the second work keeps its own identifier instead of being absorbed")
     s.eq(ident.index(shared)["madb:C1"], "w00001", "the print record stays where it was")
 
+    # AN ADDRESS ANSWERS WITH OR WITHOUT ITS TRAILING SLASH, whichever form was registered, and a
+    # form somebody registered for another work is never overridden.
+    slashed = [{"id": "w00001", "anchors": ["web:https://a.jp/e/1"]},
+               {"id": "w00002", "anchors": ["web:https://b.jp/t/2/"]},
+               {"id": "w00003", "anchors": ["web:https://c.jp/s/3", "web:https://c.jp/s/3/x"]},
+               {"id": "w00004", "anchors": ["web:https://c.jp/s/3/"]}]
+    si = ident.index(slashed)
+    s.eq(si.get("web:https://a.jp/e/1/"), "w00001", "a slash the registry lacks still finds the work")
+    s.eq(si.get("web:https://b.jp/t/2"), "w00002", "and so does dropping one it has")
+    s.eq((si.get("web:https://c.jp/s/3"), si.get("web:https://c.jp/s/3/")), ("w00003", "w00004"),
+         "two registered forms keep their own works")
+    s.eq(si.get("madb:C1/"), None, "and only web addresses are read this way")
+
     # AN ATTACH IS NOT A MERGE. A work held only as a printed book, whose serialisation had never
     # been read, gains the address it was always published at. Nothing is retired, because the
     # serialisation was never a record of its own.

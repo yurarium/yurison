@@ -248,6 +248,15 @@ def index(entries):
         target = survivor(by, e["id"])
         for a in e.get("anchors") or []:
             out[a] = target
+    # A TRAILING SLASH DOES NOT MAKE ANOTHER PAGE, and which form an address arrives in is the
+    # choice of whoever linked it. 阿佐ヶ谷サキュバス同人物語 is registered at チャンピオンクロス's
+    # episode address without one; 百合ナビ links it with one, the capture wrote the link as given,
+    # and on 2026-10-09 the row stood unkeyed and reached no reader. The registry keeps the form it
+    # was given (yomonga and キミコミ register theirs WITH the slash), so each web anchor also
+    # answers in the other form, and never over an anchor somebody registered in that form.
+    for a, target in list(out.items()):
+        if a.startswith("web:") and "#" not in a:
+            out.setdefault(a[:-1] if a.endswith("/") else a + "/", target)
     return out
 
 

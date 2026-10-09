@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-08
+retrieved: 2026-10-10
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 226
+  hits_agreeing_on_a_creator: 230
   hits_on_the_title_alone: 101
-  hits_stating_a_print_edition_date: 188
-  works_asked: 792
-  works_with_a_hit: 234
+  hits_stating_a_print_edition_date: 192
+  works_asked: 800
+  works_with_a_hit: 238
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -2387,6 +2387,23 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984341976248"
+    id: "w00192"
+    work: "まるせっせんす"
+    author: "畳ゆか"
+    platform: "COMIC OGYAAA!!"
+    query: "author"
+    retrieved: "2026-10-10"
+    hits:
+      - series_url: "https://bookwalker.jp/series/619501/list/"
+        title_listed: "まるせっせんす（ヤングジャンプコミックスDIGITAL）"
+        shop_author: "畳ゆか"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        printed: "2026/9/22"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://comic-ogyaaa.com/episode/2550689798875510910"
     id: "w00681"
     work: "サバーキ"
@@ -3421,6 +3438,22 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_009491_S"
+    id: "w03307"
+    work: "彗星、ロック・ユー"
+    author: "晴瀬ひろき"
+    platform: "カドコミ"
+    query: "author"
+    retrieved: "2026-10-10"
+    hits:
+      - series_url: null
+        title_listed: "彗星、ロック・ユー １"
+        shop_author: "晴瀬ひろき"
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        printed: "2026/7/27"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://comic-walker.com/detail/KC_010238_S"
     id: "w00281"
     work: "転生王女と天才令嬢の魔法革命 【タテスク】"
@@ -4004,6 +4037,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic.pixiv.net/works/13609"
+    id: "w03311"
+    work: "姫騎士と姫巫女"
+    author: "真くん"
+    platform: "pixivコミック"
+    retrieved: "2026-10-10"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic.pixiv.net/works/6767"
     id: "w00986"
     work: "彩香ちゃんは弘子先輩を落としたい"
@@ -4164,6 +4207,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://g-comi.jp/series/3f172ce77f966"
+    id: "w03305"
+    work: "八尺様とコロポックル-215cmと135cmの女子高生-"
+    author: "Hiramedousa, いとまん"
+    platform: "Gコミ"
+    retrieved: "2026-10-10"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://g-comi.jp/series/5448ec9f6077b"
     id: "w00160"
     work: "暴走!?サキュバスせんぱい"
@@ -6787,6 +6840,26 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://pocket.shonenmagazine.com/title/03292/episode/445160"
+    id: "w03310"
+    work: "御贖事処 煮るばあな"
+    author: "城生"
+    platform: "マガポケ"
+    retrieved: "2026-10-10"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03349/episode/444683"
+    id: "w03309"
+    work: "ぎるてぃらいぶらり"
+    author: "閉伊川広輔"
+    platform: "マガポケ"
+    retrieved: "2026-10-10"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://rookie.shonenjump.com/series/X1vJnKYQKqw"
     id: "w03259"
     work: "愛の夢"
@@ -7397,6 +7470,23 @@ works:
         imprint: "バンブーコミックス"
         publisher: "竹書房"
         agreement: "creator"
+        completed_marker: false
+  - work_url: "https://takecomic.jp/series/68270e5ebb4a6"
+    id: "w03306"
+    work: "舞ちゃんのお姉さん飼育ごはん。"
+    author: "秋津貴央"
+    platform: "竹コミ"
+    query: "author"
+    retrieved: "2026-10-10"
+    hits:
+      - series_url: "https://bookwalker.jp/series/253726/list/"
+        title_listed: "舞ちゃんのお姉さん飼育ごはん。（バンブーコミックス）"
+        shop_author: "秋津貴央(著)"
+        imprint: "バンブーコミックス"
+        publisher: "竹書房"
+        printed: "2020/6/26"
+        agreement: "creator"
+        volumes_stated: 7
         completed_marker: false
   - work_url: "https://takecomic.jp/series/86a4f1e41d627"
     id: "w00316"
@@ -9070,6 +9160,23 @@ works:
         completed_marker: false
     notes:
       - "author query returned no title this database recognises"
+  - work_url: "https://www.ganganonline.com/title/11"
+    id: "w03308"
+    work: "スライム倒して300年、知らないうちにレベルMAXになってました"
+    author: "森田季節 / シバユウスケ / 紅緒"
+    platform: "ガンガンONLINE"
+    query: "author"
+    retrieved: "2026-10-10"
+    hits:
+      - series_url: "https://bookwalker.jp/series/146298/list/"
+        title_listed: "スライム倒して300年、知らないうちにレベルMAXになってました（ガンガンコミックスONLINE）"
+        shop_author: "森田季節（GAノベル／SBクリエイティブ刊）(原作) シバユウスケ(漫画) 紅緒(キャラクター原案)"
+        imprint: "ガンガンコミックスONLINE"
+        publisher: "スクウェア・エニックス"
+        printed: "2018/1/12"
+        agreement: "creator"
+        volumes_stated: 19
+        completed_marker: false
   - work_url: "https://www.ganganonline.com/title/2286"
     id: "w03268"
     work: "香り屋さんの纏さん"

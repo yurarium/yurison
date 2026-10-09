@@ -10935,6 +10935,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  シバユウスケ:
+    basis: romaji
+    reading: シバユウスケ
+    reading_at: '2026-10-09'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   シボリ カスコ:
     basis: romaji
     reading: シボリ カスコ
@@ -29092,6 +29100,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  森田季節:
+    basis: romaji
+    furigana_spans:
+    - - 森田
+      - もりた
+    - - 季節
+      - きせつ
+    reading: モリタキセツ
+    reading_at: '2026-10-09'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   森紗はるき:
     basis: romaji
     furigana_spans:
@@ -35713,6 +35737,22 @@ names:
       weakest on pen names and coinages
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  紅緒:
+    basis: romaji
+    furigana_spans:
+    - - 紅
+      - くれない
+    - - 緒
+      - いとぐち
+    reading: クレナイイトグチ
+    reading_at: '2026-10-09'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   純玲:

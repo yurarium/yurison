@@ -28,8 +28,8 @@ record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
 date_confidence: reported
-series_fetched: 37
-series_held: 37
+series_fetched: 39
+series_held: 39
 works:
   - work_title: "CUTE vs. COOL"
     title_id: "3099"
@@ -1037,6 +1037,20 @@ works:
         updated: 2020-03-04
         author: "あおのなち"
         url: "https://pocket.shonenmagazine.com/title/01049/episode/305566"
+  - work_title: "ぎるてぃらいぶらり"
+    title_id: "3349"
+    url: "https://pocket.shonenmagazine.com/title/03349"
+    feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3349/feed.xml"
+    chapter_count: 2
+    chapters:
+      - title: "【第2話】キスマークってなんですか？／君のナカ"
+        updated: 2026-10-08
+        author: "閉伊川広輔"
+        url: "https://pocket.shonenmagazine.com/title/03349/episode/444684"
+      - title: "【第1話】フィニッシュの定義／パンツの色／窒息するなら"
+        updated: 2026-10-08
+        author: "閉伊川広輔"
+        url: "https://pocket.shonenmagazine.com/title/03349/episode/444683"
   - work_title: "こいにこいするこに恋す"
     title_id: "1418"
     url: "https://pocket.shonenmagazine.com/title/01418"
@@ -5035,6 +5049,24 @@ works:
         updated: 2023-08-04
         author: "金子ある"
         url: "https://pocket.shonenmagazine.com/title/02257/episode/381751"
+  - work_title: "御贖事処 煮るばあな"
+    title_id: "3292"
+    url: "https://pocket.shonenmagazine.com/title/03292"
+    feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3292/feed.xml"
+    chapter_count: 3
+    chapters:
+      - title: "【三膳目】拉致られっ娘!?"
+        updated: 2026-10-08
+        author: "城生"
+        url: "https://pocket.shonenmagazine.com/title/03292/episode/445160"
+      - title: "【二膳目】てんやわんやの初出勤♪"
+        updated: 2026-09-09
+        author: "城生"
+        url: "https://pocket.shonenmagazine.com/title/03292/episode/443731"
+      - title: "【一膳目】御贖事処にご案内～"
+        updated: 2026-08-07
+        author: "城生"
+        url: "https://pocket.shonenmagazine.com/title/03292/episode/442365"
   - work_title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
     title_id: "2328"
     url: "https://pocket.shonenmagazine.com/title/02328"

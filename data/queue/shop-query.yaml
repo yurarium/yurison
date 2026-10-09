@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-10-10
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 230
+  hits_agreeing_on_a_creator: 232
   hits_on_the_title_alone: 101
   hits_stating_a_print_edition_date: 192
-  works_asked: 800
-  works_with_a_hit: 238
+  works_asked: 802
+  works_with_a_hit: 240
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -6330,6 +6330,22 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://manga.nicovideo.jp/comic/64462"
+    id: "w03312"
+    work: "アイドルビーバック！"
+    author: "はんざわかおり"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-10-10"
+    hits:
+      - series_url: "https://bookwalker.jp/series/456387/list/"
+        title_listed: "アイドルビーバック！（まんがタイムKRコミックス）"
+        shop_author: "はんざわかおり(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        volumes_stated: 3
+        completed_marker: false
   - work_url: "https://manga.nicovideo.jp/comic/67280"
     id: "w03222"
     work: "押しかけ女房、コドモ付き！"
@@ -6538,6 +6554,21 @@ works:
       - series_url: null
         title_listed: "桃色カンパネラ １巻"
         shop_author: "リンリココ(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/75450"
+    id: "w03313"
+    work: "なーんもうまくいかん！"
+    author: "ミナミト"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-10-10"
+    hits:
+      - series_url: null
+        title_listed: "なーんもうまくいかん！ １巻"
+        shop_author: "ミナミト(著)"
         imprint: "まんがタイムKRコミックス"
         publisher: "芳文社"
         agreement: "creator"

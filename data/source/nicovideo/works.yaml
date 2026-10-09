@@ -13,7 +13,7 @@ platform_name: ニコニコ漫画
 retrieved: 2026-10-09
 record_type: web_work_chapters
 identification_mode: known-works
-works_resolved: 494
+works_resolved: 496
 works:
   - work_title: "ひとりぼっちの○○生活"
     author: "カツヲ(著者)"
@@ -21596,6 +21596,29 @@ works:
     chapters:
       - title: "第1話"
         access_modes: ["free"]
+  - work_title: "アイドルビーバック！"
+    author: "はんざわかおり"
+    url: "https://manga.nicovideo.jp/comic/64462"
+    platform_code: "64462"
+    started: "2023-10-12"
+    updated: "2026-10-08"
+    episode_count_stated: 6
+    partial: true
+    rights: ["はんざわかおり", "芳文社"]
+    chapter_count: 6
+    chapters:
+      - title: "第1話"
+        access_modes: ["free"]
+      - title: "第2話"
+        access_modes: ["free"]
+      - title: "第3話"
+        access_modes: ["free"]
+      - title: "おまけ1"
+        access_modes: ["free"]
+      - title: "おまけ2"
+        access_modes: ["free"]
+      - title: "第22話（前編）"
+        access_modes: ["free"]
   - work_title: "おそとごはんをご一緒に"
     author: "はづき"
     url: "https://manga.nicovideo.jp/comic/64539"
@@ -25488,6 +25511,25 @@ works:
         app_only: true
       - title: "最終話"
         app_only: true
+  - work_title: "なーんもうまくいかん！"
+    author: "ミナミト"
+    url: "https://manga.nicovideo.jp/comic/75450"
+    platform_code: "75450"
+    started: "2025-12-16"
+    updated: "2026-09-15"
+    episode_count_stated: 4
+    partial: true
+    rights: ["ミナミト", "芳文社"]
+    chapter_count: 4
+    chapters:
+      - title: "第1話"
+        access_modes: ["free"]
+      - title: "第2話"
+        access_modes: ["free"]
+      - title: "第3話"
+        access_modes: ["free"]
+      - title: "第12話"
+        access_modes: ["free"]
   - work_title: "ぷくちょらりファミリア"
     author: "圷　見南子(著者)"
     url: "https://manga.nicovideo.jp/comic/75486"

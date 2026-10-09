@@ -4,12 +4,12 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-10-09
+retrieved: 2026-10-10
 record_type: coverage_gap
-works_listed: 127
+works_listed: 130
 platforms_total: 26
 platforms_watched: 18
-works_on_watched_platforms: 95
+works_on_watched_platforms: 98
 platforms:
   - platform: "カドコミ"
     works: 51
@@ -20,11 +20,11 @@ platforms:
   - platform: "一迅プラス"
     works: 18
     watched: true
+  - platform: "竹コミ！"
+    works: 5
+    watched: true
   - platform: "ガンガンONLINE"
     works: 4
-    watched: true
-  - platform: "竹コミ！"
-    works: 3
     watched: true
   - platform: "サンデーうぇぶり"
     works: 3
@@ -39,6 +39,9 @@ platforms:
     works: 2
     watched: true
   - platform: "Seasons"
+    works: 2
+    watched: true
+  - platform: "コミックオギャー!!"
     works: 2
     watched: true
   - platform: "pixivコミック"
@@ -77,16 +80,13 @@ platforms:
   - platform: "マグコミ"
     works: 1
     watched: false
-  - platform: "ビビビコミック"
-    works: 1
-    watched: true
   - platform: "一迅社プラス"
     works: 1
     watched: false
-  - platform: "コミックオギャー!!"
+  - platform: "COMIC OGYAAA!!"
     works: 1
     watched: true
-  - platform: "COMIC OGYAAA!!"
+  - platform: "ビビビコミック"
     works: 1
     watched: true
 works:
@@ -450,6 +450,10 @@ works:
     platform: "コミックオギャー!!"
     last_update_seen: 10-16
     watched_platform: true
+  - raw: "恋より青く 深海 紺"
+    platform: "コミックオギャー!!"
+    last_update_seen: 10-09
+    watched_platform: true
   - raw: "優等生がアダルトグッズを買いに来た コナタエル/4kaえんぴつ/千種みのり"
     platform: "コミックガルド"
     last_update_seen: 10-21
@@ -488,7 +492,7 @@ works:
     watched_platform: true
   - raw: "超かぐやメシ！ テルヤ / 山下清悟 / フジヤマルリ"
     platform: "ビビビコミック"
-    last_update_seen: 10-09
+    last_update_seen: 11-13
     watched_platform: true
   - raw: "怨霊日和 イマイ悠"
     platform: "マガポケ"
@@ -582,9 +586,17 @@ works:
     platform: "竹コミ！"
     last_update_seen: 10-08
     watched_platform: true
+  - raw: "白き乙女の人狼 アジイチ/王月よう"
+    platform: "竹コミ！"
+    last_update_seen: 10-09
+    watched_platform: true
   - raw: "百合神さまの言うとおり！ 橘まなり"
     platform: "竹コミ！"
     last_update_seen: 10-25
+    watched_platform: true
+  - raw: "舞ちゃんのお姉さん飼育ごはん。 秋津貴央"
+    platform: "竹コミ！"
+    last_update_seen: 10-09
     watched_platform: true
   - raw: "フレンドガールフレンド 瑠夏子"
     platform: "花とゆめ＋"

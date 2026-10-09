@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-10-09
+retrieved: 2026-10-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -2457,7 +2457,7 @@ works:
       - title: "第11話"
         updated: 2026-09-18
         author: "ミナミト"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
   - work_title: "運命は役に立たない"
     author: "まめ魚"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
@@ -3464,8 +3464,12 @@ works:
     url: "https://comic-ogyaaa.com/episode/4856001361171643976"
     platform_name: "コミックオギャー!!"
     route: "gigaviewer"
-    chapter_count: 44
+    chapter_count: 45
     chapters:
+      - title: "第43話"
+        updated: 2026-10-09
+        author: "深海 紺"
+        access_modes: ["free"]
       - title: "第42話"
         updated: 2026-09-11
         author: "深海 紺"
@@ -4945,11 +4949,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-10-08
+        updated: 2026-10-09
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-10-08
+        updated: 2026-10-09
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

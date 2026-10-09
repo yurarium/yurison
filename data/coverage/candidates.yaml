@@ -1,5 +1,6 @@
 # What the capture steps target: webcomics-works.yaml, plus the 百合ナビ WEB連載 works
-# no candidate names and no capture holds. Written by adapters/candidates.py every run;
+# no candidate names and no capture holds at another address. Written by
+# adapters/candidates.py every run;
 # see its docstring for why the antenna's own file is left as it is.
 source: adapters/candidates.py
 role: capture-targets
@@ -8695,3 +8696,33 @@ candidates:
   - ちゃおプラス
   urls:
   - https://ciao.shogakukan.co.jp/comics/title/00253/episode/5565
+- title: なーんもうまくいかん！
+  platforms:
+  - きららベース
+  urls:
+  - https://manga.nicovideo.jp/comic/75450
+- title: アイドルビーバック！
+  platforms:
+  - きららベース
+  urls:
+  - https://manga.nicovideo.jp/comic/64462
+- title: 彗星、ロック・ユー
+  platforms:
+  - カドコミ
+  urls:
+  - https://comic-walker.com/detail/KC_009491_S
+- title: スライム倒して300年、知らないうちにレベルMAXになってました
+  platforms:
+  - ガンガンONLINE
+  urls:
+  - https://www.ganganonline.com/title/11
+- title: 阿佐ヶ谷サキュバス同人物語
+  platforms:
+  - チャンピオンクロス
+  urls:
+  - https://championcross.jp/episodes/c588f534a4870/
+- title: 舞ちゃんのお姉さん飼育ごはん。
+  platforms:
+  - 竹コミ！
+  urls:
+  - https://takecomic.jp/series/68270e5ebb4a6

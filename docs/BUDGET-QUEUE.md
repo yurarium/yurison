@@ -1242,3 +1242,10 @@ likeliest of those.
 `incomplete attested rows` 59 to 60 is one サンデーうぇぶり chapter of w00095 on its release day, and
 ニコニコ漫画's untitled row for w01352 moving from 2026-10-04 to 2026-10-08. No attested row lost or
 gained an access state between the two stores.
+
+## `incomplete attested rows` 60 to 62. Accepted 2026-10-09
+
+Two rows on their release day: COMIC OGYAAA!!'s 第8話 of w00192 and Seasons' 第18話 後編 of
+w00106, both dated 2026-10-09. No attested row lost or gained an access state between the stores of
+2026-10-09 and 2026-10-10. `works showing a romanisation` fell to 24 the same day, which is
+まるせっせんす shipping the publisher's MARCESCENCE instead of Marusessensu.

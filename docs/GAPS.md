@@ -4093,3 +4093,32 @@ honest state for a chapter outside the window is the empty one it already has.
 
 What stays true: the budget this inflates is a floor over a windowed population, and an empty row
 is a chapter shown with no line saying whether it is free.
+
+## A one-day fetch cache against a daily run decides by the clock whether a run reads at all
+
+Found 2026-10-09, chasing 笑顔のたえない職場です。 stopped at 第120話.
+
+Run 37954245743 took 0 to 3 seconds for each of fourteen GigaViewer series-feed steps; a cold read
+of コミックDAYS alone took 1,228 seconds the same day. Every one of those fetchers, and nine more
+with them, treats a cached page younger than one day as current (`max_age_days=1`, and
+`net.AGE_FEED = 1`), and the cache is carried between runs with its ages intact. Runs on
+2026-10-06 to 2026-10-09 started at 18:46, 18:02, 16:09 and 15:46: each began less than a day after
+the one before, so every page the previous run fetched was still "current" and was replayed. A run
+that starts a little later than yesterday's reads the hosts and one that starts a little earlier
+does not, and the capture files say `retrieved:` today either way, which is why nothing reported it.
+
+What it is not is the reason 笑顔のたえない職場です。 stood still for two and a half months; that was
+a series the step never resolved and `carry_over` kept as it was, fixed the same day. The clock only
+decides whether a given day's read happens.
+
+What would settle it is an age shorter than the run's cadence, half a day, so a daily run always
+reads and a second run the same day can still reuse. It touches ten fetchers and one shared
+constant, which is a change to how every capture behaves, and it is the owner's call.
+
+## Four rendered platforms parse nothing, whatever their target list holds
+
+Found 2026-10-09, alongside the frozen render-target list. The rendered step reported `nothing
+parsed` for きら星ポータル, COMICリュウ, ヤンジャン+ and マンガボックス (and ドリコミ+,
+てれびくんヒーローコミックス) on works already in its list, so the thirteen listed works on those
+platforms that the newly derived list adds will be rendered and still yield nothing. The parse for
+those hosts is what needs looking at, page by page; the target list is no longer the obstacle.

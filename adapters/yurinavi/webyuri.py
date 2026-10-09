@@ -15,6 +15,7 @@ Usage:  webyuri.py --out data/coverage --cache $YURI_CACHE/yurinavi-cache \
                    --retrieved 2026-08-01
 """
 import argparse, json, pathlib, re, sys, time, urllib.request
+import html as _html
 import unicodedata
 from collections import Counter
 
@@ -55,6 +56,16 @@ def text(html):
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", html)).strip()
 
 
+#: A work cell's link: the work's page and, as the link text, its title.
+LINK = re.compile(r'<a\s[^>]*href="([^"]+)"[^>]*>(.*?)</a>', re.S)
+
+
+def work_address(url):
+    """The work's page from the link 百合ナビ gives: no query, and no `/new` leading to a chapter."""
+    u = re.sub(r"[?#].*$", "", url or "")
+    return re.sub(r"/new/?$", "", u)
+
+
 def parse(html, month=None):
     """Rows are `<day> <weekday> | <title> <author>(<platform>)`, grouped under ▼<n>月更新 headers.
 
@@ -72,7 +83,8 @@ def parse(html, month=None):
     """
     out, day = [], None
     for r in re.findall(r"<tr[^>]*>(.*?)</tr>", html, re.S):
-        cells = [text(c) for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", r, re.S)]
+        raw_cells = re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", r, re.S)
+        cells = [text(c) for c in raw_cells]
         if not cells:
             continue
         joined = " ".join(cells)
@@ -83,13 +95,24 @@ def parse(html, month=None):
         d = re.match(r"^(\d{1,2})\s", cells[0]) if cells[0] else None
         if d:
             day = int(d.group(1))
-        for c in cells[1:]:
+        for c, rc in zip(cells[1:], raw_cells[1:]):
             # A work cell ends with the platform in parentheses; anything else is layout.
             w = re.match(r"^(.*?)\s*[（(]([^（()]+)[）)]\s*$", c)
             if not w or len(c) < 4:
                 continue
             head, platform = w.group(1).strip(), w.group(2).strip()
-            out.append({"raw": head, "platform": platform, "month": month, "day": day})
+            row = {"raw": head, "platform": platform, "month": month, "day": day}
+            # THE LINK IS THE TITLE, AND IT WAS THROWN AWAY. Every work cell is
+            # `<a href="the work's own page">title</a><br /> author(platform)`, 211 of 211 on
+            # 2026-10-09, and reading only the cell's text kept neither the address nor the title
+            # apart from its author. So the yardstick named works nothing could fetch:
+            # 舞ちゃんのお姉さん飼育ごはん。 and 彗星、ロック・ユー were counted as missed for want of
+            # an address the page was printing beside them.
+            a = LINK.search(rc)
+            if a:
+                row["title"] = text(a.group(2)).strip()
+                row["url"] = _html.unescape(a.group(1))
+            out.append(row)
     return out
 
 
@@ -196,8 +219,29 @@ def main():
         if w["month"]:
             L.append(f"    last_update_seen: {w['month']:02d}-{(w['day'] or 0):02d}")
         L.append(f"    watched_platform: {str(norm(w['platform']) in watched).lower()}")
+        if w.get("title"):
+            L.append(f"    title: {json.dumps(w['title'], ensure_ascii=False)}")
+        if w.get("url"):
+            L.append(f"    url: {json.dumps(work_address(w['url']), ensure_ascii=False)}")
     L.append("")
     (out / "yurinavi-webyuri.yaml").write_text("\n".join(L))
+
+    # THE SAME WORKS AS CANDIDATES, in the shape every capture reads, in a file of their own. Not
+    # into webcomics-works.yaml: every work in that file is cited as admitted by Web漫画アンテナ's
+    # 百合 tag, and a 百合ナビ listing is a different comparator. `adapters/candidates.py` merges
+    # the two for the capture steps, which is where an address is all that matters.
+    C = ["# 百合ナビ WEB連載中の百合漫画 as candidates: each work's title and its own page, as the list",
+         "# links them. Tier C, discovery only, like webcomics-works.yaml and kept apart from it.",
+         "source: yurinavi.com", "role: discovery-only", f"retrieved: {a.retrieved}",
+         "record_type: candidate_works", "candidates:"]
+    for w in sorted(works, key=lambda w: (w["platform"], w.get("title") or w["raw"])):
+        if not (w.get("title") and w.get("url")):
+            continue
+        C.append(f"  - title: {json.dumps(w['title'], ensure_ascii=False)}")
+        C.append(f"    platforms: [{json.dumps(w['platform'], ensure_ascii=False)}]")
+        C.append(f"    urls: [{json.dumps(work_address(w['url']), ensure_ascii=False)}]")
+    C.append("")
+    (out / "yurinavi-works.yaml").write_text("\n".join(C))
 
     print(f"works listed      : {len(works)} on {len(per_plat)} platforms")
     print(f"PLATFORM COVERAGE : {len([p for p in per_plat if norm(p) in watched])}/{len(per_plat)}")

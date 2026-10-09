@@ -6262,6 +6262,16 @@ def main():
             _cands.add(norm_work(c["title"]))
             _antenna_admits[norm_work(c["title"])] = _inclusion.admitted_by_tag(
                 "webcomics.jp", _wc_at, _WEBCOMICS_TAG_URL)
+    # 百合ナビ'S WEB連載 LIST IS A COMPARATOR TOO, and a work only it names is captured now that
+    # `adapters/candidates.py` hands its addresses to the capture steps. In scope on the same
+    # footing as the antenna's, so it does not leave with its last chapter in the window, and
+    # deliberately NOT in `_antenna_admits`: the antenna did not list it, and saying so would be a
+    # citation of the wrong comparator.
+    _ynf = pathlib.Path("data/coverage/yurinavi-works.yaml")
+    if _ynf.exists():
+        for c in (yaml.safe_load(_ynf.read_text()) or {}).get("candidates") or []:
+            if c.get("title"):
+                _cands.add(norm_work(c["title"]))
     # A work with a print record HAS been assessed: it is in the print corpus under a publisher's
     # imprint, with a marketing_label and a basis. Leaving it out of scope made in-scope-ness
     # depend on having a release inside the feed window, which a work whose whole run carries one

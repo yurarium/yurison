@@ -41,92 +41,92 @@ commands:
   - id: gigaviewer-series-feeds-comic-action
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-action,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-comic-days
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-days,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-comic-earthstar
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-earthstar,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-comic-gardo
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-gardo,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-comic-ogyaaa
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-ogyaaa,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-comic-seasons
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-seasons,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-comic-trail
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-trail,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-comic-y-ours
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-y-ours,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-comic-zenon
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comic-zenon,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-comicborder
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, comicborder,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-feelweb
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, feelweb,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-kuragebunch
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, kuragebunch,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-magcomi
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, magcomi,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-mangatime-square
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, mangatime-square,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-ourfeel
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, ourfeel,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-shonenjumpplus
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, shonenjumpplus,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-sundaywebry
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, sundaywebry,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
   - id: gigaviewer-series-feeds-tonarinoyj
     optional: true
     argv: [adapters/gigaviewer/series_feeds.py, --platform, tonarinoyj,
-           --candidates, data/coverage/webcomics-works.yaml,
+           --candidates, data/coverage/candidates.yaml,
            --out, data/source/gigaviewer, --cache, "{CACHE}/giga-series", --retrieved, "{R}"]
 
   - id: comicfuz
@@ -136,12 +136,12 @@ commands:
 
   - id: kadokomi
     optional: true
-    argv: [adapters/kadokomi/releases.py, --works, data/coverage/webcomics-works.yaml,
+    argv: [adapters/kadokomi/releases.py, --works, data/coverage/candidates.yaml,
            --out, data/source/kadokomi, --cache, "{CACHE}/kadokomi", --retrieved, "{R}"]
 
   - id: nicovideo
     optional: true
-    argv: [adapters/nicovideo/releases.py, --works, data/coverage/webcomics-works.yaml,
+    argv: [adapters/nicovideo/releases.py, --works, data/coverage/candidates.yaml,
            --out, data/source/nicovideo, --cache, "{CACHE}/nico", --retrieved, "{R}"]
 
   # The episode lists. `releases.py` above writes update dates, which make a feed row and never a
@@ -211,7 +211,7 @@ commands:
     # works the moment they are". Onboarding ヤングアニマルWeb is exactly that trap — its seven
     # works are in the gap only until this reads them once, and then the platform would go quiet
     # with nothing saying why. `--limit` is what bounds the fetching, per site.
-    argv: [adapters/webpages/releases.py, --gap, data/coverage/webcomics-works.yaml,
+    argv: [adapters/webpages/releases.py, --gap, data/coverage/candidates.yaml,
            --out, data/source/webpages, --cache, "{CACHE}/webpages", --retrieved, "{R}"]
 
   # `--rendered skip` KEEPS THIS STAGE BROWSER-FREE, which is what the stage says it is. The
@@ -219,7 +219,7 @@ commands:
   # confirmed to exist and a slow pass is allowed to fail without costing the run.
   - id: generic
     optional: true
-    argv: [adapters/generic/releases.py, --works, data/coverage/webcomics-works.yaml,
+    argv: [adapters/generic/releases.py, --works, data/coverage/candidates.yaml,
            --extract, data/coverage/extract.yaml, --rendered, skip,
            --out, data/source/webpages, --cache, "{CACHE}/generic", --retrieved, "{R}"]
 

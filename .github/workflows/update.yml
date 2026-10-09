@@ -172,6 +172,10 @@ jobs:
           [ "$webyuri" -eq 0 ]   || echo "::warning title=Discovery::百合ナビ's WEB連載 listing did not run; the acceptance yardstick is as stale as its last success"
           [ "$yurinavi" -eq 0 ]  || echo "::warning title=Discovery::百合ナビ did not run; its queue is as stale as its last success"
           [ "$webcomics" -eq 0 ] || echo "::warning title=Discovery::Web漫画アンテナ did not run, so no announced work was admitted to the target list this run"
+          # WHAT THE CAPTURE STEPS TARGET: the antenna's list, plus 百合ナビ's WEB連載 works that
+          # nothing names or holds. 百合ナビ links each work's page and was read only as a yardstick,
+          # so a work it listed and the antenna did not was never fetched. See adapters/candidates.py.
+          python3 adapters/candidates.py || echo "::warning title=Discovery::the merged candidate list was not rewritten; captures read the last one"
           [ "$yurinavi" -eq 0 ] || [ "$webcomics" -eq 0 ]
 
       # ── Stage A — feeds, APIs and server-rendered markup. No browser. ────────────────────
@@ -217,6 +221,13 @@ jobs:
         continue-on-error: true
         timeout-minutes: 50
         run: |
+          # THE TARGET LIST FOLLOWS THE CANDIDATES, which it did not: it was written by hand on
+          # 2026-08-02 and never again, so no work that reached a client-rendered platform after
+          # that day could be rendered, and on 2026-10-09 eighteen listed works were held by no
+          # capture. `targets.py` appends the listed works no other route holds, and touches
+          # nothing else. It runs here and not in Stage 0 because it reads what Stage A
+          # captured, which is what "no other route holds it" means.
+          python3 adapters/render/targets.py
           python3 adapters/render/releases.py    --targets data/coverage/render-targets.yaml \
             --out data/source/webpages --cache "$CACHE/render" --limit-per-host 140 --retrieved "$R"
           python3 adapters/remaining/releases.py --works data/coverage/remaining.yaml \
@@ -224,7 +235,7 @@ jobs:
           # THE PLATFORMS THAT ONLY EXIST ONCE A BROWSER HAS RUN THEM. 裏サンデー, アルファポリス
           # and コロナEX serve a shell and build the chapter list in the client, so a plain fetch
           # reads 200 and parses nothing. Stage A runs the same pass with `--rendered skip`.
-          python3 adapters/generic/releases.py --works data/coverage/webcomics-works.yaml \
+          python3 adapters/generic/releases.py --works data/coverage/candidates.yaml \
             --extract data/coverage/extract.yaml --rendered only \
             --out data/source/webpages --cache "$CACHE/generic" --retrieved "$R"
 

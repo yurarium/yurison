@@ -126,6 +126,8 @@ def main(s):
     # hosts is named by the row's own address. Where the address resolves, or where the work runs in
     # exactly one place, that place is the answer.
     s.eq(b.source_named("ichijinsha"), "一迅社", "a pass that reads one site is named for the site")
+    s.eq(b.source_named("nicovideo"), "ニコニコ漫画",
+         "and so is the episode-list pass, whose file states its source as the module")
     s.eq(b.source_named("comparators", None, {}, ("マガポケ",)), "マガポケ",
          "and a single-platform work says where the pass must have read it")
 

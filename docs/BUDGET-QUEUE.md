@@ -1274,3 +1274,34 @@ in in `data/queue/unheld-works.yaml`. Their update dates were captured in the se
 and Stage A runs its adapters side by side, so `nicovideo/works.py` read the copy of
 `nicovideo.yaml` the run had checked out, which did not yet name them. Their episode lists are read
 on the next run, the rows form, and this banks back to 2 when they are minted.
+
+## Five budgets rose with the run after the inductions. Accepted 2026-10-09
+
+Run 37969858010 formed rows for アイドルビーバック！ and なーんもうまくいかん！, minted by hand as
+`w03312` and `w03313` and named, and every one of the 1,466 rows carries an identifier.
+`updates naming a work we do not hold` banks 6 to 2, the standing 不器用ビンボーダンス　３ case.
+
+The same run found a fault in `adapters/candidates.py`, fixed in this commit. It dropped a 百合ナビ
+work from the capture list once any capture held it, and the capture holding it was the one the
+list had asked for, so the work left the list the run after it arrived. ニコニコ漫画's update
+capture stopped naming the two works above, and 舞ちゃんのお姉さん飼育ごはん。 and 彗星、ロック・ユー
+were held only by carry-over, which writes a work back without reading it. A work held at its own
+address now stays on the list; one held at another address is still left to the route that holds it.
+
+`author names romanised as one word` 1221 to 1224 and `author readings no source states` 454 to 456
+are the creators of スライム倒して300年、知らないうちにレベルMAXになってました, 森田季節, シバユウスケ and
+紅緒, and ミナミト of なーんもうまくいかん！, all read by the analyser. Yen Press's catalogue page names
+the first three as Kisetsu Morita, Yusuke Shiba and Benio, which states where each name divides and
+is the route to clearing them. `kana names with no stated division` 272 to 273 is ミナミト, a pen name
+in one word that no captured page divides.
+
+`credit fields an identifier does not cover` 96 to 102 is mostly ガンガンONLINE's credit line for the
+same work, `原作／森田季節(GAノベル／SBクリエイティブ刊)　漫画／シバユウスケ　キャラクター原案／紅緒`, which
+the release rows carry raw. The shipped byline is 森田季節 / シバユウスケ / 紅緒 and is right; the
+residue is the three names without identifiers plus fragments of the imprint note and a role label,
+the same kind as 原作 and 柾みどり監修 already in the count.
+
+`predicted updates already behind the run` 2 to 3 is 怪獣ロマンティクス on マガポケ. Its page states
+two rhythms, 毎月第2木曜 and 毎月9日前後, and the prediction took the first, 2026-10-08. The newest
+chapter captured is from 2026-09-09, and the page opened on 2026-10-09 shows nothing newer, so the
+series is a day behind its own statement at the store's stamp of 2026-10-10.

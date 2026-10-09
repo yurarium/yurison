@@ -324,10 +324,16 @@ def host_platforms(platforms):
 # 一迅社 appeared twice on one page under two spellings, once as itself in the classification table
 # and once as its adapter here.
 #
-# THREE OF THEM NAME ONE SITE and are given that site's name. `gigaviewer` names an ENGINE that a
+# THE PASSES THAT READ ONE SITE are given that site's name. `gigaviewer` names an ENGINE that a
 # dozen publishers run, and `webpages` and `comparators` name passes that read many hosts, so those
 # cannot be mapped and are resolved from the address the row already carries.
-ADAPTER_IS_NOT_A_SOURCE = {"ichijinsha": "一迅社", "kadokomi": "カドコミ", "comicfuz": "COMIC FUZ"}
+#
+# `nicovideo` JOINED 2026-10-09. `nicovideo/works.yaml` states its source as the module, and a work
+# was only ever shown the site's name because `nicovideo.yaml` sorts first and names it too. The two
+# ニコニコ works 百合ナビ brought in were held by the episode lists alone for a run, and both bylines
+# cited `nicovideo`.
+ADAPTER_IS_NOT_A_SOURCE = {"ichijinsha": "一迅社", "kadokomi": "カドコミ", "comicfuz": "COMIC FUZ",
+                           "nicovideo": "ニコニコ漫画"}
 
 #: Passes that read many hosts, so the row's own address is the only thing that can name them, and
 #: WHAT TO SAY WHERE THE ADDRESS CANNOT. A row whose host is unresolvable and whose work runs in more

@@ -8794,18 +8794,27 @@ titles:
       Kept the trailing comma; the Japanese ends on it too.
 
   まるせっせんす:
-    translation_refused: >-
-      A coinage in kana. COMIC OGYAAA!!'s own synopsis names the sisters the story turns on,
-      央 and 白湯, and glosses the title nowhere, so there is nothing under it to render and our
-      rendering is the romanisation already held. Checked 2026-09-04.
-    en: Marusessensu
-    basis: romaji
-    source: yurarium
+    en: "MARCESCENCE"
+    basis: official-jp
+    source: "read off the title itself"
     source_kind: derived
-    reviewed: '2026-08-04'
+    en_source: "series-art"
+    en_source_kind: platform
+    en_url: "https://cdn-img.comic-ogyaaa.com/public/series-thumbnail/12207421983372417929-125fc1337b68bd3431113a62b7eeba44"
+    reviewed: '2026-10-09'
     note: >-
-      Not a standard word or a name attested anywhere reachable about this series; kept in transliteration rather than guessed at.
-
+      COMIC OGYAAA!!'s own series art sets MARCESCENCE above まるせっせんす, so the kana are the English
+      word: marcescence, the botanical term for dead leaves that stay on the plant instead of
+      falling. Kept in the art's capitals, as this file keeps YURISON and ALSO SPRACH FOR RABBIT.
+      CORRECTED 2026-10-09, reported from the title image. This entry had called the title a
+      coinage nothing glossed and shipped Marusessensu, on 2026-08-04 and again on 2026-09-04;
+      the gloss was in the series' own artwork the whole time, and no reading of a synopsis looks
+      at that.
+    translation_refused: >-
+      Ours would come out Marcescence, which is the publisher's MARCESCENCE in another case, so a
+      reader ranking a translation first would be handed the same word twice.
+    reading: "マルセッセンス"
+    reading_basis: surface
   まとう君、ほころぶ私:
     en: You Who Wear It, and I Who Come Undone
     basis: translated

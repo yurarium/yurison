@@ -20070,22 +20070,36 @@ names:
     reading_source_kind: analyser
     verified: true
   まるせっせんす:
-    basis: romaji
-    en: Marusessensu
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: Not a standard word or a name attested anywhere reachable about this series; kept in transliteration
-      rather than guessed at.
+    basis: official-jp
+    en: MARCESCENCE
+    en_at: '2026-10-09'
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: Marusessensu
+    en_corroborated:
+    - read off the title itself
+    en_reviewed: '2026-10-09'
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.comic-ogyaaa.com/public/series-thumbnail/12207421983372417929-125fc1337b68bd3431113a62b7eeba44
+    note: 'COMIC OGYAAA!!''s own series art sets MARCESCENCE above まるせっせんす, so the kana are the English
+      word: marcescence, the botanical term for dead leaves that stay on the plant instead of falling.
+      Kept in the art''s capitals, as this file keeps YURISON and ALSO SPRACH FOR RABBIT. CORRECTED 2026-10-09,
+      reported from the title image. This entry had called the title a coinage nothing glossed and shipped
+      Marusessensu, on 2026-08-04 and again on 2026-09-04; the gloss was in the series'' own artwork the
+      whole time, and no reading of a synopsis looks at that.'
     reading: マルセッセンス
-    reading_at: '2026-08-02'
+    reading_at: '2026-10-09'
     reading_basis: surface
+    reading_corroborated:
+    - series-art
     reading_pass: 1
-    reading_source: surface
-    translation_refused: A coinage in kana. COMIC OGYAAA!!'s own synopsis names the sisters the story
-      turns on, 央 and 白湯, and glosses the title nowhere, so there is nothing under it to render and our
-      rendering is the romanisation already held. Checked 2026-09-04.
+    reading_reviewed: '2026-10-09'
+    reading_source: read off the title itself
+    reading_source_kind: derived
+    translation_refused: Ours would come out Marcescence, which is the publisher's MARCESCENCE in another
+      case, so a reader ranking a translation first would be handed the same word twice.
     verified: true
   まんがで綴る百合な日々:
     basis: translated

@@ -72,6 +72,54 @@ def _chapters_per_date(work):
     return {d: len(v) for d, v in seen.items()}
 
 
+#: An instalment's position in its run, where the title states one: 第12話, 【第6話】, track14, #27.
+#: Full-width digits are read as digits. A title that states none gives None, and None never counts
+#: as continuing anything. 第N巻 is a volume and is not read: カドコミ's コミックス第2巻発売記念イラスト
+#: would otherwise have continued a run of one.
+NUMBER = re.compile(r"第\s*([0-9０-９]+)\s*話|(?:track|＃|#)\s*([0-9０-９]+)", re.I)
+
+#: The most instalments one day's publishing brings. One is the rule and two is a double update or a
+#: launch; ichicomi's 2026-04-09 brought ささやくように恋を唄う 第60話 to 第62話 after nothing since
+#: November, which is the platform catching up a run published elsewhere and not a day's publishing.
+DAY = 2
+
+
+def _number(title):
+    m = NUMBER.search(str(title or ""))
+    if not m:
+        return None
+    return int((m.group(1) or m.group(2)).translate(str.maketrans("０１２３４５６７８９", "0123456789")))
+
+
+def continues(work, date):
+    """Whether everything this work put on `date` carries on from a run the source already held.
+
+    THE EVIDENCE AN IMPORT CANNOT FAKE. A back catalogue arrives from the start of the run: the
+    work's early instalments, all on the one day. A publication is the next instalment after the
+    ones the source already dated earlier. マガポケ's 2026-10-08 was an ordinary Thursday that
+    `platform_wide` read as an import, four works with two of them posting two chapters, and
+    アイ・ヘイ・チュー's 【第6話】 on it followed the 第1話 to 第5話 dated June to September. Its newest
+    chapter read as September and the work was reported overdue on a schedule it had kept.
+
+    True only where the work has numbered instalments dated before `date` in this source, every
+    instalment on `date` is numbered past all of them, and the day brings no more than `DAY` of them.
+    A title with no number, a day with nothing before it, or a run of three or more answers False,
+    which leaves the work to the tests as they stood.
+    """
+    before, on = [], []
+    for c in (work.get("chapters") or []):
+        if not (isinstance(c, dict) and c.get("updated")):
+            continue
+        d = str(c["updated"])[:10]
+        if d < date:
+            before.append(_number(c.get("title")))
+        elif d == date:
+            on.append(_number(c.get("title")))
+    earlier = [n for n in before if n is not None]
+    return (bool(earlier and on) and None not in on and len(set(on)) <= DAY
+            and min(on) > max(earlier))
+
+
 def platform_wide(works):
     """Dates on which this source appears to have imported much of its catalogue at once."""
     by_date = collections.defaultdict(list)
@@ -95,6 +143,12 @@ def stamps(works):
     Both shapes reach the same answer, so a work caught by either is caught. A platform-wide date
     is a stamp for every work sitting on it, including the work that only has two chapters there:
     the date says when the source imported, and it says that whatever a given work contributed.
+
+    EXCEPT A WORK WHOSE CHAPTERS THAT DAY CONTINUE ITS RUN (`continues`). The platform-wide test
+    infers an import from the shape of a day, and an ordinary busy day can have that shape; the
+    work's own numbering is direct evidence and outranks it. The per-work test is not excused,
+    because a late load of a work's remaining chapters continues its numbering too and brings five
+    at once.
     """
     wide = platform_wide(works)
     out = set()
@@ -103,6 +157,6 @@ def stamps(works):
             continue
         title = w.get("work_title")
         for d, n in _chapters_per_date(w).items():
-            if n >= RUN or d in wide:
+            if n >= RUN or (d in wide and not continues(w, d)):
                 out.add((title, d))
     return out

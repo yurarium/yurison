@@ -4138,3 +4138,13 @@ Six dates across all sources sit at exactly four works and half multiple: `magap
 chapters, which looks like a real import. Counting only works that bring three chapters or more
 keeps 2020-04-01 and loses most of the remaining boundary dates on カドコミ and マガポケ, which nobody has
 checked either. The decision is which error is cheaper, and it is the owner's.
+
+RESOLVED 2026-10-11, by neither threshold. The owner approved a continuity rule instead:
+`importdates.continues` excuses a work from the platform-wide test where its chapters that day are
+numbered past every chapter the source dated earlier and number no more than two instalments. The
+per-work test still applies to everything. Over every source it lifts 84 stamps, 57 of them
+マガポケ's monthly release on the 18th, one instalment in parts each month since 2021, which the
+old rule had read as an import every time. Seven offers gain a later newest chapter, two works move
+from slow to active, and アイ・ヘイ・チュー and 怪獣ロマンティクス stop reading as overdue. The 一迅プラス
+migration and its straggler are still caught, and so is ichicomi's catch-up of three chapters at
+once on 2026-04-09.

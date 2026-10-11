@@ -58,6 +58,41 @@ def main(s):
     got = im.stamps(migration)
     s.check(("s0", "2025-08-08") in got,
             "a work contributing one chapter to a migration is stamped with the rest")
+
+    # A BUSY DAY THAT CONTINUES ITS RUNS IS A PUBLICATION. マガポケ's 2026-10-08: four works, two of
+    # them posting two chapters, so the day has an import's shape; but アイ・ヘイ・チュー's 【第6話】
+    # follows the 第1話 to 第5話 already dated, which no import does.
+    busy = [work("aihei", *[("【第%d話】" % k, "2026-0%d-09" % (k + 5)) for k in range(1, 5)],
+                 ("【第6話】今に木阿弥", "2026-10-08")),
+            work("kaiju", ("【第3話】", "2026-09-09"), ("【第4話(1)】", "2026-10-08"),
+                 ("【第4話(2)】 前編", "2026-10-08")),
+            work("launch", ("【第1話】", "2026-10-08"), ("【第2話】", "2026-10-08")),
+            work("one", ("【一膳目】", "2026-10-08"))]
+    s.check("2026-10-08" in im.platform_wide(busy), "the busy day still has an import's shape")
+    busy_got = im.stamps(busy)
+    s.check(("aihei", "2026-10-08") not in busy_got, "a chapter continuing its run is a publication")
+    s.check(("kaiju", "2026-10-08") not in busy_got, "and so is a two-part instalment that continues it")
+    s.check(("launch", "2026-10-08") in busy_got,
+            "a work with nothing earlier is left to the day's shape, as before")
+    s.check(("one", "2026-10-08") in busy_got, "and so is one whose title states no number")
+
+    # THE COUNTER-CASES CONTINUITY MUST NOT EXCUSE. A back catalogue filled in behind chapters
+    # already held is numbered BEFORE them; and a late load of the rest of a run continues the
+    # numbering, which is what the per-work test is for and why it is not excused.
+    filled = [work("behind", ("第10話", "2025-01-01"), *[("第%d話" % k, "2025-08-08") for k in (1, 2)])]
+    filled += [work(f"w{i}", *[("c%d" % k, "2025-08-08") for k in range(3)]) for i in range(4)]
+    s.check(("behind", "2025-08-08") in im.stamps(filled),
+            "chapters numbered before the ones already held are an import")
+    late = [work("rest", ("第1話", "2024-01-01"), *[("第%d話" % k, "2025-08-08") for k in range(2, 9)])]
+    s.check(("rest", "2025-08-08") in im.stamps(late),
+            "and seven chapters continuing a run on one day are still caught by the per-work test")
+    s.eq(im._number("【ｔｒａｃｋ１４】"), None, "full-width letters are not read as a marker")
+    s.eq(im._number("第１２話"), 12, "full-width digits are")
+    s.eq(im._number("コミックス第2巻発売記念イラスト"), None, "and a volume is not an instalment")
+    catchup = [work("caught", ("第59話", "2025-11-18"), *[("第%d話" % k, "2026-04-09") for k in (60, 61, 62)])]
+    catchup += [work(f"w{i}", *[("c%d" % k, "2026-04-09") for k in range(2)]) for i in range(4)]
+    s.check(("caught", "2026-04-09") in im.stamps(catchup),
+            "three instalments at once after months of nothing is a platform catching up")
     s.eq(len([g for g in got if g[1] == "2025-08-08"]), 9, "all nine of them")
 
     # An ordinary busy day is not a migration: a few works, mostly one instalment each. Measured on

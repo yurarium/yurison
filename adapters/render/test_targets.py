@@ -67,6 +67,17 @@ def main(s):
     s.eq(rt.work_address(guilty["urls"], "pocket.shonenmagazine.com"),
          "https://pocket.shonenmagazine.com/title/03349", "the work's page is preferred")
 
+    # A SECOND WORK PAGE UNDER ONE TITLE ON ONE SITE IS A SECOND TARGET. 怨霊日和's 【読み切り版】 is
+    # targeted at title/03125, and 百合ナビ links the serialisation at a chapter of title/03338.
+    onryo_spec = yaml.safe_load(TEXT.replace("既にある作品", "怨霊日和").replace("00001", "03125"))
+    onryo = {"title": "怨霊日和", "urls": ["https://pocket.shonenmagazine.com/title/03338/episode/443763"]}
+    s.eq(rt.additions(onryo_spec, [onryo], held={rt.norm_work("怨霊日和"): {
+        "https://pocket.shonenmagazine.com/title/03125"}}),
+         {"magapoke": [("怨霊日和", "https://pocket.shonenmagazine.com/title/03338")]},
+         "the serialisation is targeted at its own page beside the 読み切り版")
+    s.eq(rt.additions(onryo_spec, [dict(onryo, urls=["https://pocket.shonenmagazine.com/title/03125"])],
+                      held={}), {}, "and the page already targeted is not added twice")
+
     # THE RENDERED ROUTE'S OWN OUTPUT IS NOT "HELD ELSEWHERE", or a work it already renders
     # would be counted as reachable by another route and the rule would mean nothing.
     with tempfile.TemporaryDirectory() as d:

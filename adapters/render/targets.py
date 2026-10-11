@@ -44,26 +44,45 @@ def work_address(urls, host):
 
 
 def held_elsewhere(sources):
-    """Folded titles every capture outside the rendered route holds. One reading of the captures,
-    `candidates.held`, so the two lists cannot disagree about what is already reached."""
-    return _candidates.held(sources, skip=("rendered-",))
+    """`{folded title: addresses}` for every capture outside the rendered route. One reading of the
+    captures, `candidates.held_at`, so the two lists cannot disagree about what is already reached."""
+    return _candidates.held_at(sources, skip=("rendered-",))
+
+
+def page_of(url):
+    """A chapter link under a work's page reduced to that page, where the address carries it."""
+    page = _candidates.work_page(url)
+    return page[0] + page[1] if page else url
 
 
 def additions(spec, candidates, held):
-    """`{platform id: [(title, url), ...]}` to append, in the candidates' order."""
+    """`{platform id: [(title, url), ...]}` to append, in the candidates' order.
+
+    A TITLE ALREADY TARGETED OR HELD AT ANOTHER WORK PAGE ON THIS SITE IS A SECOND PAGE, by the
+    test `candidates.another_page` owns. 怨霊日和 was targeted at マガポケ title/03125, its
+    【読み切り版】, and the serialisation at title/03338 was skipped for sharing the title. `held` may
+    be a set of titles, which says nothing about where, and so reaches every candidate it names."""
+    if not isinstance(held, dict):
+        held = {k: {""} for k in held}
     out = {}
     for p in spec.get("platforms") or []:
         host = p.get("host") or ""
-        have = {norm_work(w.get("title") or "") for w in p.get("works") or []}
+        have = {}
+        for w in p.get("works") or []:
+            have.setdefault(norm_work(w.get("title") or ""), set()).add(w.get("url") or "")
         for c in candidates:
             title = c.get("title")
             url = work_address(c.get("urls") or [], host)
             if not title or not url:
                 continue
+            url = page_of(url)
             k = norm_work(title)
-            if k in have or k in held:
+
+            def reached(addrs):
+                return any(not _candidates.another_page(a, url) for a in addrs)
+            if reached(have.get(k, ())) or reached(held.get(k, ())):
                 continue
-            have.add(k)
+            have.setdefault(k, set()).add(url)
             out.setdefault(p["id"], []).append((title, url))
     return out
 

@@ -3972,8 +3972,6 @@ works:
         retrieved: 2026-08-07
   - id: w00486
     title: "超深宇宙より愛をこめて【読み切り版】"
-    merged_into: w00156
-    merge_basis: "a 読み切り版 is an edition of the work, and DEFINITIONS records that the test binds the work and not the edition"
     anchors:
       - "web:https://ichicomi.com/episode/2550912965919401588"
       - "web:https://ichicomi.com/atom/series/2550912965919360655"
@@ -5407,8 +5405,6 @@ works:
       - "web:https://championcross.jp/series/899b7db428f7b"
   - id: w00650
     title: "白妙様、秘密ですよ／読切版"
-    merged_into: w00314
-    merge_basis: "／読切版 is an edition of the work, and DEFINITIONS records that the test binds the work and not the edition"
     anchors:
       - "web:https://comic-boost.com/content/01470001"
   - id: w00651
@@ -21468,6 +21464,16 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03338"
 related:
+  - a: w00156
+    b: w00486
+    note: "一迅プラス lists 超深宇宙より愛をこめて【読み切り版】 as its own series beside the serialisation. Merged on 2026-08-07 as an edition and un-merged on 2026-10-11 on the owner's ruling that a short version and its serialisation are not identical. The 読み切り版 came first: its series id on ichicomi.com is the lower of the two, and its only date, 2025-08-08, is the platform's import stamp, while the serialisation's real start is 2025-03-08 on pixivコミック"
+    precedes: w00486
+    retrieved: 2026-10-11
+  - a: w00314
+    b: w00650
+    note: "comicブースト lists 白妙様、秘密ですよ／読切版 at content/01470001, one chapter on 2024-09-13, and the serialisation at content/01650001 from 2025-08-22. Merged as an edition and un-merged on 2026-10-11 on the owner's ruling that a short version and its serialisation are not identical"
+    precedes: w00650
+    retrieved: 2026-10-11
   - a: w00336
     b: w03314
     note: "マガポケ lists 怨霊日和【読み切り版】 at title/03125, a 短期集中連載 of four chapters from 2026-02-18 to 2026-03-11, and 怨霊日和 at title/03338, serialised in 週刊少年マガジン from 2026-09-09 and restarting at 【第1話】. The two versions are not identical, so they are related and not merged; ruled by the project owner on 2026-10-11"

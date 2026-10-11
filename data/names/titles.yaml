@@ -80015,9 +80015,13 @@ names:
     verified: false
   超深宇宙より愛をこめて【読み切り版】:
     basis: translated
-    en: From the Deepest Space, with Love
-    en_at: '2026-08-03'
-    en_reviewed: '2026-08-03'
+    en: Big love from ultra deep space (One-Shot Version)
+    en_at: '2026-10-11'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: From the Deepest Space, with Love
+    en_reviewed: '2026-10-11'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -80045,8 +80049,10 @@ names:
       - ばん
     - - 】
       - null
-    note: 【読み切り版】 marks this as the one-shot pilot that the serialised 超深宇宙より愛をこめて grew out of, a separate
-      catalogue entry for a separate release rather than a different work, so it carries the same title.
+    note: The title is the work's own Latin title, set on the serialisation's series art on 一迅プラス, and
+      【読み切り版】 is glossed as the one-shot version it marks. Un-merged from the serialisation on 2026-10-11
+      and named in step with it, where it had kept a translation of our own from 2026-08-03, From the
+      Deepest Space, with Love, which named the same story two ways.
     reading: チョウシン ウチュウ ヨリ アイ ヲ コメテ 【ヨミキリ バン】
     reading_at: '2026-08-05'
     reading_basis: analyser

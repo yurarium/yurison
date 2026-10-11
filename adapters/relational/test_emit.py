@@ -53,6 +53,34 @@ def _unit(s):
     rep.execute("INSERT INTO check_finding (kind, name, seq, finding)"
                 " VALUES ('invariant','ruby covers its surface',0,'w00001: ruby is short')")
 
+    # ── TWO WORKS RELATED AND NOT MERGED, READ FROM BOTH SIDES ──────────────────────────────
+    #
+    # 怨霊日和's 【読み切り版】 and its serialisation are two works with one title, so each page has
+    # to say which way the relation runs and how long the other one is, or it reads as a link to
+    # itself. The schema refuses a pair stored backwards or a `precedes` naming neither side.
+    rel = relational.load_rulings(relational.create(":memory:"))
+    for wid, n, first, latest in (("w00336", 4, "2026-02-18", "2026-03-11"),
+                                  ("w03314", 6, "2026-09-09", "2026-10-07")):
+        rel.execute("INSERT INTO work (id, title) VALUES (?, '怨霊日和')", (wid,))
+        rel.execute("INSERT INTO serialisation (work, chapters, first, latest) VALUES (?,?,?,?)",
+                    (wid, n, first, latest))
+    rel.execute("INSERT INTO work_relation (a, b, precedes, note) VALUES"
+                " ('w00336','w03314','w00336','the 読み切り版 came first')")
+    by = {r["id"]: r for r in emit.series(rel, "2026-10-11")["series"]}
+    s.eq(by["w00336"]["related"], [{"id": "w03314", "work": "怨霊日和", "order": "precedes",
+                                    "chapters": 6, "first": "2026-09-09", "latest": "2026-10-07",
+                                    "note": "the 読み切り版 came first"}],
+         "the earlier work names what it was continued as, with that work's length and dates")
+    s.eq(by["w03314"]["related"][0]["order"], "follows",
+         "and the later one reads the same pair from its own side")
+    for bad, why in ((("w03314", "w00336", None), "a pair stored out of identifier order"),
+                     (("w00336", "w03314", "w00001"), "a `precedes` naming neither work")):
+        try:
+            rel.execute("INSERT INTO work_relation (a, b, precedes) VALUES (?,?,?)", bad)
+            s.check(False, f"{why} must be refused")
+        except Exception:                                                # noqa: BLE001
+            s.check(True, f"{why} is refused")
+
     got = emit.run(rep)
     # THE DOTTED KEYS COME BACK APART, which is the whole reason `run_report` can hold scalars and
     # still serve a shape with sections in it.

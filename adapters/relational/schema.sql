@@ -454,6 +454,22 @@ CREATE TABLE work_anchor (
 
 CREATE INDEX work_anchor_work ON work_anchor (work);
 
+-- TWO WORKS THE REGISTRY RELATES AND DOES NOT MERGE. A short version and its serialisation are not
+-- identical, ruled by the project owner on 2026-10-11, so each is a work of its own: 怨霊日和's
+-- 【読み切り版】 at マガポケ title/03125 and the 週刊少年マガジン serialisation at title/03338. The
+-- registry has recorded such pairs under `related:` since August and nothing carried them here, so
+-- a reader met two rows of one title with nothing to say how they stand. A pair is stored once, in
+-- identifier order, and read in both directions. `precedes` is which came first, set by hand where
+-- the evidence gives an order and NULL where it does not.
+CREATE TABLE work_relation (
+  a        TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  b        TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
+  precedes TEXT CHECK (precedes IS NULL OR precedes = a OR precedes = b),
+  note     TEXT,
+  PRIMARY KEY (a, b),
+  CHECK (a < b)
+);
+
 -- EVERY SPELLING THE REGISTRY RESOLVES TO ONE PERSON. `credits.yaml` holds 2,473 across 2,255
 -- credits and 220 carry more than one, so `credit.surface UNIQUE` was keeping one and discarding
 -- the rest: a byline written `スズキフミエ` never reached `c00016`, whose kept spelling is `鈴木二三江`.

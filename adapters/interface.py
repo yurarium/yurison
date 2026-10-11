@@ -201,6 +201,11 @@ SURFACES = [
             "the newest chapter's name, shown beside the row"),
     Surface("series[].collection", ("workTextOf", "workLabel"), "value", "title",
             "the collection a work belongs to, named on its own page"),
+    # A RELATED WORK IS NAMED AS A WORK, through the renderer the works list uses, and the key is
+    # `work` so the accessor is the one app.js already reads that way.
+    Surface("series[].related[].work", ("workLabel", "workTextOf"), "row:work", "title",
+            "a work this one is related to and not merged with, named on its own page",
+            reads=("work",)),
     Surface("series[].print[]",
             ("publisherParts", "publisherPartsHtml", "pubBoth", "publisherChip"), "record",
             "publisher",
@@ -402,6 +407,12 @@ QUOTED = {
 #: string becomes part of a page. An entry here is now a claim the source is asked about rather than
 #: a claim about what its author believed.
 NOT_DRAWN = {
+    # WHY TWO WORKS ARE RELATED is the registry's reasoning, in English with the platforms' own
+    # titles quoted. The work page draws the relation, its direction and the other work's length
+    # and dates; the reasoning is for a person checking the registry, and a tooltip of it would be
+    # English alone on a bilingual page.
+    "series[].related[].note":
+        "the registry's reason two works are related, quoted from works.yaml for a person checking it",
     # A GATE FINDING IS DIAGNOSTIC OUTPUT, NOT A NAME. check.py reports an example beside a failing
     # invariant so a person can act on it, and an example naming a Japanese work carries that title
     # verbatim. It is never rendered to a reader as a name and must not be romanised: the point of

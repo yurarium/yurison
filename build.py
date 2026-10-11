@@ -2053,6 +2053,41 @@ def work_address(url):
     return identity.stable_url(u) if u else None
 
 
+def mark_continued(rows_by_id, related, live):
+    """Mark each earlier version the registry says was continued as `completed`. Returns how many.
+
+    A SHORT VERSION FOLLOWED BY ITS SERIALISATION IS DONE, NOT SLOW. The registry relates the two
+    and says which came first, and where the later one has published since the earlier one's last
+    chapter, the earlier one ended by being continued. 怨霊日和's 【読み切り版】 was a four-chapter
+    短期集中連載 to 2026-03-11 and read `slow` beside the serialisation it became, running weekly
+    since 2026-09-09. Only the age-based states give way: a one-shot is already done, and anything
+    a reviewer decided stands. `live` resolves an identifier through any merge.
+    """
+    n = 0
+    for rel in related:
+        if not rel.get("precedes"):
+            continue
+        ids = {live(str(rel.get(x) or "")) for x in ("a", "b")}
+        first = live(str(rel["precedes"]))
+        then = next(iter(ids - {first}), None) if first in ids else None
+        earlier, later = rows_by_id.get(first), rows_by_id.get(then)
+        if not (earlier and later and earlier.get("latest") and later.get("latest")):
+            continue
+        if earlier.get("state") not in ("active", "slow", "dormant", _ser.UNKNOWN):
+            continue
+        if later["latest"] <= earlier["latest"]:
+            continue
+        earlier["state"] = _ser.COMPLETED
+        earlier["completed_basis"] = earlier["state_basis"] = (
+            f"continued as {later['work']} ({then}), which has published since this version's "
+            f"last chapter of {earlier['latest']}; its newest is {later['latest']}")
+        earlier["completed_basis_ja"] = earlier["state_basis_ja"] = (
+            f"{later['work']}（{then}）として続いている。この版の最終話は{earlier['latest']}、"
+            f"続きの最新話は{later['latest']}")
+        n += 1
+    return n
+
+
 def same_site_addresses(works):
     """The work addresses ONE capture lists as two works' pages under the same title.
 
@@ -6619,8 +6654,8 @@ def main():
     works_out = [r for r in works_out if r.get("work") not in _aside]
     if catalogue_rows:
         import collections as _c
-        for _why, _n in _c.Counter(r["set_aside"] for r in catalogue_rows).most_common():
-            print(f"set aside           : {_n} work(s), {_why}")
+        for _why, _aside_n in _c.Counter(r["set_aside"] for r in catalogue_rows).most_common():
+            print(f"set aside           : {_aside_n} work(s), {_why}")
 
     series_rows = sorted(works_out,
                          key=lambda r: (r["latest"] or "", r["chapters"]), reverse=True)
@@ -6684,6 +6719,14 @@ def main():
         if _antenna_cited:
             print(f"admitted by the antenna: {_antenna_cited} web row(s) carry the listing that "
                   f"let them in")
+        # A SHORT VERSION FOLLOWED BY ITS SERIALISATION IS DONE, NOT SLOW. See `mark_continued`.
+        _superseded_n = mark_continued(
+            {r["id"]: r for r in series_rows if r.get("id")}, _iddoc.get("related") or [],
+            lambda i, _by={e["id"]: e for e in _iddoc.get("works") or [] if e.get("id")}:
+                identity.survivor(_by, i))
+        if _superseded_n:
+            print(f"continued       : {_superseded_n} short version(s) read as done, each followed "
+                  f"by the work it became")
         print(f"work identifiers: {_named} of {len(series_rows)} rows carry one; "
               f"{_joined} also carry their print edition"
               + (f"; {_by_source} answered by a source address rather than the row's own"

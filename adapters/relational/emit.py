@@ -993,6 +993,26 @@ def series(db, generated):
             row["chapters_stated"] = stated
         if inferred:
             row["oneshot_inferred"] = True
+        # THE WORKS THIS ONE IS RELATED TO AND NOT MERGED WITH, read in both directions, so a reader
+        # on 怨霊日和's serialisation can reach its 【読み切り版】 and the other way round. `order` is
+        # this work's place in the pair where the registry states one: `precedes` means this work
+        # came first, `follows` that it came after. The other work's length and dates travel with
+        # it, because the two often share a title and the name alone would read as a link to the
+        # page it sits on. `work` is the key the works list already renders a title through.
+        related = []
+        for other, first, note, title in db.execute(
+                "SELECT CASE WHEN r.a = ? THEN r.b ELSE r.a END, r.precedes, r.note, w.title"
+                " FROM work_relation r JOIN work w ON w.id = CASE WHEN r.a = ? THEN r.b ELSE r.a END"
+                " WHERE ? IN (r.a, r.b) ORDER BY 1", (wid, wid, wid)):
+            ser = db.execute("SELECT chapters, first, latest FROM serialisation WHERE work = ?",
+                             (other,)).fetchone()
+            related.append({
+                "id": other, "work": title,
+                **({"order": "precedes" if first == wid else "follows"} if first else {}),
+                **({"chapters": ser[0], "first": ser[1], "latest": ser[2]} if ser else {}),
+                **({"note": note} if note else {})})
+        if related:
+            row["related"] = related
         # A KEY THAT IS ALWAYS THERE AND SOMETIMES NULL, which is what the two row paths write and
         # is not the same as a key that is absent: a work with a serialisation is ASKED whether its
         # ending has a reason in Japanese and answers no, and a print-only row is never asked.

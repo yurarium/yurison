@@ -1357,3 +1357,15 @@ title/03338. 今夜、エーテルで待ちあわせ is w00391, Seasons' 読切,
 author. The project owner ruled on 2026-10-11 that the two versions of such a work are not
 identical, so a merge would claim more than the evidence does. The check never reads the registry,
 by design, and so cannot see the ruling; the two pairs stay in its count.
+
+## Two budgets rose as two merged one-shots became works again. Accepted 2026-10-11
+
+On the owner's ruling that a short version and its serialisation are not identical, the two merges
+that rested on "a 読み切り版 is an edition" are undone: 超深宇宙より愛をこめて【読み切り版】 (w00486)
+and 白妙様、秘密ですよ／読切版 (w00650) are works again, each related to its serialisation and
+marked as coming first.
+
+`one work under two names in a list` 5 to 6 is one more of those decided pairs, which the check
+counts because it never reads the registry. `ruby asserting a reading per character` 202 to 203 is
+w00486's title, which carries the same per-character spans as its serialisation's, 超 and 深 read
+apart; it is a second row showing a reading the corpus already showed once.

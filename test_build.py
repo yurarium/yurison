@@ -140,6 +140,25 @@ def main(s):
         {"work_title": "最恐呪物令嬢", "url": "https://younganimal.com/episodes/24a3e6bcb998e"}]), set(),
          "nor is a work's series page beside one of its episodes")
 
+    # ── A SHORT VERSION FOLLOWED BY ITS SERIALISATION IS DONE ───────────────────────────────────
+    def rows():
+        return {"w00336": {"work": "怨霊日和", "state": "slow", "latest": "2026-03-11"},
+                "w03314": {"work": "怨霊日和", "state": "active", "latest": "2026-10-07"}}
+    rel = [{"a": "w00336", "b": "w03314", "precedes": "w00336"}]
+    got = rows()
+    s.eq(b.mark_continued(got, rel, lambda i: i), 1, "the earlier version is marked")
+    s.eq(got["w00336"]["state"], "completed", "a short serial continued as a serialisation is done")
+    s.check("w03314" in got["w00336"]["completed_basis"], "and its basis names what it became")
+    s.eq(got["w03314"]["state"], "active", "the serialisation itself is left alone")
+    got = rows(); got["w00336"]["state"] = "oneshot"
+    s.eq(b.mark_continued(got, rel, lambda i: i), 0, "a one-shot is already done and keeps saying so")
+    got = rows(); got["w03314"]["latest"] = "2026-03-01"
+    s.eq(b.mark_continued(got, rel, lambda i: i), 0,
+         "nothing is marked where the later work has not published since the earlier one stopped")
+    got = rows()
+    s.eq(b.mark_continued(got, [{"a": "w00336", "b": "w03314"}], lambda i: i), 0,
+         "and nothing where the registry states no order")
+
     # ── AN ADAPTER'S MODULE NAME IS NOT A SOURCE'S NAME ──────────────────────────────────────────
     #
     # `sourced_from` is rendered in the work page's "Other data" table, and a pass that reads many

@@ -810,6 +810,22 @@ def _load_all(db, source, put, counts, refused):
             anchored[(scheme, address)] = wid
             put("INSERT INTO work_anchor (scheme, address, work) VALUES (?,?,?)",
                 (scheme, address, wid), f"anchor {a_}")
+
+    # WORKS THE REGISTRY RELATES AND DOES NOT MERGE, each pair once and in identifier order. Both
+    # sides resolve through any retirement, and a pair whose two sides became one work, or one of
+    # whose sides the corpus does not hold, is no relation a reader can follow.
+    related = {}
+    for r_ in (_yaml("works").get("related") or []):
+        a_, b_ = _live(str(r_.get("a") or "")), _live(str(r_.get("b") or ""))
+        if a_ == b_ or a_ not in held_work or b_ not in held_work:
+            continue
+        lo, hi = sorted((a_, b_))
+        first = _live(str(r_["precedes"])) if r_.get("precedes") else None
+        related.setdefault((lo, hi), (first if first in (lo, hi) else None, r_.get("note")))
+    for (lo, hi), (first, note) in sorted(related.items()):
+        put("INSERT INTO work_relation (a, b, precedes, note) VALUES (?,?,?,?)",
+            (lo, hi, first, note), f"relation {lo} {hi}")
+    counts["work_relation"] = len(related)
     counts["work_anchor"] = db.execute("SELECT count(*) FROM work_anchor").fetchone()[0]
 
     held_credit, spelt = {r[0] for r in db.execute("SELECT id FROM credit")}, {}

@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-10-10
+retrieved: 2026-10-12
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -92,8 +92,11 @@ works:
     url: "https://www.corocoro.jp/title/65"
     platform_name: "コロコロオンライン"
     route: "rendered"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
+      - title: "第105話"
+        updated: 2026-10-10
+        date_basis: rendered
       - title: "第104話"
         updated: 2026-09-26
         date_basis: rendered
@@ -123,7 +126,7 @@ works:
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     platform_name: "キミコミ"
     route: "comici"
-    chapter_count: 12
+    chapter_count: 13
     chapters:
       - title: "OPERATION1"
         updated: 2026-07-20
@@ -161,11 +164,12 @@ works:
       - title: "OPERATION8"
         updated: 2026-09-07
         author: "涼海来夏"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "OPERATION9"
         updated: 2026-09-14
         author: "涼海来夏"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "OPERATION10"
         updated: 2026-09-21
         author: "涼海来夏"
@@ -173,9 +177,13 @@ works:
       - title: "OPERATION11"
         updated: 2026-09-28
         author: "涼海来夏"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "OPERATION12"
         updated: 2026-10-05
+        author: "涼海来夏"
+        access_modes: ["purchase"]
+      - title: "OPERATION13"
+        updated: 2026-10-12
         author: "涼海来夏"
         access_modes: ["purchase"]
   - work_title: "雨夜の月"
@@ -797,7 +805,7 @@ works:
     url: "https://hanayume.com/series/f3ce082d639de"
     platform_name: "花とゆめ+"
     route: "comici"
-    chapter_count: 39
+    chapter_count: 40
     chapters:
       - title: "#1"
         updated: 2026-04-20
@@ -981,9 +989,14 @@ works:
       - title: "＃19②"
         updated: 2026-09-28
         author: "瑠夏子"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "＃20①"
         updated: 2026-10-05
+        author: "瑠夏子"
+        access_modes: ["free"]
+      - title: "＃20②"
+        updated: 2026-10-12
         author: "瑠夏子"
         access_modes: ["purchase"]
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
@@ -2463,7 +2476,7 @@ works:
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     platform_name: "花とゆめ+"
     route: "comici"
-    chapter_count: 18
+    chapter_count: 19
     chapters:
       - title: "1話"
         updated: 2026-04-20
@@ -2542,9 +2555,14 @@ works:
       - title: "14話"
         updated: 2026-09-13
         author: "まめ魚"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "15話"
         updated: 2026-09-27
+        author: "まめ魚"
+        access_modes: ["free"]
+      - title: "16話"
+        updated: 2026-10-11
         author: "まめ魚"
         access_modes: ["purchase"]
   - work_title: "裏世界ピクニック"
@@ -2553,8 +2571,8 @@ works:
     route: "markup"
     chapter_count: 2
     chapters:
-      - title: "第92話-1 トイレット・ペーパームーンII"
-        updated: 2026-10-04
+      - title: "第92話-2 トイレット・ペーパームーンII"
+        updated: 2026-10-11
         date_basis: heuristic
       - title: "第1話-1 くねくねハンティングI 作品インフォメーション 『裏世界ピクニック』コミッ"
         updated: 2026-05-12
@@ -4949,11 +4967,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-10-09
+        updated: 2026-10-11
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-10-09
+        updated: 2026-10-11
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"

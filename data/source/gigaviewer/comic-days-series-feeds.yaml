@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-10-10
+retrieved: 2026-10-12
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 111
@@ -15416,14 +15416,20 @@ works:
   - work_title: "笑顔のたえない職場です。"
     series_id: "10834108156652406186"
     url: "https://comic-days.com/atom/series/10834108156652406186"
-    chapter_count: 124
+    chapter_count: 125
     chapters:
+      - title: "第１２４話　色んなものが進んで始まって"
+        updated: 2026-10-10
+        author: "くずしろ"
+        url: "https://comic-days.com/episode/12207421983484134839"
+        free_from: 2026-10-24
+        access_modes: ["purchase"]
       - title: "第１２３話　懸ける思いは"
         updated: 2026-09-19
         author: "くずしろ"
         url: "https://comic-days.com/episode/12207421983484134836"
         free_from: 2026-10-10
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１２２話　あいさつ教えてください！"
         updated: 2026-08-29
         author: "くずしろ"
@@ -15434,8 +15440,7 @@ works:
         updated: 2026-08-15
         author: "くずしろ"
         url: "https://comic-days.com/episode/12207421983484134830"
-        free_from: 2026-08-29
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１２０話　セカンドオピニオンじゃ！！"
         updated: 2026-07-25
         author: "くずしろ"

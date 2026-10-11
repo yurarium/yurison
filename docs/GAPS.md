@@ -4122,3 +4122,19 @@ parsed` for きら星ポータル, COMICリュウ, ヤンジャン+ and マン�
 てれびくんヒーローコミックス) on works already in its list, so the thirteen listed works on those
 platforms that the newly derived list adds will be rendered and still yield nothing. The parse for
 those hosts is what needs looking at, page by page; the target list is no longer the obstacle.
+
+## An ordinary four-work day can read as a catalogue import. Found 2026-10-11
+
+`adapters/importdates.platform_wide` treats a date as an import when `SPREAD` (4) or more works sit
+on it and `MULTI_SHARE` (half) of them contribute two chapters or more. On マガポケ's 2026-10-08 four
+works published, and two of them posted two chapters: ぎるてぃらいぶらり launched with 第1話 and 第2話,
+and 怪獣ロマンティクス published a two-part 第4話. The date was read as an import, so its chapters
+stopped counting as observed, and アイ・ヘイ・チュー and 怪獣ロマンティクス show September as their
+newest chapter and are reported overdue against schedules they kept.
+
+Six dates across all sources sit at exactly four works and half multiple: `magapoke-feeds.yaml`
+2024-08-18, 2024-12-18, 2025-10-18 and 2026-10-08, and one `works.yaml` 2026-02-13. Raising
+`SPREAD` to 5 clears them and also loses 2020-04-01, where four works each brought three or more
+chapters, which looks like a real import. Counting only works that bring three chapters or more
+keeps 2020-04-01 and loses most of the remaining boundary dates on カドコミ and マガポケ, which nobody has
+checked either. The decision is which error is cheaper, and it is the owner's.

@@ -1306,6 +1306,10 @@ two rhythms, 毎月第2木曜 and 毎月9日前後, and the prediction took the 
 chapter captured is from 2026-09-09, and the page opened on 2026-10-09 shows nothing newer, so the
 series is a day behind its own statement at the store's stamp of 2026-10-10.
 
+CORRECTED 2026-10-11: it was not behind. 第4話(1) and (2) published on 2026-10-08 and were
+captured; the title page renders only its first episode, and the corpus discounted the date as an
+import. See the entry of 2026-10-11.
+
 ## One budget rose for one run, and a held work lost its identifier. Accepted 2026-10-09
 
 Run 37973227207 was the first with the candidates fix, and the list now keeps all six works only
@@ -1322,3 +1326,24 @@ holds the address without one, so the row stood unkeyed and the published store 
 had held since August. `facts/identity.index` now answers each web anchor in both forms, never over
 a form somebody registered for another work, and every one of the 1,464 rows carries an identifier
 again.
+
+## Two budgets rose, and the 2026-10-09 reading of 怪獣ロマンティクス was wrong. Accepted 2026-10-11
+
+`predicted updates already behind the run` 3 to 4 is アイ・ヘイ・チュー on マガポケ, stated as 毎月第2
+土曜 and predicted for 2026-10-10. Two of the four are not behind at all. アイ・ヘイ・チュー published
+【第6話】今に木阿弥 on 2026-10-08 and 怪獣ロマンティクス published 【第4話(1)】 and 【第4話(2)】 the same
+day, its own 毎月第2木曜; the corpus captured all three with their dates. They are discounted as
+an import: `importdates.platform_wide` reads a date as a catalogue import when at least four works
+sit on it and half of them contribute two chapters or more, and 2026-10-08 on `magapoke-feeds.yaml`
+had exactly four works, two of them with two chapters, ぎるてぃらいぶらり's launch and 怪獣ロマンティクス's
+two-part instalment. So both works show their September chapter as the newest, and the prediction
+runs from it. The entry of 2026-10-09 above said 怪獣ロマンティクス showed nothing newer; that was
+read off the title page, which renders only its first episode, and it was wrong.
+
+The threshold is left as it is for now. The rule's own measurements put a real import at eight works
+or more and an ordinary day at six works and 17%, and four works at exactly half is the boundary.
+Six dates across the sources sit there, and only 2026-10-08 has been checked against the platform.
+Recorded in docs/GAPS.md for the owner's decision.
+
+`incomplete attested rows` 61 to 62 is today's webアクション chapter of w00105, 第12話(1), dated
+2026-10-11, its release day.

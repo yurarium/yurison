@@ -199,7 +199,13 @@ def carry_over(path, resolved_codes):
 
 
 def js(v):
-    return json.dumps(v, ensure_ascii=False)
+    """A YAML scalar as JSON, which YAML reads back as the same string.
+
+    A DATE IS WRITTEN AS ITS ISO STRING. `carry_over` re-reads the last run's file, and YAML turns
+    an unquoted `retrieved: 2026-10-10` into a date object, so the first run that carried a work
+    with a stated label basis died here on 2026-10-11 and カドコミ was not read that night."""
+    return json.dumps(v, ensure_ascii=False,
+                      default=lambda o: o.isoformat() if hasattr(o, "isoformat") else str(o))
 
 
 def _next_update(work):
@@ -345,7 +351,7 @@ def main():
             L.append("    marketing_label_basis:")
             L.append("      source: kadokomi")
             L.append(f"      url: {js(w.get('url') or '')}")
-            L.append(f"      retrieved: {a.retrieved}")
+            L.append(f"      retrieved: {js(str(a.retrieved))}")
             L.append(f"      note: {js('Publisher applies the tag ' + '/'.join(w['yuri_tags']) + ' on カドコミ.')}")
         elif w.get("marketing_label_basis"):
             # Carried from a run that did establish it, kept verbatim including the day it was read.

@@ -167,5 +167,15 @@ def main(s):
         s.eq(k.carry_over(pathlib.Path(d) / "nothing.yaml", []), [],
              "and a first run has nothing to carry")
 
+        # THE CARRIED BASIS COMES BACK WITH A DATE IN IT, because the last run wrote `retrieved`
+        # unquoted and YAML reads that as a date. Writing it again must not die on it.
+        f.write_text(
+            "works:\n"
+            "  - work_title: \"held\"\n    platform_code: \"A\"\n"
+            "    marketing_label_basis:\n      source: kadokomi\n      retrieved: 2026-10-10\n"
+            "    chapters: []\n")
+        basis = k.carry_over(f, [])[0]["marketing_label_basis"]
+        s.eq(k.js(basis["retrieved"]), '"2026-10-10"', "a carried date is written as its ISO string")
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "kadokomi.releases"))

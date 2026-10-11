@@ -1347,3 +1347,13 @@ Recorded in docs/GAPS.md for the owner's decision.
 
 `incomplete attested rows` 61 to 62 is today's webアクション chapter of w00105, 第12話(1), dated
 2026-10-11, its release day.
+
+## `one work under two names in a list` 3 to 5. Accepted 2026-10-11
+
+Both new pairs are decided, and decided the other way from what the check asks about: they are two
+works each, related in `data/identity/works.yaml` and not merged. 怨霊日和 is w00336, the
+【読み切り版】 short serial at マガポケ title/03125, and w03314, the 週刊少年マガジン serialisation at
+title/03338. 今夜、エーテルで待ちあわせ is w00391, Seasons' 読切, and w03271, the serial by the same
+author. The project owner ruled on 2026-10-11 that the two versions of such a work are not
+identical, so a merge would claim more than the evidence does. The check never reads the registry,
+by design, and so cannot see the ruling; the two pairs stay in its count.

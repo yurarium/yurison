@@ -4159,3 +4159,20 @@ work has two identifiers, and a link or a credit edge made to the second one poi
 that does not exist. Each pair wants `--merge` with a basis, after checking the bylines agree. Found
 while keeping two identifiers on ONE site apart, which is the case that grouping must split and this
 is the case it must not.
+
+## A related work reaches no reader, and a verdict cannot tell two works of one title apart. Found 2026-10-11
+
+`related:` in `data/identity/works.yaml` records that a short version precedes its serialisation,
+and nothing carries it into the store, so the works list shows 怨霊日和 twice and 今夜、エーテルで
+待ちあわせ twice with nothing to say how the rows relate. The captures also drop the platform's
+own 【読み切り版】 from the title, so the two rows read identically. Carrying relations to the site
+is a store and site change, two repositories.
+
+`data/completion-reviewed.yaml` is keyed by title, so w00336, the four-chapter 短期集中連載 that ran
+to 2026-03-11, reads `slow` and cannot be given a verdict without giving the same one to w03314, the
+serialisation running now. A verdict keyed by identifier, where a title names more than one work,
+is what it needs.
+
+Precedent to revisit: w00486, 超深宇宙より愛をこめて【読み切り版】, was merged into w00156 on
+2026-08-07 on the basis that a 読み切り版 is an edition. The owner's ruling of 2026-10-11 points the
+other way for versions that differ, and that pair has not been looked at against it.

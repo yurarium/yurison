@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 232
   hits_on_the_title_alone: 101
   hits_stating_a_print_edition_date: 192
-  works_asked: 802
+  works_asked: 803
   works_with_a_hit: 240
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -6877,6 +6877,16 @@ works:
     author: "城生"
     platform: "マガポケ"
     retrieved: "2026-10-10"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03338"
+    id: "w00336"
+    work: "怨霊日和"
+    author: "イマイ悠"
+    platform: "マガポケ"
+    retrieved: "2026-10-12"
     hits: []
     notes:
       - "author query returned no title this database recognises"

@@ -2046,6 +2046,45 @@ WORK_ADDRESS_CAPTURES = "data/queue/address-*.yaml"
 WORK_ADDRESS_RECORD = "stable_address"
 
 
+def work_address(url):
+    """A capture's work address in one comparable form: no query or fragment, no trailing slash,
+    and a chapter address reduced to its work's where the address carries it."""
+    u = str(url or "").split("?")[0].split("#")[0].rstrip("/")
+    return identity.stable_url(u) if u else None
+
+
+def same_site_addresses(works):
+    """The work addresses ONE capture lists as two works' pages under the same title.
+
+    TWO WORK PAGES FOR ONE TITLE ON ONE SITE ARE NOT ONE PAGE TWICE. A row is keyed by (title,
+    platform), which folds the same page reached two ways, and that is right. But a capture naming
+    one title at two work pages of the same shape is the platform itself listing two pages:
+    マガポケ's 怨霊日和 at title/03125 is the 【読み切り版】, a four-chapter 短期集中連載, and
+    title/03338 is the 週刊少年マガジン serialisation that restarts at 【第1話】; Seasons lists
+    今夜、エーテルで待ちあわせ as a 読切 and as a serial the registry holds as two works; ニコニコ漫画
+    and COMIC FUZ carry several runs as separate pages. Folded, their chapters merged into one list
+    and one work lost its row.
+
+    ONLY WORK PAGES, judged by `candidates.work_page`, which owns the rule. A capture can list one
+    work at its series page and at an episode (ヤングアニマルWeb does, for 最恐呪物令嬢), and an
+    episode address says nothing about which work it is.
+    """
+    import candidates as _cand
+    by = defaultdict(dict)
+    for w in works or []:
+        if isinstance(w, dict) and w.get("url") and w.get("work_title"):
+            page = _cand.work_page(w["url"])
+            if page:
+                by[norm_work(work_alias(str(w["work_title"]).strip()))][page] = work_address(w["url"])
+    out = set()
+    for pages in by.values():
+        for prefix in {p for p, _ in pages}:
+            same = {page: a for page, a in pages.items() if page[0] == prefix}
+            if len(same) > 1:
+                out |= set(same.values())
+    return out
+
+
 def work_level_addresses(docs):
     """`{chapter address: the work's own address}` over the captures that read them.
 
@@ -5570,11 +5609,16 @@ def main():
     # — which then merged into マガポケ's genuine 10 chapters and produced a 132-chapter マガポケ row
     # whose access counts were コミックDAYS's. A host cannot be mislabelled; a name can.
     host_plat = {}
+    # And which addresses a capture lists beside another address for the same title, so every
+    # source keys those by address and not by title alone. See `same_site_addresses`.
+    _split_addr = set()
     for _f in sorted(pathlib.Path("data/source").rglob("*.yaml")):
         try:
             _d = yaml.safe_load(_f.read_text())
         except Exception:                                                       # noqa: BLE001
             continue
+        if isinstance(_d, dict) and _d.get("record_type") == "web_work_chapters":
+            _split_addr |= same_site_addresses(_d.get("works"))
         if not isinstance(_d, dict) or _d.get("platform") == "remaining":
             continue
         _fp = _d.get("platform_name") or _d.get("platform") or ""
@@ -5733,6 +5777,9 @@ def main():
                 oneshot_why = "work-title-marked"
             oneshot_src = bool(oneshot_why)
             bucket_key = (norm_work(title), plat)
+            _waddr = work_address(w.get("url"))
+            if _waddr in _split_addr:
+                bucket_key += (_waddr,)
             # The link a reader follows must be a page, and for GigaViewer platforms the work-level
             # url is the Atom feed we harvested — /atom/series/<id>, which serves XML. That was 532
             # of 1145 rows pointing at a document no reader wants. Every chapter carries its own
@@ -6212,9 +6259,9 @@ def main():
                 row["skipped_since_chapter"] = len(_after)
     # Where a work runs on several platforms, each row says so, so a reader on one can see the rest.
     _by_work = defaultdict(list)
-    for (wk, plat), row in series.items():
+    for (wk, plat, *_addr), row in series.items():
         _by_work[wk].append(plat)
-    for (wk, plat), row in series.items():
+    for (wk, plat, *_addr), row in series.items():
         row["also_on"] = sorted(p for p in _by_work[wk] if p and p != plat)
 
     # Scope. An adapter fetching a platform's per-series feeds reads whatever the platform lists,
@@ -6232,7 +6279,7 @@ def main():
     # wearing another platform's name. The feed already drops these; so must this, or the tab
     # invents a second platform for a work and reports the wrong access alongside it.
     _real = defaultdict(int)
-    for (wk, plat), row in series.items():
+    for (wk, plat, *_addr), row in series.items():
         if row["_srcs"] != {"remaining"}:
             _real[wk] = max(_real[wk], row["chapters"])
     series = {k: v for k, v in series.items()
@@ -6377,12 +6424,29 @@ def main():
     # know keeps its title key, so a platform read for the first time still joins the work it
     # belongs to, exactly as before. The first title key seen for an identifier is the one the
     # others fold into.
-    _key_of_id = {}
+    #
+    # AND TWO IDENTIFIERS ON ONE SITE ARE TWO WORKS. A second identifier reaching a title key another
+    # identifier already holds gets a group of its own where the two share a platform. Seasons lists
+    # 今夜、エーテルで待ちあわせ as a 読切 and as a serial, the registry holds them as w00391 and
+    # w03271, and the title key put both in one group, so w00391 had no row at all. Two identifiers
+    # with one title on DIFFERENT sites are left to union as before: アイ・ヘイ・チュー is w03170 on
+    # マガポケ and w00149 on pixivコミック, one work registered once per site, and splitting those
+    # would list it twice. That is a registry merge to make, not a grouping to change.
+    _gkeys, _plats_of = [], defaultdict(set)
     for _grow in series.values():
         _gkey = norm_work(_grow["work"])
         _gkey = _gkey if _gkey not in distinct else f"{_gkey}|{_grow['platform']}"
         _gid = _reg_index.get(identity.web_anchor(_grow.get("url")))
-        _grow["_group"] = _key_of_id.setdefault(_gid, _gkey) if _gid else _gkey
+        _gkeys.append((_grow, _gkey, _gid))
+        if _gid:
+            _plats_of[(_gkey, _gid)].add(_grow["platform"])
+    _key_of_id, _owner_of_key = {}, {}
+    for _grow, _gkey, _gid in _gkeys:
+        if _gid and _gid not in _key_of_id:
+            _owner = _owner_of_key.setdefault(_gkey, _gid)
+            _own_site = _owner != _gid and (_plats_of[(_gkey, _gid)] & _plats_of[(_gkey, _owner)])
+            _key_of_id[_gid] = f"{_gkey}|{_gid}" if _own_site else _gkey
+        _grow["_group"] = _key_of_id[_gid] if _gid else _gkey
 
     # Read once for the whole population; 3,000 rows would otherwise re-parse an 843-entry capture.
     _work_addresses = work_level_addresses(

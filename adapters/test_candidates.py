@@ -17,7 +17,7 @@ def main(s):
     mai = {"title": "舞ちゃんのお姉さん飼育ごはん。", "platforms": ["竹コミ！"],
            "urls": ["https://takecomic.jp/series/68270e5ebb4a6"]}
     extra = [mai,
-             {"title": "既にある", "platforms": ["カドコミ"], "urls": ["https://comic-walker.com/detail/KC_9_S"]},
+             {"title": "既にある", "platforms": ["カドコミ"], "urls": ["https://comic-walker.com/detail/KC_1_S/"]},
              {"title": "笑顔のたえない職場です。", "platforms": ["コミックDAYS"], "urls": ["https://comic-days.com/episode/1"]}]
     merged, added = cd.merge(base, extra, already_held={
         cd.norm_work("笑顔のたえない職場です。"): {"https://comic-days.com/episode/2"}})
@@ -41,6 +41,18 @@ def main(s):
     s.eq(added, [], "a work also held at another address is reached already")
     _, added = cd.merge([], [nico], {k: {""}})
     s.eq(added, [], "and a capture that records no address counts as elsewhere")
+    onryo = {"title": "怨霊日和", "platforms": ["マガポケ"],
+             "urls": ["https://pocket.shonenmagazine.com/title/03338/episode/443763"]}
+    _, added = cd.merge([], [onryo], {cd.norm_work("怨霊日和"): {"https://pocket.shonenmagazine.com/title/03125"}})
+    s.eq(added, [onryo], "a title held at another address on the same site is a second page there")
+    _, added = cd.merge([{"title": "怨霊日和", "urls": ["https://pocket.shonenmagazine.com/title/03125"]}],
+                        [onryo], {})
+    s.eq(added, [onryo], "and so is one the antenna names at another work page on that site")
+    kc = {"title": "既にある", "urls": ["https://comic-walker.com/detail/KC_9_S"]}
+    s.eq(cd.merge(base, [kc], {})[1], [kc], "two カドコミ detail ids are two works' pages")
+    ep = {"title": "笑顔のたえない職場です。", "urls": ["https://comic-days.com/episode/1"]}
+    s.eq(cd.merge([], [ep], {cd.norm_work(ep["title"]): {"https://comic-days.com/atom/series/9"}})[1], [],
+         "but an episode address says nothing about which work it is, so it is reached")
 
     with tempfile.TemporaryDirectory() as d:
         (pathlib.Path(d) / "x.yaml").write_text("works:\n  - work_title: 何かの作品\n", encoding="utf-8")

@@ -4148,3 +4148,14 @@ old rule had read as an import every time. Seven offers gain a later newest chap
 from slow to active, and アイ・ヘイ・チュー and 怪獣ロマンティクス stop reading as overdue. The 一迅プラス
 migration and its straggler are still caught, and so is ichicomi's catch-up of three chapters at
 once on 2026-04-09.
+
+## Four works are registered once per site. Found 2026-10-11
+
+アイ・ヘイ・チュー is w03170 on マガポケ and w00149 on pixivコミック; かいじゅう色の島 is w01490 on カドコミ
+and w00111 on pixivコミック; すき焼き定食なんかキライだ is w03238 on ニコニコ漫画 and w00712 on カドコミ;
+両片想いな双子姉妹 is w03191 on ニコニコ漫画 and w00957 on カドコミ. The works list shows each once,
+because rows with one title group together across sites, so a reader sees nothing wrong. But each
+work has two identifiers, and a link or a credit edge made to the second one points at a work page
+that does not exist. Each pair wants `--merge` with a basis, after checking the bylines agree. Found
+while keeping two identifiers on ONE site apart, which is the case that grouping must split and this
+is the case it must not.

@@ -120,6 +120,26 @@ def main(s):
          "an adapter row with no access state does not supersede anything")
 
 
+    # ── TWO ADDRESSES FOR ONE TITLE IN ONE CAPTURE ARE TWO PAGES ───────────────────────────────
+    #
+    # マガポケ lists 怨霊日和 at title/03125, the 【読み切り版】 short serial, and at title/03338, the
+    # serialisation. One capture naming both is the platform listing two pages; one page reached by
+    # two address forms is the other case, and it never puts both forms in one capture.
+    two = [{"work_title": "怨霊日和", "url": "https://pocket.shonenmagazine.com/title/03125"},
+           {"work_title": "怨霊日和", "url": "https://pocket.shonenmagazine.com/title/03338/"},
+           {"work_title": "別の作品", "url": "https://pocket.shonenmagazine.com/title/00001"}]
+    s.eq(b.same_site_addresses(two),
+         {"https://pocket.shonenmagazine.com/title/03125", "https://pocket.shonenmagazine.com/title/03338"},
+         "a title one capture lists at two work addresses is split by address")
+    one_page = [{"work_title": "怨霊日和", "url": "https://pocket.shonenmagazine.com/title/03125/episode/1"},
+                {"work_title": "怨霊日和", "url": "https://pocket.shonenmagazine.com/title/03125?x=1"}]
+    s.eq(b.same_site_addresses(one_page), set(),
+         "and two forms of one work's address in a capture are still one page")
+    s.eq(b.same_site_addresses([
+        {"work_title": "最恐呪物令嬢", "url": "https://younganimal.com/series/060a6130e55b2"},
+        {"work_title": "最恐呪物令嬢", "url": "https://younganimal.com/episodes/24a3e6bcb998e"}]), set(),
+         "nor is a work's series page beside one of its episodes")
+
     # ── AN ADAPTER'S MODULE NAME IS NOT A SOURCE'S NAME ──────────────────────────────────────────
     #
     # `sourced_from` is rendered in the work page's "Other data" table, and a pass that reads many

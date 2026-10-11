@@ -25,7 +25,9 @@ back unread, so neither would have shown another chapter.
 """
 import argparse
 import pathlib
+import re
 import sys
+from collections import defaultdict
 
 import yaml
 
@@ -65,20 +67,57 @@ def held(sources, skip=()):
     return set(held_at(sources, skip))
 
 
+#: A work's own page on a site that numbers its works: マガポケ's title/03338, ニコニコ漫画's
+#: comic/64462, カドコミ's detail/KC_009491_S. Two of these with one prefix and different ids are two
+#: works' pages. An episode address carries no work id on GigaViewer platforms, so two of those say
+#: nothing about whether they are one work, and are never read as two pages.
+WORK_PAGE = re.compile(r"^(https?://[^/]+/(?:atom/series|title|titles|comic|comics|series|manga|works|"
+                       r"detail)/)([^/]+)$")
+
+
+def work_page(url):
+    """`(site and path prefix, id)` for an address that is a work's own page, else None."""
+    u = address(url)
+    m = re.match(r"^(https?://[^/]+/title/[^/]+)/episode/", u)
+    m = WORK_PAGE.match(m.group(1) if m else u)
+    return (m.group(1), m.group(2)) if m else None
+
+
+def another_page(a, b):
+    """Whether `a` and `b` are two works' pages on one site, by their own addresses."""
+    pa, pb = work_page(a), work_page(b)
+    return bool(pa and pb and pa[0] == pb[0] and pa[1] != pb[1])
+
+
 def merge(base, extra, already_held):
     """`base` unchanged, then each `extra` candidate nothing named or held already reaches.
 
     `already_held` maps a folded title to the addresses it is held at, as `held_at` gives. A work
-    held only at its own addresses stays, because what holds it is the capture this list asked for."""
+    held only at its own addresses stays, because what holds it is the capture this list asked for.
+
+    A TITLE AT ANOTHER WORK PAGE ON THE SAME SITE IS A SECOND PAGE, not the same page by another
+    route, and that goes for the antenna's own entry as much as for a capture. 百合ナビ links
+    怨霊日和's serialisation at マガポケ title/03338; the antenna lists the title at title/03125, its
+    【読み切り版】, and the capture holds that, so the serialisation was never fetched. Anything that
+    cannot be told apart that way, an episode address or another site, still reaches it, and so does
+    a capture that records no address."""
     out = list(base)
-    seen = {norm_work(c.get("title") or "") for c in base}
+    named = defaultdict(set)
+    for c in base:
+        named[norm_work(c.get("title") or "")] |= {address(u) for u in (c.get("urls") or [])}
     added = []
     for c in extra:
         k = norm_work(c.get("title") or "")
-        own = {address(u) for u in (c.get("urls") or [])}
-        if not k or k in seen or ({address(u) for u in already_held.get(k, ())} - own):
+        own = {address(u) for u in (c.get("urls") or [])} - {""}
+        if not k or not own:
             continue
-        seen.add(k)
+        def reached(addrs):
+            return any(a not in own and not all(another_page(a, o) for o in own) for a in addrs)
+        if k in named and (named[k] & own or reached(named[k] or {""})):
+            continue
+        if reached({address(u) for u in already_held.get(k, ())}):
+            continue
+        named[k] |= own
         out.append(c)
         added.append(c)
     return out, added

@@ -2576,10 +2576,14 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03125/episode/433732"
       - "web:https://pocket.shonenmagazine.com/title/03125"
+      - "web:https://pocket.shonenmagazine.com/title/03338"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/03125"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/03125/episode/433732, which is the same serialisation at an address that does not change when it publishes"
         retrieved: 2026-08-07
+      - anchor: "web:https://pocket.shonenmagazine.com/title/03338"
+        basis: "マガポケ's own pages: title/03125 is 怨霊日和【読み切り版】, described 短期集中連載, four chapters 2026-02-18 to 2026-03-11; title/03338 is 怨霊日和, described as the 集中連載 that drew attention on X and was serialised in 週刊少年マガジン, restarting at 【第1話】呪い髪の女 on 2026-09-09. A 読み切り版 is an edition of the work, as w00486 into w00156 records, so the serialisation is the same work at a second address on the same site"
+        retrieved: 2026-10-11
   - id: w00337
     title: "メイドのベル"
     anchors:
@@ -3113,6 +3117,8 @@ works:
       - "madb:madb-t-48445c1cdfa0"
   - id: w00391
     title: "今夜、エーテルで待ちあわせ"
+    merged_into: w03271
+    merge_basis: "Seasons lists it as a 読切 by ヨン on 2025-12-05 at series 2551460909766155404, and the serial by ヨン at series 12207421983858392884 from 2026-07; a 読み切り版 is an edition of the work, as w00486 into w00156 records. Merged 2026-10-11, when rows began keying two work pages on one site apart and the two identifiers stopped sharing a row"
     anchors:
       - "web:https://comic-seasons.com/episode/2551460909766158255"
       - "web:https://comic-seasons.com/atom/series/2551460909766155404"

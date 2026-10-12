@@ -5646,14 +5646,26 @@ def main():
     host_plat = {}
     # And which addresses a capture lists beside another address for the same title, so every
     # source keys those by address and not by title alone. See `same_site_addresses`.
-    _split_addr = set()
+    # A SPLIT TITLE IS KEYED BY ITS WORK PAGE, and an address that is no work page joins the one
+    # page the registry gives its work. Keying by the page alone split one work reached two ways:
+    # Seasons' feed holds 今夜、エーテルで待ちあわせ's 読切 at its series feed and two other captures
+    # at its episode, so the 読切 formed two rows under one identifier and the store refused the
+    # second offer. Keying by identifier instead folded 城下町のダンデライオン's chapter run and
+    # volume edition on COMIC FUZ back into one offer, both pages being one work's.
+    _early_reg = identity.index((yaml.safe_load(pathlib.Path("data/identity/works.yaml")
+                                                .read_text()) or {}).get("works") or [])
+    _split_addr, _split_titles = set(), set()
     for _f in sorted(pathlib.Path("data/source").rglob("*.yaml")):
         try:
             _d = yaml.safe_load(_f.read_text())
         except Exception:                                                       # noqa: BLE001
             continue
         if isinstance(_d, dict) and _d.get("record_type") == "web_work_chapters":
-            _split_addr |= same_site_addresses(_d.get("works"))
+            _here = same_site_addresses(_d.get("works"))
+            _split_addr |= _here
+            _split_titles |= {norm_work(work_alias(str(w.get("work_title") or "").strip()))
+                              for w in _d.get("works") or []
+                              if isinstance(w, dict) and work_address(w.get("url")) in _here}
         if not isinstance(_d, dict) or _d.get("platform") == "remaining":
             continue
         _fp = _d.get("platform_name") or _d.get("platform") or ""
@@ -5665,6 +5677,10 @@ def main():
             if m and pn:
                 host_plat.setdefault(m.group(1).lower(), Counter())[pn] += 1
     host_plat = {h: c.most_common(1)[0][0] for h, c in host_plat.items()}
+    _split_pages_of = defaultdict(set)
+    for _a in _split_addr:
+        _split_pages_of[_early_reg.get(identity.web_anchor(_a))].add(_a)
+    _split_pages_of.pop(None, None)
 
     series = {}
     # WHAT AN UNREADABLE LISTING STILL SAYS. A route excluded below for having no chapter a
@@ -5815,6 +5831,10 @@ def main():
             _waddr = work_address(w.get("url"))
             if _waddr in _split_addr:
                 bucket_key += (_waddr,)
+            elif norm_work(title) in _split_titles:
+                _pages = _split_pages_of.get(_early_reg.get(identity.web_anchor(_waddr)), ())
+                if len(_pages) == 1:
+                    bucket_key += (next(iter(_pages)),)
             # The link a reader follows must be a page, and for GigaViewer platforms the work-level
             # url is the Atom feed we harvested — /atom/series/<id>, which serves XML. That was 532
             # of 1145 rows pointing at a document no reader wants. Every chapter carries its own
@@ -7990,7 +8010,10 @@ def main():
         out, _today, releases, platforms, works, series_rows,
         claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
         filled_author, filled_access, samples, catalogue_rows)
-    _store_census(_src_health, _run_scalars)
+    # HOW MANY ROWS THE STORE REFUSED, which was a log line and nothing else. On 2026-10-12 a run
+    # refused four rows, two work anchors held by two works and a duplicated offer, published with
+    # every check green, and the reader lost nothing only by luck. `rows the store refused` reads it.
+    _store_census(_src_health, {**(_run_scalars or {}), "store_refused": len(_store_refused)})
 
     print(f"syndicated      : {sum(1 for r in releases if r.get('syndicated'))}")
     print(f"provenance      : {dict(Counter(r.get('provenance') for r in releases))}")

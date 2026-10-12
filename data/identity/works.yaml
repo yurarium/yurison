@@ -1180,8 +1180,6 @@ works:
       - "web:https://ichicomi.com/episode/12207421983947227379"
       - "madb:madb-t-91483dd6f954"
       - "web:https://ichicomi.com/atom/series/2550912965923183753"
-      - "web:https://ichicomi.com/episode/2550912965919401588"
-      - "web:https://ichicomi.com/atom/series/2550912965919360655"
     attached:
       - anchor: "web:https://ichicomi.com/atom/series/2550912965923183753"
         basis: "the chapter page at https://ichicomi.com/episode/12207421983947227379 links its own series feed at https://ichicomi.com/atom/series/2550912965923183753, so the platform places this chapter in series 2550912965923183753, and the og:title there names the work: 超深宇宙より愛をこめて - アシダカヲズ / 第13話 | 一迅プラス"
@@ -2405,7 +2403,6 @@ works:
     anchors:
       - "web:https://comic-boost.com/content/01650001"
       - "madb:madb-t-cb368e6d704e"
-      - "web:https://comic-boost.com/content/01470001"
   - id: w00315
     title: "ロリースイートロリー"
     anchors:

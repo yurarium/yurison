@@ -1369,3 +1369,14 @@ marked as coming first.
 counts because it never reads the registry. `ruby asserting a reading per character` 202 to 203 is
 w00486's title, which carries the same per-character spans as its serialisation's, 超 and 深 read
 apart; it is a second row showing a reading the corpus already showed once.
+
+## `incomplete attested rows` 62 to 63. Accepted 2026-10-12
+
+One row, おやすみシェヘラザード's (w01352) update on ニコニコ漫画 dated 2026-10-12. ニコニコ漫画 states
+that a work updated and not which chapter, and this time named no newest episode either, so the row
+has no instalment to give. It is the work-level shape the platform publishes, on its day.
+
+The same run published with the store refusing four rows, which the gate could not see: two
+anchors of 超深宇宙より愛をこめて【読み切り版】 and one of 白妙様、秘密ですよ／読切版 were still listed on
+the serialisations they had been merged into, and an offer for 今夜、エーテルで待ちあわせ's 読切 came
+twice. All are fixed in this commit, and `the store refused no row` now fails the gate on the next.

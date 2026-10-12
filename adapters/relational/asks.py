@@ -138,6 +138,17 @@ INVARIANTS = {
     # ASKED OF THE PAIR RATHER THAN OF EITHER DATE. Neither the run's date nor a capture's is wrong
     # on its own, which is why nothing had caught it; what cannot be true is a capture from after
     # the run that compiled it. `facts/dating.today` is the one clock now and this says so.
+    # THE STORE TOOK EVERY ROW THE RUN COMPILED. A refusal was a line in the build log and nothing
+    # else: on 2026-10-12 the store refused four rows, two work anchors left on a survivor when a
+    # merge was undone and an offer the same work held twice, and the run published with every check
+    # green. A refused row is a fact the corpus compiled and no reader received.
+    "the store refused no row": {
+        "sql": "SELECT value FROM run_report WHERE key = 'store_refused'"
+               " AND CAST(value AS INTEGER) > 0",
+        "reads": ("run_report",),
+        "asserts": "empty",
+        "fallback": "the refused rows are missing from every page the store feeds",
+        "canary": "INSERT OR REPLACE INTO run_report (key, value) VALUES ('store_refused', '1')"},
     "no capture is dated after the run that read it": {
         "sql": "SELECT s.source, s.retrieved FROM run_source s"
                " WHERE s.retrieved > (SELECT value FROM run_report WHERE key = 'generated')",

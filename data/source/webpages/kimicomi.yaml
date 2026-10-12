@@ -6,7 +6,7 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-10-12
+retrieved: 2026-10-13
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -200,7 +200,7 @@ works:
     status: "連載中"
     author: "りんご水,林星悟,餡こたく"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
-    chapter_count: 26
+    chapter_count: 27
     chapters:
       - title: "Step.0"
         updated: "2025-08-22"
@@ -264,7 +264,7 @@ works:
         access_modes: ["free-timed"]
       - title: "Step.12①"
         updated: "2026-04-27"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "Step.12②"
         updated: "2026-05-04"
         access_modes: ["purchase"]
@@ -276,9 +276,12 @@ works:
         access_modes: ["purchase"]
       - title: "Step.14①"
         updated: "2026-08-03"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "Step.14②"
         updated: "2026-08-18"
+        access_modes: ["free"]
+      - title: "Step.15①"
+        updated: "2026-10-13"
         access_modes: ["free"]
   - work_title: "タコと天使たち"
     status: "完結"

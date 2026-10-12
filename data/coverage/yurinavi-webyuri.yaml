@@ -4,15 +4,15 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-10-12
+retrieved: 2026-10-13
 record_type: coverage_gap
-works_listed: 130
+works_listed: 131
 platforms_total: 26
 platforms_watched: 18
-works_on_watched_platforms: 98
+works_on_watched_platforms: 99
 platforms:
   - platform: "カドコミ"
-    works: 51
+    works: 52
     watched: true
   - platform: "きららベース"
     works: 23
@@ -558,6 +558,12 @@ works:
     watched_platform: true
     title: "猫に白鳥、蛍に小判"
     url: "https://comic-walker.com/detail/KC_006798_S"
+  - raw: "真先輩の前ではかっこつけられない！ 藤本れもち"
+    platform: "カドコミ"
+    last_update_seen: 10-12
+    watched_platform: true
+    title: "真先輩の前ではかっこつけられない！"
+    url: "https://comic-walker.com/detail/KC_006747_S"
   - raw: "真夜中に愛してよ 甘崎水菓"
     platform: "カドコミ"
     last_update_seen: 10-27

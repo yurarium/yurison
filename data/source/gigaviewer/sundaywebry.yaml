@@ -6,11 +6,43 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-10-12
+retrieved: 2026-10-13
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984355309024"
+    work_title: "#ギャルとギャルの百合"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "#28 #全員オタク？"
+    release_type: "chapter"
+    date: "2026-10-13"
+    date_basis: "observed"
+    first_seen: "2026-10-13"
+    first_reported: "2026-10-12T15:00:00Z"
+    platform_updated: "2026-10-12T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984355309024"
+    author: "イノウエ"
+    free_term_start: "2026-10-12T15:00:00Z"
+    advances_narrative: true
+  - release_id: "sunday_webry:episode:12207421984354212212"
+    work_title: "なとりとしずは"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第10話 期待 (前編)"
+    release_type: "chapter"
+    date: "2026-10-13"
+    date_basis: "observed"
+    first_seen: "2026-10-13"
+    first_reported: "2026-10-12T15:00:00Z"
+    platform_updated: "2026-10-12T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984354212212"
+    author: "鮎川あお"
+    free_term_start: "2026-10-12T15:00:00Z"
+    advances_narrative: true
   - release_id: "sunday_webry:episode:12207421984349543116"
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"

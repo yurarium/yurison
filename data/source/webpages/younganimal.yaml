@@ -6,7 +6,7 @@ platform: younganimal
 platform_name: "ヤングアニマルWeb"
 publisher: "白泉社"
 engine: comici
-retrieved: 2026-10-12
+retrieved: 2026-10-13
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -536,7 +536,7 @@ works:
     status: "連載中"
     author: "保坂歩,藤津一,法螺貝こゐ"
     url: "https://younganimal.com/episodes/24a3e6bcb998e"
-    chapter_count: 5
+    chapter_count: 6
     chapters:
       - title: "第一話"
         updated: "2026-07-28"
@@ -552,12 +552,15 @@ works:
         access_modes: ["free-timed"]
       - title: "第五話"
         updated: "2026-09-22"
+        access_modes: ["free-timed"]
+      - title: "第六話"
+        updated: "2026-10-13"
         access_modes: ["free-timed"]
   - work_title: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
     status: "連載中"
     author: "保坂歩,藤津一,法螺貝こゐ"
     url: "https://younganimal.com/series/060a6130e55b2"
-    chapter_count: 5
+    chapter_count: 6
     chapters:
       - title: "第一話"
         updated: "2026-07-28"
@@ -573,6 +576,9 @@ works:
         access_modes: ["free-timed"]
       - title: "第五話"
         updated: "2026-09-22"
+        access_modes: ["free-timed"]
+      - title: "第六話"
+        updated: "2026-10-13"
         access_modes: ["free-timed"]
   - work_title: "私の初恋は恥ずかしすぎて誰にも言えない"
     status: "完結"

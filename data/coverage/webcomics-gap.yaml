@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-12
+retrieved: 2026-10-13
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -36,6 +36,11 @@ platforms_missing:
   - platform: "マンガボックス"
     works: 1
 works_missing:
+  - title: "しゅがー・みーつ・がーる!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3108"
+    antenna_id: "166358"
+    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -81,11 +86,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3423"
     antenna_id: "187224"
     tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
-  - title: "しゅがー・みーつ・がーる!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3108"
-    antenna_id: "166358"
-    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -286,6 +286,21 @@ works_missing:
     url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
     antenna_id: "181056"
     tags: ["百合", "妖怪", "女子高生", "コミカライズ", "ざまぁ", "頭脳戦・心理戦", "現代", "チート"]
+  - title: "真先輩の前ではかっこつけられない!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006747_S"
+    antenna_id: "189542"
+    tags: ["最近のコメント数"]
+  - title: "どれが恋かがわからない"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001190_S"
+    antenna_id: "131238"
+    tags: ["百合", "大学生", "恋愛"]
+  - title: "わたしのために脱ぎなさいっ!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000188_S"
+    antenna_id: "76553"
+    tags: ["最近のコメント数"]
   - title: "さざめとりお"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019937_S"
@@ -491,16 +506,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_002994_S"
     antenna_id: "102702"
     tags: ["学園", "ゲーム・eスポーツ", "令嬢", "女子高生", "百合", "アニメ化", "ギャグ・コメディ", "青春", "動画配信者", "メスガキ"]
-  - title: "どれが恋かがわからない"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_001190_S"
-    antenna_id: "131238"
-    tags: ["百合", "大学生", "恋愛"]
-  - title: "わたしのために脱ぎなさいっ!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_000188_S"
-    antenna_id: "76553"
-    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
   - title: "T.Tラバーズ。"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005506_S"
@@ -581,11 +586,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019452_S"
     antenna_id: "213446"
     tags: ["百合", "読み切り"]
-  - title: "真先輩の前ではかっこつけられない!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006747_S"
-    antenna_id: "189542"
-    tags: ["ラブコメ", "百合"]
   - title: "カムパネルラの塔"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005943_S"
@@ -626,6 +626,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019408_S"
     antenna_id: "211258"
     tags: ["百合", "読み切り"]
+  - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/2349"
+    antenna_id: "194497"
+    tags: ["百合", "ヤンデレ"]
   - title: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
@@ -641,11 +646,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/29"
     antenna_id: "745"
     tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
-  - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2349"
-    antenna_id: "194497"
-    tags: ["百合", "ヤンデレ"]
   - title: "ひきこまり吸血姫の悶々"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/1593"
@@ -656,11 +656,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/2649"
     antenna_id: "211625"
     tags: ["百合"]
-  - title: "見えてますよ! 愛沢さん"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/330f3ad1270c8"
-    antenna_id: "136634"
-    tags: ["幽霊", "アイドル", "百合", "女子高生", "ホラー"]
   - title: "魔王城デート大作戦!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
@@ -671,6 +666,16 @@ works_missing:
     url: "https://kimicomi.com/series/f42014b3e7df6"
     antenna_id: "205919"
     tags: ["百合", "擬人化"]
+  - title: "新米錬金術師の店舗経営"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/3e22b763a1c0f"
+    antenna_id: "112400"
+    tags: ["アニメ化", "スローライフ", "ファンタジー", "仕事", "錬金術師", "店舗経営", "百合"]
+  - title: "見えてますよ! 愛沢さん"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/330f3ad1270c8"
+    antenna_id: "136634"
+    tags: ["幽霊", "アイドル", "百合", "女子高生", "ホラー"]
   - title: "暗殺組合の山田さん"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
@@ -686,11 +691,6 @@ works_missing:
     url: "https://kimicomi.com/series/8acb58b98ca8f"
     antenna_id: "193724"
     tags: ["百合"]
-  - title: "新米錬金術師の店舗経営"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/3e22b763a1c0f"
-    antenna_id: "112400"
-    tags: ["アニメ化", "スローライフ", "ファンタジー", "仕事", "錬金術師", "店舗経営", "百合"]
   - title: "ロリースイートロリー"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/f7db55fffae10"
@@ -786,6 +786,16 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "わたしのために脱ぎなさいっ!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34328"
+    antenna_id: "77574"
+    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
+  - title: "どれが恋かがわからない"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56504"
+    antenna_id: "131227"
+    tags: ["百合", "大学生"]
   - title: "このままモブじゃ終われない!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/67095"
@@ -916,16 +926,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/70757"
     antenna_id: "183587"
     tags: ["幼なじみ", "4コマ", "百合"]
-  - title: "わたしのために脱ぎなさいっ!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/34328"
-    antenna_id: "77574"
-    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
-  - title: "どれが恋かがわからない"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/56504"
-    antenna_id: "131227"
-    tags: ["百合", "大学生"]
   - title: "彼なんかより、私のほうがいいでしょ?"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/71625"
@@ -1005,7 +1005,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
-    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
+    tags: ["最近のコメント数"]
   - title: "怪獣ロマンティクス"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03196"

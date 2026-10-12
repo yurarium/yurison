@@ -140,6 +140,12 @@ def main(s):
         {"work_title": "最恐呪物令嬢", "url": "https://younganimal.com/episodes/24a3e6bcb998e"}]), set(),
          "nor is a work's series page beside one of its episodes")
 
+    # ── A WORK'S OWN TITLE AT ONE ADDRESS ───────────────────────────────────────────────────────
+    s.eq(b.title_at("https://pocket.shonenmagazine.com/title/03125/episode/433732"),
+         "怨霊日和【読み切り版】", "a chapter under the 読み切り版's page takes the page's own title")
+    s.eq(b.title_at("https://pocket.shonenmagazine.com/title/03338"), None,
+         "and the serialisation, which shares the shorter title, is left as its sources name it")
+
     # ── A SHORT VERSION FOLLOWED BY ITS SERIALISATION IS DONE ───────────────────────────────────
     def rows():
         return {"w00336": {"work": "怨霊日和", "state": "slow", "latest": "2026-03-11"},

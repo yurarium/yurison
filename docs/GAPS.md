@@ -4165,7 +4165,10 @@ is the case it must not.
 `related:` in `data/identity/works.yaml` records that a short version precedes its serialisation,
 and nothing carries it into the store, so the works list shows 怨霊日和 twice and 今夜、エーテルで
 待ちあわせ twice with nothing to say how the rows relate. The captures also drop the platform's
-own 【読み切り版】 from the title, so the two rows read identically. Carrying relations to the site
+own 【読み切り版】 from the title, so the two rows read identically. RESOLVED 2026-10-12 for the titles:
+`data/work-aliases.yaml` now states a work's own title per address under `at_address`, so
+title/03125 is 怨霊日和【読み切り版】 and reads A Fine Day for Vengeful Spirits (One-Shot Version).
+Relations reach the work page as of 2026-10-11. Carrying relations to the site
 is a store and site change, two repositories.
 
 `data/completion-reviewed.yaml` is keyed by title, so w00336, the four-chapter 短期集中連載 that ran

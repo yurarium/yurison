@@ -56054,6 +56054,45 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  怨霊日和【読み切り版】:
+    basis: translated
+    en: A Fine Day for Vengeful Spirits (One-Shot Version)
+    en_at: '2026-10-12'
+    en_reviewed: '2026-10-12'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 怨霊
+      - おんりょう
+    - - 日和
+      - ひより
+    - - 【
+      - null
+    - - 読
+      - よ
+    - - み
+      - null
+    - - 切
+      - き
+    - - り
+      - null
+    - - 版
+      - ばん
+    - - 】
+      - null
+    note: The title マガポケ gives the 短期集中連載 at title/03125, the four chapters from 2026-02-18 to 2026-03-11
+      that came before the serialisation at title/03338. 【読み切り版】 is glossed as the one-shot version it
+      marks, which is the platform's own word for it although it ran to four chapters, and the rest follows
+      怨霊日和's English so the two read as one story's two versions.
+    reading: オンリョウ ヒヨリ 【ヨミキリ バン】
+    reading_at: '2026-10-12'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   怪物の友達:
     basis: translated
     en: Monster's Friend

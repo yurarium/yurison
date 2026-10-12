@@ -104,3 +104,16 @@ aliases:
       work stood as two rows of two chapters and a reader met it twice. FEATURES-INTERFACE §2 is
       what merging them answers to: the series page and the chapter page are two readings of one
       serialisation and belong on one row.
+
+# A WORK'S OWN TITLE AT ONE ADDRESS, where a source drops part of it. Not a variant: two works share
+# the shorter title, so the title cannot say which one a capture means and only the address can.
+# Read by `build.title_at`. `source` is the page that states the title.
+at_address:
+  - address: "https://pocket.shonenmagazine.com/title/03125"
+    title: "怨霊日和【読み切り版】"
+    source: "https://pocket.shonenmagazine.com/title/03125"
+    note: >-
+      マガポケ's own page titles it 怨霊日和【読み切り版】, a 短期集中連載 of four chapters from
+      2026-02-18 to 2026-03-11. The series feed and every capture name it 怨霊日和, which is also the
+      title of the serialisation at title/03338 that followed it, so the two works read as one name.
+    retrieved: 2026-10-12

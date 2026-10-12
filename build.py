@@ -1474,6 +1474,28 @@ def glossed_titles():
     return dict(_GLOSSED)
 
 
+_TITLES_AT = None
+
+
+def title_at(url):
+    """The platform's own title for the work at `url`, where a source drops part of it, else None.
+
+    ONE TITLE, TWO WORKS, AND ONLY THE ADDRESS TELLS THEM APART. マガポケ's page for title/03125
+    calls it 怨霊日和【読み切り版】 and the page for title/03338 calls it 怨霊日和, but the series
+    feed names both 怨霊日和 and so does every capture, so both works were named the same and both
+    read A Fine Day for Vengeful Spirits. `variant` cannot fix that, being a title, so
+    `data/work-aliases.yaml` states it per address under `at_address`, with the page that says so.
+    A chapter address under the work's page answers too, being reduced to it first.
+    """
+    global _TITLES_AT                                                       # noqa: PLW0603
+    if _TITLES_AT is None:
+        p = pathlib.Path("data/work-aliases.yaml")
+        rows = (yaml.safe_load(p.read_text()) or {}).get("at_address") or [] if p.exists() else []
+        _TITLES_AT = {work_address(r["address"]): r["title"] for r in rows
+                      if r.get("address") and r.get("title")}
+    return _TITLES_AT.get(work_address(url)) if url else None
+
+
 def work_alias(title):
     """The canonical title where two sources write one work differently.
 
@@ -5704,7 +5726,7 @@ def main():
         _fp = (_d.get("platform_name") or _d.get("platform")
                or _SRC_PLAT.get(_d.get("source"), "") or "")
         for w in _d.get("works") or []:
-            title = work_alias((w.get("work_title") or "").strip())
+            title = title_at(w.get("url")) or work_alias((w.get("work_title") or "").strip())
             if not title:
                 continue
             plat = (w.get("platform_name") or _fp or "").strip()

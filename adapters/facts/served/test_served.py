@@ -75,6 +75,10 @@ def main(s):
     s.check("series[].work" in ps, "a list collapses to one element's paths")
     s.check("series[].work_en.en" in ps, "and nesting is followed")
     s.check(not any(p.startswith("series[0]") for p in ps), "an index is never part of a path")
+    late = {"series": [dict(SERIES_ROW) for _ in range(40)]}
+    late["series"][35]["related"] = [{"id": "w00002"}]
+    s.check("series[].related[].id" in served.paths(late),
+            "a field that first appears after the thirtieth row is still a field the site serves")
     deep = served.paths({"m": {f"キー{i}": {"a": {"b": {"c": 1}}} for i in range(12)}})
     s.check("m{}" in deep, "a map contributes its own path once")
     s.check(not any("キー" in p for p in deep), "and none of its keys appear as fields")

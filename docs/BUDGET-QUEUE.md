@@ -1380,3 +1380,30 @@ The same run published with the store refusing four rows, which the gate could n
 anchors of 超深宇宙より愛をこめて【読み切り版】 and one of 白妙様、秘密ですよ／読切版 were still listed on
 the serialisations they had been merged into, and an offer for 今夜、エーテルで待ちあわせ's 読切 came
 twice. All are fixed in this commit, and `the store refused no row` now fails the gate on the next.
+
+## Six budgets rose with two arrivals and a platform nothing read. Accepted 2026-10-13
+
+忍者アシスタントとアナログ漫画家, a 特別読切 by 音橋りた on MAGCOMI from 2026-10-13 and listed under
+the antenna's 百合 tag, is minted by hand as w03315 and named. セーラー服と関西弁 by ライムマン on
+ニコニコ漫画's きららベース channel, listed by 百合ナビ, is ruled in and forms its row on the next run.
+
+`author names romanised as one word` 1224 to 1226, `author readings no source states` 456 to 457,
+`kana names with no stated division` 273 to 274 and `credit fields an identifier does not cover`
+102 to 104 are those two people, 音橋りた and ライムマン, read by the analyser or by their own kana,
+with no page stating a reading or a division and no credit identifier yet.
+
+`updates naming a work we do not hold` 2 to 4 is セーラー服と関西弁's two feed rows, and banks back
+when its row forms.
+
+`announced works the corpus does not hold` 0 to 1 is 葵とおねーちゃん, a 百合 one-shot 百合ナビ
+announced on comicブースト on 2026-10-13, free there since 2026-10-02. The comicブースト adapter was
+written on 2026-08-04, run once and never put in a stage, so nothing read the platform after that
+day and every comicブースト work was frozen at it. It runs in Stage A from this commit, reading the
+hand-kept targets beside every candidate on comic-boost.com, which adds four works the antenna
+lists: Cry for the Moon, ふたりべや, 猫とシュガーポット and 葵とおねーちゃん.
+
+`data reaching the site around the store` read 8 in CI and 0 here. `served.paths` sampled the
+first thirty rows of each list, so a field that first appears later was never counted, and which
+rows came first differed between the two stores: the eight were the `related` list added on
+2026-10-11. It now walks every row, which found twelve more served fields the declaration had never
+seen; each is read by `emit` from a table, so each is declared with it and the count is 0.

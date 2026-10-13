@@ -159,6 +159,15 @@ commands:
   # one for its episodes, so a work whose update this project recorded is a work whose episode list
   # it can ask for. The coverage yardstick is a sample of eight pages and left 36 behind on its own.
   # 337 targets became 383 with the yardstick and 492 with the file releases.py writes.
+  # comicブースト, read off its own server-rendered series pages. The adapter was written on
+  # 2026-08-04 and run once, and no stage ran it after, so the platform's file stayed at that day
+  # and a work announced there could not be held. The hand-kept targets are read beside every
+  # candidate on comic-boost.com, so a work the antenna or 百合ナビ lists is read the same morning.
+  - id: comicboost
+    optional: true
+    argv: [adapters/comicboost.py, --works, data/coverage/candidates.yaml,
+           --out, data/source/webpages/comic-boost.yaml]
+
   - id: nicovideo-works
     optional: true
     argv: [adapters/nicovideo/works.py, --ids, data/queue/serialisation-joins.yaml,

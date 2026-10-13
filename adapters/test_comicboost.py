@@ -49,6 +49,26 @@ def main(s):
     s.eq(cb.chapters("<h4 class=\"title\">第1話</h4>"), [],
          "and a title with no date is not a dated chapter")
 
+    # THE TARGETS FOLLOW THE CANDIDATES. 葵とおねーちゃん was announced and listed on 2026-10-13 at
+    # a comicブースト address with a stray `?=s`, and the only list this read was kept by hand.
+    spec = {"works": [{"title": "白妙様、秘密ですよ", "url": "https://comic-boost.com/content/01650001"}]}
+    cands = [{"title": "葵とおねーちゃん", "urls": ["https://comic-boost.com/content/01780001",
+                                                 "https://comic-boost.com/content/01780001?=s"]},
+             {"title": "白妙様、秘密ですよ", "urls": ["https://comic-boost.com/content/01650001/"]},
+             {"title": "他所", "urls": ["https://comic-walker.com/detail/KC_1_S"]}]
+    s.eq(cb.targets(spec, cands),
+         [{"title": "白妙様、秘密ですよ", "url": "https://comic-boost.com/content/01650001"},
+          {"title": "葵とおねーちゃん", "url": "https://comic-boost.com/content/01780001"}],
+         "the hand-kept list, then each candidate's series page once, and nothing from another site")
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        f = pathlib.Path(d) / "comic-boost.yaml"
+        f.write_text("works:\n  - work_title: a\n    url: https://comic-boost.com/content/1\n"
+                     "  - work_title: b\n    url: https://comic-boost.com/content/2\n",
+                     encoding="utf-8")
+        s.eq([w["work_title"] for w in cb.carry_over(f, ["https://comic-boost.com/content/2"])],
+             ["a"], "a work this run did not reach is written back rather than dropped")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

@@ -55636,23 +55636,22 @@ names:
     reading_source_kind: analyser
     verified: false
   忍者アシスタントとアナログ漫画家:
-    basis: romaji
-    furigana_spans:
-    - - 忍者
-      - にんじゃ
-    - - アシスタントとアナログ
-      - null
-    - - 漫画家
-      - まんがか
+    basis: translated
+    en: The Ninja Assistant and the Analog Manga Artist
+    en_at: '2026-10-13'
+    en_reviewed: '2026-10-13'
+    en_source: https://magcomi.com/episode/12207421984355613624
+    en_source_kind: derived
+    note: A 特別読切 on MAGCOMI by 音橋りた, published 2026-10-13. アシスタント is a manga artist's assistant and アナログ
+      is drawing by hand rather than on a screen, so the title sets a ninja who assists against an artist
+      who still works on paper. Both nouns are kept as English has them.
     reading: ニンジャ アシスタント ト アナログ マンガカ
     reading_at: '2026-10-13'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
+    reading_basis: researched
+    reading_note: 忍者 is ニンジャ and 漫画家 is マンガカ; the rest is katakana and kana.
+    reading_reviewed: '2026-10-13'
+    reading_source: https://magcomi.com/episode/12207421984355613624
+    reading_source_kind: derived
     verified: false
   志乃と恋:
     basis: translated

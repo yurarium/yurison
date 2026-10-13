@@ -51,6 +51,44 @@ def chapters(html):
     return out
 
 
+#: A series page on comicブースト, which is what a work's chapters are listed on.
+SERIES = re.compile(r"^https?://comic-boost\.com/content/(\d+)")
+
+
+def targets(spec, candidates=()):
+    """`[{title, url}]`: the hand-kept list, then every candidate whose address is a series page here.
+
+    THE HAND-KEPT LIST WAS THE ONLY ONE, AND NOTHING RAN IT. This adapter was written on 2026-08-04,
+    run once, and never put in a stage, so comicブースト's file stayed at that day: 百合ナビ
+    announced 葵とおねーちゃん there on 2026-10-13, the antenna listed it, and nothing could read it.
+    An address is reduced to its series page, since 百合ナビ links it with a stray `?=s`, and a page
+    already on the list is not added twice.
+    """
+    out, seen = [], set()
+    for t in list((spec or {}).get("works") or []) + [
+            {"title": c.get("title"), "url": u} for c in candidates or []
+            for u in (c.get("urls") or [])]:
+        m = SERIES.match(str(t.get("url") or ""))
+        if not m:
+            continue
+        url = f"https://comic-boost.com/content/{m.group(1)}"
+        if url not in seen:
+            seen.add(url)
+            out.append({"title": t.get("title"), "url": url})
+    return out
+
+
+def carry_over(path, reached):
+    """Works the last file held at an address this run did not read, so a failed fetch keeps them."""
+    import pathlib
+    import yaml
+    f = pathlib.Path(path)
+    if not f.exists():
+        return []
+    old = yaml.safe_load(f.read_text()) or {}
+    return [w for w in old.get("works") or [] if str(w.get("url")) not in set(reached)]
+
+
 def main(argv=None):
     """Read each named series page and write what it lists."""
     import argparse, datetime, json, pathlib, time, urllib.request
@@ -58,14 +96,20 @@ def main(argv=None):
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--targets", default="data/coverage/comicboost-targets.yaml")
+    ap.add_argument("--works", nargs="*", default=[],
+                    help="candidate lists whose comicブースト addresses are read as well")
     ap.add_argument("--out", default="data/source/webpages/comic-boost.yaml")
     ap.add_argument("--pause", type=float, default=1.5)
     a = ap.parse_args(argv)
 
     src = yaml.safe_load(pathlib.Path(a.targets).read_text()) or {}
+    cands = [c for f in a.works for c in (yaml.safe_load(pathlib.Path(f).read_text()) or {})
+             .get("candidates") or []]
+    want = targets(src, cands)
+    print(f"{len(want)} series page(s) to read, {len(src.get('works') or [])} of them kept by hand")
     ua = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
     works = []
-    for t in src.get("works") or []:
+    for t in want:
         url = t.get("url") or ""
         try:
             req = urllib.request.Request(url, headers={"User-Agent": ua})
@@ -82,6 +126,12 @@ def main(argv=None):
 
     if not works:
         raise SystemExit("HEALTH: no series returned chapters. Refusing to write.")
+    kept = carry_over(a.out, [w["url"] for w in works])
+    if kept:
+        print(f"{len(kept)} work(s) this run did not reach, written back as the last run read them")
+    for w in kept:
+        w.setdefault("chapters", [])
+    works += kept
 
     js = lambda v: json.dumps(v, ensure_ascii=False)                        # noqa: E731
     L = ["# comicブースト, read from its own server-rendered chapter lists.",

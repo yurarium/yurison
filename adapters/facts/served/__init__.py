@@ -104,11 +104,15 @@ def is_map(d):
     return False
 
 
-def paths(doc, limit=30, depth=8):
+def paths(doc, limit=None, depth=8):
     """Every distinct field path in one document, with lists and data-keyed maps collapsed.
 
-    `limit` samples a list or a map rather than walking all of it, because a path that appears in
-    the first thirty rows and nowhere else is not a field anybody is served differently.
+    EVERY ROW, NOT A SAMPLE. `limit` was 30, on the reasoning that a path in the first thirty rows
+    and nowhere else is not served differently; the case it missed is the opposite one, a field that
+    first appears after row thirty. `related` reached readers on 2026-10-11 on ten works, and the
+    budget over this read 8 in CI and 0 on a working copy whose rows came in another order. Twelve
+    more served fields had never been seen at all. A full walk of the corpus takes half a second.
+    `limit` stays for a caller that wants a sample and says so.
     """
     out = set()
 
@@ -357,6 +361,19 @@ STORE_ANSWERS = (
     "series.json:series[].admitted_by", "series.json:series[].admitted_by[]",
     "series.json:series[].work_en",
     "series.json:series[].author_en",
+    # FOUND ON 2026-10-13, WHEN THE WALK STOPPED SAMPLING. Each is read by `emit` from a table and
+    # nothing else, so the store answered them all along; the declaration had simply never seen
+    # them, because none appeared in the first thirty rows of its list. `related` is
+    # `work_relation`, two works the registry relates and does not merge.
+    "series.json:series[].related", "series.json:series[].related[]",
+    "series.json:series[].author_basis",          # record.creator_basis
+    "series.json:series[].completed_claim",       # volume_claim
+    "series.json:series[].first_event",           # work.first_event
+    "series.json:series[].first_followup",        # work_origin.date_followup
+    "series.json:series[].oneshot_inferred",      # serialisation.oneshot_inferred
+    "series.json:series[].print[].periodical",    # print_row.periodical
+    "works.json:works[].volumes[].editions",      # edition, every ISBN a volume carries
+    "works.json:works[].volumes[].published_openbd",  # volume.openbd_date
 )
 
 

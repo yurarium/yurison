@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-10-14
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 235
-  hits_on_the_title_alone: 101
-  hits_stating_a_print_edition_date: 195
-  works_asked: 810
-  works_with_a_hit: 243
+  hits_agreeing_on_a_creator: 236
+  hits_on_the_title_alone: 102
+  hits_stating_a_print_edition_date: 196
+  works_asked: 813
+  works_with_a_hit: 245
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -714,6 +714,21 @@ works:
         printed: "2016/12/24"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://comic-boost.com/content/01560001"
+    id: "w03318"
+    work: "猫とシュガーポット"
+    platform: "comicブースト"
+    query: "title"
+    retrieved: "2026-10-14"
+    hits:
+      - series_url: null
+        title_listed: "猫とシュガーポット 【電子限定おまけ付き】"
+        shop_author: "雪子"
+        imprint: "バーズコミックス"
+        publisher: "幻冬舎コミックス"
+        printed: "2020/12/24"
+        agreement: "title-only"
+        completed_marker: true
   - work_url: "https://comic-boost.com/content/01570001"
     id: "w00580"
     work: "日常やめたらしたいこと"
@@ -730,6 +745,14 @@ works:
         printed: "2024/11/24"
         agreement: "creator"
         completed_marker: true
+  - work_url: "https://comic-boost.com/content/01780001"
+    id: "w03317"
+    work: "葵とおねーちゃん"
+    platform: "comicブースト"
+    retrieved: "2026-10-14"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-days.com/episode/10044607041200244956"
     id: "w00762"
     work: "ごめんね柳子"
@@ -6486,6 +6509,22 @@ works:
         publisher: "KADOKAWA"
         printed: "2024/8/27"
         agreement: "creator"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/69929"
+    id: "w03316"
+    work: "セーラー服と関西弁"
+    author: "ライムマン"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-10-14"
+    hits:
+      - series_url: "https://bookwalker.jp/series/539689/list/"
+        title_listed: "セーラー服と関西弁（まんがタイムKRコミックス）"
+        shop_author: "ライムマン(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        volumes_stated: 2
         completed_marker: false
   - work_url: "https://manga.nicovideo.jp/comic/70616"
     id: "w00609"

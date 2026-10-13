@@ -4,9 +4,9 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-10-13
+retrieved: 2026-10-14
 record_type: coverage_gap
-works_listed: 131
+works_listed: 132
 platforms_total: 26
 platforms_watched: 18
 works_on_watched_platforms: 99
@@ -15,7 +15,7 @@ platforms:
     works: 52
     watched: true
   - platform: "きららベース"
-    works: 23
+    works: 24
     watched: false
   - platform: "一迅プラス"
     works: 18
@@ -180,6 +180,12 @@ works:
     watched_platform: false
     title: "エイティエイトを２でわって"
     url: "https://manga.nicovideo.jp/comic/62785"
+  - raw: "セーラー服と関西弁 ライムマン"
+    platform: "きららベース"
+    last_update_seen: 10-13
+    watched_platform: false
+    title: "セーラー服と関西弁"
+    url: "https://manga.nicovideo.jp/comic/69929"
   - raw: "ラブかライクか分からない！ sasa熊"
     platform: "きららベース"
     last_update_seen: 10-20

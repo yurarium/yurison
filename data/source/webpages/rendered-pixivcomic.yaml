@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-10-13
+retrieved: 2026-10-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -206,8 +206,12 @@ works:
   - work_title: "ステラ・ステップ"
     author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
     url: "https://comic.pixiv.net/works/10790"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "Step.15① 光の向こうへ"
+        updated: 2026-10-13
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "Step.1② 砂漠に降る雨"
         updated: 2024-11-15
         access_modes: ["free"]
@@ -382,14 +386,10 @@ works:
   - work_title: "現実世界でも幸せにしてくださいね?"
     author: "しぼりかすこ"
     url: "https://comic.pixiv.net/works/11079"
-    chapter_count: 4
+    chapter_count: 3
     chapters:
       - title: "EPISODE.17 み～んなだいすき！"
         updated: 2026-09-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE.16 主様のとなりに"
-        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "EPISODE.02 我が家に姫がやってきた"
@@ -403,8 +403,12 @@ works:
   - work_title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
     author: "玉崎たま"
     url: "https://comic.pixiv.net/works/11080"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
+      - title: "第15話 目覚め"
+        updated: 2026-10-08
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第2話 重大な欠陥"
         updated: 2024-12-08
         access_modes: ["free"]
@@ -418,7 +422,7 @@ works:
     url: "https://comic.pixiv.net/works/11081"
     chapter_count: 4
     chapters:
-      - title: "第17話② 2日前UP"
+      - title: "第17話②"
         updated: 2026-10-03
         access_modes: ["free"]
         date_basis: rendered
@@ -735,7 +739,7 @@ works:
     url: "https://comic.pixiv.net/works/12795"
     chapter_count: 2
     chapters:
-      - title: "第7話 6日前UP"
+      - title: "第7話"
         updated: 2026-09-29
         access_modes: ["free"]
         date_basis: rendered
@@ -896,8 +900,8 @@ works:
     url: "https://comic.pixiv.net/works/13373"
     chapter_count: 2
     chapters:
-      - title: "第14話 元教え子と距離が縮まる話①"
-        updated: 2026-10-03
+      - title: "第15話 元教え子と距離が縮まる話②"
+        updated: 2026-10-10
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話 たぬき女に迫られる話"
@@ -936,14 +940,10 @@ works:
   - work_title: "晴れた日のドレスコード"
     author: "あげはる"
     url: "https://comic.pixiv.net/works/13425"
-    chapter_count: 4
+    chapter_count: 3
     chapters:
       - title: "第5話"
         updated: 2026-09-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4話"
-        updated: 2026-08-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話"
@@ -1076,12 +1076,12 @@ works:
     url: "https://comic.pixiv.net/works/4810"
     chapter_count: 8
     chapters:
-      - title: "第122話"
-        updated: 2026-09-08
+      - title: "第123話 5日前UP"
+        updated: 2026-10-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第121話"
-        updated: 2026-08-08
+      - title: "第122話"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第5話"
@@ -1191,12 +1191,8 @@ works:
   - work_title: "きみが死ぬまで恋をしたい"
     author: "あおのなち"
     url: "https://comic.pixiv.net/works/5424"
-    chapter_count: 7
+    chapter_count: 6
     chapters:
-      - title: "第42話 わたしの恋"
-        updated: 2026-08-08
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "第6話 ともだち"
         updated: 2019-08-28
         access_modes: ["free"]
@@ -1226,12 +1222,12 @@ works:
     url: "https://comic.pixiv.net/works/5758"
     chapter_count: 5
     chapters:
-      - title: "第61話 バズと、歓喜と、戸惑いと。"
-        updated: 2026-09-08
+      - title: "第62話 説明と、想い出と、手紙と。"
+        updated: 2026-10-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第60話 放課後と、テストと、音楽と。"
-        updated: 2026-08-08
+      - title: "第61話 バズと、歓喜と、戸惑いと。"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3話 放課後、2人の時間。"
@@ -1491,8 +1487,8 @@ works:
     url: "https://comic.pixiv.net/works/7182"
     chapter_count: 8
     chapters:
-      - title: "第46話 あなたの味方"
-        updated: 2026-09-29
+      - title: "第48話 いっぱいの部屋"
+        updated: 2026-10-13
         access_modes: ["free"]
         date_basis: rendered
       - title: "第41話 受け入れてくれる場所"
@@ -1622,12 +1618,12 @@ works:
     url: "https://comic.pixiv.net/works/7319"
     chapter_count: 4
     chapters:
-      - title: "第58話 王国歴二〇一五年十一月十一日"
-        updated: 2026-09-08
+      - title: "第59話 運命と選択"
+        updated: 2026-10-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第57話 炎"
-        updated: 2026-08-08
+      - title: "第58話 王国歴二〇一五年十一月十一日"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 最初の勝負①"
@@ -2149,12 +2145,12 @@ works:
     url: "https://comic.pixiv.net/works/9380"
     chapter_count: 4
     chapters:
-      - title: "#26"
-        updated: 2026-09-08
+      - title: "#27 5日前UP"
+        updated: 2026-10-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "#25"
-        updated: 2026-08-08
+      - title: "#26"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
       - title: "#2"
@@ -2260,8 +2256,12 @@ works:
   - work_title: "陰キャギャルでもイキがりたい!"
     author: "かしわぎつきこ"
     url: "https://comic.pixiv.net/works/9888"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "♥26 「信じていいのは多分、料理研究家とふわふわの犬だけ」"
+        updated: 2026-10-08
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "♥25 「あした地球がこなごなになっても、可愛い服着て、君といる」"
         updated: 2026-09-08
         access_modes: ["free"]

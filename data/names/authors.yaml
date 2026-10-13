@@ -1,4 +1,4 @@
-generated: '2026-10-12'
+generated: '2026-10-13'
 names:
   '*sow*':
     basis: stated
@@ -13779,6 +13779,14 @@ names:
     en_source: surface
     reading: ヨン
     reading_at: '2026-08-02'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
+  ライムマン:
+    basis: romaji
+    reading: ライムマン
+    reading_at: '2026-10-13'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -41500,6 +41508,24 @@ names:
       weakest on pen names and coinages
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  音橋りた:
+    basis: romaji
+    furigana_spans:
+    - - 音
+      - おと
+    - - 橋
+      - はし
+    - - りた
+      - null
+    reading: オトハシリタ
+    reading_at: '2026-10-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   須河篤志:

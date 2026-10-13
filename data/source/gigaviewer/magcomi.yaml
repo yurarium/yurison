@@ -6,11 +6,27 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-10-13
+retrieved: 2026-10-14
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "magcomi:episode:12207421984355613624"
+    work_title: "忍者アシスタントとアナログ漫画家"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "特別読切"
+    release_type: "oneshot"
+    date: "2026-10-13"
+    date_basis: "observed"
+    first_seen: "2026-10-14"
+    first_reported: "2026-10-13T03:00:00Z"
+    platform_updated: "2026-10-13T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984355613624"
+    author: "音橋りた"
+    free_term_start: "2026-10-13T03:00:00Z"
+    advances_narrative: true
   - release_id: "magcomi:episode:12207421984304225718"
     in_current_window: false
     work_title: "ボイタボイネ"

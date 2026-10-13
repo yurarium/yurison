@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-13
+retrieved: 2026-10-14
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 234
   hits_on_the_title_alone: 101
   hits_stating_a_print_edition_date: 194
-  works_asked: 807
+  works_asked: 808
   works_with_a_hit: 242
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -6907,6 +6907,16 @@ works:
     author: "イマイ悠"
     platform: "マガポケ"
     retrieved: "2026-10-12"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03338/episode/445457"
+    id: "w03314"
+    work: "怨霊日和"
+    author: "イマイ悠"
+    platform: "マガポケ"
+    retrieved: "2026-10-14"
     hits: []
     notes:
       - "author query returned no title this database recognises"

@@ -122,6 +122,12 @@ def main(argv=None):
         if ch:
             works.append({"work_title": work_title(html) or t.get("title"), "url": url,
                           "chapters": ch})
+        else:
+            # SAID, NOT SKIPPED. A page answering 200 with the site's own title and no chapters is
+            # a work the platform has taken down: Cry for the Moon at content/01340001 on
+            # 2026-10-13, still on the antenna's list. Dropping it in silence read as 21 of 22.
+            print(f"  no chapters at {url} ({t.get('title')}); the page names "
+                  f"{work_title(html) or 'nothing'}")
         time.sleep(a.pause)
 
     if not works:

@@ -30637,6 +30637,27 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  セーラー服と関西弁:
+    basis: romaji
+    furigana_spans:
+    - - セーラー
+      - null
+    - - 服
+      - ふく
+    - - と
+      - null
+    - - 関西弁
+      - かんさいべん
+    reading: セーラーフク ト カンサイベン
+    reading_at: '2026-10-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   セーラー服に、棘:
     basis: translated
     en: A Thorn in the Sailor Uniform
@@ -78377,6 +78398,23 @@ names:
     reading_source_kind: analyser
     translation_refused: The publisher's own English is the literal rendering, and ours drops the full
       stop and nothing else.
+    verified: false
+  葵とおねーちゃん:
+    basis: romaji
+    furigana_spans:
+    - - 葵
+      - あおい
+    - - とおねーちゃん
+      - null
+    reading: アオイ ト オ ネーチャン
+    reading_at: '2026-10-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   蓼食う君も好き好き:
     basis: translated

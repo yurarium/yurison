@@ -8,7 +8,7 @@ role: coverage-yardstick
 retrieved: 2026-10-14
 pages_sampled: 8
 record_type: coverage_gap
-listings: 399
+listings: 400
 distinct_works: 311
 works_on_watched_platform: 286
 platforms_total: 53
@@ -36,6 +36,11 @@ platforms_missing:
   - platform: "マンガボックス"
     works: 1
 works_missing:
+  - title: "好都合セミフレンド"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3397"
+    antenna_id: "159994"
+    tags: ["百合", "女子高生", "4コマ"]
   - title: "しゅがー・みーつ・がーる!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3108"
@@ -161,11 +166,6 @@ works_missing:
     url: "https://heros-web.com/series/2b64bc0622a2a"
     antenna_id: "186534"
     tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
-  - title: "忍者アシスタントとアナログ漫画家"
-    platform: "MAGCOMI"
-    url: "https://magcomi.com/episode/12207421984355613624"
-    antenna_id: "216631"
-    tags: ["最近のコメント数"]
   - title: "葵とおねーちゃん"
     platform: "comicブースト"
     url: "https://comic-boost.com/content/01780001"

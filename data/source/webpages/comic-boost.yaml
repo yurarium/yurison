@@ -8,7 +8,7 @@ source: webpages
 platform: comic-boost
 platform_name: "comicブースト"
 publisher: フレックス
-retrieved: 2026-08-04
+retrieved: 2026-10-13
 record_type: web_work_chapters
 identification_mode: known-work
 date_basis: stated
@@ -18,12 +18,15 @@ works:
     url: "https://comic-boost.com/content/00010001"
     chapter_count: 10
     chapters:
+      - title: "第82話"
+        updated: 2026-09-25
+        access_modes: ["free"]
       - title: "第81話"
         updated: 2026-05-29
         access_modes: ["free"]
       - title: "第80話"
         updated: 2026-04-03
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第79話"
         updated: 2026-01-30
         access_modes: ["purchase"]
@@ -44,9 +47,6 @@ works:
         access_modes: ["purchase"]
       - title: "第74話"
         updated: 2025-01-31
-        access_modes: ["purchase"]
-      - title: "番外編11"
-        updated: 2024-11-22
         access_modes: ["purchase"]
   - work_title: "Lily lily rose"
     url: "https://comic-boost.com/content/00090001"
@@ -481,4 +481,76 @@ works:
         access_modes: ["free"]
       - title: "第1話"
         updated: 2023-05-19
+        access_modes: ["free"]
+  - work_title: "ふたりべや"
+    url: "https://comic-boost.com/content/00230001"
+    chapter_count: 10
+    chapters:
+      - title: "最終話"
+        updated: 2023-06-30
+        access_modes: ["purchase"]
+      - title: "特別編13"
+        updated: 2023-05-19
+        access_modes: ["purchase"]
+      - title: "特別編12"
+        updated: 2023-04-21
+        access_modes: ["purchase"]
+      - title: "第77話"
+        updated: 2023-02-24
+        access_modes: ["purchase"]
+      - title: "特別編11"
+        updated: 2023-02-03
+        access_modes: ["purchase"]
+      - title: "第76話"
+        updated: 2022-11-25
+        access_modes: ["purchase"]
+      - title: "第75話"
+        updated: 2022-10-14
+        access_modes: ["purchase"]
+      - title: "第74話"
+        updated: 2022-06-10
+        access_modes: ["purchase"]
+      - title: "特別編10"
+        updated: 2022-04-29
+        access_modes: ["purchase"]
+      - title: "第73話"
+        updated: 2022-04-15
+        access_modes: ["purchase"]
+  - work_title: "猫とシュガーポット"
+    url: "https://comic-boost.com/content/01560001"
+    chapter_count: 9
+    chapters:
+      - title: "鬼と山神"
+        updated: 2025-01-31
+        access_modes: ["purchase"]
+      - title: "蝶々の暇つぶし"
+        updated: 2025-01-31
+        access_modes: ["purchase"]
+      - title: "午前1時のコインランドリー"
+        updated: 2025-01-31
+        access_modes: ["purchase"]
+      - title: "私の幼なじみは…。"
+        updated: 2025-01-31
+        access_modes: ["purchase"]
+      - title: "つるつる"
+        updated: 2025-01-31
+        access_modes: ["purchase"]
+      - title: "シュガーポットは壊れない 描き下ろし"
+        updated: 2025-01-31
+        access_modes: ["purchase"]
+      - title: "猫に電話 描き下ろし"
+        updated: 2025-01-31
+        access_modes: ["free"]
+      - title: "猫と囀り"
+        updated: 2025-01-31
+        access_modes: ["free"]
+      - title: "猫に離人"
+        updated: 2025-01-31
+        access_modes: ["free"]
+  - work_title: "葵とおねーちゃん"
+    url: "https://comic-boost.com/content/01780001"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り"
+        updated: 2026-10-02
         access_modes: ["free"]

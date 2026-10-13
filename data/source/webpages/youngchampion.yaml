@@ -392,7 +392,7 @@ works:
     status: "連載中"
     author: "りんご飴サード,川田暁生"
     url: "https://youngchampion.jp/series/86c1162f34a04"
-    chapter_count: 34
+    chapter_count: 35
     chapters:
       - title: "第1話①"
         updated: "2025-11-05"
@@ -492,9 +492,12 @@ works:
         access_modes: ["free-timed"]
       - title: "第11話③"
         updated: "2026-09-16"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第12話①"
         updated: "2026-10-07"
+        access_modes: ["free"]
+      - title: "第12話②"
+        updated: "2026-10-14"
         access_modes: ["purchase"]
   - work_title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     status: "連載中"
@@ -599,7 +602,7 @@ works:
     status: "連載中"
     author: "ネコ太郎"
     url: "https://youngchampion.jp/series/90af950945671"
-    chapter_count: 73
+    chapter_count: 74
     chapters:
       - title: "第1話"
         updated: "2023-03-28"
@@ -813,12 +816,15 @@ works:
         access_modes: ["free-timed"]
       - title: "第40話①"
         updated: "2026-09-02"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第40話②"
         updated: "2026-09-09"
         access_modes: ["free"]
       - title: "第41話①"
         updated: "2026-10-07"
+        access_modes: ["free"]
+      - title: "第41話②"
+        updated: "2026-10-14"
         access_modes: ["purchase"]
   - work_title: "隣人/読み切り"
     status: "読み切り"

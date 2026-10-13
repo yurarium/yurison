@@ -30638,25 +30638,21 @@ names:
     reading_source: surface
     verified: true
   セーラー服と関西弁:
-    basis: romaji
-    furigana_spans:
-    - - セーラー
-      - null
-    - - 服
-      - ふく
-    - - と
-      - null
-    - - 関西弁
-      - かんさいべん
+    basis: translated
+    en: Sailor Uniforms and the Kansai Dialect
+    en_at: '2026-10-13'
+    en_reviewed: '2026-10-13'
+    en_source: https://manga.nicovideo.jp/comic/69929
+    en_source_kind: derived
+    note: セーラー服 is the sailor-style school uniform and 関西弁 the Kansai dialect, so the title pairs a schoolgirl
+      with the way she speaks. Listed by 百合ナビ, by ライムマン on ニコニコ漫画's きららベース channel.
     reading: セーラーフク ト カンサイベン
     reading_at: '2026-10-13'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
+    reading_basis: researched
+    reading_note: 服 is フク and 関西弁 is カンサイベン.
+    reading_reviewed: '2026-10-13'
+    reading_source: https://manga.nicovideo.jp/comic/69929
+    reading_source_kind: derived
     verified: false
   セーラー服に、棘:
     basis: translated
@@ -67301,31 +67297,28 @@ names:
     reading_url: https://sevenseasentertainment.com/series/sheep-princess-in-wolfs-clothing/
     verified: false
   猫とシュガーポット:
-    basis: licensed
-    en: Cats and Sugar Bowls
-    en_at: '2026-08-06'
+    basis: translated
+    en: Cats and the Sugar Pot
+    en_at: '2026-10-13'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: The Cat and the Sugar Pot
-    en_reviewed: '2026-08-06'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/cats-and-sugar-bowls/
-    furigana_spans:
-    - - 猫
-      - ねこ
-    - - とシュガーポット
-      - null
-    note: Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 猫とシュガーポット.
-      That is the name an English reader meets the work under.
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: Cats and Sugar Bowls
+    en_reviewed: '2026-10-13'
+    en_source: https://comic-boost.com/content/01560001
+    en_source_kind: derived
+    note: 'A 作品集 by 雪子 on comicブースト whose title joins its stories: the 猫 ones, 猫に離人, 猫と囀り and 猫に電話, and
+      シュガーポットは壊れない. Every story is dated 2025-01-31, the day the collection was posted.'
     reading: ネコ ト シュガーポット
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_at: '2026-10-13'
+    reading_basis: researched
+    reading_note: 猫 is ネコ; the rest is kana.
+    reading_reviewed: '2026-10-13'
+    reading_source: https://comic-boost.com/content/01560001
+    reading_source_kind: derived
     translation_note: The Japanese counts neither, and the licensed English makes both plural.
     verified: false
   猫に白鳥、蛍に小判:
@@ -78400,21 +78393,23 @@ names:
       stop and nothing else.
     verified: false
   葵とおねーちゃん:
-    basis: romaji
-    furigana_spans:
-    - - 葵
-      - あおい
-    - - とおねーちゃん
-      - null
-    reading: アオイ ト オ ネーチャン
+    basis: translated
+    en: Aoi and Her Big Sister
+    en_at: '2026-10-13'
+    en_reviewed: '2026-10-13'
+    en_source: https://comic-boost.com/content/01780001
+    en_source_kind: derived
+    note: 'A special one-shot on comicブースト, announced by 百合ナビ on 2026-10-13: 葵 is the younger sister and
+      おねーちゃん the older one, 陽, whom she calls by that word. The page calls it a summer comedy of two sisters
+      who cannot be honest with each other.'
+    reading: アオイ ト オネーチャン
     reading_at: '2026-10-13'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_ordinary: true
+    reading_basis: researched
+    reading_note: 葵 is the girl's name, read アオイ; the rest is kana.
     reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
+    reading_reviewed: '2026-10-13'
+    reading_source: https://comic-boost.com/content/01780001
+    reading_source_kind: derived
     verified: false
   蓼食う君も好き好き:
     basis: translated

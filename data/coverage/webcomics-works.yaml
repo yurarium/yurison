@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-10-14
+retrieved: 2026-10-15
 record_type: candidate_works
 works: 311
 candidates:
@@ -1556,6 +1556,10 @@ candidates:
   - title: "ネコ様の言うとおり"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005452_S"]
+  - title: "ノスフェルワイス"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_021441_S"]
+    tags: ["百合", "読み切り"]
   - title: "ノゾミとカナエ"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550912964579892071"]
@@ -2813,7 +2817,7 @@ candidates:
   - title: "忍者アシスタントとアナログ漫画家"
     platforms: ["MAGCOMI"]
     urls: ["https://magcomi.com/episode/12207421984355613624"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "志乃と恋"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000076_S"]
@@ -3232,6 +3236,9 @@ candidates:
   - title: "死守れ日常系ヲ"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/3270375685393122652"]
+  - title: "死神さんと昇天ごはん"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_021305_S"]
   - title: "死神デリート"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/12207421984115943558"]

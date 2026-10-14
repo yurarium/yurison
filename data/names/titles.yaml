@@ -1,4 +1,4 @@
-generated: '2026-10-13'
+generated: '2026-10-14'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -32382,6 +32382,17 @@ names:
     reading_source_kind: analyser
     translation_note: ザクロ is 柘榴, the pomegranate, which the publisher's English keeps as a name.
     verified: false
+  ノスフェルワイス:
+    basis: romaji
+    reading: ノスフェルワイス
+    reading_at: '2026-10-14'
+    reading_basis: surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 1
+    reading_source: surface
+    reading_source_kind: analyser
+    verified: true
   ノス＆ザクロ:
     basis: romaji
     reading: ノス＆ザクロ
@@ -64534,6 +64545,27 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  死神さんと昇天ごはん:
+    basis: romaji
+    furigana_spans:
+    - - 死神
+      - しにがみ
+    - - さんと
+      - null
+    - - 昇天
+      - しょうてん
+    - - ごはん
+      - null
+    reading: シニガミサン ト ショウテン ゴハン
+    reading_at: '2026-10-14'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   死神の王とその娘たち:

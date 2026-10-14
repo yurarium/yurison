@@ -6,7 +6,7 @@ platform: g-comi
 platform_name: "Gコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-10-14
+retrieved: 2026-10-15
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -41,7 +41,7 @@ works:
     status: "連載中"
     author: "ぷえぶろ"
     url: "https://g-comi.jp/series/fef424c168c44"
-    chapter_count: 7
+    chapter_count: 8
     chapters:
       - title: "1服目"
         updated: "2026-06-28"
@@ -63,6 +63,9 @@ works:
         access_modes: ["purchase"]
       - title: "7服目"
         updated: "2026-10-07"
+        access_modes: ["purchase"]
+      - title: "8服目"
+        updated: "2026-10-14"
         access_modes: ["free"]
   - work_title: "イヴとイヴたち"
     status: "完結"
@@ -224,7 +227,7 @@ works:
     status: "連載中"
     author: "館山けーた"
     url: "https://g-comi.jp/series/7e3c698bca968"
-    chapter_count: 9
+    chapter_count: 10
     chapters:
       - title: "第1話"
         updated: "2026-06-28"
@@ -252,4 +255,7 @@ works:
         access_modes: ["purchase"]
       - title: "第9話"
         updated: "2026-10-07"
+        access_modes: ["purchase"]
+      - title: "第7.5話"
+        updated: "2026-10-14"
         access_modes: ["free"]

@@ -6,7 +6,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-10-14
+retrieved: 2026-10-15
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -27,6 +27,7 @@ releases:
     author: "山田恵庸"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984289601457"
+    in_current_window: false
     work_title: "アイ・ヘイ・チュー"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -43,6 +44,7 @@ releases:
     author: "長門知大"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984289600803"
+    in_current_window: false
     work_title: "アイ・ヘイ・チュー"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -59,6 +61,7 @@ releases:
     author: "長門知大"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984289600101"
+    in_current_window: false
     work_title: "アイ・ヘイ・チュー"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -75,6 +78,7 @@ releases:
     author: "長門知大"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984289598669"
+    in_current_window: false
     work_title: "アイ・ヘイ・チュー"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -91,6 +95,7 @@ releases:
     author: "長門知大"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984289595237"
+    in_current_window: false
     work_title: "アイ・ヘイ・チュー"
     web_status: "serialised"
     identified_via: "discovery-candidate"

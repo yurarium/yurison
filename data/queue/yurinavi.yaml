@@ -6,9 +6,18 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-10-14
+retrieved: 2026-10-15
 record_type: discovery_queue
 candidates:
+  - work_title: "死神さんと昇天ごはん"
+    signal: "new-serial"
+    announced: "Wed, 14 Oct 2026 11:08:12 +0000"
+    url: "https://yurinavi.com/2026/10/14/shinigamisanto-start/"
+    platform: "kadokomi"
+    platform_code: "KC_021305_S"
+    work_url: "https://comic-walker.com/detail/KC_021305_S"
+    headline: "孤独な少女と死神のひとつ屋根の下で描かれる百合グルメコメディ「死神さんと昇天ごはん」WEBでスタート"
+    status: unconfirmed
   - work_title: "葵とおねーちゃん"
     signal: "oneshot"
     announced: "Tue, 13 Oct 2026 11:38:24 +0000"

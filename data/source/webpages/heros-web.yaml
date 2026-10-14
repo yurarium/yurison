@@ -6,7 +6,7 @@ platform: heros-web
 platform_name: "HERO'S Web"
 publisher: "ヒーローズ"
 engine: comici
-retrieved: 2026-10-14
+retrieved: 2026-10-15
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -473,7 +473,7 @@ works:
     status: "連載中"
     author: "柴田康平"
     url: "https://heros-web.com/series/2b64bc0622a2a"
-    chapter_count: 40
+    chapter_count: 41
     chapters:
       - title: "第一服「魔女と再会」"
         updated: "2026-05-18"
@@ -588,10 +588,13 @@ works:
         access_modes: ["free-timed"]
       - title: "魔女とひととき　パート２"
         updated: "2026-09-02"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第二十服「魔女と再起」前編"
         updated: "2026-09-16"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第二十服「魔女と再起」後編"
         updated: "2026-09-30"
+        access_modes: ["purchase"]
+      - title: "第二十一服「魔女と背信」前編"
+        updated: "2026-10-14"
         access_modes: ["purchase"]

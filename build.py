@@ -1443,6 +1443,27 @@ def best_known_length(rows):
     return max((r.get("chapters") or 0 for r in rows), default=0)
 
 
+def starts_a_run(chapters, stated=None):
+    """Whether a row's chapters are the start of a run: at most `importdates.DAY` numbered
+    instalments, the first of them 第1話, and no longer run stated by the platform.
+
+    ANYTHING STARTING AT CHAPTER 1 IS PRESUMPTIVELY A SERIALISATION, ruled by the owner on
+    2026-10-14. 死神さんと昇天ごはん launched on カドコミ that day with its 第1話 and a stated next
+    update of 2026-10-28, and the update feed called it 新連載 while its own page read `unknown`,
+    because one chapter is one date and `can_testify` wants two before a date counts as observed.
+    An import arrives with its run, and a launch arrives with its first instalment. Capped at two so a back catalogue that happens to begin at 第1話 is still an import,
+    and asked of the whole row, since one capture holding a lone 【track1】 beside a fuller one that
+    holds the run is the ハロー、メランコリック！ case `can_testify` exists for. And never off a date
+    its own source reads as an import, which is the same work again on 一迅プラス: a lone 第1話 at
+    2025-08-08, the day that platform imported its catalogue.
+    """
+    nums = {importdates.number(c.get("title")) for c in (chapters or [])}
+    nums.discard(None)
+    return (bool(nums) and min(nums) == 1 and len(nums) <= importdates.DAY
+            and not (stated and stated > importdates.DAY)
+            and not any(c.get("date_stamped") for c in chapters or []))
+
+
 def can_testify(chapters):
     """Whether one source file has seen enough of a work to say its dates were observed.
 
@@ -6017,6 +6038,11 @@ def main():
                 if _can_testify and (w.get("work_title"),
                                      str(c.get("updated") or "")[:10]) not in _stamped:
                     slot["date_observed"] = True
+                # AND WHERE THE SOURCE READS THE DATE AS AN IMPORT, said on the chapter, so a launch
+                # is never read off a stamp: 一迅プラス holds ハロー、メランコリック！'s lone 第1話 at
+                # 2025-08-08, the day it imported its catalogue. See `starts_a_run`.
+                if (w.get("work_title"), str(c.get("updated") or "")[:10]) in _stamped:
+                    slot["date_stamped"] = True
 
     # Collapse each bucket's merged chapters into the row the interface reads.
     for row in series.values():
@@ -6032,6 +6058,9 @@ def main():
         # stamp still shows and the row says so, and the merge across platforms prefers a source
         # that watched something happen.
         observed = [c for c in dated if c.get("date_observed")]
+        # A LAUNCH IS SEEN, NOT IMPORTED. See `starts_a_run`.
+        if not observed and starts_a_run(chs, row.get("chapters_stated")):
+            observed = dated
         face = observed or dated
         row["dates_imported"] = bool(dated) and not observed
         row["first"] = str(face[0]["updated"])[:10] if face else None
@@ -6118,9 +6147,15 @@ def main():
         _feed_said = (_rowkey in _oneshot
                       or (row["chapters"] == 1 and not row["partial"]
                           and norm_work(row["work"]) in _oneshot_any))
+        # A ROW STARTING AT 第1話 IS NOT A ONE-SHOT BY INFERENCE, ruled by the owner on
+        # 2026-10-14: a first chapter announces a run. A reviewed verdict, the platform's own word
+        # and every instalment marked 読切 still decide, being statements rather than readings.
+        _inferred_route = "feed" if _feed_said else "self-named" if _self_named else None
+        _nums = {importdates.number(c.get("title")) for c in row.get("chapters_list") or []} - {None}
+        if _inferred_route and _nums and min(_nums) == 1:
+            _inferred_route = None
         _os_route = stronger(row.pop("oneshot_why", None),
-                             "review" if _rev_one else "feed" if _feed_said
-                             else "self-named" if _self_named else None)
+                             "review" if _rev_one else _inferred_route)
         row["oneshot"] = bool(row.pop("oneshot_src", False) or _os_route)
         # WHY, IN BOTH LANGUAGES, on the row that publishes an unhedged length. A reviewed verdict
         # brings its own sentences and outranks every rule, because somebody read a page and wrote

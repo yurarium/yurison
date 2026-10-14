@@ -84,6 +84,11 @@ NUMBER = re.compile(r"第\s*([0-9０-９]+)\s*話|(?:track|＃|#)\s*([0-9０-９
 DAY = 2
 
 
+def number(title):
+    """An instalment's position in its run, where its title states one, else None. See NUMBER."""
+    return _number(title)
+
+
 def _number(title):
     m = NUMBER.search(str(title or ""))
     if not m:

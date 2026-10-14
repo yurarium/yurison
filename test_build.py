@@ -140,6 +140,18 @@ def main(s):
         {"work_title": "最恐呪物令嬢", "url": "https://younganimal.com/episodes/24a3e6bcb998e"}]), set(),
          "nor is a work's series page beside one of its episodes")
 
+    # ── ANYTHING STARTING AT CHAPTER 1 IS THE START OF A RUN ───────────────────────────────────
+    s.check(b.starts_a_run([{"title": "第1話"}]), "a lone 第1話 is a launch, not an import")
+    s.check(b.starts_a_run([{"title": "第1話"}, {"title": "第2話"}]), "and so is a launch of two")
+    s.check(not b.starts_a_run([{"title": f"第{k}話"} for k in range(1, 4)]),
+            "three instalments on arrival is a back catalogue, whatever it starts with")
+    s.check(not b.starts_a_run([{"title": "第5話"}]), "a run already under way is not starting")
+    s.check(not b.starts_a_run([{"title": "読み切り"}]), "an unnumbered chapter says nothing")
+    s.check(not b.starts_a_run([{"title": "第1話"}], stated=40),
+            "and a first chapter of a run the platform says is forty long is a sample of it")
+    s.check(not b.starts_a_run([{"title": "第1話", "date_stamped": True}]),
+            "nor is a lone 第1話 on a date its own source reads as an import")
+
     # ── A WORK'S OWN TITLE AT ONE ADDRESS ───────────────────────────────────────────────────────
     s.eq(b.title_at("https://pocket.shonenmagazine.com/title/03125/episode/433732"),
          "怨霊日和【読み切り版】", "a chapter under the 読み切り版's page takes the page's own title")

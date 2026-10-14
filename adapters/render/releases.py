@@ -285,6 +285,20 @@ def js(v):
     return json.dumps(v, ensure_ascii=False)
 
 
+def rendered_platforms(spec):
+    """The target list's platforms this route renders: every one not marked `own_adapter`.
+
+    A PLATFORM WITH ITS OWN ADAPTER IS NOT RENDERED AS WELL. ガンガンONLINE's section is here
+    because `adapters/ganganonline/releases.py` selects its works out of this file, and this route
+    went on rendering the same section beside it. Its visible chapter strip reads the page's
+    "start from chapter 1" link into the 作品インフォメーション block, so `rendered-ganganonline.yaml`
+    held a 第1話-1 for four works, dated each day it was read, and on 2026-10-14 スライム倒して300年
+    reached the feed with a new first chapter it does not have. The adapter reads the page's own
+    embedded state and has none of that.
+    """
+    return [p for p in (spec or {}).get("platforms") or [] if not p.get("own_adapter")]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--targets", required=True)
@@ -303,7 +317,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     spec = yaml.safe_load(open(a.targets)) or {}
-    for plat in spec.get("platforms") or []:
+    for plat in rendered_platforms(spec):
         rows, failed = [], Counter()
         # SAYING WHAT IT IS DOING, because this stage was silent for 24 minutes. A browser render is
         # ten seconds and this walks a hundred of them, so a run that has hung and a run that is

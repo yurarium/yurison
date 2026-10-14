@@ -32383,15 +32383,26 @@ names:
     translation_note: ザクロ is 柘榴, the pomegranate, which the publisher's English keeps as a name.
     verified: false
   ノスフェルワイス:
-    basis: romaji
+    basis: translated
+    en: Nosferweiss
+    en_at: '2026-10-14'
+    en_reviewed: '2026-10-14'
+    en_source: https://comic-walker.com/detail/KC_021441_S
+    en_source_kind: derived
+    note: A coined name in katakana, ノスフェル from Nosferatu and ワイス the German weiss, white, and the English
+      is the Latin the kana spell rather than a translation of a word that does not exist. カドコミ's page
+      sets it among vampires made by a parasitic fungus, so the vampire half is meant. A one-shot by しくへく,
+      2026-10-14, on the antenna's 百合 tag.
     reading: ノスフェルワイス
     reading_at: '2026-10-14'
     reading_basis: surface
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
+    reading_corroborated:
+    - https://comic-walker.com/detail/KC_021441_S
+    reading_note: Katakana throughout, so the surface is the reading.
     reading_pass: 1
-    reading_source: surface
-    reading_source_kind: analyser
+    reading_reviewed: '2026-10-14'
+    reading_source: https://comic-walker.com/detail/KC_021441_S
+    reading_source_kind: derived
     verified: true
   ノス＆ザクロ:
     basis: romaji
@@ -64548,25 +64559,23 @@ names:
     reading_source_kind: analyser
     verified: false
   死神さんと昇天ごはん:
-    basis: romaji
-    furigana_spans:
-    - - 死神
-      - しにがみ
-    - - さんと
-      - null
-    - - 昇天
-      - しょうてん
-    - - ごはん
-      - null
+    basis: translated
+    en: Miss Reaper and Meals to Die For
+    en_at: '2026-10-14'
+    en_reviewed: '2026-10-14'
+    en_source: https://comic-walker.com/detail/KC_021305_S
+    en_source_kind: derived
+    note: '昇天 is rising to heaven, said of food good enough to send you there and of a soul leaving its
+      body, and カドコミ''s page has both: a gourmet comedy where the girl 蒼空 meets keeps losing her soul.
+      Meals to Die For carries the pair in English. 死神さん is the reaper addressed with さん, kept as Miss.
+      By 菅野マナミ, serialised from 2026-10-14 under カドコミ''s 百合 tag.'
     reading: シニガミサン ト ショウテン ゴハン
     reading_at: '2026-10-14'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
+    reading_basis: researched
+    reading_note: 死神 is シニガミ and 昇天 is ショウテン; the rest is kana.
+    reading_reviewed: '2026-10-14'
+    reading_source: https://comic-walker.com/detail/KC_021305_S
+    reading_source_kind: derived
     verified: false
   死神の王とその娘たち:
     basis: translated

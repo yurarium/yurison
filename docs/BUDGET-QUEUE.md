@@ -1407,3 +1407,20 @@ first thirty rows of each list, so a field that first appears later was never co
 rows came first differed between the two stores: the eight were the `related` list added on
 2026-10-11. It now walks every row, which found twelve more served fields the declaration had never
 seen; each is read by `emit` from a table, so each is declared with it and the count is 0.
+
+## Four budgets rose with two inductions and a feed day. Accepted 2026-10-14
+
+ノスフェルワイス, a one-shot by しくへく on カドコミ on the antenna's 百合 tag, and 死神さんと昇天ごはん,
+a serial by 菅野マナミ under カドコミ's own 百合 tag that 百合ナビ announced the same day, are minted
+by hand as w03319 and w03320 and named. `author names romanised as one word` 1226 to 1227, `kana
+names with no stated division` 274 to 275 and `credit fields an identifier does not cover` 104 to
+105 are しくへく, a kana pen name no page divides and no credit identifier covers yet.
+
+`incomplete attested rows` 63 to 65 is the day's release-day rows without an access state yet:
+ぎるてぃらいぶらり 【第3話】, 怨霊日和's 【第7話】, w00054's 第３４２話 on コミックDAYS and a work-level
+row on ニコニコ漫画. It read 66 in CI, the 66th being スライム倒して300年's 第1話-1 on ガンガンONLINE,
+which was not a chapter: the rendered route went on rendering ガンガンONLINE beside the adapter
+written to replace it, and read the page's "start from chapter 1" link into the
+作品インフォメーション block, dated each day it was read. The rendered route now skips a platform
+marked `own_adapter`, `rendered-ganganonline.yaml` is removed, and three offers lose the false
+chapter.

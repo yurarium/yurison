@@ -475,6 +475,9 @@ platforms:
   name: ガンガンONLINE
   publisher: スクウェア・エニックス
   host: www.ganganonline.com
+  # Read by its own adapter from the page's embedded state, and not rendered by the browser route,
+  # which swept the 作品インフォメーション block into a 第1話-1 dated each day it was read.
+  own_adapter: adapters/ganganonline/releases.py
   works:
   - title: 〆切前には百合が捗る
     url: https://www.ganganonline.com/title/1525

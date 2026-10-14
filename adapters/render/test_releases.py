@@ -13,6 +13,13 @@ import releases as rd
 
 
 def main(s):
+    # ── A PLATFORM WITH ITS OWN ADAPTER IS NOT RENDERED AS WELL ───────────────────────────────
+    spec = {"platforms": [{"id": "magapoke"}, {"id": "ganganonline",
+                                               "own_adapter": "adapters/ganganonline/releases.py"}]}
+    s.eq([p["id"] for p in rd.rendered_platforms(spec)], ["magapoke"],
+         "ガンガンONLINE is read by its own adapter and not rendered beside it")
+    s.eq(rd.rendered_platforms({}), [], "and an empty list renders nothing")
+
     # ── A CONTROL SITTING WHERE A BYLINE SITS IS NOT A BYLINE ─────────────────────────────────
     #
     # `author_near_title` is positional: it takes the first short line under the work's title that

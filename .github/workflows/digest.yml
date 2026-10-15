@@ -24,8 +24,14 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pyyaml
+      # THE LATEST PUBLISHED STORE, for the budgets each run measured. A week with no store is a
+      # digest without that list, not a failed digest.
+      - name: Fetch the latest store
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download --repo "${{ github.repository }}" --pattern corpus.sqlite -D "$RUNNER_TEMP" || true
       - name: Write the digest
-        run: python3 adapters/digest.py > digest.md
+        run: python3 adapters/digest.py --store "$RUNNER_TEMP/corpus.sqlite" > digest.md
       - name: Post it, and close last week's
         env:
           GH_TOKEN: ${{ github.token }}

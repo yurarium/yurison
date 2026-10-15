@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """What the naming job is asked to do after an update: works to induct, titles to name, rulings owed.
 
-WHY THIS EXISTS. Until 2026-10-15 a person ran the update and then did three things by hand: minted
+WHY THIS EXISTS. Until 2026-10-15 a person ran the update and then, by hand, minted
 an identifier for each work the build could not key, wrote an English name for each title still
 showing a romanisation, and ruled on each work the feed named that the database held no record of.
 The launch plan moves that to a scheduled Claude Code job (docs/LAUNCH-PLAN.md section 5), and this

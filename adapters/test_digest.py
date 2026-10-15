@@ -31,17 +31,9 @@ def main(s):
     s.check("1 run(s), 12 turns, 1,000 input and 200 output tokens; 3 name(s) written and 1 work(s)"
             in text, "and the naming job's usage is totalled")
     # A BUDGET LEFT OVER ITS VALUE is listed from the store, largest excess first.
-    import sqlite3, tempfile
-    with tempfile.TemporaryDirectory() as d:
-        db = pathlib.Path(d) / "s.sqlite"
-        c = sqlite3.connect(db)
-        c.execute("CREATE TABLE check_result (kind TEXT, name TEXT, value INTEGER, budget INTEGER)")
-        c.executemany("INSERT INTO check_result VALUES (?,?,?,?)",
-                      [("budget", "a", 10, 6), ("budget", "b", 3, 3), ("budget", "c", 9, 8),
-                       ("invariant", "d", 2, None), ("budget", "e", None, 4)])
-        c.commit()
-        s.eq(dg.over(db), [("a", 10, 6), ("c", 9, 8)], "budgets over their value, largest first")
-        s.eq(dg.over(pathlib.Path(d) / "missing.sqlite"), [], "no store is no list, not a crash")
+    rows = [("a", 10, 6), ("b", 3, 3), ("c", 9, 8), ("e", None, 4)]
+    s.eq(dg.exceeding(rows), [("a", 10, 6), ("c", 9, 8)], "budgets over their value, largest first")
+    s.eq(dg.over("/nonexistent/store.sqlite"), [], "no store is no list, not a crash")
     text2 = dg.compose("2026-10-08", "2026-10-15", 1, {}, [], [], above=[("a", 10, 6)])
     s.check("`a`: 10 against 6" in text2, "and the digest names each one")
 

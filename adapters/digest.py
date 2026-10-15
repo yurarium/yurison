@@ -46,13 +46,21 @@ def over(db_path):
     is printed in a run log nobody opens. The store keeps what every run measured, so the digest
     reads it and a count left over its ceiling is in front of somebody once a week.
     """
-    import sqlite3
-    try:
-        db = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
-        rows = db.execute("SELECT name, value, budget FROM check_result WHERE kind = 'budget'"
-                          " AND value IS NOT NULL AND budget IS NOT NULL AND value > budget").fetchall()
-    except sqlite3.Error:
+    if not db_path or not pathlib.Path(db_path).exists():
         return []
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    import relational
+    try:
+        rows = relational.open_db(db_path).execute(
+            "SELECT name, value, budget FROM check_result WHERE kind = 'budget'").fetchall()
+    except Exception:                                                       # noqa: BLE001
+        return []
+    return exceeding(rows)
+
+
+def exceeding(rows):
+    """The `(name, value, budget)` rows whose value is above their budget, largest excess first."""
+    rows = [r for r in rows if r[1] is not None and r[2] is not None and r[1] > r[2]]
     return sorted(rows, key=lambda r: (-(r[1] - r[2]), r[0]))
 
 

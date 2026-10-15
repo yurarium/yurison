@@ -69,6 +69,14 @@ def outcomes(s):
         rc, _ = run(True)
         s.eq(rc, 1, "a required command failing fails the stage")
 
+        # A WEEKLY COMMAND RUNS WHEN ITS LAST SUCCESS IS A WEEK OLD, OR HAS NEVER HAPPENED.
+        led = d / "ledger.yaml"
+        led.write_text(yaml.safe_dump({"sources": {"recent": {"last_ok": "2026-10-13"},
+                                                   "stale": {"last_ok": "2026-10-01"}}}))
+        cmds = [{"id": x, "every_days": 7} for x in ("recent", "stale", "never")] + [{"id": "each"}]
+        s.eq([c["id"] for c in run_stage.due(cmds, "2026-10-15", str(led))],
+             ["stale", "never", "each"], "a weekly command waits until it is due")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(lambda s: (main(s), outcomes(s)), "run_stage"))

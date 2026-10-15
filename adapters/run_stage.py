@@ -66,6 +66,29 @@ def _both_ends(s, keep=1500):
     return f"{s[:keep]}\n… {dropped} character(s) dropped from the middle …\n{s[-keep:]}"
 
 
+def due(cmds, today, ledger_path):
+    """The commands to run today: every one without `every_days`, and those whose last success,
+    per the ledger, is at least that many days old or never happened."""
+    import datetime
+    p = pathlib.Path(ledger_path) if ledger_path else None
+    sources = ((yaml.safe_load(p.read_text(encoding="utf-8")) or {}).get("sources") or {}) \
+        if p and p.exists() else {}
+    out = []
+    for c in cmds:
+        every = c.get("every_days")
+        last = str((sources.get(c["id"]) or {}).get("last_ok") or "")
+        if every and last:
+            try:
+                age = (datetime.date.fromisoformat(today[:10])
+                       - datetime.date.fromisoformat(last[:10])).days
+            except ValueError:
+                age = every
+            if age < every:
+                continue
+        out.append(c)
+    return out
+
+
 def outcome(cid, rc, secs, text, cmd):
     """One command's result as `runhealth.py` reads it: its id, whether it worked, and why not."""
     lines = [l for l in (text or "").strip().splitlines() if l.strip()]
@@ -94,11 +117,20 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--report", default=None,
                     help="append each command's outcome to this JSON file, for runhealth.py")
+    ap.add_argument("--ledger", default=str(ROOT / "data" / "ledger" / "source-health.yaml"),
+                    help="when each command last worked, for commands with `every_days`")
     a = ap.parse_args()
 
     spec = yaml.safe_load(pathlib.Path(a.manifest).read_text())
     cmds = [c for c in spec["commands"] if not a.only or c["id"] in a.only]
     subs = {"R": a.retrieved, "CACHE": a.cache}
+    # A COMMAND WITH A CADENCE RUNS WHEN IT IS DUE, not every run. Weekly producers sit in the same
+    # manifests as the rest, so they share the outcome record and the failure issues; the ledger
+    # `runhealth.py` keeps is what says when each last worked.
+    held, cmds = cmds, due(cmds, a.retrieved, a.ledger)
+    for c in held:
+        if c not in cmds:
+            print(f"  wait {c['id']:26} next due {c.get('every_days')} day(s) after its last success")
     # IN ORDER WHERE A MANIFEST SAYS SO. Stage 0's candidate list is merged from what the passes
     # before it wrote, and Stage C renders the targets its first command derives, so those stages
     # run one command at a time; a manifest of independent hosts runs them side by side.

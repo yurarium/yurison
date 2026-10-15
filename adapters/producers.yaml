@@ -1,0 +1,227 @@
+# Every file under data/source, data/coverage and data/queue, and what keeps it current.
+#
+# WHY THIS EXISTS. Three times in one week a producer turned out to have run once and never again:
+# comicブースト, the BOOK☆WALKER completion sweep and the render targets, each frozen since early
+# August while the build went on reading what they last wrote. A sweep on 2026-10-15 found about
+# fifteen more (docs/LAUNCH-PLAN.md). Each looked fine because its file existed and something read it.
+#
+# WHAT IT ENFORCES. `test_producers.py` fails when a file under the three directories matches no
+# entry here, or when the code names a path no entry covers, so a new file has to say what produces
+# it before it can be merged. `freshness.py` reads every `run` entry each update and records a file
+# older than `max_age_days` as a failed outcome for `runhealth.py`, so a producer that exits 0 and
+# writes nothing (コミックリュウ, stuck at 2026-09-15) becomes an issue instead of a stale page.
+#
+# STATUS.
+#   run      a scheduled command writes it; `producer` names the stage command, `max_age_days` the
+#            oldest its `retrieved:` may be
+#   hand     curated by a person, or a written investigation; no age applies
+#   frozen   read by the build or a scheduled command, with no scheduled producer yet. The debt the
+#            launch plan pays down; a budget counts these and only falls
+#   retired  superseded and due for removal with its reader
+#
+# FIRST MATCH WINS, so a specific file is listed before the glob that would otherwise take it.
+entries:
+  # ── data/source ────────────────────────────────────────────────────────────────────────────────
+  - paths: [data/source/gigaviewer/*-episode-lists.yaml]
+    status: run
+    producer: stage-a:gigaviewer-episode-lists
+    max_age_days: 3
+  - paths: [data/source/gigaviewer/*-series-feeds.yaml]
+    status: run
+    producer: stage-a:gigaviewer-series-feeds*
+    max_age_days: 3
+  - paths: [data/source/gigaviewer/*-confirmed.yaml]
+    status: frozen
+    producer: adapters/gigaviewer/confirm.py
+    note: one confirmation per platform, run by hand in August and September
+  - paths: [data/source/gigaviewer/*-print-candidates.yaml, data/source/gigaviewer/*-series.yaml,
+            data/source/gigaviewer/*.yaml]
+    status: run
+    producer: stage-a:gigaviewer-platform-feeds
+    max_age_days: 3
+
+  - paths: [data/source/comicfuz/works.yaml]
+    status: run
+    producer: stage-a:comicfuz
+    max_age_days: 3
+  - paths: [data/source/kadokomi/chapters.yaml]
+    status: run
+    producer: stage-a:kadokomi
+    max_age_days: 3
+  - paths: [data/source/nicovideo/nicovideo.yaml]
+    status: run
+    producer: stage-a:nicovideo
+    max_age_days: 3
+  - paths: [data/source/nicovideo/works.yaml]
+    status: run
+    producer: stage-a:nicovideo-works
+    max_age_days: 3
+  - paths: [data/source/comicfuz/resolved.yaml, data/source/kadokomi/resolved.yaml,
+            data/source/nicovideo/resolved.yaml]
+    status: frozen
+    producer: adapters/serialisation/promote.py
+    note: seeds appended by the serialisation sweep, confirm and promote chain
+  - paths: [data/source/kadokomi/catalogue.yaml]
+    status: frozen
+    producer: adapters/kadokomi/catalogue.py
+    note: カドコミ's own 百合 tag, which is kadokomi releases' target list
+  - paths: [data/source/kadokomi/confirmed.yaml, data/source/kadokomi/withheld.yaml]
+    status: frozen
+    producer: adapters/kadokomi/confirm.py
+
+  - paths: [data/source/comparators/claims.yaml]
+    status: frozen
+    producer: adapters/comparators/claims.py
+    note: the feed's claimed rows, from the antenna and 百合ナビ
+  - paths: [data/source/comparators/completion.yaml]
+    status: frozen
+    producer: adapters/comparators/completion.py
+    note: the antenna's 完結 tags
+  - paths: [data/source/comparators/shop-final-volumes.yaml]
+    status: frozen
+    producer: adapters/shopfinal.py
+  - paths: [data/source/comparators/resolved-titles.yaml, data/source/comparators/resolved-authors.yaml]
+    status: hand
+    note: one-off resolutions of 2026-08-01 and 08-02, kept as rulings
+
+  - paths: [data/source/openbd/*.yaml]
+    status: run
+    producer: stage-a:openbd
+    max_age_days: 3
+  - paths: [data/source/bookwalker/*.yaml]
+    status: frozen
+    producer: adapters/bwingest.py
+    note: the BOOK☆WALKER print intake chain, launch plan section 2
+  - paths: [data/source/madb/*.yaml, data/source/madb-title/*.yaml]
+    status: frozen
+    producer: adapters/madb/by_isbn.py
+    note: the MADB routes, launch plan section 2; the release is pinned at 1.2.18
+  - paths: [data/source/ichijinsha/*.yaml]
+    status: frozen
+    producer: adapters/ichijinsha.py
+    note: the producer exists only on the unmerged branch work/ichijinsha
+  - paths: [data/source/editions/withheld.yaml]
+    status: frozen
+    producer: adapters/editions/capture.py
+  - paths: [data/source/reachable/availability.yaml]
+    status: hand
+    note: one survey of 2026-08-02; no reader in the build
+
+  - paths: [data/source/webpages/comic-boost.yaml]
+    status: run
+    producer: stage-a:comicboost
+    max_age_days: 3
+  - paths: [data/source/webpages/rendered-*.yaml]
+    status: run
+    producer: stage-c:render-releases
+    max_age_days: 3
+  - paths: [data/source/webpages/remaining.yaml]
+    status: run
+    producer: stage-c:remaining-releases
+    max_age_days: 3
+  - paths: [data/source/webpages/magapoke-feeds.yaml]
+    status: run
+    producer: stage-a:magapoke-feeds
+    max_age_days: 3
+  - paths: [data/source/webpages/sitemap-magapoke.yaml]
+    status: run
+    producer: stage-a:sitemap
+    max_age_days: 3
+  - paths: [data/source/webpages/ganganonline.yaml]
+    status: run
+    producer: stage-a:ganganonline
+    max_age_days: 3
+  - paths: [data/source/webpages/yomonga.yaml]
+    status: run
+    producer: stage-a:yomonga
+    max_age_days: 3
+  - paths: [data/source/webpages/corocoro.yaml, data/source/webpages/flowercomics.yaml]
+    status: run
+    producer: stage-a:shogakukan
+    max_age_days: 3
+  - paths: [data/source/webpages/generic-*.yaml]
+    status: run
+    producer: stage-a:generic
+    max_age_days: 3
+  - paths: [data/source/webpages/bylines.yaml]
+    status: frozen
+    producer: adapters/bylines.py
+  - paths: [data/source/webpages/backfill.yaml]
+    status: frozen
+    producer: adapters/backfill/fields.py
+  - paths: [data/source/webpages/claim-resolved.yaml]
+    status: frozen
+    producer: adapters/claims/trace.py
+  - paths: [data/source/webpages/magapoke-deep.yaml, data/source/webpages/nicovideo-titles.yaml]
+    status: hand
+    note: one-off captures of 2026-08-01 and 08-02 that the build still reads
+  - paths: [data/source/webpages/*.yaml]
+    status: run
+    producer: stage-a:webpages
+    max_age_days: 3
+
+  # ── data/coverage ──────────────────────────────────────────────────────────────────────────────
+  - paths: [data/coverage/webcomics-works.yaml, data/coverage/webcomics-gap.yaml]
+    status: run
+    producer: stage-0:webcomics-coverage
+    max_age_days: 3
+  - paths: [data/coverage/yurinavi-webyuri.yaml, data/coverage/yurinavi-works.yaml]
+    status: run
+    producer: stage-0:yurinavi-webyuri
+    max_age_days: 3
+  - paths: [data/coverage/candidates.yaml]
+    status: run
+    producer: stage-0:candidates
+  - paths: [data/coverage/render-targets.yaml]
+    status: run
+    producer: stage-c:render-targets
+  - paths: [data/coverage/bookwalker-completion.yaml]
+    status: run
+    producer: stage-post:bookwalker-completion
+  - paths: [data/coverage/bookwalker-completion-slow.yaml, data/coverage/bookwalker-completion-unknown.yaml]
+    status: retired
+    note: superseded by bookwalker-completion.yaml, which now asks dormant, slow and unknown works
+  - paths: [data/coverage/magapoke-lengths.yaml]
+    status: frozen
+    producer: adapters/magapoke.py
+  - paths: [data/coverage/claim-targets.yaml, data/coverage/remaining.yaml]
+    status: frozen
+    note: no producer in the tree; the same class as render-targets.yaml before targets.py
+  - paths: [data/coverage/cmoa-completion.yaml]
+    status: frozen
+    note: no producer in the tree
+  - paths: [data/coverage/series-lengths.yaml]
+    status: hand
+    note: hand-checked lengths; GigaViewer episode lists now state most of what it stated
+  - paths: [data/coverage/extract.yaml, data/coverage/comicboost-targets.yaml]
+    status: hand
+    note: rules and targets edited by hand
+  - paths: [data/coverage/*.md, data/coverage/*.json, data/coverage/*.yaml]
+    status: hand
+    note: investigations and one-off reports; nothing scheduled reads them
+
+  # ── data/queue ─────────────────────────────────────────────────────────────────────────────────
+  - paths: [data/queue/yurinavi.yaml, data/queue/feed-discovered.yaml]
+    status: run
+    producer: stage-0:yurinavi-discover
+  - paths: [data/queue/shop-query.yaml]
+    status: run
+    producer: stage-post:shopquery
+  - paths: [data/queue/shop-query-joins.yaml, data/queue/shop-query-title-only.yaml]
+    status: frozen
+    producer: adapters/madb/by_shop_query.py
+    note: drains shop-query.yaml, which CI refreshes and nothing reads
+  - paths: [data/queue/bookwalker-yuri.yaml, data/queue/bookwalker-yuri-authors.yaml,
+            data/queue/admitted.yaml, data/queue/bookwalker-volumes.yaml, data/queue/bw-review.yaml,
+            data/queue/cmoa-yuri.yaml, data/queue/cmoa-yuri-authors.yaml, data/queue/cmoa-volumes.yaml,
+            data/queue/platform-editions.yaml, data/queue/platform-print-joins.yaml,
+            data/queue/madb-title-review.yaml, data/queue/ndl-volumes.yaml]
+    status: frozen
+    note: the print intake chain's queues, launch plan section 2
+  - paths: [data/queue/serialisation-search.yaml, data/queue/serialisation-confirmed.yaml,
+            data/queue/serialisation-joins.yaml]
+    status: frozen
+    producer: adapters/serialisation/sweep.py
+  - paths: [data/queue/*.yaml, data/queue/*.md]
+    status: hand
+    note: rulings, review queues and merges a person or the naming job writes

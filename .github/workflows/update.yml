@@ -350,6 +350,12 @@ jobs:
         if: ${{ steps.fieldaudit.outputs.rebuild == 'yes' }}
         run: python3 build.py --unattended
 
+      # AN OUTPUT OLDER THAN ITS PRODUCER'S CADENCE ALLOWS is a failed outcome too, so an adapter
+      # that exits 0 and writes nothing is caught. The registry is adapters/producers.yaml.
+      - name: Check every scheduled output is current
+        if: always()
+        run: python3 adapters/producers.py --today "$R" --report "$REPORT"
+
       # THE RUN'S OUTCOMES, KEPT. Every source this run touched, how it went, and how many runs in a
       # row it has failed, into data/ledger/source-health.yaml, which the commit below carries.
       - name: Record how each source fared

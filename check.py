@@ -3004,6 +3004,22 @@ def _undated_retailer_rows(cap, shop):
     return _retailer_rows(cap, shop, "date")
 
 
+def budget_producers_not_yet_scheduled(ctx):
+    """Registry entries whose files the corpus reads and no scheduled command keeps current.
+
+    THE DEBT `adapters/producers.yaml` RECORDS, counted so it can only fall. Each is a file the
+    build or a scheduled adapter reads whose producer ran once by hand, or was never written, or is
+    superseded and waiting to be removed (docs/LAUNCH-PLAN.md section 1). Read from the registry
+    alone, which `test_producers.py` holds to every file in the tree.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    try:
+        import producers as _pr
+    except Exception:                                                       # noqa: BLE001
+        return UNMEASURED    # this could not be measured; see UNMEASURED
+    return sum(1 for e in _pr.load() if e.get("status") in ("frozen", "retired"))
+
+
 def budget_rows_with_a_moving_address(ctx):
     """Rows anchored on a chapter address whose work has no work-level address to fall back on.
 
@@ -4821,6 +4837,10 @@ BUDGETS_DEF = [
      "used to, which is either an address that moved or a platform that withdrew a work. It falls "
      "when the target is captured, or when a platform's refusal is written into a register the "
      "count reads, as data/source/kadokomi/withheld.yaml already is."),
+    ("producers not yet scheduled", budget_producers_not_yet_scheduled,
+     "entries in adapters/producers.yaml whose files are read and kept current by nothing scheduled: "
+     "producers run once by hand, files with no producer, and superseded files awaiting removal. "
+     "Falls as each is wired onto a cadence or retired with its reader."),
     ("rows with a moving address", budget_rows_with_a_moving_address,
      "rows anchored on a chapter address whose identifier holds no work-level address on the same "
      "host. A chapter address moves when the work publishes, so a rise means a work has arrived "

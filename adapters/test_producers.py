@@ -81,6 +81,7 @@ def main(s):
         (root / "data/source/x/new.yaml").write_text("retrieved: 2026-10-14\n")
         (root / "data/source/x/old.yaml").write_text("retrieved: 2026-09-15\n")
         (root / "data/source/x/silent.yaml").write_text("works: []\n")
+        (root / "data/source/x/single.yaml").write_text("retrieved: '2026-10-14'\n")
         (root / "data/source/x/hand.yaml").write_text("retrieved: 2026-01-01\n")
         reg = [{"paths": ["data/source/x/hand.yaml"], "status": "hand"},
                {"paths": ["data/source/x/*.yaml"], "status": "run", "producer": "p",

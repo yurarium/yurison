@@ -39,10 +39,22 @@ def moved(s):
          "https://comic-ryu.jp/series/x", "a canonical off the site's host is not believed")
     s.eq(wp.at("https://comic-ryu.jp/series/x", "", site), "https://comic-ryu.jp/series/x",
          "and a page stating none keeps the address asked")
-    rows = [{"url": "u", "episodes": [1] * 10}, {"url": "v", "episodes": [1]}, {"url": "u", "episodes": [1] * 68}]
+    # TWO TARGETS, ONE PAGE: one row, and it keeps an address that was asked for.
+    new = "https://comic-ryu.jp/series/326efc41c1767"
+    rows = [{"url": "https://www.comic-ryu.jp/series/osibudo/", "_at": new, "episodes": [1] * 10},
+            {"url": "https://comic-ryu.jp/series/x", "_at": "https://comic-ryu.jp/series/x",
+             "episodes": [1]},
+            {"url": new, "_at": new, "episodes": [1] * 68}]
     got = wp.one_per_address(rows)
-    s.eq([(r["url"], len(r["episodes"])) for r in got], [("u", 68), ("v", 1)],
-         "two targets reaching one page are one row, the fuller one")
+    s.eq([(r["url"], len(r["episodes"])) for r in got], [(new, 68), ("https://comic-ryu.jp/series/x", 1)],
+         "two targets reaching one page are one row, the one asked for at the page's own address")
+    s.check(all("_at" not in r for r in got), "and the key is not written")
+    # A CANONICAL THAT IS ONLY A VARIANT NEVER MOVES A ROW. ビッコミ canonicalises /series/X to
+    # /series/X/new; the row stays at /series/X, so carry_over meets it there next run.
+    one = [{"url": "https://bigcomics.jp/series/a", "_at": "https://bigcomics.jp/series/a/new",
+            "episodes": [1]}]
+    s.eq([r["url"] for r in wp.one_per_address(one)], ["https://bigcomics.jp/series/a"],
+         "a row keeps the address it was asked for")
 
 
 def main(s):

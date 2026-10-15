@@ -20134,6 +20134,11 @@ works:
     title: null
     anchors:
       - "madb:bw-e60282de-f827-4322-9971-8fdbe78d0260"
+      - "web:https://comic-ryu.jp/series/faa2bad81d17a"
+    attached:
+      - anchor: "web:https://comic-ryu.jp/series/faa2bad81d17a"
+        basis: "the serialisation of the book this record holds: COMICリュウライブ lists 私の魂を食べて下さい！ by 喜月かこ, the creator BOOK☆WALKER credits on volume 1 of the same title"
+        retrieved: 2026-10-16
   - id: w03055
     title: null
     anchors:
@@ -21505,6 +21510,26 @@ works:
     anchors:
       - "web:https://ichicomi.com/episode/12207421984354015835"
       - "web:https://ichicomi.com/atom/series/12207421984335596372"
+  - id: w03322
+    title: "まりあ†ほりっく　その後の12か月のおはなし"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_020067_S"
+  - id: w03323
+    title: "盗賊少女に転生したけど、周回ボーナスで楽勝です！　100％盗む＆逃げるでラクラク冒険者生活"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_020389_S"
+  - id: w03324
+    title: "きらめきのDolphin Line"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_020054_S"
+  - id: w03325
+    title: "魔法少女は嘘をつく"
+    anchors:
+      - "web:https://pocket.shonenmagazine.com/title/03302"
+  - id: w03326
+    title: "姫野姫子の奴隷みてえな彼氏"
+    anchors:
+      - "web:https://pocket.shonenmagazine.com/title/03301"
 related:
   - a: w00156
     b: w00486

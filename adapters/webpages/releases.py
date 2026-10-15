@@ -66,21 +66,29 @@ def fetch(url, cache, max_age_days=1):
 def at(url, html, site):
     """Where the page says it lives, when that is on the site's own host, else the address asked.
 
-    COMICリュウ moved to comici in September 2026 and redirects each old series address to the new
-    one. Recorded at the old address, one work read as two pages on one site, which the build
-    takes for two works (its same-site split), and the pager walked from the wrong base.
+    A KEY FOR TELLING TWO TARGETS APART, AND NOTHING ELSE. COMICリュウ moved to comici in September
+    2026 and redirects each old series address to the new one, so two targets reached one page.
+    Recording the canonical address as the row's url was tried on 2026-10-15 and was wrong:
+    ビッコミ's canonical is `/series/X/new` and HERO'S Web's is on another host, so every row moved
+    address, `carry_over` kept the old row beside it, and the build read thirty works as sixty
+    and published neither. The row keeps the address it was asked for.
     """
     c = _htmlbits.canonical(html)
     return c if c and site["host"] in c else url
 
 
 def one_per_address(works):
-    """One row per address, the one with the most chapters, in first-seen order."""
+    """One row per page, where two targets reached the same one: the row asked for at the page's
+    own address if there is one, otherwise the one with the most chapters, in first-seen order."""
     best = {}
     for w in works:
-        if w["url"] not in best or len(w["episodes"]) > len(best[w["url"]]["episodes"]):
-            best[w["url"]] = w
-    return list(best.values())
+        k = w.get("_at") or w["url"]
+        cur = best.get(k)
+        if (cur is None or (w["url"] == k) > (cur["url"] == k)
+                or ((w["url"] == k) == (cur["url"] == k)
+                    and len(w["episodes"]) > len(cur["episodes"]))):
+            best[k] = w
+    return [{x: v for x, v in w.items() if x != "_at"} for w in best.values()]
 
 
 TRUNCATED = re.compile(r"(?:\.{2,}|\u2026)\s*$")
@@ -347,6 +355,11 @@ def main():
             except urllib.error.HTTPError as e:
                 failed.append((tgt["title"], f"HTTP {e.code}"))
                 continue
+            # AND A FAILURE BELOW HTTP, which ended the whole adapter on 2026-10-16: one name that
+            # did not resolve, during a moment of flaky DNS, and seven platforms wrote nothing.
+            except (urllib.error.URLError, OSError) as e:
+                failed.append((tgt["title"], type(e).__name__))
+                continue
             # THE INNER FETCH IS GUARDED TOO. `episodes` is handed this to read the pages a
             # series is paginated over, and it was `lambda u: fetch(u, cache)` with nothing round
             # it, while the fetch of the series page above records an HTTP error against that one
@@ -371,15 +384,15 @@ def main():
             if mis:
                 refused.append((tgt["title"], tgt["url"]) + mis)
                 continue
-            eps = episodes(html, eng, f"https://{site['host']}", at(tgt["url"], html, site), _page)
+            eps = episodes(html, eng, f"https://{site['host']}", tgt["url"], _page)
             if len(eps) < site.get("min_episodes", 1):
                 failed.append((tgt["title"], f"{len(eps)} episodes parsed"))
                 continue
             # The byline, which was never read, so every comici platform reported chapters with no
             # author; and from the series page where the target is a chapter. See `author_of`.
             au = author_of(html, site, _page)
-            row = {"work_title": untruncated(tgt["title"], html), "url": at(tgt["url"], html, site),
-                   "episodes": eps}
+            row = {"work_title": untruncated(tgt["title"], html), "url": tgt["url"],
+                   "_at": at(tgt["url"], html, site), "episodes": eps}
             # THE PLATFORM'S OWN WORD ON THE SERIALISATION, which nothing was reading. comici
             # states 完結, 読み切り or 連載中 in the page's data, and a hand review of 121 dormant
             # works found it settled every one of the fourteen on these platforms. It is an

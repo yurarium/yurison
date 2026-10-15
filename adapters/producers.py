@@ -21,7 +21,9 @@ import yaml
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "adapters" / "producers.yaml"
 DIRS = ("data/source", "data/coverage", "data/queue")
-RETRIEVED = re.compile(r'^retrieved:\s*"?(\d{4}-\d{2}-\d{2})', re.M)
+# Quoted either way: claim tracing writes through yaml.safe_dump, which single-quotes a date-like
+# string, and reading only double quotes called its file undated on the first scheduled run.
+RETRIEVED = re.compile(r'^retrieved:\s*["\']?(\d{4}-\d{2}-\d{2})', re.M)
 
 
 def load(path=REGISTRY):
@@ -50,7 +52,9 @@ def files(root=ROOT):
 def retrieved(path):
     """The `retrieved:` date a file states near its top, or None."""
     try:
-        head = pathlib.Path(path).read_text(encoding="utf-8", errors="ignore")[:4000]
+        # Far enough for the longest header in the tree: the shelf captures explain themselves
+        # for several thousand characters before their first field.
+        head = pathlib.Path(path).read_text(encoding="utf-8", errors="ignore")[:40000]
     except OSError:
         return None
     m = RETRIEVED.search(head)

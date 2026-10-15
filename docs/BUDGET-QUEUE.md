@@ -1458,3 +1458,25 @@ two National Diet Library readings, 犬井あゆ and 野宮りおん, now cite t
 
 The entry above for 2026-10-15 calls 百合の間に挟まる梅田ダンジョン a new serial. It is a 読み切り, as
 百合ナビ's own headline and the platform's one-entry series feed both say.
+
+## A run that lost thirty works, and six rises from what came back. Accepted 2026-10-16
+
+Run 38779148001 published a store holding 3,090 works against 3,120. `webpages/releases.py` had
+begun recording each row at the address its page calls canonical, which on ビッコミ is
+`/series/X/new` and on HERO'S Web another host, so every row moved address and `carry_over` kept the
+old one beside it: thirty works read as sixty, and the same-site split published neither. The row
+keeps the address it was asked for now, the six captures were restored and read again, and the
+next run's store holds every one.
+
+The same run read the credits and titles of everything the newly scheduled passes brought in, and
+five were minted by hand from `awaiting-identifier.json` and one joined to its book, so these rose
+with arrivals:
+
+| budget | was | now |
+|---|---:|---:|
+| author names romanised as one word | 1228 | 1242 |
+| author readings no source states | 458 | 471 |
+| titles read by a machine, unmarked | 1149 | 1157 |
+| credit fields an identifier does not cover | 110 | 116 |
+| kana names with no stated division | 275 | 279 |
+| uncertain readings | 59 | 60 |

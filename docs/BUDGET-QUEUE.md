@@ -1424,3 +1424,13 @@ written to replace it, and read the page's "start from chapter 1" link into the
 作品インフォメーション block, dated each day it was read. The rendered route now skips a platform
 marked `own_adapter`, `rendered-ganganonline.yaml` is removed, and three offers lose the false
 chapter.
+
+## Five budgets rose with a new serial a run ahead of its row. Accepted 2026-10-15
+
+百合の間に挟まる梅田ダンジョン by 矢嶋こずみ is a new serial in 一迅プラス's own 百合 genre, announced by
+百合ナビ on 2026-10-15. Its first chapter is in the platform feed and its series feed is not yet read,
+so `announced works the corpus does not hold` 0 to 1 and `updates naming a work we do not hold` 2 to
+4 are this one work; it is ruled in and minted when its row forms. `author names romanised as one
+word` 1227 to 1228, `author readings no source states` 457 to 458 and `credit fields an identifier
+does not cover` 105 to 106 are the new credits the same run brought, 渡辺 零, 矢嶋こずみ and 駿馬 京,
+read by the analyser with no page stating a reading.

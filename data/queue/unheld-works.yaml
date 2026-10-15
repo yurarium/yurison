@@ -335,3 +335,13 @@ rulings:
       captured its update date in `nicovideo.yaml`. Like アイドルビーバック！ on 2026-10-09, its episode
       list is read one run later, because Stage A's steps run side by side and the episode-list step
       reads the copy of that file the run checked out; it is minted when the row forms.
+  - work: "百合の間に挟まる梅田ダンジョン"
+    platform: "一迅プラス"
+    platform_url: "https://ichicomi.com/episode/12207421984354015835"
+    disposition: in
+    admitted_under: "DEFINITIONS §2, publisher genre 百合 on 一迅プラス (コミック百合姫)"
+    why: >-
+      Ruled 2026-10-15. 一迅プラス files it under its own 百合 genre in コミック百合姫, by 矢嶋こずみ, and
+      百合ナビ announced it as a new serial the same day. The platform feed carries its first chapter;
+      the series feed that forms a work row is read from the 百合姫 listing, which had not yet named
+      it, so the row forms when that listing does and it is minted then.

@@ -262,8 +262,10 @@ jobs:
       # ── ASK THE SHOP WHETHER A QUIET SERIES ENDED. Most series end on a stated last volume, and
       # the corpus filed them `dormant` because no platform it reads says so. `bookwalker.py` reads
       # BOOK☆WALKER's 【完結】, its 完結 tag and its newest volume's own description, for works
-      # whose state rests on silence, a batch a run, and the next run's compile reads the answer.
-      # It ran once, on 2026-08-05, and never again until 2026-10-15.
+      # whose state rests on silence, and the next run's compile reads the answer. A work is asked
+      # once, again only when the corpus holds a new volume of it, and otherwise twice a year, so
+      # once the first pass is through a run asks a handful or none. It ran once, on 2026-08-05,
+      # and never again until 2026-10-15.
       - name: Ask the shop which quiet series ended
         continue-on-error: true
         run: |

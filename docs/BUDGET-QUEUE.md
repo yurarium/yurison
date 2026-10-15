@@ -1434,3 +1434,7 @@ so `announced works the corpus does not hold` 0 to 1 and `updates naming a work 
 word` 1227 to 1228, `author readings no source states` 457 to 458 and `credit fields an identifier
 does not cover` 105 to 106 are the new credits the same run brought, 渡辺 零, 矢嶋こずみ and 駿馬 京,
 read by the analyser with no page stating a reading.
+
+`incomplete attested rows` 65 to 67, accepted 2026-10-15: two more release-day rows of 2026-10-15
+without an access state yet, コミック アース・スター's 第15話② of w00043 and a 一迅プラス 読み切り that
+names no held work yet.

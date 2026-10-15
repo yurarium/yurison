@@ -69,6 +69,12 @@ def works_in_state(state, path=None):
     return asks.population(_store(), "works in a state", state=state)
 
 
+def volumes_held():
+    """`{work title: volumes}`, the most volumes any print record of the work states."""
+    from relational import asks
+    return {r["work"]: r["volumes"] for r in asks.population(_store(), "volumes held per work")}
+
+
 def series(path=None):
     """Every work as `series.json` states it, from the store that emits that file.
 

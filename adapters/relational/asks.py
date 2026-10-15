@@ -459,6 +459,14 @@ POPULATIONS = {
     # and `ndl_volumes` each read `series.json` and filtered it on `state` in Python, which is one
     # question written three times and a compile the pass could not say it needed. The state is
     # bound rather than interpolated: these run from a workflow argument.
+    # HOW MANY VOLUMES THE CORPUS HOLDS OF EACH WORK, the most any of its print records states.
+    # `bookwalker.py` asks the shop about a quiet series again only when this rises, since a
+    # 完結巻 is a new volume and the shop's answer cannot change without one.
+    "volumes held per work": {
+        "sql": "SELECT w.title AS work, max(p.volumes) AS volumes"
+               " FROM print_row p JOIN work w ON w.id = p.work"
+               " WHERE p.volumes IS NOT NULL GROUP BY w.id ORDER BY w.id",
+        "reads": ("print_row", "work")},
     "works in a state": {
         "sql": "SELECT w.id AS id, w.title AS work, b.field AS author, s.state AS state"
                " FROM work w JOIN work_state s ON s.work = w.id"

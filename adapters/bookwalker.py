@@ -146,25 +146,36 @@ def status(html, work_title):
     return "completed" if FINISHED in stem else None
 
 
-def plan(works, checked, today, limit, every_days=30):
-    """The works to ask this run: never asked first, then the longest since, each at most monthly.
+def _asked(entry):
+    """`(date, volumes)` from a `checked` entry, which older runs wrote as a bare date."""
+    if isinstance(entry, dict):
+        return str(entry.get("on") or entry.get(True) or ""), entry.get("volumes")
+    return (str(entry), None) if entry else ("", None)
 
-    THE SWEEP RAN ONCE. It asked 53 dormant works on 2026-08-05 and nothing ran it again, while the
-    works resting on silence grew to 384. A daily run cannot ask all of them at a pause of seconds a
-    request, so each run asks a batch, and `checked` is what the file remembers between runs.
+
+def plan(works, checked, today, limit, volumes=None, every_days=182):
+    """The works to ask this run: a work is asked once, and again only when it may have changed.
+
+    THE SWEEP RAN ONCE, and then the first fix ran it over the whole quiet population every month,
+    which the owner ruled too much on 2026-10-15: volumes come out occasionally if at all, and the
+    shop's answer cannot change without one. So a work is asked when it first rests on silence,
+    again when the corpus holds more of its volumes than it did at the last asking, since a 完結巻 is
+    a new volume, and otherwise twice a year at most. Never-asked works come first.
     """
     import datetime as _dt
     due = []
     for w in works:
-        last = (checked or {}).get(w["work"])
+        last, had = _asked((checked or {}).get(w["work"]))
+        now = (volumes or {}).get(w["work"])
         if last:
             try:
-                age = (_dt.date.fromisoformat(today) - _dt.date.fromisoformat(str(last))).days
+                age = (_dt.date.fromisoformat(today) - _dt.date.fromisoformat(last)).days
             except ValueError:
                 age = every_days
-            if age < every_days:
+            grew = now is not None and had is not None and now > had
+            if age < every_days and not grew:
                 continue
-        due.append((last or "", w))
+        due.append((last, w))
     due.sort(key=lambda x: x[0])
     return [w for _, w in due[:limit]]
 
@@ -198,7 +209,7 @@ def main(argv=None):
     out = pathlib.Path(a.out)
     prior = (yaml.safe_load(out.read_text()) or {}) if out.exists() else {}
     rows = {r["work"]: r for r in prior.get("works") or [] if r.get("work")}
-    checked = {str(k): str(v) for k, v in (prior.get("checked") or {}).items()}
+    checked = dict(prior.get("checked") or {})
     today = datetime.date.today().isoformat()
 
     works, seen = [], set()
@@ -207,13 +218,17 @@ def main(argv=None):
             if w["work"] not in seen:
                 seen.add(w["work"])
                 works.append(w)
-    todo = plan(works, checked, today, a.limit)
+    try:
+        held = population.volumes_held() if not a.series else {}
+    except Exception:                                                       # noqa: BLE001
+        held = {}
+    todo = plan(works, checked, today, a.limit, held)
     print(f"{len(works)} works rest on silence; asking {len(todo)} this run")
     found = 0
     for w in todo:
         try:
             ids = series_ids(get("https://bookwalker.jp/search/?word=" + urllib.parse.quote(w["work"])))
-            checked[w["work"]] = today
+            checked[w["work"]] = {"on": today, "volumes": held.get(w["work"])}
             if not ids:
                 continue
             # Only the first result is read. A shop's search ranks by relevance, and walking further
@@ -259,7 +274,9 @@ def main(argv=None):
             L.append(f"    found: {js(str(r['found']))}")
     L.append("checked:")
     for k in sorted(checked):
-        L.append(f"  {js(k)}: {js(checked[k])}")
+        on, vols = _asked(checked[k])
+        # `"on"` QUOTED: YAML reads a bare `on` as the boolean true.
+        L.append(f'  {js(str(k))}: {{"on": {js(on)}, "volumes": {js(vols)}}}')
     L.append("")
     out.write_text("\n".join(L))
     print(f"{found} of {len(todo)} asked are marked finished; {len(rows)} in all -> {out}")

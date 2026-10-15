@@ -97,12 +97,24 @@ def main(s):
     s.eq(bw.latest_volume('<a href="https://bookwalker.jp/de1-2/">6</a><a href="https://bookwalker.jp/de0-1/">5</a>'),
          "https://bookwalker.jp/de1-2/", "the newest volume is the list's first product")
 
-    # ── A BATCH A RUN ─────────────────────────────────────────────────────────────────────────
-    ws = [{"work": x} for x in ("a", "b", "c", "d")]
-    got = bw.plan(ws, {"a": "2026-10-01", "b": "2026-08-01", "c": "2026-09-01"}, "2026-10-15", 2)
-    s.eq([w["work"] for w in got], ["d", "b"],
-         "never asked first, then the longest since; one asked this month waits")
-
+    # ── ASKED ONCE, AND AGAIN ONLY WHEN IT MAY HAVE CHANGED ────────────────────────────────────
+    ws = [{"work": x} for x in ("new", "quiet", "grew", "old", "bare")]
+    checked = {"quiet": {"on": "2026-10-01", "volumes": 6},
+               "grew": {"on": "2026-10-01", "volumes": 6},
+               "old": {"on": "2026-03-01", "volumes": 6},
+               "bare": "2026-10-01"}
+    vols = {"quiet": 6, "grew": 7, "old": 6, "bare": 9}
+    got = [w["work"] for w in bw.plan(ws, checked, "2026-10-15", 10, vols)]
+    s.eq(got, ["new", "old", "grew"],
+         "never asked first, then half a year on, then a work holding a new volume")
+    s.check("quiet" not in got, "a work asked this month with no new volume is not asked again")
+    s.check("bare" not in got,
+            "and an entry an older run wrote as a bare date says nothing about volumes, so waits")
+    s.eq([w["work"] for w in bw.plan(ws, checked, "2026-10-15", 1, vols)], ["new"],
+         "and the batch is capped")
+    import yaml
+    s.eq(bw._asked(yaml.safe_load('{"on": "2026-10-01", "volumes": 6}')), ("2026-10-01", 6),
+         "the date survives YAML, which reads a bare `on` as true")
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

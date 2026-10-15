@@ -4191,8 +4191,10 @@ BUILT 2026-10-15. `gigaviewer/episode_lists.py` reads every GigaViewer series' o
 expired episodes included as `withdrawn`, so lengths, real last dates and 最終話 come from the
 platform; an ending is read off the run's last listed instalment even where that day's date is set
 aside as an import; an ending any platform states outranks another platform's age-based state; and
-`bookwalker.py` runs every day over works resting on silence, sixty a run, reading 【完結】, the
-完結 volume tag and the newest volume's own description. The first pass moved 48 works to
+`bookwalker.py` asks the shop about works resting on silence, reading 【完結】, the 完結 volume tag
+and the newest volume's own description. A work is asked once, again only when the corpus holds a
+new volume of it, and otherwise twice a year, as the owner ruled on 2026-10-15 that a daily scan
+was too much for volumes that come out occasionally if at all. The first pass moved 48 works to
 `completed` and the BOOK☆WALKER batch answered 17 of the first 60 it asked.
 
 NOT YET READ, in rough order of yield:

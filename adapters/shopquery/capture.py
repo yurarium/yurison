@@ -79,6 +79,18 @@ FLOOR = 0.9
 # blind spot. Measured on the run of 2026-08-07, 39 of 639 works had every query answer nothing,
 # which is 6%. A run over a third is a shop that stopped answering this project.
 SILENCE_CEILING = 0.35
+#: AND A SAMPLE BIG ENOUGH TO JUDGE BY. On 2026-10-15 two works were outstanding, one a 読み切り
+#: published that morning that no shop stocks yet, and one silent work in two is 50%, so the run
+#: refused to write. A smaller run is refused only when every work was silent: one answer is the
+#: shop answering.
+SILENCE_SAMPLE = 8
+
+
+def refusing(silent, todo):
+    """Whether this many silent works out of `todo` looks like the shop refusing the run."""
+    if not todo or silent <= todo * SILENCE_CEILING:
+        return False
+    return todo >= SILENCE_SAMPLE or silent == todo
 
 
 # What a note says when the shop's own answer was 404. One spelling, written once, because the
@@ -321,7 +333,7 @@ def main(argv=None):
                  f"(under the {FLOOR:.0%} floor). That is a run that stopped and not a shop with "
                  "thin stock. Refusing to write.")
     silent = silenced(rows)
-    if todo and silent > len(todo) * SILENCE_CEILING:
+    if refusing(silent, len(todo)):
         sys.exit(f"HEALTH: {silent} of {len(todo)} works had every query answer nothing "
                  f"(over the {SILENCE_CEILING:.0%} ceiling). This shop says 'no results' with a "
                  "404, so a run being refused looks exactly like a shop with no stock. Refusing "

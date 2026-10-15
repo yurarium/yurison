@@ -191,6 +191,13 @@ def main(s):
          "the マンガ store, which is the same restriction the shelf capture used")
 
 
+    # A RUN TOO SMALL TO JUDGE IS REFUSED ONLY WHEN EVERYTHING WAS SILENT.
+    s.check(not capture.refusing(1, 2), "one silent work in two is a shop answering")
+    s.check(capture.refusing(2, 2), "two in two is not")
+    s.check(capture.refusing(4, 10), "and a large run over the ceiling is refused as before")
+    s.check(not capture.refusing(3, 10), "under it is not")
+
+
 if __name__ == "__main__":
     suite = testkit.Suite("shopquery/shop.py")
     main(suite)

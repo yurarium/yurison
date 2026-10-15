@@ -177,15 +177,21 @@ def quarantined(s):
         a, b = root / "data/source/a.yaml", root / "data/source/b.yaml"
         a.write_text("platform_name: マガポケ\nworks:\n  - work_title: old\n", encoding="utf-8")
         b.write_text("platform_name: コミックDAYS\nworks:\n  - work_title: old\n", encoding="utf-8")
+        c = root / "data/source/c.yaml"
+        c.write_text("platform_name: ''\nworks:\n  - work_title: old\n    platform_name: マガポケ\n"
+                     "  - work_title: other\n    platform_name: コミックDAYS\n", encoding="utf-8")
         git = lambda *x: subprocess.run(["git", *x], cwd=root, check=True, capture_output=True)
         git("init", "-q"); git("-c", "user.name=t", "-c", "user.email=t@t", "add", ".")
         git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "base")
         a.write_text(a.read_text(encoding="utf-8").replace("old", "new"), encoding="utf-8")
         b.write_text(b.read_text(encoding="utf-8").replace("old", "new"), encoding="utf-8")
+        c.write_text(c.read_text(encoding="utf-8").replace("old", "new"), encoding="utf-8")
         got = fa.quarantine(["マガポケ"], root=str(root))
         s.eq([pathlib.Path(f).name for f in got], ["a.yaml"], "the moved platform's file is set back")
         s.check("old" in a.read_text(encoding="utf-8"), "to its last committed capture")
         s.check("new" in b.read_text(encoding="utf-8"), "and another platform's new capture stays")
+        s.check("new" in c.read_text(encoding="utf-8"),
+                "and a file spanning platforms is not set back for one of them")
 
 
 if __name__ == "__main__":

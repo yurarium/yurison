@@ -19,6 +19,7 @@ import datetime
 import importlib
 import os
 import pathlib
+import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -137,7 +138,29 @@ def sample(budget=600_000):
         if p not in picked and spent + n <= budget // 2:
             picked.append(p)
             spent += n
+    # AND TOPPED UP UNTIL IT HOLDS THE CLASS IT IS FOR. The margin of 143 dates went on 2026-10-16
+    # when the shelf captures grew and the big half picked other files: 96, and red on a commit
+    # that changed no parser. So the sample counts its own unquoted dates and adds small files that
+    # carry them, along the same path order, until it has enough to be worth asserting on.
+    dates = sum(len(UNQUOTED_DATE.findall(p.read_text(encoding="utf-8", errors="ignore")))
+                for p in picked)
+    extra = 0
+    for p in by_path:
+        if dates >= DATES_WANTED or extra > budget // 2:
+            break
+        if p in picked:
+            continue
+        found = len(UNQUOTED_DATE.findall(p.read_text(encoding="utf-8", errors="ignore")))
+        if found:
+            picked.append(p)
+            dates += found
+            extra += p.stat().st_size
     return picked
+
+
+#: Enough dates that the comparison has something to get wrong, with room above the floor of 100.
+DATES_WANTED = 150
+UNQUOTED_DATE = re.compile(r"^\s*[^#\n]*:\s+\d{4}-\d{2}-\d{2}\s*$", re.M)
 
 
 def main(s):

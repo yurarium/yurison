@@ -223,6 +223,11 @@ def main():
         except urllib.error.HTTPError as e:
             failed.append((tgt["title"], f"HTTP {e.code}"))
             continue
+        # BELOW HTTP TOO. A connection reset during one handshake ended this whole adapter on
+        # 2026-10-16, where a 404 costs one work; the same gap closed in webpages/releases.py.
+        except (urllib.error.URLError, OSError) as e:
+            failed.append((tgt["title"], type(e).__name__))
+            continue
         if not pp or "manga" not in pp:
             failed.append((tgt["title"], "no pageProps payload"))
             continue

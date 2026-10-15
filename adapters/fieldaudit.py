@@ -153,7 +153,14 @@ def findings(got, silent_routes=None):
 
 
 def platform_files(platform, paths):
-    """The source files among `paths` that carry rows of `platform`, by its display name."""
+    """The source files among `paths` that are `platform`'s own capture, by its display name.
+
+    A FILE SPANNING PLATFORMS IS NOT ONE OF THEM. A moved selector is a fault in one platform's own
+    adapter, and the general routes (`remaining`, `backfill`, `bylines`) write every platform into
+    one file. This counted any file holding a row of the platform, so on 2026-10-16 three
+    ヤンジャン+ rows set back `webpages/remaining.yaml` whole and thirty other works the run had
+    just reached went with it. Such a platform is reported, and nothing of anyone else's is undone.
+    """
     import yaml
     out = []
     for f in paths:
@@ -163,9 +170,9 @@ def platform_files(platform, paths):
             continue
         if not isinstance(d, dict):
             continue
-        names = {d.get("platform_name"), d.get("platform")} | {
-            w.get("platform_name") for w in d.get("works") or [] if isinstance(w, dict)}
-        if platform in names:
+        own = {d.get("platform_name"), d.get("platform")}
+        rows = {w.get("platform_name") for w in d.get("works") or [] if isinstance(w, dict)}
+        if platform in own or (rows == {platform}):
             out.append(f)
     return out
 

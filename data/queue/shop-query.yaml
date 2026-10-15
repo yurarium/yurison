@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-10-16
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 243
-  hits_on_the_title_alone: 102
-  hits_stating_a_print_edition_date: 200
-  works_asked: 830
-  works_with_a_hit: 252
+  hits_agreeing_on_a_creator: 244
+  hits_on_the_title_alone: 109
+  hits_stating_a_print_edition_date: 206
+  works_asked: 859
+  works_with_a_hit: 260
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -537,6 +537,14 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://ciao.shogakukan.co.jp/comics/title/00392/episode/7392"
+    id: "w03411"
+    work: "メイドはお嬢様と笑いたい。"
+    platform: "ちゃおプラス"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-action.com/episode/12207421983429790573"
     id: "w00339"
     work: "いなりの結婚"
@@ -687,6 +695,14 @@ works:
     hits: []
     notes:
       - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-boost.com/content/01340001"
+    id: "w03410"
+    work: "Cry for the Moon"
+    platform: "comicブースト"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
       - "title query returned no title this database recognises"
   - work_url: "https://comic-boost.com/content/01390001"
     id: "w00745"
@@ -1732,6 +1748,25 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://comic-earthstar.com/episode/2551460909469511389"
+    id: "w03435"
+    work: "灼熱の魔女様の楽しい温泉領地経営　～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます～"
+    author: "むぎちゃぽよこ / 海野アロイ・切符"
+    platform: "コミック アース・スター"
+    query: "title"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: "https://bookwalker.jp/series/410791/list/"
+        title_listed: "灼熱の魔女様の楽しい温泉領地経営 ～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます～（アース・スターコミックス）"
+        shop_author: "海野アロイ(原作) 切符(原作) むぎちゃ ぽよこ(漫画)"
+        imprint: "アース・スターコミックス"
+        publisher: "アース・スター エンターテイメント"
+        printed: "2023/4/12"
+        agreement: "creator"
+        volumes_stated: 3
+        completed_marker: true
+    notes:
+      - "author query answered nothing"
   - work_url: "https://comic-fuz.com/manga/1811"
     id: "w00015"
     work: "一畳間まんきつ暮らし！"
@@ -2328,6 +2363,16 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://comic-growl.com/series/3b60fbd61d3f8"
+    id: "w03419"
+    work: "一目溺れ"
+    author: "遮二無二"
+    platform: "コミックグロウル"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-ogyaaa.com/episode/12207421983939282915"
     id: "w00192"
     work: "まるせっせんす"
@@ -4326,6 +4371,21 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://flowercomics.jp/title/1409"
+    id: "w03421"
+    work: "ラスボス姫は男装勇者にリア恋営業をかけられる!?"
+    platform: "フラコミlike!"
+    query: "title"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: "https://bookwalker.jp/series/504798/list/"
+        title_listed: "ラスボス姫は男装勇者にリア恋営業をかけられる！？【マイクロ】（異世界フラワーコミックス）"
+        shop_author: "清水まみ(著)"
+        imprint: "異世界フラワーコミックス"
+        publisher: "小学館"
+        agreement: "title-only"
+        volumes_stated: 21
+        completed_marker: false
   - work_url: "https://flowercomics.jp/title/2780"
     id: "w00107"
     work: "銀の河に星の城"
@@ -5549,6 +5609,66 @@ works:
         agreement: "creator"
         volumes_stated: 5
         completed_marker: true
+  - work_url: "https://kirapo.jp/meteor/titles/kakekko"
+    id: "w03428"
+    work: "賭けっ娘"
+    author: "べいりーず"
+    platform: "きら星ポータル"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://kirapo.jp/meteor/titles/majyosis"
+    id: "w03432"
+    work: "魔女はシスターに甘えたい"
+    author: "ねこ末端"
+    platform: "きら星ポータル"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://kirapo.jp/meteor/titles/pawahara"
+    id: "w03431"
+    work: "パワハラ魔王様と社畜魔女ちゃん"
+    author: "カモトタツヤ"
+    platform: "きら星ポータル"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://kirapo.jp/meteor/titles/syumatupan"
+    id: "w03430"
+    work: "終末は私の家でパンを食べませんか?"
+    author: "パデラポッロのりお"
+    platform: "きら星ポータル"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
+    id: "w03417"
+    work: "たっぷりお嬢様とちょっぴりギャルの幸せシェアごはん"
+    author: "もろみ新"
+    platform: "きら星ポータル"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://kirapo.jp/meteor/titles/toyoisenpai"
+    id: "w03423"
+    work: "十宵先輩は吸血鬼"
+    author: "糸瀬ねめ"
+    platform: "きら星ポータル"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://kirapo.jp/meteor/titles/tuimie"
     id: "w03174"
     work: "ツイてるギャルとミエてる陰キャ"
@@ -5557,6 +5677,16 @@ works:
     hits: []
     notes:
       - "title query answered nothing"
+  - work_url: "https://kirapo.jp/meteor/titles/watamake"
+    id: "w03420"
+    work: "私が負けヒロインなんて認めませんわ!"
+    author: "のいるん"
+    platform: "きら星ポータル"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://kuragebunch.com/episode/12207421983458660582"
     id: "w00337"
     work: "メイドのベル"
@@ -5980,6 +6110,14 @@ works:
         printed: "2026/7/22"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://manga-one.com/manga/27430/chapter/316579"
+    id: "w03415"
+    work: "ソシャゲのお姉ちゃん"
+    platform: "マンガワン"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "title query answered nothing"
   - work_url: "https://manga-one.com/manga/27454/chapter/316774"
     id: "w00322"
     work: "私の焦がれる彼女"
@@ -6022,6 +6160,22 @@ works:
         printed: "2024/3/24"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://manga-one.com/viewer/283424"
+    id: "w03414"
+    work: "アマデウス"
+    platform: "マンガワン"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
+  - work_url: "https://manga-one.com/viewer/285495"
+    id: "w03413"
+    work: "太刀んぼ キルコ"
+    platform: "マンガワン"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
   - work_url: "https://manga-one.com/viewer/290902"
     id: "w00313"
     work: "かわいい同盟"
@@ -6826,6 +6980,21 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://michikusacomics.jp/product/hutsukoi"
+    id: "w03429"
+    work: "フツーの恋って何?"
+    platform: "路草"
+    query: "title"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: null
+        title_listed: "フツーの恋って何？上"
+        shop_author: "いくたはな(著)"
+        imprint: "路草コミックス"
+        publisher: "トゥーヴァージンズ"
+        printed: "2023/11/8"
+        agreement: "title-only"
+        completed_marker: false
   - work_url: "https://news.mynavi.jp/series/carfairy/"
     id: "w00038"
     work: "自動車の妖精 パッソちゃんの恩返し"
@@ -7226,6 +7395,21 @@ works:
     hits: []
     notes:
       - "title query returned no title this database recognises"
+  - work_url: "https://shiori-on.com/product/ryutoryunokekkon"
+    id: "w03418"
+    work: "竜と龍の結婚"
+    platform: "栞"
+    query: "title"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: null
+        title_listed: "竜と龍の結婚"
+        shop_author: "いくたはな(著)"
+        imprint: "栞"
+        publisher: "大洋図書"
+        printed: "2026/2/3"
+        agreement: "title-only"
+        completed_marker: false
   - work_url: "https://shonenjumpplus.com/episode/14079602755227529683"
     id: "w00811"
     work: "肉の女王は愛の月"
@@ -7276,6 +7460,26 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://shonenjumpplus.com/episode/17106371883871790625"
+    id: "w03425"
+    work: "ココと嘘吐く小指／24年4月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    author: "葛城大工"
+    platform: "少年ジャンプ+"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://shonenjumpplus.com/episode/17106371883871799675"
+    id: "w03426"
+    work: "私の瞳に生きるまで／24年4月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    author: "藤麻"
+    platform: "少年ジャンプ+"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://shonenjumpplus.com/episode/17106371892119613783"
     id: "w00684"
     work: "ギャルと委員長が偶然再会する話"
@@ -7325,6 +7529,16 @@ works:
     hits: []
     notes:
       - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://shonenjumpplus.com/episode/17106567264307961241"
+    id: "w03422"
+    work: "田中さんの呪い／25年1月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    author: "清田哲平"
+    platform: "少年ジャンプ+"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query answered nothing"
       - "title query returned no title this database recognises"
   - work_url: "https://shonenjumpplus.com/episode/17106567264478575109"
     id: "w00553"
@@ -7585,6 +7799,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://shonenjumpplus.com/episode/316112896954051106"
+    id: "w03436"
+    work: "ケモノ／22年8月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    author: "上田さかひら"
+    platform: "少年ジャンプ+"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://shonenjumpplus.com/episode/316190246907573867"
     id: "w00899"
     work: "そこに虹がなくても"
@@ -7605,6 +7829,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://shonenjumpplus.com/episode/316190247047937848"
+    id: "w03434"
+    work: "0088／22年10月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    author: "無次ムジナ"
+    platform: "少年ジャンプ+"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://shonenjumpplus.com/episode/3269754496440339139"
     id: "w00972"
     work: "彼女は誰時"
@@ -7614,6 +7848,16 @@ works:
     hits: []
     notes:
       - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://shonenjumpplus.com/episode/3270296674415978656"
+    id: "w03438"
+    work: "シャッフル／22年4月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    author: "浦飼キイチ"
+    platform: "少年ジャンプ+"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query answered nothing"
       - "title query returned no title this database recognises"
   - work_url: "https://shonenjumpplus.com/episode/3270375685393122652"
     id: "w00913"
@@ -9334,6 +9578,30 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/4856001361535681694"
+    id: "w03433"
+    work: "しょうもない女"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
+  - work_url: "https://urasunday.com/title/2087"
+    id: "w03416"
+    work: "宙-CHUU-"
+    platform: "裏サンデー"
+    query: "title"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: "https://bookwalker.jp/series/402263/list/"
+        title_listed: "宙－CHUU－（マンガワンコミックス）"
+        shop_author: "手原和憲(著)"
+        imprint: "マンガワンコミックス"
+        publisher: "小学館"
+        printed: "2023/3/15"
+        agreement: "title-only"
+        volumes_stated: 4
+        completed_marker: true
   - work_url: "https://viewer.heros-web.com/episode/10834108156740407901"
     id: "w03247"
     work: "のんちゃんとアカリ"
@@ -9526,6 +9794,53 @@ works:
         printed: "2018/1/12"
         agreement: "creator"
         volumes_stated: 19
+        completed_marker: false
+  - work_url: "https://www.ganganonline.com/title/1222"
+    id: "w03437"
+    work: "春綴る、桜咲くこの部屋で"
+    platform: "ガンガンONLINE"
+    query: "title"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: "https://bookwalker.jp/series/335995/list/"
+        title_listed: "春綴る、桜咲くこの部屋で（ガンガンコミックスONLINE）"
+        shop_author: "トクヲツム"
+        imprint: "ガンガンコミックスONLINE"
+        publisher: "スクウェア・エニックス"
+        printed: "2022/1/12"
+        agreement: "title-only"
+        volumes_stated: 2
+        completed_marker: false
+  - work_url: "https://www.ganganonline.com/title/1525"
+    id: "w03427"
+    work: "〆切前には百合が捗る"
+    platform: "ガンガンONLINE"
+    query: "title"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: "https://bookwalker.jp/series/345895/list/"
+        title_listed: "〆切前には百合が捗る（ビッグガンガンコミックス）"
+        shop_author: "平坂読（GA文庫／ＳＢクリエイティブ刊）(原作) さきだ 咲紀(作画) 鈴木マナツ(構成) Ｕ３５(キャラクター原案)"
+        imprint: "ビッグガンガンコミックス"
+        publisher: "スクウェア・エニックス"
+        printed: "2022/3/25"
+        agreement: "title-only"
+        volumes_stated: 4
+        completed_marker: false
+  - work_url: "https://www.ganganonline.com/title/1587"
+    id: "w03424"
+    work: "レベル1の最強テイマー ～幸運極振りの初心者ゲーマーはもふもふ軍団を従え最強へ至ります～"
+    platform: "ガンガンONLINE"
+    query: "title"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: "https://bookwalker.jp/series/410013/list/"
+        title_listed: "レベル１の最強テイマー ～幸運極振りの初心者ゲーマーはもふもふ軍団を従え最強へ至ります～（ガンガンコミックスONLINE）"
+        shop_author: "ジャジャ丸(カドカワBOOKS/KADOKAWA刊)(原作) DANGAN(漫画) ｂｕｎ１５０(キャラクター原案)"
+        imprint: "ガンガンコミックスONLINE"
+        publisher: "スクウェア・エニックス"
+        agreement: "title-only"
+        volumes_stated: 3
         completed_marker: false
   - work_url: "https://www.ganganonline.com/title/2286"
     id: "w03268"
@@ -10610,6 +10925,14 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://ynjn.jp/title/18766"
+    id: "w03412"
+    work: "ワタシが主人公になった日"
+    platform: "ヤンジャン+"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
   - work_url: "https://ynjn.jp/title/30352"
     id: "w03168"
     work: "横槍メンゴ新作読切シリーズ"

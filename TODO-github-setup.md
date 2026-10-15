@@ -1,4 +1,32 @@
-# Finishing the GitHub setup — parked
+# Finishing the GitHub setup
+
+## Where it stands, 2026-10-15
+
+Most of what follows the line below is history. The update runs on a schedule, twice a day at 00:37
+and 12:07 JST. The site builds itself from the store each run publishes, so no deploy key exists
+any more, and both repositories are public, so Actions minutes cost nothing. A source that keeps
+failing opens its own issue, and a digest issue arrives each Monday. docs/LAUNCH-PLAN.md has the
+rest.
+
+One step is the owner's, because it needs the owner's own Claude login. It switches on the naming
+job (`.github/workflows/names.yml`), which inducts new works and names titles after each update:
+
+1. On a machine with Claude Code signed in to the Pro account, run `claude setup-token` and copy
+   the token it prints.
+2. In `yurison`, Settings → Secrets and variables → Actions → New repository secret, named
+   `CLAUDE_CODE_OAUTH_TOKEN`, holding that token.
+
+Keep extra usage switched off on claude.ai (Settings → Usage), so a busy week runs out of allowance
+rather than buying more.
+
+Until the secret exists the job checks for it, says so in a notice and stops, and the run passes.
+Its usage is appended to `data/ledger/claude-usage.jsonl` each run and totalled in the digest. The
+repository variables `NAMING_MODEL` (default `sonnet`), `NAMING_MAX_TURNS` (80) and `NAMING_LIMIT`
+(12 items per list) tune it without a code change.
+
+---
+
+## Parked on 2026-08-03 (superseded)
 
 The pipeline side is written and tested locally. What remains is the part that needs decisions in
 the GitHub UI, plus one real piece of engineering. Parked deliberately: interface work is easier to

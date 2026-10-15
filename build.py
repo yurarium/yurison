@@ -7697,6 +7697,18 @@ def main():
     if _idless:
         print(f"awaiting an identifier: {len(_idless)} work(s) the store cannot key, so they "
               f"reach no reader: " + ", ".join(str(r.get("work"))[:24] for r in _idless[:4]))
+    # AND WRITTEN DOWN, ALWAYS, for the naming job (adapters/naming/worklist.py), which mints them.
+    # The store cannot hold a row it cannot key, so this is the only place the rows survive the run.
+    (out / "awaiting-identifier.json").write_text(json.dumps(
+        {"generated": str(_today),
+         "works": [{k: r.get(k) for k in ("work", "author", "url", "series_url", "chapters",
+                                          "first", "latest", "oneshot", "state")}
+                   | {"platforms": sorted({str(o.get("platform")) for o in r.get("sources") or []
+                                           if o.get("platform")}),
+                      "addresses": sorted({str(o.get("url")) for o in r.get("sources") or []
+                                           if o.get("url")})}
+                   for r in _idless]},
+        ensure_ascii=False, indent=1, default=str))
     _store_source = {"series": {"series": series_rows}, "works": {"works": works},
                 # THE FEED'S OWN ROWS, so the store is not reading back the files it emits.
                 "releases": releases,

@@ -179,6 +179,12 @@ charges. Usage credits (overage) stay switched off.
 - **Owner setup, once.** Run `claude setup-token`, add the token as a repository secret, and keep
   usage credits off on claude.ai.
 
+Built on 2026-10-15 and waiting only for the token: `.github/workflows/names.yml`, with
+`adapters/naming/worklist.py` writing the queue, `adapters/naming/PROMPT.md` carrying the
+conventions, and `adapters/naming/verdict.py` judging the result and writing the usage log. The
+build writes `data/build/awaiting-identifier.json` for it. The steps for the owner are at the top of
+`TODO-github-setup.md`.
+
 ### 6. The rest of what the daily loop did, and where it goes
 
 | Done by hand until now | New home |

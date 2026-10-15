@@ -1,0 +1,157 @@
+name: names
+
+# THE NAMING JOB, docs/LAUNCH-PLAN.md section 5. After each update, Claude Code inducts the works the
+# build could not key, writes English names for titles nobody has decided, and rules on works the
+# feed names with no record. Until 2026-10-15 a person did this by hand after every run.
+#
+# IT DRAWS ON THE OWNER'S CLAUDE SUBSCRIPTION, through `CLAUDE_CODE_OAUTH_TOKEN` (made once with
+# `claude setup-token`), so there is no API bill; usage credits stay off on claude.ai. Without the
+# secret every step after the check is skipped and the run succeeds, so this can sit merged before
+# the token exists.
+#
+# WHAT IT MAY DO. Edit three files, enforced twice: by the tool permissions Claude is started with,
+# and by `adapters/naming/verdict.py files` on the tree it leaves. Its work is committed only when the
+# gate is no worse than before it started; otherwise the diff is kept as an artifact and an issue
+# says why. Every run appends what it used to data/ledger/claude-usage.jsonl, which the weekly
+# digest totals.
+#
+# Repository variables, all optional: NAMING_MODEL (default sonnet), NAMING_MAX_TURNS (default 80),
+# NAMING_LIMIT (items per list, default 12), CLAUDE_CODE_VERSION (default latest).
+on:
+  workflow_run:
+    workflows: [update]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+# THE UPDATE'S OWN GROUP, so the two never write the repository at once.
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  names:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Is there a token to run with
+        id: token
+        env:
+          T: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -n "$T" ]; then echo "present=yes" >> "$GITHUB_OUTPUT"
+          else echo "::notice::no CLAUDE_CODE_OAUTH_TOKEN secret; the naming job is not set up yet"
+               echo "present=no" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/checkout@v5
+        if: steps.token.outputs.present == 'yes'
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        if: steps.token.outputs.present == 'yes'
+        with:
+          python-version: "3.12"
+      - if: steps.token.outputs.present == 'yes'
+        run: pip install -r requirements.txt
+
+      - name: Compile, which writes the works awaiting an identifier
+        if: steps.token.outputs.present == 'yes'
+        run: python3 build.py --unattended
+
+      - name: What is there to do
+        id: queue
+        if: steps.token.outputs.present == 'yes'
+        run: |
+          python3 adapters/naming/worklist.py --limit "${{ vars.NAMING_LIMIT || 12 }}"
+          cat data/build/naming-queue.md
+
+      - name: The gate before the job, to compare against
+        if: steps.queue.outputs.work == 'yes'
+        run: ./check.py --gate > "$RUNNER_TEMP/gate-before.txt" 2>&1 || true
+
+      - name: Install Claude Code
+        if: steps.queue.outputs.work == 'yes'
+        run: npm install -g "@anthropic-ai/claude-code@${{ vars.CLAUDE_CODE_VERSION || 'latest' }}"
+
+      - name: Run the job
+        id: claude
+        if: steps.queue.outputs.work == 'yes'
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          claude -p "$(cat adapters/naming/PROMPT.md)" \
+            --output-format json \
+            --model "${{ vars.NAMING_MODEL || 'sonnet' }}" \
+            --max-turns "${{ vars.NAMING_MAX_TURNS || 80 }}" \
+            --allowedTools "Read,Grep,Glob,WebFetch,WebSearch,Edit(data/identity/works.yaml),Edit(data/names/curated.yaml),Edit(data/queue/unheld-works.yaml),Bash(python3 adapters/names/curate.py:*),Bash(./build.py:*),Bash(./check.py:*)" \
+            > "$RUNNER_TEMP/result.json" || true
+          python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('result',''))" "$RUNNER_TEMP/result.json" || true
+
+      - name: Judge what it left
+        id: judge
+        if: steps.queue.outputs.work == 'yes'
+        run: |
+          git diff -- data/identity/works.yaml data/names/curated.yaml data/queue/unheld-works.yaml > "$RUNNER_TEMP/job.diff"
+          if ! python3 adapters/naming/verdict.py files > "$RUNNER_TEMP/verdict.txt"; then
+            echo "outcome=refused-files" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if git diff --quiet; then echo "outcome=nothing" >> "$GITHUB_OUTPUT"; exit 0; fi
+          python3 adapters/names/curate.py --apply >> "$RUNNER_TEMP/verdict.txt" 2>&1 \
+            || { echo "outcome=refused-names" >> "$GITHUB_OUTPUT"; exit 0; }
+          python3 build.py --unattended
+          ./check.py --gate > "$RUNNER_TEMP/gate-after.txt" 2>&1 || true
+          if python3 adapters/naming/verdict.py gate --before "$RUNNER_TEMP/gate-before.txt" \
+               --after "$RUNNER_TEMP/gate-after.txt" >> "$RUNNER_TEMP/verdict.txt"; then
+            echo "outcome=committed" >> "$GITHUB_OUTPUT"
+          else echo "outcome=refused-gate" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Keep the diff of work that was not committed
+        if: steps.judge.outputs.outcome != '' && steps.judge.outputs.outcome != 'committed' && steps.judge.outputs.outcome != 'nothing'
+        uses: actions/upload-artifact@v4
+        with:
+          name: naming-job-${{ github.run_id }}
+          path: ${{ runner.temp }}/*.diff
+
+      - name: Commit, and record what the job used
+        if: steps.queue.outputs.work == 'yes'
+        env:
+          OUTCOME: ${{ steps.judge.outputs.outcome || 'error' }}
+        run: |
+          git config user.name  "Yurarium"
+          git config user.email "311755991+yurarium@users.noreply.github.com"
+          if [ "$OUTCOME" != committed ]; then
+            git checkout -- . && git clean -fdq -- data adapters docs
+          fi
+          python3 adapters/naming/verdict.py usage --result "$RUNNER_TEMP/result.json" \
+            --run "${{ github.run_id }}" --model "${{ vars.NAMING_MODEL || 'sonnet' }}" \
+            --outcome "$OUTCOME" --diff "$RUNNER_TEMP/job.diff"
+          git add data/ledger/claude-usage.jsonl
+          if [ "$OUTCOME" = committed ]; then
+            git add data/identity/works.yaml data/names data/queue/unheld-works.yaml
+          fi
+          git commit -qm "names: run ${{ github.run_id }} ($OUTCOME)"
+          for i in 1 2 3; do
+            git push && exit 0
+            git pull --rebase -X theirs --no-edit origin main || { git rebase --abort; exit 1; }
+          done
+          exit 1
+
+      - name: Say why work was left uncommitted
+        if: steps.judge.outputs.outcome != '' && steps.judge.outputs.outcome != 'committed' && steps.judge.outputs.outcome != 'nothing'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OUTCOME: ${{ steps.judge.outputs.outcome }}
+        run: |
+          gh label create naming --color 5319E7 --description "the naming job" 2>/dev/null || true
+          {
+            echo "The naming job in run ${{ github.run_id }} finished as **$OUTCOME**, so nothing it wrote was committed."
+            echo "Its diff is the run's artifact \`naming-job-${{ github.run_id }}\`."
+            echo; echo '```'; cat "$RUNNER_TEMP/verdict.txt"; echo '```'
+            echo; echo "Its own summary:"; echo
+            python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('result',''))" "$RUNNER_TEMP/result.json" || true
+          } > "$RUNNER_TEMP/issue.md"
+          gh issue create --title "Naming job left its work uncommitted ($OUTCOME)" \
+            --label naming --body-file "$RUNNER_TEMP/issue.md"

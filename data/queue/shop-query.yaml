@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-15
+retrieved: 2026-10-16
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 242
+  hits_agreeing_on_a_creator: 243
   hits_on_the_title_alone: 102
-  hits_stating_a_print_edition_date: 199
-  works_asked: 824
-  works_with_a_hit: 251
+  hits_stating_a_print_edition_date: 200
+  works_asked: 830
+  works_with_a_hit: 252
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -3806,6 +3806,33 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_020054_S"
+    id: "w03324"
+    work: "きらめきのDolphin Line"
+    author: "あべまりな"
+    platform: "カドコミ"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_020067_S"
+    id: "w03322"
+    work: "まりあ†ほりっく　その後の12か月のおはなし"
+    author: "遠藤海成"
+    platform: "カドコミ"
+    query: "author"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: "https://bookwalker.jp/series/153486/list/"
+        title_listed: "まりあ†ほりっく（MFコミックス アライブシリーズ）"
+        shop_author: "遠藤海成"
+        imprint: "MFコミックス アライブシリーズ"
+        publisher: "KADOKAWA"
+        printed: "2007/2/23"
+        agreement: "creator"
+        volumes_stated: 14
+        completed_marker: true
   - work_url: "https://comic-walker.com/detail/KC_020132_S"
     id: "w03301"
     work: "仕事のあとは同じ教室で"
@@ -3836,6 +3863,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_020389_S"
+    id: "w03323"
+    work: "盗賊少女に転生したけど、周回ボーナスで楽勝です！　100％盗む＆逃げるでラクラク冒険者生活"
+    author: "邪武丸 / 遠藤だいず / ファルまろ"
+    platform: "カドコミ"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-walker.com/detail/KC_020962_S"
     id: "w03304"
     work: "JKのストレス発散方法"
@@ -4920,6 +4957,16 @@ works:
     author: "らぱ☆"
     platform: "一迅プラス"
     retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984354015835"
+    id: "w03321"
+    work: "百合の間に挟まる梅田ダンジョン"
+    author: "矢嶋こずみ"
+    platform: "一迅プラス"
+    retrieved: "2026-10-16"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -7076,6 +7123,26 @@ works:
     hits: []
     notes:
       - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03301/episode/440916"
+    id: "w03326"
+    work: "姫野姫子の奴隷みてえな彼氏"
+    author: "麦トラM"
+    platform: "マガポケ"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://pocket.shonenmagazine.com/title/03302/episode/440917"
+    id: "w03325"
+    work: "魔法少女は嘘をつく"
+    author: "雨樋那由"
+    platform: "マガポケ"
+    retrieved: "2026-10-16"
+    hits: []
+    notes:
+      - "author query answered nothing"
       - "title query returned no title this database recognises"
   - work_url: "https://pocket.shonenmagazine.com/title/03338"
     id: "w00336"

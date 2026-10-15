@@ -11562,14 +11562,20 @@ works:
   - work_title: "新刊100億冊ください"
     series_id: "2550912965415291249"
     url: "https://comic-days.com/atom/series/2550912965415291249"
-    chapter_count: 39
+    chapter_count: 40
     chapters:
+      - title: "３７冊目：エデンの外へ..."
+        updated: 2026-10-15
+        author: "破賀ミチル"
+        url: "https://comic-days.com/episode/12207421983484134451"
+        free_from: 2026-11-05
+        access_modes: ["purchase"]
       - title: "３６冊目：禁忌の会話"
         updated: 2026-10-01
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/12207421983484134435"
         free_from: 2026-10-15
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "３５冊目：オタクライフハック3選"
         updated: 2026-09-17
         author: "破賀ミチル"
@@ -11580,8 +11586,7 @@ works:
         updated: 2026-09-03
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/12207421983484134401"
-        free_from: 2026-09-17
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "３３冊目：好きだから(前編)"
         updated: 2026-08-20
         author: "破賀ミチル"

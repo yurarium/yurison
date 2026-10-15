@@ -43,11 +43,11 @@ sources:
     consecutive: 0
   fieldaudit:ヤンジャン+:
     stage: checks
-    consecutive: 1
+    consecutive: 2
     last_failed: '2026-10-16'
     failing_since: '2026-10-16'
     error: a selector has probably moved; the last good capture is published
-    last_run: https://github.com/yurarium/yurison/actions/runs/38779148001
+    last_run: https://github.com/yurarium/yurison/actions/runs/38789928874
   ganganonline:
     stage: stage-a
     last_ok: '2026-10-16'
@@ -151,7 +151,11 @@ sources:
   kadokomi:
     stage: stage-a
     last_ok: '2026-10-16'
-    consecutive: 0
+    consecutive: 1
+    last_failed: '2026-10-16'
+    failing_since: '2026-10-16'
+    error: 'urllib.error.URLError: <urlopen error [Errno 104] Connection reset by peer>'
+    last_run: https://github.com/yurarium/yurison/actions/runs/38789928874
   kadokomi-catalogue:
     stage: stage-0
     last_ok: '2026-10-16'
@@ -170,11 +174,10 @@ sources:
     consecutive: 0
   names:
     stage: checks
-    consecutive: 1
+    consecutive: 0
     last_failed: '2026-10-16'
-    failing_since: '2026-10-16'
-    error: the naming passes did not complete
     last_run: https://github.com/yurarium/yurison/actions/runs/38779148001
+    last_ok: '2026-10-16'
   nicovideo:
     stage: stage-a
     last_ok: '2026-10-16'
@@ -213,12 +216,10 @@ sources:
     consecutive: 0
   shopquery:
     stage: stage-post
-    consecutive: 1
+    consecutive: 0
     last_failed: '2026-10-16'
-    failing_since: '2026-10-16'
-    error: 'HEALTH: 1 of 2 works had every query answer nothing (over the 35% ceiling). This shop says ''no results'' with a 404, so a run being refused looks exactly like a shop with no stock. Refusing
-      to write.'
     last_run: https://github.com/yurarium/yurison/actions/runs/38779148001
+    last_ok: '2026-10-16'
   sitemap:
     stage: stage-a
     last_ok: '2026-10-16'
@@ -353,11 +354,10 @@ sources:
     consecutive: 0
   stale:stage-post:claims-trace:
     stage: freshness
-    consecutive: 1
+    consecutive: 0
     last_failed: '2026-10-16'
-    failing_since: '2026-10-16'
-    error: 1 file(s) past their age, e.g. data/source/webpages/claim-resolved.yaml dated nothing
     last_run: https://github.com/yurarium/yurison/actions/runs/38779148001
+    last_ok: '2026-10-16'
   stale:stage-post:magapoke-lengths:
     stage: freshness
     last_ok: '2026-10-16'

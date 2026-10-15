@@ -119,6 +119,10 @@ def main(s):
 
     # ── what the callers are handed ───────────────────────────────────────────────────────────
     got = interpunct.settled(FIELDS, split)
+    # A RULING ON A STRING NO FIELD CARRIES STILL TRAVELS: the phrase map composes through it.
+    ruled = {interpunct.key.fold("レオパード・ゲッコー"): interpunct.ONE}
+    s.eq(interpunct.settled([], split, ruled), ruled,
+         "an explicit ruling stands even where no field read here carries the string")
     s.eq(got, {interpunct.key.fold("くろば・Ｕ"): interpunct.ONE,
                interpunct.key.fold("ブリリアント・ブラウン"): interpunct.ONE,
                interpunct.key.fold("矢立肇・富野由悠季"): interpunct.SEVERAL,

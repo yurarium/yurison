@@ -387,6 +387,24 @@ _PLATFORM_IDS = None
 CHAPTER_SOURCES = ("webpages", "gigaviewer", "comicfuz", "kadokomi", "nicovideo", "pixivcomic")
 
 
+def one_source_per_address(rows):
+    """One row per (platform, address), the one holding the most chapters, in first-seen order.
+
+    TWO CAPTURES CAN READ ONE PAGE UNDER TWO SPELLINGS of a title, and the registry joins them into
+    one work: 少年ジャンプ+'s series feed writes 田中さんの呪い／25年1月期JUMP新世界漫画賞／週刊少年ジャンプ
+    and the remaining route the antenna's 田中さんの呪い/2025年1月期JUMP新世界漫画賞, for the same
+    chapter. Both became sources of one work at one address, and the store refused the second
+    offer, six times on 2026-10-16.
+    """
+    best = {}
+    for r in rows:
+        k = (r.get("platform"), r.get("url"))
+        if k not in best or (r.get("chapters") or 0) > (best[k].get("chapters") or 0):
+            best[k] = r
+    keep = {id(r) for r in best.values()}
+    return [r for r in rows if id(r) in keep]
+
+
 def import_stamps(root="data/source"):
     """`{(folded work, date, platform name)}` for every chapter date `importdates` reads as an import.
 
@@ -6473,12 +6491,15 @@ def main():
     # The candidate list Stage 0 rebuilds every run. It read `claim-targets.yaml`, a list derived
     # once on 2026-08-02 and never again, until 2026-10-15; a work the candidate list leaves out is
     # one another capture already holds, and the releases below bring those in.
+    # EVERY TITLE A COMPARATOR GIVES IS READ THROUGH THE ALIASES, as every row's title already is.
+    # The antenna lists 灼熱の魔女様の楽しい温泉領地経営 cut short with three dots, the row carries the
+    # full title its alias gives, and matched raw the work fell out of scope altogether.
     _cands = set()
     _ct = pathlib.Path("data/coverage/candidates.yaml")
     if _ct.exists():
         for c in (yaml.safe_load(_ct.read_text()) or {}).get("candidates") or []:
             if c.get("title"):
-                _cands.add(norm_work(c["title"]))
+                _cands.add(norm_work(work_alias(c["title"])))
     # The catch-all resolver labels a row with whichever list named the work, not with the host it
     # actually read: it holds 雨夜の月 as マガポケ with 121 chapters, which is コミックDAYS's history
     # wearing another platform's name. The feed already drops these; so must this, or the tab
@@ -6517,8 +6538,8 @@ def main():
         for c in _wcd.get("candidates") or []:
             if not c.get("title"):
                 continue
-            _cands.add(norm_work(c["title"]))
-            _antenna_admits[norm_work(c["title"])] = _inclusion.admitted_by_tag(
+            _cands.add(norm_work(work_alias(c["title"])))
+            _antenna_admits[norm_work(work_alias(c["title"]))] = _inclusion.admitted_by_tag(
                 "webcomics.jp", _wc_at, _WEBCOMICS_TAG_URL)
     # 百合ナビ'S WEB連載 LIST IS A COMPARATOR TOO, and a work only it names is captured now that
     # `adapters/candidates.py` hands its addresses to the capture steps. In scope on the same
@@ -6529,7 +6550,7 @@ def main():
     if _ynf.exists():
         for c in (yaml.safe_load(_ynf.read_text()) or {}).get("candidates") or []:
             if c.get("title"):
-                _cands.add(norm_work(c["title"]))
+                _cands.add(norm_work(work_alias(c["title"])))
     # A work with a print record HAS been assessed: it is in the print corpus under a publisher's
     # imprint, with a marketing_label and a basis. Leaving it out of scope made in-scope-ness
     # depend on having a release inside the feed window, which a work whose whole run carries one
@@ -6781,7 +6802,7 @@ def main():
                          # it was holding a chapter's date or the work's.
                          "latest_work_level": r.get("latest_work_level"),
                          "retrieved": r.get("retrieved")}
-                        for r in rows],
+                        for r in one_source_per_address(rows)],
             # WHY THIS WORK IS FILED AS YURI, as far as the platforms go. One row per platform
             # that applied its own tag; the print half is joined on further down, once the
             # identifier has attached each row's book records. Ordering happens there, once.

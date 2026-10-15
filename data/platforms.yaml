@@ -554,6 +554,17 @@ platforms:
   host: zerosumonline.com
   watched: false
 
+- id: comic-glast
+  name: comicグラスト
+  # No English name of its own was found; グラスト is スターツ出版's isekai fantasy label, run on its
+  # Novema site. Registered on 2026-10-16 because the remaining route reached it from GitHub's
+  # runners, which its geoblock (below) does not refuse. Whether it gates readers by age is not
+  # established, so the one work it brought in waits for the owner rather than being minted.
+  en: comic Glast
+  publisher: スターツ出版
+  host: novema.jp
+  watched: false
+
 - id: ganma
   name: GANMA!
   # The antenna appends 更新終了 to a platform it has stopped seeing update.

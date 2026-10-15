@@ -1,4 +1,4 @@
-generated: '2026-10-15'
+generated: '2026-10-16'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -120,6 +120,51 @@ names:
       - しょう
     reading: 0088 / 2022 ネン 10 ガツ キ JUMP シンセカイ マンガ ショウ
     reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  0088／22年10月期JUMP新世界漫画賞／週刊少年ジャンプ:
+    basis: translated
+    en: 0088
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 0088／22
+      - null
+    - - 年
+      - ねん
+    - - '10'
+      - null
+    - - 月
+      - がつ
+    - - 期
+      - き
+    - - JUMP
+      - null
+    - - 新世界
+      - しんせかい
+    - - 漫画
+      - まんが
+    - - 賞
+      - しょう
+    - - ／
+      - null
+    - - 週刊
+      - しゅうかん
+    - - 少年
+      - しょうねん
+    - - ジャンプ
+      - null
+    note: 0088 is the name of the one shut in the tower. The suffix is Shonen Jump+'s own contest badge,
+      dropped from the English as promotional framing, as with the other JUMP新世界漫画賞 entries.
+    reading: 0088 ／ 22 ネン 10 ガツ キ JUMP シンセカイ マンガ ショウ ／ シュウカン ショウネン ジャンプ
+    reading_at: '2026-10-16'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
@@ -1273,11 +1318,15 @@ names:
   Cry for the Moon:
     basis: official-jp
     en: Cry for the Moon
-    en_at: '2026-10-15'
+    en_at: '2026-10-16'
+    en_corroborated:
+    - comicブースト
     en_pass: 0
-    en_source: surface
+    en_reviewed: '2026-10-16'
+    en_source: comicブースト
     en_source_kind: platform
-    note: already Latin on the platform's own page; no romanisation involved
+    en_url: https://comic-boost.com/content/01340001
+    note: The title as comicブースト prints it, in Latin letters.
     script: latin
     verified: true
   DOUBLE HELIX BLOSSOM:
@@ -4602,7 +4651,12 @@ names:
     reading_source_kind: analyser
     verified: false
   〆切前には百合が捗る:
-    basis: romaji
+    basis: translated
+    en: Yuri Gets Done Before the Deadline
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 〆切
       - しめきり
@@ -4618,6 +4672,8 @@ names:
       - はかど
     - - る
       - null
+    note: From 平坂読's GA文庫 novel; no English edition was found. 捗る is for work to make good progress, which
+      a novelist's work does not before a deadline, while something else does.
     reading: シメキリ マエ ニ ワ ユリ ガ ハカドル
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -15195,12 +15251,19 @@ names:
     reading_source: surface
     verified: true
   しょうもない女:
-    basis: romaji
+    basis: translated
+    en: A Worthless Woman
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - しょうもない
       - null
     - - 女
       - おんな
+    note: しょうもない is trifling, good for nothing, the word for the pointless talk the narrator and her senpai
+      used to share. A one-shot on となりのヤングジャンプ, the first of three in three months.
     reading: ショウ モ ナイ オンナ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -16362,7 +16425,12 @@ names:
     reading_source_kind: analyser
     verified: true
   たっぷりお嬢様とちょっぴりギャルの幸せシェアごはん:
-    basis: romaji
+    basis: translated
+    en: A Big Helping of Young Lady, a Little Pinch of Gyaru, and the Happiness of Shared Meals
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - たっぷりお
       - null
@@ -16374,6 +16442,8 @@ names:
       - しあわ
     - - せシェアごはん
       - null
+    note: 'たっぷり and ちょっぴり are a lot and a little, the measures of a recipe, set against each other. きら星ポータル:
+      a young lady and a gyaru split a meat bun and work through each other''s worries.'
     reading: タップリ オジョウサマ ト チョッピリ ギャル ノ シアワセ シェア ゴハン
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -24169,7 +24239,14 @@ names:
     reading_source_kind: analyser
     verified: true
   アマデウス:
-    basis: romaji
+    basis: translated
+    en: Amadeus
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'Katakana for Amadeus, Mozart''s middle name, as in the story of a rival''s genius. マンガワン''s
+      synopsis: Monet believed she had a gift for painting until she met Reona.'
     reading: アマデウス
     reading_at: '2026-10-15'
     reading_basis: surface
@@ -28400,6 +28477,52 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ケモノ／22年8月期JUMP新世界漫画賞／週刊少年ジャンプ:
+    basis: translated
+    en: Beast
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - ケモノ／22
+      - null
+    - - 年
+      - ねん
+    - - '8'
+      - null
+    - - 月
+      - がつ
+    - - 期
+      - き
+    - - JUMP
+      - null
+    - - 新世界
+      - しんせかい
+    - - 漫画
+      - まんが
+    - - 賞
+      - しょう
+    - - ／
+      - null
+    - - 週刊
+      - しゅうかん
+    - - 少年
+      - しょうねん
+    - - ジャンプ
+      - null
+    note: ケモノ is a beast; here the beast-people with animal ears and tails whom others scorn. The suffix
+      is Shonen Jump+'s own contest badge, dropped from the English as promotional framing, as with the
+      other JUMP新世界漫画賞 entries.
+    reading: ケモノ ／ 22 ネン 8 ガツ キ JUMP シンセカイ マンガ ショウ ／ シュウカン ショウネン ジャンプ
+    reading_at: '2026-10-16'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   ケーキも花も宝石も:
     basis: translated
     en: Cakes and Flowers and Jewels Too
@@ -28534,6 +28657,63 @@ names:
       - しょう
     reading: ココ ト ウソ ハク コユビ / 2024 ネン 4 ガツ キ JUMP シンセカイ マンガ ショウ
     reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  ココと嘘吐く小指／24年4月期JUMP新世界漫画賞／週刊少年ジャンプ:
+    basis: translated
+    en: Coco and the Lying Little Finger
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - ココと
+      - null
+    - - 嘘
+      - うそ
+    - - 吐
+      - は
+    - - く
+      - null
+    - - 小指
+      - こゆび
+    - - ／24
+      - null
+    - - 年
+      - ねん
+    - - '4'
+      - null
+    - - 月
+      - がつ
+    - - 期
+      - き
+    - - JUMP
+      - null
+    - - 新世界
+      - しんせかい
+    - - 漫画
+      - まんが
+    - - 賞
+      - しょう
+    - - ／
+      - null
+    - - 週刊
+      - しゅうかん
+    - - 少年
+      - しょうねん
+    - - ジャンプ
+      - null
+    note: '嘘吐く is to tell a lie, 小指 the little finger, the one Japanese children hook to swear a promise.
+      The synopsis: a humanoid made by aliens is seen at work by a high-school girl, Coco. The suffix
+      is Shonen Jump+''s own contest badge, dropped from the English as promotional framing, as with the
+      other JUMP新世界漫画賞 entries.'
+    reading: ココ ト ウソ ハク コユビ ／ 24 ネン 4 ガツ キ JUMP シンセカイ マンガ ショウ ／ シュウカン ショウネン ジャンプ
+    reading_at: '2026-10-16'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
@@ -29738,6 +29918,52 @@ names:
       - しょう
     reading: シャッフル / 2022 ネン 4 ガツ キ JUMP シンセカイ マンガ ショウ
     reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  シャッフル／22年4月期JUMP新世界漫画賞／週刊少年ジャンプ:
+    basis: translated
+    en: Shuffle
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - シャッフル／22
+      - null
+    - - 年
+      - ねん
+    - - '4'
+      - null
+    - - 月
+      - がつ
+    - - 期
+      - き
+    - - JUMP
+      - null
+    - - 新世界
+      - しんせかい
+    - - 漫画
+      - まんが
+    - - 賞
+      - しょう
+    - - ／
+      - null
+    - - 週刊
+      - しゅうかん
+    - - 少年
+      - しょうねん
+    - - ジャンプ
+      - null
+    note: Katakana English. All the third-years' slippers are swapped one morning, and trading them back
+      spreads into chaos. The suffix is Shonen Jump+'s own contest badge, dropped from the English as
+      promotional framing, as with the other JUMP新世界漫画賞 entries.
+    reading: シャッフル ／ 22 ネン 4 ガツ キ JUMP シンセカイ マンガ ショウ ／ シュウカン ショウネン ジャンプ
+    reading_at: '2026-10-16'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
@@ -31522,7 +31748,12 @@ names:
     reading_source_kind: analyser
     verified: true
   ソシャゲのお姉ちゃん:
-    basis: romaji
+    basis: translated
+    en: The Gacha Game Onee-chan
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ソシャゲのお
       - null
@@ -31530,6 +31761,8 @@ names:
       - ねえ
     - - ちゃん
       - null
+    note: ソシャゲ is a social game, the free-to-play mobile games sold by gacha; マンガワン calls this a working-girls
+      comedy set in that industry, by the author of 宙-CHUU-. お姉ちゃん is kept, having no single English word.
     reading: ソシャゲ ノ オネエチャン
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -34656,7 +34889,12 @@ names:
     reading_source_kind: analyser
     verified: false
   パワハラ魔王様と社畜魔女ちゃん:
-    basis: romaji
+    basis: translated
+    en: The Workplace-Bully Demon Lord and the Wage-Slave Witch
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - パワハラ
       - null
@@ -34672,6 +34910,8 @@ names:
       - まじょ
     - - ちゃん
       - null
+    note: パワハラ is harassment by a superior and 社畜 a company drudge, an office comedy in a fantasy world,
+      a little racy, per きら星ポータル.
     reading: パワハラ マオウサマ ト シャチク マジョチャン
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -37152,7 +37392,12 @@ names:
     reading_source: surface
     verified: true
   メイドはお嬢様と笑いたい。:
-    basis: romaji
+    basis: translated
+    en: The Maid Wants to Laugh with Her Young Lady
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - メイドはお
       - null
@@ -37164,6 +37409,8 @@ names:
       - わら
     - - いたい。
       - null
+    note: 'ちゃおプラス''s synopsis: the first AI maid with feelings is sent to make the house''s young lady,
+      かりん, smile again. 笑いたい is wanting to laugh or smile, and と makes it together with her.'
     reading: メイド ワ オジョウサマ ト ワライタイ。
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -38125,7 +38372,12 @@ names:
     reading_source: surface
     verified: true
   ラスボス姫は男装勇者にリア恋営業をかけられる!?:
-    basis: romaji
+    basis: translated
+    en: The Final-Boss Princess Gets Love-Sold by the Cross-Dressing Hero!?
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ラスボス
       - null
@@ -38145,6 +38397,9 @@ names:
       - えいぎょう
     - - をかけられる!?
       - null
+    note: 'リア恋営業 is a performer making a fan believe the love is real; ラスボス is the final boss. フラコミlike!:
+      an unbeatable demon princess is courted by a handsome hero who turns out to be a woman in men''s
+      clothes.'
     reading: ラスボス ヒメ ワ ダンソウ ユウシャ ニ リア コイ エイギョウ ヲ カケラレル!?
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -39227,7 +39482,13 @@ names:
     reading_source_kind: analyser
     verified: true
   レベル1の最強テイマー ～幸運極振りの初心者ゲーマーはもふもふ軍団を従え最強へ至ります～:
-    basis: romaji
+    basis: translated
+    en: 'The Strongest Tamer at Level 1: A Beginner Gamer Who Put Everything into Luck Leads a Fluffy
+      Army to the Top'
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - レベル1の
       - null
@@ -39263,6 +39524,8 @@ names:
       - いた
     - - ります～
       - null
+    note: No English edition of the KADOKAWA novel or the Square Enix manga was found. 幸運極振り is putting
+      every stat point into luck; もふもふ is fluffy.
     reading: レベル 1 ノ サイキョウ テイマー   ～ コウウン キョクフリ ノ ショシンシャ ゲーマー ワ モフモフ グンダン ヲ シタガエ サイキョウ エ イタリマス ～
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -39870,7 +40133,12 @@ names:
     reading_source_kind: analyser
     verified: false
   ワタシが主人公になった日:
-    basis: romaji
+    basis: translated
+    en: The Day I Became the Protagonist
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ワタシが
       - null
@@ -39880,6 +40148,8 @@ names:
       - null
     - - 日
       - ひ
+    note: A one-shot from 週刊ヤングジャンプ No.48, which ヤンジャン+ calls a yuri drama between a loner and a gyaru.
+      主人公 is the lead of a story.
     reading: ワタシ ガ シュジンコウ ニ ナッタ ヒ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -40360,7 +40630,12 @@ names:
     reading_source_kind: analyser
     verified: false
   一目溺れ:
-    basis: romaji
+    basis: translated
+    en: Drowning at First Sight
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 一目
       - ひとめ
@@ -40368,6 +40643,8 @@ names:
       - おぼ
     - - れ
       - null
+    note: 'A play on 一目惚れ, love at first sight, with 溺れる, to drown, for falling helplessly. コミックグロウル:
+      an art student hiding that she likes girls is asked to model for a beautiful photographer.'
     reading: ヒトメ オボレ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -47197,7 +47474,12 @@ names:
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034475282
     verified: true
   十宵先輩は吸血鬼:
-    basis: romaji
+    basis: translated
+    en: Toyoi-senpai Is a Vampire
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 十
       - じゅう
@@ -47209,6 +47491,8 @@ names:
       - null
     - - 吸血鬼
       - きゅうけつき
+    note: '十宵 is the senpai''s name. きら星ポータル: a hopeless vampire beauty and a lone-wolf girl, a school
+      friendship comedy.'
     reading: ジュウ ヨイ センパイ ワ キュウケツキ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -52078,12 +52362,20 @@ names:
     reading_source_kind: analyser
     verified: false
   太刀んぼ キルコ:
-    basis: romaji
+    basis: translated
+    en: Kiruko the Blade Hustler
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 太刀
       - たち
     - - んぼ キルコ
       - null
+    note: '太刀んぼ puns on 立ちんぼ, a girl who stands on a street corner soliciting, with 太刀, a sword: in マンガワン''s
+      synopsis Kiruko finds her duelling opponents through a matching app in a Tokyo where everyone carries
+      a blade. Hustler keeps the soliciting.'
     reading: タチ ン ボ   キルコ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -54254,12 +54546,19 @@ names:
     reading_source_kind: analyser
     verified: false
   宙-CHUU-:
-    basis: romaji
+    basis: translated
+    en: Chuu
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 宙
       - ちゅう
     - - -CHUU-
       - null
+    note: 宙 is the heroine's given name, 小桜宙, read Chū, which the title spells out as CHUU. A futsal series
+      at a girls' school, per the bookshop listings; complete in four volumes.
     reading: チュウ - CHUU -
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -63675,7 +63974,12 @@ names:
     reading_source_kind: analyser
     verified: false
   春綴る、桜咲くこの部屋で:
-    basis: romaji
+    basis: translated
+    en: Spring Written Down, in This Room Where the Cherry Blossoms Bloom
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 春
       - はる
@@ -63693,6 +63997,8 @@ names:
       - へや
     - - で
       - null
+    note: '綴る is to write out, and 春 and 桜 are also the two women''s names, 春喜 and 桜. ガンガンONLINE: five
+      years after 桜 died, 春喜 finds the diary she left unfinished.'
     reading: ハル ツヅル、 サクラ サク コノ ヘヤデ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -68801,7 +69107,13 @@ names:
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033845099
     verified: true
   灼熱の魔女様の楽しい温泉領地経営 ～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝...:
-    basis: romaji
+    basis: translated
+    en: 'The Scorching Witch''s Merry Hot-Spring Domain: Exiled to the Frontier with No Magic, I Build
+      a Hot-Spring Empire with My Catastrophic Warming Skill'
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 灼熱
       - しゃくねつ
@@ -68849,9 +69161,78 @@ names:
       - みかど
     - - '...'
       - null
+    note: The manga's own subtitle, not the novel's. A duke's daughter whose only skill warms things is
+      banished to a frontier with strange water; no English edition was found.
     reading: シャクネツ ノ マジョサマ ノ タノシイ オンセン リョウチ ケイエイ   ～ マリョク ゼロ デ ヘンキョウ ニ ツイホウ サレマシタガ、 サイヤクキュウ ノ アタタメ スキル
       デ オンセン ミカド...
     reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  灼熱の魔女様の楽しい温泉領地経営　～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます～:
+    basis: translated
+    en: 'The Scorching Witch''s Merry Hot-Spring Domain: Exiled to the Frontier with No Magic, I Build
+      a Hot-Spring Empire with My Catastrophic Warming Skill'
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 灼熱
+      - しゃくねつ
+    - - の
+      - null
+    - - 魔女
+      - まじょ
+    - - 様
+      - さま
+    - - の
+      - null
+    - - 楽
+      - たの
+    - - しい
+      - null
+    - - 温泉
+      - おんせん
+    - - 領地
+      - りょうち
+    - - 経営
+      - けいえい
+    - - 　～
+      - null
+    - - 魔力
+      - まりょく
+    - - ゼロで
+      - null
+    - - 辺境
+      - へんきょう
+    - - に
+      - null
+    - - 追放
+      - ついほう
+    - - されましたが、
+      - null
+    - - 災厄
+      - さいやく
+    - - 級
+      - きゅう
+    - - のあたためスキルで
+      - null
+    - - 温泉
+      - おんせん
+    - - 帝国
+      - ていこく
+    - - つくっちゃいます～
+      - null
+    note: The manga's own subtitle, not the novel's. A duke's daughter whose only skill warms things is
+      banished to a frontier with strange water; no English edition was found.
+    reading: シャクネツ ノ マジョサマ ノ タノシイ オンセン リョウチ ケイエイ 　 ～ マリョク ゼロ デ ヘンキョウ ニ ツイホウ サレマシタガ、 サイヤクキュウ ノ アタタメ スキル
+      デ オンセン テイコク ツクッチャイマス ～
+    reading_at: '2026-10-16'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
@@ -70407,6 +70788,58 @@ names:
       - しょう
     reading: タナカサン ノ ノロイ / 2025 ネン 1 ガツ キ JUMP シンセカイ マンガ ショウ
     reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  田中さんの呪い／25年1月期JUMP新世界漫画賞／週刊少年ジャンプ:
+    basis: translated
+    en: Tanaka-san's Curse
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 田中
+      - たなか
+    - - さんの
+      - null
+    - - 呪
+      - のろ
+    - - い／25
+      - null
+    - - 年
+      - ねん
+    - - '1'
+      - null
+    - - 月
+      - がつ
+    - - 期
+      - き
+    - - JUMP
+      - null
+    - - 新世界
+      - しんせかい
+    - - 漫画
+      - まんが
+    - - 賞
+      - しょう
+    - - ／
+      - null
+    - - 週刊
+      - しゅうかん
+    - - 少年
+      - しょうねん
+    - - ジャンプ
+      - null
+    note: '少年ジャンプ+''s synopsis: a girl troubled by seeing ghosts meets Tanaka-san, who exorcises them
+      with abuse and violence. The suffix is Shonen Jump+''s own contest badge, dropped from the English
+      as promotional framing, as with the other JUMP新世界漫画賞 entries.'
+    reading: タナカサン ノ ノロイ ／ 25 ネン 1 ガツ キ JUMP シンセカイ マンガ ショウ ／ シュウカン ショウネン ジャンプ
+    reading_at: '2026-10-16'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
@@ -75227,7 +75660,12 @@ names:
     reading_source_kind: analyser
     verified: false
   私が負けヒロインなんて認めませんわ!:
-    basis: romaji
+    basis: translated
+    en: I Refuse to Be the Losing Heroine!
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 私
       - わたし
@@ -75241,6 +75679,8 @@ names:
       - みと
     - - めませんわ!
       - null
+    note: '負けヒロイン is the heroine who loses the romance, and the ですわ register is the ojou-sama''s. きら星ポータル:
+      a tsundere young lady attacks to become the winning heroine instead.'
     reading: ワタシ ガ マケ ヒロイン ナンテ ミトメマセン ワ!
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -76782,6 +77222,62 @@ names:
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
+  私の瞳に生きるまで／24年4月期JUMP新世界漫画賞／週刊少年ジャンプ:
+    basis: translated
+    en: Until I Live in My Eyes
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 私
+      - わたし
+    - - の
+      - null
+    - - 瞳
+      - ひとみ
+    - - に
+      - null
+    - - 生
+      - い
+    - - きるまで／24
+      - null
+    - - 年
+      - ねん
+    - - '4'
+      - null
+    - - 月
+      - がつ
+    - - 期
+      - き
+    - - JUMP
+      - null
+    - - 新世界
+      - しんせかい
+    - - 漫画
+      - まんが
+    - - 賞
+      - しょう
+    - - ／
+      - null
+    - - 週刊
+      - しゅうかん
+    - - 少年
+      - しょうねん
+    - - ジャンプ
+      - null
+    note: 瞳 is both eye and the heroine's name, 瞳, a girl who fires beams from her eyes and wears an eyepatch,
+      until a classmate shows her an ordinary life. 生きる is to live. The suffix is Shonen Jump+'s own contest
+      badge, dropped from the English as promotional framing, as with the other JUMP新世界漫画賞 entries.
+    reading: ワタシ ノ ヒトミ ニ イキル マデ ／ 24 ネン 4 ガツ キ JUMP シンセカイ マンガ ショウ ／ シュウカン ショウネン ジャンプ
+    reading_at: '2026-10-16'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   私の知ってるお姉さん:
     basis: translated
     en: The Onee-san I Know
@@ -77653,7 +78149,12 @@ names:
     reading_source_kind: analyser
     verified: false
   竜と龍の結婚:
-    basis: romaji
+    basis: translated
+    en: The Marriage of the Dragon and the Dragon
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 竜
       - りゅう
@@ -77665,6 +78166,9 @@ names:
       - null
     - - 結婚
       - けっこん
+    note: '竜 and 龍 are both dragon, the western-style and the eastern-style character. 栞''s synopsis:
+      the princess of the 竜 kingdom and the princess of the 龍 empire marry to seal the peace after a long
+      war.'
     reading: リュウ ト リュウ ノ ケッコン
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -78745,7 +79249,12 @@ names:
     reading_source_kind: analyser
     verified: false
   終末は私の家でパンを食べませんか?:
-    basis: romaji
+    basis: translated
+    en: Won't You Eat Bread at My Place at the End of the World?
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 終末
       - しゅうまつ
@@ -78763,6 +79272,8 @@ names:
       - た
     - - べませんか?
       - null
+    note: '終末 is the end of the world and puns on 週末, the weekend, which is how the invitation reads aloud.
+      きら星ポータル: neighbours who want to be friends, by way of bread.'
     reading: シュウマツ ワ ワタシ ノ イエ デ パン ヲ タベマセン カ?
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -82530,7 +83041,12 @@ names:
     reading_source_kind: analyser
     verified: false
   賭けっ娘:
-    basis: romaji
+    basis: translated
+    en: Gambler Girls
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 賭
       - かけ
@@ -82538,6 +83054,8 @@ names:
       - null
     - - 娘
       - むすめ
+    note: '賭け is a bet and っ娘 a girl, as in 賭けっ子. きら星ポータル: whenever the two get bored, the room becomes
+      a gambling den; wholesome, cute gambling.'
     reading: カケ ケッムスメ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -86397,7 +86915,12 @@ names:
     reading_source_kind: analyser
     verified: false
   魔女はシスターに甘えたい:
-    basis: romaji
+    basis: translated
+    en: The Witch Wants to Be Spoiled by the Sister
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 魔女
       - まじょ
@@ -86407,6 +86930,7 @@ names:
       - あま
     - - えたい
       - null
+    note: '甘えたい is wanting to be babied; シスター is a nun. きら星ポータル: a young witch and a motherly nun.'
     reading: マジョ ワ シスター ニ アマエタイ
     reading_at: '2026-10-15'
     reading_basis: analyser

@@ -23,6 +23,12 @@
 # exactly. Adding a row merges two rows in the build: check the chapter count afterwards, because
 # two coverages of one story should dedupe to the longer, never sum.
 aliases:
+  - variant: "灼熱の魔女様の楽しい温泉領地経営 ～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝..."
+    canonical: "灼熱の魔女様の楽しい温泉領地経営　～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます～"
+    note: >-
+      Web漫画アンテナ cuts the title short with three dots, and the remaining route wrote it as listed.
+      The full title is the one コミック アース・スター's own page states in its og:title,
+      read 2026-10-16.
   - variant: "[10Pショート読切] GOOD HUNT"
     canonical: "GOOD HUNT"
     note: >-

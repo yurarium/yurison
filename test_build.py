@@ -829,6 +829,11 @@ def series_addresses(s):
     volume_designations(s)
     volume_merge(s)
     import_dated(s)
+    s.eq([r["n"] for r in b.one_source_per_address([
+        {"platform": "P", "url": "u", "chapters": 1, "n": "a"},
+        {"platform": "P", "url": "u", "chapters": 3, "n": "b"},
+        {"platform": "Q", "url": "u", "chapters": 1, "n": "c"}])], ["b", "c"],
+         "one source per platform and address, the fuller; another platform at it stays")
 
 
 def volume_merge(s):

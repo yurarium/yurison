@@ -1515,3 +1515,24 @@ job. `bookwalker series unread` is the volume capture's own backlog, read down b
 The feed now prefers a platform's own row to a route's copy of the same chapter (`ROUTES` in
 build.py), so メイド＆ロイドはお嬢様のお役に立ちたい！ is drawn from サンデーうぇぶり's capture rather than
 the backfill's, and that row writes its credit field in a spelling no identifier holds yet.
+
+## Twenty-nine works the remaining route reached, inducted. Accepted 2026-10-16
+
+The remaining route, now fed from the candidate list, reached thirty works Web漫画アンテナ lists
+under 百合 that nothing had captured before. Twenty-nine were minted by hand (w03410 to w03438)
+with English names; the thirtieth, on comicグラスト, waits, because whether that platform gates
+its readers by age could not be checked from here. One title the antenna cuts short with three
+dots now carries its full name through an alias, and the comparators' titles are read through the
+aliases too, which is what kept it in scope. `credit pages listing a work that does not name them`
+(13) and `incomplete attested rows` (46) were already at these values in the published store of
+2026-10-15 21:45; the rest rose with the twenty-nine and describe them.
+
+| budget | was | now |
+|---|---:|---:|
+| credit fields an identifier does not cover | 154 | 166 |
+| credit pages listing a work that does not name them | 9 | 13 |
+| ruby asserting a reading per character | 208 | 219 |
+| works holding more volumes than the shop states | 26 | 28 |
+| updates naming a work we do not hold | 2 | 4 |
+| incomplete attested rows | 42 | 46 |
+| volume rows with no publication date | 2572 | 2580 |

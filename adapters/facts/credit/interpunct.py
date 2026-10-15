@@ -174,6 +174,13 @@ def settled(fields, split, ruled=None):
             said = settle(name, attested, ruled)
             if said in (ONE, SEVERAL):
                 out[key.fold(name)] = said
+    # A PERSON'S ANSWER STANDS WHEREVER THE STRING TURNS UP, not only in the fields read here.
+    # レオパード・ゲッコー was ruled one person on 2026-10-16 and the ruling reached nothing, because
+    # no work's byline carries it: the string lives on in the phrase map, which the build composes
+    # through this same map, and went on being cut in two there.
+    for k, said in (ruled or {}).items():
+        if said in (ONE, SEVERAL):
+            out.setdefault(k, said)
     return out
 
 

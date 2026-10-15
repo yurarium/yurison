@@ -166,5 +166,27 @@ def main(s):
          "and a run that captured nothing has no field to have lost, which the count says instead")
 
 
+def quarantined(s):
+    """Only the platform whose selector moved is set back; the other platform's new capture stays."""
+    import subprocess
+    import tempfile
+    import fieldaudit as fa
+    with tempfile.TemporaryDirectory() as d:
+        root = pathlib.Path(d)
+        (root / "data/source").mkdir(parents=True)
+        a, b = root / "data/source/a.yaml", root / "data/source/b.yaml"
+        a.write_text("platform_name: マガポケ\nworks:\n  - work_title: old\n", encoding="utf-8")
+        b.write_text("platform_name: コミックDAYS\nworks:\n  - work_title: old\n", encoding="utf-8")
+        git = lambda *x: subprocess.run(["git", *x], cwd=root, check=True, capture_output=True)
+        git("init", "-q"); git("-c", "user.name=t", "-c", "user.email=t@t", "add", ".")
+        git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "base")
+        a.write_text(a.read_text(encoding="utf-8").replace("old", "new"), encoding="utf-8")
+        b.write_text(b.read_text(encoding="utf-8").replace("old", "new"), encoding="utf-8")
+        got = fa.quarantine(["マガポケ"], root=str(root))
+        s.eq([pathlib.Path(f).name for f in got], ["a.yaml"], "the moved platform's file is set back")
+        s.check("old" in a.read_text(encoding="utf-8"), "to its last committed capture")
+        s.check("new" in b.read_text(encoding="utf-8"), "and another platform's new capture stays")
+
+
 if __name__ == "__main__":
-    sys.exit(testkit.run(main, __file__))
+    sys.exit(testkit.run(lambda s: (main(s), quarantined(s)), __file__))

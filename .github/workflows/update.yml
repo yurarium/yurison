@@ -2,11 +2,13 @@ name: update
 
 # Steady-state run: discover, fetch, compile, publish. See RUNBOOK-github.md.
 #
-# DELIBERATELY MANUAL-ONLY FOR NOW. The schedule is commented out, because merging this with it
-# live would start the job hitting external sites on a timer before anyone had watched it run once.
-# Uncomment when you have one green workflow_dispatch and a look
-# at the diff it produced.
+# ON A SCHEDULE, TWICE A DAY, from 2026-10-15. It was manual-only from August, waiting for one
+# watched run, and was never switched on: every run since was dispatched by hand. The owner chose
+# two runs (docs/LAUNCH-PLAN.md), the two largest release clusters measured below.
 on:
+  schedule:
+    - cron: "37 15 * * *"   # 00:37 JST, after the midnight batch. The most valuable single run.
+    - cron: "07 3 * * *"    # 12:07 JST, catching the 11:00 and 12:00 clusters together.
   workflow_dispatch:
     inputs:
       skip_browser:
@@ -21,10 +23,6 @@ on:
   #
   # Times are 30 minutes behind each cluster, to let the feeds settle, and off the hour because
   # everything cron'd at :00 queues behind the rest of GitHub.
-  # schedule:
-  #   - cron: "37 15 * * *"   # 00:37 JST, after the midnight batch. The most valuable single run.
-  #   - cron: "07 3 * * *"    # 12:07 JST, catching the 11:00 and 12:00 clusters together.
-  #   - cron: "17 10 * * *"   # 19:17 JST, the small evening tail plus a retry margin.
 
 concurrency:
   group: update
@@ -32,6 +30,8 @@ concurrency:
 
 permissions:
   contents: write
+  # `runhealth.py sync` opens and closes one issue per source that keeps failing.
+  issues: write
 
 env:
   CACHE: .cache
@@ -42,6 +42,9 @@ env:
   # that runs it blocks the job. Stage 0 fetches exactly those pages; they now land where the
   # measure reads them, inside .cache so the restore carries them between runs.
   YURI_CACHE: .cache
+  # EVERY COMMAND'S OUTCOME THIS RUN, one file across the stages, for `runhealth.py`. Outside .cache
+  # because .cache is restored between runs and a report must describe this run alone.
+  REPORT: ${{ github.workspace }}/../run-report.json
 
 jobs:
   update:
@@ -137,46 +140,9 @@ jobs:
       # a run that discovered nothing from a run that discovered nothing NEW. So each pass now
       # reports its own outcome, and the step ends by saying which of them ran.
       - name: Stage 0 — discovery queue
-        continue-on-error: true
         run: |
-          set +e
-          python3 adapters/yurinavi/discover.py --out data/queue \
-            --cache "$CACHE/yurinavi-cache" --retrieved "$R"
-          yurinavi=$?
-          python3 adapters/webcomics/coverage.py --out data/coverage \
-            --cache "$CACHE/webcomics-cache" --pages 8 --retrieved "$R" --force
-          webcomics=$?
-          # THE YARDSTICK `adapters/acceptance.py` MEASURES AGAINST, and it ran nowhere until
-          # 2026-09-21. data/coverage/yurinavi-webyuri.yaml was written on 2026-08-01 and stood
-          # there for fifty days while the acceptance floor compared it against a feed window that
-          # moves every day. A fixed listing loses hits to the trailing edge while its misses stay,
-          # so the percentage falls on the calendar and says nothing about coverage, and when it
-          # finally broke the floor the cause was six weeks old. Refreshing it by hand took the
-          # watched population from 49 works to 74 and uncovered eleven platforms frozen by a
-          # fetcher with no age test.
-          #
-          # `--force` IS LOAD-BEARING. `webyuri.fetch` returns any cached file it finds, with no
-          # test of how old it is, and this workflow carries `.cache` between runs. Without the
-          # flag this entry would read the host once and replay that page for ever, which is the
-          # exact fault it exists to close.
-          #
-          # ITS FAILURE IS NOT THE STEP'S. A yardstick is what measures intake rather than intake
-          # itself, so a run that cannot read it has lost a measurement and nothing else. The pass
-          # exits non-zero and writes nothing when it parses fewer rows than it expects, which
-          # leaves the committed file standing, so the acceptance floor keeps comparing against the
-          # last good listing and says so by its age.
-          python3 adapters/yurinavi/webyuri.py --out data/coverage \
-            --cache "$CACHE/yurinavi-cache" --retrieved "$R" --force
-          webyuri=$?
-          echo "discovery: 百合ナビ exit $yurinavi, Web漫画アンテナ exit $webcomics, 百合ナビ WEB連載 exit $webyuri"
-          [ "$webyuri" -eq 0 ]   || echo "::warning title=Discovery::百合ナビ's WEB連載 listing did not run; the acceptance yardstick is as stale as its last success"
-          [ "$yurinavi" -eq 0 ]  || echo "::warning title=Discovery::百合ナビ did not run; its queue is as stale as its last success"
-          [ "$webcomics" -eq 0 ] || echo "::warning title=Discovery::Web漫画アンテナ did not run, so no announced work was admitted to the target list this run"
-          # WHAT THE CAPTURE STEPS TARGET: the antenna's list, plus 百合ナビ's WEB連載 works that
-          # nothing names or holds. 百合ナビ links each work's page and was read only as a yardstick,
-          # so a work it listed and the antenna did not was never fetched. See adapters/candidates.py.
-          python3 adapters/candidates.py || echo "::warning title=Discovery::the merged candidate list was not rewritten; captures read the last one"
-          [ "$yurinavi" -eq 0 ] || [ "$webcomics" -eq 0 ]
+          python3 adapters/run_stage.py adapters/stage-0.yaml \
+            --retrieved "$R" --cache "$CACHE" --report "$REPORT"
 
       # ── Stage A — feeds, APIs and server-rendered markup. No browser. ────────────────────
       # The commands live in adapters/stage-a.yaml so they can be run by hand exactly as CI runs
@@ -198,10 +164,9 @@ jobs:
       # below fails the JOB after the data is published rather than instead of it.
       - name: Stage A — feeds and APIs
         id: stage_a
-        continue-on-error: true
         run: |
           python3 adapters/run_stage.py adapters/stage-a.yaml \
-            --retrieved "$R" --cache "$CACHE" --workers 6
+            --retrieved "$R" --cache "$CACHE" --workers 6 --report "$REPORT"
 
       # WHERE THE FIXTURES GET CHECKED AGAINST REALITY. A committed fixture is a page as it stood
       # on the day it was captured, and the parser it pins can pass against that page for ever
@@ -218,26 +183,10 @@ jobs:
       # ── Stage C — browser. Slow, flaky by nature, must not cost the run. ──────────────────────
       - name: Stage C — browser adapters
         if: ${{ steps.browser.outputs.present == 'yes' && !inputs.skip_browser }}
-        continue-on-error: true
         timeout-minutes: 50
         run: |
-          # THE TARGET LIST FOLLOWS THE CANDIDATES, which it did not: it was written by hand on
-          # 2026-08-02 and never again, so no work that reached a client-rendered platform after
-          # that day could be rendered, and on 2026-10-09 eighteen listed works were held by no
-          # capture. `targets.py` appends the listed works no other route holds, and touches
-          # nothing else. It runs here and not in Stage 0 because it reads what Stage A
-          # captured, which is what "no other route holds it" means.
-          python3 adapters/render/targets.py
-          python3 adapters/render/releases.py    --targets data/coverage/render-targets.yaml \
-            --out data/source/webpages --cache "$CACHE/render" --limit-per-host 140 --retrieved "$R"
-          python3 adapters/remaining/releases.py --works data/coverage/remaining.yaml \
-            --out data/source/webpages --cache "$CACHE/remaining" --retrieved "$R"
-          # THE PLATFORMS THAT ONLY EXIST ONCE A BROWSER HAS RUN THEM. 裏サンデー, アルファポリス
-          # and コロナEX serve a shell and build the chapter list in the client, so a plain fetch
-          # reads 200 and parses nothing. Stage A runs the same pass with `--rendered skip`.
-          python3 adapters/generic/releases.py --works data/coverage/candidates.yaml \
-            --extract data/coverage/extract.yaml --rendered only \
-            --out data/source/webpages --cache "$CACHE/generic" --retrieved "$R"
+          python3 adapters/run_stage.py adapters/stage-c.yaml \
+            --retrieved "$R" --cache "$CACHE" --report "$REPORT"
 
       # ── Stage D — compile. This one is allowed to fail the run. ───────────────────────────────
       - name: Compile
@@ -253,23 +202,10 @@ jobs:
       #
       # IT ASKS THE STORE NOW, §11, so the question goes to the compiled form rather than out
       # through a file the store emits and back in.
-      - name: Ask the shops what the compile says is missing
-        continue-on-error: true
+      - name: Ask the shops what the compile leaves open
         run: |
-          python3 adapters/shopquery/capture.py --out data/queue/shop-query.yaml \
-            --cache "$CACHE/shopquery-cache" --retrieved "$R"
-
-      # ── ASK THE SHOP WHETHER A QUIET SERIES ENDED. Most series end on a stated last volume, and
-      # the corpus filed them `dormant` because no platform it reads says so. `bookwalker.py` reads
-      # BOOK☆WALKER's 【完結】, its 完結 tag and its newest volume's own description, for works
-      # whose state rests on silence, and the next run's compile reads the answer. A work is asked
-      # once, again only when the corpus holds a new volume of it, and otherwise twice a year, so
-      # once the first pass is through a run asks a handful or none. It ran once, on 2026-08-05,
-      # and never again until 2026-10-15.
-      - name: Ask the shop which quiet series ended
-        continue-on-error: true
-        run: |
-          python3 adapters/bookwalker.py --out data/coverage/bookwalker-completion.yaml --limit 60
+          python3 adapters/run_stage.py adapters/stage-post.yaml \
+            --retrieved "$R" --cache "$CACHE" --report "$REPORT"
 
       # ── Stage E — names. ──────────────────────────────────────────────────────────────────────
       #
@@ -295,6 +231,8 @@ jobs:
       #
       # NONE OF THESE REACH THE NETWORK. Pass 2 and pass 3 do and are deliberately absent.
       - name: Name what this run brought in
+        id: names
+        continue-on-error: true
         run: |
           python3 adapters/names/resolve.py --run 1
           python3 adapters/names/pass0_cache.py --surfaces-only
@@ -378,6 +316,8 @@ jobs:
       # changes shape under it, which is a fault the check-in gate cannot see because the corpus it
       # runs against is yesterday's. `0 vacuous` is the property, and this is where it is at risk.
       - name: Prove the checks can fail against today's corpus
+        id: selftest
+        continue-on-error: true
         run: python3 check.py --self-test
 
       # THE UNIT TESTS ARE GONE FROM HERE, and that is B3's answer rather than an omission. This
@@ -399,8 +339,26 @@ jobs:
       # IT READ `data/build/feed.json` AND STORE-PLAN §13 STOPPED WRITING IT, so the run died here
       # on the tripwire refusing to answer rather than on a platform losing a field. The audit asks
       # the store, which is where the rows are.
+      # QUARANTINE AND PUBLISH, from 2026-10-15. A platform whose selector moved is set back to its
+      # last committed capture and the rest is published; before, the finding stopped the run and
+      # withheld every platform's updates for one platform's fault.
       - name: Field audit — a moved selector is silent otherwise
-        run: python3 adapters/fieldaudit.py
+        id: fieldaudit
+        run: python3 adapters/fieldaudit.py --quarantine --report "$REPORT"
+
+      - name: Compile again, if a platform was set back
+        if: ${{ steps.fieldaudit.outputs.rebuild == 'yes' }}
+        run: python3 build.py --unattended
+
+      # THE RUN'S OUTCOMES, KEPT. Every source this run touched, how it went, and how many runs in a
+      # row it has failed, into data/ledger/source-health.yaml, which the commit below carries.
+      - name: Record how each source fared
+        if: always()
+        run: |
+          python3 adapters/runhealth.py record --report "$REPORT" --date "$R" \
+            --run "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --outcome "names=${{ steps.names.outcome == 'success' && 'ok' || 'fail:the naming passes did not complete' }}" \
+                      "self-test=${{ steps.selftest.outcome == 'success' && 'ok' || 'fail:a check could not be shown to fail against today' }}"
 
       # No content scan on this path. The guard's content half looks for real-name strings, and
       # nothing that reaches here can contain one: data/source, data/build, data/coverage and
@@ -444,7 +402,9 @@ jobs:
           # the committed tree: every candidate older than 百合ナビ's feed window would be lost on
           # the next run, which is the fault the carry-forward exists to stop. `shopquery` writes
           # here too and its rows were surviving only because a person ran it locally and pushed.
-          git add data/source data/coverage data/ledger data/names data/queue
+          # `data/state` IS COMMITTED, AND WAS NOT until 2026-10-15: the render step rewrites
+          # checks.yaml every run, and the build read the copy from 2026-08-03.
+          git add data/source data/coverage data/ledger data/names data/queue data/state
           git diff --cached --quiet || git commit -m "update: run ${{ github.run_id }}"
 
       - name: Push
@@ -509,11 +469,12 @@ jobs:
           || echo "::warning::the consumer at ${{ vars.CONSUMER_REPO }} was not reachable; \
           $TAG is published and its own schedule will find it"
 
-      - name: Stage A failed, and the data was published first
-        if: ${{ steps.stage_a.outcome == 'failure' }}
-        run: |
-          echo "::error::Stage A reported a failing adapter. The build, the checks and the publish"
-          echo "::error::all ran on the sources that were fetched, so nothing a reader holds is"
-          echo "::error::missing; one or more platforms simply were not read tonight. The adapter"
-          echo "::error::and its stderr are named in the Stage A step above."
-          exit 1
+      # ONE ISSUE PER SOURCE THAT KEEPS FAILING, opened, updated and closed to match the ledger.
+      # This replaces the step that failed the run whenever any adapter failed: a source down for a
+      # day is recorded, and one down for several runs is raised once.
+      - name: Raise or close an issue for each source that keeps failing
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 adapters/runhealth.py sync

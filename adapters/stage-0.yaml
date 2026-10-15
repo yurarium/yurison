@@ -1,0 +1,27 @@
+# Stage 0: discovery. What the antenna and 百合ナビ list, and the candidate list every capture step
+# reads, merged last from what the passes before it wrote. Run in order for that reason.
+#
+# Each pass reports its own outcome to `runhealth.py`, so a comparator that is down is a recorded
+# failure and, if it stays down, an issue; the committed coverage files stand meanwhile, and the
+# candidate list is rebuilt from whatever is there. See update.yml for each pass's history.
+sequential: true
+commands:
+  - id: yurinavi-discover
+    optional: true
+    argv: [adapters/yurinavi/discover.py, --out, data/queue, --cache, "{CACHE}/yurinavi-cache",
+           --retrieved, "{R}"]
+
+  # `--force` is load-bearing: the fetcher replays any cached page with no age test.
+  - id: webcomics-coverage
+    optional: true
+    argv: [adapters/webcomics/coverage.py, --out, data/coverage, --cache, "{CACHE}/webcomics-cache",
+           --pages, "8", --retrieved, "{R}", --force]
+
+  - id: yurinavi-webyuri
+    optional: true
+    argv: [adapters/yurinavi/webyuri.py, --out, data/coverage, --cache, "{CACHE}/yurinavi-cache",
+           --retrieved, "{R}", --force]
+
+  - id: candidates
+    optional: true
+    argv: [adapters/candidates.py]

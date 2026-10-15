@@ -66,6 +66,24 @@ def _both_ends(s, keep=1500):
     return f"{s[:keep]}\n… {dropped} character(s) dropped from the middle …\n{s[-keep:]}"
 
 
+def outcome(cid, rc, secs, text, cmd):
+    """One command's result as `runhealth.py` reads it: its id, whether it worked, and why not."""
+    lines = [l for l in (text or "").strip().splitlines() if l.strip()]
+    return {"id": cid, "ok": rc == 0, "rc": rc, "seconds": secs,
+            "optional": bool(cmd.get("optional")),
+            "error": (lines[-1][:300] if lines else "") if rc != 0 else ""}
+
+
+def write_report(path, stage, outcomes):
+    """Append this stage's outcomes to the run's report, one file across every stage."""
+    import json
+    p = pathlib.Path(path)
+    got = json.loads(p.read_text()) if p.exists() else []
+    got += [dict(o, stage=stage) for o in outcomes]
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(got, ensure_ascii=False, indent=1))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("manifest")
@@ -74,19 +92,27 @@ def main():
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--only", nargs="*")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--report", default=None,
+                    help="append each command's outcome to this JSON file, for runhealth.py")
     a = ap.parse_args()
 
     spec = yaml.safe_load(pathlib.Path(a.manifest).read_text())
     cmds = [c for c in spec["commands"] if not a.only or c["id"] in a.only]
     subs = {"R": a.retrieved, "CACHE": a.cache}
+    # IN ORDER WHERE A MANIFEST SAYS SO. Stage 0's candidate list is merged from what the passes
+    # before it wrote, and Stage C renders the targets its first command derives, so those stages
+    # run one command at a time; a manifest of independent hosts runs them side by side.
+    workers = 1 if spec.get("sequential") else a.workers
 
     t0 = time.time()
-    rows = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=a.workers) as pool:
+    rows, outcomes = [], []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
         futs = {pool.submit(run_one, c, subs, a.dry_run): c for c in cmds}
         for f in concurrent.futures.as_completed(futs):
             cid, rc, secs, out, err = f.result()
             rows.append((cid, rc, secs))
+            outcomes.append(outcome(cid, rc, secs, err or out,
+                                    next(x for x in cmds if x["id"] == cid)))
             print(f"  {'ok  ' if rc == 0 else 'FAIL'} {cid:26} {secs:5}s", flush=True)
             # Output is printed WHOLE and unfiltered. Piping build output through grep has swallowed
             # a traceback three times in this project (STANDING-INSTRUCTIONS §1).
@@ -122,7 +148,13 @@ def main():
     # and nothing could ever return 1.
     if required_failed:
         print(f"REQUIRED command(s) failed: {', '.join(required_failed)}")
-    return 1 if failed else 0
+    if a.report:
+        write_report(a.report, pathlib.Path(a.manifest).stem, outcomes)
+    # AN OPTIONAL COMMAND FAILING IS A RECORDED OUTCOME, NOT A FAILED STEP, ruled by the owner on
+    # 2026-10-15: a run should succeed whenever it could do its work, and a source that is down is
+    # collected by `runhealth.py` and raised as an issue when it stays down. Only a required command
+    # failing fails the step, which is an unexpected failure rather than a source's bad day.
+    return 1 if required_failed else 0
 
 
 if __name__ == "__main__":

@@ -1,0 +1,28 @@
+# Stage C: the browser adapters. In order, because the first derives the target list the second
+# renders. It ran as one `bash -e` block, so a failure in `render/targets.py` silently skipped the
+# three commands after it; each now runs and reports on its own.
+sequential: true
+commands:
+  # The target list follows the candidates; it was hand-written on 2026-08-02 and never again.
+  - id: render-targets
+    optional: true
+    argv: [adapters/render/targets.py]
+
+  - id: render-releases
+    optional: true
+    argv: [adapters/render/releases.py, --targets, data/coverage/render-targets.yaml,
+           --out, data/source/webpages, --cache, "{CACHE}/render", --limit-per-host, "140",
+           --retrieved, "{R}"]
+
+  - id: remaining-releases
+    optional: true
+    argv: [adapters/remaining/releases.py, --works, data/coverage/remaining.yaml,
+           --out, data/source/webpages, --cache, "{CACHE}/remaining", --retrieved, "{R}"]
+
+  # The platforms that only exist once a browser has run them; Stage A runs the same pass with
+  # `--rendered skip`.
+  - id: generic-rendered
+    optional: true
+    argv: [adapters/generic/releases.py, --works, data/coverage/candidates.yaml,
+           --extract, data/coverage/extract.yaml, --rendered, only,
+           --out, data/source/webpages, --cache, "{CACHE}/generic", --retrieved, "{R}"]

@@ -1,0 +1,38 @@
+name: digest
+
+# THE WEEK IN ONE ISSUE, asked for by the owner on 2026-10-15 beside the per-source issues and the
+# status page: how many runs there were, what keeps failing, which budgets moved, and what the
+# naming job used. Each digest closes the one before, so one is open at a time. See adapters/digest.py.
+on:
+  schedule:
+    - cron: "17 0 * * 1"        # Monday 09:17 JST, clear of both update runs
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0            # the digest reads a week of history
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Write the digest
+        run: python3 adapters/digest.py > digest.md
+      - name: Post it, and close last week's
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create digest --color 0E8A16 --description "the weekly digest" 2>/dev/null || true
+          for n in $(gh issue list --label digest --state open --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "Superseded by this week's digest."
+          done
+          gh issue create --title "Weekly digest: $(TZ=Asia/Tokyo date +%F)" \
+            --label digest --body-file digest.md

@@ -1,0 +1,13 @@
+# After the compile: questions only the compiled store can answer, whose answers the next run's
+# compile reads. Each is a shop, so each paces its own host and they run side by side.
+commands:
+  # Web works with no print edition, asked of BOOK☆WALKER.
+  - id: shopquery
+    optional: true
+    argv: [adapters/shopquery/capture.py, --out, data/queue/shop-query.yaml,
+           --cache, "{CACHE}/shopquery-cache", --retrieved, "{R}"]
+
+  # Whether a quiet series ended: asked once, again on a new volume, otherwise twice a year.
+  - id: bookwalker-completion
+    optional: true
+    argv: [adapters/bookwalker.py, --out, data/coverage/bookwalker-completion.yaml, --limit, "60"]

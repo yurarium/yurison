@@ -152,9 +152,51 @@ def findings(got, silent_routes=None):
     return out
 
 
+def platform_files(platform, paths):
+    """The source files among `paths` that carry rows of `platform`, by its display name."""
+    import yaml
+    out = []
+    for f in paths:
+        try:
+            d = yaml.safe_load(pathlib.Path(f).read_text(encoding="utf-8")) or {}
+        except Exception:                                                   # noqa: BLE001
+            continue
+        if not isinstance(d, dict):
+            continue
+        names = {d.get("platform_name"), d.get("platform")} | {
+            w.get("platform_name") for w in d.get("works") or [] if isinstance(w, dict)}
+        if platform in names:
+            out.append(f)
+    return out
+
+
+def quarantine(platforms, root="."):
+    """Restore each platform's changed source files to the last commit, and return them.
+
+    QUARANTINE AND PUBLISH, ruled by the owner on 2026-10-15. A platform whose selector moved
+    returns rows with a field missing from most of them, and before this the audit stopped the run,
+    so one platform's bad morning withheld every platform's updates. Now that platform's capture is
+    set back to the last good one, the rest is published, and the finding is recorded for
+    `runhealth.py`, which raises an issue if it persists.
+    """
+    import subprocess
+    changed = subprocess.run(["git", "diff", "--name-only", "HEAD", "--", "data/source"],
+                             capture_output=True, text=True, cwd=root).stdout.split()
+    files = sorted({f for p in platforms for f in platform_files(p, [
+        str(pathlib.Path(root) / c) for c in changed])})
+    if files:
+        subprocess.run(["git", "checkout", "HEAD", "--", *[str(pathlib.Path(f).relative_to(root))
+                                                           for f in files]],
+                       check=True, cwd=root)
+    return files
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--quiet", action="store_true", help="the counts alone")
+    ap.add_argument("--quarantine", action="store_true",
+                    help="set back a platform whose selector moved, record, and exit 0")
+    ap.add_argument("--report", default=None, help="append outcomes here for runhealth.py")
     a = ap.parse_args(argv)
 
     import relational
@@ -171,8 +213,32 @@ def main(argv=None):
     bad = findings(got)
     for line in bad:
         print(f"  {line}")
-    if bad:
-        raise SystemExit(f"{len(bad)} field audit finding(s). See RUNBOOK-github.md section 8.")
+    if not a.quarantine:
+        if bad:
+            raise SystemExit(f"{len(bad)} field audit finding(s). See RUNBOOK-github.md section 8.")
+        return 0
+    lost = [p for p, _, _ in moved(got)]
+    files = quarantine(lost) if lost else []
+    for f in files:
+        print(f"  quarantined {f}: its last committed capture is published instead")
+    outcomes = [{"id": f"fieldaudit:{p}", "ok": False, "stage": "checks",
+                 "error": "a selector has probably moved; the last good capture is published"}
+                for p in lost]
+    wide = [l for l in bad if not any(l.startswith(f"{p}:") for p in lost)]
+    outcomes.append({"id": "fieldaudit", "ok": not wide, "stage": "checks",
+                     "error": "; ".join(wide)[:300]})
+    if a.report:
+        import json
+        rp = pathlib.Path(a.report)
+        got_r = json.loads(rp.read_text()) if rp.exists() else []
+        rp.write_text(json.dumps(got_r + outcomes, ensure_ascii=False, indent=1))
+    # TELL THE WORKFLOW TO COMPILE AGAIN, because the store it holds was built from what was just
+    # set back.
+    import os
+    if os.environ.get("GITHUB_OUTPUT"):
+        with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+            fh.write(f"rebuild={'yes' if files else 'no'}\n")
+    print(f"{len(bad)} finding(s); {len(files)} file(s) quarantined across {len(lost)} platform(s)")
     return 0
 
 

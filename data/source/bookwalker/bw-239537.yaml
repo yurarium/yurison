@@ -4,7 +4,7 @@
 # shop says is all there is. Joined presumptively on its title, and a title that
 # already names a work we hold went to data/queue/bw-review.yaml instead of here.
 source: bookwalker
-retrieved: 2026-08-05
+retrieved: 2026-10-15
 work_id: "bw-239537"
 record_type: retailer_work_record
 shop_id: "239537"
@@ -14,10 +14,10 @@ title:
 creator: "宇崎うそ"
 publisher: "芳文社"
 imprint: "まんがタイムKRコミックス"
-volume_count: 4
+volume_count: 5
 first_published: "2020-04-11"
 venue: "芳文社"
-completed: false
+completed: true
 volumes:
   - title: "ななどなどなど　１巻"
     number: "1"
@@ -32,10 +32,13 @@ volumes:
   - title: "【最新刊】ななどなどなど　４巻"
     number: "4"
     delivered: "2024-12-25"
+  - title: "【最新刊】ななどなどなど　５巻"
+    number: "5"
+    delivered: "2026-09-26"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
-    retrieved: 2026-08-05
+    retrieved: 2026-10-15
     note: >-
       A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
       rebuttable, and never a marketing_label (§4).
@@ -43,7 +46,7 @@ marketing_label: none
 marketing_label_basis:
   source: bookwalker
   url: "https://bookwalker.jp/series/239537/"
-  retrieved: 2026-08-05
+  retrieved: 2026-10-15
   note: >-
     Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
     labelling (§4), so this axis stays `none`, which says nothing about content.

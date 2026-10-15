@@ -278,7 +278,7 @@ works:
   - work_title: "志乃と恋"
     platform_code: "KC_000076_S"
     url: "https://comic-walker.com/detail/KC_000076_S"
-    status: "unknown"
+    status: "ongoing"
     marketing_label: "yuri"
     tags: ["百合"]
     authors: ["千種みのり"]
@@ -287,6 +287,8 @@ works:
       url: "https://comic-walker.com/detail/KC_000076_S"
       retrieved: "2026-10-16"
       note: "Publisher applies the tag 百合 on カドコミ."
+    stated_schedule:
+      next_update_undecided: true
     chapter_count: 47
     chapters:
       - code: "KC_0000760005000011_E"
@@ -14003,10 +14005,12 @@ works:
         title: "第21話"
         updated: "2025-04-21"
         access_modes: ["free"]
+        free_until: "2026-11-30"
       - code: "KC_0059740002100011_E"
         title: "第20話"
         updated: "2025-04-14"
         access_modes: ["free"]
+        free_until: "2026-11-30"
       - code: "KC_0059740002000011_E"
         title: "第19話"
         updated: "2025-04-07"
@@ -15056,7 +15060,7 @@ works:
     url: "https://comic-walker.com/detail/KC_006303_S"
     status: "finished"
     marketing_label: "yuri"
-    tags: ["日常系", "現代", "ほのぼの", "笑える", "癒やされる", "百合", "ショート", "同居", "働く女子", "社会人", "クセになる", "ギャップ女子", "生活・ライフスタイル", "妹", "女子大生"]
+    tags: ["日常系", "現代", "ほのぼの", "笑える", "癒やされる", "百合", "ショート", "同居", "働く女子", "クセになる", "社会人", "ギャップ女子", "生活・ライフスタイル", "妹", "女子大生"]
     authors: ["渡りに船"]
     marketing_label_basis:
       source: kadokomi
@@ -17469,14 +17473,16 @@ works:
       retrieved: "2026-10-16"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-15"
-    chapter_count: 10
+      next_update: "2026-11-12"
+    chapter_count: 11
     chapters:
+      - code: "KC_0072200001200011_E"
+        title: "第6話"
+        updated: "2026-10-15"
+        access_modes: ["free"]
       - code: "KC_0072200001100011_E"
         title: "第5話"
         updated: "2026-09-10"
-        access_modes: ["free"]
-        free_until: "2026-10-15"
       - code: "KC_0072200000900011_E"
         title: "特別編"
         updated: "2026-08-06"
@@ -18941,6 +18947,7 @@ works:
         title: "第6話①"
         updated: "2026-10-09"
         access_modes: ["free"]
+        free_until: "2026-11-06"
       - code: "KC_0169820000600021_E"
         title: "第5話②"
         updated: "2026-09-25"
@@ -19440,9 +19447,13 @@ works:
       retrieved: "2026-10-16"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-15"
-    chapter_count: 2
+      next_update_undecided: true
+    chapter_count: 3
     chapters:
+      - code: "KC_0200170000300021_E"
+        title: "第2話-2"
+        updated: "2026-10-15"
+        access_modes: ["free"]
       - code: "KC_0200170000300011_E"
         title: "第2話-1"
         updated: "2026-10-01"
@@ -23673,10 +23684,12 @@ works:
         title: "第18話後編"
         updated: "2026-08-20"
         access_modes: ["free"]
+        free_until: "2026-10-29"
       - code: "KC_0050710002100011_E"
         title: "第18話前編"
         updated: "2026-07-16"
         access_modes: ["free"]
+        free_until: "2026-10-29"
       - code: "KC_0050710002000011_E"
         title: "第17話"
         updated: "2026-05-28"

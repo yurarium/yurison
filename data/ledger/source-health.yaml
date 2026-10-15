@@ -9,6 +9,18 @@ sources:
     stage: stage-post
     last_ok: '2026-10-16'
     consecutive: 0
+  bookwalker-shelf:
+    stage: stage-print
+    last_ok: '2026-10-16'
+    consecutive: 0
+  bookwalker-volumes:
+    stage: stage-print
+    last_ok: '2026-10-16'
+    consecutive: 0
+  bwingest:
+    stage: stage-print
+    last_ok: '2026-10-16'
+    consecutive: 0
   bylines:
     stage: stage-post
     last_ok: '2026-10-16'
@@ -19,6 +31,17 @@ sources:
     consecutive: 0
   claims-trace:
     stage: stage-post
+    last_ok: '2026-10-16'
+    consecutive: 0
+  cmoa-shelf:
+    stage: stage-print
+    consecutive: 1
+    last_failed: '2026-10-16'
+    failing_since: '2026-10-16'
+    error: 'net.Refused: www.cmoa.jp refused https://www.cmoa.jp/search/result/?genre_id=0000037&sort=14&page=1: HTTP 503 after 5 attempt(s)'
+    last_run: https://github.com/yurarium/yurison/actions/runs/38805987219
+  cmoa-volumes:
+    stage: stage-print
     last_ok: '2026-10-16'
     consecutive: 0
   comicboost:
@@ -43,11 +66,11 @@ sources:
     consecutive: 0
   fieldaudit:ヤンジャン+:
     stage: checks
-    consecutive: 2
+    consecutive: 3
     last_failed: '2026-10-16'
     failing_since: '2026-10-16'
     error: a selector has probably moved; the last good capture is published
-    last_run: https://github.com/yurarium/yurison/actions/runs/38789928874
+    last_run: https://github.com/yurarium/yurison/actions/runs/38805987219
   ganganonline:
     stage: stage-a
     last_ok: '2026-10-16'
@@ -151,10 +174,8 @@ sources:
   kadokomi:
     stage: stage-a
     last_ok: '2026-10-16'
-    consecutive: 1
+    consecutive: 0
     last_failed: '2026-10-16'
-    failing_since: '2026-10-16'
-    error: 'urllib.error.URLError: <urlopen error [Errno 104] Connection reset by peer>'
     last_run: https://github.com/yurarium/yurison/actions/runs/38789928874
   kadokomi-catalogue:
     stage: stage-0
@@ -208,6 +229,10 @@ sources:
     consecutive: 0
   self-test:
     stage: checks
+    last_ok: '2026-10-16'
+    consecutive: 0
+  shelfingest:
+    stage: stage-print
     last_ok: '2026-10-16'
     consecutive: 0
   shogakukan:
@@ -363,6 +388,36 @@ sources:
     last_ok: '2026-10-16'
     consecutive: 0
   stale:stage-post:shopquery:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-print:bookwalker-shelf:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-print:bookwalker-volumes:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-print:bwingest:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-print:cmoa-shelf:
+    stage: freshness
+    consecutive: 1
+    last_failed: '2026-10-16'
+    failing_since: '2026-10-16'
+    error: 1 file(s) past their age, e.g. data/queue/cmoa-yuri.yaml dated 2026-08-04
+    last_run: https://github.com/yurarium/yurison/actions/runs/38805987219
+  stale:stage-print:cmoa-volumes:
+    stage: freshness
+    consecutive: 1
+    last_failed: '2026-10-16'
+    failing_since: '2026-10-16'
+    error: 1 file(s) past their age, e.g. data/queue/cmoa-volumes.yaml dated 2026-08-05
+    last_run: https://github.com/yurarium/yurison/actions/runs/38805987219
+  stale:stage-print:shelfingest:
     stage: freshness
     last_ok: '2026-10-16'
     consecutive: 0

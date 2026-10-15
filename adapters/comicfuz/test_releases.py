@@ -191,5 +191,12 @@ def cache_age(s):
         fz.urllib.request.urlopen, fz.time.sleep = real_open, real_sleep
 
 
+    # BECOMING FREE IS LEAVING A PAID STATE. free to free-timed is a narrowing, not news.
+    s.check(fz.became_free("purchase", "free"), "paid to free became free")
+    s.check(fz.became_free("purchase", "free-timed"), "and so did paid to free-timed")
+    s.check(not fz.became_free("free", "free-timed"), "free to free-timed did not")
+    s.check(not fz.became_free("free-timed", "free"), "nor free-timed to free")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "comicfuz.releases"))

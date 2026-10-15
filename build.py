@@ -383,6 +383,57 @@ def platform_of(url, owners):
 _PLATFORM_IDS = None
 
 
+#: Where captures that date chapters live. Print and reference records date volumes, not chapters.
+CHAPTER_SOURCES = ("webpages", "gigaviewer", "comicfuz", "kadokomi", "nicovideo", "pixivcomic")
+
+
+def import_stamps(root="data/source"):
+    """`{(folded work, date, platform name)}` for every chapter date `importdates` reads as an import.
+
+    THE DAY A SOURCE LOADED A WORK, which the feed now leaves out, in this one place. `importdates` reads
+    a date a work's whole back catalogue shares, or one a platform stamped on everything at once,
+    as the day the source loaded it, and a work's row has always treated it so. Its releases did
+    not: when COMICリュウ moved to comici, every chapter of three running series was dated
+    2026-09-17, inside the window, and 120 chapters reached the feed as new, 第1話 of each as a new
+    series. A first fix applied it in one of the loops that build releases and missed the others,
+    which is why it is a set over every capture, applied once to the finished list.
+
+    Per file, because a stamp is a fact about how one source loaded its works; keyed by platform
+    too, so a stamp on one platform cannot hide a real release of the same work on another.
+    """
+    _SRC_PLAT = {"comicfuz": "COMIC FUZ", "kadokomi": "カドコミ", "nicovideo": "ニコニコ漫画"}
+    out = set()
+    for sub in CHAPTER_SOURCES:
+        for f in sorted(pathlib.Path(root, sub).glob("*.yaml")):
+            try:
+                d = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
+            except Exception:                                               # noqa: BLE001
+                continue
+            if not isinstance(d, dict) or not d.get("works"):
+                continue
+            fp = d.get("platform_name") or _SRC_PLAT.get(d.get("source")) or d.get("platform")
+            names = {}
+            for w in d["works"]:
+                if isinstance(w, dict) and w.get("work_title"):
+                    names[w["work_title"]] = _platform.canonical(w.get("platform_name") or fp)
+            for title, date in importdates.stamps(d["works"]):
+                out.add((norm_work(title), date, names.get(title)))
+    return out
+
+
+def without_imports(releases, stamped):
+    """The releases whose date is not an import stamp on their own platform. Access changes stay:
+    a chapter becoming free is an event whatever day the chapter was loaded."""
+    return [r for r in releases
+            if r.get("type") == _ser.ACCESS_CHANGE
+            or (norm_work(r.get("work") or ""), str(r.get("pub") or "")[:10],
+                _platform.canonical(r.get("plat_name"))) not in stamped]
+
+
+#: Capture files that read whatever platform a page is on, as against a platform's own adapter.
+ROUTES = frozenset({"remaining", "claim-resolved", "backfill"})
+
+
 def _release_pid(url, fallback):
     """The id a release address is built from: the platform's, or the capture's where unknown.
 
@@ -964,9 +1015,12 @@ def resolver_superseded(releases):
         return (norm_work(r.get("work") or ""), host_of(r.get("url")),
                 norm_work(r.get("ep") or ""))
 
+    # EVERY ROUTE, NOT ONLY ONE. Claim tracing and the backfill read pages a dedicated adapter also
+    # holds, the same way `remaining` does, and claim tracing's copy of COMICリュウ's chapters is
+    # what reached the feed on 2026-10-16 in place of the platform's own capture.
     covered = {key(r) for r in releases
-               if r.get("plat") != "remaining" and r.get("access_modes")}
-    return [r for r in releases if r.get("plat") != "remaining" or key(r) not in covered]
+               if r.get("plat") not in ROUTES and r.get("access_modes")}
+    return [r for r in releases if r.get("plat") not in ROUTES or key(r) not in covered]
 
 
 def load_platform_history(files):
@@ -4032,7 +4086,10 @@ def main():
         for w in d.get("works") or []:
             # A file that gathers works from several platforms states the platform per work; the
             # file-level name is empty there, and reading only that left 54 rows labelled "?".
-            pname_w = w.get("platform_name") or pname
+            # THE REGISTER'S SPELLING for the name a reader sees: claim tracing filed COMICリュウ's
+            # chapters under the antenna's COMICリュウライブ. `pid_w` stays the route that read the
+            # row, which is what `plat` records and what the dedupe of route rows keys on.
+            pname_w = _platform.canonical(w.get("platform_name") or pname)
             pid_w = w.get("platform") or pid
             # A work reached through editorial coverage was published before we heard of it —
             # 百合ナビ covers one-shots weeks late, and a one-shot is gone from every listing by
@@ -5076,8 +5133,16 @@ def main():
     for r in releases:
         series_titles.setdefault(norm_work(r["work"]), []).append(r.get("ep") or "")
 
+    releases[:] = without_imports(releases, import_stamps())
     for r in releases:
         ep = r.get("ep") or ""
+        # AN ACCESS CHANGE IS NOT AN INSTALMENT, and the rules below are about instalments. It went
+        # through them and came out `new-chapter` because the work was attested elsewhere, so 19
+        # chapters of 幸腹グラフィティ, years old, were drawn as 新話 on 2026-10-16.
+        if r.get("type") == _ser.ACCESS_CHANGE:
+            r["kind"] = "became-free"
+            r["kind_basis"] = "an earlier chapter the platform made free to read"
+            continue
         # Before the generic notice rule, because a skipped slot is a more specific and more useful
         # fact than "notice": it is dated, publisher-attested, and says the schedule was kept while
         # the chapter was not.

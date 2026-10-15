@@ -1509,3 +1509,9 @@ job. `bookwalker series unread` is the volume capture's own backlog, read down b
 | bookwalker series unread | 0 | 39 |
 | works whose first publication country is unattested | 2574 | 2657 |
 | volume rows with no publication date | 2436 | 2572 |
+
+## `credit fields an identifier does not cover` 153 to 154. Accepted 2026-10-16
+
+The feed now prefers a platform's own row to a route's copy of the same chapter (`ROUTES` in
+build.py), so メイド＆ロイドはお嬢様のお役に立ちたい！ is drawn from サンデーうぇぶり's capture rather than
+the backfill's, and that row writes its credit field in a spelling no identifier holds yet.

@@ -125,6 +125,49 @@ def continues(work, date):
             and min(on) > max(earlier))
 
 
+#: The share of a source's works one day must carry to be the day the source loaded them.
+MIGRATION_SHARE = 0.25
+
+
+def migrations(works):
+    """The dates most of a source's works share, which is the day it loaded them.
+
+    A 第1話 ON SUCH A DAY IS PART OF THE LOAD, not a launch: 一迅プラス's 2025-08-08 carries 134 of
+    its works, and ハロー、メランコリック！'s lone 第1話 among them was excused as a launch for a
+    day. Keyed on scale rather than on whether some work loaded a back catalogue that day, because
+    カドコミ puts five to eight chapters of a work up at once in its ordinary course: its
+    2026-09-28 holds three such works among nine, and a series launching beside them is a launch.
+    """
+    ws = [w for w in works or [] if isinstance(w, dict)]
+    days = collections.Counter(d for w in ws for d in _chapters_per_date(w))
+    floor = max(SPREAD, MIGRATION_SHARE * len(ws))
+    return {d for d, n in days.items() if n >= floor}
+
+
+def launches(work, date):
+    """Whether this work's first day in the source is `date`, starting at its first instalment.
+
+    THE OTHER HALF OF `continues`, from the same Thursday. ぎるてぃらいぶらり launched on マガポケ
+    on 2026-10-08 with 第1話 and 第2話, the launch 百合ナビ announced, and the platform-wide test read
+    that day as an import because three other works posted on it too. A launch is the start of a
+    run, numbered from 1, a chapter or two at most: an import brings a back catalogue, which is
+    longer, or which starts somewhere other than 1. True only where nothing is dated before
+    `date` in this source, every instalment on it is numbered, the lowest is 1, and there are no
+    more than `DAY`.
+    """
+    before, on = False, []
+    for c in (work.get("chapters") or []):
+        if not (isinstance(c, dict) and c.get("updated")):
+            continue
+        d = str(c["updated"])[:10]
+        if d < date:
+            before = True
+        elif d == date:
+            on.append(_number(c.get("title")))
+    return (not before and bool(on) and None not in on and min(on) == 1
+            and len(set(on)) <= DAY)
+
+
 def platform_wide(works):
     """Dates on which this source appears to have imported much of its catalogue at once."""
     by_date = collections.defaultdict(list)
@@ -149,19 +192,21 @@ def stamps(works):
     is a stamp for every work sitting on it, including the work that only has two chapters there:
     the date says when the source imported, and it says that whatever a given work contributed.
 
-    EXCEPT A WORK WHOSE CHAPTERS THAT DAY CONTINUE ITS RUN (`continues`). The platform-wide test
+    EXCEPT A WORK WHOSE CHAPTERS THAT DAY CONTINUE ITS RUN (`continues`) OR START IT (`launches`). The platform-wide test
     infers an import from the shape of a day, and an ordinary busy day can have that shape; the
     work's own numbering is direct evidence and outranks it. The per-work test is not excused,
     because a late load of a work's remaining chapters continues its numbering too and brings five
     at once.
     """
     wide = platform_wide(works)
+    bulk = migrations(works)
     out = set()
     for w in works:
         if not isinstance(w, dict):
             continue
         title = w.get("work_title")
         for d, n in _chapters_per_date(w).items():
-            if n >= RUN or (d in wide and not continues(w, d)):
+            if n >= RUN or (d in wide and not continues(w, d)
+                            and not (launches(w, d) and d not in bulk)):
                 out.add((title, d))
     return out

@@ -828,6 +828,7 @@ def series_addresses(s):
     print_runs(s)
     volume_designations(s)
     volume_merge(s)
+    import_dated(s)
 
 
 def volume_merge(s):
@@ -1048,6 +1049,33 @@ def edition_names(s):
     s.eq(graft("球詠【単話版】", {"球詠": {"basis": "romaji"}}), {},
          "a base with no English of its own hands none across")
     s.eq(graft("知らない作品【単話版】", named), {}, "and a work with no base at all is left alone")
+
+
+
+def import_dated(s):
+    """A chapter dated on an import day is not an update, on whichever path it reached the feed."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        src = pathlib.Path(d, "webpages")
+        src.mkdir()
+        chapters = "".join(f'      - {{title: "第{k}話", updated: 2026-09-17}}\n' for k in range(1, 13))
+        (src / "ryu.yaml").write_text(
+            "platform: comic-ryu\nplatform_name: COMICリュウ\nworks:\n"
+            "  - work_title: 私の魂を食べて下さい!\n    chapters:\n" + chapters, encoding="utf-8")
+        stamped = b.import_stamps(d)
+    s.check((b.norm_work("私の魂を食べて下さい!"), "2026-09-17", "COMICリュウ") in stamped,
+            "twelve chapters on one day are an import on that platform")
+    rel = [{"work": "私の魂を食べて下さい!", "pub": "2026-09-17", "plat_name": "COMICリュウライブ",
+            "type": "chapter"},
+           {"work": "私の魂を食べて下さい!", "pub": "2026-09-17", "plat_name": "BOOK☆WALKER",
+            "type": "chapter"},
+           {"work": "私の魂を食べて下さい!", "pub": "2026-09-17", "plat_name": "COMICリュウ",
+            "type": "access-change"}]
+    kept = b.without_imports(rel, stamped)
+    s.eq([(r["plat_name"], r["type"]) for r in kept],
+         [("BOOK☆WALKER", "chapter"), ("COMICリュウ", "access-change")],
+         "dropped on its own platform under any spelling of it; another platform and an access "
+         "change stay")
 
 
 if __name__ == "__main__":

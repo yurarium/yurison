@@ -82,6 +82,14 @@ def page_props(html):
     return json.loads(m.group(1)).get("props", {}).get("pageProps")
 
 
+FREE = ("free", "free-timed")
+
+
+def became_free(was, now):
+    """Whether a chapter that read `was` and now reads `now` became readable without paying."""
+    return now in FREE and was not in FREE
+
+
 def access_of(chapter):
     """FUZ has FOUR access states, not two, and this used to collapse them into two.
 
@@ -289,7 +297,9 @@ def main():
             if was and now and was != now:
                 c["access_changed"] = f"{was} -> {now}"
                 c["access_changed_on"] = a.retrieved
-                if now in ("free", "free-timed"):
+                # FROM A PAID STATE ONLY. 幸腹グラフィティ moved from `free` to `free-timed` on
+                # 2026-10-16, a narrowing, and all 32 chapters entered the feed as newly free.
+                if became_free(was, now):
                     c["became_free"] = True
                 flips += 1
 

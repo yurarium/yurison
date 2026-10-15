@@ -68,12 +68,29 @@ def main(s):
                  ("【第4話(2)】 前編", "2026-10-08")),
             work("launch", ("【第1話】", "2026-10-08"), ("【第2話】", "2026-10-08")),
             work("one", ("【一膳目】", "2026-10-08"))]
+    # The rest of the platform, which updated on other days: four of forty works, as on マガポケ.
+    busy += [work(f"other{i}", ("【第%d話】" % (i + 2), "2026-09-%02d" % (i % 28 + 1)))
+             for i in range(36)]
     s.check("2026-10-08" in im.platform_wide(busy), "the busy day still has an import's shape")
     busy_got = im.stamps(busy)
     s.check(("aihei", "2026-10-08") not in busy_got, "a chapter continuing its run is a publication")
     s.check(("kaiju", "2026-10-08") not in busy_got, "and so is a two-part instalment that continues it")
-    s.check(("launch", "2026-10-08") in busy_got,
-            "a work with nothing earlier is left to the day's shape, as before")
+    # A LAUNCH IS A PUBLICATION TOO, changed on 2026-10-16: this was asserted the other way, and
+    # ぎるてぃらいぶらり's real launch on that Thursday left the updates feed for it.
+    s.check(("launch", "2026-10-08") not in busy_got,
+            "a run starting at 第1話, two instalments at most, is a launch")
+    s.check(im.launches(work("x", ("【第1話】", "2026-10-08")), "2026-10-08"), "one chapter launches")
+    s.check(not im.launches(work("x", *[("【第%d話】" % k, "2026-10-08") for k in (1, 2, 3)]),
+                            "2026-10-08"), "three at once is a back catalogue, not a launch")
+    s.check(not im.launches(work("x", ("【第1話】", "2026-09-01"), ("【第2話】", "2026-10-08")),
+                            "2026-10-08"), "a day with something before it is not the start")
+    s.check(not im.launches(work("x", ("【第4話】", "2026-10-08")), "2026-10-08"),
+            "and a first sighting at 第4話 is not either")
+    # A 第1話 LOADED ON A MIGRATION DAY IS PART OF THE MIGRATION.
+    moved = [work(f"m{i}", *[("第%d話" % k, "2025-08-08") for k in range(1, 9)]) for i in range(4)]
+    moved += [work("lone", ("第1話", "2025-08-08"))]
+    s.check(("lone", "2025-08-08") in im.stamps(moved),
+            "a lone 第1話 on a day other works loaded back catalogues is stamped with them")
     s.check(("one", "2026-10-08") in busy_got, "and so is one whose title states no number")
 
     # THE COUNTER-CASES CONTINUITY MUST NOT EXCUSE. A back catalogue filled in behind chapters

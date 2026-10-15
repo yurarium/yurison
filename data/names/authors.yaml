@@ -31756,6 +31756,25 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A23415900000
     verified: true
+  渡辺 零:
+    basis: romaji
+    furigana_spans:
+    - - 渡辺
+      - わたなべ
+    - - ' '
+      - null
+    - - 零
+      - れい
+    reading: ワタナベ レイ
+    reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   渡辺零:
     basis: romaji
     furigana_spans:
@@ -34258,6 +34277,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I030707279
     verified: true
+  矢嶋こずみ:
+    basis: romaji
+    furigana_spans:
+    - - 矢嶋
+      - やじま
+    - - こずみ
+      - null
+    reading: ヤジマコズミ
+    reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   矢田ネドコ:
     basis: romaji
     furigana_spans:
@@ -41927,6 +41962,25 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1060480
     verified: true
+  駿馬 京:
+    basis: romaji
+    furigana_spans:
+    - - 駿馬
+      - しゅんば
+    - - ' '
+      - null
+    - - 京
+      - きょう
+    reading: シュンバ キョウ
+    reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   駿馬京:
     basis: romaji
     reading: シュンメ ケイ

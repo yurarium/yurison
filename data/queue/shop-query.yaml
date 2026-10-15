@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-10-15
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 236
+  hits_agreeing_on_a_creator: 242
   hits_on_the_title_alone: 102
-  hits_stating_a_print_edition_date: 196
-  works_asked: 816
-  works_with_a_hit: 245
+  hits_stating_a_print_edition_date: 199
+  works_asked: 824
+  works_with_a_hit: 251
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -554,6 +554,22 @@ works:
     platform: "webアクション"
     query: "author"
     retrieved: "2026-08-07"
+    hits:
+      - series_url: null
+        title_listed: "SAL"
+        shop_author: "Sal Jiang"
+        imprint: "アクションコミックス"
+        publisher: "双葉社"
+        printed: "2022/4/21"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://comic-action.com/episode/14079602755480532358"
+    id: "w00782"
+    work: "SAL"
+    author: "Sal Jiang"
+    platform: "webアクション"
+    query: "author"
+    retrieved: "2026-10-15"
     hits:
       - series_url: null
         title_listed: "SAL"
@@ -1386,6 +1402,22 @@ works:
     platform: "コミックDAYS"
     query: "author"
     retrieved: "2026-08-07"
+    hits:
+      - series_url: "https://bookwalker.jp/series/268262/list/"
+        title_listed: "その恋よきにはからえ！（コミッククリエイト）"
+        shop_author: "クスミ(著)"
+        imprint: "コミッククリエイト"
+        publisher: "講談社"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
+  - work_url: "https://comic-days.com/episode/3269754496519423985"
+    id: "w00968"
+    work: "その恋よきにはからえ!"
+    author: "クスミ"
+    platform: "コミックDAYS"
+    query: "author"
+    retrieved: "2026-10-15"
     hits:
       - series_url: "https://bookwalker.jp/series/268262/list/"
         title_listed: "その恋よきにはからえ！（コミッククリエイト）"
@@ -4552,6 +4584,23 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421983782047532"
+    id: "w00262"
+    work: "レンアイ♥女子課"
+    author: "森島 明子"
+    platform: "一迅プラス"
+    query: "author"
+    retrieved: "2026-10-15"
+    hits:
+      - series_url: "https://bookwalker.jp/series/20408/list/"
+        title_listed: "レンアイ♥女子課"
+        shop_author: "森島明子"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        printed: "2010/9/18"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://ichicomi.com/episode/12207421983782265302"
     id: "w00265"
     work: "女の子合わせ"
@@ -4559,6 +4608,22 @@ works:
     platform: "一迅プラス"
     query: "author"
     retrieved: "2026-08-07"
+    hits:
+      - series_url: null
+        title_listed: "女の子合わせ"
+        shop_author: "森島明子"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        printed: "2013/5/18"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421983782265325"
+    id: "w00265"
+    work: "女の子合わせ"
+    author: "森島 明子"
+    platform: "一迅プラス"
+    query: "author"
+    retrieved: "2026-10-15"
     hits:
       - series_url: null
         title_listed: "女の子合わせ"
@@ -4603,6 +4668,21 @@ works:
     hits:
       - series_url: null
         title_listed: "溺愛理想主義 岩見樹代子作品集【イラスト特典付】"
+        shop_author: "岩見樹代子"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421983829237040"
+    id: "w00240"
+    work: "偏愛至上主義～岩見樹代子作品集～"
+    author: "岩見樹代子"
+    platform: "一迅プラス"
+    query: "author"
+    retrieved: "2026-10-15"
+    hits:
+      - series_url: null
+        title_listed: "偏愛至上主義 岩見樹代子作品集【イラスト特典付】"
         shop_author: "岩見樹代子"
         imprint: "百合姫コミックス"
         publisher: "一迅社"
@@ -4750,6 +4830,16 @@ works:
     author: "まにお"
     platform: "一迅プラス"
     retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984222532879"
+    id: "w03275"
+    work: "聖なる姫のかくしごと"
+    author: "葵季むつみ"
+    platform: "一迅プラス"
+    retrieved: "2026-10-15"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -5426,6 +5516,16 @@ works:
     author: "えなかあきひ"
     platform: "くらげバンチ"
     retrieved: "2026-08-07"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://kuragebunch.com/episode/12207421983458660590"
+    id: "w00337"
+    work: "メイドのベル"
+    author: "えなかあきひ"
+    platform: "くらげバンチ"
+    retrieved: "2026-10-15"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -8405,6 +8505,22 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://tonarinoyj.jp/episode/2550912964971198667"
+    id: "w00689"
+    work: "清田さんは汚されたい!?"
+    author: "古田朋大 / おーうち"
+    platform: "となりのヤングジャンプ"
+    query: "author"
+    retrieved: "2026-10-15"
+    hits:
+      - series_url: "https://bookwalker.jp/series/456926/list/"
+        title_listed: "清田さんは汚されたい！？（ヤングジャンプコミックスDIGITAL）"
+        shop_author: "古田朋大(原作) おーうち(作画)"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        agreement: "creator"
+        volumes_stated: 3
+        completed_marker: true
   - work_url: "https://tonarinoyj.jp/episode/2550912965159409071"
     id: "w00587"
     work: "天使と書いて悪魔と読む。逆もまた然り。"

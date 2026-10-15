@@ -6,7 +6,7 @@ source: yurinavi-webyuri
 role: coverage-yardstick
 retrieved: 2026-10-15
 record_type: coverage_gap
-works_listed: 132
+works_listed: 134
 platforms_total: 26
 platforms_watched: 18
 works_on_watched_platforms: 99
@@ -41,9 +41,15 @@ platforms:
   - platform: "Seasons"
     works: 2
     watched: true
+  - platform: "マガポケ"
+    works: 2
+    watched: false
   - platform: "コミックオギャー!!"
     works: 2
     watched: true
+  - platform: "一迅社プラス"
+    works: 2
+    watched: false
   - platform: "pixivコミック"
     works: 1
     watched: true
@@ -65,9 +71,6 @@ platforms:
   - platform: "やわらかスピリッツ"
     works: 1
     watched: true
-  - platform: "マガポケ"
-    works: 1
-    watched: false
   - platform: "webアクション"
     works: 1
     watched: true
@@ -78,9 +81,6 @@ platforms:
     works: 1
     watched: true
   - platform: "マグコミ"
-    works: 1
-    watched: false
-  - platform: "一迅社プラス"
     works: 1
     watched: false
   - platform: "COMIC OGYAAA!!"
@@ -708,6 +708,12 @@ works:
     watched_platform: true
     title: "超かぐやメシ！"
     url: "https://bibibi-comic.com/series/41de76fc8df5f"
+  - raw: "ぎるてぃらいぶらり 閉伊川広輔"
+    platform: "マガポケ"
+    last_update_seen: 10-15
+    watched_platform: false
+    title: "ぎるてぃらいぶらり"
+    url: "https://pocket.shonenmagazine.com/title/03349/episode/444684"
   - raw: "怨霊日和 イマイ悠"
     platform: "マガポケ"
     last_update_seen: 10-30
@@ -828,6 +834,12 @@ works:
     watched_platform: true
     title: "骨に願いを、星に呪いを"
     url: "https://ichicomi.com/episode/12207421984089197897"
+  - raw: "残骸少女、きらきらな世界の底 うさみみき"
+    platform: "一迅社プラス"
+    last_update_seen: 10-15
+    watched_platform: false
+    title: "残骸少女、きらきらな世界の底"
+    url: "https://ichicomi.com/episode/12207421984222532901"
   - raw: "聖なる姫のかくしごと 葵季むつみ"
     platform: "一迅社プラス"
     last_update_seen: 10-15

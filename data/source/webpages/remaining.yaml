@@ -3125,12 +3125,16 @@ works:
     url: "https://comic-days.com/episode/2550912965415315207"
     platform_name: "コミックDAYS"
     route: "gigaviewer"
-    chapter_count: 39
+    chapter_count: 40
     chapters:
+      - title: "３７冊目：エデンの外へ..."
+        updated: 2026-10-15
+        author: "破賀ミチル"
+        access_modes: ["purchase"]
       - title: "３６冊目：禁忌の会話"
         updated: 2026-10-01
         author: "破賀ミチル"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "３５冊目：オタクライフハック3選"
         updated: 2026-09-17
         author: "破賀ミチル"
@@ -3138,7 +3142,7 @@ works:
       - title: "３４冊目：好きだから(後編)"
         updated: 2026-09-03
         author: "破賀ミチル"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "３３冊目：好きだから(前編)"
         updated: 2026-08-20
         author: "破賀ミチル"
@@ -4974,11 +4978,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-10-14
+        updated: 2026-10-15
         access_modes: ["free"]
         date_basis: heuristic
       - title: "Vol.2"
-        updated: 2026-10-14
+        updated: 2026-10-15
         access_modes: ["free"]
         date_basis: heuristic
   - work_title: "ナキノン"
@@ -5112,7 +5116,7 @@ works:
       - title: "第6話"
         updated: 2026-08-18
         author: "餡実ツキ"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話"
         updated: 2026-05-18
         author: "餡実ツキ"

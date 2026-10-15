@@ -46,6 +46,12 @@ AGE_GATED = "age_gated"
 SERVES_WORKS = "serves_works"
 
 
+#: Capture routes that read whatever platform a page is on, as against a platform's own adapter.
+#: A selector belongs to a platform's adapter, so these neither speak for a platform's fields (the
+#: field audit) nor stand beside its own copy of a chapter (the feed). One list, asked by both.
+ROUTES = frozenset({"remaining", "claim-resolved", "backfill", "bylines"})
+
+
 def registered():
     """Every platform either register holds, as `{name, id, publisher, host}` rows.
 

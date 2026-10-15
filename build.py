@@ -430,8 +430,8 @@ def without_imports(releases, stamped):
                 _platform.canonical(r.get("plat_name"))) not in stamped]
 
 
-#: Capture files that read whatever platform a page is on, as against a platform's own adapter.
-ROUTES = frozenset({"remaining", "claim-resolved", "backfill"})
+#: The capture routes that are not a platform's own adapter, from the one list `facts/platform` keeps.
+ROUTES = _platform.ROUTES
 
 
 def _release_pid(url, fallback):

@@ -63,6 +63,13 @@ def main(s):
     # way, and half its rows is what tells a moved selector from a work published without a byline.
     lost = _rows([("A", "", "作者", 1)] * 3 + [("A", "第1話", "作者", 1)])
     s.eq(fieldaudit.moved(lost), [("A", 3, 4)], "three of four rows is a platform that lost it")
+    # A GENERAL ROUTE NEVER READ THE FIELD, so its rows say nothing about a platform's selector.
+    s.eq(fieldaudit.moved(_rows([("ヤンジャン+", "特別読切", "", 0)] * 3, route="remaining")), [],
+         "three byline-less rows the remaining route read are not a moved selector")
+    got = _rows([("A", "第1話", "作者", 1), ("B", "", "", 0)])
+    out = {o["id"]: o["ok"] for o in fieldaudit.audit_outcomes(got, ["B"], ["B: lost"])}
+    s.eq(out, {"fieldaudit:B": False, "fieldaudit:A": True, "fieldaudit": True},
+         "a failure for the moved platform, a pass for every other, so a recovery can close an issue")
     s.eq(fieldaudit.moved(_rows([("A", "", "作者", 1)] * 2 + [("A", "第1話", "作者", 1)] * 2)), [],
          "two is under the floor, whatever share of the platform it is")
     s.eq(fieldaudit.moved(_rows([("A", "", "作者", 1)] * 3 + [("A", "第1話", "作者", 1)] * 4)), [],

@@ -28,6 +28,7 @@ import pathlib
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from facts import platform as _platform                                  # noqa: E402
 
 #: A PLATFORM HAS LOST A FIELD WHEN IT HAS LOST MOST OF ITS OWN ROWS. Three is the floor because a
 #: platform publishing one or two updates in a window says nothing either way, and half its rows is
@@ -113,7 +114,13 @@ def unpriced(got, silent_routes=None):
 
 
 def moved(got):
-    """`[(platform, lost, total)]` for every platform that lost the field across its own rows."""
+    """`[(platform, lost, total)]` for every platform that lost the field across its own rows.
+
+    ITS OWN ROWS: those its own adapter read. A general route reads whatever page it is pointed at
+    and never read a byline in the first place, so three ヤンジャン+ one-shots that only `remaining`
+    reaches were judged a moved selector run after run, and opened an issue for one on 2026-10-16.
+    """
+    got = [r for r in got if r.get("route") not in _platform.ROUTES]
     seen = collections.Counter(r["plat"] for r in got)
     lost = collections.Counter(r["plat"] for r in unnamed(got))
     return sorted((p, n, seen[p]) for p, n in lost.items()
@@ -198,6 +205,24 @@ def quarantine(platforms, root="."):
     return files
 
 
+def audit_outcomes(got, lost, bad):
+    """What one audit tells `runhealth.py`: a failure per platform whose selector moved, a pass for
+    every other platform it saw, and one outcome for the findings no single platform explains.
+
+    THE PASSES MATTER as much as the failures, because `runhealth` only learns that a source
+    recovered from an outcome saying so. Reporting failures alone left the ヤンジャン+ issue open
+    with nothing that could ever close it.
+    """
+    out = [{"id": f"fieldaudit:{p}", "ok": False, "stage": "checks",
+            "error": "a selector has probably moved; the last good capture is published"}
+           for p in lost]
+    out += [{"id": f"fieldaudit:{p}", "ok": True, "stage": "checks"}
+            for p in sorted({r["plat"] for r in got if r.get("plat")} - set(lost))]
+    wide = [l for l in bad if not any(l.startswith(f"{p}:") for p in lost)]
+    out.append({"id": "fieldaudit", "ok": not wide, "stage": "checks", "error": "; ".join(wide)[:300]})
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--quiet", action="store_true", help="the counts alone")
@@ -228,12 +253,7 @@ def main(argv=None):
     files = quarantine(lost) if lost else []
     for f in files:
         print(f"  quarantined {f}: its last committed capture is published instead")
-    outcomes = [{"id": f"fieldaudit:{p}", "ok": False, "stage": "checks",
-                 "error": "a selector has probably moved; the last good capture is published"}
-                for p in lost]
-    wide = [l for l in bad if not any(l.startswith(f"{p}:") for p in lost)]
-    outcomes.append({"id": "fieldaudit", "ok": not wide, "stage": "checks",
-                     "error": "; ".join(wide)[:300]})
+    outcomes = audit_outcomes(got, lost, bad)
     if a.report:
         import json
         rp = pathlib.Path(a.report)

@@ -6,118 +6,517 @@ platform: heros-web
 platform_name: "HERO'S Web"
 publisher: "ヒーローズ"
 engine: comici
-retrieved: 2026-10-15
+retrieved: 2026-10-16
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "とくにある日々"
     status: "完結"
     author: "なか憲人"
-    url: "https://viewer.heros-web.com/episode/3269632237305675090"
-    chapter_count: 10
+    url: "https://heros-web.com/episodes/0e89b1ef6a1ac"
+    chapter_count: 112
     chapters:
-      - title: "最終話（コミックス第８巻でも最終話）"
+      - title: "１話"
         updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "102話（コミックス第８巻では107話）"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "101話（コミックス第８巻では106話）"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "100話（コミックス第８巻では105話）"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "99話（コミックス第８巻では104話）"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "５話"
-        updated: "2026-02-01"
-        access_modes: ["free-timed"]
-      - title: "４話"
+        access_modes: ["free"]
+      - title: "２話"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
       - title: "３話"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "２話"
+      - title: "４話"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "１話"
+      - title: "５話"
         updated: "2026-02-01"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+      - title: "６話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "７話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "８話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "９話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "10話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "11話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "12話（コミックス第２巻では20話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "13話（コミックス第１巻では12話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "14話（コミックス第１巻では13話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "15話（コミックス第１巻では14話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "16話（コミックス第１巻では15話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "17話（コミックス第２巻では19話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "18話（コミックス第１巻では16話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "19話（コミックス第２巻では17話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "20話（コミックス第２巻では21話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "21話（コミックス第２巻では22話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "22話（コミックス第２巻では23話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "23話（コミックス第２巻では25話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "24話（コミックス第２巻では26話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "25話（コミックス第２巻では27話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "26話（コミックス第２巻では28話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "27話（コミックス第２巻では29話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "28話（コミックス第２巻では30話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "29話（コミックス第２巻では31話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "30話（コミックス第３巻では41話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "31話（コミックス第２巻では32話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "32話（コミックス第３巻では33話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "33話（コミックス第３巻では44話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "34話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "35話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "36話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "37話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "38話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "39話（コミックス第４巻では45話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "40話（コミックス第３巻では39話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "41話（コミックス第３巻では40話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "42話（コミックス第４巻では46話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "43話（コミックス第４巻では47話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "44話（コミックス第３巻では43話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "閑話休題①"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "閑話休題②（コミックス第３巻では42話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "閑話休題③（コミックス第５巻では69話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "45話（コミックス第４巻では48話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "閑話休題④（コミックス第５巻では64話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "閑話休題⑤（コミックス第４巻では50話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "閑話休題⑥"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "46話（コミックス第４巻では49話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "47話（コミックス第４巻では61話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "48話（コミックス第４巻では51話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "49話（コミックス第４巻では52話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "50話（コミックス第４巻では53話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "51話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "閑話休題⑦"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "52話（コミックス第４巻では54話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "53話（コミックス第４巻では55話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "54話（コミックス第４巻では56話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "とくにある夏のショート（コミックス第４巻では57話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "55話（コミックス第４巻では58話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "56話（コミックス第４巻では59話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "とくにある夏のショート２"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "57話（コミックス第４巻では60話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "58話（コミックス第５巻では62話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "59話（コミックス第５巻では63話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "60話 とくにある秋のショート（コミックス第５巻では64話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "61話（コミックス第５巻では65話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "62話（コミックス第５巻では66話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "63話（コミックス第５巻では67話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "64話（コミックス第５巻では68話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "65話（コミックス第５巻では70話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "66話（コミックス第５巻では71話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "67話（コミックス第５巻では72話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "68話（コミックス第５巻では73話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "69話（コミックス第６巻では74話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "70話（コミックス第６巻では77話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "71話（コミックス第６巻では78話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "72話（コミックス第６巻では76話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "73話（コミックス第６巻では79話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "74話（コミックス第６巻では75話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "75話（コミックス第６巻では80話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "76話（コミックス第６巻では81話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "77話（コミックス第６巻では82話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "78話（コミックス第６巻では83話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "79話（コミックス第６巻では84話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "80話（コミックス第６巻では85話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "81話（コミックス第６巻では86話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "82話（コミックス第７巻では89話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "83話（コミックス第７巻では88話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "84話（コミックス第７巻では87話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "85話（コミックス第７巻では90話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "86話（コミックス第７巻では91話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "87話（コミックス第７巻では92話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "88話（コミックス第７巻では93話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "89話（コミックス第７巻では94話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "90話（コミックス第７巻では95話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "91話（コミックス第７巻では96話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "92話（コミックス第７巻では97話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "93話（コミックス第７巻では98話）"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "94話（コミックス第８巻では99話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "95話（コミックス第８巻では100話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "96話（コミックス第８巻では101話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "97話（コミックス第８巻では102話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "98話（コミックス第８巻では103話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "99話（コミックス第８巻では104話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "100話（コミックス第８巻では105話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "101話（コミックス第８巻では106話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "102話（コミックス第８巻では107話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "最終話（コミックス第８巻でも最終話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
   - work_title: "のんちゃんとアカリ"
     status: "完結"
     author: "日日ねるこ"
-    url: "https://viewer.heros-web.com/episode/10834108156740407901"
-    chapter_count: 10
+    url: "https://heros-web.com/episodes/45c3818b6136c"
+    chapter_count: 36
     chapters:
-      - title: "第三十一話　呪"
+      - title: "第一話　絆"
         updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第三十話　別"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第二十九話　夏"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第二十八話　祷"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第二十七話　変"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第四.五話　玉"
-        updated: "2026-02-01"
-        access_modes: ["free-timed"]
-      - title: "第四話　髪"
+        access_modes: ["free"]
+      - title: "第二話　瞳"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
       - title: "第三話　想"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "第二話　瞳"
+      - title: "第四話　髪"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "第一話　絆"
+      - title: "第四.五話　玉"
         updated: "2026-02-01"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+      - title: "第五話　招"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第六話　怪"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第六.五話　和"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第七話　触"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第八話　同"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第九話　逢"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十話　泊"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十一話　戦"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十二話　友"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十三話　暮"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十四話　宴"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十四.五話　名"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十五話　直"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十五.五話　踊"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十六話　祭"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十七話　迷"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十七.五話　夢"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第十八話　離"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第十九話　劇"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十話　隠"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十一話　再"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十二話　映"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十三話　買"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十四話　似"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十五話　装"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十六話　遊"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十七話　変"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十八話　祷"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十九話　夏"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第三十話　別"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第三十一話　呪"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
   - work_title: "ストリーミング・ウォー"
     status: "完結"
     author: "シガマ"
-    url: "https://viewer.heros-web.com/episode/14079602755511903989"
-    chapter_count: 10
+    url: "https://heros-web.com/episodes/77213ecc077fb"
+    chapter_count: 15
     chapters:
-      - title: "最終話「生きてる限り行けるとこまで」"
+      - title: "第１話「だったらやってやる!!」"
         updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第13話「これが私の好きにしろだ!!」"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第12話「お前の両親なんだろ？」"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第11話「私とおそろいだね〜」"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第10話「最初はグー!!」"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第５話 「私を救ってくれた推し」"
-        updated: "2026-02-01"
-        access_modes: ["free-timed"]
-      - title: "第４話「天使の私が会わせてあげる!!」"
+        access_modes: ["free"]
+      - title: "第２話 「私やっぱり主役がいい!!」"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
       - title: "第３話「正義執行24時」"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "第２話 「私やっぱり主役がいい!!」"
+      - title: "第４話「天使の私が会わせてあげる!!」"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "第１話「だったらやってやる!!」"
+      - title: "第５話 「私を救ってくれた推し」"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第６話 「スミマセン ヨクワカリマセン」"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "単行本告知イラスト １"
         updated: "2026-02-01"
         access_modes: ["free"]
+      - title: "第７話「ここからが伝説の90秒だ!!」"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第８話「ばんばんばんばんばんばんばんばん!!」"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第９話「よくも私の推しを」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第10話「最初はグー!!」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第11話「私とおそろいだね〜」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第12話「お前の両親なんだろ？」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第13話「これが私の好きにしろだ!!」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "最終話「生きてる限り行けるとこまで」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
   - work_title: "ナキノン"
     status: "完結"
     author: "根岸岳春"
@@ -193,75 +592,195 @@ works:
   - work_title: "ブランクスペース"
     status: "完結"
     author: "熊倉献"
-    url: "https://viewer.heros-web.com/episode/13933686331689971929"
-    chapter_count: 10
+    url: "https://heros-web.com/episodes/1ba2f51952574"
+    chapter_count: 17
     chapters:
-      - title: "#17 空白の街"
+      - title: "#1 緑茶も紅茶も"
         updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#16 犬も星も"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#15 あらゆる曲がり角で"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#14 空白たち"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#13 飢えたるもの"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#5 文学"
-        updated: "2026-02-01"
-        access_modes: ["free-timed"]
-      - title: "#4 多足類"
+        access_modes: ["free"]
+      - title: "#2 風船"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
       - title: "#3 夏そして春"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "#2 風船"
+      - title: "#4 多足類"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "#1 緑茶も紅茶も"
+      - title: "#5 文学"
         updated: "2026-02-01"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+      - title: "#6 比喩・変身・銃"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#7 犬が吠える"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#8 わが空白"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#9　遺失物粉砕所"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#10 鳥"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#11 見えない"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#12 撃つべきもの"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#13 飢えたるもの"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#14 空白たち"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#15 あらゆる曲がり角で"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#16 犬も星も"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#17 空白の街"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
   - work_title: "今日から未来"
     status: "完結"
     author: "吉富昭仁"
-    url: "https://viewer.heros-web.com/episode/10834108156700245168"
-    chapter_count: 10
+    url: "https://heros-web.com/episodes/af63b3176c8bc"
+    chapter_count: 43
     chapters:
-      - title: "#20.5 今日から未来を好きにする"
+      - title: "#1 未来の告白"
         updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#20 未来は今から"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#19.5 パフュームレンズ"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#19 勝負のゆくえ"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#18.5 瑞希のヒミツ"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "#3 今日子の夢"
-        updated: "2026-02-01"
-        access_modes: ["free-timed"]
-      - title: "#2.5 ケーキパーティ"
+        access_modes: ["free"]
+      - title: "#1.5 未来の耳かき"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
       - title: "#2 RULE"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "#1.5 未来の耳かき"
+      - title: "#2.5 ケーキパーティ"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "#1 未来の告白"
+      - title: "#3 今日子の夢"
         updated: "2026-02-01"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+      - title: "#3.5 未来の撮影会"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#4 不機嫌な未来"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#4.5 KISS"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#5 ●REC"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#5.5 未来の間違い"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "BONUS #01 未来と未来"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#6 気になる関係"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#6.5 みくぱい"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "BONUS #02 完璧な答え"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#7 憧れの先輩"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#7.5 潜入"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#8 ふたりの関係"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#8.5 Oneness"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#9 いーよ"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#9.5 好かれ同盟"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "BONUS #03 あの後…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#10 うわのそら"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#10.5 証拠映像"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#11 水着パーティー"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#11.5 瑞希先輩のお願い"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#12 意味分かんない"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#12.5 素になるふたり"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#13 今日子の理由"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#13.5 未来の嫉妬対処法"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#14 今日子と奈々"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#14.5 奈々と瑞希の日常"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#15 ゲーセンデート"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#15.5 今日子vs瑞希"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#16 信じるプリクラ"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#16.5 モヤモヤToday"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#17 今日子の選択"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#17.5 秘密のデート"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#18 7月7日の大事件"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#18.5 瑞希のヒミツ"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#19 勝負のゆくえ"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#19.5 パフュームレンズ"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#20 未来は今から"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#20.5 今日から未来を好きにする"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
   - work_title: "散り損ないのヒラエス"
     status: "完結"
     author: "にたもと"
@@ -436,39 +955,99 @@ works:
   - work_title: "神絵師JKとOL腐女子"
     status: "完結"
     author: "さと"
-    url: "https://viewer.heros-web.com/episode/10834108156641210811"
-    chapter_count: 10
+    url: "https://heros-web.com/episodes/bacc2825ea759"
+    chapter_count: 30
     chapters:
-      - title: "最終話 大好きなたった一人の神様がいた"
+      - title: "第1話 私の目の前には一人の神様がいた"
         updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第26話 カロリーを舐めないでください"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第25話 創作者って…すごい…"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第24話 恋人としてお付き合いさせてもらっています"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第23話 こ…この人たちが神を生み出してくださった方々ーー"
-        updated: "2026-02-01"
-        access_modes: ["purchase"]
-      - title: "第5話 私の家に神絵師がいます…"
-        updated: "2026-02-01"
-        access_modes: ["free-timed"]
-      - title: "第4話 今日こそ関係性をハッキリさせておかないと…！"
+        access_modes: ["free"]
+      - title: "第2話 神との恋愛関係とか成立すると思う？"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
       - title: "第3話 全世界の人と共有する時間より嬉しいことがあるなんて…"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "第2話 神との恋愛関係とか成立すると思う？"
+      - title: "第4話 今日こそ関係性をハッキリさせておかないと…！"
         updated: "2026-02-01"
         access_modes: ["free-timed"]
-      - title: "第1話 私の目の前には一人の神様がいた"
+      - title: "第5話 私の家に神絵師がいます…"
         updated: "2026-02-01"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+      - title: "第6話 なんか私ばっかり振り回されてる気がする…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第7話 私はもう…腐女子ではないかもしれない!!"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第8話 これが神絵師の力…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第9話 神が私と釣り合わない…？"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第10話 あなたに出会えてよかった"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "番外編 恋人がサポートするのは当然でしょう"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第11話 神が遠くに行ってしまったことってある…？"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第12話 腐っても腐女子…!?"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第12.5話 なっ…なんてあざとい神…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第13話 神絵師…すごすぎる…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第13.5話　絶対ミスミさんには私がふさわしいのに…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第14話 本来ならそこら辺の草木のような存在なのに"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第15話 オタクは…旬が大事なの…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第16話 今の私にはオタクを名乗る資格がない"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第17話 神を待てなかったことをお赦しください"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第18話 あまりの自分の無力さに涙が…涙が止まらない"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第19話 自分の中の腐女子脳にも神にも抗っていこうって決めたんです"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第20話 大人のことこんなにドキドキさせて…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第21話 これはちゃんとしてこなかった私が悪いんです"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第22話 まさか…またあなたの絵を見ることができるなんて…"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第23話 こ…この人たちが神を生み出してくださった方々ーー"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第24話 恋人としてお付き合いさせてもらっています"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第25話 創作者って…すごい…"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第26話 カロリーを舐めないでください"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "最終話 大好きなたった一人の神様がいた"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
   - work_title: "魔女とくゅらす"
     status: "連載中"
     author: "柴田康平"
@@ -598,3 +1177,219 @@ works:
       - title: "第二十一服「魔女と背信」前編"
         updated: "2026-10-14"
         access_modes: ["purchase"]
+  - work_title: "とくにある日々"
+    status: "完結"
+    author: "なか憲人"
+    url: "https://viewer.heros-web.com/episode/3269632237305675090"
+    chapter_count: 10
+    chapters:
+      - title: "最終話（コミックス第８巻でも最終話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "102話（コミックス第８巻では107話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "101話（コミックス第８巻では106話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "100話（コミックス第８巻では105話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "99話（コミックス第８巻では104話）"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "５話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "４話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "３話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "２話"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "１話"
+        updated: "2026-02-01"
+        access_modes: ["free"]
+  - work_title: "のんちゃんとアカリ"
+    status: "完結"
+    author: "日日ねるこ"
+    url: "https://viewer.heros-web.com/episode/10834108156740407901"
+    chapter_count: 10
+    chapters:
+      - title: "第三十一話　呪"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第三十話　別"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十九話　夏"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十八話　祷"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第二十七話　変"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第四.五話　玉"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第四話　髪"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第三話　想"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第二話　瞳"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第一話　絆"
+        updated: "2026-02-01"
+        access_modes: ["free"]
+  - work_title: "ストリーミング・ウォー"
+    status: "完結"
+    author: "シガマ"
+    url: "https://viewer.heros-web.com/episode/14079602755511903989"
+    chapter_count: 10
+    chapters:
+      - title: "最終話「生きてる限り行けるとこまで」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第13話「これが私の好きにしろだ!!」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第12話「お前の両親なんだろ？」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第11話「私とおそろいだね〜」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第10話「最初はグー!!」"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第５話 「私を救ってくれた推し」"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第４話「天使の私が会わせてあげる!!」"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第３話「正義執行24時」"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第２話 「私やっぱり主役がいい!!」"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第１話「だったらやってやる!!」"
+        updated: "2026-02-01"
+        access_modes: ["free"]
+  - work_title: "ブランクスペース"
+    status: "完結"
+    author: "熊倉献"
+    url: "https://viewer.heros-web.com/episode/13933686331689971929"
+    chapter_count: 10
+    chapters:
+      - title: "#17 空白の街"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#16 犬も星も"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#15 あらゆる曲がり角で"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#14 空白たち"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#13 飢えたるもの"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#5 文学"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#4 多足類"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#3 夏そして春"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#2 風船"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#1 緑茶も紅茶も"
+        updated: "2026-02-01"
+        access_modes: ["free"]
+  - work_title: "今日から未来"
+    status: "完結"
+    author: "吉富昭仁"
+    url: "https://viewer.heros-web.com/episode/10834108156700245168"
+    chapter_count: 10
+    chapters:
+      - title: "#20.5 今日から未来を好きにする"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#20 未来は今から"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#19.5 パフュームレンズ"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#19 勝負のゆくえ"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#18.5 瑞希のヒミツ"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "#3 今日子の夢"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#2.5 ケーキパーティ"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#2 RULE"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#1.5 未来の耳かき"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "#1 未来の告白"
+        updated: "2026-02-01"
+        access_modes: ["free"]
+  - work_title: "神絵師JKとOL腐女子"
+    status: "完結"
+    author: "さと"
+    url: "https://viewer.heros-web.com/episode/10834108156641210811"
+    chapter_count: 10
+    chapters:
+      - title: "最終話 大好きなたった一人の神様がいた"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第26話 カロリーを舐めないでください"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第25話 創作者って…すごい…"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第24話 恋人としてお付き合いさせてもらっています"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第23話 こ…この人たちが神を生み出してくださった方々ーー"
+        updated: "2026-02-01"
+        access_modes: ["purchase"]
+      - title: "第5話 私の家に神絵師がいます…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第4話 今日こそ関係性をハッキリさせておかないと…！"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第3話 全世界の人と共有する時間より嬉しいことがあるなんて…"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第2話 神との恋愛関係とか成立すると思う？"
+        updated: "2026-02-01"
+        access_modes: ["free-timed"]
+      - title: "第1話 私の目の前には一人の神様がいた"
+        updated: "2026-02-01"
+        access_modes: ["free"]

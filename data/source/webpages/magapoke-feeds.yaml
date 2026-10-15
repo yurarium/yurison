@@ -23,13 +23,13 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-15
+retrieved: 2026-10-16
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
 date_confidence: reported
-series_fetched: 40
-series_held: 40
+series_fetched: 42
+series_held: 42
 works:
   - work_title: "CUTE vs. COOL"
     title_id: "3099"
@@ -4605,6 +4605,16 @@ works:
         updated: 2022-08-02
         author: "雨水汐"
         url: "https://pocket.shonenmagazine.com/title/01837/episode/354033"
+  - work_title: "姫野姫子の奴隷みてえな彼氏"
+    title_id: "3301"
+    url: "https://pocket.shonenmagazine.com/title/03301"
+    feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3301/feed.xml"
+    chapter_count: 1
+    chapters:
+      - title: "【特別読み切り】"
+        updated: 2026-08-18
+        author: "麦トラM"
+        url: "https://pocket.shonenmagazine.com/title/03301/episode/440916"
   - work_title: "将来的に死んでくれ"
     title_id: "195"
     url: "https://pocket.shonenmagazine.com/title/00195"
@@ -8375,3 +8385,13 @@ works:
         updated: 2024-08-21
         author: "山座一心"
         url: "https://pocket.shonenmagazine.com/title/02596/episode/402016"
+  - work_title: "魔法少女は嘘をつく"
+    title_id: "3302"
+    url: "https://pocket.shonenmagazine.com/title/03302"
+    feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3302/feed.xml"
+    chapter_count: 1
+    chapters:
+      - title: "【特別読み切り】"
+        updated: 2026-08-19
+        author: "雨樋那由"
+        url: "https://pocket.shonenmagazine.com/title/03302/episode/440917"

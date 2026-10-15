@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-15
+retrieved: 2026-10-16
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -36,6 +36,11 @@ platforms_missing:
   - platform: "マンガボックス"
     works: 1
 works_missing:
+  - title: "球詠"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/441"
+    antenna_id: "88071"
+    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "IDOL×IDOL STORY!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3140"
@@ -71,11 +76,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3572"
     antenna_id: "173581"
     tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
-  - title: "球詠"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/441"
-    antenna_id: "88071"
-    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
@@ -291,11 +291,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007220_S"
     antenna_id: "198866"
     tags: ["百合"]
-  - title: "彼岸でランデヴー"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_020017_S"
-    antenna_id: "214461"
-    tags: ["百合"]
   - title: "ノスフェルワイス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021441_S"
@@ -306,11 +301,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008372_S"
     antenna_id: "201618"
     tags: ["百合", "お色気・微エロ", "異種族・人外"]
-  - title: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_019658_S"
-    antenna_id: "211658"
-    tags: ["百合", "現代ファンタジー", "バトル"]
   - title: "あたし達って付き合ってるよね!?"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_011928_S"
@@ -456,11 +446,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_020317_S"
     antenna_id: "215728"
     tags: ["百合", "読み切り"]
-  - title: "真夜中に愛してよ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_020158_S"
-    antenna_id: "215727"
-    tags: ["百合"]
   - title: "この恋、一旦持ち帰らせていただきます!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008367_S"
@@ -995,7 +980,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
-    tags: ["最近のコメント数"]
+    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - title: "私に天使が舞い降りた!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01052"
@@ -1136,11 +1121,6 @@ works_missing:
     url: "https://comicride.jp/series/b95a6b1493469"
     antenna_id: "165083"
     tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
-  - title: "百合の間に挟まる梅田ダンジョン"
-    platform: "一迅プラス"
-    url: "https://ichicomi.com/episode/12207421984354015835"
-    antenna_id: "216721"
-    tags: ["百合", "読み切り"]
   - title: "姫虐が止まらない白桃さん"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/12207421983584564641"

@@ -1,0 +1,388 @@
+# Written by adapters/runhealth.py each run; see its docstring.
+updated: '2026-10-16'
+sources:
+  backfill:
+    stage: stage-post
+    last_ok: '2026-10-16'
+    consecutive: 0
+  bookwalker-completion:
+    stage: stage-post
+    last_ok: '2026-10-16'
+    consecutive: 0
+  bylines:
+    stage: stage-post
+    last_ok: '2026-10-16'
+    consecutive: 0
+  candidates:
+    stage: stage-0
+    last_ok: '2026-10-16'
+    consecutive: 0
+  claims-trace:
+    stage: stage-post
+    last_ok: '2026-10-16'
+    consecutive: 0
+  comicboost:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  comicfuz:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  comparator-claims:
+    stage: stage-0
+    last_ok: '2026-10-16'
+    consecutive: 0
+  comparator-completion:
+    stage: stage-0
+    last_ok: '2026-10-16'
+    consecutive: 0
+  fieldaudit:
+    stage: checks
+    last_ok: '2026-10-16'
+    consecutive: 0
+  fieldaudit:ヤンジャン+:
+    stage: checks
+    consecutive: 1
+    last_failed: '2026-10-16'
+    failing_since: '2026-10-16'
+    error: a selector has probably moved; the last good capture is published
+    last_run: https://github.com/yurarium/yurison/actions/runs/38779148001
+  ganganonline:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  generic:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  generic-rendered:
+    stage: stage-c
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-confirm:
+    stage: stage-0
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-episode-lists:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-platform-feeds:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comic-action:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comic-days:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comic-earthstar:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comic-gardo:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comic-ogyaaa:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comic-seasons:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comic-trail:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comic-y-ours:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comic-zenon:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-comicborder:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-feelweb:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-kuragebunch:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-magcomi:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-mangatime-square:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-ourfeel:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-shonenjumpplus:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-sundaywebry:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  gigaviewer-series-feeds-tonarinoyj:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  kadokomi:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  kadokomi-catalogue:
+    stage: stage-0
+    last_ok: '2026-10-16'
+    consecutive: 0
+  kadokomi-confirm:
+    stage: stage-0
+    last_ok: '2026-10-16'
+    consecutive: 0
+  magapoke-feeds:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  magapoke-lengths:
+    stage: stage-post
+    last_ok: '2026-10-16'
+    consecutive: 0
+  names:
+    stage: checks
+    consecutive: 1
+    last_failed: '2026-10-16'
+    failing_since: '2026-10-16'
+    error: the naming passes did not complete
+    last_run: https://github.com/yurarium/yurison/actions/runs/38779148001
+  nicovideo:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  nicovideo-works:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  openbd:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  remaining-releases:
+    stage: stage-c
+    last_ok: '2026-10-16'
+    consecutive: 0
+  remaining-targets:
+    stage: stage-c
+    last_ok: '2026-10-16'
+    consecutive: 0
+  render-releases:
+    stage: stage-c
+    last_ok: '2026-10-16'
+    consecutive: 0
+  render-targets:
+    stage: stage-c
+    last_ok: '2026-10-16'
+    consecutive: 0
+  self-test:
+    stage: checks
+    last_ok: '2026-10-16'
+    consecutive: 0
+  shogakukan:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  shopquery:
+    stage: stage-post
+    consecutive: 1
+    last_failed: '2026-10-16'
+    failing_since: '2026-10-16'
+    error: 'HEALTH: 1 of 2 works had every query answer nothing (over the 35% ceiling). This shop says ''no results'' with a 404, so a run being refused looks exactly like a shop with no stock. Refusing
+      to write.'
+    last_run: https://github.com/yurarium/yurison/actions/runs/38779148001
+  sitemap:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-0:candidates:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-0:comparator-claims:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-0:comparator-completion:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-0:gigaviewer-confirm:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-0:kadokomi-catalogue:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-0:kadokomi-confirm:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-0:webcomics-coverage:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-0:yurinavi-discover:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-0:yurinavi-webyuri:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:comicboost:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:comicfuz:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:ganganonline:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:generic:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:gigaviewer-episode-lists:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:gigaviewer-platform-feeds:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:gigaviewer-series-feeds*:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:kadokomi:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:magapoke-feeds:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:nicovideo:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:nicovideo-works:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:openbd:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:shogakukan:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:sitemap:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:webpages:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-a:yomonga:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-c:remaining-releases:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-c:remaining-targets:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-c:render-releases:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-c:render-targets:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-post:backfill:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-post:bookwalker-completion:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-post:bylines:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-post:claims-trace:
+    stage: freshness
+    consecutive: 1
+    last_failed: '2026-10-16'
+    failing_since: '2026-10-16'
+    error: 1 file(s) past their age, e.g. data/source/webpages/claim-resolved.yaml dated nothing
+    last_run: https://github.com/yurarium/yurison/actions/runs/38779148001
+  stale:stage-post:magapoke-lengths:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  stale:stage-post:shopquery:
+    stage: freshness
+    last_ok: '2026-10-16'
+    consecutive: 0
+  webcomics-coverage:
+    stage: stage-0
+    last_ok: '2026-10-16'
+    consecutive: 0
+  webpages:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  yomonga:
+    stage: stage-a
+    last_ok: '2026-10-16'
+    consecutive: 0
+  yurinavi-discover:
+    stage: stage-0
+    last_ok: '2026-10-16'
+    consecutive: 0
+  yurinavi-webyuri:
+    stage: stage-0
+    last_ok: '2026-10-16'
+    consecutive: 0

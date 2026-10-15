@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-10-15
+retrieved: 2026-10-16
 record_type: candidate_works
 works: 311
 candidates:
@@ -2792,7 +2792,7 @@ candidates:
   - title: "彼岸でランデヴー"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_020017_S"]
-    tags: ["百合"]
+    tags: ["ホラー", "百合"]
   - title: "彼氏の女友達がぐいぐい来る(私に)"
     platforms: ["pixivコミック", "カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_016753_S", "https://comic.pixiv.net/works/13373"]
@@ -3559,7 +3559,7 @@ candidates:
   - title: "百合の間に挟まる梅田ダンジョン"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984354015835"]
-    tags: ["百合", "読み切り"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "百合オタに百合はご法度です!?"
     platforms: ["pixivコミック", "webアクション", "ニコニコ漫画"]
     urls: ["https://comic-action.com/episode/13933686331613879665", "https://comic.pixiv.net/works/6699", "https://manga.nicovideo.jp/comic/48142"]

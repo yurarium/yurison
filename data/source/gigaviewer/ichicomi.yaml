@@ -6,11 +6,43 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-10-15
+retrieved: 2026-10-16
 record_type: web_releases
 identification_mode: genre
 yuri_series_count: 173
 releases:
+  - release_id: "ichijinsha:episode:12207421984374441896"
+    work_title: "ゆるゆり"
+    web_status: "serialised"
+    identified_via: "platform-genre"
+    episode_title: "第239話"
+    release_type: "chapter"
+    date: "2026-10-16"
+    date_basis: "observed"
+    first_seen: "2026-10-16"
+    first_reported: "2026-10-15T15:00:00Z"
+    platform_updated: "2026-10-15T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://ichicomi.com/episode/12207421984374441896"
+    author: "なもり"
+    free_term_start: "2026-10-15T15:00:00Z"
+    advances_narrative: true
+  - release_id: "ichijinsha:episode:12207421984374441892"
+    work_title: "大室家"
+    web_status: "serialised"
+    identified_via: "platform-genre"
+    episode_title: "第139話"
+    release_type: "chapter"
+    date: "2026-10-16"
+    date_basis: "observed"
+    first_seen: "2026-10-16"
+    first_reported: "2026-10-15T15:00:00Z"
+    platform_updated: "2026-10-15T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://ichicomi.com/episode/12207421984374441892"
+    author: "なもり"
+    free_term_start: "2026-10-15T15:00:00Z"
+    advances_narrative: true
   - release_id: "ichijinsha:episode:12207421984354015835"
     work_title: "百合の間に挟まる梅田ダンジョン"
     web_status: "serialised"

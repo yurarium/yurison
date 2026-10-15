@@ -1,13 +1,175 @@
-# Works BOOK☆WALKER marks 【完結】, for works whose state here rests on silence.
+# Works BOOK☆WALKER marks finished, for works whose state here rests on silence.
 #
 # A licensed distributor selling the publisher's edition, so this is a shop describing
-# its own stock. An absent marker is recorded nowhere, because a running series and a
-# series the shop has not marked look identical and neither says the work continues.
+# its own stock: 【完結】 in the series title, the 完結 tag on its volumes, or its newest
+# volume's own description saying the series ended. An absent marker is recorded nowhere
+# but `checked`, because a running series and one the shop has not marked look identical.
 source: bookwalker.jp
 role: completion-claim
 source_kind: licensor
-retrieved: 2026-08-05
-queried: 53
-unmarked: 49
-not_stocked: 2
+retrieved: 2026-10-15
 works:
+  - work: "すわっぷ⇔すわっぷ"
+    url: "https://bookwalker.jp/series/57091/"
+    shop_title: "すわっぷ⇔すわっぷ（まんがタイムKRコミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "その花の名はキラキラ"
+    url: "https://bookwalker.jp/series/403678/"
+    shop_title: "その花の名はキラキラ（黒蜜）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "ガンバレッド×シスターズ"
+    url: "https://bookwalker.jp/series/240301/"
+    shop_title: "ガンバレッド×シスターズ（サンデーGXコミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "コンカフェ嬢は恋を着る"
+    url: "https://bookwalker.jp/series/490418/"
+    shop_title: "コンカフェ嬢は恋を着る（ＦＵＺコミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "ヲトメは義母に恋してる"
+    url: "https://bookwalker.jp/series/297554/"
+    shop_title: "ヲトメは義母に恋してる（まんがタイムコミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "伊勢さんと志摩さん"
+    url: "https://bookwalker.jp/series/186882/"
+    shop_title: "伊勢さんと志摩さん【単話版】(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "全部君のせいだ"
+    url: "https://bookwalker.jp/series/384237/"
+    shop_title: "全部君のせいだ（ヤングジャンプコミックスDIGITAL）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました"
+    url: "https://bookwalker.jp/series/321210/"
+    shop_title: "女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました（サンデーうぇぶりコミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "latest-volume"
+    volume: "https://bookwalker.jp/de8ed1c8e6-fa76-426a-b00d-d34e8b6dd352/"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "将来的に死んでくれ"
+    url: "https://bookwalker.jp/series/109855/"
+    shop_title: "将来的に死んでくれ（別冊少年マガジン）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "幕末女子高生 鬼と夜明け"
+    url: "https://bookwalker.jp/series/363632/"
+    shop_title: "幕末女子高生 鬼と夜明け（路草コミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "恋する小惑星"
+    url: "https://bookwalker.jp/series/152477/"
+    shop_title: "恋する小惑星（アステロイド）（まんがタイムKRコミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "悪魔のモカちゃん"
+    url: "https://bookwalker.jp/series/264170/"
+    shop_title: "悪魔のモカちゃんシリーズ（ヤングアンリアルコミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "愛されてもいいんだよ"
+    url: "https://bookwalker.jp/series/263628/"
+    shop_title: "愛されてもいいんだよ（コミックＤＡＹＳ）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "最果てのともだち"
+    url: "https://bookwalker.jp/series/324411/"
+    shop_title: "最果てのともだち（まんがタイムKRコミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "私は君を泣かせたい"
+    url: "https://bookwalker.jp/series/114632/"
+    shop_title: "私は君を泣かせたい（ヤングアニマル）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "転生したらあかりだけスライムだった件"
+    url: "https://bookwalker.jp/series/317034/"
+    shop_title: "転生したらあかりだけスライムだった件（百合姫コミックス）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "latest-volume"
+    volume: "https://bookwalker.jp/dec6ed5076-76c3-4a4b-b8b6-a26984d03ff7/"
+    latest_chapter: null
+    found: "2026-10-15"
+  - work: "鬼売れアイドルが今日も私を推してくる"
+    url: "https://bookwalker.jp/series/487520/"
+    shop_title: "鬼売れアイドルが今日も私を推してくる（comicタント）(マンガ（漫画）)の電子書籍無料試し読みならBOOK☆WALKER"
+    marker: "volume-tag"
+    latest_chapter: null
+    found: "2026-10-15"
+checked:
+  "Qyootie Q! -麒麟娘と婚約事情-": "2026-10-15"
+  "SAL": "2026-10-15"
+  "あなたが私を変えたから": "2026-10-15"
+  "けいおん！Ｓｈｕｆｆｌｅ": "2026-10-15"
+  "こはる日和。": "2026-10-15"
+  "すわっぷ⇔すわっぷ": "2026-10-15"
+  "その花の名はキラキラ": "2026-10-15"
+  "どうしようもなく辛かったよ": "2026-10-15"
+  "ゆり×こちょ！": "2026-10-15"
+  "アウトサイダーパラダイス": "2026-10-15"
+  "アラサー美女は地味女に餌付けされる": "2026-10-15"
+  "ガンバレッド×シスターズ": "2026-10-15"
+  "ギャル推しJKはギャルになりたい": "2026-10-15"
+  "クズ浪人生、人生が辛いので夜のお姉さんを呼んでみた": "2026-10-15"
+  "ケーキも花も宝石も": "2026-10-15"
+  "コンカフェ嬢は恋を着る": "2026-10-15"
+  "サバーキ": "2026-10-15"
+  "スクールゾーン": "2026-10-15"
+  "スピカをつかまえて": "2026-10-15"
+  "セメルパルス semelparous": "2026-10-15"
+  "ナナシの転生": "2026-10-15"
+  "フードコートで、また明日。": "2026-10-15"
+  "マルジナルテイラ": "2026-10-15"
+  "ヤンデレめる子ちゃんはせんぱいがお好き": "2026-10-15"
+  "リリィ・リリィ・ラ・ラ・ランド": "2026-10-15"
+  "リリーズ【タテスク】": "2026-10-15"
+  "ロイヤルテーラー ―王宮の裁縫師―": "2026-10-15"
+  "ワケあって社長令嬢に拾われました": "2026-10-15"
+  "ヲトメは義母に恋してる": "2026-10-15"
+  "三角形の壊し方": "2026-10-15"
+  "今日、小柴葵に会えたら。": "2026-10-15"
+  "伊勢さんと志摩さん": "2026-10-15"
+  "全部君のせいだ": "2026-10-15"
+  "副会長の主なお仕事": "2026-10-15"
+  "夜と海": "2026-10-15"
+  "大好きな親友がVチューバーの自分にガチ恋してた話": "2026-10-15"
+  "女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました": "2026-10-15"
+  "宵子の肖像": "2026-10-15"
+  "将来的に死んでくれ": "2026-10-15"
+  "幕末女子高生 鬼と夜明け": "2026-10-15"
+  "平民の私ですが公爵令嬢様をたぶらかして生きています": "2026-10-15"
+  "幼馴染BIGLOVE": "2026-10-15"
+  "彩香ちゃんは弘子先輩を落としたい": "2026-10-15"
+  "恋する小惑星": "2026-10-15"
+  "悪魔のモカちゃん": "2026-10-15"
+  "愛されてもいいんだよ": "2026-10-15"
+  "推しが妹になりまして。": "2026-10-15"
+  "最果てのともだち": "2026-10-15"
+  "最果てのセレナード": "2026-10-15"
+  "殺し屋やめたい!": "2026-10-15"
+  "瀬戸さんを笑わせたい紬ちゃん": "2026-10-15"
+  "猫魔法が世界に革命を起こすそうですよ?": "2026-10-15"
+  "研究棟の真夜中ごはん": "2026-10-15"
+  "私は君を泣かせたい": "2026-10-15"
+  "蝶と帝国": "2026-10-15"
+  "親友に好きな人ができたらしい": "2026-10-15"
+  "転生したらあかりだけスライムだった件": "2026-10-15"
+  "鬼売れアイドルが今日も私を推してくる": "2026-10-15"
+  "魔女の孫と七人のメイド": "2026-10-15"

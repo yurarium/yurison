@@ -4179,3 +4179,30 @@ is what it needs.
 Precedent to revisit: w00486, 超深宇宙より愛をこめて【読み切り版】, was merged into w00156 on
 2026-08-07 on the basis that a 読み切り版 is an edition. The owner's ruling of 2026-10-11 points the
 other way for versions that differ, and that pair has not been looked at against it.
+
+## Most quiet series ended, and the corpus read few of the places that say so. Found 2026-10-15
+
+The owner's point: a series simply fading out is rare, and most have a declared end, so `dormant`
+should be what is left after the evidence has been read, not the default. 女だから、とパーティを
+追放されたので伝説の魔女と最強タッグを組みました read dormant since 2021 off two chapters; サンデーうぇぶり
+lists 75 parts to 2024-07-07, and BOOK☆WALKER's newest volume says 堂々完結.
+
+BUILT 2026-10-15. `gigaviewer/episode_lists.py` reads every GigaViewer series' own episode list,
+expired episodes included as `withdrawn`, so lengths, real last dates and 最終話 come from the
+platform; an ending is read off the run's last listed instalment even where that day's date is set
+aside as an import; an ending any platform states outranks another platform's age-based state; and
+`bookwalker.py` runs every day over works resting on silence, sixty a run, reading 【完結】, the
+完結 volume tag and the newest volume's own description. The first pass moved 48 works to
+`completed` and the BOOK☆WALKER batch answered 17 of the first 60 it asked.
+
+NOT YET READ, in rough order of yield:
+- コミックシーモア states 全N巻完結 on a series page (`cmoa.stated_volumes` reads it), but only works
+  on its 百合・GL shelf are asked. A search per quiet work, as BOOK☆WALKER now does, would reach the
+  rest.
+- 百合ナビ announces endings as it announces starts, 最終回 and 完結 in its news headlines, and the
+  discovery queue reads those headlines only for new serials and one-shots.
+- Platform status fields beyond カドコミ's: マンガワン, ヤンジャン＋, pixivコミック and others mark a
+  finished series on the series page.
+- Full episode lists outside GigaViewer: pixivコミック keeps withdrawn ranges in its list and マンガワン
+  states 全N話, which give the length and the last instalment as GigaViewer's lists now do.
+- A print run's own last volume marked （完） or 最終巻 in the bibliographic record's designation.

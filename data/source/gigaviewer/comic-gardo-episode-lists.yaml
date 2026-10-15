@@ -1,0 +1,158 @@
+# Every episode each series has published, from the platform's own episode list. Written by
+# adapters/gigaviewer/episode_lists.py; an entry the platform says can no longer be read is
+# `withdrawn` and carries no access mode, since it counts toward length and dates only.
+source: gigaviewer
+platform: comic-gardo
+platform_name: "コミックガルド"
+retrieved: "2026-10-15"
+record_type: web_work_chapters
+identification_mode: known-works
+date_basis: stated
+date_confidence: reported
+works:
+  - work_title: "優等生がアダルトグッズを買いに来た"
+    series_id: "12207421983996994170"
+    url: "https://comic-gardo.com/atom/series/12207421983996994170"
+    chapter_count: 7
+    chapters:
+      - title: "第1話「学校と親には内緒にしてください……」"
+        updated: "2026-08-17"
+        url: "https://comic-gardo.com/episode/12207421984094260425"
+        access_modes: ["free"]
+      - title: "第2話「放っといたら、寝覚めが悪いから」(1)"
+        updated: "2026-08-17"
+        url: "https://comic-gardo.com/episode/12207421984094260433"
+        access_modes: ["purchase"]
+      - title: "第2話「放っといたら、寝覚めが悪いから」(2)"
+        updated: "2026-08-17"
+        url: "https://comic-gardo.com/episode/12207421984094260440"
+        access_modes: ["free"]
+      - title: "第2話「放っといたら、寝覚めが悪いから」(3)"
+        updated: "2026-08-17"
+        url: "https://comic-gardo.com/episode/12207421984094260445"
+        access_modes: ["free"]
+      - title: "第3話「そっちの穴も開けてあげるから」(1)"
+        updated: "2026-09-07"
+        url: "https://comic-gardo.com/episode/12207421984188204280"
+        access_modes: ["free"]
+      - title: "第3話「そっちの穴も開けてあげるから」(2)"
+        updated: "2026-09-21"
+        url: "https://comic-gardo.com/episode/12207421984251695869"
+        access_modes: ["purchase"]
+      - title: "第4話「だから安心して泣きついて」(1)"
+        updated: "2026-10-12"
+        url: "https://comic-gardo.com/episode/12207421984350401548"
+        access_modes: ["purchase"]
+  - work_title: "病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～"
+    series_id: "2550912965959809012"
+    url: "https://comic-gardo.com/atom/series/2550912965959809012"
+    chapter_count: 27
+    chapters:
+      - title: "第1話「フィアナ、転生して超健康になる」"
+        updated: "2025-07-29"
+        url: "https://comic-gardo.com/episode/2550912966011803878"
+        access_modes: ["free"]
+      - title: "第2話「フィアナ、模擬戦に挑む」(1)"
+        updated: "2025-07-29"
+        url: "https://comic-gardo.com/episode/2550912966011803886"
+        access_modes: ["purchase"]
+      - title: "第2話「フィアナ、模擬戦に挑む」(2)"
+        updated: "2025-07-29"
+        url: "https://comic-gardo.com/episode/2550912966011803896"
+        access_modes: ["purchase"]
+      - title: "第2話「フィアナ、模擬戦に挑む」(3)"
+        updated: "2025-07-29"
+        url: "https://comic-gardo.com/episode/2550912966011803904"
+        access_modes: ["purchase"]
+      - title: "第3話「フィアナ、筆記試験に挑む」(1)"
+        updated: "2025-08-19"
+        url: "https://comic-gardo.com/episode/2551460909449288976"
+        access_modes: ["purchase"]
+      - title: "第3話「フィアナ、筆記試験に挑む」(2)"
+        updated: "2025-08-26"
+        url: "https://comic-gardo.com/episode/2551460909480168744"
+        access_modes: ["purchase"]
+      - title: "第3話「フィアナ、筆記試験に挑む」(3)"
+        updated: "2025-09-02"
+        url: "https://comic-gardo.com/episode/2551460909509909555"
+        access_modes: ["purchase"]
+      - title: "第4話「フィアナ、いちゃもんを付けられる」(1)"
+        updated: "2025-09-23"
+        url: "https://comic-gardo.com/episode/2551460909600244616"
+        access_modes: ["purchase"]
+      - title: "第4話「フィアナ、いちゃもんを付けられる」(2)"
+        updated: "2025-10-07"
+        url: "https://comic-gardo.com/episode/2551460909653450244"
+        access_modes: ["purchase"]
+      - title: "第5話「フィアナ、挨拶でやらかす」(1)"
+        updated: "2025-10-28"
+        url: "https://comic-gardo.com/episode/2551460909735718944"
+        access_modes: ["purchase"]
+      - title: "第5話「フィアナ、挨拶でやらかす」(2)"
+        updated: "2025-11-18"
+        url: "https://comic-gardo.com/episode/2551460909813704483"
+        access_modes: ["purchase"]
+      - title: "第6話「フィアナ、魔法実践演習に挑む」(1)"
+        updated: "2025-12-09"
+        url: "https://comic-gardo.com/episode/2551460909889412378"
+        access_modes: ["purchase"]
+      - title: "第6話「フィアナ、魔法実践演習に挑む」(2)"
+        updated: "2025-12-30"
+        url: "https://comic-gardo.com/episode/2551460909967038478"
+        access_modes: ["purchase"]
+      - title: "第7話「フィアナ、冒険者ギルドに向かう」(1)"
+        updated: "2026-01-13"
+        url: "https://comic-gardo.com/episode/2551460910018618743"
+        access_modes: ["purchase"]
+      - title: "第7話「フィアナ、冒険者ギルドに向かう」(2)"
+        updated: "2026-01-27"
+        url: "https://comic-gardo.com/episode/2551460910070464351"
+        access_modes: ["purchase"]
+      - title: "第8話「フィアナ、パーティーを組む」(1)"
+        updated: "2026-02-24"
+        url: "https://comic-gardo.com/episode/12207421983403105126"
+        access_modes: ["purchase"]
+      - title: "第8話「フィアナ、パーティーを組む」(2)"
+        updated: "2026-03-10"
+        url: "https://comic-gardo.com/episode/12207421983459338814"
+        access_modes: ["purchase"]
+      - title: "第9話「フィアナ、ダンジョンを突き進む」(1)"
+        updated: "2026-05-12"
+        url: "https://comic-gardo.com/episode/12207421983660729538"
+        access_modes: ["purchase"]
+      - title: "第9話「フィアナ、ダンジョンを突き進む」(2)"
+        updated: "2026-05-26"
+        url: "https://comic-gardo.com/episode/12207421983750131500"
+        access_modes: ["purchase"]
+      - title: "第10話「フィアナ、初のボス戦に挑む！」(1)"
+        updated: "2026-06-23"
+        url: "https://comic-gardo.com/episode/12207421983861465169"
+        access_modes: ["purchase"]
+      - title: "第10話「フィアナ、初のボス戦に挑む！」(2)"
+        updated: "2026-07-07"
+        url: "https://comic-gardo.com/episode/12207421983917626506"
+        access_modes: ["purchase"]
+      - title: "第10話「フィアナ、初のボス戦に挑む！」(3)"
+        updated: "2026-07-14"
+        url: "https://comic-gardo.com/episode/12207421983943379938"
+        access_modes: ["purchase"]
+      - title: "第11話「フィアナ、無事クエストを達成する」(1)"
+        updated: "2026-07-28"
+        url: "https://comic-gardo.com/episode/12207421984005617278"
+        access_modes: ["free"]
+      - title: "第11話「フィアナ、無事クエストを達成する」(2)"
+        updated: "2026-08-11"
+        url: "https://comic-gardo.com/episode/12207421984065286876"
+        access_modes: ["free"]
+      - title: "第12話「フィアナ、嬉々として勝負に乗る」(1)"
+        updated: "2026-09-08"
+        url: "https://comic-gardo.com/episode/12207421984188204324"
+        access_modes: ["free"]
+      - title: "第12話「フィアナ、嬉々として勝負に乗る」(2)"
+        updated: "2026-09-22"
+        url: "https://comic-gardo.com/episode/12207421984251695895"
+        access_modes: ["purchase"]
+      - title: "第13話「フィアナ、拉致される」(1)"
+        updated: "2026-10-13"
+        url: "https://comic-gardo.com/episode/12207421984350401600"
+        access_modes: ["purchase"]

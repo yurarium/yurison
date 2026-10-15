@@ -1,0 +1,2720 @@
+# Every episode each series has published, from the platform's own episode list. Written by
+# adapters/gigaviewer/episode_lists.py; an entry the platform says can no longer be read is
+# `withdrawn` and carries no access mode, since it counts toward length and dates only.
+source: gigaviewer
+platform: sundaywebry
+platform_name: "サンデーうぇぶり"
+retrieved: "2026-10-15"
+record_type: web_work_chapters
+identification_mode: known-works
+date_basis: stated
+date_confidence: reported
+works:
+  - work_title: "きーちゃんともんもん"
+    series_id: "11341664176575578983"
+    url: "https://www.sunday-webry.com/atom/series/11341664176575578983"
+    chapter_count: 1
+    chapters:
+      - title: "きーちゃんともんもん"
+        updated: "2024-02-04"
+        url: "https://www.sunday-webry.com/episode/11341664176575581897"
+  - work_title: "ねむれる友達"
+    series_id: "11341664176589002159"
+    url: "https://www.sunday-webry.com/atom/series/11341664176589002159"
+    chapter_count: 1
+    chapters:
+      - title: "ねむれる友達"
+        updated: "2024-02-08"
+        url: "https://www.sunday-webry.com/episode/11341664176589007122"
+  - work_title: "悪いことを考えている"
+    series_id: "12207421983378967509"
+    url: "https://www.sunday-webry.com/atom/series/12207421983378967509"
+    chapter_count: 1
+    chapters:
+      - title: "悪いことを考えている"
+        updated: "2026-02-15"
+        url: "https://www.sunday-webry.com/episode/12207421983378975217"
+  - work_title: "女子吸血鬼のニカはおいしい血が吸いたい!"
+    series_id: "12207421983533954083"
+    url: "https://www.sunday-webry.com/atom/series/12207421983533954083"
+    chapter_count: 1
+    chapters:
+      - title: "女子吸血鬼のニカはおいしい血が吸いたい！"
+        updated: "2026-03-30"
+        url: "https://www.sunday-webry.com/episode/12207421983533956849"
+  - work_title: "湾田さんと蛇ノ目さん"
+    series_id: "12207421983659781162"
+    url: "https://www.sunday-webry.com/atom/series/12207421983659781162"
+    chapter_count: 1
+    chapters:
+      - title: "湾田さんと蛇ノ目さん"
+        updated: "2026-05-03"
+        url: "https://www.sunday-webry.com/episode/12207421983659791816"
+  - work_title: "なとりとしずは"
+    series_id: "12207421983745469823"
+    url: "https://www.sunday-webry.com/atom/series/12207421983745469823"
+    chapter_count: 11
+    chapters:
+      - title: "第1話 もう一度"
+        updated: "2026-05-26"
+        url: "https://www.sunday-webry.com/episode/12207421983745504350"
+      - title: "第2話 ほころび"
+        updated: "2026-06-09"
+        url: "https://www.sunday-webry.com/episode/12207421983809894245"
+      - title: "第3話 負けず嫌い"
+        updated: "2026-06-23"
+        url: "https://www.sunday-webry.com/episode/12207421983877405342"
+      - title: "第4話 秘密"
+        updated: "2026-07-07"
+        url: "https://www.sunday-webry.com/episode/12207421983934273631"
+        withdrawn: true
+      - title: "第5話 約束"
+        updated: "2026-07-21"
+        url: "https://www.sunday-webry.com/episode/12207421983978194749"
+        withdrawn: true
+      - title: "第6話 知らない顔 (前編)"
+        updated: "2026-08-04"
+        url: "https://www.sunday-webry.com/episode/12207421984051326098"
+        withdrawn: true
+      - title: "第6話 知らない顔 (後編)"
+        updated: "2026-08-18"
+        url: "https://www.sunday-webry.com/episode/12207421984099246902"
+        withdrawn: true
+      - title: "第7話 晴々"
+        updated: "2026-09-01"
+        url: "https://www.sunday-webry.com/episode/12207421984173617692"
+        withdrawn: true
+      - title: "第8話 一勝"
+        updated: "2026-09-15"
+        url: "https://www.sunday-webry.com/episode/12207421984235263191"
+        withdrawn: true
+      - title: "第9話 静羽と夢芽"
+        updated: "2026-09-29"
+        url: "https://www.sunday-webry.com/episode/12207421984303420116"
+        withdrawn: true
+      - title: "第10話 期待 (前編)"
+        updated: "2026-10-13"
+        url: "https://www.sunday-webry.com/episode/12207421984354212212"
+  - work_title: "高井さんの見える世界"
+    series_id: "12207421983909941207"
+    url: "https://www.sunday-webry.com/atom/series/12207421983909941207"
+    chapter_count: 1
+    chapters:
+      - title: "高井さんの見える世界"
+        updated: "2026-08-05"
+        url: "https://www.sunday-webry.com/episode/12207421983909949999"
+  - work_title: "にせものターコイズ"
+    series_id: "12207421983913734114"
+    url: "https://www.sunday-webry.com/atom/series/12207421983913734114"
+    chapter_count: 1
+    chapters:
+      - title: "にせものターコイズ"
+        updated: "2026-07-26"
+        url: "https://www.sunday-webry.com/episode/12207421983913735230"
+  - work_title: "傷の女"
+    series_id: "12207421983914994983"
+    url: "https://www.sunday-webry.com/atom/series/12207421983914994983"
+    chapter_count: 1
+    chapters:
+      - title: "傷の女"
+        updated: "2026-07-08"
+        url: "https://www.sunday-webry.com/episode/12207421983914997657"
+  - work_title: "ももと宮村"
+    series_id: "12207421984030835270"
+    url: "https://www.sunday-webry.com/atom/series/12207421984030835270"
+    chapter_count: 1
+    chapters:
+      - title: "ももと宮村"
+        updated: "2026-08-13"
+        url: "https://www.sunday-webry.com/episode/12207421984030879903"
+  - work_title: "放課後の恋バナ"
+    series_id: "12207421984204045633"
+    url: "https://www.sunday-webry.com/atom/series/12207421984204045633"
+    chapter_count: 1
+    chapters:
+      - title: "放課後の恋バナ"
+        updated: "2026-09-08"
+        url: "https://www.sunday-webry.com/episode/12207421984204046950"
+  - work_title: "君に惹かれた理由"
+    series_id: "14079602755173424533"
+    url: "https://www.sunday-webry.com/atom/series/14079602755173424533"
+    chapter_count: 1
+    chapters:
+      - title: "君に惹かれた理由"
+        updated: "2023-09-08"
+        url: "https://www.sunday-webry.com/episode/14079602755180542200"
+  - work_title: "シャッターチャンス"
+    series_id: "14079602755173424535"
+    url: "https://www.sunday-webry.com/atom/series/14079602755173424535"
+    chapter_count: 1
+    chapters:
+      - title: "シャッターチャンス"
+        updated: "2023-09-08"
+        url: "https://www.sunday-webry.com/episode/14079602755180542204"
+  - work_title: "その矛先、知らぬが愛矢"
+    series_id: "14079602755173424542"
+    url: "https://www.sunday-webry.com/atom/series/14079602755173424542"
+    chapter_count: 1
+    chapters:
+      - title: "その矛先、知らぬが愛矢"
+        updated: "2023-09-08"
+        url: "https://www.sunday-webry.com/episode/14079602755180542212"
+  - work_title: "シャトルシスターズ"
+    series_id: "14079602755250006830"
+    url: "https://www.sunday-webry.com/atom/series/14079602755250006830"
+    chapter_count: 1
+    chapters:
+      - title: "シャトルシスターズ"
+        updated: "2023-10-01"
+        url: "https://www.sunday-webry.com/episode/14079602755260002692"
+  - work_title: "流星のエントロピー"
+    series_id: "14079602755417844662"
+    url: "https://www.sunday-webry.com/atom/series/14079602755417844662"
+    chapter_count: 1
+    chapters:
+      - title: "流星のエントロピー"
+        updated: "2023-11-08"
+        url: "https://www.sunday-webry.com/episode/14079602755417847887"
+  - work_title: "オカ研とエスパーと"
+    series_id: "14079602755417844672"
+    url: "https://www.sunday-webry.com/atom/series/14079602755417844672"
+    chapter_count: 1
+    chapters:
+      - title: "オカ研とエスパーと"
+        updated: "2023-11-08"
+        url: "https://www.sunday-webry.com/episode/14079602755417847910"
+  - work_title: "花子さんと花子ちゃん"
+    series_id: "14079602755571985501"
+    url: "https://www.sunday-webry.com/atom/series/14079602755571985501"
+    chapter_count: 1
+    chapters:
+      - title: "花子さんと花子ちゃん"
+        updated: "2023-12-26"
+        url: "https://www.sunday-webry.com/episode/14079602755571985890"
+  - work_title: "閻魔様のいうとおり"
+    series_id: "14079602755607769009"
+    url: "https://www.sunday-webry.com/atom/series/14079602755607769009"
+    chapter_count: 1
+    chapters:
+      - title: "閻魔様のいうとおり"
+        updated: "2024-01-08"
+        url: "https://www.sunday-webry.com/episode/14079602755607769324"
+  - work_title: "つまらない"
+    series_id: "2550689798380861886"
+    url: "https://www.sunday-webry.com/atom/series/2550689798380861886"
+    chapter_count: 1
+    chapters:
+      - title: "つまらない"
+        updated: "2024-04-08"
+        url: "https://www.sunday-webry.com/episode/2550689798380877479"
+  - work_title: "リリーとキャラメル"
+    series_id: "2550689798638377148"
+    url: "https://www.sunday-webry.com/atom/series/2550689798638377148"
+    chapter_count: 1
+    chapters:
+      - title: "リリーとキャラメル"
+        updated: "2024-06-09"
+        url: "https://www.sunday-webry.com/episode/2550689798638388235"
+  - work_title: "ぐるぐる目の渦原さん"
+    series_id: "2550689798673026803"
+    url: "https://www.sunday-webry.com/atom/series/2550689798673026803"
+    chapter_count: 1
+    chapters:
+      - title: "ぐるぐる目の渦原さん"
+        updated: "2024-06-23"
+        url: "https://www.sunday-webry.com/episode/2550689798673031818"
+  - work_title: "海が好きだ"
+    series_id: "2550912964420837866"
+    url: "https://www.sunday-webry.com/atom/series/2550912964420837866"
+    chapter_count: 1
+    chapters:
+      - title: "海が好きだ"
+        updated: "2024-08-08"
+        url: "https://www.sunday-webry.com/episode/2550912964420858214"
+  - work_title: "小柳ちゃんの守り方!"
+    series_id: "2550912964579085639"
+    url: "https://www.sunday-webry.com/atom/series/2550912964579085639"
+    chapter_count: 1
+    chapters:
+      - title: "小柳ちゃんの守り方！"
+        updated: "2024-09-08"
+        url: "https://www.sunday-webry.com/episode/2550912964579096267"
+  - work_title: "ノゾミとカナエ"
+    series_id: "2550912964579869666"
+    url: "https://www.sunday-webry.com/atom/series/2550912964579869666"
+    chapter_count: 1
+    chapters:
+      - title: "ノゾミとカナエ"
+        updated: "2024-09-08"
+        url: "https://www.sunday-webry.com/episode/2550912964579892071"
+  - work_title: "上杉くんは女の子をやめたい"
+    series_id: "2550912964699074885"
+    url: "https://www.sunday-webry.com/atom/series/2550912964699074885"
+    chapter_count: 50
+    chapters:
+      - title: "第1話"
+        updated: "2024-10-05"
+        url: "https://www.sunday-webry.com/episode/2550912964699154588"
+      - title: "第2話"
+        updated: "2024-10-05"
+        url: "https://www.sunday-webry.com/episode/2550912964707755416"
+      - title: "第3話"
+        updated: "2024-10-19"
+        url: "https://www.sunday-webry.com/episode/2550912964772186977"
+      - title: "第4話"
+        updated: "2024-11-02"
+        url: "https://www.sunday-webry.com/episode/2550912964832084312"
+        withdrawn: true
+      - title: "第5話"
+        updated: "2024-11-16"
+        url: "https://www.sunday-webry.com/episode/2550912964892484830"
+        withdrawn: true
+      - title: "第6話"
+        updated: "2024-12-07"
+        url: "https://www.sunday-webry.com/episode/2550912964982734967"
+        withdrawn: true
+      - title: "第7話"
+        updated: "2024-12-21"
+        url: "https://www.sunday-webry.com/episode/2550912965038938332"
+        withdrawn: true
+      - title: "第8話"
+        updated: "2025-01-04"
+        url: "https://www.sunday-webry.com/episode/2550912965065530857"
+        withdrawn: true
+      - title: "第9話"
+        updated: "2025-01-18"
+        url: "https://www.sunday-webry.com/episode/2550912965156913224"
+        withdrawn: true
+      - title: "第10話"
+        updated: "2025-02-01"
+        url: "https://www.sunday-webry.com/episode/2550912965223946910"
+        withdrawn: true
+      - title: "第11話"
+        updated: "2025-02-15"
+        url: "https://www.sunday-webry.com/episode/2550912965288057224"
+        withdrawn: true
+      - title: "第12話"
+        updated: "2025-03-01"
+        url: "https://www.sunday-webry.com/episode/2550912965354806416"
+        withdrawn: true
+      - title: "第13話"
+        updated: "2025-03-15"
+        url: "https://www.sunday-webry.com/episode/2550912965420323608"
+        withdrawn: true
+      - title: "第14話"
+        updated: "2025-04-05"
+        url: "https://www.sunday-webry.com/episode/2550912965516378395"
+        withdrawn: true
+      - title: "第15話"
+        updated: "2025-04-19"
+        url: "https://www.sunday-webry.com/episode/2550912965578746616"
+        withdrawn: true
+      - title: "第16話"
+        updated: "2025-05-03"
+        url: "https://www.sunday-webry.com/episode/2550912965639131560"
+        withdrawn: true
+      - title: "第17話"
+        updated: "2025-05-17"
+        url: "https://www.sunday-webry.com/episode/2550912965707435579"
+        withdrawn: true
+      - title: "第18話"
+        updated: "2025-05-31"
+        url: "https://www.sunday-webry.com/episode/2550912965765676589"
+        withdrawn: true
+      - title: "第19話"
+        updated: "2025-06-21"
+        url: "https://www.sunday-webry.com/episode/2550912965858943154"
+        withdrawn: true
+      - title: "第20話"
+        updated: "2025-07-05"
+        url: "https://www.sunday-webry.com/episode/2550912965923977590"
+        withdrawn: true
+      - title: "第21話"
+        updated: "2025-07-19"
+        url: "https://www.sunday-webry.com/episode/2550912965983466567"
+        withdrawn: true
+      - title: "第22話①"
+        updated: "2025-08-02"
+        url: "https://www.sunday-webry.com/episode/2550912966047912611"
+        withdrawn: true
+      - title: "第22話②"
+        updated: "2025-08-16"
+        url: "https://www.sunday-webry.com/episode/2551460909456736569"
+        withdrawn: true
+      - title: "第22.5話"
+        updated: "2025-09-06"
+        url: "https://www.sunday-webry.com/episode/2551460909546725814"
+      - title: "第23話①"
+        updated: "2025-09-20"
+        url: "https://www.sunday-webry.com/episode/2551460909604313084"
+        withdrawn: true
+      - title: "第23話②"
+        updated: "2025-10-04"
+        url: "https://www.sunday-webry.com/episode/2551460909657261435"
+        withdrawn: true
+      - title: "番外編"
+        updated: "2025-10-18"
+        url: "https://www.sunday-webry.com/episode/2551460909714347490"
+      - title: "第24話"
+        updated: "2025-11-01"
+        url: "https://www.sunday-webry.com/episode/2551460909765429911"
+        withdrawn: true
+      - title: "第25話"
+        updated: "2025-11-15"
+        url: "https://www.sunday-webry.com/episode/2551460909814808564"
+        withdrawn: true
+      - title: "第26話"
+        updated: "2025-12-06"
+        url: "https://www.sunday-webry.com/episode/2551460909896037938"
+        withdrawn: true
+      - title: "番外編 「八重村くんは夢みたい」"
+        updated: "2025-12-20"
+        url: "https://www.sunday-webry.com/episode/2551460909947036087"
+      - title: "番外編"
+        updated: "2026-01-10"
+        url: "https://www.sunday-webry.com/episode/2551460910022581560"
+      - title: "番外編「飯野さんはメンタルが限界」"
+        updated: "2026-01-17"
+        url: "https://www.sunday-webry.com/episode/2551460910048173815"
+      - title: "第27話"
+        updated: "2026-02-07"
+        url: "https://www.sunday-webry.com/episode/12207421983351913532"
+        withdrawn: true
+      - title: "番外編「髪は女の命？」"
+        updated: "2026-02-21"
+        url: "https://www.sunday-webry.com/episode/12207421983409423039"
+      - title: "第28話"
+        updated: "2026-03-07"
+        url: "https://www.sunday-webry.com/episode/12207421983462425329"
+        withdrawn: true
+      - title: "第29話"
+        updated: "2026-03-21"
+        url: "https://www.sunday-webry.com/episode/12207421983510596961"
+        withdrawn: true
+      - title: "第30話①"
+        updated: "2026-04-04"
+        url: "https://www.sunday-webry.com/episode/12207421983566411383"
+        withdrawn: true
+      - title: "第30話②"
+        updated: "2026-04-18"
+        url: "https://www.sunday-webry.com/episode/12207421983619153473"
+        withdrawn: true
+      - title: "第31話"
+        updated: "2026-05-02"
+        url: "https://www.sunday-webry.com/episode/12207421983666878507"
+        withdrawn: true
+      - title: "第32話"
+        updated: "2026-05-16"
+        url: "https://www.sunday-webry.com/episode/12207421983726580482"
+        withdrawn: true
+      - title: "33話予告"
+        updated: "2026-06-06"
+        url: "https://www.sunday-webry.com/episode/12207421983805402686"
+      - title: "第33話"
+        updated: "2026-06-20"
+        url: "https://www.sunday-webry.com/episode/12207421983865293107"
+        withdrawn: true
+      - title: "イラスト"
+        updated: "2026-07-04"
+        url: "https://www.sunday-webry.com/episode/12207421983921842188"
+      - title: "第34話"
+        updated: "2026-07-18"
+        url: "https://www.sunday-webry.com/episode/12207421983978049815"
+        withdrawn: true
+      - title: "イラスト"
+        updated: "2026-08-01"
+        url: "https://www.sunday-webry.com/episode/12207421984039246490"
+      - title: "本誌７月号出張番外編"
+        updated: "2026-08-15"
+        url: "https://www.sunday-webry.com/episode/12207421984094535779"
+      - title: "イラスト"
+        updated: "2026-09-05"
+        url: "https://www.sunday-webry.com/episode/12207421984187774699"
+      - title: "第35話"
+        updated: "2026-09-19"
+        url: "https://www.sunday-webry.com/episode/12207421984256440937"
+      - title: "イラスト"
+        updated: "2026-10-03"
+        url: "https://www.sunday-webry.com/episode/12207421984321657717"
+  - work_title: "色知らぬ黒は青に触れる"
+    series_id: "2550912964875384025"
+    url: "https://www.sunday-webry.com/atom/series/2550912964875384025"
+    chapter_count: 1
+    chapters:
+      - title: "色知らぬ黒は青に触れる"
+        updated: "2024-12-04"
+        url: "https://www.sunday-webry.com/episode/2550912964875387819"
+  - work_title: "魔女ケイリーのポーション店"
+    series_id: "2550912964978527598"
+    url: "https://www.sunday-webry.com/atom/series/2550912964978527598"
+    chapter_count: 1
+    chapters:
+      - title: "魔女ケイリーのポーション店"
+        updated: "2024-12-08"
+        url: "https://www.sunday-webry.com/episode/2550912964978530642"
+  - work_title: "花の色に染まるな"
+    series_id: "2550912965354060764"
+    url: "https://www.sunday-webry.com/atom/series/2550912965354060764"
+    chapter_count: 1
+    chapters:
+      - title: "花の色に染まるな"
+        updated: "2025-03-09"
+        url: "https://www.sunday-webry.com/episode/2550912965379421216"
+  - work_title: "メイドのデューデ"
+    series_id: "2550912965378878941"
+    url: "https://www.sunday-webry.com/atom/series/2550912965378878941"
+    chapter_count: 1
+    chapters:
+      - title: "メイドのデューデ"
+        updated: "2025-03-08"
+        url: "https://www.sunday-webry.com/episode/2550912965378889801"
+  - work_title: "#ギャルとギャルの百合"
+    series_id: "2550912965813599150"
+    url: "https://www.sunday-webry.com/atom/series/2550912965813599150"
+    chapter_count: 30
+    chapters:
+      - title: "#1 #ギャルとギャルの百合"
+        updated: "2025-06-10"
+        url: "https://www.sunday-webry.com/episode/2550912965814192510"
+      - title: "#2 #記念日"
+        updated: "2025-09-09"
+        url: "https://www.sunday-webry.com/episode/2551460909559824630"
+      - title: "#3 #なんでも知ってるよ"
+        updated: "2025-09-09"
+        url: "https://www.sunday-webry.com/episode/2551460909559824639"
+      - title: "#4 #なりたいもの"
+        updated: "2025-09-16"
+        url: "https://www.sunday-webry.com/episode/2551460909576252979"
+        withdrawn: true
+      - title: "#5 #かんせいっ"
+        updated: "2025-09-23"
+        url: "https://www.sunday-webry.com/episode/2551460909605514247"
+        withdrawn: true
+      - title: "#6 #お泊まり"
+        updated: "2025-09-30"
+        url: "https://www.sunday-webry.com/episode/2551460909646012247"
+        withdrawn: true
+      - title: "#7 #いーことあるっしょ"
+        updated: "2025-10-07"
+        url: "https://www.sunday-webry.com/episode/2551460909672547585"
+        withdrawn: true
+      - title: "#8 #仲良くなって♡"
+        updated: "2025-10-14"
+        url: "https://www.sunday-webry.com/episode/2551460909687576323"
+        withdrawn: true
+      - title: "#9 #バイトしたい"
+        updated: "2025-10-21"
+        url: "https://www.sunday-webry.com/episode/2551460909725959711"
+        withdrawn: true
+      - title: "#10 #お姫様"
+        updated: "2025-10-28"
+        url: "https://www.sunday-webry.com/episode/2551460909751898064"
+        withdrawn: true
+      - title: "#11 #ありがと"
+        updated: "2025-11-04"
+        url: "https://www.sunday-webry.com/episode/2551460909766326898"
+        withdrawn: true
+      - title: "#アニラン #ありがとー♡"
+        updated: "2026-03-04"
+        url: "https://www.sunday-webry.com/episode/12207421983452545320"
+      - title: "#12 #くっつきたい"
+        updated: "2026-05-19"
+        url: "https://www.sunday-webry.com/episode/12207421983737699938"
+        withdrawn: true
+      - title: "#13 #ギャルサーありますか？"
+        updated: "2026-05-26"
+        url: "https://www.sunday-webry.com/episode/12207421983765030664"
+        withdrawn: true
+      - title: "#14 #お休みしゅる"
+        updated: "2026-06-02"
+        url: "https://www.sunday-webry.com/episode/12207421983792590165"
+        withdrawn: true
+      - title: "#15 #いえいっ！"
+        updated: "2026-06-09"
+        url: "https://www.sunday-webry.com/episode/12207421983821988219"
+        withdrawn: true
+      - title: "#16 #生配信"
+        updated: "2026-06-16"
+        url: "https://www.sunday-webry.com/episode/12207421983849808827"
+        withdrawn: true
+      - title: "#17 #お久しぶりです"
+        updated: "2026-06-23"
+        url: "https://www.sunday-webry.com/episode/12207421983877404304"
+        withdrawn: true
+      - title: "#18 #育てましょう"
+        updated: "2026-06-30"
+        url: "https://www.sunday-webry.com/episode/12207421983906643496"
+        withdrawn: true
+      - title: "#19 #今日から！"
+        updated: "2026-07-07"
+        url: "https://www.sunday-webry.com/episode/12207421983934436026"
+        withdrawn: true
+      - title: "#20 #声かけるっしょ"
+        updated: "2026-07-14"
+        url: "https://www.sunday-webry.com/episode/12207421983962004904"
+        withdrawn: true
+      - title: "#21 #来よーね"
+        updated: "2026-07-21"
+        url: "https://www.sunday-webry.com/episode/12207421983979964054"
+        withdrawn: true
+      - title: "#22 #デジャブってる"
+        updated: "2026-07-28"
+        url: "https://www.sunday-webry.com/episode/12207421984022269059"
+        withdrawn: true
+      - title: "#23 #言うね"
+        updated: "2026-08-04"
+        url: "https://www.sunday-webry.com/episode/12207421984052545071"
+        withdrawn: true
+      - title: "#特別編 #炎上しちゃう"
+        updated: "2025-12-26"
+        url: "https://www.sunday-webry.com/episode/2551460909968584080"
+      - title: "#24 #なんでもない日"
+        updated: "2026-08-18"
+        url: "https://www.sunday-webry.com/episode/12207421984111358487"
+        withdrawn: true
+      - title: "#25 #きさらぎ駅"
+        updated: "2026-09-01"
+        url: "https://www.sunday-webry.com/episode/12207421984173613088"
+        withdrawn: true
+      - title: "#26 #貢ぎます！"
+        updated: "2026-09-15"
+        url: "https://www.sunday-webry.com/episode/12207421984237603748"
+        withdrawn: true
+      - title: "#27 #ギャルにしてあげる"
+        updated: "2026-09-29"
+        url: "https://www.sunday-webry.com/episode/12207421984304690970"
+        withdrawn: true
+      - title: "#28 #全員オタク？"
+        updated: "2026-10-13"
+        url: "https://www.sunday-webry.com/episode/12207421984355309024"
+  - work_title: "友達をゾンビにしてそれから"
+    series_id: "2550912965979162491"
+    url: "https://www.sunday-webry.com/atom/series/2550912965979162491"
+    chapter_count: 1
+    chapters:
+      - title: "友達をゾンビにしてそれから"
+        updated: "2025-08-04"
+        url: "https://www.sunday-webry.com/episode/2550912965979187717"
+  - work_title: "てくのぱにっくゆにばーす"
+    series_id: "2551460909679434702"
+    url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
+    chapter_count: 47
+    chapters:
+      - title: "第１話 この狭い宇宙をはみ出たもの"
+        updated: "2025-10-10"
+        url: "https://www.sunday-webry.com/episode/2551460909679507683"
+      - title: "ショートショート 新入生は見た！"
+        updated: "2025-10-17"
+        url: "https://www.sunday-webry.com/episode/2551460909709290239"
+      - title: "ショートショート 分類学"
+        updated: "2025-10-24"
+        url: "https://www.sunday-webry.com/episode/2551460909736826481"
+      - title: "ショートショート 非言語コミュニケーション"
+        updated: "2025-10-31"
+        url: "https://www.sunday-webry.com/episode/2551460909761910288"
+      - title: "第２話 テレビは猫に入りますか？"
+        updated: "2025-11-07"
+        url: "https://www.sunday-webry.com/episode/2551460909787464666"
+      - title: "ショートショート 夜の秘め事？"
+        updated: "2025-11-14"
+        url: "https://www.sunday-webry.com/episode/2551460909813871533"
+      - title: "ショートショート つくってあそぼ"
+        updated: "2025-11-21"
+        url: "https://www.sunday-webry.com/episode/2551460909836617575"
+      - title: "ショートショート 熱意のある学生を募集します"
+        updated: "2025-11-28"
+        url: "https://www.sunday-webry.com/episode/2551460909866007583"
+      - title: "第３話 課題は足がつく前に"
+        updated: "2025-12-05"
+        url: "https://www.sunday-webry.com/episode/2551460909891798438"
+      - title: "ショートショート お部屋に潜むもの"
+        updated: "2025-12-19"
+        url: "https://www.sunday-webry.com/episode/2551460909939778084"
+      - title: "ショートショート めぐる因果"
+        updated: "2025-12-26"
+        url: "https://www.sunday-webry.com/episode/2551460909963939684"
+      - title: "第４話 Hang on shooting star"
+        updated: "2026-01-02"
+        url: "https://www.sunday-webry.com/episode/2551460909968193096"
+        withdrawn: true
+      - title: "ショートショート ナチュラルRTA走者"
+        updated: "2026-01-09"
+        url: "https://www.sunday-webry.com/episode/2551460910014955420"
+      - title: "ショートショート メカバレは性癖"
+        updated: "2026-01-23"
+        url: "https://www.sunday-webry.com/episode/2551460910070819853"
+      - title: "ショートショート ボディの稼働テスト"
+        updated: "2026-01-30"
+        url: "https://www.sunday-webry.com/episode/12207421983322196899"
+      - title: "第５話 首を長くしてお待ちしてます"
+        updated: "2026-02-06"
+        url: "https://www.sunday-webry.com/episode/12207421983351292051"
+        withdrawn: true
+      - title: "ショートショート 豆鉄砲を喰らったように"
+        updated: "2026-02-13"
+        url: "https://www.sunday-webry.com/episode/12207421983380013749"
+      - title: "ショートショート 指示の通りにしろ"
+        updated: "2026-02-27"
+        url: "https://www.sunday-webry.com/episode/12207421983433960005"
+      - title: "第６話 桜儚し探せよ乙女"
+        updated: "2026-03-06"
+        url: "https://www.sunday-webry.com/episode/12207421983458641270"
+        withdrawn: true
+      - title: "ショートショート 刺激不足"
+        updated: "2026-03-13"
+        url: "https://www.sunday-webry.com/episode/12207421983483910125"
+      - title: "ショートショート 水濡れ厳禁"
+        updated: "2026-03-20"
+        url: "https://www.sunday-webry.com/episode/12207421983502455489"
+      - title: "ショートショート 配線ミス"
+        updated: "2026-03-27"
+        url: "https://www.sunday-webry.com/episode/12207421983536627278"
+      - title: "第７話 怪奇！並行宇宙からの不明物体！"
+        updated: "2026-04-03"
+        url: "https://www.sunday-webry.com/episode/12207421983562196950"
+        withdrawn: true
+      - title: "コミックス１巻発売記念イラスト！"
+        updated: "2026-04-10"
+        url: "https://www.sunday-webry.com/episode/12207421983585074986"
+      - title: "ショートショート 並行生物と触れあおう！"
+        updated: "2026-04-17"
+        url: "https://www.sunday-webry.com/episode/12207421983614777119"
+      - title: "ショートショート 円滑な授業に関するハウツー"
+        updated: "2026-04-24"
+        url: "https://www.sunday-webry.com/episode/12207421983641074829"
+      - title: "第８話 ワードサラダにパプリカを"
+        updated: "2026-05-01"
+        url: "https://www.sunday-webry.com/episode/12207421983666865441"
+        withdrawn: true
+      - title: "ショートショート リベンジ！服だけ溶かすスライム！"
+        updated: "2026-05-08"
+        url: "https://www.sunday-webry.com/episode/12207421983670897325"
+      - title: "ショートショート 刹那の見切り"
+        updated: "2026-05-15"
+        url: "https://www.sunday-webry.com/episode/12207421983719247007"
+      - title: "第９話 実に大きな鯉のぼり"
+        updated: "2026-05-22"
+        url: "https://www.sunday-webry.com/episode/12207421983749265758"
+        withdrawn: true
+      - title: "第１０話 ダンジョンズ＆フィットネス"
+        updated: "2026-06-05"
+        url: "https://www.sunday-webry.com/episode/12207421983801812205"
+        withdrawn: true
+      - title: "ショートショート 汗の有効利用についての研究"
+        updated: "2026-06-12"
+        url: "https://www.sunday-webry.com/episode/12207421983829649379"
+      - title: "ショートショート 枯井戸が仲間に加わった！"
+        updated: "2026-06-19"
+        url: "https://www.sunday-webry.com/episode/12207421983861446943"
+      - title: "ショートショート 最適なトレーニングウェア？"
+        updated: "2026-06-26"
+        url: "https://www.sunday-webry.com/episode/12207421983889442170"
+      - title: "第１１話 かわいい以外も作れます"
+        updated: "2026-07-03"
+        url: "https://www.sunday-webry.com/episode/12207421983914419620"
+        withdrawn: true
+      - title: "ショートショート あなたにとって可愛いとは？"
+        updated: "2026-07-10"
+        url: "https://www.sunday-webry.com/episode/12207421983946415681"
+      - title: "ショートショート 人類学生化計画"
+        updated: "2026-07-17"
+        url: "https://www.sunday-webry.com/episode/12207421983974104594"
+      - title: "第１２話 未知なる味を湯呑みに求めて"
+        updated: "2026-07-24"
+        url: "https://www.sunday-webry.com/episode/12207421984001879444"
+        withdrawn: true
+      - title: "第１３話 助手戦線異状あり！"
+        updated: "2026-08-14"
+        url: "https://www.sunday-webry.com/episode/12207421984093442305"
+        withdrawn: true
+      - title: "ショートショート これが彼女らの戦車道"
+        updated: "2026-08-21"
+        url: "https://www.sunday-webry.com/episode/12207421984122496896"
+      - title: "ショートショート 助手の心得"
+        updated: "2026-08-28"
+        url: "https://www.sunday-webry.com/episode/12207421984152624491"
+      - title: "第１４話 あるいは思い出いっぱいの海"
+        updated: "2026-09-04"
+        url: "https://www.sunday-webry.com/episode/12207421984186215640"
+        withdrawn: true
+      - title: "ショートショート 初見の二人"
+        updated: "2026-09-11"
+        url: "https://www.sunday-webry.com/episode/12207421984217395007"
+      - title: "ショートショート 目指せ爆裂球技日本一！"
+        updated: "2026-09-18"
+        url: "https://www.sunday-webry.com/episode/12207421984247359814"
+      - title: "ショートショート 時には昔の話を"
+        updated: "2026-09-25"
+        url: "https://www.sunday-webry.com/episode/12207421984284721644"
+      - title: "第１５話 郵便ポストで洋服を"
+        updated: "2026-10-02"
+        url: "https://www.sunday-webry.com/episode/12207421984317356462"
+      - title: "コミックス２巻発売記念イラスト！"
+        updated: "2026-10-09"
+        url: "https://www.sunday-webry.com/episode/12207421984349543116"
+  - work_title: "ダンジョン・リリィ"
+    series_id: "2551460909740175978"
+    url: "https://www.sunday-webry.com/atom/series/2551460909740175978"
+    chapter_count: 1
+    chapters:
+      - title: "ダンジョン・リリィ"
+        updated: "2025-10-27"
+        url: "https://www.sunday-webry.com/episode/2551460909740177016"
+  - work_title: "もらったもの"
+    series_id: "2551460909787863854"
+    url: "https://www.sunday-webry.com/atom/series/2551460909787863854"
+    chapter_count: 1
+    chapters:
+      - title: "もらったもの"
+        updated: "2025-11-08"
+        url: "https://www.sunday-webry.com/episode/2551460909787867364"
+  - work_title: "魔法少女リインカーネーション"
+    series_id: "2551460909881729216"
+    url: "https://www.sunday-webry.com/atom/series/2551460909881729216"
+    chapter_count: 1
+    chapters:
+      - title: "魔法少女リインカーネーション"
+        updated: "2026-01-07"
+        url: "https://www.sunday-webry.com/episode/2551460909881731454"
+  - work_title: "重しれー女"
+    series_id: "2551460909961116107"
+    url: "https://www.sunday-webry.com/atom/series/2551460909961116107"
+    chapter_count: 1
+    chapters:
+      - title: "重しれー女"
+        updated: "2026-01-08"
+        url: "https://www.sunday-webry.com/episode/2551460909961119395"
+  - work_title: "ワイルアライブ"
+    series_id: "2551460910036802679"
+    url: "https://www.sunday-webry.com/atom/series/2551460910036802679"
+    chapter_count: 1
+    chapters:
+      - title: "ワイルアライブ"
+        updated: "2026-02-18"
+        url: "https://www.sunday-webry.com/episode/2551460910036806026"
+  - work_title: "カレンダーの裏側"
+    series_id: "2551460910059536999"
+    url: "https://www.sunday-webry.com/atom/series/2551460910059536999"
+    chapter_count: 1
+    chapters:
+      - title: "カレンダーの裏側"
+        updated: "2026-01-20"
+        url: "https://www.sunday-webry.com/episode/2551460910059540917"
+  - work_title: "ぎゅっとにぎって"
+    series_id: "316112896821557577"
+    url: "https://www.sunday-webry.com/atom/series/316112896821557577"
+    chapter_count: 1
+    chapters:
+      - title: "ぎゅっとにぎって"
+        updated: "2022-09-08"
+        url: "https://www.sunday-webry.com/episode/316112896821567303"
+  - work_title: "白百合に×いを込めて"
+    series_id: "316112896821557578"
+    url: "https://www.sunday-webry.com/atom/series/316112896821557578"
+    chapter_count: 1
+    chapters:
+      - title: "白百合に×いを込めて"
+        updated: "2022-09-08"
+        url: "https://www.sunday-webry.com/episode/316112896821567309"
+  - work_title: "あやしあやかしあけみちゃん"
+    series_id: "316112896838146674"
+    url: "https://www.sunday-webry.com/atom/series/316112896838146674"
+    chapter_count: 1
+    chapters:
+      - title: "あやしあやかしあけみちゃん"
+        updated: "2022-09-27"
+        url: "https://www.sunday-webry.com/episode/316112896838166963"
+  - work_title: "あのこのにおい"
+    series_id: "316190246935367225"
+    url: "https://www.sunday-webry.com/atom/series/316190246935367225"
+    chapter_count: 1
+    chapters:
+      - title: "あのこのにおい"
+        updated: "2022-11-08"
+        url: "https://www.sunday-webry.com/episode/316190246942043648"
+  - work_title: "タバコ味のかき氷"
+    series_id: "316190246935385405"
+    url: "https://www.sunday-webry.com/atom/series/316190246935385405"
+    chapter_count: 1
+    chapters:
+      - title: "タバコ味のかき氷"
+        updated: "2022-11-08"
+        url: "https://www.sunday-webry.com/episode/316190246942043692"
+  - work_title: "天才を描く"
+    series_id: "316190247056983048"
+    url: "https://www.sunday-webry.com/atom/series/316190247056983048"
+    chapter_count: 1
+    chapters:
+      - title: "天才を描く"
+        updated: "2023-01-08"
+        url: "https://www.sunday-webry.com/episode/316190247056983381"
+  - work_title: "かけあうつきひ"
+    series_id: "3269754496548915263"
+    url: "https://www.sunday-webry.com/atom/series/3269754496548915263"
+    chapter_count: 41
+    chapters:
+      - title: "1. 第1話 みなさんどうも、400倍です。"
+        updated: "2021-05-12"
+        url: "https://www.sunday-webry.com/episode/3269754496548998028"
+      - title: "2. イラスト"
+        updated: "2021-05-21"
+        url: "https://www.sunday-webry.com/episode/3269754496570591732"
+      - title: "3. 第2話 まともな大人は大人の熱痺逃がしせえへんねん…‼︎"
+        updated: "2021-05-28"
+        url: "https://www.sunday-webry.com/episode/3269754496548998032"
+      - title: "4. 第3話 日頃の感謝をここで述べただけだけど…"
+        updated: "2021-06-04"
+        url: "https://www.sunday-webry.com/episode/3269754496548998039"
+      - title: "26. 第23話 「高校最後の思い出に一発かまそーや!」"
+        updated: "2021-10-29"
+        url: "https://www.sunday-webry.com/episode/3269754496576776363"
+        withdrawn: true
+      - title: "27. 第24話 「世界で唯一」"
+        updated: "2021-11-12"
+        url: "https://www.sunday-webry.com/episode/3269754496595620617"
+        withdrawn: true
+      - title: "28. 第25話 「夜な夜な…中に誰もいないはずのシャワー室でね…」"
+        updated: "2021-11-19"
+        url: "https://www.sunday-webry.com/episode/3269754496607010880"
+        withdrawn: true
+      - title: "29. 第26話 海は広いな素敵だなーっ!!"
+        updated: "2021-11-26"
+        url: "https://www.sunday-webry.com/episode/3269754496618653294"
+        withdrawn: true
+      - title: "31. 第27話 「温っ泉ー!!」"
+        updated: "2021-12-03"
+        url: "https://www.sunday-webry.com/episode/3269754496630253816"
+        withdrawn: true
+      - title: "32. 第28話 「こう見えても…結構イケイケ女子だったのよ…」"
+        updated: "2021-12-10"
+        url: "https://www.sunday-webry.com/episode/3269754496641991319"
+        withdrawn: true
+      - title: "33. 第29話 「お笑いって不思議だよね…」"
+        updated: "2021-12-24"
+        url: "https://www.sunday-webry.com/episode/3269754496663041578"
+        withdrawn: true
+      - title: "34. 第30話 「なんで誕生日って祝うんやろ…」"
+        updated: "2022-01-07"
+        url: "https://www.sunday-webry.com/episode/3269754496685332205"
+        withdrawn: true
+      - title: "35. 第31話 「四暗刻単騎…」"
+        updated: "2022-01-14"
+        url: "https://www.sunday-webry.com/episode/3269754496699342604"
+        withdrawn: true
+      - title: "36. 第32話 「そっちかい!!」"
+        updated: "2022-01-21"
+        url: "https://www.sunday-webry.com/episode/3269754496711781305"
+        withdrawn: true
+      - title: "37. 第33話 素敵な絵やとは思うんですけど…"
+        updated: "2022-01-28"
+        url: "https://www.sunday-webry.com/episode/3269754496724566739"
+        withdrawn: true
+      - title: "38. 第34話 「サクラソウさんみたいに」"
+        updated: "2022-02-04"
+        url: "https://www.sunday-webry.com/episode/3269754496737491059"
+        withdrawn: true
+      - title: "39. 第35話 「これ…だる転のガチ版だから…」"
+        updated: "2022-02-11"
+        url: "https://www.sunday-webry.com/episode/3269754496750308709"
+        withdrawn: true
+      - title: "40. 第36話 「あーあ…もったいな…」"
+        updated: "2022-02-18"
+        url: "https://www.sunday-webry.com/episode/3269754496763652461"
+        withdrawn: true
+      - title: "41. 質問募集"
+        updated: "2022-02-18"
+        url: "https://www.sunday-webry.com/episode/3269754496763704886"
+      - title: "42. 第37話 「これじゃあまるで…クリスマスみたいじゃん…」"
+        updated: "2022-02-25"
+        url: "https://www.sunday-webry.com/episode/3269754496777462822"
+        withdrawn: true
+      - title: "43. 第38話 「人生みかん粒作戦!」"
+        updated: "2022-03-04"
+        url: "https://www.sunday-webry.com/episode/3269754496790569576"
+        withdrawn: true
+      - title: "44. 第39話 「菫からは「さんオーラ」が溢れ出てるのよ!」"
+        updated: "2022-03-11"
+        url: "https://www.sunday-webry.com/episode/3269754496803948744"
+        withdrawn: true
+      - title: "45. 第40話 「輪の進路のことだから…」"
+        updated: "2022-03-18"
+        url: "https://www.sunday-webry.com/episode/3269754496817386145"
+        withdrawn: true
+      - title: "46. 第41話 「ゾイガやん!!」"
+        updated: "2022-03-25"
+        url: "https://www.sunday-webry.com/episode/3269754496830874471"
+        withdrawn: true
+      - title: "47. 第42話 「ネタ作りって大変だねーー…」"
+        updated: "2022-04-01"
+        url: "https://www.sunday-webry.com/episode/3269754496844319026"
+        withdrawn: true
+      - title: "48. 第43話 「おー路上漫才ね!」"
+        updated: "2022-04-08"
+        url: "https://www.sunday-webry.com/episode/3269754496858378134"
+        withdrawn: true
+      - title: "49. 第44話 上手ってどっちだったっけ?"
+        updated: "2022-04-15"
+        url: "https://www.sunday-webry.com/episode/3269754496872072877"
+        withdrawn: true
+      - title: "50. 第45話 「もう駆け落ちじゃん!!」"
+        updated: "2022-04-22"
+        url: "https://www.sunday-webry.com/episode/3269754496884180823"
+        withdrawn: true
+      - title: "51. 第46話 「ホント似てるわねー昔の私達に…」"
+        updated: "2022-04-29"
+        url: "https://www.sunday-webry.com/episode/3269754496897696438"
+        withdrawn: true
+      - title: "52. 5巻 質問募集!"
+        updated: "2022-04-29"
+        url: "https://www.sunday-webry.com/episode/3269754496897696442"
+      - title: "53. 第47話 月は忘れていた…"
+        updated: "2022-05-13"
+        url: "https://www.sunday-webry.com/episode/3270296674337365008"
+        withdrawn: true
+      - title: "54. 第48話 「かけあい禁止!!」"
+        updated: "2022-05-20"
+        url: "https://www.sunday-webry.com/episode/3270296674356614459"
+        withdrawn: true
+      - title: "55. 第49話 「卒業ライブチケット事件」"
+        updated: "2022-05-27"
+        url: "https://www.sunday-webry.com/episode/3270296674368623522"
+        withdrawn: true
+      - title: "56. 第50話 「吾輩に聞きたいことがあればコメントするがいい…」"
+        updated: "2022-06-03"
+        url: "https://www.sunday-webry.com/episode/3270296674383991149"
+        withdrawn: true
+      - title: "57. 第51話 「あなたにお母さんと呼ばれる筋合いはないわ…」"
+        updated: "2022-06-10"
+        url: "https://www.sunday-webry.com/episode/3270296674395521801"
+        withdrawn: true
+      - title: "58. 第52話 「イップスなんて早いとこ治そ!」"
+        updated: "2022-06-17"
+        url: "https://www.sunday-webry.com/episode/3270296674407225400"
+        withdrawn: true
+      - title: "59. 第53話 「スミリク史上一番の漫才」"
+        updated: "2022-06-24"
+        url: "https://www.sunday-webry.com/episode/3270296674427676961"
+        withdrawn: true
+      - title: "60. 第54話 「カンパニーエイトスクール卒業ライブ!!」"
+        updated: "2022-07-01"
+        url: "https://www.sunday-webry.com/episode/3270375685313446312"
+        withdrawn: true
+      - title: "61. 第55話 「太陽と月」"
+        updated: "2022-07-08"
+        url: "https://www.sunday-webry.com/episode/3270375685329082032"
+        withdrawn: true
+      - title: "62. 最終話 「掛け合う月日」"
+        updated: "2022-07-15"
+        url: "https://www.sunday-webry.com/episode/3270375685344186145"
+        withdrawn: true
+      - title: "63. 質問募集"
+        updated: "2022-07-15"
+        url: "https://www.sunday-webry.com/episode/3270375685344186150"
+  - work_title: "女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました"
+    series_id: "3269754496548915303"
+    url: "https://www.sunday-webry.com/atom/series/3269754496548915303"
+    chapter_count: 65
+    chapters:
+      - title: "1. 第1話"
+        updated: "2021-04-12"
+        url: "https://www.sunday-webry.com/episode/3269754496551508177"
+      - title: "2. 第2話 (1)"
+        updated: "2021-04-12"
+        url: "https://www.sunday-webry.com/episode/3269754496551508180"
+      - title: "13. 第9話 (1)"
+        updated: "2021-10-18"
+        url: "https://www.sunday-webry.com/episode/3269754496578543267"
+        withdrawn: true
+      - title: "14. 第9話 (2)"
+        updated: "2021-11-01"
+        url: "https://www.sunday-webry.com/episode/3269754496578543260"
+        withdrawn: true
+      - title: "15. 第10話"
+        updated: "2021-11-15"
+        url: "https://www.sunday-webry.com/episode/3269754496590832146"
+        withdrawn: true
+      - title: "16. 第11話 (1)"
+        updated: "2021-12-06"
+        url: "https://www.sunday-webry.com/episode/3269754496631710012"
+        withdrawn: true
+      - title: "17. 第11話 (2)"
+        updated: "2021-12-20"
+        url: "https://www.sunday-webry.com/episode/3269754496654658644"
+        withdrawn: true
+      - title: "18. 第12話 (1)"
+        updated: "2022-01-17"
+        url: "https://www.sunday-webry.com/episode/3269754496701100184"
+        withdrawn: true
+      - title: "19. 第12話 (2)"
+        updated: "2022-02-07"
+        url: "https://www.sunday-webry.com/episode/3269754496739060952"
+        withdrawn: true
+      - title: "20. 第13話 (1)"
+        updated: "2022-02-21"
+        url: "https://www.sunday-webry.com/episode/3269754496765667895"
+        withdrawn: true
+      - title: "21. 第13話 (2)"
+        updated: "2022-03-07"
+        url: "https://www.sunday-webry.com/episode/3269754496792265736"
+        withdrawn: true
+      - title: "22. 第13話 (3)"
+        updated: "2022-03-21"
+        url: "https://www.sunday-webry.com/episode/3269754496818817405"
+        withdrawn: true
+      - title: "23. 第14話 (1)"
+        updated: "2022-04-04"
+        url: "https://www.sunday-webry.com/episode/3269754496845685763"
+        withdrawn: true
+      - title: "24. 第14話 (2)"
+        updated: "2022-04-18"
+        url: "https://www.sunday-webry.com/episode/3269754496874210111"
+        withdrawn: true
+      - title: "25. 第14話 (3)"
+        updated: "2022-05-16"
+        url: "https://www.sunday-webry.com/episode/3270296674339638019"
+        withdrawn: true
+      - title: "26. 第15話 (1)"
+        updated: "2022-06-06"
+        url: "https://www.sunday-webry.com/episode/3270296674385860309"
+        withdrawn: true
+      - title: "27. 第15話 (2)"
+        updated: "2022-06-20"
+        url: "https://www.sunday-webry.com/episode/3270296674385860313"
+        withdrawn: true
+      - title: "28. 第15話 (3)"
+        updated: "2022-07-04"
+        url: "https://www.sunday-webry.com/episode/3270375685314229072"
+        withdrawn: true
+      - title: "29. 第16話 (1)"
+        updated: "2022-07-18"
+        url: "https://www.sunday-webry.com/episode/3270375685314229078"
+        withdrawn: true
+      - title: "30. 第16話 (2)"
+        updated: "2022-08-01"
+        url: "https://www.sunday-webry.com/episode/3270375685379434841"
+        withdrawn: true
+      - title: "31. 第16話 (3)"
+        updated: "2022-08-22"
+        url: "https://www.sunday-webry.com/episode/3270375685439436595"
+        withdrawn: true
+      - title: "32. 第17話 (1)"
+        updated: "2022-09-05"
+        url: "https://www.sunday-webry.com/episode/316112896806097396"
+        withdrawn: true
+      - title: "33. 第17話 (2)"
+        updated: "2022-09-19"
+        url: "https://www.sunday-webry.com/episode/316112896806097400"
+        withdrawn: true
+      - title: "34. 第17話 (3)"
+        updated: "2022-10-03"
+        url: "https://www.sunday-webry.com/episode/316112896891132875"
+        withdrawn: true
+      - title: "35. 第18話 (1)"
+        updated: "2022-10-17"
+        url: "https://www.sunday-webry.com/episode/316112896893200818"
+        withdrawn: true
+      - title: "36. 第18話 (2)"
+        updated: "2022-11-07"
+        url: "https://www.sunday-webry.com/episode/316190246923480227"
+        withdrawn: true
+      - title: "37. 第19話 (1)"
+        updated: "2022-11-21"
+        url: "https://www.sunday-webry.com/episode/316190246972807516"
+        withdrawn: true
+      - title: "38. 第19話 (2)"
+        updated: "2022-12-05"
+        url: "https://www.sunday-webry.com/episode/316190247007100598"
+        withdrawn: true
+      - title: "39. 第19話 (3)"
+        updated: "2022-12-19"
+        url: "https://www.sunday-webry.com/episode/316190247031387937"
+        withdrawn: true
+      - title: "40. 第20話 (1)"
+        updated: "2023-01-16"
+        url: "https://www.sunday-webry.com/episode/316190247098814479"
+        withdrawn: true
+      - title: "41. 第20話 (2)"
+        updated: "2023-01-30"
+        url: "https://www.sunday-webry.com/episode/316190247136865503"
+        withdrawn: true
+      - title: "42. 第20話 (3)"
+        updated: "2023-02-13"
+        url: "https://www.sunday-webry.com/episode/4855956445066546725"
+        withdrawn: true
+      - title: "43. 第21話 (1)"
+        updated: "2023-02-27"
+        url: "https://www.sunday-webry.com/episode/4855956445115161383"
+        withdrawn: true
+      - title: "44. 第21話 (2)"
+        updated: "2023-03-13"
+        url: "https://www.sunday-webry.com/episode/4856001361035066318"
+        withdrawn: true
+      - title: "45. 第22話 (1)"
+        updated: "2023-03-27"
+        url: "https://www.sunday-webry.com/episode/4856001361075097449"
+        withdrawn: true
+      - title: "46. 第22話 (2)"
+        updated: "2023-04-10"
+        url: "https://www.sunday-webry.com/episode/4856001361118749967"
+        withdrawn: true
+      - title: "47. 第22話 (3)"
+        updated: "2023-04-24"
+        url: "https://www.sunday-webry.com/episode/4856001361157750605"
+        withdrawn: true
+      - title: "48. 第23話 (1)"
+        updated: "2023-05-15"
+        url: "https://www.sunday-webry.com/episode/4856001361225021697"
+        withdrawn: true
+      - title: "49. 第23話 (2)"
+        updated: "2023-05-29"
+        url: "https://www.sunday-webry.com/episode/4856001361273146822"
+        withdrawn: true
+      - title: "50. 第23話 (3)"
+        updated: "2023-06-12"
+        url: "https://www.sunday-webry.com/episode/4856001361313779078"
+        withdrawn: true
+      - title: "51. 第24話 (1)"
+        updated: "2023-06-26"
+        url: "https://www.sunday-webry.com/episode/4856001361358865554"
+        withdrawn: true
+      - title: "52. 第24話 (2)"
+        updated: "2023-07-10"
+        url: "https://www.sunday-webry.com/episode/4856001361406704952"
+        withdrawn: true
+      - title: "53. 第24話 (3)"
+        updated: "2023-07-24"
+        url: "https://www.sunday-webry.com/episode/4856001361535788697"
+        withdrawn: true
+      - title: "54. 第25話 (1)"
+        updated: "2023-08-07"
+        url: "https://www.sunday-webry.com/episode/4856001361587706172"
+        withdrawn: true
+      - title: "55. 第25話 (2)"
+        updated: "2023-08-21"
+        url: "https://www.sunday-webry.com/episode/14079602755104555900"
+        withdrawn: true
+      - title: "56. 第25話 (3)"
+        updated: "2023-09-04"
+        url: "https://www.sunday-webry.com/episode/14079602755157400309"
+        withdrawn: true
+      - title: "57. 第26話 (1)"
+        updated: "2023-09-18"
+        url: "https://www.sunday-webry.com/episode/14079602755202660278"
+        withdrawn: true
+      - title: "58. 第26話 (2)"
+        updated: "2023-10-02"
+        url: "https://www.sunday-webry.com/episode/14079602755252407479"
+        withdrawn: true
+      - title: "59. 第26話 (3)"
+        updated: "2023-10-16"
+        url: "https://www.sunday-webry.com/episode/14079602755310273607"
+        withdrawn: true
+      - title: "60. 第27話 (1)"
+        updated: "2023-10-16"
+        url: "https://www.sunday-webry.com/episode/14079602755390649073"
+        withdrawn: true
+      - title: "61. 第27話 (2)"
+        updated: "2023-11-20"
+        url: "https://www.sunday-webry.com/episode/14079602755455505846"
+        withdrawn: true
+      - title: "62. 第27話 (3)"
+        updated: "2023-11-20"
+        url: "https://www.sunday-webry.com/episode/14079602755511351050"
+        withdrawn: true
+      - title: "63. 第28話 (1)"
+        updated: "2023-12-18"
+        url: "https://www.sunday-webry.com/episode/14079602755563893439"
+        withdrawn: true
+      - title: "64. 第28話 (2)"
+        updated: "2024-01-22"
+        url: "https://www.sunday-webry.com/episode/10044607041215359199"
+        withdrawn: true
+      - title: "65. 第28話 (3)"
+        updated: "2024-02-05"
+        url: "https://www.sunday-webry.com/episode/11341664176575661976"
+        withdrawn: true
+      - title: "66. 第29話 (1)"
+        updated: "2024-02-19"
+        url: "https://www.sunday-webry.com/episode/2550668105987475270"
+        withdrawn: true
+      - title: "67. 第29話 (2)"
+        updated: "2024-03-04"
+        url: "https://www.sunday-webry.com/episode/2550689798273708362"
+        withdrawn: true
+      - title: "68. 第29話 (3)"
+        updated: "2024-03-18"
+        url: "https://www.sunday-webry.com/episode/2550689798311901146"
+        withdrawn: true
+      - title: "69. 第30話 (1)"
+        updated: "2024-04-08"
+        url: "https://www.sunday-webry.com/episode/2550689798381598733"
+        withdrawn: true
+      - title: "70. 第30話 (2)"
+        updated: "2024-04-22"
+        url: "https://www.sunday-webry.com/episode/2550689798424113232"
+        withdrawn: true
+      - title: "71. 第30話 (3)"
+        updated: "2024-05-13"
+        url: "https://www.sunday-webry.com/episode/2550689798542842870"
+        withdrawn: true
+      - title: "72. 第31話 (1)"
+        updated: "2024-05-27"
+        url: "https://www.sunday-webry.com/episode/2550689798612124926"
+        withdrawn: true
+      - title: "73. 第31話 (2)"
+        updated: "2024-06-10"
+        url: "https://www.sunday-webry.com/episode/2550689798663158948"
+        withdrawn: true
+      - title: "74. 第31話 (3)"
+        updated: "2024-06-24"
+        url: "https://www.sunday-webry.com/episode/2550689798732761858"
+        withdrawn: true
+      - title: "75. 第31話 (4)"
+        updated: "2024-07-08"
+        url: "https://www.sunday-webry.com/episode/2550689798768512443"
+        withdrawn: true
+  - work_title: "はなにあらし"
+    series_id: "3269754496548915321"
+    url: "https://www.sunday-webry.com/atom/series/3269754496548915321"
+    chapter_count: 169
+    chapters:
+      - title: "1. 第1話 前編 わたしとなのは/後編 わたしとちどり"
+        updated: "2017-11-24"
+        url: "https://www.sunday-webry.com/episode/3269754496551508294"
+      - title: "2. 第2話 みんな で ごはん"
+        updated: "2017-12-01"
+        url: "https://www.sunday-webry.com/episode/3269754496551508297"
+      - title: "3. 第3話 ふたり の かんけい"
+        updated: "2017-12-08"
+        url: "https://www.sunday-webry.com/episode/3269754496551508300"
+      - title: "4. 第4話 ぶしつ で いっしょ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610787"
+        withdrawn: true
+      - title: "5. 第5話 すみっこ と まんなか"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610800"
+        withdrawn: true
+      - title: "6. 第6話 かーてん の むこう"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610821"
+        withdrawn: true
+      - title: "7. 第7話 こそっ と いたずら"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610829"
+        withdrawn: true
+      - title: "8. 第8話 ほんね と ほんい"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610835"
+        withdrawn: true
+      - title: "9. 第9話 みらい の かんけい"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610842"
+        withdrawn: true
+      - title: "10. 第10話 ふたり の なれそめ・前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610847"
+        withdrawn: true
+      - title: "11. 第11話 ふたり の なれそめ・後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610853"
+        withdrawn: true
+      - title: "12. 第12話 こんど は ふたりで"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610860"
+        withdrawn: true
+      - title: "13. 第13話 かれし と かのじょ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610868"
+        withdrawn: true
+      - title: "14. 第14話 いつも の じかん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610876"
+        withdrawn: true
+      - title: "15. 第15話 けんか の あとは"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610880"
+        withdrawn: true
+      - title: "16. 第16話 ほんき の おうえん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610892"
+        withdrawn: true
+      - title: "17. 第17話 ふたり の せかい"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610903"
+        withdrawn: true
+      - title: "18. 第18話 ひんやり で もちもち"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610914"
+        withdrawn: true
+      - title: "19. 1巻PR"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610918"
+        withdrawn: true
+      - title: "20. 第19話 せいふく で おでかけ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610923"
+        withdrawn: true
+      - title: "21. 第20話 じょし の たしなみ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610931"
+        withdrawn: true
+      - title: "22. 第21話 がいけん と ないめん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610940"
+        withdrawn: true
+      - title: "23. 第22話 続ふたり の なれそめ・前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610947"
+        withdrawn: true
+      - title: "24. 第23話 続ふたり の なれそめ・後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610951"
+        withdrawn: true
+      - title: "25. 第24話 なつ の はじまり"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610962"
+        withdrawn: true
+      - title: "26. 第25話 やたら と どきどき"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610968"
+        withdrawn: true
+      - title: "27. 第26話 ひみつ の まちあわせ・前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610977"
+        withdrawn: true
+      - title: "28. 第27話 ひみつ の まちあわせ・後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610983"
+        withdrawn: true
+      - title: "29. 第28話 ふたり の ひかげん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877610997"
+        withdrawn: true
+      - title: "30. 第29話 ちどり と めがね"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611003"
+        withdrawn: true
+      - title: "31. 第30話 おたんじょうび の さぷらいず"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611011"
+        withdrawn: true
+      - title: "32. 第31話 ごほうび ちょうだい"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611019"
+        withdrawn: true
+      - title: "33. 第32話 さいこう の なつやすみ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611025"
+        withdrawn: true
+      - title: "34. 第33話 ねんがん の おとまり 1"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611032"
+        withdrawn: true
+      - title: "35. 第34話 ねんがん の おとまり 2"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611036"
+        withdrawn: true
+      - title: "36. 第35話 ねんがん の おとまり 3"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611046"
+        withdrawn: true
+      - title: "37. 第36話 ねんがん の おとまり 4"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611055"
+        withdrawn: true
+      - title: "38. 第37話 ちどり の かくれんぼ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611059"
+        withdrawn: true
+      - title: "39. 第38話 みんな で かいすいよく ①"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611065"
+        withdrawn: true
+      - title: "40. 第39話 みんな で かいすいよく ②"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611073"
+        withdrawn: true
+      - title: "41. 第40話 みんな で かいすいよく ③"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611078"
+        withdrawn: true
+      - title: "42. 第41話 なつ の あらし"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611085"
+        withdrawn: true
+      - title: "43. 第42話 いつか の こと・前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611089"
+        withdrawn: true
+      - title: "44. 第43話 いつか の こと・中編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611094"
+        withdrawn: true
+      - title: "45. 第44話 いつか の こと・後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611105"
+        withdrawn: true
+      - title: "46. 第45話 ふたり の しれん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611110"
+        withdrawn: true
+      - title: "47. 第46話 けつい と わかれ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611118"
+        withdrawn: true
+      - title: "48. 3巻PR"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611123"
+        withdrawn: true
+      - title: "49. 第47話 あめあがり の はな 前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611129"
+        withdrawn: true
+      - title: "50. 第47話 あめあがり の はな 後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611138"
+        withdrawn: true
+      - title: "51. 第48話 かのじょ の じじょう"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611145"
+        withdrawn: true
+      - title: "52. 第49話 はなび の よいん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611151"
+        withdrawn: true
+      - title: "53. 第50話 ぎこちない ふたり"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611158"
+        withdrawn: true
+      - title: "54. 第51話 しあわせ な じかん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611167"
+        withdrawn: true
+      - title: "55. 第52話 なつ の おもいで"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611177"
+        withdrawn: true
+      - title: "56. 第53話 おんなのこ の かくしごと"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611187"
+        withdrawn: true
+      - title: "57. 第54話 こい の かくれが"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611198"
+        withdrawn: true
+      - title: "58. 第55話 くらやみ の ひめごと"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611205"
+        withdrawn: true
+      - title: "59. 第56話 ふたり の がくえんさい 前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611209"
+        withdrawn: true
+      - title: "60. 第56話 ふたり の がくえんさい 後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611215"
+        withdrawn: true
+      - title: "61. 第57話 たいせつ な ともだち"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611220"
+        withdrawn: true
+      - title: "62. 第58話 かわらない きもち"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611227"
+        withdrawn: true
+      - title: "63. 第59話 あのこ との きょり"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611235"
+        withdrawn: true
+      - title: "64. 第60話 しんゆう と こいびと"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611243"
+        withdrawn: true
+      - title: "65. 第61話 おもいで の あるばむ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611253"
+        withdrawn: true
+      - title: "66. 第62話 ささやか な ていこう"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611263"
+        withdrawn: true
+      - title: "67. 第63話 ひみつ の らぶれたー"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611272"
+        withdrawn: true
+      - title: "68. 第64話 いじわる の だいしょう"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611286"
+        withdrawn: true
+      - title: "69. 第65話 どきどき の かえりみち"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611293"
+        withdrawn: true
+      - title: "70. 第66話 だいじな とき"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611304"
+        withdrawn: true
+      - title: "71. 第67話 ひみつ の そうだん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611316"
+        withdrawn: true
+      - title: "72. 第68話 あらし の しゅうがくりょこう①"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611324"
+        withdrawn: true
+      - title: "73. 第69話 あらし の しゅうがくりょこう②"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611340"
+        withdrawn: true
+      - title: "74. 第70話 あらし の しゅうがくりょこう③"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611347"
+        withdrawn: true
+      - title: "75. 第71話 あらし の しゅうがくりょこう④"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611361"
+        withdrawn: true
+      - title: "76. 第72話 あらし の しゅうがくりょこう⑤"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611368"
+        withdrawn: true
+      - title: "77. 第73話 あらし の しゅうがくりょこう⑥"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611372"
+        withdrawn: true
+      - title: "78. 第74話 はだか の つきあい 前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611381"
+        withdrawn: true
+      - title: "79. 第75話  はだか の つきあい 後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611390"
+        withdrawn: true
+      - title: "80. 第76話 たび の おみやげ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611395"
+        withdrawn: true
+      - title: "81. 第77話 うらはら な おもい"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611402"
+        withdrawn: true
+      - title: "82. 第78話 からっぽ の こころ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611410"
+        withdrawn: true
+      - title: "83. 第79話 なーちゃん が えらんだひと"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611416"
+        withdrawn: true
+      - title: "84. 第80話 だいじ な はなし"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611422"
+        withdrawn: true
+      - title: "85. 第81話 うそ と しんじつ 前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611431"
+        withdrawn: true
+      - title: "86. 第81話 うそ と しんじつ 後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611438"
+        withdrawn: true
+      - title: "87. 第82話 それぞれ の おもい 前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611447"
+        withdrawn: true
+      - title: "88. 第82話 それぞれ の おもい 後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611453"
+        withdrawn: true
+      - title: "89. 第83話 おしゃべり な ゆびさき"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611459"
+        withdrawn: true
+      - title: "90. 第84話 とき を かさねて"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611467"
+        withdrawn: true
+      - title: "91. 第85話 いつも の おかえし"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611475"
+        withdrawn: true
+      - title: "92. 第86話 わたし の とっけん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611482"
+        withdrawn: true
+      - title: "93. 第87話 いたずら と しかえし"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611496"
+        withdrawn: true
+      - title: "94. 第88話 なのは の おもいつき"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611503"
+        withdrawn: true
+      - title: "95. 第89話 ゆめ の とうきょう"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611509"
+        withdrawn: true
+      - title: "96. 第90話 わたしたち の みらい"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611519"
+        withdrawn: true
+      - title: "97. 第91話 おもい は めぐる"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611529"
+        withdrawn: true
+      - title: "98. 第92話 なのは の れんあいそうだんしつ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611539"
+        withdrawn: true
+      - title: "99. 第93話 なにげない ひとこと"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611546"
+        withdrawn: true
+      - title: "100. 第94話 しんゆう の たのみ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611554"
+        withdrawn: true
+      - title: "101. 第95話 みぢか な おじゃまむし"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611559"
+        withdrawn: true
+      - title: "102. 第96話 おんなのこ の りそう"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611565"
+        withdrawn: true
+      - title: "103. 第97話 ごきげん な いちにち"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611571"
+        withdrawn: true
+      - title: "104. 第98話 とくべつ な いちにち"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611578"
+        withdrawn: true
+      - title: "105. 第99話 りそう の かぞく"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611582"
+        withdrawn: true
+      - title: "106. 第100話 ゆき の ふる よる"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611590"
+        withdrawn: true
+      - title: "107. 第101話 おそろい の くちびる"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611599"
+        withdrawn: true
+      - title: "108. 第102話 らいねん の もくひょう・なのは編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611607"
+        withdrawn: true
+      - title: "109. 第103話 らいねん の もくひょう・千鳥編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611622"
+        withdrawn: true
+      - title: "110. 第104話 きもち は かさなる"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611629"
+        withdrawn: true
+      - title: "111. 第105話 あのこ の かおり"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611635"
+        withdrawn: true
+      - title: "112. 第106話 しゃっくり の とめかた"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611640"
+        withdrawn: true
+      - title: "113. 第107話 かんび な ゆうわく"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611649"
+        withdrawn: true
+      - title: "114. 第108話 ふたり の かんけい"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611658"
+        withdrawn: true
+      - title: "115. 第109話 せんぱいから の じょげん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611664"
+        withdrawn: true
+      - title: "116. 第110話 しあわせ の つめあわせ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611672"
+        withdrawn: true
+      - title: "117. 第111話 はる の ゆめ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611676"
+        withdrawn: true
+      - title: "118. 第112話 それぞれ の せんたく"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611685"
+        withdrawn: true
+      - title: "119. 第113話 ふたり の けつい"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611693"
+        withdrawn: true
+      - title: "120. 第114話 からまわり の しんがっき"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611706"
+        withdrawn: true
+      - title: "121. 第115話 いつも の ばしょで"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611714"
+        withdrawn: true
+      - title: "122. 第116話 さいしょ の きねんび ・前編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611722"
+        withdrawn: true
+      - title: "123. 第117話 さいしょ の きねんび ・後編"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611727"
+        withdrawn: true
+      - title: "124. 第118話 のこり の じかん"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611735"
+        withdrawn: true
+      - title: "125. 第119話 とくべつ な てほどき"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611745"
+        withdrawn: true
+      - title: "126. 第120話 こくはく の たいみんぐ"
+        updated: "2026-07-09"
+        url: "https://www.sunday-webry.com/episode/12207421983877611751"
+        withdrawn: true
+      - title: "127. 第121話 つきよ と どーなつ"
+        updated: "2021-10-01"
+        url: "https://www.sunday-webry.com/episode/3269754496576776994"
+        withdrawn: true
+      - title: "128. 第122話 あのこ の はなし"
+        updated: "2021-11-05"
+        url: "https://www.sunday-webry.com/episode/3269754496585990714"
+        withdrawn: true
+      - title: "129. 第123話 きけん な こたえあわせ"
+        updated: "2021-11-19"
+        url: "https://www.sunday-webry.com/episode/3269754496585990722"
+        withdrawn: true
+      - title: "130. 第124話 ちどり が いちばん!"
+        updated: "2021-12-03"
+        url: "https://www.sunday-webry.com/episode/3269754496630277206"
+        withdrawn: true
+      - title: "131. 第125話 ふたりだけ の きょうしつ"
+        updated: "2021-12-17"
+        url: "https://www.sunday-webry.com/episode/3269754496653216958"
+        withdrawn: true
+      - title: "132. 第126話 しんゆう の はなし"
+        updated: "2022-01-07"
+        url: "https://www.sunday-webry.com/episode/3269754496685342207"
+        withdrawn: true
+      - title: "133. 第127話 おひめさま の いちにち①"
+        updated: "2022-01-21"
+        url: "https://www.sunday-webry.com/episode/3269754496711792920"
+        withdrawn: true
+      - title: "134. 第128話 おひめさま の いちにち②"
+        updated: "2022-02-04"
+        url: "https://www.sunday-webry.com/episode/3269754496737485145"
+        withdrawn: true
+      - title: "135. 第129話 おひめさま の いちにち③"
+        updated: "2022-02-18"
+        url: "https://www.sunday-webry.com/episode/3269754496763657746"
+        withdrawn: true
+      - title: "136. 第130話 ねつ に うかされて"
+        updated: "2022-03-04"
+        url: "https://www.sunday-webry.com/episode/3269754496790560991"
+        withdrawn: true
+      - title: "137. 第131話 がまん は きんもつ"
+        updated: "2022-03-18"
+        url: "https://www.sunday-webry.com/episode/3269754496817395294"
+        withdrawn: true
+      - title: "138. 第132話 よくばり な わたし"
+        updated: "2022-04-01"
+        url: "https://www.sunday-webry.com/episode/3269754496844334338"
+        withdrawn: true
+      - title: "139. 第133話 あなたのなか の わたし"
+        updated: "2022-04-15"
+        url: "https://www.sunday-webry.com/episode/3269754496872105222"
+        withdrawn: true
+      - title: "140. 第134話 それぞれ の ゆくすえ"
+        updated: "2022-05-06"
+        url: "https://www.sunday-webry.com/episode/3270296674322915782"
+        withdrawn: true
+      - title: "141. 第135話 きょう は いいてんき"
+        updated: "2022-05-20"
+        url: "https://www.sunday-webry.com/episode/3270296674356600487"
+        withdrawn: true
+      - title: "142. 第136話 ふたり の くらし"
+        updated: "2022-06-03"
+        url: "https://www.sunday-webry.com/episode/3270296674384229119"
+        withdrawn: true
+      - title: "143. 第137話 こころ の おんどさ"
+        updated: "2022-06-17"
+        url: "https://www.sunday-webry.com/episode/3270296674407214270"
+        withdrawn: true
+      - title: "144. 第138話 さいご の がくえんさい"
+        updated: "2022-07-01"
+        url: "https://www.sunday-webry.com/episode/3270375685313459651"
+        withdrawn: true
+      - title: "145. 第139話 きょうりょく な すけっと"
+        updated: "2022-07-15"
+        url: "https://www.sunday-webry.com/episode/3270375685313459655"
+        withdrawn: true
+      - title: "146. 第140話 おもい の ばとん"
+        updated: "2022-08-05"
+        url: "https://www.sunday-webry.com/episode/3270375685396099701"
+        withdrawn: true
+      - title: "147. 第141話 つかのま の きゅうそく"
+        updated: "2022-08-19"
+        url: "https://www.sunday-webry.com/episode/3270375685396099714"
+        withdrawn: true
+      - title: "148. 第142話 あなた の おもうつぼ"
+        updated: "2022-09-02"
+        url: "https://www.sunday-webry.com/episode/3270375685473840606"
+        withdrawn: true
+      - title: "149. 第143話 いちまつ の ふあん"
+        updated: "2022-09-16"
+        url: "https://www.sunday-webry.com/episode/3270375685473840610"
+        withdrawn: true
+      - title: "150. 第144話 こころ の ささえ"
+        updated: "2022-10-07"
+        url: "https://www.sunday-webry.com/episode/316112896905148095"
+        withdrawn: true
+      - title: "151. 第145話 となり の あなた・前編"
+        updated: "2022-10-21"
+        url: "https://www.sunday-webry.com/episode/316112896909504446"
+        withdrawn: true
+      - title: "152. 第146話 となり の あなた・後編"
+        updated: "2022-11-04"
+        url: "https://www.sunday-webry.com/episode/316190246923334941"
+        withdrawn: true
+      - title: "153. 第147話 ごうかく と じゅうあつ"
+        updated: "2022-11-18"
+        url: "https://www.sunday-webry.com/episode/316190246968594615"
+        withdrawn: true
+      - title: "154. 第148話 このさき に つづくみち①"
+        updated: "2022-12-02"
+        url: "https://www.sunday-webry.com/episode/316190247003230482"
+        withdrawn: true
+      - title: "155. 第148話 このさき に つづくみち②"
+        updated: "2022-12-16"
+        url: "https://www.sunday-webry.com/episode/316190247031158578"
+        withdrawn: true
+      - title: "156. 第149話 これから も ずっと"
+        updated: "2023-01-20"
+        url: "https://www.sunday-webry.com/episode/316190247113132142"
+        withdrawn: true
+      - title: "157. 第150話 へんか の とき"
+        updated: "2023-02-03"
+        url: "https://www.sunday-webry.com/episode/4855956445047210182"
+        withdrawn: true
+      - title: "158. 第151話 だいじ な やくそく"
+        updated: "2023-02-17"
+        url: "https://www.sunday-webry.com/episode/4855956445096924064"
+        withdrawn: true
+      - title: "159. 第152話 うすあかり の なかで"
+        updated: "2023-03-03"
+        url: "https://www.sunday-webry.com/episode/4856001361000641790"
+        withdrawn: true
+      - title: "160. 第153話 さむいひ の あさ"
+        updated: "2023-03-17"
+        url: "https://www.sunday-webry.com/episode/4856001361048439909"
+        withdrawn: true
+      - title: "161. 第154話 しっぱい と せいこう"
+        updated: "2023-04-07"
+        url: "https://www.sunday-webry.com/episode/4856001361118141788"
+        withdrawn: true
+      - title: "162. 第155話 これから も よろしく"
+        updated: "2023-04-21"
+        url: "https://www.sunday-webry.com/episode/4856001361157068234"
+        withdrawn: true
+      - title: "163. 第156話 しんしつ の ひみつ"
+        updated: "2023-05-19"
+        url: "https://www.sunday-webry.com/episode/4856001361235505460"
+        withdrawn: true
+      - title: "164. 第157話 かわるもの と かわらないもの"
+        updated: "2023-06-02"
+        url: "https://www.sunday-webry.com/episode/4856001361286961038"
+        withdrawn: true
+      - title: "165. 第158話 そのとき が きたら"
+        updated: "2023-06-16"
+        url: "https://www.sunday-webry.com/episode/4856001361335039165"
+        withdrawn: true
+      - title: "166. 第159話 ゆうかげ の ほけんしつ"
+        updated: "2023-07-07"
+        url: "https://www.sunday-webry.com/episode/4856001361405576509"
+        withdrawn: true
+      - title: "167. 第160話 わたしたち の こと"
+        updated: "2023-07-21"
+        url: "https://www.sunday-webry.com/episode/4856001361533144811"
+        withdrawn: true
+      - title: "168. 第161話 はな に あらし"
+        updated: "2023-08-04"
+        url: "https://www.sunday-webry.com/episode/4856001361577954586"
+        withdrawn: true
+      - title: "169. 第162話 わたし の こいびと"
+        updated: "2023-08-18"
+        url: "https://www.sunday-webry.com/episode/14079602755100073716"
+        withdrawn: true
+  - work_title: "ヴァンピアーズ"
+    series_id: "3269754496548915366"
+    url: "https://www.sunday-webry.com/atom/series/3269754496548915366"
+    chapter_count: 54
+    chapters:
+      - title: "1. #1 ENCOUNTER"
+        updated: "2020-10-01"
+        url: "https://www.sunday-webry.com/episode/3269754496551508566"
+      - title: "2. #2 DEATH (1)"
+        updated: "2020-10-08"
+        url: "https://www.sunday-webry.com/episode/3269754496551508574"
+      - title: "3. #2 DEATH (2)"
+        updated: "2020-10-15"
+        url: "https://www.sunday-webry.com/episode/3269754496569396946"
+      - title: "38. #20 HIKING (1)"
+        updated: "2021-11-04"
+        url: "https://www.sunday-webry.com/episode/3269754496584128497"
+        withdrawn: true
+      - title: "39. #20 HIKING (2)"
+        updated: "2021-11-18"
+        url: "https://www.sunday-webry.com/episode/3269754496590585250"
+        withdrawn: true
+      - title: "40. #21 SECRETS (1)"
+        updated: "2021-12-02"
+        url: "https://www.sunday-webry.com/episode/3269754496628284938"
+        withdrawn: true
+      - title: "41. #21 SECRETS (2)"
+        updated: "2021-12-16"
+        url: "https://www.sunday-webry.com/episode/3269754496651787472"
+        withdrawn: true
+      - title: "42. #22 GIRLHOOD (1)"
+        updated: "2021-12-30"
+        url: "https://www.sunday-webry.com/episode/3269754496666002774"
+        withdrawn: true
+      - title: "43. #22 GIRLHOOD (2)"
+        updated: "2022-01-13"
+        url: "https://www.sunday-webry.com/episode/3269754496666002783"
+        withdrawn: true
+      - title: "44. #23 INTERLUDE 2"
+        updated: "2022-01-27"
+        url: "https://www.sunday-webry.com/episode/3269754496722790013"
+        withdrawn: true
+      - title: "45. #24 SHRIVE (1)"
+        updated: "2022-02-10"
+        url: "https://www.sunday-webry.com/episode/3269754496748974873"
+        withdrawn: true
+      - title: "46. #24 SHRIVE (2)"
+        updated: "2022-02-24"
+        url: "https://www.sunday-webry.com/episode/3269754496773276190"
+        withdrawn: true
+      - title: "47. #24 SHRIVE (3)"
+        updated: "2022-03-10"
+        url: "https://www.sunday-webry.com/episode/3269754496802025975"
+        withdrawn: true
+      - title: "48. #24 SHRIVE (4)"
+        updated: "2022-03-24"
+        url: "https://www.sunday-webry.com/episode/3269754496828982682"
+        withdrawn: true
+      - title: "49. #25 ASSEMBLE (1)"
+        updated: "2022-04-07"
+        url: "https://www.sunday-webry.com/episode/3269754496856098687"
+        withdrawn: true
+      - title: "50. #25 ASSEMBLE (2)"
+        updated: "2022-04-21"
+        url: "https://www.sunday-webry.com/episode/3269754496879913714"
+        withdrawn: true
+      - title: "51. #26 WIZARDRY (1)"
+        updated: "2022-05-05"
+        url: "https://www.sunday-webry.com/episode/3270296674322966993"
+        withdrawn: true
+      - title: "52. #26 WIZARDRY (2)"
+        updated: "2022-05-19"
+        url: "https://www.sunday-webry.com/episode/3270296674356104998"
+        withdrawn: true
+      - title: "53. #27 DEATHROW (1)"
+        updated: "2022-06-02"
+        url: "https://www.sunday-webry.com/episode/3270296674381904599"
+        withdrawn: true
+      - title: "54. #27 DEATHROW (2)"
+        updated: "2022-06-16"
+        url: "https://www.sunday-webry.com/episode/3270296674401546540"
+        withdrawn: true
+      - title: "55. #28 RELIEF (1)"
+        updated: "2022-06-30"
+        url: "https://www.sunday-webry.com/episode/3270296674401546544"
+        withdrawn: true
+      - title: "56. #28 RELIEF (2)"
+        updated: "2022-07-14"
+        url: "https://www.sunday-webry.com/episode/3270375685342348183"
+        withdrawn: true
+      - title: "57. #29 MIRAGE (1)"
+        updated: "2022-07-28"
+        url: "https://www.sunday-webry.com/episode/3270375685342348187"
+        withdrawn: true
+      - title: "58. #29 MIRAGE (2)"
+        updated: "2022-08-11"
+        url: "https://www.sunday-webry.com/episode/3270375685377082345"
+        withdrawn: true
+      - title: "59. #30 SUMMER (1)"
+        updated: "2022-08-25"
+        url: "https://www.sunday-webry.com/episode/3270375685408380628"
+        withdrawn: true
+      - title: "60. #30 SUMMER (2)"
+        updated: "2022-09-08"
+        url: "https://www.sunday-webry.com/episode/316112896821470373"
+        withdrawn: true
+      - title: "61. #31 UNDEAD (1)"
+        updated: "2022-09-22"
+        url: "https://www.sunday-webry.com/episode/316112896821470380"
+        withdrawn: true
+      - title: "62. #31 UNDEAD (2)"
+        updated: "2022-10-06"
+        url: "https://www.sunday-webry.com/episode/316112896901247277"
+        withdrawn: true
+      - title: "63. #32 LOVERS (1)"
+        updated: "2022-10-20"
+        url: "https://www.sunday-webry.com/episode/316112896901247281"
+        withdrawn: true
+      - title: "64. #32 LOVERS (2)"
+        updated: "2022-11-03"
+        url: "https://www.sunday-webry.com/episode/316190246923295570"
+        withdrawn: true
+      - title: "65. #33 ABIDE (1)"
+        updated: "2022-11-17"
+        url: "https://www.sunday-webry.com/episode/316190246964797204"
+        withdrawn: true
+      - title: "66. #33 ABIDE (2)"
+        updated: "2022-12-01"
+        url: "https://www.sunday-webry.com/episode/316190247001502001"
+        withdrawn: true
+      - title: "67. #34 LAID-BACK"
+        updated: "2022-12-15"
+        url: "https://www.sunday-webry.com/episode/316190247027055507"
+        withdrawn: true
+      - title: "68. #35 HOMEWORK"
+        updated: "2023-01-05"
+        url: "https://www.sunday-webry.com/episode/316190247048296763"
+        withdrawn: true
+      - title: "69. #36 INTERVIEW (1)"
+        updated: "2023-01-19"
+        url: "https://www.sunday-webry.com/episode/316190247048296770"
+        withdrawn: true
+      - title: "70. #36 INTERVIEW (2)"
+        updated: "2023-02-02"
+        url: "https://www.sunday-webry.com/episode/4855956445047108942"
+        withdrawn: true
+      - title: "71. #37 LILITH (1)"
+        updated: "2023-02-16"
+        url: "https://www.sunday-webry.com/episode/4855956445093797384"
+        withdrawn: true
+      - title: "72. #37 LILITH (2)"
+        updated: "2023-03-02"
+        url: "https://www.sunday-webry.com/episode/4856001361001152866"
+        withdrawn: true
+      - title: "73. #38 ALCAMIRL (1)"
+        updated: "2023-03-16"
+        url: "https://www.sunday-webry.com/episode/4856001361048071691"
+        withdrawn: true
+      - title: "74. #38 ALCAMIRL (2)"
+        updated: "2023-03-30"
+        url: "https://www.sunday-webry.com/episode/4856001361087991052"
+        withdrawn: true
+      - title: "75. #39 AGGRESSION (1)"
+        updated: "2023-04-13"
+        url: "https://www.sunday-webry.com/episode/4856001361133223258"
+        withdrawn: true
+      - title: "76. #39 AGGRESSION (2)"
+        updated: "2023-04-27"
+        url: "https://www.sunday-webry.com/episode/4856001361175192959"
+        withdrawn: true
+      - title: "77. #40 DISTRESS"
+        updated: "2023-05-11"
+        url: "https://www.sunday-webry.com/episode/4856001361175192964"
+        withdrawn: true
+      - title: "78. #41 UNSISTER"
+        updated: "2023-05-25"
+        url: "https://www.sunday-webry.com/episode/4856001361263134684"
+        withdrawn: true
+      - title: "79. #42 LINEAGE (1)"
+        updated: "2023-06-08"
+        url: "https://www.sunday-webry.com/episode/4856001361307392541"
+        withdrawn: true
+      - title: "80. #42 LINEAGE (2)"
+        updated: "2023-06-22"
+        url: "https://www.sunday-webry.com/episode/4856001361355549892"
+        withdrawn: true
+      - title: "81. #43 BLOOD (1)"
+        updated: "2023-07-06"
+        url: "https://www.sunday-webry.com/episode/4856001361405201926"
+        withdrawn: true
+      - title: "82. #43 BLOOD (2)"
+        updated: "2023-07-20"
+        url: "https://www.sunday-webry.com/episode/4856001361532517678"
+        withdrawn: true
+      - title: "83. #44 ORIGIN (1)"
+        updated: "2023-08-03"
+        url: "https://www.sunday-webry.com/episode/4856001361577750253"
+        withdrawn: true
+      - title: "84. #44 ORIGIN (2)"
+        updated: "2023-08-17"
+        url: "https://www.sunday-webry.com/episode/14079602755099846702"
+        withdrawn: true
+      - title: "85. #45 CURE (1)"
+        updated: "2023-08-31"
+        url: "https://www.sunday-webry.com/episode/14079602755150334892"
+        withdrawn: true
+      - title: "86. #45 CURE (2)"
+        updated: "2023-09-14"
+        url: "https://www.sunday-webry.com/episode/14079602755197889982"
+        withdrawn: true
+      - title: "87. #46 ARIA (1)"
+        updated: "2023-09-28"
+        url: "https://www.sunday-webry.com/episode/14079602755248662624"
+        withdrawn: true
+      - title: "88. #46 ARIA (2)"
+        updated: "2023-10-12"
+        url: "https://www.sunday-webry.com/episode/14079602755300387014"
+        withdrawn: true
+  - work_title: "ガンバレッド×シスターズ"
+    series_id: "3269754496548915374"
+    url: "https://www.sunday-webry.com/atom/series/3269754496548915374"
+    chapter_count: 2
+    chapters:
+      - title: "1. 第1話 私の犬になりなさい。"
+        updated: "2019-12-01"
+        url: "https://www.sunday-webry.com/episode/3269754496551508619"
+      - title: "2. 第2話 駄犬マリア"
+        updated: "2019-12-15"
+        url: "https://www.sunday-webry.com/episode/3269754496551508625"
+  - work_title: "やきゅうみようよ!"
+    series_id: "3269754496548915379"
+    url: "https://www.sunday-webry.com/atom/series/3269754496548915379"
+    chapter_count: 38
+    chapters:
+      - title: "1. 1回表 でんとーのいっせん!? 前編"
+        updated: "2021-04-13"
+        url: "https://www.sunday-webry.com/episode/3269754496551508658"
+      - title: "17. 3回裏 おしのせんしゅっ! (4)"
+        updated: "2021-11-05"
+        url: "https://www.sunday-webry.com/episode/3269754496585981553"
+        withdrawn: true
+      - title: "18. 4回表 べすとないんっ (1)"
+        updated: "2021-11-12"
+        url: "https://www.sunday-webry.com/episode/3269754496585981563"
+        withdrawn: true
+      - title: "19. 4回表 べすとないんっ (2)"
+        updated: "2021-11-19"
+        url: "https://www.sunday-webry.com/episode/3269754496606997292"
+        withdrawn: true
+      - title: "20. 4回表 べすとないんっ (3)"
+        updated: "2021-11-26"
+        url: "https://www.sunday-webry.com/episode/3269754496618533153"
+        withdrawn: true
+      - title: "21. 4回表 べすとないんっ (4)"
+        updated: "2021-12-03"
+        url: "https://www.sunday-webry.com/episode/3269754496630290266"
+        withdrawn: true
+      - title: "22. 4回裏 じゃないほう!? (1)"
+        updated: "2021-12-10"
+        url: "https://www.sunday-webry.com/episode/3269754496642018803"
+        withdrawn: true
+      - title: "23. 4回裏 じゃないほう!? (2)"
+        updated: "2021-12-17"
+        url: "https://www.sunday-webry.com/episode/3269754496653223796"
+        withdrawn: true
+      - title: "24. 4回裏 じゃないほう!? (3)"
+        updated: "2021-12-24"
+        url: "https://www.sunday-webry.com/episode/3269754496663057838"
+        withdrawn: true
+      - title: "25. 4回裏 じゃないほう!? (4)"
+        updated: "2022-01-07"
+        url: "https://www.sunday-webry.com/episode/3269754496685355619"
+        withdrawn: true
+      - title: "26. 5回表 まみぃず いず ゆー! (1)"
+        updated: "2022-01-14"
+        url: "https://www.sunday-webry.com/episode/3269754496699352313"
+        withdrawn: true
+      - title: "27. 5回表 まみぃず いず ゆー! (2)"
+        updated: "2022-01-21"
+        url: "https://www.sunday-webry.com/episode/3269754496711804725"
+        withdrawn: true
+      - title: "28. 5回表 まみぃず いず ゆー! (3)"
+        updated: "2022-01-28"
+        url: "https://www.sunday-webry.com/episode/3269754496724579150"
+        withdrawn: true
+      - title: "29. 5回表 まみぃず いず ゆー! (4)"
+        updated: "2022-02-04"
+        url: "https://www.sunday-webry.com/episode/3269754496737448139"
+        withdrawn: true
+      - title: "30. 5回裏 かくせいっ! (1)"
+        updated: "2022-02-11"
+        url: "https://www.sunday-webry.com/episode/3269754496750317627"
+        withdrawn: true
+      - title: "31. 5回裏 かくせいっ! (2)"
+        updated: "2022-02-18"
+        url: "https://www.sunday-webry.com/episode/3269754496763663213"
+        withdrawn: true
+      - title: "32. 5回裏 かくせいっ! (3)"
+        updated: "2022-02-25"
+        url: "https://www.sunday-webry.com/episode/3269754496777484191"
+        withdrawn: true
+      - title: "33. 5回裏 かくせいっ! (4)"
+        updated: "2022-03-04"
+        url: "https://www.sunday-webry.com/episode/3269754496790556478"
+        withdrawn: true
+      - title: "34.  6回表 かぞくでGO!! (1)"
+        updated: "2022-03-11"
+        url: "https://www.sunday-webry.com/episode/3269754496803963819"
+        withdrawn: true
+      - title: "35. 6回表 かぞくでGO!! (2)"
+        updated: "2022-03-18"
+        url: "https://www.sunday-webry.com/episode/3269754496817404677"
+        withdrawn: true
+      - title: "36. 6回表 かぞくでGO!! (3)"
+        updated: "2022-03-25"
+        url: "https://www.sunday-webry.com/episode/3269754496830891765"
+        withdrawn: true
+      - title: "37. 6回表 かぞくでGO!! (4)"
+        updated: "2022-04-01"
+        url: "https://www.sunday-webry.com/episode/3269754496844415046"
+        withdrawn: true
+      - title: "38. 6回裏 そんさんっ! (1)"
+        updated: "2022-04-08"
+        url: "https://www.sunday-webry.com/episode/3269754496858388645"
+        withdrawn: true
+      - title: "39. 6回裏 そんさんっ! (2)"
+        updated: "2022-04-15"
+        url: "https://www.sunday-webry.com/episode/3269754496872111068"
+        withdrawn: true
+      - title: "40. 6回裏 そんさんっ! (3)"
+        updated: "2022-04-22"
+        url: "https://www.sunday-webry.com/episode/3269754496884273159"
+        withdrawn: true
+      - title: "41. 6回裏 そんさんっ! (4)"
+        updated: "2022-04-29"
+        url: "https://www.sunday-webry.com/episode/3269754496888029905"
+        withdrawn: true
+      - title: "42. 7回表 びっぐりーだー!! (1)"
+        updated: "2022-05-06"
+        url: "https://www.sunday-webry.com/episode/3270296674322928532"
+        withdrawn: true
+      - title: "43.  7回表 びっぐりーだー!! (2)"
+        updated: "2022-05-13"
+        url: "https://www.sunday-webry.com/episode/3270296674339699745"
+        withdrawn: true
+      - title: "44.  7回表 びっぐりーだー!! (3)"
+        updated: "2022-05-20"
+        url: "https://www.sunday-webry.com/episode/3270296674339699749"
+        withdrawn: true
+      - title: "45.  7回表 びっぐりーだー!! (4)"
+        updated: "2022-05-27"
+        url: "https://www.sunday-webry.com/episode/3270296674370673554"
+        withdrawn: true
+      - title: "46. 7回裏 けつだんっ!! (1)"
+        updated: "2022-06-03"
+        url: "https://www.sunday-webry.com/episode/3270296674370673558"
+        withdrawn: true
+      - title: "47. 7回裏 けつだんっ!! (2)"
+        updated: "2022-06-10"
+        url: "https://www.sunday-webry.com/episode/3270296674397697791"
+        withdrawn: true
+      - title: "48. 7回裏 けつだんっ!! (3)"
+        updated: "2022-06-17"
+        url: "https://www.sunday-webry.com/episode/3270296674397697800"
+        withdrawn: true
+      - title: "49. 7回裏 けつだんっ!! (4)"
+        updated: "2022-06-24"
+        url: "https://www.sunday-webry.com/episode/3270296674429780510"
+        withdrawn: true
+      - title: "50. 最終回 おーるすたーっ!! (1)"
+        updated: "2022-07-01"
+        url: "https://www.sunday-webry.com/episode/3270375685313467773"
+        withdrawn: true
+      - title: "51. 最終回 おーるすたーっ!! (2)"
+        updated: "2022-07-08"
+        url: "https://www.sunday-webry.com/episode/3270375685313467779"
+        withdrawn: true
+      - title: "52. 最終回 おーるすたーっ!! (3)"
+        updated: "2022-07-15"
+        url: "https://www.sunday-webry.com/episode/3270375685344180805"
+        withdrawn: true
+      - title: "53. 最終回 おーるすたーっ!! (4)"
+        updated: "2022-07-22"
+        url: "https://www.sunday-webry.com/episode/3270375685344180814"
+        withdrawn: true
+  - work_title: "抱かれたい女～JDだけどアラサー女子に買われています～"
+    series_id: "3269754496719332285"
+    url: "https://www.sunday-webry.com/atom/series/3269754496719332285"
+    chapter_count: 63
+    chapters:
+      - title: "1. 第1話"
+        updated: "2022-02-01"
+        url: "https://www.sunday-webry.com/episode/3269754496731950619"
+      - title: "2. 第2話"
+        updated: "2022-02-08"
+        url: "https://www.sunday-webry.com/episode/3269754496744112189"
+      - title: "3. 第3話"
+        updated: "2022-02-15"
+        url: "https://www.sunday-webry.com/episode/3269754496757344353"
+      - title: "4. 第4話"
+        updated: "2022-02-22"
+        url: "https://www.sunday-webry.com/episode/3269754496770545399"
+        withdrawn: true
+      - title: "5. 第5話"
+        updated: "2022-03-08"
+        url: "https://www.sunday-webry.com/episode/3269754496792966591"
+        withdrawn: true
+      - title: "6. 第6話"
+        updated: "2022-03-22"
+        url: "https://www.sunday-webry.com/episode/3269754496818842703"
+        withdrawn: true
+      - title: "7. 第7話"
+        updated: "2022-04-05"
+        url: "https://www.sunday-webry.com/episode/3269754496851403921"
+        withdrawn: true
+      - title: "8. 第8話"
+        updated: "2022-04-12"
+        url: "https://www.sunday-webry.com/episode/3269754496865569509"
+        withdrawn: true
+      - title: "9. おまけ"
+        updated: "2022-04-19"
+        url: "https://www.sunday-webry.com/episode/3269754496865443966"
+        withdrawn: true
+      - title: "10. 第9話"
+        updated: "2022-04-26"
+        url: "https://www.sunday-webry.com/episode/3269754496886228413"
+        withdrawn: true
+      - title: "11. おまけ2"
+        updated: "2022-05-03"
+        url: "https://www.sunday-webry.com/episode/3269754496886228418"
+        withdrawn: true
+      - title: "12. 第10話"
+        updated: "2022-05-10"
+        url: "https://www.sunday-webry.com/episode/3270296674331692136"
+        withdrawn: true
+      - title: "13. おまけ3"
+        updated: "2022-05-17"
+        url: "https://www.sunday-webry.com/episode/3270296674331692140"
+        withdrawn: true
+      - title: "14. 第11話"
+        updated: "2022-05-24"
+        url: "https://www.sunday-webry.com/episode/3270296674358370341"
+        withdrawn: true
+      - title: "15. おまけ4"
+        updated: "2022-05-31"
+        url: "https://www.sunday-webry.com/episode/3270296674358370350"
+        withdrawn: true
+      - title: "16. 第12話"
+        updated: "2022-06-07"
+        url: "https://www.sunday-webry.com/episode/3270296674385897811"
+        withdrawn: true
+      - title: "17. おまけ5"
+        updated: "2022-06-14"
+        url: "https://www.sunday-webry.com/episode/3270296674385897815"
+        withdrawn: true
+      - title: "18. 第13話"
+        updated: "2022-06-21"
+        url: "https://www.sunday-webry.com/episode/3270296674400209420"
+        withdrawn: true
+      - title: "19. おまけ6"
+        updated: "2022-06-28"
+        url: "https://www.sunday-webry.com/episode/3270296674433526956"
+        withdrawn: true
+      - title: "20. 第14話"
+        updated: "2022-07-05"
+        url: "https://www.sunday-webry.com/episode/3270375685315906332"
+        withdrawn: true
+      - title: "21. おまけ7"
+        updated: "2022-07-12"
+        url: "https://www.sunday-webry.com/episode/3270375685315906336"
+        withdrawn: true
+      - title: "22. 第15話"
+        updated: "2022-07-19"
+        url: "https://www.sunday-webry.com/episode/3270375685348836069"
+        withdrawn: true
+      - title: "23. おまけ8"
+        updated: "2022-07-26"
+        url: "https://www.sunday-webry.com/episode/3270375685348836078"
+        withdrawn: true
+      - title: "24. 第16話"
+        updated: "2022-08-02"
+        url: "https://www.sunday-webry.com/episode/3270375685371696653"
+        withdrawn: true
+      - title: "25. おまけ9"
+        updated: "2022-08-09"
+        url: "https://www.sunday-webry.com/episode/3270375685388247138"
+        withdrawn: true
+      - title: "26. 第17話"
+        updated: "2022-08-16"
+        url: "https://www.sunday-webry.com/episode/3270375685400688790"
+        withdrawn: true
+      - title: "27. おまけ10"
+        updated: "2022-08-23"
+        url: "https://www.sunday-webry.com/episode/3270375685426844694"
+        withdrawn: true
+      - title: "28. 第18話"
+        updated: "2022-08-30"
+        url: "https://www.sunday-webry.com/episode/3270375685446809686"
+        withdrawn: true
+      - title: "29. おまけ11"
+        updated: "2022-09-06"
+        url: "https://www.sunday-webry.com/episode/3270375685466871574"
+        withdrawn: true
+      - title: "30. 第19話"
+        updated: "2022-09-13"
+        url: "https://www.sunday-webry.com/episode/316112896809546965"
+        withdrawn: true
+      - title: "31. おまけ12"
+        updated: "2022-09-20"
+        url: "https://www.sunday-webry.com/episode/316112896827861358"
+        withdrawn: true
+      - title: "32. 第20話"
+        updated: "2022-09-27"
+        url: "https://www.sunday-webry.com/episode/316112896847825453"
+        withdrawn: true
+      - title: "33. おまけ13"
+        updated: "2022-10-04"
+        url: "https://www.sunday-webry.com/episode/316112896869416861"
+        withdrawn: true
+      - title: "34. 第21話"
+        updated: "2022-10-11"
+        url: "https://www.sunday-webry.com/episode/316112896893223139"
+        withdrawn: true
+      - title: "35. おまけ14"
+        updated: "2022-11-01"
+        url: "https://www.sunday-webry.com/episode/316190246916068628"
+        withdrawn: true
+      - title: "36. 第22話"
+        updated: "2022-11-08"
+        url: "https://www.sunday-webry.com/episode/316190246916068637"
+        withdrawn: true
+      - title: "37. おまけ15"
+        updated: "2022-11-15"
+        url: "https://www.sunday-webry.com/episode/316190246954282354"
+        withdrawn: true
+      - title: "38. 第23話"
+        updated: "2022-11-29"
+        url: "https://www.sunday-webry.com/episode/316190246998658658"
+        withdrawn: true
+      - title: "39. おまけ16"
+        updated: "2022-12-06"
+        url: "https://www.sunday-webry.com/episode/316190247007193762"
+        withdrawn: true
+      - title: "40. 第24話"
+        updated: "2022-12-20"
+        url: "https://www.sunday-webry.com/episode/316190247033258334"
+        withdrawn: true
+      - title: "41. おまけ17"
+        updated: "2022-12-27"
+        url: "https://www.sunday-webry.com/episode/316190247046276396"
+        withdrawn: true
+      - title: "42. 第25話"
+        updated: "2023-01-17"
+        url: "https://www.sunday-webry.com/episode/316190247099070177"
+        withdrawn: true
+      - title: "43. おまけ18"
+        updated: "2023-01-24"
+        url: "https://www.sunday-webry.com/episode/316190247118712487"
+        withdrawn: true
+      - title: "44. 第26話"
+        updated: "2023-02-07"
+        url: "https://www.sunday-webry.com/episode/4855956445053603037"
+        withdrawn: true
+      - title: "45. おまけ19"
+        updated: "2023-02-14"
+        url: "https://www.sunday-webry.com/episode/4855956445088090062"
+        withdrawn: true
+      - title: "46. 第27話"
+        updated: "2023-02-28"
+        url: "https://www.sunday-webry.com/episode/4855956445115697435"
+        withdrawn: true
+      - title: "47. おまけ20"
+        updated: "2023-03-07"
+        url: "https://www.sunday-webry.com/episode/4856001361020562008"
+        withdrawn: true
+      - title: "48. 第28話"
+        updated: "2023-03-28"
+        url: "https://www.sunday-webry.com/episode/4856001361077344710"
+        withdrawn: true
+      - title: "49. おまけ21"
+        updated: "2023-04-04"
+        url: "https://www.sunday-webry.com/episode/4856001361100088026"
+      - title: "50. 第29話"
+        updated: "2023-04-25"
+        url: "https://www.sunday-webry.com/episode/4856001361161132701"
+        withdrawn: true
+      - title: "51. おまけ22"
+        updated: "2023-05-02"
+        url: "https://www.sunday-webry.com/episode/4856001361183423343"
+      - title: "52. 第30話"
+        updated: "2023-05-23"
+        url: "https://www.sunday-webry.com/episode/4856001361236338317"
+        withdrawn: true
+      - title: "53. おまけ23"
+        updated: "2023-05-30"
+        url: "https://www.sunday-webry.com/episode/4856001361283247316"
+      - title: "54. 第31話"
+        updated: "2023-06-20"
+        url: "https://www.sunday-webry.com/episode/4856001361344503066"
+        withdrawn: true
+      - title: "55. おまけ24"
+        updated: "2023-06-27"
+        url: "https://www.sunday-webry.com/episode/4856001361369038877"
+      - title: "56. 第32話"
+        updated: "2023-07-18"
+        url: "https://www.sunday-webry.com/episode/4856001361517254044"
+        withdrawn: true
+      - title: "57. おまけ25"
+        updated: "2023-07-25"
+        url: "https://www.sunday-webry.com/episode/4856001361540124341"
+      - title: "58. 第33話"
+        updated: "2023-08-15"
+        url: "https://www.sunday-webry.com/episode/14079602755080036857"
+        withdrawn: true
+      - title: "59. おまけ26"
+        updated: "2023-08-22"
+        url: "https://www.sunday-webry.com/episode/14079602755110800564"
+      - title: "60. 第34話"
+        updated: "2023-09-12"
+        url: "https://www.sunday-webry.com/episode/14079602755177345970"
+        withdrawn: true
+      - title: "61. おまけ27"
+        updated: "2023-09-19"
+        url: "https://www.sunday-webry.com/episode/14079602755208866502"
+      - title: "62. 第35話"
+        updated: "2023-10-10"
+        url: "https://www.sunday-webry.com/episode/14079602755284984733"
+        withdrawn: true
+      - title: "63. 単行本4巻発売PR"
+        updated: "2023-11-01"
+        url: "https://www.sunday-webry.com/episode/14079602755390720149"
+  - work_title: "外側偏重"
+    series_id: "3269754496813481874"
+    url: "https://www.sunday-webry.com/atom/series/3269754496813481874"
+    chapter_count: 1
+    chapters:
+      - title: "外側偏重"
+        updated: "2022-03-17"
+        url: "https://www.sunday-webry.com/episode/3269754496813482916"
+  - work_title: "星の指輪"
+    series_id: "3269754496872126208"
+    url: "https://www.sunday-webry.com/atom/series/3269754496872126208"
+    chapter_count: 1
+    chapters:
+      - title: "星の指輪"
+        updated: "2022-04-16"
+        url: "https://www.sunday-webry.com/episode/3269754496872127411"
+  - work_title: "古川に捧ぐ。"
+    series_id: "3270296674356168766"
+    url: "https://www.sunday-webry.com/atom/series/3270296674356168766"
+    chapter_count: 1
+    chapters:
+      - title: "古川に捧ぐ。"
+        updated: "2022-06-15"
+        url: "https://www.sunday-webry.com/episode/3270296674356169836"
+  - work_title: "中一、五月。"
+    series_id: "3270296674368769680"
+    url: "https://www.sunday-webry.com/atom/series/3270296674368769680"
+    chapter_count: 1
+    chapters:
+      - title: "中一、五月。"
+        updated: "2022-06-08"
+        url: "https://www.sunday-webry.com/episode/3270296674368771024"
+  - work_title: "ウチらのっぺらぼう"
+    series_id: "3270296674372502027"
+    url: "https://www.sunday-webry.com/atom/series/3270296674372502027"
+    chapter_count: 1
+    chapters:
+      - title: "ウチらのっぺらぼう"
+        updated: "2022-05-27"
+        url: "https://www.sunday-webry.com/episode/3270296674372505597"
+  - work_title: "contact"
+    series_id: "3270296674373045696"
+    url: "https://www.sunday-webry.com/atom/series/3270296674373045696"
+    chapter_count: 1
+    chapters:
+      - title: "contact"
+        updated: "2022-06-08"
+        url: "https://www.sunday-webry.com/episode/3270296674373047959"
+  - work_title: "再婚ギャラクティカ"
+    series_id: "3270375685330785173"
+    url: "https://www.sunday-webry.com/atom/series/3270375685330785173"
+    chapter_count: 1
+    chapters:
+      - title: "再婚ギャラクティカ"
+        updated: "2022-07-08"
+        url: "https://www.sunday-webry.com/episode/3270375685330822005"
+  - work_title: "推し友"
+    series_id: "3270375685398695954"
+    url: "https://www.sunday-webry.com/atom/series/3270375685398695954"
+    chapter_count: 1
+    chapters:
+      - title: "推し友"
+        updated: "2022-08-08"
+        url: "https://www.sunday-webry.com/episode/3270375685398712945"
+  - work_title: "先輩の特別"
+    series_id: "3270375685398695975"
+    url: "https://www.sunday-webry.com/atom/series/3270375685398695975"
+    chapter_count: 1
+    chapters:
+      - title: "先輩の特別"
+        updated: "2022-08-08"
+        url: "https://www.sunday-webry.com/episode/3270375685398712958"
+  - work_title: "少女達の終末日和"
+    series_id: "3270375685427002688"
+    url: "https://www.sunday-webry.com/atom/series/3270375685427002688"
+    chapter_count: 1
+    chapters:
+      - title: "少女達の終末日和"
+        updated: "2022-08-21"
+        url: "https://www.sunday-webry.com/episode/3270375685427010989"
+  - work_title: "ユリ暴力教室"
+    series_id: "4856001361097262774"
+    url: "https://www.sunday-webry.com/atom/series/4856001361097262774"
+    chapter_count: 1
+    chapters:
+      - title: "ユリ暴力教室"
+        updated: "2023-04-01"
+        url: "https://www.sunday-webry.com/episode/4856001361097263091"
+  - work_title: "笑う門だよ福音さん"
+    series_id: "4856001361097279556"
+    url: "https://www.sunday-webry.com/atom/series/4856001361097279556"
+    chapter_count: 1
+    chapters:
+      - title: "笑う門だよ福音さん"
+        updated: "2023-04-09"
+        url: "https://www.sunday-webry.com/episode/4856001361097279910"
+  - work_title: "マイゾンビシスター"
+    series_id: "4856001361121204650"
+    url: "https://www.sunday-webry.com/atom/series/4856001361121204650"
+    chapter_count: 1
+    chapters:
+      - title: "マイゾンビシスター"
+        updated: "2023-04-08"
+        url: "https://www.sunday-webry.com/episode/4856001361121205034"
+  - work_title: "王の由縁"
+    series_id: "4856001361121204651"
+    url: "https://www.sunday-webry.com/atom/series/4856001361121204651"
+    chapter_count: 1
+    chapters:
+      - title: "王の由縁"
+        updated: "2023-04-08"
+        url: "https://www.sunday-webry.com/episode/4856001361121205038"
+  - work_title: "人間のペット飼いたい"
+    series_id: "4856001361163769261"
+    url: "https://www.sunday-webry.com/atom/series/4856001361163769261"
+    chapter_count: 1
+    chapters:
+      - title: "人間のペット飼いたい"
+        updated: "2023-04-27"
+        url: "https://www.sunday-webry.com/episode/4856001361163769575"
+  - work_title: "つめあと"
+    series_id: "4856001361386899936"
+    url: "https://www.sunday-webry.com/atom/series/4856001361386899936"
+    chapter_count: 1
+    chapters:
+      - title: "つめあと"
+        updated: "2023-07-02"
+        url: "https://www.sunday-webry.com/episode/4856001361386900883"
+  - work_title: "最強最高の魔法少女は絶対負けない"
+    series_id: "4856001361577185683"
+    url: "https://www.sunday-webry.com/atom/series/4856001361577185683"
+    chapter_count: 1
+    chapters:
+      - title: "最強最高の魔法少女は絶対負けない"
+        updated: "2023-09-06"
+        url: "https://www.sunday-webry.com/episode/4856001361577192334"

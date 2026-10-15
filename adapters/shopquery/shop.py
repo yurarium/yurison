@@ -62,7 +62,8 @@ _TITLE = re.compile(r'<p class="m-book-item__title">.*?title="([^"]*)"', re.S)
 _LABEL = re.compile(r'<p class="m-book-item__label">(.*?)</p>', re.S)
 _TAG = re.compile(r'<span class="a-tag-([a-z]+)">([^<]*)</span>')
 _COUNT = re.compile(r'<span class="ico-txt">\s*シリーズ([\d,]+)冊')
-_VOLUME = re.compile(r'href="(https://bookwalker\.jp/de[0-9a-f-]+/)"')
+# A volume's product page, as `bookwalker.py` defines it for reading a series list.
+from bookwalker import PRODUCT as _VOLUME                                 # noqa: E402
 
 # The 作品情報 table on a volume's own page. Each row is a label and a value.
 #

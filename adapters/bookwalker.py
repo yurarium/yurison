@@ -93,6 +93,43 @@ def status_from_list(html, work_title):
     return "completed" if FINISHED_TAG in tags(html) else None
 
 
+#: A product page on BOOK☆WALKER, which is what a series list links each volume to.
+PRODUCT = re.compile(r'href="(https://bookwalker\.jp/de[0-9a-f-]+/)"')
+#: The shop's own word that this is the newest volume, in the product page's title.
+NEWEST = "【最新刊】"
+OG_DESCRIPTION = re.compile(r'<meta property="og:description" content="([^"]*)"')
+#: Where the description says the series ended. 完結 is read only where nothing beside it narrows
+#: it to an arc: 第一部完結 and 学園編完結 end a part, 未完結 says the opposite, and 完結編 names a
+#: final arc that can run several volumes. 最終巻 and 完結巻 name the volume itself as the last.
+ENDED = re.compile(r"(?<![部編章未])完結(?!編)|最終巻")
+
+
+def latest_volume(list_html):
+    """The first product the series list links, which is the newest: the list opens 最新刊から."""
+    m = PRODUCT.search(list_html or "")
+    return m.group(1) if m else None
+
+
+def blurb_completed(product_html, work_title):
+    """`completed` where the NEWEST volume's own description says the series ended, else None.
+
+    THE SHOP'S DESCRIPTION OF ITS LAST VOLUME. 女だから、とパーティを追放されたので伝説の魔女と最強
+    タッグを組みました carries neither 【完結】 nor the 完結 tag, and its sixth volume, titled
+    【最新刊】, says 堂々完結 in the shop's own description; the owner pointed to it on 2026-10-15.
+    Most series end on a stated last volume, and this is where a shop states it.
+
+    ONLY THE NEWEST, AND ONLY ABOUT THIS WORK. A volume not titled 【最新刊】 may describe an arc
+    that ended mid-run, and a page not naming the work is somebody else's. The sentence itself is
+    not kept: a shop's description is copyrighted (REQUIREMENTS §2), and what is recorded is the
+    fact and the page that states it.
+    """
+    title = page_title(product_html)
+    if not title or NEWEST not in title or _fold(work_title) not in _fold(title):
+        return None
+    m = OG_DESCRIPTION.search(product_html or "")
+    return "completed" if m and ENDED.search(m.group(1)) else None
+
+
 def status(html, work_title):
     """`completed` where the shop marks this series finished, otherwise None.
 
@@ -109,9 +146,33 @@ def status(html, work_title):
     return "completed" if FINISHED in stem else None
 
 
+def plan(works, checked, today, limit, every_days=30):
+    """The works to ask this run: never asked first, then the longest since, each at most monthly.
+
+    THE SWEEP RAN ONCE. It asked 53 dormant works on 2026-08-05 and nothing ran it again, while the
+    works resting on silence grew to 384. A daily run cannot ask all of them at a pause of seconds a
+    request, so each run asks a batch, and `checked` is what the file remembers between runs.
+    """
+    import datetime as _dt
+    due = []
+    for w in works:
+        last = (checked or {}).get(w["work"])
+        if last:
+            try:
+                age = (_dt.date.fromisoformat(today) - _dt.date.fromisoformat(str(last))).days
+            except ValueError:
+                age = every_days
+            if age < every_days:
+                continue
+        due.append((last or "", w))
+    due.sort(key=lambda x: x[0])
+    return [w for _, w in due[:limit]]
+
+
 def main(argv=None):
-    """Ask the shop about every work whose state rests on silence."""
+    """Ask the shop about works whose state rests on silence, a batch a run."""
     import argparse, datetime, json, pathlib, time, urllib.parse, urllib.request
+    import yaml
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     # THE STORE BY DEFAULT AND A FILE ONLY WHEN ASKED, §13. It defaulted to a build artefact, so
@@ -119,7 +180,8 @@ def main(argv=None):
     ap.add_argument("--series", default=None,
                     help="read the population from this series.json instead of from the store")
     ap.add_argument("--out", default="data/coverage/bookwalker-completion.yaml")
-    ap.add_argument("--state", default="dormant")
+    ap.add_argument("--states", nargs="+", default=["dormant", "slow", "unknown"])
+    ap.add_argument("--limit", type=int, default=60)
     ap.add_argument("--pause", type=float, default=2.5)
     a = ap.parse_args(argv)
 
@@ -127,61 +189,80 @@ def main(argv=None):
 
     def get(url):
         req = urllib.request.Request(url, headers={"User-Agent": ua})
-        with urllib.request.urlopen(req, timeout=40) as r:
-            return r.read().decode("utf-8", "replace")
+        try:
+            with urllib.request.urlopen(req, timeout=40) as r:
+                return r.read().decode("utf-8", "replace")
+        finally:
+            time.sleep(a.pause)
 
-    works = population.works_in_state(a.state, a.series)
-    rows, unmarked, missing = [], 0, 0
-    for w in works:
+    out = pathlib.Path(a.out)
+    prior = (yaml.safe_load(out.read_text()) or {}) if out.exists() else {}
+    rows = {r["work"]: r for r in prior.get("works") or [] if r.get("work")}
+    checked = {str(k): str(v) for k, v in (prior.get("checked") or {}).items()}
+    today = datetime.date.today().isoformat()
+
+    works, seen = [], set()
+    for st in a.states:
+        for w in population.works_in_state(st, a.series):
+            if w["work"] not in seen:
+                seen.add(w["work"])
+                works.append(w)
+    todo = plan(works, checked, today, a.limit)
+    print(f"{len(works)} works rest on silence; asking {len(todo)} this run")
+    found = 0
+    for w in todo:
         try:
-            found = series_ids(get("https://bookwalker.jp/search/?word="
-                                   + urllib.parse.quote(w["work"])))
+            ids = series_ids(get("https://bookwalker.jp/search/?word=" + urllib.parse.quote(w["work"])))
+            checked[w["work"]] = today
+            if not ids:
+                continue
+            # Only the first result is read. A shop's search ranks by relevance, and walking further
+            # down it to find a 完結 anywhere is how you end up citing a different series.
+            # The volume list carries both of the series' own markers, the 【完結】 a title may
+            # hold and the 完結 tag the volumes carry; its first product is the newest volume.
+            html = get(f"https://bookwalker.jp/series/{ids[0]}/list/")
+            marker, volume = None, None
+            if status(html, w["work"]) == "completed":
+                marker = "title"
+            elif status_from_list(html, w["work"]) == "completed":
+                marker = "volume-tag"
+            else:
+                volume = latest_volume(html)
+                if volume and blurb_completed(get(volume), w["work"]) == "completed":
+                    marker = "latest-volume"
+            if marker:
+                found += 1
+                rows[w["work"]] = {"work": w["work"], "series": ids[0], "title": page_title(html),
+                                   "marker": marker, "volume": volume if marker == "latest-volume"
+                                   else None, "latest_chapter": w.get("latest"), "found": today}
         except Exception as e:                                              # noqa: BLE001
-            print(f"  skip {w['work'][:22]}: {e}")
-            continue
-        time.sleep(a.pause)
-        if not found:
-            missing += 1
-            continue
-        # Only the first result is read. A shop's search ranks by relevance, and walking further
-        # down it to find a 完結 anywhere is how you end up citing a different series.
-        #
-        # The volume list is read rather than the series page, because it carries BOTH signals: the
-        # 【完結】 the title may hold and the 完結 tag the volumes carry. Reading only the title
-        # missed 惑星クローゼット, which ended in 2020 and is tagged but not titled.
-        try:
-            html = get(f"https://bookwalker.jp/series/{found[0]}/list/")
-        except Exception as e:                                              # noqa: BLE001
-            print(f"  skip {w['work'][:22]}: {e}")
-            continue
-        time.sleep(a.pause)
-        st = status(html, w["work"]) or status_from_list(html, w["work"])
-        if st == "completed":
-            rows.append({"work": w["work"], "series": found[0], "title": page_title(html),
-                         "marker": "title" if FINISHED in page_title(html) else "volume-tag",
-                         "latest_chapter": w.get("latest")})
-        else:
-            unmarked += 1
+            print(f"  skip {w['work'][:22]}: {type(e).__name__}")
 
     js = lambda v: json.dumps(v, ensure_ascii=False)                        # noqa: E731
-    L = ["# Works BOOK☆WALKER marks 【完結】, for works whose state here rests on silence.",
+    L = ["# Works BOOK☆WALKER marks finished, for works whose state here rests on silence.",
          "#",
          "# A licensed distributor selling the publisher's edition, so this is a shop describing",
-         "# its own stock. An absent marker is recorded nowhere, because a running series and a",
-         "# series the shop has not marked look identical and neither says the work continues.",
+         "# its own stock: 【完結】 in the series title, the 完結 tag on its volumes, or its newest",
+         "# volume's own description saying the series ended. An absent marker is recorded nowhere",
+         "# but `checked`, because a running series and one the shop has not marked look identical.",
          "source: bookwalker.jp", "role: completion-claim", "source_kind: licensor",
-         f"retrieved: {datetime.date.today().isoformat()}",
-         f"queried: {len(works)}", f"unmarked: {unmarked}", f"not_stocked: {missing}", "works:"]
-    for r in sorted(rows, key=lambda x: x["work"]):
+         f"retrieved: {today}", "works:"]
+    for r in sorted(rows.values(), key=lambda x: x["work"]):
         L.append(f"  - work: {js(r['work'])}")
-        L.append(f"    url: {js('https://bookwalker.jp/series/' + r['series'] + '/')}")
-        L.append(f"    shop_title: {js(r['title'].split(' - ')[0])}")
+        L.append(f"    url: {js(r.get('url') or 'https://bookwalker.jp/series/' + str(r.get('series')) + '/')}")
+        L.append(f"    shop_title: {js(str(r.get('title') or r.get('shop_title') or '').split(' - ')[0])}")
         L.append(f"    marker: {js(r.get('marker'))}")
+        if r.get("volume"):
+            L.append(f"    volume: {js(r['volume'])}")
         L.append(f"    latest_chapter: {js(r.get('latest_chapter'))}")
+        if r.get("found"):
+            L.append(f"    found: {js(str(r['found']))}")
+    L.append("checked:")
+    for k in sorted(checked):
+        L.append(f"  {js(k)}: {js(checked[k])}")
     L.append("")
-    pathlib.Path(a.out).write_text("\n".join(L))
-    print(f"{len(rows)} of {len(works)} {a.state} works are marked 完結 "
-          f"({unmarked} unmarked, {missing} not stocked) -> {a.out}")
+    out.write_text("\n".join(L))
+    print(f"{found} of {len(todo)} asked are marked finished; {len(rows)} in all -> {out}")
     return 0
 
 

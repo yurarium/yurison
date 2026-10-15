@@ -6189,6 +6189,16 @@ def main():
         # quoted from the raw one where that also matches, so the basis says what the page says
         # rather than what NFKC made of it: ＜完＞ folds to <完> and the publisher wrote neither.
         _ep_raw = row.get("latest_ep") or ""
+        # THE RUN'S OWN LAST INSTALMENT, where its date was set aside. `latest_ep` is the newest
+        # chapter whose date we trust, and an ending is a fact about position, not about a date:
+        # コミックボーダー re-posted ハナちゃん匂いかがせて on 2025-12-15, 42 episodes on one day, so
+        # that day reads as an import and the newest trusted chapter is episode 013 of 2022, while
+        # the platform's own list ends 最終話. The last instalment the source lists is read for the
+        # ending only, and only where it is titled as one.
+        _last_listed = ((row.get("chapters_list") or [{}])[-1].get("title") or "").strip()
+        if _last_listed and _last_listed != _ep_raw and FINAL_RE.search(
+                unicodedata.normalize("NFKC", _last_listed)):
+            _ep_raw = _last_listed
         # A capture the platform itself says is short cannot claim to be the series. Marked partial
         # so the count reads as ours rather than as the work's, and where we are not holding the
         # platform's newest chapter the silence is ours too, so no state is inferred from it.
@@ -6354,8 +6364,17 @@ def main():
                 _shop = shop_completed.get(norm_work(row.get("work") or ""))
                 if _shop:
                     row["state"] = _ser.COMPLETED
-                    row["completed_basis"] = (
-                        f"BOOK☆WALKER lists this series as 完結 ({_shop.get('url')})")
+                    # WHICH OF THE SHOP'S STATEMENTS, with the page that makes it. The newest
+                    # volume's own description is the third, read since 2026-10-15.
+                    if _shop.get("marker") == "latest-volume" and _shop.get("volume"):
+                        row["completed_basis"] = (
+                            f"BOOK☆WALKER's description of the newest volume says the series ended "
+                            f"({_shop['volume']})")
+                        row["completed_basis_ja"] = (
+                            f"BOOK☆WALKERの最新刊の紹介文に完結とある（{_shop['volume']}）")
+                    else:
+                        row["completed_basis"] = (
+                            f"BOOK☆WALKER lists this series as 完結 ({_shop.get('url')})")
                     continue
                 _seen = completion_claims.get(norm_work(row.get("work") or ""))
                 if _seen and row["latest"] <= str(_seen)[:10]:
@@ -6604,6 +6623,20 @@ def main():
             _state = _ser.UNKNOWN
             _state_basis = ("every chapter we hold arrived on the day a platform imported the "
                             "series, so nothing here says when it last published")
+        # AN ENDING ANY PLATFORM STATES OUTRANKS ANOTHER PLATFORM'S AGE. The state is read off the
+        # fullest row, and a syndicated copy is often that row and always behind: MAGCOMI's own list
+        # ends 姉になりたい義姉VS百合になりたい義妹 with 最終話 on 2025-04-25, ニコニコ漫画 carried its
+        # 71 parts to 2025-12-22, and the work read `slow` off the copy. Only the age-based states
+        # give way, and only to a row whose `completed` rests on a stated ending.
+        _ended_row = next((r for r in rows if r.get("state") == _ser.COMPLETED
+                           and r.get("completed_basis")), None)
+        if _state in ("active", "slow", "dormant", _ser.UNKNOWN) and _ended_row:
+            best = dict(best, state=_ser.COMPLETED,
+                        completed_basis=_ended_row["completed_basis"],
+                        completed_basis_ja=_ended_row.get("completed_basis_ja"),
+                        state_basis=_ended_row.get("state_basis") or _ended_row["completed_basis"],
+                        state_basis_ja=_ended_row.get("state_basis_ja"))
+            _state, _state_basis = best["state"], best["state_basis"]
         if _state in ("active", "slow", "dormant") and _merged_latest:
             _age = (_dating.today()
                     - datetime.date.fromisoformat(_merged_latest)).days

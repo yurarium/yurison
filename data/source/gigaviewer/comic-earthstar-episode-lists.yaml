@@ -1,0 +1,299 @@
+# Every episode each series has published, from the platform's own episode list. Written by
+# adapters/gigaviewer/episode_lists.py; an entry the platform says can no longer be read is
+# `withdrawn` and carries no access mode, since it counts toward length and dates only.
+source: gigaviewer
+platform: comic-earthstar
+platform_name: "コミック アース・スター"
+retrieved: "2026-10-15"
+record_type: web_work_chapters
+identification_mode: known-works
+date_basis: stated
+date_confidence: reported
+works:
+  - work_title: "来航怪異の音がする ～横濱外来妖対策局～"
+    series_id: "12207421983605264754"
+    url: "https://comic-earthstar.com/atom/series/12207421983605264754"
+    chapter_count: 1
+    chapters:
+      - title: "【読切】来航怪異の音がする ～横濱外来妖対策局～"
+        updated: "2026-04-23"
+        url: "https://comic-earthstar.com/episode/12207421983605265777"
+        access_modes: ["free"]
+  - work_title: "吸血少女とウンディーネ"
+    series_id: "12207421983715031918"
+    url: "https://comic-earthstar.com/atom/series/12207421983715031918"
+    chapter_count: 1
+    chapters:
+      - title: "【読切】吸血少女とウンディーネ"
+        updated: "2026-05-14"
+        url: "https://comic-earthstar.com/episode/12207421983715032399"
+        access_modes: ["free"]
+  - work_title: "はるは巡る"
+    series_id: "12207421984241511954"
+    url: "https://comic-earthstar.com/atom/series/12207421984241511954"
+    chapter_count: 1
+    chapters:
+      - title: "【読切】はるは巡る"
+        updated: "2026-10-01"
+        url: "https://comic-earthstar.com/episode/12207421984241521945"
+        access_modes: ["free"]
+  - work_title: "灼熱の魔女様の楽しい温泉領地経営　～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます～"
+    series_id: "14079602755508978505"
+    url: "https://comic-earthstar.com/atom/series/14079602755508978505"
+    chapter_count: 29
+    chapters:
+      - title: "第1話①"
+        updated: "2022-11-17"
+        url: "https://comic-earthstar.com/episode/14079602755509017037"
+        access_modes: ["free"]
+      - title: "第1話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511276"
+        access_modes: ["free"]
+      - title: "第1話③"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511281"
+        access_modes: ["free"]
+      - title: "第2話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755509017047"
+        access_modes: ["free"]
+      - title: "第2話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511289"
+        access_modes: ["purchase"]
+      - title: "第3話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755509017057"
+        access_modes: ["purchase"]
+      - title: "第3話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511296"
+        access_modes: ["purchase"]
+      - title: "第4話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755509017063"
+        access_modes: ["purchase"]
+      - title: "第4話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511309"
+        access_modes: ["purchase"]
+      - title: "第5話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755509017070"
+        access_modes: ["purchase"]
+      - title: "第5話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511316"
+        access_modes: ["purchase"]
+      - title: "第6話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755509017078"
+        access_modes: ["purchase"]
+      - title: "第6話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511325"
+        access_modes: ["purchase"]
+      - title: "第7話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755509017082"
+        access_modes: ["purchase"]
+      - title: "第7話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511335"
+        access_modes: ["purchase"]
+      - title: "第8話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755509017096"
+        access_modes: ["purchase"]
+      - title: "第8話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511343"
+        access_modes: ["purchase"]
+      - title: "第9話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755509017104"
+        access_modes: ["purchase"]
+      - title: "第9話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511348"
+        access_modes: ["purchase"]
+      - title: "第10話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755509017110"
+        access_modes: ["purchase"]
+      - title: "第10話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511358"
+        access_modes: ["purchase"]
+      - title: "第11話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755542526655"
+        access_modes: ["purchase"]
+      - title: "第11話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511365"
+        access_modes: ["purchase"]
+      - title: "第12話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/14079602755592614440"
+        access_modes: ["purchase"]
+      - title: "第12話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511372"
+        access_modes: ["purchase"]
+      - title: "第13話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/10044607041220336367"
+        access_modes: ["purchase"]
+      - title: "第13話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511382"
+        access_modes: ["purchase"]
+      - title: "最終話①"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/11341664176612727000"
+        access_modes: ["purchase"]
+      - title: "最終話②"
+        updated: "2025-09-01"
+        url: "https://comic-earthstar.com/episode/2551460909469511389"
+        access_modes: ["purchase"]
+  - work_title: "ソリスターズ・ハイ"
+    series_id: "2550689798369098978"
+    url: "https://comic-earthstar.com/atom/series/2550689798369098978"
+    chapter_count: 1
+    chapters:
+      - title: "【読切】ソリスターズ・ハイ"
+        updated: "2024-04-04"
+        url: "https://comic-earthstar.com/episode/2550689798369117852"
+        access_modes: ["free"]
+  - work_title: "アオハルに憑き物"
+    series_id: "2550912964936716188"
+    url: "https://comic-earthstar.com/atom/series/2550912964936716188"
+    chapter_count: 1
+    chapters:
+      - title: "【読切】アオハルに憑き物"
+        updated: "2024-11-28"
+        url: "https://comic-earthstar.com/episode/2550912964936717251"
+        access_modes: ["free"]
+  - work_title: "ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～"
+    series_id: "2550912965247410451"
+    url: "https://comic-earthstar.com/atom/series/2550912965247410451"
+    chapter_count: 29
+    chapters:
+      - title: "第1話①"
+        updated: "2025-02-20"
+        url: "https://comic-earthstar.com/episode/2550912965247413858"
+        access_modes: ["free"]
+      - title: "第1話②"
+        updated: "2025-02-20"
+        url: "https://comic-earthstar.com/episode/2550912965316450193"
+        access_modes: ["free"]
+      - title: "第2話①"
+        updated: "2025-03-20"
+        url: "https://comic-earthstar.com/episode/2550912965316450198"
+        access_modes: ["free"]
+      - title: "第2話②"
+        updated: "2025-03-20"
+        url: "https://comic-earthstar.com/episode/2550912965442170896"
+        access_modes: ["purchase"]
+      - title: "第3話①"
+        updated: "2025-04-17"
+        url: "https://comic-earthstar.com/episode/2550912965442170904"
+        access_modes: ["purchase"]
+      - title: "第3話②"
+        updated: "2025-05-01"
+        url: "https://comic-earthstar.com/episode/2550912965574413205"
+        access_modes: ["purchase"]
+      - title: "第4話①"
+        updated: "2025-06-12"
+        url: "https://comic-earthstar.com/episode/2550912965638336489"
+        access_modes: ["purchase"]
+      - title: "第4話②"
+        updated: "2025-06-26"
+        url: "https://comic-earthstar.com/episode/2550912965826413784"
+        access_modes: ["purchase"]
+      - title: "第5話①"
+        updated: "2025-08-14"
+        url: "https://comic-earthstar.com/episode/2550912965888700651"
+        access_modes: ["purchase"]
+      - title: "第5話②"
+        updated: "2025-08-28"
+        url: "https://comic-earthstar.com/episode/2551460909452616272"
+        access_modes: ["purchase"]
+      - title: "第6話①"
+        updated: "2025-09-11"
+        url: "https://comic-earthstar.com/episode/2551460909513077643"
+        access_modes: ["purchase"]
+      - title: "第6話②"
+        updated: "2025-09-25"
+        url: "https://comic-earthstar.com/episode/2551460909571127617"
+        access_modes: ["purchase"]
+      - title: "第7話①"
+        updated: "2025-10-16"
+        url: "https://comic-earthstar.com/episode/2551460909629307293"
+        access_modes: ["purchase"]
+      - title: "第7話②"
+        updated: "2025-10-30"
+        url: "https://comic-earthstar.com/episode/2551460909709859298"
+        access_modes: ["purchase"]
+      - title: "第8話①"
+        updated: "2025-11-20"
+        url: "https://comic-earthstar.com/episode/2551460909762218597"
+        access_modes: ["purchase"]
+      - title: "第8話②"
+        updated: "2025-12-04"
+        url: "https://comic-earthstar.com/episode/2551460909840004734"
+        access_modes: ["purchase"]
+      - title: "第9話①"
+        updated: "2026-01-15"
+        url: "https://comic-earthstar.com/episode/2551460909891809666"
+        access_modes: ["purchase"]
+      - title: "第9話②"
+        updated: "2026-01-29"
+        url: "https://comic-earthstar.com/episode/2551460910044246006"
+        access_modes: ["purchase"]
+      - title: "第10話①"
+        updated: "2026-02-19"
+        url: "https://comic-earthstar.com/episode/12207421983321903240"
+        access_modes: ["purchase"]
+      - title: "第10話②"
+        updated: "2026-03-05"
+        url: "https://comic-earthstar.com/episode/12207421983405894677"
+        access_modes: ["purchase"]
+      - title: "第11話①"
+        updated: "2026-03-26"
+        url: "https://comic-earthstar.com/episode/12207421983458919104"
+        access_modes: ["purchase"]
+      - title: "第11話②"
+        updated: "2026-04-09"
+        url: "https://comic-earthstar.com/episode/12207421983536911520"
+        access_modes: ["purchase"]
+      - title: "第12話①"
+        updated: "2026-04-30"
+        url: "https://comic-earthstar.com/episode/12207421983588552272"
+        access_modes: ["purchase"]
+      - title: "第12話②"
+        updated: "2026-05-14"
+        url: "https://comic-earthstar.com/episode/12207421983667411445"
+        access_modes: ["purchase"]
+      - title: "第13話①"
+        updated: "2026-06-04"
+        url: "https://comic-earthstar.com/episode/12207421983718641731"
+        access_modes: ["purchase"]
+      - title: "第13話②"
+        updated: "2026-06-18"
+        url: "https://comic-earthstar.com/episode/12207421983804903957"
+        access_modes: ["purchase"]
+      - title: "第14話①"
+        updated: "2026-07-30"
+        url: "https://comic-earthstar.com/episode/12207421983861577217"
+        access_modes: ["free"]
+      - title: "第14話②"
+        updated: "2026-08-13"
+        url: "https://comic-earthstar.com/episode/12207421984034840843"
+        access_modes: ["free"]
+      - title: "第15話①"
+        updated: "2026-10-01"
+        url: "https://comic-earthstar.com/episode/12207421984094164648"
+        access_modes: ["purchase"]

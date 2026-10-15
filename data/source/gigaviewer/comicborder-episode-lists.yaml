@@ -1,0 +1,235 @@
+# Every episode each series has published, from the platform's own episode list. Written by
+# adapters/gigaviewer/episode_lists.py; an entry the platform says can no longer be read is
+# `withdrawn` and carries no access mode, since it counts toward length and dates only.
+source: gigaviewer
+platform: comicborder
+platform_name: "コミックボーダー"
+retrieved: "2026-10-15"
+record_type: web_work_chapters
+identification_mode: known-works
+date_basis: stated
+date_confidence: reported
+works:
+  - work_title: "侵略のプリマステラ!"
+    series_id: "12207421983750427652"
+    url: "https://comicborder.com/atom/series/12207421983750427652"
+    chapter_count: 2
+    chapters:
+      - title: "第1侵略　侵略されてないか？"
+        updated: "2026-06-19"
+        url: "https://comicborder.com/episode/12207421983750440973"
+      - title: "第2侵略　気がついたときには生命が"
+        updated: "2026-07-17"
+        url: "https://comicborder.com/episode/12207421983978154177"
+  - work_title: "ハナちゃん匂いかがせて"
+    series_id: "3270375685434599418"
+    url: "https://comicborder.com/atom/series/3270375685434599418"
+    chapter_count: 55
+    chapters:
+      - title: "episode 001"
+        updated: "2022-09-23"
+        url: "https://comicborder.com/episode/3270375685434605726"
+      - title: "episode 002"
+        updated: "2022-09-23"
+        url: "https://comicborder.com/episode/3270375685474163881"
+      - title: "episode 003"
+        updated: "2022-09-23"
+        url: "https://comicborder.com/episode/3270375685474163896"
+      - title: "episode 004"
+        updated: "2022-10-07"
+        url: "https://comicborder.com/episode/3270375685474163905"
+      - title: "episode 005"
+        updated: "2022-10-14"
+        url: "https://comicborder.com/episode/3270375685474163918"
+      - title: "episode 006"
+        updated: "2022-10-21"
+        url: "https://comicborder.com/episode/3270375685474163926"
+      - title: "episode 007"
+        updated: "2022-10-28"
+        url: "https://comicborder.com/episode/3270375685474163935"
+      - title: "episode 008"
+        updated: "2022-11-04"
+        url: "https://comicborder.com/episode/3270375685474163943"
+      - title: "episode 009"
+        updated: "2022-11-11"
+        url: "https://comicborder.com/episode/3270375685474163951"
+      - title: "episode 010"
+        updated: "2022-11-18"
+        url: "https://comicborder.com/episode/316112896941774080"
+      - title: "episode 011"
+        updated: "2022-11-25"
+        url: "https://comicborder.com/episode/316112896941774083"
+      - title: "episode 012"
+        updated: "2022-12-02"
+        url: "https://comicborder.com/episode/316112896941774088"
+      - title: "episode 013"
+        updated: "2022-12-09"
+        url: "https://comicborder.com/episode/316112896941774091"
+      - title: "episode 014"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316112896941774097"
+        withdrawn: true
+      - title: "episode 015"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316112896941774103"
+        withdrawn: true
+      - title: "episode 016"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316112896941774106"
+        withdrawn: true
+      - title: "episode 017"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316112896941774114"
+        withdrawn: true
+      - title: "episode 018"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316112896941774123"
+        withdrawn: true
+      - title: "episode 019"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247044645376"
+        withdrawn: true
+      - title: "episode 020"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247044645385"
+        withdrawn: true
+      - title: "episode 021"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247044645392"
+        withdrawn: true
+      - title: "episode 022"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247044645395"
+        withdrawn: true
+      - title: "episode 023"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247044645398"
+        withdrawn: true
+      - title: "episode 024"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247044645403"
+        withdrawn: true
+      - title: "episode 025"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247090866847"
+        withdrawn: true
+      - title: "episode 026"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247090866854"
+        withdrawn: true
+      - title: "episode 027"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247090866859"
+        withdrawn: true
+      - title: "episode 028"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247090866862"
+        withdrawn: true
+      - title: "episode 029"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247090866872"
+        withdrawn: true
+      - title: "episode 030"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247090866882"
+        withdrawn: true
+      - title: "episode 031"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/316190247090866891"
+        withdrawn: true
+      - title: "episode 032"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053633991"
+        withdrawn: true
+      - title: "episode 033"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053633994"
+        withdrawn: true
+      - title: "episode 034"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053633997"
+        withdrawn: true
+      - title: "episode 035"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634000"
+        withdrawn: true
+      - title: "episode 036"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634005"
+        withdrawn: true
+      - title: "episode 037"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634010"
+        withdrawn: true
+      - title: "episode 038"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634013"
+        withdrawn: true
+      - title: "episode 039"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634016"
+        withdrawn: true
+      - title: "episode 040"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634021"
+        withdrawn: true
+      - title: "episode 041"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634024"
+        withdrawn: true
+      - title: "episode 042"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634030"
+        withdrawn: true
+      - title: "episode 043"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634033"
+        withdrawn: true
+      - title: "episode 044"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634036"
+        withdrawn: true
+      - title: "episode 045"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361053634041"
+        withdrawn: true
+      - title: "episode 046"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361577506449"
+        withdrawn: true
+      - title: "episode 047"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/4856001361577506453"
+        withdrawn: true
+      - title: "episode 048"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/14079602755132021605"
+        withdrawn: true
+      - title: "episode 049"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/14079602755132021611"
+        withdrawn: true
+      - title: "episode 050"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/14079602755132021615"
+        withdrawn: true
+      - title: "episode 051"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/14079602755132021618"
+        withdrawn: true
+      - title: "episode 052"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/14079602755274624539"
+        withdrawn: true
+      - title: "episode 053"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/14079602755274624542"
+        withdrawn: true
+      - title: "episode 054"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/14079602755274624547"
+        withdrawn: true
+      - title: "最終話"
+        updated: "2025-12-15"
+        url: "https://comicborder.com/episode/14079602755274624553"
+        withdrawn: true

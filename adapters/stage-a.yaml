@@ -163,6 +163,15 @@ commands:
   # 2026-08-04 and run once, and no stage ran it after, so the platform's file stayed at that day
   # and a work announced there could not be held. The hand-kept targets are read beside every
   # candidate on comic-boost.com, so a work the antenna or 百合ナビ lists is read the same morning.
+  # EVERY EPISODE A GIGAVIEWER SERIES HAS PUBLISHED, expired ones included, from the platform's own
+  # episode list. A series feed is the readable window, so a work that ran three years and ended
+  # reached us as its first two chapters dated the year it began. Reads the series the feeds above
+  # hold, from the copy the run checked out, which is the same series one run behind at worst.
+  - id: gigaviewer-episode-lists
+    optional: true
+    argv: [adapters/gigaviewer/episode_lists.py, --out, data/source/gigaviewer,
+           --cache, "{CACHE}/giga-lists", --retrieved, "{R}"]
+
   - id: comicboost
     optional: true
     argv: [adapters/comicboost.py, --works, data/coverage/candidates.yaml,

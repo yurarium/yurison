@@ -76,6 +76,33 @@ def main(s):
     s.eq(bw.status_from_list("", "any"), None, "no page, no answer")
     s.eq(bw.tags("nothing here"), {}, "and no tags where the page has none")
 
+    # ── THE NEWEST VOLUME'S OWN DESCRIPTION ───────────────────────────────────────────────────
+    # 女だから、とパーティを追放されたので… carries no 【完結】 and no 完結 tag, and its sixth
+    # volume, titled 【最新刊】, says 堂々完結. Built from the shape, not the shop's sentence.
+    work = "女だから、とパーティを追放されたので伝説の魔女と最強タッグを組みました"
+    def page(title, desc):
+        return (f"<title>{title} - BOOK☆WALKER -</title>"
+                f'<meta property="og:description" content="{desc}">')
+    newest = page(f"【最新刊】{work}（６）", "物語、堂々完結！")
+    s.eq(bw.blurb_completed(newest, work), "completed", "the newest volume saying 完結 settles it")
+    s.eq(bw.blurb_completed(page(f"{work}（３）", "物語、堂々完結！"), work), None,
+         "but only the newest: an earlier volume can describe an arc that ended mid-run")
+    s.eq(bw.blurb_completed(page("【最新刊】別の作品（６）", "堂々完結！"), work), None,
+         "and only about this work")
+    for desc in ("第一部完結！", "学園編完結", "未完結の物語", "完結編スタート"):
+        s.eq(bw.blurb_completed(page(f"【最新刊】{work}（６）", desc), work), None,
+             f"{desc} does not end the series")
+    s.eq(bw.blurb_completed(page(f"【最新刊】{work}（６）", "感動の最終巻"), work), "completed",
+         "and a last volume named as one does")
+    s.eq(bw.latest_volume('<a href="https://bookwalker.jp/de1-2/">6</a><a href="https://bookwalker.jp/de0-1/">5</a>'),
+         "https://bookwalker.jp/de1-2/", "the newest volume is the list's first product")
+
+    # ── A BATCH A RUN ─────────────────────────────────────────────────────────────────────────
+    ws = [{"work": x} for x in ("a", "b", "c", "d")]
+    got = bw.plan(ws, {"a": "2026-10-01", "b": "2026-08-01", "c": "2026-09-01"}, "2026-10-15", 2)
+    s.eq([w["work"] for w in got], ["d", "b"],
+         "never asked first, then the longest since; one asked this month waits")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

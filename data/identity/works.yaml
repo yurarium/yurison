@@ -5883,8 +5883,13 @@ works:
   - id: w00697
     title: "抱かれたい女〜JDだけどアラサー女子に買われています〜"
     anchors:
+      - "web:https://www.sunday-webry.com/atom/series/3269754496719332285"
       - "web:https://bigcomics.jp/series/7c900aada4b46"
       - "madb:madb-t-6c54cd5e15dc"
+    attached:
+      - anchor: "web:https://www.sunday-webry.com/atom/series/3269754496719332285"
+        basis: "the work's address on サンデーうぇぶり: that platform's own episode list for series 3269754496719332285, read 2026-10-15, holds 63 episodes of 抱かれたい女～JDだけどアラサー女子に買われています～, the same work written with a full-width tilde"
+        retrieved: 2026-10-15
   - id: w00698
     title: "リリーとキャラメル"
     anchors:
@@ -6200,12 +6205,16 @@ works:
   - id: w00731
     title: "きみと観たいレースがある"
     anchors:
+      - "web:https://tonarinoyj.jp/atom/series/3269754496543431712"
       - "web:https://comic-ogyaaa.com/episode/2550689798327509028"
       - "madb:madb-t-7c09b1a5454c"
       - "madb:madb-t-e3d7235448ef"
       - "web:https://comic-ogyaaa.com/atom/series/3269754496840120950"
       - "web:https://comic-ogyaaa.com/series/3269754496840120950/first_episode"
     attached:
+      - anchor: "web:https://tonarinoyj.jp/atom/series/3269754496543431712"
+        basis: "the work's address on となりのヤングジャンプ: that platform's own episode list for series 3269754496543431712, read 2026-10-15, holds 23 episodes of きみと観たいレースがある under the same title"
+        retrieved: 2026-10-15
       - anchor: "web:https://comic-ogyaaa.com/atom/series/3269754496840120950"
         basis: "the chapter page at https://comic-ogyaaa.com/episode/2550689798327509028 links its own series feed at https://comic-ogyaaa.com/atom/series/3269754496840120950, so the platform places this chapter in series 3269754496840120950, and the og:title there names the work: 『きみと観たいレースがある』最終話 2023年11月4日 BCマイル(GⅠ) - 原作:渡辺零・駿馬京/漫画:くわばらたもつ | COMIC OGYAAA!!"
         retrieved: 2026-08-07

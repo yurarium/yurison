@@ -1,0 +1,183 @@
+# Every episode each series has published, from the platform's own episode list. Written by
+# adapters/gigaviewer/episode_lists.py; an entry the platform says can no longer be read is
+# `withdrawn` and carries no access mode, since it counts toward length and dates only.
+source: gigaviewer
+platform: comic-seasons
+platform_name: "Seasons"
+retrieved: "2026-10-15"
+record_type: web_work_chapters
+identification_mode: known-works
+date_basis: stated
+date_confidence: reported
+works:
+  - work_title: "今夜、エーテルで待ちあわせ"
+    series_id: "12207421983858392884"
+    url: "https://comic-seasons.com/atom/series/12207421983858392884"
+    chapter_count: 3
+    chapters:
+      - title: "第1話"
+        updated: "2026-07-17"
+        url: "https://comic-seasons.com/episode/12207421983858404523"
+      - title: "第2話"
+        updated: "2026-08-21"
+        url: "https://comic-seasons.com/episode/12207421983962879135"
+      - title: "第3話"
+        updated: "2026-09-18"
+        url: "https://comic-seasons.com/episode/12207421984208940962"
+  - work_title: "悪役令嬢のお嫁さま"
+    series_id: "2550912965184685912"
+    url: "https://comic-seasons.com/atom/series/2550912965184685912"
+    chapter_count: 37
+    chapters:
+      - title: "第1話 前編"
+        updated: "2025-02-14"
+        url: "https://comic-seasons.com/episode/2550912965184704375"
+      - title: "第1話 後編"
+        updated: "2025-02-28"
+        url: "https://comic-seasons.com/episode/2550912965184704381"
+      - title: "第2話 前編"
+        updated: "2025-03-14"
+        url: "https://comic-seasons.com/episode/2550912965312602853"
+        withdrawn: true
+      - title: "第2話 後編"
+        updated: "2025-03-28"
+        url: "https://comic-seasons.com/episode/2550912965312605251"
+        withdrawn: true
+      - title: "第3話 前編"
+        updated: "2025-04-11"
+        url: "https://comic-seasons.com/episode/2550912965401562390"
+        withdrawn: true
+      - title: "第3話 後編"
+        updated: "2025-04-25"
+        url: "https://comic-seasons.com/episode/2550912965401562394"
+        withdrawn: true
+      - title: "第4話 前編"
+        updated: "2025-05-09"
+        url: "https://comic-seasons.com/episode/2550912965566579110"
+        withdrawn: true
+      - title: "第4話 後編"
+        updated: "2025-05-23"
+        url: "https://comic-seasons.com/episode/2550912965566579115"
+        withdrawn: true
+      - title: "第5話 前編"
+        updated: "2025-06-13"
+        url: "https://comic-seasons.com/episode/2550912965695355526"
+        withdrawn: true
+      - title: "第5話 後編"
+        updated: "2025-06-27"
+        url: "https://comic-seasons.com/episode/2550912965695355532"
+        withdrawn: true
+      - title: "第6話 前編"
+        updated: "2025-07-11"
+        url: "https://comic-seasons.com/episode/2550912965914138174"
+        withdrawn: true
+      - title: "第6話 後編"
+        updated: "2025-07-25"
+        url: "https://comic-seasons.com/episode/2550912965914138181"
+        withdrawn: true
+      - title: "第7話 前編"
+        updated: "2025-08-08"
+        url: "https://comic-seasons.com/episode/2550912966068378249"
+        withdrawn: true
+      - title: "第7話 後編"
+        updated: "2025-08-22"
+        url: "https://comic-seasons.com/episode/2550912966068378255"
+        withdrawn: true
+      - title: "第8話 前編"
+        updated: "2025-09-26"
+        url: "https://comic-seasons.com/episode/2551460909629495742"
+        withdrawn: true
+      - title: "第8話 後編"
+        updated: "2025-10-10"
+        url: "https://comic-seasons.com/episode/2551460909629495747"
+        withdrawn: true
+      - title: "第9話 前編"
+        updated: "2025-10-31"
+        url: "https://comic-seasons.com/episode/2551460909761914952"
+        withdrawn: true
+      - title: "第9話 後編"
+        updated: "2025-11-14"
+        url: "https://comic-seasons.com/episode/2551460909761914956"
+        withdrawn: true
+      - title: "第10話 前編"
+        updated: "2025-12-12"
+        url: "https://comic-seasons.com/episode/2551460909917376861"
+        withdrawn: true
+      - title: "第10話 後編"
+        updated: "2025-12-26"
+        url: "https://comic-seasons.com/episode/2551460909917376868"
+        withdrawn: true
+      - title: "第11話 前編"
+        updated: "2026-01-23"
+        url: "https://comic-seasons.com/episode/2551460910045285172"
+        withdrawn: true
+      - title: "第11話 後編"
+        updated: "2026-02-13"
+        url: "https://comic-seasons.com/episode/2551460910045285177"
+        withdrawn: true
+      - title: "第12話 前編"
+        updated: "2026-02-27"
+        url: "https://comic-seasons.com/episode/12207421983429937573"
+        withdrawn: true
+      - title: "第12話 後編"
+        updated: "2026-03-13"
+        url: "https://comic-seasons.com/episode/12207421983429937579"
+        withdrawn: true
+      - title: "第13話 前編"
+        updated: "2026-03-27"
+        url: "https://comic-seasons.com/episode/12207421983526157429"
+        withdrawn: true
+      - title: "第13話 後編"
+        updated: "2026-04-10"
+        url: "https://comic-seasons.com/episode/12207421983526157434"
+        withdrawn: true
+      - title: "第14話 前編"
+        updated: "2026-04-24"
+        url: "https://comic-seasons.com/episode/12207421983637324323"
+        withdrawn: true
+      - title: "第14話 後編"
+        updated: "2026-05-08"
+        url: "https://comic-seasons.com/episode/12207421983637324327"
+        withdrawn: true
+      - title: "第15話 前編"
+        updated: "2026-05-22"
+        url: "https://comic-seasons.com/episode/12207421983745663897"
+        withdrawn: true
+      - title: "第15話 後編"
+        updated: "2026-06-12"
+        url: "https://comic-seasons.com/episode/12207421983745663905"
+        withdrawn: true
+      - title: "第16話 前編"
+        updated: "2026-06-26"
+        url: "https://comic-seasons.com/episode/12207421983878163855"
+        withdrawn: true
+      - title: "第16話 後編"
+        updated: "2026-07-10"
+        url: "https://comic-seasons.com/episode/12207421983878163863"
+        withdrawn: true
+      - title: "番外編"
+        updated: "2026-07-24"
+        url: "https://comic-seasons.com/episode/12207421983970431851"
+        withdrawn: true
+      - title: "第17話 前編"
+        updated: "2026-08-28"
+        url: "https://comic-seasons.com/episode/12207421984144415519"
+        withdrawn: true
+      - title: "第17話 後編"
+        updated: "2026-09-11"
+        url: "https://comic-seasons.com/episode/12207421984144415526"
+        withdrawn: true
+      - title: "第18話 前編"
+        updated: "2026-09-25"
+        url: "https://comic-seasons.com/episode/12207421984252388667"
+      - title: "第18話 後編"
+        updated: "2026-10-09"
+        url: "https://comic-seasons.com/episode/12207421984340714654"
+  - work_title: "今夜、エーテルで待ちあわせ"
+    series_id: "2551460909766155404"
+    url: "https://comic-seasons.com/atom/series/2551460909766155404"
+    chapter_count: 1
+    chapters:
+      - title: "読切"
+        updated: "2025-12-05"
+        url: "https://comic-seasons.com/episode/2551460909766158255"

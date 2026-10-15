@@ -9,9 +9,9 @@
 #
 # Still data/queue/: these are candidates. Admission into data/source/ needs the joins
 # and the volume histories that give a work its dates.
-retrieved: 2026-08-05
-admitted: 4282
-by_shop: {"bookwalker.jp": 2438, "cmoa.jp": 1844}
+retrieved: 2026-10-15
+admitted: 4418
+by_shop: {"bookwalker.jp": 2574, "cmoa.jp": 1844}
 excluded: {"published on ヤングアンリアルコミックス, an adult imprint": 5, "published on 秋水社ORIGINAL, an adult imprint": 16}
 works:
   - title: "#ふれない"
@@ -21,6 +21,17 @@ works:
     url: "https://bookwalker.jp/de89a94759-ce00-4f23-ba8c-3492b27ee330/"
     shop: "bookwalker.jp"
     shop_id: "89a94759-ce00-4f23-ba8c-3492b27ee330"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "#ギャルとギャルの百合"
+    authors: []
+    publisher: null
+    imprint: "サンデーうぇぶりコミックス"
+    url: "https://bookwalker.jp/series/568145/"
+    shop: "bookwalker.jp"
+    shop_id: "568145"
     completed: false
     doujin: false
     explicit_content: false
@@ -78,6 +89,17 @@ works:
     shop_id: "254997"
     completed: false
     doujin: true
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "100日後に人を〇す百合カップル 1"
+    authors: ["羽印"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de5ce7c369-8914-43f1-aea0-9ce1bb641929/"
+    shop: "bookwalker.jp"
+    shop_id: "5ce7c369-8914-43f1-aea0-9ce1bb641929"
+    completed: false
+    doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "100日後に咲く百合"
@@ -396,6 +418,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "552296"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "BCfアンソロジーマイクロシリーズ"
+    authors: []
+    publisher: null
+    imprint: "バンブーコミックス BCf"
+    url: "https://bookwalker.jp/series/597268/"
+    shop: "bookwalker.jp"
+    shop_id: "597268"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -1231,7 +1264,7 @@ works:
     url: "https://bookwalker.jp/series/427253/"
     shop: "bookwalker.jp"
     shop_id: "427253"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -1961,6 +1994,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "YURIHASA PROFILE BOOK 百合にはさまる男は死ねばいい!?単行本完結記念本"
+    authors: ["蓬餅"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de22145f3a-7c6c-4c54-a209-f3237ee37e44/"
+    shop: "bookwalker.jp"
+    shop_id: "22145f3a-7c6c-4c54-a209-f3237ee37e44"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "YURITIGHTS【イラスト集】【1】"
     authors: ["ぐらんで"]
     publisher: null
@@ -2236,6 +2280,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "orSiS百合アンソロジー一夜だけの主従関係 (1)"
+    authors: ["焼肉定食 他"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/de676ad57d-04c9-4b50-9d95-45053a3e7e9c/"
+    shop: "bookwalker.jp"
+    shop_id: "676ad57d-04c9-4b50-9d95-45053a3e7e9c"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "poco a poco 少女と音楽と秘密の花園【単行本版】"
     authors: ["ヒマワリソウヤ"]
     publisher: null
@@ -2401,6 +2456,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "「あかりは雪姫になりたい —根暗な引きこもりがVtuberになった理由—」シリーズ"
+    authors: []
+    publisher: null
+    imprint: "ライドコミックス"
+    url: "https://bookwalker.jp/series/285272/"
+    shop: "bookwalker.jp"
+    shop_id: "285272"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "「うにクエ!」転生したらあかりだけスライムだった件 特装版小冊子電子版"
     authors: ["著者: 水鳥なや 他"]
     publisher: null
@@ -2496,7 +2562,7 @@ works:
     url: "https://bookwalker.jp/series/521616/"
     shop: "bookwalker.jp"
     shop_id: "521616"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -3204,6 +3270,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "あたし達って付き合ってるよね!? 1"
+    authors: ["著者: 涼風そら"]
+    publisher: null
+    imprint: "MFC キューンシリーズ"
+    url: "https://bookwalker.jp/de3389058b-7005-4364-b401-84b78ed43651/"
+    shop: "bookwalker.jp"
+    shop_id: "3389058b-7005-4364-b401-84b78ed43651"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "あっとまーく・あーとわーく"
     authors: ["一ノ瀬けい"]
     publisher: null
@@ -3490,6 +3567,17 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "あの海に、色彩を唄う"
+    authors: ["著者: 凪沙有"]
+    publisher: null
+    imprint: "有さん家"
+    url: "https://bookwalker.jp/de54c114f1-853e-4e05-a9fb-cc5f499ce8ad/"
+    shop: "bookwalker.jp"
+    shop_id: "54c114f1-853e-4e05-a9fb-cc5f499ce8ad"
+    completed: false
+    doujin: true
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "あの部屋"
     authors: ["野宮りおん"]
     publisher: null
@@ -3578,6 +3666,17 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "あらしちゃんときさらちゃん"
+    authors: ["名島うさぎ"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de553b6196-4841-4c93-90d4-07c0a003b53c/"
+    shop: "bookwalker.jp"
+    shop_id: "553b6196-4841-4c93-90d4-07c0a003b53c"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ある恋についてのお知らせ"
     authors: ["著者: tsuke"]
     publisher: null
@@ -3629,6 +3728,17 @@ works:
     url: "https://bookwalker.jp/series/463034/"
     shop: "bookwalker.jp"
     shop_id: "463034"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "あんみき日記。"
+    authors: ["たぬきまくら"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de02a4c899-b3d4-4c08-b87c-7bbfb80e1144/"
+    shop: "bookwalker.jp"
+    shop_id: "02a4c899-b3d4-4c08-b87c-7bbfb80e1144"
     completed: true
     doujin: false
     explicit_content: false
@@ -4876,6 +4986,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "きみは終末"
+    authors: []
+    publisher: null
+    imprint: "電撃コミックスNEXT"
+    url: "https://bookwalker.jp/series/579215/"
+    shop: "bookwalker.jp"
+    shop_id: "579215"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "きみは終末(1)"
     authors: ["仲谷 鳰"]
     publisher: null
@@ -4905,6 +5026,17 @@ works:
     url: "https://bookwalker.jp/series/350196/"
     shop: "bookwalker.jp"
     shop_id: "350196"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "きょうはなにしよう? 01"
+    authors: ["著者: サスケ"]
+    publisher: null
+    imprint: "MFC キューンシリーズ"
+    url: "https://bookwalker.jp/de899b64e6-3f3b-43f3-9a3a-0e13d9b58fae/"
+    shop: "bookwalker.jp"
+    shop_id: "899b64e6-3f3b-43f3-9a3a-0e13d9b58fae"
     completed: false
     doujin: false
     explicit_content: false
@@ -5147,6 +5279,17 @@ works:
     url: "https://bookwalker.jp/de0bcc8dc6-5731-45ad-bc00-ffa477b4accd/"
     shop: "bookwalker.jp"
     shop_id: "0bcc8dc6-5731-45ad-bc00-ffa477b4accd"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "こころココロリ"
+    authors: []
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/series/617619/"
+    shop: "bookwalker.jp"
+    shop_id: "617619"
     completed: false
     doujin: false
     explicit_content: false
@@ -5466,6 +5609,28 @@ works:
     url: "https://bookwalker.jp/series/234430/"
     shop: "bookwalker.jp"
     shop_id: "234430"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "こわくのこわいの"
+    authors: ["著者: くずしろ"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/deda277bea-4022-45ae-98f9-9187fce38285/"
+    shop: "bookwalker.jp"
+    shop_id: "da277bea-4022-45ae-98f9-9187fce38285"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "こんがりパンより焦がれる恋 本編"
+    authors: ["浅海まい"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de81c4b308-0aa8-401f-b0c9-c9c2f4f3876a/"
+    shop: "bookwalker.jp"
+    shop_id: "81c4b308-0aa8-401f-b0c9-c9c2f4f3876a"
     completed: false
     doujin: false
     explicit_content: false
@@ -6416,6 +6581,17 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "つきあいきれないきみのこと"
+    authors: ["桜家ゆきの"]
+    publisher: null
+    imprint: "BLIC-GL"
+    url: "https://bookwalker.jp/de27f0e035-108a-4a9b-b94b-6d83b6e82bd0/"
+    shop: "bookwalker.jp"
+    shop_id: "27f0e035-108a-4a9b-b94b-6d83b6e82bd0"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "つめたくて甘い"
     authors: ["やナい"]
     publisher: null
@@ -6478,6 +6654,17 @@ works:
     url: "https://bookwalker.jp/series/342591/"
     shop: "bookwalker.jp"
     shop_id: "342591"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ときときチャンネル"
+    authors: []
+    publisher: null
+    imprint: "電撃コミックスNEXT"
+    url: "https://bookwalker.jp/series/621189/"
+    shop: "bookwalker.jp"
+    shop_id: "621189"
     completed: false
     doujin: false
     explicit_content: false
@@ -6570,6 +6757,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "となりの魔法少女"
+    authors: []
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/series/614507/"
+    shop: "bookwalker.jp"
+    shop_id: "614507"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "とびっきりデコレーション!"
     authors: ["著者: もずくず"]
     publisher: null
@@ -6588,6 +6786,17 @@ works:
     url: "https://bookwalker.jp/series/574435/"
     shop: "bookwalker.jp"
     shop_id: "574435"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "とりこのため息 1 【電子書籍特典付】"
+    authors: ["オオハチ"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/deda3482bc-057b-41d3-bae6-1394320bdc5e/"
+    shop: "bookwalker.jp"
+    shop_id: "da3482bc-057b-41d3-bae6-1394320bdc5e"
     completed: false
     doujin: false
     explicit_content: false
@@ -6724,6 +6933,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "なとりとしずは"
+    authors: []
+    publisher: null
+    imprint: "サンデーうぇぶりコミックス"
+    url: "https://bookwalker.jp/series/624978/"
+    shop: "bookwalker.jp"
+    shop_id: "624978"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ななかさんの印税生活入門"
     authors: []
     publisher: null
@@ -6742,7 +6962,7 @@ works:
     url: "https://bookwalker.jp/series/239537/"
     shop: "bookwalker.jp"
     shop_id: "239537"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -6757,6 +6977,17 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "なーんもうまくいかん! 1巻"
+    authors: ["ミナミト"]
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/de8c4d0ecd-f357-438c-8d72-d4917d9974f4/"
+    shop: "bookwalker.jp"
+    shop_id: "8c4d0ecd-f357-438c-8d72-d4917d9974f4"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "にーにといっしょ!"
     authors: []
     publisher: null
@@ -6764,6 +6995,17 @@ works:
     url: "https://bookwalker.jp/series/148588/"
     shop: "bookwalker.jp"
     shop_id: "148588"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ぬくもりブランケット 1"
+    authors: ["くも子"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/debc847d83-fd1b-42f7-a247-06e238e118fa/"
+    shop: "bookwalker.jp"
+    shop_id: "bc847d83-fd1b-42f7-a247-06e238e118fa"
     completed: true
     doujin: false
     explicit_content: false
@@ -7142,6 +7384,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ひなちゃんが生きてるなら"
+    authors: []
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/598055/"
+    shop: "bookwalker.jp"
+    shop_id: "598055"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ひなちゃんが生きてるなら: 1【イラスト特典付】"
     authors: ["著者: 紬 めめ"]
     publisher: null
@@ -7205,6 +7458,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "311871"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ひめとやゆよ"
+    authors: []
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/series/624225/"
+    shop: "bookwalker.jp"
+    shop_id: "624225"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -7491,6 +7755,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "369581"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ほのぼの呪詛ライフ"
+    authors: []
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/series/600858/"
+    shop: "bookwalker.jp"
+    shop_id: "600858"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -7985,6 +8260,17 @@ works:
     url: "https://bookwalker.jp/series/180026/"
     shop: "bookwalker.jp"
     shop_id: "180026"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "もんれす―異種格闘モンスター娘―"
+    authors: []
+    publisher: null
+    imprint: "ライドコミックス"
+    url: "https://bookwalker.jp/series/160539/"
+    shop: "bookwalker.jp"
+    shop_id: "160539"
     completed: true
     doujin: false
     explicit_content: false
@@ -8506,6 +8792,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ゆれる 百合短編集"
+    authors: ["ヒツジ"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de0f2deaf5-6b13-4252-860d-1e26135b59e7/"
+    shop: "bookwalker.jp"
+    shop_id: "0f2deaf5-6b13-4252-860d-1e26135b59e7"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "よい子先生と薄い本の悪魔"
     authors: []
     publisher: null
@@ -8514,6 +8811,28 @@ works:
     shop: "bookwalker.jp"
     shop_id: "220037"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ようこそこちらの世界へ"
+    authors: ["著者: 伊藤ハチ"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/deaca31049-ce5e-496d-8cfb-1bb3242a16b9/"
+    shop: "bookwalker.jp"
+    shop_id: "aca31049-ce5e-496d-8cfb-1bb3242a16b9"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ようこそ和装お嬢様高校へ"
+    authors: ["著者: 岡野く仔"]
+    publisher: null
+    imprint: "コミックエッセイ"
+    url: "https://bookwalker.jp/de268b29d3-d961-4191-99b2-482d1bb6e290/"
+    shop: "bookwalker.jp"
+    shop_id: "268b29d3-d961-4191-99b2-482d1bb6e290"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -8935,6 +9254,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "アップルパイ・コミュニケーション"
+    authors: ["坂之下しま"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/deaa8d9ba8-f523-4d0a-9043-9f97587b78af/"
+    shop: "bookwalker.jp"
+    shop_id: "aa8d9ba8-f523-4d0a-9043-9f97587b78af"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "アップルパルフェ おねロリ百合アンソロジー"
     authors: ["著者: かわく 他"]
     publisher: null
@@ -8942,6 +9272,17 @@ works:
     url: "https://bookwalker.jp/dede2a2b02-c3a3-4c71-964a-a06d250b1f12/"
     shop: "bookwalker.jp"
     shop_id: "de2a2b02-c3a3-4c71-964a-a06d250b1f12"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "アドレセンスと時戻りの幼き魔女(単話版)"
+    authors: ["春日沙生"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/series/626983/"
+    shop: "bookwalker.jp"
+    shop_id: "626983"
     completed: false
     doujin: false
     explicit_content: false
@@ -8986,6 +9327,17 @@ works:
     url: "https://bookwalker.jp/series/125347/"
     shop: "bookwalker.jp"
     shop_id: "125347"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "アフタープロミス 読切"
+    authors: ["梶井 スパナ"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/def3181a6f-33ab-4720-ae03-4335d4477dd0/"
+    shop: "bookwalker.jp"
+    shop_id: "f3181a6f-33ab-4720-ae03-4335d4477dd0"
     completed: true
     doujin: false
     explicit_content: false
@@ -9232,6 +9584,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ウィキッドスポット"
+    authors: []
+    publisher: null
+    imprint: "カドコミ"
+    url: "https://bookwalker.jp/series/509513/"
+    shop: "bookwalker.jp"
+    shop_id: "509513"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ウィキッドスポット 1"
     authors: ["著者: Sal Jiang"]
     publisher: null
@@ -9261,6 +9624,17 @@ works:
     url: "https://bookwalker.jp/series/605342/"
     shop: "bookwalker.jp"
     shop_id: "605342"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ウイニングアンサー! 1巻"
+    authors: ["八代涼"]
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/de1bea1807-1412-41d9-965a-b71233e05ef0/"
+    shop: "bookwalker.jp"
+    shop_id: "1bea1807-1412-41d9-965a-b71233e05ef0"
     completed: false
     doujin: false
     explicit_content: false
@@ -9295,6 +9669,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "484318"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ウチから何キロメートル? 1巻"
+    authors: ["蚕二号"]
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/debb810197-544b-4861-9379-c2d23ca98fe3/"
+    shop: "bookwalker.jp"
+    shop_id: "bb810197-544b-4861-9379-c2d23ca98fe3"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -9408,6 +9793,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "エルフはなぜ人間に恋をしたのか 読切"
+    authors: ["梶井 スパナ"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/deeeafee72-fc34-41bb-a39c-c0aa588174ef/"
+    shop: "bookwalker.jp"
+    shop_id: "eeafee72-fc34-41bb-a39c-c0aa588174ef"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "エルフ先生のトイレはどこですか?"
     authors: []
     publisher: null
@@ -9481,6 +9877,17 @@ works:
     url: "https://bookwalker.jp/series/196902/"
     shop: "bookwalker.jp"
     shop_id: "196902"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "オリジナルコミックアンソロジー 魔女と僕についての物語 誰も知らないきみのこと【電子特典付き】"
+    authors: ["編: あすか編集部"]
+    publisher: null
+    imprint: "あすかコミックスDX"
+    url: "https://bookwalker.jp/de7a50a109-a358-4eb0-968c-ea21cc166c51/"
+    shop: "bookwalker.jp"
+    shop_id: "7a50a109-a358-4eb0-968c-ea21cc166c51"
     completed: true
     doujin: false
     explicit_content: false
@@ -9569,6 +9976,17 @@ works:
     url: "https://bookwalker.jp/series/531746/"
     shop: "bookwalker.jp"
     shop_id: "531746"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "カムパネルラの塔"
+    authors: []
+    publisher: null
+    imprint: "電撃コミックスNEXT"
+    url: "https://bookwalker.jp/series/507629/"
+    shop: "bookwalker.jp"
+    shop_id: "507629"
     completed: true
     doujin: false
     explicit_content: false
@@ -9712,6 +10130,17 @@ works:
     url: "https://bookwalker.jp/def2e8a1a6-9dc1-497f-a374-0e9f7c0a0e8d/"
     shop: "bookwalker.jp"
     shop_id: "f2e8a1a6-9dc1-497f-a374-0e9f7c0a0e8d"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ガールズ×ヴァンパイア"
+    authors: []
+    publisher: null
+    imprint: "少年チャンピオン・コミックス"
+    url: "https://bookwalker.jp/series/602407/"
+    shop: "bookwalker.jp"
+    shop_id: "602407"
     completed: false
     doujin: false
     explicit_content: false
@@ -10057,6 +10486,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ギャップのある女子2人が百合な話。【単行本版】 (1)"
+    authors: ["遮二無二"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de92294678-690e-4ef7-bca9-d4bd05422d47/"
+    shop: "bookwalker.jp"
+    shop_id: "92294678-690e-4ef7-bca9-d4bd05422d47"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ギャルが地味で地味子が派手"
     authors: ["しゅなか"]
     publisher: null
@@ -10109,6 +10549,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "419022"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ギャルと地味子が恋をする青春百合アンソロジー"
+    authors: []
+    publisher: null
+    imprint: "バンブーコミックス"
+    url: "https://bookwalker.jp/series/605144/"
+    shop: "bookwalker.jp"
+    shop_id: "605144"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -10317,6 +10768,17 @@ works:
     url: "https://bookwalker.jp/ded48cb2d8-e5dd-47f6-bc50-78a058242231/"
     shop: "bookwalker.jp"
     shop_id: "d48cb2d8-e5dd-47f6-bc50-78a058242231"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ゲームセンターのこころ 1巻"
+    authors: ["けんたうろす"]
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/dee8bda51f-da8c-49eb-847e-7d6717dad2d8/"
+    shop: "bookwalker.jp"
+    shop_id: "e8bda51f-da8c-49eb-847e-7d6717dad2d8"
     completed: false
     doujin: false
     explicit_content: false
@@ -10636,6 +11098,17 @@ works:
     url: "https://bookwalker.jp/de729ddf31-c03c-4ff4-8719-464f023c0067/"
     shop: "bookwalker.jp"
     shop_id: "729ddf31-c03c-4ff4-8719-464f023c0067"
+    completed: false
+    doujin: true
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "サークル「ユーリカ」百合アンソロジー6 アクターズ・ラブ×君に出逢えたら"
+    authors: ["著者: tsuke 他"]
+    publisher: null
+    imprint: "ユーリカ"
+    url: "https://bookwalker.jp/def02cc863-bd26-4c9c-ae5c-46f69ba4ede0/"
+    shop: "bookwalker.jp"
+    shop_id: "f02cc863-bd26-4c9c-ae5c-46f69ba4ede0"
     completed: false
     doujin: true
     explicit_content: false
@@ -11036,6 +11509,83 @@ works:
     doujin: false
     explicit_content: true
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "セフレ沼から抜け出せないっ!百合えっちアンソロジー『Are you “mine”?』【単話】"
+    authors: ["あんすこ"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620532/"
+    shop: "bookwalker.jp"
+    shop_id: "620532"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "セフレ沼から抜け出せないっ!百合えっちアンソロジー『きみの特別になれなくても』【単話】"
+    authors: ["ぼちゃ"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620533/"
+    shop: "bookwalker.jp"
+    shop_id: "620533"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "セフレ沼から抜け出せないっ!百合えっちアンソロジー『オトナ・レッスン』【単話】"
+    authors: ["遮二無二"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620534/"
+    shop: "bookwalker.jp"
+    shop_id: "620534"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "セフレ沼から抜け出せないっ!百合えっちアンソロジー『ワンマン彼女』【単話】"
+    authors: ["merryhachi"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620535/"
+    shop: "bookwalker.jp"
+    shop_id: "620535"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "セフレ沼から抜け出せないっ!百合えっちアンソロジー『彼女のコスプレ』【単話】"
+    authors: ["高良 真生"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620536/"
+    shop: "bookwalker.jp"
+    shop_id: "620536"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "セフレ沼から抜け出せないっ!百合えっちアンソロジー『押してダメなら描いてみろ』【単話】"
+    authors: ["ににふ"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620537/"
+    shop: "bookwalker.jp"
+    shop_id: "620537"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "セフレ沼から抜け出せないっ!百合えっちアンソロジー『言わせてあげない』【単話】"
+    authors: ["生肉"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620538/"
+    shop: "bookwalker.jp"
+    shop_id: "620538"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "セメルパルス semelparous"
     authors: []
     publisher: null
@@ -11165,6 +11715,28 @@ works:
     shop: "bookwalker.jp"
     shop_id: "380668"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "タチって言ってたよね?-元カノがこんなにかわいいなんて聞いてない-"
+    authors: ["霧島 他"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/dea73caae2-6e6b-4652-b26d-b0c5213a766e/"
+    shop: "bookwalker.jp"
+    shop_id: "a73caae2-6e6b-4652-b26d-b0c5213a766e"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "タバコとか吸わなそうな後輩 1巻"
+    authors: ["稲葉白"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/dea255360e-4fca-454e-aa80-1c6d287ec31e/"
+    shop: "bookwalker.jp"
+    shop_id: "a255360e-4fca-454e-aa80-1c6d287ec31e"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -11476,6 +12048,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ドワーフの最強拳士、エルフの幼女に転生して見た目も最強になる!【分冊版】"
+    authors: ["呑竜 他"]
+    publisher: null
+    imprint: "マンガBANGコミックス"
+    url: "https://bookwalker.jp/series/619649/"
+    shop: "bookwalker.jp"
+    shop_id: "619649"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ナイト・ワーカー"
     authors: ["著者: やまじえびね"]
     publisher: null
@@ -11571,6 +12154,17 @@ works:
     url: "https://bookwalker.jp/ded7e715b0-ad0b-49a1-9fb4-5fa4309bb120/"
     shop: "bookwalker.jp"
     shop_id: "d7e715b0-ad0b-49a1-9fb4-5fa4309bb120"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ノアの渡航券 1"
+    authors: ["著者: 鍋谷 やかん"]
+    publisher: null
+    imprint: "角川コミックス・エース"
+    url: "https://bookwalker.jp/dea80079e9-ffcf-4a78-94ab-8a55f63ebd54/"
+    shop: "bookwalker.jp"
+    shop_id: "a80079e9-ffcf-4a78-94ab-8a55f63ebd54"
     completed: false
     doujin: false
     explicit_content: false
@@ -12367,6 +12961,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ブッチ組 ~夜露死苦異世界我等真武親友悪鬼滅殺仏血義礼組~ 【連載版】"
+    authors: ["林家志弦"]
+    publisher: null
+    imprint: "ノーラコミックス"
+    url: "https://bookwalker.jp/series/620797/"
+    shop: "bookwalker.jp"
+    shop_id: "620797"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ブラックリリィと白百合ちゃん"
     authors: []
     publisher: null
@@ -12528,6 +13133,17 @@ works:
     url: "https://bookwalker.jp/series/353353/"
     shop: "bookwalker.jp"
     shop_id: "353353"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ホームセンターごと呼び出された私の大迷宮リノベーション!"
+    authors: []
+    publisher: null
+    imprint: "電撃コミックスNEXT"
+    url: "https://bookwalker.jp/series/563127/"
+    shop: "bookwalker.jp"
+    shop_id: "563127"
     completed: false
     doujin: false
     explicit_content: false
@@ -12829,6 +13445,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "メイドアンドロイドの安全装置を突破したらぜ~んぶ暴かれちゃった話"
+    authors: ["紺"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/deecf1d0fa-a41c-4846-a379-41e098c0d974/"
+    shop: "bookwalker.jp"
+    shop_id: "ecf1d0fa-a41c-4846-a379-41e098c0d974"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "メイドスケーター"
     authors: []
     publisher: null
@@ -12843,7 +13470,7 @@ works:
   - title: "メイドスケーター 単話版"
     authors: ["すずしろ"]
     publisher: null
-    imprint: null
+    imprint: "――"
     url: "https://bookwalker.jp/series/569879/"
     shop: "bookwalker.jp"
     shop_id: "569879"
@@ -13034,7 +13661,7 @@ works:
     url: "https://bookwalker.jp/series/525886/"
     shop: "bookwalker.jp"
     shop_id: "525886"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -13078,6 +13705,17 @@ works:
     url: "https://bookwalker.jp/series/458320/"
     shop: "bookwalker.jp"
     shop_id: "458320"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ユリログ ザ ファースト"
+    authors: ["桜家ゆきの"]
+    publisher: null
+    imprint: "BLIC-GL"
+    url: "https://bookwalker.jp/de154a2126-dcbf-4732-b9d8-78242ebd9432/"
+    shop: "bookwalker.jp"
+    shop_id: "154a2126-dcbf-4732-b9d8-78242ebd9432"
     completed: false
     doujin: false
     explicit_content: false
@@ -13500,6 +14138,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ルナとヨーコのかわいい日常"
+    authors: ["竹宮ジン"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de54544292-ef15-4fc5-a8cf-615b67a2d24f/"
+    shop: "bookwalker.jp"
+    shop_id: "54544292-ef15-4fc5-a8cf-615b67a2d24f"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ルミナス=ブルー"
     authors: []
     publisher: null
@@ -13918,6 +14567,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "一生一緒に!!"
+    authors: ["蒼井紫"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de29dda867-3dce-45b4-8ef5-6caa160ccfdf/"
+    shop: "bookwalker.jp"
+    shop_id: "29dda867-3dce-45b4-8ef5-6caa160ccfdf"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "一畳間まんきつ暮らし!"
     authors: []
     publisher: null
@@ -14233,6 +14893,17 @@ works:
     url: "https://bookwalker.jp/series/199085/"
     shop: "bookwalker.jp"
     shop_id: "199085"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "世界を滅ぼしたい君は麻婆豆腐"
+    authors: ["タチ"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de77e4ce94-9d91-4011-9320-21b683149ba8/"
+    shop: "bookwalker.jp"
+    shop_id: "77e4ce94-9d91-4011-9320-21b683149ba8"
     completed: true
     doujin: false
     explicit_content: false
@@ -14567,6 +15238,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "人妻教師が教え子の女子高生にドはまりする話"
+    authors: []
+    publisher: null
+    imprint: "電撃コミックスNEXT"
+    url: "https://bookwalker.jp/series/579237/"
+    shop: "bookwalker.jp"
+    shop_id: "579237"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "人妻教師が教え子の女子高生にドはまりする話(1)"
     authors: ["川上しをん 他"]
     publisher: null
@@ -14666,6 +15348,72 @@ works:
     doujin: false
     explicit_content: true
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "今日、お姉さんとエッチしない? 百合アンソロジー『お姉さまの言うとおり?』【単話】"
+    authors: ["焼肉定食"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620539/"
+    shop: "bookwalker.jp"
+    shop_id: "620539"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "今日、お姉さんとエッチしない? 百合アンソロジー『はなしてつないで』【単話】"
+    authors: ["かかとぶし"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620540/"
+    shop: "bookwalker.jp"
+    shop_id: "620540"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "今日、お姉さんとエッチしない? 百合アンソロジー『指先蜜のテラリウム』【単話】"
+    authors: ["2no."]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620541/"
+    shop: "bookwalker.jp"
+    shop_id: "620541"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "今日、お姉さんとエッチしない? 百合アンソロジー『甘い香りに誘われて』【単話】"
+    authors: ["ぴかち"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620542/"
+    shop: "bookwalker.jp"
+    shop_id: "620542"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "今日、お姉さんとエッチしない? 百合アンソロジー『貝合わせ』【単話】"
+    authors: ["白玉もち"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620543/"
+    shop: "bookwalker.jp"
+    shop_id: "620543"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "今日、お姉さんとエッチしない? 百合アンソロジー『金小路家の恋愛指南』【単話】"
+    authors: ["日野アラシ"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/620544/"
+    shop: "bookwalker.jp"
+    shop_id: "620544"
+    completed: false
+    doujin: false
+    explicit_content: true
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "今日から未来"
     authors: []
     publisher: null
@@ -14674,6 +15422,28 @@ works:
     shop: "bookwalker.jp"
     shop_id: "252022"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "今日こそ、キスミー!"
+    authors: ["宮永深生"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de99b25074-037e-4778-85a4-10f426869e99/"
+    shop: "bookwalker.jp"
+    shop_id: "99b25074-037e-4778-85a4-10f426869e99"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "今日こそ彼女をドキドキさせたい!"
+    authors: ["ぶーち"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/debd7b9881-6a6b-47a2-bd5a-4d628f4fed2c/"
+    shop: "bookwalker.jp"
+    shop_id: "bd7b9881-6a6b-47a2-bd5a-4d628f4fed2c"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -14809,6 +15579,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "仕事の後は恋しよう"
+    authors: []
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/204221/"
+    shop: "bookwalker.jp"
+    shop_id: "204221"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "仕事の後は恋しよう【電子限定特典付】"
     authors: ["著者: 岩下継"]
     publisher: null
@@ -14820,6 +15601,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "仕事の後は抱きしめて"
+    authors: []
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/449628/"
+    shop: "bookwalker.jp"
+    shop_id: "449628"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "仕事の後は抱きしめて【電子特典付き】"
     authors: ["著者: 岩下継"]
     publisher: null
@@ -14827,6 +15619,17 @@ works:
     url: "https://bookwalker.jp/deea446b0b-ec8a-4a24-bda9-799c4aaab766/"
     shop: "bookwalker.jp"
     shop_id: "ea446b0b-ec8a-4a24-bda9-799c4aaab766"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "仕事の後は色々と"
+    authors: ["著者: 岩下継"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de2396e7b9-4188-4993-8a66-4d9b4df423eb/"
+    shop: "bookwalker.jp"
+    shop_id: "2396e7b9-4188-4993-8a66-4d9b4df423eb"
     completed: false
     doujin: false
     explicit_content: false
@@ -14974,6 +15777,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "保健室の吸血姫 ~モブと姫との血婚契約~ 1"
+    authors: ["櫻井マコト"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de41e36331-d47c-49f9-ae22-eb1a1865068c/"
+    shop: "bookwalker.jp"
+    shop_id: "41e36331-d47c-49f9-ae22-eb1a1865068c"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "保健室の鍵閉めてっ"
     authors: []
     publisher: null
@@ -15003,7 +15817,7 @@ works:
     url: "https://bookwalker.jp/series/535041/"
     shop: "bookwalker.jp"
     shop_id: "535041"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -15124,6 +15938,17 @@ works:
     url: "https://bookwalker.jp/series/507827/"
     shop: "bookwalker.jp"
     shop_id: "507827"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "元アイドルと保育士さん。 1"
+    authors: ["岩下継"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/deed886049-045e-47df-8f10-2c62ae2a7e3f/"
+    shop: "bookwalker.jp"
+    shop_id: "ed886049-045e-47df-8f10-2c62ae2a7e3f"
     completed: false
     doujin: false
     explicit_content: false
@@ -15304,6 +16129,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "先輩付き合ってるんですか?"
+    authors: ["ちゃば高"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de5df21ea2-0f78-489c-bc57-17e45eeab186/"
+    shop: "bookwalker.jp"
+    shop_id: "5df21ea2-0f78-489c-bc57-17e45eeab186"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "光の魔法菓子と婚約破棄~少女の魔法菓子が令嬢を魅了する~"
     authors: ["著者: むぎちゃ ぽよこ"]
     publisher: null
@@ -15388,6 +16224,28 @@ works:
     url: "https://bookwalker.jp/de67e3d1ae-7f37-4992-8214-cad54a171a39/"
     shop: "bookwalker.jp"
     shop_id: "67e3d1ae-7f37-4992-8214-cad54a171a39"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "冬の終わり、春の縫い目 繭、纏う"
+    authors: ["原百合子"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de8160c295-6eef-4cf5-95b6-a096a1c7261a/"
+    shop: "bookwalker.jp"
+    shop_id: "8160c295-6eef-4cf5-95b6-a096a1c7261a"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "冬の終わりに春を待つ"
+    authors: ["著者: 志村貴子"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/dee1bd09aa-9259-43df-a3f1-8b44ea041c14/"
+    shop: "bookwalker.jp"
+    shop_id: "e1bd09aa-9259-43df-a3f1-8b44ea041c14"
     completed: false
     doujin: false
     explicit_content: false
@@ -15500,6 +16358,17 @@ works:
     shop_id: "3f65206e-5a58-4b67-88ea-c8175e3b05c8"
     completed: false
     doujin: true
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "初凪ヒメリウム 1巻"
+    authors: ["鹿冬カト"]
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/de6b2c1a82-0466-4248-b3e9-f48fc62eb7e8/"
+    shop: "bookwalker.jp"
+    shop_id: "6b2c1a82-0466-4248-b3e9-f48fc62eb7e8"
+    completed: false
+    doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "初恋の不一致"
@@ -15752,6 +16621,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "231020"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "勇者の運命 1【電子特典付き】"
+    authors: ["著者: 可燃餅"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de94629d91-0c07-4999-ae88-d9a2c4322adc/"
+    shop: "bookwalker.jp"
+    shop_id: "94629d91-0c07-4999-ae88-d9a2c4322adc"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -16070,7 +16950,7 @@ works:
     url: "https://bookwalker.jp/series/532306/"
     shop: "bookwalker.jp"
     shop_id: "532306"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -16217,6 +17097,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "君が一等星に光るまで 1巻"
+    authors: ["なうち"]
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/de842edb94-317f-4389-9fa2-c5c488ab6639/"
+    shop: "bookwalker.jp"
+    shop_id: "842edb94-317f-4389-9fa2-c5c488ab6639"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "君だけが光"
     authors: ["シギサワカヤ"]
     publisher: null
@@ -16270,6 +17161,17 @@ works:
     shop_id: "d4b56c1f-bfb3-4d83-8215-d355a4e1a974"
     completed: false
     doujin: true
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "君と青と春の欠片"
+    authors: ["桜家ゆきの 他"]
+    publisher: null
+    imprint: "ガレットワークス"
+    url: "https://bookwalker.jp/de6f4180de-9a37-4e5d-9240-904941095cce/"
+    shop: "bookwalker.jp"
+    shop_id: "6f4180de-9a37-4e5d-9240-904941095cce"
+    completed: true
+    doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "君になれたら 1"
@@ -16459,6 +17361,17 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "吸血鬼の花嫁ーヴァンプドールのはなよめー【総集編】"
+    authors: ["嵩乃朔"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/debe3a283d-60a8-4b8e-8006-22ed70bd59d1/"
+    shop: "bookwalker.jp"
+    shop_id: "be3a283d-60a8-4b8e-8006-22ed70bd59d1"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "和太鼓†ガールズ~改訂版~"
     authors: []
     publisher: null
@@ -16558,6 +17471,28 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "四十九日のお終いに 田沼朝作品集"
+    authors: ["著者: 田沼 朝"]
+    publisher: null
+    imprint: "HARTA COMIX"
+    url: "https://bookwalker.jp/debeb5a720-2803-4d51-88c1-92b27eb38c58/"
+    shop: "bookwalker.jp"
+    shop_id: "beb5a720-2803-4d51-88c1-92b27eb38c58"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "図書室でふたり、誰もいないなら。 1"
+    authors: ["つきのまち"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de5d740c67-aaf2-4cb7-b833-c236fcd79763/"
+    shop: "bookwalker.jp"
+    shop_id: "5d740c67-aaf2-4cb7-b833-c236fcd79763"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "圧の強い妹はお嫌いですか?"
     authors: ["イシガミ アキラ"]
     publisher: null
@@ -16565,6 +17500,17 @@ works:
     url: "https://bookwalker.jp/series/355944/"
     shop: "bookwalker.jp"
     shop_id: "355944"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "圧倒的に未来形 本編"
+    authors: ["浅海まい"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/deac398f3d-3fec-4aaa-96fd-413397359f00/"
+    shop: "bookwalker.jp"
+    shop_id: "ac398f3d-3fec-4aaa-96fd-413397359f00"
     completed: false
     doujin: false
     explicit_content: false
@@ -16609,6 +17555,17 @@ works:
     url: "https://bookwalker.jp/def9936e09-0166-459f-9018-6dd2036a6ff7/"
     shop: "bookwalker.jp"
     shop_id: "f9936e09-0166-459f-9018-6dd2036a6ff7"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "地雷女と聖女様 1"
+    authors: ["神戸 いちご"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de956bab6e-da5f-4cd2-a12d-5237163d5e53/"
+    shop: "bookwalker.jp"
+    shop_id: "956bab6e-da5f-4cd2-a12d-5237163d5e53"
     completed: false
     doujin: false
     explicit_content: false
@@ -16697,6 +17654,17 @@ works:
     url: "https://bookwalker.jp/deb9b67ce1-d434-412a-af7e-d3967b687ae0/"
     shop: "bookwalker.jp"
     shop_id: "b9b67ce1-d434-412a-af7e-d3967b687ae0"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "夏みくちゃんとちひろさん"
+    authors: ["福井遥香"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de5043bdec-4468-4b60-8cc3-033ad111f6df/"
+    shop: "bookwalker.jp"
+    shop_id: "5043bdec-4468-4b60-8cc3-033ad111f6df"
     completed: true
     doujin: false
     explicit_content: false
@@ -16899,6 +17867,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "夢中 1巻"
+    authors: ["NiHiru"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de6a68617b-3417-4b91-a5a4-42097cdaf393/"
+    shop: "bookwalker.jp"
+    shop_id: "6a68617b-3417-4b91-a5a4-42097cdaf393"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "夢見るメイドのティータイム"
     authors: []
     publisher: null
@@ -17075,6 +18054,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "天然のあたしと彼女日記 1"
+    authors: ["マシマロまろん"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de04c84768-2845-49cb-8ee4-140a77908602/"
+    shop: "bookwalker.jp"
+    shop_id: "04c84768-2845-49cb-8ee4-140a77908602"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "天然タラシの女の子とタラされたくない女の子の話 vol.1"
     authors: ["あらふじぺす"]
     publisher: null
@@ -17203,6 +18193,17 @@ works:
     url: "https://bookwalker.jp/series/320103/"
     shop: "bookwalker.jp"
     shop_id: "320103"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "女にはそれぞれ裏がある (1)"
+    authors: ["野宮りおん"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/de396f062b-282a-4767-bb5f-ec08e87fb864/"
+    shop: "bookwalker.jp"
+    shop_id: "396f062b-282a-4767-bb5f-ec08e87fb864"
     completed: false
     doujin: false
     explicit_content: false
@@ -17500,7 +18501,7 @@ works:
     url: "https://bookwalker.jp/series/448377/"
     shop: "bookwalker.jp"
     shop_id: "448377"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -18120,6 +19121,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "少女は今日も本を借りにくる"
+    authors: ["著者: 梵辛"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/de936c30d2-440c-47aa-ae69-4f82661d318a/"
+    shop: "bookwalker.jp"
+    shop_id: "936c30d2-440c-47aa-ae69-4f82661d318a"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "少女サテライト"
     authors: []
     publisher: null
@@ -18160,7 +19172,7 @@ works:
     url: "https://bookwalker.jp/series/525501/"
     shop: "bookwalker.jp"
     shop_id: "525501"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -18172,6 +19184,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "590659"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "少女狂恋フォリ・ア・ドゥ【電子単行本】1巻"
+    authors: ["烏美壱子"]
+    publisher: null
+    imprint: "comipo comics"
+    url: "https://bookwalker.jp/dedf0124f6-20fc-4d0c-bcf7-e17d08a0e71a/"
+    shop: "bookwalker.jp"
+    shop_id: "df0124f6-20fc-4d0c-bcf7-e17d08a0e71a"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -18307,6 +19330,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "幸福のおいしい道すがら"
+    authors: []
+    publisher: null
+    imprint: "カドコミ"
+    url: "https://bookwalker.jp/series/568737/"
+    shop: "bookwalker.jp"
+    shop_id: "568737"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "幸福のおいしい道すがら 1"
     authors: ["著者: 真くん"]
     publisher: null
@@ -18347,6 +19381,17 @@ works:
     url: "https://bookwalker.jp/series/527095/"
     shop: "bookwalker.jp"
     shop_id: "527095"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "幼い恋と宵灯り(単話版)"
+    authors: ["三嶋くるみ"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/series/626984/"
+    shop: "bookwalker.jp"
+    shop_id: "626984"
     completed: false
     doujin: false
     explicit_content: false
@@ -18448,6 +19493,17 @@ works:
     shop_id: "534040"
     completed: false
     doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "幼なじみとの夏"
+    authors: ["著者: 凪沙有"]
+    publisher: null
+    imprint: "有さん家"
+    url: "https://bookwalker.jp/deae9370c9-f20b-4517-a266-5528a90b9d8d/"
+    shop: "bookwalker.jp"
+    shop_id: "ae9370c9-f20b-4517-a266-5528a90b9d8d"
+    completed: false
+    doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "幼なじみのふたり"
@@ -18725,6 +19781,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "彼女のカノジョと不純な初恋1"
+    authors: ["Akeo 他"]
+    publisher: null
+    imprint: "電撃コミックスNEXT"
+    url: "https://bookwalker.jp/de23396e19-3633-45dc-a7d5-f6dca48571ca/"
+    shop: "bookwalker.jp"
+    shop_id: "23396e19-3633-45dc-a7d5-f6dca48571ca"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "彼女の世界"
     authors: ["著者: 袴田めら"]
     publisher: null
@@ -18754,6 +19821,17 @@ works:
     url: "https://bookwalker.jp/series/369591/"
     shop: "bookwalker.jp"
     shop_id: "369591"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "彼方、彼方。"
+    authors: ["著者: 浜弓場双"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/dee610c47b-6956-48a8-9d02-5a5f80bccd87/"
+    shop: "bookwalker.jp"
+    shop_id: "e610c47b-6956-48a8-9d02-5a5f80bccd87"
     completed: false
     doujin: false
     explicit_content: false
@@ -19132,6 +20210,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "恋の魔法と催眠術(単話版)"
+    authors: ["梶井 スパナ"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/series/626985/"
+    shop: "bookwalker.jp"
+    shop_id: "626985"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "恋ははれものさわるべからず"
     authors: ["犬井あゆ 他"]
     publisher: null
@@ -19205,6 +20294,17 @@ works:
     url: "https://bookwalker.jp/series/332460/"
     shop: "bookwalker.jp"
     shop_id: "332460"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "恋愛ミューティレーション"
+    authors: ["著者: 平尾アウリ"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/dedf430f04-616e-4ee9-8111-75d377a1aa68/"
+    shop: "bookwalker.jp"
+    shop_id: "df430f04-616e-4ee9-8111-75d377a1aa68"
     completed: false
     doujin: false
     explicit_content: false
@@ -19583,6 +20683,17 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "愛カラのゆるい本。"
+    authors: ["著者: 生肉"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de26abf89c-ed3b-4529-9f5a-50c6754c9c44/"
+    shop: "bookwalker.jp"
+    shop_id: "26abf89c-ed3b-4529-9f5a-50c6754c9c44"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "愛マイyummy"
     authors: ["嬉野うちゃ"]
     publisher: null
@@ -19836,6 +20947,17 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "放課後drawing 1"
+    authors: ["ゆづき"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/dedfe459f2-9af3-4015-9879-2f7d6190be24/"
+    shop: "bookwalker.jp"
+    shop_id: "dfe459f2-9af3-4015-9879-2f7d6190be24"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "放課後すとりっぷ"
     authors: []
     publisher: null
@@ -19953,6 +21075,17 @@ works:
     url: "https://bookwalker.jp/de3ff51bf9-747d-49a1-86c7-83d75050f469/"
     shop: "bookwalker.jp"
     shop_id: "3ff51bf9-747d-49a1-86c7-83d75050f469"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "新人女性漫画家がネットセックスに沼ってVTuberになった話"
+    authors: []
+    publisher: null
+    imprint: "熱帯COMICS"
+    url: "https://bookwalker.jp/series/527628/"
+    shop: "bookwalker.jp"
+    shop_id: "527628"
     completed: false
     doujin: false
     explicit_content: false
@@ -20353,6 +21486,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "春海に沈むアムネシア"
+    authors: ["寝枕すい 他"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de890ae191-b99f-4210-be7b-777f3e4c8cdf/"
+    shop: "bookwalker.jp"
+    shop_id: "890ae191-b99f-4210-be7b-777f3e4c8cdf"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "春風 -友達とエアセックスしてみた-"
     authors: ["著者: 川村マユ見"]
     publisher: null
@@ -20591,6 +21735,17 @@ works:
     url: "https://bookwalker.jp/ded0fc641e-28ad-4cad-8517-8db2a3700caf/"
     shop: "bookwalker.jp"
     shop_id: "d0fc641e-28ad-4cad-8517-8db2a3700caf"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "月はタピオカみたいに 1"
+    authors: ["小畠 泪 他"]
+    publisher: null
+    imprint: "MFC キューンシリーズ"
+    url: "https://bookwalker.jp/de52163106-1ad6-4158-b205-33ce147b9ddd/"
+    shop: "bookwalker.jp"
+    shop_id: "52163106-1ad6-4158-b205-33ce147b9ddd"
     completed: false
     doujin: false
     explicit_content: false
@@ -20837,6 +21992,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "桃色カンパネラ 1巻"
+    authors: ["リンリココ"]
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/de271c12c6-504d-418e-b0d7-02aca4a43f34/"
+    shop: "bookwalker.jp"
+    shop_id: "271c12c6-504d-418e-b0d7-02aca4a43f34"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "桜Trick"
     authors: []
     publisher: null
@@ -20936,6 +22102,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "正ヒロインに転生しましたが、運命の歯車は物理でぶち壊します 1"
+    authors: ["著者: 日向ののか 他"]
+    publisher: null
+    imprint: "B's-LOG COMICS"
+    url: "https://bookwalker.jp/deec5aedcd-41a6-46ad-8eac-469ad925b016/"
+    shop: "bookwalker.jp"
+    shop_id: "ec5aedcd-41a6-46ad-8eac-469ad925b016"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "此花亭奇譚 新装版"
     authors: []
     publisher: null
@@ -21013,6 +22190,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "死神少女は陰から推しを眺めたい ─悪役にTS転生したけど、こっそり原作キャラを観察しに行きます!─ 1"
+    authors: ["珠樹みつね 他"]
+    publisher: null
+    imprint: "アライブ+"
+    url: "https://bookwalker.jp/de6bdb47a9-2c21-4526-9e07-d62e657bbce5/"
+    shop: "bookwalker.jp"
+    shop_id: "6bdb47a9-2c21-4526-9e07-d62e657bbce5"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "死神聖女 1"
     authors: ["藍藤 唯 他"]
     publisher: null
@@ -21020,6 +22208,28 @@ works:
     url: "https://bookwalker.jp/dee3da2028-31be-4c5a-967d-cbadcfd25b73/"
     shop: "bookwalker.jp"
     shop_id: "e3da2028-31be-4c5a-967d-cbadcfd25b73"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "死角の寵児 前編"
+    authors: ["著者: 桜庭友紀"]
+    publisher: null
+    imprint: "PERSONAL COLOR"
+    url: "https://bookwalker.jp/dec236d797-32ca-4196-8e69-8269b2eebb91/"
+    shop: "bookwalker.jp"
+    shop_id: "c236d797-32ca-4196-8e69-8269b2eebb91"
+    completed: false
+    doujin: true
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "残光再撮 1"
+    authors: ["著者: 若鶏にこみ"]
+    publisher: null
+    imprint: "MFC キューンシリーズ"
+    url: "https://bookwalker.jp/de5cbfb034-e9c1-44bc-855c-893cf8efc647/"
+    shop: "bookwalker.jp"
+    shop_id: "5cbfb034-e9c1-44bc-855c-893cf8efc647"
     completed: false
     doujin: false
     explicit_content: false
@@ -21042,7 +22252,7 @@ works:
     url: "https://bookwalker.jp/series/322023/"
     shop: "bookwalker.jp"
     shop_id: "322023"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -21563,6 +22773,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "狼と子羊はいつだって求めあう"
+    authors: ["ネコハリコ22"]
+    publisher: null
+    imprint: "BLIC-GL"
+    url: "https://bookwalker.jp/de767b29ac-ab70-49dc-b7f3-c10475eb975b/"
+    shop: "bookwalker.jp"
+    shop_id: "767b29ac-ab70-49dc-b7f3-c10475eb975b"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "狼の皮をかぶった羊姫"
     authors: []
     publisher: null
@@ -21593,6 +22814,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "7f95ed14-a019-404b-a2cd-a5e19475bd61"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "猫に白鳥、蛍に小判"
+    authors: []
+    publisher: null
+    imprint: "カドコミ"
+    url: "https://bookwalker.jp/series/580385/"
+    shop: "bookwalker.jp"
+    shop_id: "580385"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -21717,6 +22949,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "王子様系女子しかいないアイドルユニット"
+    authors: ["北羽"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/debc71cf60-d41c-43e5-8a43-c66bcfeafade/"
+    shop: "bookwalker.jp"
+    shop_id: "bc71cf60-d41c-43e5-8a43-c66bcfeafade"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "現実世界でも幸せにしてくださいね?"
     authors: []
     publisher: null
@@ -21801,6 +23044,17 @@ works:
     url: "https://bookwalker.jp/series/348383/"
     shop: "bookwalker.jp"
     shop_id: "348383"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "甘えていいんだよ(単話版)"
+    authors: ["むぐら"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/series/626986/"
+    shop: "bookwalker.jp"
+    shop_id: "626986"
     completed: false
     doujin: false
     explicit_content: false
@@ -22080,6 +23334,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "異世界の牧場を相続しました ~スタァストリームファーム~1"
+    authors: ["鈴風 澄 他"]
+    publisher: null
+    imprint: "角川コミックス・エース"
+    url: "https://bookwalker.jp/dea59ead17-8ecd-45c7-b94c-85e10d358113/"
+    shop: "bookwalker.jp"
+    shop_id: "a59ead17-8ecd-45c7-b94c-85e10d358113"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "異世界居酒屋さわこさん細腕繁盛記"
     authors: []
     publisher: null
@@ -22109,6 +23374,17 @@ works:
     url: "https://bookwalker.jp/series/496051/"
     shop: "bookwalker.jp"
     shop_id: "496051"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "異夢"
+    authors: ["砕梁"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/decac5db72-3add-4248-a45d-ee26442e9b25/"
+    shop: "bookwalker.jp"
+    shop_id: "cac5db72-3add-4248-a45d-ee26442e9b25"
     completed: true
     doujin: false
     explicit_content: false
@@ -22245,6 +23521,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "白妙様、秘密ですよ (1) 【電子限定おまけ付き】"
+    authors: ["著者: 雪子"]
+    publisher: null
+    imprint: "バーズコミックス"
+    url: "https://bookwalker.jp/de5f1822cf-0f71-44da-8580-efabb78f3d54/"
+    shop: "bookwalker.jp"
+    shop_id: "5f1822cf-0f71-44da-8580-efabb78f3d54"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "白拍子のごとく"
     authors: ["Japalp112"]
     publisher: null
@@ -22275,6 +23562,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "6f6f2f5e-3029-45c8-b730-4315d862264e"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "白粉花の告白"
+    authors: ["著者: 志野田麦"]
+    publisher: null
+    imprint: "ビームコミックス"
+    url: "https://bookwalker.jp/de16975acf-c8dd-42e8-98d4-a16d8154a397/"
+    shop: "bookwalker.jp"
+    shop_id: "16975acf-c8dd-42e8-98d4-a16d8154a397"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -22428,7 +23726,7 @@ works:
     url: "https://bookwalker.jp/series/509519/"
     shop: "bookwalker.jp"
     shop_id: "509519"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -22868,6 +24166,17 @@ works:
     url: "https://bookwalker.jp/ded52a4134-bee9-4f97-a7a2-749f113ffaa6/"
     shop: "bookwalker.jp"
     shop_id: "d52a4134-bee9-4f97-a7a2-749f113ffaa6"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "真夏の昼の誘惑"
+    authors: ["八切そう"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de282f174d-0e2d-43a0-a24e-7448c6c905d2/"
+    shop: "bookwalker.jp"
+    shop_id: "282f174d-0e2d-43a0-a24e-7448c6c905d2"
     completed: false
     doujin: false
     explicit_content: false
@@ -23873,6 +25182,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "秒速11.2kmでともに"
+    authors: ["sono.N"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de798f1520-8172-4430-b8b2-37df4ab38897/"
+    shop: "bookwalker.jp"
+    shop_id: "798f1520-8172-4430-b8b2-37df4ab38897"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "秘すれば華なり"
     authors: []
     publisher: null
@@ -24232,6 +25552,17 @@ works:
     url: "https://bookwalker.jp/de442c3db9-208d-4b11-8f28-cd8753ff0d22/"
     shop: "bookwalker.jp"
     shop_id: "442c3db9-208d-4b11-8f28-cd8753ff0d22"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "素直の裏顔 ~巷で噂のダウナー女子”が”沼る話~"
+    authors: ["なうち"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de98335679-0b91-4180-9dfa-01a17d98c2e1/"
+    shop: "bookwalker.jp"
+    shop_id: "98335679-0b91-4180-9dfa-01a17d98c2e1"
     completed: false
     doujin: false
     explicit_content: false
@@ -24599,6 +25930,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "罪に溺れるクライム百合アンソロジー"
+    authors: []
+    publisher: null
+    imprint: "バンブーコミックス"
+    url: "https://bookwalker.jp/series/605145/"
+    shop: "bookwalker.jp"
+    shop_id: "605145"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "美しく残酷な誇り"
     authors: ["東雲水生"]
     publisher: null
@@ -24742,6 +26084,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "腹割るウチらの秘密ごと!"
+    authors: []
+    publisher: null
+    imprint: "まんがタイムコミックス"
+    url: "https://bookwalker.jp/series/573403/"
+    shop: "bookwalker.jp"
+    shop_id: "573403"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "腹割るウチらの秘密ごと! 1巻"
     authors: ["夏村東和"]
     publisher: null
@@ -24881,6 +26234,17 @@ works:
     url: "https://bookwalker.jp/series/427383/"
     shop: "bookwalker.jp"
     shop_id: "427383"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "花木姉妹へ愛をこめて 1"
+    authors: ["久島さおね"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de03ac338e-05b9-4823-bc37-cecd45799890/"
+    shop: "bookwalker.jp"
+    shop_id: "03ac338e-05b9-4823-bc37-cecd45799890"
     completed: false
     doujin: false
     explicit_content: false
@@ -25237,6 +26601,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "見送りしものに"
+    authors: ["著者: 桜庭友紀"]
+    publisher: null
+    imprint: "PERSONAL COLOR"
+    url: "https://bookwalker.jp/dea4318a44-9d43-4652-8ef8-9db989ef134e/"
+    shop: "bookwalker.jp"
+    shop_id: "a4318a44-9d43-4652-8ef8-9db989ef134e"
+    completed: false
+    doujin: true
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "覚めない夢を見よう"
     authors: ["サカグチカリン"]
     publisher: null
@@ -25347,6 +26722,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "誰が駒鳥逃がしたの?"
+    authors: []
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/628896/"
+    shop: "bookwalker.jp"
+    shop_id: "628896"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "調伏!化け魔理沙"
     authors: ["著者: ザコザコY"]
     publisher: null
@@ -25421,6 +26807,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "f665a032-0c03-46cf-a25a-82550cd2aaa5"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "貴女へささげるサディスティック"
+    authors: []
+    publisher: null
+    imprint: "バンブーコミックス"
+    url: "https://bookwalker.jp/series/563251/"
+    shop: "bookwalker.jp"
+    shop_id: "563251"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -25578,6 +26975,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "転生少女の三ツ星レシピ"
+    authors: []
+    publisher: null
+    imprint: "電撃コミックスNEXT"
+    url: "https://bookwalker.jp/series/511908/"
+    shop: "bookwalker.jp"
+    shop_id: "511908"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "転生少女の三ツ星レシピ(1) ~崖っぷち食堂の副料理長、はじめました~"
     authors: ["辻森 悠 他"]
     publisher: null
@@ -25596,6 +27004,17 @@ works:
     url: "https://bookwalker.jp/series/285398/"
     shop: "bookwalker.jp"
     shop_id: "285398"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "近所のやさしいおねえさん"
+    authors: ["伊藤ハチ"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de5c116ef3-0c8b-4800-8653-9590ad6569f3/"
+    shop: "bookwalker.jp"
+    shop_id: "5c116ef3-0c8b-4800-8653-9590ad6569f3"
     completed: true
     doujin: false
     explicit_content: false
@@ -25674,6 +27093,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "428449"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "週末はおふたりさま"
+    authors: ["宮原 都"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de1e4bea6a-85c8-45e7-88c6-43c50d0a57b9/"
+    shop: "bookwalker.jp"
+    shop_id: "1e4bea6a-85c8-45e7-88c6-43c50d0a57b9"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -25816,6 +27246,17 @@ works:
     url: "https://bookwalker.jp/de80f6afb3-d951-4488-bbc6-34e62e4ad7e7/"
     shop: "bookwalker.jp"
     shop_id: "80f6afb3-d951-4488-bbc6-34e62e4ad7e7"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "鈴木りつ短編集"
+    authors: []
+    publisher: null
+    imprint: "青騎士コミックス"
+    url: "https://bookwalker.jp/series/541043/"
+    shop: "bookwalker.jp"
+    shop_id: "541043"
     completed: false
     doujin: false
     explicit_content: false
@@ -25992,6 +27433,17 @@ works:
     url: "https://bookwalker.jp/series/581917/"
     shop: "bookwalker.jp"
     shop_id: "581917"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "陽がのぼり菜の花は咲く【かきおろし漫画付】 (1)"
+    authors: ["アケガタユウ"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/de5b420e5d-ef9f-40bf-bb82-35f8d309f02c/"
+    shop: "bookwalker.jp"
+    shop_id: "5b420e5d-ef9f-40bf-bb82-35f8d309f02c"
     completed: false
     doujin: false
     explicit_content: false
@@ -26557,6 +28009,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "魔法なんかいらない"
+    authors: ["吉良いと"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de61f6c7e8-6511-48a7-9aa5-2e5834dfa46c/"
+    shop: "bookwalker.jp"
+    shop_id: "61f6c7e8-6511-48a7-9aa5-2e5834dfa46c"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "魔法使いロゼの佐渡ライフ"
     authors: []
     publisher: null
@@ -26601,6 +28064,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "魔法少女ノ魔女裁判"
+    authors: []
+    publisher: null
+    imprint: "MFC"
+    url: "https://bookwalker.jp/series/567389/"
+    shop: "bookwalker.jp"
+    shop_id: "567389"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "魔法少女ノ魔女裁判 1"
     authors: ["時任せつな 他"]
     publisher: null
@@ -26641,6 +28115,17 @@ works:
     url: "https://bookwalker.jp/series/317095/"
     shop: "bookwalker.jp"
     shop_id: "317095"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "魔王さま、リリリベンジ!"
+    authors: []
+    publisher: null
+    imprint: "サンデーうぇぶりコミックス"
+    url: "https://bookwalker.jp/series/624982/"
+    shop: "bookwalker.jp"
+    shop_id: "624982"
     completed: false
     doujin: false
     explicit_content: false
@@ -26720,6 +28205,17 @@ works:
     shop_id: "d78dd1cf-ada2-4fd9-8236-89257d340f8d"
     completed: false
     doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "麻婆豆腐スライム娘との生活【第01食】"
+    authors: ["著者: クレセント"]
+    publisher: null
+    imprint: "エントゲーゲン"
+    url: "https://bookwalker.jp/dee2758fc6-c0bb-4659-b3a5-d00bba6f40c6/"
+    shop: "bookwalker.jp"
+    shop_id: "e2758fc6-c0bb-4659-b3a5-d00bba6f40c6"
+    completed: false
+    doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "黄道寮の星座な日々"

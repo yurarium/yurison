@@ -1254,6 +1254,14 @@ names:
       romanisation would not be. enterbrain.co.jp redirects to KADOKAWA's brand notice, which prints no
       Latin form of the brand.
     verified: false
+  エントゲーゲン:
+    basis: romaji
+    reading: エントゲーゲン
+    reading_at: '2026-10-15'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   オギャー!!:
     basis: official-jp
     en: COMIC OGYAAA!!
@@ -3360,6 +3368,24 @@ names:
     reading_reviewed: '2026-08-08'
     reading_source: read off the name itself
     reading_source_kind: derived
+    verified: false
+  有さん家:
+    basis: romaji
+    furigana_spans:
+    - - 有
+      - ゆう
+    - - さん
+      - null
+    - - 家
+      - いえ
+    reading: ユウサン イエ
+    reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   朝日新聞出版:
     basis: official-jp

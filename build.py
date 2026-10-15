@@ -7706,7 +7706,12 @@ def main():
                    | {"platforms": sorted({str(o.get("platform")) for o in r.get("sources") or []
                                            if o.get("platform")}),
                       "addresses": sorted({str(o.get("url")) for o in r.get("sources") or []
-                                           if o.get("url")})}
+                                           if o.get("url")}),
+                      # THE PRINT RECORDS THE ROW STANDS ON, so a work admitted by a shelf can be
+                      # minted on its record's own id (adapters/naming/mint.py).
+                      "records": sorted({str(i) for p_ in r.get("print") or []
+                                         for i in ([p_.get("work_id")] + list(p_.get("work_ids") or []))
+                                         if i})}
                    for r in _idless]},
         ensure_ascii=False, indent=1, default=str))
     _store_source = {"series": {"series": series_rows}, "works": {"works": works},

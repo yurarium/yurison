@@ -28,7 +28,9 @@ Each is a row the build compiled and could not key, so no reader can open it.
 3. Before minting, search the registry for the same work under another record: the same title
    with the same creator, a print record (`madb:` anchors with `title: null` are common), or the
    same work on another platform. If it exists, add the address to that entry's `anchors` with an
-   `attached` basis instead of minting.
+   `attached` basis instead of minting. A print entry carries `title: null`, so searching the
+   registry by title misses it: search `data/source` (the `bookwalker`, `madb` and `webpages`
+   captures) for the title too, and find the entry by the record id it names.
 4. Otherwise mint the next identifier after the highest `wNNNNN` in the file, appended at the end
    of `works:` and before `related:`. Give it `title` and `anchors` (`"web:<address>"`). For a
    GigaViewer chapter address (`/episode/<digits>`), read the page's own `atom/series/<id>` link

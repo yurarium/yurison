@@ -256,6 +256,19 @@ def main(s):
     s.eq(bs.parse_listing('<div class="m-book-item ">no title</div>'), [],
          "and a row with no title is dropped rather than recorded as a work with no name")
 
+    # A REFRESH WALKS EVERYTHING AGAIN AND FORGETS NO ROW. The checkpoints go; the rows stay; the
+    # facet ids of the last walk come back to be joined with this one's.
+    st = {"retrieved": "2026-08-04", "listings": {"manga": {"stated": 2153}},
+          "pages": {"manga": {1, 2, 3}}, "excluded": {"no_id": 2},
+          "facets": {"completed": {"label": "完結", "url": "u", "stated": 5, "ids": {"a", "b"}}},
+          "items": {("manga", "a"): {"id": "a", "title": "A"}}}
+    new, old = bs.refreshed(st, "2026-10-16")
+    s.eq((new["pages"], new["facets"], new["excluded"], new["retrieved"]),
+         ({}, {}, {}, "2026-10-16"), "the page and facet checkpoints are cleared")
+    s.eq(list(new["items"]), [("manga", "a")], "every row already held is kept")
+    s.eq(old, {"completed": {"a", "b"}}, "and the last walk's facet ids are handed back")
+    s.eq(st["pages"], {"manga": {1, 2, 3}}, "the state passed in is not changed")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

@@ -121,6 +121,18 @@ a bounded batch with carry-over, so a shop that is down for a week costs a week,
 New volumes then reach the 発売 tab within about a week, and `bookwalker.py`'s "ask again on a new
 volume" trigger starts to fire.
 
+Running weekly since 2026-10-16 as `adapters/stage-print.yaml`. The first refresh of BOOK☆WALKER's
+shelf found 136 rows it had not listed in August and brought in 83 new print works, which
+`adapters/naming/mint.py` mints on their shop records with no person needed. The volume capture now
+lists each unfinished series again every four weeks, oldest first, so a new volume of a held work
+arrives. What is not done:
+
+- コミックシーモア refused every request from here on 2026-10-15 (HTTP 503, home page included). The
+  shelf producer it never had, `adapters/cmoa_shelf.py`, is written and scheduled, and a run will
+  say whether CI reaches the shop. Its volume capture does not yet list a held work again.
+- Of the reference sources, MADB needs its pinned release re-pinned before the joins by ISBN can
+  run, and the NDL passes use a path its robots.txt disallows, so they stay stopped for the owner.
+
 ### 3. A run succeeds unless something unexpected broke
 
 #### Outcome policy

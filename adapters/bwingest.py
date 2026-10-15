@@ -218,6 +218,8 @@ def record(work, retrieved):
     dated = [v["published"] for v in vols if v.get("published")]
     fp = work.get("first_publication") or {}
     return {
+        # WHEN THIS WORK WAS READ, which the caller decides; the file states it as its own date.
+        "retrieved": retrieved,
         "chapterwise": by_chapter,
         # A chapter-wise release has no volumes to count, and its items keep their own dates so
         # nothing about when it published is lost.
@@ -252,6 +254,31 @@ def record(work, retrieved):
     }
 
 
+def one_per_title(records, kept_ids=()):
+    """`(records, doubles)`: one record per title, and the listings beyond the first.
+
+    THE SHELF LISTS SOME WORKS TWICE, once as a series and once as a single volume, and both became
+    records: きみは終末 stood as w02969 and w03353 on 2026-10-16. This pass subtracts its own earlier
+    output from what counts as held, which is right against itself and blind to a second listing
+    inside one batch. So the batch is folded first. The record already written is kept, because
+    the registry is anchored on it; otherwise the one listing more volumes. The rest go to review,
+    which is where a person decides that two listings are one work.
+    """
+    # A RECORD ALREADY WRITTEN IS NEVER DROPPED HERE, even beside another written one: it is a work
+    # the registry holds and a reader can open, and unpublishing it is a person's decision.
+    written = {r["_key"] for r in records if str(r["shop_id"]) in kept_ids}
+    best = {}
+    for r in records:
+        if str(r["shop_id"]) in kept_ids or r["_key"] in written:
+            continue
+        cur = best.get(r["_key"])
+        if cur is None or (r.get("volume_count") or 0) > (cur.get("volume_count") or 0):
+            best[r["_key"]] = r
+    keep = {id(r) for r in best.values()}
+    keep |= {id(r) for r in records if str(r["shop_id"]) in kept_ids}
+    return [r for r in records if id(r) in keep], [r for r in records if id(r) not in keep]
+
+
 def split(records, held):
     """`(new, review)`: works whose title we do not hold, and works whose title we already do.
 
@@ -274,6 +301,7 @@ def main(argv=None):
 
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
     from facts.worktitle import norm_work                                              # noqa: E402
+    from facts import cataloguing as _cat                                              # noqa: E402
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--capture", default="data/queue/bookwalker-volumes.yaml")
@@ -286,14 +314,20 @@ def main(argv=None):
 
     doc = yaml.safe_load(pathlib.Path(a.capture).read_text()) or {}
     retrieved = str(doc.get("retrieved") or "")
+    # EACH WORK IS DATED BY ITS OWN LISTING, which the capture records as `listed_on`. The file's
+    # date is its last pass, and stamping every work with it would claim a fresh read of volumes
+    # last listed in August; a work never relisted keeps the first capture's day.
+    first = str(doc.get("first_captured") or retrieved)
     records = []
     skipped = 0
     for w in (doc.get("works") or []):
-        r = record(w, retrieved)
+        r = record(w, str(w.get("listed_on") or first))
         if r is None:
             skipped += 1
             continue
-        r["_key"] = norm_work(r["title"])
+        # ON THE TITLE WITHOUT ITS EDITION APPARATUS, so 【単行本版】 or 【総集編】 of a work we hold
+        # is a lead for review rather than a work of its own.
+        r["_key"] = norm_work(_cat.without_edition_apparatus(r["title"]))
         records.append(r)
 
     # WHAT WE HOLD FROM SOMEWHERE ELSE. titles.json is the build stating its corpus (GAPS §12), and
@@ -302,15 +336,18 @@ def main(argv=None):
     # became 415, with 1,724 filed for review against their own entries. So this pass subtracts its
     # own previous output, and the question stays "does anything BUT BOOK☆WALKER know this title".
     titles = _population.titles(pathlib.Path(a.build) / "titles.json" if a.build else None)
-    held = {norm_work(t) for t in titles}
+    held = {norm_work(_cat.without_edition_apparatus(t)) for t in titles}
     mine = set()
     for f in pathlib.Path(a.out).glob("*.yaml"):
         prev = yaml.safe_load(f.read_text()) or {}
         got = (prev.get("title") or {}).get("ja")
         if got:
-            mine.add(norm_work(got))
+            mine.add(norm_work(_cat.without_edition_apparatus(got)))
     held -= mine
+    written = {f.stem[3:] for f in pathlib.Path(a.out).glob("bw-*.yaml")}
+    records, doubles = one_per_title(records, written)
     new, review = split(records, held)
+    review += doubles
 
     js = lambda v: json.dumps(v, ensure_ascii=False)                          # noqa: E731
     out = pathlib.Path(a.out)
@@ -325,7 +362,7 @@ def main(argv=None):
              "# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the",
              "# shop says is all there is. Joined presumptively on its title, and a title that",
              "# already names a work we hold went to data/queue/bw-review.yaml instead of here.",
-             "source: bookwalker", f"retrieved: {retrieved}",
+             "source: bookwalker", f"retrieved: {r.get('retrieved') or retrieved}",
              f"work_id: {js(wid)}", "record_type: retailer_work_record",
              f"shop_id: {js(r['shop_id'])}", f"shop_url: {js(r['url'])}",
              "title:", f"  ja: {js(r['title'])}",
@@ -354,13 +391,13 @@ def main(argv=None):
                     L.append(f"    {k}: {js(v[k])}")
         # §2's third branch: a licensed retailer's yuri shelf is a comparator, and §4 keeps a
         # shop's shelf out of marketing_label however strong a lead it is.
-        L += _inclusion.admitted_by([SHOP], retrieved, quote=js)
+        L += _inclusion.admitted_by([SHOP], r.get("retrieved") or retrieved, quote=js)
         L += [
               "marketing_label: none",
               "marketing_label_basis:",
               "  source: bookwalker",
               f"  url: {js(r['url'])}",
-              f"  retrieved: {retrieved}",
+              f"  retrieved: {r.get('retrieved') or retrieved}",
               "  note: >-",
               "    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side",
               "    labelling (§4), so this axis stays `none`, which says nothing about content.",

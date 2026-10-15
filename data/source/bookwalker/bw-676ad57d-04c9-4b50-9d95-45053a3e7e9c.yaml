@@ -1,0 +1,39 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-15
+work_id: "bw-676ad57d-04c9-4b50-9d95-45053a3e7e9c"
+record_type: retailer_work_record
+shop_id: "676ad57d-04c9-4b50-9d95-45053a3e7e9c"
+shop_url: "https://bookwalker.jp/de676ad57d-04c9-4b50-9d95-45053a3e7e9c/"
+title:
+  ja: "orSiS百合アンソロジー"
+creator: "焼肉定食 / 遮二無二 / 犬井あゆ / 栗崎きんぐ / 梶井　スパナ / あらやかわい / ぴかち / フライ"
+publisher: "ぶんか社"
+imprint: "orSiS"
+volume_count: 1
+date_basis: "no-print-date-stated"
+venue: "ぶんか社"
+completed: false
+volumes:
+  - title: "orSiS百合アンソロジー一夜だけの主従関係　（1）"
+    designation: "一夜だけの主従関係 (1)"
+    delivered: "2026-10-14"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-10-15
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de676ad57d-04c9-4b50-9d95-45053a3e7e9c/"
+  retrieved: 2026-10-15
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

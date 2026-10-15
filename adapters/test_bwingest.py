@@ -25,6 +25,7 @@ def work(**kw):
 
 def main(s):
     r = bw.record(work(), "2026-08-06")
+    s.eq(r["retrieved"], "2026-08-06", "a record carries the day its own volumes were read")
     s.eq(r["title"], "初恋姉妹", "the series name is the work's title where the shop groups it")
     s.eq(r["volume_count"], 2, "with as many volumes as the shop showed")
     s.eq([v["number"] for v in r["volumes"]], ["1", "2"],
@@ -228,6 +229,19 @@ def main(s):
     new, review = bw.split(recs, {"b"})
     s.eq([x["title"] for x in new], ["A"], "a title we do not hold is a new work")
     s.eq([x["title"] for x in review], ["B"], "and one we do hold waits for a person")
+
+
+    # ONE RECORD PER TITLE WITHIN A BATCH: the one already written, else the fuller listing.
+    recs = [{"_key": "k", "shop_id": "579215", "volume_count": 3},
+            {"_key": "k", "shop_id": "d2c9", "volume_count": 1},
+            {"_key": "j", "shop_id": "1", "volume_count": 1}]
+    keep, doubles = bw.one_per_title(recs, kept_ids={"d2c9"})
+    s.eq(([r["shop_id"] for r in keep], [r["shop_id"] for r in doubles]), (["d2c9", "1"], ["579215"]),
+         "the record the registry already stands on is kept")
+    keep, doubles = bw.one_per_title(recs)
+    s.eq([r["shop_id"] for r in keep], ["579215", "1"], "and otherwise the listing with more volumes")
+    keep, doubles = bw.one_per_title(recs, kept_ids={"d2c9", "579215"})
+    s.eq((len(keep), doubles), (3, []), "and two records both already written both stay")
 
 
 if __name__ == "__main__":

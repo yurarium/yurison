@@ -1,0 +1,46 @@
+# The print intake, weekly: the two retailer 百合 shelves, what they admit, the volumes each shop
+# lists for the admitted works, and their entry into data/source. docs/LAUNCH-PLAN.md section 2.
+#
+# Built in August by hand, once, and read by the build ever since: no new volume reached the print
+# side from either shop after 2026-08-05. In order, because each step reads what the one before it
+# wrote, and weekly, because a shop adds volumes a few times a month and a capped pass works
+# through the backlog over several weeks. A shop that is down costs that week and is recorded as a
+# failed source like any other; what each file already holds stays.
+#
+# The National Diet Library is not here. Its search API is under a path its robots.txt disallows,
+# which the project takes literally (adapters/names/ndl_reading.py), so the NDL passes stay frozen
+# until the owner decides otherwise.
+sequential: true
+commands:
+  - id: bookwalker-shelf
+    optional: true
+    every_days: 7
+    argv: [adapters/recon/bookwalker_shelf.py, --refresh]
+
+  - id: cmoa-shelf
+    optional: true
+    every_days: 7
+    argv: [adapters/cmoa_shelf.py, --cache, "{CACHE}/cmoa-shelf"]
+
+  - id: shelfingest
+    optional: true
+    every_days: 7
+    argv: [adapters/shelfingest.py]
+
+  # New admissions first, then every unfinished series not listed in four weeks, oldest first.
+  - id: bookwalker-volumes
+    optional: true
+    every_days: 7
+    argv: [adapters/recon/bookwalker_volumes.py, --revisit, --follow-series, --max-fetches, "400"]
+
+  - id: bwingest
+    optional: true
+    every_days: 7
+    argv: [adapters/bwingest.py]
+
+  # New admissions only, for now: unlike the BOOK☆WALKER capture it does not yet list a held work
+  # again, so a new volume of a work it already holds is not picked up.
+  - id: cmoa-volumes
+    optional: true
+    every_days: 7
+    argv: [adapters/cmoa_volumes.py, --limit, "200"]

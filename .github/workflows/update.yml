@@ -207,6 +207,14 @@ jobs:
           python3 adapters/run_stage.py adapters/stage-post.yaml \
             --retrieved "$R" --cache "$CACHE" --report "$REPORT"
 
+      # THE PRINT INTAKE, WEEKLY, docs/LAUNCH-PLAN.md section 2. Each command says `every_days: 7`
+      # and the stage runner's ledger decides, so on six days in seven this step runs nothing. What
+      # it writes reaches the next run's compile.
+      - name: Weekly print intake
+        run: |
+          python3 adapters/run_stage.py adapters/stage-print.yaml \
+            --retrieved "$R" --cache "$CACHE" --report "$REPORT"
+
       # ── Stage E — names. ──────────────────────────────────────────────────────────────────────
       #
       # AFTER COMPILE, because every pass takes its worklist from `data/build/series.json` and the
@@ -230,6 +238,12 @@ jobs:
       # that costs milliseconds. The walk stays a thing somebody runs deliberately.
       #
       # NONE OF THESE REACH THE NETWORK. Pass 2 and pass 3 do and are deliberately absent.
+      # PRINT WORKS A SHELF ADMITTED ARE MINTED HERE, which needs no judgement: each stands on one
+      # shop record the designation test already passed (adapters/naming/mint.py). A work with a web
+      # address waits for the naming job, which has to place it.
+      - name: Mint the print works the shelves admitted
+        run: python3 adapters/naming/mint.py
+
       - name: Name what this run brought in
         id: names
         continue-on-error: true
@@ -248,7 +262,8 @@ jobs:
         run: |
           python3 - <<'PY'
           import subprocess, sys
-          diff = subprocess.run(["git", "diff", "-U0", "--", "data/names"],
+          # AND THE REGISTRY, where the step above may have minted a work this compile has not seen.
+          diff = subprocess.run(["git", "diff", "-U0", "--", "data/names", "data/identity"],
                                 capture_output=True, text=True).stdout.splitlines()
           # `generated:` IS A DATESTAMP AND NOT A NAME. Every compaction rewrites it, so a plain
           # `git diff --quiet` reports the store as changed on a run that named nothing at all,
@@ -410,7 +425,7 @@ jobs:
           # here too and its rows were surviving only because a person ran it locally and pushed.
           # `data/state` IS COMMITTED, AND WAS NOT until 2026-10-15: the render step rewrites
           # checks.yaml every run, and the build read the copy from 2026-08-03.
-          git add data/source data/coverage data/ledger data/names data/queue data/state
+          git add data/source data/coverage data/ledger data/names data/queue data/state data/identity
           git diff --cached --quiet || git commit -m "update: run ${{ github.run_id }}"
 
       # ONTO WHATEVER LANDED MEANWHILE. A person pushing code during a run made the push a

@@ -1,0 +1,39 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-15
+work_id: "bw-22145f3a-7c6c-4c54-a209-f3237ee37e44"
+record_type: retailer_work_record
+shop_id: "22145f3a-7c6c-4c54-a209-f3237ee37e44"
+shop_url: "https://bookwalker.jp/de22145f3a-7c6c-4c54-a209-f3237ee37e44/"
+title:
+  ja: "YURIHASA PROFILE BOOK"
+creator: "蓬餅"
+publisher: "ナンバーナイン"
+imprint: "百合コレ"
+volume_count: 1
+date_basis: "no-print-date-stated"
+venue: "ナンバーナイン"
+completed: false
+volumes:
+  - title: "YURIHASA PROFILE BOOK 百合にはさまる男は死ねばいい！？単行本完結記念本"
+    designation: "百合にはさまる男は死ねばいい!?単行本完結記念本"
+    delivered: "2026-09-25"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-10-15
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de22145f3a-7c6c-4c54-a209-f3237ee37e44/"
+  retrieved: 2026-10-15
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

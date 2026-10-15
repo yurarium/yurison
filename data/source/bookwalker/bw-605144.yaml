@@ -1,0 +1,59 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-15
+work_id: "bw-605144"
+record_type: retailer_work_record
+shop_id: "605144"
+shop_url: "https://bookwalker.jp/series/605144/"
+title:
+  ja: "ギャルと地味子が恋をする青春百合アンソロジー"
+creator: "岡 ぱや / 坂城 / 桜木蓮 / 瀬尾みいのすけ / そめちめ / 仁科 / パデラポッロのりお"
+publisher: "竹書房"
+imprint: "バンブーコミックス"
+volume_count: 8
+date_basis: "no-print-date-stated"
+venue: "竹書房"
+completed: false
+volumes:
+  - title: "ギャルと地味子が恋をする青春百合アンソロジー"
+    delivered: "2026-06-26"
+  - title: "【最新刊】織田は視ている。"
+    designation: "織田は視ている"
+    delivered: "2026-09-16"
+  - title: "だって約束したやんか！"
+    designation: "だって約束したやんか"
+    delivered: "2026-09-16"
+  - title: "朝にとける雨"
+    designation: "朝にとける雨"
+    delivered: "2026-09-16"
+  - title: "正しいハートの届け方！"
+    designation: "正しいハートの届け方"
+    delivered: "2026-09-16"
+  - title: "私だけが知っている"
+    designation: "私だけが知っている"
+    delivered: "2026-09-16"
+  - title: "私とあの子の距離"
+    designation: "私とあの子の距離"
+    delivered: "2026-09-16"
+  - title: "袖にさくらんぼ"
+    designation: "袖にさくらんぼ"
+    delivered: "2026-09-16"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-10-15
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/605144/"
+  retrieved: 2026-10-15
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

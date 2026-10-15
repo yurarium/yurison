@@ -458,7 +458,7 @@ def _write(path, state):
         L.append(f"  - listing: {js(r['listing'])}")
         for k in ("id", "id_kind", "url", "title", "title_listed", "imprint", "imprint_in_title",
                   "author", "author_source", "kind_tag", "volumes", "completed_marker",
-                  "doujin", "direct", "completed_facet", "male_directed", "page"):
+                  "doujin", "direct", "completed_facet", "male_directed", "page", "seen"):
             L.append(f"    {k}: {js(r.get(k))}")
     L.append("")
     pathlib.Path(path).write_text("\n".join(L))
@@ -491,6 +491,21 @@ def _read(path):
     return st
 
 
+def refreshed(state, today):
+    """The state for a run that walks the whole shelf again, keeping every row already held.
+
+    THE CHECKPOINT WAS ALSO A FREEZE. A run resumes by skipping every page and facet the file says
+    it has, which is right after an interruption and is also why a second run on a finished file
+    fetched nothing: the shelf was read once, on 2026-08-04, and never again. A refresh clears the
+    page and facet checkpoints and nothing else. Rows stay, so a work the shop stops listing keeps
+    the record it had, and its `seen` date stops moving, which is how a reader can tell. The facet
+    ids of the last walk are returned beside it, to be joined with this walk's: a series the shop
+    marked 完結 does not become unfinished because one page was not read.
+    """
+    old = {k: set(v.get("ids") or ()) for k, v in (state.get("facets") or {}).items()}
+    return dict(state, retrieved=today, pages={}, facets={}, excluded={}), old
+
+
 def main(argv=None):
     """Walk the shelf, checkpointing after every page, resuming from whatever is already there."""
     import argparse
@@ -501,6 +516,8 @@ def main(argv=None):
     ap.add_argument("--out", default="data/queue/bookwalker-yuri.yaml")
     ap.add_argument("--pause", type=float, default=PAUSE)
     ap.add_argument("--max-pages", type=int, default=60)
+    ap.add_argument("--refresh", action="store_true",
+                    help="walk every page again, keeping every row held (the weekly run)")
     a = ap.parse_args(argv)
 
     def get(url):
@@ -508,7 +525,12 @@ def main(argv=None):
         with urllib.request.urlopen(req, timeout=40) as r:
             return r.read().decode("utf-8", "replace")
 
+    import datetime
+    today = datetime.date.today().isoformat()
     st = _read(a.out)
+    earlier = {}
+    if a.refresh:
+        st, earlier = refreshed(st, today)
     st.setdefault("excluded", {})
     fetched = 0
 
@@ -551,7 +573,7 @@ def main(argv=None):
         for n, rows, stated in walk(tmpl, parse_listing, 60, f"facet {name}"):
             ids |= {r["id"] for r in rows if r["id"]}
         st["facets"][name] = {"label": label, "url": tmpl.format(n=1), "stated": stated,
-                              "ids": ids}
+                              "ids": ids | earlier.get(name, set())}
         print(f"  facet {name}: {len(ids)} ids, shop says {stated}")
 
     excl = st["excluded"]
@@ -577,6 +599,7 @@ def main(argv=None):
                 r["listing"] = listing
                 r["page"] = n
                 r["author_source"] = "listing" if r["author"] else None
+                r["seen"] = today
                 for fname in FACETS:
                     r[fname] = r["id"] in st["facets"].get(fname, {}).get("ids", set())
                 st["items"][(listing, r["id"])] = r

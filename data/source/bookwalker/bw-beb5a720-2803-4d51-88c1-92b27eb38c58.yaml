@@ -1,0 +1,39 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-08-05
+work_id: "bw-beb5a720-2803-4d51-88c1-92b27eb38c58"
+record_type: retailer_work_record
+shop_id: "beb5a720-2803-4d51-88c1-92b27eb38c58"
+shop_url: "https://bookwalker.jp/debeb5a720-2803-4d51-88c1-92b27eb38c58/"
+title:
+  ja: "四十九日のお終いに　田沼朝作品集"
+creator: "田沼　朝"
+publisher: "KADOKAWA"
+imprint: "HARTA COMIX"
+volume_count: 1
+first_published: "2023-01-14"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "四十九日のお終いに　田沼朝作品集"
+    published: "2023-01-14"
+    delivered: "2023-01-14"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-08-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/debeb5a720-2803-4d51-88c1-92b27eb38c58/"
+  retrieved: 2026-08-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

@@ -162,7 +162,9 @@ def areas(title):
 #: the only field it has. They make a different key, so an English name attached to the plain title
 #: never reaches the row carrying one: `やがて君になる` is Bloom Into You and
 #: `やがて君になる【タテスク】` was showing a full romanisation.
-_EDITION_TAG = (r"百合|GL|ガールズラブ|完結|新装版|完全版|合本版|分冊版|単話版?|単話売|話売り|電子版|"
+# 単行本版 and 総集編 joined on 2026-10-16, when BOOK☆WALKER's shelf brought in
+# ギャップのある女子2人が百合な話。【単行本版】 and 吸血鬼の花嫁…【総集編】 as works of their own.
+_EDITION_TAG = (r"百合|GL|ガールズラブ|完結|新装版|完全版|合本版|分冊版|単話版?|単話売|話売り|電子版|単行本版|総集編|"
                 r"電子限定|タテスク|タテヨミ|フルカラー|カラー版|読切版?|試し読み|無料|コミック|同人版")
 _APPARATUS = re.compile(
     rf"[【\[]\s*(?:{_EDITION_TAG})[^】\]]*[】\]]|[（(]\s*(?:{_EDITION_TAG}|[A-Za-z][A-Za-z0-9 .!+-]{{1,22}})\s*[)）]")

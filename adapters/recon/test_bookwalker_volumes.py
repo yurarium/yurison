@@ -590,13 +590,31 @@ def main(s):
     # back as though nothing had happened.
     with tempfile.TemporaryDirectory() as d:
         path = pathlib.Path(d) / "capture.yaml"
+        row = dict(row, listed_on="2026-10-16")
         bv._write(path, {"retrieved": "2026-08-06", "admitted": 1, "works": {"1": row},
                          "excluded": {}, "fetches": {}})
         back = bv._read(path, 1)["works"]["1"]
-        for field in ("series_read", "pages_read", "volumes_stated", "completed"):
+        for field in ("series_read", "pages_read", "volumes_stated", "completed", "listed_on"):
             s.eq(back.get(field), row.get(field),
                  f"{field} survives being written and read back")
         s.eq(back["first_publication_date"], "2020-01", "and the date is re-derived, not stored")
+
+
+    # A CAPTURED SERIES IS LISTED AGAIN, unless it is finished, a chapter serial, or listed lately.
+    works = {"10": {"id_kind": "series", "series_read": True, "completed": None, "volumes": [],
+                    "listed_on": "2026-08-05"},
+             "11": {"id_kind": "series", "series_read": True, "completed": "completed",
+                    "volumes": []},
+             "12": {"id_kind": "detail", "series_read": True, "completed": None,
+                    "volumes": [{"series_id": "77"}]},
+             "13": {"id_kind": "series", "series_read": True, "completed": None, "volumes": [],
+                    "listed_on": "2026-10-10"},
+             "14": {"id_kind": "series", "series_read": True, "store": "話・連載", "volumes": []},
+             "15": {"id_kind": "series", "series_read": False, "volumes": []}}
+    s.eq(bv.series_to_revisit(works, "2026-10-16"), [("12", "77"), ("10", "10")],
+         "never-listed first, then the oldest; finished, recent, serial and unread rows left out")
+    s.eq(bv.series_to_revisit(works, "2026-11-20"), [("12", "77"), ("10", "10"), ("13", "13")],
+         "a row listed lately comes due once four weeks have passed")
 
 
 if __name__ == "__main__":

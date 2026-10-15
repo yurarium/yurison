@@ -1480,3 +1480,32 @@ with arrivals:
 | credit fields an identifier does not cover | 110 | 116 |
 | kana names with no stated division | 275 | 279 |
 | uncertain readings | 59 | 60 |
+
+## The first weekly print intake brought 83 works. Accepted 2026-10-16
+
+BOOK☆WALKER's 百合 shelf was read again for the first time since 2026-08-04 and held 136 rows it
+had not listed then. Through `shelfingest.py`, the volume capture and `bwingest.py`, 83 became new
+print works, minted by `adapters/naming/mint.py` on their shop records; six second listings of
+works the shelf shows twice, and two editions (【単行本版】, 【総集編】) of works we hold, went to
+`data/queue/bw-review.yaml` instead. Every count below rose with those 83 and describes them: their
+credits, readings and dates have not been researched yet, and 82 of the titles wait for the naming
+job. `bookwalker series unread` is the volume capture's own backlog, read down by the weekly cap.
+
+| budget | was | now |
+|---|---:|---:|
+| an imprint field repeating its publisher | 360 | 370 |
+| imprint strings that reach no line | 18 | 19 |
+| author names romanised as one word | 1242 | 1266 |
+| publisher readings nobody has settled | 22 | 23 |
+| kana names with no stated division | 279 | 285 |
+| author readings no source states | 471 | 499 |
+| credit fields an identifier does not cover | 116 | 154 |
+| credits sharing a reading nobody has ruled on | 23 | 24 |
+| ruby asserting a reading per character | 203 | 208 |
+| titles read by a machine, unmarked | 1157 | 1194 |
+| uncertain readings | 60 | 63 |
+| titles showing a romanisation nobody has ruled on | 0 | 82 |
+| works showing a romanisation | 24 | 106 |
+| bookwalker series unread | 0 | 39 |
+| works whose first publication country is unattested | 2574 | 2657 |
+| volume rows with no publication date | 2436 | 2572 |

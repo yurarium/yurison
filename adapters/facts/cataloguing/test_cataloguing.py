@@ -158,5 +158,11 @@ def main(s):
          "and a ruled title with something appended is a different string, so it is counted again")
 
 
+    # A BOOK EDITION AND A COMPILATION ARE EDITIONS, so they join the work they collect.
+    s.eq(m.without_edition_apparatus("ギャップのある女子2人が百合な話。【単行本版】"),
+         "ギャップのある女子2人が百合な話。", "【単行本版】 is apparatus")
+    s.eq(m.without_edition_apparatus("吸血鬼の花嫁【総集編】"), "吸血鬼の花嫁", "and so is 【総集編】")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "cataloguing"))

@@ -434,6 +434,9 @@ def work_row(row, volumes, completed=None, series_read=False, serial=None, pages
         "shop_id": row["shop_id"],
         "url": row["url"],
         "id_kind": "series" if "/series/" in row["url"] else "detail",
+        # WHEN THE SERIES PAGE WAS LAST LISTED, which `series_to_revisit` orders by. Set by the
+        # caller that did the listing; a row nobody listed carries none and comes first.
+        "listed_on": None,
         "store": "話・連載" if serial else "単行本",
         "series_read": series_read,
         # HOW MANY LISTING PAGES WERE READ, so a row captured before the pager existed can be told
@@ -533,6 +536,36 @@ def listing_short(read, stated):
     that shape has never been seen and would be the template moving again.
     """
     return stated is None or len(read) != stated
+
+
+def series_to_revisit(works, today, every_days=28):
+    """`[(shop_id, series_id)]` for captured series that may have published a volume since.
+
+    A CAPTURED ROW WAS NEVER READ AGAIN. The first phase takes only rows not yet in the file, so a
+    series captured in August at four volumes stayed at four whatever the shop added, and the print
+    side learnt of no new volume from this shop at all. The weekly run asks again here.
+
+    WHICH ONES. A row the shop has not marked 完結, whose series page was read whole, and whose
+    listing is older than `every_days`, oldest first, so a capped pass works through the shelf
+    rather than rereading its front. A finished series is left: its next volume is not coming. A
+    chapter serial is left too, having no volumes to list. `listed_on` absent counts as oldest.
+    """
+    import datetime as _dt
+    t = _dt.date.fromisoformat(today)
+    due = []
+    for sid, r in (works or {}).items():
+        if r.get("completed") == "completed" or r.get("store") == "話・連載" or not r.get("series_read"):
+            continue
+        series = sid if r.get("id_kind") == "series" else next(
+            (v.get("series_id") for v in r.get("volumes") or [] if v.get("series_id")), None)
+        if not series:
+            continue
+        last = str(r.get("listed_on") or "")
+        if last and (t - _dt.date.fromisoformat(last)).days < every_days:
+            continue
+        due.append((last, sid, str(series)))
+    due.sort()
+    return [(sid, series) for _, sid, series in due]
 
 
 def series_to_follow(works):
@@ -694,7 +727,7 @@ HEADER = """\
 # "somebody remembered to add the field in both places" into something the machine checks.
 ROW_SCALARS = ("url", "id_kind", "store", "series_read", "pages_read", "volumes_stated",
                "volumes_found", "chapters", "last_updated", "completed", "dates_stated",
-               "isbns_stated", "imprint", "publisher", "authors", "shop_genre")
+               "isbns_stated", "imprint", "publisher", "authors", "shop_genre", "listed_on")
 # The rest of what `work_row` produces, written in a shape of its own rather than as a scalar.
 ROW_SHAPED = ("shop_id", "volumes", "first_publication_date", "first_publication_basis",
               "first_publication_venue", "first_publication_volume")
@@ -734,7 +767,11 @@ def _write(path, state):
          "record_type: retailer_volume_capture",
          "from_queue: data/queue/admitted.yaml",
          "key: shop_id",
+         # THE LAST PASS, and beside it the first. `retrieved` stayed at the first capture's day
+         # through every later pass, so the file said August however recently it was read; each
+         # work's own `listed_on` says when its volumes were last listed.
          f"retrieved: {state['retrieved']}",
+         f"first_captured: {state.get('first_captured') or state['retrieved']}",
          f"admitted_rows: {state['admitted']}",
          f"works_captured: {len(rows)}",
          "counts:"]
@@ -817,7 +854,8 @@ def _read(path, admitted):
     doc = yaml.safe_load(p.read_text()) or {}
     if not doc.get("works"):
         return blank
-    blank["retrieved"] = doc.get("retrieved", blank["retrieved"])
+    blank["first_captured"] = str(doc.get("first_captured") or doc.get("retrieved")
+                                  or blank["retrieved"])
     # Deliberately not carried over. See the note beside `excluded_last_pass` in _write.
     blank["excluded"] = {}
     blank["fetches"] = doc.get("fetches") or {}
@@ -849,6 +887,9 @@ def _read(path, admitted):
             {"shop_id": w["shop_id"], "url": w["url"]}, w.get("volumes") or [],
             w.get("completed"), w.get("series_read"), serial, w.get("pages_read"),
             w.get("volumes_stated"))
+        # And when the listing was last read, which is the reading's too. Re-derived as None, it
+        # set every row back to never-listed on the first pass after the field existed.
+        blank["works"][str(w["shop_id"])]["listed_on"] = w.get("listed_on")
     return blank
 
 
@@ -877,6 +918,9 @@ def main(argv=None):
     ap.add_argument("--follow-series", action="store_true",
                     help="after the outstanding rows, open the series page of every captured row "
                          "that names one and was only ever read at a single volume")
+    ap.add_argument("--revisit", action="store_true",
+                    help="after the outstanding rows, list again every unfinished series not "
+                         "listed in four weeks, oldest first, for volumes published since")
     ap.add_argument("--spread", action="store_true",
                     help="walk the outstanding rows evenly across the queue instead of from the "
                          "front. The queue is sorted by title, and a capped pass down it measures "
@@ -1037,6 +1081,8 @@ def main(argv=None):
             continue
         st["works"][sid] = work_row(row, vols, completed, series_read, serial,
                                     pages_read, stated)
+        if series_read:
+            st["works"][sid]["listed_on"] = time.strftime("%Y-%m-%d")
         # Checkpointed per work rather than at the end, so an interrupted pass loses one work.
         _write(a.out, st)
 
@@ -1045,7 +1091,8 @@ def main(argv=None):
     # capped pass finishes discovering the shelf before it goes back to deepen it, and it shares
     # this pass's budget and floor so the two cannot together outrun either.
     followed = deepened = 0
-    if not stopped and a.follow_series:
+    today = time.strftime("%Y-%m-%d")
+    if not stopped and (a.follow_series or a.revisit):
         # THE FINITE LIST FIRST, AND THAT IS THE WHOLE OF THE REASON. Both lists are damage already
         # in the file rather than work not yet done, so "damage before discovery" does not choose
         # between them; `series_to_follow` still applies it within itself. What does choose is that
@@ -1053,7 +1100,10 @@ def main(argv=None):
         # hours. Run the long one first and a capped pass never reaches the short one, so its
         # budget sits at the same number pass after pass and reads as a pass doing nothing.
         pending, seen = [], set()
-        for job in series_to_follow(st["works"]) + series_unconfirmed(st["works"]):
+        jobs = (series_to_follow(st["works"]) + series_unconfirmed(st["works"])
+                if a.follow_series else [])
+        jobs += series_to_revisit(st["works"], today) if a.revisit else []
+        for job in jobs:
             # A row cut at a page boundary is also a row nobody confirmed, and one listing is one
             # request however many reasons there are to make it.
             if job[0] not in seen:
@@ -1111,6 +1161,7 @@ def main(argv=None):
                          or bookwalker.status_from_list(page, titles.get(sid) or ""))
             st["works"][sid] = work_row(wrow, vols, completed, True, None, pages_read,
                                         stated)
+            st["works"][sid]["listed_on"] = today
             followed += 1
             deepened += 1 if len(vols) > before else 0
             _write(a.out, st)

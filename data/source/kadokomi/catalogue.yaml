@@ -7,13 +7,13 @@
 # this is neither. Results are embedded in the page, so the disallowed API is not called.
 source: kadokomi
 role: attesting
-retrieved: 2026-08-01
+retrieved: 2026-10-15
 record_type: platform_yuri_catalogue
 tags_enumerated:
-  - { name: 百合, uuid: 018b8a02-f3d9-7a59-969d-288cb905f0fc, listed: 348 }
+  - { name: 百合, uuid: 018b8a02-f3d9-7a59-969d-288cb905f0fc, listed: 363 }
   - { name: GL, uuid: 018b8a02-f448-7b77-b194-cafcc706ed85, listed: 8 }
-total_reported: 356
-works_enumerated: 350
+total_reported: 371
+works_enumerated: 365
 works:
   - code: "KC_000031_S"
     title: "もし、恋が見えたなら"
@@ -32,7 +32,7 @@ works:
     marketing_label: yuri
   - code: "KC_000076_S"
     title: "志乃と恋"
-    status: "unknown"
+    status: "ongoing"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_000094_S"
@@ -1127,7 +1127,7 @@ works:
     marketing_label: yuri
   - code: "KC_005678_S"
     title: "百合のはじまりは奴隷から"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_005710_S"
@@ -1197,12 +1197,12 @@ works:
     marketing_label: yuri
   - code: "KC_005923_S"
     title: "ウィキッドスポット"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_005941_S"
     title: "ユリノコ"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_005942_S"
@@ -1212,7 +1212,7 @@ works:
     marketing_label: yuri
   - code: "KC_005943_S"
     title: "カムパネルラの塔"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_005967_S"
@@ -1222,7 +1222,7 @@ works:
     marketing_label: yuri
   - code: "KC_005974_S"
     title: "音盤紀行"
-    status: "unknown"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_005976_S"
@@ -1287,7 +1287,7 @@ works:
     marketing_label: yuri
   - code: "KC_006183_S"
     title: "少女星間漂流記"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_006225_S"
@@ -1352,7 +1352,7 @@ works:
     marketing_label: yuri
   - code: "KC_006547_S"
     title: "怪異部～M県Y市の怪現象について～"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_006549_S"
@@ -1392,7 +1392,7 @@ works:
     marketing_label: yuri
   - code: "KC_006660_S"
     title: "バカに告白"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_006662_S"
@@ -1437,7 +1437,7 @@ works:
     marketing_label: yuri
   - code: "KC_006789_S"
     title: "推し恋カプリチオ"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_006791_S"
@@ -1517,7 +1517,7 @@ works:
     marketing_label: yuri
   - code: "KC_007176_S"
     title: "妄執女と芥川"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_007198_S"
@@ -1532,7 +1532,7 @@ works:
     marketing_label: yuri
   - code: "KC_007254_S"
     title: "創る庭"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_008266_S"
@@ -1652,7 +1652,7 @@ works:
     marketing_label: yuri
   - code: "KC_009434_S"
     title: "あきらかに年齢を詐称している女子高生VTuber"
-    status: "ongoing"
+    status: "unknown"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_009488_S"
@@ -1697,7 +1697,7 @@ works:
     marketing_label: yuri
   - code: "KC_016753_S"
     title: "彼氏の女友達がぐいぐい来る（私に）"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_016896_S"
@@ -1760,8 +1760,83 @@ works:
     status: "ongoing"
     tag: "百合"
     marketing_label: yuri
+  - code: "KC_019660_S"
+    title: "悪役令嬢覇王伝　転生したら身長245cm体重210kgの恵体でした。だから無双します"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
   - code: "KC_019740_S"
     title: "この湯で、あなたと"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_019937_S"
+    title: "さざめとりお"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_019946_S"
+    title: "こいのおわりをねがうとき"
+    status: "unknown"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_019973_S"
+    title: "私の彼女はボディビルダー／読切版"
+    status: "unknown"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020013_S"
+    title: "No marriage, No magic"
+    status: "unknown"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020017_S"
+    title: "彼岸でランデヴー"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020054_S"
+    title: "きらめきのDolphin Line"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020067_S"
+    title: "まりあ†ほりっく　その後の12か月のおはなし"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020101_S"
+    title: "白粉花の告白"
+    status: "unknown"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020132_S"
+    title: "仕事のあとは同じ教室で"
+    status: "unknown"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020158_S"
+    title: "真夜中に愛してよ"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020317_S"
+    title: "リユナイテッド・ルナ"
+    status: "unknown"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020389_S"
+    title: "盗賊少女に転生したけど、周回ボーナスで楽勝です！　100％盗む＆逃げるでラクラク冒険者生活"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_020962_S"
+    title: "JKのストレス発散方法"
+    status: "unknown"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_021305_S"
+    title: "死神さんと昇天ごはん"
     status: "ongoing"
     tag: "百合"
     marketing_label: yuri

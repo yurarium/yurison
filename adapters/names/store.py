@@ -687,9 +687,27 @@ class NameStore:
             # stamped with it. 11 titles said a source stated their reading while naming us as
             # the source and holding no page at all. The reading_note beside them named
             # BOOK☆WALKER, which is where they really came from, and nothing could act on prose.
-            val = fact.get(dst) if src is None else fact.get(dst, fact.get(src))
+            #
+            # AND THE ENTRY'S PAGE IS NOT LENT TO A CLAIM OF ANOTHER KIND. A licensed title whose
+            # reading was worked out here states `reading_source_kind: derived` beside a licensor's
+            # page, and the reading was stamped with that page: ten readings cited Seven Seas or
+            # Yen Press, which state no Japanese reading anywhere. A claim that names its own kind
+            # keeps its own source and page, or none.
+            if src in ("source", "source_url") and self._foreign(fact, value_key):
+                val = fact.get(dst)
+                if val is None:
+                    # What is there was lent by the entry on an earlier apply, so it goes.
+                    cur.pop(dst, None)
+            else:
+                val = fact.get(dst) if src is None else fact.get(dst, fact.get(src))
             if val is not None:
                 cur[dst] = val
+
+    @staticmethod
+    def _foreign(fact, value_key):
+        """Whether this claim names a kind of source other than the one the entry's page is for."""
+        own, entry = fact.get(f"{value_key}_source_kind"), fact.get("source_kind")
+        return bool(own and entry and own != entry)
 
     @staticmethod
     def _stamped(value_key):

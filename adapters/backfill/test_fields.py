@@ -49,6 +49,21 @@ def main(s):
     finally:
         bf.get = real
 
+    # A FILL IS ASKED AGAIN AFTER IT STOPS BEING A GAP, and kept when the asking fails, so the
+    # compile that reads it complete cannot take it away on the next run.
+    prior = [{"work_title": "Filled", "url": "https://h/1", "platform_name": "P", "author": "誰か",
+              "route": "gigaviewer-feed", "chapters": [{"title": "1", "updated": "2026-01-01"}]}]
+    gaps = [{"work": "New", "url": "https://h/2", "platform": "P"}]
+    s.eq([g["work"] for g in bf.asked(gaps, prior)], ["New", "Filled"],
+         "the store's gaps, then what this file filled before")
+    s.eq(len(bf.asked([{"work": "Filled", "url": "https://h/1"}], prior)), 1,
+         "a work in both is asked once")
+    got = bf.kept([], prior)
+    s.eq((got[0]["work_title"], got[0]["author"], len(got[0]["episodes"])), ("Filled", "誰か", 1),
+         "an earlier fill this run did not refresh is kept whole")
+    s.eq([w["work_title"] for w in bf.kept([{"work_title": "Filled", "episodes": []}], prior)],
+         ["Filled"], "and one it refreshed is not doubled")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "backfill.fields"))

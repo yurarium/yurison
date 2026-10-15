@@ -63,6 +63,26 @@ def fetch(url, cache, max_age_days=1):
     return t
 
 
+def at(url, html, site):
+    """Where the page says it lives, when that is on the site's own host, else the address asked.
+
+    COMICリュウ moved to comici in September 2026 and redirects each old series address to the new
+    one. Recorded at the old address, one work read as two pages on one site, which the build
+    takes for two works (its same-site split), and the pager walked from the wrong base.
+    """
+    c = _htmlbits.canonical(html)
+    return c if c and site["host"] in c else url
+
+
+def one_per_address(works):
+    """One row per address, the one with the most chapters, in first-seen order."""
+    best = {}
+    for w in works:
+        if w["url"] not in best or len(w["episodes"]) > len(best[w["url"]]["episodes"]):
+            best[w["url"]] = w
+    return list(best.values())
+
+
 TRUNCATED = re.compile(r"(?:\.{2,}|\u2026)\s*$")
 OG_TITLE = _htmlbits.OG_TITLE
 
@@ -351,14 +371,14 @@ def main():
             if mis:
                 refused.append((tgt["title"], tgt["url"]) + mis)
                 continue
-            eps = episodes(html, eng, f"https://{site['host']}", tgt["url"], _page)
+            eps = episodes(html, eng, f"https://{site['host']}", at(tgt["url"], html, site), _page)
             if len(eps) < site.get("min_episodes", 1):
                 failed.append((tgt["title"], f"{len(eps)} episodes parsed"))
                 continue
             # The byline, which was never read, so every comici platform reported chapters with no
             # author; and from the series page where the target is a chapter. See `author_of`.
             au = author_of(html, site, _page)
-            row = {"work_title": untruncated(tgt["title"], html), "url": tgt["url"],
+            row = {"work_title": untruncated(tgt["title"], html), "url": at(tgt["url"], html, site),
                    "episodes": eps}
             # THE PLATFORM'S OWN WORD ON THE SERIALISATION, which nothing was reading. comici
             # states 完結, 読み切り or 連載中 in the page's data, and a hand review of 121 dormant
@@ -372,6 +392,8 @@ def main():
             if au:
                 row["author"] = au
             works.append(row)
+
+        works = one_per_address(works)
 
         # The floor exists to catch a site redesign silently emptying a parser. It has to scale
         # with how many works the site actually has, or a platform carrying one yuri title is

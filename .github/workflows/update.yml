@@ -413,8 +413,18 @@ jobs:
           git add data/source data/coverage data/ledger data/names data/queue data/state
           git diff --cached --quiet || git commit -m "update: run ${{ github.run_id }}"
 
+      # ONTO WHATEVER LANDED MEANWHILE. A person pushing code during a run made the push a
+      # non-fast-forward on 2026-10-15, and the store was never published. The run's commit holds
+      # only data, so it rebases cleanly onto a code commit. Where a person also regenerated a file
+      # this run writes, the run's hunk wins (`-X theirs` is the commit being replayed): it is the
+      # later reading of the same source, and the next run would write it again regardless.
       - name: Push
-        run: git push
+        run: |
+          for i in 1 2 3; do
+            git push && exit 0
+            git pull --rebase -X theirs --no-edit origin main || { git rebase --abort; exit 1; }
+          done
+          exit 1
 
       # SAVED WHETHER OR NOT THE JOB PASSED, which is the whole point of splitting the step. It
       # sits after the work that fills the cache and before nothing in particular; `if: always()`

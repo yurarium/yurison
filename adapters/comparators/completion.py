@@ -31,6 +31,8 @@ import pathlib
 import re
 import sys
 
+import yaml
+
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import textnorm  # noqa: E402
 
@@ -80,6 +82,22 @@ def finished(pages):
     return out
 
 
+def carried(prior, fresh):
+    """The claims of the last write, with today's snapshots laid over them.
+
+    The cache holds only the pages fetched lately (CI keeps the newest eight), so a run that read
+    the cache alone would forget every work that finished before them. A serialisation does not
+    un-finish, so a claim once made stands, and a fresh sighting only moves its `seen` forward.
+    """
+    out = {textnorm.norm(c["work"]): dict(c, seen=str(c["seen"])) for c in prior or []}
+    for k, c in fresh.items():
+        if k in out:
+            out[k]["seen"] = max(out[k]["seen"], c["seen"])
+        else:
+            out[k] = c
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--cache", required=True)
@@ -94,9 +112,11 @@ def main(argv=None):
                           datetime.date.fromtimestamp(p.stat().st_mtime).isoformat()))
         except OSError:
             continue
-    claims = finished(pages)
+    outp = pathlib.Path(a.out)
+    prior = (yaml.safe_load(outp.read_text(encoding="utf-8")) or {}).get("claims") if outp.exists() else []
+    claims = carried(prior, finished(pages))
 
-    L = ["# Works Web漫画アンテナ has tagged 完結, gathered from every snapshot in the fetch cache.",
+    L = ["# Works Web漫画アンテナ has tagged 完結, gathered from every snapshot fetched, carried forward.",
          "#",
          "# A CLAIM, not an attestation: the antenna is an aggregator, so this is a lead under",
          "# DEFINITIONS §5 and what to do about it is build.py's to decide. `seen` is the day the",

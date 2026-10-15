@@ -1,12 +1,12 @@
-# Works Web漫画アンテナ has tagged 完結, gathered from every snapshot in the fetch cache.
+# Works Web漫画アンテナ has tagged 完結, gathered from every snapshot fetched, carried forward.
 #
 # A CLAIM, not an attestation: the antenna is an aggregator, so this is a lead under
 # DEFINITIONS §5 and what to do about it is build.py's to decide. `seen` is the day the
 # snapshot carrying the tag was taken, so the age of the observation is visible.
 source: webcomics.jp
 role: completion-claims
-retrieved: 2026-08-04
-pages_read: 31
+retrieved: 2026-10-15
+pages_read: 32
 claims:
   - work: "3分待って むぎ先輩"
     platform: "裏サンデー"

@@ -10,11 +10,25 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-08-01
+retrieved: 2026-10-15
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 1
+works_confirmed: 2
 works:
+  - work_title: "にせものターコイズ"
+    author: "内猫さかな"
+    url: "https://www.sunday-webry.com/episode/12207421983913735230"
+    series_id: "12207421983913734114"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/08/11/nisemono-yomikiri/"
+      headline: "痛いほど眩しい、少女ふたりの青春を描いた読み切り「にせものターコイズ」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "にせものターコイズ"
+        updated: 2026-07-25
+        url: "https://www.sunday-webry.com/episode/12207421983913735230"
   - work_title: "なとりとしずは"
     author: "鮎川あお"
     url: "https://www.sunday-webry.com/episode/12207421983745504350"
@@ -26,9 +40,9 @@ works:
       headline: "強くなりたい少女たちの青春を描く柔道ガール・ミーツ・ガール「なとりとしずは」WEBで連載開始"
     chapter_count: 4
     chapters:
-      - title: "第5話 約束"
-        updated: 2026-07-20
-        url: "https://www.sunday-webry.com/episode/12207421983978194749"
+      - title: "第10話 期待 (前編)"
+        updated: 2026-10-12
+        url: "https://www.sunday-webry.com/episode/12207421984354212212"
       - title: "第3話 負けず嫌い"
         updated: 2026-06-22
         url: "https://www.sunday-webry.com/episode/12207421983877405342"

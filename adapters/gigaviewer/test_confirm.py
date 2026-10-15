@@ -44,6 +44,28 @@ def main(s):
     s.eq(eps[0]["url"], "https://x.jp/e/1", "the link is carried")
     s.eq(gc.episodes("<feed></feed>"), [], "an empty feed yields nothing")
 
+    # EARLIER CONFIRMATIONS ARE ASKED AGAIN, and kept as they were when the asking fails.
+    import tempfile
+    from collections import defaultdict
+    with tempfile.TemporaryDirectory() as d:
+        pathlib.Path(d, "gv-confirmed.yaml").write_text(
+            "works:\n  - work_title: Old\n    url: https://h/episode/42\n"
+            "    discovered_via: {source: yurinavi, article: https://a/1}\n"
+            "    chapters:\n      - {title: 第1話, updated: 2026-08-01, url: https://h/episode/42}\n")
+        prior = gc.revisits(d, {"gv": {"host": "h"}, "other": {"host": "o"}})
+    s.eq([(c["platform"], c["platform_code"], c["source"]) for c in prior], [("gv", "42", "yurinavi")],
+         "an earlier confirmation becomes a candidate on its platform, provenance and all")
+    got = gc.targets([{"platform": "gv", "platform_code": "42"}, {"platform": "gv", "platform_code": "7"}],
+                     prior)
+    s.eq(len(got), 2, "a work the queue still names is asked once")
+    s.eq(len(gc.targets([], prior)), 1, "and one it no longer names is still asked")
+    kept = gc.kept(defaultdict(list), prior)
+    s.eq([(w["work_title"], w["episodes"][0]["title"]) for w in kept["gv"]], [("Old", "第1話")],
+         "a refresh that failed keeps the earlier record and its chapters")
+    fresh = defaultdict(list, {"gv": [{"url": "https://h/episode/42", "work_title": "New"}]})
+    s.eq([w["work_title"] for w in gc.kept(fresh, prior)["gv"]], ["New"],
+         "a refresh that worked replaces it")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "gigaviewer.confirm"))

@@ -246,8 +246,24 @@ def cache_age(s):
         s.eq(bylines.cached_page(url, tmp, "ua", offline=True), "live page",
              "while offline reads the cache at any age, having no other answer")
         s.eq(len(asked), 1, "without reaching for the host")
+
+        # A FAILED FETCH IS NOT CACHED, so the next run asks again instead of reading the failure.
+        def _down(req, timeout=None):
+            raise OSError("down")
+        bylines.urllib.request.urlopen = _down
+        u2 = "https://example.com/comics/other"
+        s.check(bylines.cached_page(u2, tmp, "ua").startswith("__ERROR__"), "a failure is reported")
+        s.eq(bylines.cached_page(u2, tmp, "ua", offline=True), "", "and nothing was written for it")
     finally:
         bylines.urllib.request.urlopen, bylines.time.sleep = real_open, real_sleep
+
+    # A PAGE THAT DID NOT ARRIVE KEEPS THE EARLIER BYLINE; one that arrived and said nothing does not.
+    before = {"W": {"author": "誰か"}}
+    s.check(bylines.carried("__ERROR__ OSError down", "W", before), "an unread page keeps the byline")
+    s.check(bylines.carried("", "W", before), "as does an empty one")
+    s.check(not bylines.carried("<html>refiled</html>", "W", before),
+            "a page that arrived is the answer, even when it names nobody")
+    s.check(not bylines.carried("", "X", before), "and a work never credited has nothing to keep")
 
 
 if __name__ == "__main__":

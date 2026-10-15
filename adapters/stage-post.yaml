@@ -11,3 +11,32 @@ commands:
   - id: bookwalker-completion
     optional: true
     argv: [adapters/bookwalker.py, --out, data/coverage/bookwalker-completion.yaml, --limit, "60"]
+
+  # How long マガポケ says each series is, off the series page. The full series feeds made it a
+  # cross-check rather than the only reading, so weekly: a feed that started truncating would read
+  # shorter than the count, and nothing else would notice.
+  - id: magapoke-lengths
+    optional: true
+    every_days: 7
+    argv: [adapters/magapoke.py, --out, data/coverage/magapoke-lengths.yaml]
+
+  # The page behind each claim the compile left open, so the next compile can settle it. Reads
+  # data/build/claims-open.json, which the compile writes for it. Frozen at 2026-08-03 when run.json
+  # stopped being written by default.
+  - id: claims-trace
+    optional: true
+    argv: [adapters/claims/trace.py, --cache, "{CACHE}/claims-cache"]
+
+  # The byline each platform prints, for the works the store credits to nobody. Weekly: credits
+  # move when a platform re-files a work, which is rare.
+  - id: bylines
+    optional: true
+    every_days: 7
+    argv: [adapters/bylines.py, --cache, "{CACHE}/byline-cache"]
+
+  # The attested rows the compile left missing a chapter name, an author or an access state, from
+  # the page a reader would open. The rows are the ones `incomplete attested rows` counts, asked of
+  # the store; a hand-made list stood in for them from 2026-08-02 until 2026-10-15.
+  - id: backfill
+    optional: true
+    argv: [adapters/backfill/fields.py, --out, data/source/webpages, --retrieved, "{R}"]

@@ -81,6 +81,26 @@ def main(s):
          "a host stated in one register survives the other stating the platform too")
     s.eq(o.get("heros-web.com"), "HERO'S Web", "and so does the one they both state")
 
+    # ── AND WITH EVERY NAME EITHER REGISTER HAS MET ─────────────────────────────────────────────
+    #
+    # Aliases were the last file's alone, so an alias written beside an adapter's entry vanished
+    # whenever the project's register also named the platform. COMICリュウ is the case: its new
+    # site calls itself COMICリュウライブ, which the comici sites list states.
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        a, b = pathlib.Path(d, "a.yaml"), pathlib.Path(d, "b.yaml")
+        a.write_text("platforms:\n  - name: COMICリュウ\n    en: COMIC Ryu\n")
+        b.write_text("sites:\n  - name: COMICリュウ\n    aliases: [COMICリュウライブ]\n"
+                     "    host: comic-ryu.jp\n")
+        real = platform.REGISTERS
+        platform.REGISTERS = ((a, "platforms"), (b, "sites"))
+        try:
+            row = [r for r in platform.registered() if r["name"] == "COMICリュウ"][0]
+        finally:
+            platform.REGISTERS = real
+    s.eq(row["aliases"], ["COMICリュウライブ"], "an alias one register states survives the other")
+    s.eq(row["en"], "COMIC Ryu", "beside the field the other register states")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

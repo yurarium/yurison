@@ -47,6 +47,17 @@ def main(s):
                                     "tags": []}],
          "a row with no tags parses and claims nothing")
 
+    # THE CACHE FORGETS AND THE FILE DOES NOT: a claim from an earlier write survives a run whose
+    # pages no longer list the work, and a fresh sighting moves its date forward.
+    prior = [{"work": "Old", "platform": "P", "url": "u", "seen": "2025-03-01"},
+             {"work": "A", "platform": "P", "url": "https://x/1", "seen": "2025-01-01"}]
+    got = c.carried(prior, fin)
+    s.eq(sorted(v["work"] for v in got.values()), ["A", "Old"],
+         "a work the cache no longer lists keeps its claim")
+    s.eq(got[c.textnorm.norm("A")]["seen"], "2026-08-01", "a fresh sighting moves `seen` forward")
+    s.eq(got[c.textnorm.norm("Old")]["seen"], "2025-03-01", "an unseen claim keeps its date")
+    s.eq(len(c.carried(None, {})), 0, "no prior file and no pages is no claims")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

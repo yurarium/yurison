@@ -37,6 +37,17 @@ def main(s):
     s.check(kc.work_data('<script id="__NEXT_DATA__">not json</script>') is None,
             "malformed JSON yields None rather than taking the run down")
 
+    # THE QUEUE MOVES ON AND THE ATTESTATION STAYS: an August confirmation survives a run whose
+    # queue no longer names it, and a fresh verdict on the same page replaces the old one.
+    old = [{"url": "u/1", "work_title": "Aug"}, {"url": "u/2", "work_title": "Stale"}]
+    held = [{"url": "u/3", "work_title": "Held"}]
+    c, w = kc.carried(old, held, [{"url": "u/2", "work_title": "Fresh"}], [])
+    s.eq([r["work_title"] for r in c], ["Fresh", "Aug"], "a fresh verdict replaces, the rest stay")
+    s.eq([r["work_title"] for r in w], ["Held"], "a withheld page not revisited stays withheld")
+    c, w = kc.carried([], held, [{"url": "u/3", "work_title": "Now"}], [])
+    s.eq((len(c), w), (1, []), "a page confirmed today leaves the withheld file")
+    s.eq(kc.carried(None, None, [], []), ([], []), "no prior files and no queue is nothing")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "kadokomi.confirm"))

@@ -46,7 +46,6 @@ ENGINES = {
     "comic-trail.com": ("giga", "コミックトレイル"),
     "comic-seasons.com": ("giga", "Seasons"),
     "feelweb.jp": ("giga", "FEEL web"),
-    "www.comic-ryu.jp": ("giga", "COMICリュウ"),
     "comic-y-ours.com": ("giga", "COMIC Y-OURS"),
     "ourfeel.jp": ("giga", "OUR FEEL"),
     # ── Comici ────────────────────────────────────────────────────────────────────────────────
@@ -58,6 +57,8 @@ ENGINES = {
     "youngchampion.jp": ("comici", "ヤングチャンピオン"),
     "hanayume.com": ("comici", "花とゆめ+"),
     "comicride.jp": ("comici", "ライコミ"),
+    # Moved off GigaViewer at www.comic-ryu.jp to comici at the bare domain around 2026-09-16.
+    "comic-ryu.jp": ("comici", "COMICリュウ"),
     "heros-web.com": ("comici", "HERO'S Web"),
     "comic.j-nbooks.jp": ("comici", "COMICリュエル"),
     "asacomi.jp": ("comici", "アサコミ"),

@@ -20,8 +20,8 @@ already proven:
 
 Nothing is guessed. A route that does not fire leaves the field empty, which is the honest state.
 
-Usage:  fields.py --gaps data/coverage/field-gap-rows.yaml --out data/source/webpages \
-                  --retrieved 2026-08-02
+Usage:  fields.py --out data/source/webpages --retrieved 2026-10-15
+        (the incomplete rows come from the store; `--gaps FILE` reads a file instead)
 """
 import argparse, html as _html, json, pathlib, re, subprocess, sys, time
 import urllib.error, urllib.request
@@ -150,14 +150,48 @@ def js(v):
     return json.dumps(v, ensure_ascii=False)
 
 
+def asked(gaps, prior):
+    """The store's incomplete rows, then each work an earlier run filled that they no longer name.
+
+    A FILLED ROW STOPS BEING A GAP, which is the point, and that is also how this pass would forget
+    it: the next compile reads the row complete, the gap list drops it, and a rewrite from the gap
+    list alone takes the fill away again (a filter reading its own output). So what this file
+    already holds is asked again every run, which also follows a page that changes.
+    """
+    named = {g.get("work") for g in gaps}
+    return list(gaps) + [{"work": w["work_title"], "url": w["url"], "platform": w.get("platform_name")}
+                         for w in prior if w.get("work_title") and w.get("url")
+                         and w["work_title"] not in named]
+
+
+def kept(works, prior):
+    """Each earlier fill this run could not refresh, in the shape `works` holds, so a page that
+    did not load costs nothing it had already given."""
+    have = {w["work_title"] for w in works}
+    return works + [{"work_title": w["work_title"], "author": w.get("author"), "url": w["url"],
+                     "platform": w.get("platform_name"), "route": w.get("route"),
+                     "work_access": w.get("access_modes"), "episodes": w.get("chapters") or []}
+                    for w in prior if w.get("work_title") and w["work_title"] not in have]
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--gaps", required=True)
+    # THE STORE BY DEFAULT. The gap list was a file derived by hand on 2026-08-02 and never again,
+    # so the pass had nothing new to fill from then on while `incomplete attested rows` rose.
+    ap.add_argument("--gaps", default=None, help="a gap file to read instead of the store")
     ap.add_argument("--out", required=True)
     ap.add_argument("--retrieved", required=True)
     a = ap.parse_args()
 
-    gaps = (yaml.safe_load(open(a.gaps)) or {}).get("rows") or []
+    if a.gaps:
+        gaps = (yaml.safe_load(open(a.gaps)) or {}).get("rows") or []
+    else:
+        import population
+        gaps = population.incomplete_rows()
+    outf = pathlib.Path(a.out) / "backfill.yaml"
+    prior = ((yaml.safe_load(outf.read_text(encoding="utf-8")) or {}).get("works") or []
+             if outf.exists() else [])
+    gaps = asked(gaps, prior)
     by_work = defaultdict(set)
     plat_of, order = {}, []
     for g in gaps:
@@ -208,8 +242,11 @@ def main():
                       "platform": plat_of.get(w), "route": route,
                       "work_access": None, "episodes": eps})
 
+    resolved = len(works)
+    works = kept(works, prior)
     if not works:
-        sys.exit("no gap row resolved; not writing")
+        print("no gap row resolved and nothing held from before; not writing")
+        return 0
 
     L = ["# Fields filled in one row at a time, from the page a reader would open.",
          "#",
@@ -248,7 +285,7 @@ def main():
     (pathlib.Path(a.out) / "backfill.yaml").write_text("\n".join(L))
 
     print(f"gap works       : {len(order)}")
-    print(f"resolved        : {len(works)}  {dict(how)}")
+    print(f"resolved        : {resolved}  {dict(how)}; {len(works) - resolved} kept from before")
     if missed:
         print(f"still missing   : {len(missed)}")
         for t, r in missed:
@@ -256,4 +293,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -10356,7 +10356,6 @@ names:
     reading_note: Read from the title. Checked by aligning it against the surface, so every kana run in
       the title is accounted for and the ruby lands on the right characters.
     reading_reviewed: '2026-08-10'
-    reading_source: Yen Press
     reading_source_kind: derived
     translation_note: 'Our own rendering, which the entry carried as its name until the licensor''s was
       found. It is kept rather than discarded: お姉さま is the address the title uses and Yen Press''s Sister
@@ -13273,9 +13272,7 @@ names:
       を was unreachable, and is not a reading of anything here.
     reading_pass: 2
     reading_reviewed: '2026-08-07'
-    reading_source: mediaarts-db
     reading_source_kind: derived
-    reading_url: https://mediaarts-db.artmuseums.go.jp/id/M930161
     translation_note: Our own rendering, kept beside the attested one because EN_ORDER is the reader's
       to set and a reader who moves the work's own English down is asking for exactly this form. It was
       a second entry under the same key until 2026-08-10, one quoted and one bare, so YAML kept whichever
@@ -14610,9 +14607,7 @@ names:
       so the reading is read off the title rather than inferred behind it. しあわせ is already kana.
     reading_pass: 4
     reading_reviewed: '2026-08-05'
-    reading_source: series-art
     reading_source_kind: derived
-    reading_url: https://img.comic-fuz.com/c/1CSlK_/oP.webp
     verified: false
   しおりを探すページたち:
     basis: translated
@@ -22018,13 +22013,13 @@ names:
     reading: ユリゾン
     reading_at: '2026-08-04'
     reading_basis: surface
+    reading_corroborated:
+    - comic-ogyaaa
     reading_note: The title is kana throughout, so the reading is the title. It was stored as two words,
       ユリ ゾン, which romanised as "Yuri Zon" and split a name that is one word.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
-    reading_source: comic-ogyaaa
     reading_source_kind: derived
-    reading_url: https://comic-ogyaaa.com/episode/2551460909730247441
     translation_refused: ゆり is the genre the database is named for and ゾン is a clipping the title never
       spells out. Our rendering is the sound of the two, which is the publisher's YURISON in another case.
     verified: true
@@ -29642,13 +29637,13 @@ names:
     - basis: back-converted
       source: mangaupdates
       value: スケバン ト テンコウセイ ガ クダラナイ アソビ オ スル ダケ ノ ハナシ
+    reading_corroborated:
+    - Seven Seas Entertainment
     reading_note: The reading carries a longer title than the one stored; the tail has no counterpart
       in the name.
     reading_pass: 2
     reading_reviewed: '2026-08-04'
-    reading_source: Seven Seas Entertainment
     reading_source_kind: derived
-    reading_url: https://www.penguinrandomhouse.com/books/814540/the-delinquent-and-the-transfer-student-vol-1-by-fujichika/
     translation_note: スケバン is the head of a girls' gang in the schools of the 1970s and 80s, a figure
       with its own dress and its own films. The licensed delinquent is a category she belongs to.
     verified: false
@@ -33887,9 +33882,7 @@ names:
       ガンニョ takes 元女 as a Sino-Japanese compound, which is not a word.
     reading_pass: 4
     reading_reviewed: '2026-08-05'
-    reading_source: sevenseasentertainment.com
     reading_source_kind: derived
-    reading_url: https://sevenseasentertainment.com/series/superwomen-in-love-honey-trap-and-rapid-rabbit/
     verified: false
   ビタースイートナイトシェード:
     basis: translated
@@ -39307,9 +39300,7 @@ names:
       in counting because it is heard as イチ.
     reading_pass: 4
     reading_reviewed: '2026-08-05'
-    reading_source: series-art
     reading_source_kind: derived
-    reading_url: https://cdn.comic-walker.com/integration/cdpf/resources/007122/b644bbca-683c-46a9-88a8-16e68a6755a8.jpg
     verified: false
   万葬不踏の欺神迷宮:
     basis: translated
@@ -52104,6 +52095,30 @@ names:
     reading_reviewed: '2026-08-12'
     reading_source: yurarium
     reading_source_kind: derived
+    verified: false
+  姫野姫子の奴隷みてえな彼氏:
+    basis: romaji
+    furigana_spans:
+    - - 姫野
+      - ひめの
+    - - 姫子
+      - ひめこ
+    - - の
+      - null
+    - - 奴隷
+      - どれい
+    - - みてえな
+      - null
+    - - 彼氏
+      - かれし
+    reading: ヒメノ ヒメコ ノ ドレイ ミテエナ カレシ
+    reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   姫騎士と姫巫女:
     basis: translated
@@ -67336,32 +67351,32 @@ names:
       the long vowel as ou, and turning that back into kana gives オウ where the word is spelled オオ.'
     reading_pass: 2
     reading_reviewed: '2026-08-05'
-    reading_source: sevenseasentertainment.com
     reading_source_kind: derived
-    reading_url: https://sevenseasentertainment.com/series/sheep-princess-in-wolfs-clothing/
     verified: false
   猫とシュガーポット:
-    basis: translated
-    en: Cats and the Sugar Pot
-    en_at: '2026-10-13'
+    basis: licensed
+    en: Cats and Sugar Bowls
+    en_at: '2026-08-06'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: The Cat and the Sugar Pot
-    - basis: licensed
-      source: sevenseasentertainment.com
-      value: Cats and Sugar Bowls
-    en_reviewed: '2026-10-13'
-    en_source: https://comic-boost.com/content/01560001
-    en_source_kind: derived
-    note: 'A 作品集 by 雪子 on comicブースト whose title joins its stories: the 猫 ones, 猫に離人, 猫と囀り and 猫に電話, and
-      シュガーポットは壊れない. Every story is dated 2025-01-31, the day the collection was posted.'
+    - basis: translated
+      source: https://comic-boost.com/content/01560001
+      value: Cats and the Sugar Pot
+    en_reviewed: '2026-08-06'
+    en_source: sevenseasentertainment.com
+    en_source_kind: licensor
+    en_url: https://sevenseasentertainment.com/series/cats-and-sugar-bowls/
+    note: Seven Seas Entertainment's own catalogue entry, which states the Japanese title as 猫とシュガーポット.
+      That is the name an English reader meets the work under.
     reading: ネコ ト シュガーポット
-    reading_at: '2026-10-13'
+    reading_at: '2026-08-06'
     reading_basis: researched
+    reading_corroborated:
+    - sevenseasentertainment.com
     reading_note: 猫 is ネコ; the rest is kana.
-    reading_reviewed: '2026-10-13'
-    reading_source: https://comic-boost.com/content/01560001
+    reading_reviewed: '2026-08-06'
     reading_source_kind: derived
     translation_note: The Japanese counts neither, and the licensed English makes both plural.
     verified: false
@@ -70214,6 +70229,43 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  百合の間に挟まる梅田ダンジョン:
+    basis: translated
+    en: The Umeda Dungeon That Comes Between Yuri
+    en_at: '2026-10-15'
+    en_reviewed: '2026-10-15'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - 百合
+      - ゆり
+    - - の
+      - null
+    - - 間
+      - あいだ
+    - - に
+      - null
+    - - 挟
+      - はさ
+    - - まる
+      - null
+    - - 梅田
+      - うめだ
+    - - ダンジョン
+      - null
+    note: '百合の間に挟まる is the stock phrase for something, classically a man, wedging itself into a yuri pairing.
+      梅田ダンジョン is the nickname for the warren of stations and underground passages at 梅田 in Osaka. 百合ナビ''s
+      announcement makes the station the obstacle: a long-distance couple of university students has to
+      find each other inside it.'
+    reading: ユリ ノ アイダ ニ ハサマル ウメダ ダンジョン
+    reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   百合もよう　～咲宮４姉妹の恋～:
@@ -74402,6 +74454,35 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  私の魂を食べて下さい!:
+    basis: romaji
+    furigana_spans:
+    - - 私
+      - わたし
+    - - の
+      - null
+    - - 魂
+      - たましい
+    - - を
+      - null
+    - - 食
+      - た
+    - - べて
+      - null
+    - - 下
+      - くだ
+    - - さい!
+      - null
+    reading: ワタシ ノ タマシイ ヲ タベテ クダサイ!
+    reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   私の魂を食べて下さい！:
     basis: translated
     en: Please Eat My Soul!
@@ -75638,12 +75719,12 @@ names:
     - basis: analyser
       source: sudachi
       value: ベニガラ ノ パンドラ
+    reading_corroborated:
+    - Seven Seas Entertainment
     reading_note: The title is こうかくのパンドラ, punning on 攻殻機動隊.
     reading_pass: 4
     reading_reviewed: '2026-08-04'
-    reading_source: Seven Seas Entertainment
     reading_source_kind: derived
-    reading_url: https://tankobonbon.com/products/9781626921900
     translation_note: 紅殻 is bengara, the red iron oxide used as a pigment, and the licensed crimson reads
       it as a colour word. The shell is the body she is put into.
     verified: false
@@ -79739,7 +79820,6 @@ names:
       edition. The publisher's blurb on the same page glosses 豹藤（ひょうどう） in running text, which is the
       same reading written a second way. It replaces 'ヒョウ フジサン ワ コウリャク シタイ', which no source had stated.
     reading_reviewed: '2026-08-10'
-    reading_source: yurarium
     reading_source_kind: platform
     reading_url: https://bookwalker.jp/de640f54a8-0664-4c88-8643-7379f85af56d/
     verified: true
@@ -84092,6 +84172,28 @@ names:
     reading_source_kind: analyser
     translation_note: あこがれて is looking up to something and wanting to be it. Gushing over Magical Girls
       turns the aspiration into enthusiasm about other people.
+    verified: false
+  魔法少女は嘘をつく:
+    basis: romaji
+    furigana_spans:
+    - - 魔法
+      - まほう
+    - - 少女
+      - しょうじょ
+    - - は
+      - null
+    - - 嘘
+      - うそ
+    - - をつく
+      - null
+    reading: マホウ ショウジョ ワ ウソ ヲ ツク
+    reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   魔法少女イナバ:
     basis: translated

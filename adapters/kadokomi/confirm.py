@@ -17,7 +17,7 @@ Never stored: `summary` (publisher synopsis — copyrightable, §2) or any thumb
 Usage:  confirm.py --queue data/queue/yurinavi.yaml --out data/source/kadokomi \
                    --cache $YURI_CACHE/kadokomi-cache --retrieved 2026-08-01
 """
-import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
+import argparse, json, pathlib, re, sys
 
 import yaml
 # `adapters/` ON THE PATH BEFORE THE FACT IS IMPORTED. `run_stage.py` runs each adapter as a
@@ -27,10 +27,11 @@ import yaml
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
 from facts import marketing as _marketing                               # noqa: E402
+import net                                                              # noqa: E402
 
-UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
 DETAIL = "https://comic-walker.com/detail/{code}"
 PAUSE = 1.5
+net.set_pause("comic-walker.com", PAUSE)
 # ASKED OF `facts/marketing`, which owns it. This vocabulary decides what the database
 # admits and it had three homes until 2026-08-10.
 YURI_TAGS = _marketing.TAGS
@@ -51,17 +52,23 @@ RATING_SEMANTICS_KNOWN = False
 
 
 def fetch(code, cache):
-    f = cache / f"{code}.html"
-    if f.exists():
-        return f.read_text(), True
-    req = urllib.request.Request(DETAIL.format(code=code), headers={"User-Agent": UA})
-    try:
-        with urllib.request.urlopen(req, timeout=45) as r:
-            t = r.read().decode("utf-8", "replace")
-    finally:
-        time.sleep(PAUSE)
-    f.write_text(t)
-    return t, False
+    """A work page through the shared fetcher, cached a fortnight: tags and status move slowly.
+
+    Read from its own cache with no age test until 2026-10-15, so every page was the August one."""
+    r = net.fetch(DETAIL.format(code=code), cache, max_age_days=net.AGE_LISTING)
+    return net.body(r), r.from_cache
+
+
+def carried(prior_confirmed, prior_withheld, confirmed, withheld):
+    """Today's verdicts, with every earlier one this run did not revisit kept as it was.
+
+    The queue holds what 百合ナビ wrote about lately, so a work confirmed in August has left it by
+    October; rewriting the file from the queue alone would forget that the publisher ever attested
+    it. A fresh verdict on the same page replaces the old one in whichever file it lands.
+    """
+    fresh = {r["url"] for r in confirmed} | {r["url"] for r in withheld}
+    keep = lambda rows: [r for r in rows or [] if r.get("url") and r["url"] not in fresh]
+    return confirmed + keep(prior_confirmed), withheld + keep(prior_withheld)
 
 
 def work_data(html):
@@ -97,15 +104,16 @@ def main():
     # outbound link, which discovery resolved. Codes are passed in via the queue file.
     targets = [(c["work_title"], c.get("platform_code"), c) for c in (q.get("candidates") or [])
                if c.get("platform") == "kadokomi" and c.get("platform_code")]
-    if not targets:
-        sys.exit("no kadokomi candidates with a platform_code in the queue")
 
     confirmed, withheld, failed = [], [], []
     for title, code, cand in targets:
         try:
-            html, cached = fetch(code, cache)
-        except urllib.error.HTTPError as e:
-            failed.append((title, code, f"HTTP {e.code}"))
+            html, _ = fetch(code, cache)
+        except net.Refused as e:
+            failed.append((title, code, str(e)))
+            continue
+        if html is None:
+            failed.append((title, code, "no such page"))
             continue
         d = work_data(html)
         if not d:
@@ -151,6 +159,11 @@ def main():
                                            "real work; content_tier needs a human (DEFINITIONS §4).")
         confirmed.append(rec)
 
+    def prior(name):
+        f = out / name
+        return (yaml.safe_load(f.read_text(encoding="utf-8")) or {}).get("works") if f.exists() else []
+    confirmed, withheld = carried(prior("confirmed.yaml"), prior("withheld.yaml"), confirmed, withheld)
+
     L = ["# Confirmed against カドコミ work pages. Discovery named these; the publisher attests them.",
          "# No synopsis and no image URLs are stored (REQUIREMENTS §2).",
          "source: kadokomi", f"retrieved: {a.retrieved}", "record_type: web_work_confirmation",
@@ -162,9 +175,9 @@ def main():
                   "marketing_label", "marketing_label_note"):
             if r.get(k) is not None:
                 L.append(f"    {k}: {js(r[k])}")
-        L.append(f"    tags: {js(r['tags'])}")
+        L.append(f"    tags: {js(r.get('tags') or [])}")
         L.append("    authors:")
-        for au in r["authors"]:
+        for au in r.get("authors") or []:
             L.append(f"      - name: {js(au['name'])}")
             L.append(f"        role: {js(au['role'])}")
         if r.get("marketing_label_basis"):
@@ -172,14 +185,16 @@ def main():
             L.append("    marketing_label_basis:")
             for k in ("source", "url", "retrieved", "note"):
                 L.append(f"      {k}: {js(b[k])}")
-        dv = r["discovered_via"]
+        dv = r.get("discovered_via") or {}
         L.append("    discovered_via:")
         for k in ("source", "signal", "url"):
             L.append(f"      {k}: {js(dv.get(k))}")
     L.append("")
     (out / "confirmed.yaml").write_text("\n".join(L))
 
-    if withheld:
+    # REWRITTEN WHENEVER IT EXISTS, so its date says when the pass last looked, even with nothing
+    # newly withheld.
+    if withheld or (out / "withheld.yaml").exists():
         W = ["# WITHHELD pending human review — carries a non-zero rating (DEFINITIONS §7).",
              "# Not published. Ambiguity on the adult filter fails closed (REQUIREMENTS §6).",
              "source: kadokomi", f"retrieved: {a.retrieved}", "record_type: withheld", "works:"]

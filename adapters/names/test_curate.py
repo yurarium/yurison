@@ -690,5 +690,11 @@ def dividing_bases_and_donors(s):
     s.eq(sorted(set(boundary.SETTLED_BASES) - set(curate.DIVIDING_BASES)), ["community-printed"],
          "one basis may lend a division it did not arrive cited with, and it is the ruled one")
 
+    # THE REAL FILE HOLDS EACH KEY ONCE. The apply refuses a duplicate, and this says so before
+    # anything is committed: the licensed name of 猫とシュガーポット was dropped for two days by a
+    # second entry written below it.
+    s.eq([(x[0], x[1]) for x in curate.duplicate_keys()], [], "the curated file holds each key once")
+
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

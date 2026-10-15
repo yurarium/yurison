@@ -19,7 +19,7 @@ What this is and is not:
   misses.
 - Nothing here establishes a genre label (DEFINITIONS §4).
 
-Usage:  releases.py --sites adapters/sitemap/sites.yaml --works data/coverage/claim-targets.yaml \
+Usage:  releases.py --sites adapters/sitemap/sites.yaml --works data/coverage/candidates.yaml \
                     --out data/source/webpages --retrieved 2026-08-01
 """
 import argparse, html as _html, json, pathlib, re, sys, time, urllib.error, urllib.request

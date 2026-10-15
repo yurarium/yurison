@@ -27,28 +27,57 @@ without changes.
 Usage:  confirm.py --queue data/queue/yurinavi.yaml --out data/source/gigaviewer \
                    --cache $YURI_CACHE/giga-series-cache --retrieved 2026-08-01
 """
-import argparse, html as _html, json, pathlib, re, sys, time, urllib.error, urllib.request
+import argparse, html as _html, json, pathlib, re, sys
 from collections import Counter, defaultdict
 
 import yaml
 
-UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+import net                                                              # noqa: E402
+
 PAUSE = 1.2
 
 
-def fetch(url, cache, max_age_days=1):
-    key = re.sub(r"[^A-Za-z0-9]", "_", url)[-120:]
-    f = cache / key
-    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
-        return f.read_text()
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    try:
-        with urllib.request.urlopen(req, timeout=40) as r:
-            t = r.read().decode("utf-8", "replace")
-    finally:
-        time.sleep(PAUSE)
-    f.write_text(t)
-    return t
+def fetch(url, cache, max_age_days=net.AGE_FEED):
+    """A page through the shared fetcher; raises `net.Refused` where the host declined."""
+    return net.body(net.fetch(url, cache, max_age_days=max_age_days))
+
+
+def revisits(out, reg):
+    """Every work an earlier run confirmed, as a candidate to confirm again.
+
+    The queue holds what 百合ナビ wrote about lately, so a work confirmed in August has left it by
+    October. Asking again each run keeps its chapter list current; leaving it out would forget it.
+    """
+    out_ = []
+    for pid, p in reg.items():
+        f = pathlib.Path(out) / f"{pid}-confirmed.yaml"
+        if not f.exists():
+            continue
+        for w in (yaml.safe_load(f.read_text(encoding="utf-8")) or {}).get("works") or []:
+            m = re.search(r"/episode/(\d+)", w.get("url") or "")
+            if m:
+                out_.append(dict(w.get("discovered_via") or {}, platform=pid,
+                                 platform_code=m.group(1), work_title=w.get("work_title"),
+                                 url=(w.get("discovered_via") or {}).get("article"), prior=w))
+    return out_
+
+
+def kept(by_platform, cands):
+    """Each earlier confirmation this run could not refresh, as it was, so a refusal forgets nothing."""
+    done = {(pid, w["url"]) for pid, ws in by_platform.items() for w in ws}
+    for c in cands:
+        w = c.get("prior")
+        if w and (c["platform"], w.get("url")) not in done:
+            by_platform[c["platform"]].append(dict(w, episodes=[
+                {k: e.get(k) for k in ("title", "updated", "url")} for e in w.get("chapters") or []]))
+    return by_platform
+
+
+def targets(cands, prior):
+    """The queue's candidates, then each earlier confirmation the queue no longer names."""
+    seen = {(c.get("platform"), c.get("platform_code")) for c in cands}
+    return list(cands) + [c for c in prior if (c["platform"], c["platform_code"]) not in seen]
 
 
 def identity(html):
@@ -102,12 +131,15 @@ def main():
 
     reg = {p["id"]: p for p in yaml.safe_load(
         open("adapters/gigaviewer/platforms.yaml"))["platforms"]}
-    cands = (yaml.safe_load(open(a.queue)) or {}).get("candidates") or []
+    for p in reg.values():
+        net.set_pause(p["host"], PAUSE)
+    out = pathlib.Path(a.out)
+    out.mkdir(parents=True, exist_ok=True)
+    cands = targets((yaml.safe_load(open(a.queue)) or {}).get("candidates") or [],
+                    revisits(out, reg))
 
     cache = pathlib.Path(a.cache).expanduser()
     cache.mkdir(parents=True, exist_ok=True)
-    out = pathlib.Path(a.out)
-    out.mkdir(parents=True, exist_ok=True)
 
     by_platform, stats, failed = defaultdict(list), Counter(), []
     for c in cands:
@@ -117,9 +149,12 @@ def main():
             continue
         host = reg[pid]["host"]
         try:
-            ep = fetch(f"https://{host}/episode/{code}", cache)
-        except (urllib.error.HTTPError, urllib.error.URLError, OSError) as e:
-            failed.append((c.get("work_title"), type(e).__name__))
+            ep = fetch(f"https://{host}/episode/{code}", cache, net.AGE_LISTING)
+        except net.Refused as e:
+            failed.append((c.get("work_title"), str(e)))
+            continue
+        if ep is None:
+            failed.append((c.get("work_title"), "no such episode"))
             continue
         work, author = identity(ep)
         sid = re.search(r"/atom/series/(\d+)", ep)
@@ -127,9 +162,9 @@ def main():
             failed.append((c.get("work_title"), "no series feed on the episode page"))
             continue
         try:
-            eps = episodes(fetch(f"https://{host}/atom/series/{sid.group(1)}", cache))
-        except (urllib.error.HTTPError, urllib.error.URLError, OSError) as e:
-            failed.append((c.get("work_title"), type(e).__name__))
+            eps = episodes(fetch(f"https://{host}/atom/series/{sid.group(1)}", cache) or "")
+        except net.Refused as e:
+            failed.append((c.get("work_title"), str(e)))
             continue
         if not eps:
             failed.append((c.get("work_title"), "series feed empty"))
@@ -145,7 +180,7 @@ def main():
                                "article": c.get("url"), "headline": c.get("headline")},
         })
 
-    for pid, works in by_platform.items():
+    for pid, works in kept(by_platform, cands).items():
         p = reg[pid]
         L = [f"# {p['name']} — works confirmed from the discovery queue.",
              "#",

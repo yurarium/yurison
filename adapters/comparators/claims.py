@@ -34,7 +34,6 @@ from coverage import parse  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import paths
 
-THIS_YEAR = 2026
 MIN_CLAIMS = 20
 
 
@@ -45,16 +44,36 @@ def norm(s):
                   "", s.strip().lower())
 
 
-def antenna_date(txt, today):
+def month_day(month, day, taken):
+    """A date printed without a year, read as the latest such day on or before `taken`.
+
+    A listing never shows a future update, so 12月30日 on a page fetched in January is last year.
+    """
+    for y in (taken.year, taken.year - 1):
+        try:
+            d = date(y, month, day)
+        except ValueError:
+            continue
+        if d <= taken:
+            return d
+    return None
+
+
+def antenna_date(txt, taken):
+    """The day a listing row says its work updated, read against the day the page was fetched.
+
+    `taken` is the fetch, not the run: a page the fetch could not refresh still says 3時間前 of
+    the day it was taken, and dating that to the run would invent an update.
+    """
     t = (txt or "").strip()
     if "分前" in t or "時間前" in t:
-        return today
+        return taken
     m = re.match(r"(\d{4})年(\d{1,2})月(\d{1,2})日", t)
     if m:
         return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
     m = re.match(r"(\d{1,2})月(\d{1,2})日", t)
     if m:
-        return date(THIS_YEAR, int(m.group(1)), int(m.group(2)))
+        return month_day(int(m.group(1)), int(m.group(2)), taken)
     return None
 
 
@@ -79,9 +98,10 @@ def main():
     rows = []
     for f in sorted(cache.glob("page*.html"),
                     key=lambda p: int(re.search(r"\d+", p.name).group())):
-        rows += parse(f.read_text())
-    for r in rows:
-        d = antenna_date(r["updated_text"], today)
+        taken = min(today, date.fromtimestamp(f.stat().st_mtime))
+        rows += [(r, taken) for r in parse(f.read_text())]
+    for r, taken in rows:
+        d = antenna_date(r["updated_text"], taken)
         if not d or not (cutoff <= d <= today):
             continue
         k = (norm(r["title"]), str(d))
@@ -95,14 +115,15 @@ def main():
     # ── 百合ナビ WEB連載 ──────────────────────────────────────────────
     yf = pathlib.Path("data/coverage/yurinavi-webyuri.yaml")
     if yf.exists():
-        for w in (yaml.safe_load(yf.read_text()) or {}).get("works") or []:
+        doc = yaml.safe_load(yf.read_text()) or {}
+        taken = min(today, date.fromisoformat(str(doc.get("retrieved") or today)))
+        for w in doc.get("works") or []:
             lu = str(w.get("last_update_seen") or "")
             m = re.match(r"(\d{2})-(\d{2})", lu)
             if not m:
                 continue
-            try:
-                d = date(THIS_YEAR, int(m.group(1)), int(m.group(2)))
-            except ValueError:
+            d = month_day(int(m.group(1)), int(m.group(2)), taken)
+            if not d:
                 continue
             if not (cutoff <= d <= today):
                 continue

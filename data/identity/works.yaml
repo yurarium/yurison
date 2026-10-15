@@ -20350,6 +20350,7 @@ works:
       - "madb:bw-f1f1b471-a99b-4c85-a16f-599110b5e048"
       - "web:https://manga.nicovideo.jp/comic/83152"
       - "web:https://www.sunday-webry.com/episode/2551460910093836682"
+      - "web:https://www.sunday-webry.com/atom/series/2551460910093832609"
     attached:
       - anchor: "web:https://manga.nicovideo.jp/comic/83152"
         basis: "creator はづき is named on the platform page"
@@ -20357,6 +20358,9 @@ works:
       - anchor: "web:https://www.sunday-webry.com/episode/2551460910093836682"
         basis: "creator はづき is named on the platform page"
         retrieved: 2026-08-07
+      - anchor: "web:https://www.sunday-webry.com/atom/series/2551460910093832609"
+        basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984063808660 links its own series feed at https://www.sunday-webry.com/atom/series/2551460910093832609, so the platform places this chapter in series 2551460910093832609, and the og:title there names the work: 13にちめ：推しのため!? / きょうもバレずに過ごせた！ - はづき | サンデーうぇぶり"
+        retrieved: 2026-10-15
   - id: w03102
     title: null
     anchors:
@@ -21484,6 +21488,8 @@ works:
       - "web:https://comic-boost.com/content/01780001"
   - id: w03318
     title: "猫とシュガーポット"
+    merged_into: w01410
+    merge_basis: "One work, minted twice. w01410 holds the book (MADB C448235, by 雪子, 幻冬舎コミックス) and this was minted on 2026-10-15 for the serialisation on comicブースト, 幻冬舎's own platform, where the byline pass then read the same author off content/01560001. A serialisation and its book run share a person and a title, which is the join DEFINITIONS §5 rests on."
     anchors:
       - "web:https://comic-boost.com/content/01560001"
   - id: w03319
@@ -21494,6 +21500,11 @@ works:
     title: "死神さんと昇天ごはん"
     anchors:
       - "web:https://comic-walker.com/detail/KC_021305_S"
+  - id: w03321
+    title: "百合の間に挟まる梅田ダンジョン"
+    anchors:
+      - "web:https://ichicomi.com/episode/12207421984354015835"
+      - "web:https://ichicomi.com/atom/series/12207421984335596372"
 related:
   - a: w00156
     b: w00486

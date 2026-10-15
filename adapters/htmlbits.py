@@ -32,3 +32,13 @@ ALT = re.compile(r'alt="([^"]*)"')
 
 #: A definition list pair, which two catalogues use for their bibliographic fields.
 DT_DD = re.compile(r"<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>", re.S)
+
+#: The address a page says it lives at, in either attribute order.
+CANONICAL = re.compile(r'<link\b(?=[^>]*\brel="canonical")[^>]*\bhref="([^"]+)"')
+
+
+def canonical(html):
+    """The page's own canonical address, or None. A fetch that followed a redirect has the page
+    without knowing where it ended up; the page says so itself."""
+    m = CANONICAL.search(html or "")
+    return m.group(1) if m else None

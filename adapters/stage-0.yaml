@@ -22,6 +22,39 @@ commands:
     argv: [adapters/yurinavi/webyuri.py, --out, data/coverage, --cache, "{CACHE}/yurinavi-cache",
            --retrieved, "{R}", --force]
 
+  # カドコミ'S OWN YURI TAGS, the target list kadokomi releases read in Stage A, so it runs here
+  # where it is written before Stage A starts. Frozen at 350 works from 2026-08-01; refreshed on
+  # 2026-10-15 it held 365. Then the 百合ナビ candidates on カドコミ, checked against the publisher.
+  - id: kadokomi-catalogue
+    optional: true
+    every_days: 1
+    argv: [adapters/kadokomi/catalogue.py, --out, data/source/kadokomi,
+           --cache, "{CACHE}/kadokomi-catalogue", --retrieved, "{R}"]
+
+  - id: kadokomi-confirm
+    optional: true
+    argv: [adapters/kadokomi/confirm.py, --queue, data/queue/yurinavi.yaml,
+           --out, data/source/kadokomi, --cache, "{CACHE}/kadokomi-confirm", --retrieved, "{R}"]
+
+  # THE SAME CONFIRMATION ON THE GIGAVIEWER PLATFORMS, where a one-shot is announced once and no
+  # genre label ever names it. Last run by hand on 2026-09-27; every earlier confirmation is asked
+  # again each run so its chapter list stays current.
+  - id: gigaviewer-confirm
+    optional: true
+    argv: [adapters/gigaviewer/confirm.py, --queue, data/queue/yurinavi.yaml,
+           --out, data/source/gigaviewer, --cache, "{CACHE}/giga-confirm", --retrieved, "{R}"]
+
   - id: candidates
     optional: true
     argv: [adapters/candidates.py]
+
+  # THE COMPARATOR CLAIMS, read from the pages the passes above just fetched. Frozen from
+  # 2026-08-01 until 2026-10-15, when the producers registry found them; completion carries its
+  # earlier claims forward because the cache keeps only the newest pages.
+  - id: comparator-claims
+    optional: true
+    argv: [adapters/comparators/claims.py, --out, data/source/comparators, --retrieved, "{R}"]
+
+  - id: comparator-completion
+    optional: true
+    argv: [adapters/comparators/completion.py, --cache, "{CACHE}/webcomics-cache"]

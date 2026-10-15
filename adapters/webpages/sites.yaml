@@ -83,6 +83,20 @@ sites:
     exclusive_works_at_onboarding: 4
     verified: 2026-08-01
 
+  # Was a GigaViewer platform at www.comic-ryu.jp until about 2026-09-16; see the disabled entry
+  # in adapters/gigaviewer/platforms.yaml. The move dated every chapter 2026-09-17, which
+  # importdates.py reads as a platform-wide stamp rather than as publication.
+  - id: comic-ryu
+    name: COMICリュウ
+    # What the new site calls itself in every page title, and what the antenna lists it under.
+    aliases: ["COMICリュウライブ"]
+    publisher: 徳間書店
+    host: comic-ryu.jp
+    engine: comici
+    min_episodes: 1
+    min_works: 1
+    verified: 2026-10-15
+
   - id: comicride
     name: ライコミ
     host: comicride.jp

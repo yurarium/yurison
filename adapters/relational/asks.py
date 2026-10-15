@@ -290,6 +290,19 @@ INVARIANTS = {
 }
 
 
+#: AN ATTESTED RELEASE MISSING WHAT A MOVED SELECTOR TAKES OUT: a chapter name, an author, or an
+#: access state on a platform whose other rows carry one. One predicate, because the budget counts
+#: these rows and `adapters/backfill/fields.py` goes and fills them, and the two must agree on
+#: which rows they mean.
+INCOMPLETE = ("provenance = 'attested' "
+              "AND (trim(coalesce(instalment, '')) = '' OR author IS NULL "
+              "OR (NOT EXISTS (SELECT 1 FROM release_access_mode m WHERE m.release = release.id)"
+              "    AND EXISTS (SELECT 1 FROM release o"
+              "                JOIN release_access_mode am ON am.release = o.id"
+              "                WHERE o.platform = release.platform"
+              "                  AND o.provenance = 'attested')))")
+
+
 #: What is counted and ratchets down. The number lives in `docs/budgets.json` beside every other
 #: budget, so a rise is accepted in one place with a reason.
 BUDGETS = {
@@ -327,13 +340,7 @@ BUDGETS = {
     # and exempts only the routes `data/coverage/extract.yaml` DECLARES read no access, so a
     # platform going silent unannounced still stops the run there.
     "incomplete attested rows": {
-        "sql": "SELECT count(*) FROM release WHERE provenance = 'attested' "
-               "AND (trim(coalesce(instalment, '')) = '' OR author IS NULL "
-               "OR (NOT EXISTS (SELECT 1 FROM release_access_mode m WHERE m.release = release.id)"
-               "    AND EXISTS (SELECT 1 FROM release o"
-               "                JOIN release_access_mode am ON am.release = o.id"
-               "                WHERE o.platform = release.platform"
-               "                  AND o.provenance = 'attested')))",
+        "sql": "SELECT count(*) FROM release WHERE " + INCOMPLETE,
         "reads": ("release", "release_access_mode"),
         "why": "attested releases missing a chapter name, author or access state. The classic sign "
                "of a moved CSS selector: the adapter still returns rows, just emptier ones. It "
@@ -462,6 +469,17 @@ POPULATIONS = {
     # HOW MANY VOLUMES THE CORPUS HOLDS OF EACH WORK, the most any of its print records states.
     # `bookwalker.py` asks the shop about a quiet series again only when this rises, since a
     # 完結巻 is a new volume and the shop's answer cannot change without one.
+    # THE ROWS `incomplete attested rows` COUNTS, with the page a reader would open, for the pass
+    # that fills them. Grouped by work, because the pass fetches a work's page once.
+    "incomplete attested rows": {
+        "sql": "SELECT coalesce(w.title, release.work_raw) AS work, min(release.url) AS url,"
+               " release.platform AS platform,"
+               " max(trim(coalesce(release.instalment, '')) = '') AS no_instalment,"
+               " max(release.author IS NULL) AS no_author"
+               " FROM release LEFT JOIN work w ON w.id = release.work"
+               " WHERE " + INCOMPLETE + " AND release.url IS NOT NULL"
+               " GROUP BY coalesce(w.title, release.work_raw), release.platform ORDER BY 1",
+        "reads": ("release", "release_access_mode", "work")},
     "volumes held per work": {
         "sql": "SELECT w.title AS work, max(p.volumes) AS volumes"
                " FROM print_row p JOIN work w ON w.id = p.work"

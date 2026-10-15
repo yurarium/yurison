@@ -556,6 +556,9 @@ platforms:
 
 - id: ganma
   name: GANMA!
+  # The antenna appends 更新終了 to a platform it has stopped seeing update.
+  aliases:
+  - GANMA!(更新終了)
   publisher: コミックスマート
   host: ganma.jp
   watched: false

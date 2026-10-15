@@ -35,6 +35,11 @@ def main(s):
     s.eq(h.DT_DD.search("<dt>k</dt>\n<dd>v</dd>").groups(), ("k", "v"),
          "and a definition pair, which two catalogues use for their fields")
 
+    s.eq(h.canonical('<link rel="canonical" href="https://a/series/1"/>'), "https://a/series/1",
+         "a page's canonical address is read")
+    s.eq(h.canonical('<link href="https://a/2" rel="canonical">'), "https://a/2", "in either order")
+    s.eq(h.canonical('<link rel="stylesheet" href="x.css">'), None, "and another link is not one")
+
     # WHAT IS DELIBERATELY ABSENT. A selector naming one shop's markup belongs to that shop's
     # adapter; four of them here would put four shops' HTML in a file none of them owns.
     for gone in ("ELI", "M_BOOK_ITEM", "ATOM_SERIES", "COMIC_WALKER"):

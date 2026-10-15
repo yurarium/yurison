@@ -14,9 +14,11 @@ Recorded 2026-08-01: 348 works, against 243 the antenna listed for this platform
 Usage:  catalogue.py --out data/source/kadokomi --cache $YURI_CACHE/kadokomi-cache \
                      --retrieved 2026-08-01
 """
-import argparse, json, pathlib, re, sys, time, urllib.request
+import argparse, json, pathlib, re, sys
 
-UA = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+import net  # noqa: E402
+
 # カドコミ labels yuri under more than one tag, and enumerating only 百合 missed the others
 # outright: 作りたい女と食べたい女 carries GL and nothing else, so no amount of paging the 百合 tag
 # would ever have reached it. Each tag is its own catalogue and they are unioned.
@@ -27,25 +29,16 @@ TAGS = [
 TAG_UUID = TAGS[0][1]
 BASE = "https://comic-walker.com/search/tag/{uuid}"
 PAUSE = 1.5
+net.set_pause("comic-walker.com", PAUSE)
 MIN_WORKS = 50
 
 
 def page(n, cache, uuid):
-    # The full uuid, not a prefix. カドコミ's tag uuids share their first block — 百合 and GL are
-    # both 018b8a02-… — so an 8-character key made GL read 百合's cached pages and report an
-    # identical, and identically wrong, 348.
-    f = cache / f"tag-{uuid}-p{n}.html"
-    if f.exists():
-        return f.read_text()
+    """One results page, through the shared fetcher, so a cached page older than a day is fetched
+    again. This read its own cache with no age test until 2026-10-15, and a scheduled run would
+    have replayed the August pages for ever."""
     url = BASE.format(uuid=uuid) + (f"?p={n}" if n > 1 else "")
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    try:
-        with urllib.request.urlopen(req, timeout=45) as r:
-            t = r.read().decode("utf-8", "replace")
-    finally:
-        time.sleep(PAUSE)
-    f.write_text(t)
-    return t
+    return net.body(net.fetch(url, cache, max_age_days=net.AGE_FEED)) or ""
 
 
 def results(html):

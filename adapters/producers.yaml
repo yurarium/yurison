@@ -31,9 +31,9 @@ entries:
     producer: stage-a:gigaviewer-series-feeds*
     max_age_days: 3
   - paths: [data/source/gigaviewer/*-confirmed.yaml]
-    status: frozen
-    producer: adapters/gigaviewer/confirm.py
-    note: one confirmation per platform, run by hand in August and September
+    status: run
+    producer: stage-0:gigaviewer-confirm
+    max_age_days: 3
   - paths: [data/source/gigaviewer/*-print-candidates.yaml, data/source/gigaviewer/*-series.yaml,
             data/source/gigaviewer/*.yaml]
     status: run
@@ -62,21 +62,22 @@ entries:
     producer: adapters/serialisation/promote.py
     note: seeds appended by the serialisation sweep, confirm and promote chain
   - paths: [data/source/kadokomi/catalogue.yaml]
-    status: frozen
-    producer: adapters/kadokomi/catalogue.py
-    note: カドコミ's own 百合 tag, which is kadokomi releases' target list
+    status: run
+    producer: stage-0:kadokomi-catalogue
+    max_age_days: 3
   - paths: [data/source/kadokomi/confirmed.yaml, data/source/kadokomi/withheld.yaml]
-    status: frozen
-    producer: adapters/kadokomi/confirm.py
+    status: run
+    producer: stage-0:kadokomi-confirm
+    max_age_days: 3
 
   - paths: [data/source/comparators/claims.yaml]
-    status: frozen
-    producer: adapters/comparators/claims.py
-    note: the feed's claimed rows, from the antenna and 百合ナビ
+    status: run
+    producer: stage-0:comparator-claims
+    max_age_days: 3
   - paths: [data/source/comparators/completion.yaml]
-    status: frozen
-    producer: adapters/comparators/completion.py
-    note: the antenna's 完結 tags
+    status: run
+    producer: stage-0:comparator-completion
+    max_age_days: 3
   - paths: [data/source/comparators/shop-final-volumes.yaml]
     status: frozen
     producer: adapters/shopfinal.py
@@ -144,14 +145,17 @@ entries:
     producer: stage-a:generic
     max_age_days: 3
   - paths: [data/source/webpages/bylines.yaml]
-    status: frozen
-    producer: adapters/bylines.py
+    status: run
+    producer: stage-post:bylines
+    max_age_days: 10
   - paths: [data/source/webpages/backfill.yaml]
-    status: frozen
-    producer: adapters/backfill/fields.py
+    status: run
+    producer: stage-post:backfill
+    max_age_days: 3
   - paths: [data/source/webpages/claim-resolved.yaml]
-    status: frozen
-    producer: adapters/claims/trace.py
+    status: run
+    producer: stage-post:claims-trace
+    max_age_days: 3
   - paths: [data/source/webpages/magapoke-deep.yaml, data/source/webpages/nicovideo-titles.yaml]
     status: hand
     note: one-off captures of 2026-08-01 and 08-02 that the build still reads
@@ -178,15 +182,14 @@ entries:
   - paths: [data/coverage/bookwalker-completion.yaml]
     status: run
     producer: stage-post:bookwalker-completion
-  - paths: [data/coverage/bookwalker-completion-slow.yaml, data/coverage/bookwalker-completion-unknown.yaml]
-    status: retired
-    note: superseded by bookwalker-completion.yaml, which now asks dormant, slow and unknown works
   - paths: [data/coverage/magapoke-lengths.yaml]
-    status: frozen
-    producer: adapters/magapoke.py
-  - paths: [data/coverage/claim-targets.yaml, data/coverage/remaining.yaml]
-    status: frozen
-    note: no producer in the tree; the same class as render-targets.yaml before targets.py
+    status: run
+    producer: stage-post:magapoke-lengths
+    max_age_days: 10
+  - paths: [data/coverage/remaining.yaml]
+    status: run
+    producer: stage-c:remaining-targets
+    max_age_days: 3
   - paths: [data/coverage/cmoa-completion.yaml]
     status: frozen
     note: no producer in the tree

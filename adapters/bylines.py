@@ -332,10 +332,22 @@ def cached_page(url, cache, ua, offline=False, max_age_days=AGE):
         with urllib.request.urlopen(req, timeout=40) as r:
             body = r.read(2_000_000).decode("utf-8", "replace")
     except Exception as e:                                                    # noqa: BLE001
-        body = f"__ERROR__ {type(e).__name__} {e}"
+        # NOT WRITTEN TO THE CACHE, as `net.fetch` never caches a refusal: a host down for a minute
+        # would otherwise be the answer for a fortnight.
+        time.sleep(1.5)
+        return f"__ERROR__ {type(e).__name__} {e}"
     f.write_text(body)
     time.sleep(1.5)
     return body
+
+
+def carried(page, work, before):
+    """Whether to keep the byline an earlier run read, because this run could not read the page.
+
+    Only where the page did not arrive. A page that arrived and matched no shape is an answer about
+    the page as it now is, and keeping an old byline over it would hide a re-filed work.
+    """
+    return work in before and (not page or page.startswith("__ERROR__"))
 
 
 def host_headers(url):
@@ -475,6 +487,7 @@ def main(argv=None):
     # here harmlessly, because it is the same byline off the same page.
     mine = yaml.safe_load(pathlib.Path(a.out).read_text()) if pathlib.Path(a.out).exists() else {}
     claimed = {r["work_title"] for r in ((mine or {}).get("works") or [])}
+    before = {r["work_title"]: r for r in ((mine or {}).get("works") or []) if r.get("author")}
     claimed_ids = {r["work_id"] for r in ((mine or {}).get("print_works") or [])}
 
     series = population.series(a.series)
@@ -496,6 +509,9 @@ def main(argv=None):
             rows.append((w["work"], u, credit_line(pairs), ""))
         elif w["work"] in by_hand:
             r = by_hand[w["work"]]
+            rows.append((w["work"], r.get("url") or u, r["author"], (r.get("note") or "").strip()))
+        elif carried(page, w["work"], before):
+            r = before[w["work"]]
             rows.append((w["work"], r.get("url") or u, r["author"], (r.get("note") or "").strip()))
         else:
             unread.append((w["work"], u, (nothing.get(w["work"], {}).get("note") or "").strip()))

@@ -27,7 +27,7 @@ A host running neither is reported and left alone. Guessing at an unknown layout
 history that looks whole and is not, and a partial history used as a whole one turns a live claim
 into a refutation. That is the one mistake here that would put a wrong statement on the site.
 
-Usage:  trace.py --run data/build/run.json --out data/source/webpages/claim-resolved.yaml
+Usage:  trace.py --run data/build/claims-open.json --out data/source/webpages/claim-resolved.yaml
         trace.py --dry-run          list what it would fetch, and stop
 """
 import argparse
@@ -132,7 +132,8 @@ def read_page(url, html, cache):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--run", default="data/build/run.json")
+    ap.add_argument("--run", default="data/build/claims-open.json",
+                    help="the open claims the last compile wrote; run.json carries the same block")
     ap.add_argument("--out", default=OUT)
     ap.add_argument("--cache", default=str(paths.cache("claims-cache")))
     ap.add_argument("--dry-run", action="store_true")

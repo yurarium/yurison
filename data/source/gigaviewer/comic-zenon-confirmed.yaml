@@ -1,0 +1,31 @@
+# コミックゼノン — works confirmed from the discovery queue.
+#
+# 百合ナビ named these and linked to them; the platform supplies the fields. Tier C
+# names a work and establishes nothing about it (REQUIREMENTS §1).
+#
+# is_oneshot is read, not guessed: a series feed holding exactly one episode is a
+# one-shot. These platforms apply no genre label, so nothing here establishes
+# marketing_label (DEFINITIONS §4).
+source: gigaviewer
+platform: comic-zenon
+platform_name: "コミックゼノン"
+publisher: "コアミックス"
+retrieved: 2026-10-15
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works_confirmed: 1
+works:
+  - work_title: "夜明けのアリス"
+    author: "高瀬わか"
+    url: "https://comic-zenon.com/episode/12207421983426102334"
+    series_id: "12207421983425978428"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/09/13/yoakeno-yomikiri/"
+      headline: "正反対の少女ふたりの関係を描く青春読み切り「夜明けのアリス」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "読切 夜明けのアリス"
+        updated: 2026-02-27
+        url: "https://comic-zenon.com/episode/12207421983426102334"

@@ -75,8 +75,11 @@ def registered():
             out[p["name"]] = {"name": p["name"], "id": p.get("id") or was.get("id"),
                               "ids": sorted({i for i in (p.get("id"), was.get("id"),
                                                          *(was.get("ids") or ())) if i}),
-                              "aliases": [a for a in (p.get("aliases") or [])
-                                          if a and a != p["name"]],
+                              # ALIASES ARE THE UNION TOO. Each register states the names it has
+                              # met, and keeping the last file's alone dropped the other's.
+                              "aliases": sorted({a for a in (*(p.get("aliases") or ()),
+                                                             *(was.get("aliases") or ()))
+                                                 if a and a != p["name"]}),
                               "publisher": p.get("publisher") or None, "en": p.get("en") or None,
                               # WHETHER THIS PIPELINE READS IT, AND WHETHER A READER MUST PROVE
                               # THEIR AGE TO. `serves_openly` is the one caller and both fields are

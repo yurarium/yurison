@@ -1,9 +1,163 @@
 # Confirmed against カドコミ work pages. Discovery named these; the publisher attests them.
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: kadokomi
-retrieved: 2026-08-01
+retrieved: 2026-10-15
 record_type: web_work_confirmation
 works:
+  - work_title: "死神さんと昇天ごはん"
+    platform_code: "KC_021305_S"
+    url: "https://comic-walker.com/detail/KC_021305_S"
+    genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
+    sub_genre: {"code": "0201", "id": "018a262f-985e-7472-957c-58e0f4cd9d23", "name": "青春・学園"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "WebComicアパンダ"
+    marketing_label: "yuri"
+    tags: ["百合", "グルメ"]
+    authors:
+      - name: "菅野マナミ"
+        role: "著者"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_021305_S"
+      retrieved: "2026-10-15"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/10/14/shinigamisanto-start/"
+  - work_title: "真夜中に愛してよ"
+    platform_code: "KC_020158_S"
+    url: "https://comic-walker.com/detail/KC_020158_S"
+    genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
+    sub_genre: {"code": "0208", "id": "018a262f-9865-788e-9694-4758845b6e7d", "name": "恋愛"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "コミックキューン"
+    marketing_label: "yuri"
+    tags: ["ラブコメ", "百合", "秘密の関係"]
+    authors:
+      - name: "甘崎水菓"
+        role: "著者"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_020158_S"
+      retrieved: "2026-10-15"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/09/29/mayonakani-start/"
+  - work_title: "彼岸でランデヴー"
+    platform_code: "KC_020017_S"
+    url: "https://comic-walker.com/detail/KC_020017_S"
+    genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
+    sub_genre: {"code": "0204", "id": "018a262f-9861-7f53-b3d7-773cfc841581", "name": "ホラー"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "ヤングエースＵＰ"
+    marketing_label: "yuri"
+    tags: ["現代", "美少女", "女主人公", "ドキドキハラハラ", "大人向け", "溺愛", "いちゃラブ", "百合", "ギャップ女子", "怪異", "オカルト", "体格差"]
+    authors:
+      - name: "臼井ともみ"
+        role: "著者"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_020017_S"
+      retrieved: "2026-10-15"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/09/03/higande-start/"
+  - work_title: "私の彼女はボディビルダー／読切版"
+    platform_code: "KC_019973_S"
+    url: "https://comic-walker.com/detail/KC_019973_S"
+    genre: {"code": "0204", "id": "018a178c-a909-7ad4-8d88-e4f324c36061", "name": "女性"}
+    sub_genre: {"code": "0210", "id": "018a262f-9867-732e-9f85-4de36099ba03", "name": "ギャグ・コメディ"}
+    serialization_status: "unknown"
+    is_oneshot: true
+    is_original: true
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "CandleA"
+    marketing_label: "yuri"
+    tags: ["現代", "女主人公", "大人向け", "いちゃラブ", "笑える", "百合", "ハッピー", "働く女子", "社会人", "性癖"]
+    authors:
+      - name: "sono.N"
+        role: "著者"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_019973_S"
+      retrieved: "2026-10-15"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "oneshot"
+      url: "https://yurinavi.com/2026/08/29/watashino-kanojyoha-body-yomikiri/"
+  - work_title: "天瀬ましろはイきたくない！"
+    platform_code: "KC_016898_S"
+    url: "https://comic-walker.com/detail/KC_016898_S"
+    genre: {"code": "0201", "id": "018a178c-a906-7b25-bb70-4cba748efdfa", "name": "少年"}
+    sub_genre: {"code": "0213", "id": "018a262f-986a-7cca-8c8e-4c8d4b229a94", "name": "ファンタジー"}
+    serialization_status: "unknown"
+    is_oneshot: true
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "ドラドラしゃーぷ#"
+    marketing_label: "yuri"
+    tags: ["現代", "美少女", "女主人公", "大人向け", "いちゃラブ", "百合", "人外", "お色気", "おっぱい", "秘密の関係", "ギャップ女子"]
+    authors:
+      - name: "ぶり大根"
+        role: "著者"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_016898_S"
+      retrieved: "2026-10-15"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "oneshot"
+      url: "https://yurinavi.com/2026/08/14/amasemashiro-yomikiri/"
+  - work_title: "ハウリング・ブレイズ　葬焔の剣士と不死の魔女"
+    platform_code: "KC_019658_S"
+    url: "https://comic-walker.com/detail/KC_019658_S"
+    genre: {"code": "0201", "id": "018a178c-a906-7b25-bb70-4cba748efdfa", "name": "少年"}
+    sub_genre: {"code": "0203", "id": "018a262f-9860-7033-b06d-961a9b224c75", "name": "バトル・アクション"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "アライブ＋"
+    marketing_label: "yuri"
+    tags: ["コミカライズ", "異世界", "美少女", "女主人公", "友情・仲間", "シリアス", "カッコいい", "百合", "魔法", "人外", "チート", "ダーク", "クセになる", "ツンデレ", "最強", "妖怪", "猫", "怪異", "中華・後宮", "ケモみみ", "ディストピア", "和風", "MF文庫J", "武士・侍"]
+    authors:
+      - name: "koko"
+        role: "漫画"
+      - name: "志瑞祐"
+        role: "原作"
+      - name: "遠坂あさぎ"
+        role: "キャラ原"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_019658_S"
+      retrieved: "2026-10-15"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/08/04/howling-start/"
   - work_title: "この湯で、あなたと"
     platform_code: "KC_019740_S"
     url: "https://comic-walker.com/detail/KC_019740_S"
@@ -16,7 +170,7 @@ works:
     rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
     label: "CandleA"
     marketing_label: "yuri"
-    tags: ["現代", "女主人公", "ドラマ", "大人向け", "百合", "癒やされる", "社会", "社会人", "考えさせられる", "アイドル"]
+    tags: ["現代", "女主人公", "ドラマ", "大人向け", "癒やされる", "百合", "社会", "社会人", "考えさせられる", "アイドル"]
     authors:
       - name: "南部くまこ"
         role: "原作"
@@ -25,12 +179,37 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_019740_S"
-      retrieved: "2026-08-01"
+      retrieved: "2026-10-15"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
       signal: "new-serial"
       url: "https://yurinavi.com/2026/07/29/konoyude-anatato/"
+  - work_title: "残光再撮"
+    platform_code: "KC_011927_S"
+    url: "https://comic-walker.com/detail/KC_011927_S"
+    genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
+    sub_genre: {"code": "0208", "id": "018a262f-9865-788e-9694-4758845b6e7d", "name": "恋愛"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "コミックキューン"
+    marketing_label: "yuri"
+    tags: ["ラブコメ", "学園モノ", "女主人公", "ドキドキハラハラ", "いちゃラブ", "百合"]
+    authors:
+      - name: "若鶏にこみ"
+        role: "著者"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_011927_S"
+      retrieved: "2026-10-15"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/07/27/zankou-start/"
   - work_title: "姉妹傭兵"
     platform_code: "KC_019475_S"
     url: "https://comic-walker.com/detail/KC_019475_S"
@@ -54,39 +233,12 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_019475_S"
-      retrieved: "2026-08-01"
+      retrieved: "2026-10-15"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
       signal: "new-serial"
       url: "https://yurinavi.com/2026/07/22/shimaiyouhei-start/"
-  - work_title: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい"
-    platform_code: "KC_016982_S"
-    url: "https://comic-walker.com/detail/KC_016982_S"
-    genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
-    sub_genre: {"code": "0208", "id": "018a262f-9865-788e-9694-4758845b6e7d", "name": "恋愛"}
-    serialization_status: "ongoing"
-    is_oneshot: false
-    is_original: false
-    rating_level: "adult"
-    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
-    label: "コミックコンプ＆コンプティーク"
-    marketing_label: "yuri"
-    tags: ["コミカライズ", "ラブコメ", "現代", "美少女", "ほのぼの", "胸キュン", "なろう系", "いちゃラブ", "百合", "癒やされる", "ハッピー", "WEB小説", "巨乳", "ギャップ女子", "ツンデレ", "オタク", "推し活", "萌え", "アイドル", "女子大生", "配信者"]
-    authors:
-      - name: "岡野く仔"
-        role: "漫画"
-      - name: "不和二亜"
-        role: "原作"
-    marketing_label_basis:
-      source: "kadokomi"
-      url: "https://comic-walker.com/detail/KC_016982_S"
-      retrieved: "2026-08-01"
-      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
-    discovered_via:
-      source: null
-      signal: "new-serial"
-      url: "https://yurinavi.com/2026/07/16/sekaiichikawaii-start/"
   - work_title: "イジめてイジられて"
     platform_code: "KC_019052_S"
     url: "https://comic-walker.com/detail/KC_019052_S"
@@ -99,22 +251,22 @@ works:
     rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
     label: "ヤングエースＵＰ"
     marketing_label: "yuri"
-    tags: ["ラブコメ", "現代", "学園モノ", "美少女", "胸キュン", "大人向け", "溺愛", "いちゃラブ", "百合", "笑える", "お色気", "おっぱい", "秘密の関係", "クセになる", "ギャップ女子", "ツンデレ", "ギャル", "性癖", "片思い", "ヤンデレ", "変態", "パンツ", "地味女子", "尽くす系女子", "生意気", "ヤンキー", "ケンカップル", "コスプレ"]
+    tags: ["ラブコメ", "現代", "学園モノ", "美少女", "胸キュン", "大人向け", "溺愛", "いちゃラブ", "笑える", "百合", "お色気", "おっぱい", "クセになる", "秘密の関係", "ギャップ女子", "ツンデレ", "性癖", "ギャル", "片思い", "ヤンデレ", "変態", "パンツ", "地味女子", "尽くす系女子", "生意気", "ケンカップル", "ヤンキー", "コスプレ"]
     authors:
       - name: "千田大輔"
         role: "著者"
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_019052_S"
-      retrieved: "2026-08-01"
+      retrieved: "2026-10-15"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
       signal: "new-serial"
       url: "https://yurinavi.com/2026/07/19/ijimeteijirarete-start/"
-  - work_title: "残光再撮"
-    platform_code: "KC_011927_S"
-    url: "https://comic-walker.com/detail/KC_011927_S"
+  - work_title: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい"
+    platform_code: "KC_016982_S"
+    url: "https://comic-walker.com/detail/KC_016982_S"
     genre: {"code": "0202", "id": "018a178c-a907-74f2-9038-a98bd8bbf2db", "name": "青年"}
     sub_genre: {"code": "0208", "id": "018a262f-9865-788e-9694-4758845b6e7d", "name": "恋愛"}
     serialization_status: "ongoing"
@@ -122,21 +274,23 @@ works:
     is_original: false
     rating_level: "adult"
     rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
-    label: "コミックキューン"
+    label: "コミックコンプ＆コンプティーク"
     marketing_label: "yuri"
-    tags: ["ラブコメ", "学園モノ", "女主人公", "ドキドキハラハラ", "いちゃラブ", "百合"]
+    tags: ["コミカライズ", "ラブコメ", "現代", "美少女", "ほのぼの", "胸キュン", "なろう系", "いちゃラブ", "癒やされる", "百合", "ハッピー", "WEB小説", "巨乳", "ギャップ女子", "ツンデレ", "オタク", "推し活", "萌え", "アイドル", "女子大生", "配信者"]
     authors:
-      - name: "若鶏にこみ"
-        role: "著者"
+      - name: "岡野く仔"
+        role: "漫画"
+      - name: "不和二亜"
+        role: "原作"
     marketing_label_basis:
       source: "kadokomi"
-      url: "https://comic-walker.com/detail/KC_011927_S"
-      retrieved: "2026-08-01"
+      url: "https://comic-walker.com/detail/KC_016982_S"
+      retrieved: "2026-10-15"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
       signal: "new-serial"
-      url: "https://yurinavi.com/2026/07/27/zankou-start/"
+      url: "https://yurinavi.com/2026/07/16/sekaiichikawaii-start/"
   - work_title: "その手紙代行します！"
     platform_code: "KC_014260_S"
     url: "https://comic-walker.com/detail/KC_014260_S"
@@ -149,14 +303,14 @@ works:
     rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
     label: "アライブ＋"
     marketing_label: "yuri"
-    tags: ["ラブコメ", "現代", "美少女", "胸キュン", "女子高校生(JK)", "百合", "癒やされる"]
+    tags: ["ラブコメ", "現代", "美少女", "胸キュン", "女子高校生(JK)", "癒やされる", "百合"]
     authors:
       - name: "仁科"
         role: "著者"
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_014260_S"
-      retrieved: "2026-08-01"
+      retrieved: "2026-10-15"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -181,7 +335,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_016896_S"
-      retrieved: "2026-08-01"
+      retrieved: "2026-10-15"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null

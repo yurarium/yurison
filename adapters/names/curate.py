@@ -784,7 +784,10 @@ def main(argv=None):
     print(f"{counts['titles']} title(s), {counts['authors']} author(s), "
           f"{counts['publishers']} publisher(s); "
           f"{len(bad)} rejected, {len(stray)} matching nothing, {len(dups)} written twice")
-    if bad or stray:
+    # A DUPLICATE REFUSES THE APPLY like a rejection does. It used to print and carry on, and on
+    # 2026-10-13 a machine translation written for a second record of 猫とシュガーポット sat below
+    # the licensed Seven Seas title, so the licensed name was the one YAML dropped.
+    if bad or stray or dups:
         return 1
     if a.apply:
         store = NameStore(a.out)

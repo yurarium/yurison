@@ -1,0 +1,51 @@
+# MAGCOMI — works confirmed from the discovery queue.
+#
+# 百合ナビ named these and linked to them; the platform supplies the fields. Tier C
+# names a work and establishes nothing about it (REQUIREMENTS §1).
+#
+# is_oneshot is read, not guessed: a series feed holding exactly one episode is a
+# one-shot. These platforms apply no genre label, so nothing here establishes
+# marketing_label (DEFINITIONS §4).
+source: gigaviewer
+platform: magcomi
+platform_name: "MAGCOMI"
+publisher: "マッグガーデン"
+retrieved: 2026-10-15
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works_confirmed: 2
+works:
+  - work_title: "天使なんかにならないで"
+    author: "鍵野"
+    url: "https://magcomi.com/episode/12207421984187016919"
+    series_id: "12207421984187014169"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/09/09/tenshinankani-yomikiri/"
+      headline: "双子の妹への依存感情を描く百合読み切り「天使なんかにならないで」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切"
+        updated: 2026-09-08
+        url: "https://magcomi.com/episode/12207421984187016919"
+  - work_title: "東京つけものがたり"
+    author: "ぜろわん"
+    url: "https://magcomi.com/episode/12207421984122057940"
+    series_id: "12207421984122057558"
+    is_oneshot: false
+    discovered_via:
+      signal: "new-serial"
+      article: "https://yurinavi.com/2026/09/05/toukyo-tsukemono-start/"
+      headline: "漬物が繋ぐ、人気モデル×新人編集者の社会人ガールズストーリー「東京つけものがたり」WEBでスタート"
+    chapter_count: 3
+    chapters:
+      - title: "第3話「塩麹漬け（前編）」"
+        updated: 2026-10-06
+        url: "https://magcomi.com/episode/12207421984174948885"
+      - title: "第2話「大根と林檎の柚子はちみつ漬け」"
+        updated: 2026-09-01
+        url: "https://magcomi.com/episode/12207421984174948874"
+      - title: "第1話「スイカの皮の白だし漬け」"
+        updated: 2026-09-01
+        url: "https://magcomi.com/episode/12207421984122057940"

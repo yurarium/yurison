@@ -76,6 +76,27 @@ is put on a cadence with a bounded batch, as `bookwalker.py`'s `plan()` now does
 output is superseded (the slow and unknown BOOK☆WALKER files, `series-lengths.yaml` where episode
 lists now answer) is retired along with its reader.
 
+Done on 2026-10-15, taking the count from 21 to 10:
+
+| producer | now | what running it found |
+|---|---|---|
+| comparator claims and 完結 tags | Stage 0, each run | dates read against the fetch, not the run; completion carries its claims forward |
+| カドコミ catalogue | Stage 0, daily | 350 works became 365 |
+| カドコミ and GigaViewer confirmation | Stage 0, each run | earlier confirmations kept and asked again; 8 GigaViewer works became 20 |
+| マガポケ lengths | post, weekly | kept as the cross-check on the full series feeds |
+| claim tracing | post, each run | the compile writes `claims-open.json` for it, since `run.json` is no longer written |
+| bylines | post, weekly | a failed fetch no longer caches, nor drops a credit it read before |
+| remaining works | Stage C, each run | derived from the candidates by `remaining/targets.py`; 70 hand-listed became 100 |
+| field backfill | post, each run | reads the store's `incomplete attested rows` and keeps what it filled; 16 works on its first run |
+| `claim-targets.yaml` | retired | the build's scope and the sitemap read the candidate list |
+| BOOK☆WALKER slow and unknown | retired | their fourteen answers folded into the main file |
+
+COMICリュウ was not a stuck producer: it left GigaViewer for comici as COMICリュウライブ around
+2026-09-16, and is read through `webpages/sites.yaml` now. マガジンデビュー, パイコミックス and 栞 were never GigaViewer
+installs at all (their `/atom` is a WordPress feed) and are disabled beside it. What remains frozen is the print side
+(section 2), the serialisation sweep and its seeds, the shop-query joins, and `cmoa-completion.yaml`,
+which belongs with the コミックシーモア shelf.
+
 #### One capture scaffold
 
 Fetching through `net.py` with a cache, carrying over what a run did not

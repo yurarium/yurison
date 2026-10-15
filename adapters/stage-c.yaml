@@ -14,6 +14,12 @@ commands:
            --out, data/source/webpages, --cache, "{CACHE}/render", --limit-per-host, "140",
            --retrieved, "{R}"]
 
+  # The listed works no capture holds, rewritten from the candidate list before the route that
+  # reads it. Derived by hand on 2026-08-02 and never again until 2026-10-15.
+  - id: remaining-targets
+    optional: true
+    argv: [adapters/remaining/targets.py]
+
   - id: remaining-releases
     optional: true
     argv: [adapters/remaining/releases.py, --works, data/coverage/remaining.yaml,

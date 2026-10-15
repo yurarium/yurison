@@ -1438,3 +1438,23 @@ read by the analyser with no page stating a reading.
 `incomplete attested rows` 65 to 67, accepted 2026-10-15: two more release-day rows of 2026-10-15
 without an access state yet, コミック アース・スター's 第15話② of w00043 and a 一迅プラス 読み切り that
 names no held work yet.
+
+## Wiring the frozen producers moved five budgets. Settled 2026-10-15
+
+Running eleven producers that had last run by hand in August brought in what they had been missing,
+and each count that rose is that arrival, measured before the next scheduled run settles it.
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| targets a capture wrote no row for | 6 | 10 | カドコミ's own catalogue, refreshed for the first time since 2026-08-01, names fifteen more works; four of them (きらめきのDolphin Line, まりあ†ほりっく その後の12か月のおはなし, 白粉花の告白, and 盗賊少女に転生したけど、…) are captured by Stage A of the next run, which now runs after the catalogue does |
+| credit fields an identifier does not cover | 106 | 110 | credits the byline and backfill passes read for the first time: 二月公 and さばみぞれ for 声優ラジオのウラオモテ, and 矢嶋こずみ for the newly minted w03321. Minting credit identifiers without a person is launch plan section 4 |
+| predicted updates already behind the run | 1 | 2 | 御贖事処 煮るばあな (w03310) states a rhythm whose next date, 2026-10-10, has passed. A fact about the series, measured on the day the store was stamped |
+
+Two fell. `incomplete attested rows` went from 66 to 42 when the field backfill first ran against
+the store's own list of them. `one page cited for two claims` went from 11 to 1: a claim naming its
+own kind of source no longer borrows its entry's page (`names/store.py`, `_foreign`), so ten
+readings worked out here stopped citing the licensor whose English title the entry records, and the
+two National Diet Library readings, 犬井あゆ and 野宮りおん, now cite the NDL records that state them.
+
+The entry above for 2026-10-15 calls 百合の間に挟まる梅田ダンジョン a new serial. It is a 読み切り, as
+百合ナビ's own headline and the platform's one-entry series feed both say.

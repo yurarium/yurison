@@ -271,5 +271,5 @@ commands:
   - id: sitemap
     optional: true
     argv: [adapters/sitemap/releases.py, --sites, adapters/sitemap/sites.yaml,
-           --works, data/coverage/claim-targets.yaml,
+           --works, data/coverage/candidates.yaml,
            --out, data/source/webpages, --retrieved, "{R}"]

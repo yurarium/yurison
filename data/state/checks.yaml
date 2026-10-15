@@ -1,9 +1,29 @@
 checks:
+  COMIC ポルタ|OLと人魚:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   COMICリュウ|私の魂を食べて下さい!:
     fails: 0
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: empty
+  COMICリュウライブ|ゆりでなる♥えすぽわーる:
+    fails: 0
+    last_checked: '2026-10-15'
+    last_reached: '2026-10-15'
+    result: ok
+  COMICリュウライブ|推しが武道館いってくれたら死ぬ:
+    fails: 0
+    last_checked: '2026-10-15'
+    last_reached: '2026-10-15'
+    result: ok
+  COMICリュウライブ|私の魂を食べて下さい!:
+    fails: 0
+    last_checked: '2026-10-15'
+    last_reached: '2026-10-15'
+    result: ok
   FEEL web|月とすっぴん:
     fails: 0
     last_checked: '2026-08-03'
@@ -49,6 +69,11 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: empty
+  pixivコミック|ひとりみです:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   pixivコミック|ひなゆり冒険記:
     fails: 0
     last_checked: '2026-08-03'
@@ -89,11 +114,26 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: empty
+  pixivコミック|マユノウタ:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  pixivコミック|ライバルアライバル:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   pixivコミック|リリー&アイビー ～ケンカップル百合×性愛アンソロジー～:
     fails: 0
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: empty
+  pixivコミック|ロリースイートロリー:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   pixivコミック|今日から未来:
     fails: 0
     last_checked: '2026-08-03'
@@ -134,6 +174,11 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: empty
+  pixivコミック|星の体温、巡る夢:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   pixivコミック|甘えさせて雛森さん!:
     fails: 0
     last_checked: '2026-08-03'
@@ -142,6 +187,11 @@ checks:
   pixivコミック|異種族女子に〇〇する話:
     fails: 1
     last_checked: '2026-08-03'
+    note: fetched, but no reader here can parse this site
+    result: error
+  pixivコミック|百合のはじまりは奴隷から:
+    fails: 1
+    last_checked: '2026-10-15'
     note: fetched, but no reader here can parse this site
     result: error
   pixivコミック|神絵師JKとOL腐女子:
@@ -174,6 +224,11 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: empty
+  きら星ポータル|君めく夜に焦がれて:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   てれびくんヒーローコミックス|獄門撫子此処ニ在リ:
     fails: 0
     last_checked: '2026-08-03'
@@ -184,6 +239,26 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: ok
+  カドコミ|バカに告白:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  カドコミ|妄執女と芥川:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  カドコミ|性悪天才幼馴染との勝負に負けて初体験を全部奪われる話:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  カドコミ|私の彼女はボディビルダー:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   ゼノン編集部|散らないで菊:
     fails: 0
     last_checked: '2026-08-03'
@@ -197,6 +272,11 @@ checks:
   ゼロサムオンライン|ロイヤルテーラー ―王宮の裁縫師―:
     fails: 1
     last_checked: '2026-08-03'
+    note: fetched, but no reader here can parse this site
+    result: error
+  ダ・ヴィンチニュース|さざめとりお:
+    fails: 1
+    last_checked: '2026-10-15'
     note: fetched, but no reader here can parse this site
     result: error
   チャンピオンクロス|フェアウェイの声をきかせて:
@@ -214,6 +294,46 @@ checks:
     last_checked: '2026-08-03'
     note: rendered; the page yielded no DOM to read
     result: blocked
+  ニコニコ漫画|このままモブじゃ終われない!:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  ニコニコ漫画|ばっどがーる:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  ニコニコ漫画|ひなちゃんが生きてるなら:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  ニコニコ漫画|子供部屋ドラゴン:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  ニコニコ漫画|彩純ちゃんはレズ風俗に興味があります!:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  ニコニコ漫画|現実世界でも幸せにしてくださいね?:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  ニコニコ漫画|球詠:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
+  ニコニコ漫画|骨に願いを、星に呪いを:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   マガポケ|CUTE vs. COOL:
     fails: 0
     last_checked: '2026-08-03'
@@ -254,6 +374,11 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: empty
+  マンガよもんが|女にはそれぞれ裏がある:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   マンガボックス|世界で一番おっぱいが好き!:
     fails: 0
     last_checked: '2026-08-03'
@@ -279,6 +404,11 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: empty
+  ヤンジャン+|エリオと電気人形:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   ヤンジャン+|バカ女26時:
     fails: 0
     last_checked: '2026-08-03'
@@ -304,6 +434,11 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: empty
+  新都社|バトル・ウィッチーズ:
+    fails: 1
+    last_checked: '2026-10-15'
+    note: fetched, but no reader here can parse this site
+    result: error
   竹コミ‎‏‎|お姉さんは女子小学生に興味があります。:
     fails: 0
     last_checked: '2026-08-03'
@@ -329,4 +464,4 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: ok
-updated: '2026-08-03'
+updated: '2026-10-15'

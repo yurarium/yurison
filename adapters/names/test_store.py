@@ -243,6 +243,28 @@ def main(s):
 
 
 
+def _foreign_page(s):
+    """A claim naming its own kind of source does not borrow the entry's page."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        st = store.NameStore(d)
+        st.record("titles", "猫とシュガーポット", en="Cats and Sugar Bowls", basis="licensed",
+                  source="sevenseasentertainment.com", source_kind="licensor",
+                  source_url="https://sevenseasentertainment.com/series/cats-and-sugar-bowls/",
+                  reading="ネコ ト シュガーポット", reading_basis="researched",
+                  reading_source_kind="derived", reading_note="猫 is ネコ", at="2026-10-15")
+        r = st.records["titles"]["猫とシュガーポット"]
+        s.eq(r.get("en_url"), "https://sevenseasentertainment.com/series/cats-and-sugar-bowls/",
+             "the English keeps the licensor's page")
+        s.eq(r.get("reading_url"), None, "a reading worked out here does not cite the licensor")
+        st.record("titles", "別の話", en="Other", basis="translated", source="yurarium",
+                  source_kind="derived", source_url="https://shop/1", reading="ベツノハナシ",
+                  reading_basis="researched", reading_source_kind="derived", reading_note="n",
+                  at="2026-10-15")
+        s.eq(st.records["titles"]["別の話"].get("reading_url"), "https://shop/1",
+             "while a claim of the entry's own kind still shares its page")
+
+
 def _concurrency(s):
     """Two stores writing the same directory, which is how four decisions were lost."""
     import tempfile
@@ -276,5 +298,5 @@ def _concurrency(s):
 
 
 if __name__ == "__main__":
-    sys.exit(testkit.run(lambda s: (main(s), _concurrency(s)) and None, "store"))
+    sys.exit(testkit.run(lambda s: (main(s), _foreign_page(s), _concurrency(s)) and None, "store"))
 

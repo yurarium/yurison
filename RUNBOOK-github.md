@@ -136,7 +136,7 @@ adapters/generic/releases.py        --works webcomics-works.yaml --extract extra
 adapters/ganganonline/releases.py   --targets render-targets.yaml   __NEXT_DATA__
 adapters/yomonga/releases.py        --works adapters/yomonga/works.yaml
 adapters/shogakukan/releases.py     --sites adapters/shogakukan/sites.yaml
-adapters/sitemap/releases.py        --sites …/sites.yaml --works claim-targets.yaml
+adapters/sitemap/releases.py        --sites …/sites.yaml --works candidates.yaml
 ```
 
 `series_feeds.py` takes `--platform`, singular, and must be looped over the 27 ids in

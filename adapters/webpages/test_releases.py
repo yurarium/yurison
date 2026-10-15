@@ -29,7 +29,24 @@ def li(title, y, m, d, href="/e/1"):
             f'<time>{y}/{m}/{d}</time></li>')
 
 
+def moved(s):
+    """A page that moved is recorded where it now lives, once."""
+    site = {"host": "comic-ryu.jp"}
+    page = '<link rel="canonical" href="https://comic-ryu.jp/series/326efc41c1767"/>'
+    s.eq(wp.at("https://www.comic-ryu.jp/series/osibudo/", page, site),
+         "https://comic-ryu.jp/series/326efc41c1767", "a redirected page is recorded at its own address")
+    s.eq(wp.at("https://comic-ryu.jp/series/x", '<link rel="canonical" href="https://elsewhere/y"/>', site),
+         "https://comic-ryu.jp/series/x", "a canonical off the site's host is not believed")
+    s.eq(wp.at("https://comic-ryu.jp/series/x", "", site), "https://comic-ryu.jp/series/x",
+         "and a page stating none keeps the address asked")
+    rows = [{"url": "u", "episodes": [1] * 10}, {"url": "v", "episodes": [1]}, {"url": "u", "episodes": [1] * 68}]
+    got = wp.one_per_address(rows)
+    s.eq([(r["url"], len(r["episodes"])) for r in got], [("u", 68), ("v", 1)],
+         "two targets reaching one page are one row, the fuller one")
+
+
 def main(s):
+    moved(s)
     rows = wp.episodes(li("第1話", 2026, 8, 3) + li("第2話", 2026, 8, 10, "/e/2"),
                        ENG, "https://x.jp")
     s.eq(len(rows), 2, "both blocks are read")

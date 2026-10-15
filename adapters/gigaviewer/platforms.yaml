@@ -208,6 +208,12 @@ platforms:
     name: COMICリュウ
     host: www.comic-ryu.jp
     atom: https://www.comic-ryu.jp/atom
+    enabled: false
+    note: >-
+      Moved to comici at comic-ryu.jp around 2026-09-16: /atom is now a 301 to the new home page,
+      every chapter there is dated 2026-09-17, and each old series address redirects to the
+      work's new page. The pass wrote an empty file each run from then on, which the producers
+      registry found stale on 2026-10-15. Read through adapters/webpages/sites.yaml since.
     mode: known-works
     exclusive_works_at_onboarding: 5
     verified: 2026-08-01
@@ -263,6 +269,12 @@ platforms:
     name: マガジンデビュー(更新終了)
     host: debut.shonenmagazine.com
     atom: https://debut.shonenmagazine.com/atom
+    enabled: false
+    note: >-
+      /atom redirects to /feed/atom, a WordPress feed with no xmlns:giga, so this is not a
+      GigaViewer install and the pass wrote an empty file every run. Found on 2026-10-15 when the
+      per-series feeds were extended to every platform: its one candidate's address has no
+      GigaViewer shape either.
     mode: known-works
     exclusive_works_at_onboarding: 1
     verified: 2026-08-01
@@ -272,6 +284,12 @@ platforms:
     name: パイコミックス
     host: comics.pie.co.jp
     atom: https://comics.pie.co.jp/atom
+    enabled: false
+    note: >-
+      /atom redirects to /feed/atom, a WordPress feed with no xmlns:giga, so this is not a
+      GigaViewer install and the pass wrote an empty file every run. Found on 2026-10-15 when the
+      per-series feeds were extended to every platform: its one candidate's address has no
+      GigaViewer shape either.
     mode: known-works
     exclusive_works_at_onboarding: 1
     verified: 2026-08-01
@@ -288,6 +306,12 @@ platforms:
     name: 栞
     host: shiori-on.com
     atom: https://shiori-on.com/atom
+    enabled: false
+    note: >-
+      /atom redirects to /feed/atom, a WordPress feed with no xmlns:giga, so this is not a
+      GigaViewer install and the pass wrote an empty file every run. Found on 2026-10-15 when the
+      per-series feeds were extended to every platform: its one candidate's address has no
+      GigaViewer shape either.
     mode: known-works
     exclusive_works_at_onboarding: 1
     verified: 2026-08-01

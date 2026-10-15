@@ -3192,6 +3192,14 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
     }
 
     cl = Counter(t["disposition"] for t in claim_trace)
+    # THE OPEN CLAIMS, ALWAYS, for `adapters/claims/trace.py`, which fetches the page behind each so
+    # the next compile can settle it. It read them out of `run.json`, which stopped being written
+    # by default, so the tracer had nothing to read from 2026-08-03 until 2026-10-15 and the open
+    # claims sat open. Small, and read by a scheduled step, so it is written every run.
+    (out / "claims-open.json").write_text(json.dumps(
+        {"generated": str(_today),
+         "claims": {"trace": [t for t in claim_trace if t.get("disposition") == "open"]}},
+        ensure_ascii=False, indent=1))
     # WRITTEN ONLY WHERE SOMEBODY ASKED, §13. `run.json` had one reader, `status.py`, which turned
     # it into a file nothing opened; the site builds the run's report from the store. `--emit-json`
     # keeps it available for a person who wants to read one without a query.
@@ -4402,18 +4410,11 @@ def main():
     # corrects inference: こはる日和。 and すわっぷ⇔すわっぷ both stopped printing years before
     # their last chapter, which read as a print edition ending under a story that continued. The
     # shop says both are finished, and an explicit statement beats a shape in the data.
-    # Both passes, because the question is the same one and only the queue differed: the first
-    # asked about works that had gone quiet, the second about works merely slowing down, and a
-    # shop saying 完結 answers either. Ten of the 94 slow works carry it.
+    # ONE FILE FOR THE QUESTION. It was three until 2026-10-15, one per queue (quiet, slowing, and
+    # dated only by import stamps), each run once by hand. The sweep now asks all three states on
+    # its own cadence, and the fourteen answers only the older two held were folded into it.
     shop_completed = {}
-    # The third file asks about works whose every date is an import stamp, which is a different
-    # question again: those read `unknown` because our dates say when we were told about the work,
-    # so the shop is the only party in a position to say whether it ended. All four it answered are
-    # marked by the volume tag rather than by 【完結】 in the title, so the title-only reader this
-    # module used to be could not have found any of them.
     for _bwf in ("data/coverage/bookwalker-completion.yaml",
-                 "data/coverage/bookwalker-completion-slow.yaml",
-                 "data/coverage/bookwalker-completion-unknown.yaml",
                  # The second shop. DEFINITIONS §2 admits a licensed retailer as a comparator, and
                  # a shop describing its own stock is the same kind of claim whichever shop makes
                  # it. Read from the 百合・GL genre capture's own row flag.
@@ -5731,6 +5732,7 @@ def main():
     # here and attached by identity further down, so the statement survives without the listing
     # becoming a row, a source chip or a serialisation.
     _app_only_authorship = []
+    _registered = _platform.registered()
     for _f in sorted(pathlib.Path("data/source").rglob("*.yaml")):
         try:
             _d = yaml.safe_load(_f.read_text())
@@ -5756,6 +5758,10 @@ def main():
                 _byhost = host_plat.get(_hm.group(1).lower())
                 if _byhost and _byhost != plat:
                     plat = _byhost
+            # THE REGISTER'S SPELLING. A file that spans platforms names each row's platform the
+            # way whoever listed it did: claim tracing wrote the antenna's COMICリュウライブ and
+            # GANMA!(更新終了), and four offers reached a reader under names no register held.
+            plat = _platform.canonical(plat, _registered)
             # A chapter without a date is still a chapter. COMIC FUZ states no updatedDate on its
             # coin chapters at all — 70 of 球詠's 228 — so dropping undated rows made every paid
             # chapter on that platform invisible: the work read as 158 chapters with nothing paid,
@@ -6399,8 +6405,11 @@ def main():
     # so this walk picks up neighbours of the works we track — 「タイムマシンはお呼びでない!」 arrived
     # that way. The tracked universe is the candidate list plus whatever is already in the feed;
     # anything outside it was never assessed as in scope and does not belong in a reader-facing tab.
+    # The candidate list Stage 0 rebuilds every run. It read `claim-targets.yaml`, a list derived
+    # once on 2026-08-02 and never again, until 2026-10-15; a work the candidate list leaves out is
+    # one another capture already holds, and the releases below bring those in.
     _cands = set()
-    _ct = pathlib.Path("data/coverage/claim-targets.yaml")
+    _ct = pathlib.Path("data/coverage/candidates.yaml")
     if _ct.exists():
         for c in (yaml.safe_load(_ct.read_text()) or {}).get("candidates") or []:
             if c.get("title"):
@@ -6418,8 +6427,8 @@ def main():
 
     _cands |= {norm_work(r["work"]) for r in releases}
     # THE COMPARATOR'S OWN LISTING IS THE INCLUSION BASIS, ruled by the project owner 2026-09-25,
-    # and it has to be read from the file the comparator actually writes. `claim-targets.yaml`
-    # above is derived and was last written on 2026-08-02, so scope was anchored to a list two
+    # and it has to be read from the file the comparator actually writes. The list above was a
+    # derived file last written on 2026-08-02 until 2026-10-15, so scope was anchored to a list two
     # months old while Web漫画アンテナ went on listing works under its 百合 tag every day.
     #
     # WHAT THAT COST, and it is the same shape as the line below about print records. Without this,

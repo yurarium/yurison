@@ -69,6 +69,12 @@ def works_in_state(state, path=None):
     return asks.population(_store(), "works in a state", state=state)
 
 
+def incomplete_rows():
+    """`[{work, url, platform}]`, the attested rows missing a field, one per work and platform."""
+    from relational import asks
+    return asks.population(_store(), "incomplete attested rows")
+
+
 def volumes_held():
     """`{work title: volumes}`, the most volumes any print record of the work states."""
     from relational import asks

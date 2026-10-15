@@ -1,0 +1,49 @@
+# コミックガルド — works confirmed from the discovery queue.
+#
+# 百合ナビ named these and linked to them; the platform supplies the fields. Tier C
+# names a work and establishes nothing about it (REQUIREMENTS §1).
+#
+# is_oneshot is read, not guessed: a series feed holding exactly one episode is a
+# one-shot. These platforms apply no genre label, so nothing here establishes
+# marketing_label (DEFINITIONS §4).
+source: gigaviewer
+platform: comic-gardo
+platform_name: "コミックガルド"
+publisher: "オーバーラップ"
+retrieved: 2026-10-15
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+works_confirmed: 1
+works:
+  - work_title: "優等生がアダルトグッズを買いに来た"
+    author: "コナタエル"
+    url: "https://comic-gardo.com/episode/12207421984094260425"
+    series_id: "12207421983996994170"
+    is_oneshot: false
+    discovered_via:
+      signal: "new-serial"
+      article: "https://yurinavi.com/2026/08/19/yuutouseiga-comic-start/"
+      headline: "優等生の秘密を知ってしまった女子高生のガールミーツガール「優等生がアダルトグッズを買いに来た」WEBでスタート"
+    chapter_count: 7
+    chapters:
+      - title: "第4話「だから安心して泣きついて」(1)"
+        updated: 2026-10-12
+        url: "https://comic-gardo.com/episode/12207421984350401548"
+      - title: "第3話「そっちの穴も開けてあげるから」(2)"
+        updated: 2026-09-21
+        url: "https://comic-gardo.com/episode/12207421984251695869"
+      - title: "第3話「そっちの穴も開けてあげるから」(1)"
+        updated: 2026-09-07
+        url: "https://comic-gardo.com/episode/12207421984188204280"
+      - title: "第2話「放っといたら、寝覚めが悪いから」(3)"
+        updated: 2026-08-17
+        url: "https://comic-gardo.com/episode/12207421984094260445"
+      - title: "第2話「放っといたら、寝覚めが悪いから」(2)"
+        updated: 2026-08-17
+        url: "https://comic-gardo.com/episode/12207421984094260440"
+      - title: "第2話「放っといたら、寝覚めが悪いから」(1)"
+        updated: 2026-08-17
+        url: "https://comic-gardo.com/episode/12207421984094260433"
+      - title: "第1話「学校と親には内緒にしてください……」"
+        updated: 2026-08-17
+        url: "https://comic-gardo.com/episode/12207421984094260425"

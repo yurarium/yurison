@@ -57,9 +57,10 @@ def main(s):
          "a feed on another host is not this chapter's series")
     s.eq(ni.series_feed("https://ichicomi.com/title/1", PAGE), None,
          "and only a chapter page is read for one")
-    s.eq(ni.inductable([new, {"work": "印刷", "addresses": []}, {**new, "work": "保留"}],
-                       {"保留": {}}), [new],
-         "only a web row nobody has ruled on is considered")
+    ruled_in = {**new, "work": "認めた"}
+    s.eq(ni.inductable([new, {"work": "印刷", "addresses": []}, {**new, "work": "保留"}, ruled_in],
+                       {"保留": {"disposition": "held"}, "認めた": {"disposition": "in"}}),
+         [new, ruled_in], "a web row nobody has ruled on is considered, and one ruled in; one held is not")
 
 
 if __name__ == "__main__":

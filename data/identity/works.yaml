@@ -22037,6 +22037,19 @@ works:
       - anchor: "web:https://ichicomi.com/atom/series/12207421984241417494"
         basis: "the chapter page at https://ichicomi.com/episode/12207421984336824147 links its own series feed at https://ichicomi.com/atom/series/12207421984241417494, so the platform places this chapter in series 12207421984241417494, and the og:title there names the work: だって恋は月夜に灯るから - meji / 第1話 | 一迅プラス"
         retrieved: 2026-10-16
+  - id: w03441
+    title: "えろいことするために巨乳美少女奴隷を買ったはずが、お師匠さまと慕われて思った通りにいかなくなる話"
+    anchors:
+      - "web:https://novema.jp/comic/serial/n10"
+      - "web:https://manga.nicovideo.jp/comic/73501"
+      - "web:https://manga-zegra.com/series/f34aa93530b90"
+    attached:
+      - anchor: "web:https://manga.nicovideo.jp/comic/73501"
+        basis: "the ニコニコ漫画 page carries the same title and the same credits, 佐藤36 (作画) and 煮豆シューター (原作), as the comicグラスト serial"
+        retrieved: 2026-10-16
+      - anchor: "web:https://manga-zegra.com/series/f34aa93530b90"
+        basis: "マンガゼグラ is スターツ出版's own site, the publisher behind comicグラスト, and its series page carries the same title and the same credits, 佐藤36 and 煮豆シューター"
+        retrieved: 2026-10-16
 related:
   - a: w00156
     b: w00486

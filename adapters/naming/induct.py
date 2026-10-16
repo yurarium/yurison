@@ -8,7 +8,7 @@ twenty thousand lines to search. This does it the same way every time, and the j
 one thing that needs reading and judgement, the English name.
 
 WHAT IT MINTS. A row awaiting an identifier that has a web address, that nobody has ruled on in
-`data/queue/unheld-works.yaml`, and that resembles no work the store holds. Its anchors are its
+`data/queue/unheld-works.yaml` or that was ruled `in` there, and that resembles no work the store holds. Its anchors are its
 addresses as `web:` anchors. A GigaViewer chapter address (`/episode/<n>`) links its own series feed
 on the page, and that feed is attached too, with the page cited, so later chapters arrive under the
 work instead of awaiting another identifier.
@@ -60,9 +60,13 @@ def resembles(row, held):
 
 
 def inductable(rows, ruled):
-    """The awaiting rows this may consider: a web address, a title, and no ruling."""
+    """The awaiting rows this may consider: a web address, a title, and no ruling but `in`.
+
+    AN `in` RULING IS WHAT ADMITS A WORK, so a row ruled in is minted like one nobody had to rule
+    on. Leaving every ruled row alone kept the comicグラスト work waiting after the owner settled it.
+    """
     return [r for r in rows or [] if r.get("addresses") and r.get("work")
-            and fold(r.get("work")) not in ruled]
+            and (ruled.get(fold(r.get("work"))) or {"disposition": "in"}).get("disposition") == "in"]
 
 
 def series_feed(address, page):

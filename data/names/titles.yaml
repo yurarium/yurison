@@ -7969,8 +7969,8 @@ names:
     verified: false
   あの子とふたりで。:
     basis: translated
-    en: Just the Two of Us, Her and Me.
-    en_at: '2026-08-24'
+    en: Just the Two of Us.
+    en_at: '2026-10-16'
     en_conflicts:
     - basis: romaji
       source: mangaupdates
@@ -7978,7 +7978,10 @@ names:
     - basis: translated
       source: yurarium
       value: Just the Two of Us, with Her.
-    en_reviewed: '2026-08-24'
+    - basis: translated
+      source: yurarium
+      value: Just the Two of Us, Her and Me.
+    en_reviewed: '2026-10-16'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -7988,10 +7991,10 @@ names:
       - こ
     - - とふたりで。
       - null
-    note: 'あの子 IS ONE OF THE TWO, which the earlier rendering lost. `Just the Two of Us, with Her` reads
-      in English as a pair and then her beside them, so the title counted three people where the Japanese
-      counts two: ふたりで does the whole of the counting and あの子と names who the other one is. The full stop
-      is the title''s own.'
+    note: 'ふたりで counts the pair and あの子と names the other one, and Just the Two of Us carries both: the
+      two are the speaker and her, with nobody beside them. Two earlier renderings named her outright,
+      `with Her` and then `Her and Me`, and the owner ruled the second wordier than the title needs on
+      2026-10-16. The full stop is the title''s own.'
     reading: アノ コ ト フタリ デ。
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -9590,7 +9593,13 @@ names:
     reading_source_kind: analyser
     verified: false
   えろいことするために巨乳美少女奴隷を買ったはずが、お師匠さまと慕われて思った通りにいかなくなる話:
-    basis: romaji
+    basis: translated
+    en: I Bought a Busty Beautiful Slave Girl for Lewd Purposes, but She Adores Me as Her Teacher and
+      Nothing Goes as Planned
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - えろいことするために
       - null
@@ -9624,6 +9633,9 @@ names:
       - null
     - - 話
       - はなし
+    note: No English edition was found. お師匠さま is a master in the sense of a teacher, so Teacher keeps
+      it apart from the master who owns a slave, and 慕われて is being adored by her. マンガゼグラ's page has ハロ,
+      an elf sorceress who remembers a former life as a man, buy the girl and become her teacher instead.
     reading: エロ イコ ト スル タメ ニ キョニュウ ビショウジョ ドレイ ヲ カッタ ハズ ガ、 オ シショウサマ ト シタワレテ オモッタ トオリ ニ イカナク ナル ハナシ
     reading_at: '2026-10-15'
     reading_basis: analyser

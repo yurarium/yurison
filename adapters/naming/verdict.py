@@ -27,10 +27,11 @@ import sys
 
 ALLOWED = ("data/identity/works.yaml", "data/names/curated.yaml", "data/queue/unheld-works.yaml")
 #: WHAT THE COMMANDS THE JOB IS TOLD TO RUN REWRITE. `curate.py --apply` writes the name store and
-#: the build stamps docs/tracker.html; the job is refused if it does not run them, so their output
+#: the build stamps docs/tracker.html, and the gate lowers a budget whose count fell in
+#: docs/budgets.json; the job is refused if it does not run them, so their output
 #: cannot count against it. It cannot edit these by hand: its tools allow Edit on ALLOWED alone,
 #: and the workflow regenerates them after judging.
-REGENERATED = ("data/names/", "docs/tracker.html", "data/ledger/")
+REGENERATED = ("data/names/", "docs/tracker.html", "data/ledger/", "docs/budgets.json")
 LEDGER = pathlib.Path("data/ledger/claude-usage.jsonl")
 FAIL = re.compile(r"^\s*FAIL\s+(.+?):\s")
 
@@ -96,8 +97,24 @@ def since(paths, baseline, cwd="."):
 
 
 def failing(gate_text):
-    """The names of the checks a gate report lists as failing."""
-    return {m.group(1) for m in map(FAIL.match, gate_text.splitlines()) if m}
+    """The names of the INVARIANTS a gate report lists as failing.
+
+    BUDGETS ARE NOT THE JOB'S TO HOLD. A work it inducts arrives with credits and readings nobody
+    has researched, and counts like `credit fields an identifier does not cover` rise with it, which
+    is the arrival rather than a fault: a push is not blocked by them either (`--data-advisory`),
+    and the weekly digest lists every budget left over its value. The job cannot change code, so a
+    code budget cannot move under it. What it must not do is break an invariant.
+    """
+    section, out = None, set()
+    for line in gate_text.splitlines():
+        if line.startswith("invariants:"):
+            section = "invariants"
+        elif line.startswith("budgets"):
+            section = "budgets"
+        m = FAIL.match(line)
+        if m and section == "invariants":
+            out.add(m.group(1))
+    return out
 
 
 def worse(before, after):

@@ -13,19 +13,21 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import testkit                                                          # noqa: E402
 import verdict as v                                                     # noqa: E402
 
-BEFORE = """budgets (ratchet down only):
+BEFORE = """invariants:
+  FAIL  every platform a reader is shown is registered: 1
+  ok    the store refused no row
+budgets (ratchet down only):
   FAIL  targets a capture wrote no row for: 10 (budget 6)
-  ok    incomplete attested rows: 40
 """
-AFTER_SAME = BEFORE + "  ok    one page cited for two claims: 1\n"
-AFTER_WORSE = BEFORE + "  FAIL  titles showing a romanisation nobody has ruled on: 1 (budget 0)\n"
+AFTER_SAME = BEFORE + "  FAIL  credit fields an identifier does not cover: 166 (budget 154)\n"
+AFTER_WORSE = BEFORE.replace("  ok    the store refused no row", "  FAIL  the store refused no row: 2")
 
 
 def main(s):
     s.eq(v.disallowed(["data/names/curated.yaml", "data/identity/works.yaml"]), [],
          "the registry and the curated names are the job's to change")
-    s.eq(v.disallowed(["data/names/curated.yaml", "docs/budgets.json", "build.py"]),
-         ["docs/budgets.json", "build.py"], "a budget or the code is not")
+    s.eq(v.disallowed(["data/names/curated.yaml", "data/source/x.yaml", "build.py"]),
+         ["data/source/x.yaml", "build.py"], "a capture or the code is not")
     s.eq(v.disallowed(["data/names/titles.yaml", "docs/tracker.html"]), [],
          "what curate --apply and the build rewrite is not counted against it")
     events = ['{"type":"system"}', '{"type":"result","num_turns":40,"duration_ms":600000,'
@@ -36,10 +38,10 @@ def main(s):
     s.eq((f["num_turns"], f["duration_ms"], f["usage"]["output_tokens"], f["result"]),
          (41, 601600, 9061, "a monitor timed out"), "the whole session is summed, not its last wake")
 
-    s.eq(v.failing(BEFORE), {"targets a capture wrote no row for"}, "a failing check is read by name")
-    s.eq(v.worse(BEFORE, AFTER_SAME), [], "a budget already over before the job is not the job's")
-    s.eq(v.worse(BEFORE, AFTER_WORSE), ["titles showing a romanisation nobody has ruled on"],
-         "a check the job made fail is")
+    s.eq(v.failing(BEFORE), {"every platform a reader is shown is registered"},
+         "a failing invariant is read by name, and a failing budget is not counted")
+    s.eq(v.worse(BEFORE, AFTER_SAME), [], "a budget that rose with the job's arrivals is not the job's")
+    s.eq(v.worse(BEFORE, AFTER_WORSE), ["the store refused no row"], "an invariant the job broke is")
 
     diff = ('+  - id: w03322\n+    title: "新作"\n+  "新作":\n+    en: "New Work"\n'
             ' context\n+    note: >-\n')

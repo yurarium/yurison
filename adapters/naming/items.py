@@ -9,8 +9,8 @@ exactly that, and nothing of the project reaches the job but the rules it names 
 
 WHAT AN ITEM HOLDS. `key`, the title as the store holds it, which is the key the curated file is
 written under; `author`; `platforms`; `pages`, the addresses a reader would open; and `related`, up to
-three titles already named that share the start of this one, so a second volume or a sister series
-is named the way the first was.
+three titles already named that share the start of this one or its creator, so a second volume, a
+sister series or a companion book is named the way the first was.
 
     items.py [--limit 12] [--out data/build/naming-items.json]
 """
@@ -37,18 +37,25 @@ def untitled(series, decided):
     return sorted(out, key=lambda r: (str(r.get("latest") or ""), str(r.get("work"))), reverse=True)
 
 
-def related(title, named, limit=3):
-    """`[{ja, en}]` for curated titles that share the first `SHARED` characters with `title`."""
+def related(title, named, limit=3, kin=()):
+    """`[{ja, en}]` for curated titles that share the first `SHARED` characters with `title`, then
+    for named titles by the same creator.
+
+    THE CREATOR'S OTHER TITLES, because a companion book abbreviates its series rather than
+    repeating it. 愛カラのゆるい本。 shares nothing at its start with 愛していいのは、カラダだけ, which
+    it abbreviates, and the first run of the job, not told the series existed, kept the
+    abbreviation as "Ai Kara".
+    """
     head = str(title)[:SHARED]
-    if len(head) < SHARED:
-        return []
-    out = [{"ja": k, "en": v.get("en")} for k, v in named.items()
-           if k != title and str(k).startswith(head) and (v or {}).get("en")]
-    return out[:limit]
+    out = []
+    if len(head) >= SHARED:
+        out = [k for k in named if k != title and str(k).startswith(head)]
+    out += [k for k in kin if k != title and k in named and k not in out]
+    return [{"ja": k, "en": named[k].get("en")} for k in out if (named[k] or {}).get("en")][:limit]
 
 
-def item(row, named):
-    """One title as the job sees it."""
+def item(row, named, kin=()):
+    """One title as the job sees it; `kin` is the other titles by its creator."""
     sources = row.get("sources") or []
     pages = [str(s.get("url")) for s in sources if s.get("url")]
     for u in (row.get("series_url"), row.get("url")):
@@ -61,7 +68,7 @@ def item(row, named):
             pages.append(u)
     return {"key": row.get("work"), "author": row.get("author") or "",
             "platforms": sorted({str(s.get("platform")) for s in sources if s.get("platform")}),
-            "pages": pages[:4], "related": related(row.get("work"), named)}
+            "pages": pages[:4], "related": related(row.get("work"), named, kin=kin)}
 
 
 def main(argv=None):
@@ -71,8 +78,13 @@ def main(argv=None):
     a = ap.parse_args(argv)
 
     named = (yaml.safe_load(CURATED.read_text(encoding="utf-8")) or {}).get("titles") or {}
-    rows = untitled(population.series(None), set(named))[:a.limit]
-    items = [item(r, named) for r in rows]
+    series = population.series(None)
+    by = {}
+    for r in series:
+        if r.get("author"):
+            by.setdefault(r["author"], []).append(r.get("work"))
+    rows = untitled(series, set(named))[:a.limit]
+    items = [item(r, named, by.get(r.get("author")) or ()) for r in rows]
     pathlib.Path(a.out).write_text(json.dumps(items, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{len(items)} title(s) to name -> {a.out}")
     if os.environ.get("GITHUB_OUTPUT"):

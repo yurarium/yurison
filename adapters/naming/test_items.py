@@ -30,6 +30,9 @@ def main(s):
     s.eq([r["ja"] for r in it["related"]], ["鈴木りつ短編集　考幻学入門"],
          "and the titles already named that share its start, so a series is named one way")
     s.eq(ni.related("短い", named), [], "a title too short to share a start has no relatives")
+    s.eq(ni.related("決まったのゆるい本", named, kin=["決まった", "名前なし"]),
+         [{"ja": "決まった", "en": "Decided"}],
+         "a named title by the same creator is a relative though it starts otherwise")
     book = {"work": "本", "print": [{"shop_url": "https://www.cmoa.jp/title/1/"}]}
     s.eq(ni.item(book, {})["pages"], ["https://www.cmoa.jp/title/1/"],
          "a book's page is its shop's, since it has no web source")

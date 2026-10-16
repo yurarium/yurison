@@ -68,6 +68,10 @@ def main(s):
     s.check("does not say why" in why[3], "a note too thin to say why is refused")
     s.check(why[4].startswith("declined"), "a skip is reported as the job declining")
 
+    long = ni.render("長い", {**ni.entry(ours, "2026-10-16")[0], "note": "word " * 60})
+    s.check(all(len(l) <= ni.WIDTH for l in long.splitlines()) and "basis: translated" in long,
+            "a note is folded at the file's width and the vocabulary written bare")
+
     dashed = ni.entry({**ours, "note": ours["note"] + " A moon — a book."}, "2026-10-16")[0]
     s.check("—" not in dashed["note"], "an em dash in a note does not reach the file")
     s.eq(ni.answers_of({"result": 'Here: {"names": [{"key": "x"}]}'}), [{"key": "x"}],

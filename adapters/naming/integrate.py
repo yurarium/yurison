@@ -17,6 +17,7 @@ import datetime
 import json
 import pathlib
 import sys
+import textwrap
 
 import yaml
 
@@ -27,6 +28,8 @@ from names import curate                                                # noqa: 
 #: `stated` is left out: it is a reading of the record, never a finding of research.
 FITS = {b: curate.ATTRIBUTION[b] for b in ("official-jp", "licensed", "translated", "romaji")}
 NOTE_MIN = 40
+#: The column the curated file's notes fold at.
+WIDTH = 100
 
 
 def entry(answer, today):
@@ -66,16 +69,19 @@ def entry(answer, today):
 
 
 def render(key, e):
-    """One entry as the file writes entries."""
+    """One entry as the file writes entries: free text quoted, vocabulary bare, notes folded at
+    the width the rest of the file keeps."""
     L = [f"  {json.dumps(key, ensure_ascii=False)}:"]
     for k in ("en", "translation", "basis", "source", "source_kind", "source_url"):
         if e.get(k):
-            L.append(f"    {k}: {json.dumps(e[k], ensure_ascii=False)}")
+            bare = k in ("basis", "source_kind") or e[k] == curate.OURS
+            L.append(f"    {k}: {e[k] if bare else json.dumps(e[k], ensure_ascii=False)}")
     L.append(f"    reviewed: '{e['reviewed']}'")
     for k in ("note", "translation_note"):
         if e.get(k):
             L.append(f"    {k}: >-")
-            L.append(f"      {e[k]}")
+            L += textwrap.wrap(e[k], WIDTH, initial_indent="      ", subsequent_indent="      ",
+                               break_long_words=False, break_on_hyphens=False)
     return "\n".join(L) + "\n"
 
 

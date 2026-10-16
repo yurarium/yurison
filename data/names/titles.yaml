@@ -60902,8 +60902,12 @@ names:
     verified: false
   愛カラのゆるい本。:
     basis: translated
-    en: The Laid-Back Book of Ai Kara
+    en: 'The Only Thing You May Love Is the Body: A Laid-Back Book'
     en_at: '2026-10-16'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Laid-Back Book of Ai Kara
     en_reviewed: '2026-10-16'
     en_source: yurarium
     en_source_kind: derived
@@ -60916,9 +60920,9 @@ names:
       - ほん
     - - 。
       - null
-    note: The BOOK☆WALKER page has no English title. It is a casual companion book of after-story and
-      side-character pieces for a main series (spoilers through volume 15), and 愛カラ appears to be an abbreviation
-      of that series' title, so I kept it as Ai Kara.
+    note: 愛カラ is the short form of 愛していいのは、カラダだけ, 生肉's series, and BOOK☆WALKER's page describes this as
+      a casual companion of after-stories and side characters, spoilers through volume 15. The series
+      is named by its English, and ゆるい本 is a laid-back book.
     reading: マナ カラ ノ ユルイ ホン。
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -62354,8 +62358,8 @@ names:
       - ほうかご
     - - drawing
       - null
-    note: The BOOK☆WALKER page gives no separate English title. The title combines 放課後 (after school)
-      with the English word drawing, matching the story of two girls practicing drawing after class.
+    note: BOOK☆WALKER's page gives no separate English title. 放課後 is after school and drawing is already
+      English, which suits two girls practising drawing after class.
     reading: ホウカゴ drawing
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -64015,8 +64019,8 @@ names:
       - しず
     - - むアムネシア
       - null
-    note: The BOOK☆WALKER page lists no English title. The title uses katakana for amnesia, and 春海 is
-      the spring sea. It also echoes the heroine's name, Haruno, and the memories theme in the synopsis.
+    note: BOOK☆WALKER's page gives no English title. 春海 is the spring sea and アムネシア the English amnesia
+      written in katakana, kept as the English word; the synopsis turns on lost memories.
     reading: シュンカイ ニ シズム アムネシア
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -67061,8 +67065,8 @@ names:
       - null
     - - 前編
       - ぜんぺん
-    note: The BOOK☆WALKER page (PERSONAL COLOR, a Touhou Project fan work) has no English title. 死角 is
-      a blind spot and 寵児 a favored child, and 前編 marks Part 1; it is a sequel to 嗣子の渦の目の中で.
+    note: BOOK☆WALKER's page (PERSONAL COLOR, a Touhou Project fan work) gives no English title. 死角 is
+      a blind spot and 寵児 a favoured child, and 前編 marks the first part of a sequel to 嗣子の渦の目の中で.
     reading: シカク ノ チョウジ 　 ゼンペン
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -69841,8 +69845,8 @@ names:
       - もと
     - - めあう
       - null
-    note: The BOOK☆WALKER page gives no English title. It is a yuri manga about a couple being affectionate,
-      and the title is a literal wolf and lamb pairing.
+    note: BOOK☆WALKER's page gives no English title. A yuri couple's affection told as a wolf and a lamb,
+      the pairing the title names, with 求めあう as longing for each other.
     reading: オオカミ ト コヒツジ ワ イツダッテ モトメアウ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -70214,8 +70218,8 @@ names:
       - じょし
     - - しかいないアイドルユニット
       - null
-    note: The BOOK☆WALKER page has no English title. The synopsis describes an all-women idol group styled
-      as princes, so I translated the title literally.
+    note: BOOK☆WALKER's page gives no English title. The synopsis describes an idol group made up entirely
+      of women styled as princes, which the English says plainly.
     reading: オウジサマケイ ジョシ シカ イナイ アイドル ユニット
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -71399,9 +71403,9 @@ names:
       - そうぞく
     - - しました　～スタァストリームファーム～
       - null
-    note: The BOOK☆WALKER page lists no English title, and a search found no English edition. The protagonist
-      inherits a farm in another world from her grandfather, and the subtitle is the farm's name in katakana
-      English, so I rendered it as Starstream Farm.
+    note: BOOK☆WALKER's page gives no English title and a search found no English edition. The heroine
+      inherits her grandfather's farm in another world, and the subtitle is the farm's name in katakana
+      English, Starstream Farm.
     reading: イセカイ ノ ボクジョウ ヲ ソウゾク シマシタ 　 ～ スタァストリームファーム ～
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -72315,8 +72319,8 @@ names:
       - null
     - - 告白
       - こくはく
-    note: The BOOK☆WALKER page lists no English title. 白粉花 (oshiroibana) is the four o'clock flower, and
-      the story is about girls in a housing complex sharing secrets and a kiss, so I translated it literally.
+    note: BOOK☆WALKER's page gives no English title. 白粉花, oshiroibana, is the four o'clock flower, and
+      the story has girls in a housing complex sharing secrets and a kiss, so the flower stays as named.
     reading: オシロイバナ ノ コクハク
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -74378,8 +74382,12 @@ names:
     verified: false
   真夏の昼の誘惑:
     basis: translated
-    en: Midsummer Daytime Temptation
+    en: A Midsummer Day's Temptation
     en_at: '2026-10-16'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Midsummer Daytime Temptation
     en_reviewed: '2026-10-16'
     en_source: yurarium
     en_source_kind: derived
@@ -74394,8 +74402,9 @@ names:
       - null
     - - 誘惑
       - ゆうわく
-    note: The BOOK☆WALKER page (百合コレ, Number Nine) has no English title. The synopsis has a mysterious
-      woman who kisses a high schooler on a hot day, so I translated 誘惑 as temptation.
+    note: 真夏の昼 turns 真夏の夜の夢, the Japanese title of A Midsummer Night's Dream, from night to day, and the
+      English turns Shakespeare's title the same way. BOOK☆WALKER's page (百合コレ, Number Nine) has a mysterious
+      woman kiss a high schooler on a hot afternoon.
     reading: マナツ ノ ヒル ノ ユウワク
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -74781,9 +74790,9 @@ names:
       - し
     - - らないきみのこと～
       - null
-    note: The BOOK☆WALKER page gives no English title. The title says an anthology of stories about a
-      witch and a narrator (boku), with the subtitle about things no one knows about you. I translated
-      it literally.
+    note: BOOK☆WALKER's page gives no English title. An anthology of short stories about a witch and a
+      narrator who calls himself 僕, under a subtitle about what nobody knows of you; rendered word for
+      word.
     reading: タンペン オリジナル コミック アンソロジー   マジョ ト ボク ニ ツイテ ノ モノガタリ   ～ ダレ モ シラナイ キミ ノ コト ～
     reading_at: '2026-10-15'
     reading_basis: analyser

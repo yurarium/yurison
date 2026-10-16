@@ -19,6 +19,11 @@ sequel or sister series of a related title is named the way that title was.
 4. `romaji`: a title that is itself a coinage or a proper name with nothing to translate,
    `source_kind` `derived`; `en` is its romanisation.
 
+Look for what a title alludes to before translating it. 真夏の昼の誘惑 turns 真夏の夜の夢, the
+Japanese title of A Midsummer Night's Dream, and its English should turn the English title the same
+way. A short form such as 愛カラ abbreviates a title, usually one in `related`; name that title
+instead of romanising the short form, and skip if you cannot find it.
+
 A title written in katakana English is `translated`, spelled as the English it borrows. Where 1 or
 2 applies and the Japanese says something the English title does not, add `translation` with your
 own rendering and `translation_note`, one sentence on what it rests on. A contest badge
@@ -27,7 +32,8 @@ such as `/25年1月期JUMP新世界漫画賞` or `(第96回新人コミック大
 ## The note
 
 Every entry has a `note` of two to four plain sentences saying what the title means and why you
-rendered it so, naming the page you read. Write for a reader, not a log: no em dashes, keep
+rendered it so, naming the page you read. Write for a reader, not a log, and about the title rather than
+yourself (no "I translated"): no em dashes, keep
 Japanese brackets as written, and do not count things off in threes.
 
 ## When you cannot

@@ -22028,6 +22028,15 @@ works:
     title: "最愛のお姉様が悪役令嬢だったので、神が定めた運命に抗います@COMIC"
     anchors:
       - "web:https://to-corona-ex.com/comics/44610925887524"
+  - id: w03440
+    title: "だって恋は月夜に灯るから"
+    anchors:
+      - "web:https://ichicomi.com/episode/12207421984336824147"
+      - "web:https://ichicomi.com/atom/series/12207421984241417494"
+    attached:
+      - anchor: "web:https://ichicomi.com/atom/series/12207421984241417494"
+        basis: "the chapter page at https://ichicomi.com/episode/12207421984336824147 links its own series feed at https://ichicomi.com/atom/series/12207421984241417494, so the platform places this chapter in series 12207421984241417494, and the og:title there names the work: だって恋は月夜に灯るから - meji / 第1話 | 一迅プラス"
+        retrieved: 2026-10-16
 related:
   - a: w00156
     b: w00486

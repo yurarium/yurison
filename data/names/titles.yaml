@@ -16596,31 +16596,28 @@ names:
     reading_source_kind: analyser
     verified: false
   だって恋は月夜に灯るから:
-    basis: romaji
-    furigana_spans:
-    - - だって
-      - null
-    - - 恋
-      - こい
-    - - は
-      - null
-    - - 月夜
-      - つきよ
-    - - に
-      - null
-    - - 灯
-      - とも
-    - - るから
-      - null
-    reading: ダッテ コイ ワ ツキヨ ニ トモルカラ
+    basis: translated
+    en: Because Love Glows on Moonlit Nights
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
+    note: だって is the "but" or "because" of someone justifying herself, 月夜 is a moonlit night and 灯る is
+      to light up, as a lamp does. The synopsis on 一迅プラス, on the page of chapter 1, has 高澄星南 slip out
+      of her dorm at night and be taken in by the senior 月城綾夜, whose name carries 月. The title gives the
+      reason a feeling lights up on such a night, so it is rendered as a because-clause.
+    reading: ダッテ コイ ワ ツクヨ ニ トモル カラ
     reading_at: '2026-10-16'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+      value: ダッテ コイ ワ ツキヨ ニ トモルカラ
+    reading_note: 'Read off the kana and the common compounds: 恋 is こい, 月夜 is つくよ and 灯る is ともる. The は
+      after 恋 is the topic particle, spoken ワ.'
+    reading_reviewed: '2026-10-16'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   ちいさい百合の花束:
     basis: translated
@@ -79059,7 +79056,12 @@ names:
       both and is the romanisation already recorded.
     verified: false
   素直の裏顔:
-    basis: romaji
+    basis: translated
+    en: Sunao's Hidden Face
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 素直
       - すなお
@@ -79069,6 +79071,10 @@ names:
       - うら
     - - 顔
       - かお
+    note: 素直 is the heroine's given name and also the word for honest or docile, and 裏顔 is the face behind
+      the one she shows. The full title on BOOK☆WALKER adds a subtitle about a downer girl the town gossips
+      about, and the synopsis has Sunao hide her real feelings to keep everyone happy. The English uses
+      the name, and the hidden face supplies the contrast.
     reading: スナオ ノ ウラ カオ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -80075,7 +80081,12 @@ names:
     reading_source_kind: analyser
     verified: false
   罪に溺れるクライム百合アンソロジー:
-    basis: romaji
+    basis: translated
+    en: 'Drowning in Sin: A Crime Yuri Anthology'
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 罪
       - つみ
@@ -80089,6 +80100,9 @@ names:
       - ゆり
     - - アンソロジー
       - null
+    note: 罪に溺れる is to drown in sin and クライム is the katakana English crime, so the title names the theme
+      of the anthology. The BOOK☆WALKER page describes yuri stories about women who commit crimes and
+      the women drawn to them, from the Bamboo Comics label of 竹書房. 百合アンソロジー is kept as a yuri anthology.
     reading: ツミ ニ オボレル クライム ユリ アンソロジー
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -81191,7 +81205,12 @@ names:
       does not rest on it.
     verified: false
   花木姉妹へ愛をこめて:
-    basis: romaji
+    basis: translated
+    en: With Love to the Hanaki Sisters
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 花木
       - かぼく
@@ -81203,6 +81222,9 @@ names:
       - あい
     - - をこめて
       - null
+    note: 花木 is the sisters' surname and 愛をこめて is the closing of a letter, "with love". The BOOK☆WALKER
+      page for volume 1 has the younger sister Mizuki openly in love with her older sister Erika, who
+      is startled and accepts it. The title reads as a letter addressed to the pair.
     reading: カボク シマイ エ アイ ヲ コメテ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -82407,12 +82429,21 @@ names:
     reading_source_kind: analyser
     verified: false
   見送りしものに:
-    basis: romaji
+    basis: translated
+    en: To the One I Saw Off
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 見送
       - みおく
     - - りしものに
       - null
+    note: 見送りし is the old-style past form of 見送る, to see someone off, so 見送りしもの is the one who was seen
+      off, and に addresses them. The BOOK☆WALKER page gives one line, 霊夢が出張するお話です, a story of Reimu going
+      on a business trip, which marks it as a Touhou Project fan work. English keeps the archaic address
+      in plain words.
     reading: ミオクリ シ モノ ニ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -82736,7 +82767,12 @@ names:
     reading_source_kind: analyser
     verified: false
   誰が駒鳥逃がしたの？:
-    basis: romaji
+    basis: translated
+    en: Who Let the Robin Go?
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 誰
       - だれ
@@ -82748,6 +82784,10 @@ names:
       - に
     - - がしたの？
       - null
+    note: The title echoes the English nursery rhyme "Who Killed Cock Robin?", 駒鳥 being the robin, and
+      the detective in the story is named Robin. The BOOK☆WALKER page sets it in 1890s London, where the
+      middle-class wife Margaret visits the female detective Robin. 逃がす is to let something escape, so
+      the question is who let this Robin get away, and English keeps the rhyme's shape.
     reading: ダレ ガ コマドリ ニガシタ ノ？
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -83776,12 +83816,21 @@ names:
     reading_source_kind: analyser
     verified: false
   近所のやさしいおねえさん:
-    basis: romaji
+    basis: translated
+    en: The Kind Older Girl Next Door
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 近所
       - きんじょ
     - - のやさしいおねえさん
       - null
+    note: 近所 is the neighbourhood and おねえさん is a young woman a little older than the speaker, here the
+      one who speaks to a frail girl named Otone. The BOOK☆WALKER page describes a collection of the first
+      five doujinshi volumes, in which the kind older woman living nearby spends everyday life with her.
+      Older Girl Next Door fits the same relation in English.
     reading: キンジョ ノ ヤサシイ オネエサン
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -84069,12 +84118,21 @@ names:
     reading_source_kind: analyser
     verified: false
   週末はおふたりさま:
-    basis: romaji
+    basis: translated
+    en: A Weekend for Two
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 週末
       - しゅうまつ
     - - はおふたりさま
       - null
+    note: おふたりさま is the restaurant phrase for a party of two, the お of politeness attached to ふたり and
+      さま, so the title is the weekend table for two. The BOOK☆WALKER page for this 百合コレ volume describes
+      an office worker and a shut-in who spend their weekends going to places they like, and their feelings
+      change as they do.
     reading: シュウマツ ワ オ フタリサマ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -84538,7 +84596,12 @@ names:
     reading_source_kind: analyser
     verified: false
   鈴木りつ短編集:
-    basis: romaji
+    basis: translated
+    en: Suzuki Ritsu Short Stories
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 鈴木
       - すずき
@@ -84546,6 +84609,9 @@ names:
       - null
     - - 短編集
       - たんぺんしゅう
+    note: A collection of short stories by 鈴木りつ from the magazine 青騎士, in the 青騎士コミックス label. The BOOK☆WALKER
+      series page lists two volumes, the first of which is already named in this file as 鈴木りつ短編集　考幻学入門.
+      短編集 is a short-story collection and the creator's name is kept in romanisation.
     reading: スズキ リツ タンペンシュウ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -85232,7 +85298,12 @@ names:
     reading_source_kind: derived
     verified: false
   陽がのぼり菜の花は咲く:
-    basis: romaji
+    basis: translated
+    en: The Sun Rises and the Rapeseed Blossoms Bloom
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 陽
       - ひ
@@ -85250,6 +85321,10 @@ names:
       - さ
     - - く
       - null
+    note: 陽がのぼり is the sun coming up and 菜の花 is the rapeseed blossom, a bright yellow field flower. The
+      BOOK☆WALKER page for volume 1 has Saki, who has quit her job, step off a train into a town with
+      a yellow rapeseed field and meet Hina, who keeps a pottery shop. The title is that scene, and the
+      yellow field is the first thing she sees.
     reading: ヒ ガ ノボリ ナノハナ ワ サク
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -86216,12 +86291,21 @@ names:
     reading_source_kind: analyser
     verified: false
   飯モン:
-    basis: romaji
+    basis: translated
+    en: Food Monsters
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 飯
       - めし
     - - モン
       - null
+    note: 飯 is cooked rice and by extension a meal, and モン is the モン of モンスター, as in the monster-girl
+      genre. The BOOK☆WALKER page, on its first chapter 麻婆豆腐スライム娘との生活, describes a world where 飯モン born
+      from dishes live among people, and a food-truck owner works beside a slime girl whose body is mapo
+      tofu. Food Monsters says the same thing in English.
     reading: メシ モン
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -87172,12 +87256,20 @@ names:
     reading_source_kind: analyser
     verified: false
   魔法なんかいらない:
-    basis: romaji
+    basis: translated
+    en: I Don't Need Magic
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 魔法
       - まほう
     - - なんかいらない
       - null
+    note: 魔法 is magic and なんか is the dismissive "or anything like it". The BOOK☆WALKER page for this 百合コレ
+      one- shot says Nene learns that her best friend Nono is a witch, and that a witch found out must
+      erase herself from the other person's memory and disappear. The title is Nene's answer to that rule.
     reading: マホウ ナンカ イラナイ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -87597,12 +87689,21 @@ names:
     reading_source_kind: analyser
     verified: false
   魔王さま、リリリベンジ！:
-    basis: romaji
+    basis: translated
+    en: Demon Lord, Lili-Revenge!
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 魔王
       - まおう
     - - さま、リリリベンジ！
       - null
+    note: '魔王さま is the demon lord, addressed politely. リリリベンジ runs the retainer Lili''s name into リベンジ,
+      revenge, so the revenge is Lili''s and the stutter is the pun. English keeps it as Lili-Revenge.
+      The BOOK☆WALKER page gives the premise: a demon lord reborn as a junior high student, who never
+      confessed to Lili in his past life, starts a romantic revenge once she turns up again.'
     reading: マオウサマ、 リリリベンジ！
     reading_at: '2026-10-15'
     reading_basis: analyser

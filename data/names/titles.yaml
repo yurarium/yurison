@@ -50324,7 +50324,12 @@ names:
     reading_source_kind: derived
     verified: false
   図書室でふたり、誰もいないなら。:
-    basis: romaji
+    basis: translated
+    en: Alone Together in the Library, If No One's Here
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 図書室
       - としょしつ
@@ -50334,6 +50339,8 @@ names:
       - だれ
     - - もいないなら。
       - null
+    note: The title is a trailing conditional clause, "the two of us in the library, if no one is around".
+      The BOOK☆WALKER page describes Eru and Rui growing closer between the shelves.
     reading: トショシツ デ フタリ、 ダレ モ イナイナラ。
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -50400,7 +50407,12 @@ names:
     reading_source_kind: analyser
     verified: false
   圧倒的に未来形:
-    basis: romaji
+    basis: translated
+    en: Overwhelmingly Future Tense
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 圧倒的
       - あっとうてき
@@ -50408,6 +50420,8 @@ names:
       - null
     - - 未来形
       - みらいけい
+    note: The title literally means "overwhelmingly future-tense". The BOOK☆WALKER page describes a comedy
+      of conversation between a carefree woman and a friend dragged along with her.
     reading: アットウテキニ ミライケイ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -50585,7 +50599,12 @@ names:
     reading_source_kind: analyser
     verified: false
   地雷女と聖女様:
-    basis: romaji
+    basis: translated
+    en: The Landmine Girl and the Saintly Girl
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 地雷
       - じらい
@@ -50597,6 +50616,9 @@ names:
       - せいじょ
     - - 様
       - さま
+    note: 地雷女 is slang for a difficult woman who is easy to set off, and 聖女様 means a saint. The BOOK☆WALKER
+      page describes two girls who become magical girl partners, one sharp-tongued and the other trying
+      hard to be a good girl.
     reading: ジライ オンナ ト セイジョサマ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -50907,11 +50929,19 @@ names:
     verified: false
   夏みくちゃんとちひろさん:
     basis: romaji
+    en: Natsumi-kun... Miku and Chihiro
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 夏
       - なつ
     - - みくちゃんとちひろさん
       - null
+    note: The title is a pair of personal names with nothing to translate. Whether 夏 belongs to the name
+      or to the season is unclear, so only the names are given. The BOOK☆WALKER page describes a couple's
+      first summer.
     reading: ナツ ミクチャン ト チヒロサン
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -51658,10 +51688,18 @@ names:
     reading_source_kind: analyser
     verified: false
   夢中:
-    basis: romaji
+    basis: translated
+    en: Absorbed
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 夢中
       - むちゅう
+    note: 夢中 means being absorbed or infatuated, and it literally contains 夢 (dream) and 中 (in). The BOOK☆WALKER
+      page says Misaki's feelings for her childhood friend show up as a "dream", so the pun is kept in
+      the note and the English uses the sense of infatuation.
     reading: ムチュウ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -52253,7 +52291,12 @@ names:
     reading_source_kind: derived
     verified: false
   天然のあたしと彼女日記:
-    basis: romaji
+    basis: translated
+    en: Diary of My Airheaded Girlfriend and Me
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 天然
       - てんねん
@@ -52263,6 +52306,8 @@ names:
       - かのじょ
     - - 日記
       - にっき
+    note: 天然 means naturally scatterbrained, and the title is "the airheaded me and my girlfriend's diary".
+      The BOOK☆WALKER page describes comic everyday episodes of two easygoing women living together.
     reading: テンネン ノ アタシ ト カノジョ ニッキ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -52750,7 +52795,12 @@ names:
     reading_source_kind: analyser
     verified: false
   女にはそれぞれ裏がある:
-    basis: romaji
+    basis: translated
+    en: Every Woman Has Her Hidden Side
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 女
       - おんな
@@ -52760,6 +52810,8 @@ names:
       - うら
     - - がある
       - null
+    note: 裏 means the back or hidden side, so the title says each woman has a hidden side. The BOOK☆WALKER
+      page describes an office romance in which each woman hides her feelings and circumstances.
     reading: オンナ ニ ワ ソレゾレ ウラ ガ アル
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -55471,7 +55523,12 @@ names:
     reading_source_kind: analyser
     verified: false
   少女は今日も本を借りにくる:
-    basis: romaji
+    basis: translated
+    en: The Girl Comes to Borrow a Book Again Today
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 少女
       - しょうじょ
@@ -55489,6 +55546,8 @@ names:
       - か
     - - りにくる
       - null
+    note: The title literally says the girl comes to borrow books again today. The BOOK☆WALKER page describes
+      a librarian who notices a girl reading advanced books.
     reading: ショウジョ ワ キョウ モ ホン ヲ カリ ニ クル
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -55628,7 +55687,12 @@ names:
     reading_source_kind: analyser
     verified: false
   少女狂恋フォリ・ア・ドゥ【電子単行本】:
-    basis: romaji
+    basis: translated
+    en: 'Girls'' Mad Love: Folie à Deux'
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 少女
       - しょうじょ
@@ -55642,6 +55706,9 @@ names:
       - たんこうぼん
     - - 】
       - null
+    note: 少女狂恋 means "girl's mad love", and フォリ・ア・ドゥ is the French psychiatric term folie à deux, a madness
+      shared by two people. The BOOK☆WALKER page describes a suspense story at an island girls' school.
+      The 【電子単行本】 digital-edition tag is dropped.
     reading: ショウジョ キョウレン フォリ・ ア・ ドゥ 【デンシ タンコウボン】
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -56270,7 +56337,12 @@ names:
     reading_source_kind: analyser
     verified: false
   幼なじみとの夏:
-    basis: romaji
+    basis: translated
+    en: Summer with My Childhood Friend
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 幼
       - おさな
@@ -56278,6 +56350,8 @@ names:
       - null
     - - 夏
       - なつ
+    note: The title reads literally as "Summer with a childhood friend". The BOOK☆WALKER page describes
+      a one-shot about two childhood friends, Toka and Shino, who start to see each other romantically.
     reading: オサナナジミ ト ノ ナツ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -57385,6 +57459,11 @@ names:
     verified: false
   彼方、彼方。:
     basis: romaji
+    en: Kanata, Kanata.
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 彼方
       - かなた
@@ -57394,6 +57473,9 @@ names:
       - かなた
     - - 。
       - null
+    note: The title repeats 彼方 ("far away" or "that way"), and it also looks like a pair of names for
+      two same-surnamed childhood friends. That ambiguity makes it hard to translate cleanly, so it is
+      romanised. The BOOK☆WALKER page describes a one-shot about a proposal and a stuck ring.
     reading: カナタ、 カナタ。
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -59379,12 +59461,20 @@ names:
     reading_source_kind: analyser
     verified: false
   恋愛ミューティレーション:
-    basis: romaji
+    basis: translated
+    en: Love Mutilation
+    en_at: '2026-10-16'
+    en_reviewed: '2026-10-16'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 恋愛
       - れんあい
     - - ミューティレーション
       - null
+    note: The title is katakana English, "Mutilation", paired with 恋愛 (romance). The BOOK☆WALKER page
+      describes a Comic Yuri Hime 20th-anniversary one-shot about an alien girl, so the English spells
+      the borrowed word directly.
     reading: レンアイ ミューティレーション
     reading_at: '2026-10-15'
     reading_basis: analyser

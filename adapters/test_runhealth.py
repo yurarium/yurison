@@ -45,6 +45,14 @@ def main(s):
     s.eq([(a["action"], a.get("number")) for a in rh.plan(led, {"Source failing: comicboost": 7})],
          [("close", 7)], "so its issue closes")
 
+    mid = rh.record(rh.record({}, [down, other], "2026-10-15", "run/1"), [down], "2026-10-16")
+    got = {r["source"]: r for r in rh.rows(mid)}
+    s.eq((got["comicboost"]["consecutive"], got["comicboost"]["failing_since"],
+          got["comicboost"]["error"]), (2, "2026-10-15", "HTTP 503"),
+         "the store's row for a failing source carries its count, its start and its reason")
+    s.eq((got["kadokomi"]["consecutive"], got["kadokomi"]["failing_since"], got["kadokomi"]["error"]),
+         (0, None, None), "and a healthy one carries no failure to contradict its count")
+
     once = rh.record({}, [down], "2026-10-15")
     s.eq(rh.plan(once, {}), [], "one bad run is recorded and raises nothing")
     s.eq(rh._parse_outcome("fieldaudit=fail:2 findings"),

@@ -107,6 +107,17 @@ def main(s):
     s.eq([x["drop"] for x in c3 if x["source"] == "comicfuz"], [None],
          "and one it did not flag carries nothing")
 
+    health = [{"source": "cmoa-shelf", "stage": "stage-print", "consecutive": 3,
+               "failing_since": "2026-10-14", "last_ok": "2026-10-13", "error": "HTTP 503"},
+              {"source": "kadokomi", "stage": "stage-a", "consecutive": 1,
+               "failing_since": "2026-10-16", "error": "timeout"},
+              {"source": "bookwalker-shelf", "stage": "stage-print", "consecutive": 0}]
+    sh = status.source_health(health, "2026-10-16")
+    s.eq([(f["source"], f["days"], f["issue"]) for f in sh["failing"]],
+         [("cmoa-shelf", 2, True), ("kadokomi", 0, False)],
+         "a failing source says for how long, longest first, and whether it has an issue open")
+    s.eq(sh["healthy"], 1, "and the sources answering are counted, not listed")
+    s.eq(status.source_health([], "2026-10-16")["failing"], [], "a run with no ledger fails nobody")
     doc = status.build(RUN, C2, SERIES, INDEX, {"x": 1}, {})
     s.eq(len(doc["gate"]["invariants"]), 2, "the data checks are the ones counted")
     s.check("development_checks" not in doc["gate"],

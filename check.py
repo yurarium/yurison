@@ -122,6 +122,7 @@ def _store_report(inv_results, budget_values, recorded, timings, skip_source, un
         sys.path.insert(0, str(ROOT / "adapters" / "names"))
         sys.path.insert(0, str(ROOT / "adapters"))
         import relational as _rel
+        import budgetkind as _bk
         from relational import delta as _delta
         if not _rel.DB.exists():
             return
@@ -150,7 +151,7 @@ def _store_report(inv_results, budget_values, recorded, timings, skip_source, un
         for name, _fn in INVARIANTS:
             got = [] if name == carries else inv_results.get(name)
             rows.append({"kind": "invariant", "name": name, "value": len(got or []),
-                         "budget": None, "why": None, "not_measured": None,
+                         "budget": None, "why": None, "not_measured": None, "measure": None,
                          "seq": len([r for r in rows if r["kind"] == "invariant"]),
                          "seconds": round(timings.get(name, 0.0), 3)})
             for i, example in enumerate((got or [])[:5]):
@@ -164,6 +165,7 @@ def _store_report(inv_results, budget_values, recorded, timings, skip_source, un
                 missed = "the check did not run"
             rows.append({"kind": "budget", "name": name, "value": value,
                          "budget": recorded.get(name), "why": why, "not_measured": missed,
+                         "measure": "source" if name in SOURCE_BUDGETS else _bk.kind(name),
                          "seq": len([r for r in rows if r["kind"] == "budget"]),
                          "seconds": round(timings.get(name, 0.0), 3)})
         # THE PARENT FIRST AND THE CHILDREN AFTER, because these are the one pair here with a
@@ -6207,6 +6209,12 @@ def main():
     recorded = _load(BUDGETS, {}) or {}
     print("\nbudgets (ratchet down only):")
     loosened, tightened = [], {}
+    # WHAT EACH BUDGET MEASURES, LAUNCH-PLAN section 4 and adapters/budgetkind.py. A regression is
+    # strict as every budget was; an arrival's rise is the corpus growing and is accepted with a
+    # recorded reason; a report is shown and never fails.
+    sys.path.insert(0, str(ROOT / "adapters"))
+    import budgetkind as _bk
+    arrivals = []
     for name, fn, _why in BUDGETS_DEF:
         if skip_source and name in SOURCE_BUDGETS:
             continue
@@ -6236,6 +6244,12 @@ def main():
         if was is None:
             tightened[name] = n
             print(f"  set   {name}: {n}")
+        elif n > was and _bk.kind(name) == "report":
+            tightened[name] = n
+            print(f"  report {name}: {n}  (was {was}; a report, with no pass mark)")
+        elif n > was and _bk.kind(name) == "arrival":
+            arrivals.append((name, was, n))
+            print(f"  arrival {name}: {n}  (was {was}; a queue the corpus grows)")
         elif n > was:
             loosened.append((name, was, n))
             print(f"  FAIL  {name}: {n} (budget {was})")
@@ -6251,6 +6265,12 @@ def main():
     #
     # The gate still tightens, because a person is present there and the number goes into a commit
     # they write. `--runtime` reports the fall and leaves the file alone.
+    # AN ARRIVAL IS ACCEPTED WHERE A RATCHET IS WRITTEN, and nowhere else: the reason goes to the
+    # ledger beside the number it explains. A run that writes neither leaves both for the next gate.
+    if arrivals and not a.no_tighten and not a.runtime:
+        for why in _bk.accept(arrivals, _bk.corpus_of(ctx)):
+            print(f"  accepted: {why}")
+        tightened.update({name: now for name, _was, now in arrivals})
     if tightened and not a.no_tighten and not a.runtime:
         recorded.update(tightened)
         BUDGETS.parent.mkdir(parents=True, exist_ok=True)

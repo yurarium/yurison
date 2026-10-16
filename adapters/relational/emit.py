@@ -1554,7 +1554,7 @@ def checks(db):
     for kind, name, finding in db.execute(
             "SELECT kind, name, finding FROM check_finding ORDER BY kind, name, seq"):
         findings.setdefault((kind, name), []).append(finding)
-    rows = list(db.execute("SELECT kind, name, value, budget, why, not_measured, seconds"
+    rows = list(db.execute("SELECT kind, name, value, budget, why, not_measured, seconds, measure"
                            " FROM check_result ORDER BY seq, name"))
     return {
         "generated": dict(db.execute("SELECT key, value FROM run_report")).get("generated") or "",
@@ -1562,15 +1562,18 @@ def checks(db):
         # a key it does not have made every check render as failing on the page whose whole job is
         # to say whether they do.
         "invariants": [{"name": n, "violations": v or 0, "examples": findings.get((k, n)) or []}
-                       for k, n, v, _b, _w, _nm, _s in rows if k == "invariant"],
+                       for k, n, v, _b, _w, _nm, _s, _m in rows if k == "invariant"],
         # AND A BUDGET THE RUN DID NOT MEASURE CARRIES `value: null` AND SAYS WHY, so a reader can
         # tell "nothing to report" from "not asked". The store refuses a row that says neither.
+        # `measure` SAYS WHETHER THE CEILING IS A PASS MARK: a `report` has none, and an `arrival`
+        # rises with the corpus by design. Absent on a store written before it was recorded.
         "budgets": [{"name": n, "means": w, "budget": b, "value": v,
+                     **({"measure": m} if m else {}),
                      **({"not_measured": nm} if nm else {})}
-                    for k, n, v, b, w, nm, _s in rows if k == "budget"],
+                    for k, n, v, b, w, nm, _s, m in rows if k == "budget"],
         # WHICH CHECK COST WHAT, so the next slow one is visible without guessing. A zero is
         # kept: it says the check ran and cost nothing, where an absent key says nothing at all.
-        "seconds": {n: s for k, n, _v, _b, _w, _nm, s in sorted(
+        "seconds": {n: s for k, n, _v, _b, _w, _nm, s, _m in sorted(
             rows, key=lambda r: -(r[6] or 0)) if s is not None},
         "note": CHECKS_NOTE,
     }

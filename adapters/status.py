@@ -224,8 +224,30 @@ def outstanding(series, budgets, queues):
     ]
 
 
+def source_health(rows, today, threshold=3):
+    """`{failing, healthy, threshold}`: every source whose last run failed, longest first.
+
+    FROM `source_health`, which `runhealth.py` writes from the ledger that opens and closes the
+    source-health issues, so the page and the issues cannot disagree about who is failing. `days`
+    is counted to the run's date like a capture's age, and `issue` says whether the failure has
+    run long enough to have one open.
+    """
+    failing, healthy = [], 0
+    for r in rows:
+        if not r.get("consecutive"):
+            healthy += 1
+            continue
+        failing.append({"source": r["source"], "stage": r.get("stage"),
+                        "consecutive": r["consecutive"], "failing_since": r.get("failing_since"),
+                        "days": _age(today, r.get("failing_since")),
+                        "last_ok": r.get("last_ok"), "error": r.get("error"),
+                        "issue": r["consecutive"] >= threshold})
+    failing.sort(key=lambda x: (-(x["days"] or 0), -x["consecutive"], x["source"]))
+    return {"failing": failing, "healthy": healthy, "threshold": threshold}
+
+
 def build(run, checks, series, index, budgets, queues, previous=None, shape=None,
-          ledger=None):
+          ledger=None, health=None):
     """The whole file. Nothing here is computed twice and nothing is rounded."""
     inv = checks.get("invariants") or []
     _data_inv = [i for i in inv if i.get('name') not in ENGINEERING_CHECKS]
@@ -263,6 +285,7 @@ def build(run, checks, series, index, budgets, queues, previous=None, shape=None
             "budgets": [b for b in (checks.get("budgets") or [])
                         if b.get("name") not in ENGINEERING],
         },
+        "source_health": source_health(health or [], run.get("generated")),
         "connectors": connectors(run, shape,
                                  {d["source"]: d for d in (ledger or {}).get("drops") or []}),
         "ledger": {"runs_held": (ledger or {}).get("runs_held", 0),
@@ -309,7 +332,19 @@ def from_store(db, previous=None):
          "previous_at": stored.get("ledger.previous_at"),
          "drops": [{"source": src, "was": was, "now": now, "lost": was - now, "share": share}
                    for src, was, now, share in db.execute(
-                       "SELECT source, was, now, share FROM run_drop ORDER BY share DESC")]})
+                       "SELECT source, was, now, share FROM run_drop ORDER BY share DESC")]},
+        _health(db))
+
+
+def _health(db):
+    """`source_health` as dicts, or nothing on a store written before the table existed."""
+    import sqlite3
+    try:
+        cur = db.execute("SELECT * FROM source_health ORDER BY source")
+    except sqlite3.OperationalError:
+        return []
+    cols = [c[0] for c in cur.description]
+    return [dict(zip(cols, r)) for r in cur]
 
 
 def _age(generated, retrieved):

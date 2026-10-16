@@ -251,6 +251,15 @@ jobs:
           python3 adapters/naming/induct.py | tee "$RUNNER_TEMP/induct.txt"
           { echo "### Induction"; echo; echo '```'; cat "$RUNNER_TEMP/induct.txt"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
+      # A CREDIT IDENTIFIER FOR EVERY NEW CREDIT, LAUNCH-PLAN section 4. Nothing ran this between
+      # 2026-08-11 and 2026-10-16, when 147 credits were waiting and the script itself could not
+      # start. Append-only; a surface that is not one credit (a copyright line, two names joined,
+      # a job title) is held back and stays counted by `credit fields an identifier does not cover`.
+      - name: Mint identifiers for new credits
+        run: |
+          python3 adapters/credit_identity.py | tee "$RUNNER_TEMP/credits.txt"
+          { echo "### Credits"; echo; echo '```'; grep -v UNRULED "$RUNNER_TEMP/credits.txt"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Name what this run brought in
         id: names
         continue-on-error: true

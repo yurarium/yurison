@@ -2449,7 +2449,8 @@ def _reaches_an_address(db, table, column, depth=4):
 #: `check.py` and `ledger.py`. A scratch has none of them, so neither `apply` nor the weekly
 #: comparison may read their absence as a difference.
 THE_STORE_S_OWN = ("quarantine", "derivation", "store_stamp",
-                   "run_source", "run_queue", "run_drop", "check_result", "check_finding")
+                   "run_source", "run_queue", "run_drop", "check_result", "check_finding",
+                   "source_health")
 
 #: AND ONE TABLE THAT IS BOTH. `run_report` takes four keys from the compile, the feed window and
 #: the run's date, and twelve more from `build.py`'s census, `check.py` and the ledger afterwards.

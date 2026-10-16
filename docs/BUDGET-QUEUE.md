@@ -7,6 +7,23 @@ from one nobody has looked at.
 **How to resume.** Read the table. The first row not marked done is the next one. Each closed row
 names the commit so the reasoning can be found without re-deriving it.
 
+## One rise accepted on 2026-10-16, four credits whose works lost their bylines
+
+`credit identifiers naming nobody` rose 25 to 29 when the credit edges were re-derived for the first
+time since 2026-08-11. The four are c02252 レオパード, c02253 ゲッコー, c02254 ぽぽらら and c02255
+斉藤りょーパー, credited on コミックゼノン one-shots such as 画家の肖像 (w03172) and 散らないで菊
+(w03173). On 2026-10-15 those works moved from the remaining route, which read their bylines, to the
+GigaViewer episode lists, which carry none, and the bylines route reaches no GigaViewer host. The
+works are still held and show no author, among 45 that do.
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| credit identifiers naming nobody | 25 | 29 | four credits whose works lost their byline when their capture route changed |
+
+It falls when the bylines route reads a GigaViewer chapter page, whose og:title names the creator.
+レオパード and ゲッコー will also need retiring into レオパード・ゲッコー, ruled one person on
+2026-10-15.
+
 ## One rise accepted on 2026-10-16, a work the naming job inducted
 
 The naming job's first committed run minted w03440, だって恋は月夜に灯るから, an 一迅プラス serial

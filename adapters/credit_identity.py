@@ -47,7 +47,10 @@ import unicodedata
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-import population  # noqa: E402
+# NAMED APART FROM `population()` BELOW, which rebound the module's name and broke `rows_from` the
+# day the function was written: the script raised before minting anything, and nothing scheduled
+# ran it to find out.
+import population as _population  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
 from facts import identity                                                             # noqa: E402
@@ -272,6 +275,38 @@ def population(rows, also=None):
                 if (wid, role) not in slot:
                     slot.append((wid, role))
     return wanted, edges
+
+
+#: A copyright line a page handed over as a byline: `©️Tsukasa Fushimi` beside 伏見つかさ.
+COPYRIGHT = re.compile(r"[©ⓒ]|\([cC]\)")
+#: A job title written before a name, which makes `アロマ講師 松岡真衣` a credit for the job.
+TITLED = ("講師", "先生", "博士", "教授")
+SPACES = re.compile(r"[\s\u3000]+")
+
+
+def held(surface, known):
+    """Why `surface` is not one credit and gets no identifier, or None where it is one.
+
+    WHY THIS EXISTS. Minting runs every update now (LAUNCH-PLAN section 4) with nobody reading what
+    it mints, and three shapes the splitter leaves would each have got a page: a copyright line, two
+    people joined by a space (`織日ちひろ 虫原`, where 織日ちひろ has an identifier of her own), and a
+    job title welded to a name. A held surface is still counted by `credit fields an identifier does
+    not cover`, so it stays in view, and a person can mint it by ruling.
+
+    A SPACE ALONE PROVES NOTHING. 二月 公 and 鍋谷　やかん are one person each, so a spaced name
+    is held only when a part of it is a credit already, or a title.
+    """
+    if COPYRIGHT.search(surface or ""):
+        return "a copyright line, not a credit"
+    parts = [p for p in SPACES.split(str(surface or "").strip()) if p]
+    if len(parts) > 1:
+        whole = credit_key(surface)
+        joined = [p for p in parts if credit_key(p) in known and credit_key(p) != whole]
+        if joined:
+            return f"joins {joined[0]}, a credit of its own, to another name"
+        if any(p.endswith(TITLED) for p in parts[:-1]):
+            return "a job title written before a name"
+    return None
 
 
 def assign(entries, wanted):
@@ -640,17 +675,14 @@ def retired(entries):
 # one that should decide what a forwarder says. `retired` above is what it needed from here and is
 # what stayed: which identifier became which is this repository's answer.
 
-def rows_from(build):
-    """(works rows, release rows). Both carry a credit field and only the first mints one."""
-    import json
+def rows_from(build=None):
+    """(works rows, release rows), both from the store. Both carry a credit field and only the first
+    mints one.
 
-    b = pathlib.Path(build)
-    works = list(population.series())
-    releases = []
-    for f in [b / "feed" / "current.json"] + sorted((b / "feed").glob("[0-9]*.json")):
-        if f.exists():
-            releases += json.loads(f.read_text()).get("releases") or []
-    return works, releases
+    THE RELEASES ARE THE STORE'S TOO. They were read from `feed/*.json` under `data/build`, which
+    is written only by `--emit-json` and can be weeks old on a machine and absent in CI.
+    """
+    return list(_population.series()), list(_population.releases())
 
 
 def main(argv=None):
@@ -675,10 +707,7 @@ def main(argv=None):
 
     today = datetime.date.today().isoformat()
     works, releases = rows_from(a.build)
-    shipped = (population.names(pathlib.Path(a.build) / "feed" / "names.json"
-                               if (pathlib.Path(a.build) / "feed" / "names.json").exists()
-                               else None)
-               .get("authors") or {})
+    shipped = _population.names().get("authors") or {}
     rdoc = {}
     rp = pathlib.Path(a.rulings)
     if rp.exists():
@@ -687,6 +716,12 @@ def main(argv=None):
     entries, _doc = load(a.registry)
     before = len(entries)
     wanted, edges = population(works, releases)
+    # WHAT IS ALREADY MINTED IS LEFT ALONE, and only a new surface is asked whether it is one credit.
+    minted = {x for e in entries for x in e.get("anchors") or []}
+    known = {w[0][len(ANCHOR):] for w in wanted} | {x[len(ANCHOR):] for x in minted}
+    holding = [(w[2], why) for w in wanted
+               if w[0] not in minted and (why := held(w[2], known - {w[0][len(ANCHOR):]}))]
+    wanted = [w for w in wanted if w[2] not in {h for h, _ in holding}]
     entries, conflicts = assign(entries, wanted)
 
     # The kind is re-derived every run, because the vocabulary in `names.entities` grows and a credit
@@ -724,6 +759,8 @@ def main(argv=None):
     print(f"  readings shared by several credits with no ruling: {len(left)}")
     for rd, surfaces in left:
         print(f"    UNRULED {rd}: {' | '.join(surfaces)}")
+    for surface, why in holding:
+        print(f"    HELD {surface}: {why}")
     for r in refused:
         print(f"    REFUSED {r}")
     for c in conflicts:

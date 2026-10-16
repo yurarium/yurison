@@ -125,6 +125,45 @@ def open_issues_now():
     return {i["title"]: i["number"] for i in got}
 
 
+def rows(ledger):
+    """The ledger as `source_health` rows: one per source, the store's columns only."""
+    out = []
+    for sid, e in sorted(((ledger or {}).get("sources") or {}).items()):
+        n = int(e.get("consecutive") or 0)
+        out.append({"source": sid, "stage": e.get("stage"), "consecutive": n,
+                    "last_ok": _day(e.get("last_ok")), "last_failed": _day(e.get("last_failed")),
+                    "failing_since": _day(e.get("failing_since")) if n else None,
+                    "error": e.get("error") if n else None,
+                    "last_run": e.get("last_run") if n else None})
+    return out
+
+
+def _day(v):
+    return str(v) if v else None
+
+
+def _store(ledger):
+    """The ledger into the store's `source_health`, where the status page reads it.
+
+    WRITTEN HERE, after the run's captures and before `--publish`, as `ledger.py` writes `run_drop`:
+    this is the pass that computes it. A failure costs the section and not the run; the file is
+    already written and is what the issues are opened from.
+    """
+    try:
+        here = pathlib.Path(__file__).resolve().parent
+        sys.path.insert(0, str(here / "names"))
+        sys.path.insert(0, str(here))
+        import relational as _r
+        from relational import delta as _d
+        if not _r.DB.exists():
+            return
+        db = _r.open_db()
+        _d.reconcile(db, "source_health", ["source"], rows(ledger))
+        db.commit()
+    except Exception as why:                                                # noqa: BLE001
+        print(f"runhealth: the store was not updated ({why.__class__.__name__}: {why})")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -149,6 +188,7 @@ def main(argv=None):
         LEDGER.write_text("# Written by adapters/runhealth.py each run; see its docstring.\n"
                           + yaml.safe_dump(led, allow_unicode=True, sort_keys=False, width=200),
                           encoding="utf-8")
+        _store(led)
         bad = [o["id"] for o in outcomes if not o.get("ok")]
         print(f"{len(outcomes)} outcome(s) recorded, {len(bad)} failed"
               + (f": {', '.join(sorted(bad))}" if bad else ""))

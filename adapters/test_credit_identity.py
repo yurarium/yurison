@@ -263,6 +263,15 @@ def main(s):
     s.eq(ci.kind_of("はいむらきよたか(キャラクターデザイン)"), None,
          "cataloguing welded to a name is not a kind of credit")
 
+    known = {"織日ちひろ", "伏見つかさ"}
+    s.check(ci.held("©️Tsukasa Fushimi", known) and ci.held("(C)誰か", known),
+            "a copyright line is held back from minting")
+    s.check("織日ちひろ" in (ci.held("織日ちひろ 虫原", known) or ""),
+            "and two names joined by a space, one of them a credit already")
+    s.check(ci.held("アロマ講師 松岡真衣", known), "and a job title written before a name")
+    s.eq([ci.held(x, known) for x in ("二月 公", "鍋谷\u3000やかん", "伏見つかさ")], [None] * 3,
+         "but a spaced name that is one person, or a plain one, is minted")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

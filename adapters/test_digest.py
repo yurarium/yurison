@@ -34,6 +34,15 @@ def main(s):
     rows = [("a", 10, 6), ("b", 3, 3), ("c", 9, 8), ("e", None, 4)]
     s.eq(dg.exceeding(rows), [("a", 10, 6), ("c", 9, 8)], "budgets over their value, largest first")
     s.eq(dg.over("/nonexistent/store.sqlite"), [], "no store is no list, not a crash")
+    kinds = [("r", 10, 6, "regression"), ("q", 90, 80, "arrival"), ("p", 5, 1, "report")]
+    s.eq(dg.exceeding(kinds), [("r", 10, 6)], "only a regression over its value asks a person")
+    s.eq(dg.exceeding(kinds, ("arrival",)), [("q", 90, 80)],
+         "and a queue the corpus grew is listed apart")
+    text = dg.compose("2026-10-09", "2026-10-16", 1, {}, [], [], [("r", 10, 6)], [("q", 90, 80)],
+                      [{"date": "2026-10-16", "reason": "q rose 80 -> 90 (+10) while ..."}])
+    s.check("which the next gate accepts" in text and "`q`: 90 against 80" in text
+            and "1 rise(s) accepted as arrivals" in text,
+            "the digest shows the queues apart from what needs a look, with the week's acceptances")
     text2 = dg.compose("2026-10-08", "2026-10-15", 1, {}, [], [], above=[("a", 10, 6)])
     s.check("`a`: 10 against 6" in text2, "and the digest names each one")
 

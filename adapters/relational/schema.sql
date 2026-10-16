@@ -385,9 +385,32 @@ CREATE TABLE check_result (
   -- them, and a report ordered by name instead put `adapters fetching without net.py` at the head
   -- of the gate. A table has no order of its own, so the order has to be a column.
   seq          INTEGER NOT NULL,
+  -- WHAT A BUDGET MEASURES, LAUNCH-PLAN section 4 and `adapters/budgetkind.py`: a `regression` is
+  -- held to its ceiling, an `arrival` is a queue the corpus grows whose rise is accepted with a
+  -- reason, a `report` is a number with no pass mark, and `source` counts this repository's code.
+  -- NULL on an invariant, which is none of these.
+  measure      TEXT CHECK (measure IS NULL OR measure IN ('regression', 'arrival', 'report', 'source')),
   PRIMARY KEY (kind, name),
   CHECK (kind = 'budget' OR budget IS NULL),
   CHECK (value IS NOT NULL OR not_measured IS NOT NULL)
+) WITHOUT ROWID;
+
+-- EACH SOURCE'S RECENT HEALTH, from `data/ledger/source-health.yaml`, written by
+-- `adapters/runhealth.py record` after the run's captures and before the store is published. The
+-- ledger was already what opens an issue after three failing runs and closes it on recovery; the
+-- status page had nothing but each capture's age, so a source failing since Tuesday read the same
+-- as one that had not been asked. `stale:` sources are the producers registry's freshness test.
+CREATE TABLE source_health (
+  source        TEXT PRIMARY KEY,
+  stage         TEXT,
+  -- RUNS IN A ROW THAT FAILED, 0 for a source whose last run answered.
+  consecutive   INTEGER NOT NULL CHECK (consecutive >= 0),
+  last_ok       TEXT,
+  last_failed   TEXT,
+  failing_since TEXT,
+  error         TEXT,
+  last_run      TEXT,
+  CHECK (consecutive = 0 OR failing_since IS NOT NULL)
 ) WITHOUT ROWID;
 
 -- THE EXAMPLES A CHECK REPORTED, which are what makes a violation actionable rather than a number.

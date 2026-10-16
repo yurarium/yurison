@@ -22,6 +22,7 @@ import yaml
 
 HEALTH = pathlib.Path("data/ledger/source-health.yaml")
 USAGE = pathlib.Path("data/ledger/claude-usage.jsonl")
+ARRIVALS = pathlib.Path("data/ledger/budget-arrivals.jsonl")
 BUDGETS = "docs/budgets.json"
 
 
@@ -52,19 +53,27 @@ def over(db_path):
     import relational
     try:
         rows = relational.open_db(db_path).execute(
-            "SELECT name, value, budget FROM check_result WHERE kind = 'budget'").fetchall()
+            "SELECT name, value, budget, measure FROM check_result WHERE kind = 'budget'").fetchall()
     except Exception:                                                       # noqa: BLE001
         return []
-    return exceeding(rows)
+    return rows
 
 
-def exceeding(rows):
-    """The `(name, value, budget)` rows whose value is above their budget, largest excess first."""
-    rows = [r for r in rows if r[1] is not None and r[2] is not None and r[1] > r[2]]
-    return sorted(rows, key=lambda r: (-(r[1] - r[2]), r[0]))
+def exceeding(rows, measures=("regression", "source", None)):
+    """The `(name, value, budget)` rows above their budget whose measure is one of `measures`,
+    largest excess first.
+
+    A REGRESSION IS WHAT A PERSON IS ASKED ABOUT. An arrival over its value is the corpus growing
+    since the last gate accepted it, listed apart; a report has no ceiling to be over. A row from
+    a store written before `measure` existed counts as a regression, which is what every budget
+    was then.
+    """
+    rows = [r for r in rows if r[1] is not None and r[2] is not None and r[1] > r[2]
+            and (r[3] if len(r) > 3 else None) in measures]
+    return sorted([tuple(r[:3]) for r in rows], key=lambda r: (-(r[1] - r[2]), r[0]))
 
 
-def compose(since, until, runs, health, moves, usage, above=()):
+def compose(since, until, runs, health, moves, usage, above=(), grown=(), accepted=()):
     """The digest's markdown."""
     sources = (health or {}).get("sources") or {}
     down = {k: v for k, v in sources.items() if int(v.get("consecutive") or 0) > 0}
@@ -96,6 +105,14 @@ def compose(since, until, runs, health, moves, usage, above=()):
         L += ["", "Over their recorded value in the latest store, so somebody should look at why "
               "and accept or fix each:"]
         L += [f"- `{k}`: {v} against {b}" for k, v, b in above]
+    if grown:
+        L += ["", "Queues the corpus grows, above the value last accepted, which the next gate "
+              "accepts with a reason:"]
+        L += [f"- `{k}`: {v} against {b}" for k, v, b in grown]
+    if accepted:
+        L += ["", f"{len(accepted)} rise(s) accepted as arrivals this week "
+              "(data/ledger/budget-arrivals.jsonl):"]
+        L += [f"- {x.get('date')}: {x.get('reason')}" for x in accepted[-15:]]
     L += ["", "## Naming job", ""]
     if usage:
         turns = sum(int(u.get("turns") or 0) for u in usage)
@@ -103,8 +120,11 @@ def compose(since, until, runs, health, moves, usage, above=()):
         tout = sum(int(u.get("output_tokens") or 0) for u in usage)
         done = sum(int(u.get("named") or 0) for u in usage)
         minted = sum(int(u.get("inducted") or 0) for u in usage)
+        cached = sum(int(u.get("cache_read_tokens") or 0) for u in usage)
         L.append(f"{len(usage)} run(s), {turns} turns, {tin:,} input and {tout:,} output tokens; "
                  f"{done} name(s) written and {minted} work(s) inducted.")
+        if cached:
+            L.append(f"Of the input, {cached:,} tokens were cache reads.")
     else:
         L.append("No runs recorded.")
     return "\n".join(L) + "\n"
@@ -127,6 +147,14 @@ def main(argv=None):
     base = _git("rev-list", "-1", f"--before={a.since}", "HEAD").strip()
     before = json.loads(_git("show", f"{base}:{BUDGETS}") or "{}") if base else {}
     after = json.loads(pathlib.Path(BUDGETS).read_text(encoding="utf-8"))
+    accepted = []
+    if ARRIVALS.exists():
+        for line in ARRIVALS.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                x = json.loads(line)
+                if str(x.get("date") or "") >= a.since:
+                    accepted.append(x)
+    rows = over(a.store) if a.store else []
     usage = []
     if USAGE.exists():
         for line in USAGE.read_text(encoding="utf-8").splitlines():
@@ -136,7 +164,7 @@ def main(argv=None):
                     usage.append(u)
     sys.stdout.write(compose(a.since, today.isoformat(), runs, health,
                              budget_moves(before, after), usage,
-                             over(a.store) if a.store else ()))
+                             exceeding(rows), exceeding(rows, ("arrival",)), accepted))
     return 0
 
 

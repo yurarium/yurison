@@ -597,6 +597,85 @@ def by_chain(path, web, shared):
     return chain_joins(yaml.safe_load(f.read_text()) or {}, web, shared)
 
 
+def render(entries, rel, today=None, keep_order=False):
+    """The registry file for `entries` and the related pairs `rel`, as every writer of it writes it.
+
+    ONE WRITER, so `adapters/attach_address.py` can change one entry and write the file back without
+    running the pass below, which mints an identifier for everything it sees. `keep_order` writes
+    the entries as given, so that change is the whole of its diff: mint.py and induct.py append, and
+    the pass below sorts.
+    """
+    import datetime
+    import json
+    js = lambda v: json.dumps(v, ensure_ascii=False)                        # noqa: E731
+    L = ["# Work identifiers. Append-only: an id is never reassigned and never withdrawn.",
+         "#",
+         "# An anchor is what a work is re-found by. `web:` is the platform URL, with the folded",
+         "# story title appended where a container URL serves several works. `madb:` is the",
+         "# C-number. An entry holding both is a serialisation joined to its book run, and the",
+         "# join rests on agreement about a person's name as well as the title (DEFINITIONS §5).",
+         "#",
+         "# A merged entry keeps `merged_into` and stays resolvable, because an address published",
+         "# once has to keep working. See adapters/identity.py.",
+         f"generated: {today or datetime.date.today().isoformat()}", "works:"]
+    for e in (entries if keep_order else sorted(entries, key=lambda x: x.get("id") or "")):
+        L.append(f"  - id: {e['id']}")
+        L.append(f"    title: {js(e.get('title'))}")
+        if e.get("merged_into"):
+            L.append(f"    merged_into: {e['merged_into']}")
+            L.append(f"    merge_basis: {js(e.get('merge_basis'))}")
+        # `[]` WHERE A DETACHMENT LEFT NONE, because a bare `anchors:` reads back as null, the
+        # second spelling of empty that credit_identity.save already refuses.
+        L.append("    anchors:" if e.get("anchors") else "    anchors: []")
+        for x in e.get("anchors") or []:
+            L.append(f"      - {js(x)}")
+        # An anchor `assign` derived is re-derived from the data on every run. An anchor somebody
+        # attached by hand is not, so its evidence is written beside it or the join becomes an
+        # assertion nobody can weigh. Emitted here so that a rewrite of this file keeps it.
+        if e.get("attached"):
+            L.append("    attached:")
+        for at in e.get("attached") or []:
+            L.append(f"      - anchor: {js(at.get('anchor'))}")
+            L.append(f"        basis: {js(at.get('basis'))}")
+            L.append(f"        retrieved: {at.get('retrieved')}")
+        # A JOIN THAT WAS UNDONE, AND WHY. Emitted for the same reason as `attached` and with one
+        # more: this is what stops the joins files putting it back, so losing it in a rewrite would
+        # silently restore the wrong join.
+        if e.get("detached"):
+            L.append("    detached:")
+        for dt in e.get("detached") or []:
+            L.append(f"      - anchor: {js(dt.get('anchor'))}")
+            L.append(f"        basis: {js(dt.get('basis'))}")
+            L.append(f"        retrieved: {dt.get('retrieved')}")
+    L.append("")
+    L.append("# Related works. A relation and not a merge: whether a one-shot beside a")
+    L.append("# serialisation is a distinct work, an instalment the run absorbed, or a story a")
+    L.append("# later chapter retells differs case by case, and relating them says what the")
+    L.append("# evidence supports. Continuations belong here too, citrus and citrus+ among them.")
+    L.append("#")
+    L.append("# `precedes` is optional and is set by hand. It is NOT derived from the dates we")
+    L.append("# hold, because those carry import stamps in exactly the cases where order matters:")
+    L.append("# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day")
+    L.append("# 一迅プラス imported its catalogue, while the serialisation's real start of")
+    L.append("# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the")
+    L.append("# one-shot after the run it came before.")
+    L.append("related:")
+    # A pair whose two sides now resolve to one identifier is a work related to itself, which says
+    # nothing. That happens when a merge follows a relation, as it did when 念願の悪役令嬢 turned
+    # out to be one work written two ways. Dropping it removes a statement that has become vacuous.
+    settled = {e["id"]: e.get("merged_into") or e["id"] for e in entries}
+    rel = [v for v in rel if settled.get(v["a"], v["a"]) != settled.get(v["b"], v["b"])]
+    for r in sorted(rel, key=lambda x: (x["a"], x["b"])):
+        L.append(f"  - a: {r['a']}")
+        L.append(f"    b: {r['b']}")
+        if r.get("precedes"):
+            L.append(f"    precedes: {js(r['precedes'])}")
+        L.append(f"    note: {js(r['note'])}")
+        L.append(f"    retrieved: {r['retrieved']}")
+    L.append("")
+    return "\n".join(L)
+
+
 def main(argv=None):
     """Assign identifiers over both populations and record the joins that carry evidence."""
     import argparse, collections, datetime, json                            # noqa: E401
@@ -757,73 +836,9 @@ def main(argv=None):
         return 0
 
     reg.parent.mkdir(parents=True, exist_ok=True)
-    js = lambda v: json.dumps(v, ensure_ascii=False)                        # noqa: E731
-    L = ["# Work identifiers. Append-only: an id is never reassigned and never withdrawn.",
-         "#",
-         "# An anchor is what a work is re-found by. `web:` is the platform URL, with the folded",
-         "# story title appended where a container URL serves several works. `madb:` is the",
-         "# C-number. An entry holding both is a serialisation joined to its book run, and the",
-         "# join rests on agreement about a person's name as well as the title (DEFINITIONS §5).",
-         "#",
-         "# A merged entry keeps `merged_into` and stays resolvable, because an address published",
-         "# once has to keep working. See adapters/identity.py.",
-         f"generated: {datetime.date.today().isoformat()}", "works:"]
-    for e in sorted(entries, key=lambda x: x.get("id") or ""):
-        L.append(f"  - id: {e['id']}")
-        L.append(f"    title: {js(e.get('title'))}")
-        if e.get("merged_into"):
-            L.append(f"    merged_into: {e['merged_into']}")
-            L.append(f"    merge_basis: {js(e.get('merge_basis'))}")
-        L.append("    anchors:")
-        for x in e.get("anchors") or []:
-            L.append(f"      - {js(x)}")
-        # An anchor `assign` derived is re-derived from the data on every run. An anchor somebody
-        # attached by hand is not, so its evidence is written beside it or the join becomes an
-        # assertion nobody can weigh. Emitted here so that a rewrite of this file keeps it.
-        if e.get("attached"):
-            L.append("    attached:")
-        for at in e.get("attached") or []:
-            L.append(f"      - anchor: {js(at.get('anchor'))}")
-            L.append(f"        basis: {js(at.get('basis'))}")
-            L.append(f"        retrieved: {at.get('retrieved')}")
-        # A JOIN THAT WAS UNDONE, AND WHY. Emitted for the same reason as `attached` and with one
-        # more: this is what stops the joins files putting it back, so losing it in a rewrite would
-        # silently restore the wrong join.
-        if e.get("detached"):
-            L.append("    detached:")
-        for dt in e.get("detached") or []:
-            L.append(f"      - anchor: {js(dt.get('anchor'))}")
-            L.append(f"        basis: {js(dt.get('basis'))}")
-            L.append(f"        retrieved: {dt.get('retrieved')}")
-    L.append("")
-    L.append("# Related works. A relation and not a merge: whether a one-shot beside a")
-    L.append("# serialisation is a distinct work, an instalment the run absorbed, or a story a")
-    L.append("# later chapter retells differs case by case, and relating them says what the")
-    L.append("# evidence supports. Continuations belong here too, citrus and citrus+ among them.")
-    L.append("#")
-    L.append("# `precedes` is optional and is set by hand. It is NOT derived from the dates we")
-    L.append("# hold, because those carry import stamps in exactly the cases where order matters:")
-    L.append("# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day")
-    L.append("# 一迅プラス imported its catalogue, while the serialisation's real start of")
-    L.append("# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the")
-    L.append("# one-shot after the run it came before.")
-    L.append("related:")
-    # A pair whose two sides now resolve to one identifier is a work related to itself, which says
-    # nothing. That happens when a merge follows a relation, as it did when 念願の悪役令嬢 turned
-    # out to be one work written two ways. Dropping it removes a statement that has become vacuous.
-    settled = {e["id"]: e.get("merged_into") or e["id"] for e in entries}
-    rel = {k: v for k, v in rel.items()
-           if settled.get(v["a"], v["a"]) != settled.get(v["b"], v["b"])}
-    for r in sorted(rel.values(), key=lambda x: (x["a"], x["b"])):
-        L.append(f"  - a: {r['a']}")
-        L.append(f"    b: {r['b']}")
-        if r.get("precedes"):
-            L.append(f"    precedes: {js(r['precedes'])}")
-        L.append(f"    note: {js(r['note'])}")
-        L.append(f"    retrieved: {r['retrieved']}")
-    L.append("")
-    reg.write_text("\n".join(L))
+    reg.write_text(render(entries, list(rel.values())))
 
+    js = lambda v: json.dumps(v, ensure_ascii=False)                        # noqa: E731
     rv = pathlib.Path(a.review)
     rv.parent.mkdir(parents=True, exist_ok=True)
     R = ["# Title matches between the web and print populations with NO agreement on any person.",

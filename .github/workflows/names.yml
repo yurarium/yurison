@@ -43,6 +43,15 @@ jobs:
         env:
           T: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
+          # ITS SHAPE, NEVER ITS VALUE. A token copied from a terminal that wrapped it carries line
+          # breaks, and the first two runs failed to log in on what looked like a set secret.
+          if [ -n "$T" ]; then
+            C=$(printf '%s' "$T" | tr -d '[:space:]')
+            echo "token: ${#T} characters as stored, ${#C} without whitespace"
+            case "$C" in sk-ant-oat*) echo "token: starts as a setup-token token does";;
+              *) echo "::warning::the token does not start with sk-ant-oat; it is not what claude setup-token prints";; esac
+            [ "${#T}" != "${#C}" ] && echo "::notice::the stored token holds whitespace or a line break, which is stripped before use"
+          fi
           if [ -n "$T" ]; then echo "present=yes" >> "$GITHUB_OUTPUT"
           else echo "::notice::no CLAUDE_CODE_OAUTH_TOKEN secret; the naming job is not set up yet"
                echo "present=no" >> "$GITHUB_OUTPUT"; fi
@@ -86,6 +95,8 @@ jobs:
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
+          # A REAL TOKEN HOLDS NO WHITESPACE, so any is an artefact of the copy and goes.
+          export CLAUDE_CODE_OAUTH_TOKEN="$(printf '%s' "$CLAUDE_CODE_OAUTH_TOKEN" | tr -d '[:space:]')"
           claude -p "$(cat adapters/naming/PROMPT.md)" \
             --output-format json \
             --model "${{ vars.NAMING_MODEL || 'sonnet' }}" \

@@ -16595,6 +16595,33 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  だって恋は月夜に灯るから:
+    basis: romaji
+    furigana_spans:
+    - - だって
+      - null
+    - - 恋
+      - こい
+    - - は
+      - null
+    - - 月夜
+      - つきよ
+    - - に
+      - null
+    - - 灯
+      - とも
+    - - るから
+      - null
+    reading: ダッテ コイ ワ ツキヨ ニ トモルカラ
+    reading_at: '2026-10-16'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   ちいさい百合の花束:
     basis: translated
     en: A Small Bunch of Lilies
@@ -34951,6 +34978,13 @@ names:
     en_source_kind: derived
     reading: ヒトゴトデスカラ!
     reading_at: '2026-08-02'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
+  ヒトゴトですから！:
+    reading: ヒトゴトデスカラ！
+    reading_at: '2026-10-16'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface

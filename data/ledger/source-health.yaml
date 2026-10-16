@@ -35,11 +35,11 @@ sources:
     consecutive: 0
   cmoa-shelf:
     stage: stage-print
-    consecutive: 2
+    consecutive: 3
     last_failed: '2026-10-16'
     failing_since: '2026-10-16'
     error: 'net.Refused: www.cmoa.jp refused https://www.cmoa.jp/search/result/?genre_id=0000037&sort=14&page=1: HTTP 503 after 5 attempt(s)'
-    last_run: https://github.com/yurarium/yurison/actions/runs/38824023160
+    last_run: https://github.com/yurarium/yurison/actions/runs/38871340668
   cmoa-volumes:
     stage: stage-print
     last_ok: '2026-10-16'
@@ -69,6 +69,10 @@ sources:
     last_ok: '2026-10-16'
     consecutive: 0
   fieldaudit:COMIC OGYAAA!!:
+    stage: checks
+    last_ok: '2026-10-16'
+    consecutive: 0
+  fieldaudit:FEEL web:
     stage: checks
     last_ok: '2026-10-16'
     consecutive: 0
@@ -572,18 +576,18 @@ sources:
     consecutive: 0
   stale:stage-print:cmoa-shelf:
     stage: freshness
-    consecutive: 2
+    consecutive: 3
     last_failed: '2026-10-16'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-yuri.yaml dated 2026-08-04
-    last_run: https://github.com/yurarium/yurison/actions/runs/38824023160
+    last_run: https://github.com/yurarium/yurison/actions/runs/38871340668
   stale:stage-print:cmoa-volumes:
     stage: freshness
-    consecutive: 2
+    consecutive: 3
     last_failed: '2026-10-16'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-volumes.yaml dated 2026-08-05
-    last_run: https://github.com/yurarium/yurison/actions/runs/38824023160
+    last_run: https://github.com/yurarium/yurison/actions/runs/38871340668
   stale:stage-print:shelfingest:
     stage: freshness
     last_ok: '2026-10-16'
@@ -603,16 +607,12 @@ sources:
   yurinavi-discover:
     stage: stage-0
     last_ok: '2026-10-16'
-    consecutive: 1
+    consecutive: 0
     last_failed: '2026-10-16'
-    failing_since: '2026-10-16'
-    error: 'urllib.error.URLError: <urlopen error timed out>'
     last_run: https://github.com/yurarium/yurison/actions/runs/38824023160
   yurinavi-webyuri:
     stage: stage-0
     last_ok: '2026-10-16'
-    consecutive: 1
+    consecutive: 0
     last_failed: '2026-10-16'
-    failing_since: '2026-10-16'
-    error: 'urllib.error.URLError: <urlopen error timed out>'
     last_run: https://github.com/yurarium/yurison/actions/runs/38824023160

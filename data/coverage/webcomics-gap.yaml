@@ -9,8 +9,8 @@ retrieved: 2026-10-16
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 311
-works_on_watched_platform: 286
+distinct_works: 310
+works_on_watched_platform: 285
 platforms_total: 53
 platforms_watched: 41
 # ranked by works reachable on NO watched platform
@@ -116,11 +116,21 @@ works_missing:
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
     antenna_id: "161471"
     tags: ["百合", "獣人", "お色気・微エロ"]
+  - title: "ヒトゴトですから!"
+    platform: "FEEL web"
+    url: "https://feelweb.jp/episode/3269754496401056068"
+    antenna_id: "123154"
+    tags: ["百合"]
   - title: "月とすっぴん"
     platform: "FEEL web"
     url: "https://feelweb.jp/episode/3269754496401056101"
     antenna_id: "123156"
     tags: ["百合"]
+  - title: "暴走!?サキュバスせんぱい"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/5448ec9f6077b"
+    antenna_id: "200185"
+    tags: ["最近のコメント数"]
   - title: "たゆたうふたり"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/fef424c168c44"
@@ -141,11 +151,6 @@ works_missing:
     url: "https://g-comi.jp/series/58238b3987c11"
     antenna_id: "211263"
     tags: ["百合", "ファンタジー", "エルフ・ハーフエルフ", "魔女", "料理・グルメ"]
-  - title: "暴走!?サキュバスせんぱい"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/5448ec9f6077b"
-    antenna_id: "200185"
-    tags: ["百合", "異世界", "サキュバス", "お色気・微エロ"]
   - title: "多良さんのウワサ"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/f5a28c7f5cc1b"
@@ -171,6 +176,11 @@ works_missing:
     url: "https://comic-boost.com/content/01780001"
     antenna_id: "216014"
     tags: ["百合", "読み切り"]
+  - title: "彼なんかより、私のほうがいいでしょ?"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/11817"
+    antenna_id: "189759"
+    tags: ["百合"]
   - title: "姫騎士と姫巫女"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13609"
@@ -286,6 +296,16 @@ works_missing:
     url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
     antenna_id: "181056"
     tags: ["百合", "妖怪", "女子高生", "コミカライズ", "ざまぁ", "頭脳戦・心理戦", "現代", "チート"]
+  - title: "さざめとりお"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_019937_S"
+    antenna_id: "213832"
+    tags: ["百合"]
+  - title: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_019660_S"
+    antenna_id: "213830"
+    tags: ["百合", "筋肉"]
   - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007220_S"
@@ -326,16 +346,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_000188_S"
     antenna_id: "76553"
     tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
-  - title: "さざめとりお"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_019937_S"
-    antenna_id: "213832"
-    tags: ["百合"]
-  - title: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_019660_S"
-    antenna_id: "213830"
-    tags: ["百合", "筋肉"]
   - title: "ぷれいめ～と"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008613_S"
@@ -606,11 +616,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019393_S"
     antenna_id: "211792"
     tags: ["百合", "読み切り"]
-  - title: "オタクサキュバスの才能がありすぎる!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_016705_S"
-    antenna_id: "211295"
-    tags: ["読み切り", "百合", "サキュバス"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -701,11 +706,6 @@ works_missing:
     url: "https://comic-days.com/episode/12207421983906425557"
     antenna_id: "211796"
     tags: ["百合", "読み切り"]
-  - title: "下部七花はかく語りき"
-    platform: "コミックDAYS"
-    url: "https://comic-days.com/episode/12207421983885192770"
-    antenna_id: "211281"
-    tags: ["百合", "読み切り"]
   - title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
@@ -726,11 +726,6 @@ works_missing:
     url: "https://www.corocoro.jp/title/773"
     antenna_id: "182492"
     tags: ["妖怪", "オカルト", "百合"]
-  - title: "傷の女"
-    platform: "サンデーうぇぶり"
-    url: "https://www.sunday-webry.com/episode/12207421983914997657"
-    antenna_id: "211318"
-    tags: ["百合", "読み切り"]
   - title: "画家の肖像"
     platform: "ゼノン編集部"
     url: "https://comic-zenon.com/episode/12207421983944323781"
@@ -771,6 +766,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "魔法少女にあこがれて"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/40675"
+    antenna_id: "89771"
+    tags: ["お色気・微エロ", "バトル", "魔法少女", "百合", "アニメ化"]
   - title: "好都合セミフレンド"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/63674"
@@ -871,11 +871,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/74091"
     antenna_id: "194580"
     tags: ["百合", "教師", "女子高生", "人妻", "コミカライズ"]
-  - title: "魔法少女にあこがれて"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/40675"
-    antenna_id: "89771"
-    tags: ["お色気・微エロ", "バトル", "魔法少女", "百合", "アニメ化"]
   - title: "ニニンがシノブ伝ぷらす"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/49574"
@@ -990,7 +985,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["最近のコメント数"]
+    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -1121,6 +1116,11 @@ works_missing:
     url: "https://comicride.jp/series/b95a6b1493469"
     antenna_id: "165083"
     tags: ["百合", "武士・侍", "ファンタジー", "ブロ・シスマンス"]
+  - title: "だって恋は月夜に灯るから"
+    platform: "一迅プラス"
+    url: "https://ichicomi.com/episode/12207421984336824147"
+    antenna_id: "216771"
+    tags: ["百合"]
   - title: "姫虐が止まらない白桃さん"
     platform: "一迅プラス"
     url: "https://ichicomi.com/episode/12207421983584564641"

@@ -6,10 +6,10 @@ source: yurinavi-webyuri
 role: coverage-yardstick
 retrieved: 2026-10-16
 record_type: coverage_gap
-works_listed: 134
+works_listed: 137
 platforms_total: 26
 platforms_watched: 18
-works_on_watched_platforms: 99
+works_on_watched_platforms: 102
 platforms:
   - platform: "カドコミ"
     works: 52
@@ -18,10 +18,10 @@ platforms:
     works: 24
     watched: false
   - platform: "一迅プラス"
-    works: 18
+    works: 20
     watched: true
   - platform: "竹コミ！"
-    works: 5
+    works: 6
     watched: true
   - platform: "ガンガンONLINE"
     works: 4
@@ -750,6 +750,12 @@ works:
     watched_platform: true
     title: "ひなちゃんが生きてるなら"
     url: "https://ichicomi.com/episode/12207421984089197909"
+  - raw: "ゆるゆり なもり"
+    platform: "一迅プラス"
+    last_update_seen: 10-16
+    watched_platform: true
+    title: "ゆるゆり"
+    url: "https://ichicomi.com/episode/12207421984374441896"
   - raw: "キミが吠えるための歌を、 樫風"
     platform: "一迅プラス"
     last_update_seen: 10-01
@@ -774,6 +780,12 @@ works:
     watched_platform: true
     title: "君のせいなんだから、責任とってよね。"
     url: "https://ichicomi.com/episode/12207421984089197905"
+  - raw: "大室家 なもり"
+    platform: "一迅プラス"
+    last_update_seen: 10-16
+    watched_platform: true
+    title: "大室家"
+    url: "https://ichicomi.com/episode/12207421984374441892"
   - raw: "小春と湊 わたしのパートナーは女の子 ひあるろん＆達磨"
     platform: "一迅プラス"
     last_update_seen: 10-01
@@ -876,6 +888,12 @@ works:
     watched_platform: true
     title: "舞ちゃんのお姉さん飼育ごはん。"
     url: "https://takecomic.jp/series/68270e5ebb4a6"
+  - raw: "魔法少女にあこがれて 小野中彰大"
+    platform: "竹コミ！"
+    last_update_seen: 10-16
+    watched_platform: true
+    title: "魔法少女にあこがれて"
+    url: "https://takecomic.jp/series/0d7dee548d547"
   - raw: "フレンドガールフレンド 瑠夏子"
     platform: "花とゆめ＋"
     last_update_seen: 10-21

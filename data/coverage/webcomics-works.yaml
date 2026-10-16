@@ -9,7 +9,7 @@ source: webcomics.jp
 role: discovery-only
 retrieved: 2026-10-16
 record_type: candidate_works
-works: 311
+works: 310
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -662,6 +662,10 @@ candidates:
     platforms: ["pixivコミック", "ニコニコ漫画", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/13224", "https://ichicomi.com/episode/2551460909671541131", "https://manga.nicovideo.jp/comic/77731"]
     tags: ["学園", "百合"]
+  - title: "だって恋は月夜に灯るから"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984336824147"]
+    tags: ["百合"]
   - title: "つまらない"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/2550689798380877479"]
@@ -1631,6 +1635,7 @@ candidates:
   - title: "ヒトゴトですから!"
     platforms: ["FEEL web"]
     urls: ["https://feelweb.jp/episode/3269754496401056068"]
+    tags: ["百合"]
   - title: "ヒモとは絡みづらい"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/3270296674383965324"]

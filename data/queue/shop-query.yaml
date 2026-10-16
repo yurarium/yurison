@@ -41,10 +41,10 @@ retrieved: 2026-10-16
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 244
-  hits_on_the_title_alone: 109
+  hits_on_the_title_alone: 110
   hits_stating_a_print_edition_date: 206
-  works_asked: 859
-  works_with_a_hit: 260
+  works_asked: 860
+  works_with_a_hit: 261
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -8111,6 +8111,21 @@ works:
         imprint: "コロナ・コミックス"
         publisher: "TOブックス"
         printed: "2021/2/1"
+        agreement: "title-only"
+        volumes_stated: 3
+        completed_marker: true
+  - work_url: "https://to-corona-ex.com/comics/44610925887524"
+    id: "w03439"
+    work: "最愛のお姉様が悪役令嬢だったので、神が定めた運命に抗います@COMIC"
+    platform: "コロナEX"
+    query: "title"
+    retrieved: "2026-10-16"
+    hits:
+      - series_url: "https://bookwalker.jp/series/394561/list/"
+        title_listed: "最愛のお姉様が悪役令嬢だったので、神が定めた運命（シナリオ）に抗います@COMIC（コロナ・コミックス）"
+        shop_author: "こわたりひろ(漫画) 八緒あいら(原作)"
+        imprint: "コロナ・コミックス"
+        publisher: "TOブックス"
         agreement: "title-only"
         volumes_stated: 3
         completed_marker: true

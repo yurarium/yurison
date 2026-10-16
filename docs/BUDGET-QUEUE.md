@@ -1536,3 +1536,7 @@ aliases too, which is what kept it in scope. `credit pages listing a work that d
 | updates naming a work we do not hold | 2 | 4 |
 | incomplete attested rows | 42 | 46 |
 | volume rows with no publication date | 2572 | 2580 |
+
+`ruby asserting a reading per character` 219 to 220, accepted 2026-10-16: w03439,
+最愛のお姉様が悪役令嬢だったので、神が定めた運命に抗います@COMIC, inducted the same night, carries a
+compound the analyser reads one character at a time.

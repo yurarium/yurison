@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-16
+retrieved: 2026-10-17
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -7699,8 +7699,12 @@ works:
     title_id: "2202"
     url: "https://pocket.shonenmagazine.com/title/02202"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2202/feed.xml"
-    chapter_count: 123
+    chapter_count: 124
     chapters:
+      - title: "【第52話(1)】相愛"
+        updated: 2026-10-17
+        author: "くずしろ"
+        url: "https://pocket.shonenmagazine.com/title/02202/episode/445500"
       - title: "【第51話(2)】静聴"
         updated: 2026-09-26
         author: "くずしろ"

@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-ogyaaa
 platform_name: "COMIC OGYAAA!!"
 publisher: "一迅社"
-retrieved: 2026-10-16
+retrieved: 2026-10-17
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 11
@@ -19,8 +19,14 @@ works:
   - work_title: "あの子とふたりで。"
     series_id: "2550912965818312577"
     url: "https://comic-ogyaaa.com/atom/series/2550912965818312577"
-    chapter_count: 15
+    chapter_count: 16
     chapters:
+      - title: "番外編③"
+        updated: 2026-10-16
+        author: "当麻"
+        url: "https://comic-ogyaaa.com/episode/12207421984374790245"
+        free_from: 2026-10-16
+        access_modes: ["free"]
       - title: "第13話"
         updated: 2026-09-18
         author: "当麻"
@@ -422,8 +428,14 @@ works:
   - work_title: "壊していいよ、すいかちゃん"
     series_id: "12207421983608475749"
     url: "https://comic-ogyaaa.com/atom/series/12207421983608475749"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
+      - title: "第9話 かっこよすぎてどうしよう"
+        updated: 2026-10-16
+        author: "虫歯"
+        url: "https://comic-ogyaaa.com/episode/12207421984374790241"
+        free_from: 2026-10-16
+        access_modes: ["free"]
       - title: "第8話 ありがちな感情"
         updated: 2026-09-18
         author: "虫歯"

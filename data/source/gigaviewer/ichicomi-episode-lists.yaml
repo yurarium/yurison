@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
-retrieved: "2026-10-16"
+retrieved: "2026-10-17"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -13,7 +13,7 @@ works:
   - work_title: "誰かオオカミさんのしつけ方知りませんか！？"
     series_id: "12207421983347940142"
     url: "https://ichicomi.com/atom/series/12207421983347940142"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
       - title: "第1話"
         updated: "2026-02-18"
@@ -38,6 +38,10 @@ works:
       - title: "第6話"
         updated: "2026-08-18"
         url: "https://ichicomi.com/episode/12207421984089197889"
+        access_modes: ["purchase"]
+      - title: "第7話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441730"
         access_modes: ["purchase"]
   - work_title: "昨日シたのに覚えてないの？ 百合えっち短編集"
     series_id: "12207421983348273909"
@@ -771,7 +775,7 @@ works:
   - work_title: "バリキャリJKモネ先輩"
     series_id: "12207421984038648336"
     url: "https://ichicomi.com/atom/series/12207421984038648336"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
       - title: "第1話"
         updated: "2026-08-18"
@@ -785,10 +789,14 @@ works:
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532884"
         access_modes: ["free"]
+      - title: "第4話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441717"
+        access_modes: ["purchase"]
   - work_title: "神は私を撮りたいって言ってます！"
     series_id: "12207421984038648337"
     url: "https://ichicomi.com/atom/series/12207421984038648337"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
       - title: "第1話"
         updated: "2026-08-18"
@@ -802,19 +810,27 @@ works:
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532889"
         access_modes: ["free"]
+      - title: "第4話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441713"
+        access_modes: ["purchase"]
   - work_title: "いじめてくれる君がすき"
     series_id: "12207421984115848527"
     url: "https://ichicomi.com/atom/series/12207421984115848527"
-    chapter_count: 1
+    chapter_count: 2
     chapters:
       - title: "第1話"
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984151786084"
         access_modes: ["free"]
+      - title: "第2話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441699"
+        access_modes: ["purchase"]
   - work_title: "聖なる姫のかくしごと"
     series_id: "12207421984115848531"
     url: "https://ichicomi.com/atom/series/12207421984115848531"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
       - title: "第1話"
         updated: "2026-09-16"
@@ -824,6 +840,10 @@ works:
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532879"
         access_modes: ["free"]
+      - title: "第3話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441709"
+        access_modes: ["purchase"]
   - work_title: "幼馴染の方程式"
     series_id: "12207421984115848533"
     url: "https://ichicomi.com/atom/series/12207421984115848533"
@@ -851,6 +871,19 @@ works:
         updated: "2026-09-17"
         url: "https://ichicomi.com/episode/12207421984222944066"
         access_modes: ["free"]
+  - work_title: "だって恋は月夜に灯るから"
+    series_id: "12207421984241417494"
+    url: "https://ichicomi.com/atom/series/12207421984241417494"
+    chapter_count: 2
+    chapters:
+      - title: "第1話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984336824147"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984336824152"
+        access_modes: ["purchase"]
   - work_title: "百合の間に挟まる梅田ダンジョン"
     series_id: "12207421984335596372"
     url: "https://ichicomi.com/atom/series/12207421984335596372"
@@ -917,7 +950,7 @@ works:
   - work_title: "映しちゃダメな顔"
     series_id: "2550912965919360561"
     url: "https://ichicomi.com/atom/series/2550912965919360561"
-    chapter_count: 22
+    chapter_count: 23
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -1007,6 +1040,10 @@ works:
         updated: "2026-08-18"
         url: "https://ichicomi.com/episode/12207421984089197939"
         access_modes: ["free"]
+      - title: "第23話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441848"
+        access_modes: ["purchase"]
   - work_title: "嫌われ魔女令嬢と男装皇子の婚約"
     series_id: "2550912965919360563"
     url: "https://ichicomi.com/atom/series/2550912965919360563"
@@ -2526,39 +2563,39 @@ works:
       - title: "第3話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923206723"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第4話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923208368"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第5話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923209236"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第6話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912966048555575"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第7話"
         updated: "2025-08-28"
         url: "https://ichicomi.com/episode/2550912966048555598"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第8話"
         updated: "2025-08-28"
         url: "https://ichicomi.com/episode/2551460909505316650"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第9話"
         updated: "2025-09-25"
         url: "https://ichicomi.com/episode/2551460909624506014"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第10話"
         updated: "2025-10-23"
         url: "https://ichicomi.com/episode/2551460909729508311"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第11話"
         updated: "2025-11-27"
         url: "https://ichicomi.com/episode/2551460909862300219"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第12話"
         updated: "2026-04-02"
         url: "https://ichicomi.com/episode/12207421983480734443"
@@ -2885,7 +2922,7 @@ works:
   - work_title: "今日はカノジョがいないから"
     series_id: "2550912965923183674"
     url: "https://ichicomi.com/atom/series/2550912965923183674"
-    chapter_count: 40
+    chapter_count: 41
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -3046,6 +3083,10 @@ works:
       - title: "第39話"
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532962"
+        access_modes: ["purchase"]
+      - title: "第40話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441871"
         access_modes: ["purchase"]
   - work_title: "アンドロイドは経験人数に入りますか？？"
     series_id: "2550912965923183677"
@@ -3225,7 +3266,7 @@ works:
   - work_title: "ゆるゆり"
     series_id: "2550912965923183706"
     url: "https://ichicomi.com/atom/series/2550912965923183706"
-    chapter_count: 238
+    chapter_count: 239
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -4179,6 +4220,10 @@ works:
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532984"
         access_modes: ["purchase"]
+      - title: "第239話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441896"
+        access_modes: ["free"]
   - work_title: "溺れて、愛毒"
     series_id: "2550912965923183713"
     url: "https://ichicomi.com/atom/series/2550912965923183713"
@@ -4478,7 +4523,7 @@ works:
   - work_title: "超深宇宙より愛をこめて"
     series_id: "2550912965923183753"
     url: "https://ichicomi.com/atom/series/2550912965923183753"
-    chapter_count: 17
+    chapter_count: 18
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -4547,6 +4592,10 @@ works:
       - title: "第15話"
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532928"
+        access_modes: ["purchase"]
+      - title: "第16話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441816"
         access_modes: ["purchase"]
   - work_title: "ゆめぐりゆりめぐり"
     series_id: "2550912965923183755"
@@ -5023,7 +5072,7 @@ works:
   - work_title: "私の百合はお仕事です！"
     series_id: "2550912965923183893"
     url: "https://ichicomi.com/atom/series/2550912965923183893"
-    chapter_count: 76
+    chapter_count: 77
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -5329,6 +5378,10 @@ works:
         updated: "2026-07-16"
         url: "https://ichicomi.com/episode/12207421983947227420"
         access_modes: ["purchase"]
+      - title: "第77話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441885"
+        access_modes: ["purchase"]
   - work_title: "親がうるさいので後輩(♀)と偽装結婚してみた。"
     series_id: "2550912965923183902"
     url: "https://ichicomi.com/atom/series/2550912965923183902"
@@ -5349,7 +5402,7 @@ works:
   - work_title: "陰キャギャルでもイキがりたい！"
     series_id: "2550912965923183908"
     url: "https://ichicomi.com/atom/series/2550912965923183908"
-    chapter_count: 33
+    chapter_count: 34
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -5483,6 +5536,10 @@ works:
         updated: "2026-08-18"
         url: "https://ichicomi.com/episode/12207421984089197954"
         access_modes: ["free"]
+      - title: "第33話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441860"
+        access_modes: ["purchase"]
   - work_title: "愛したぶんだけ愛してほしいっ！"
     series_id: "2550912965923183919"
     url: "https://ichicomi.com/atom/series/2550912965923183919"
@@ -6331,7 +6388,7 @@ works:
   - work_title: "大室家"
     series_id: "2550912965923183988"
     url: "https://ichicomi.com/atom/series/2550912965923183988"
-    chapter_count: 138
+    chapter_count: 139
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -6885,6 +6942,10 @@ works:
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532980"
         access_modes: ["purchase"]
+      - title: "第139話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441892"
+        access_modes: ["free"]
   - work_title: "ルミナス＝ブルー"
     series_id: "2550912965923183992"
     url: "https://ichicomi.com/atom/series/2550912965923183992"
@@ -6938,7 +6999,7 @@ works:
   - work_title: "私の推しは悪役令嬢。"
     series_id: "2550912965923183996"
     url: "https://ichicomi.com/atom/series/2550912965923183996"
-    chapter_count: 65
+    chapter_count: 66
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -6951,35 +7012,35 @@ works:
       - title: "第3話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923206778"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第4話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923207833"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第5話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923208758"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第6話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923209496"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第7話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923210385"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第8話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923211165"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第9話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923211896"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第10話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923212541"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第11話"
         updated: "2025-08-08"
         url: "https://ichicomi.com/episode/2550912965923213076"
@@ -7199,6 +7260,10 @@ works:
       - title: "第64話"
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532973"
+        access_modes: ["purchase"]
+      - title: "第65話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441877"
         access_modes: ["purchase"]
   - work_title: "欠けた月とドーナッツ"
     series_id: "2550912965923183997"
@@ -8281,7 +8346,7 @@ works:
   - work_title: "キミが吠えるための歌を、"
     series_id: "2550912965923184070"
     url: "https://ichicomi.com/atom/series/2550912965923184070"
-    chapter_count: 21
+    chapter_count: 22
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -8366,6 +8431,10 @@ works:
       - title: "第21話"
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532942"
+        access_modes: ["purchase"]
+      - title: "第22話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441842"
         access_modes: ["purchase"]
   - work_title: "羽山先生と寺野先生は付き合っている"
     series_id: "2550912965923184073"
@@ -8464,7 +8533,7 @@ works:
   - work_title: "ぜんぶ壊して地獄で愛して"
     series_id: "2550912965923184088"
     url: "https://ichicomi.com/atom/series/2550912965923184088"
-    chapter_count: 33
+    chapter_count: 34
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -8597,6 +8666,10 @@ works:
       - title: "第33話"
         updated: "2026-09-16"
         url: "https://ichicomi.com/episode/12207421984222532958"
+        access_modes: ["purchase"]
+      - title: "第34話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441856"
         access_modes: ["purchase"]
   - work_title: "ひかりのすむところ"
     series_id: "2550912965923184092"
@@ -8898,7 +8971,7 @@ works:
   - work_title: "ささやくように恋を唄う"
     series_id: "2550912965923184113"
     url: "https://ichicomi.com/atom/series/2550912965923184113"
-    chapter_count: 68
+    chapter_count: 69
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -9172,10 +9245,14 @@ works:
         updated: "2026-08-18"
         url: "https://ichicomi.com/episode/12207421984089197971"
         access_modes: ["free"]
+      - title: "第66話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441881"
+        access_modes: ["purchase"]
   - work_title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
     series_id: "2550912965923184114"
     url: "https://ichicomi.com/atom/series/2550912965923184114"
-    chapter_count: 20
+    chapter_count: 21
     chapters:
       - title: "第1話"
         updated: "2025-08-08"
@@ -9257,6 +9334,10 @@ works:
         updated: "2026-08-18"
         url: "https://ichicomi.com/episode/12207421984089197935"
         access_modes: ["free"]
+      - title: "第21話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441838"
+        access_modes: ["purchase"]
   - work_title: "文系のきみ、理系のあなた"
     series_id: "2550912965923184120"
     url: "https://ichicomi.com/atom/series/2550912965923184120"
@@ -9621,7 +9702,7 @@ works:
   - work_title: "小春と湊 わたしのパートナーは女の子"
     series_id: "2550912965923184269"
     url: "https://ichicomi.com/atom/series/2550912965923184269"
-    chapter_count: 39
+    chapter_count: 40
     chapters:
       - title: "1話"
         updated: "2025-08-08"
@@ -9779,6 +9860,10 @@ works:
         updated: "2026-08-18"
         url: "https://ichicomi.com/episode/12207421984089197965"
         access_modes: ["free"]
+      - title: "第40話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441866"
+        access_modes: ["purchase"]
   - work_title: "この世で一番素敵な終わり方"
     series_id: "2550912965923184292"
     url: "https://ichicomi.com/atom/series/2550912965923184292"
@@ -10717,7 +10802,7 @@ works:
   - work_title: "たゆたう恋の散り際に"
     series_id: "2551460909671366556"
     url: "https://ichicomi.com/atom/series/2551460909671366556"
-    chapter_count: 7
+    chapter_count: 8
     chapters:
       - title: "第1話"
         updated: "2025-10-09"
@@ -10747,6 +10832,10 @@ works:
         updated: "2026-08-18"
         url: "https://ichicomi.com/episode/12207421984089197893"
         access_modes: ["free"]
+      - title: "第8話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441740"
+        access_modes: ["purchase"]
   - work_title: "晴れた日のドレスコード"
     series_id: "2551460909761988777"
     url: "https://ichicomi.com/atom/series/2551460909761988777"
@@ -11104,7 +11193,7 @@ works:
   - work_title: "君のせいなんだから、責任とってよね。"
     series_id: "2551460909791966658"
     url: "https://ichicomi.com/atom/series/2551460909791966658"
-    chapter_count: 9
+    chapter_count: 10
     chapters:
       - title: "第1話"
         updated: "2025-11-13"
@@ -11142,6 +11231,10 @@ works:
         updated: "2026-08-18"
         url: "https://ichicomi.com/episode/12207421984089197905"
         access_modes: ["free"]
+      - title: "第10話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441754"
+        access_modes: ["purchase"]
   - work_title: "魔女ってバイト代出ます？"
     series_id: "2551460909791966662"
     url: "https://ichicomi.com/atom/series/2551460909791966662"
@@ -11154,7 +11247,7 @@ works:
   - work_title: "ひなちゃんが生きてるなら"
     series_id: "2551460909862285568"
     url: "https://ichicomi.com/atom/series/2551460909862285568"
-    chapter_count: 9
+    chapter_count: 10
     chapters:
       - title: "第1話"
         updated: "2025-12-04"
@@ -11167,11 +11260,11 @@ works:
       - title: "第3話"
         updated: "2026-03-17"
         url: "https://ichicomi.com/episode/12207421983480188893"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第4話"
         updated: "2026-03-17"
         url: "https://ichicomi.com/episode/12207421983480188907"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第5話"
         updated: "2026-04-17"
         url: "https://ichicomi.com/episode/12207421983611646788"
@@ -11192,6 +11285,10 @@ works:
         updated: "2026-08-18"
         url: "https://ichicomi.com/episode/12207421984089197909"
         access_modes: ["free"]
+      - title: "第10話"
+        updated: "2026-10-16"
+        url: "https://ichicomi.com/episode/12207421984374441760"
+        access_modes: ["purchase"]
   - work_title: "姫虐が止まらない白桃さん"
     series_id: "2551460909961393303"
     url: "https://ichicomi.com/atom/series/2551460909961393303"

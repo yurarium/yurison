@@ -6,7 +6,7 @@ platform: takecomic
 platform_name: "竹コミ"
 publisher: "竹書房"
 engine: comici
-retrieved: 2026-10-16
+retrieved: 2026-10-17
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -1523,7 +1523,7 @@ works:
     status: "連載中"
     author: "小野中彰大"
     url: "https://takecomic.jp/series/0d7dee548d547"
-    chapter_count: 70
+    chapter_count: 71
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -1731,9 +1731,12 @@ works:
         access_modes: ["purchase"]
       - title: "65話"
         updated: "2026-08-21"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "66話"
         updated: "2026-09-18"
+        access_modes: ["free"]
+      - title: "67話"
+        updated: "2026-10-16"
         access_modes: ["free"]
   - work_title: "舞ちゃんのお姉さん飼育ごはん。"
     status: "連載中"

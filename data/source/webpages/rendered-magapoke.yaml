@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-16
+retrieved: 2026-10-17
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -896,7 +896,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/02257"
     stated_schedule:
       cadence: "毎月第3金曜"
-      next_update: "2026-10-16"
+      next_update: "2027-10-16"
     chapter_count: 10
     chapters:
       - title: "【#28（４）】"
@@ -1635,13 +1635,17 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03349"
     stated_schedule:
       cadence: "毎週木曜"
-      next_update: "2027-10-15"
-    chapter_count: 2
+      next_update: "2026-10-22"
+    chapter_count: 3
     chapters:
-      - title: "【第2話】キスマークってなんですか？／君のナカ"
-        updated: 2026-10-08
+      - title: "【第3話】一緒に入ろっか"
+        updated: 2026-10-15
         access_modes: ["purchase"]
         access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第2話】キスマークってなんですか？／君のナカ"
+        updated: 2026-10-08
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第1話】フィニッシュの定義／パンツの色／窒息するなら"
         updated: 2026-10-08

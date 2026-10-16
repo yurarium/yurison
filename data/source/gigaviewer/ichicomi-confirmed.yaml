@@ -10,7 +10,7 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-10-16
+retrieved: 2026-10-17
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works_confirmed: 8
@@ -47,13 +47,16 @@ works:
     author: "まにお"
     url: "https://ichicomi.com/episode/12207421984151786084"
     series_id: "12207421984115848527"
-    is_oneshot: true
+    is_oneshot: false
     discovered_via:
       signal: "new-serial"
       article: "https://yurinavi.com/2026/09/17/ijimetekurerukimigasuki-start/"
       headline: "“きたかわ”のまにお先生が描く、少女たちの歪んだ関係――百合姫新連載「いじめてくれる君がすき」WEBで公開"
-    chapter_count: 1
+    chapter_count: 2
     chapters:
+      - title: "第2話"
+        updated: 2026-10-16
+        url: "https://ichicomi.com/episode/12207421984374441699"
       - title: "第1話"
         updated: 2026-09-16
         url: "https://ichicomi.com/episode/12207421984151786084"
@@ -94,8 +97,11 @@ works:
       signal: "new-serial"
       article: "https://yurinavi.com/2026/08/23/kamihawatashiwo-start/"
       headline: "女の感情がぶつかり合うコスプレイヤーたちの百合姫新連載「神は私を撮りたいって言ってます！」WEBで公開"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "第4話"
+        updated: 2026-10-16
+        url: "https://ichicomi.com/episode/12207421984374441713"
       - title: "第3話"
         updated: 2026-09-16
         url: "https://ichicomi.com/episode/12207421984222532889"
@@ -114,8 +120,11 @@ works:
       signal: "new-serial"
       article: "https://yurinavi.com/2026/08/20/barikyarijk-start/"
       headline: "27歳会社員がセーラー服姿で青春をやり直す百合姫新連載「バリキャリJKモネ先輩」WEBで公開"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "第4話"
+        updated: 2026-10-16
+        url: "https://ichicomi.com/episode/12207421984374441717"
       - title: "第3話"
         updated: 2026-09-16
         url: "https://ichicomi.com/episode/12207421984222532884"

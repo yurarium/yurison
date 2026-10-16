@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-seasons
 platform_name: "Seasons"
 publisher: ""
-retrieved: 2026-10-16
+retrieved: 2026-10-17
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 2
@@ -19,8 +19,14 @@ works:
   - work_title: "今夜、エーテルで待ちあわせ"
     series_id: "12207421983858392884"
     url: "https://comic-seasons.com/atom/series/12207421983858392884"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "番外編"
+        updated: 2026-10-16
+        author: "ヨン"
+        url: "https://comic-seasons.com/episode/12207421984209200929"
+        free_from: 2026-10-16
+        access_modes: ["free"]
       - title: "第3話"
         updated: 2026-09-18
         author: "ヨン"

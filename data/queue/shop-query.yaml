@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-16
+retrieved: 2026-10-17
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 244
-  hits_on_the_title_alone: 110
-  hits_stating_a_print_edition_date: 206
-  works_asked: 860
-  works_with_a_hit: 261
+  hits_agreeing_on_a_creator: 246
+  hits_on_the_title_alone: 111
+  hits_stating_a_print_edition_date: 207
+  works_asked: 870
+  works_with_a_hit: 264
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -2531,6 +2531,33 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984374790241"
+    id: "w00108"
+    work: "壊していいよ、すいかちゃん"
+    author: "虫歯"
+    platform: "COMIC OGYAAA!!"
+    retrieved: "2026-10-17"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984374790245"
+    id: "w00158"
+    work: "あの子とふたりで。"
+    author: "当麻"
+    platform: "COMIC OGYAAA!!"
+    query: "author"
+    retrieved: "2026-10-17"
+    hits:
+      - series_url: "https://bookwalker.jp/series/570214/list/"
+        title_listed: "あの子とふたりで。（ヤングジャンプコミックスDIGITAL）"
+        shop_author: "当麻"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        printed: "2025/12/23"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://comic-ogyaaa.com/episode/2550689798875510910"
     id: "w00681"
     work: "サバーキ"
@@ -2587,6 +2614,16 @@ works:
     author: "ヨン"
     platform: "Seasons"
     retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-seasons.com/episode/12207421984209200929"
+    id: "w00391"
+    work: "今夜、エーテルで待ちあわせ"
+    author: "ヨン"
+    platform: "Seasons"
+    retrieved: "2026-10-17"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -5021,6 +5058,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984336824152"
+    id: "w03440"
+    work: "だって恋は月夜に灯るから"
+    author: "meji"
+    platform: "一迅プラス"
+    retrieved: "2026-10-17"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://ichicomi.com/episode/12207421984354015835"
     id: "w03321"
     work: "百合の間に挟まる梅田ダンジョン"
@@ -5031,6 +5078,61 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984374441699"
+    id: "w03276"
+    work: "いじめてくれる君がすき"
+    author: "まにお"
+    platform: "一迅プラス"
+    retrieved: "2026-10-17"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984374441709"
+    id: "w03275"
+    work: "聖なる姫のかくしごと"
+    author: "葵季むつみ"
+    platform: "一迅プラス"
+    retrieved: "2026-10-17"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984374441713"
+    id: "w03263"
+    work: "神は私を撮りたいって言ってます！"
+    author: "散葉ちんみ"
+    platform: "一迅プラス"
+    retrieved: "2026-10-17"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984374441717"
+    id: "w03252"
+    work: "バリキャリJKモネ先輩"
+    author: "椋木ななつ"
+    platform: "一迅プラス"
+    retrieved: "2026-10-17"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984374441730"
+    id: "w00286"
+    work: "誰かオオカミさんのしつけ方知りませんか！？"
+    author: "餡実ツキ"
+    platform: "一迅プラス"
+    query: "author"
+    retrieved: "2026-10-17"
+    hits:
+      - series_url: null
+        title_listed: "誰かオオカミさんのしつけ方知りませんか!?: 1【イラスト特典付】"
+        shop_author: "餡実 ツキ"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://ichicomi.com/episode/2550912965913104445"
     id: "w00481"
     work: "今宵、悪役令嬢の手をとれたら"
@@ -7005,6 +7107,21 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://novema.jp/comic/serial/n10"
+    id: "w03441"
+    work: "えろいことするために巨乳美少女奴隷を買ったはずが、お師匠さまと慕われて思った通りにいかなくなる話"
+    platform: "comicグラスト"
+    query: "title"
+    retrieved: "2026-10-17"
+    hits:
+      - series_url: "https://bookwalker.jp/series/335261/list/"
+        title_listed: "えろいことするために巨乳美少女奴隷を買ったはずが、お師匠さまと慕われて思った通りにいかなくなる話（グラストCOMICS）"
+        shop_author: "佐藤３６(まんが) 煮豆シューター(原作)"
+        imprint: "グラストCOMICS"
+        publisher: "スターツ出版"
+        agreement: "title-only"
+        volumes_stated: 6
+        completed_marker: true
   - work_url: "https://ourfeel.jp/episode/2550912966077179576"
     id: "w03297"
     work: "明日の空を見る人よ"

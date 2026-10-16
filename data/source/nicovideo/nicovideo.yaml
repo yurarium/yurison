@@ -9,12 +9,74 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-10-16
+retrieved: 2026-10-17
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 497
 works:
+  - work_title: "イジめてイジられて"
+    author: "千田大輔(著者)"
+    url: "https://manga.nicovideo.jp/comic/83472"
+    comic_id: "83472"
+    updated: "2026-10-16"
+    started: "2026-07-17"
+    episode_count: 14
+    free_episodes: 14
+    channel: "ヤングエースUP"
+    channel_slug: "youngaceup"
+    latest_episode: "第13話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1164328"
+  - work_title: "魔法少女にあこがれて"
+    author: "小野中彰大"
+    url: "https://manga.nicovideo.jp/comic/40675"
+    comic_id: "40675"
+    updated: "2026-10-16"
+    started: "2019-04-26"
+    episode_count: 9
+    free_episodes: 9
+    channel: "竹コミ！"
+    channel_slug: "takecomic"
+    latest_episode: "Episode64"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1164758"
+  - work_title: "おやすみシェヘラザード"
+    author: "篠房六郎"
+    url: "https://manga.nicovideo.jp/comic/34558"
+    comic_id: "34558"
+    updated: "2026-10-16"
+    started: "2018-05-10"
+    channel: "もっとやわらかスピリッツ"
+    channel_slug: "yawaspi"
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-10-16"
+    started: "2019-10-20"
+    episode_count: 172
+    free_episodes: 172
+    latest_episode: "ロボ29-4"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1167102"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-10-16"
+    started: "2022-08-31"
+    episode_count: 147
+    free_episodes: 147
+    latest_episode: "第10話の9"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1167104"
+  - work_title: "不器用ビンボーダンス　３"
+    author: "なをををををを"
+    url: "https://manga.nicovideo.jp/comic/70296"
+    comic_id: "70296"
+    updated: "2026-10-16"
+    started: "2024-10-05"
+    episode_count: 74
+    free_episodes: 74
+    latest_episode: "第274話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1167423"
   - work_title: "好都合セミフレンド"
     author: "千種みのり"
     url: "https://manga.nicovideo.jp/comic/63674"
@@ -57,32 +119,12 @@ works:
     comic_id: "62230"
     updated: "2026-10-15"
     started: "2023-02-02"
-    episode_count: 13
-    free_episodes: 13
+    episode_count: 12
+    free_episodes: 12
     channel: "コミックPASH! ver.N"
     channel_slug: "comicpash"
     latest_episode: "第39話　逃亡"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112088"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-10-15"
-    started: "2019-10-20"
-    episode_count: 171
-    free_episodes: 171
-    latest_episode: "ロボ29-3"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1166696"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-10-15"
-    started: "2022-08-31"
-    episode_count: 146
-    free_episodes: 146
-    latest_episode: "第10話の8"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1166697"
   - work_title: "柚子森さん"
     author: "江島絵理"
     url: "https://manga.nicovideo.jp/comic/22191"
@@ -175,14 +217,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第42話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1160020"
-  - work_title: "おやすみシェヘラザード"
-    author: "篠房六郎"
-    url: "https://manga.nicovideo.jp/comic/34558"
-    comic_id: "34558"
-    updated: "2026-10-13"
-    started: "2018-05-10"
-    channel: "もっとやわらかスピリッツ"
-    channel_slug: "yawaspi"
   - work_title: "ざこのみなさんお大事に"
     author: "薗田かんきつ"
     url: "https://manga.nicovideo.jp/comic/74042"
@@ -313,18 +347,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第23話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1160016"
-  - work_title: "イジめてイジられて"
-    author: "千田大輔(著者)"
-    url: "https://manga.nicovideo.jp/comic/83472"
-    comic_id: "83472"
-    updated: "2026-10-09"
-    started: "2026-07-17"
-    episode_count: 13
-    free_episodes: 13
-    channel: "ヤングエースUP"
-    channel_slug: "youngaceup"
-    latest_episode: "第12話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1161413"
   - work_title: "見える子ちゃん"
     author: "泉朝樹(著者)"
     url: "https://manga.nicovideo.jp/comic/37662"
@@ -379,8 +401,8 @@ works:
     comic_id: "34789"
     updated: "2026-10-08"
     started: "2018-06-07"
-    episode_count: 8
-    free_episodes: 8
+    episode_count: 29
+    free_episodes: 29
     channel: "FLOSコミック"
     channel_slug: "flos"
     latest_episode: "第42話 後編"
@@ -469,16 +491,6 @@ works:
     channel_slug: "nico-yurihime"
     latest_episode: "第129話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1161802"
-  - work_title: "不器用ビンボーダンス　３"
-    author: "なをををををを"
-    url: "https://manga.nicovideo.jp/comic/70296"
-    comic_id: "70296"
-    updated: "2026-10-06"
-    started: "2024-10-05"
-    episode_count: 73
-    free_episodes: 73
-    latest_episode: "第273話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1163992"
   - work_title: "ガールズ・スキャット・オーケストラ！"
     author: "ゐぬゐ"
     url: "https://manga.nicovideo.jp/comic/74195"
@@ -785,18 +797,6 @@ works:
     channel_slug: "comicnewtype"
     latest_episode: "第63.5話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1151382"
-  - work_title: "魔法少女にあこがれて"
-    author: "小野中彰大"
-    url: "https://manga.nicovideo.jp/comic/40675"
-    comic_id: "40675"
-    updated: "2026-09-25"
-    started: "2019-04-26"
-    episode_count: 8
-    free_episodes: 8
-    channel: "竹コミ！"
-    channel_slug: "takecomic"
-    latest_episode: "Episode63"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1151478"
   - work_title: "わたし、二番目の彼女でいいから。"
     author: "にの子(漫画) 西条陽(原作) Re岳(キャラクター原案)"
     url: "https://manga.nicovideo.jp/comic/60396"

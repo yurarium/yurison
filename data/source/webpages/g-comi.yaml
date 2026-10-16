@@ -6,7 +6,7 @@ platform: g-comi
 platform_name: "Gコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-10-16
+retrieved: 2026-10-17
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -21,10 +21,10 @@ works:
         access_modes: ["free"]
       - title: "第2話"
         updated: "2023-10-23"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第3話"
         updated: "2023-10-23"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話"
         updated: "2024-04-05"
         access_modes: ["purchase"]
@@ -78,10 +78,10 @@ works:
         access_modes: ["free"]
       - title: "二度目の浮気"
         updated: "2025-09-12"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "攻め？受け？三本勝負！"
         updated: "2025-09-19"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "永遠一号二号はイヴとイヴ"
         updated: "2025-09-26"
         access_modes: ["purchase"]
@@ -99,10 +99,10 @@ works:
         access_modes: ["free"]
       - title: "第2話"
         updated: "2026-08-07"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第3話"
         updated: "2026-09-04"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話"
         updated: "2026-10-02"
         access_modes: ["free"]
@@ -117,10 +117,10 @@ works:
         access_modes: ["free"]
       - title: "第2話"
         updated: "2026-06-28"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第3話"
         updated: "2026-06-28"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話"
         updated: "2026-10-07"
         access_modes: ["free"]
@@ -179,29 +179,29 @@ works:
     status: "連載中"
     author: "ミナミト"
     url: "https://g-comi.jp/series/5448ec9f6077b"
-    chapter_count: 11
+    chapter_count: 12
     chapters:
       - title: "第1話"
         updated: "2025-12-19"
         access_modes: ["free"]
       - title: "第2話"
         updated: "2025-12-19"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第3話"
         updated: "2026-01-23"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話"
         updated: "2026-02-20"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話"
         updated: "2026-03-20"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第6話"
         updated: "2026-04-17"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第7話"
         updated: "2026-05-22"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第8話"
         updated: "2026-06-19"
         access_modes: ["purchase"]
@@ -214,6 +214,9 @@ works:
       - title: "第11話"
         updated: "2026-09-18"
         access_modes: ["purchase"]
+      - title: "第12話"
+        updated: "2026-10-16"
+        access_modes: ["free"]
   - work_title: "狙いはキミだけ!"
     status: "読み切り"
     author: "あまね"
@@ -234,10 +237,10 @@ works:
         access_modes: ["free"]
       - title: "第2話"
         updated: "2026-06-28"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第3話"
         updated: "2026-06-28"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話"
         updated: "2026-07-01"
         access_modes: ["purchase"]

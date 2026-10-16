@@ -7783,7 +7783,7 @@ def main():
     if _idless:
         print(f"awaiting an identifier: {len(_idless)} work(s) the store cannot key, so they "
               f"reach no reader: " + ", ".join(str(r.get("work"))[:24] for r in _idless[:4]))
-    # AND WRITTEN DOWN, ALWAYS, for the naming job (adapters/naming/worklist.py), which mints them.
+    # AND WRITTEN DOWN, ALWAYS, for adapters/naming/mint.py and induct.py, which mint them.
     # The store cannot hold a row it cannot key, so this is the only place the rows survive the run.
     (out / "awaiting-identifier.json").write_text(json.dumps(
         {"generated": str(_today),

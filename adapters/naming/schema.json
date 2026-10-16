@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "names": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {"type": "string"},
+          "en": {"type": "string"},
+          "basis": {"type": "string", "enum": ["official-jp", "licensed", "translated", "romaji"]},
+          "source_kind": {"type": "string",
+                          "enum": ["platform", "publisher-jp", "bibliography", "licensor", "derived"]},
+          "source": {"type": "string"},
+          "source_url": {"type": "string"},
+          "translation": {"type": "string"},
+          "translation_note": {"type": "string"},
+          "note": {"type": "string"},
+          "skip": {"type": "string"}
+        },
+        "required": ["key"]
+      }
+    }
+  },
+  "required": ["names"]
+}

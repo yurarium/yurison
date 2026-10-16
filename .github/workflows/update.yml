@@ -239,10 +239,17 @@ jobs:
       #
       # NONE OF THESE REACH THE NETWORK. Pass 2 and pass 3 do and are deliberately absent.
       # PRINT WORKS A SHELF ADMITTED ARE MINTED HERE, which needs no judgement: each stands on one
-      # shop record the designation test already passed (adapters/naming/mint.py). A work with a web
-      # address waits for the naming job, which has to place it.
+      # shop record the designation test already passed (adapters/naming/mint.py).
       - name: Mint the print works the shelves admitted
         run: python3 adapters/naming/mint.py
+
+      # AND WEB WORKS, by the same bookkeeping the naming job used to do with the whole registry in
+      # its context (adapters/naming/induct.py). One that may be a work we hold is left awaiting,
+      # named in the run summary, and still counted on the status page until a person places it.
+      - name: Induct the web works nobody has ruled on
+        run: |
+          python3 adapters/naming/induct.py | tee "$RUNNER_TEMP/induct.txt"
+          { echo "### Induction"; echo; echo '```'; cat "$RUNNER_TEMP/induct.txt"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Name what this run brought in
         id: names

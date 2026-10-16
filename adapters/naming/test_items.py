@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+"""naming/items.py: what the naming job is told about each title, and nothing more.
+
+COVERS = ['adapters/naming/items.py']
+"""
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import testkit                                                          # noqa: E402
+import items as ni                                                      # noqa: E402
+
+
+def main(s):
+    series = [{"work": "鈴木りつ短編集", "work_en": {"basis": "romaji"}, "latest": "2026-10-01",
+               "author": "鈴木りつ", "url": "https://shop/1",
+               "sources": [{"platform": "BOOK☆WALKER", "url": "https://shop/1"}]},
+              {"work": "決まった", "work_en": {"basis": "romaji"}, "latest": "2026-10-09"},
+              {"work": "名前あり", "work_en": {"basis": "translated"}, "latest": "2026-10-10"}]
+    named = {"決まった": {"en": "Decided"},
+             "鈴木りつ短編集　考幻学入門": {"en": "Suzuki Ritsu Short Stories: An Introduction to Phantasmology"}}
+    rows = ni.untitled(series, set(named))
+    s.eq([r["work"] for r in rows], ["鈴木りつ短編集"],
+         "a romanised title nobody decided is asked; a decided or named one is not")
+    it = ni.item(rows[0], named)
+    s.eq((it["key"], it["author"], it["platforms"], it["pages"]),
+         ("鈴木りつ短編集", "鈴木りつ", ["BOOK☆WALKER"], ["https://shop/1"]),
+         "an item holds the key, the creator, the platform and the page to read, once each")
+    s.eq([r["ja"] for r in it["related"]], ["鈴木りつ短編集　考幻学入門"],
+         "and the titles already named that share its start, so a series is named one way")
+    s.eq(ni.related("短い", named), [], "a title too short to share a start has no relatives")
+    book = {"work": "本", "print": [{"shop_url": "https://www.cmoa.jp/title/1/"}]}
+    s.eq(ni.item(book, {})["pages"], ["https://www.cmoa.jp/title/1/"],
+         "a book's page is its shop's, since it has no web source")
+
+
+if __name__ == "__main__":
+    sys.exit(testkit.run(main, "naming.items"))

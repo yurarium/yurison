@@ -24,8 +24,8 @@ AFTER_WORSE = BEFORE.replace("  ok    the store refused no row", "  FAIL  the st
 
 
 def main(s):
-    s.eq(v.disallowed(["data/names/curated.yaml", "data/identity/works.yaml"]), [],
-         "the registry and the curated names are the job's to change")
+    s.eq(v.disallowed(["data/names/curated.yaml", "data/identity/works.yaml"]),
+         ["data/identity/works.yaml"], "the curated names are the job's to change, the registry not")
     s.eq(v.disallowed(["data/names/curated.yaml", "data/source/x.yaml", "build.py"]),
          ["data/source/x.yaml", "build.py"], "a capture or the code is not")
     s.eq(v.disallowed(["data/names/titles.yaml", "docs/tracker.html"]), [],
@@ -37,6 +37,8 @@ def main(s):
     f = v.fold(events)
     s.eq((f["num_turns"], f["duration_ms"], f["usage"]["output_tokens"], f["result"]),
          (41, 601600, 9061, "a monitor timed out"), "the whole session is summed, not its last wake")
+    s.eq(v.fold(events + ['{"type":"result","structured_output":{"names":[]}}'])["structured_output"],
+         {"names": []}, "and the answer a schema asked for is kept for integrate.py")
 
     s.eq(v.failing(BEFORE), {"every platform a reader is shown is registered"},
          "a failing invariant is read by name, and a failing budget is not counted")
@@ -52,6 +54,8 @@ def main(s):
                     run=7, model="sonnet", outcome="committed", diff_text=diff, today="2026-10-16")
     s.eq((line["turns"], line["input_tokens"], line["output_tokens"], line["inducted"], line["named"]),
          (14, 51000, 3000, 1, 1), "the ledger line carries turns, tokens and what changed")
+    s.eq((line["fresh_input_tokens"], line["cache_read_tokens"], line["cache_write_tokens"]),
+         (1000, 50000, 0), "with fresh input, cache reads and cache writes kept apart")
     s.eq(v.record({}, 7, "sonnet", "nothing", "", "2026-10-16")["turns"], None,
          "a run that produced no result still records itself")
 

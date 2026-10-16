@@ -25,12 +25,12 @@ import re
 import subprocess
 import sys
 
-ALLOWED = ("data/identity/works.yaml", "data/names/curated.yaml", "data/queue/unheld-works.yaml")
-#: WHAT THE COMMANDS THE JOB IS TOLD TO RUN REWRITE. `curate.py --apply` writes the name store and
-#: the build stamps docs/tracker.html, and the gate lowers a budget whose count fell in
-#: docs/budgets.json; the job is refused if it does not run them, so their output
-#: cannot count against it. It cannot edit these by hand: its tools allow Edit on ALLOWED alone,
-#: and the workflow regenerates them after judging.
+#: The one file the job's answers are written into, by integrate.py. Claude itself writes nothing:
+#: it runs in an empty directory with web tools alone, so this is the check on the script.
+ALLOWED = ("data/names/curated.yaml",)
+#: WHAT THE JUDGING REWRITES. `curate.py --apply` writes the name store and the build stamps
+#: docs/tracker.html, and the gate lowers a budget whose count fell in docs/budgets.json, so their
+#: output cannot count against the job.
 REGENERATED = ("data/names/", "docs/tracker.html", "data/ledger/", "docs/budgets.json")
 LEDGER = pathlib.Path("data/ledger/claude-usage.jsonl")
 FAIL = re.compile(r"^\s*FAIL\s+(.+?):\s")
@@ -70,6 +70,10 @@ def fold(lines):
         out["duration_ms"] += int(e.get("duration_ms") or 0)
         out["is_error"] = out["is_error"] or bool(e.get("is_error"))
         out["result"] = e.get("result") or out["result"]
+        # THE ANSWER ITSELF, where the job was started with `--json-schema`: the last stretch to
+        # give one gave the job's answer, and integrate.py reads it from here.
+        if e.get("structured_output") is not None:
+            out["structured_output"] = e["structured_output"]
         for k in out["usage"]:
             out["usage"][k] += int((e.get("usage") or {}).get(k) or 0)
     return out
@@ -138,6 +142,12 @@ def record(result, run, model, outcome, diff_text, today=None):
             "input_tokens": (u.get("input_tokens") or 0) + (u.get("cache_read_input_tokens") or 0)
             + (u.get("cache_creation_input_tokens") or 0),
             "output_tokens": u.get("output_tokens") or 0,
+            # THE THREE PRICE DIFFERENTLY, and their sum hid which one a run spent: 2.5 million on
+            # the first run was almost all cache reads of the same repository context, read again
+            # on every turn. Kept apart so a run can be read for what it cost.
+            "fresh_input_tokens": u.get("input_tokens") or 0,
+            "cache_read_tokens": u.get("cache_read_input_tokens") or 0,
+            "cache_write_tokens": u.get("cache_creation_input_tokens") or 0,
             "duration_ms": result.get("duration_ms"), "inducted": inducted, "named": named,
             "error": bool(result.get("is_error"))}
 

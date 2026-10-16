@@ -7,6 +7,18 @@ from one nobody has looked at.
 **How to resume.** Read the table. The first row not marked done is the next one. Each closed row
 names the commit so the reasoning can be found without re-deriving it.
 
+## One rise accepted on 2026-10-16, a work the naming job inducted
+
+The naming job's first committed run minted w03440, だって恋は月夜に灯るから, an 一迅プラス serial
+credited to meji. No credit identifier covers meji yet, so the field counts as one more uncovered
+run:
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| credit fields an identifier does not cover | 165 | 166 | meji, the creator of w03440, holds no credit identifier |
+
+It falls when credit identifiers are minted for new arrivals, which is the launch plan's step 3.
+
 ## Two rises accepted on 2026-08-31, both the same 16 works arriving
 
 `for_row` began consulting the work-level address, so 16 works that had been compiled and dropped

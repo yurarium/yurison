@@ -172,30 +172,35 @@ run, unheld-work rulings recorded automatically where an admission basis exists,
 like ～ and 〜 folded where titles are compared, so they stop needing aliases. The gate then blocks a
 commit only on regressions, so the Claude job's commits are not stopped by arrivals it cannot help.
 
-### 5. The Claude job: names and induction
+### 5. The Claude job: names
 
 A workflow runs after each update with Claude Code headless, authenticated by the owner's
 subscription token (`CLAUDE_CODE_OAUTH_TOKEN`), so it draws on the Pro allowance and incurs no API
 charges. Usage credits (overage) stay switched off.
 
-- **Input.** A script writes the run's queue: rows awaiting an identifier with their admission
-  basis, titles and readings that need curating, and unheld works without a ruling.
-- **Instructions.** A prompt file in the repository carries the conventions this work follows now:
-  the curated-name format and bases, research before translating, readings and their sources,
-  admission under DEFINITIONS §2, and the prose rules.
-- **Bounds.** A turn cap per run; writes limited to `data/identity/works.yaml`,
-  `data/names/curated.yaml` and `data/queue/unheld-works.yaml`; it applies names, builds and runs the
-  gate, and commits only a clean result, otherwise it leaves the batch in an issue.
-- **Audit.** Each run appends its turns, input and output tokens, duration, model and what it
-  changed to a usage log in `data/ledger`, and the status page shows the running total.
+- **Input.** `adapters/naming/items.py` writes up to a dozen titles still showing a romanisation
+  nobody decided, each with its creator, platforms, the pages to read and up to three related
+  titles already named.
+- **Instructions.** `adapters/naming/PROMPT.md` is the system prompt: the four bases in order, the
+  note, and when to decline. It carries nothing else about the project.
+- **Bounds.** Claude runs in an empty directory with web search and fetch and no other tool, and
+  answers in JSON against `adapters/naming/schema.json`. `adapters/naming/integrate.py` writes each
+  answer into `data/names/curated.yaml` only if it passes the check a hand-written entry passes. The
+  workflow applies the names, builds and runs the gate, and commits only a clean result, otherwise
+  it leaves the batch in an issue.
+- **Audit.** Each run appends its turns, fresh input, cache reads and writes, output tokens,
+  duration, model and what it changed to `data/ledger/claude-usage.jsonl`, and the status page shows
+  the running total.
 - **Owner setup, once.** Run `claude setup-token`, add the token as a repository secret, and keep
   usage credits off on claude.ai.
 
-Built on 2026-10-15 and waiting only for the token: `.github/workflows/names.yml`, with
-`adapters/naming/worklist.py` writing the queue, `adapters/naming/PROMPT.md` carrying the
-conventions, and `adapters/naming/verdict.py` judging the result and writing the usage log. The
-build writes `data/build/awaiting-identifier.json` for it. The steps for the owner are at the top of
-`TODO-github-setup.md`.
+Induction moved out of the job on 2026-10-16. The first run gave Claude the whole repository and
+spent 2.5 million input tokens on thirteen names and one induction, nearly all of it the same
+context re-read every turn. Minting is bookkeeping, so the update does it:
+`adapters/naming/mint.py` for print works, `adapters/naming/induct.py` for web works, which holds
+back any whose title matches a work we hold, or which starts like one by the same author. Inclusion
+rulings for works the feed names without a record are not automated; they stay counted by
+`updates naming a work we do not hold`.
 
 ### 6. The rest of what the daily loop did, and where it goes
 

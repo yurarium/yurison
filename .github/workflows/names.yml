@@ -1,22 +1,26 @@
 name: names
 
-# THE NAMING JOB, docs/LAUNCH-PLAN.md section 5. After each update, Claude Code inducts the works the
-# build could not key, writes English names for titles nobody has decided, and rules on works the
-# feed names with no record. Until 2026-10-15 a person did this by hand after every run.
+# THE NAMING JOB, docs/LAUNCH-PLAN.md section 5. After each update, Claude names the titles still
+# showing a romanisation nobody has decided. Until 2026-10-15 a person did this by hand.
+#
+# CLAUDE SEES THE TITLES AND NOTHING ELSE. The first version handed it the repository, and a dozen
+# names cost 2.5 million input tokens of CLAUDE.md, standing instructions and a registry read again
+# on every turn. Now `adapters/naming/items.py` writes the dozen titles with their pages and their
+# already-named relatives, Claude runs in an empty directory with web search and fetch and no other
+# tool, and answers in JSON against `adapters/naming/schema.json`. `integrate.py` turns each answer
+# into a curated entry, which has to pass the same check a person's would. Induction is not here:
+# the update mints works itself (adapters/naming/mint.py and induct.py).
 #
 # IT DRAWS ON THE OWNER'S CLAUDE SUBSCRIPTION, through `CLAUDE_CODE_OAUTH_TOKEN` (made once with
 # `claude setup-token`), so there is no API bill; usage credits stay off on claude.ai. Without the
-# secret every step after the check is skipped and the run succeeds, so this can sit merged before
-# the token exists.
+# secret every step after the check is skipped and the run succeeds.
 #
-# WHAT IT MAY DO. Edit three files, enforced twice: by the tool permissions Claude is started with,
-# and by `adapters/naming/verdict.py files` on the tree it leaves. Its work is committed only when the
-# gate is no worse than before it started; otherwise the diff is kept as an artifact and an issue
-# says why. Every run appends what it used to data/ledger/claude-usage.jsonl, which the weekly
-# digest totals.
+# WHAT IS COMMITTED is the curated names, and only when the gate is no worse than before; otherwise
+# the diff is kept as an artifact and an issue says why. Every run appends what it used to
+# data/ledger/claude-usage.jsonl, which the weekly digest totals.
 #
-# Repository variables, all optional: NAMING_MODEL (default sonnet), NAMING_MAX_TURNS (default 80),
-# NAMING_LIMIT (items per list, default 12), CLAUDE_CODE_VERSION (default latest).
+# Repository variables, all optional: NAMING_MODEL (default sonnet), NAMING_MAX_TURNS (default 60),
+# NAMING_LIMIT (titles per run, default 12), CLAUDE_CODE_VERSION (default latest).
 on:
   workflow_run:
     workflows: [update]
@@ -71,12 +75,12 @@ jobs:
         if: steps.token.outputs.present == 'yes'
         run: python3 build.py --unattended
 
-      - name: What is there to do
+      - name: What is there to name
         id: queue
         if: steps.token.outputs.present == 'yes'
         run: |
-          python3 adapters/naming/worklist.py --limit "${{ vars.NAMING_LIMIT || 12 }}"
-          cat data/build/naming-queue.md
+          python3 adapters/naming/items.py --limit "${{ vars.NAMING_LIMIT || 12 }}" --out "$RUNNER_TEMP/items.json"
+          cat "$RUNNER_TEMP/items.json"
 
       - name: The gate before the job, to compare against
         if: steps.queue.outputs.work == 'yes'
@@ -97,28 +101,34 @@ jobs:
         run: |
           # A REAL TOKEN HOLDS NO WHITESPACE, so any is an artefact of the copy and goes.
           export CLAUDE_CODE_OAUTH_TOKEN="$(printf '%s' "$CLAUDE_CODE_OAUTH_TOKEN" | tr -d '[:space:]')"
-          claude -p "$(cat adapters/naming/PROMPT.md)" \
-            --output-format stream-json --verbose \
+          # AN EMPTY DIRECTORY, so there is no CLAUDE.md to load and no file to read.
+          here="$PWD"; mkdir -p "$RUNNER_TEMP/empty" && cd "$RUNNER_TEMP/empty"
+          claude -p "$(cat "$RUNNER_TEMP/items.json")" \
+            --system-prompt "$(cat "$here/adapters/naming/PROMPT.md")" \
+            --json-schema "$(cat "$here/adapters/naming/schema.json")" \
+            --tools "WebFetch,WebSearch" --allowedTools "WebFetch,WebSearch" \
+            --output-format stream-json --verbose --no-session-persistence \
             --model "${{ vars.NAMING_MODEL || 'sonnet' }}" \
-            --max-turns "${{ vars.NAMING_MAX_TURNS || 80 }}" \
-            --allowedTools "Read,Grep,Glob,WebFetch,WebSearch,Edit(data/identity/works.yaml),Edit(data/names/curated.yaml),Edit(data/queue/unheld-works.yaml),Bash(python3 adapters/names/curate.py:*),Bash(./build.py:*),Bash(./check.py:*)" \
+            --max-turns "${{ vars.NAMING_MAX_TURNS || 60 }}" \
             > "$RUNNER_TEMP/stream.jsonl" || true
-          # THE WHOLE SESSION, folded: the last event alone was one wake of a long session.
+          cd "$here"
+          # THE WHOLE SESSION, folded, with the answer the schema asked for.
           python3 adapters/naming/verdict.py fold --stream "$RUNNER_TEMP/stream.jsonl" > "$RUNNER_TEMP/result.json"
-          python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('result',''))" "$RUNNER_TEMP/result.json" || true
 
-      - name: Judge what it left
+      - name: Write the answers in, and judge them
         id: judge
         if: steps.queue.outputs.work == 'yes'
         run: |
-          git diff -- data/identity/works.yaml data/names/curated.yaml data/queue/unheld-works.yaml > "$RUNNER_TEMP/job.diff"
           # A JOB THAT DID NOT RUN, a rejected token above all, is an error and not a verdict.
           if python3 -c "import json,sys; d=json.load(open(sys.argv[1])); sys.exit(0 if d.get('is_error') else 1)" "$RUNNER_TEMP/result.json" 2>/dev/null; then
             echo "Claude Code reported an error and did no work" > "$RUNNER_TEMP/verdict.txt"
             echo "outcome=error" >> "$GITHUB_OUTPUT"; exit 0; fi
-          if ! python3 adapters/naming/verdict.py files --baseline "$RUNNER_TEMP/baseline.json" > "$RUNNER_TEMP/verdict.txt"; then
+          python3 adapters/naming/integrate.py --answers "$RUNNER_TEMP/result.json" \
+            --items "$RUNNER_TEMP/items.json" | tee "$RUNNER_TEMP/verdict.txt"
+          git diff -- data/names/curated.yaml > "$RUNNER_TEMP/job.diff"
+          if [ ! -s "$RUNNER_TEMP/job.diff" ]; then echo "outcome=nothing" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if ! python3 adapters/naming/verdict.py files --baseline "$RUNNER_TEMP/baseline.json" >> "$RUNNER_TEMP/verdict.txt"; then
             echo "outcome=refused-files" >> "$GITHUB_OUTPUT"; exit 0; fi
-          if git diff --quiet; then echo "outcome=nothing" >> "$GITHUB_OUTPUT"; exit 0; fi
           python3 adapters/names/curate.py --apply >> "$RUNNER_TEMP/verdict.txt" 2>&1 \
             || { echo "outcome=refused-names" >> "$GITHUB_OUTPUT"; exit 0; }
           python3 build.py --unattended
@@ -127,6 +137,7 @@ jobs:
                --after "$RUNNER_TEMP/gate-after.txt" >> "$RUNNER_TEMP/verdict.txt"; then
             echo "outcome=committed" >> "$GITHUB_OUTPUT"
           else echo "outcome=refused-gate" >> "$GITHUB_OUTPUT"; fi
+          cat "$RUNNER_TEMP/verdict.txt" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Keep the diff of work that was not committed
         if: steps.judge.outputs.outcome != '' && steps.judge.outputs.outcome != 'committed' && steps.judge.outputs.outcome != 'nothing'
@@ -150,7 +161,7 @@ jobs:
             --outcome "$OUTCOME" --diff "$RUNNER_TEMP/job.diff"
           git add data/ledger/claude-usage.jsonl
           if [ "$OUTCOME" = committed ]; then
-            git add data/identity/works.yaml data/names data/queue/unheld-works.yaml
+            git add data/names
           fi
           git commit -qm "names: run ${{ github.run_id }} ($OUTCOME)"
           for i in 1 2 3; do
@@ -170,8 +181,6 @@ jobs:
             echo "The naming job in run ${{ github.run_id }} finished as **$OUTCOME**, so nothing it wrote was committed."
             echo "Its diff is the run's artifact \`naming-job-${{ github.run_id }}\`."
             echo; echo '```'; cat "$RUNNER_TEMP/verdict.txt"; echo '```'
-            echo; echo "Its own summary:"; echo
-            python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('result',''))" "$RUNNER_TEMP/result.json" || true
           } > "$RUNNER_TEMP/issue.md"
           gh issue create --title "Naming job left its work uncommitted ($OUTCOME)" \
             --label naming --body-file "$RUNNER_TEMP/issue.md"

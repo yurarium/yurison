@@ -66,6 +66,11 @@ def unruled(releases, series, ruled):
             for e in by.values()]
 
 
+def unruled_awaiting(awaiting, ruled):
+    """The works awaiting an identifier that nobody has ruled on, whatever the ruling was."""
+    return [w for w in awaiting if feedgap.textnorm.norm(w.get("work")) not in ruled]
+
+
 def render(q):
     """The queue as the job reads it: one section per list, each item with what a lookup needs."""
     L = ["# Naming queue", ""]
@@ -101,6 +106,9 @@ def main(argv=None):
     decided = set((yaml.safe_load(CURATED.read_text(encoding="utf-8")) or {}).get("titles") or {})
     awaiting = (json.loads(AWAITING.read_text(encoding="utf-8")).get("works") or []
                 if AWAITING.exists() else [])
+    # A WORK SOMEBODY HAS RULED ON IS NOT THE JOB'S, whatever the ruling: `held` means the owner
+    # is deciding, and the job minted one such work, on comicグラスト, on its first real run.
+    awaiting = unruled_awaiting(awaiting, feedgap.rulings())
     q = {"awaiting": awaiting[:a.limit],
          "untitled": untitled(series, decided)[:a.limit],
          "unruled": [w for w in unruled(population.releases(None), series, feedgap.rulings())

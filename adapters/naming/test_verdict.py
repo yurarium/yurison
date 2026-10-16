@@ -26,6 +26,15 @@ def main(s):
          "the registry and the curated names are the job's to change")
     s.eq(v.disallowed(["data/names/curated.yaml", "docs/budgets.json", "build.py"]),
          ["docs/budgets.json", "build.py"], "a budget or the code is not")
+    s.eq(v.disallowed(["data/names/titles.yaml", "docs/tracker.html"]), [],
+         "what curate --apply and the build rewrite is not counted against it")
+    events = ['{"type":"system"}', '{"type":"result","num_turns":40,"duration_ms":600000,'
+              '"usage":{"input_tokens":1000,"output_tokens":9000},"result":"work"}',
+              'not json', '{"type":"result","num_turns":1,"duration_ms":1600,'
+              '"usage":{"input_tokens":5,"output_tokens":61},"result":"a monitor timed out"}']
+    f = v.fold(events)
+    s.eq((f["num_turns"], f["duration_ms"], f["usage"]["output_tokens"], f["result"]),
+         (41, 601600, 9061, "a monitor timed out"), "the whole session is summed, not its last wake")
 
     s.eq(v.failing(BEFORE), {"targets a capture wrote no row for"}, "a failing check is read by name")
     s.eq(v.worse(BEFORE, AFTER_SAME), [], "a budget already over before the job is not the job's")

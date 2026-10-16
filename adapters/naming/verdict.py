@@ -26,6 +26,11 @@ import subprocess
 import sys
 
 ALLOWED = ("data/identity/works.yaml", "data/names/curated.yaml", "data/queue/unheld-works.yaml")
+#: WHAT THE COMMANDS THE JOB IS TOLD TO RUN REWRITE. `curate.py --apply` writes the name store and
+#: the build stamps docs/tracker.html; the job is refused if it does not run them, so their output
+#: cannot count against it. It cannot edit these by hand: its tools allow Edit on ALLOWED alone,
+#: and the workflow regenerates them after judging.
+REGENERATED = ("data/names/", "docs/tracker.html", "data/ledger/")
 LEDGER = pathlib.Path("data/ledger/claude-usage.jsonl")
 FAIL = re.compile(r"^\s*FAIL\s+(.+?):\s")
 
@@ -38,8 +43,35 @@ def changed(cwd="."):
 
 
 def disallowed(paths, allowed=ALLOWED):
-    """The paths outside what the job may change."""
-    return [p for p in paths if p not in allowed]
+    """The paths outside what the job may change or the commands it runs regenerate."""
+    return [p for p in paths if p not in allowed and not p.startswith(REGENERATED)]
+
+
+def fold(lines):
+    """One result from Claude Code's `stream-json` events: every turn and token summed.
+
+    EVERY STRETCH OF THE SESSION, summed. The job runs builds in the background and Claude Code wakes
+    again when each ends, so `--output-format json` reported the final wake alone: one turn and 1.6
+    seconds for a session that wrote fifteen names. Each `result` event is one stretch of the
+    session; the summary is the last one's text.
+    """
+    out = {"num_turns": 0, "duration_ms": 0, "is_error": False, "result": "",
+           "usage": {"input_tokens": 0, "output_tokens": 0, "cache_read_input_tokens": 0,
+                     "cache_creation_input_tokens": 0}}
+    for line in lines:
+        try:
+            e = json.loads(line)
+        except (ValueError, TypeError):
+            continue
+        if not isinstance(e, dict) or e.get("type") != "result":
+            continue
+        out["num_turns"] += int(e.get("num_turns") or 0)
+        out["duration_ms"] += int(e.get("duration_ms") or 0)
+        out["is_error"] = out["is_error"] or bool(e.get("is_error"))
+        out["result"] = e.get("result") or out["result"]
+        for k in out["usage"]:
+            out["usage"][k] += int((e.get("usage") or {}).get(k) or 0)
+    return out
 
 
 def snapshot(cwd="."):
@@ -97,6 +129,8 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("snapshot")
+    fo = sub.add_parser("fold")
+    fo.add_argument("--stream", required=True)
     fl = sub.add_parser("files")
     fl.add_argument("--baseline", default=None, help="a snapshot taken before the job")
     g = sub.add_parser("gate")
@@ -110,6 +144,11 @@ def main(argv=None):
     u.add_argument("--diff", default=None, help="the job's diff; read from git when omitted")
     a = ap.parse_args(argv)
 
+    if a.cmd == "fold":
+        src = pathlib.Path(a.stream)
+        print(json.dumps(fold(src.read_text(encoding="utf-8").splitlines() if src.exists() else []),
+                         ensure_ascii=False))
+        return 0
     if a.cmd == "snapshot":
         print(json.dumps(snapshot(), ensure_ascii=False))
         return 0

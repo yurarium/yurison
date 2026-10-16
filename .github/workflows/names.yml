@@ -98,11 +98,13 @@ jobs:
           # A REAL TOKEN HOLDS NO WHITESPACE, so any is an artefact of the copy and goes.
           export CLAUDE_CODE_OAUTH_TOKEN="$(printf '%s' "$CLAUDE_CODE_OAUTH_TOKEN" | tr -d '[:space:]')"
           claude -p "$(cat adapters/naming/PROMPT.md)" \
-            --output-format json \
+            --output-format stream-json --verbose \
             --model "${{ vars.NAMING_MODEL || 'sonnet' }}" \
             --max-turns "${{ vars.NAMING_MAX_TURNS || 80 }}" \
             --allowedTools "Read,Grep,Glob,WebFetch,WebSearch,Edit(data/identity/works.yaml),Edit(data/names/curated.yaml),Edit(data/queue/unheld-works.yaml),Bash(python3 adapters/names/curate.py:*),Bash(./build.py:*),Bash(./check.py:*)" \
-            > "$RUNNER_TEMP/result.json" || true
+            > "$RUNNER_TEMP/stream.jsonl" || true
+          # THE WHOLE SESSION, folded: the last event alone was one wake of a long session.
+          python3 adapters/naming/verdict.py fold --stream "$RUNNER_TEMP/stream.jsonl" > "$RUNNER_TEMP/result.json"
           python3 -c "import json,sys; print(json.load(open(sys.argv[1])).get('result',''))" "$RUNNER_TEMP/result.json" || true
 
       - name: Judge what it left

@@ -37,6 +37,8 @@ Each is a row the build compiled and could not key, so no reader can open it.
    and add that feed as a second anchor with an `attached` entry whose basis quotes the link and
    the og:title, dated today. Look at the entries for w03274 and w03321 for the shape.
 5. If it does not belong, write a ruling instead (below) and mint nothing.
+6. A work that already has a ruling in `data/queue/unheld-works.yaml` is not yours, whatever the
+   ruling says: `held` means the owner is deciding it. The queue leaves such works out.
 
 ## Works the feed names with no record and no ruling
 

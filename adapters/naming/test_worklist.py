@@ -30,6 +30,9 @@ def main(s):
     s.eq([(w["work"], w["platforms"], len(w["urls"])) for w in got], [("新作", ["P"], 2)],
          "a work the feed names, held by nothing and ruled on by nobody, is queued once")
 
+    held = {nq.feedgap.textnorm.norm("保留"): {"disposition": "held"}}
+    s.eq([w["work"] for w in nq.unruled_awaiting([{"work": "保留"}, {"work": "新規"}], held)], ["新規"],
+         "a work the owner holds is left out of the job's queue")
     s.check("Nothing to do" in nq.render({"awaiting": [], "untitled": [], "unruled": []}),
             "an empty queue says so, which is what keeps the job from starting")
     md = nq.render({"awaiting": [{"work": "私の魂", "platforms": ["COMICリュウ"], "addresses": ["u"]}],

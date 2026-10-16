@@ -57,6 +57,13 @@ def main(s):
         pathlib.Path(d, "kept.txt").write_text("b\n")
         pathlib.Path(d, "new.txt").write_text("c\n")
         s.eq(v.changed(d), ["kept.txt", "new.txt"], "a modified and an untracked file are both seen")
+        # WHAT THE COMPILE CHANGED BEFORE THE JOB IS NOT THE JOB'S.
+        base = v.snapshot(d)
+        s.eq(v.since(v.changed(d), base, d), [], "nothing has changed since the snapshot")
+        pathlib.Path(d, "kept.txt").write_text("c\n")
+        pathlib.Path(d, "job.txt").write_text("d\n")
+        s.eq(v.since(v.changed(d), base, d), ["job.txt", "kept.txt"],
+             "a file changed again after it, or new since it, is the job's")
 
 
 if __name__ == "__main__":

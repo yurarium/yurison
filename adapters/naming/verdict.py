@@ -4,7 +4,8 @@
 The job runs unattended (docs/LAUNCH-PLAN.md section 5), so what it leaves is judged by this rather
 than by its own account of itself. Three questions, one subcommand each:
 
-  files   Did it change only what it may? `data/identity/works.yaml`, `data/names/curated.yaml`
+  snapshot  What already differs from HEAD before it starts, which the compile causes.
+  files   Did it change only what it may, against that snapshot? `data/identity/works.yaml`, `data/names/curated.yaml`
           and `data/queue/unheld-works.yaml`. Anything else is refused outright.
   gate    Did it make the gate worse? Compared with the gate taken before it started, because the
           update may already have left a budget over for reasons that are not the job's, and a
@@ -41,6 +42,27 @@ def disallowed(paths, allowed=ALLOWED):
     return [p for p in paths if p not in allowed]
 
 
+def snapshot(cwd="."):
+    """`{path: digest}` for every path that differs from HEAD before the job starts.
+
+    THE COMPILE BEFORE THE JOB WRITES FILES TOO. docs/tracker.html carries a timestamp, so the first
+    run of the job, on 2026-10-16, was refused for changing it when Claude had changed nothing at
+    all. The job is judged on what differs from this, not on what differs from HEAD.
+    """
+    import hashlib
+    out = {}
+    for path in changed(cwd):
+        f = pathlib.Path(cwd) / path
+        out[path] = hashlib.sha256(f.read_bytes()).hexdigest() if f.is_file() else None
+    return out
+
+
+def since(paths, baseline, cwd="."):
+    """The paths whose content is not what the snapshot recorded before the job."""
+    now = snapshot(cwd)
+    return [p for p in paths if p not in baseline or now.get(p) != baseline.get(p)]
+
+
 def failing(gate_text):
     """The names of the checks a gate report lists as failing."""
     return {m.group(1) for m in map(FAIL.match, gate_text.splitlines()) if m}
@@ -74,7 +96,9 @@ def record(result, run, model, outcome, diff_text, today=None):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("files")
+    sub.add_parser("snapshot")
+    fl = sub.add_parser("files")
+    fl.add_argument("--baseline", default=None, help="a snapshot taken before the job")
     g = sub.add_parser("gate")
     g.add_argument("--before", required=True)
     g.add_argument("--after", required=True)
@@ -86,8 +110,14 @@ def main(argv=None):
     u.add_argument("--diff", default=None, help="the job's diff; read from git when omitted")
     a = ap.parse_args(argv)
 
+    if a.cmd == "snapshot":
+        print(json.dumps(snapshot(), ensure_ascii=False))
+        return 0
     if a.cmd == "files":
-        bad = disallowed(changed())
+        paths = changed()
+        if a.baseline:
+            paths = since(paths, json.loads(pathlib.Path(a.baseline).read_text()))
+        bad = disallowed(paths)
         for p in bad:
             print(f"  not the job's to change: {p}")
         return 1 if bad else 0

@@ -71,7 +71,10 @@ jobs:
 
       - name: The gate before the job, to compare against
         if: steps.queue.outputs.work == 'yes'
-        run: ./check.py --gate > "$RUNNER_TEMP/gate-before.txt" 2>&1 || true
+        run: |
+          ./check.py --gate > "$RUNNER_TEMP/gate-before.txt" 2>&1 || true
+          # WHAT THE COMPILE ALREADY CHANGED, so the job is judged only on what it changes after.
+          python3 adapters/naming/verdict.py snapshot > "$RUNNER_TEMP/baseline.json"
 
       - name: Install Claude Code
         if: steps.queue.outputs.work == 'yes'
@@ -96,7 +99,11 @@ jobs:
         if: steps.queue.outputs.work == 'yes'
         run: |
           git diff -- data/identity/works.yaml data/names/curated.yaml data/queue/unheld-works.yaml > "$RUNNER_TEMP/job.diff"
-          if ! python3 adapters/naming/verdict.py files > "$RUNNER_TEMP/verdict.txt"; then
+          # A JOB THAT DID NOT RUN, a rejected token above all, is an error and not a verdict.
+          if python3 -c "import json,sys; d=json.load(open(sys.argv[1])); sys.exit(0 if d.get('is_error') else 1)" "$RUNNER_TEMP/result.json" 2>/dev/null; then
+            echo "Claude Code reported an error and did no work" > "$RUNNER_TEMP/verdict.txt"
+            echo "outcome=error" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if ! python3 adapters/naming/verdict.py files --baseline "$RUNNER_TEMP/baseline.json" > "$RUNNER_TEMP/verdict.txt"; then
             echo "outcome=refused-files" >> "$GITHUB_OUTPUT"; exit 0; fi
           if git diff --quiet; then echo "outcome=nothing" >> "$GITHUB_OUTPUT"; exit 0; fi
           python3 adapters/names/curate.py --apply >> "$RUNNER_TEMP/verdict.txt" 2>&1 \

@@ -6,11 +6,28 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-10-17
+retrieved: 2026-10-18
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984388028467"
+    work_title: "つるこさん"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "つるこさん"
+    release_type: "unclassified"
+    date: "2026-10-18"
+    date_basis: "observed"
+    first_seen: "2026-10-18"
+    first_reported: "2026-10-17T15:00:00Z"
+    platform_updated: "2026-10-17T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984388028467"
+    author: "馬頭ゆずお"
+    free_term_start: "2026-10-17T15:00:00Z"
+    raw_title: "つるこさん"
+    advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984387262030"
     work_title: "上杉くんは女の子をやめたい"
     web_status: "serialised"

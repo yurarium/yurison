@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-10-17
+retrieved: 2026-10-18
 record_type: candidate_works
 works: 310
 candidates:
@@ -672,6 +672,10 @@ candidates:
   - title: "つめあと"
     platforms: ["サンデーうぇぶり"]
     urls: ["https://www.sunday-webry.com/episode/4856001361386900883"]
+  - title: "つるこさん"
+    platforms: ["サンデーうぇぶり"]
+    urls: ["https://www.sunday-webry.com/episode/12207421984388028467"]
+    tags: ["ホラー", "百合", "読み切り"]
   - title: "てあとるりりぃ"
     platforms: ["ニコニコ漫画"]
     urls: ["https://manga.nicovideo.jp/comic/61505"]

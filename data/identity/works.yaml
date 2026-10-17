@@ -22050,6 +22050,15 @@ works:
       - anchor: "web:https://manga-zegra.com/series/f34aa93530b90"
         basis: "マンガゼグラ is スターツ出版's own site, the publisher behind comicグラスト, and its series page carries the same title and the same credits, 佐藤36 and 煮豆シューター"
         retrieved: 2026-10-16
+  - id: w03442
+    title: "つるこさん"
+    anchors:
+      - "web:https://www.sunday-webry.com/episode/12207421984388028467"
+      - "web:https://www.sunday-webry.com/atom/series/12207421984388025661"
+    attached:
+      - anchor: "web:https://www.sunday-webry.com/atom/series/12207421984388025661"
+        basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984388028467 links its own series feed at https://www.sunday-webry.com/atom/series/12207421984388025661, so the platform places this chapter in series 12207421984388025661"
+        retrieved: 2026-10-17
 related:
   - a: w00156
     b: w00486

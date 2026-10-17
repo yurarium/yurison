@@ -10,11 +10,11 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-10-17
+retrieved: 2026-10-18
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 68
-series_held: 68
+series_resolved: 69
+series_held: 69
 works:
   - work_title: "contact"
     series_id: "3270296674373045696"
@@ -161,6 +161,17 @@ works:
         author: "椎野つばめ"
         url: "https://www.sunday-webry.com/episode/4856001361386900883"
         free_from: 2023-07-01
+        access_modes: ["free"]
+  - work_title: "つるこさん"
+    series_id: "12207421984388025661"
+    url: "https://www.sunday-webry.com/atom/series/12207421984388025661"
+    chapter_count: 1
+    chapters:
+      - title: "つるこさん"
+        updated: 2026-10-18
+        author: "馬頭ゆずお"
+        url: "https://www.sunday-webry.com/episode/12207421984388028467"
+        free_from: 2026-10-17
         access_modes: ["free"]
   - work_title: "てくのぱにっくゆにばーす"
     series_id: "2551460909679434702"

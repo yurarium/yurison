@@ -16915,6 +16915,20 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  つるこさん:
+    basis: romaji
+    furigana_spans:
+    - - つるこさん
+      - null
+    reading: ツルコサン
+    reading_at: '2026-10-17'
+    reading_basis: surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 1
+    reading_source: surface
+    reading_source_kind: analyser
+    verified: true
   てあとるりりぃ:
     basis: translated
     en: Theatre Lily

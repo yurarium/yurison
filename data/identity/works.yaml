@@ -22059,6 +22059,14 @@ works:
       - anchor: "web:https://www.sunday-webry.com/atom/series/12207421984388025661"
         basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984388028467 links its own series feed at https://www.sunday-webry.com/atom/series/12207421984388025661, so the platform places this chapter in series 12207421984388025661"
         retrieved: 2026-10-17
+  - id: w03443
+    title: "きっと、彼女が好きだから"
+    anchors:
+      - "web:https://g-comi.jp/series/74403f9e30641"
+  - id: w03444
+    title: "転性魔王さまは勇者に勝てない!"
+    anchors:
+      - "web:https://comicride.jp/series/0ff97eb531021"
 related:
   - a: w00156
     b: w00486

@@ -14,7 +14,7 @@ works:
     status: "連載中"
     author: "田中こめ"
     url: "https://championcross.jp/series/21fe5b3d50300"
-    chapter_count: 16
+    chapter_count: 17
     chapters:
       - title: "第1話"
         updated: "2025-12-21"
@@ -57,12 +57,15 @@ works:
         access_modes: ["free-timed"]
       - title: "第14話"
         updated: "2026-08-16"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第15話"
         updated: "2026-09-06"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第16話"
         updated: "2026-09-20"
+        access_modes: ["purchase"]
+      - title: "第17話"
+        updated: "2026-10-18"
         access_modes: ["purchase"]
   - work_title: "おしえごと 同人教師と天才ギャル"
     status: "完結"

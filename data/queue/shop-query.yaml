@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 246
   hits_on_the_title_alone: 111
   hits_stating_a_print_edition_date: 207
-  works_asked: 870
+  works_asked: 871
   works_with_a_hit: 264
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -10270,6 +10270,16 @@ works:
         agreement: "creator"
         volumes_stated: 3
         completed_marker: false
+  - work_url: "https://www.sunday-webry.com/episode/12207421984388028467"
+    id: "w03442"
+    work: "つるこさん"
+    author: "馬頭ゆずお"
+    platform: "サンデーうぇぶり"
+    retrieved: "2026-10-18"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://www.sunday-webry.com/episode/14079602755180542200"
     id: "w00815"
     work: "君に惹かれた理由"

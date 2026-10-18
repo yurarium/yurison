@@ -1,4 +1,4 @@
-generated: '2026-10-17'
+generated: '2026-10-18'
 names:
   '*sow*':
     basis: stated
@@ -1137,6 +1137,16 @@ names:
     basis: stated
     en: cak
     en_at: '2026-08-12'
+    en_pass: 0
+    en_source: surface
+    en_source_kind: platform
+    note: already Latin on the platform's own page; no romanisation involved
+    script: latin
+    verified: true
+  chihiro:
+    basis: stated
+    en: chihiro
+    en_at: '2026-10-18'
     en_pass: 0
     en_source: surface
     en_source_kind: platform
@@ -3625,6 +3635,14 @@ names:
     reading_source: MADB
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/C107809
+    verified: true
+  くまのみそふと:
+    basis: romaji
+    reading: クマノミソフト
+    reading_at: '2026-10-18'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
     verified: true
   くみちょう:
     basis: romaji
@@ -13557,6 +13575,14 @@ names:
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
     reading_url: http://id.ndl.go.jp/auth/entity/034103218
+    verified: true
+  ミルクセーキ:
+    basis: romaji
+    reading: ミルクセーキ
+    reading_at: '2026-10-18'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
     verified: true
   ミレイチョコ:
     basis: romaji

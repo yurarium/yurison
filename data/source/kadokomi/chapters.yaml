@@ -6336,9 +6336,13 @@ works:
       retrieved: "2026-10-18"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-17"
-    chapter_count: 210
+      next_update: "2026-10-24"
+    chapter_count: 211
     chapters:
+      - code: "KC_0032580009400011_E"
+        title: "第60話①"
+        updated: "2026-10-17"
+        access_modes: ["free"]
       - code: "KC_0032580009300011_E"
         title: "幕間話⑤"
         updated: "2026-10-03"
@@ -17607,14 +17611,16 @@ works:
       retrieved: "2026-10-18"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-17"
-    chapter_count: 23
+      next_update: "2026-11-07"
+    chapter_count: 24
     chapters:
+      - code: "KC_0082660002300021_E"
+        title: "第11話＜後半＞"
+        updated: "2026-10-17"
+        access_modes: ["free"]
       - code: "KC_0082660002300011_E"
         title: "第11話＜前半＞"
         updated: "2026-10-03"
-        access_modes: ["free"]
-        free_until: "2026-10-17"
       - code: "KC_0082660002200011_E"
         title: "番外編"
         updated: "2026-09-26"
@@ -18545,9 +18551,13 @@ works:
       retrieved: "2026-10-18"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-17"
-    chapter_count: 10
+      next_update: "2026-10-31"
+    chapter_count: 11
     chapters:
+      - code: "KC_0094880001200011_E"
+        title: "第11話"
+        updated: "2026-10-17"
+        access_modes: ["free"]
       - code: "KC_0094880001100011_E"
         title: "第10話"
         updated: "2026-10-03"
@@ -18556,8 +18566,6 @@ works:
       - code: "KC_0094880001000011_E"
         title: "第9話"
         updated: "2026-09-19"
-        access_modes: ["free"]
-        free_until: "2026-10-17"
       - code: "KC_0094880000900011_E"
         title: "第8話"
         updated: "2026-09-05"

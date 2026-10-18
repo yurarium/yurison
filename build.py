@@ -191,6 +191,9 @@ EXTRA_RE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
 # the WORK title. Confirmation establishes is_oneshot properly but only reaches works we discovered
 # through editorial coverage; this catches the rest, which were arriving as 新話.
 ONESHOT_RE = re.compile(r"読切|読み切り|よみきり")
+#: THE DAY A ONE-SHOT FOUND LATE BEGAN REACHING 更新 FROM EVERY ROUTE, and the sighting given to the
+#: ones the captures already held, which are therefore not news. See the first-seen ledger below.
+ONESHOT_LATE_FROM = "2026-10-18"
 
 # WHY A ROW IS CALLED A ONE-SHOT: the routes, strongest first, each with the sentence a reader is
 # shown for it in both languages.
@@ -4121,6 +4124,16 @@ def main():
             # old when we first learned it existed. So confirmation-sourced works are admitted on
             # the date we learned of them, carrying their true publication date with them.
             late = bool(w.get("discovered_via"))
+            # AND A ONE-SHOT FROM ANY ROUTE, ruled by the owner on 2026-10-18. The argument above is
+            # not about editorial coverage: a one-shot the antenna leads us to a year late was
+            # already old when we learned it existed, and dropping it for that left
+            # メイドはお嬢様と笑いたい。 nowhere in 更新 once its 2023 date was read. Admitted the same
+            # way, carrying its date, and `ONESHOT_LATE_FROM` below keeps the backlog out.
+            _only = w.get("chapters") or []
+            late_oneshot = (not late and len(_only) == 1
+                            and bool(ONESHOT_RE.search(str(_only[0].get("title") or ""))
+                                     or ONESHOT_RE.search(str(w.get("work_title") or ""))))
+            late = late or late_oneshot
             # Some statements are made about the work rather than about a chapter. フラコミlike!
             # writes its whole access policy into the page title — 銀の河に星の城 | いつでも無料 |
             # フラコミlike! | 空木帆子 — so there is an author and an access state and no chapter
@@ -4146,6 +4159,7 @@ def main():
                             "access_modes": c.get("access_modes")}
                     continue
                 releases.append({
+                    **({"late_via": "oneshot"} if late_oneshot and u < wcut else {}),
                     "late_discovered": u < wcut,
                     "discovered_on": str(d.get("retrieved", "")) if u < wcut else None,
                     # SCOPED BY THE WORK WHERE THE CHAPTER HAS NO ADDRESS OF ITS OWN. A chapter
@@ -5540,6 +5554,20 @@ def main():
     if carried:
         print(f"first-seen ledger: {carried} row(s) keyed on their own address, carrying the date "
               f"the old key held")
+    # THE ONE-SHOTS EVERY CAPTURE ALREADY HELD ARE NOT NEWS. Admitting a late one-shot from any
+    # route began on ONESHOT_LATE_FROM, and 406 single-instalment one-shots older than the window
+    # were sitting in the captures that day, none of them ever in the ledger because none was ever
+    # admitted. Each was given that day as its sighting, and a row first seen on it is the backlog
+    # and stays out, as it always had. A row seen before it was in the feed already, as
+    # メイドはお嬢様と笑いたい。 was under the day it was read, and one seen after is a find.
+    _backlog = [r for r in releases if r.get("late_via") == "oneshot"
+                and (ledger.get(_sighting_key(r)) == ONESHOT_LATE_FROM
+                     or str(ledger.get(_sighting_key(r)) or "") < wcut)]
+    if _backlog:
+        _gone = {id(r) for r in _backlog}
+        releases[:] = [r for r in releases if id(r) not in _gone]
+        print(f"late one-shots  : {len(_backlog)} already in the captures before "
+              f"{ONESHOT_LATE_FROM}, so not news")
     ledger_path.write_text(
         "# When each release was FIRST seen by this pipeline. Written once per release and never\n"
         "# revised (REQUIREMENTS §5). Source files are snapshots and get overwritten every run;\n"
@@ -6624,8 +6652,17 @@ def main():
     # `adapters/lint/shadowing.py` counts a name rebound across that distance, and it counted this.
     _finished_works = {norm_work(r.get("work") or "") for r in series.values()
                        if r.get("state") in (_ser.COMPLETED, _ser.ONESHOT)}
+    _oneshot_works = {norm_work(r.get("work") or "") for r in series.values()
+                      if r.get("state") == _ser.ONESHOT}
     _unsurfaced = 0
     for r in releases:
+        # A ONE-SHOT FOUND LATE IS SHOWN WHEN IT WAS FOUND, badged with its publication date, ruled
+        # by the owner on 2026-10-18 for メイドはお嬢様と笑いたい。: a reader learns it exists and is
+        # not told it is new. Only for a find inside the window; an older one stays where it was
+        # filed, because the months it would leave are closed.
+        if (norm_work(r.get("work") or "") in _oneshot_works
+                and str(r.get("discovered_on") or "") >= wcut):
+            continue
         if r.get("late_discovered") and norm_work(r.get("work") or "") in _finished_works:
             r["late_discovered"] = False
             r["discovered_on"] = None

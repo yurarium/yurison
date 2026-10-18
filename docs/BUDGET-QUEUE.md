@@ -7,6 +7,17 @@ from one nobody has looked at.
 **How to resume.** Read the table. The first row not marked done is the next one. Each closed row
 names the commit so the reasoning can be found without re-deriving it.
 
+## One rise accepted on 2026-10-18, a one-shot found late now shown when it was found
+
+The owner ruled on 2026-10-18 that a one-shot found long after publication is shown in 更新 on the
+day it was found, badged 既出 with its date, rather than filed under a month it was never reported
+in. 姫野姫子の奴隷みてえな彼氏, a マガポケ one-shot first seen on 2026-10-16, came into the window
+with that ruling, and its row states no access mode:
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| incomplete attested rows | 45 | 46 | a late-found マガポケ one-shot, already held, moved into view; its row has no access state |
+
 ## One rise accepted on 2026-10-16, four credits whose works lost their bylines
 
 `credit identifiers naming nobody` rose 25 to 29 when the credit edges were re-derived for the first

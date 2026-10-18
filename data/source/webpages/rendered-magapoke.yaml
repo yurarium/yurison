@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-18
+retrieved: 2026-10-19
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -1675,8 +1675,13 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03338"
     stated_schedule:
       cadence: "毎週水曜"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
+      - title: "【第7話】幽霊さんとデート"
+        updated: 2026-10-14
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
       - title: "【第6話】怖がりと幽霊さん"
         updated: 2026-10-07
         access_modes: ["purchase"]
@@ -1689,8 +1694,7 @@ works:
         date_basis: rendered
       - title: "【第4話】怨天様"
         updated: 2026-09-24
-        access_modes: ["purchase"]
-        access_note: "point price 90"
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第3話】目無し男"
         updated: 2026-09-16

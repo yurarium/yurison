@@ -6,12 +6,13 @@ source: gigaviewer
 platform: comic-gardo
 platform_name: "コミックガルド"
 publisher: "オーバーラップ"
-retrieved: 2026-10-18
+retrieved: 2026-10-19
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "gardo:episode:12207421984350401548"
+    in_current_window: false
     work_title: "優等生がアダルトグッズを買いに来た"
     web_status: "serialised"
     identified_via: "discovery-candidate"

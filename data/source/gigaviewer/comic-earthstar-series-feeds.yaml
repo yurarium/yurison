@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-earthstar
 platform_name: "コミック アース・スター"
 publisher: "アース・スター エンターテイメント"
-retrieved: 2026-10-18
+retrieved: 2026-10-19
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 7
@@ -23,6 +23,7 @@ works:
     chapters:
       - title: "【読切】はるは巡る"
         updated: 2026-10-01
+        content_id: "harumegu_yomikiri"
         author: "漫画：藤鶉"
         url: "https://comic-earthstar.com/episode/12207421984241521945"
         free_from: 2026-10-01
@@ -34,6 +35,7 @@ works:
     chapters:
       - title: "【読切】アオハルに憑き物"
         updated: 2024-11-28
+        content_id: "aoharu_yomikiri"
         author: "漫画：寄北光"
         url: "https://comic-earthstar.com/episode/2550912964936717251"
         free_from: 2024-11-28
@@ -205,6 +207,7 @@ works:
     chapters:
       - title: "【読切】ソリスターズ・ハイ"
         updated: 2024-04-04
+        content_id: "solist_yomikiri"
         author: "漫画：サンクス仮面"
         url: "https://comic-earthstar.com/episode/2550689798369117852"
         free_from: 2024-04-04
@@ -216,6 +219,7 @@ works:
     chapters:
       - title: "【読切】吸血少女とウンディーネ"
         updated: 2026-05-14
+        content_id: "undine_yomikiri"
         author: "漫画：ふえふき"
         url: "https://comic-earthstar.com/episode/12207421983715032399"
         free_from: 2026-05-14
@@ -227,6 +231,7 @@ works:
     chapters:
       - title: "【読切】来航怪異の音がする ～横濱外来妖対策局～"
         updated: 2026-04-23
+        content_id: "raikoukaii_yomikiri"
         author: "漫画：日之下あかめ"
         url: "https://comic-earthstar.com/episode/12207421983605265777"
         free_from: 2026-04-23

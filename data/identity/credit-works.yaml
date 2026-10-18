@@ -9,7 +9,7 @@
 # 3,076 of its 3,077 rows name nobody's job. The labels come from the release rows, which
 # keep the field as the platform wrote it. See docs/GAPS.md.
 generated: 2026-10-18
-count: 2368
+count: 2371
 credits:
   - id: c00001
     works:
@@ -6581,6 +6581,7 @@ credits:
     works:
       - id: w01160
         roles: ["著"]
+      - id: w03443
   - id: c01515
     works:
       - id: w01165
@@ -9805,3 +9806,12 @@ credits:
   - id: c02403
     works:
       - id: w03442
+  - id: c02404
+    works:
+      - id: w03444
+  - id: c02405
+    works:
+      - id: w03444
+  - id: c02406
+    works:
+      - id: w03444

@@ -10,7 +10,7 @@ source: gigaviewer
 platform: feelweb
 platform_name: "FEEL web"
 publisher: ""
-retrieved: 2026-10-18
+retrieved: 2026-10-19
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 4
@@ -46,6 +46,7 @@ works:
     chapters:
       - title: "第1話"
         updated: 2024-08-16
+        content_id: "jam097_001"
         author: "犬井あゆ"
         url: "https://feelweb.jp/episode/2550689798763776115"
         free_from: 2024-08-15
@@ -116,6 +117,8 @@ works:
     chapters:
       - title: "第1話"
         updated: 2021-08-20
+        ongoing: true
+        content_id: "jam020_001"
         author: "アケガタユウ"
         url: "https://feelweb.jp/episode/3269754496401056101"
         free_from: 2021-08-20

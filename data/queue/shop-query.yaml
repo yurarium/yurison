@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-18
+retrieved: 2026-10-19
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 246
   hits_on_the_title_alone: 111
   hits_stating_a_print_edition_date: 207
-  works_asked: 871
+  works_asked: 873
   works_with_a_hit: 264
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -4345,6 +4345,16 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: true
+  - work_url: "https://comicride.jp/series/0ff97eb531021"
+    id: "w03444"
+    work: "転性魔王さまは勇者に勝てない!"
+    author: "ミルクセーキ, くまのみそふと, chihiro"
+    platform: "ライコミ"
+    retrieved: "2026-10-19"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
   - work_url: "https://comicride.jp/series/b59a539f01669"
     id: "w00734"
     work: "殺し屋メイドは茨姫の夢を見る"
@@ -4473,6 +4483,16 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://g-comi.jp/series/74403f9e30641"
+    id: "w03443"
+    work: "きっと、彼女が好きだから"
+    author: "ヒロアキ"
+    platform: "Gコミ"
+    retrieved: "2026-10-19"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://g-comi.jp/series/7e3c698bca968"
     id: "w00126"
     work: "百合フェチLIFE"

@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-18
+retrieved: 2026-10-19
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -615,7 +615,7 @@ works_missing:
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
     antenna_id: "77857"
-    tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
+    tags: ["最近のコメント数"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -641,6 +641,11 @@ works_missing:
     url: "https://www.ganganonline.com/title/2649"
     antenna_id: "211625"
     tags: ["百合"]
+  - title: "ワインガールズ"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    antenna_id: "205919"
+    tags: ["百合", "擬人化"]
   - title: "暗殺組合の山田さん"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
@@ -656,11 +661,6 @@ works_missing:
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     antenna_id: "212084"
     tags: ["百合"]
-  - title: "ワインガールズ"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    antenna_id: "205919"
-    tags: ["百合", "擬人化"]
   - title: "新米錬金術師の店舗経営"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/3e22b763a1c0f"

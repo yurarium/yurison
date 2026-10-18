@@ -217,6 +217,25 @@ def episodes(xml):
     return out
 
 
+#: A PRIZE CITATION STANDING AS AN EPISODE'S DESCRIPTION. となりのヤングジャンプ publishes a winning
+#: entry with no 読切 label and no bracket, titled only with the work's name, and its page's
+#: description is the citation: `ヤングジャンプ新人漫画大賞#039 準大賞+…(2025年11月期)`,
+#: `COMITIA153「4時間スピード漫画賞」期待賞`. 27 of its 28 single instalments so titled carry one; the
+#: 28th, 篠崎志乃は甘くない!, carries a synopsis. Anchored at the start and closed by a rank, so a
+#: synopsis that mentions a prize in passing is not one.
+CITATION = re.compile(r"^[^。]{0,60}?(?:漫画賞|漫画大賞|新人賞|コミック大賞)[^。]{0,40}?"
+                      r"(?:準大賞|大賞|佳作|期待賞|準入選|入選|奨励賞|特別賞)")
+#: An episode page does not change once published, so its description is read once a season.
+CITATION_AGE = 90
+
+
+def citation(html):
+    """The prize citation an episode page gives as its description, or None."""
+    m = re.search(r'<meta property="og:description" content="([^"]*)"', html or "")
+    text = _html.unescape(m.group(1)).strip() if m else ""
+    return text[:200] if CITATION.search(text) else None
+
+
 def js(v):
     return json.dumps(v, ensure_ascii=False)
 
@@ -359,6 +378,16 @@ def main():
             misattributed += 1
             name = stated
         eps = episodes(xml)
+        # A SERIES OF ONE EPISODE MAY BE A PRIZE ENTRY THE TITLE DOES NOT ADMIT, and the page says
+        # so where the feed cannot: the Atom entry repeats the title and nothing else. One request
+        # per such series, cached for CITATION_AGE days.
+        if len(eps) == 1 and eps[0].get("url"):
+            try:
+                cited = citation(fetch(eps[0]["url"], cache, max_age_days=CITATION_AGE))
+            except (urllib.error.HTTPError, urllib.error.URLError, OSError):
+                cited = None
+            if cited:
+                eps[0]["citation"] = cited
         # The series feed has a free-only variant, advertised on the platform's own pages as
         # 「Atom (無料話のみ)」. The difference between the two IS the access data, stated by the
         # publisher rather than inferred from a badge — and far better than giga:freeTermStartDate,
@@ -503,6 +532,8 @@ def main():
         for e in w["episodes"]:
             L.append(f"      - title: {js(e['title'])}")
             L.append(f"        updated: {e['updated']}")
+            if e.get("citation"):
+                L.append(f"        citation: {js(e['citation'])}")
             if e.get("author"):
                 L.append(f"        author: {js(e['author'])}")
             if e.get("url"):

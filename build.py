@@ -219,6 +219,11 @@ ONESHOT_WHY = {
                              "掲載されている話すべてに読切の表示がある", False),
     "work-title-marked": ("{plat} writes 読切 into the work's own title",
                           "{plat}が作品名自体に読切と書いている", False),
+    # A PRIZE CITATION AS THE EPISODE'S DESCRIPTION, read by `gigaviewer/series_feeds.citation`.
+    # となりのヤングジャンプ publishes a winning entry titled only with the work's name and gives the
+    # citation where a synopsis would go, so the platform is stating what the piece is.
+    "prize-citation": ("{plat} publishes it as a prize-winning entry, the citation standing as its "
+                       "description", "{plat}が受賞作として掲載し、作品説明に賞の名を記している", False),
     "collection-instalment": ("one story out of a collection, filed as the work it is",
                               "作品集の一編で、それ自体を作品として扱っている", False),
     # A COMPARATOR'S WORD, below every platform's and above the shapes we read. The antenna tags 76
@@ -6008,6 +6013,8 @@ def main():
                 oneshot_why = "platform-confirmed"
             elif _chs and all(ONESHOT_RE.search(c.get("title") or "") for c in _chs):
                 oneshot_why = "every-chapter-marked"
+            elif len(_chs) == 1 and _chs[0].get("citation") and not partial:
+                oneshot_why = "prize-citation"
             elif ONESHOT_RE.search(title or "") and len(_chs) == 1 and not partial:
                 # THE MARKER IN THE WORK TITLE, which the feed path has always read and this one
                 # never did (§3). チャンピオンクロス and ヤンチャンWeb write it there: the work is

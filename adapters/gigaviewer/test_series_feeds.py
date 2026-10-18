@@ -182,5 +182,16 @@ def main(s):
     s.eq(sf.held_series("/nonexistent/x.yaml"), {}, "and a platform with no file yet holds none")
 
 
+    # A PRIZE CITATION IS READ OFF THE PAGE'S DESCRIPTION, and a synopsis is not one.
+    page = '<meta property="og:description" content="{}">'
+    s.eq(sf.citation(page.format("ヤングジャンプ新人漫画大賞#039 準大賞+月間ベスト(2025年11月期)")),
+         "ヤングジャンプ新人漫画大賞#039 準大賞+月間ベスト(2025年11月期)",
+         "a description naming a prize and a rank is the citation")
+    s.eq(sf.citation(page.format("COMITIA153「4時間スピード漫画賞」期待賞")),
+         "COMITIA153「4時間スピード漫画賞」期待賞", "whichever prize it is")
+    s.eq(sf.citation(page.format("佐藤糸はクラスの姫として女子校生活を満喫していた。漫画賞で大賞を狙う…")),
+         None, "and a synopsis that mentions a prize after its first sentence is not one")
+    s.eq(sf.citation("<html></html>"), None, "a page with no description has no citation")
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "series_feeds"))

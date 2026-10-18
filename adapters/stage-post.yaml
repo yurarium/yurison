@@ -40,3 +40,11 @@ commands:
   - id: backfill
     optional: true
     argv: [adapters/backfill/fields.py, --out, data/source/webpages, --retrieved, "{R}"]
+
+  # WHETHER EACH GIGAVIEWER PLATFORM NUMBERS EVERY SERIAL'S EPISODE IDS, sampled from its own feed of
+  # everything it has just published. The build trusts a bare id as a one-shot's only where this
+  # says so (adapters/gigaviewer/id_conventions.py). Monthly, since a platform's habit moves slowly.
+  - id: gigaviewer-id-conventions
+    optional: true
+    every_days: 30
+    argv: [adapters/gigaviewer/id_conventions.py, --cache, "{CACHE}/giga-id-sample"]

@@ -1,0 +1,115 @@
+# Whether each GigaViewer platform numbers every running serial's episode id, sampled from
+# its own feed of everything it has just published. Written by
+# adapters/gigaviewer/id_conventions.py; see its docstring for what `keeps` licenses.
+source: gigaviewer
+role: platform-convention
+retrieved: '2026-10-18'
+platforms:
+  一迅プラス:
+    running: 21
+    numbered: 21
+    keeps: true
+  くらげバンチ:
+    running: 27
+    numbered: 27
+    keeps: true
+  コミックゼノン:
+    running: 27
+    numbered: 27
+    keeps: true
+  マンガクロス:
+    running: 0
+    numbered: 0
+    keeps: false
+  コミックDAYS:
+    running: 21
+    numbered: 21
+    keeps: true
+  となりのヤングジャンプ:
+    running: 21
+    numbered: 18
+    keeps: false
+  MAGCOMI:
+    running: 15
+    numbered: 15
+    keeps: true
+  コミックトレイル:
+    running: 5
+    numbered: 0
+    keeps: false
+  少年ジャンプ+:
+    running: 28
+    numbered: 0
+    keeps: false
+  サンデーうぇぶり:
+    running: 28
+    numbered: 0
+    keeps: false
+  webアクション:
+    running: 23
+    numbered: 23
+    keeps: true
+  comicブースト:
+    running: 0
+    numbered: 0
+    keeps: false
+  COMIC OGYAAA!!:
+    running: 3
+    numbered: 2
+    keeps: false
+  コミック アース・スター:
+    running: 21
+    numbered: 0
+    keeps: false
+  コミックガルド:
+    running: 30
+    numbered: 0
+    keeps: false
+  FEEL web:
+    running: 25
+    numbered: 25
+    keeps: true
+  ちゃおプラス:
+    running: 0
+    numbered: 0
+    keeps: false
+  COMICリュウ:
+    running: 0
+    numbered: 0
+    keeps: false
+  COMIC Y-OURS:
+    running: 21
+    numbered: 21
+    keeps: true
+  まんがタイムSquare:
+    running: 10
+    numbered: 0
+    keeps: false
+  コミックボーダー:
+    running: 0
+    numbered: 0
+    keeps: false
+  Seasons:
+    running: 5
+    numbered: 4
+    keeps: false
+  路草:
+    running: 0
+    numbered: 0
+    keeps: false
+  マガジンデビュー(更新終了):
+    running: 0
+    numbered: 0
+    keeps: false
+  パイコミックス:
+    running: 0
+    numbered: 0
+    keeps: false
+  OUR FEEL:
+    running: 24
+    numbered: 24
+    keeps: true
+  栞:
+    running: 0
+    numbered: 0
+    keeps: false

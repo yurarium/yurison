@@ -12,6 +12,7 @@ source and belong to its adapter, one home each. Folding them together would put
 markup in a file none of them owns, which is the false consolidation this project warns about.
 """
 import re
+from html import unescape as _unescape
 
 #: The document title. Two spellings were in use, `(.*?)` and `([^<]*)`, which differ only on a
 #: title containing a newline. The lazy form handles both.
@@ -32,6 +33,33 @@ ALT = re.compile(r'alt="([^"]*)"')
 
 #: A definition list pair, which two catalogues use for their bibliographic fields.
 DT_DD = re.compile(r"<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>", re.S)
+
+#: A PAGE'S OWN DESCRIPTION, `og:description`, which is where a platform puts a synopsis or, for a
+#: prize entry, the citation.
+DESCRIPTION = re.compile(r'<meta\b(?=[^>]*\bproperty="og:description")[^>]*\bcontent="([^"]*)"')
+#: The rank a prize citation closes on.
+_RANK = r"(?:準大賞|大賞|佳作|期待賞|準入選|入選|奨励賞|特別賞)"
+#: A PRIZE CITATION, in the two forms the platforms write it. Opening the description, as
+#: となりのヤングジャンプ and くらげバンチ do: `ヤングジャンプ新人漫画大賞#039 準大賞+…`,
+#: `COMITIA153「4時間スピード漫画賞」期待賞`, `第３回大波賞「佳作」受賞作品。`. Or bracketed after the
+#: title's own sentence, as ヤンマガWeb does: `TITLE。【ちばてつや賞ヤング部門第88回佳作】…`. A synopsis
+#: mentioning a prize later on is neither.
+CITATION = (re.compile(r"^[^。]{0,60}?賞[^。]{0,24}?" + _RANK),
+            re.compile(r"【[^】]{0,40}?賞[^】]{0,24}?" + _RANK + r"[^】]{0,12}】"))
+#: How far into a description the bracketed form may sit: past the title's own sentence, no further.
+CITATION_WITHIN = 100
+
+
+def citation(html):
+    """The prize citation a page gives as its description, or None."""
+    m = DESCRIPTION.search(html or "")
+    text = _unescape(m.group(1)).strip() if m else ""
+    head = text[:CITATION_WITHIN]
+    if CITATION[0].search(text):
+        return text[:200]
+    b = CITATION[1].search(head)
+    return b.group(0) if b else None
+
 
 #: The address a page says it lives at, in either attribute order.
 CANONICAL = re.compile(r'<link\b(?=[^>]*\brel="canonical")[^>]*\bhref="([^"]+)"')

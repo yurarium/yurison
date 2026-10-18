@@ -46,5 +46,17 @@ def main(s):
         s.check(not hasattr(h, gone), f"{gone} is one source's markup and is not here")
 
 
+    # A PRIZE CITATION, opening the description or bracketed after the title's own sentence.
+    page = '<meta property="og:description" content="{}">'
+    s.eq(h.citation(page.format("第３回大波賞「佳作」受賞作品。会社勤めの主人公・先輩。")),
+         "第３回大波賞「佳作」受賞作品。会社勤めの主人公・先輩。",
+         "a description that opens on a prize and its rank is a citation")
+    s.eq(h.citation(page.format("エンパシー。【ちばてつや賞ヤング部門第88回佳作】生活のため病院で…")),
+         "【ちばてつや賞ヤング部門第88回佳作】", "and so is the bracket ヤンマガWeb writes after the title")
+    s.eq(h.citation(page.format("TANGO。女子高生のサラとレイの2人は色んな秘密を共有してる。")), None,
+         "a synopsis is not")
+    s.eq(h.citation(page.format("佐藤糸はクラスの姫として女子校生活を満喫していた。漫画賞で大賞を狙う")), None,
+         "nor one that mentions a prize after its first sentence")
+
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

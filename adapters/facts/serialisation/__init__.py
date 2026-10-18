@@ -58,6 +58,13 @@ RELEASE_KINDS = (CHAPTER, ONESHOT, EXTRA, ACCESS_CHANGE, UNCLASSIFIED)
 ONESHOT_TITLE = re.compile(r"読み切り|読切|今日の10ページ")
 
 
+#: A SIDE STORY: content a reader follows the series for, an instalment of an existing work and never
+#: a work of its own. `build.py` types releases by it, and `gigaviewer/id_conventions.py` leaves such
+#: an episode out of a platform's id sample, because くらげバンチ numbers every chapter's id and
+#: gives a 番外編 a bare one, `ponkotu_bangai_halloween`, as it does a one-shot.
+EXTRA_TITLE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
+
+
 def is_oneshot_title(s):
     """Whether a chapter or work title names something complete in one."""
     return bool(s) and bool(ONESHOT_TITLE.search(str(s)))

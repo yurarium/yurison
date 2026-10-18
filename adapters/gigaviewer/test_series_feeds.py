@@ -192,6 +192,12 @@ def main(s):
     s.eq(sf.citation(page.format("佐藤糸はクラスの姫として女子校生活を満喫していた。漫画賞で大賞を狙う…")),
          None, "and a synopsis that mentions a prize after its first sentence is not one")
     s.eq(sf.citation("<html></html>"), None, "a page with no description has no citation")
+    data = ('<script data-x="{&quot;content_id&quot;:&quot;saechan_tonari&quot;,'
+            '&quot;series_ongoing&quot;:N}">')
+    s.eq(sf.page_facts(data.replace("N", "0")), {"content_id": "saechan_tonari"},
+         "a page's own id is kept, and a series not running says nothing")
+    s.eq(sf.page_facts(data.replace("N", "1"))["ongoing"], True,
+         "and a series the platform says is running is recorded as running")
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "series_feeds"))

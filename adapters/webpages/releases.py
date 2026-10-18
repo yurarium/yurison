@@ -393,6 +393,13 @@ def main():
             au = author_of(html, site, _page)
             row = {"work_title": untruncated(tgt["title"], html), "url": tgt["url"],
                    "_at": at(tgt["url"], html, site), "episodes": eps}
+            # A PRIZE CITATION WHERE A SYNOPSIS WOULD GO, which ヤンマガWeb writes after the title:
+            # `TANGO。` gives a synopsis, `エンパシー。【ちばてつや賞ヤング部門第88回佳作】` a citation.
+            # Read only for a work of one instalment, which is what it speaks for.
+            if len(eps) == 1:
+                cited = _htmlbits.citation(html)
+                if cited:
+                    eps[0]["citation"] = cited
             # THE PLATFORM'S OWN WORD ON THE SERIALISATION, which nothing was reading. comici
             # states 完結, 読み切り or 連載中 in the page's data, and a hand review of 121 dormant
             # works found it settled every one of the fourteen on these platforms. It is an
@@ -445,6 +452,8 @@ def main():
                         L.append(f"        {k}: {js(e[k])}")
                 if e.get("access_modes"):
                     L.append(f"        access_modes: {js(e['access_modes'])}")
+                if e.get("citation"):
+                    L.append(f"        citation: {js(e['citation'])}")
         L.append("")
         (out / f"{site['id']}.yaml").write_text("\n".join(L))
 

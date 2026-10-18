@@ -5,9 +5,9 @@ WHY THIS EXISTS. サンデーうぇぶり marks no one-shot as one: つるこさ
 and its feed no status. What it does do is title things consistently. Across its captures 59 of
 the 60 works holding one instalment title that instalment exactly as the work, and none of its 9
 serials ever titles a chapter so; a serial's chapters are numbered (第3話, 1. 1回表), even the first.
-少年ジャンプ+ is 43 of 43 the same way and コミックアクション 5 of 5. The convention is a fact about
-the platform, and a single instalment named after its work on a platform that keeps it is a
-one-shot on better grounds than the shape alone.
+少年ジャンプ+ is 43 of 43 the same way, webアクション 5 of 5 and ヤンマガWeb 13 of 13. The
+convention is a fact about the platform, and a single instalment named after its work on a platform
+that keeps it is a one-shot on better grounds than the shape alone.
 
 MEASURED, NOT LISTED. いちコミ titles three serials' chapters after the work and となりのヤングジャンプ
 self-names 28 of 81 single instalments, so a rule that trusted the shape everywhere would be wrong

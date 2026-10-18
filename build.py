@@ -185,7 +185,7 @@ NON_STORY_RE = re.compile(r"告知|お知らせ|カバー|PV|特報|予告|特�
 # Extras and side stories count on the CHAPTER side: おまけ, 番外編 and 外伝 are content a reader
 # follows the series for, unlike an announcement or a cover reveal. They are instalments of an
 # existing work, so they are never a new series either.
-EXTRA_RE = re.compile(r"おまけ|番外編|外伝|特別編|幕間")
+EXTRA_RE = _ser.EXTRA_TITLE
 # Several publishers say so in the title rather than anywhere structured: 【読切】吸血少女と…,
 # 【コミックDAYS読み切り】私のヒーロー, 読み切り作品, and 魔法使いの作庭/よみきり which puts it in
 # the WORK title. Confirmation establishes is_oneshot properly but only reaches works we discovered
@@ -194,6 +194,9 @@ ONESHOT_RE = re.compile(r"読切|読み切り|よみきり")
 #: THE DAY A ONE-SHOT FOUND LATE BEGAN REACHING 更新 FROM EVERY ROUTE, and the sighting given to the
 #: ones the captures already held, which are therefore not news. See the first-seen ledger below.
 ONESHOT_LATE_FROM = "2026-10-18"
+#: A ONE-SHOT'S MARK IN THE PLATFORM'S OWN EPISODE ID: コミック アース・スター's `harumegu_yomikiri`,
+#: コミックOGYAAA's `SPICA_YOMIKIRI_001`.
+YOMIKIRI_ID = re.compile(r"yomikiri", re.I)
 
 # WHY A ROW IS CALLED A ONE-SHOT: the routes, strongest first, each with the sentence a reader is
 # shown for it in both languages.
@@ -224,6 +227,13 @@ ONESHOT_WHY = {
     # citation where a synopsis would go, so the platform is stating what the piece is.
     "prize-citation": ("{plat} publishes it as a prize-winning entry, the citation standing as its "
                        "description", "{plat}が受賞作として掲載し、作品説明に賞の名を記している", False),
+    "id-marked": ("{plat} marks the work's own episode id 読み切り (yomikiri)",
+                  "{plat}が話のIDに読み切り（yomikiri）と記している", False),
+    # THE PLATFORM'S ID CONVENTION, sampled by `gigaviewer/id_conventions.py` from everything it has
+    # just published: every running serial's id ends in its episode number, and this one's does not.
+    "id-convention": ("{plat} numbers every serial chapter's own id and gives this one a bare id, "
+                      "as a one-shot's", "{plat}は連載の話のIDに必ず話数を付けており、この作品のIDには"
+                      "付いていない", False),
     "collection-instalment": ("one story out of a collection, filed as the work it is",
                               "作品集の一編で、それ自体を作品として扱っている", False),
     # A COMPARATOR'S WORD, below every platform's and above the shapes we read. The antenna tags 76
@@ -4118,9 +4128,12 @@ def main():
     # WHICH PLATFORMS TITLE A ONE-SHOT AFTER ITS WORK, measured from their per-series feeds, which
     # list every chapter a series has. Read here because the late admission below asks it.
     import titling as _titling
+    # AND FROM THE SERVER-RENDERED WORK PAGES, where ヤンマガWeb numbers every one of 14 serials'
+    # chapters 第１話 onward and titles all 13 of its single instalments after the work.
     title_conventions = _titling.conventions(
         (yaml.safe_load(open(_tf)) or {} for _tf in
-         sorted(glob.glob("data/source/gigaviewer/*-series-feeds.yaml"))), _platform.canonical)
+         sorted(glob.glob("data/source/gigaviewer/*-series-feeds.yaml"))
+         + sorted(glob.glob("data/source/webpages/*.yaml"))), _platform.canonical)
     if title_conventions:
         print("titling         : a one-shot is titled after its work on "
               + ", ".join(f"{n} ({m['named']} of {m['singles']}, no serial of {m['serials']})"
@@ -4515,6 +4528,13 @@ def main():
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
     import completion as _comp
     reviewed = {norm_work(w): e for w, e in _comp.verdicts().items()}
+
+    # WHICH GIGAVIEWER PLATFORMS NUMBER EVERY SERIAL'S EPISODE IDS, from the monthly sample.
+    from gigaviewer.id_conventions import keeps as _id_keeps, numbered as _id_numbered
+    _idc = pathlib.Path("data/coverage/gigaviewer-id-conventions.yaml")
+    id_conventions = {_platform.canonical(n) for n, m in
+                      ((yaml.safe_load(_idc.read_text()) or {}).get("platforms") or {}).items()
+                      if _id_keeps(m or {})} if _idc.exists() else set()
 
     # THE ANTENNA'S 読み切り TAG, read where its 完結 tag is: a comparator's claim about what a work
     # is, weighed in the series loop only for a work holding a single instalment.
@@ -6015,6 +6035,13 @@ def main():
                 oneshot_why = "every-chapter-marked"
             elif len(_chs) == 1 and _chs[0].get("citation") and not partial:
                 oneshot_why = "prize-citation"
+            elif (len(_chs) == 1 and not partial and not _chs[0].get("ongoing")
+                  and YOMIKIRI_ID.search(str(_chs[0].get("content_id") or ""))):
+                oneshot_why = "id-marked"
+            elif (len(_chs) == 1 and not partial and not _chs[0].get("ongoing")
+                  and _chs[0].get("content_id") and plat in id_conventions
+                  and not _id_numbered(_chs[0]["content_id"])):
+                oneshot_why = "id-convention"
             elif ONESHOT_RE.search(title or "") and len(_chs) == 1 and not partial:
                 # THE MARKER IN THE WORK TITLE, which the feed path has always read and this one
                 # never did (§3). チャンピオンクロス and ヤンチャンWeb write it there: the work is
@@ -6321,6 +6348,7 @@ def main():
         # outranks them in the other direction: somebody read the page.
         if (_reviewed_any or {}).get("verdict") in (_comp.SERIALISED, "continuing"):
             _inferred_route = None
+            _tagged = False
         _os_route = stronger(row.pop("oneshot_why", None),
                              stronger("review" if _rev_one else None,
                                       stronger("comparator-tagged" if _tagged else None,

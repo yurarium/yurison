@@ -217,23 +217,34 @@ def episodes(xml):
     return out
 
 
-#: A PRIZE CITATION STANDING AS AN EPISODE'S DESCRIPTION. となりのヤングジャンプ publishes a winning
-#: entry with no 読切 label and no bracket, titled only with the work's name, and its page's
-#: description is the citation: `ヤングジャンプ新人漫画大賞#039 準大賞+…(2025年11月期)`,
-#: `COMITIA153「4時間スピード漫画賞」期待賞`. 27 of its 28 single instalments so titled carry one; the
-#: 28th, 篠崎志乃は甘くない!, carries a synopsis. Anchored at the start and closed by a rank, so a
-#: synopsis that mentions a prize in passing is not one.
-CITATION = re.compile(r"^[^。]{0,60}?(?:漫画賞|漫画大賞|新人賞|コミック大賞)[^。]{0,40}?"
-                      r"(?:準大賞|大賞|佳作|期待賞|準入選|入選|奨励賞|特別賞)")
-#: An episode page does not change once published, so its description is read once a season.
+#: An episode page does not change once published, so its facts are read once a season.
 CITATION_AGE = 90
+#: THE PRIZE CITATION, which `htmlbits` reads for every platform that writes one.
+citation = _htmlbits.citation
+#: WHAT A GIGAVIEWER EPISODE PAGE STATES ABOUT ITS SERIES in the page data it embeds. `series_ongoing`
+#: is 1 for a serial still running and 0 otherwise, a finished serial and a one-shot alike. It is
+#: recorded and not trusted on its own: OUR FEEL's 明日の空を見る人よ carries a 1 and nothing else says
+#: it is a serial, which the owner read on 2026-10-18 as bad data, so it decides nothing about a work
+#: and serves only `id_conventions.py` in choosing which ids to sample. `content_id` is the
+#: platform's own id for the episode: コミック アース・スター writes `harumegu_yomikiri`, and
+#: くらげバンチ gives a one-shot a bare slug where every serial chapter carries its number.
+ONGOING = re.compile(r'&quot;series_ongoing&quot;:\s*(\d)|"series_ongoing":\s*(\d)')
+CONTENT_ID = re.compile(r'&quot;content_id&quot;:\s*&quot;([^&]*)&quot;|"content_id":\s*"([^"]*)"')
 
 
-def citation(html):
-    """The prize citation an episode page gives as its description, or None."""
-    m = re.search(r'<meta property="og:description" content="([^"]*)"', html or "")
-    text = _html.unescape(m.group(1)).strip() if m else ""
-    return text[:200] if CITATION.search(text) else None
+def page_facts(html):
+    """`{citation, ongoing, content_id}` an episode page states, each only where it states it."""
+    out = {}
+    cited = citation(html)
+    if cited:
+        out["citation"] = cited
+    m = ONGOING.search(html or "")
+    if m and (m.group(1) or m.group(2)) == "1":
+        out["ongoing"] = True
+    m = CONTENT_ID.search(html or "")
+    if m and (m.group(1) or m.group(2)):
+        out["content_id"] = m.group(1) or m.group(2)
+    return out
 
 
 def js(v):
@@ -383,11 +394,9 @@ def main():
         # per such series, cached for CITATION_AGE days.
         if len(eps) == 1 and eps[0].get("url"):
             try:
-                cited = citation(fetch(eps[0]["url"], cache, max_age_days=CITATION_AGE))
+                eps[0].update(page_facts(fetch(eps[0]["url"], cache, max_age_days=CITATION_AGE)))
             except (urllib.error.HTTPError, urllib.error.URLError, OSError):
-                cited = None
-            if cited:
-                eps[0]["citation"] = cited
+                pass
         # The series feed has a free-only variant, advertised on the platform's own pages as
         # 「Atom (無料話のみ)」. The difference between the two IS the access data, stated by the
         # publisher rather than inferred from a badge — and far better than giga:freeTermStartDate,
@@ -534,6 +543,10 @@ def main():
             L.append(f"        updated: {e['updated']}")
             if e.get("citation"):
                 L.append(f"        citation: {js(e['citation'])}")
+            if e.get("ongoing"):
+                L.append("        ongoing: true")
+            if e.get("content_id"):
+                L.append(f"        content_id: {js(e['content_id'])}")
             if e.get("author"):
                 L.append(f"        author: {js(e['author'])}")
             if e.get("url"):

@@ -184,6 +184,10 @@ entries:
   - paths: [data/coverage/bookwalker-completion.yaml]
     status: run
     producer: stage-post:bookwalker-completion
+  - paths: [data/coverage/gigaviewer-id-conventions.yaml]
+    status: run
+    producer: stage-post:gigaviewer-id-conventions
+    max_age_days: 40
   - paths: [data/coverage/magapoke-lengths.yaml]
     status: run
     producer: stage-post:magapoke-lengths

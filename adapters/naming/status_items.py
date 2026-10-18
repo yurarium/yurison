@@ -10,13 +10,15 @@ a collection. What settles each is a page: the platform's 読切 badge, the publ
 author's own post. The job reads the page and `integrate_status.py` writes what it found into
 `data/completion-reviewed.yaml`, the register a person already writes these verdicts in.
 
-WHAT IT ASKS ABOUT. A work holding one instalment that the register has no entry for, whose state
-is `unknown`, a running state, or a one-shot resting on our own reading. A one-shot a platform
-states is not asked about: the page has already been read.
+WHAT IT ASKS ABOUT. A work holding one instalment that the register has no entry for, or only an
+`unsettled` one at least AGAIN days old, whose state is `unknown`, a running state, or a one-shot
+resting on our own reading. A one-shot a platform states is not asked about: the page has already
+been read.
 
     status_items.py [--limit 12] [--out data/build/status-items.json]
 """
 import argparse
+import datetime
 import json
 import os
 import pathlib
@@ -28,11 +30,31 @@ import population                                                       # noqa: 
 import textnorm                                                         # noqa: E402
 
 RUNNING = ("unknown", "active", "slow", "dormant", "hiatus")
+#: DAYS BEFORE AN `unsettled` WORK IS ASKED AGAIN. Unsettled says the pages said nothing yet, which
+#: changes: nine of the first twelve answers were unsettled, a 第1話 waiting on its second chapter
+#: among them, and skipping every reviewed work would have left them unasked for good.
+AGAIN = 30
 
 
-def undecided(series, reviewed):
+def settled(reviewed, today):
+    """The reviewed works to leave alone: every verdict except an `unsettled` one AGAIN days old."""
+    out = set()
+    for w, e in (reviewed or {}).items():
+        if (e or {}).get("verdict") == "unsettled":
+            try:
+                age = (datetime.date.fromisoformat(today)
+                       - datetime.date.fromisoformat(str(e.get("reviewed"))[:10])).days
+            except ValueError:
+                age = AGAIN
+            if age >= AGAIN:
+                continue
+        out.add(textnorm.norm(w))
+    return out
+
+
+def undecided(series, reviewed, today=None):
     """Single-instalment rows whose status rests on nothing stated, newest first."""
-    seen = {textnorm.norm(w) for w in reviewed}
+    seen = settled(reviewed, today or datetime.date.today().isoformat())
     out = [r for r in series
            if r.get("chapters") == 1 and not r.get("partial")
            and textnorm.norm(r.get("work") or "") not in seen

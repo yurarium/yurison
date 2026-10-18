@@ -56,9 +56,28 @@ def render(key, e):
     return "\n".join(L) + "\n"
 
 
+def drop(text, key):
+    """`text` without the entry for `key` under `works:`: its head line and every line indented
+    deeper than it, up to the next entry."""
+    heads = {f"  {key}:", f"  {json.dumps(key, ensure_ascii=False)}:", f"  '{key}':"}
+    out, skipping = [], False
+    for line in text.split("\n"):
+        if line in heads:
+            skipping = True
+            continue
+        if skipping and (line.startswith("    ") or not line.strip()):
+            continue
+        skipping = False
+        out.append(line)
+    return "\n".join(out)
+
+
 def integrate(text, answers, asked, today):
     """`(new text, written keys, [(key, reason)])`."""
-    held = {textnorm.norm(w) for w in ((yaml.safe_load(text) or {}).get("works") or {})}
+    # AN `unsettled` ENTRY IS ASKED AGAIN after `status_items.AGAIN` days, and its answer replaces it.
+    works = (yaml.safe_load(text) or {}).get("works") or {}
+    held = {textnorm.norm(w) for w, e in works.items() if (e or {}).get("verdict") != "unsettled"}
+    stale = {textnorm.norm(w): w for w, e in works.items() if (e or {}).get("verdict") == "unsettled"}
     blocks, written, refused, seen = [], [], [], set()
     for a in answers:
         key = a.get("key")
@@ -77,6 +96,8 @@ def integrate(text, answers, asked, today):
             refused.append((key, "; ".join(bad)))
             continue
         seen.add(key)
+        if textnorm.norm(key) in stale:
+            text = drop(text, stale[textnorm.norm(key)])
         blocks.append(render(key, e))
         written.append((key, e["verdict"]))
     for key in sorted(set(asked) - {a.get("key") for a in answers}):

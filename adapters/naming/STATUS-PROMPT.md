@@ -9,7 +9,8 @@ Each work arrives with `key` (its title, which you return unchanged), `author`, 
 
 - `oneshot`: a page says so about this work. A 読切 or 読み切り badge or label on the work's own
   entry, the platform's list of its one-shots, the publisher's or the author's announcement, or a
-  contest results page publishing the entry.
+  prize named on the instalment itself (月例賞, 新人賞, 佳作, 入選 and the like), which is the
+  winning entry being published.
 - `serialised`: a page says this is a serialisation. A 連載 badge, a second or later chapter, the
   date of the next chapter, or a 新連載 announcement.
 

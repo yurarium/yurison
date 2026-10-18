@@ -23,6 +23,11 @@ works:
 """
 
 
+def ok_answer():
+    return {"verdict": "oneshot", "basis": "読切バッジがある。", "basis_en": "It carries a 読切 badge.",
+            "source_kind": "platform", "source_url": "https://example.jp/w"}
+
+
 def main(s):
     rows = [{"work": "太刀んぼ キルコ", "chapters": 1, "state": "unknown", "latest": "2026-10-13",
              "latest_ep": "1話", "url": "https://manga-one.com/viewer/285495",
@@ -33,7 +38,7 @@ def main(s):
             {"work": "既に", "chapters": 1, "state": "unknown"},
             {"work": "長い", "chapters": 30, "state": "unknown"},
             {"work": "断片", "chapters": 1, "state": "unknown", "partial": True}]
-    got = [r["work"] for r in si.undecided(rows, {"既に": {}})]
+    got = [r["work"] for r in si.undecided(rows, {"既に": {}}, "2026-10-18")]
     s.eq(got, ["つるこさん", "太刀んぼ キルコ"],
          "a single instalment whose status rests on nothing stated is asked about, newest first")
     it = si.item(rows[0])
@@ -41,6 +46,17 @@ def main(s):
          ("1話", ["マンガワン"], ["https://manga-one.com/viewer/285495"]),
          "with the instalment we hold and the page to read, once")
 
+    loose = {"既に": {"verdict": "unsettled", "reviewed": "2026-09-01"}}
+    s.check("既に" in [r["work"] for r in si.undecided(rows, loose, "2026-10-18")],
+            "an unsettled verdict older than a month is asked again")
+    s.check("既に" not in [r["work"] for r in si.undecided(
+        rows, {"既に": {"verdict": "unsettled", "reviewed": "2026-10-10"}}, "2026-10-18")],
+        "and a recent one is not")
+    again = REG.replace("verdict: 'oneshot'", "verdict: 'unsettled'")
+    text, written, _ = ist.integrate(again, [{**ok_answer(), "key": "既に"}], {"既に"}, "2026-10-18")
+    doc = yaml.safe_load(text)["works"]
+    s.eq((written, doc["既に"]["verdict"]), ([("既に", "oneshot")], "oneshot"),
+         "and its new answer replaces the unsettled one")
     asked = {"太刀んぼ キルコ", "つるこさん", "黙る", "既に"}
     ok = {"key": "太刀んぼ キルコ", "verdict": "oneshot", "basis": "マンガワンの読切一覧に載っている。",
           "basis_en": "マンガワン lists it among its 読切.", "source_kind": "platform",

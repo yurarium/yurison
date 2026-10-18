@@ -145,6 +145,10 @@ def a_one_shot_states_one_date(s):
          "and the same page naming it does")
     s.check(rm.names("<h1>ツイてるギャルと　ミエてる陰キャ</h1>", "ツイてるギャルとミエてる陰キャ"),
             "the title is matched folded, so a space or a width does not hide it")
+    s.eq(rm.from_oneshot('読み切り "2023-01-25 00:00:00"')[0]["updated"], "2023-01-25",
+         "midnight on the dot is a date written as a timestamp, and is the one-shot's date")
+    s.eq(rm.from_oneshot('読み切り "2023-01-25 00:00:00" "2026-10-18 09:12:40"')[0]["updated"],
+         "2023-01-25", "beside a served-at stamp, which is still refused")
     s.eq(rm.from_oneshot('読み切りを読む 2026年6月17日'),
          [{"title": "読み切り", "updated": "2026-06-17", "oneshot": True}],
          "a date a platform prints beside the button is the one-shot's date")

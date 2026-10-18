@@ -240,8 +240,15 @@ is being worked on elsewhere as this document is written, so the entry is not ma
 shape worth recognising if a second case turns up is this: several single-volume works, one author,
 one imprint, titles that share a distinctive element and differ only in what precedes it. The owner
 could not name a second instance of a renaming series specifically, and this document did not go
-looking for one; it may be a unicorn, and is recorded as one rather than generalised into a problem
-it has not been shown to be.
+looking for one; it was recorded as a possible unicorn.
+
+A second instance turned up on 2026-10-18: 福井遥香's みくちゃんとちひろさん, two volumes from
+ナンバーナイン's 百合コレ, continued as 酔みくちゃんとちひろさん and 夏みくちゃんとちひろさん, while the
+series itself runs on Pixiv. The owner ruled the shape a set of linked works rather than one work,
+so a title search finds each release under the name a Japanese shop sells it by. The registry's
+`related:` carries `kind: series` for each pair, with `precedes` where the dates give an order, and
+the work page draws Previous in the series, Next in the series, or Same series for BOOK☆WALKER's
+加瀬さんシリーズ, which lists all ten volumes as one.
 
 citrus, above, is the same failure from the other side and is already sitting in data this project
 holds rather than in a magazine it does not watch: one title, two work ids, instead of one series

@@ -73,6 +73,22 @@ def _unit(s):
          "the earlier work names what it was continued as, with that work's length and dates")
     s.eq(by["w03314"]["related"][0]["order"], "follows",
          "and the later one reads the same pair from its own side")
+    # TWO TITLES OF ONE SERIES ARE A DIFFERENT RELATION, so the page can say which.
+    for wid, t in (("w02460", "酔みくちゃんとちひろさん"), ("w03344", "夏みくちゃんとちひろさん")):
+        rel.execute("INSERT INTO work (id, title) VALUES (?, ?)", (wid, t))
+        rel.execute("INSERT INTO serialisation (work, chapters, first, latest) VALUES (?,1,?,?)",
+                    (wid, "2024-06-21", "2024-06-21"))
+    rel.execute("INSERT INTO work_relation (a, b, precedes, kind) VALUES"
+                " ('w02460','w03344','w02460','series')")
+    by = {r["id"]: r for r in emit.series(rel, "2026-10-18")["series"]}
+    s.eq((by["w03344"]["related"][0]["kind"], by["w03344"]["related"][0]["order"]),
+         ("series", "follows"), "a later title in a series reads the earlier one as its predecessor")
+    s.check("kind" not in by["w00336"]["related"][0], "and a version pair carries no kind")
+    try:
+        rel.execute("INSERT INTO work_relation (a, b, kind) VALUES ('w00336','w02460','sequel')")
+        s.check(False, "a kind the schema does not name must be refused")
+    except Exception:                                                   # noqa: BLE001
+        s.check(True, "a kind the schema does not name is refused")
     for bad, why in ((("w03314", "w00336", None), "a pair stored out of identifier order"),
                      (("w00336", "w03314", "w00001"), "a `precedes` naming neither work")):
         try:

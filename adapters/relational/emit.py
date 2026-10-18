@@ -1000,8 +1000,10 @@ def series(db, generated):
         # it, because the two often share a title and the name alone would read as a link to the
         # page it sits on. `work` is the key the works list already renders a title through.
         related = []
-        for other, first, note, title in db.execute(
-                "SELECT CASE WHEN r.a = ? THEN r.b ELSE r.a END, r.precedes, r.note, w.title"
+        # `kind: series` WHERE THE TWO ARE TITLES OF ONE SERIES rather than versions of one story,
+        # so the page can say "next in the series" and not "continued as".
+        for other, first, note, title, kind in db.execute(
+                "SELECT CASE WHEN r.a = ? THEN r.b ELSE r.a END, r.precedes, r.note, w.title, r.kind"
                 " FROM work_relation r JOIN work w ON w.id = CASE WHEN r.a = ? THEN r.b ELSE r.a END"
                 " WHERE ? IN (r.a, r.b) ORDER BY 1", (wid, wid, wid)):
             ser = db.execute("SELECT chapters, first, latest FROM serialisation WHERE work = ?",
@@ -1009,6 +1011,7 @@ def series(db, generated):
             related.append({
                 "id": other, "work": title,
                 **({"order": "precedes" if first == wid else "follows"} if first else {}),
+                **({"kind": kind} if kind else {}),
                 **({"chapters": ser[0], "first": ser[1], "latest": ser[2]} if ser else {}),
                 **({"note": note} if note else {})})
         if related:

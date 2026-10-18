@@ -821,10 +821,11 @@ def _load_all(db, source, put, counts, refused):
             continue
         lo, hi = sorted((a_, b_))
         first = _live(str(r_["precedes"])) if r_.get("precedes") else None
-        related.setdefault((lo, hi), (first if first in (lo, hi) else None, r_.get("note")))
-    for (lo, hi), (first, note) in sorted(related.items()):
-        put("INSERT INTO work_relation (a, b, precedes, note) VALUES (?,?,?,?)",
-            (lo, hi, first, note), f"relation {lo} {hi}")
+        related.setdefault((lo, hi), (first if first in (lo, hi) else None, r_.get("note"),
+                                      "series" if r_.get("kind") == "series" else None))
+    for (lo, hi), (first, note, kind) in sorted(related.items()):
+        put("INSERT INTO work_relation (a, b, precedes, note, kind) VALUES (?,?,?,?,?)",
+            (lo, hi, first, note, kind), f"relation {lo} {hi}")
     counts["work_relation"] = len(related)
     counts["work_anchor"] = db.execute("SELECT count(*) FROM work_anchor").fetchone()[0]
 

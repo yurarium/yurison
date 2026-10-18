@@ -484,11 +484,19 @@ CREATE INDEX work_anchor_work ON work_anchor (work);
 -- a reader met two rows of one title with nothing to say how they stand. A pair is stored once, in
 -- identifier order, and read in both directions. `precedes` is which came first, set by hand where
 -- the evidence gives an order and NULL where it does not.
+--
+-- `kind` IS `series` FOR TWO TITLES OF ONE SERIES, and NULL for the two versions of one story above.
+-- 高嶋ひろみ's 加瀬さん renames itself every volume or two, あさがおと加瀬さん。 to 山田と加瀬さん。,
+-- and 福井遥香's みくちゃんとちひろさん comes out as 酔みくちゃんとちひろさん and
+-- 夏みくちゃんとちひろさん. Each title is the work a Japanese shop sells under it, ruled by the
+-- project owner on 2026-10-18, and the relation is what joins them; a version and a sequel are
+-- different relations, so a reader is told which.
 CREATE TABLE work_relation (
   a        TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   b        TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   precedes TEXT CHECK (precedes IS NULL OR precedes = a OR precedes = b),
   note     TEXT,
+  kind     TEXT CHECK (kind IS NULL OR kind = 'series'),
   PRIMARY KEY (a, b),
   CHECK (a < b)
 );

@@ -295,6 +295,13 @@ def from_oneshot(html, title=None):
     found = {norm_date(m) for m in
              re.findall(r"\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2}(?!\d)(?!\s*日?\s*\d{1,2}:)",
                         html)}
+    # MIDNIGHT ON THE DOT IS A DATE WRITTEN AS A TIMESTAMP, not the time a page was served.
+    # ちゃおプラス states メイドはお嬢様と笑いたい。 as `2023-01-25 00:00:00`, the only date on its
+    # page, and refusing it with the stamps dated the one-shot the day we read it, so a story from
+    # January 2023 reached the feed as new on 2026-10-18. A served-at stamp carries the hour it was
+    # served, as ヤンジャン+'s `20:56:30` does, and is still refused.
+    found |= {norm_date(m) for m in
+              re.findall(r"(\d{4}[-/.]\d{1,2}[-/.]\d{1,2})[T ]00:00(?::00)?(?!\d)", html)}
     dates = sorted(d for d in found if d and d <= TODAY)
     if len(dates) > 1:
         return []

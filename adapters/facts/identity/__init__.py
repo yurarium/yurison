@@ -668,6 +668,8 @@ def render(entries, rel, today=None, keep_order=False):
     for r in sorted(rel, key=lambda x: (x["a"], x["b"])):
         L.append(f"  - a: {r['a']}")
         L.append(f"    b: {r['b']}")
+        if r.get("kind"):
+            L.append(f"    kind: {r['kind']}")
         if r.get("precedes"):
             L.append(f"    precedes: {js(r['precedes'])}")
         L.append(f"    note: {js(r['note'])}")

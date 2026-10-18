@@ -4817,6 +4817,7 @@ works:
     title: "日常やめたらしたいこと"
     anchors:
       - "web:https://comic-boost.com/content/01570001"
+      - "web:https://comic-boost.com/content/01340001"
   - id: w00581
     title: "おねだりしてみて"
     anchors:
@@ -21241,18 +21242,6 @@ works:
     anchors:
       - "web:https://younganimal.com/episodes/24a3e6bcb998e"
       - "web:https://younganimal.com/series/060a6130e55b2"
-
-# Related works. A relation and not a merge: whether a one-shot beside a
-# serialisation is a distinct work, an instalment the run absorbed, or a story a
-# later chapter retells differs case by case, and relating them says what the
-# evidence supports. Continuations belong here too, citrus and citrus+ among them.
-#
-# `precedes` is optional and is set by hand. It is NOT derived from the dates we
-# hold, because those carry import stamps in exactly the cases where order matters:
-# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day
-# 一迅プラス imported its catalogue, while the serialisation's real start of
-# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
-# one-shot after the run it came before.
   - id: w03270
     title: "優等生がアダルトグッズを買いに来た"
     anchors:
@@ -21864,6 +21853,8 @@ works:
       - "madb:bw-22145f3a-7c6c-4c54-a209-f3237ee37e44"
   - id: w03410
     title: "Cry for the Moon"
+    merged_into: w00580
+    merge_basis: "comicブースト moved Cry for the Moon into 雪子's collection 日常やめたらしたいこと: content/01340001 no longer serves it, and content/01570001 lists it as a chapter (spelled Cry fot the Moon) and names 「Cry for the Moon」 in its own description, read 2026-10-18"
     anchors:
       - "web:https://comic-boost.com/content/01340001"
   - id: w03411
@@ -22067,26 +22058,38 @@ works:
     title: "転性魔王さまは勇者に勝てない!"
     anchors:
       - "web:https://comicride.jp/series/0ff97eb531021"
+
+# Related works. A relation and not a merge: whether a one-shot beside a
+# serialisation is a distinct work, an instalment the run absorbed, or a story a
+# later chapter retells differs case by case, and relating them says what the
+# evidence supports. Continuations belong here too, citrus and citrus+ among them.
+#
+# `precedes` is optional and is set by hand. It is NOT derived from the dates we
+# hold, because those carry import stamps in exactly the cases where order matters:
+# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day
+# 一迅プラス imported its catalogue, while the serialisation's real start of
+# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
+# one-shot after the run it came before.
 related:
   - a: w00156
     b: w00486
+    precedes: "w00486"
     note: "一迅プラス lists 超深宇宙より愛をこめて【読み切り版】 as its own series beside the serialisation. Merged on 2026-08-07 as an edition and un-merged on 2026-10-11 on the owner's ruling that a short version and its serialisation are not identical. The 読み切り版 came first: its series id on ichicomi.com is the lower of the two, and its only date, 2025-08-08, is the platform's import stamp, while the serialisation's real start is 2025-03-08 on pixivコミック"
-    precedes: w00486
     retrieved: 2026-10-11
   - a: w00314
     b: w00650
+    precedes: "w00650"
     note: "comicブースト lists 白妙様、秘密ですよ／読切版 at content/01470001, one chapter on 2024-09-13, and the serialisation at content/01650001 from 2025-08-22. Merged as an edition and un-merged on 2026-10-11 on the owner's ruling that a short version and its serialisation are not identical"
-    precedes: w00650
     retrieved: 2026-10-11
   - a: w00336
     b: w03314
+    precedes: "w00336"
     note: "マガポケ lists 怨霊日和【読み切り版】 at title/03125, a 短期集中連載 of four chapters from 2026-02-18 to 2026-03-11, and 怨霊日和 at title/03338, serialised in 週刊少年マガジン from 2026-09-09 and restarting at 【第1話】. The two versions are not identical, so they are related and not merged; ruled by the project owner on 2026-10-11"
-    precedes: w00336
     retrieved: 2026-10-11
   - a: w00391
     b: w03271
+    precedes: "w00391"
     note: "Seasons lists 今夜、エーテルで待ちあわせ by ヨン as a 読切 on 2025-12-05 at series 2551460909766155404 and as a serial from 2026-07 at series 12207421983858392884. A short version and its serialisation are related and not merged; ruled by the project owner on 2026-10-11"
-    precedes: w00391
     retrieved: 2026-10-11
   - a: w00957
     b: w01587

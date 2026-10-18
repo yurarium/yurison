@@ -181,6 +181,12 @@ charges. Usage credits (overage) stay switched off.
 - **Input.** `adapters/naming/items.py` writes up to a dozen titles still showing a romanisation
   nobody decided, each with its creator, platforms, the pages to read and up to three related
   titles already named.
+- **A second question.** `adapters/naming/status_items.py` lists works we hold one instalment of
+  whose status nobody has stated: `unknown`, labelled as running, or a one-shot resting on our own
+  reading. A second session, with `STATUS-PROMPT.md` and `status-schema.json`, answers `oneshot`,
+  `serialised` or `unsettled` from the platform's, publisher's or author's own page, and
+  `integrate_status.py` writes each into `data/completion-reviewed.yaml` through the check a
+  person's verdict passes. Added 2026-10-18, when four one-shots arrived as a new series, a chapter and a new one-shot.
 - **Instructions.** `adapters/naming/PROMPT.md` is the system prompt: the four bases in order, the
   note, and when to decline. It carries nothing else about the project.
 - **Bounds.** Claude runs in an empty directory with web search and fetch and no other tool, and

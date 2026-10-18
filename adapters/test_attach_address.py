@@ -50,6 +50,14 @@ def main(s):
     s.check(err is None and "web:https://b.example/2" not in two["anchors"] and two["detached"],
             "a detachment takes the address off and records why it must not come back")
 
+    merged, err = aa.merge(REG, "w00002", "w00001", "the platform moved the story into the work")
+    one = next(w for w in yaml.safe_load(merged)["works"] if w["id"] == "w00001")
+    two = next(w for w in yaml.safe_load(merged)["works"] if w["id"] == "w00002")
+    s.check(err is None and two["merged_into"] == "w00001" and "web:https://b.example/2" in one["anchors"],
+            "a merge retires one work into the other, which answers to its address")
+    s.check(aa.merge(merged, "w00002", "w00001", "again")[1], "a retired work is not merged twice")
+    s.check(aa.merge(REG, "w00002", "w00001", "")[1], "and a merge with no basis is refused")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "attach_address"))

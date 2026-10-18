@@ -218,6 +218,11 @@ ONESHOT_WHY = {
                           "{plat}が作品名自体に読切と書いている", False),
     "collection-instalment": ("one story out of a collection, filed as the work it is",
                               "作品集の一編で、それ自体を作品として扱っている", False),
+    # A COMPARATOR'S WORD, below every platform's and above the shapes we read. The antenna tags 76
+    # works 読み切り and agreed with what the routes above had already found on 64 of the 70 we hold;
+    # the six it adds are single instalments those routes left `unknown`.
+    "comparator-tagged": ("Web漫画アンテナ tags this work 読み切り",
+                          "Web漫画アンテナがこの作品に「読み切り」のタグを付けている", False),
     "feed": ("the release this work published was typed a one-shot where it appeared",
              "公開時の話が読み切りとして扱われている", False),
     "self-named": ("the single instalment is named after the work, which is how a one-shot is "
@@ -4473,6 +4478,13 @@ def main():
     import completion as _comp
     reviewed = {norm_work(w): e for w, e in _comp.verdicts().items()}
 
+    # THE ANTENNA'S 読み切り TAG, read where its 完結 tag is: a comparator's claim about what a work
+    # is, weighed in the series loop only for a work holding a single instalment.
+    _wcw = pathlib.Path("data/coverage/webcomics-works.yaml")
+    antenna_oneshot = ({norm_work(c.get("title") or "")
+                        for c in (yaml.safe_load(_wcw.read_text()) or {}).get("candidates") or []
+                        if "読み切り" in (c.get("tags") or [])} if _wcw.exists() else set())
+
     completion_claims = {}
     _cc = pathlib.Path("data/source/comparators/completion.yaml")
     if _cc.exists():
@@ -6243,8 +6255,20 @@ def main():
         _nums = {importdates.number(c.get("title")) for c in row.get("chapters_list") or []} - {None}
         if _inferred_route and _nums and min(_nums) == 1:
             _inferred_route = None
+        # THE ANTENNA'S TAG IS A STATEMENT, so the 第1話 ruling above does not set it aside, and it
+        # speaks only for a work we hold one instalment of. A review saying the work continues
+        # outranks it, as a review outranks the antenna's 完結.
+        _reviewed_any = reviewed.get(norm_work(row.get("work") or ""))
+        _tagged = (norm_work(row.get("work") or "") in antenna_oneshot and row["chapters"] == 1
+                   and not row["partial"] and not _reviewed_any)
+        # A REVIEW THAT FOUND A SERIALISATION SETS OUR READINGS ASIDE, as a reviewed one-shot
+        # outranks them in the other direction: somebody read the page.
+        if (_reviewed_any or {}).get("verdict") in (_comp.SERIALISED, "continuing"):
+            _inferred_route = None
         _os_route = stronger(row.pop("oneshot_why", None),
-                             "review" if _rev_one else _inferred_route)
+                             stronger("review" if _rev_one else None,
+                                      stronger("comparator-tagged" if _tagged else None,
+                                               _inferred_route)))
         row["oneshot"] = bool(row.pop("oneshot_src", False) or _os_route)
         # WHY, IN BOTH LANGUAGES, on the row that publishes an unhedged length. A reviewed verdict
         # brings its own sentences and outranks every rule, because somebody read a page and wrote
@@ -6618,6 +6642,31 @@ def main():
         releases.sort(key=lambda r: r["feed_date"], reverse=True)
         print(f"finished series : {_unsurfaced} late-found row(s) filed under their publication "
               f"date, the work having ended")
+
+    # ── A ONE-SHOT'S RELEASE SAYS SO ─────────────────────────────────────────────────────────
+    #
+    # THE FEED TYPED EACH RELEASE BEFORE ANY WORK HAD A STATE, and nothing went back. つるこさん
+    # was a one-shot on its work page, by its antenna tag and its self-named instalment, and an
+    # unclassified 新話 in 更新, so the same story read as finished on one page and as a chapter of
+    # something on the other. The work decides now, wherever it holds one instalment on that
+    # platform: its release is a one-shot, with the work's own basis, and inferred where that was.
+    _one_shot = {(norm_work(r.get("work") or ""), r.get("platform")): r for r in series.values()
+                 if r.get("oneshot") and (r.get("chapters") or 0) == 1}
+    # ONE RELEASE UNDER THE TITLE ON THAT PLATFORM, or the title is not the one-shot's alone.
+    # Seasons holds 今夜、エーテルで待ちあわせ twice, the 読切 and the serialisation it became, and
+    # without this the serial's 第2話 and 第3話 were typed as the one-shot's.
+    _os_key = lambda r: (norm_work(r.get("work") or ""), r.get("plat_name") or r.get("plat"))  # noqa: E731
+    _per_key = Counter(_os_key(r) for r in releases)
+    _retyped = 0
+    for r in releases:
+        _os_row = _one_shot.get(_os_key(r)) if _per_key[_os_key(r)] == 1 else None
+        if _os_row and r.get("kind") in ("new-series", "new-chapter", "unknown"):
+            r["type"], r["kind"] = _ser.ONESHOT, "oneshot"
+            r["kind_basis"] = _os_row.get("oneshot_basis") or "the work is a one-shot"
+            r["kind_inferred"] = bool(_os_row.get("oneshot_inferred"))
+            _retyped += 1
+    if _retyped:
+        print(f"one-shots       : {_retyped} release(s) typed as the one-shot their work is")
 
     # ── collapse platforms into one work ───────────────────────────────────────────────────────
     # A reader looking for 雨夜の月 wants the work, with its platforms as ways in — not three rows

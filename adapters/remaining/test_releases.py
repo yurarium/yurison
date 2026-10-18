@@ -136,6 +136,15 @@ def a_one_shot_states_one_date(s):
     # is when the page was served, and this took it for a publication date: 横槍メンゴ新作読切シリ
     # ーズ was dated 2026-08-10 on the tenth and 2026-08-15 on the fifteenth, so it appeared under
     # 更新 as a new one-shot every day for anyone who had already read it.
+    # A PAGE THAT DOES NOT NAME THE WORK IS NOT ITS PAGE. comicブースト's content/01340001 stopped
+    # serving Cry for the Moon and returned the site's own page, 読み切り in its navigation.
+    site = '<a href="/genre/3">読み切り</a> "2026-10-18 09:00:00" comicブースト'
+    s.eq(rm.from_oneshot(site, "Cry for the Moon"), [],
+         "a page that does not name the work mints no one-shot for it")
+    s.eq(len(rm.from_oneshot(site + " <h1>Cry for the Moon</h1>", "Cry for the Moon")), 1,
+         "and the same page naming it does")
+    s.check(rm.names("<h1>ツイてるギャルと　ミエてる陰キャ</h1>", "ツイてるギャルとミエてる陰キャ"),
+            "the title is matched folded, so a space or a width does not hide it")
     s.eq(rm.from_oneshot('読み切りを読む 2026年6月17日'),
          [{"title": "読み切り", "updated": "2026-06-17", "oneshot": True}],
          "a date a platform prints beside the button is the one-shot's date")

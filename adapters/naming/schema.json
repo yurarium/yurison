@@ -15,6 +15,7 @@
           "source_url": {"type": "string"},
           "translation": {"type": "string"},
           "translation_note": {"type": "string"},
+          "translation_refused": {"type": "string"},
           "note": {"type": "string"},
           "skip": {"type": "string"}
         },

@@ -24,8 +24,10 @@ AFTER_WORSE = BEFORE.replace("  ok    the store refused no row", "  FAIL  the st
 
 
 def main(s):
-    s.eq(v.disallowed(["data/names/curated.yaml", "data/identity/works.yaml"]),
-         ["data/identity/works.yaml"], "the curated names are the job's to change, the registry not")
+    s.eq(v.disallowed(["data/names/curated.yaml", "data/completion-reviewed.yaml",
+                       "data/identity/works.yaml"]),
+         ["data/identity/works.yaml"],
+         "the curated names and the review register are the job's to change, the registry not")
     s.eq(v.disallowed(["data/names/curated.yaml", "data/source/x.yaml", "build.py"]),
          ["data/source/x.yaml", "build.py"], "a capture or the code is not")
     s.eq(v.disallowed(["data/names/titles.yaml", "docs/tracker.html"]), [],
@@ -56,6 +58,9 @@ def main(s):
          (14, 51000, 3000, 1, 1), "the ledger line carries turns, tokens and what changed")
     s.eq((line["fresh_input_tokens"], line["cache_read_tokens"], line["cache_write_tokens"]),
          (1000, 50000, 0), "with fresh input, cache reads and cache writes kept apart")
+    st = v.record({}, 7, "sonnet", "committed", '+  "つるこさん":\n', "2026-10-18", job="status")
+    s.eq((st["job"], st["named"], st["reviewed"]), ("status", 0, 1),
+         "a verdict the status session wrote is counted as reviewed, not as a name")
     s.eq(v.record({}, 7, "sonnet", "nothing", "", "2026-10-16")["turns"], None,
          "a run that produced no result still records itself")
 

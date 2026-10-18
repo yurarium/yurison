@@ -63,6 +63,16 @@ def entry(answer, today):
         tn = " ".join((answer.get("translation_note") or "").replace("\u2014", ", ").split())
         if tr and tn and not curate._same_words(tr, en):
             e.update(translation=tr, translation_note=tn)
+    # A ROMANISATION IS NOT A TRANSLATION OF OURS, and a title showing it and no English of ours
+    # leaves a reader who ranks our renderings first with nothing to fall through to. The house rule
+    # is a recorded refusal saying why our rendering would be the same name, which curate checks;
+    # four of the job's romanisations went in without one and raised `titles with no translation of
+    # our own` from 0 to 4.
+    if basis == "romaji":
+        why = " ".join((answer.get("translation_refused") or "").replace("\u2014", ", ").split())
+        if not why:
+            return None, "a romanisation needs translation_refused saying why ours would be the same"
+        e["translation_refused"] = why
     e["reviewed"] = today
     e["note"] = note
     return e, None
@@ -77,7 +87,7 @@ def render(key, e):
             bare = k in ("basis", "source_kind") or e[k] == curate.OURS
             L.append(f"    {k}: {e[k] if bare else json.dumps(e[k], ensure_ascii=False)}")
     L.append(f"    reviewed: '{e['reviewed']}'")
-    for k in ("note", "translation_note"):
+    for k in ("note", "translation_note", "translation_refused"):
         if e.get(k):
             L.append(f"    {k}: >-")
             L += textwrap.wrap(e[k], WIDTH, initial_indent="      ", subsequent_indent="      ",
@@ -93,8 +103,8 @@ def insert(text, blocks):
     return text[:at + 1] + "".join(blocks) + text[at + 1:]
 
 
-def answers_of(result):
-    """The `names` list from the folded result: its structured output, or JSON in its text."""
+def answers_of(result, field="names"):
+    """The `field` list from the folded result: its structured output, or JSON in its text."""
     got = result.get("structured_output")
     if not got:
         text = result.get("result") or ""
@@ -103,7 +113,7 @@ def answers_of(result):
             got = json.loads(text[start:]) if start >= 0 else {}
         except ValueError:
             got = {}
-    return (got or {}).get("names") or []
+    return (got or {}).get(field) or []
 
 
 def integrate(text, answers, asked, today):

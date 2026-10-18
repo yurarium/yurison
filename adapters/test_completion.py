@@ -51,9 +51,12 @@ def main(s):
     with tempfile.TemporaryDirectory() as d:
         f = pathlib.Path(d) / "c.yaml"
         f.write_text("works:\n  A:\n    verdict: completed\n  B:\n    verdict: unsettled\n"
-                     "  C:\n    verdict: continuing\n  D:\n    verdict: oneshot\n")
+                     "  C:\n    verdict: continuing\n  D:\n    verdict: oneshot\n"
+                     "  E:\n    verdict: serialised\n")
         got = comp.verdicts(f)
-        s.eq(sorted(got), ["A", "C", "D"], "unsettled decides nothing and is not returned")
+        s.eq(sorted(got), ["A", "C", "D", "E"], "unsettled decides nothing and is not returned")
+        s.check(got["E"]["verdict"] not in comp.ENDED,
+                "and a serialisation answers the one-shot question without saying it has ended")
         s.check("D" in got, "a oneshot verdict decides something and is")
         s.eq(comp.verdicts(pathlib.Path(d) / "absent.yaml"), {},
              "no file is no verdicts, not a crash")

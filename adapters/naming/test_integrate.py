@@ -72,6 +72,15 @@ def main(s):
     s.check(all(len(l) <= ni.WIDTH for l in long.splitlines()) and "basis: translated" in long,
             "a note is folded at the file's width and the vocabulary written bare")
 
+    rom = {"key": "つる", "en": "Tsuru-san", "basis": "romaji", "source_kind": "derived",
+           "note": "A given name and the polite さん, which is the whole of the title as printed."}
+    s.check("translation_refused" in ni.entry(rom, "2026-10-18")[1],
+            "a romanisation with no refusal recorded is refused")
+    kept = ni.entry({**rom, "translation_refused": "Our rendering keeps the name and the さん."},
+                    "2026-10-18")[0]
+    s.check("translation_refused" in ni.render("つる", kept),
+            "and one with a refusal is written with it")
+
     dashed = ni.entry({**ours, "note": ours["note"] + " A moon — a book."}, "2026-10-16")[0]
     s.check("—" not in dashed["note"], "an em dash in a note does not reach the file")
     s.eq(ni.answers_of({"result": 'Here: {"names": [{"key": "x"}]}'}), [{"key": "x"}],

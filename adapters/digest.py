@@ -121,8 +121,10 @@ def compose(since, until, runs, health, moves, usage, above=(), grown=(), accept
         done = sum(int(u.get("named") or 0) for u in usage)
         minted = sum(int(u.get("inducted") or 0) for u in usage)
         cached = sum(int(u.get("cache_read_tokens") or 0) for u in usage)
-        L.append(f"{len(usage)} run(s), {turns} turns, {tin:,} input and {tout:,} output tokens; "
-                 f"{done} name(s) written and {minted} work(s) inducted.")
+        looked = sum(int(u.get("reviewed") or 0) for u in usage)
+        L.append(f"{len(usage)} session(s), {turns} turns, {tin:,} input and {tout:,} output "
+                 f"tokens; {done} name(s) written, {looked} one-shot verdict(s) recorded and "
+                 f"{minted} work(s) inducted.")
         if cached:
             L.append(f"Of the input, {cached:,} tokens were cache reads.")
     else:

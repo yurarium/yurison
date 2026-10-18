@@ -16966,6 +16966,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: A given name and the polite さん are the whole title, so our rendering would be
+      the romanisation again.
     verified: true
   てあとるりりぃ:
     basis: translated
@@ -46850,10 +46852,14 @@ names:
     reading_source_kind: analyser
     verified: false
   初凪ヒメリウム:
-    basis: romaji
-    en: Hatsunagi Himerium
-    en_at: '2026-10-17'
-    en_reviewed: '2026-10-17'
+    basis: translated
+    en: First Calm Himerium
+    en_at: '2026-10-18'
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: Hatsunagi Himerium
+    en_reviewed: '2026-10-18'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -46863,9 +46869,9 @@ names:
       - なぎ
     - - ヒメリウム
       - null
-    note: 初凪 is the first calm of the new year and ヒメリウム is a coinage that echoes 'aquarium' and the protagonist's
-      name Hime. With nothing in the coinage to translate cleanly, the title is romanised, based on the
-      BOOK☆WALKER page about a girl inheriting her grandmother's empty aquarium.
+    note: 初凪 is the first calm sea of the new year. ヒメリウム is a coinage of the heroine 陽姫's name, ひめ, run
+      into aquarium, and BOOK☆WALKER's page has her filling the tank her grandmother left, so the coinage
+      stays as coined and the calm is translated.
     reading: ハツ ナギ ヒメリウム
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -51236,10 +51242,14 @@ names:
     reading_source_kind: analyser
     verified: false
   夏みくちゃんとちひろさん:
-    basis: romaji
-    en: Natsumi-kun... Miku and Chihiro
-    en_at: '2026-10-16'
-    en_reviewed: '2026-10-16'
+    basis: translated
+    en: Natsumiku-chan and Chihiro-san
+    en_at: '2026-10-18'
+    en_conflicts:
+    - basis: romaji
+      source: yurarium
+      value: Natsumi-kun... Miku and Chihiro
+    en_reviewed: '2026-10-18'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -51247,9 +51257,9 @@ names:
       - なつ
     - - みくちゃんとちひろさん
       - null
-    note: The title is a pair of personal names with nothing to translate. Whether 夏 belongs to the name
-      or to the season is unclear, so only the names are given. The BOOK☆WALKER page describes a couple's
-      first summer.
+    note: 'The series'' own pattern, set by its sister title 酔みくちゃんとちひろさん, Yoimiku-chan and Chihiro-san:
+      a word joined to みく''s name, here 夏 for the first summer BOOK☆WALKER''s page says the couple spend
+      together at the sea. The name is kept whole as the sister title keeps 酔みく, with both honorifics.'
     reading: ナツ ミクチャン ト チヒロサン
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -57793,6 +57803,9 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
+    translation_refused: Read as words it is far away, far away. BOOK☆WALKER's page says マリ and 結子 are
+      childhood friends who share a surname, which makes the title that surname said once for each of
+      them as well. A translation would keep one reading and lose the other; the romanisation keeps both.
     verified: false
   彼氏の女友達がぐいぐい来る(私に):
     basis: translated

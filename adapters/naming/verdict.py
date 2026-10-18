@@ -25,9 +25,10 @@ import re
 import subprocess
 import sys
 
-#: The one file the job's answers are written into, by integrate.py. Claude itself writes nothing:
-#: it runs in an empty directory with web tools alone, so this is the check on the script.
-ALLOWED = ("data/names/curated.yaml",)
+#: The files the job's answers are written into, by integrate.py and integrate_status.py. Claude
+#: itself writes nothing: it runs in an empty directory with web tools alone, so this is the check
+#: on the scripts.
+ALLOWED = ("data/names/curated.yaml", "data/completion-reviewed.yaml")
 #: WHAT THE JUDGING REWRITES. `curate.py --apply` writes the name store and the build stamps
 #: docs/tracker.html, and the gate lowers a budget whose count fell in docs/budgets.json, so their
 #: output cannot count against the job.
@@ -133,12 +134,18 @@ def counts(diff_text):
     return inducted, named
 
 
-def record(result, run, model, outcome, diff_text, today=None):
-    """The ledger line for one run, from Claude Code's `--output-format json` result."""
+def record(result, run, model, outcome, diff_text, today=None, job="names"):
+    """The ledger line for one session, from Claude Code's folded result.
+
+    `job` SAYS WHICH QUESTION THE SESSION WAS ASKED. A run asks two since 2026-10-18, the names and
+    whether single-instalment works are one-shots, and each is its own session with its own line;
+    a key added by the second is a verdict and is counted as `reviewed`, not as a name.
+    """
     u = result.get("usage") or {}
-    inducted, named = counts(diff_text)
-    return {"date": today or datetime.date.today().isoformat(), "run": str(run), "model": model,
-            "outcome": outcome, "turns": result.get("num_turns"),
+    inducted, added = counts(diff_text)
+    named, reviewed = (added, 0) if job == "names" else (0, added)
+    return {"date": today or datetime.date.today().isoformat(), "run": str(run), "job": job,
+            "model": model, "outcome": outcome, "turns": result.get("num_turns"),
             "input_tokens": (u.get("input_tokens") or 0) + (u.get("cache_read_input_tokens") or 0)
             + (u.get("cache_creation_input_tokens") or 0),
             "output_tokens": u.get("output_tokens") or 0,
@@ -149,7 +156,7 @@ def record(result, run, model, outcome, diff_text, today=None):
             "cache_read_tokens": u.get("cache_read_input_tokens") or 0,
             "cache_write_tokens": u.get("cache_creation_input_tokens") or 0,
             "duration_ms": result.get("duration_ms"), "inducted": inducted, "named": named,
-            "error": bool(result.get("is_error"))}
+            "reviewed": reviewed, "error": bool(result.get("is_error"))}
 
 
 def main(argv=None):
@@ -169,6 +176,7 @@ def main(argv=None):
     u.add_argument("--model", required=True)
     u.add_argument("--outcome", required=True)
     u.add_argument("--diff", default=None, help="the job's diff; read from git when omitted")
+    u.add_argument("--job", default="names", choices=("names", "status"))
     a = ap.parse_args(argv)
 
     if a.cmd == "fold":
@@ -196,7 +204,7 @@ def main(argv=None):
     result = json.loads(rp.read_text()) if rp.exists() and rp.stat().st_size else {}
     diff = (pathlib.Path(a.diff).read_text() if a.diff else
             subprocess.run(["git", "diff", "--", *ALLOWED], capture_output=True, text=True).stdout)
-    line = record(result, a.run, a.model, a.outcome, diff)
+    line = record(result, a.run, a.model, a.outcome, diff, job=a.job)
     LEDGER.parent.mkdir(parents=True, exist_ok=True)
     with LEDGER.open("a", encoding="utf-8") as f:
         f.write(json.dumps(line, ensure_ascii=False) + "\n")

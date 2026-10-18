@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "verdicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {"type": "string"},
+          "verdict": {"type": "string", "enum": ["oneshot", "serialised", "unsettled"]},
+          "basis": {"type": "string"},
+          "basis_en": {"type": "string"},
+          "source_kind": {"type": "string",
+                          "enum": ["platform", "publisher-jp", "author", "community-db"]},
+          "source_url": {"type": "string"}
+        },
+        "required": ["key", "verdict", "basis"]
+      }
+    }
+  },
+  "required": ["verdicts"]
+}

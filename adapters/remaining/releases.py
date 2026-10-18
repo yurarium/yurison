@@ -40,6 +40,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon")
 from extract import CHAPTERISH, norm_date, try_jsonld, try_markup, try_next, try_pairs  # noqa: E402
 from names import credits as _credits  # noqa: E402
 import dedicated  # noqa: E402
+import textnorm  # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"
 CHROME = next((c for c in ("/snap/bin/chromium", "/usr/bin/chromium",
@@ -197,7 +198,7 @@ def from_ynjn(page_url, fetch=None):
     return out
 
 
-def from_generic(html):
+def from_generic(html, title=None):
     got = try_jsonld(html) or try_next(html)
     if len(got) < 2:
         got, _ = try_markup(html)
@@ -229,7 +230,7 @@ def from_generic(html):
         if lab and (lab, d) not in seen:
             seen.add((lab, d))
             out.append({"title": lab, "updated": d})
-    return out or from_oneshot(html)
+    return out or from_oneshot(html, title)
 
 
 # A work the platform marks as a one-shot. 読み切り is the word and 読切 is the same word written
@@ -243,7 +244,17 @@ ONESHOT = re.compile(r"読\s*み?\s*切り?")
 STAMP = re.compile(r"\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2}\s*日?\s*[T ]\s*\d{1,2}:")
 
 
-def from_oneshot(html):
+#: How much of a work's title, folded, a page must carry to be taken as that work's page.
+NAMED = 6
+
+
+def names(html, title):
+    """Whether the page carries the start of `title`, both folded the way titles are compared."""
+    head = textnorm.norm(title or "").replace(" ", "")[:NAMED]
+    return bool(head) and head in textnorm.norm(_html.unescape(html or "")).replace(" ", "")
+
+
+def from_oneshot(html, title=None):
     """The single release of a work whose page states one date and marks itself a one-shot.
 
     THE EXTRACTORS WANT A CHAPTER-SHAPED LABEL before they will keep a date, and a 読み切り offers
@@ -260,6 +271,13 @@ def from_oneshot(html):
     something this cannot read, and a page with a chapter list never reaches here.
     """
     if not ONESHOT.search(html):
+        return []
+    # AND THE PAGE HAS TO BE THE WORK'S. comicブースト's content/01340001 stopped serving Cry for
+    # the Moon and returned the site's own page, which carries 読み切り in its navigation and a
+    # served-at stamp, so this minted a one-shot dated the day it was read and the feed showed a
+    # years-old story as new on 2026-10-16 and again on the 18th. A page that does not name the
+    # work says nothing about it, and the work is reported unreached so the moved address is seen.
+    if title and not names(html, title):
         return []
     # A DATE WITH A CLOCK ON IT IS A TIMESTAMP, AND A READER PAID FOR THIS ONE. ヤンジャン+ renders
     # `"2026-08-15 20:56:30"` in its page state, which is when the page was served: this took it as
@@ -365,7 +383,7 @@ def main():
                              # THE PLATFORM'S OWN LIST, ASKED BEFORE THE PATTERNS. It needs no
                              # markup, so it is tried against the URL rather than the page.
                              ("ynjn", lambda _h: from_ynjn(url)),
-                             ("markup", from_generic)):
+                             ("markup", lambda h: from_generic(h, w.get("title")))):
                 eps = fn(html)
                 if len(eps) >= MIN_EPISODES:
                     route = name
@@ -373,7 +391,7 @@ def main():
         if not eps:
             rh = render(url, cache)
             if rh:
-                eps = from_generic(rh)
+                eps = from_generic(rh, w.get("title"))
                 route = "rendered" if eps else None
         if not eps:
             failed.append((w.get("title"),

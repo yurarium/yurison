@@ -28,8 +28,9 @@ def main(s):
     s.check("`kadokomi`, last failed 2026-10-13" in text, "and one that wobbled and recovered")
     s.check("magapoke" not in text, "but not one that never failed")
     s.check("`b`: 10 to 4" in text, "budget moves are listed")
-    s.check("1 run(s), 12 turns, 1,000 input and 200 output tokens; 3 name(s) written and 1 work(s)"
-            in text, "and the naming job's usage is totalled")
+    s.check("1 session(s), 12 turns, 1,000 input and 200 output tokens; 3 name(s) written, "
+            "0 one-shot verdict(s) recorded and 1 work(s)" in text,
+            "and the naming job's usage is totalled")
     # A BUDGET LEFT OVER ITS VALUE is listed from the store, largest excess first.
     rows = [("a", 10, 6), ("b", 3, 3), ("c", 9, 8), ("e", None, 4)]
     s.eq(dg.exceeding(rows), [("a", 10, 6), ("c", 9, 8)], "budgets over their value, largest first")

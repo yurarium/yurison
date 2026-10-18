@@ -46,7 +46,15 @@ import yaml
 
 FILE = pathlib.Path(__file__).resolve().parents[1] / "data" / "completion-reviewed.yaml"
 
-VERDICTS = ("completed", "oneshot", "continuing", "unsettled")
+VERDICTS = ("completed", "oneshot", "continuing", "serialised", "unsettled")
+
+# A SERIALISATION, AND NOTHING ABOUT WHETHER IT RUNS STILL. The question a work holding one instalment
+# raises is whether it is a one-shot, and its answer is either `oneshot` or this. `continuing` was the
+# only other word, and it says the work is running, which the build takes as outranking a shop's or
+# the antenna's 完結 for as long as the verdict stands: written for every new serial's 第1話, it
+# would have hidden each one's ending. This settles the one-shot question and leaves the state to
+# the evidence that arrives.
+SERIALISED = "serialised"
 
 # Verdicts that say the work has stopped publishing. `oneshot` is one of them by construction: a
 # work complete in one instalment has nothing further coming. Named as a set so a caller asking
@@ -119,7 +127,7 @@ def verdicts(path=FILE):
     """{work: entry} for entries that decide something. `unsettled` decides nothing and is
     deliberately absent, so a caller cannot accidentally treat looking as a finding."""
     return {w: e for w, e in (load(path).get("works") or {}).items()
-            if isinstance(e, dict) and e.get("verdict") in ENDED + ("continuing",)}
+            if isinstance(e, dict) and e.get("verdict") in ENDED + ("continuing", SERIALISED)}
 
 
 def main(argv=None):

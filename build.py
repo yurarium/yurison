@@ -274,6 +274,19 @@ def oneshot_basis(why, plat=None):
     return fmt(en), fmt(ja), inferred
 
 
+def at_first_sighting(chapter, first_seen):
+    """`chapter` with its date held at `first_seen` where that is earlier, for a date no page stated.
+
+    UNHELD, A WORK'S OWN DATES WALKED WITH EVERY CAPTURE. ヤンジャン+ states no date, so its capture
+    carries the day it was read, and ワタシが主人公になった日 and 横槍メンゴ新作読切シリーズ both read
+    as published on 2026-10-18, first seen on 2026-10-16 and 2026-08-15. The feed's rows had been held
+    at their first sighting since August; the dates a work's own row is assembled from never were.
+    """
+    if first_seen and first_seen < str(chapter.get("updated") or "")[:10]:
+        return {**chapter, "updated": first_seen}
+    return chapter
+
+
 def stronger(a, b):
     """Whichever of two route names ranks higher, ignoring an absent one."""
     if not a:
@@ -4245,7 +4258,9 @@ def main():
                     "basis": c.get("date_basis") or d.get("date_basis") or "bootstrap",
                     "conf": d.get("date_confidence") or "reported",
                     "why": ("date matched as a pattern in the page, not stated by the platform"
-                            if (c.get("date_basis") or d.get("date_basis")) == "heuristic" else ""),
+                            if (c.get("date_basis") or d.get("date_basis")) == "heuristic"
+                            else "the platform states no date; this is the day it was first seen"
+                            if (c.get("date_basis") or d.get("date_basis")) == "read" else ""),
                     "moved": "",
                     "url": c.get("url") or w.get("url"),
                     # Author may be stated per chapter (GigaViewer feeds) or per work; both were
@@ -5646,7 +5661,7 @@ def main():
     # nobody stated, which `basis: heuristic` is the pipeline's own word for.
     _locked = 0
     for r in releases:
-        if r.get("basis") != "heuristic":
+        if r.get("basis") not in ("heuristic", "read"):
             continue
         seen_on = ledger.get(_sighting_key(r))
         pub = str(r.get("pub") or "")[:10]
@@ -6196,6 +6211,11 @@ def main():
                 # unique within a work: 運命は役に立たない has two instalments both called おまけ, on
                 # 2026-05-10 and 2026-07-05, and one of them silently vanished. The date separates
                 # them, and two sources describing the same chapter agree on both.
+                # A DATE NOBODY STATED IS HELD AT ITS FIRST SIGHTING, as the feed's are.
+                c = at_first_sighting(
+                    c, (c.get("date_basis") or _d.get("date_basis")) in ("heuristic", "read")
+                    and ledger.get(_sighting_key({"url": c.get("url") or w.get("url"),
+                                                  "ep": c.get("title")})))
                 ck = (norm_work(c.get("title") or ""), str(c.get("updated") or "")[:10]) \
                     if c.get("title") else c.get("url")
                 slot = bucket["chapters"].setdefault(ck, {})

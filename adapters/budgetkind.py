@@ -20,7 +20,6 @@ somebody wrote "new works arrived" into a commit message. LAUNCH-PLAN section 4 
 
 The source budgets in check.py's SOURCE_BUDGETS count this repository's code and stay strict.
 """
-import datetime
 import json
 import pathlib
 
@@ -102,7 +101,9 @@ def accept(rises, corpus, ledger=LEDGER, today=None):
     """Write one ledger line per `(name, was, now)` and return the reasons, in order."""
     ledger = pathlib.Path(ledger)
     before = last_corpus(ledger.read_text(encoding="utf-8").splitlines()) if ledger.exists() else {}
-    day = today or datetime.date.today().isoformat()
+    # THE DATE IN JAPAN, which is the date this corpus keeps (`facts/dating.today`).
+    from facts import dating
+    day = today or dating.today().isoformat()
     lines, out = [], []
     for name, was, now in rises:
         why = reason(name, was, now, corpus, before.get(name))

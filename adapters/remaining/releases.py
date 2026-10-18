@@ -193,7 +193,7 @@ def from_ynjn(page_url, fetch=None):
         if not name:
             continue
         free = str(e.get("reading_condition") or "").endswith("FREE") or not e.get("cost")
-        out.append({"title": name, "updated": TODAY,
+        out.append({"title": name, "updated": TODAY, "read": True,
                     "access_modes": ["free"] if free else ["purchase"]})
     return out
 
@@ -321,7 +321,7 @@ def from_oneshot(html, title=None):
     # walk forward with the calendar.
     if not STAMP.search(html):
         return []
-    return [{"title": "読み切り", "updated": TODAY, "oneshot": True}]
+    return [{"title": "読み切り", "updated": TODAY, "oneshot": True, "read": True}]
 
 
 def js(v):
@@ -445,7 +445,12 @@ def main():
                 # THE ROUTE IS WHAT DECIDES HOW GOOD THE DATE IS. `ynjn` states a chapter list and
                 # no dates at all, so its rows carry the day they were read, which is the same
                 # standing as a date matched as a pattern and is said the same way.
-                if r["route"] in ("markup", "rendered", "ynjn"):
+                # `read` WHERE THE DATE IS THE DAY WE READ THE PAGE, and the page stated none:
+                # ヤンジャン+'s list, and a one-shot whose page shows only a served-at stamp. It is
+                # held at the first sighting downstream and shown as that, never as a publication.
+                if e.get("read"):
+                    L.append("        date_basis: read")
+                elif r["route"] in ("markup", "rendered", "ynjn"):
                     L.append(f"        date_basis: "
                              f"{'rendered' if r['route'] == 'rendered' else 'heuristic'}")
         L.append("")

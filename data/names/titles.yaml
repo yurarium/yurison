@@ -1148,7 +1148,14 @@ names:
     reading_source_kind: analyser
     verified: false
   BCfアンソロジーマイクロシリーズ:
-    basis: romaji
+    basis: translated
+    en: BCf Anthology Micro Series
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: BCf is the Bamboo Comics label and the rest is katakana for 'anthology micro series'. The BOOK☆WALKER
+      page shows a run of short, cheap single-story volumes from Takeshobo, which fits 'micro'.
     reading: BCf アンソロジー マイクロ シリーズ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -4411,7 +4418,12 @@ names:
     script: latin
     verified: true
   orSiS百合アンソロジー:
-    basis: romaji
+    basis: translated
+    en: orSiS Yuri Anthology
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - orSiS
       - null
@@ -4419,6 +4431,8 @@ names:
       - ゆり
     - - アンソロジー
       - null
+    note: orSiS is the Bunkasha label name and 百合アンソロジー means yuri anthology. The BOOK☆WALKER page lists
+      the first volume's theme as 一夜だけの主従関係 (a one-night master-and-servant relationship).
     reading: orSiS ユリ アンソロジー
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -4768,7 +4782,12 @@ names:
     reading_source_kind: analyser
     verified: false
   「あかりは雪姫になりたい —根暗な引きこもりがVtuberになった理由—」シリーズ:
-    basis: romaji
+    basis: translated
+    en: 'Akari Wants to Become Yukihime: The Reason a Gloomy Shut-In Became a Vtuber'
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 「あかりは
       - null
@@ -4788,6 +4807,9 @@ names:
       - りゆう
     - - —」シリーズ
       - null
+    note: The title reads 'Akari wants to become Yukihime' with the subtitle 'the reason a gloomy shut-in
+      became a Vtuber'. The BOOK☆WALKER series page shows Akari standing in for her twin sister in a Vtuber
+      group, and the trailing シリーズ is dropped.
     reading: 「アカリ ワ ユキヒメ ニ ナリタイ   — ネクラナ ヒキコモリ ガ Vtuber ニ ナッタ リユウ —」 シリーズ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -8122,7 +8144,12 @@ names:
     reading_source_kind: analyser
     verified: false
   あの海に、色彩を唄う:
-    basis: romaji
+    basis: translated
+    en: Singing Colors into That Sea
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - あの
       - null
@@ -8138,6 +8165,8 @@ names:
       - うた
     - - う
       - null
+    note: あの海 is 'that sea', 色彩 is 'colors' and 唄う is 'to sing'. The BOOK☆WALKER page sets the story in
+      a seaside town in Miyazaki over one summer, which supports the literal rendering.
     reading: アノ ウミ ニ、 シキサイ ヲ ウタウ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -8360,7 +8389,15 @@ names:
     reading_source_kind: analyser
     verified: false
   あらしちゃんときさらちゃん:
-    basis: romaji
+    basis: translated
+    en: Arashi and Kisara
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title is the two characters' names joined by 'and', with the -chan honorific. The BOOK☆WALKER
+      page describes the university student Arashi and the working adult Kisara, so the names are kept
+      as names.
     reading: アラシチャントキサラチャン
     reading_at: '2026-10-15'
     reading_basis: surface
@@ -8496,7 +8533,12 @@ names:
     reading_source_kind: analyser
     verified: false
   あんみき日記。:
-    basis: romaji
+    basis: translated
+    en: Anmiki Diary.
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - あんみき
       - null
@@ -8504,6 +8546,9 @@ names:
       - にっき
     - - 。
       - null
+    note: あんみき combines the names of the cohabiting couple Anna and Miki(no), and 日記 means diary. The
+      BOOK☆WALKER page describes an illustration collection of their daily life, so the names are kept
+      and the diary is translated.
     reading: アン ミキ ニッキ。
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -13226,6 +13271,14 @@ names:
     verified: false
   こころココロリ:
     basis: romaji
+    en: Kokoro Kokorori
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title is a coinage built on the heroine's name Kokoro with a rhythmic ココロリ ending, like
+      a sound-play on 'heart'. The BOOK☆WALKER page describes Kokoro meeting Shiomi at a lolita fashion
+      shop.
     reading: ココロココロリ
     reading_at: '2026-10-15'
     reading_basis: surface
@@ -13234,6 +13287,8 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
+    translation_refused: A rendering would come out as something like 'Heart Heartly', which is only the
+      name Kokoro repeated, so the romanised name is the same title.
     verified: true
   こじらせ性癖の同性２人が出会った話:
     basis: translated
@@ -14156,7 +14211,12 @@ names:
     reading_source_kind: analyser
     verified: true
   こんがりパンより焦がれる恋:
-    basis: romaji
+    basis: translated
+    en: A Love That Burns Hotter Than Toasted Bread
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - こんがりパンより
       - null
@@ -14166,6 +14226,9 @@ names:
       - null
     - - 恋
       - こい
+    note: The title plays on こんがり (golden-brown toasted) and 焦がれる (to yearn, written with the character
+      for scorching). The page shows a girl with a crush on the owner of her favorite bakery, so English
+      keeps the bread and the burning longing.
     reading: コンガリ パン ヨリ コガレル コイ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -16887,7 +16950,15 @@ names:
     reading_source_kind: analyser
     verified: true
   つきあいきれないきみのこと:
-    basis: romaji
+    basis: translated
+    en: That Girl I Can't Put Up With
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: つきあいきれない means 'can't keep up with' or 'can't put up with', and きみのこと is 'about you'. The BOOK☆WALKER
+      page describes a tsundere childhood friend and an airheaded girl, so the exasperated-but-fond tone
+      is kept.
     reading: ツキアイキレナイキミノコト
     reading_at: '2026-10-15'
     reading_basis: surface
@@ -17474,7 +17545,12 @@ names:
     reading_source_kind: analyser
     verified: false
   となりの魔法少女:
-    basis: romaji
+    basis: translated
+    en: The Magical Girl Next Door
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - となりの
       - null
@@ -17482,6 +17558,8 @@ names:
       - まほう
     - - 少女
       - しょうじょ
+    note: となりの is 'next-door' and 魔法少女 is 'magical girl'. The BOOK☆WALKER series page shows a magical-girl
+      4-koma about a high schooler who fears her mind-controlling magic, and the title is rendered directly.
     reading: トナリ ノ マホウ ショウジョ
     reading_at: '2026-10-15'
     reading_basis: analyser
@@ -17552,12 +17630,19 @@ names:
     reading_source_kind: analyser
     verified: true
   とりこのため息:
-    basis: romaji
+    basis: translated
+    en: A Captive's Sigh
+    en_at: '2026-10-18'
+    en_reviewed: '2026-10-18'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - とりこのため
       - null
     - - 息
       - いき
+    note: とりこ is 虜, someone captivated or smitten, and ため息 is a sigh. The BOOK☆WALKER page describes best
+      friends Yuzu and Momo starting a trial relationship, so the sigh of a captive of love fits.
     reading: トリコ ノ タメイキ
     reading_at: '2026-10-15'
     reading_basis: analyser

@@ -722,3 +722,71 @@ works:
     verdict: "unsettled"
     basis: "COMIC Y-OURSのフィードには2026-03-06の1話のみで、読切・連載の表示はなかった。"
     reviewed: '2026-10-18'
+  "鈴木りつ短編集考幻学入門":
+    verdict: "unsettled"
+    basis: "ニコニコ漫画とカドコミの作品ページを確認。「青騎士で掲載した珠玉の短編が１冊に」とあるが、読切・連載の表示はなく、公開は「全てが劣化する」1話のみ。"
+    reviewed: '2026-10-18'
+  "昨日シたのに覚えてないの？ 百合えっち短編集":
+    verdict: "unsettled"
+    basis: "一迅プラスのフィードは「全10編」の短編集と記すが、読切・連載のラベルはなく判断できない。"
+    reviewed: '2026-10-18'
+  "線の上で前を向く":
+    verdict: "unsettled"
+    basis: "ニコニコ漫画のページに読切・連載の表記はなく、「1話 無料」とタグ「青年マンガ」のみ。"
+    reviewed: '2026-10-18'
+  "明日の空を見る人よ":
+    verdict: "serialised"
+    basis: "OUR FEELのシリーズ名に「第1・3木曜日更新!!」とあり、定期更新の連載と読み取れる。"
+    basis_en: "The OUR FEEL series title states 'updated on the 1st and 3rd Thursdays', indicating a regularly updated serial."
+    source: "ourfeel.jp"
+    source_kind: "platform"
+    source_url: "https://ourfeel.jp/atom/series/2550912966077178892"
+    reviewed: '2026-10-18'
+  "楽園の条件":
+    verdict: "unsettled"
+    basis: "一迅プラスのフィードは「森島ワールド傑作選」とするが、読切・連載の表示はない。"
+    reviewed: '2026-10-18'
+  "リリウム・テラリウム":
+    verdict: "unsettled"
+    basis: "一迅プラスのフィードに読切・連載のラベルはなく、「ゆりごっこ」1話のみ掲載。"
+    reviewed: '2026-10-18'
+  "ファンシー革命":
+    verdict: "serialised"
+    basis: "カドコミのページに「第１話 私の宝物」があり、単行本が3巻まで刊行され3巻が最新刊と表示されている。"
+    basis_en: "The Comic Walker page shows '第１話 私の宝物' and lists three volumes, with volume 3 as the latest, so it is a serialisation."
+    source: "comic-walker.com"
+    source_kind: "platform"
+    source_url: "https://comic-walker.com/detail/KC_006871_S"
+    reviewed: '2026-10-18'
+  "田舎エッチ ～田舎のエッチな女の子と過ごすひと夏のエッチな思い出～ アンソロジーコミック":
+    verdict: "unsettled"
+    basis: "ニコニコ漫画のページは試し読み1件のみで、読切・連載の表記なし。アンソロジーコミックである。"
+    reviewed: '2026-10-18'
+  "脱いでもいいよね？":
+    verdict: "oneshot"
+    basis: "カドコミの作品ページに2024/08/09の日付とともに「読切」と表示されている。"
+    basis_en: "The Comic Walker page shows the 読切 label beside the 2024/08/09 date."
+    source: "comic-walker.com"
+    source_kind: "platform"
+    source_url: "https://comic-walker.com/detail/KC_005755_S"
+    reviewed: '2026-10-18'
+  "ケーキも花も宝石も":
+    verdict: "oneshot"
+    basis: "カドコミの作品ページに公開日2024/01/28とともに「読切」と表示され、1話のみ。"
+    basis_en: "The Comic Walker page shows 読切 next to the 2024/01/28 date, with a single chapter."
+    source: "comic-walker.com"
+    source_kind: "platform"
+    source_url: "https://comic-walker.com/detail/KC_001294_S"
+    reviewed: '2026-10-18'
+  "恋の絶望行進曲":
+    verdict: "unsettled"
+    basis: "ニコニコ漫画とカドコミを確認。読切・連載の表記はなく、「第1話 彼女と私の恋事情」のみで単行本の表示があるだけ。"
+    reviewed: '2026-10-18'
+  "高音さんと嵐ちゃん":
+    verdict: "serialised"
+    basis: "カドコミのページに「【第1話】」の表記があり、単行本が1巻から4巻まで並んでいる。"
+    basis_en: "The Comic Walker page marks the chapter as '【第1話】' and lists volumes 1 to 4, so it is a serialisation."
+    source: "comic-walker.com"
+    source_kind: "platform"
+    source_url: "https://comic-walker.com/detail/KC_005076_S"
+    reviewed: '2026-10-18'

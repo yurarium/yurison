@@ -226,6 +226,13 @@ ONESHOT_WHY = {
     # the six it adds are single instalments those routes left `unknown`.
     "comparator-tagged": ("Web漫画アンテナ tags this work 読み切り",
                           "Web漫画アンテナがこの作品に「読み切り」のタグを付けている", False),
+    # THE PLATFORM'S OWN WAY OF TITLING, measured each build by `adapters/titling.py`: where every
+    # serial numbers its chapters and nearly every one-shot is titled after the work, a single
+    # instalment so titled is the platform's convention for a one-shot and not only our reading.
+    "platform-convention": ("{plat} titles a one-shot's only instalment after the work and numbers "
+                            "a serial's chapters, as its own listings show throughout",
+                            "{plat}は読み切りの唯一の話に作品名を付け、連載の話には番号を振っており、"
+                            "掲載一覧の全体がそうなっている", False),
     "feed": ("the release this work published was typed a one-shot where it appeared",
              "公開時の話が読み切りとして扱われている", False),
     "self-named": ("the single instalment is named after the work, which is how a one-shot is "
@@ -4103,6 +4110,16 @@ def main():
                     "free_from": None, "access_modes": [],
                 })
 
+    # WHICH PLATFORMS TITLE A ONE-SHOT AFTER ITS WORK, measured from their per-series feeds, which
+    # list every chapter a series has. Read here because the late admission below asks it.
+    import titling as _titling
+    title_conventions = _titling.conventions(
+        (yaml.safe_load(open(_tf)) or {} for _tf in
+         sorted(glob.glob("data/source/gigaviewer/*-series-feeds.yaml"))), _platform.canonical)
+    if title_conventions:
+        print("titling         : a one-shot is titled after its work on "
+              + ", ".join(f"{n} ({m['named']} of {m['singles']}, no serial of {m['serials']})"
+                          for n, m in sorted(title_conventions.items())))
     for f in (sorted(glob.glob("data/source/webpages/*.yaml"))
               + sorted(glob.glob("data/source/gigaviewer/*-series-feeds.yaml"))
               + sorted(glob.glob("data/source/gigaviewer/*-confirmed.yaml"))
@@ -4132,7 +4149,9 @@ def main():
             _only = w.get("chapters") or []
             late_oneshot = (not late and len(_only) == 1
                             and bool(ONESHOT_RE.search(str(_only[0].get("title") or ""))
-                                     or ONESHOT_RE.search(str(w.get("work_title") or ""))))
+                                     or ONESHOT_RE.search(str(w.get("work_title") or ""))
+                                     or (pname_w in title_conventions and _titling.self_named(
+                                         w.get("work_title"), _only[0].get("title")))))
             late = late or late_oneshot
             # Some statements are made about the work rather than about a chapter. フラコミlike!
             # writes its whole access policy into the page title — 銀の河に星の城 | いつでも無料 |
@@ -6279,7 +6298,9 @@ def main():
         # A ROW STARTING AT 第1話 IS NOT A ONE-SHOT BY INFERENCE, ruled by the owner on
         # 2026-10-14: a first chapter announces a run. A reviewed verdict, the platform's own word
         # and every instalment marked 読切 still decide, being statements rather than readings.
-        _inferred_route = "feed" if _feed_said else "self-named" if _self_named else None
+        _inferred_route = ("feed" if _feed_said
+                           else ("platform-convention" if row.get("platform") in title_conventions
+                                 else "self-named") if _self_named else None)
         _nums = {importdates.number(c.get("title")) for c in row.get("chapters_list") or []} - {None}
         if _inferred_route and _nums and min(_nums) == 1:
             _inferred_route = None

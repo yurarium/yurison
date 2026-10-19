@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-10-19
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 246
+  hits_agreeing_on_a_creator: 247
   hits_on_the_title_alone: 111
   hits_stating_a_print_edition_date: 207
-  works_asked: 873
-  works_with_a_hit: 264
+  works_asked: 874
+  works_with_a_hit: 265
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -1110,6 +1110,22 @@ works:
     platform: "コミックDAYS"
     query: "author"
     retrieved: "2026-08-07"
+    hits:
+      - series_url: "https://bookwalker.jp/series/478864/list/"
+        title_listed: "オタクには人生を積むことしかできない（コミックＤＡＹＳ）"
+        shop_author: "天野しゅにんた(著)"
+        imprint: "コミックＤＡＹＳ"
+        publisher: "講談社"
+        agreement: "creator"
+        volumes_stated: 3
+        completed_marker: false
+  - work_url: "https://comic-days.com/episode/2550689798616042974"
+    id: "w00137"
+    work: "オタクには人生を積むことしかできない"
+    author: "天野しゅにんた"
+    platform: "コミックDAYS"
+    query: "author"
+    retrieved: "2026-10-19"
     hits:
       - series_url: "https://bookwalker.jp/series/478864/list/"
         title_listed: "オタクには人生を積むことしかできない（コミックＤＡＹＳ）"

@@ -11,8 +11,15 @@ role: provisional-claims
 retrieved: 2026-10-19
 record_type: update_claims
 window_days: 60
-claims: 372
+claims: 373
 updates:
+  - work: "魔王城デート大作戦!"
+    platform: "キミコミ"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://kimicomi.com/series/0cd32d6a7efc2"
+    listing_tags: ["百合"]
   - work: "晴れ晴れ日和 吉村佳"
     platform: "カドコミ"
     date: 2026-10-19
@@ -25,6 +32,69 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
+    platform: "ニコニコ漫画"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga.nicovideo.jp/comic/47294"
+    listing_tags: ["百合", "女子高生", "ゲーム・eスポーツ", "青春", "ギャグ・コメディ", "アニメ化"]
+  - work: "安達としまむら"
+    platform: "カドコミ"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_004197_S"
+    listing_tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
+  - work: "堕天使そぷらのちゃんの復讐"
+    platform: "カドコミ"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_006778_S"
+    listing_tags: ["百合", "女子高生", "学園"]
+  - work: "君めく夜に焦がれて"
+    platform: "きら星ポータル"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://kirapo.jp/ambre/titles/kimimeku"
+    listing_tags: ["百合", "不良・ヤンキー"]
+  - work: "今日はカノジョがいないから"
+    platform: "マガポケ"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/01839"
+    listing_tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
+  - work: "ワインガールズ"
+    platform: "キミコミ"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    listing_tags: ["百合", "擬人化"]
+  - work: "ボイタボイネ"
+    platform: "pixivコミック"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/12194"
+    listing_tags: ["百合"]
+  - work: "ベイビー車中ハッカーズ"
+    platform: "ヤンジャン+"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ynjn.jp/title/16787"
+    listing_tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
+  - work: "オタクには人生を積むことしかできない"
+    platform: "コミックDAYS"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550689798616042670"
+    listing_tags: ["推し活", "やり直し", "百合", "タイムループ"]
   - work: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     date: 2026-10-18
@@ -67,27 +137,6 @@ updates:
     provenance: claimed
     url: "https://g-comi.jp/series/3f172ce77f966"
     listing_tags: ["百合"]
-  - work: "今日はカノジョがいないから"
-    platform: "マガポケ"
-    date: 2026-10-18
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/01839"
-    listing_tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
-  - work: "ワインガールズ"
-    platform: "キミコミ"
-    date: 2026-10-18
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    listing_tags: ["百合", "擬人化"]
-  - work: "ベイビー車中ハッカーズ"
-    platform: "ヤンジャン+"
-    date: 2026-10-18
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ynjn.jp/title/16787"
-    listing_tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
   - work: "つるこさん"
     platform: "サンデーうぇぶり"
     date: 2026-10-18
@@ -824,13 +873,6 @@ updates:
     provenance: claimed
     url: "https://www.sunday-webry.com/episode/2550912965814192510"
     listing_tags: ["百合", "女子高生", "恋愛"]
-  - work: "魔王城デート大作戦!"
-    platform: "キミコミ"
-    date: 2026-10-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    listing_tags: ["百合"]
   - work: "真先輩の前ではかっこつけられない！ 藤本れもち"
     platform: "カドコミ"
     date: 2026-10-12
@@ -1369,20 +1411,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "安達としまむら"
-    platform: "カドコミ"
-    date: 2026-10-05
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_004197_S"
-    listing_tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
-  - work: "堕天使そぷらのちゃんの復讐"
-    platform: "カドコミ"
-    date: 2026-10-05
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_006778_S"
-    listing_tags: ["百合", "女子高生", "学園"]
   - work: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     date: 2026-10-05
@@ -2100,13 +2128,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/56065"
     listing_tags: ["ファンタジー", "百合", "学園", "アニメ化"]
-  - work: "ボイタボイネ"
-    platform: "pixivコミック"
-    date: 2026-09-21
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/12194"
-    listing_tags: ["百合"]
   - work: "ケイヤクシマイ"
     platform: "カドコミ"
     date: 2026-09-21
@@ -2128,13 +2149,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_008419_S"
     listing_tags: ["現代ファンタジー", "タイムループ", "ギャグ・コメディ", "百合"]
-  - work: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
-    platform: "ニコニコ漫画"
-    date: 2026-09-19
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/47294"
-    listing_tags: ["百合", "女子高生", "ゲーム・eスポーツ", "青春", "ギャグ・コメディ", "アニメ化"]
   - work: "さきゅりふぁいす!"
     platform: "キミコミ"
     date: 2026-09-19
@@ -2247,13 +2261,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/56012"
     listing_tags: ["百合", "アニメ化"]
-  - work: "君めく夜に焦がれて"
-    platform: "きら星ポータル"
-    date: 2026-09-14
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://kirapo.jp/ambre/titles/kimimeku"
-    listing_tags: ["百合", "不良・ヤンキー"]
   - work: "ファタールゲーム"
     platform: "マガポケ"
     date: 2026-09-13

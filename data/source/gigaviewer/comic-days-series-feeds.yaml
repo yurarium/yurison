@@ -5186,14 +5186,20 @@ works:
   - work_title: "オタクには人生を積むことしかできない"
     series_id: "2550689798585566346"
     url: "https://comic-days.com/atom/series/2550689798585566346"
-    chapter_count: 25
+    chapter_count: 26
     chapters:
+      - title: "第１６話「STAR」"
+        updated: 2026-10-19
+        author: "天野しゅにんた"
+        url: "https://comic-days.com/episode/2550689798616042974"
+        free_from: 2026-11-02
+        access_modes: ["purchase"]
       - title: "第１５話「絶対アイドル辞めないで」"
         updated: 2026-07-20
         author: "天野しゅにんた"
         url: "https://comic-days.com/episode/2550689798616042959"
         free_from: 2026-10-19
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１４話「ぜったいしんじゃ」"
         updated: 2026-05-18
         author: "天野しゅにんた"
@@ -5204,8 +5210,7 @@ works:
         updated: 2026-01-05
         author: "天野しゅにんた"
         url: "https://comic-days.com/episode/2550689798616042931"
-        free_from: 2026-05-18
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１３話「アイドルライフブースターパック」①"
         updated: 2025-12-22
         author: "天野しゅにんた"

@@ -19,9 +19,9 @@ platforms_missing:
     works: 12
   - platform: "COMICリュウライブ"
     works: 3
-  - platform: "ヤンジャン+"
-    works: 2
   - platform: "きら星ポータル"
+    works: 2
+  - platform: "ヤンジャン+"
     works: 2
   - platform: "pixivコミックマガジン"
     works: 1
@@ -291,6 +291,21 @@ works_missing:
     url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
     antenna_id: "181056"
     tags: ["百合", "妖怪", "女子高生", "コミカライズ", "ざまぁ", "頭脳戦・心理戦", "現代", "チート"]
+  - title: "堕天使そぷらのちゃんの復讐"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006778_S"
+    antenna_id: "190226"
+    tags: ["百合", "女子高生", "学園"]
+  - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002994_S"
+    antenna_id: "102702"
+    tags: ["最近のコメント数"]
+  - title: "安達としまむら"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_004197_S"
+    antenna_id: "90973"
+    tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
   - title: "ココロメイク コスメティカ"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_009488_S"
@@ -401,16 +416,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007176_S"
     antenna_id: "197816"
     tags: ["百合", "作家"]
-  - title: "堕天使そぷらのちゃんの復讐"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006778_S"
-    antenna_id: "190226"
-    tags: ["百合", "女子高生", "学園"]
-  - title: "安達としまむら"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_004197_S"
-    antenna_id: "90973"
-    tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
   - title: "JKのストレス発散方法"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020962_S"
@@ -506,11 +511,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008419_S"
     antenna_id: "202592"
     tags: ["現代ファンタジー", "タイムループ", "ギャグ・コメディ", "百合"]
-  - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_002994_S"
-    antenna_id: "102702"
-    tags: ["学園", "ゲーム・eスポーツ", "令嬢", "女子高生", "百合", "アニメ化", "ギャグ・コメディ", "青春", "動画配信者", "メスガキ"]
   - title: "T.Tラバーズ。"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005506_S"
@@ -641,6 +641,11 @@ works_missing:
     url: "https://www.ganganonline.com/title/2649"
     antenna_id: "211625"
     tags: ["百合"]
+  - title: "魔王城デート大作戦!"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/0cd32d6a7efc2"
+    antenna_id: "212084"
+    tags: ["百合"]
   - title: "ワインガールズ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/f42014b3e7df6"
@@ -655,11 +660,6 @@ works_missing:
     platform: "キミコミ"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
     antenna_id: "193724"
-    tags: ["百合"]
-  - title: "魔王城デート大作戦!"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    antenna_id: "212084"
     tags: ["百合"]
   - title: "新米錬金術師の店舗経営"
     platform: "キミコミ"
@@ -686,16 +686,16 @@ works_missing:
     url: "https://kimicomi.com/series/a869ecfca8da9"
     antenna_id: "200536"
     tags: ["百合"]
-  - title: "私の好きな人はとても〇〇"
-    platform: "コミックDAYS"
-    url: "https://comic-days.com/episode/12207421983805333025"
-    antenna_id: "212438"
-    tags: ["読み切り", "百合"]
   - title: "オタクには人生を積むことしかできない"
     platform: "コミックDAYS"
     url: "https://comic-days.com/episode/2550689798616042670"
     antenna_id: "170137"
     tags: ["推し活", "やり直し", "百合", "タイムループ"]
+  - title: "私の好きな人はとても〇〇"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421983805333025"
+    antenna_id: "212438"
+    tags: ["読み切り", "百合"]
   - title: "ひみつのまんが"
     platform: "コミックDAYS"
     url: "https://comic-days.com/episode/12207421983906425557"
@@ -761,6 +761,16 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/47294"
+    antenna_id: "103430"
+    tags: ["百合", "女子高生", "ゲーム・eスポーツ", "青春", "ギャグ・コメディ", "アニメ化"]
+  - title: "安達としまむら"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/41839"
+    antenna_id: "92017"
+    tags: ["百合", "女子高生", "コミカライズ", "アニメ化"]
   - title: "私を喰べたい、ひとでなし"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/49677"
@@ -831,11 +841,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/56284"
     antenna_id: "128039"
     tags: ["百合", "アニメ化"]
-  - title: "安達としまむら"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/41839"
-    antenna_id: "92017"
-    tags: ["百合", "女子高生", "コミカライズ", "アニメ化"]
   - title: "おちこぼれフルーツタルト"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -891,11 +896,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/18981"
     antenna_id: "36070"
     tags: ["料理・グルメ", "女子高生", "実写化", "百合", "レシピ", "ホームドラマ", "義理の兄弟姉妹"]
-  - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/47294"
-    antenna_id: "103430"
-    tags: ["百合", "女子高生", "ゲーム・eスポーツ", "青春", "ギャグ・コメディ", "アニメ化"]
   - title: "ラブかライクか分からない!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/70757"

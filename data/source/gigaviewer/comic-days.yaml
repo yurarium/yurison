@@ -11,6 +11,21 @@ record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:2550689798616042974"
+    work_title: "オタクには人生を積むことしかできない"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第１６話「STAR」"
+    release_type: "chapter"
+    date: "2026-10-19"
+    date_basis: "observed"
+    first_seen: "2026-10-19"
+    first_reported: "2026-10-19T03:00:00Z"
+    platform_updated: "2026-10-19T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/2550689798616042974"
+    author: "天野しゅにんた"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421984335676445"
     work_title: "大室家"
     web_status: "serialised"

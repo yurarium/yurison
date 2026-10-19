@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-19
+retrieved: 2026-10-20
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 247
   hits_on_the_title_alone: 111
   hits_stating_a_print_edition_date: 207
-  works_asked: 876
+  works_asked: 877
   works_with_a_hit: 265
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -5106,6 +5106,16 @@ works:
     author: "らぱ☆"
     platform: "一迅プラス"
     retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984336824147"
+    id: "w03440"
+    work: "だって恋は月夜に灯るから"
+    author: "meji"
+    platform: "一迅プラス"
+    retrieved: "2026-10-20"
     hits: []
     notes:
       - "author query returned no title this database recognises"

@@ -6,12 +6,13 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-10-19
+retrieved: 2026-10-20
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "magcomi:episode:12207421984355613624"
+    in_current_window: false
     work_title: "忍者アシスタントとアナログ漫画家"
     web_status: "serialised"
     identified_via: "discovery-candidate"

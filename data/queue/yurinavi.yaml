@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-10-19
+retrieved: 2026-10-20
 record_type: discovery_queue
 candidates:
   - work_title: "死神さんと昇天ごはん"
@@ -34,6 +34,15 @@ candidates:
     platform_code: "12207421984354015835"
     work_url: "https://ichicomi.com/episode/12207421984354015835"
     headline: "遠距離JDカップルに立ちはだかる梅田駅!? 百合読み切り「百合の間に挟まる梅田ダンジョン」WEBで公開"
+    status: unconfirmed
+  - work_title: "だって恋は月夜に灯るから"
+    signal: "new-serial"
+    announced: "Mon, 19 Oct 2026 10:56:15 +0000"
+    url: "https://yurinavi.com/2026/10/19/dattekoiha-start/"
+    platform: "ichicomi"
+    platform_code: "12207421984336824147"
+    work_url: "https://ichicomi.com/episode/12207421984336824147"
+    headline: "静寂にきらめく学園ガールズラブ「だって恋は月夜に灯るから」百合姫で連載開始。WEBでも第1話が公開"
     status: unconfirmed
   - work_title: "ぎるてぃらいぶらり"
     signal: "new-serial"

@@ -10,10 +10,10 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-10-19
+retrieved: 2026-10-20
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 8
+works_confirmed: 9
 works:
   - work_title: "百合の間に挟まる梅田ダンジョン"
     author: "矢嶋こずみ"
@@ -29,6 +29,23 @@ works:
       - title: "読み切り作品"
         updated: 2026-10-15
         url: "https://ichicomi.com/episode/12207421984354015835"
+  - work_title: "だって恋は月夜に灯るから"
+    author: "meji"
+    url: "https://ichicomi.com/episode/12207421984336824147"
+    series_id: "12207421984241417494"
+    is_oneshot: false
+    discovered_via:
+      signal: "new-serial"
+      article: "https://yurinavi.com/2026/10/19/dattekoiha-start/"
+      headline: "静寂にきらめく学園ガールズラブ「だって恋は月夜に灯るから」百合姫で連載開始。WEBでも第1話が公開"
+    chapter_count: 2
+    chapters:
+      - title: "第2話"
+        updated: 2026-10-16
+        url: "https://ichicomi.com/episode/12207421984336824152"
+      - title: "第1話"
+        updated: 2026-10-16
+        url: "https://ichicomi.com/episode/12207421984336824147"
   - work_title: "ホテルの外でもあいたいよ"
     author: "らぱ☆"
     url: "https://ichicomi.com/episode/12207421984222944066"

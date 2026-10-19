@@ -8,11 +8,29 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-10-19
+retrieved: 2026-10-20
 record_type: update_claims
 window_days: 60
-claims: 373
+claims: 375
 updates:
+  - work: "一畳間まんきつ暮らし！ ひさまくまこ"
+    platform: "きららベース"
+    date: 2026-10-20
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "ラブかライクか分からない！ sasa熊"
+    platform: "きららベース"
+    date: 2026-10-20
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "お姉さまと巨人 ～お嬢さまが異世界転生～ Be-con"
+    platform: "カドコミ"
+    date: 2026-10-20
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "魔王城デート大作戦!"
     platform: "キミコミ"
     date: 2026-10-19
@@ -20,6 +38,20 @@ updates:
     provenance: claimed
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     listing_tags: ["百合"]
+  - work: "雨夜の月"
+    platform: "マガポケ"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02202"
+    listing_tags: ["障害者", "女子高生", "百合"]
+  - work: "踊り場にスカートが鳴る"
+    platform: "マガポケ"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/01646"
+    listing_tags: ["百合", "女子高生", "運動系部活", "男装"]
   - work: "晴れ晴れ日和 吉村佳"
     platform: "カドコミ"
     date: 2026-10-19
@@ -67,6 +99,13 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/01839"
     listing_tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
+  - work: "乙女のおかず"
+    platform: "ヤンマガWeb"
+    date: 2026-10-19
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
+    listing_tags: ["エロ", "女子高生", "日常", "ギャグ・コメディ", "百合", "フェチ・性癖"]
   - work: "ボイタボイネ"
     platform: "pixivコミック"
     date: 2026-10-19
@@ -94,7 +133,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://www.ganganonline.com/title/38"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
   - work: "百合のはじまりは奴隷から"
     platform: "pixivコミック"
     date: 2026-10-18
@@ -143,7 +182,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://www.sunday-webry.com/episode/12207421984388028467"
-    listing_tags: ["百合", "読み切り", "ホラー"]
+    listing_tags: ["最近のコメント数"]
   - work: "OL Vtuberと推しJKちゃん"
     platform: "竹コミ‎‏‎"
     date: 2026-10-18
@@ -1275,13 +1314,6 @@ updates:
     provenance: claimed
     url: "https://www.yomonga.com/titles/2558/"
     listing_tags: ["百合"]
-  - work: "雨夜の月"
-    platform: "マガポケ"
-    date: 2026-10-06
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02202"
-    listing_tags: ["障害者", "女子高生", "百合"]
   - work: "謎のユリイカ"
     platform: "マンガよもんが"
     date: 2026-10-06
@@ -1350,13 +1382,6 @@ updates:
     provenance: claimed
     url: "https://www.yomonga.com/titles/2571/"
     listing_tags: ["百合"]
-  - work: "乙女のおかず"
-    platform: "ヤンマガWeb"
-    date: 2026-10-06
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
-    listing_tags: ["エロ", "女子高生", "日常", "ギャグ・コメディ", "百合", "フェチ・性癖"]
   - work: "マユノウタ"
     platform: "ニコニコ漫画"
     date: 2026-10-06
@@ -2149,6 +2174,13 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_008419_S"
     listing_tags: ["現代ファンタジー", "タイムループ", "ギャグ・コメディ", "百合"]
+  - work: "お姉さまと巨人 ～お嬢さまが異世界転生～"
+    platform: "カドコミ"
+    date: 2026-09-20
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_003240_S"
+    listing_tags: ["転生", "異種族・人外", "ファンタジー", "チートなし", "残酷・グロテスク", "反社・ヤクザ", "障害者", "アウトロー", "百合"]
   - work: "さきゅりふぁいす!"
     platform: "キミコミ"
     date: 2026-09-19
@@ -2212,13 +2244,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421984151786084"
     listing_tags: ["百合", "いじめ"]
-  - work: "踊り場にスカートが鳴る"
-    platform: "マガポケ"
-    date: 2026-09-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/01646"
-    listing_tags: ["百合", "女子高生", "運動系部活", "男装"]
   - work: "英雄少女と呪われの銀姫"
     platform: "となりのヤングジャンプ"
     date: 2026-09-15
@@ -2547,18 +2572,4 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://hanayume.com/series/dcaacd8b4831f"
-    listing_tags: ["百合", "読み切り"]
-  - work: "晴れた日のドレスコード"
-    platform: "一迅プラス"
-    date: 2026-08-20
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2551460909807196609"
-    listing_tags: ["百合", "女子高生"]
-  - work: "幼馴染の方程式"
-    platform: "一迅プラス"
-    date: 2026-08-20
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/12207421984115855223"
     listing_tags: ["百合", "読み切り"]

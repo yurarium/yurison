@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-19
+retrieved: 2026-10-20
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -116,11 +116,6 @@ works_missing:
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
     antenna_id: "161471"
     tags: ["百合", "獣人", "お色気・微エロ"]
-  - title: "月とすっぴん"
-    platform: "FEEL web"
-    url: "https://feelweb.jp/episode/3269754496401056101"
-    antenna_id: "123156"
-    tags: ["百合"]
   - title: "八尺様とコロポックル-215cmと135cmの女子高生-"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/3f172ce77f966"
@@ -511,6 +506,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008419_S"
     antenna_id: "202592"
     tags: ["現代ファンタジー", "タイムループ", "ギャグ・コメディ", "百合"]
+  - title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_003240_S"
+    antenna_id: "128693"
+    tags: ["転生", "異種族・人外", "ファンタジー", "チートなし", "残酷・グロテスク", "反社・ヤクザ", "障害者", "アウトロー", "百合"]
   - title: "T.Tラバーズ。"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005506_S"
@@ -615,7 +615,7 @@ works_missing:
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
     antenna_id: "77857"
-    tags: ["最近のコメント数"]
+    tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -961,6 +961,11 @@ works_missing:
     url: "https://flowercomics.jp/title/2780"
     antenna_id: "193062"
     tags: ["百合"]
+  - title: "踊り場にスカートが鳴る"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/01646"
+    antenna_id: "137359"
+    tags: ["百合", "女子高生", "運動系部活", "男装"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -996,11 +1001,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/01147"
     antenna_id: "105649"
     tags: ["お色気・微エロ", "百合", "異種族・人外", "ギャグ・コメディ", "吸血鬼・ヴァンパイア", "完結"]
-  - title: "踊り場にスカートが鳴る"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/01646"
-    antenna_id: "137359"
-    tags: ["百合", "女子高生", "運動系部活", "男装"]
   - title: "魔法少女は嘘をつく"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03302"

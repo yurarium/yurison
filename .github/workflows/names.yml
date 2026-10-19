@@ -71,6 +71,24 @@ jobs:
       - if: steps.token.outputs.present == 'yes'
         run: pip install -r requirements.txt
 
+      # FROM THE STORE THE UPDATE PUBLISHED, so the store this job may publish is that one with the
+      # names applied. Compiled from scratch it would lack what only the update writes, the source
+      # health and the run's census among them, and the status page would lose those until the next
+      # update. A run that cannot fetch it still names; it does not publish.
+      - name: Start from the store the update published
+        id: store
+        if: steps.token.outputs.present == 'yes'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release download --repo "${{ github.repository }}" --pattern corpus.sqlite \
+               --dir "$RUNNER_TEMP/store"; then
+            mkdir -p data && cp "$RUNNER_TEMP/store/corpus.sqlite" data/relational.db
+            echo "have=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::no published store to start from; names will wait for the next update"
+          fi
+
       - name: Compile, which writes the works awaiting an identifier
         if: steps.token.outputs.present == 'yes'
         run: python3 build.py --unattended
@@ -208,6 +226,35 @@ jobs:
             git pull --rebase -X theirs --no-edit origin main || { git rebase --abort; exit 1; }
           done
           exit 1
+
+      # NAMES REACH A READER WHEN THEY ARE WRITTEN, not at the next update. The update runs twice a
+      # day and GitHub starts it hours late, so セカンドバレンタイン and 戻らない季節。, named at 18:48,
+      # waited on the live site as romanisations for over twelve hours. The judge already applied
+      # the names, rebuilt the store and gated it; this publishes that store and tells the site,
+      # exactly as the update's last steps do.
+      - name: Publish the store with the names in it
+        id: publish
+        if: steps.judge.outputs.outcome == 'committed' && steps.store.outputs.have == 'yes'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 adapters/relational/__init__.py --publish corpus.sqlite
+          TAG="store-$(date -u +%Y%m%d-%H%M)"
+          gh release create "$TAG" corpus.sqlite --title "$TAG" \
+            --notes "The compiled corpus, with the names run ${{ github.run_id }} wrote. A consumer \
+          reads \`store_stamp\` and refuses what it does not know."
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Tell a consumer the store has moved
+        if: steps.publish.outputs.tag != '' && vars.CONSUMER_REPO != '' && vars.CONSUMER_WORKFLOW != ''
+        env:
+          GH_TOKEN: ${{ secrets.CONSUMER_TOKEN }}
+          TAG: ${{ steps.publish.outputs.tag }}
+        run: |
+          gh workflow run "${{ vars.CONSUMER_WORKFLOW }}" \
+            --repo "${{ vars.CONSUMER_REPO }}" --field release="$TAG" \
+          || echo "::warning::the consumer at ${{ vars.CONSUMER_REPO }} was not reachable; \
+          $TAG is published and its own schedule will find it"
 
       - name: Say why work was left uncommitted
         if: steps.judge.outputs.outcome != '' && steps.judge.outputs.outcome != 'committed' && steps.judge.outputs.outcome != 'nothing'

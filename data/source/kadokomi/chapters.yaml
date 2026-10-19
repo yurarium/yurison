@@ -19138,6 +19138,24 @@ works:
         title: "【第32回角川漫画新人大賞】佳作"
         updated: "2026-07-16"
         access_modes: ["free"]
+  - work_title: "崩れる前のわたしでいさせて"
+    platform_code: "KC_019408_S"
+    url: "https://comic-walker.com/detail/KC_019408_S"
+    status: "unknown"
+    marketing_label: "yuri"
+    tags: ["切ない", "百合", "ドロ沼", "アイドル"]
+    authors: ["寄り未知"]
+    marketing_label_basis:
+      source: kadokomi
+      url: "https://comic-walker.com/detail/KC_019408_S"
+      retrieved: "2026-10-19"
+      note: "Publisher applies the tag 百合 on カドコミ."
+    chapter_count: 1
+    chapters:
+      - code: "KC_0194080000200011_E"
+        title: "読み切り"
+        updated: "2026-07-06"
+        access_modes: ["free"]
   - work_title: "胡蝶の夢"
     platform_code: "KC_019442_S"
     url: "https://comic-walker.com/detail/KC_019442_S"
@@ -29152,22 +29170,4 @@ works:
       - code: "KC_0094910000200011_E"
         title: "第１話★終わりの始まりと始まりの終わり"
         updated: "2026-05-25"
-        access_modes: ["free"]
-  - work_title: "崩れる前のわたしでいさせて"
-    platform_code: "KC_019408_S"
-    url: "https://comic-walker.com/detail/KC_019408_S"
-    status: "unknown"
-    marketing_label: "yuri"
-    tags: ["切ない", "百合", "ドロ沼", "アイドル"]
-    authors: ["寄り未知"]
-    marketing_label_basis:
-      source: "kadokomi"
-      url: "https://comic-walker.com/detail/KC_019408_S"
-      retrieved: "2026-10-19"
-      note: "Publisher applies the tag 百合 on カドコミ."
-    chapter_count: 1
-    chapters:
-      - code: "KC_0194080000200011_E"
-        title: "読み切り"
-        updated: "2026-07-06"
         access_modes: ["free"]

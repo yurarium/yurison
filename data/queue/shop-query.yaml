@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 247
   hits_on_the_title_alone: 111
   hits_stating_a_print_edition_date: 207
-  works_asked: 874
+  works_asked: 876
   works_with_a_hit: 265
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -4449,6 +4449,14 @@ works:
         agreement: "title-only"
         volumes_stated: 21
         completed_marker: false
+  - work_url: "https://flowercomics.jp/title/2258"
+    id: "w03446"
+    work: "セカンドバレンタイン"
+    platform: "フラコミlike!"
+    retrieved: "2026-10-19"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
   - work_url: "https://flowercomics.jp/title/2780"
     id: "w00107"
     work: "銀の河に星の城"
@@ -4458,6 +4466,14 @@ works:
     hits: []
     notes:
       - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://flowercomics.jp/title/3311"
+    id: "w03445"
+    work: "戻らない季節。"
+    platform: "フラコミlike!"
+    retrieved: "2026-10-19"
+    hits: []
+    notes:
       - "title query returned no title this database recognises"
   - work_url: "https://g-comi.jp/series/192003ee77e21"
     id: "w00300"

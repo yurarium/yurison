@@ -12,24 +12,6 @@ retrieved: 2026-10-19
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
-  - work_title: "セカンドバレンタイン"
-    url: "https://flowercomics.jp/title/2258"
-    platform_name: "フラコミlike!"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2025-02-17
-        date_basis: heuristic
-  - work_title: "戻らない季節。"
-    url: "https://flowercomics.jp/title/3311"
-    platform_name: "フラコミlike!"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2026-02-15
-        date_basis: heuristic
   - work_title: "0088/2022年10月期JUMP新世界漫画賞"
     author: "無次ムジナ"
     url: "https://shonenjumpplus.com/episode/316190247047937848"
@@ -298,6 +280,15 @@ works:
         updated: 2022-06-19
         author: "浦飼キイチ"
         access_modes: ["free"]
+  - work_title: "セカンドバレンタイン"
+    url: "https://flowercomics.jp/title/2258"
+    platform_name: "フラコミlike!"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り"
+        updated: 2025-02-17
+        date_basis: heuristic
   - work_title: "ソシャゲのお姉ちゃん"
     url: "https://manga-one.com/manga/27430/chapter/316579"
     platform_name: "マンガワン"
@@ -686,6 +677,15 @@ works:
       - title: "第20話 マンガワンからの お知らせ"
         updated: 2026-10-01
         date_basis: rendered
+  - work_title: "戻らない季節。"
+    url: "https://flowercomics.jp/title/3311"
+    platform_name: "フラコミlike!"
+    route: "markup"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り"
+        updated: 2026-02-15
+        date_basis: heuristic
   - work_title: "春綴る、桜咲くこの部屋で"
     url: "https://www.ganganonline.com/title/1222"
     platform_name: "ガンガンONLINE"

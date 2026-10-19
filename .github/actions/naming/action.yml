@@ -1,0 +1,222 @@
+name: naming
+description: >-
+  Claude names the titles still showing a romanisation nobody decided, and says which single
+  instalments are one-shots; the answers are written in, judged against the gate, and committed.
+
+# THE NAMING JOB, docs/LAUNCH-PLAN.md section 5, as steps either workflow runs. The update runs them
+# after its own commit and before it publishes, so a name reaches a reader in the store it is
+# written for; `names.yml` runs them by hand. Until 2026-10-19 they were a workflow of their own that
+# the update's completion started, and a name waited for the next update to be published.
+#
+# CLAUDE SEES THE ITEMS AND NOTHING ELSE. `items.py` and `status_items.py` write what each question
+# needs, Claude runs in an empty directory with web search and fetch and no other tool, and answers
+# in JSON against a schema. `integrate.py` and `integrate_status.py` write each answer only if it
+# passes the check a person's would.
+#
+# WHAT IS COMMITTED is the curated names and the one-shot verdicts, and only when the gate is no
+# worse than before; otherwise the diff is kept as an artifact and an issue says why. `pushed` is
+# `yes` only when the commit reached the remote, which is what a caller asks before it publishes.
+inputs:
+  claude-token:
+    description: CLAUDE_CODE_OAUTH_TOKEN; empty means the job is not set up and nothing runs
+    required: false
+  github-token:
+    description: the workflow's token, for the issue that says why work was left uncommitted
+    required: true
+  model:
+    default: sonnet
+  max-turns:
+    default: "60"
+  limit:
+    default: "12"
+  claude-version:
+    default: latest
+
+outputs:
+  outcome:
+    description: committed, nothing, error, or refused-files, refused-names, refused-gate
+    value: ${{ steps.judge.outputs.outcome }}
+  pushed:
+    description: yes when the job's commit reached the remote
+    value: ${{ steps.commit.outputs.pushed }}
+
+runs:
+  using: composite
+  steps:
+    - name: Is there a token to run with
+      id: token
+      shell: bash
+      env:
+        T: ${{ inputs.claude-token }}
+      run: |
+        # ITS SHAPE, NEVER ITS VALUE. A token copied from a terminal that wrapped it carries line
+        # breaks, and the first two runs failed to log in on what looked like a set secret.
+        if [ -n "$T" ]; then
+          C=$(printf '%s' "$T" | tr -d '[:space:]')
+          echo "token: ${#T} characters as stored, ${#C} without whitespace"
+          case "$C" in sk-ant-oat*) echo "token: starts as a setup-token token does";;
+            *) echo "::warning::the token does not start with sk-ant-oat; it is not what claude setup-token prints";; esac
+          [ "${#T}" != "${#C}" ] && echo "::notice::the stored token holds whitespace or a line break, which is stripped before use"
+          echo "present=yes" >> "$GITHUB_OUTPUT"
+        else
+          echo "::notice::no CLAUDE_CODE_OAUTH_TOKEN secret; the naming job is not set up yet"
+        fi
+
+    - name: What is there to name, and to look up
+      id: queue
+      if: steps.token.outputs.present == 'yes'
+      shell: bash
+      run: |
+        python3 adapters/naming/items.py --limit "${{ inputs.limit }}" --out "$RUNNER_TEMP/items.json"
+        # THE SECOND QUESTION: single-instalment works whose one-shot status nobody has stated.
+        python3 adapters/naming/status_items.py --limit "${{ inputs.limit }}" --out "$RUNNER_TEMP/status-items.json"
+        cat "$RUNNER_TEMP/items.json" "$RUNNER_TEMP/status-items.json"
+        if grep -q '^work=yes' "$GITHUB_OUTPUT" || grep -q '^status=yes' "$GITHUB_OUTPUT"; then
+          echo "any=yes" >> "$GITHUB_OUTPUT"; fi
+
+    - name: The gate before the job, to compare against
+      if: steps.queue.outputs.any == 'yes'
+      shell: bash
+      run: |
+        ./check.py --gate > "$RUNNER_TEMP/gate-before.txt" 2>&1 || true
+        # WHAT THE COMPILE ALREADY CHANGED, so the job is judged only on what it changes after.
+        python3 adapters/naming/verdict.py snapshot > "$RUNNER_TEMP/baseline.json"
+
+    - name: Install Claude Code
+      if: steps.queue.outputs.any == 'yes'
+      shell: bash
+      run: npm install -g "@anthropic-ai/claude-code@${{ inputs.claude-version }}"
+
+    - name: Ask for the names
+      if: steps.queue.outputs.work == 'yes'
+      shell: bash
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN: ${{ inputs.claude-token }}
+      run: |
+        # A REAL TOKEN HOLDS NO WHITESPACE, so any is an artefact of the copy and goes.
+        export CLAUDE_CODE_OAUTH_TOKEN="$(printf '%s' "$CLAUDE_CODE_OAUTH_TOKEN" | tr -d '[:space:]')"
+        # AN EMPTY DIRECTORY, so there is no CLAUDE.md to load and no file to read.
+        here="$PWD"; mkdir -p "$RUNNER_TEMP/empty" && cd "$RUNNER_TEMP/empty"
+        claude -p "$(cat "$RUNNER_TEMP/items.json")" \
+          --system-prompt "$(cat "$here/adapters/naming/PROMPT.md")" \
+          --json-schema "$(cat "$here/adapters/naming/schema.json")" \
+          --tools "WebFetch,WebSearch" --allowedTools "WebFetch,WebSearch" \
+          --output-format stream-json --verbose --no-session-persistence \
+          --model "${{ inputs.model }}" --max-turns "${{ inputs.max-turns }}" \
+          > "$RUNNER_TEMP/stream.jsonl" || true
+        cd "$here"
+        # THE WHOLE SESSION, folded, with the answer the schema asked for.
+        python3 adapters/naming/verdict.py fold --stream "$RUNNER_TEMP/stream.jsonl" > "$RUNNER_TEMP/result.json"
+
+    # WHETHER EACH SINGLE-INSTALMENT WORK IS A ONE-SHOT, asked as its own session with its own rules,
+    # so neither prompt carries the other's. Verdicts go to data/completion-reviewed.yaml.
+    - name: Ask which works are one-shots
+      if: steps.queue.outputs.status == 'yes'
+      shell: bash
+      env:
+        CLAUDE_CODE_OAUTH_TOKEN: ${{ inputs.claude-token }}
+      run: |
+        export CLAUDE_CODE_OAUTH_TOKEN="$(printf '%s' "$CLAUDE_CODE_OAUTH_TOKEN" | tr -d '[:space:]')"
+        here="$PWD"; mkdir -p "$RUNNER_TEMP/empty-status" && cd "$RUNNER_TEMP/empty-status"
+        claude -p "$(cat "$RUNNER_TEMP/status-items.json")" \
+          --system-prompt "$(cat "$here/adapters/naming/STATUS-PROMPT.md")" \
+          --json-schema "$(cat "$here/adapters/naming/status-schema.json")" \
+          --tools "WebFetch,WebSearch" --allowedTools "WebFetch,WebSearch" \
+          --output-format stream-json --verbose --no-session-persistence \
+          --model "${{ inputs.model }}" --max-turns "${{ inputs.max-turns }}" \
+          > "$RUNNER_TEMP/stream-status.jsonl" || true
+        cd "$here"
+        python3 adapters/naming/verdict.py fold --stream "$RUNNER_TEMP/stream-status.jsonl" > "$RUNNER_TEMP/status-result.json"
+
+    - name: Write the answers in, and judge them
+      id: judge
+      if: steps.queue.outputs.any == 'yes'
+      shell: bash
+      run: |
+        # A SESSION THAT DID NOT RUN, a rejected token above all, is an error and not a verdict.
+        for r in result status-result; do
+          if python3 -c "import json,sys; d=json.load(open(sys.argv[1])); sys.exit(0 if d.get('is_error') else 1)" "$RUNNER_TEMP/$r.json" 2>/dev/null; then
+            echo "Claude Code reported an error in $r and did no work" > "$RUNNER_TEMP/verdict.txt"
+            echo "outcome=error" >> "$GITHUB_OUTPUT"; exit 0; fi
+        done
+        : > "$RUNNER_TEMP/verdict.txt"
+        if [ -f "$RUNNER_TEMP/result.json" ]; then
+          python3 adapters/naming/integrate.py --answers "$RUNNER_TEMP/result.json" \
+            --items "$RUNNER_TEMP/items.json" | tee -a "$RUNNER_TEMP/verdict.txt"; fi
+        if [ -f "$RUNNER_TEMP/status-result.json" ]; then
+          python3 adapters/naming/integrate_status.py --answers "$RUNNER_TEMP/status-result.json" \
+            --items "$RUNNER_TEMP/status-items.json" | tee -a "$RUNNER_TEMP/verdict.txt"; fi
+        git diff -- data/names/curated.yaml > "$RUNNER_TEMP/job.diff"
+        git diff -- data/completion-reviewed.yaml > "$RUNNER_TEMP/status.diff"
+        if [ ! -s "$RUNNER_TEMP/job.diff" ] && [ ! -s "$RUNNER_TEMP/status.diff" ]; then
+          echo "outcome=nothing" >> "$GITHUB_OUTPUT"; exit 0; fi
+        if ! python3 adapters/naming/verdict.py files --baseline "$RUNNER_TEMP/baseline.json" >> "$RUNNER_TEMP/verdict.txt"; then
+          echo "outcome=refused-files" >> "$GITHUB_OUTPUT"; exit 0; fi
+        python3 adapters/names/curate.py --apply >> "$RUNNER_TEMP/verdict.txt" 2>&1 \
+          || { echo "outcome=refused-names" >> "$GITHUB_OUTPUT"; exit 0; }
+        python3 build.py --unattended
+        ./check.py --gate > "$RUNNER_TEMP/gate-after.txt" 2>&1 || true
+        if python3 adapters/naming/verdict.py gate --before "$RUNNER_TEMP/gate-before.txt" \
+             --after "$RUNNER_TEMP/gate-after.txt" >> "$RUNNER_TEMP/verdict.txt"; then
+          echo "outcome=committed" >> "$GITHUB_OUTPUT"
+        else echo "outcome=refused-gate" >> "$GITHUB_OUTPUT"; fi
+        cat "$RUNNER_TEMP/verdict.txt" >> "$GITHUB_STEP_SUMMARY"
+
+    - name: Keep the diff of work that was not committed
+      if: steps.judge.outputs.outcome != '' && steps.judge.outputs.outcome != 'committed' && steps.judge.outputs.outcome != 'nothing'
+      uses: actions/upload-artifact@v4
+      with:
+        name: naming-job-${{ github.run_id }}
+        path: ${{ runner.temp }}/*.diff
+
+    - name: Commit, and record what the job used
+      id: commit
+      if: steps.queue.outputs.any == 'yes'
+      shell: bash
+      env:
+        OUTCOME: ${{ steps.judge.outputs.outcome || 'error' }}
+      run: |
+        git config user.name  "Yurarium"
+        git config user.email "311755991+yurarium@users.noreply.github.com"
+        # ONLY THE JOB'S OWN FILES ARE PUT BACK, because a caller's working tree is its own: the
+        # update runs this after committing, with files it means to leave as they are.
+        if [ "$OUTCOME" != committed ]; then
+          git checkout -- data/names data/completion-reviewed.yaml 2>/dev/null || true
+        fi
+        touch "$RUNNER_TEMP/job.diff" "$RUNNER_TEMP/status.diff"
+        if [ -f "$RUNNER_TEMP/result.json" ]; then
+          python3 adapters/naming/verdict.py usage --result "$RUNNER_TEMP/result.json" \
+            --run "${{ github.run_id }}" --model "${{ inputs.model }}" \
+            --outcome "$OUTCOME" --diff "$RUNNER_TEMP/job.diff"; fi
+        if [ -f "$RUNNER_TEMP/status-result.json" ]; then
+          python3 adapters/naming/verdict.py usage --result "$RUNNER_TEMP/status-result.json" \
+            --run "${{ github.run_id }}" --model "${{ inputs.model }}" \
+            --outcome "$OUTCOME" --diff "$RUNNER_TEMP/status.diff" --job status; fi
+        git add data/ledger/claude-usage.jsonl
+        if [ "$OUTCOME" = committed ]; then
+          git add data/names data/completion-reviewed.yaml
+        fi
+        git commit -qm "names: run ${{ github.run_id }} ($OUTCOME)"
+        for i in 1 2 3; do
+          if git push; then echo "pushed=yes" >> "$GITHUB_OUTPUT"; exit 0; fi
+          # `--autostash`, because what the gate rewrote (budgets, the tracker) is left in the tree
+          # uncommitted and a rebase refuses a dirty one.
+          git pull --rebase --autostash -X theirs --no-edit origin main || { git rebase --abort; exit 1; }
+        done
+        exit 1
+
+    - name: Say why work was left uncommitted
+      if: steps.judge.outputs.outcome != '' && steps.judge.outputs.outcome != 'committed' && steps.judge.outputs.outcome != 'nothing'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        OUTCOME: ${{ steps.judge.outputs.outcome }}
+      run: |
+        gh label create naming --color 5319E7 --description "the naming job" 2>/dev/null || true
+        {
+          echo "The naming job in run ${{ github.run_id }} finished as **$OUTCOME**, so nothing it wrote was committed."
+          echo "Its diff is the run's artifact \`naming-job-${{ github.run_id }}\`."
+          echo; echo '```'; cat "$RUNNER_TEMP/verdict.txt"; echo '```'
+        } > "$RUNNER_TEMP/issue.md"
+        gh issue create --title "Naming job left its work uncommitted ($OUTCOME)" \
+          --label naming --body-file "$RUNNER_TEMP/issue.md"

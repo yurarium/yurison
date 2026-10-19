@@ -194,9 +194,12 @@ charges. Usage credits (overage) stay switched off.
   answer into `data/names/curated.yaml` only if it passes the check a hand-written entry passes. The
   workflow applies the names, builds and runs the gate, and commits only a clean result, otherwise
   it leaves the batch in an issue.
-- **Publishing.** The job starts from the store the last update published and, when it commits,
-  publishes that store with its names applied and tells the site, as the update does. Before
-  2026-10-19 names waited for the next update, which GitHub starts hours late.
+- **Publishing.** The update runs the job, as `.github/actions/naming`, after its own commit and
+  before it publishes, so the store goes live once, with the names in it or without them. The job
+  runs with a time limit and cannot hold the publish back, and the compile's store is put back
+  unless the job's work was committed and pushed. Until 2026-10-19 the job was a workflow the
+  update's completion started, and a name waited for the next update, which GitHub starts hours
+  late. `.github/workflows/names.yml` runs the same steps by hand.
 - **Audit.** Each run appends its turns, fresh input, cache reads and writes, output tokens,
   duration, model and what it changed to `data/ledger/claude-usage.jsonl`, and the status page shows
   the running total.

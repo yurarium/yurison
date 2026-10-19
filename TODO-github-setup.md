@@ -9,7 +9,8 @@ failing opens its own issue, and a digest issue arrives each Monday. docs/LAUNCH
 rest.
 
 One step is the owner's, because it needs the owner's own Claude login. It switches on the naming
-job (`.github/workflows/names.yml`), which inducts new works and names titles after each update:
+job (`.github/actions/naming`), which every update runs before it publishes, to name titles and
+say which single instalments are one-shots; `.github/workflows/names.yml` runs it by hand:
 
 1. On a machine with Claude Code signed in to the Pro account, run `claude setup-token` and copy
    the token it prints.

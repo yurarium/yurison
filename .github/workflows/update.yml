@@ -467,6 +467,42 @@ jobs:
           path: .cache
           key: fetch-${{ github.run_id }}
 
+      # ── NAMES AND ONE-SHOT VERDICTS, BEFORE ANYTHING IS PUBLISHED ─────────────────────────
+      #
+      # THE STORE GOES LIVE ONCE, AFTER THE NAMING HAS HAPPENED OR FAILED, asked by the owner on
+      # 2026-10-19. The naming job was a workflow of its own that this one's completion started, so
+      # the store was published first and a title named half an hour later showed as a
+      # romanisation until the next update, which GitHub starts hours late: セカンドバレンタイン
+      # and 戻らない季節。 headed the live feed that way for over twelve hours.
+      #
+      # IT CANNOT HOLD THE PUBLISH BACK, AND IT CANNOT PUBLISH HALF. It runs with a time limit and
+      # continues on error, so the publish below runs whatever happens to it. The store the compile
+      # left is kept first, and put back unless the naming committed its work and the commit reached
+      # the remote. A refused run still pushes its usage line, and its judge rebuilt the store with
+      # the refused names in it, so the push alone is not the test.
+      - name: Keep the store as the compile left it
+        run: cp data/relational.db "$RUNNER_TEMP/store-compiled.db"
+
+      - name: Names and one-shot verdicts
+        id: naming
+        continue-on-error: true
+        timeout-minutes: 45
+        uses: ./.github/actions/naming
+        with:
+          claude-token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github-token: ${{ github.token }}
+          model: ${{ vars.NAMING_MODEL || 'sonnet' }}
+          max-turns: ${{ vars.NAMING_MAX_TURNS || '60' }}
+          limit: ${{ vars.NAMING_LIMIT || '12' }}
+          claude-version: ${{ vars.CLAUDE_CODE_VERSION || 'latest' }}
+
+      - name: Put the compile's store back unless the names landed
+        if: always() && !(steps.naming.outputs.pushed == 'yes' && steps.naming.outputs.outcome == 'committed')
+        run: |
+          cp "$RUNNER_TEMP/store-compiled.db" data/relational.db
+          git checkout -- data/names data/completion-reviewed.yaml 2>/dev/null || true
+          echo "naming: ${{ steps.naming.outputs.outcome || 'did not finish' }}; publishing the compile's store"
+
       # ── WHAT THIS REPOSITORY PUBLISHES, §11 ───────────────────────────────────────────────
       #
       # A FILE WITH A VERSION ON IT, and nothing else. This workflow used to clone the site with a

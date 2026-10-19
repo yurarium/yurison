@@ -244,6 +244,9 @@ ONESHOT = re.compile(r"読\s*み?\s*切り?")
 STAMP = re.compile(r"\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2}\s*日?\s*[T ]\s*\d{1,2}:")
 
 
+#: A date inside a `<time>` element, which is a page labelling its own date.
+TIME = re.compile(r"<time\b[^>]*>\s*(\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2})\s*日?\s*</time>")
+
 #: How much of a work's title, folded, a page must carry to be taken as that work's page.
 NAMED = 6
 
@@ -292,6 +295,14 @@ def from_oneshot(html, title=None):
     # `(?!\d)` BEFORE THE CLOCK TEST, or the day is simply matched shorter. Without it the engine
     # backtracks off the refused `2026-08-15 20:56:30` and takes `2026-08-1`, which normalises to
     # the first of the month: a wrong date rather than no date, which is worse than what it fixed.
+    # A DATE THE PAGE MARKS UP AS A TIME, where there is exactly one, is the page's own and is
+    # taken first. フラコミlike! writes the one-shot's date as `<time>2025/02/17</time>` and embeds
+    # other titles' data beside it, one of them `"lastUpdatedAt":"2026/10/19"`, so counting every
+    # date on the page found two and dropped セカンドバレンタイン and 戻らない季節。 from the catalogue.
+    timed = {norm_date(m) for m in TIME.findall(html)} - {None}
+    timed = {d for d in timed if d <= TODAY}
+    if len(timed) == 1:
+        return [{"title": "読み切り", "updated": timed.pop(), "oneshot": True}]
     found = {norm_date(m) for m in
              re.findall(r"\d{4}[-/.年]\s*\d{1,2}[-/.月]\s*\d{1,2}(?!\d)(?!\s*日?\s*\d{1,2}:)",
                         html)}

@@ -153,6 +153,11 @@ def a_one_shot_states_one_date(s):
          "midnight on the dot is a date written as a timestamp, and is the one-shot's date")
     s.eq(rm.from_oneshot('読み切り "2023-01-25 00:00:00" "2026-10-18 09:12:40"')[0]["updated"],
          "2023-01-25", "beside a served-at stamp, which is still refused")
+    page = ('<h1>セカンドバレンタイン</h1> 読み切り <time class="x">2025/02/17</time>'
+            ' {"campaign":"10/19まで","lastUpdatedAt":"2026/10/19"}')
+    s.eq(rm.from_oneshot(page, "セカンドバレンタイン"),
+         [{"title": "読み切り", "updated": "2025-02-17", "oneshot": True}],
+         "a single date the page marks up as a time wins over another title's date beside it")
     s.eq(rm.from_oneshot('読み切りを読む 2026年6月17日'),
          [{"title": "読み切り", "updated": "2026-06-17", "oneshot": True}],
          "a date a platform prints beside the button is the one-shot's date")

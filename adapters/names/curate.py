@@ -787,7 +787,13 @@ def main(argv=None):
     # A DUPLICATE REFUSES THE APPLY like a rejection does. It used to print and carry on, and on
     # 2026-10-13 a machine translation written for a second record of 猫とシュガーポット sat below
     # the licensed Seven Seas title, so the licensed name was the one YAML dropped.
-    if bad or stray or dups:
+    #
+    # A STRAY DOES NOT. It names no work, so applying it writes a name nothing reads, and refusing
+    # on it let one capture's churn freeze every name in the file: on 2026-10-19 フラコミlike! dropped
+    # セカンドバレンタイン and 戻らない季節。 for a run, and the apply that would have shown their
+    # English refused, with every other name the run brought and the naming job's six verdicts.
+    # `--check` still fails on one, which is where a mistyped key is caught.
+    if bad or dups or (stray and not a.apply):
         return 1
     if a.apply:
         store = NameStore(a.out)

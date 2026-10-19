@@ -83842,33 +83842,34 @@ names:
     reading_source_kind: analyser
     verified: false
   贋作の第十番:
-    basis: translated
-    en: Forgery No. 10
-    en_at: '2026-08-15'
-    en_reviewed: '2026-08-15'
-    en_source: yurarium
-    en_source_kind: derived
-    furigana_spans:
-    - - 贋作
-      - がんさく
-    - - の
-      - null
-    - - 第
-      - だい
-    - - 十
-      - じゅう
-    - - 番
-      - ばん
-    note: 贋作 is a forged work of art, and 第十番 numbers it as a catalogue would.
-    reading: ガンサク ノ ダイ ジュウ バン
-    reading_at: '2026-08-15'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
+    basis: official-jp
+    en: 'Die 10. Sinfonie: Eine Geschichte zwischen Wahrheit und Fiktion'
+    en_at: '2026-10-19'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Forged Tenth Symphony
+    en_reviewed: '2026-10-19'
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-public.comici.jp/series/3137310/20260507124705606D5F6E2AF5B8CCE9545AFF296EE6771C5-lg.webp
+    note: The work's own Latin title, set in German under the kana on its series art at チャンピオンクロス, with
+      a capital on Eine. It is taken as the work gives it, as ALSO SPRACH FOR RABBIT is, although it is
+      not English.
+    reading: ガンサク ノ ダイジュウバン
+    reading_at: '2026-10-19'
+    reading_basis: stated
+    reading_note: The series art prints がんさく over 贋作, だい over 第 and じゅうばん over 十番.
     reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
-    reading_source_kind: analyser
-    verified: false
+    reading_reviewed: '2026-10-19'
+    reading_source: チャンピオンクロス
+    reading_source_kind: platform
+    reading_url: https://championcross.jp/series/315c6e52824a3
+    translation_note: '贋作 is a forged work of art. 第十番 is how a symphony is numbered, and the work''s
+      own German title names it as one: Die 10. Sinfonie. The platform describes a mystery over a forged
+      score by 楽聖, the honorific Japanese gives Beethoven, who completed nine. It read Forgery No. 10
+      until 2026-10-19, which kept the catalogue number and lost the symphony.'
+    verified: true
   赤ずきんに食べられた狼:
     basis: translated
     en: The Wolf Who Was Eaten by Little Red Riding Hood

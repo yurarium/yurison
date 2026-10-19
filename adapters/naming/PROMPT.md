@@ -19,7 +19,9 @@ sequel or sister series of a related title is named the way that title was.
 4. `romaji`: a title that is itself a coinage or a proper name with nothing to translate,
    `source_kind` `derived`; `en` is its romanisation. Add `translation_refused`, a sentence saying
    what your own rendering would come out as and why that is the same name. Where any word in the
-   title can be translated, it is `translated` instead, with the names kept as names.
+   title can be translated, it is `translated` instead, with the names kept as names. A name
+   with an honorific after it is `translated` too: English keeps the honorific after a hyphen, as
+   in Tsuruko-san, and no romanisation writes that hyphen.
 
 Look for what a title alludes to before translating it. 真夏の昼の誘惑 turns 真夏の夜の夢, the
 Japanese title of A Midsummer Night's Dream, and its English should turn the English title the same

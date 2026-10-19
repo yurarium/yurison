@@ -738,6 +738,12 @@ def apply(store, doc):
             for claim in ("reading", "en"):
                 if e.get(claim) and not e.get(f"{claim}_refuted"):
                     (store.records[kind].get(ja) or {}).pop(f"{claim}_refuted", None)
+            # AND SO DOES A REFUSAL, for the same reason: it is a ruling the file can reverse.
+            # うなうさ and ふちゅれ！オトメ were refused as coinages in August and translated within
+            # weeks, and both records went on holding Eel-Rabbit and the ruling that there is no
+            # rendering of it. つるこさん was refiled on 2026-10-19 and would have done the same.
+            if e.get("en") and not e.get("translation_refused"):
+                (store.records[kind].get(ja) or {}).pop("translation_refused", None)
             if e.get("en"):
                 applied += 1
             else:

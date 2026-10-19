@@ -9488,7 +9488,6 @@ names:
     reading_reviewed: '2026-09-04'
     reading_source: https://bookwalker.jp/de692a528e-f035-408a-a9a8-62ac9785851d/
     reading_source_kind: derived
-    translation_refused: A coinage in kana. Our rendering is Unausa, which the romanisation says.
     verified: false
   うまいものだけ食べて生きます。/読み切り:
     basis: translated
@@ -17036,17 +17035,19 @@ names:
     reading_source_kind: analyser
     verified: false
   つるこさん:
-    basis: romaji
+    basis: translated
     en: Tsuruko-san
-    en_at: '2026-10-17'
-    en_reviewed: '2026-10-17'
+    en_at: '2026-10-19'
+    en_reviewed: '2026-10-19'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
     - - つるこさん
       - null
-    note: The title is a personal name, Tsuruko, with the polite suffix さん, so there is nothing to translate.
-      The Sunday Webry series page gives no English title or synopsis, so it is romanised.
+    note: 'The title is a personal name, Tsuruko, with the polite suffix さん, which English keeps after
+      a hyphen. That hyphen is the English convention and no romanisation writes it, so this is our rendering
+      and not the romanisation again: refused as one until 2026-10-19, it showed as Tsurukosan. The Sunday
+      Webry series page gives no English title or synopsis.'
     reading: ツルコサン
     reading_at: '2026-10-17'
     reading_basis: surface
@@ -17055,8 +17056,6 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
-    translation_refused: A given name and the polite さん are the whole title, so our rendering would be
-      the romanisation again.
     verified: true
   てあとるりりぃ:
     basis: translated
@@ -19896,8 +19895,6 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
-    translation_refused: ふちゅれ is a coined word and オトメ stands as a name rather than as the word 乙女, which
-      the entry's own note settles. Neither half is a phrase, so ours is the romanisation.
     verified: true
   ふつうのあたしたち:
     basis: translated
@@ -81852,7 +81849,7 @@ names:
     reading_source_kind: analyser
     verified: false
   花子さんと花子ちゃん:
-    basis: romaji
+    basis: translated
     en: Hanako-san and Hanako-chan
     en_at: '2026-08-08'
     en_reviewed: '2026-08-08'
@@ -81861,7 +81858,10 @@ names:
     note: 花子 is a common given name and also the name of Japan's best-known school ghost, トイレの花子さん, Hanako
       of the toilet; the title's whole joke is two characters sharing that name, told apart only by which
       honorific follows it, which only survives if the honorifics stay. No synopsis beyond the bare title
-      to confirm the ghost-story reading, so the note flags it as likely rather than settled.
+      to confirm the ghost-story reading, so the note flags it as likely rather than settled. サンデーうぇぶり's
+      page for the one-shot was read on 2026-09-04 and carries none. Refused as a translation until 2026-10-19,
+      when と alone made it one, and the honorifics take the hyphen English gives them; it had shown as
+      Hanako San to Hanako Chan.
     reading: ハナコ サン ト ハナコ チャン
     reading_at: '2026-08-08'
     reading_basis: researched
@@ -81870,11 +81870,6 @@ names:
     reading_reviewed: '2026-08-08'
     reading_source: yurarium
     reading_source_kind: derived
-    translation_refused: Two given names told apart by their honorifics alone, which is the whole title.
-      Our rendering keeps both names and both suffixes, so it is the romanisation again. The note below
-      flagged the ghost-story reading as likely rather than settled for want of a synopsis; サンデーうぇぶり's
-      page for the one-shot was read on 2026-09-04 and carries none, so it stays likely and the disposition
-      does not rest on it.
     verified: false
   花木姉妹へ愛をこめて:
     basis: translated
@@ -83859,6 +83854,8 @@ names:
     reading: ガンサク ノ ダイジュウバン
     reading_at: '2026-10-19'
     reading_basis: stated
+    reading_corroborated:
+    - series-art
     reading_note: The series art prints がんさく over 贋作, だい over 第 and じゅうばん over 十番.
     reading_pass: 4
     reading_reviewed: '2026-10-19'

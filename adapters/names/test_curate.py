@@ -330,6 +330,24 @@ def main(s):
                 "and the refutation goes, so the record does not hold a reading and its denial")
         st.close()
 
+    # A REFUSAL THE FILE HAS WITHDRAWN LEAVES THE RECORD TOO. つるこさん was refused as a name with
+    # nothing to translate and refiled as ours, because English writes the honorific after a hyphen
+    # and no romanisation does.
+    with tempfile.TemporaryDirectory() as d:
+        st = NameStore(d)
+        name = {"en": "Tsuruko-san", "source": "yurarium", "source_kind": "derived",
+                "reviewed": "2026-10-17", "note": "A given name and its honorific."}
+        curate.apply(st, {"titles": {"つるこさん": dict(name, basis="romaji",
+                                                     translation_refused="Ours is the romanisation again.")}})
+        rec = st.records["titles"]["つるこさん"]
+        s.check(rec.get("translation_refused"), "the refusal is recorded")
+        curate.apply(st, {"titles": {"つるこさん": dict(name, basis="translated", reviewed="2026-10-19")}})
+        rec = st.records["titles"]["つるこさん"]
+        s.eq((rec["en"], rec["basis"]), ("Tsuruko-san", "translated"), "the translation lands")
+        s.check(not rec.get("translation_refused"),
+                "and the refusal goes, so the record does not hold a rendering and the ruling against one")
+        st.close()
+
     # A curated READING. The interface renders basis-romaji titles from the kana, so a wrong
     # reading cannot be fixed by writing the romanisation into `en`: the string is ignored.
     R = {"reading": "タマヨミ", "reading_basis": "stated", "source": "comic-fuz",

@@ -7,6 +7,18 @@ from one nobody has looked at.
 **How to resume.** Read the table. The first row not marked done is the next one. Each closed row
 names the commit so the reasoning can be found without re-deriving it.
 
+## One rise accepted on 2026-10-19, two rows back that a run had dropped
+
+The update of 2026-10-19 lost セカンドバレンタイン and 戻らない季節。 from the remaining route's
+capture, because another title's date embedded in their pages made the one-shot fallback give up,
+and `incomplete attested rows` tightened from 45 to 43 while they were missing. Fixed the same day;
+their rows are restored from the capture before, which the fixed fallback reproduces exactly, and
+neither states an author or an access mode:
+
+| budget | was | now | why |
+|---|---:|---:|---|
+| incomplete attested rows | 43 | 45 | the two フラコミlike! one-shots restored, counted as they were the day before |
+
 ## One rise accepted on 2026-10-18, a one-shot found late now shown when it was found
 
 The owner ruled on 2026-10-18 that a one-shot found long after publication is shown in 更新 on the

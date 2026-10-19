@@ -22,18 +22,25 @@ def main(s):
 
     with tempfile.TemporaryDirectory() as d:
         led = pathlib.Path(d) / "arrivals.jsonl"
-        first = bk.accept([("uncertain readings", 63, 65)], {"works": 3000, "credits": 2400},
+        first, _ = bk.accept([("uncertain readings", 63, 65)], {"works": 3000, "credits": 2400},
                           ledger=led, today="2026-10-16")
         s.check("the first rise recorded for it" in first[0] and "+2" in first[0],
                 "the first acceptance says how far it rose and that nothing came before it")
-        again = bk.accept([("uncertain readings", 65, 66)], {"works": 3012, "credits": 2405},
+        again, _ = bk.accept([("uncertain readings", 65, 66)], {"works": 3012, "credits": 2405},
                           ledger=led, today="2026-10-17")
         s.check("+12 works, +5 credits" in again[0],
                 "a later one says how far the corpus grew since the last")
-        lines = [json.loads(x) for x in led.read_text().splitlines()]
+        ok, refused = bk.accept([("author names romanised as one word", 1268, 1284)],
+                                {"works": 3014, "credits": 2408}, ledger=led, today="2026-10-19")
+        s.eq((ok, [r[0] for r in refused]), ([], ["author names romanised as one word"]),
+             "a rise of 16 while the corpus gained five is refused as a regression, not accepted")
+        ok, _ = bk.accept([("author readings no source states", 500, 501)],
+                          {"works": 3014, "credits": 2408}, ledger=led, today="2026-10-19")
+        s.check(len(ok) == 1, "and a budget with no rise of its own is held to the latest baseline")
+        lines = [json.loads(x) for x in led.read_text().splitlines()][:2]
         s.eq([(x["date"], x["was"], x["now"]) for x in lines],
              [("2026-10-16", 63, 65), ("2026-10-17", 65, 66)], "each acceptance is one ledger line")
-        s.eq(bk.accept([], {}, ledger=pathlib.Path(d) / "none.jsonl"), [],
+        s.eq(bk.accept([], {}, ledger=pathlib.Path(d) / "none.jsonl"), ([], []),
              "and accepting nothing writes nothing")
         s.check(not (pathlib.Path(d) / "none.jsonl").exists(), "not even an empty file")
 

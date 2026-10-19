@@ -80,8 +80,28 @@ def last_corpus(lines):
         except (ValueError, TypeError):
             continue
         if isinstance(e, dict) and e.get("budget"):
-            out[e["budget"]] = e.get("corpus") or {}
+            out[e["budget"]] = out[None] = e.get("corpus") or {}
     return out
+
+
+def growth(corpus, before):
+    """How many works and credits the corpus gained since `before`, or None with no baseline."""
+    if not before:
+        return None
+    return sum(max(0, (corpus.get(k) or 0) - (before.get(k) or 0)) for k in ("works", "credits"))
+
+
+def explained(was, now, corpus, before):
+    """Whether a rise is no larger than the corpus grew, which is all an arrival can account for.
+
+    A QUEUE CANNOT GROW FASTER THAN WHAT FEEDS IT. On 2026-10-19 `author names romanised as one
+    word` rose 16 while the corpus gained two works and three credits, and the gate accepted it as
+    arrivals. It was ten kana names losing a stated division, because `curate.py --apply` refused
+    that run and nothing put the curated readings back. A rise the growth cannot cover is a
+    regression however the budget is classified, and is refused as one.
+    """
+    g = growth(corpus, before)
+    return g is None or now - was <= g
 
 
 def reason(name, was, now, corpus, before=None):
@@ -98,14 +118,21 @@ def reason(name, was, now, corpus, before=None):
 
 
 def accept(rises, corpus, ledger=LEDGER, today=None):
-    """Write one ledger line per `(name, was, now)` and return the reasons, in order."""
+    """`(reasons, refused)`: a ledger line written, and its reason returned, for each `(name, was,
+    now)` the corpus's growth explains, and `(name, was, now, why)` for each it does not."""
     ledger = pathlib.Path(ledger)
     before = last_corpus(ledger.read_text(encoding="utf-8").splitlines()) if ledger.exists() else {}
     # THE DATE IN JAPAN, which is the date this corpus keeps (`facts/dating.today`).
     from facts import dating
     day = today or dating.today().isoformat()
-    lines, out = [], []
+    lines, out, refused = [], [], []
     for name, was, now in rises:
+        # A BUDGET WITH NO RISE OF ITS OWN is held to the latest baseline any budget recorded.
+        base = before.get(name) or before.get(None)
+        if not explained(was, now, corpus, base):
+            refused.append((name, was, now, f"rose {now - was:+d} while the corpus gained "
+                                            f"{growth(corpus, base)} works and credits"))
+            continue
         why = reason(name, was, now, corpus, before.get(name))
         out.append(why)
         lines.append(json.dumps({"date": day, "budget": name, "was": was, "now": now,
@@ -114,7 +141,7 @@ def accept(rises, corpus, ledger=LEDGER, today=None):
         ledger.parent.mkdir(parents=True, exist_ok=True)
         with ledger.open("a", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
-    return out
+    return out, refused
 
 
 def corpus_of(ctx):

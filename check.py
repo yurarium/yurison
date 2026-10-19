@@ -6268,9 +6268,14 @@ def main():
     # AN ARRIVAL IS ACCEPTED WHERE A RATCHET IS WRITTEN, and nowhere else: the reason goes to the
     # ledger beside the number it explains. A run that writes neither leaves both for the next gate.
     if arrivals and not a.no_tighten and not a.runtime:
-        for why in _bk.accept(arrivals, _bk.corpus_of(ctx)):
+        reasons, refused_arrivals = _bk.accept(arrivals, _bk.corpus_of(ctx))
+        for why in reasons:
             print(f"  accepted: {why}")
-        tightened.update({name: now for name, _was, now in arrivals})
+        for name, was, now, why in refused_arrivals:
+            print(f"  FAIL  {name}: {why}, which no arrival accounts for")
+            loosened.append((name, was, now))
+        refused_names = {r[0] for r in refused_arrivals}
+        tightened.update({name: now for name, _was, now in arrivals if name not in refused_names})
     if tightened and not a.no_tighten and not a.runtime:
         recorded.update(tightened)
         BUDGETS.parent.mkdir(parents=True, exist_ok=True)

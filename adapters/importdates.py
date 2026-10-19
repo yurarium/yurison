@@ -77,6 +77,29 @@ def _chapters_per_date(work):
 #: as continuing anything. 第N巻 is a volume and is not read: カドコミ's コミックス第2巻発売記念イラスト
 #: would otherwise have continued a run of one.
 NUMBER = re.compile(r"第\s*([0-9０-９]+)\s*話|(?:track|＃|#)\s*([0-9０-９]+)", re.I)
+#: AND A COUNTER OF THE WORK'S OWN, in kanji or in digits. 御贖事処 煮るばあな counts its chapters
+#: as courses served, 【一膳目】 to 【三膳目】, and its 三膳目 of 2026-10-08, the Thursday NUMBER's
+#: own case fell on, read as an import and the work as overdue on a schedule it had kept. The
+#: counters are the ones a serial is numbered in; 巻 is a volume and stays out, as above.
+#: 話 AND 回 STILL WANT THEIR 第, as NUMBER always has: マンガワン titles a one-shot's lone
+#: instalment `1話`, and reading that as a run's first chapter called three of them serials begun.
+COUNTED = re.compile(r"([0-9０-９]+|[一二三四五六七八九十百]+)\s*(?:膳目|品目|皿目|幕|夜|章)"
+                     r"|第\s*([0-9０-９]+|[一二三四五六七八九十百]+)\s*(?:話|回)")
+_KANJI = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
+
+
+def _kanji_number(s):
+    """`二十三` as 23, `百二` as 102, or None for a string that is not a kanji numeral."""
+    total, part = 0, 0
+    for ch in s:
+        if ch in _KANJI:
+            part = _KANJI[ch]
+        elif ch in "十百":
+            total += (part or 1) * (10 if ch == "十" else 100)
+            part = 0
+        else:
+            return None
+    return total + part or None
 
 #: The most instalments one day's publishing brings. One is the rule and two is a double update or a
 #: launch; ichicomi's 2026-04-09 brought ささやくように恋を唄う 第60話 to 第62話 after nothing since
@@ -90,10 +113,15 @@ def number(title):
 
 
 def _number(title):
+    digits = str.maketrans("０１２３４５６７８９", "0123456789")
     m = NUMBER.search(str(title or ""))
+    if m:
+        return int((m.group(1) or m.group(2)).translate(digits))
+    m = COUNTED.search(str(title or ""))
     if not m:
         return None
-    return int((m.group(1) or m.group(2)).translate(str.maketrans("０１２３４５６７８９", "0123456789")))
+    n = m.group(1) or m.group(2)
+    return int(n.translate(digits)) if n[0] in "0123456789０１２３４５６７８９" else _kanji_number(n)
 
 
 def continues(work, date):

@@ -67,7 +67,7 @@ def main(s):
             work("kaiju", ("【第3話】", "2026-09-09"), ("【第4話(1)】", "2026-10-08"),
                  ("【第4話(2)】 前編", "2026-10-08")),
             work("launch", ("【第1話】", "2026-10-08"), ("【第2話】", "2026-10-08")),
-            work("one", ("【一膳目】", "2026-10-08"))]
+            work("one", ("【特別編】", "2026-10-08"))]
     # The rest of the platform, which updated on other days: four of forty works, as on マガポケ.
     busy += [work(f"other{i}", ("【第%d話】" % (i + 2), "2026-09-%02d" % (i % 28 + 1)))
              for i in range(36)]
@@ -92,6 +92,10 @@ def main(s):
     s.check(("lone", "2025-08-08") in im.stamps(moved),
             "a lone 第1話 on a day other works loaded back catalogues is stamped with them")
     s.check(("one", "2026-10-08") in busy_got, "and so is one whose title states no number")
+    niru = work("niru", ("【一膳目】", "2026-08-07"), ("【二膳目】", "2026-09-09"),
+                ("【三膳目】拉致られっ娘!?", "2026-10-08"))
+    s.check(im.continues(niru, "2026-10-08"),
+            "but a run counted in its own way, 一膳目 to 三膳目, continues as surely as 第N話 does")
 
     # THE COUNTER-CASES CONTINUITY MUST NOT EXCUSE. A back catalogue filled in behind chapters
     # already held is numbered BEFORE them; and a late load of the rest of a run continues the
@@ -106,6 +110,11 @@ def main(s):
     s.eq(im._number("【ｔｒａｃｋ１４】"), None, "full-width letters are not read as a marker")
     s.eq(im._number("第１２話"), 12, "full-width digits are")
     s.eq(im._number("コミックス第2巻発売記念イラスト"), None, "and a volume is not an instalment")
+    s.eq([im._number(t) for t in ("【一膳目】御贖事処にご案内～", "【三膳目】拉致られっ娘!?", "第二十三話",
+                                   "第3回", "第百二話", "4皿目")], [1, 3, 23, 3, 102, 4],
+         "a work's own counter is read, in kanji or digits")
+    s.eq(im._number("1話"), None, "but 話 without its 第 is not, which is how マンガワン titles a one-shot")
+    s.eq(im._number("十二支の娘"), None, "and a kanji numeral with no counter after it is not")
     catchup = [work("caught", ("第59話", "2025-11-18"), *[("第%d話" % k, "2026-04-09") for k in (60, 61, 62)])]
     catchup += [work(f"w{i}", *[("c%d" % k, "2026-04-09") for k in range(2)]) for i in range(4)]
     s.check(("caught", "2026-04-09") in im.stamps(catchup),

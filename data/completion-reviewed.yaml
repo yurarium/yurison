@@ -325,10 +325,6 @@ works:
     verdict: unsettled
     basis: サンデーうぇぶりの話数フィードを見ると、唯一の話が「前編」と題されている。後編にあたる回はフィードに存在せず、完結を示す語もない。
     reviewed: '2026-08-04'
-  岐阜の善き魔女:
-    verdict: unsettled
-    basis: MAGCOMIの話数フィードを見ると、唯一の話は「7ページ連載予告マンガ」であり、本編ではなく連載の予告漫画である。
-    reviewed: '2026-08-04'
   ガンバレッド×シスターズ:
     verdict: unsettled
     basis: 掲載誌の /atom/series/<id> フィードで全話のタイトルを確認したが、最終話や完結を示す語はどの回にもない。
@@ -790,3 +786,31 @@ works:
     source_kind: "platform"
     source_url: "https://comic-walker.com/detail/KC_005076_S"
     reviewed: '2026-10-18'
+  "岐阜の善き魔女":
+    verdict: "serialised"
+    basis: "唯一の話は「7ページ連載予告マンガ」(2022-12-30)で、連載開始を予告するものとして掲載されている。"
+    basis_en: "The only entry is titled '7ページ連載予告マンガ' (2022-12-30), a preview announcing the serialisation."
+    source: "magcomi.com"
+    source_kind: "platform"
+    source_url: "https://magcomi.com/atom/series/316190247002963329"
+    reviewed: '2026-10-19'
+  "マーブルビターチョコレート":
+    verdict: "unsettled"
+    basis: "ニコニコ漫画のページは第1話(31ページ)のみで、読切・連載の表記はなく、開始日と更新日が同じ2021年10月25日。カドコミ側は確認できなかった。"
+    reviewed: '2026-10-19'
+  "恋愛ショートアンソロジーコミック":
+    verdict: "unsettled"
+    basis: "複数作家のアンソロジーで、掲載は「しゃらくさいふたり」(6ページ)のみ。読切・連載の明示はなかった。"
+    reviewed: '2026-10-19'
+  "SQ 君の名前から始まる":
+    verdict: "unsettled"
+    basis: "ニコニコ漫画のページには「Chapter.01」(34ページ)のみで、読切・連載の明示はなく、開始日と更新日は2019年12月11日で同じ。"
+    reviewed: '2026-10-19'
+  "ツン姫さまとダメ王子ちゃん":
+    verdict: "unsettled"
+    basis: "第1話(29ページ)のみで、読切・連載の表記はなく、開始日と更新日は2019年10月18日で同じ。"
+    reviewed: '2026-10-19'
+  "schadenliebe":
+    verdict: "unsettled"
+    basis: "唯一の話は「第1話サンプル(C96)」13ページで、読切・連載の表記はない。コミケ向けの体験版の可能性がある。"
+    reviewed: '2026-10-19'

@@ -1,0 +1,239 @@
+# マイナビニュース: 自動車の妖精 パッソちゃんの恩返し, every instalment, read once on 2026-10-20.
+#
+# A ONE-OFF CAPTURE OF A FINISHED WORK. The series ran from 2023-11-28 to 2024-01-01, two strips a
+# day, and ends at its 70th, 【漫画】パッソちゃんの存在理由. Nothing is left to schedule. The rows
+# were read off the four pages of https://news.mynavi.jp/series/carfairy_re/, which is where
+# /series/carfairy/ now redirects. Each list item gives the article address, its 【漫画】 headline
+# and the time the site states beside it, so the dates are the platform's own. Listed oldest
+# first, so the second strip of a day stays after the first.
+#
+# WHY IT IS NOT THE GENERIC EXTRACTOR'S. That adapter read this host from the page's ranking
+# sidebar, so what it filed under this work was other columns on motorcycles; see the マイナビニュース
+# entry in data/coverage/extract.yaml and data/coverage/withdrawn-sources.yaml.
+#
+# The articles are free to read. No genre label is established here (DEFINITIONS §4).
+source: webpages
+platform: news-mynavi-jp
+platform_name: "マイナビニュース"
+publisher: "マイナビ"
+retrieved: 2026-10-20
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: platform-stated
+date_confidence: reported
+works:
+  - work_title: "自動車の妖精 パッソちゃんの恩返し"
+    author: "ずんだコロッケ"
+    url: "https://news.mynavi.jp/series/carfairy_re/"
+    chapter_count: 70
+    chapters:
+      - title: "【漫画】わたしは車の妖精です"
+        updated: 2023-11-28
+        access_modes: ["free"]
+      - title: "【漫画】わたしの得意技"
+        updated: 2023-11-28
+        access_modes: ["free"]
+      - title: "【漫画】寝ちゃいけません!"
+        updated: 2023-11-29
+        access_modes: ["free"]
+      - title: "【漫画】車にぬいぐるみは置かないんですか?"
+        updated: 2023-11-29
+        access_modes: ["free"]
+      - title: "【漫画】自動車の妖精ってなに?"
+        updated: 2023-11-30
+        access_modes: ["free"]
+      - title: "【漫画】あの標識…知ってる?"
+        updated: 2023-11-30
+        access_modes: ["free"]
+      - title: "【漫画】しりとりでもしましょう"
+        updated: 2023-12-01
+        access_modes: ["free"]
+      - title: "【漫画】レコーダーを買おうと思って"
+        updated: 2023-12-01
+        access_modes: ["free"]
+      - title: "【漫画】未来のコンセプトカー"
+        updated: 2023-12-02
+        access_modes: ["free"]
+      - title: "【漫画】痛車にご興味は…"
+        updated: 2023-12-02
+        access_modes: ["free"]
+      - title: "【漫画】オープンカーといえば…"
+        updated: 2023-12-03
+        access_modes: ["free"]
+      - title: "【漫画】カプチーノを買いたくてさ"
+        updated: 2023-12-03
+        access_modes: ["free"]
+      - title: "【漫画】ワンちゃんですよ!"
+        updated: 2023-12-04
+        access_modes: ["free"]
+      - title: "【漫画】今年も一年ありがとね"
+        updated: 2023-12-04
+        access_modes: ["free"]
+      - title: "【漫画】〇か×か"
+        updated: 2023-12-05
+        access_modes: ["free"]
+      - title: "【漫画】雪かきをしてました!"
+        updated: 2023-12-05
+        access_modes: ["free"]
+      - title: "【漫画】点滅信号か……"
+        updated: 2023-12-06
+        access_modes: ["free"]
+      - title: "【漫画】タンクローリーの妖精さん"
+        updated: 2023-12-06
+        access_modes: ["free"]
+      - title: "【漫画】ボンネットを叩いている…!?"
+        updated: 2023-12-07
+        access_modes: ["free"]
+      - title: "【漫画】『スーパーカー』って知ってる?"
+        updated: 2023-12-07
+        access_modes: ["free"]
+      - title: "【漫画】ドライブ中のラジオって"
+        updated: 2023-12-08
+        access_modes: ["free"]
+      - title: "【漫画】山、ドライブ、体験談っと…"
+        updated: 2023-12-08
+        access_modes: ["free"]
+      - title: "【漫画】私もとある車の妖精であります!"
+        updated: 2023-12-09
+        access_modes: ["free"]
+      - title: "【漫画】ご、ご主人様…これは…?"
+        updated: 2023-12-09
+        access_modes: ["free"]
+      - title: "【漫画】てしまめじは"
+        updated: 2023-12-10
+        access_modes: ["free"]
+      - title: "【漫画】あの標識なんだか知ってる?"
+        updated: 2023-12-10
+        access_modes: ["free"]
+      - title: "【漫画】車にとって雨の日の運転ってどう?"
+        updated: 2023-12-11
+        access_modes: ["free"]
+      - title: "【漫画】お寺に行こうかな"
+        updated: 2023-12-11
+        access_modes: ["free"]
+      - title: "【漫画】なんで車買わないのさ"
+        updated: 2023-12-12
+        access_modes: ["free"]
+      - title: "【漫画】おとなしめのクラクション…"
+        updated: 2023-12-12
+        access_modes: ["free"]
+      - title: "【漫画】旧車ですよ ご主人様!"
+        updated: 2023-12-13
+        access_modes: ["free"]
+      - title: "【漫画】前向き駐車でお願いします!"
+        updated: 2023-12-13
+        access_modes: ["free"]
+      - title: "【漫画】なんで車って左側通行なの?"
+        updated: 2023-12-14
+        access_modes: ["free"]
+      - title: "【漫画】車に関する「ある法律」が変わったの知ってた?"
+        updated: 2023-12-14
+        access_modes: ["free"]
+      - title: "【漫画】背の高い車はとてもいい"
+        updated: 2023-12-15
+        access_modes: ["free"]
+      - title: "【漫画】秋のドライブって…"
+        updated: 2023-12-15
+        access_modes: ["free"]
+      - title: "【漫画】車の免許にも色々ある"
+        updated: 2023-12-16
+        access_modes: ["free"]
+      - title: "【漫画】電気の次は? 未来の車のエネルギー"
+        updated: 2023-12-16
+        access_modes: ["free"]
+      - title: "【漫画】あやしいやつだな…"
+        updated: 2023-12-17
+        access_modes: ["free"]
+      - title: "【漫画】年越しはドライブで"
+        updated: 2023-12-17
+        access_modes: ["free"]
+      - title: "【漫画】車に季節の飾りつけ"
+        updated: 2023-12-18
+        access_modes: ["free"]
+      - title: "【漫画】変な写真になったらいやだな…免許の更新"
+        updated: 2023-12-18
+        access_modes: ["free"]
+      - title: "【漫画】道路標識の覚え方"
+        updated: 2023-12-19
+        access_modes: ["free"]
+      - title: "【漫画】郵便車の今後は?"
+        updated: 2023-12-19
+        access_modes: ["free"]
+      - title: "【漫画】クルマの名前、どんなのがいい?"
+        updated: 2023-12-20
+        access_modes: ["free"]
+      - title: "【漫画】雨の日は「水はね」に気を付けよう!"
+        updated: 2023-12-20
+        access_modes: ["free"]
+      - title: "【漫画】ドライブにぴったりのお花見スポット"
+        updated: 2023-12-21
+        access_modes: ["free"]
+      - title: "【漫画】「一方通行」の標識には弟がいる?"
+        updated: 2023-12-21
+        access_modes: ["free"]
+      - title: "【漫画】剥がせるボディカラー?"
+        updated: 2023-12-22
+        access_modes: ["free"]
+      - title: "【漫画】かわいすぎる車「エスカルゴ」"
+        updated: 2023-12-22
+        access_modes: ["free"]
+      - title: "【漫画】キャンピングカーの使い方"
+        updated: 2023-12-23
+        access_modes: ["free"]
+      - title: "【漫画】ふるさと納税でポルシェに乗れる?"
+        updated: 2023-12-23
+        access_modes: ["free"]
+      - title: "【漫画】もう一度見たいあの車"
+        updated: 2023-12-24
+        access_modes: ["free"]
+      - title: "【漫画】夏の車の注意事項は?"
+        updated: 2023-12-24
+        access_modes: ["free"]
+      - title: "【漫画】徒歩でも行ける? サービスエリア"
+        updated: 2023-12-25
+        access_modes: ["free"]
+      - title: "【漫画】おうちで楽しむカーライフ"
+        updated: 2023-12-25
+        access_modes: ["free"]
+      - title: "【漫画】消防車をマイカーに?"
+        updated: 2023-12-26
+        access_modes: ["free"]
+      - title: "【漫画】ナンバープレートの豆知識"
+        updated: 2023-12-26
+        access_modes: ["free"]
+      - title: "【漫画】ジープの「コマンダー」って知ってる?"
+        updated: 2023-12-27
+        access_modes: ["free"]
+      - title: "【漫画】「ドライバーの日」ってなに?"
+        updated: 2023-12-27
+        access_modes: ["free"]
+      - title: "【漫画】ミニカーって乗れるの?"
+        updated: 2023-12-28
+        access_modes: ["free"]
+      - title: "【漫画】「ゴルフ」っていいよね"
+        updated: 2023-12-28
+        access_modes: ["free"]
+      - title: "【漫画】「コンバートEV」って知ってる?"
+        updated: 2023-12-29
+        access_modes: ["free"]
+      - title: "【漫画】もうクリスマスか…"
+        updated: 2023-12-29
+        access_modes: ["free"]
+      - title: "【漫画】トラックの荷台って…"
+        updated: 2023-12-30
+        access_modes: ["free"]
+      - title: "【漫画】「軽車両」という言葉に納得できない!"
+        updated: 2023-12-30
+        access_modes: ["free"]
+      - title: "【漫画】クルマの雪下ろし"
+        updated: 2023-12-31
+        access_modes: ["free"]
+      - title: "【漫画】除雪車の妖精"
+        updated: 2023-12-31
+        access_modes: ["free"]
+      - title: "【漫画】電動キックボードの普及で免許の試験問題が変わる?"
+        updated: 2024-01-01
+        access_modes: ["free"]
+      - title: "【漫画】パッソちゃんの存在理由"
+        updated: 2024-01-01
+        access_modes: ["free"]

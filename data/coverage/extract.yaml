@@ -508,21 +508,15 @@ platforms:
   strategy: none
 - platform: マイナビニュース
   host: news.mynavi.jp
-  work_url: https://news.mynavi.jp/series/carfairy/
+  work_url: https://news.mynavi.jp/series/carfairy_re/
   exclusive_works: 1
-  strategy: markup
-  sample:
-  - title: バイクのクイズ 第62回 バイクのステップに謎の突起物! 何のパーツ? 2026/07/31 08:00 連載
-    date: '2026-07-31'
-  - title: 今さら聞けない「バイクのギモン」相談室 第5回 バイクのエンジンオイルっていつ交換すればいいの? 意外と知らない役割も解説 2026/07/24
-      11:00 連
-    date: '2026-07-24'
-  - title: 今さら聞けない「バイクのギモン」相談室 第6回 安いオイルと高いオイル、何が違う? バイクのエンジンオイルの選び方を解説 2026/07/25
-      11:00 連載
-    date: '2026-07-25'
-  selector:
-    tag: li
-    class: c-sideRanking_listNode
+  # WITHDRAWN 2026-10-20, and for the second time. The strategy was proven on
+  # `li.c-sideRanking_listNode`, which is the page's ranking sidebar of other columns, so every
+  # sample above the proof was a motorcycle article and none was this work. The rows were withdrawn
+  # on 2026-08-02 (data/coverage/withdrawn-sources.yaml) and this entry went on naming the host, so
+  # the same day's run wrote them back and they reached the feed again for August to October.
+  strategy: withdrawn
+  strategy_note: "the work finished on 2024-01-01 at its 70th instalment, so there is no schedule to read; its chapters are a one-off capture, data/source/webpages/mynavi-carfairy.yaml"
 - platform: MAGKAN
   host: kansai.mag-garden.co.jp
   work_url: https://kansai.mag-garden.co.jp/series/76bb18d479f8c

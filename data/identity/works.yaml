@@ -258,6 +258,11 @@ works:
     title: "自動車の妖精 パッソちゃんの恩返し"
     anchors:
       - "web:https://news.mynavi.jp/series/carfairy/"
+      - "web:https://news.mynavi.jp/series/carfairy_re/"
+    attached:
+      - anchor: "web:https://news.mynavi.jp/series/carfairy_re/"
+        basis: "https://news.mynavi.jp/series/carfairy/ answers 301 to https://news.mynavi.jp/series/carfairy_re/, whose title is 【連載】自動車の妖精 パッソちゃんの恩返し and whose four pages list the work's 70 instalments"
+        retrieved: 2026-10-20
   - id: w00039
     title: "友達からでもいいですか"
     anchors:
@@ -22058,6 +22063,14 @@ works:
     title: "転性魔王さまは勇者に勝てない!"
     anchors:
       - "web:https://comicride.jp/series/0ff97eb531021"
+  - id: w03445
+    title: "戻らない季節。"
+    anchors:
+      - "web:https://flowercomics.jp/title/3311"
+  - id: w03446
+    title: "セカンドバレンタイン"
+    anchors:
+      - "web:https://flowercomics.jp/title/2258"
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a
@@ -22070,14 +22083,6 @@ works:
 # 一迅プラス imported its catalogue, while the serialisation's real start of
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
-  - id: w03445
-    title: "戻らない季節。"
-    anchors:
-      - "web:https://flowercomics.jp/title/3311"
-  - id: w03446
-    title: "セカンドバレンタイン"
-    anchors:
-      - "web:https://flowercomics.jp/title/2258"
 related:
   - a: w00156
     b: w00486

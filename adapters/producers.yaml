@@ -161,6 +161,9 @@ entries:
   - paths: [data/source/webpages/magapoke-deep.yaml, data/source/webpages/nicovideo-titles.yaml]
     status: hand
     note: one-off captures of 2026-08-01 and 08-02 that the build still reads
+  - paths: [data/source/webpages/mynavi-carfairy.yaml]
+    status: hand
+    note: every instalment of a work that ended on 2024-01-01, read once on 2026-10-20
   - paths: [data/source/webpages/*.yaml]
     status: run
     producer: stage-a:webpages

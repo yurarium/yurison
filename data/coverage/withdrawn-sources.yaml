@@ -26,3 +26,12 @@ sources:
       For the record, since it was established while checking: the author is ずんだコロッケ, credited
       on every article page as 著者：<a href="/author/12216/">ずんだコロッケ</a>. Kept here rather
       than in resolved-authors.yaml because the work has no live rows to attach it to.
+    withdrawn_again: 2026-10-20
+    rows_withdrawn_again: 7
+    again: >-
+      The same day's change to the generic extractor wrote the file back, because nothing read this
+      record and data/coverage/extract.yaml still named the host with the sidebar selector it was
+      proven on. Seven more motorcycle columns reached the feed as this work's chapters from August
+      to October 2026. The host is now `withdrawn` there, the work's real instalments are a one-off
+      capture in data/source/webpages/mynavi-carfairy.yaml, and `./check.py --gate` fails while any
+      file listed here exists.

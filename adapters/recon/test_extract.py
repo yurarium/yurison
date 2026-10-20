@@ -103,6 +103,29 @@ def main(s):
     s.check(all("第8話" not in r["title"] for r in got),
             "a chapter that exists only inside an HTML comment is not extracted")
 
+    # A SIDEBAR IS NOT THE WORK'S LIST, however long it is. マイナビニュース's work page ranks other
+    # columns in `li.c-sideRanking_listNode`, three of them dated and numbered like chapters, and the
+    # strips themselves are 【漫画】 headlines with no number at all.
+    side = "".join(f'<li class="c-sideRanking_listNode"><a>相談室 第{k}回 バイクのオイル</a>'
+                   f'<span>2026/10/{k:02d}</span></li>' for k in (5, 6, 7))
+    own = ('<li class="episode"><a>第1話 わたしは車の妖精です</a><span>2023/11/28</span></li>'
+           '<li class="episode"><a>第2話 わたしの得意技</a><span>2023/11/28</span></li>')
+    got, sel = extract.try_markup("<ul>" + side + own + "</ul>")
+    s.eq([r["date"] for r in got], ["2023-11-28", "2023-11-28"],
+         "a ranking sidebar is passed over for the work's own list beside it")
+    s.eq(extract.try_markup("<ul>" + side + "</ul>")[0], [],
+         "and alone it is nothing, not the chapters")
+    s.eq(len(extract.try_markup('<ul><li class="relative"><a>第1話</a><span>2021/06/14</span></li>'
+                                '<li class="relative"><a>第2話</a><span>2021/06/28</span></li></ul>')[0]),
+         2, "while GANMA!'s `relative`, which is positioning, is read as before")
+    s.eq(len(extract.try_markup('<section class="container--exists-side"><ul>'
+                                '<li class="episode"><a>第1話</a><span>2023/09/22</span></li>'
+                                '<li class="episode"><a>第2話</a><span>2023/10/27</span></li>'
+                                '</ul></section>')[0]),
+         2, "nor is COMIC熱帯's page, whose layout wrapper says it has a side column")
+    s.eq(extract.drop_furniture('<p>a</p><div class="ranking"><div>x</div>'), '<p>a</p><div class="ranking"><div>x</div>',
+         "and a sidebar that never closes is left in rather than taking the page with it")
+
 
     # ── A PLATFORM THAT LISTS ITS CHAPTERS AND PRINTS NO DATE ────────────────────────────────
     #

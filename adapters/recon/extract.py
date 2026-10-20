@@ -295,6 +295,46 @@ def named_title(b):
     return None
 
 
+#: Words a class gives to the parts of a page that list OTHER works: a ranking, a recommendation
+#: or related-works box. `side` and `pickup` are not among them, and were at first: COMIC熱帯
+#: wraps its whole page in `container--exists-side`, chapter list included, and やわらかスピリッツ
+#: keeps the work's own 第1夜 in a `page__pickup` box. Measured on the 42 cached work pages.
+FURNITURE = re.compile(r"rank|recommend|related|popular", re.I)
+_TAG = re.compile(r"<(/?)([a-zA-Z][\w-]*)([^>]*)>")
+_VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source",
+         "track", "wbr"}
+
+
+def drop_furniture(html):
+    """The page without any element whose class names it page furniture, and what it holds.
+
+    A BLOCK THAT NAMES ITSELF FURNITURE IS NOT THE WORK'S LIST. マイナビニュース's ranking sidebar,
+    `li.c-sideRanking_listNode`, outnumbered the strips on the work's own page, so `try_markup`
+    returned motorcycle columns as its chapters twice over. Removed as a whole subtree and not
+    block by block, because the anchors inside a sidebar item carry no class of their own and the
+    `a` pass read them anyway. Depth is counted on the furniture element's own tag name, which is
+    all a sidebar needs and stays upright through the malformed markup elsewhere on a page.
+    """
+    out, at, skip, depth, opened = [], 0, None, 0, 0
+    for m in _TAG.finditer(html):
+        closing, name, rest = m.group(1), m.group(2).lower(), m.group(3)
+        if skip is None:
+            c = re.search(r'class="([^"]*)"', rest)
+            if not closing and c and FURNITURE.search(c.group(1)) \
+                    and name not in _VOID and not rest.rstrip().endswith("/"):
+                out.append(html[at:m.start()])
+                skip, depth, opened = name, 1, m.start()
+            continue
+        if name == skip and name not in _VOID:
+            depth += -1 if closing else (0 if rest.rstrip().endswith("/") else 1)
+            if depth == 0:
+                skip, at = None, m.end()
+    # AN ELEMENT THAT NEVER CLOSES IS LEFT IN, so a page whose markup this cannot balance reads as
+    # it did before rather than losing everything after the sidebar.
+    out.append(html[at:] if skip is None else html[opened:])
+    return "".join(out)
+
+
 def try_markup(html):
     """Repeated blocks holding a date and an anchor. Reports the container it keyed on so the
     result is reproducible as a selector rather than a one-off parse.
@@ -306,6 +346,7 @@ def try_markup(html):
     # in a comment, and it was arriving as the chapter '更新！ 第8話 -->'.
     body = re.sub(r"<!--.*?-->", " ", html, flags=re.S)
     body = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", body, flags=re.S | re.I)
+    body = drop_furniture(body)
     best = []
     for tag in ("li", "article", "div", "tr", "a"):
         blocks = re.split(rf"(?=<{tag}\b)", body)

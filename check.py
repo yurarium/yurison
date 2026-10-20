@@ -589,6 +589,34 @@ def inv_no_absolute_paths_in_published_files(ctx):
     return bad
 
 
+def inv_a_withdrawn_source_stays_withdrawn(ctx):
+    """No file `data/coverage/withdrawn-sources.yaml` records as withdrawn is back in the tree.
+
+    A WITHDRAWAL NOTHING READ. マイナビニュース's file was removed on 2026-08-02 because its rows
+    were the page's sidebar of other columns, and the record says so at length. The same day a
+    change to the generic extractor wrote the file back, the producer still named the host, and
+    seven more motorcycle columns reached the feed as a manga's chapters before a freshness warning
+    led anyone to the file. The record was a note; this makes it a refusal.
+    fallback: none available. A withdrawn file is wrong rows, which nothing downstream can tell
+    from right ones.
+    """
+    return [f"{f} is recorded as withdrawn and exists again; whatever writes it is still scheduled"
+            for f, here in ctx.get("withdrawn") or [] if here]
+
+
+def inv_a_disabled_platform_leaves_no_output(ctx):
+    """No file under data/source/gigaviewer belongs to a platform `platforms.yaml` has disabled.
+
+    THE PRODUCER STOPS AND ITS LAST FILE STAYS. パイコミックス, マガジンデビュー and 栞 were
+    disabled on 2026-10-15 for serving WordPress rather than GigaViewer, which stopped the empty file
+    each run wrote and left the last one in place. Nothing would ever write those three again, so
+    the freshness check reported them stale every night until somebody asked why.
+    fallback: none available. A file no producer will refresh can only grow older.
+    """
+    return [f"{f} belongs to {pid}, which platforms.yaml disables; delete it with the retirement"
+            for pid, f in ctx.get("disabled_outputs") or []]
+
+
 def inv_the_feed_is_newest_first(ctx):
     """Every published feed file lists its rows newest first, by the date each is filed under.
 
@@ -2042,6 +2070,8 @@ INVARIANTS = [
     ("a reading can show its source", inv_reading_can_show_its_source),
     ("a volume number is the shop's own", inv_a_volume_number_is_the_shop_s_own),
     ("no build-machine paths in published files", inv_no_absolute_paths_in_published_files),
+    ("a withdrawn source stays withdrawn", inv_a_withdrawn_source_stays_withdrawn),
+    ("a disabled platform leaves no output", inv_a_disabled_platform_leaves_no_output),
     ("content flags are accounted for", inv_content_flags_are_accounted_for),
     ("scope rulings are accounted for", inv_scope_rulings_are_accounted_for),
     ("state agrees with its own date", inv_state_agrees_with_its_own_date),
@@ -5084,7 +5114,29 @@ def context():
         # more: the check that matters here recomputes the body digest, and it can only do that on
         # bytes nobody has re-serialised on the way in.
         "fixtures": _fixture_files(),
+        "disabled_outputs": _disabled_outputs(),
+        # EACH WITHDRAWN FILE AND WHETHER IT IS BACK, held as the pair so a canary can plant one.
+        "withdrawn": [(w["file"], (ROOT / w["file"]).exists()) for w in
+                      (_yaml(ROOT / "data" / "coverage" / "withdrawn-sources.yaml", {}) or {})
+                      .get("sources") or [] if w.get("file")],
     }
+
+
+def _disabled_outputs():
+    """`[(platform id, path)]` for each GigaViewer output file whose platform is disabled.
+
+    A file is the platform's when its name is the id or the id and a suffix. Matched on the longest
+    id first, so comic-days owns comic-days-series.yaml and comics owns only comics-*.yaml.
+    """
+    plats = (_yaml(ROOT / "adapters" / "gigaviewer" / "platforms.yaml", {}) or {}).get("platforms") or []
+    ids = sorted((p["id"] for p in plats if p.get("id")), key=len, reverse=True)
+    off = {p["id"] for p in plats if p.get("enabled") is False}
+    out = []
+    for f in sorted((ROOT / "data" / "source" / "gigaviewer").glob("*.yaml")):
+        own = next((i for i in ids if f.stem == i or f.stem.startswith(i + "-")), None)
+        if own in off:
+            out.append((own, str(f.relative_to(ROOT))))
+    return out
 
 
 def _fixture_files():
@@ -5402,6 +5454,12 @@ def self_test():
          _plant_a_late_row_above_its_day),
         ("no build-machine paths in published files", inv_no_absolute_paths_in_published_files,
          _plant_a_build_path_in_the_report),
+        ("a withdrawn source stays withdrawn", inv_a_withdrawn_source_stays_withdrawn,
+         lambda c: c.update(withdrawn=list(c.get("withdrawn") or [])
+                            + [("data/source/webpages/CANARY.yaml", True)])),
+        ("a disabled platform leaves no output", inv_a_disabled_platform_leaves_no_output,
+         lambda c: c.update(disabled_outputs=list(c.get("disabled_outputs") or [])
+                            + [("canary", "data/source/gigaviewer/canary-series.yaml")])),
         # THE JOIN BETWEEN THE STORE AND THE ROW, planted as the fault would arrive: a title the
         # store has an English name for whose row carries none. That is what a fold quietly ceasing
         # to match looks like, and it would otherwise show only as a reader seeing romaji.

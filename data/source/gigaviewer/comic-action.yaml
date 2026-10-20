@@ -11,6 +11,21 @@ record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "action:episode:12207421984308701914"
+    work_title: "小林さんちのメイドラゴン"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第194話 ペトラと家事"
+    release_type: "chapter"
+    date: "2026-10-20"
+    date_basis: "observed"
+    first_seen: "2026-10-20"
+    first_reported: "2026-10-20T03:00:00Z"
+    platform_updated: "2026-10-20T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-action.com/episode/12207421984308701914"
+    author: "クール教信者"
+    advances_narrative: true
   - release_id: "action:episode:12207421984213076743"
     in_current_window: false
     work_title: "小林さんちのメイドラゴン"

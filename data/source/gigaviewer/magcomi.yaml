@@ -11,6 +11,21 @@ record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "magcomi:episode:12207421984304225723"
+    work_title: "ボイタボイネ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第22話「決闘スタンバイ（後編）」"
+    release_type: "chapter"
+    date: "2026-10-20"
+    date_basis: "observed"
+    first_seen: "2026-10-20"
+    first_reported: "2026-10-20T03:00:00Z"
+    platform_updated: "2026-10-20T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984304225723"
+    author: "夏草"
+    advances_narrative: true
   - release_id: "magcomi:episode:12207421984355613624"
     in_current_window: false
     work_title: "忍者アシスタントとアナログ漫画家"

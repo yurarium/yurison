@@ -6,7 +6,7 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-10-21
+retrieved: 2026-10-22
 record_type: web_releases
 identification_mode: genre
 yuri_series_count: 174
@@ -360,6 +360,7 @@ releases:
     free_term_start: "2026-10-15T15:00:00Z"
     advances_narrative: true
   - release_id: "ichijinsha:episode:12207421984354015835"
+    in_current_window: false
     work_title: "百合の間に挟まる梅田ダンジョン"
     web_status: "serialised"
     identified_via: "platform-genre"

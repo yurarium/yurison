@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-21
+retrieved: 2026-10-22
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -36,6 +36,16 @@ platforms_missing:
   - platform: "マンガボックス"
     works: 1
 works_missing:
+  - title: "エイティエイトを2でわって"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3423"
+    antenna_id: "187224"
+    tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
+  - title: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3140"
+    antenna_id: "138856"
+    tags: ["百合", "アイドル"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -56,11 +66,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/441"
     antenna_id: "88071"
     tags: ["野球", "女子高生", "アニメ化", "百合"]
-  - title: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3140"
-    antenna_id: "138856"
-    tags: ["百合", "アイドル"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -86,11 +91,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3700"
     antenna_id: "203870"
     tags: ["百合", "サキュバス"]
-  - title: "エイティエイトを2でわって"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3423"
-    antenna_id: "187224"
-    tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
   - title: "愛でたいセンセイ"
     platform: "COMIC Y-OURS"
     url: "https://comic-y-ours.com/episode/2551460909791888785"
@@ -116,6 +116,11 @@ works_missing:
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
     antenna_id: "161471"
     tags: ["百合", "獣人", "お色気・微エロ"]
+  - title: "きっと、彼女が好きだから"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/74403f9e30641"
+    antenna_id: "214224"
+    tags: ["百合"]
   - title: "八尺様とコロポックル-215cmと135cmの女子高生-"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/3f172ce77f966"
@@ -131,11 +136,6 @@ works_missing:
     url: "https://g-comi.jp/series/5448ec9f6077b"
     antenna_id: "200185"
     tags: ["百合", "異世界", "サキュバス", "お色気・微エロ"]
-  - title: "きっと、彼女が好きだから"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/74403f9e30641"
-    antenna_id: "214224"
-    tags: ["百合"]
   - title: "たゆたうふたり"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/fef424c168c44"
@@ -735,7 +735,7 @@ works_missing:
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
     antenna_id: "200285"
-    tags: ["百合", "吸血鬼・ヴァンパイア"]
+    tags: ["最近のコメント数"]
   - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/21fe5b3d50300"
@@ -941,6 +941,11 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/70139"
     antenna_id: "177729"
     tags: ["百合", "現代"]
+  - title: "セイ少女黙示録 ですぺあ"
+    platform: "ビッコミ"
+    url: "https://bigcomics.jp/series/2c1db177ce231"
+    antenna_id: "181120"
+    tags: ["百合", "バトル", "ファンタジー", "残酷・グロテスク"]
   - title: "あくまで!アットホームな職場です。"
     platform: "ビッコミ"
     url: "https://bigcomics.jp/series/cad403cdddf52"
@@ -1100,7 +1105,7 @@ works_missing:
     platform: "ライコミ"
     url: "https://comicride.jp/series/7b86cbca64ebe"
     antenna_id: "84661"
-    tags: ["最近のコメント数"]
+    tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
   - title: "転性魔王さまは勇者に勝てない!"
     platform: "ライコミ"
     url: "https://comicride.jp/series/0ff97eb531021"

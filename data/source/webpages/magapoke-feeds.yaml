@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-21
+retrieved: 2026-10-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -1041,8 +1041,12 @@ works:
     title_id: "3349"
     url: "https://pocket.shonenmagazine.com/title/03349"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3349/feed.xml"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "【第4話】言いなり"
+        updated: 2026-10-22
+        author: "閉伊川広輔"
+        url: "https://pocket.shonenmagazine.com/title/03349/episode/445525"
       - title: "【第3話】一緒に入ろっか"
         updated: 2026-10-15
         author: "閉伊川広輔"

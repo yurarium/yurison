@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-10-21
+retrieved: 2026-10-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -31,17 +31,6 @@ works:
     chapters:
       - title: "第1話-1 作品インフォメーション 『〆切前には百合"
         updated: 2024-05-24
-        date_basis: heuristic
-  - work_title: "たっぷりお嬢様とちょっぴりギャルの幸せシェアごはん"
-    author: "もろみ新"
-    url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
-    platform_name: "きら星ポータル"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2026-08-12
-        author: "もろみ新"
         date_basis: heuristic
   - work_title: "アマデウス"
     url: "https://manga-one.com/viewer/283424"
@@ -88,12 +77,12 @@ works:
   - work_title: "セカンドバレンタイン"
     url: "https://flowercomics.jp/title/2258"
     platform_name: "フラコミlike!"
-    route: "markup"
+    route: "rendered"
     chapter_count: 1
     chapters:
       - title: "読み切り"
         updated: 2025-02-17
-        date_basis: heuristic
+        date_basis: rendered
   - work_title: "ソシャゲのお姉ちゃん"
     url: "https://manga-one.com/manga/27430/chapter/316579"
     platform_name: "マンガワン"
@@ -103,61 +92,6 @@ works:
       - title: "1話"
         updated: 2026-10-02
         date_basis: rendered
-  - work_title: "ツイてるギャルとミエてる陰キャ"
-    author: "深水たろー"
-    url: "https://kirapo.jp/meteor/titles/tuimie"
-    platform_name: "きら星ポータル"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2026-06-17
-        author: "深水たろー"
-        date_basis: heuristic
-  - work_title: "パワハラ魔王様と社畜魔女ちゃん"
-    author: "カモトタツヤ"
-    url: "https://kirapo.jp/meteor/titles/pawahara"
-    platform_name: "きら星ポータル"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2023-12-27
-        author: "カモトタツヤ"
-        date_basis: heuristic
-  - work_title: "フツーの恋って何?"
-    url: "https://michikusacomics.jp/product/hutsukoi"
-    platform_name: "路草"
-    route: "markup"
-    chapter_count: 9
-    chapters:
-      - title: "1話 初恋は一目惚れ"
-        updated: 2023-06-28
-        date_basis: heuristic
-      - title: "2話 特別な子"
-        updated: 2023-07-12
-        date_basis: heuristic
-      - title: "3話 君は知らない"
-        updated: 2023-07-19
-        date_basis: heuristic
-      - title: "4話 世界一のしあわせ"
-        updated: 2023-12-20
-        date_basis: heuristic
-      - title: "11話 わたしが守ったものは"
-        updated: 2023-11-15
-        date_basis: heuristic
-      - title: "12話 普通の恋じゃなかった"
-        updated: 2023-12-06
-        date_basis: heuristic
-      - title: "13話 一番でいたい"
-        updated: 2023-12-27
-        date_basis: heuristic
-      - title: "16話 貫く勇気"
-        updated: 2024-02-14
-        date_basis: heuristic
-      - title: "17話 狭い恋 ●登場人物 作者プロフィール いくたはな 漫画家。 年にエッセイマンガ"
-        updated: 2024-02-28
-        date_basis: heuristic
   - work_title: "メイドはお嬢様と笑いたい。"
     url: "https://ciao.shogakukan.co.jp/comics/title/00392/episode/7392"
     platform_name: "ちゃおプラス"
@@ -167,42 +101,6 @@ works:
       - title: "読み切り"
         updated: 2023-01-25
         date_basis: rendered
-  - work_title: "ラスボス姫は男装勇者にリア恋営業をかけられる!?"
-    url: "https://flowercomics.jp/title/1409"
-    platform_name: "フラコミlike!"
-    route: "markup"
-    chapter_count: 10
-    chapters:
-      - title: "第1話 -1"
-        updated: 2024-07-20
-        date_basis: heuristic
-      - title: "第1話 -2"
-        updated: 2024-07-20
-        date_basis: heuristic
-      - title: "第2話 -1"
-        updated: 2024-08-03
-        date_basis: heuristic
-      - title: "第2話 -2"
-        updated: 2024-08-03
-        date_basis: heuristic
-      - title: "第3話 -1"
-        updated: 2024-08-17
-        date_basis: heuristic
-      - title: "第19話 -2"
-        updated: 2025-04-19
-        date_basis: heuristic
-      - title: "第20話 -1"
-        updated: 2025-05-03
-        date_basis: heuristic
-      - title: "第20話 -2"
-        updated: 2025-05-10
-        date_basis: heuristic
-      - title: "最終話 -1"
-        updated: 2025-05-17
-        date_basis: heuristic
-      - title: "最終話 -2"
-        updated: 2025-05-24
-        date_basis: heuristic
   - work_title: "レベル1の最強テイマー ～幸運極振りの初心者ゲーマーはもふもふ軍団を従え最強へ至ります～"
     url: "https://www.ganganonline.com/title/1587"
     platform_name: "ガンガンONLINE"
@@ -233,17 +131,6 @@ works:
         updated: 2025-09-30
         author: "遮二無二"
         access_modes: ["free"]
-  - work_title: "十宵先輩は吸血鬼"
-    author: "糸瀬ねめ"
-    url: "https://kirapo.jp/meteor/titles/toyoisenpai"
-    platform_name: "きら星ポータル"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2025-02-05
-        author: "糸瀬ねめ"
-        date_basis: heuristic
   - work_title: "噓つき花嫁と同性結婚論"
     author: "コダマナオコ"
     url: "https://ichicomi.com/episode/2550912965919401644"
@@ -308,12 +195,12 @@ works:
   - work_title: "戻らない季節。"
     url: "https://flowercomics.jp/title/3311"
     platform_name: "フラコミlike!"
-    route: "markup"
+    route: "rendered"
     chapter_count: 1
     chapters:
       - title: "読み切り"
         updated: 2026-02-15
-        date_basis: heuristic
+        date_basis: rendered
   - work_title: "春綴る、桜咲くこの部屋で"
     url: "https://www.ganganonline.com/title/1222"
     platform_name: "ガンガンONLINE"
@@ -586,17 +473,6 @@ works:
         updated: 2025-07-29
         author: "あらた伊里/アトハ/狐印"
         access_modes: ["free"]
-  - work_title: "私が負けヒロインなんて認めませんわ!"
-    author: "のいるん"
-    url: "https://kirapo.jp/meteor/titles/watamake"
-    platform_name: "きら星ポータル"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2025-08-06
-        author: "のいるん"
-        date_basis: heuristic
   - work_title: "私の瞳に生きるまで/2024年4月期JUMP新世界漫画賞"
     author: "藤麻"
     url: "https://shonenjumpplus.com/episode/17106371883871799675"
@@ -616,37 +492,4 @@ works:
     chapters:
       - title: "第17話は公開期限が終了いたしました。"
         updated: 2026-01-20
-        date_basis: heuristic
-  - work_title: "終末は私の家でパンを食べませんか?"
-    author: "パデラポッロのりお"
-    url: "https://kirapo.jp/meteor/titles/syumatupan"
-    platform_name: "きら星ポータル"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2024-01-24
-        author: "パデラポッロのりお"
-        date_basis: heuristic
-  - work_title: "賭けっ娘"
-    author: "べいりーず"
-    url: "https://kirapo.jp/meteor/titles/kakekko"
-    platform_name: "きら星ポータル"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2024-03-27
-        author: "べいりーず"
-        date_basis: heuristic
-  - work_title: "魔女はシスターに甘えたい"
-    author: "ねこ末端"
-    url: "https://kirapo.jp/meteor/titles/majyosis"
-    platform_name: "きら星ポータル"
-    route: "markup"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り"
-        updated: 2023-12-27
-        author: "ねこ末端"
         date_basis: heuristic

@@ -8,11 +8,47 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-10-21
+retrieved: 2026-10-22
 record_type: update_claims
 window_days: 60
-claims: 408
+claims: 415
 updates:
+  - work: "魔女まじょS-WITCH 海老川ケイ"
+    platform: "きららベース"
+    date: 2026-10-22
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "骨に願いを、星に呪いを いくたはな"
+    platform: "一迅プラス"
+    date: 2026-10-22
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "超深宇宙より愛をこめて アシダカヲズ"
+    platform: "一迅プラス"
+    date: 2026-10-22
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "押しかけ女房、コドモ付き！ とめきち"
+    platform: "きららベース"
+    date: 2026-10-22
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "悪いが私は百合じゃない もちオーレ"
+    platform: "カドコミ"
+    date: 2026-10-22
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "マユノウタ シクシク"
+    platform: "一迅プラス"
+    date: 2026-10-22
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     platform: "ヤンチャンWeb"
     date: 2026-10-21
@@ -47,6 +83,13 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/02758"
     listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
+  - work: "セイ少女黙示録 ですぺあ"
+    platform: "ビッコミ"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://bigcomics.jp/series/2c1db177ce231"
+    listing_tags: ["百合", "バトル", "ファンタジー", "残酷・グロテスク"]
   - work: "スカベンジャーズアナザースカイ"
     platform: "ヤンチャンWeb"
     date: 2026-10-21
@@ -67,7 +110,14 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://championcross.jp/series/f30e2f58bbbdf"
-    listing_tags: ["百合", "吸血鬼・ヴァンパイア"]
+    listing_tags: ["最近のコメント数"]
+  - work: "エイティエイトを2でわって"
+    platform: "COMIC FUZ"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3423"
+    listing_tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
   - work: "アイドラトリィ"
     platform: "マガポケ"
     date: 2026-10-21
@@ -75,6 +125,20 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/02901"
     listing_tags: ["百合", "アイドル", "推し活"]
+  - work: "きっと、彼女が好きだから"
+    platform: "Gコミ"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://g-comi.jp/series/74403f9e30641"
+    listing_tags: ["百合"]
+  - work: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3140"
+    listing_tags: ["百合", "アイドル"]
   - work: "黒の世界は白墨に染まる"
     platform: "マンガよもんが"
     date: 2026-10-20
@@ -801,27 +865,13 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "きっと、彼女が好きだから"
-    platform: "Gコミ"
-    date: 2026-10-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://g-comi.jp/series/74403f9e30641"
-    listing_tags: ["百合"]
   - work: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
     platform: "ライコミ"
     date: 2026-10-15
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comicride.jp/series/7b86cbca64ebe"
-    listing_tags: ["最近のコメント数"]
-  - work: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    date: 2026-10-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3140"
-    listing_tags: ["百合", "アイドル"]
+    listing_tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
   - work: "魔女とくゅらす 柴田康平"
     platform: "コミプレ"
     date: 2026-10-14
@@ -2310,13 +2360,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912966077881821"
     listing_tags: ["百合", "ホラー"]
-  - work: "エイティエイトを2でわって"
-    platform: "COMIC FUZ"
-    date: 2026-09-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3423"
-    listing_tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
   - work: "ひなちゃんが生きてるなら"
     platform: "一迅プラス"
     date: 2026-09-24

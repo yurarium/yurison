@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-10-20
+retrieved: 2026-10-21
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -586,8 +586,12 @@ works:
   - work_title: "超深宇宙より愛をこめて"
     author: "アシダカヲズ"
     url: "https://comic.pixiv.net/works/11521"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
+      - title: "第15話 残光"
+        updated: 2026-10-16
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第14話 愛のかたち"
         updated: 2026-09-16
         access_modes: ["free"]
@@ -673,8 +677,12 @@ works:
         date_basis: rendered
   - work_title: "彼なんかより、私のほうがいいでしょ?"
     url: "https://comic.pixiv.net/works/11817"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "Lesson:11 4日前UP"
+        updated: 2026-10-16
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "Lesson:03"
         updated: 2025-07-18
         access_modes: ["free"]
@@ -705,12 +713,12 @@ works:
     url: "https://comic.pixiv.net/works/12194"
     chapter_count: 4
     chapters:
-      - title: "第22話 決闘スタンバイ(後編)"
-        updated: 2026-09-21
+      - title: "第23話 シュガー＆ソルト withバニラ"
+        updated: 2026-10-19
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第21話 決闘スタンバイ(中編)"
-        updated: 2026-08-17
+      - title: "第22話 決闘スタンバイ(後編)"
+        updated: 2026-09-21
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 男子制服の理由"
@@ -854,12 +862,12 @@ works:
     url: "https://comic.pixiv.net/works/13324"
     chapter_count: 5
     chapters:
-      - title: "第5話 罪のお味は"
-        updated: 2026-09-12
+      - title: "第6話 今に木阿弥"
+        updated: 2026-10-17
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第4話 水泡にすら帰さず"
-        updated: 2026-08-29
+      - title: "第5話 罪のお味は"
+        updated: 2026-09-12
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3話 手も品も変えるな"
@@ -900,8 +908,8 @@ works:
     url: "https://comic.pixiv.net/works/13373"
     chapter_count: 2
     chapters:
-      - title: "第15話 元教え子と距離が縮まる話②"
-        updated: 2026-10-10
+      - title: "第16話 決別する女の子の話①"
+        updated: 2026-10-17
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話 たぬき女に迫られる話"
@@ -911,8 +919,12 @@ works:
   - work_title: "壊していいよ、すいかちゃん"
     author: "虫歯"
     url: "https://comic.pixiv.net/works/13400"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
+      - title: "7 屈しない！"
+        updated: 2026-10-16
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "6 アカツキ"
         updated: 2026-09-18
         access_modes: ["free"]
@@ -957,8 +969,12 @@ works:
   - work_title: "怪獣ロマンティクス"
     author: "じぃと"
     url: "https://comic.pixiv.net/works/13457"
-    chapter_count: 5
+    chapter_count: 6
     chapters:
+      - title: "第4-1話 地獄の特訓！たえFly High!"
+        updated: 2026-10-17
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第3-2話 ライバルとーじょー!? 小さくたって大怪獣！"
         updated: 2026-09-26
         access_modes: ["free"]
@@ -1076,7 +1092,7 @@ works:
     url: "https://comic.pixiv.net/works/4810"
     chapter_count: 8
     chapters:
-      - title: "第123話 5日前UP"
+      - title: "第123話"
         updated: 2026-10-08
         access_modes: ["free"]
         date_basis: rendered
@@ -1155,8 +1171,8 @@ works:
     url: "https://comic.pixiv.net/works/5364"
     chapter_count: 4
     chapters:
-      - title: "第６９話"
-        updated: 2026-09-15
+      - title: "第７０話 本日UP"
+        updated: 2026-10-20
         access_modes: ["free"]
         date_basis: rendered
       - title: "第３話"
@@ -1487,8 +1503,8 @@ works:
     url: "https://comic.pixiv.net/works/7182"
     chapter_count: 8
     chapters:
-      - title: "第48話 いっぱいの部屋"
-        updated: 2026-10-13
+      - title: "第49話 私たちはここにいる"
+        updated: 2026-10-20
         access_modes: ["free"]
         date_basis: rendered
       - title: "第41話 受け入れてくれる場所"
@@ -2145,7 +2161,7 @@ works:
     url: "https://comic.pixiv.net/works/9380"
     chapter_count: 4
     chapters:
-      - title: "#27 5日前UP"
+      - title: "#27"
         updated: 2026-10-08
         access_modes: ["free"]
         date_basis: rendered

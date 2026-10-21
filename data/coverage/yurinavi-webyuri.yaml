@@ -4,77 +4,59 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-10-20
+retrieved: 2026-10-21
 record_type: coverage_gap
-works_listed: 137
-platforms_total: 26
-platforms_watched: 18
-works_on_watched_platforms: 102
+works_listed: 129
+platforms_total: 25
+platforms_watched: 17
+works_on_watched_platforms: 94
 platforms:
   - platform: "カドコミ"
-    works: 52
+    works: 51
     watched: true
   - platform: "きららベース"
     works: 24
     watched: false
   - platform: "一迅プラス"
-    works: 20
+    works: 16
     watched: true
   - platform: "竹コミ！"
-    works: 6
+    works: 5
     watched: true
   - platform: "ガンガンONLINE"
     works: 4
     watched: true
-  - platform: "サンデーうぇぶり"
-    works: 3
-    watched: false
   - platform: "コミックDAYS"
     works: 3
     watched: true
+  - platform: "サンデーうぇぶり"
+    works: 3
+    watched: false
   - platform: "花とゆめ＋"
-    works: 2
-    watched: true
-  - platform: "チャンピオンクロス"
     works: 2
     watched: true
   - platform: "Seasons"
     works: 2
     watched: true
-  - platform: "マガポケ"
-    works: 2
-    watched: false
   - platform: "コミックオギャー!!"
     works: 2
     watched: true
+  - platform: "マガポケ"
+    works: 2
+    watched: false
   - platform: "一迅社プラス"
     works: 2
     watched: false
-  - platform: "pixivコミック"
+  - platform: "webアクション"
     works: 1
     watched: true
-  - platform: "コミックガルド"
+  - platform: "ニコニコ静画"
     works: 1
     watched: true
   - platform: "ジャンプ+"
     works: 1
     watched: false
-  - platform: "週刊コロコロ"
-    works: 1
-    watched: false
-  - platform: "くらげバンチ"
-    works: 1
-    watched: true
-  - platform: "コミプレ"
-    works: 1
-    watched: false
-  - platform: "やわらかスピリッツ"
-    works: 1
-    watched: true
-  - platform: "webアクション"
-    works: 1
-    watched: true
-  - platform: "ニコニコ静画"
+  - platform: "pixivコミック"
     works: 1
     watched: true
   - platform: "となりのヤングジャンプ"
@@ -83,10 +65,25 @@ platforms:
   - platform: "マグコミ"
     works: 1
     watched: false
+  - platform: "チャンピオンクロス"
+    works: 1
+    watched: true
+  - platform: "週刊コロコロ"
+    works: 1
+    watched: false
+  - platform: "コミックガルド"
+    works: 1
+    watched: true
+  - platform: "コミプレ"
+    works: 1
+    watched: false
   - platform: "COMIC OGYAAA!!"
     works: 1
     watched: true
   - platform: "ビビビコミック"
+    works: 1
+    watched: true
+  - platform: "くらげバンチ"
     works: 1
     watched: true
 works:
@@ -104,13 +101,13 @@ works:
     url: "https://comic-seasons.com/episode/12207421983858404523"
   - raw: "悪役令嬢のお嫁さま かわのあきこ"
     platform: "Seasons"
-    last_update_seen: 10-25
+    last_update_seen: 10-09
     watched_platform: true
     title: "悪役令嬢のお嫁さま"
     url: "https://comic-seasons.com/episode/2550912965184704375"
   - raw: "ボイタボイネ 夏草"
     platform: "pixivコミック"
-    last_update_seen: 10-21
+    last_update_seen: 10-05
     watched_platform: true
     title: "ボイタボイネ"
     url: "https://comic.pixiv.net/works/12194"
@@ -158,13 +155,13 @@ works:
     url: "https://manga.nicovideo.jp/comic/75450"
   - raw: "ぬるめた こかむも"
     platform: "きららベース"
-    last_update_seen: 10-26
+    last_update_seen: 10-24
     watched_platform: false
     title: "ぬるめた"
     url: "https://manga.nicovideo.jp/comic/54003"
   - raw: "ばっどがーる 肉丸"
     platform: "きららベース"
-    last_update_seen: 10-22
+    last_update_seen: 10-13
     watched_platform: false
     title: "ばっどがーる"
     url: "https://manga.nicovideo.jp/comic/53991"
@@ -176,7 +173,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/64462"
   - raw: "エイティエイトを２でわって 有馬"
     platform: "きららベース"
-    last_update_seen: 10-26
+    last_update_seen: 10-24
     watched_platform: false
     title: "エイティエイトを２でわって"
     url: "https://manga.nicovideo.jp/comic/62785"
@@ -200,7 +197,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/44944"
   - raw: "保健室の鍵閉めてっ 蕗屋文字"
     platform: "きららベース"
-    last_update_seen: 10-22
+    last_update_seen: 10-27
     watched_platform: false
     title: "保健室の鍵閉めてっ"
     url: "https://manga.nicovideo.jp/comic/70758"
@@ -224,7 +221,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/72638"
   - raw: "押しかけ女房、コドモ付き！ とめきち"
     platform: "きららベース"
-    last_update_seen: 10-24
+    last_update_seen: 10-22
     watched_platform: false
     title: "押しかけ女房、コドモ付き！"
     url: "https://manga.nicovideo.jp/comic/67280"
@@ -248,7 +245,7 @@ works:
     url: "https://manga.nicovideo.jp/comic/71836"
   - raw: "球詠 マウンテンプクイチ"
     platform: "きららベース"
-    last_update_seen: 10-22
+    last_update_seen: 10-13
     watched_platform: false
     title: "球詠"
     url: "https://manga.nicovideo.jp/comic/22768"
@@ -260,28 +257,22 @@ works:
     url: "https://manga.nicovideo.jp/comic/72312"
   - raw: "魔女まじょS-WITCH 海老川ケイ"
     platform: "きららベース"
-    last_update_seen: 10-24
+    last_update_seen: 10-22
     watched_platform: false
     title: "魔女まじょS-WITCH"
     url: "https://manga.nicovideo.jp/comic/69333"
   - raw: "ファーストペンギン・レクイエム タダノなつ"
     platform: "くらげバンチ"
-    last_update_seen: 10-29
+    last_update_seen: 11-24
     watched_platform: true
     title: "ファーストペンギン・レクイエム"
-    url: "https://kuragebunch.com/episode/12207421984005057856"
+    url: "https://kuragebunch.com/episode/12207421984130957366"
   - raw: "英雄少女と呪われの銀姫 アルト/絵本奈央"
     platform: "となりのヤングジャンプ"
     last_update_seen: 10-06
     watched_platform: true
     title: "英雄少女と呪われの銀姫"
     url: "https://tonarinoyj.jp/episode/2551460910044575820"
-  - raw: "酒と鬼は二合まで 羽柴実里/zinbei"
-    platform: "やわらかスピリッツ"
-    last_update_seen: 10-30
-    watched_platform: true
-    title: "酒と鬼は二合まで"
-    url: "https://yawaspi.com/alcoholandogre-girls/"
   - raw: "T.Tラバーズ。 本間リョウタ"
     platform: "カドコミ"
     last_update_seen: 10-10
@@ -290,7 +281,7 @@ works:
     url: "https://comic-walker.com/detail/KC_005506_S"
   - raw: "あたし達って付き合ってるよね!? 涼風そら"
     platform: "カドコミ"
-    last_update_seen: 10-27
+    last_update_seen: 10-13
     watched_platform: true
     title: "あたし達って付き合ってるよね!?"
     url: "https://comic-walker.com/detail/KC_011928_S"
@@ -302,7 +293,7 @@ works:
     url: "https://comic-walker.com/detail/KC_003240_S"
   - raw: "きょうはなにしよう？ サスケ"
     platform: "カドコミ"
-    last_update_seen: 10-28
+    last_update_seen: 10-26
     watched_platform: true
     title: "きょうはなにしよう？"
     url: "https://comic-walker.com/detail/KC_008653_S"
@@ -314,7 +305,7 @@ works:
     url: "https://comic-walker.com/detail/KC_008367_S"
   - raw: "さざめとりお 服部雀"
     platform: "カドコミ"
-    last_update_seen: 10-25
+    last_update_seen: 10-02
     watched_platform: true
     title: "さざめとりお"
     url: "https://comic-walker.com/detail/KC_019937_S"
@@ -356,25 +347,25 @@ works:
     url: "https://comic-walker.com/detail/KC_007220_S"
   - raw: "イジめてイジられて 千田大輔"
     platform: "カドコミ"
-    last_update_seen: 10-25
+    last_update_seen: 10-02
     watched_platform: true
     title: "イジめてイジられて"
     url: "https://comic-walker.com/detail/KC_019052_S"
   - raw: "ケイヤクシマイ ヒジキ"
     platform: "カドコミ"
-    last_update_seen: 10-21
+    last_update_seen: 11-16
     watched_platform: true
     title: "ケイヤクシマイ"
     url: "https://comic-walker.com/detail/KC_001277_S"
   - raw: "ダメ犬彼女 くわばらたもつ"
     platform: "カドコミ"
-    last_update_seen: 10-26
+    last_update_seen: 10-10
     watched_platform: true
     title: "ダメ犬彼女"
     url: "https://comic-walker.com/detail/KC_006666_S"
   - raw: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女 koko/志瑞祐"
     platform: "カドコミ"
-    last_update_seen: 10-22
+    last_update_seen: 10-13
     watched_platform: true
     title: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女"
     url: "https://comic-walker.com/detail/KC_019658_S"
@@ -404,37 +395,37 @@ works:
     url: "https://comic-walker.com/detail/KC_005531_S"
   - raw: "七限目は忍者修行です！ MIGCHIP"
     platform: "カドコミ"
-    last_update_seen: 10-25
+    last_update_seen: 10-09
     watched_platform: true
     title: "七限目は忍者修行です！"
     url: "https://comic-walker.com/detail/KC_007122_S"
   - raw: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい 岡野く仔 / 不和二亜"
     platform: "カドコミ"
-    last_update_seen: 10-25
+    last_update_seen: 10-09
     watched_platform: true
     title: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい"
     url: "https://comic-walker.com/detail/KC_016982_S"
   - raw: "人妻教師が教え子の女子高生にドはまりする話 川上しをん / 入間人間"
     platform: "カドコミ"
-    last_update_seen: 10-28
+    last_update_seen: 11-18
     watched_platform: true
     title: "人妻教師が教え子の女子高生にドはまりする話"
     url: "https://comic-walker.com/detail/KC_006978_S"
   - raw: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～ 砂泉文"
     platform: "カドコミ"
-    last_update_seen: 10-25
+    last_update_seen: 10-09
     watched_platform: true
     title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     url: "https://comic-walker.com/detail/KC_008429_S"
   - raw: "作りたい女と食べたい女 ゆざきさかおみ"
     platform: "カドコミ"
-    last_update_seen: 10-25
+    last_update_seen: 10-23
     watched_platform: true
     title: "作りたい女と食べたい女"
     url: "https://comic-walker.com/detail/KC_002798_S"
   - raw: "君となら、明日を歌えるの 葛城かなで"
     platform: "カドコミ"
-    last_update_seen: 10-25
+    last_update_seen: 10-09
     watched_platform: true
     title: "君となら、明日を歌えるの"
     url: "https://comic-walker.com/detail/KC_007138_S"
@@ -446,25 +437,25 @@ works:
     url: "https://comic-walker.com/detail/KC_008317_S"
   - raw: "咲きそめコンプレックス んみ"
     platform: "カドコミ"
-    last_update_seen: 10-30
+    last_update_seen: 10-21
     watched_platform: true
     title: "咲きそめコンプレックス"
     url: "https://comic-walker.com/detail/KC_006662_S"
   - raw: "堕天使そぷらのちゃんの復讐 藤本セツナ"
     platform: "カドコミ"
-    last_update_seen: 10-21
+    last_update_seen: 10-05
     watched_platform: true
     title: "堕天使そぷらのちゃんの復讐"
     url: "https://comic-walker.com/detail/KC_006778_S"
   - raw: "姉妹傭兵 坂南加/三河ごーすと"
     platform: "カドコミ"
-    last_update_seen: 10-22
+    last_update_seen: 10-13
     watched_platform: true
     title: "姉妹傭兵"
     url: "https://comic-walker.com/detail/KC_019475_S"
   - raw: "安達としまむら 柚原もけ/入間人間"
     platform: "カドコミ"
-    last_update_seen: 10-21
+    last_update_seen: 10-05
     watched_platform: true
     title: "安達としまむら"
     url: "https://comic-walker.com/detail/KC_004197_S"
@@ -488,7 +479,7 @@ works:
     url: "https://comic-walker.com/detail/KC_006299_S"
   - raw: "彼女のカノジョと不純な初恋 Akeo/ 花宮みぃ"
     platform: "カドコミ"
-    last_update_seen: 10-28
+    last_update_seen: 11-28
     watched_platform: true
     title: "彼女のカノジョと不純な初恋"
     url: "https://comic-walker.com/detail/KC_009359_S"
@@ -500,19 +491,13 @@ works:
     url: "https://comic-walker.com/detail/KC_020017_S"
   - raw: "忍者と殺し屋のふたりぐらし ハンバーガー"
     platform: "カドコミ"
-    last_update_seen: 10-30
+    last_update_seen: 10-29
     watched_platform: true
     title: "忍者と殺し屋のふたりぐらし"
     url: "https://comic-walker.com/detail/KC_004464_S"
-  - raw: "怪異部～M県Y市の怪現象について～ さりい・Ｂ"
-    platform: "カドコミ"
-    last_update_seen: 10-26
-    watched_platform: true
-    title: "怪異部～M県Y市の怪現象について～"
-    url: "https://comic-walker.com/detail/KC_006547_S"
   - raw: "悪いが私は百合じゃない もちオーレ"
     platform: "カドコミ"
-    last_update_seen: 10-24
+    last_update_seen: 10-22
     watched_platform: true
     title: "悪いが私は百合じゃない"
     url: "https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320006300011_E"
@@ -524,13 +509,13 @@ works:
     url: "https://comic-walker.com/detail/KC_007014_S"
   - raw: "拝啓、在りし日に咲く花たちへ 五十嵐純"
     platform: "カドコミ"
-    last_update_seen: 10-24
+    last_update_seen: 10-08
     watched_platform: true
     title: "拝啓、在りし日に咲く花たちへ"
     url: "https://comic-walker.com/detail/KC_006092_S"
   - raw: "新米姉妹のふたりごはん 柊ゆたか"
     platform: "カドコミ"
-    last_update_seen: 10-22
+    last_update_seen: 10-27
     watched_platform: true
     title: "新米姉妹のふたりごはん"
     url: "https://comic-walker.com/detail/KC_002743_S"
@@ -542,13 +527,13 @@ works:
     url: "https://comic-walker.com/detail/KC_000848_S"
   - raw: "月はタピオカみたいに 小畠泪/今安"
     platform: "カドコミ"
-    last_update_seen: 10-27
+    last_update_seen: 11-27
     watched_platform: true
     title: "月はタピオカみたいに"
     url: "https://comic-walker.com/detail/KC_008658_S"
   - raw: "機動戦士ガンダム 水星の魔女 青春フロンティア 波多ヒロ/HISADAKE"
     platform: "カドコミ"
-    last_update_seen: 10-25
+    last_update_seen: 10-30
     watched_platform: true
     title: "機動戦士ガンダム 水星の魔女 青春フロンティア"
     url: "https://comic-walker.com/detail/KC_006679_S"
@@ -560,7 +545,7 @@ works:
     url: "https://comic-walker.com/detail/KC_011927_S"
   - raw: "猫に白鳥、蛍に小判 ヨドカワ"
     platform: "カドコミ"
-    last_update_seen: 10-25
+    last_update_seen: 10-23
     watched_platform: true
     title: "猫に白鳥、蛍に小判"
     url: "https://comic-walker.com/detail/KC_006798_S"
@@ -596,7 +581,7 @@ works:
     url: "https://comic-walker.com/detail/KC_008281_S"
   - raw: "スライム倒して300年、知らないうちにレベルMAXになってました 森田季節/シバユウスケ"
     platform: "ガンガンONLINE"
-    last_update_seen: 10-24
+    last_update_seen: 10-08
     watched_platform: true
     title: "スライム倒して300年、知らないうちにレベルMAXになってました"
     url: "https://www.ganganonline.com/title/11"
@@ -614,7 +599,7 @@ works:
     url: "http://www.ganganonline.com/contents/urasekai/"
   - raw: "香り屋さんの纏さん 森柾みどり"
     platform: "ガンガンONLINE"
-    last_update_seen: 10-25
+    last_update_seen: 10-09
     watched_platform: true
     title: "香り屋さんの纏さん"
     url: "https://www.ganganonline.com/title/2286"
@@ -632,10 +617,10 @@ works:
     url: "https://comic-days.com/episode/12207421983484134833"
   - raw: "雨夜の月 くずしろ"
     platform: "コミックDAYS"
-    last_update_seen: 10-26
+    last_update_seen: 10-17
     watched_platform: true
     title: "雨夜の月"
-    url: "https://comic-days.com/episode/12207421983645810044"
+    url: "https://comic-days.com/episode/12207421983645810052"
   - raw: "あの子とふたりで。 当麻"
     platform: "コミックオギャー!!"
     last_update_seen: 10-16
@@ -650,49 +635,43 @@ works:
     url: "https://comic-ogyaaa.com/episode/4856001361171643976"
   - raw: "優等生がアダルトグッズを買いに来た コナタエル/4kaえんぴつ/千種みのり"
     platform: "コミックガルド"
-    last_update_seen: 10-21
+    last_update_seen: 10-12
     watched_platform: true
     title: "優等生がアダルトグッズを買いに来た"
     url: "https://comic-gardo.com/episode/12207421984094260445"
   - raw: "魔女とくゅらす 柴田康平"
     platform: "コミプレ"
-    last_update_seen: 10-30
+    last_update_seen: 10-14
     watched_platform: false
     title: "魔女とくゅらす"
     url: "https://heros-web.com/series/2b64bc0622a2a"
   - raw: "#ギャルとギャルの百合 イノウエ"
     platform: "サンデーうぇぶり"
-    last_update_seen: 10-29
+    last_update_seen: 10-13
     watched_platform: false
     title: "#ギャルとギャルの百合"
     url: "https://www.sunday-webry.com/episode/2550912965814192510"
   - raw: "てくのぱにっくゆにばーす 伏見ダイキ"
     platform: "サンデーうぇぶり"
-    last_update_seen: 10-25
+    last_update_seen: 10-02
     watched_platform: false
     title: "てくのぱにっくゆにばーす"
     url: "https://www.sunday-webry.com/episode/2551460909679507683"
   - raw: "なとりとしずは 鮎川あお"
     platform: "サンデーうぇぶり"
-    last_update_seen: 10-29
+    last_update_seen: 10-13
     watched_platform: false
     title: "なとりとしずは"
     url: "https://www.sunday-webry.com/episode/12207421983745504350"
   - raw: "春雷卓球 平方昌宏"
     platform: "ジャンプ+"
-    last_update_seen: 10-25
+    last_update_seen: 10-02
     watched_platform: false
     title: "春雷卓球"
     url: "https://shonenjumpplus.com/episode/17107094912913096422"
-  - raw: "上伊那ぼたん、酔へる姿は百合の花 塀"
-    platform: "チャンピオンクロス"
-    last_update_seen: 10-22
-    watched_platform: true
-    title: "上伊那ぼたん、酔へる姿は百合の花"
-    url: "https://championcross.jp/episodes/4d3d2d0f73a64/"
   - raw: "阿佐ヶ谷サキュバス同人物語 縁山"
     platform: "チャンピオンクロス"
-    last_update_seen: 10-26
+    last_update_seen: 10-10
     watched_platform: true
     title: "阿佐ヶ谷サキュバス同人物語"
     url: "https://championcross.jp/episodes/c588f534a4870/"
@@ -716,7 +695,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03349/episode/444684"
   - raw: "怨霊日和 イマイ悠"
     platform: "マガポケ"
-    last_update_seen: 10-30
+    last_update_seen: 10-14
     watched_platform: false
     title: "怨霊日和"
     url: "https://pocket.shonenmagazine.com/title/03338/episode/443763"
@@ -738,18 +717,6 @@ works:
     watched_platform: true
     title: "ぜんぶ壊して地獄で愛して"
     url: "https://ichicomi.com/episode/12207421984089197950"
-  - raw: "たゆたう恋の散り際に ゆあま"
-    platform: "一迅プラス"
-    last_update_seen: 10-24
-    watched_platform: true
-    title: "たゆたう恋の散り際に"
-    url: "https://ichicomi.com/episode/12207421984089197893"
-  - raw: "ひなちゃんが生きてるなら 紬めめ"
-    platform: "一迅プラス"
-    last_update_seen: 10-24
-    watched_platform: true
-    title: "ひなちゃんが生きてるなら"
-    url: "https://ichicomi.com/episode/12207421984089197909"
   - raw: "ゆるゆり なもり"
     platform: "一迅プラス"
     last_update_seen: 10-16
@@ -770,16 +737,10 @@ works:
     url: "https://ichicomi.com/episode/12207421984222532884"
   - raw: "マユノウタ シクシク"
     platform: "一迅プラス"
-    last_update_seen: 10-24
+    last_update_seen: 10-22
     watched_platform: true
     title: "マユノウタ"
-    url: "https://ichicomi.com/episode/12207421984089197914"
-  - raw: "君のせいなんだから、責任とってよね。 当麻"
-    platform: "一迅プラス"
-    last_update_seen: 10-24
-    watched_platform: true
-    title: "君のせいなんだから、責任とってよね。"
-    url: "https://ichicomi.com/episode/12207421984089197905"
+    url: "https://ichicomi.com/episode/12207421984222532924"
   - raw: "大室家 なもり"
     platform: "一迅プラス"
     last_update_seen: 10-16
@@ -822,18 +783,12 @@ works:
     watched_platform: true
     title: "神は私を撮りたいって言ってます！"
     url: "https://ichicomi.com/episode/12207421984222532889"
-  - raw: "私だって青春したいですよ、本当は。 尾野凛"
-    platform: "一迅プラス"
-    last_update_seen: 10-24
-    watched_platform: true
-    title: "私だって青春したいですよ、本当は。"
-    url: "https://ichicomi.com/episode/12207421984089197901"
   - raw: "超深宇宙より愛をこめて アシダカヲズ"
     platform: "一迅プラス"
-    last_update_seen: 10-24
+    last_update_seen: 10-22
     watched_platform: true
     title: "超深宇宙より愛をこめて"
-    url: "https://ichicomi.com/episode/12207421984089197921"
+    url: "https://ichicomi.com/episode/12207421984222532928"
   - raw: "陰キャギャルでもイキがりたい！ かしわぎつきこ"
     platform: "一迅プラス"
     last_update_seen: 10-01
@@ -842,10 +797,10 @@ works:
     url: "https://ichicomi.com/episode/12207421984089197954"
   - raw: "骨に願いを、星に呪いを いくたはな"
     platform: "一迅プラス"
-    last_update_seen: 10-24
+    last_update_seen: 10-22
     watched_platform: true
     title: "骨に願いを、星に呪いを"
-    url: "https://ichicomi.com/episode/12207421984089197897"
+    url: "https://ichicomi.com/episode/12207421984222532920"
   - raw: "残骸少女、きらきらな世界の底 うさみみき"
     platform: "一迅社プラス"
     last_update_seen: 10-15
@@ -876,12 +831,6 @@ works:
     watched_platform: true
     title: "白き乙女の人狼"
     url: "https://takecomic.jp/series/d8e8c084c4c6c"
-  - raw: "百合神さまの言うとおり！ 橘まなり"
-    platform: "竹コミ！"
-    last_update_seen: 10-25
-    watched_platform: true
-    title: "百合神さまの言うとおり！"
-    url: "https://takecomic.jp/series/5b8e11d2274cc"
   - raw: "舞ちゃんのお姉さん飼育ごはん。 秋津貴央"
     platform: "竹コミ！"
     last_update_seen: 10-09
@@ -896,19 +845,19 @@ works:
     url: "https://takecomic.jp/series/0d7dee548d547"
   - raw: "フレンドガールフレンド 瑠夏子"
     platform: "花とゆめ＋"
-    last_update_seen: 10-21
+    last_update_seen: 10-05
     watched_platform: true
     title: "フレンドガールフレンド"
     url: "https://hanayume.com/series/f3ce082d639de"
   - raw: "運命は役に立たない まめ魚"
     platform: "花とゆめ＋"
-    last_update_seen: 10-27
+    last_update_seen: 10-11
     watched_platform: true
     title: "運命は役に立たない"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
   - raw: "DOUBLE HELIX BLOSSOM アサウラ/西馬ごめゆき"
     platform: "週刊コロコロ"
-    last_update_seen: 10-26
+    last_update_seen: 10-10
     watched_platform: false
     title: "DOUBLE HELIX BLOSSOM"
     url: "https://www.corocoro.jp/title/65"

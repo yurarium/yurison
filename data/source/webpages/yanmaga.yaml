@@ -6,7 +6,7 @@ platform: yanmaga
 platform_name: "ヤンマガWeb"
 publisher: "講談社"
 engine: yanmaga
-retrieved: 2026-10-20
+retrieved: 2026-10-21
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -142,10 +142,6 @@ works:
         updated: "2020-07-06"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/cdb72517f48da888f270d863dc8c06f0"
         access_modes: ["free"]
-      - title: "第３４０話　「キングレイパー」"
-        updated: "2026-09-30"
-        url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/d335ff04b482b3902dcf1ce53559a131"
-        access_modes: ["purchase"]
       - title: "第３４１話　「エンペラーオブレイパー」"
         updated: "2026-10-07"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/68e9f1a5c9f44e15085cdab36f3e6a90"
@@ -153,6 +149,10 @@ works:
       - title: "第３４２話　「逸した洞察」"
         updated: "2026-10-14"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/a2dca12acfa1ab378afd1bdccce565c6"
+        access_modes: ["purchase"]
+      - title: "第３４３話　「可哀想な人」①"
+        updated: "2026-10-21"
+        url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/35787c5226a258448a975c0f71595d8f"
         access_modes: ["purchase"]
   - work_title: "シュガーガール・ドリップ"
     url: "https://yanmaga.jp/comics/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB_%E3%83%89%E3%83%AA%E3%83%83%E3%83%97"
@@ -236,7 +236,7 @@ works:
         access_modes: ["purchase"]
   - work_title: "乙女のおかず"
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
-    chapter_count: 8
+    chapter_count: 7
     chapters:
       - title: "第１話　乙女のぬくもり"
         updated: "2025-09-23"
@@ -250,10 +250,6 @@ works:
         updated: "2025-09-23"
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/2ed50467765e0dfbc674f60d9a5a58d4"
         access_modes: ["free"]
-      - title: "第４４話　疎外感"
-        updated: "2026-09-15"
-        url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/78b820fc8bf25a58eeb1037b5b787286"
-        access_modes: ["purchase"]
       - title: "単行本宣伝話"
         updated: "2026-09-15"
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/b80d92895520ad2d7e73e32d52437365"
@@ -267,6 +263,8 @@ works:
         url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/bd7c5a801f3225a9e3e75814af7dcf23"
         access_modes: ["purchase"]
       - title: "第４７話　乙女のうきうき"
+        updated: "2026-10-20"
+        url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A/5e0c94bd02bac419c410f3e158449894"
         access_modes: ["purchase"]
   - work_title: "今日はカノジョがいないから"
     url: "https://yanmaga.jp/comics/%E4%BB%8A%E6%97%A5%E3%81%AF%E3%82%AB%E3%83%8E%E3%82%B8%E3%83%A7%E3%81%8C%E3%81%84%E3%81%AA%E3%81%84%E3%81%8B%E3%82%89"

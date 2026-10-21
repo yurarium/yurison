@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-20
+retrieved: 2026-10-21
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 247
   hits_on_the_title_alone: 111
   hits_stating_a_print_edition_date: 207
-  works_asked: 877
+  works_asked: 879
   works_with_a_hit: 265
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -7169,6 +7169,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://news.mynavi.jp/series/carfairy_re/"
+    id: "w00038"
+    work: "自動車の妖精 パッソちゃんの恩返し"
+    author: "ずんだコロッケ"
+    platform: "マイナビニュース"
+    retrieved: "2026-10-21"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://novema.jp/comic/serial/n10"
     id: "w03441"
     work: "えろいことするために巨乳美少女奴隷を買ったはずが、お師匠さまと慕われて思った通りにいかなくなる話"
@@ -7518,6 +7528,16 @@ works:
     author: "イマイ悠"
     platform: "マガポケ"
     retrieved: "2026-10-14"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03338/episode/445801"
+    id: "w03314"
+    work: "怨霊日和"
+    author: "イマイ悠"
+    platform: "マガポケ"
+    retrieved: "2026-10-21"
     hits: []
     notes:
       - "author query returned no title this database recognises"

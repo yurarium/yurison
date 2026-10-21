@@ -6,11 +6,28 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-10-20
+retrieved: 2026-10-21
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "tonarino_yj:episode:12207421984401387506"
+    work_title: "バカ女26時"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "[第33話] バカ女26時"
+    release_type: "unclassified"
+    date: "2026-10-21"
+    date_basis: "observed"
+    first_seen: "2026-10-21"
+    first_reported: "2026-10-21T03:00:00Z"
+    platform_updated: "2026-10-21T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421984401387506"
+    author: "遠野めざ/彩乃浦助"
+    free_term_start: "2026-10-21T03:00:00Z"
+    raw_title: "[第33話] バカ女26時"
+    advances_narrative: false
   - release_id: "tonarino_yj:episode:12207421984252566649"
     in_current_window: false
     work_title: "GOOD HUNT"

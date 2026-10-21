@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
-retrieved: "2026-10-20"
+retrieved: "2026-10-21"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -156,7 +156,7 @@ works:
   - work_title: "ボイタボイネ"
     series_id: "2551460909687430106"
     url: "https://magcomi.com/atom/series/2551460909687430106"
-    chapter_count: 21
+    chapter_count: 22
     chapters:
       - title: "第1話「最強のボーイッシュ女子」"
         updated: "2025-10-21"
@@ -233,7 +233,7 @@ works:
       - title: "第19話「生肌魅惑のマーメイド」"
         updated: "2026-08-18"
         url: "https://magcomi.com/episode/12207421984023174237"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第20話「決闘スタンバイ（前編）」"
         updated: "2026-09-01"
         url: "https://magcomi.com/episode/12207421984112495343"
@@ -241,6 +241,10 @@ works:
       - title: "第21話「決闘スタンバイ（中編）」"
         updated: "2026-10-06"
         url: "https://magcomi.com/episode/12207421984304225718"
+        access_modes: ["free"]
+      - title: "第22話「決闘スタンバイ（後編）」"
+        updated: "2026-10-20"
+        url: "https://magcomi.com/episode/12207421984304225723"
         access_modes: ["purchase"]
   - work_title: "【今日の10ページ】カラオケなんて嫌いだよ"
     series_id: "2551460909751787103"

@@ -6,7 +6,7 @@ platform: championcross
 platform_name: "チャンピオンクロス"
 publisher: "秋田書店"
 engine: comici
-retrieved: 2026-10-20
+retrieved: 2026-10-21
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -398,7 +398,7 @@ works:
     status: "連載中"
     author: "みかみてれん,千種みのり"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
-    chapter_count: 23
+    chapter_count: 24
     chapters:
       - title: "第1話"
         updated: "2025-12-31"
@@ -453,7 +453,7 @@ works:
         access_modes: ["free-timed"]
       - title: "第17話"
         updated: "2026-08-19"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第18話"
         updated: "2026-08-26"
         access_modes: ["free"]
@@ -462,13 +462,16 @@ works:
         access_modes: ["free"]
       - title: "第19話"
         updated: "2026-09-16"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第20話"
         updated: "2026-09-23"
         access_modes: ["purchase"]
       - title: "描き下ろし番外編 2話"
         updated: "2026-09-30"
         access_modes: ["free"]
+      - title: "第21話"
+        updated: "2026-10-21"
+        access_modes: ["purchase"]
   - work_title: "ダブルピース/読み切り"
     status: "読み切り"
     author: "村岡ユウ"

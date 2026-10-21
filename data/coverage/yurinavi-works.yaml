@@ -2,7 +2,7 @@
 # links them. Tier C, discovery only, like webcomics-works.yaml and kept apart from it.
 source: yurinavi.com
 role: discovery-only
-retrieved: 2026-10-20
+retrieved: 2026-10-21
 record_type: candidate_works
 candidates:
   - title: "壊していいよ、すいかちゃん"
@@ -94,13 +94,10 @@ candidates:
     urls: ["https://manga.nicovideo.jp/comic/69333"]
   - title: "ファーストペンギン・レクイエム"
     platforms: ["くらげバンチ"]
-    urls: ["https://kuragebunch.com/episode/12207421984005057856"]
+    urls: ["https://kuragebunch.com/episode/12207421984130957366"]
   - title: "英雄少女と呪われの銀姫"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2551460910044575820"]
-  - title: "酒と鬼は二合まで"
-    platforms: ["やわらかスピリッツ"]
-    urls: ["https://yawaspi.com/alcoholandogre-girls/"]
   - title: "T.Tラバーズ。"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_005506_S"]
@@ -212,9 +209,6 @@ candidates:
   - title: "忍者と殺し屋のふたりぐらし"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004464_S"]
-  - title: "怪異部～M県Y市の怪現象について～"
-    platforms: ["カドコミ"]
-    urls: ["https://comic-walker.com/detail/KC_006547_S"]
   - title: "悪いが私は百合じゃない"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320006300011_E"]
@@ -277,7 +271,7 @@ candidates:
     urls: ["https://comic-days.com/episode/12207421983484134833"]
   - title: "雨夜の月"
     platforms: ["コミックDAYS"]
-    urls: ["https://comic-days.com/episode/12207421983645810044"]
+    urls: ["https://comic-days.com/episode/12207421983645810052"]
   - title: "あの子とふたりで。"
     platforms: ["コミックオギャー!!"]
     urls: ["https://comic-ogyaaa.com/episode/2550912965818317820"]
@@ -302,9 +296,6 @@ candidates:
   - title: "春雷卓球"
     platforms: ["ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17107094912913096422"]
-  - title: "上伊那ぼたん、酔へる姿は百合の花"
-    platforms: ["チャンピオンクロス"]
-    urls: ["https://championcross.jp/episodes/4d3d2d0f73a64/"]
   - title: "阿佐ヶ谷サキュバス同人物語"
     platforms: ["チャンピオンクロス"]
     urls: ["https://championcross.jp/episodes/c588f534a4870/"]
@@ -329,12 +320,6 @@ candidates:
   - title: "ぜんぶ壊して地獄で愛して"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984089197950"]
-  - title: "たゆたう恋の散り際に"
-    platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/12207421984089197893"]
-  - title: "ひなちゃんが生きてるなら"
-    platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/12207421984089197909"]
   - title: "ゆるゆり"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984374441896"]
@@ -346,10 +331,7 @@ candidates:
     urls: ["https://ichicomi.com/episode/12207421984222532884"]
   - title: "マユノウタ"
     platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/12207421984089197914"]
-  - title: "君のせいなんだから、責任とってよね。"
-    platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/12207421984089197905"]
+    urls: ["https://ichicomi.com/episode/12207421984222532924"]
   - title: "大室家"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984374441892"]
@@ -371,18 +353,15 @@ candidates:
   - title: "神は私を撮りたいって言ってます！"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984222532889"]
-  - title: "私だって青春したいですよ、本当は。"
-    platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/12207421984089197901"]
   - title: "超深宇宙より愛をこめて"
     platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/12207421984089197921"]
+    urls: ["https://ichicomi.com/episode/12207421984222532928"]
   - title: "陰キャギャルでもイキがりたい！"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984089197954"]
   - title: "骨に願いを、星に呪いを"
     platforms: ["一迅プラス"]
-    urls: ["https://ichicomi.com/episode/12207421984089197897"]
+    urls: ["https://ichicomi.com/episode/12207421984222532920"]
   - title: "残骸少女、きらきらな世界の底"
     platforms: ["一迅社プラス"]
     urls: ["https://ichicomi.com/episode/12207421984222532901"]
@@ -398,9 +377,6 @@ candidates:
   - title: "白き乙女の人狼"
     platforms: ["竹コミ！"]
     urls: ["https://takecomic.jp/series/d8e8c084c4c6c"]
-  - title: "百合神さまの言うとおり！"
-    platforms: ["竹コミ！"]
-    urls: ["https://takecomic.jp/series/5b8e11d2274cc"]
   - title: "舞ちゃんのお姉さん飼育ごはん。"
     platforms: ["竹コミ！"]
     urls: ["https://takecomic.jp/series/68270e5ebb4a6"]

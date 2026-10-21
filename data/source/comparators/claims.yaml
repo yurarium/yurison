@@ -8,11 +8,73 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-10-20
+retrieved: 2026-10-21
 record_type: update_claims
 window_days: 60
-claims: 375
+claims: 408
 updates:
+  - work: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
+    platform: "ヤンチャンWeb"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://youngchampion.jp/series/e95df2815bad1"
+    listing_tags: ["百合", "女子高生", "コミカライズ"]
+  - work: "怨霊日和"
+    platform: "マガポケ"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    listing_tags: ["ホラー", "幽霊", "百合", "女子高生"]
+  - work: "咲きそめコンプレックス んみ"
+    platform: "カドコミ"
+    date: 2026-10-21
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "咲きそめコンプレックス"
+    platform: "カドコミ"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_006662_S"
+    listing_tags: ["最近のコメント数"]
+  - work: "ドリーム☆ジャンボ☆ガール"
+    platform: "マガポケ"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02758"
+    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
+  - work: "スカベンジャーズアナザースカイ"
+    platform: "ヤンチャンWeb"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://youngchampion.jp/series/81d9b296d7bc7"
+    listing_tags: ["最近のコメント数"]
+  - work: "サタノファニ"
+    platform: "ヤンマガWeb"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
+    listing_tags: ["最近のコメント数"]
+  - work: "ガールズ×ヴァンパイア"
+    platform: "チャンピオンクロス"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://championcross.jp/series/f30e2f58bbbdf"
+    listing_tags: ["百合", "吸血鬼・ヴァンパイア"]
+  - work: "アイドラトリィ"
+    platform: "マガポケ"
+    date: 2026-10-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02901"
+    listing_tags: ["百合", "アイドル", "推し活"]
   - work: "黒の世界は白墨に染まる"
     platform: "マンガよもんが"
     date: 2026-10-20
@@ -150,7 +212,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_003240_S"
-    listing_tags: ["転生", "異種族・人外", "ファンタジー", "チートなし", "残酷・グロテスク", "反社・ヤクザ", "障害者", "アウトロー", "百合"]
+    listing_tags: ["最近のコメント数"]
   - work: "お姉さまと巨人 ～お嬢さまが異世界転生～ Be-con"
     platform: "カドコミ"
     date: 2026-10-20
@@ -294,7 +356,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://www.sunday-webry.com/episode/12207421984388028467"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "読み切り", "ホラー"]
   - work: "OL Vtuberと推しJKちゃん"
     platform: "竹コミ‎‏‎"
     date: 2026-10-18
@@ -316,6 +378,12 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/0d7dee548d547"
     listing_tags: ["魔法少女", "お色気・微エロ", "百合", "バトル", "ギャグ・コメディ", "変態", "怪人", "エロ", "アニメ化", "フェチ・性癖"]
+  - work: "雨夜の月 くずしろ"
+    platform: "コミックDAYS"
+    date: 2026-10-17
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "雨夜の月"
     platform: "コミックDAYS"
     date: 2026-10-17
@@ -343,7 +411,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://heros-web.com/series/ec09a10dc9490"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
   - work: "星屑テレパス 大熊らすこ"
     platform: "きららベース"
     date: 2026-10-17
@@ -746,7 +814,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comicride.jp/series/7b86cbca64ebe"
-    listing_tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
+    listing_tags: ["最近のコメント数"]
   - work: "IDOL×IDOL STORY!"
     platform: "COMIC FUZ"
     date: 2026-10-15
@@ -754,6 +822,12 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/3140"
     listing_tags: ["百合", "アイドル"]
+  - work: "魔女とくゅらす 柴田康平"
+    platform: "コミプレ"
+    date: 2026-10-14
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "限界OLさんは悪役令嬢さまに仕えたい"
     platform: "ヤンチャンWeb"
     date: 2026-10-14
@@ -782,13 +856,12 @@ updates:
     provenance: claimed
     url: "https://kimicomi.com/series/397963f4f9cfd"
     listing_tags: ["百合", "暗殺者・殺し屋"]
-  - work: "怨霊日和"
+  - work: "怨霊日和 イマイ悠"
     platform: "マガポケ"
     date: 2026-10-14
-    source: "webcomics.jp"
+    source: "yurinavi"
     provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03125"
-    listing_tags: ["ホラー", "幽霊", "百合", "女子高生"]
+    raw_cell: true   # title and author unsplit
   - work: "好都合セミフレンド"
     platform: "COMIC FUZ"
     date: 2026-10-14
@@ -810,27 +883,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021441_S"
     listing_tags: ["百合", "読み切り"]
-  - work: "ドリーム☆ジャンボ☆ガール"
-    platform: "マガポケ"
-    date: 2026-10-14
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02758"
-    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
-  - work: "サタノファニ"
-    platform: "ヤンマガWeb"
-    date: 2026-10-14
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
-    listing_tags: ["エロ", "バトル", "裏社会", "雑学・豆知識", "偉人・歴史上の人物", "百合"]
-  - work: "アイドラトリィ"
-    platform: "マガポケ"
-    date: 2026-10-14
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02901"
-    listing_tags: ["百合", "アイドル", "推し活"]
   - work: "らぶぶいっ！ 芽瑠藻"
     platform: "カドコミ"
     date: 2026-10-14
@@ -879,6 +931,12 @@ updates:
     provenance: claimed
     url: "https://comic-gardo.com/episode/2550912966011803878"
     listing_tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
+  - work: "球詠 マウンテンプクイチ"
+    platform: "きららベース"
+    date: 2026-10-13
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "球詠"
     platform: "ニコニコ漫画"
     date: 2026-10-13
@@ -900,6 +958,12 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/56286"
     listing_tags: ["百合", "性風俗・娼館", "エロ"]
+  - work: "姉妹傭兵 坂南加/三河ごーすと"
+    platform: "カドコミ"
+    date: 2026-10-13
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "姉妹傭兵"
     platform: "カドコミ"
     date: 2026-10-13
@@ -921,6 +985,12 @@ updates:
     provenance: claimed
     url: "https://hanayume.com/series/f3ce082d639de"
     listing_tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
+  - work: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女 koko/志瑞祐"
+    platform: "カドコミ"
+    date: 2026-10-13
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "ハウリング・ブレイズ 葬焔の剣士と不死の魔女"
     platform: "カドコミ"
     date: 2026-10-13
@@ -941,6 +1011,12 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/10790"
     listing_tags: ["百合"]
+  - work: "ばっどがーる 肉丸"
+    platform: "きららベース"
+    date: 2026-10-13
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "ばっどがーる"
     platform: "ニコニコ漫画"
     date: 2026-10-13
@@ -948,6 +1024,12 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/53991"
     listing_tags: ["百合", "女子高生", "4コマ", "アニメ化"]
+  - work: "なとりとしずは 鮎川あお"
+    platform: "サンデーうぇぶり"
+    date: 2026-10-13
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "なとりとしずは"
     platform: "サンデーうぇぶり"
     date: 2026-10-13
@@ -982,6 +1064,12 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/2ff377e5bc873"
     listing_tags: ["百合", "ギャグ・コメディ", "おねロリ", "お色気・微エロ", "完結"]
+  - work: "あたし達って付き合ってるよね!? 涼風そら"
+    platform: "カドコミ"
+    date: 2026-10-13
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "あたし達って付き合ってるよね!?"
     platform: "カドコミ"
     date: 2026-10-13
@@ -989,6 +1077,12 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_011928_S"
     listing_tags: ["百合", "ラブコメ", "女子高生"]
+  - work: "#ギャルとギャルの百合 イノウエ"
+    platform: "サンデーうぇぶり"
+    date: 2026-10-13
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "#ギャルとギャルの百合"
     platform: "サンデーうぇぶり"
     date: 2026-10-13
@@ -1016,6 +1110,12 @@ updates:
     provenance: claimed
     url: "https://kimicomi.com/series/3e22b763a1c0f"
     listing_tags: ["アニメ化", "スローライフ", "ファンタジー", "仕事", "錬金術師", "店舗経営", "百合"]
+  - work: "優等生がアダルトグッズを買いに来た コナタエル/4kaえんぴつ/千種みのり"
+    platform: "コミックガルド"
+    date: 2026-10-12
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "優等生がアダルトグッズを買いに来た"
     platform: "コミックガルド"
     date: 2026-10-12
@@ -1049,6 +1149,12 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_001190_S"
     listing_tags: ["百合", "大学生", "恋愛"]
+  - work: "運命は役に立たない まめ魚"
+    platform: "花とゆめ＋"
+    date: 2026-10-11
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "運命は役に立たない"
     platform: "花とゆめ+"
     date: 2026-10-11
@@ -1070,6 +1176,12 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/3818"
     listing_tags: ["自然科学・科学技術", "学問・研究", "大学生", "百合"]
+  - work: "阿佐ヶ谷サキュバス同人物語 縁山"
+    platform: "チャンピオンクロス"
+    date: 2026-10-10
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "笑顔のたえない職場です。 くずしろ"
     platform: "コミックDAYS"
     date: 2026-10-10
@@ -1096,6 +1208,12 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421983584564641"
     listing_tags: ["百合", "女子高生"]
+  - work: "ダメ犬彼女 くわばらたもつ"
+    platform: "カドコミ"
+    date: 2026-10-10
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "アイ・ヘイ・チュー"
     platform: "マガポケ"
     date: 2026-10-10
@@ -1129,6 +1247,12 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "DOUBLE HELIX BLOSSOM アサウラ/西馬ごめゆき"
+    platform: "週刊コロコロ"
+    date: 2026-10-10
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "DOUBLE HELIX BLOSSOM"
     platform: "コロコロオンライン"
     date: 2026-10-10
@@ -1136,6 +1260,12 @@ updates:
     provenance: claimed
     url: "https://www.corocoro.jp/title/65"
     listing_tags: ["異能・超能力", "近未来SF", "バディ", "警察", "百合"]
+  - work: "香り屋さんの纏さん 森柾みどり"
+    platform: "ガンガンONLINE"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "香り屋さんの纏さん"
     platform: "ガンガンONLINE"
     date: 2026-10-09
@@ -1189,6 +1319,12 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_006798_S"
     listing_tags: ["百合", "女子高生"]
+  - work: "悪役令嬢のお嫁さま かわのあきこ"
+    platform: "Seasons"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "悪役令嬢のお嫁さま"
     platform: "Seasons"
     date: 2026-10-09
@@ -1209,6 +1345,12 @@ updates:
     provenance: claimed
     url: "https://comic-ogyaaa.com/episode/4856001361171643976"
     listing_tags: ["百合", "現代", "女子高生"]
+  - work: "君となら、明日を歌えるの 葛城かなで"
+    platform: "カドコミ"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "君となら、明日を歌えるの"
     platform: "カドコミ"
     date: 2026-10-09
@@ -1216,6 +1358,12 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_007138_S"
     listing_tags: ["百合"]
+  - work: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～ 砂泉文"
+    platform: "カドコミ"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platform: "カドコミ"
     date: 2026-10-09
@@ -1223,6 +1371,12 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_008429_S"
     listing_tags: ["VTuber", "百合", "お色気・微エロ", "料理・グルメ", "女子高生", "メイド"]
+  - work: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい 岡野く仔 / 不和二亜"
+    platform: "カドコミ"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい"
     platform: "カドコミ"
     date: 2026-10-09
@@ -1230,6 +1384,12 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_016982_S"
     listing_tags: ["百合", "VTuber"]
+  - work: "七限目は忍者修行です！ MIGCHIP"
+    platform: "カドコミ"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "七限目は忍者修行です!"
     platform: "カドコミ"
     date: 2026-10-09
@@ -1319,6 +1479,12 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "拝啓、在りし日に咲く花たちへ 五十嵐純"
+    platform: "カドコミ"
+    date: 2026-10-08
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "拝啓、在りし日に咲く花たちへ"
     platform: "ニコニコ漫画"
     date: 2026-10-08
@@ -1353,6 +1519,12 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_006660_S"
     listing_tags: ["百合", "学園", "ラブコメ", "女子高生"]
+  - work: "スライム倒して300年、知らないうちにレベルMAXになってました 森田季節/シバユウスケ"
+    platform: "ガンガンONLINE"
+    date: 2026-10-08
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "ウは宇宙ヤバイのウ！ 宮澤伊織/ぴよぴよ丸"
     platform: "竹コミ！"
     date: 2026-10-08
@@ -1471,6 +1643,18 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "安達としまむら 柚原もけ/入間人間"
+    platform: "カドコミ"
+    date: 2026-10-05
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "堕天使そぷらのちゃんの復讐 藤本セツナ"
+    platform: "カドコミ"
+    date: 2026-10-05
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     date: 2026-10-05
@@ -1480,6 +1664,18 @@ updates:
     listing_tags: ["百合", "ファンタジー", "エルフ・ハーフエルフ", "魔女", "料理・グルメ"]
   - work: "リコリス・リコイル 備前やすのり"
     platform: "カドコミ"
+    date: 2026-10-05
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "ボイタボイネ 夏草"
+    platform: "pixivコミック"
+    date: 2026-10-05
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "フレンドガールフレンド 瑠夏子"
+    platform: "花とゆめ＋"
     date: 2026-10-05
     source: "yurinavi"
     provenance: claimed
@@ -1591,6 +1787,12 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "春雷卓球 平方昌宏"
+    platform: "ジャンプ+"
+    date: 2026-10-02
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "怪獣ロマンティクス"
     platform: "マガポケ"
     date: 2026-10-02
@@ -1612,13 +1814,12 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_020132_S"
     listing_tags: ["百合", "読み切り"]
-  - work: "スカベンジャーズアナザースカイ"
-    platform: "ヤンチャンWeb"
+  - work: "イジめてイジられて 千田大輔"
+    platform: "カドコミ"
     date: 2026-10-02
-    source: "webcomics.jp"
+    source: "yurinavi"
     provenance: claimed
-    url: "https://youngchampion.jp/series/81d9b296d7bc7"
-    listing_tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
+    raw_cell: true   # title and author unsplit
   - work: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～ 中村カンコ"
     platform: "webアクション"
     date: 2026-10-02
@@ -1632,6 +1833,18 @@ updates:
     provenance: claimed
     url: "https://comic-action.com/episode/2550912964579811935"
     listing_tags: ["百合", "ギャグ・コメディ", "宇宙人"]
+  - work: "てくのぱにっくゆにばーす 伏見ダイキ"
+    platform: "サンデーうぇぶり"
+    date: 2026-10-02
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "さざめとりお 服部雀"
+    platform: "カドコミ"
+    date: 2026-10-02
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "お嬢様、懺悔する。"
     platform: "コミックトレイル"
     date: 2026-10-02
@@ -1768,13 +1981,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965923203479"
     listing_tags: ["百合", "音楽", "青春"]
-  - work: "ガールズ×ヴァンパイア"
-    platform: "チャンピオンクロス"
-    date: 2026-10-01
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://championcross.jp/series/f30e2f58bbbdf"
-    listing_tags: ["百合", "吸血鬼・ヴァンパイア"]
   - work: "はるは巡る"
     platform: "コミック アース・スター"
     date: 2026-10-01
@@ -1796,13 +2002,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/54592"
     listing_tags: ["忍者", "百合", "暗殺者・殺し屋", "シュール", "アニメ化"]
-  - work: "咲きそめコンプレックス"
-    platform: "カドコミ"
-    date: 2026-09-30
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_006662_S"
-    listing_tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - work: "タイムトラベル少女 ～ミライのサキ～"
     platform: "ニコニコ漫画"
     date: 2026-09-30

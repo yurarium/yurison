@@ -12,7 +12,7 @@ source: webpages
 platform: urasunday-com
 platform_name: "裏サンデー"
 publisher: ""
-retrieved: 2026-10-20
+retrieved: 2026-10-21
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 extraction: rendered
@@ -40,10 +40,13 @@ works:
         date_basis: heuristic
   - work_title: "かわいい同盟"
     url: "https://urasunday.com/title/26962"
-    chapter_count: 7
+    chapter_count: 8
     chapters:
       - title: "第1話"
         updated: 2025-06-06
+        date_basis: heuristic
+      - title: "第21話"
+        updated: 2026-10-23
         date_basis: heuristic
       - title: "第20話"
         updated: 2026-04-10

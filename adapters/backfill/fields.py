@@ -214,9 +214,22 @@ def asked(gaps, prior):
     # series feed and from マガポケ's episode pages, and keyed by title alone the second replaced the
     # first and took 46 chapters with it.
     named = [(g.get("work"), g.get("platform")) for g in gaps]
-    return list(gaps) + [{"work": w["work_title"], "url": w["url"], "platform": w.get("platform_name")}
-                         for w in prior if w.get("work_title") and w.get("url")
-                         and not _same_fill((w["work_title"], w.get("platform_name")), named)]
+    out = list(gaps)
+    for w in prior:
+        if not (w.get("work_title") and w.get("url")):
+            continue
+        # EVERY ADDRESS THE FILL WAS MADE FROM, not only the one it is filed under, and even where
+        # the work is a gap again. マガポケ's are one per episode: re-asking the first alone rewrote
+        # アイドラトリィ's fill with #51 and dropped #52, and skipping a work the gaps named dropped
+        # #51 the run after. A work the gaps name keeps its earlier addresses beside theirs.
+        urls = [c["url"] for c in w.get("chapters") or [] if c.get("url")]
+        if not _same_fill((w["work_title"], w.get("platform_name")), named):
+            urls = [w["url"]] + urls
+        elif w.get("route") == "magapoke-episode":
+            urls = [w["url"]] + urls
+        for u in dict.fromkeys(urls):
+            out.append({"work": w["work_title"], "url": u, "platform": w.get("platform_name")})
+    return out
 
 
 def _same_fill(key, keys):
@@ -282,9 +295,9 @@ def main():
         if not eps and MAGAPOKE.match(url):
             for i, u in enumerate(sorted(by_work[key])):
                 au, ch = magapoke_episode(html if i == 0 else get(u))
-                if ch:
+                if ch and ch["title"] not in {e["title"] for e in eps}:
                     author = author or au
-                    eps.append(ch)
+                    eps.append(dict(ch, url=u))
             route = "magapoke-episode" if eps else None
         if not eps:
             au, access = title_tail(url, html)
@@ -350,6 +363,8 @@ def main():
                 L.append(f"        updated: {e['updated']}")
                 if e.get("access_modes"):
                     L.append(f"        access_modes: {js(e['access_modes'])}")
+                if e.get("url"):
+                    L.append(f"        url: {js(e['url'])}")
     L.append("")
     pathlib.Path(a.out).mkdir(parents=True, exist_ok=True)
     (pathlib.Path(a.out) / "backfill.yaml").write_text("\n".join(L))

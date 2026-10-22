@@ -46,6 +46,18 @@ def main(s):
     gaps = [{"work": "ドリジャン", "url": "https://pocket.shonenmagazine.com/title/1/episode/2", "platform": "マガポケ"}]
     s.eq(len(bf.asked(gaps, prior)), 2, "and asked again, because the gap names only the other platform")
 
+    # A FILL MADE FROM SEVERAL PAGES IS ASKED AGAIN AT EACH OF THEM, or the rewrite keeps one.
+    prior = [{"work_title": "アイドラトリィ", "url": "https://p/episode/51", "platform_name": "マガポケ",
+              "route": "magapoke-episode", "chapters": [
+                  {"title": "#51", "updated": "2026-08-26", "url": "https://p/episode/51"},
+                  {"title": "#52", "updated": "2026-09-09", "url": "https://p/episode/52"}]}]
+    s.eq(sorted(g["url"] for g in bf.asked([], prior)), ["https://p/episode/51", "https://p/episode/52"],
+         "every episode a fill was read from is asked again")
+    gaps = [{"work": "アイドラトリィ", "url": "https://p/episode/53", "platform": "マガポケ"}]
+    s.eq(sorted(g["url"] for g in bf.asked(gaps, prior)),
+         ["https://p/episode/51", "https://p/episode/52", "https://p/episode/53"],
+         "and a work the gaps name again keeps its earlier episodes beside the new one")
+
     s.eq(bf.host_of("https://Comic-Days.com/episode/1"), "comic-days.com",
          "the host is lower-cased, so comparisons hold")
     s.eq(bf.host_of("http://x.jp/a/b"), "x.jp", "http works the same as https")

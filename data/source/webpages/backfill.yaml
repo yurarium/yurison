@@ -16,24 +16,51 @@ retrieved: 2026-10-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
-  - work_title: "DOUBLE HELIX BLOSSOM"
-    author: "SWAV / アサウラ / 西馬ごめゆき"
-    url: "https://www.corocoro.jp/title/65"
-    platform_name: "コロコロオンライン"
-    route: "author-link"
+  - work_title: "アイドラトリィ"
+    author: "原作/大鷹シン 漫画/ホマレ"
+    url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 2
+    chapters:
+      - title: "【#51】princess"
+        updated: 2026-08-26
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
+      - title: "【#52】Midnight"
+        updated: 2026-09-09
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/443443"
+  - work_title: "ドリーム☆ジャンボ☆ガール"
+    author: "ヒロユキ"
+    url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 3
+    chapters:
+      - title: "【第54話】力を合わせて☆生き残れ☆ガール"
+        updated: 2026-08-26
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
+      - title: "【第55話】全力☆買収☆ガール"
+        updated: 2026-09-02
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443414"
+      - title: "【第56話】仲間全員☆NTR☆ガール"
+        updated: 2026-09-09
+        access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443793"
   - work_title: "ファタールゲーム"
     author: "ばったん"
     url: "https://pocket.shonenmagazine.com/title/03056/episode/445876"
     platform_name: "マガポケ"
     route: "magapoke-episode"
-    chapter_count: 2
+    chapter_count: 1
     chapters:
       - title: "【17話(1)】やっぱり叩き潰します!!  漫画で"
         updated: 2026-10-23
         access_modes: ["purchase"]
-      - title: "【17話(2)】やっぱり叩き潰します!!  漫画で"
-        updated: 2026-10-23
-        access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/03056/episode/445876"
   - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
     author: "みやしろ"
     url: "https://www.sunday-webry.com/episode/12207421984093448208"
@@ -69,26 +96,7 @@ works:
       - title: "【第4話】言いなり"
         updated: 2026-10-22
         access_modes: ["purchase"]
-  - work_title: "アイドラトリィ"
-    author: "原作/大鷹シン 漫画/ホマレ"
-    url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 1
-    chapters:
-      - title: "【#51】princess"
-        updated: 2026-08-26
-        access_modes: ["free-timed"]
-  - work_title: "ドリーム☆ジャンボ☆ガール"
-    author: "ヒロユキ"
-    url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 1
-    chapters:
-      - title: "【第54話】力を合わせて☆生き残れ☆ガール"
-        updated: 2026-08-26
-        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/03349/episode/445525"
   - work_title: "姫野姫子の奴隷みてえな彼氏"
     author: "麦トラM"
     url: "https://pocket.shonenmagazine.com/title/03301/episode/440916"
@@ -99,6 +107,7 @@ works:
       - title: "【特別読み切り】"
         updated: 2026-08-18
         access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03301/episode/440916"
   - work_title: "怨霊日和"
     author: "イマイ悠"
     url: "https://pocket.shonenmagazine.com/title/03338/episode/445801"
@@ -109,6 +118,7 @@ works:
       - title: "【第8話】続・幽霊さんとデート"
         updated: 2026-10-21
         access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/03338/episode/445801"
   - work_title: "魔法少女は嘘をつく"
     author: "雨樋那由"
     url: "https://pocket.shonenmagazine.com/title/03302/episode/440917"
@@ -119,6 +129,7 @@ works:
       - title: "【特別読み切り】"
         updated: 2026-08-19
         access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03302/episode/440917"
   - work_title: "#ギャルとギャルの百合"
     author: "イノウエ"
     url: "https://www.sunday-webry.com/episode/12207421984022269059"
@@ -6571,3 +6582,8 @@ works:
       - title: "第１話　７億円☆当たる☆ガール"
         updated: 2025-08-12
         access_modes: ["free"]
+  - work_title: "DOUBLE HELIX BLOSSOM"
+    author: "SWAV / アサウラ / 西馬ごめゆき"
+    url: "https://www.corocoro.jp/title/65"
+    platform_name: "コロコロオンライン"
+    route: "author-link"

@@ -9,17 +9,22 @@ works:
   - work_title: "エイティエイトを２でわって"
     yomi: "えいてぃえいとをにでわって"
     url: "https://comic-fuz.com/manga/3423"
-    latest_updated: "2026-09-24"
+    latest_updated: "2026-10-22"
     authors: ["有馬"]
     tags: ["木曜日", "男性向け", "４コマ", "学園", "まんがタイムきららMAX", "まんがタイムKRコミックス", "ギャグ・コメディ"]
-    chapter_count: 47
+    chapter_count: 48
     chapters:
-      - chapter_id: 80782
-        title: "第４５話"
+      - chapter_id: 81718
+        title: "第４６話"
         advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-22
+        free_from: 2026-11-26
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 80782
+        title: "第４５話"
+        updated: 2026-10-22
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 79679
         title: "第４４話"
         updated: 2026-09-24
@@ -252,12 +257,16 @@ works:
   - work_title: "IDOL×IDOL STORY！"
     yomi: "あいどるあいどるすとーりー"
     url: "https://comic-fuz.com/manga/3140"
-    latest_updated: "2026-10-15"
+    latest_updated: "2026-10-22"
     is_original: true
     authors: ["得能正太郎"]
     tags: ["木曜日", "オリジナル", "ヒューマンドラマ", "バトル・アクション", "FUZコミックス", "広告で人気の作品", "オリジナル作品の最新話が無料化！"]
-    chapter_count: 233
+    chapter_count: 234
     chapters:
+      - chapter_id: 81100
+        title: "SSSオフショット99"
+        updated: 2026-10-22
+        access_modes: ["free"]
       - chapter_id: 81136
         title: "第98話"
         updated: 2026-10-15
@@ -5544,7 +5553,7 @@ works:
   - work_title: "しあわせ鳥見んぐ"
     yomi: "しあわせとりみんぐ"
     url: "https://comic-fuz.com/manga/2474"
-    latest_updated: "2026-10-15"
+    latest_updated: "2026-10-22"
     authors: ["わらびもちきなこ"]
     tags: ["木曜日", "男性向け", "４コマ", "お仕事・趣味", "まんがタイムきらら", "まんがタイムKRコミックス", "日常"]
     chapter_count: 53
@@ -5609,10 +5618,9 @@ works:
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 58956
         title: "３巻 第３９話"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-22
+        updated: 2026-10-22
         access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 58953
         title: "３巻 第３８話"
         updated: 2026-10-15
@@ -12223,7 +12231,7 @@ works:
   - work_title: "キルミーベイベー"
     yomi: "きるみーべいべー"
     url: "https://comic-fuz.com/manga/295"
-    latest_updated: "2026-10-15"
+    latest_updated: "2026-10-22"
     authors: ["カヅホ"]
     tags: ["木曜日", "男性向け", "４コマ", "学園", "メディア化", "まんがタイムきららキャラット", "まんがタイムKRコミックス", "ギャグ・コメディ"]
     chapter_count: 213
@@ -12344,10 +12352,9 @@ works:
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 59793
         title: "１５巻 第１８９話"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-22
+        updated: 2026-10-22
         access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 59790
         title: "１５巻 第１８８話"
         updated: 2026-10-15

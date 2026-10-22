@@ -27,6 +27,14 @@ related:
 
 
 def main(s):
+    # A JOINS FILE IS APPLIED EXACTLY, AND TWICE IS ONCE.
+    joins = {"joins": [{"id": "w00001", "anchor": "web:https://c.example/atom/series/7", "basis": "its page links it"},
+                       {"id": "w00001", "anchor": "web:https://b.example/2", "basis": "held elsewhere"}]}
+    text, applied, refused = aa.apply_file(REG, joins)
+    s.eq((applied, len(refused)), (1, 1), "the new address is attached and the one another work holds refused")
+    s.check("https://c.example/atom/series/7" in text, "and the registry carries it")
+    s.eq(aa.apply_file(text, joins)[1], 0, "applying the same file again attaches nothing more")
+
     text, err = aa.change(REG, "web:https://c.example/1", "w00001", "the same credits", "2026-10-16")
     doc = yaml.safe_load(text)
     one = next(w for w in doc["works"] if w["id"] == "w00001")

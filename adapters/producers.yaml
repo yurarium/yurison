@@ -263,6 +263,11 @@ entries:
             data/queue/serialisation-joins.yaml]
     status: frozen
     producer: adapters/serialisation/sweep.py
+  - paths: [data/queue/address-work-level-gigaviewer.yaml,
+            data/queue/address-work-level-gigaviewer-unresolved.yaml]
+    status: run
+    producer: stage-post:gigaviewer-workaddress
+    max_age_days: 10
   - paths: [data/queue/*.yaml, data/queue/*.md]
     status: hand
     note: rulings, review queues and merges a person or the naming job writes

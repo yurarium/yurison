@@ -44,6 +44,14 @@ commands:
   # WHETHER EACH GIGAVIEWER PLATFORM NUMBERS EVERY SERIAL'S EPISODE IDS, sampled from its own feed of
   # everything it has just published. The build trusts a bare id as a one-shot's only where this
   # says so (adapters/gigaviewer/id_conventions.py). Monthly, since a platform's habit moves slowly.
+  # The series behind each GigaViewer chapter address a work holds without one, attached to the
+  # work, so the per-series feed and the episode list read it from the next run. Weekly, because a
+  # full sweep reads every such chapter page and a new source can wait a week for its anchor.
+  - id: gigaviewer-workaddress
+    optional: true
+    every_days: 7
+    argv: [adapters/gigaviewer/workaddress.py, --cache, "{CACHE}/workaddress", --attach]
+
   - id: gigaviewer-id-conventions
     optional: true
     every_days: 30

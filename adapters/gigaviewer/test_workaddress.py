@@ -34,6 +34,19 @@ READER = """<html><head>
 
 
 def main(s):
+    # THE HEADLINE IS ONE ADDRESS OF SEVERAL: a work anchored on マンガワン still has a series on
+    # サンデーうぇぶり, and its chapter address there is what says which.
+    rows = [{"id": "w00095", "work": "メイド&ロイド", "sources": [
+        {"url": "https://manga-one.com/title/28129"},
+        {"url": "https://www.sunday-webry.com/episode/2"},
+        {"url": "https://www.sunday-webry.com/episode/3"}]},
+            {"id": "w00150", "work": "大室家", "sources": [{"url": "https://comic-days.com/episode/9"}]}]
+    reg = [{"id": "w00095", "anchors": ["web:https://manga-one.com/title/28129"]},
+           {"id": "w00150", "anchors": ["web:https://comic-days.com/atom/series/1"]}]
+    s.eq(wa.unanchored_sources(rows, reg, {"www.sunday-webry.com", "comic-days.com"}),
+         [{"url": "https://www.sunday-webry.com/episode/2", "work": "メイド&ロイド", "id": "w00095"}],
+         "one chapter address per host with no series anchor, and none where the work has one")
+
     s.eq(wa.series_id(CHAPTER), ("comic-days.com", "2550912965643936966"),
          "the chapter page states its own series, host and id together")
 

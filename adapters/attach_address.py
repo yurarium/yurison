@@ -12,6 +12,7 @@ through the same writer in the order it was in, so the diff is the attachment.
         --basis "the same title and credits, 佐藤36 and 煮豆シューター, on the platform's page"
     attach_address.py --detach web:https://example.com/x --basis "a different work by its credits"
     attach_address.py --merge w03410 w00580 --basis "the platform moved the story into the collection"
+    attach_address.py --from data/queue/address-work-level-gigaviewer.yaml
 """
 import argparse
 import pathlib
@@ -69,6 +70,22 @@ def merge(text, loser, winner, basis):
                         keep_order=True), None
 
 
+def apply_file(text, joins):
+    """`(new text, applied, refused)`: every join in a joins document, and nothing else.
+
+    THE NARROW FORM OF `identity --attachments`, which runs the whole identity pass and mints for
+    every row it sees. `workaddress.py` writes its joins to a file, and this applies exactly those,
+    re-runnably: a join already in the registry changes nothing, and one whose address another work
+    holds is refused with its reason, since that is a merge.
+    """
+    doc = yaml.safe_load(text) or {}
+    entries, applied, refused = ident.attach_all(doc.get("works") or [], joins)
+    if not applied:
+        return text, 0, refused
+    return (ident.render(entries, doc.get("related") or [], today=str(doc.get("generated") or ""),
+                         keep_order=True), applied, refused)
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("work", nargs="?", help="the identifier gaining the address")
@@ -76,12 +93,26 @@ def main(argv=None):
     ap.add_argument("--detach", metavar="ANCHOR", help="take this address off the work holding it")
     ap.add_argument("--merge", nargs=2, metavar=("RETIRED", "SURVIVING"),
                     help="retire one work into another, which gains its addresses")
-    ap.add_argument("--basis", required=True)
+    ap.add_argument("--from", dest="joins", metavar="FILE",
+                    help="apply every join in a joins file, each with its own basis")
+    ap.add_argument("--basis")
     ap.add_argument("--registry", default=str(REGISTRY))
     a = ap.parse_args(argv)
+    reg = pathlib.Path(a.registry)
+    if a.joins:
+        text, applied, refused = apply_file(
+            reg.read_text(encoding="utf-8"),
+            yaml.safe_load(pathlib.Path(a.joins).read_text(encoding="utf-8")) or {})
+        for r in refused:
+            print(f"refused: {r}", file=sys.stderr)
+        if applied:
+            reg.write_text(text, encoding="utf-8")
+        print(f"{applied} attachment(s) applied from {a.joins}, {len(refused)} refused")
+        return 0
+    if not a.basis:
+        ap.error("--basis is required: the join is a claim, and the next reader has to weigh it")
     if sum(map(bool, (a.detach, a.merge, a.work and a.anchor))) != 1:
         ap.error("give one of: a work and an anchor, --detach ANCHOR, or --merge RETIRED SURVIVING")
-    reg = pathlib.Path(a.registry)
     if a.merge:
         text, err = merge(reg.read_text(encoding="utf-8"), a.merge[0], a.merge[1], a.basis)
     else:

@@ -150,6 +150,40 @@ def exposed(rows, chapter_under_title):
             and not chapter_under_title.match(r.get("url") or "")]
 
 
+#: A work's series anchor on one host: `web:https://HOST/atom/series/ID`.
+SERIES_ANCHOR = re.compile(r"^web:https://([^/]+)/atom/series/\d+$")
+
+
+def unanchored_sources(rows, registry, hosts):
+    """`[{url, work, id}]`: a chapter address each work holds on a GigaViewer host where the work
+    has no series anchor.
+
+    THE HEADLINE IS ONE ADDRESS OF SEVERAL. `exposed` looks at the address a row is anchored on,
+    and メイドロイドはお嬢様のお役に立ちたい is anchored on マンガワン, so the サンデーうぇぶり source
+    its chapters arrive from was never asked which series it belongs to. With no series anchor
+    there, neither the per-series feed nor the episode list read it, and the chapters the
+    platform had rotated out of reading reached the corpus saying nothing about access. 56
+    sources across 45 works were in that state on 2026-10-23. One address per host is enough,
+    since the series is the work's.
+    """
+    by_id = {e.get("id"): e for e in registry or [] if e.get("id")}
+    out, seen = [], set()
+    for r in rows:
+        e = by_id.get(r.get("id")) or {}
+        have = {m.group(1) for m in (SERIES_ANCHOR.match(str(a)) for a in e.get("anchors") or [])
+                if m}
+        for src in r.get("sources") or []:
+            u = src.get("url") or ""
+            m = re.match(r"^https?://([^/]+)/episode/", u)
+            if not m or m.group(1) not in hosts or m.group(1) in have:
+                continue
+            if (r.get("id"), m.group(1)) in seen:
+                continue
+            seen.add((r.get("id"), m.group(1)))
+            out.append({"url": u, "work": r.get("work"), "id": r.get("id")})
+    return out
+
+
 def main(argv=None):
     """Read a work-level address for every exposed row and write it as an attachments file."""
     import argparse, collections, datetime, json                             # noqa: E401
@@ -165,6 +199,8 @@ def main(argv=None):
     ap.add_argument("--out", default="data/queue/address-work-level-gigaviewer.yaml")
     ap.add_argument("--cache", required=True)
     ap.add_argument("--limit", type=int, help="stop after this many rows, for a trial run")
+    ap.add_argument("--attach", action="store_true",
+                    help="apply the joins to the registry once written, by attach_address.py")
     a = ap.parse_args(argv)
 
     import yaml
@@ -173,8 +209,14 @@ def main(argv=None):
     owner = identity.index(entries)
     seen = collections.Counter(r.get("url") for r in rows if r.get("url"))
 
-    targets = exposed(rows, identity.CHAPTER_UNDER_TITLE)[:a.limit]
-    print(f"{len(targets)} exposed row(s)")
+    targets = exposed(rows, identity.CHAPTER_UNDER_TITLE)
+    plats = (yaml.safe_load(pathlib.Path(__file__).with_name("platforms.yaml").read_text())
+             or {}).get("platforms") or []
+    hosts = {pl["host"] for pl in plats if pl.get("host") and pl.get("enabled") is not False}
+    held = {r.get("url") for r in targets}
+    extra = [t for t in unanchored_sources(rows, entries, hosts) if t["url"] not in held]
+    targets = (targets + extra)[:a.limit]
+    print(f"{len(targets) - len(extra)} exposed row(s), {len(extra)} source(s) with no series anchor")
 
     # FETCHED IN TWO SWEEPS, RESOLVED WITHOUT A NETWORK. `resolve` asks for two pages, and asking
     # for them one row at a time is 1,000 requests strictly in series over 18 hosts. `fetch_many`
@@ -199,7 +241,8 @@ def main(argv=None):
     counts = collections.Counter()
     for r in targets:
         anchor = identity.web_anchor(r.get("url"), r.get("work"), seen[r.get("url")] > 1)
-        wid = owner.get(anchor)
+        # A SOURCE ADDRESS IS NOT AN ANCHOR, so the work it belongs to comes from its row.
+        wid = owner.get(anchor) or (r.get("id") if str(r.get("id") or "").startswith("w") else None)
         got = resolve(r["url"], r.get("work"), pages.get)
         counts[got["state"]] += 1
         if got["state"] != "resolved" or not wid:
@@ -254,6 +297,18 @@ def main(argv=None):
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(L))
     print(f"{len(joins)} attachment(s) -> {out}")
+    # APPLIED HERE ON THE SCHEDULE, BY THE NARROW PATH. A source that arrives without a series anchor
+    # is a work whose episode list is never read, and a file nobody applies leaves it that way.
+    if a.attach and joins:
+        import attach_address
+        reg = pathlib.Path(a.registry)
+        text, applied, refused = attach_address.apply_file(
+            reg.read_text(encoding="utf-8"), yaml.safe_load(out.read_text(encoding="utf-8")) or {})
+        if applied:
+            reg.write_text(text, encoding="utf-8")
+        print(f"{applied} attached to the registry, {len(refused)} refused")
+        for r in refused[:20]:
+            print(f"  refused: {r}")
 
     if unresolved:
         rp = out.with_name(out.stem + "-unresolved.yaml")

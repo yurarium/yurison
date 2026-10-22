@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-22
+retrieved: 2026-10-23
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -36,6 +36,16 @@ platforms_missing:
   - platform: "マンガボックス"
     works: 1
 works_missing:
+  - title: "うさぎはかく語りき"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3572"
+    antenna_id: "173581"
+    tags: ["最近のコメント数"]
+  - title: "球詠"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/441"
+    antenna_id: "88071"
+    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "エイティエイトを2でわって"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3423"
@@ -61,11 +71,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/2391"
     antenna_id: "102691"
     tags: ["百合", "フェチ・性癖"]
-  - title: "球詠"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/441"
-    antenna_id: "88071"
-    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -81,11 +86,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3818"
     antenna_id: "194415"
     tags: ["自然科学・科学技術", "学問・研究", "大学生", "百合"]
-  - title: "うさぎはかく語りき"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3572"
-    antenna_id: "173581"
-    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
   - title: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
@@ -116,6 +116,11 @@ works_missing:
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
     antenna_id: "161471"
     tags: ["百合", "獣人", "お色気・微エロ"]
+  - title: "たゆたうふたり"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/fef424c168c44"
+    antenna_id: "210855"
+    tags: ["百合", "先輩と後輩", "大学生"]
   - title: "きっと、彼女が好きだから"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/74403f9e30641"
@@ -136,11 +141,6 @@ works_missing:
     url: "https://g-comi.jp/series/5448ec9f6077b"
     antenna_id: "200185"
     tags: ["百合", "異世界", "サキュバス", "お色気・微エロ"]
-  - title: "たゆたうふたり"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/fef424c168c44"
-    antenna_id: "210855"
-    tags: ["百合", "先輩と後輩", "大学生"]
   - title: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/58238b3987c11"
@@ -310,7 +310,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_003240_S"
     antenna_id: "128693"
-    tags: ["転生", "異種族・人外", "百合", "アウトロー", "障害者", "反社・ヤクザ", "残酷・グロテスク", "チートなし", "ファンタジー", "タイムスリップ"]
+    tags: ["最近のコメント数"]
   - title: "堕天使そぷらのちゃんの復讐"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006778_S"
@@ -611,6 +611,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019393_S"
     antenna_id: "211792"
     tags: ["百合", "読み切り"]
+  - title: "香り屋さんの纏さん"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/2286"
+    antenna_id: "189564"
+    tags: ["百合", "読み切り", "サトリ"]
   - title: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
@@ -621,11 +626,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/2349"
     antenna_id: "194497"
     tags: ["百合", "ヤンデレ"]
-  - title: "香り屋さんの纏さん"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2286"
-    antenna_id: "189564"
-    tags: ["百合", "読み切り", "サトリ"]
   - title: "私がモテないのはどう考えてもお前らが悪い!"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/29"
@@ -686,6 +686,11 @@ works_missing:
     url: "https://kimicomi.com/series/a869ecfca8da9"
     antenna_id: "200536"
     tags: ["百合"]
+  - title: "おみかんジュースと、レモネード"
+    platform: "コミック アース・スター"
+    url: "https://comic-earthstar.com/episode/12207421984388736593"
+    antenna_id: "217026"
+    tags: ["最近のコメント数"]
   - title: "私の好きな人はとても〇〇"
     platform: "コミックDAYS"
     url: "https://comic-days.com/episode/12207421983805333025"
@@ -716,16 +721,6 @@ works_missing:
     url: "https://www.corocoro.jp/title/773"
     antenna_id: "182492"
     tags: ["妖怪", "オカルト", "百合"]
-  - title: "画家の肖像"
-    platform: "ゼノン編集部"
-    url: "https://comic-zenon.com/episode/12207421983944323781"
-    antenna_id: "211617"
-    tags: ["百合", "読み切り"]
-  - title: "散らないで菊"
-    platform: "ゼノン編集部"
-    url: "https://comic-zenon.com/episode/12207421983944323839"
-    antenna_id: "211608"
-    tags: ["百合", "読み切り"]
   - title: "さざめとりお"
     platform: "ダ・ヴィンチニュース"
     url: "https://ddnavi.com/sazametorio/"
@@ -735,7 +730,7 @@ works_missing:
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
     antenna_id: "200285"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "吸血鬼・ヴァンパイア"]
   - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/21fe5b3d50300"
@@ -970,7 +965,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
-    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
+    tags: ["最近のコメント数"]
   - title: "怨霊日和"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
@@ -1046,6 +1041,11 @@ works_missing:
     url: "https://www.mangabox.me/reader/262412/"
     antenna_id: "156579"
     tags: ["百合"]
+  - title: "かわいい同盟"
+    platform: "マンガワン"
+    url: "https://manga-one.com/viewer/290902"
+    antenna_id: "189002"
+    tags: ["百合", "学園", "女子高生", "女装", "ルッキズム"]
   - title: "付き合ってあげてもいいかな"
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/70173"

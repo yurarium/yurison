@@ -22083,6 +22083,15 @@ works:
 # 一迅プラス imported its catalogue, while the serialisation's real start of
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
+  - id: w03447
+    title: "おみかんジュースと、レモネード"
+    anchors:
+      - "web:https://comic-earthstar.com/episode/12207421984388736593"
+      - "web:https://comic-earthstar.com/atom/series/12207421984388735830"
+    attached:
+      - anchor: "web:https://comic-earthstar.com/atom/series/12207421984388735830"
+        basis: "the chapter page at https://comic-earthstar.com/episode/12207421984388736593 links its own series feed at https://comic-earthstar.com/atom/series/12207421984388735830, so the platform places this chapter in series 12207421984388735830"
+        retrieved: 2026-10-22
 related:
   - a: w00156
     b: w00486

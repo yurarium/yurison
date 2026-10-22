@@ -4,12 +4,12 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-10-22
+retrieved: 2026-10-23
 record_type: coverage_gap
-works_listed: 129
+works_listed: 130
 platforms_total: 25
 platforms_watched: 17
-works_on_watched_platforms: 94
+works_on_watched_platforms: 95
 platforms:
   - platform: "カドコミ"
     works: 51
@@ -18,7 +18,7 @@ platforms:
     works: 24
     watched: false
   - platform: "一迅プラス"
-    works: 16
+    works: 17
     watched: true
   - platform: "竹コミ！"
     works: 5
@@ -500,7 +500,7 @@ works:
     last_update_seen: 10-22
     watched_platform: true
     title: "悪いが私は百合じゃない"
-    url: "https://comic-walker.com/detail/KC_004432_S/episodes/KC_0044320006300011_E"
+    url: "https://comic-walker.com/detail/KC_004432_S"
   - raw: "或いは、私の名探偵 毒田ぺパ子"
     platform: "カドコミ"
     last_update_seen: 10-27
@@ -692,7 +692,7 @@ works:
     last_update_seen: 10-15
     watched_platform: false
     title: "ぎるてぃらいぶらり"
-    url: "https://pocket.shonenmagazine.com/title/03349/episode/444684"
+    url: "https://pocket.shonenmagazine.com/title/03349/episode/445014"
   - raw: "怨霊日和 イマイ悠"
     platform: "マガポケ"
     last_update_seen: 10-14
@@ -771,6 +771,12 @@ works:
     watched_platform: true
     title: "映しちゃダメな顔"
     url: "https://ichicomi.com/episode/12207421984089197939"
+  - raw: "晴れた日のドレスコード あげはる"
+    platform: "一迅プラス"
+    last_update_seen: 10-22
+    watched_platform: true
+    title: "晴れた日のドレスコード"
+    url: "https://ichicomi.com/episode/12207421984222532905"
   - raw: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～ 玉崎たま"
     platform: "一迅プラス"
     last_update_seen: 10-01

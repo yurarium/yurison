@@ -9,9 +9,9 @@
 #
 # Still data/queue/: these are candidates. Admission into data/source/ needs the joins
 # and the volume histories that give a work its dates.
-retrieved: 2026-10-15
-admitted: 4418
-by_shop: {"bookwalker.jp": 2574, "cmoa.jp": 1844}
+retrieved: 2026-10-22
+admitted: 4426
+by_shop: {"bookwalker.jp": 2582, "cmoa.jp": 1844}
 excluded: {"published on ヤングアンリアルコミックス, an adult imprint": 5, "published on 秋水社ORIGINAL, an adult imprint": 16}
 works:
   - title: "#ふれない"
@@ -1011,6 +1011,17 @@ works:
     url: "https://bookwalker.jp/series/578432/"
     shop: "bookwalker.jp"
     shop_id: "578432"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "Killer Twinkle~アンチはステージに上がれません~ 1"
+    authors: ["田中こめ"]
+    publisher: null
+    imprint: "少年チャンピオン・コミックス"
+    url: "https://bookwalker.jp/de1d60a9cb-09b0-4f11-ae07-74f5e404d315/"
+    shop: "bookwalker.jp"
+    shop_id: "1d60a9cb-09b0-4f11-ae07-74f5e404d315"
     completed: false
     doujin: false
     explicit_content: false
@@ -6940,6 +6951,17 @@ works:
     url: "https://bookwalker.jp/series/624978/"
     shop: "bookwalker.jp"
     shop_id: "624978"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "なとりとしずは(1)"
+    authors: ["鮎川あお"]
+    publisher: null
+    imprint: "サンデーうぇぶりコミックス"
+    url: "https://bookwalker.jp/deca6e0925-81c4-4518-873b-1f6eefe14ff4/"
+    shop: "bookwalker.jp"
+    shop_id: "ca6e0925-81c4-4518-873b-1f6eefe14ff4"
     completed: false
     doujin: false
     explicit_content: false
@@ -13709,6 +13731,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ユリログ"
+    authors: []
+    publisher: null
+    imprint: "BLIC-GL"
+    url: "https://bookwalker.jp/series/619512/"
+    shop: "bookwalker.jp"
+    shop_id: "619512"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ユリログ ザ ファースト"
     authors: ["桜家ゆきの"]
     publisher: null
@@ -16723,6 +16756,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "十歳の最強魔導師"
+    authors: ["天乃聖樹 他"]
+    publisher: null
+    imprint: "ヒーローコミックス"
+    url: "https://bookwalker.jp/series/486987/"
+    shop: "bookwalker.jp"
+    shop_id: "486987"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "千年エルフと999回の求婚"
     authors: ["廿楽"]
     publisher: null
@@ -18435,6 +18479,17 @@ works:
     url: "https://bookwalker.jp/dedd152a01-3da7-4302-a305-59291cec3852/"
     shop: "bookwalker.jp"
     shop_id: "dd152a01-3da7-4302-a305-59291cec3852"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "好きな女の子が私にだけなぜか厳しい"
+    authors: []
+    publisher: null
+    imprint: "チャンピオンREDコミックス"
+    url: "https://bookwalker.jp/series/442172/"
+    shop: "bookwalker.jp"
+    shop_id: "442172"
     completed: true
     doujin: false
     explicit_content: false
@@ -27888,6 +27943,28 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "魔女は満月に咲く"
+    authors: []
+    publisher: null
+    imprint: "FUZコミックス"
+    url: "https://bookwalker.jp/series/439005/"
+    shop: "bookwalker.jp"
+    shop_id: "439005"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "魔女まじょS-WITCH"
+    authors: []
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/series/550172/"
+    shop: "bookwalker.jp"
+    shop_id: "550172"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "魔女まじょS-WITCH 1巻"
     authors: ["海老川ケイ"]
     publisher: null
@@ -28126,6 +28203,17 @@ works:
     url: "https://bookwalker.jp/series/624982/"
     shop: "bookwalker.jp"
     shop_id: "624982"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "魔王さま、リリリベンジ!(1)"
+    authors: ["夏葉かんな"]
+    publisher: null
+    imprint: "サンデーうぇぶりコミックス"
+    url: "https://bookwalker.jp/deb5c2ae95-84ea-48c1-b737-ce3b48b6a38a/"
+    shop: "bookwalker.jp"
+    shop_id: "b5c2ae95-84ea-48c1-b737-ce3b48b6a38a"
     completed: false
     doujin: false
     explicit_content: false

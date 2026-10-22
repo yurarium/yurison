@@ -9,7 +9,7 @@
 # 3,076 of its 3,077 rows name nobody's job. The labels come from the release rows, which
 # keep the field as the platform wrote it. See docs/GAPS.md.
 generated: 2026-10-22
-count: 2371
+count: 2373
 credits:
   - id: c00001
     works:
@@ -310,9 +310,11 @@ credits:
   - id: c00069
     works:
       - id: w02337
+        roles: ["漫画"]
   - id: c00070
     works:
       - id: w02337
+        roles: ["原作"]
   - id: c00071
     works:
       - id: w00018
@@ -336,8 +338,8 @@ credits:
   - id: c00076
     works:
       - id: w00020
-      - id: webaction:https://gaugau.futabanet.jp/list/work/u4FdNLFgU91kEXBufRsVlnzEw:無料 第17話(2) 後編 バードゾーンサバイブ！②
-      - id: webaction:https://gaugau.futabanet.jp/list/work/u4FdNLFgU91kEXBufRsVlnzEw:無料 第18話 動物園：かるおもside
+      - id: webaction:https://gaugau.futabanet.jp/list/work/u4FdNLFgU91kEXBufRsVlnzEw:第17話(2) 後編 バードゾーンサバイブ！②
+      - id: webaction:https://gaugau.futabanet.jp/list/work/u4FdNLFgU91kEXBufRsVlnzEw:第18話 動物園：かるおもside
   - id: c00077
     works:
       - id: w00024
@@ -920,8 +922,8 @@ credits:
       - id: w00105
       - id: w00896
       - id: w01240
-      - id: webaction:https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P:無料 第11話(1) 丑の刻参り 後編
-      - id: webaction:https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P:無料 第12話(1) E・E・S① 前編
+      - id: webaction:https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P:第11話(1) 丑の刻参り 後編
+      - id: webaction:https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P:第12話(1) E・E・S① 前編
   - id: c00203
     works:
       - id: w00106
@@ -3089,6 +3091,7 @@ credits:
   - id: c00687
     works:
       - id: w02236
+        roles: ["著者"]
   - id: c00688
     works:
       - id: w00573
@@ -9814,3 +9817,11 @@ credits:
   - id: c02406
     works:
       - id: w03444
+  - id: c02407
+    works:
+      - id: w03441
+        roles: ["作画"]
+  - id: c02408
+    works:
+      - id: w03441
+        roles: ["原作"]

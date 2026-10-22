@@ -10,11 +10,25 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-10-22
+retrieved: 2026-10-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 9
+works_confirmed: 10
 works:
+  - work_title: "キミに触れて、感じたい"
+    author: "宇留米いわし"
+    url: "https://ichicomi.com/episode/12207421984222943969"
+    series_id: "12207421984222943471"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/10/22/kiminihurete-yomikiri/"
+      headline: "触れたいのに触れられないーー羊と狼の恋を描く百合読み切り「キミに触れて、感じたい」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り作品"
+        updated: 2026-09-17
+        url: "https://ichicomi.com/episode/12207421984222943969"
   - work_title: "百合の間に挟まる梅田ダンジョン"
     author: "矢嶋こずみ"
     url: "https://ichicomi.com/episode/12207421984354015835"

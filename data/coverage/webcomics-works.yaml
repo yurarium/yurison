@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-10-22
+retrieved: 2026-10-23
 record_type: candidate_works
 works: 311
 candidates:
@@ -328,6 +328,10 @@ candidates:
   - title: "おぼろとまち"
     platforms: ["少年ジャンプ+"]
     urls: ["https://shonenjumpplus.com/episode/17106371852950441679"]
+  - title: "おみかんジュースと、レモネード"
+    platforms: ["コミック アース・スター"]
+    urls: ["https://comic-earthstar.com/episode/12207421984388736593"]
+    tags: ["最近のコメント数"]
   - title: "おもいあいノ石人間"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2551460909920554413"]
@@ -410,6 +414,7 @@ candidates:
   - title: "かわいい同盟"
     platforms: ["マンガワン", "裏サンデー"]
     urls: ["https://manga-one.com/viewer/290902", "https://urasunday.com/title/26962"]
+    tags: ["ルッキズム", "女子高生", "女装", "学園", "百合"]
   - title: "かわいい親友の落とし方"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2551460910062734360"]

@@ -10,12 +10,24 @@ source: gigaviewer
 platform: comic-earthstar
 platform_name: "コミック アース・スター"
 publisher: "アース・スター エンターテイメント"
-retrieved: 2026-10-22
+retrieved: 2026-10-23
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 7
-series_held: 7
+series_resolved: 8
+series_held: 8
 works:
+  - work_title: "おみかんジュースと、レモネード"
+    series_id: "12207421984388735830"
+    url: "https://comic-earthstar.com/atom/series/12207421984388735830"
+    chapter_count: 1
+    chapters:
+      - title: "【読切】おみかんジュースと、レモネード"
+        updated: 2026-10-22
+        content_id: "mikalemo_yomikiri"
+        author: "漫画：海雄ロック"
+        url: "https://comic-earthstar.com/episode/12207421984388736593"
+        free_from: 2026-10-22
+        access_modes: ["free"]
   - work_title: "はるは巡る"
     series_id: "12207421984241511954"
     url: "https://comic-earthstar.com/atom/series/12207421984241511954"

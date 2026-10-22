@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-10-22
+retrieved: 2026-10-23
 record_type: discovery_queue
 candidates:
   - work_title: "死神さんと昇天ごはん"
@@ -25,6 +25,15 @@ candidates:
     platform: "comic-boost"
     work_url: "https://comic-boost.com/content/01780001?=s"
     headline: "素直になれない姉妹が贈る、ひと夏のガールズコメディ――百合読み切り「葵とおねーちゃん」WEBで公開"
+    status: unconfirmed
+  - work_title: "キミに触れて、感じたい"
+    signal: "oneshot"
+    announced: "Thu, 22 Oct 2026 11:00:43 +0000"
+    url: "https://yurinavi.com/2026/10/22/kiminihurete-yomikiri/"
+    platform: "ichicomi"
+    platform_code: "12207421984222943969"
+    work_url: "https://ichicomi.com/episode/12207421984222943969"
+    headline: "触れたいのに触れられないーー羊と狼の恋を描く百合読み切り「キミに触れて、感じたい」WEBで公開"
     status: unconfirmed
   - work_title: "百合の間に挟まる梅田ダンジョン"
     signal: "oneshot"

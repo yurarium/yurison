@@ -6,11 +6,44 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-10-22
+retrieved: 2026-10-23
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984411784639"
+    work_title: "てくのぱにっくゆにばーす"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第１６話 とっておきの服"
+    release_type: "chapter"
+    date: "2026-10-23"
+    date_basis: "observed"
+    first_seen: "2026-10-23"
+    first_reported: "2026-10-22T15:00:00Z"
+    platform_updated: "2026-10-22T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984411784639"
+    author: "伏見ダイキ"
+    free_term_start: "2026-10-22T15:00:00Z"
+    advances_narrative: true
+  - release_id: "sunday_webry:episode:12207421984411790033"
+    work_title: "メイド＆ロイドはお嬢様のお役に立ちたい！"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "Memory8 ふろキャンお嬢様 (1)"
+    release_type: "unclassified"
+    date: "2026-10-23"
+    date_basis: "observed"
+    first_seen: "2026-10-23"
+    first_reported: "2026-10-22T15:00:00Z"
+    platform_updated: "2026-10-22T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984411790033"
+    author: "みやしろ"
+    free_term_start: "2026-10-22T15:00:00Z"
+    raw_title: "Memory8 ふろキャンお嬢様 (1)"
+    advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984388028467"
     work_title: "つるこさん"
     web_status: "serialised"
@@ -45,6 +78,7 @@ releases:
     free_term_start: "2026-10-16T15:00:00Z"
     advances_narrative: true
   - release_id: "sunday_webry:episode:12207421984378506412"
+    in_current_window: false
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"
     identified_via: "discovery-candidate"

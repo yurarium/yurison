@@ -10429,6 +10429,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  おみかんジュースと、レモネード:
+    basis: romaji
+    reading: オミカンジュースト、レモネード
+    reading_at: '2026-10-22'
+    reading_basis: surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 1
+    reading_source: surface
+    reading_source_kind: analyser
+    verified: true
   おみみさん:
     basis: translated
     en: Miss Ears
@@ -87777,6 +87788,31 @@ names:
     note: '甘えたい is wanting to be babied; シスター is a nun. きら星ポータル: a young witch and a motherly nun.'
     reading: マジョ ワ シスター ニ アマエタイ
     reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  魔女は満月に咲く:
+    basis: romaji
+    furigana_spans:
+    - - 魔女
+      - まじょ
+    - - は
+      - null
+    - - 満月
+      - まんげつ
+    - - に
+      - null
+    - - 咲
+      - さ
+    - - く
+      - null
+    reading: マジョ ワ マンゲツ ニ サク
+    reading_at: '2026-10-22'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages

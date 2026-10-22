@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: comic-earthstar
 platform_name: "コミック アース・スター"
-retrieved: "2026-10-22"
+retrieved: "2026-10-23"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -36,6 +36,15 @@ works:
       - title: "【読切】はるは巡る"
         updated: "2026-10-01"
         url: "https://comic-earthstar.com/episode/12207421984241521945"
+        access_modes: ["free"]
+  - work_title: "おみかんジュースと、レモネード"
+    series_id: "12207421984388735830"
+    url: "https://comic-earthstar.com/atom/series/12207421984388735830"
+    chapter_count: 1
+    chapters:
+      - title: "【読切】おみかんジュースと、レモネード"
+        updated: "2026-10-22"
+        url: "https://comic-earthstar.com/episode/12207421984388736593"
         access_modes: ["free"]
   - work_title: "灼熱の魔女様の楽しい温泉領地経営　～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます～"
     series_id: "14079602755508978505"

@@ -41,6 +41,9 @@ def main(s):
     eps = gc.episodes(xml)
     s.eq(len(eps), 1, "an entry without a date is skipped, not half-recorded")
     s.eq(eps[0]["updated"], "2026-08-03", "the timestamp is trimmed to a date")
+    late = gc.episodes('<feed><entry><title>第1話</title><updated>2026-05-25T15:00:00Z</updated>'
+                       '<link href="https://h/episode/1"/></entry></feed>')
+    s.eq(late[0]["updated"], "2026-05-26", "and it is the date in Japan, a day on from 15:00Z")
     s.eq(eps[0]["url"], "https://x.jp/e/1", "the link is carried")
     s.eq(gc.episodes("<feed></feed>"), [], "an empty feed yields nothing")
 

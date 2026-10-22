@@ -192,6 +192,23 @@ def main(s):
          "the list's state reaches a row with none, by address where the list titles it otherwise, "
          "and a row stating its own access keeps it")
 
+    # ── A FEED CAN LIST AN EPISODE BEFORE IT OPENS ─────────────────────────────────────────────────
+    lists = [{"platform": "mangatime-square", "works": [{"work_title": "ニセアイホンアイ", "chapters": [
+        {"title": "第4話", "updated": "2026-08-28", "url": "https://m.example/episode/4"},
+        {"title": "第5話", "updated": "2026-09-25", "url": "https://m.example/episode/5"}]}]}]
+    rows = [{"plat": "mangatime-square", "work": "ニセアイホンアイ", "ep": "第4話", "pub": "2026-08-06",
+             "conf": "reported", "url": "https://m.example/episode/4"},
+            {"plat": "mangatime-square", "work": "ニセアイホンアイ", "ep": "第6話", "pub": "2026-08-06",
+             "conf": "low", "url": "https://m.example/episode/6"},
+            {"plat": "mangatime-square", "work": "ニセアイホンアイ", "ep": "第7話", "pub": "2026-08-06",
+             "conf": "reported", "url": "https://m.example/episode/7"},
+            {"plat": "mangatime-square", "work": "他の作品", "ep": "第1話", "pub": "2026-08-06",
+             "conf": "low", "url": "https://m.example/episode/99"}]
+    b.against_lists(rows, lists)
+    s.eq([(r["ep"], r["pub"]) for r in rows],
+         [("第4話", "2026-08-28"), ("第7話", "2026-08-06"), ("第1話", "2026-08-06")],
+         "a chapter takes the day it opened, a doubted one the list lacks goes, and the rest stay")
+
     # ── AN ADAPTER'S MODULE NAME IS NOT A SOURCE'S NAME ──────────────────────────────────────────
     #
     # `sourced_from` is rendered in the work page's "Other data" table, and a pass that reads many

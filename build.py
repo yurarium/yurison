@@ -202,6 +202,47 @@ YOMIKIRI_ID = re.compile(r"yomikiri", re.I)
 WITHDRAWN = "withdrawn"
 
 
+def against_lists(releases, lists):
+    """Releases checked against the platform's own episode list: none earlier than its opening, and
+    none the list does not hold where the feed's date was already in doubt.
+
+    A FEED CAN LIST AN EPISODE BEFORE IT OPENS. まんがタイムSquare's feed carried ニセアイホンアイ's
+    第4話 to 第10話 on 2026-08-06 under one timestamp, which the capture flagged as a refresh rather
+    than a publication. The series' own episode list says 第4話 opened on 2026-08-28 and 第5話 on
+    2026-09-25, and 第6話 to 第10話 are not in it: their pages answer 404. The work is a finished
+    single volume being serialised a chapter at a time, so they exist in print and had not opened on
+    the web. Five releases nobody could read sat in the feed's history as 2026-08-06 news.
+
+    SO TWO RULES, BOTH THE PLATFORM'S WORD. A chapter cannot have come out before the platform opened
+    it, so a later opening date in the list replaces an earlier feed date. And a release the feed
+    dated with low confidence, whose work the list holds and whose chapter it does not, is dropped;
+    the doubt is required, so a list that loaded short cannot take away a chapter seen properly.
+    """
+    opened, held = {}, set()
+    for d in lists:
+        pid = d.get("platform")
+        for w in d.get("works") or []:
+            k = (pid, norm_work(w.get("work_title") or ""))
+            held.add(k)
+            for c in w.get("chapters") or []:
+                if c.get("url"):
+                    opened[(pid, str(c["url"]).rstrip("/"))] = str(c.get("updated") or "")[:10]
+    out = []
+    for r in releases:
+        k = (r.get("plat"), norm_work(r.get("work") or ""))
+        u = (r.get("plat"), str(r.get("url") or "").rstrip("/"))
+        if k in held and u not in opened and r.get("conf") == "low":
+            continue
+        day = opened.get(u)
+        if day and str(r.get("pub") or "") < day:
+            r["why"] = (f"the platform's feed listed this chapter on {r.get('pub')}, and its own "
+                        f"episode list says it opened on {day}")
+            r["pub"] = day
+        out.append(r)
+    releases[:] = out
+    return releases
+
+
 def access_from_lists(releases, lists):
     """Give each release with no access the state its platform's own episode list gives it.
 
@@ -4397,8 +4438,10 @@ def main():
                 "channel_src": w.get("channel") or "",
             })
 
-    access_from_lists(releases, [yaml.safe_load(open(f)) or {} for f in
-                                 sorted(glob.glob("data/source/gigaviewer/*-episode-lists.yaml"))])
+    _lists = [yaml.safe_load(open(f)) or {} for f in
+              sorted(glob.glob("data/source/gigaviewer/*-episode-lists.yaml"))]
+    against_lists(releases, _lists)
+    access_from_lists(releases, _lists)
 
     # Platform-wide access defaults, applied only where the source gave no per-chapter value.
     default_access = {}
@@ -5546,7 +5589,14 @@ def main():
     resolver_dropped = before_res - len(releases)
 
     seen_chapter, deduped, dropped_dupes = {}, [], 0
-    for r in sorted(releases, key=lambda r: (r["pub"], r.get("basis") == "heuristic")):
+    # A COPY ADMITTED ONLY AS A LATE ONE-SHOT LOSES A TIE. 下部七花はかく語りき is held twice, from
+    # コミックDAYS's confirmation pass and from its series feed, and the confirmation is what admits it:
+    # a work 百合ナビ led us to is filed on the day we learned of it. The series feed's copy is
+    # admitted as a late one-shot, which the backlog rule below takes out again. While the two
+    # disagreed by a day the confirmation's copy came first; once both read the day the chapter
+    # opened, the tie went to the other, the backlog removed it, and the work left August's archive.
+    for r in sorted(releases, key=lambda r: (r["pub"], r.get("basis") == "heuristic",
+                                             r.get("late_via") == "oneshot")):
         # The FULL episode title, not episode_key. episode_key reduces to a chapter number, so
         # 第５０−１話 and 第５０−２話 both key as n50 — using it here silently deleted every second
         # part of a split chapter. That is right for deciding "same chapter, two platforms" and

@@ -34,6 +34,8 @@ import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import net                                                              # noqa: E402
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import series_feeds as _sf                                              # noqa: E402
 
 PAUSE = 1.2
 
@@ -111,8 +113,11 @@ def episodes(xml):
         u = re.search(r"<updated>([^<]*)</updated>", b)
         l = re.search(r'<link href="([^"]+)"', b)
         if t and u:
+            # THE DATE IN JAPAN, which `series_feeds.jst_date` exists to give and this sliced past:
+            # サンデーうぇぶり publishes at 15:00Z, the next day in Japan, so every chapter it confirmed
+            # was a day early against the series feed and the platform's own episode list.
             out.append({"title": _html.unescape(t.group(1).strip()),
-                        "updated": u.group(1)[:10],
+                        "updated": _sf.jst_date(u.group(1)),
                         "url": l.group(1) if l else ""})
     return out
 

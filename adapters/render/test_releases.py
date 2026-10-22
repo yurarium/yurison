@@ -31,6 +31,15 @@ def main(s):
         "<body><h1>怨霊日和</h1><div>あなたへのオススメ！</div><div>イマイ悠</div></body>", "怨霊日和"),
         "イマイ悠", "the recommendations heading is stepped over and the byline under it is taken")
 
+    # THE AGE BADGE IS NOT THE EPISODE'S NAME. pixiv sets 本日UP or 5日前UP beside a recent episode,
+    # so the same chapter was captured under a new title every day.
+    page = ('<a href="/viewer/stories/1"><div>16-①</div><div>本日UP</div>'
+            '<div>更新日：2026年10月22日</div></a>'
+            '<a href="/viewer/stories/2"><div>15-②</div><div>5日前UP</div><div>再会</div>'
+            '<div>更新日：2026年10月17日</div></a>')
+    s.eq([e["title"] for e in rd.episodes_pixiv(page)], ["16-①", "15-② 再会"],
+         "a relative-age badge is dropped and the subtitle beside it kept")
+
     # pixivコミック WRITES ITS FOLLOW BUTTON BEHIND A NON-BREAKING SPACE, so the entity sat in front
     # of the word and a prefix match never saw it. Five works carried `フォローする` as their author.
     s.eq(rd.author_near_title(

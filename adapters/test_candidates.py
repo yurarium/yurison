@@ -43,6 +43,15 @@ def main(s):
     s.eq((len(out), out[0]["platforms"], n), (1, ["コミックグロウル"], 1),
          "a work no list names gets a candidate of its own")
 
+    # AND AN ADDRESS FOUND GONE LEAVES THE TARGETS, without the antenna's file being edited.
+    akane = [{"title": "おしごとですよ! 赤根さん", "platforms": ["コミックグロウル"],
+              "urls": ["https://comic-growl.com/episode/13933686331793881861"]},
+             {"title": "両方", "urls": ["https://a.example/1", "https://b.example/2/"]}]
+    out, n = cd.without(akane, [{"url": "https://comic-growl.com/episode/13933686331793881861"},
+                                {"url": "https://b.example/2"}])
+    s.eq(([c["title"] for c in out], out[0]["urls"], n), (["両方"], ["https://a.example/1"], 2),
+         "a gone address is taken out, and a work left with none is left out")
+
     # THE COUNTER-CASE THE FIRST VERSION GOT WRONG. A capture holding the work at the address this
     # list gave it is the list's own catch; dropping the work for it starves that capture next run.
     nico = {"title": "アイドルビーバック！", "platforms": ["ニコニコ漫画"],

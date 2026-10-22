@@ -990,9 +990,11 @@ def chapter_en(name, romanise_rest):
     # Circled digits are a PART marker, and NFKC turns ② into a bare "2" — so ＃15② normalised to
     # "#152" and read as chapter one hundred and fifty-two. They are converted first, to the
     # hyphenated form they mean, and only then is the rest normalised.
-    n = name
-    for c, d in CIRCLED.items():
-        n = n.replace(c, "-" + d)
+    # A HYPHEN ALREADY THERE IS THE SAME MARK. コミックグロウル writes 14-② and カドコミ 最終回-②, so
+    # adding a second hyphen gave 14--2, which no pattern reads: the label was romanised whole and
+    # shipped as `14- (2)` and `Final --2`. The written hyphen, in any of its widths, is absorbed.
+    n = re.sub(r"\s*[-−－‐ｰ]?\s*([" + "".join(CIRCLED) + "])",
+               lambda m: "-" + CIRCLED[m.group(1)], name)
     n = unicodedata.normalize("NFKC", n).replace("\u2212", "-").replace("\uff0d", "-").strip()
     # A kanji chapter number becomes a digit before anything tries to read the structure.
     n = digits_for_kanji(n)
@@ -1045,6 +1047,12 @@ def chapter_en(name, romanise_rest):
         tail = romanise_rest(rest) if rest else ""
         out = f"Ch. {num}" + (f" {tail}" if tail else "")
         return latinise((f"Vol. {vol}, " + out) if vol else out)
+    # A NUMBER AND ITS PART AND NOTHING ELSE is a chapter, whatever counter it leaves out:
+    # コミックグロウル labels every instalment 14-①, 14-②. A bare number alone is not taken, since
+    # nothing says it counts chapters, but one carrying a part marker is a split instalment.
+    mp = re.fullmatch(r"([0-9]+)-([0-9]+)", n)
+    if mp and not vol:
+        return latinise(f"Ch. {mp.group(1)}-{mp.group(2)}")
     if vol:
         # 3巻発売フェア and its like: a volume and then something that is not a chapter at all.
         tail = romanise_rest(n) if n else ""
@@ -1052,6 +1060,15 @@ def chapter_en(name, romanise_rest):
     m = EXTRA_PAT.match(n)
     if m:
         rest = (m.group(2) or "").strip()
+        # 最終回-② is the final instalment's second part, in the words 前編 and 後編 already use. The
+        # hyphen is what says so, and a circled digit arrives as one: 番外編1 and 特別編40 are the
+        # first extra and the fortieth special, and keep their own numbers.
+        mpart = re.match(r"^-\s*([0-9]+)(?:\s+(.*))?$", rest)
+        if mpart:
+            sub = (mpart.group(2) or "").strip()
+            out = f"{EXTRA_EN[m.group(1)]}, Part {mpart.group(1)}" + (
+                f" {romanise_rest(sub)}" if sub else "")
+            return latinise((f"Vol. {vol}, " + out) if vol else out)
         tail = romanise_rest(rest) if rest else ""
         out = EXTRA_EN[m.group(1)] + (f" {tail}" if tail else "")
         return latinise((f"Vol. {vol}, " + out) if vol else out)

@@ -257,6 +257,18 @@ def main(s):
          "the volume is read off the front and the chapter inside is read as a chapter")
     s.eq(p4.chapter_en("2巻 第26話", plain), "Vol. 2, Ch. 26", "and full-width digits are the same")
 
+    # A PART MARKER WITH ITS HYPHEN WRITTEN. The circled digit became a second hyphen beside the
+    # one the platform wrote, and 14--2 matched nothing: `14- (2)` and `Final --2` shipped.
+    s.eq(p4.chapter_en("14-②", plain), "Ch. 14-2", "a number and its circled part is a chapter")
+    s.eq(p4.chapter_en("最終回-②", plain), "Final, Part 2", "and the final instalment has parts")
+    s.eq(p4.chapter_en("３１話ｰ②", plain), "Ch. 31-2", "in a half-width katakana hyphen too")
+    s.eq(p4.chapter_en("#005 ①", plain), "Ch. 005-1", "while a part with no hyphen reads as before")
+    s.eq(p4.chapter_en("第1話①", plain), "Ch. 1-1", "beside its counter as well")
+    s.eq(p4.chapter_en("14", plain), None, "and a bare number is still not taken for a chapter")
+    s.eq(p4.chapter_en("番外編1", plain), "Extra 1", "an extra's own number is not a part")
+    s.eq(p4.chapter_en("最終話-1 さよなら", plain), "Final, Part 1 さよなら",
+         "and a part keeps the subtitle after it")
+
     # THE SAME LABEL, WRAPPED. A bracket around a chapter label is punctuation, and CHAPTER_PAT
     # anchors at the start, so a wrapper made it miss and the whole thing was romanised. 186
     # phrases read "( Dai 18Wa ) Shippai no Tatsujin" and "[Dai 100Wa]shin Awasete".

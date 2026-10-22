@@ -1,4 +1,5 @@
-# Addresses a person found for works the lists do not carry there, and why each is the same work.
+# Addresses a person found for works the lists do not carry there, and why each is the same work,
+# and addresses the lists carry that a person found gone.
 #
 # adapters/candidates.py adds each to its work's capture targets. The antenna and 百合ナビ name a
 # work on the platforms they know of, so a platform carrying it that neither lists is never
@@ -30,3 +31,11 @@ addresses:
     basis: >-
       Pointed out by the project owner on 2026-10-19, beside the マンガゼグラ address, as the same
       work without an age gate.
+gone:
+  - title: "おしごとですよ! 赤根さん"
+    url: "https://comic-growl.com/episode/13933686331793881861"
+    reviewed: 2026-10-22
+    basis: >-
+      Answers 301 to https://comic-growl.com/, and the project owner found no page for the work on
+      コミックグロウル on 2026-10-22. The finished series is held from カドコミ, whose page keeps
+      what remains of it and names it a コミックグロウル work.

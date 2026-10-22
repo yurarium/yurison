@@ -123,6 +123,24 @@ def merge(base, extra, already_held):
     return out, added
 
 
+def without(candidates, gone):
+    """`candidates` without the addresses a person found gone, and how many were taken out.
+
+    THE ANTENNA'S FILE IS NOT EDITED, for the reason the module docstring gives, so an address it
+    still lists after the platform dropped the work is taken out here. おしごとですよ！赤根さん's
+    コミックグロウル address answers 301 to the site's home page, and every run counted it as a
+    failed target. A work left with no address is left out, since nothing could fetch it.
+    """
+    drop = {address(g.get("url")) for g in gone if g.get("url")}
+    out, n = [], 0
+    for c in candidates:
+        urls = [u for u in (c.get("urls") or []) if address(u) not in drop]
+        n += len(c.get("urls") or []) - len(urls)
+        if urls:
+            out.append(dict(c, urls=urls))
+    return out, n
+
+
 def found(candidates, entries):
     """`candidates` with each address a person found added to its work, and how many were added.
 
@@ -167,8 +185,9 @@ def main(argv=None):
         if yp.exists() else []
     merged, added = merge(base, extra, held_at(a.sources))
     fp = pathlib.Path(a.found)
-    merged, joined = found(merged, ((yaml.safe_load(fp.read_text(encoding="utf-8")) or {})
-                                    .get("addresses") or []) if fp.exists() else [])
+    fdoc = (yaml.safe_load(fp.read_text(encoding="utf-8")) or {}) if fp.exists() else {}
+    merged, joined = found(merged, fdoc.get("addresses") or [])
+    merged, dropped = without(merged, fdoc.get("gone") or [])
     head = ["# What the capture steps target: webcomics-works.yaml, plus the 百合ナビ WEB連載 works",
             "# no candidate names and no capture holds at another address, plus the addresses",
             "# a person found in found-addresses.yaml. Written by",
@@ -179,7 +198,7 @@ def main(argv=None):
                            "candidates": merged}, sort_keys=False, allow_unicode=True, width=1000)
     pathlib.Path(a.out).write_text("\n".join(head) + "\n" + body, encoding="utf-8")
     print(f"candidates: {len(base)} from the antenna, {len(added)} added from 百合ナビ, "
-          f"{joined} address(es) a person found"
+          f"{joined} address(es) a person found, {dropped} found gone"
           + "".join(f"\n  + {c.get('title')} ({', '.join(c.get('platforms') or [])})" for c in added))
     return 0
 

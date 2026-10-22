@@ -147,6 +147,10 @@ PX_ANCHOR = re.compile(r'<a href="/viewer/stories/(\d+)">(.*?)</a>', re.S)
 # author_near_title() cannot see it, which is why 腹割るウチらの秘密ごと! came back without one.
 PX_AUTHOR = re.compile(r"<h1[^>]*>[^<]*</h1>\s*<div[^>]*>([^<]{1,30})</div>")
 PX_DATE = re.compile(r"更新日[:：]\s*(\d{4})年(\d{1,2})月(\d{1,2})日")
+#: The badge pixiv sets beside a recent episode, which says how long ago it went up: 本日UP,
+#: 昨日UP, 5日前UP, 3時間前UP. It is a fact about today and not the episode's name, so a title
+#: holding it changed every day: 16-① 本日UP became 16-① 1日前UP, and each was a new phrase.
+PX_AGE = re.compile(r"^(?:本日|昨日|[0-9０-９]+\s*(?:日|時間|分)前)\s*UP$", re.I)
 
 
 def episodes_pixiv(html):
@@ -176,7 +180,7 @@ def episodes_pixiv(html):
         # and 更新日 share a text node, and dropping it took the subtitle with it — leaving
         # 怪獣ロマンティクス's chapter as "…別れは出会いのシグナル 更新日:".
         parts = [re.sub(r"\s*更新日.*$", "", x).strip() for x in parts]
-        parts = [x for x in parts if x]
+        parts = [x for x in parts if x and not PX_AGE.match(x)]
         if not parts or sid in seen:
             continue
         seen.add(sid)

@@ -266,6 +266,8 @@ def main(s):
     s.eq(p4.chapter_en("第1話①", plain), "Ch. 1-1", "beside its counter as well")
     s.eq(p4.chapter_en("14", plain), None, "and a bare number is still not taken for a chapter")
     s.eq(p4.chapter_en("番外編1", plain), "Extra 1", "an extra's own number is not a part")
+    s.eq(p4.chapter_en("[おまけ18]春雷卓球", plain), "Bonus 18 春雷卓球",
+         "and a bracket closing after the number holds the number, not the subtitle")
     s.eq(p4.chapter_en("最終話-1 さよなら", plain), "Final, Part 1 さよなら",
          "and a part keeps the subtitle after it")
 

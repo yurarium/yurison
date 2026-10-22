@@ -1060,6 +1060,13 @@ def chapter_en(name, romanise_rest):
     m = EXTRA_PAT.match(n)
     if m:
         rest = (m.group(2) or "").strip()
+        # A BRACKET THAT CLOSES AFTER THE NUMBER holds the number with the word: [おまけ18]春雷卓球 is
+        # the eighteenth bonus, and the closer fell into the subtitle as `Bonus 18] Shunrai Takkyū`.
+        mb = re.match(r"^([0-9]+)\s*[】）)\]]\s*(.*)$", rest) if re.match(r"^\s*[【（(\[]", n) else None
+        if mb:
+            sub = mb.group(2).strip()
+            out = f"{EXTRA_EN[m.group(1)]} {mb.group(1)}" + (f" {romanise_rest(sub)}" if sub else "")
+            return latinise((f"Vol. {vol}, " + out) if vol else out)
         # 最終回-② is the final instalment's second part, in the words 前編 and 後編 already use. The
         # hyphen is what says so, and a circled digit arrives as one: 番外編1 and 特別編40 are the
         # first extra and the fortieth special, and keep their own numbers.

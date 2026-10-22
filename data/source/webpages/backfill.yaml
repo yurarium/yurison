@@ -12,10 +12,104 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-10-22
+retrieved: 2026-10-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "ぎるてぃらいぶらり"
+    author: "閉伊川広輔"
+    url: "https://pocket.shonenmagazine.com/title/03349/episode/445525"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 1
+    chapters:
+      - title: "【第4話】言いなり"
+        updated: 2026-10-22
+        access_modes: ["purchase"]
+  - work_title: "アイドラトリィ"
+    author: "原作/大鷹シン 漫画/ホマレ"
+    url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 2
+    chapters:
+      - title: "【#51】princess"
+        updated: 2026-08-26
+        access_modes: ["free-timed"]
+      - title: "【#52】Midnight"
+        updated: 2026-09-09
+        access_modes: ["free-timed"]
+  - work_title: "ドリーム☆ジャンボ☆ガール"
+    author: "ヒロユキ"
+    url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 3
+    chapters:
+      - title: "【第54話】力を合わせて☆生き残れ☆ガール"
+        updated: 2026-08-26
+        access_modes: ["free-timed"]
+      - title: "【第55話】全力☆買収☆ガール"
+        updated: 2026-09-02
+        access_modes: ["free-timed"]
+      - title: "【第56話】仲間全員☆NTR☆ガール"
+        updated: 2026-09-09
+        access_modes: ["purchase"]
+  - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
+    author: "みやしろ"
+    url: "https://www.sunday-webry.com/episode/12207421984093448208"
+    platform_name: "サンデーうぇぶり"
+    route: "gigaviewer-feed"
+    chapter_count: 6
+    chapters:
+      - title: "Memory8 ふろキャンお嬢様 (1)"
+        updated: 2026-10-23
+        access_modes: ["free"]
+      - title: "単行本第１集発売PR！！"
+        updated: 2026-08-14
+        access_modes: ["free"]
+      - title: "Memory2 栄養満点！アンドロイドごはん (2)"
+        updated: 2026-05-08
+        access_modes: ["free"]
+      - title: "Memory2 栄養満点！アンドロイドごはん (1)"
+        updated: 2026-04-24
+        access_modes: ["free"]
+      - title: "おまけ"
+        updated: 2026-04-10
+        access_modes: ["free"]
+      - title: "Memory1 彼女の居場所"
+        updated: 2026-03-27
+        access_modes: ["free"]
+  - work_title: "姫野姫子の奴隷みてえな彼氏"
+    author: "麦トラM"
+    url: "https://pocket.shonenmagazine.com/title/03301/episode/440916"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 1
+    chapters:
+      - title: "【特別読み切り】"
+        updated: 2026-08-18
+        access_modes: ["free"]
+  - work_title: "怨霊日和"
+    author: "イマイ悠"
+    url: "https://pocket.shonenmagazine.com/title/03338/episode/445801"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 1
+    chapters:
+      - title: "【第8話】続・幽霊さんとデート"
+        updated: 2026-10-21
+        access_modes: ["purchase"]
+  - work_title: "魔法少女は嘘をつく"
+    author: "雨樋那由"
+    url: "https://pocket.shonenmagazine.com/title/03302/episode/440917"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 1
+    chapters:
+      - title: "【特別読み切り】"
+        updated: 2026-08-19
+        access_modes: ["free"]
   - work_title: "#ギャルとギャルの百合"
     author: "イノウエ"
     url: "https://www.sunday-webry.com/episode/12207421984022269059"
@@ -24,73 +118,68 @@ works:
     chapter_count: 21
     chapters:
       - title: "#28 #全員オタク？"
-        updated: 2026-10-12
+        updated: 2026-10-13
         access_modes: ["free"]
       - title: "#特別編 #炎上しちゃう"
-        updated: 2025-12-25
+        updated: 2025-12-26
         access_modes: ["free"]
       - title: "#18 #育てましょう"
-        updated: 2026-06-29
+        updated: 2026-06-30
         access_modes: ["purchase"]
       - title: "#17 #お久しぶりです"
-        updated: 2026-06-22
+        updated: 2026-06-23
         access_modes: ["purchase"]
       - title: "#16 #生配信"
-        updated: 2026-06-15
+        updated: 2026-06-16
         access_modes: ["purchase"]
       - title: "#15 #いえいっ！"
-        updated: 2026-06-08
+        updated: 2026-06-09
         access_modes: ["purchase"]
       - title: "#14 #お休みしゅる"
-        updated: 2026-06-01
+        updated: 2026-06-02
         access_modes: ["purchase"]
       - title: "#13 #ギャルサーありますか？"
-        updated: 2026-05-25
+        updated: 2026-05-26
         access_modes: ["purchase"]
       - title: "#12 #くっつきたい"
-        updated: 2026-05-18
+        updated: 2026-05-19
         access_modes: ["purchase"]
       - title: "#アニラン #ありがとー♡"
         updated: 2026-03-04
         access_modes: ["free"]
       - title: "#11 #ありがと"
-        updated: 2025-11-03
+        updated: 2025-11-04
         access_modes: ["purchase"]
       - title: "#10 #お姫様"
-        updated: 2025-10-27
+        updated: 2025-10-28
         access_modes: ["purchase"]
       - title: "#9 #バイトしたい"
-        updated: 2025-10-20
+        updated: 2025-10-21
         access_modes: ["purchase"]
       - title: "#8 #仲良くなって♡"
-        updated: 2025-10-13
+        updated: 2025-10-14
         access_modes: ["purchase"]
       - title: "#7 #いーことあるっしょ"
-        updated: 2025-10-06
+        updated: 2025-10-07
         access_modes: ["purchase"]
       - title: "#6 #お泊まり"
-        updated: 2025-09-29
+        updated: 2025-09-30
         access_modes: ["purchase"]
       - title: "#5 #かんせいっ"
-        updated: 2025-09-22
+        updated: 2025-09-23
         access_modes: ["purchase"]
       - title: "#4 #なりたいもの"
-        updated: 2025-09-15
+        updated: 2025-09-16
         access_modes: ["purchase"]
       - title: "#3 #なんでも知ってるよ"
-        updated: 2025-09-08
+        updated: 2025-09-09
         access_modes: ["free"]
       - title: "#2 #記念日"
-        updated: 2025-09-08
+        updated: 2025-09-09
         access_modes: ["free"]
       - title: "#1 #ギャルとギャルの百合"
-        updated: 2025-06-09
+        updated: 2025-06-10
         access_modes: ["free"]
-  - work_title: "DOUBLE HELIX BLOSSOM"
-    author: "SWAV / アサウラ / 西馬ごめゆき"
-    url: "https://www.corocoro.jp/title/65"
-    platform_name: "コロコロオンライン"
-    route: "author-link"
   - work_title: "きょうもバレずに過ごせた！"
     author: "はづき"
     url: "https://www.sunday-webry.com/episode/12207421984063808660"
@@ -99,55 +188,55 @@ works:
     chapter_count: 17
     chapters:
       - title: "おまけ"
-        updated: 2026-10-01
+        updated: 2026-10-02
         access_modes: ["free"]
       - title: "17にちめ：打ち上げだ⁉︎"
-        updated: 2026-10-15
+        updated: 2026-10-16
         access_modes: ["free"]
       - title: "おまけ"
-        updated: 2026-07-23
+        updated: 2026-07-24
         access_modes: ["free"]
       - title: "特別編！ 思い出の!?"
-        updated: 2026-06-11
+        updated: 2026-06-12
         access_modes: ["free"]
       - title: "単行本PR"
-        updated: 2026-06-10
+        updated: 2026-06-11
         access_modes: ["free"]
       - title: "11にちめ：仲直り!?"
-        updated: 2026-06-25
+        updated: 2026-06-26
         access_modes: ["purchase"]
       - title: "10かめ：ハリコミで!?"
-        updated: 2026-05-28
+        updated: 2026-05-29
         access_modes: ["purchase"]
       - title: "おまけ"
-        updated: 2026-04-30
+        updated: 2026-05-01
         access_modes: ["free"]
       - title: "9かめ：スキャンダル!?"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "8かめ：とくべつな…!?"
-        updated: 2026-04-16
+        updated: 2026-04-17
         access_modes: ["purchase"]
       - title: "7かめ：泥だらけ!?"
-        updated: 2026-04-02
+        updated: 2026-04-03
         access_modes: ["purchase"]
       - title: "6かめ：生配信!?"
-        updated: 2026-03-19
+        updated: 2026-03-20
         access_modes: ["purchase"]
       - title: "5かめ：カチコミだ!?"
-        updated: 2026-03-05
+        updated: 2026-03-06
         access_modes: ["purchase"]
       - title: "4かめ：四人なら!?"
-        updated: 2026-02-19
+        updated: 2026-02-20
         access_modes: ["purchase"]
       - title: "3かめ：初耳だぞ!?"
-        updated: 2026-02-12
+        updated: 2026-02-13
         access_modes: ["free"]
       - title: "2かめ：ワケありの!?"
-        updated: 2026-02-05
+        updated: 2026-02-06
         access_modes: ["free"]
       - title: "1にちめ：バレちゃった!?"
-        updated: 2026-01-29
+        updated: 2026-01-30
         access_modes: ["free"]
   - work_title: "てくのぱにっくゆにばーす"
     author: "伏見ダイキ"
@@ -157,136 +246,136 @@ works:
     chapter_count: 44
     chapters:
       - title: "コミックス２巻発売記念イラスト！"
-        updated: 2026-10-08
+        updated: 2026-10-09
+        access_modes: ["free"]
+      - title: "第１６話 とっておきの服"
+        updated: 2026-10-23
         access_modes: ["free"]
       - title: "ショートショート これも大事な宝物"
-        updated: 2026-10-15
-        access_modes: ["free"]
-      - title: "第１５話 郵便ポストで洋服を"
-        updated: 2026-10-01
+        updated: 2026-10-16
         access_modes: ["free"]
       - title: "ショートショート 時には昔の話を"
-        updated: 2026-09-24
+        updated: 2026-09-25
         access_modes: ["free"]
       - title: "ショートショート 目指せ爆裂球技日本一！"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["free"]
       - title: "ショートショート 初見の二人"
-        updated: 2026-09-10
+        updated: 2026-09-11
         access_modes: ["free"]
       - title: "ショートショート 助手の心得"
-        updated: 2026-08-27
+        updated: 2026-08-28
         access_modes: ["free"]
       - title: "ショートショート これが彼女らの戦車道"
-        updated: 2026-08-20
+        updated: 2026-08-21
         access_modes: ["free"]
       - title: "ショートショート 人類学生化計画"
-        updated: 2026-07-16
+        updated: 2026-07-17
         access_modes: ["free"]
       - title: "ショートショート あなたにとって可愛いとは？"
-        updated: 2026-07-09
+        updated: 2026-07-10
         access_modes: ["free"]
       - title: "ショートショート 最適なトレーニングウェア？"
-        updated: 2026-06-25
+        updated: 2026-06-26
         access_modes: ["free"]
       - title: "ショートショート 枯井戸が仲間に加わった！"
-        updated: 2026-06-18
+        updated: 2026-06-19
         access_modes: ["free"]
       - title: "ショートショート 汗の有効利用についての研究"
-        updated: 2026-06-11
+        updated: 2026-06-12
         access_modes: ["free"]
       - title: "第１０話 ダンジョンズ＆フィットネス"
-        updated: 2026-06-04
+        updated: 2026-06-05
         access_modes: ["purchase"]
       - title: "第９話 実に大きな鯉のぼり"
-        updated: 2026-05-21
+        updated: 2026-05-22
         access_modes: ["purchase"]
       - title: "ショートショート 刹那の見切り"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["free"]
       - title: "ショートショート リベンジ！服だけ溶かすスライム！"
-        updated: 2026-05-07
+        updated: 2026-05-08
         access_modes: ["free"]
       - title: "第８話 ワードサラダにパプリカを"
-        updated: 2026-04-30
+        updated: 2026-05-01
         access_modes: ["purchase"]
       - title: "ショートショート 円滑な授業に関するハウツー"
-        updated: 2026-04-23
+        updated: 2026-04-24
         access_modes: ["free"]
       - title: "ショートショート 並行生物と触れあおう！"
-        updated: 2026-04-16
+        updated: 2026-04-17
         access_modes: ["free"]
       - title: "コミックス１巻発売記念イラスト！"
-        updated: 2026-04-09
+        updated: 2026-04-10
         access_modes: ["free"]
       - title: "第７話 怪奇！並行宇宙からの不明物体！"
-        updated: 2026-04-02
+        updated: 2026-04-03
         access_modes: ["purchase"]
       - title: "ショートショート 配線ミス"
-        updated: 2026-03-26
+        updated: 2026-03-27
         access_modes: ["free"]
       - title: "ショートショート 水濡れ厳禁"
-        updated: 2026-03-19
+        updated: 2026-03-20
         access_modes: ["free"]
       - title: "ショートショート 刺激不足"
-        updated: 2026-03-12
+        updated: 2026-03-13
         access_modes: ["free"]
       - title: "第６話 桜儚し探せよ乙女"
-        updated: 2026-03-05
+        updated: 2026-03-06
         access_modes: ["purchase"]
       - title: "ショートショート 指示の通りにしろ"
-        updated: 2026-02-26
+        updated: 2026-02-27
         access_modes: ["free"]
       - title: "ショートショート 豆鉄砲を喰らったように"
-        updated: 2026-02-12
+        updated: 2026-02-13
         access_modes: ["free"]
       - title: "第５話 首を長くしてお待ちしてます"
-        updated: 2026-02-05
+        updated: 2026-02-06
         access_modes: ["purchase"]
       - title: "ショートショート ボディの稼働テスト"
-        updated: 2026-01-29
+        updated: 2026-01-30
         access_modes: ["free"]
       - title: "ショートショート メカバレは性癖"
-        updated: 2026-01-22
+        updated: 2026-01-23
         access_modes: ["free"]
       - title: "ショートショート ナチュラルRTA走者"
-        updated: 2026-01-08
+        updated: 2026-01-09
         access_modes: ["free"]
       - title: "第４話 Hang on shooting star"
-        updated: 2026-01-01
+        updated: 2026-01-02
         access_modes: ["purchase"]
       - title: "ショートショート めぐる因果"
-        updated: 2025-12-25
+        updated: 2025-12-26
         access_modes: ["free"]
       - title: "ショートショート お部屋に潜むもの"
-        updated: 2025-12-18
+        updated: 2025-12-19
         access_modes: ["free"]
       - title: "第３話 課題は足がつく前に"
-        updated: 2025-12-04
+        updated: 2025-12-05
         access_modes: ["free"]
       - title: "ショートショート 熱意のある学生を募集します"
-        updated: 2025-11-27
+        updated: 2025-11-28
         access_modes: ["free"]
       - title: "ショートショート つくってあそぼ"
-        updated: 2025-11-20
+        updated: 2025-11-21
         access_modes: ["free"]
       - title: "ショートショート 夜の秘め事？"
-        updated: 2025-11-13
+        updated: 2025-11-14
         access_modes: ["free"]
       - title: "第２話 テレビは猫に入りますか？"
-        updated: 2025-11-06
+        updated: 2025-11-07
         access_modes: ["free"]
       - title: "ショートショート 非言語コミュニケーション"
-        updated: 2025-10-30
+        updated: 2025-10-31
         access_modes: ["free"]
       - title: "ショートショート 分類学"
-        updated: 2025-10-23
+        updated: 2025-10-24
         access_modes: ["free"]
       - title: "ショートショート 新入生は見た！"
-        updated: 2025-10-16
+        updated: 2025-10-17
         access_modes: ["free"]
       - title: "第１話 この狭い宇宙をはみ出たもの"
-        updated: 2025-10-09
+        updated: 2025-10-10
         access_modes: ["free"]
   - work_title: "なとりとしずは"
     author: "鮎川あお"
@@ -296,41 +385,16 @@ works:
     chapter_count: 4
     chapters:
       - title: "第10話 期待 (前編)"
-        updated: 2026-10-12
+        updated: 2026-10-13
         access_modes: ["free"]
       - title: "第3話 負けず嫌い"
-        updated: 2026-06-22
+        updated: 2026-06-23
         access_modes: ["free"]
       - title: "第2話 ほころび"
-        updated: 2026-06-08
+        updated: 2026-06-09
         access_modes: ["free"]
       - title: "第1話 もう一度"
-        updated: 2026-05-25
-        access_modes: ["free"]
-  - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
-    author: "みやしろ"
-    url: "https://www.sunday-webry.com/episode/12207421984093448208"
-    platform_name: "サンデーうぇぶり"
-    route: "gigaviewer-feed"
-    chapter_count: 6
-    chapters:
-      - title: "Memory7 ガチ映えの日 (2)"
-        updated: 2026-10-08
-        access_modes: ["free"]
-      - title: "単行本第１集発売PR！！"
-        updated: 2026-08-13
-        access_modes: ["free"]
-      - title: "Memory2 栄養満点！アンドロイドごはん (2)"
-        updated: 2026-05-07
-        access_modes: ["free"]
-      - title: "Memory2 栄養満点！アンドロイドごはん (1)"
-        updated: 2026-04-23
-        access_modes: ["free"]
-      - title: "おまけ"
-        updated: 2026-04-09
-        access_modes: ["free"]
-      - title: "Memory1 彼女の居場所"
-        updated: 2026-03-26
+        updated: 2026-05-26
         access_modes: ["free"]
   - work_title: "上杉くんは女の子をやめたい"
     author: "やぶうち優"
@@ -340,52 +404,52 @@ works:
     chapter_count: 16
     chapters:
       - title: "第36話"
-        updated: 2026-10-16
+        updated: 2026-10-17
         access_modes: ["free"]
       - title: "イラスト"
-        updated: 2026-10-02
+        updated: 2026-10-03
         access_modes: ["free"]
       - title: "イラスト"
-        updated: 2026-09-04
+        updated: 2026-09-05
         access_modes: ["free"]
       - title: "本誌７月号出張番外編"
-        updated: 2026-08-14
+        updated: 2026-08-15
         access_modes: ["free"]
       - title: "イラスト"
-        updated: 2026-07-31
+        updated: 2026-08-01
         access_modes: ["free"]
       - title: "イラスト"
-        updated: 2026-07-03
+        updated: 2026-07-04
         access_modes: ["free"]
       - title: "33話予告"
-        updated: 2026-06-05
+        updated: 2026-06-06
         access_modes: ["free"]
       - title: "番外編「髪は女の命？」"
-        updated: 2026-02-20
+        updated: 2026-02-21
         access_modes: ["free"]
       - title: "番外編「飯野さんはメンタルが限界」"
-        updated: 2026-01-16
+        updated: 2026-01-17
         access_modes: ["free"]
       - title: "番外編"
-        updated: 2026-01-09
+        updated: 2026-01-10
         access_modes: ["free"]
       - title: "番外編 「八重村くんは夢みたい」"
-        updated: 2025-12-19
+        updated: 2025-12-20
         access_modes: ["free"]
       - title: "番外編"
-        updated: 2025-10-17
+        updated: 2025-10-18
         access_modes: ["free"]
       - title: "第22.5話"
-        updated: 2025-09-05
+        updated: 2025-09-06
         access_modes: ["free"]
       - title: "第3話"
-        updated: 2024-10-18
+        updated: 2024-10-19
         access_modes: ["free"]
       - title: "第2話"
-        updated: 2024-10-04
+        updated: 2024-10-05
         access_modes: ["free"]
       - title: "第1話"
-        updated: 2024-10-04
+        updated: 2024-10-05
         access_modes: ["free"]
   - work_title: "小春と湊 わたしのパートナーは女の子"
     author: "ひあるろん＆達磨"
@@ -581,1039 +645,1039 @@ works:
     chapter_count: 345
     chapters:
       - title: "第３４３話①　「可哀想な人」"
-        updated: 2026-10-20
+        updated: 2026-10-21
         access_modes: ["purchase"]
       - title: "第３４２話　「逸した洞察」"
-        updated: 2026-10-13
+        updated: 2026-10-14
         access_modes: ["purchase"]
       - title: "第３４１話　「エンペラーオブレイパー」"
-        updated: 2026-10-06
+        updated: 2026-10-07
         access_modes: ["purchase"]
       - title: "第３４０話　「キングレイパー」"
-        updated: 2026-09-29
+        updated: 2026-09-30
         access_modes: ["free"]
       - title: "第３３９話②　「射銃」"
-        updated: 2026-09-22
+        updated: 2026-09-23
         access_modes: ["free"]
       - title: "第３３９話①　「射銃」"
-        updated: 2026-09-15
+        updated: 2026-09-16
         access_modes: ["purchase"]
       - title: "第３３８話　「発破」"
-        updated: 2026-08-25
+        updated: 2026-08-26
         access_modes: ["purchase"]
       - title: "第３３７話　「仇討ち」"
-        updated: 2026-08-11
+        updated: 2026-08-12
         access_modes: ["purchase"]
       - title: "第３３６話　「人たらしめるもの」"
-        updated: 2026-07-28
+        updated: 2026-07-29
         access_modes: ["purchase"]
       - title: "第３３５話　「高ＩＱレスラー」"
-        updated: 2026-07-21
+        updated: 2026-07-22
         access_modes: ["purchase"]
       - title: "第３３４話　「身体の主導権」"
-        updated: 2026-06-30
+        updated: 2026-07-01
         access_modes: ["purchase"]
       - title: "第３３３話　「起死回生」"
-        updated: 2026-06-23
+        updated: 2026-06-24
         access_modes: ["purchase"]
       - title: "第３３２話　「正面突破」"
-        updated: 2026-06-16
+        updated: 2026-06-17
         access_modes: ["purchase"]
       - title: "第３３１話　「愛の力」"
-        updated: 2026-06-09
+        updated: 2026-06-10
         access_modes: ["purchase"]
       - title: "第３３０話　「公開処刑」"
-        updated: 2026-06-02
+        updated: 2026-06-03
         access_modes: ["purchase"]
       - title: "第３２９話　「絶頂」"
-        updated: 2026-05-12
+        updated: 2026-05-13
         access_modes: ["purchase"]
       - title: "第３２８話　「包囲網」"
-        updated: 2026-04-28
+        updated: 2026-04-29
         access_modes: ["purchase"]
       - title: "第３２７話　「盤上暗転」"
-        updated: 2026-04-07
+        updated: 2026-04-08
         access_modes: ["purchase"]
       - title: "第３２６話　「王手」"
-        updated: 2026-03-31
+        updated: 2026-04-01
         access_modes: ["purchase"]
       - title: "第３２５話　「居場所」"
-        updated: 2026-03-24
+        updated: 2026-03-25
         access_modes: ["purchase"]
       - title: "第３２４話　「制御不能」"
-        updated: 2026-03-10
+        updated: 2026-03-11
         access_modes: ["purchase"]
       - title: "第３２３話　「切り札」"
-        updated: 2026-03-03
+        updated: 2026-03-04
         access_modes: ["purchase"]
       - title: "第３２２話　「粉砕」"
-        updated: 2026-02-24
+        updated: 2026-02-25
         access_modes: ["purchase"]
       - title: "第３２１話　「ショータイム」"
-        updated: 2026-02-10
+        updated: 2026-02-11
         access_modes: ["purchase"]
       - title: "第３２０話②　「戦いの音頭」"
-        updated: 2026-02-03
+        updated: 2026-02-04
         access_modes: ["purchase"]
       - title: "第３２０話①　「戦いの音頭」"
-        updated: 2026-01-27
+        updated: 2026-01-28
         access_modes: ["purchase"]
       - title: "第３１９話　「船上の舞闘会」"
-        updated: 2026-01-13
+        updated: 2026-01-14
         access_modes: ["purchase"]
       - title: "第３１８話　「決裂」"
-        updated: 2025-12-30
+        updated: 2025-12-31
         access_modes: ["purchase"]
       - title: "第３１７話　「部位破壊」"
-        updated: 2025-12-09
+        updated: 2025-12-10
         access_modes: ["purchase"]
       - title: "第３１６話　「パーティー」"
-        updated: 2025-12-02
+        updated: 2025-12-03
         access_modes: ["purchase"]
       - title: "第３１５話　「フェイズ２」"
-        updated: 2025-11-18
+        updated: 2025-11-19
         access_modes: ["purchase"]
       - title: "第３１４話　「狙撃王」"
-        updated: 2025-11-11
+        updated: 2025-11-12
         access_modes: ["purchase"]
       - title: "第３１３話　「殺意の弾丸」"
-        updated: 2025-11-04
+        updated: 2025-11-05
         access_modes: ["purchase"]
       - title: "第３１２話　「花火」"
-        updated: 2025-10-21
+        updated: 2025-10-22
         access_modes: ["purchase"]
       - title: "第３１１話　「祭りの始まり」"
-        updated: 2025-10-14
+        updated: 2025-10-15
         access_modes: ["purchase"]
       - title: "第３１０話　「恋心」"
-        updated: 2025-09-23
+        updated: 2025-09-24
         access_modes: ["purchase"]
       - title: "第３０９話　「騎士として」"
-        updated: 2025-09-16
+        updated: 2025-09-17
         access_modes: ["purchase"]
       - title: "第３０８話　「知らない姫」"
-        updated: 2025-09-09
+        updated: 2025-09-10
         access_modes: ["purchase"]
       - title: "第３０７話　「クローゼット」"
-        updated: 2025-08-26
+        updated: 2025-08-27
         access_modes: ["purchase"]
       - title: "第３０６話　「ジーニアス」"
-        updated: 2025-08-05
+        updated: 2025-08-06
         access_modes: ["purchase"]
       - title: "第３０５話　「攻略の鍵」"
-        updated: 2025-07-29
+        updated: 2025-07-30
         access_modes: ["purchase"]
       - title: "第３０４話　「ミルクティー」"
-        updated: 2025-07-22
+        updated: 2025-07-23
         access_modes: ["purchase"]
       - title: "第３０３話　「宙舞う攻防」"
-        updated: 2025-07-08
+        updated: 2025-07-09
         access_modes: ["purchase"]
       - title: "第３０２話　「愛ゆえの闘争」"
-        updated: 2025-07-01
+        updated: 2025-07-02
         access_modes: ["purchase"]
       - title: "第３０１話　「オーティス・トゥール」"
-        updated: 2025-06-24
+        updated: 2025-06-25
         access_modes: ["purchase"]
       - title: "第３００話　「アンタの相棒」"
-        updated: 2025-06-10
+        updated: 2025-06-11
         access_modes: ["purchase"]
       - title: "第２９９話　「\"姫\"」"
-        updated: 2025-06-03
+        updated: 2025-06-04
         access_modes: ["purchase"]
       - title: "第２９８話　「水鉄砲」"
-        updated: 2025-05-27
+        updated: 2025-05-28
         access_modes: ["purchase"]
       - title: "第２９７話　「絶望と野望」"
-        updated: 2025-05-13
+        updated: 2025-05-14
         access_modes: ["purchase"]
       - title: "第２９６話　「生まれ変わり」"
-        updated: 2025-04-22
+        updated: 2025-04-23
         access_modes: ["purchase"]
       - title: "第２９５話　「ホントの」"
-        updated: 2025-04-08
+        updated: 2025-04-09
         access_modes: ["purchase"]
       - title: "第２９４話　「お兄ちゃん」"
-        updated: 2025-03-25
+        updated: 2025-03-26
         access_modes: ["purchase"]
       - title: "第２９３話　「交錯する疑念」"
-        updated: 2025-03-11
+        updated: 2025-03-12
         access_modes: ["purchase"]
       - title: "第２９２話　「トラブル」"
-        updated: 2025-03-04
+        updated: 2025-03-05
         access_modes: ["purchase"]
       - title: "第２９１話　「賢者時間」"
-        updated: 2025-02-25
+        updated: 2025-02-26
         access_modes: ["purchase"]
       - title: "第２９０話　「もっと痛みを」"
-        updated: 2025-02-11
+        updated: 2025-02-12
         access_modes: ["purchase"]
       - title: "第２８９話　「誘い」"
-        updated: 2025-02-04
+        updated: 2025-02-05
         access_modes: ["purchase"]
       - title: "第２８８話　「不死身のイリヤ」"
-        updated: 2025-01-28
+        updated: 2025-01-29
         access_modes: ["purchase"]
       - title: "第２８７話　「シャーククイーン」"
-        updated: 2025-01-14
+        updated: 2025-01-15
         access_modes: ["purchase"]
       - title: "第２８６話　「ネタ交換」"
-        updated: 2025-01-07
+        updated: 2025-01-08
         access_modes: ["purchase"]
       - title: "第２８５話　「情報収集」"
-        updated: 2024-12-17
+        updated: 2024-12-18
         access_modes: ["purchase"]
       - title: "第２８４話　「ＶＩＰ接近」"
-        updated: 2024-12-10
+        updated: 2024-12-11
         access_modes: ["purchase"]
       - title: "第２８３話　「アーケロン潜入」"
-        updated: 2024-12-03
+        updated: 2024-12-04
         access_modes: ["purchase"]
       - title: "第２８２話　「好奇心」"
-        updated: 2024-11-19
+        updated: 2024-11-20
         access_modes: ["purchase"]
       - title: "第２８１話　「海の処刑場」"
-        updated: 2024-11-12
+        updated: 2024-11-13
         access_modes: ["purchase"]
       - title: "第２８０話　「戦闘準備」"
-        updated: 2024-10-22
+        updated: 2024-10-23
         access_modes: ["purchase"]
       - title: "第２７９話　「再結集」"
-        updated: 2024-10-08
+        updated: 2024-10-09
         access_modes: ["purchase"]
       - title: "第２７８話　「迷惑なんかじゃ」"
-        updated: 2024-09-24
+        updated: 2024-09-25
         access_modes: ["purchase"]
       - title: "第２７７話　「ヘンリー・リー・ルーカス」"
-        updated: 2024-09-17
+        updated: 2024-09-18
         access_modes: ["purchase"]
       - title: "第２７６話　「揺れる嫉妬心」"
-        updated: 2024-08-20
+        updated: 2024-08-21
         access_modes: ["purchase"]
       - title: "第２７５話　「戦う理由」"
-        updated: 2024-08-13
+        updated: 2024-08-14
         access_modes: ["purchase"]
       - title: "第２７４話　「五菱の過去」"
-        updated: 2024-07-30
+        updated: 2024-07-31
         access_modes: ["purchase"]
       - title: "第２７３話　「告白」"
-        updated: 2024-07-16
+        updated: 2024-07-17
         access_modes: ["purchase"]
       - title: "第２７２話　「覆る審判」"
-        updated: 2024-07-02
+        updated: 2024-07-03
         access_modes: ["purchase"]
       - title: "第２７１話　「その後」"
-        updated: 2024-06-25
+        updated: 2024-06-26
         access_modes: ["purchase"]
       - title: "第２７０話　「夢の中で」"
-        updated: 2024-06-18
+        updated: 2024-06-19
         access_modes: ["purchase"]
       - title: "第２６９話　「死に様」"
-        updated: 2024-06-04
+        updated: 2024-06-05
         access_modes: ["purchase"]
       - title: "第２６８話　「秘策」"
-        updated: 2024-05-14
+        updated: 2024-05-15
         access_modes: ["purchase"]
       - title: "第２６７話　「守りたいもの」"
-        updated: 2024-04-30
+        updated: 2024-05-01
         access_modes: ["purchase"]
       - title: "第２６６話　「手のひらの上」"
-        updated: 2024-04-16
+        updated: 2024-04-17
         access_modes: ["purchase"]
       - title: "第２６５話　「父と娘」"
-        updated: 2024-04-09
+        updated: 2024-04-10
         access_modes: ["purchase"]
       - title: "第２６４話　「ＤＥＡＤ　ＯＲ　ＡＣＴ」"
-        updated: 2024-03-19
+        updated: 2024-03-20
         access_modes: ["purchase"]
       - title: "第２６３話　「フェイク」"
-        updated: 2024-03-12
+        updated: 2024-03-13
         access_modes: ["purchase"]
       - title: "第２６２話　「ずっと一人で」"
-        updated: 2024-02-27
+        updated: 2024-02-28
         access_modes: ["purchase"]
       - title: "第２６１話　「終い」"
-        updated: 2024-02-13
+        updated: 2024-02-14
         access_modes: ["purchase"]
       - title: "第２６０話　「曲がらぬ執念」"
-        updated: 2024-02-06
+        updated: 2024-02-07
         access_modes: ["purchase"]
       - title: "第２５９話　「幸せ者」"
-        updated: 2024-01-23
+        updated: 2024-01-24
         access_modes: ["purchase"]
       - title: "第２５８話　「任務遂行」"
-        updated: 2024-01-16
+        updated: 2024-01-17
         access_modes: ["purchase"]
       - title: "第２５７話　「プロトタイプ」"
-        updated: 2023-12-26
+        updated: 2023-12-27
         access_modes: ["purchase"]
       - title: "第２５６話　「通じる想い・届かぬ願い」"
-        updated: 2023-12-12
+        updated: 2023-12-13
         access_modes: ["purchase"]
       - title: "第２５５話　「奉仕の心」"
-        updated: 2023-11-28
+        updated: 2023-11-29
         access_modes: ["purchase"]
       - title: "第２５４話　「違う、そうじゃない」"
-        updated: 2023-11-21
+        updated: 2023-11-22
         access_modes: ["purchase"]
       - title: "第２５３話　「騒ぐ本能」"
-        updated: 2023-11-14
+        updated: 2023-11-15
         access_modes: ["purchase"]
       - title: "第２５２話　「“死ぬ”覚悟」"
-        updated: 2023-10-31
+        updated: 2023-11-01
         access_modes: ["purchase"]
       - title: "第２５１話　「兆候」"
-        updated: 2023-10-24
+        updated: 2023-10-25
         access_modes: ["purchase"]
       - title: "第２５０話　「薫る風」"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第２４９話　「違和感」"
-        updated: 2023-10-10
+        updated: 2023-10-11
         access_modes: ["purchase"]
       - title: "第２４８話　「正義のために」"
-        updated: 2023-09-26
+        updated: 2023-09-27
         access_modes: ["purchase"]
       - title: "第２４７話　「羽黒侵攻」"
-        updated: 2023-09-12
+        updated: 2023-09-13
         access_modes: ["purchase"]
       - title: "第２４６話　「プランC」"
-        updated: 2023-09-05
+        updated: 2023-09-06
         access_modes: ["purchase"]
       - title: "第２４５話　「嘘と本当」"
-        updated: 2023-07-23
+        updated: 2023-07-24
         access_modes: ["purchase"]
       - title: "第２４４話　「乱入」"
-        updated: 2023-07-13
+        updated: 2023-07-14
         access_modes: ["purchase"]
       - title: "第２４３話　「再会の挨拶」"
-        updated: 2023-07-09
+        updated: 2023-07-10
         access_modes: ["purchase"]
       - title: "第２４２話　「大乱戦」"
-        updated: 2023-07-02
+        updated: 2023-07-03
         access_modes: ["purchase"]
       - title: "第２４１話　「開戦」"
-        updated: 2023-06-18
+        updated: 2023-06-19
         access_modes: ["purchase"]
       - title: "第２４０話　「ウォーミングアップ」"
-        updated: 2023-06-11
+        updated: 2023-06-12
         access_modes: ["purchase"]
       - title: "第２３９話　「カチュアの心」"
-        updated: 2023-06-04
+        updated: 2023-06-05
         access_modes: ["purchase"]
       - title: "第２３８話　「新たな脈動」"
-        updated: 2023-05-28
+        updated: 2023-05-29
         access_modes: ["purchase"]
       - title: "第２３７話　「友達」"
-        updated: 2023-05-14
+        updated: 2023-05-15
         access_modes: ["purchase"]
       - title: "第２３６話　「カレンの過去」"
-        updated: 2023-05-07
+        updated: 2023-05-08
         access_modes: ["purchase"]
       - title: "第２３５話　「失踪」"
-        updated: 2023-04-23
+        updated: 2023-04-24
         access_modes: ["purchase"]
       - title: "第２３４話　「雪と共に去りぬ」"
-        updated: 2023-03-12
+        updated: 2023-03-13
         access_modes: ["purchase"]
       - title: "第２３３話　「東犀美津子」"
-        updated: 2023-03-05
+        updated: 2023-03-06
         access_modes: ["purchase"]
       - title: "第２３２話　「美依那のけじめ」"
-        updated: 2023-02-26
+        updated: 2023-02-27
         access_modes: ["purchase"]
       - title: "第２３１話　「刃」"
-        updated: 2023-02-19
+        updated: 2023-02-20
         access_modes: ["purchase"]
       - title: "第２３０話　「冬雪の美」"
-        updated: 2023-02-05
+        updated: 2023-02-06
         access_modes: ["purchase"]
       - title: "第２２９話　「鬼神」"
-        updated: 2023-01-29
+        updated: 2023-01-30
         access_modes: ["purchase"]
       - title: "第２２８話　「分断」"
-        updated: 2023-01-22
+        updated: 2023-01-23
         access_modes: ["purchase"]
       - title: "第２２７話　「裏切り」"
-        updated: 2023-01-15
+        updated: 2023-01-16
         access_modes: ["purchase"]
       - title: "第２２６話　「色仕掛け」"
-        updated: 2022-12-25
+        updated: 2022-12-26
         access_modes: ["purchase"]
       - title: "第２２５話　「妖怪」"
-        updated: 2022-12-11
+        updated: 2022-12-12
         access_modes: ["purchase"]
       - title: "第２２４話　「住むべき世界」"
-        updated: 2022-12-04
+        updated: 2022-12-05
         access_modes: ["purchase"]
       - title: "第２２３話　「豚汁」"
-        updated: 2022-11-27
+        updated: 2022-11-28
         access_modes: ["purchase"]
       - title: "第２２２話　「復讐の旅」"
-        updated: 2022-11-13
+        updated: 2022-11-14
         access_modes: ["purchase"]
       - title: "第２２１話　「未練」"
-        updated: 2022-11-06
+        updated: 2022-11-07
         access_modes: ["purchase"]
       - title: "第２２０話　「美しくなる瞬間」"
-        updated: 2022-10-30
+        updated: 2022-10-31
         access_modes: ["purchase"]
       - title: "第２１９話　「殺人ピエロ」"
-        updated: 2022-10-23
+        updated: 2022-10-24
         access_modes: ["purchase"]
       - title: "第２１８話　「石動劇団」"
-        updated: 2022-10-06
+        updated: 2022-10-07
         access_modes: ["purchase"]
       - title: "第２１７話　「暗示」"
-        updated: 2022-10-02
+        updated: 2022-10-03
         access_modes: ["purchase"]
       - title: "第２１６話　「メデューサの正体」"
-        updated: 2022-09-25
+        updated: 2022-09-26
         access_modes: ["purchase"]
       - title: "第２１５話　「アフターサービス」"
-        updated: 2022-09-15
+        updated: 2022-09-16
         access_modes: ["purchase"]
       - title: "第２１４話　「お花」"
-        updated: 2022-09-04
+        updated: 2022-09-05
         access_modes: ["purchase"]
       - title: "第２１３話　「届いた荷物」"
-        updated: 2022-08-28
+        updated: 2022-08-29
         access_modes: ["purchase"]
       - title: "第２１２話　「しげお」"
-        updated: 2022-08-21
+        updated: 2022-08-22
         access_modes: ["purchase"]
       - title: "第２１１話　「夏樹劇団」"
-        updated: 2022-08-07
+        updated: 2022-08-08
         access_modes: ["purchase"]
       - title: "第２１０話　「劇場」"
-        updated: 2022-07-24
+        updated: 2022-07-25
         access_modes: ["purchase"]
       - title: "第２０９話　「冬の訪れ」"
-        updated: 2022-07-14
+        updated: 2022-07-15
         access_modes: ["purchase"]
       - title: "第２０８話　「手分け」"
-        updated: 2022-07-03
+        updated: 2022-07-04
         access_modes: ["purchase"]
       - title: "第２０７話　「瑠璃子」"
-        updated: 2022-06-19
+        updated: 2022-06-20
         access_modes: ["purchase"]
       - title: "第２０６話　「吾妻」"
-        updated: 2022-06-12
+        updated: 2022-06-13
         access_modes: ["purchase"]
       - title: "第２０５話　「蛇口」"
-        updated: 2022-06-05
+        updated: 2022-06-06
         access_modes: ["purchase"]
       - title: "第２０４話　「霧子と仁奈」"
-        updated: 2022-05-29
+        updated: 2022-05-30
         access_modes: ["purchase"]
       - title: "第２０３話　「第弐発火」"
-        updated: 2022-05-15
+        updated: 2022-05-16
         access_modes: ["purchase"]
       - title: "第２０２話　「因縁」"
-        updated: 2022-05-08
+        updated: 2022-05-09
         access_modes: ["purchase"]
       - title: "第２０１話　「新メデューサ」"
-        updated: 2022-04-24
+        updated: 2022-04-25
         access_modes: ["purchase"]
       - title: "第２００話　「新たな誓い」"
-        updated: 2022-04-03
+        updated: 2022-04-04
         access_modes: ["purchase"]
       - title: "第１９９話　「シビカラ」"
-        updated: 2022-03-27
+        updated: 2022-03-28
         access_modes: ["purchase"]
       - title: "第１９８話　「それぞれの決意」"
-        updated: 2022-03-18
+        updated: 2022-03-19
         access_modes: ["purchase"]
       - title: "第１９７話　「バランス」"
-        updated: 2022-03-13
+        updated: 2022-03-14
         access_modes: ["purchase"]
       - title: "第１９６話　「自由」"
-        updated: 2022-01-23
+        updated: 2022-01-24
         access_modes: ["purchase"]
       - title: "第１９５話　「天才」"
-        updated: 2022-01-16
+        updated: 2022-01-17
         access_modes: ["purchase"]
       - title: "第１９４話　「決着」"
-        updated: 2021-12-26
+        updated: 2021-12-27
         access_modes: ["purchase"]
       - title: "第１９３話　「油地獄」"
-        updated: 2021-12-12
+        updated: 2021-12-13
         access_modes: ["purchase"]
       - title: "第１９２話　「サトリ」"
-        updated: 2021-12-05
+        updated: 2021-12-06
         access_modes: ["purchase"]
       - title: "第１９１話　「勝機」"
-        updated: 2021-11-28
+        updated: 2021-11-29
         access_modes: ["purchase"]
       - title: "第１９０話　「兵法」"
-        updated: 2021-11-14
+        updated: 2021-11-15
         access_modes: ["purchase"]
       - title: "第１８９話　「想いの力」"
-        updated: 2021-11-07
+        updated: 2021-11-08
         access_modes: ["purchase"]
       - title: "第１８８話　「アモーレ」"
-        updated: 2021-10-31
+        updated: 2021-11-01
         access_modes: ["purchase"]
       - title: "第１８７話　「ニルセン」"
-        updated: 2021-10-24
+        updated: 2021-10-25
         access_modes: ["purchase"]
       - title: "第１８６話　「生命の譲渡」"
-        updated: 2021-10-10
+        updated: 2021-10-11
         access_modes: ["purchase"]
       - title: "第１８５話　「堂島瀬里」"
-        updated: 2021-10-03
+        updated: 2021-10-04
         access_modes: ["purchase"]
       - title: "第１８４話　「最後の法悦」"
-        updated: 2021-09-26
+        updated: 2021-09-27
         access_modes: ["purchase"]
       - title: "第１８３話　「しぐま」"
-        updated: 2021-09-17
+        updated: 2021-09-18
         access_modes: ["purchase"]
       - title: "第１８２話　「男・斯波恭介」"
-        updated: 2021-09-05
+        updated: 2021-09-06
         access_modes: ["purchase"]
       - title: "第１８１話　「聡」"
-        updated: 2021-08-29
+        updated: 2021-08-30
         access_modes: ["purchase"]
       - title: "第１８０話　「奥の院」"
-        updated: 2021-08-22
+        updated: 2021-08-23
         access_modes: ["purchase"]
       - title: "第１７９話　「幸せ」"
-        updated: 2021-08-15
+        updated: 2021-08-16
         access_modes: ["purchase"]
       - title: "第１７８話　「零元しぐま」"
-        updated: 2021-07-25
+        updated: 2021-07-26
         access_modes: ["purchase"]
       - title: "第１７７話　「贄」"
-        updated: 2021-07-18
+        updated: 2021-07-19
         access_modes: ["purchase"]
       - title: "第１７６話　「迫撃！」"
-        updated: 2021-07-11
+        updated: 2021-07-12
         access_modes: ["purchase"]
       - title: "第１７５話　「当然のこと」"
-        updated: 2021-07-04
+        updated: 2021-07-05
         access_modes: ["purchase"]
       - title: "第１７４話　「乳房」"
-        updated: 2021-06-20
+        updated: 2021-06-21
         access_modes: ["purchase"]
       - title: "第１７３話　「罪と罰」"
-        updated: 2021-06-13
+        updated: 2021-06-14
         access_modes: ["purchase"]
       - title: "第１７２話　「本質」"
-        updated: 2021-06-06
+        updated: 2021-06-07
         access_modes: ["purchase"]
       - title: "第１７１話　「法悦」"
-        updated: 2021-05-30
+        updated: 2021-05-31
         access_modes: ["purchase"]
       - title: "第１７０話　「予知の秘密」"
-        updated: 2021-05-16
+        updated: 2021-05-17
         access_modes: ["purchase"]
       - title: "第１６９話　「美味礼賛」"
-        updated: 2021-05-09
+        updated: 2021-05-10
         access_modes: ["purchase"]
       - title: "第１６８話　「邂逅」"
-        updated: 2021-04-25
+        updated: 2021-04-26
         access_modes: ["purchase"]
       - title: "第１６７話　「ターゲット」"
-        updated: 2021-04-18
+        updated: 2021-04-19
         access_modes: ["purchase"]
       - title: "第１６６話　「楔」"
-        updated: 2021-04-04
+        updated: 2021-04-05
         access_modes: ["purchase"]
       - title: "第１６５話　「次期教祖様」"
-        updated: 2021-03-28
+        updated: 2021-03-29
         access_modes: ["purchase"]
       - title: "第１６４話　「聖液」"
-        updated: 2021-03-21
+        updated: 2021-03-22
         access_modes: ["purchase"]
       - title: "第１６３話　「最高の評価」"
-        updated: 2021-03-14
+        updated: 2021-03-15
         access_modes: ["purchase"]
       - title: "第１６２話　「１秒間」"
-        updated: 2021-02-28
+        updated: 2021-03-01
         access_modes: ["purchase"]
       - title: "第１６１話　「最高と最強」"
-        updated: 2021-02-21
+        updated: 2021-02-22
         access_modes: ["purchase"]
       - title: "第１６０話　「最高傑作」"
-        updated: 2021-02-14
+        updated: 2021-02-15
         access_modes: ["purchase"]
       - title: "第１５９話　「奥の院」"
-        updated: 2021-02-07
+        updated: 2021-02-08
         access_modes: ["purchase"]
       - title: "第１５８話　「プロポーズ」"
-        updated: 2021-01-24
+        updated: 2021-01-25
         access_modes: ["purchase"]
       - title: "第１５７話　「真理央の最後」"
-        updated: 2021-01-17
+        updated: 2021-01-18
         access_modes: ["purchase"]
       - title: "第１５６話　「顎」"
-        updated: 2021-01-08
+        updated: 2021-01-09
         access_modes: ["purchase"]
       - title: "第１５５話　「戦局」"
-        updated: 2021-01-03
+        updated: 2021-01-04
         access_modes: ["purchase"]
       - title: "第１５４話　「大した女だぜ」"
-        updated: 2020-12-06
+        updated: 2020-12-07
         access_modes: ["purchase"]
       - title: "第１５３話　「守るために」"
-        updated: 2020-11-29
+        updated: 2020-11-30
         access_modes: ["purchase"]
       - title: "第１５２話　「自慰」"
-        updated: 2020-11-20
+        updated: 2020-11-21
         access_modes: ["purchase"]
       - title: "第１５１話　「チカチーロ１００％」"
-        updated: 2020-11-15
+        updated: 2020-11-16
         access_modes: ["purchase"]
       - title: "第１５０話　「堅物若本」"
-        updated: 2020-11-01
+        updated: 2020-11-02
         access_modes: ["purchase"]
       - title: "第１４９話　「テッド・バンディ」"
-        updated: 2020-10-25
+        updated: 2020-10-26
         access_modes: ["purchase"]
       - title: "第１４８話　「木場と隊長」"
-        updated: 2020-10-16
+        updated: 2020-10-17
         access_modes: ["purchase"]
       - title: "第１４７話　「未来視」"
-        updated: 2020-10-11
+        updated: 2020-10-12
         access_modes: ["purchase"]
       - title: "第１４６話　「爆発前後」"
-        updated: 2020-09-27
+        updated: 2020-09-28
         access_modes: ["purchase"]
       - title: "第１４５話　「愛のための嘘」"
-        updated: 2020-09-27
+        updated: 2020-09-28
         access_modes: ["purchase"]
       - title: "第１４４話　「愛ゆえの選択」"
-        updated: 2020-09-18
+        updated: 2020-09-19
         access_modes: ["purchase"]
       - title: "第１４３話　「愛の戦士」"
-        updated: 2020-09-13
+        updated: 2020-09-14
         access_modes: ["purchase"]
       - title: "第１４２話　「初恋ビッチ」"
-        updated: 2020-08-30
+        updated: 2020-08-31
         access_modes: ["purchase"]
       - title: "第１４１話　「まさかのストライク」"
-        updated: 2020-08-23
+        updated: 2020-08-24
         access_modes: ["purchase"]
       - title: "第１４０話　「伏魔殿」"
-        updated: 2020-08-16
+        updated: 2020-08-17
         access_modes: ["purchase"]
       - title: "第１３９話　「カードキー」"
-        updated: 2020-08-02
+        updated: 2020-08-03
         access_modes: ["purchase"]
       - title: "第１３８話　「御聖体」"
-        updated: 2020-07-17
+        updated: 2020-07-18
         access_modes: ["purchase"]
       - title: "第１３７話　「突入準備万端」"
-        updated: 2020-07-12
+        updated: 2020-07-13
         access_modes: ["purchase"]
       - title: "第１３６話　「甲州名物」"
-        updated: 2020-07-05
+        updated: 2020-07-06
         access_modes: ["purchase"]
       - title: "第１３５話　「睦雄」"
-        updated: 2020-06-26
+        updated: 2020-06-27
         access_modes: ["purchase"]
       - title: "第１３４話　「人間狩り」"
-        updated: 2020-06-14
+        updated: 2020-06-15
         access_modes: ["purchase"]
       - title: "第１３３話　「村中殺人鬼」"
-        updated: 2020-06-07
+        updated: 2020-06-08
         access_modes: ["purchase"]
       - title: "第１３２話　「開花」"
-        updated: 2020-05-31
+        updated: 2020-06-01
         access_modes: ["purchase"]
       - title: "第１３１話　「村の変容」"
-        updated: 2020-05-24
+        updated: 2020-05-25
         access_modes: ["purchase"]
       - title: "第１３０話　「龍野とあや」"
-        updated: 2020-05-10
+        updated: 2020-05-11
         access_modes: ["purchase"]
       - title: "第１２９話　「あやの独り言」"
-        updated: 2020-04-26
+        updated: 2020-04-27
         access_modes: ["purchase"]
       - title: "第１２８話　「真聖教団陣営」"
-        updated: 2020-04-19
+        updated: 2020-04-20
         access_modes: ["purchase"]
       - title: "第１２７話　「法悦」"
-        updated: 2020-04-12
+        updated: 2020-04-13
         access_modes: ["purchase"]
       - title: "第１２６話　「教祖様の言う通り」"
-        updated: 2020-03-29
+        updated: 2020-03-30
         access_modes: ["purchase"]
       - title: "第１２５話　「撤退命令」"
-        updated: 2020-03-22
+        updated: 2020-03-23
         access_modes: ["purchase"]
       - title: "第１２４話　「哀れなダーマ―」"
-        updated: 2020-03-15
+        updated: 2020-03-16
         access_modes: ["purchase"]
       - title: "第１２３話　「初めての快感」"
-        updated: 2020-03-08
+        updated: 2020-03-09
         access_modes: ["purchase"]
       - title: "第１２２話　「殺人メカ」"
-        updated: 2020-02-21
+        updated: 2020-02-22
         access_modes: ["purchase"]
       - title: "第１２１話　「特別製」"
-        updated: 2020-02-16
+        updated: 2020-02-17
         access_modes: ["purchase"]
       - title: "第１２０話　「エピソード記憶」"
-        updated: 2020-02-09
+        updated: 2020-02-10
         access_modes: ["purchase"]
       - title: "第１１９話　「ダーマ―の神殿」"
-        updated: 2020-02-02
+        updated: 2020-02-03
         access_modes: ["purchase"]
       - title: "第１１８話　「レイカさん」"
-        updated: 2020-01-19
+        updated: 2020-01-20
         access_modes: ["purchase"]
       - title: "第１１７話　「潮」"
-        updated: 2020-01-12
+        updated: 2020-01-13
         access_modes: ["purchase"]
       - title: "第１１６話　「ルーカスＶＳ．ルーカス」"
-        updated: 2020-01-05
+        updated: 2020-01-06
         access_modes: ["purchase"]
       - title: "第１１５話　「ダーカ」"
-        updated: 2019-12-22
+        updated: 2019-12-23
         access_modes: ["purchase"]
       - title: "第１１４話　「メデゥーサ参戦」"
-        updated: 2019-12-01
+        updated: 2019-12-02
         access_modes: ["purchase"]
       - title: "第１１３話　「教祖様」"
-        updated: 2019-11-24
+        updated: 2019-11-25
         access_modes: ["purchase"]
       - title: "第１１２話　「プロの殺人鬼殺し」"
-        updated: 2019-11-17
+        updated: 2019-11-18
         access_modes: ["purchase"]
       - title: "第１１１話　「ブライアン」"
-        updated: 2019-11-10
+        updated: 2019-11-11
         access_modes: ["purchase"]
       - title: "第１１０話　「クロスカントリー・キラー」"
-        updated: 2019-10-27
+        updated: 2019-10-28
         access_modes: ["purchase"]
       - title: "第１０９話　「ダーキニーへの儀式」"
-        updated: 2019-10-20
+        updated: 2019-10-21
         access_modes: ["purchase"]
       - title: "第１０８話　「潜入開始」"
-        updated: 2019-10-13
+        updated: 2019-10-14
         access_modes: ["purchase"]
       - title: "第１０７話　「解放」"
-        updated: 2019-10-06
+        updated: 2019-10-07
         access_modes: ["purchase"]
       - title: "第１０６話　「野良メデューサ」"
-        updated: 2019-09-22
+        updated: 2019-09-23
         access_modes: ["purchase"]
       - title: "第１０５話　「２人だけの島」"
-        updated: 2019-09-15
+        updated: 2019-09-16
         access_modes: ["purchase"]
       - title: "第１０４話　「カヤックフィッシング」"
-        updated: 2019-09-08
+        updated: 2019-09-09
         access_modes: ["purchase"]
       - title: "第１０３話　「真聖教団」"
-        updated: 2019-09-01
+        updated: 2019-09-02
         access_modes: ["purchase"]
       - title: "第１０２話　「スマホと旅する男」"
-        updated: 2019-08-11
+        updated: 2019-08-12
         access_modes: ["purchase"]
       - title: "第１０１話　「姉妹なき羽黒」"
-        updated: 2019-08-04
+        updated: 2019-08-05
         access_modes: ["purchase"]
       - title: "第１００話　「私の中の悪魔よ」"
-        updated: 2019-07-28
+        updated: 2019-07-29
         access_modes: ["purchase"]
       - title: "第９９話　「因果応報」"
-        updated: 2019-07-21
+        updated: 2019-07-22
         access_modes: ["purchase"]
       - title: "第９８話　「水族館」"
-        updated: 2019-07-14
+        updated: 2019-07-15
         access_modes: ["purchase"]
       - title: "第９７話　「逃亡劇」"
-        updated: 2019-06-30
+        updated: 2019-07-01
         access_modes: ["purchase"]
       - title: "第９６話　「羽黒特別機動警備隊」"
-        updated: 2019-06-23
+        updated: 2019-06-24
         access_modes: ["purchase"]
       - title: "第９５話　「幸せへのルート」"
-        updated: 2019-06-16
+        updated: 2019-06-17
         access_modes: ["purchase"]
       - title: "第９４話　「沈没」"
-        updated: 2019-06-09
+        updated: 2019-06-10
         access_modes: ["purchase"]
       - title: "第９３話　「実験の仕上げ」"
-        updated: 2019-06-02
+        updated: 2019-06-03
         access_modes: ["purchase"]
       - title: "第９２話　「ただの人殺し」"
-        updated: 2019-05-26
+        updated: 2019-05-27
         access_modes: ["purchase"]
       - title: "第９１話　「実験動物」"
-        updated: 2019-05-19
+        updated: 2019-05-20
         access_modes: ["purchase"]
       - title: "第９０話　「たった１人の私の妹」"
-        updated: 2019-04-21
+        updated: 2019-04-22
         access_modes: ["purchase"]
       - title: "第８９話　「因果応報」"
-        updated: 2019-04-14
+        updated: 2019-04-15
         access_modes: ["purchase"]
       - title: "第８８話　「空中戦」"
-        updated: 2019-04-07
+        updated: 2019-04-08
         access_modes: ["purchase"]
       - title: "第８７話　「バレリーナ」"
-        updated: 2019-03-31
+        updated: 2019-04-01
         access_modes: ["purchase"]
       - title: "第８６話　「理性ある人殺し」"
-        updated: 2019-03-24
+        updated: 2019-03-25
         access_modes: ["purchase"]
       - title: "第８５話　「ダディ」"
-        updated: 2019-03-17
+        updated: 2019-03-18
         access_modes: ["purchase"]
       - title: "第８４話　「ワイクルー・ラムムアイ」"
-        updated: 2019-03-10
+        updated: 2019-03-11
         access_modes: ["purchase"]
       - title: "第８３話　「柔道５段」"
-        updated: 2019-02-24
+        updated: 2019-02-25
         access_modes: ["purchase"]
       - title: "第８２話　「残り１時間」"
-        updated: 2019-02-17
+        updated: 2019-02-18
         access_modes: ["purchase"]
       - title: "第８１話　「烏丸の忠誠心」"
-        updated: 2019-02-10
+        updated: 2019-02-11
         access_modes: ["purchase"]
       - title: "第８０話　「捕縛」"
-        updated: 2019-02-03
+        updated: 2019-02-04
         access_modes: ["purchase"]
       - title: "第７９話　「日常」"
-        updated: 2019-01-27
+        updated: 2019-01-28
         access_modes: ["purchase"]
       - title: "第７８話　「風船大プレゼント」"
-        updated: 2019-04-04
+        updated: 2019-04-05
         access_modes: ["purchase"]
       - title: "第７７話　「レスラー神崎」"
-        updated: 2019-04-04
+        updated: 2019-04-05
         access_modes: ["purchase"]
       - title: "第７６話　「初めての愛」"
-        updated: 2019-04-04
+        updated: 2019-04-05
         access_modes: ["purchase"]
       - title: "第７５話　「脱出」"
-        updated: 2019-04-04
+        updated: 2019-04-05
         access_modes: ["purchase"]
       - title: "第７４話　「限界」"
-        updated: 2019-04-04
+        updated: 2019-04-05
         access_modes: ["purchase"]
       - title: "第７３話　「１億個の肉片」"
-        updated: 2019-04-04
+        updated: 2019-04-05
         access_modes: ["purchase"]
       - title: "第７２話　「脂地獄」"
-        updated: 2019-04-04
+        updated: 2019-04-05
         access_modes: ["purchase"]
       - title: "第７１話　「心が軋む音」"
-        updated: 2019-04-04
+        updated: 2019-04-05
         access_modes: ["purchase"]
       - title: "第７０話　「無敵の硬気功」"
-        updated: 2019-04-04
+        updated: 2019-04-05
         access_modes: ["purchase"]
       - title: "第６９話　「待ってろ小夜子」"
-        updated: 2019-01-03
+        updated: 2019-01-04
         access_modes: ["purchase"]
       - title: "第６８話　「黒（ヘイ）」"
-        updated: 2019-01-03
+        updated: 2019-01-04
         access_modes: ["purchase"]
       - title: "第６７話　「ダンスホールの攻防」"
-        updated: 2019-01-03
+        updated: 2019-01-04
         access_modes: ["purchase"]
       - title: "第６６話　「小夜子ＳＯＳ」"
-        updated: 2019-01-03
+        updated: 2019-01-04
         access_modes: ["purchase"]
       - title: "第６５話　「裏切り者の始末」"
-        updated: 2019-01-03
+        updated: 2019-01-04
         access_modes: ["purchase"]
       - title: "第６４話　「内通者」"
-        updated: 2019-01-03
+        updated: 2019-01-04
         access_modes: ["purchase"]
       - title: "第６３話　「天童組三傑」"
-        updated: 2019-01-03
+        updated: 2019-01-04
         access_modes: ["purchase"]
       - title: "第６２話　「殺人鬼のやり方」"
-        updated: 2019-01-03
+        updated: 2019-01-04
         access_modes: ["purchase"]
       - title: "第６１話　「本丸」"
-        updated: 2019-01-03
+        updated: 2019-01-04
         access_modes: ["purchase"]
       - title: "第６０話　「血（いのち）」"
-        updated: 2018-10-04
+        updated: 2018-10-05
         access_modes: ["purchase"]
       - title: "第５９話　「男根様」"
-        updated: 2018-10-04
+        updated: 2018-10-05
         access_modes: ["purchase"]
       - title: "第５８話　「天童組」"
-        updated: 2018-10-04
+        updated: 2018-10-05
         access_modes: ["purchase"]
       - title: "第５７話　「船上の祝賀会」"
-        updated: 2018-10-04
+        updated: 2018-10-05
         access_modes: ["purchase"]
       - title: "第５６話　「展望風呂」"
-        updated: 2018-10-04
+        updated: 2018-10-05
         access_modes: ["purchase"]
       - title: "第５５話　「サンクチュアリ号」"
-        updated: 2018-10-04
+        updated: 2018-10-05
         access_modes: ["purchase"]
       - title: "第５４話　「希望の光」"
-        updated: 2018-10-04
+        updated: 2018-10-05
         access_modes: ["purchase"]
       - title: "第５３話　「殺人鬼の造り方」"
-        updated: 2018-10-04
+        updated: 2018-10-05
         access_modes: ["purchase"]
       - title: "第５２話　「谷底」"
-        updated: 2018-10-04
+        updated: 2018-10-05
         access_modes: ["purchase"]
       - title: "第５１話　「私の親友」"
-        updated: 2018-08-05
+        updated: 2018-08-06
         access_modes: ["purchase"]
       - title: "第５０話　「自分じゃない自分」"
-        updated: 2018-08-05
+        updated: 2018-08-06
         access_modes: ["purchase"]
       - title: "第４９話　「ピーちゃん」"
-        updated: 2018-08-05
+        updated: 2018-08-06
         access_modes: ["purchase"]
       - title: "第４８話　「西園寺玲音」"
-        updated: 2018-08-05
+        updated: 2018-08-06
         access_modes: ["purchase"]
       - title: "第４７話　「不協和音」"
-        updated: 2018-08-05
+        updated: 2018-08-06
         access_modes: ["purchase"]
       - title: "第４６話　「戻れない日常」"
-        updated: 2018-08-05
+        updated: 2018-08-06
         access_modes: ["purchase"]
       - title: "第４５話　「ボストン絞殺魔」"
-        updated: 2018-08-05
+        updated: 2018-08-06
         access_modes: ["purchase"]
       - title: "第４４話　「デサルボ」"
-        updated: 2018-08-05
+        updated: 2018-08-06
         access_modes: ["purchase"]
       - title: "第４３話　「チャンプ・フロイド」"
-        updated: 2018-08-05
+        updated: 2018-08-06
         access_modes: ["purchase"]
       - title: "第４２話　「優しい心」"
-        updated: 2018-05-06
+        updated: 2018-05-07
         access_modes: ["purchase"]
       - title: "第４１話　「１時間ガマン」"
-        updated: 2018-05-06
+        updated: 2018-05-07
         access_modes: ["purchase"]
       - title: "第４０話　「魔法の終わり」"
-        updated: 2018-05-06
+        updated: 2018-05-07
         access_modes: ["purchase"]
       - title: "第３９話　「姉妹の秘密」"
-        updated: 2018-05-06
+        updated: 2018-05-07
         access_modes: ["purchase"]
       - title: "第３８話　「チカチーロ」"
-        updated: 2018-05-06
+        updated: 2018-05-07
         access_modes: ["purchase"]
       - title: "第３７話　「夜のコンビ」"
-        updated: 2018-05-06
+        updated: 2018-05-07
         access_modes: ["purchase"]
       - title: "第３６話　「昼への侵食」"
-        updated: 2018-05-06
+        updated: 2018-05-07
         access_modes: ["purchase"]
       - title: "第３５話　「新たな刺激」"
-        updated: 2018-05-06
+        updated: 2018-05-07
         access_modes: ["purchase"]
       - title: "第３４話　「ならず者」"
-        updated: 2018-05-06
+        updated: 2018-05-07
         access_modes: ["purchase"]
       - title: "第３３話　「新たな入島者」"
-        updated: 2018-03-05
+        updated: 2018-03-06
         access_modes: ["purchase"]
       - title: "第３２話　「夜明け」"
-        updated: 2018-03-05
+        updated: 2018-03-06
         access_modes: ["purchase"]
       - title: "第３１話　「ふたりっきり」"
-        updated: 2018-03-05
+        updated: 2018-03-06
         access_modes: ["purchase"]
       - title: "第３０話　「鬼ゴッコ」"
-        updated: 2018-03-05
+        updated: 2018-03-06
         access_modes: ["purchase"]
       - title: "第２９話　「感動の対面」"
-        updated: 2018-03-05
+        updated: 2018-03-06
         access_modes: ["purchase"]
       - title: "第２８話　「目の当たり」"
-        updated: 2018-03-05
+        updated: 2018-03-06
         access_modes: ["purchase"]
       - title: "第２７話　「満月の凶人ｖｓ．死の天使」"
-        updated: 2018-03-05
+        updated: 2018-03-06
         access_modes: ["purchase"]
       - title: "第２６話　「マーダーモデル」"
-        updated: 2018-03-05
+        updated: 2018-03-06
         access_modes: ["purchase"]
       - title: "第２５話　「極秘潜入」"
-        updated: 2018-03-05
+        updated: 2018-03-06
         access_modes: ["purchase"]
       - title: "第２４話　「小夜子のラボ」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第２３話　「堂島姉妹の殺しの引き金」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第２２話　「ワンナイト・キラーの刃」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第２１話　「白と黒の花嫁」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第２０話　「初めての面会者」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１９話　「姉妹の殺人鬼」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１８話　「ブリシャブパーティー」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１７話　「シナプス・リポジショナー」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１６話　「解剖手術」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１５話　「幕引き」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１４話　「殺人鬼ｖｓ．殺人鬼」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１３話　「殺人鬼・千歌」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１２話　「ハーレム」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１１話　「殺人実験開始」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１０話　「入浴開始」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第９話　「キーワード」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第８話　「羽黒の実態」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第７話　「メデューサの記憶」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第６話　「シンデレラ」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第５話　「夜の羽黒刑務所」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第４話　「サタノファニ」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第３話　「警告」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第２話　「羽黒刑務所」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["purchase"]
       - title: "第１話　「甘城千歌」"
-        updated: 2018-01-31
+        updated: 2018-02-01
         access_modes: ["free"]
   - work_title: "バカ女26時"
     author: "遠野めざ/彩乃浦助"
@@ -2340,334 +2404,334 @@ works:
     chapter_count: 110
     chapters:
       - title: "大室家の138"
-        updated: 2026-10-17
+        updated: 2026-10-18
         access_modes: ["purchase"]
       - title: "大室家の137"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["purchase"]
       - title: "大室家の136"
-        updated: 2026-08-17
+        updated: 2026-08-18
         access_modes: ["purchase"]
       - title: "大室家の135"
-        updated: 2026-07-17
+        updated: 2026-07-18
         access_modes: ["purchase"]
       - title: "大室家の134"
-        updated: 2026-06-17
+        updated: 2026-06-18
         access_modes: ["purchase"]
       - title: "大室家の133"
-        updated: 2026-05-17
+        updated: 2026-05-18
         access_modes: ["purchase"]
       - title: "大室家の132"
-        updated: 2026-04-17
+        updated: 2026-04-18
         access_modes: ["purchase"]
       - title: "大室家の131"
-        updated: 2026-03-17
+        updated: 2026-03-18
         access_modes: ["purchase"]
       - title: "大室家の130"
-        updated: 2026-02-17
+        updated: 2026-02-18
         access_modes: ["purchase"]
       - title: "大室家の129"
-        updated: 2026-01-17
+        updated: 2026-01-18
         access_modes: ["purchase"]
       - title: "大室家の128"
-        updated: 2025-12-17
+        updated: 2025-12-18
         access_modes: ["purchase"]
       - title: "大室家の127"
-        updated: 2025-11-17
+        updated: 2025-11-18
         access_modes: ["purchase"]
       - title: "大室家の126"
-        updated: 2025-10-17
+        updated: 2025-10-18
         access_modes: ["purchase"]
       - title: "大室家の125"
-        updated: 2025-09-17
+        updated: 2025-09-18
         access_modes: ["purchase"]
       - title: "大室家の124"
-        updated: 2025-08-17
+        updated: 2025-08-18
         access_modes: ["purchase"]
       - title: "大室家の123"
-        updated: 2025-07-17
+        updated: 2025-07-18
         access_modes: ["purchase"]
       - title: "大室家の122"
-        updated: 2025-06-17
+        updated: 2025-06-18
         access_modes: ["purchase"]
       - title: "大室家の121"
-        updated: 2025-05-17
+        updated: 2025-05-18
         access_modes: ["purchase"]
       - title: "大室家の120"
-        updated: 2025-04-17
+        updated: 2025-04-18
         access_modes: ["purchase"]
       - title: "大室家の119"
-        updated: 2025-03-17
+        updated: 2025-03-18
         access_modes: ["purchase"]
       - title: "大室家の118"
-        updated: 2025-02-17
+        updated: 2025-02-18
         access_modes: ["purchase"]
       - title: "大室家の117"
-        updated: 2025-01-17
+        updated: 2025-01-18
         access_modes: ["purchase"]
       - title: "大室家の116"
-        updated: 2024-12-17
+        updated: 2024-12-18
         access_modes: ["purchase"]
       - title: "大室家の115"
-        updated: 2024-11-17
+        updated: 2024-11-18
         access_modes: ["purchase"]
       - title: "大室家の114"
-        updated: 2024-10-17
+        updated: 2024-10-18
         access_modes: ["purchase"]
       - title: "大室家の113"
-        updated: 2024-09-17
+        updated: 2024-09-18
         access_modes: ["purchase"]
       - title: "大室家の112"
-        updated: 2024-08-17
+        updated: 2024-08-18
         access_modes: ["purchase"]
       - title: "大室家の111"
-        updated: 2024-07-17
+        updated: 2024-07-18
         access_modes: ["purchase"]
       - title: "大室家の110"
-        updated: 2024-06-17
+        updated: 2024-06-18
         access_modes: ["purchase"]
       - title: "大室家の109"
-        updated: 2024-05-17
+        updated: 2024-05-18
         access_modes: ["purchase"]
       - title: "大室家の108"
-        updated: 2024-04-17
+        updated: 2024-04-18
         access_modes: ["purchase"]
       - title: "大室家の107"
-        updated: 2024-03-17
+        updated: 2024-03-18
         access_modes: ["purchase"]
       - title: "大室家の106"
-        updated: 2024-02-17
+        updated: 2024-02-18
         access_modes: ["purchase"]
       - title: "大室家の105"
-        updated: 2024-01-17
+        updated: 2024-01-18
         access_modes: ["purchase"]
       - title: "大室家の104"
-        updated: 2023-12-17
+        updated: 2023-12-18
         access_modes: ["purchase"]
       - title: "大室家の103"
-        updated: 2023-11-17
+        updated: 2023-11-18
         access_modes: ["purchase"]
       - title: "大室家の102"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "大室家の101"
-        updated: 2023-09-17
+        updated: 2023-09-18
         access_modes: ["purchase"]
       - title: "大室家の100"
-        updated: 2023-08-17
+        updated: 2023-08-18
         access_modes: ["purchase"]
       - title: "大室家の99"
-        updated: 2023-07-17
+        updated: 2023-07-18
         access_modes: ["purchase"]
       - title: "大室家の98"
-        updated: 2023-06-17
+        updated: 2023-06-18
         access_modes: ["purchase"]
       - title: "大室家の97"
-        updated: 2023-05-17
+        updated: 2023-05-18
         access_modes: ["purchase"]
       - title: "大室家の96"
-        updated: 2023-04-17
+        updated: 2023-04-18
         access_modes: ["purchase"]
       - title: "大室家の95"
-        updated: 2023-03-17
+        updated: 2023-03-18
         access_modes: ["purchase"]
       - title: "大室家の94"
-        updated: 2023-02-17
+        updated: 2023-02-18
         access_modes: ["purchase"]
       - title: "大室家の93"
-        updated: 2023-01-17
+        updated: 2023-01-18
         access_modes: ["purchase"]
       - title: "大室家の92"
-        updated: 2022-12-17
+        updated: 2022-12-18
         access_modes: ["purchase"]
       - title: "大室家の91"
-        updated: 2022-11-17
+        updated: 2022-11-18
         access_modes: ["purchase"]
       - title: "大室家の90"
-        updated: 2022-10-17
+        updated: 2022-10-18
         access_modes: ["purchase"]
       - title: "大室家の89"
-        updated: 2022-09-17
+        updated: 2022-09-18
         access_modes: ["purchase"]
       - title: "大室家の88"
-        updated: 2022-08-17
+        updated: 2022-08-18
         access_modes: ["purchase"]
       - title: "大室家の87"
-        updated: 2022-07-17
+        updated: 2022-07-18
         access_modes: ["purchase"]
       - title: "大室家の86"
-        updated: 2022-06-17
+        updated: 2022-06-18
         access_modes: ["purchase"]
       - title: "大室家の85"
-        updated: 2022-05-17
+        updated: 2022-05-18
         access_modes: ["purchase"]
       - title: "大室家の84"
-        updated: 2022-04-17
+        updated: 2022-04-18
         access_modes: ["purchase"]
       - title: "大室家の83"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "大室家の82"
-        updated: 2022-02-17
+        updated: 2022-02-18
         access_modes: ["purchase"]
       - title: "大室家の81"
-        updated: 2022-01-17
+        updated: 2022-01-18
         access_modes: ["purchase"]
       - title: "大室家の80"
-        updated: 2021-12-17
+        updated: 2021-12-18
         access_modes: ["purchase"]
       - title: "大室家の79"
-        updated: 2021-11-17
+        updated: 2021-11-18
         access_modes: ["purchase"]
       - title: "大室家の78"
-        updated: 2021-10-17
+        updated: 2021-10-18
         access_modes: ["purchase"]
       - title: "大室家の77"
-        updated: 2021-09-17
+        updated: 2021-09-18
         access_modes: ["purchase"]
       - title: "大室家の76"
-        updated: 2021-08-17
+        updated: 2021-08-18
         access_modes: ["purchase"]
       - title: "大室家の75"
-        updated: 2021-07-17
+        updated: 2021-07-18
         access_modes: ["purchase"]
       - title: "大室家の74"
-        updated: 2021-07-17
+        updated: 2021-07-18
         access_modes: ["purchase"]
       - title: "大室家の73"
-        updated: 2021-07-17
+        updated: 2021-07-18
         access_modes: ["purchase"]
       - title: "大室家の72"
-        updated: 2021-07-17
+        updated: 2021-07-18
         access_modes: ["purchase"]
       - title: "大室家の71"
-        updated: 2021-07-17
+        updated: 2021-07-18
         access_modes: ["purchase"]
       - title: "大室家の70"
-        updated: 2021-07-17
+        updated: 2021-07-18
         access_modes: ["purchase"]
       - title: "大室家の69"
-        updated: 2021-07-17
+        updated: 2021-07-18
         access_modes: ["purchase"]
       - title: "大室家の68"
-        updated: 2021-07-17
+        updated: 2021-07-18
         access_modes: ["purchase"]
       - title: "大室家の67"
-        updated: 2021-07-17
+        updated: 2021-07-18
         access_modes: ["purchase"]
       - title: "大室家の66"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の65"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の64"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の63"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の62"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の61"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の60"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の59"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の58"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の57"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の56"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の54/55"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の52/53"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の49/50/51"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の46/47/48"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の43/44/45"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の41/42"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の39/40"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の37/38"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の35/36"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の34"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の32/33"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の31"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の30"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の28/29"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の26/27"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の24/25"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の22/23"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の20/21"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の18/19"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の16/17"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の14/15"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の11/12/13"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の9/10"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["purchase"]
       - title: "大室家の7/8"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["free"]
       - title: "大室家の5/6"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["free"]
       - title: "大室家の3/4"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["free"]
       - title: "大室家の1/2"
-        updated: 2021-06-09
+        updated: 2021-06-10
         access_modes: ["free"]
   - work_title: "私の推しは悪役令嬢。"
     author: "青乃下/いのり。/花ヶ田"
@@ -2677,577 +2741,577 @@ works:
     chapter_count: 191
     chapters:
       - title: "第65話 もろびとこぞりて(2)"
-        updated: 2026-10-17
+        updated: 2026-10-18
         access_modes: ["purchase"]
       - title: "第65話 もろびとこぞりて(1)"
-        updated: 2026-10-17
+        updated: 2026-10-18
         access_modes: ["purchase"]
       - title: "第64話 離さないで(4)"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["purchase"]
       - title: "第64話 離さないで(3)"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["purchase"]
       - title: "第64話 離さないで(2)"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["purchase"]
       - title: "第64話 離さないで(1)"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["purchase"]
       - title: "第63話 宿命と選択(2)"
-        updated: 2026-07-17
+        updated: 2026-07-18
         access_modes: ["purchase"]
       - title: "第63話 宿命と選択(1)"
-        updated: 2026-07-17
+        updated: 2026-07-18
         access_modes: ["purchase"]
       - title: "第62話 大嫌いで大好き(3)"
-        updated: 2026-06-17
+        updated: 2026-06-18
         access_modes: ["purchase"]
       - title: "第62話 大嫌いで大好き(2)"
-        updated: 2026-06-17
+        updated: 2026-06-18
         access_modes: ["purchase"]
       - title: "第62話 大嫌いで大好き(1)"
-        updated: 2026-06-17
+        updated: 2026-06-18
         access_modes: ["purchase"]
       - title: "第61話 拒絶(3)"
-        updated: 2026-05-17
+        updated: 2026-05-18
         access_modes: ["purchase"]
       - title: "第61話 拒絶(2)"
-        updated: 2026-05-17
+        updated: 2026-05-18
         access_modes: ["purchase"]
       - title: "第61話 拒絶(1)"
-        updated: 2026-05-17
+        updated: 2026-05-18
         access_modes: ["purchase"]
       - title: "第60話 本心(3)"
-        updated: 2026-03-17
+        updated: 2026-03-18
         access_modes: ["purchase"]
       - title: "第60話 本心(2)"
-        updated: 2026-03-17
+        updated: 2026-03-18
         access_modes: ["purchase"]
       - title: "第60話 本心(1)"
-        updated: 2026-03-17
+        updated: 2026-03-18
         access_modes: ["purchase"]
       - title: "第59話 運命と選択(2)"
-        updated: 2026-02-17
+        updated: 2026-02-18
         access_modes: ["purchase"]
       - title: "第59話 運命と選択(1)"
-        updated: 2026-02-17
+        updated: 2026-02-18
         access_modes: ["purchase"]
       - title: "第58話 王国歴二〇一五年十一月十一日(2)"
-        updated: 2026-01-17
+        updated: 2026-01-18
         access_modes: ["purchase"]
       - title: "第58話 王国歴二〇一五年十一月十一日(1)"
-        updated: 2026-01-17
+        updated: 2026-01-18
         access_modes: ["purchase"]
       - title: "第57話 炎(4)"
-        updated: 2025-12-17
+        updated: 2025-12-18
         access_modes: ["purchase"]
       - title: "第57話 炎(3)"
-        updated: 2025-12-17
+        updated: 2025-12-18
         access_modes: ["purchase"]
       - title: "第57話 炎(2)"
-        updated: 2025-12-17
+        updated: 2025-12-18
         access_modes: ["purchase"]
       - title: "第57話 炎(1)"
-        updated: 2025-12-17
+        updated: 2025-12-18
         access_modes: ["purchase"]
       - title: "第56話 利害調整(3)"
-        updated: 2025-11-17
+        updated: 2025-11-18
         access_modes: ["purchase"]
       - title: "第56話 利害調整(2)"
-        updated: 2025-11-17
+        updated: 2025-11-18
         access_modes: ["purchase"]
       - title: "第56話 利害調整(1)"
-        updated: 2025-11-17
+        updated: 2025-11-18
         access_modes: ["purchase"]
       - title: "第55話 偽りない想い(2)"
-        updated: 2025-09-17
+        updated: 2025-09-18
         access_modes: ["purchase"]
       - title: "第55話 偽りない想い(1)"
-        updated: 2025-09-17
+        updated: 2025-09-18
         access_modes: ["purchase"]
       - title: "第54話 青写真(4)"
-        updated: 2025-08-17
+        updated: 2025-08-18
         access_modes: ["purchase"]
       - title: "第54話 青写真(3)"
-        updated: 2025-08-17
+        updated: 2025-08-18
         access_modes: ["purchase"]
       - title: "第54話 青写真(2)"
-        updated: 2025-08-17
+        updated: 2025-08-18
         access_modes: ["purchase"]
       - title: "第54話 青写真(1)"
-        updated: 2025-08-17
+        updated: 2025-08-18
         access_modes: ["purchase"]
       - title: "第53話 革命の予兆(3)"
-        updated: 2025-07-17
+        updated: 2025-07-18
         access_modes: ["purchase"]
       - title: "第53話 革命の予兆(2)"
-        updated: 2025-07-17
+        updated: 2025-07-18
         access_modes: ["purchase"]
       - title: "第53話 革命の予兆(1)"
-        updated: 2025-07-17
+        updated: 2025-07-18
         access_modes: ["purchase"]
       - title: "第52話 時流(2)"
-        updated: 2025-06-17
+        updated: 2025-06-18
         access_modes: ["purchase"]
       - title: "第52話 時流(1)"
-        updated: 2025-06-17
+        updated: 2025-06-18
         access_modes: ["purchase"]
       - title: "第51話 諦めないで(3)"
-        updated: 2025-05-17
+        updated: 2025-05-18
         access_modes: ["purchase"]
       - title: "第51話 諦めないで(2)"
-        updated: 2025-05-17
+        updated: 2025-05-18
         access_modes: ["purchase"]
       - title: "第51話 諦めないで(1)"
-        updated: 2025-05-17
+        updated: 2025-05-18
         access_modes: ["purchase"]
       - title: "第50話 急転直下(3)"
-        updated: 2025-03-17
+        updated: 2025-03-18
         access_modes: ["purchase"]
       - title: "第50話 急転直下(2)"
-        updated: 2025-03-17
+        updated: 2025-03-18
         access_modes: ["purchase"]
       - title: "第50話 急転直下(1)"
-        updated: 2025-03-17
+        updated: 2025-03-18
         access_modes: ["purchase"]
       - title: "第49話 追求(3)"
-        updated: 2025-02-17
+        updated: 2025-02-18
         access_modes: ["purchase"]
       - title: "第49話 追求(2)"
-        updated: 2025-02-17
+        updated: 2025-02-18
         access_modes: ["purchase"]
       - title: "第49話 追求(1)"
-        updated: 2025-02-17
+        updated: 2025-02-18
         access_modes: ["purchase"]
       - title: "第48話 刺客(3)"
-        updated: 2025-01-17
+        updated: 2025-01-18
         access_modes: ["purchase"]
       - title: "第48話 刺客(2)"
-        updated: 2025-01-17
+        updated: 2025-01-18
         access_modes: ["purchase"]
       - title: "第48話 刺客(1)"
-        updated: 2025-01-17
+        updated: 2025-01-18
         access_modes: ["purchase"]
       - title: "第47話 復讐と理想(2)"
-        updated: 2024-12-17
+        updated: 2024-12-18
         access_modes: ["purchase"]
       - title: "第47話 復讐と理想(1)"
-        updated: 2024-12-17
+        updated: 2024-12-18
         access_modes: ["purchase"]
       - title: "第46話 レジスタンス(3)"
-        updated: 2024-11-17
+        updated: 2024-11-18
         access_modes: ["purchase"]
       - title: "第46話 レジスタンス(2)"
-        updated: 2024-11-17
+        updated: 2024-11-18
         access_modes: ["purchase"]
       - title: "第46話 レジスタンス(1)"
-        updated: 2024-11-17
+        updated: 2024-11-18
         access_modes: ["purchase"]
       - title: "第45話 手詰まり(4)"
-        updated: 2024-09-17
+        updated: 2024-09-18
         access_modes: ["purchase"]
       - title: "第45話 手詰まり(3)"
-        updated: 2024-09-17
+        updated: 2024-09-18
         access_modes: ["purchase"]
       - title: "第45話 手詰まり(2)"
-        updated: 2024-09-17
+        updated: 2024-09-18
         access_modes: ["purchase"]
       - title: "第45話 手詰まり(1)"
-        updated: 2024-09-17
+        updated: 2024-09-18
         access_modes: ["purchase"]
       - title: "第44話 甘い飴をひとつ(4)"
-        updated: 2024-08-17
+        updated: 2024-08-18
         access_modes: ["purchase"]
       - title: "第44話 甘い飴をひとつ(3)"
-        updated: 2024-08-17
+        updated: 2024-08-18
         access_modes: ["purchase"]
       - title: "第44話 甘い飴をひとつ(2)"
-        updated: 2024-08-17
+        updated: 2024-08-18
         access_modes: ["purchase"]
       - title: "第44話 甘い飴をひとつ(1)"
-        updated: 2024-08-17
+        updated: 2024-08-18
         access_modes: ["purchase"]
       - title: "第43話 遊園地デート(3)"
-        updated: 2024-07-17
+        updated: 2024-07-18
         access_modes: ["purchase"]
       - title: "第43話 遊園地デート(2)"
-        updated: 2024-07-17
+        updated: 2024-07-18
         access_modes: ["purchase"]
       - title: "第43話 遊園地デート(1)"
-        updated: 2024-07-17
+        updated: 2024-07-18
         access_modes: ["purchase"]
       - title: "第42話 成敗(2)"
-        updated: 2024-06-17
+        updated: 2024-06-18
         access_modes: ["purchase"]
       - title: "第42話 成敗(1)"
-        updated: 2024-06-17
+        updated: 2024-06-18
         access_modes: ["purchase"]
       - title: "第41話 王の依頼(3)"
-        updated: 2024-05-17
+        updated: 2024-05-18
         access_modes: ["purchase"]
       - title: "第41話 王の依頼(2)"
-        updated: 2024-05-17
+        updated: 2024-05-18
         access_modes: ["purchase"]
       - title: "第41話 王の依頼(1)"
-        updated: 2024-05-17
+        updated: 2024-05-18
         access_modes: ["purchase"]
       - title: "第40話 舞う乙女(5)"
-        updated: 2024-03-17
+        updated: 2024-03-18
         access_modes: ["purchase"]
       - title: "第40話 舞う乙女(4)"
-        updated: 2024-03-17
+        updated: 2024-03-18
         access_modes: ["purchase"]
       - title: "第40話 舞う乙女(3)"
-        updated: 2024-03-17
+        updated: 2024-03-18
         access_modes: ["purchase"]
       - title: "第40話 舞う乙女(2)"
-        updated: 2024-03-17
+        updated: 2024-03-18
         access_modes: ["purchase"]
       - title: "第40話 舞う乙女(1)"
-        updated: 2024-03-17
+        updated: 2024-03-18
         access_modes: ["purchase"]
       - title: "第39話 おなまえは?(2)"
-        updated: 2024-02-17
+        updated: 2024-02-18
         access_modes: ["purchase"]
       - title: "第39話 おなまえは?(1)"
-        updated: 2024-02-17
+        updated: 2024-02-18
         access_modes: ["purchase"]
       - title: "第38話 奉納舞について(2)"
-        updated: 2024-01-17
+        updated: 2024-01-18
         access_modes: ["purchase"]
       - title: "第38話 奉納舞について(1)"
-        updated: 2024-01-17
+        updated: 2024-01-18
         access_modes: ["purchase"]
       - title: "第37話 浮かぶ疑問(3)"
-        updated: 2023-12-17
+        updated: 2023-12-18
         access_modes: ["purchase"]
       - title: "第37話 浮かぶ疑問(2)"
-        updated: 2023-12-17
+        updated: 2023-12-18
         access_modes: ["purchase"]
       - title: "第37話 浮かぶ疑問(1)"
-        updated: 2023-12-17
+        updated: 2023-12-18
         access_modes: ["purchase"]
       - title: "第36話 ユーの秘密(4)"
-        updated: 2023-11-17
+        updated: 2023-11-18
         access_modes: ["purchase"]
       - title: "第36話 ユーの秘密(3)"
-        updated: 2023-11-17
+        updated: 2023-11-18
         access_modes: ["purchase"]
       - title: "第36話 ユーの秘密(2)"
-        updated: 2023-11-17
+        updated: 2023-11-18
         access_modes: ["purchase"]
       - title: "第36話 ユーの秘密(1)"
-        updated: 2023-11-17
+        updated: 2023-11-18
         access_modes: ["purchase"]
       - title: "第35話 勝者は一人(4)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第35話 勝者は一人(3)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第35話 勝者は一人(2)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第35話 勝者は一人(1)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第34話 大橋零の初恋②(4)"
-        updated: 2023-09-17
+        updated: 2023-09-18
         access_modes: ["purchase"]
       - title: "第34話 大橋零の初恋②(3)"
-        updated: 2023-09-17
+        updated: 2023-09-18
         access_modes: ["purchase"]
       - title: "第34話 大橋零の初恋②(2)"
-        updated: 2023-09-17
+        updated: 2023-09-18
         access_modes: ["purchase"]
       - title: "第34話 大橋零の初恋②(1)"
-        updated: 2023-09-17
+        updated: 2023-09-18
         access_modes: ["purchase"]
       - title: "第33話 大橋零の初恋①(2)"
-        updated: 2023-08-17
+        updated: 2023-08-18
         access_modes: ["purchase"]
       - title: "第33話 大橋零の初恋①(1)"
-        updated: 2023-08-17
+        updated: 2023-08-18
         access_modes: ["purchase"]
       - title: "第32話 恋バナ(2)"
-        updated: 2023-07-17
+        updated: 2023-07-18
         access_modes: ["purchase"]
       - title: "第32話 恋バナ(1)"
-        updated: 2023-07-17
+        updated: 2023-07-18
         access_modes: ["purchase"]
       - title: "第31話 リリィ=リリウム(4)"
-        updated: 2023-06-17
+        updated: 2023-06-18
         access_modes: ["purchase"]
       - title: "第31話 リリィ=リリウム(3)"
-        updated: 2023-06-17
+        updated: 2023-06-18
         access_modes: ["purchase"]
       - title: "第31話 リリィ=リリウム(2)"
-        updated: 2023-06-17
+        updated: 2023-06-18
         access_modes: ["purchase"]
       - title: "第31話 リリィ=リリウム(1)"
-        updated: 2023-06-17
+        updated: 2023-06-18
         access_modes: ["purchase"]
       - title: "第30話 センディング(4)"
-        updated: 2023-05-17
+        updated: 2023-05-18
         access_modes: ["purchase"]
       - title: "第30話 センディング(3)"
-        updated: 2023-05-17
+        updated: 2023-05-18
         access_modes: ["purchase"]
       - title: "第30話 センディング(2)"
-        updated: 2023-05-17
+        updated: 2023-05-18
         access_modes: ["purchase"]
       - title: "第30話 センディング(1)"
-        updated: 2023-05-17
+        updated: 2023-05-18
         access_modes: ["purchase"]
       - title: "第29話 敵(2)"
-        updated: 2023-04-17
+        updated: 2023-04-18
         access_modes: ["purchase"]
       - title: "第29話 敵(1)"
-        updated: 2023-04-17
+        updated: 2023-04-18
         access_modes: ["purchase"]
       - title: "第28話 戦意の上げ方(2)"
-        updated: 2023-03-17
+        updated: 2023-03-18
         access_modes: ["purchase"]
       - title: "第28話 戦意の上げ方(1)"
-        updated: 2023-03-17
+        updated: 2023-03-18
         access_modes: ["purchase"]
       - title: "第27話 平民の生活(3)"
-        updated: 2023-02-17
+        updated: 2023-02-18
         access_modes: ["purchase"]
       - title: "第27話 平民の生活(2)"
-        updated: 2023-02-17
+        updated: 2023-02-18
         access_modes: ["purchase"]
       - title: "第27話 平民の生活(1)"
-        updated: 2023-02-17
+        updated: 2023-02-18
         access_modes: ["purchase"]
       - title: "第26話 夏休みの計画(3)"
-        updated: 2023-01-17
+        updated: 2023-01-18
         access_modes: ["purchase"]
       - title: "第26話 夏休みの計画(2)"
-        updated: 2023-01-17
+        updated: 2023-01-18
         access_modes: ["purchase"]
       - title: "第26話 夏休みの計画(1)"
-        updated: 2023-01-17
+        updated: 2023-01-18
         access_modes: ["purchase"]
       - title: "第25話 物語でなくとも(3)"
-        updated: 2022-11-17
+        updated: 2022-11-18
         access_modes: ["purchase"]
       - title: "第25話 物語でなくとも(2)"
-        updated: 2022-11-17
+        updated: 2022-11-18
         access_modes: ["purchase"]
       - title: "第25話 物語でなくとも(1)"
-        updated: 2022-11-17
+        updated: 2022-11-18
         access_modes: ["purchase"]
       - title: "第24話 宣戦布告"
-        updated: 2022-10-17
+        updated: 2022-10-18
         access_modes: ["purchase"]
       - title: "第23話 すれ違い(2)"
-        updated: 2022-09-17
+        updated: 2022-09-18
         access_modes: ["purchase"]
       - title: "第23話 すれ違い(1)"
-        updated: 2022-09-17
+        updated: 2022-09-18
         access_modes: ["purchase"]
       - title: "第22話 支配者(4)"
-        updated: 2022-08-17
+        updated: 2022-08-18
         access_modes: ["purchase"]
       - title: "第22話 支配者(3)"
-        updated: 2022-08-17
+        updated: 2022-08-18
         access_modes: ["purchase"]
       - title: "第22話 支配者(2)"
-        updated: 2022-08-17
+        updated: 2022-08-18
         access_modes: ["purchase"]
       - title: "第22話 支配者(1)"
-        updated: 2022-08-17
+        updated: 2022-08-18
         access_modes: ["purchase"]
       - title: "第21話 アモルの詩(4)"
-        updated: 2022-07-17
+        updated: 2022-07-18
         access_modes: ["purchase"]
       - title: "第21話 アモルの詩(3)"
-        updated: 2022-07-17
+        updated: 2022-07-18
         access_modes: ["purchase"]
       - title: "第21話 アモルの詩(2)"
-        updated: 2022-07-17
+        updated: 2022-07-18
         access_modes: ["purchase"]
       - title: "第21話 アモルの詩(1)"
-        updated: 2022-07-17
+        updated: 2022-07-18
         access_modes: ["purchase"]
       - title: "第20話 さよならは言わないで(4)"
-        updated: 2022-05-17
+        updated: 2022-05-18
         access_modes: ["purchase"]
       - title: "第20話 さよならは言わないで(3)"
-        updated: 2022-05-17
+        updated: 2022-05-18
         access_modes: ["purchase"]
       - title: "第20話 さよならは言わないで(2)"
-        updated: 2022-05-17
+        updated: 2022-05-18
         access_modes: ["purchase"]
       - title: "第20話 さよならは言わないで(1)"
-        updated: 2022-05-17
+        updated: 2022-05-18
         access_modes: ["purchase"]
       - title: "第19話 褒美(2)"
-        updated: 2022-04-17
+        updated: 2022-04-18
         access_modes: ["purchase"]
       - title: "第19話 褒美(1)"
-        updated: 2022-04-17
+        updated: 2022-04-18
         access_modes: ["purchase"]
       - title: "第18話 魔鈴の魔物(3)"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "第18話 魔鈴の魔物(2)"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "第18話 魔鈴の魔物(1)"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "第17話 中庭事件(3)"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "第17話 中庭事件(2)"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "第17話 中庭事件(1)"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "第16話 中庭事件(3)"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "第16話 中庭事件(2)"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "第16話 中庭事件(1)"
-        updated: 2022-03-17
+        updated: 2022-03-18
         access_modes: ["purchase"]
       - title: "第15話 エスコートごっこ(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第15話 エスコートごっこ(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第15話 エスコートごっこ(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第14話 メイド道(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第14話 メイド道(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第14話 メイド道(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第13話 騎士団での初仕事(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第13話 騎士団での初仕事(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第13話 騎士団での初仕事(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第12話 実技試験②(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第12話 実技試験②(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第12話 実技試験②(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第11話 実技試験①(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第11話 実技試験①(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第11話 実技試験①(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第10話 学院騎士団(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第10話 学院騎士団(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第10話 学院騎士団(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第9話 魔物(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第9話 魔物(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第9話 魔物(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第8話 魔法の講義(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第8話 魔法の講義(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第8話 魔法の講義(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第7話 リリィであるということ(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第7話 リリィであるということ(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第6話 王子様ゲーム(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第6話 王子様ゲーム(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第6話 王子様ゲーム(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第5話 メイドの日々(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第5話 メイドの日々(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第5話 メイドの日々(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第4話 職業選択の自由(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第4話 職業選択の自由(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第4話 職業選択の自由(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第3話 最初の勝負②(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第3話 最初の勝負②(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第3話 最初の勝負②(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第2話 最初の勝負①(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第2話 最初の勝負①(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第2話 最初の勝負①(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["purchase"]
       - title: "第1話 乙女ゲームの世界(3)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["free"]
       - title: "第1話 乙女ゲームの世界(2)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["free"]
       - title: "第1話 乙女ゲームの世界(1)"
-        updated: 2022-02-23
+        updated: 2022-02-24
         access_modes: ["free"]
   - work_title: "あの子とふたりで。"
     author: "当麻"
@@ -4192,49 +4256,49 @@ works:
     chapter_count: 239
     chapters:
       - title: "第239話"
-        updated: 2026-10-15
+        updated: 2026-10-16
         access_modes: ["free"]
       - title: "第238話"
-        updated: 2026-09-15
+        updated: 2026-09-16
         access_modes: ["purchase"]
       - title: "第237話"
-        updated: 2026-08-17
+        updated: 2026-08-18
         access_modes: ["purchase"]
       - title: "第236話"
-        updated: 2026-07-15
+        updated: 2026-07-16
         access_modes: ["purchase"]
       - title: "第235話"
-        updated: 2026-06-16
+        updated: 2026-06-17
         access_modes: ["purchase"]
       - title: "第234話"
-        updated: 2026-05-17
+        updated: 2026-05-18
         access_modes: ["purchase"]
       - title: "第233話"
-        updated: 2026-04-16
+        updated: 2026-04-17
         access_modes: ["purchase"]
       - title: "第232話"
-        updated: 2026-03-16
+        updated: 2026-03-17
         access_modes: ["purchase"]
       - title: "第231話"
-        updated: 2026-02-17
+        updated: 2026-02-18
         access_modes: ["purchase"]
       - title: "第230話"
-        updated: 2026-01-16
+        updated: 2026-01-17
         access_modes: ["purchase"]
       - title: "第229話"
-        updated: 2025-12-17
+        updated: 2025-12-18
         access_modes: ["purchase"]
       - title: "第228話"
-        updated: 2025-11-17
+        updated: 2025-11-18
         access_modes: ["purchase"]
       - title: "第227話"
-        updated: 2025-10-17
+        updated: 2025-10-18
         access_modes: ["purchase"]
       - title: "第226話"
-        updated: 2025-09-17
+        updated: 2025-09-18
         access_modes: ["purchase"]
       - title: "第225話"
-        updated: 2025-08-17
+        updated: 2025-08-18
         access_modes: ["purchase"]
       - title: "第224話"
         updated: 2025-08-08
@@ -5040,136 +5104,139 @@ works:
     url: "https://shonenjumpplus.com/episode/9253191257227139994"
     platform_name: "少年ジャンプ+"
     route: "gigaviewer-feed"
-    chapter_count: 43
+    chapter_count: 44
     chapters:
+      - title: "[おまけ18]春雷卓球"
+        updated: 2026-10-23
+        access_modes: ["free"]
       - title: "[第26打]春雷卓球"
-        updated: 2026-10-15
+        updated: 2026-10-16
         access_modes: ["free"]
       - title: "[おまけ17]春雷卓球"
-        updated: 2026-10-08
+        updated: 2026-10-09
         access_modes: ["free"]
       - title: "[第25打]春雷卓球"
-        updated: 2026-10-01
+        updated: 2026-10-02
         access_modes: ["free"]
       - title: "[おまけ16]春雷卓球"
-        updated: 2026-09-24
+        updated: 2026-09-25
         access_modes: ["free"]
       - title: "[第24打]春雷卓球"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["free"]
       - title: "[おまけ15]春雷卓球"
-        updated: 2026-09-10
+        updated: 2026-09-11
         access_modes: ["free"]
       - title: "[第23打]春雷卓球"
-        updated: 2026-09-03
+        updated: 2026-09-04
         access_modes: ["purchase"]
       - title: "[おまけ14]春雷卓球"
-        updated: 2026-08-27
+        updated: 2026-08-28
         access_modes: ["free"]
       - title: "[第22打]春雷卓球"
-        updated: 2026-08-20
+        updated: 2026-08-21
         access_modes: ["purchase"]
       - title: "[おまけ13]春雷卓球"
-        updated: 2026-08-13
+        updated: 2026-08-14
         access_modes: ["free"]
       - title: "[第21打]春雷卓球"
-        updated: 2026-08-06
+        updated: 2026-08-07
         access_modes: ["purchase"]
       - title: "[おまけ12]春雷卓球"
-        updated: 2026-07-30
+        updated: 2026-07-31
         access_modes: ["free"]
       - title: "[第20打]春雷卓球"
-        updated: 2026-07-23
+        updated: 2026-07-24
         access_modes: ["purchase"]
       - title: "[おまけ11]春雷卓球"
-        updated: 2026-07-16
+        updated: 2026-07-17
         access_modes: ["free"]
       - title: "[第19打]春雷卓球"
-        updated: 2026-07-09
+        updated: 2026-07-10
         access_modes: ["purchase"]
       - title: "[おまけ10]春雷卓球"
-        updated: 2026-07-02
+        updated: 2026-07-03
         access_modes: ["free"]
       - title: "[第18打]春雷卓球"
-        updated: 2026-06-25
+        updated: 2026-06-26
         access_modes: ["purchase"]
       - title: "[おまけ9]春雷卓球"
-        updated: 2026-06-18
+        updated: 2026-06-19
         access_modes: ["free"]
       - title: "[第17打]春雷卓球"
-        updated: 2026-06-11
+        updated: 2026-06-12
         access_modes: ["purchase"]
       - title: "[おまけ8]春雷卓球"
-        updated: 2026-06-04
+        updated: 2026-06-05
         access_modes: ["free"]
       - title: "[第16打]春雷卓球"
-        updated: 2026-05-28
+        updated: 2026-05-29
         access_modes: ["purchase"]
       - title: "[おまけ7]春雷卓球"
-        updated: 2026-05-21
+        updated: 2026-05-22
         access_modes: ["free"]
       - title: "[第15打]春雷卓球"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "[おまけ6]春雷卓球"
-        updated: 2026-05-07
+        updated: 2026-05-08
         access_modes: ["free"]
       - title: "[第14打]春雷卓球"
-        updated: 2026-04-30
+        updated: 2026-05-01
         access_modes: ["purchase"]
       - title: "[おまけ5]春雷卓球"
-        updated: 2026-04-23
+        updated: 2026-04-24
         access_modes: ["free"]
       - title: "[第13打]春雷卓球"
-        updated: 2026-04-16
+        updated: 2026-04-17
         access_modes: ["purchase"]
       - title: "[おまけ4]春雷卓球"
-        updated: 2026-04-09
+        updated: 2026-04-10
         access_modes: ["free"]
       - title: "[第12打]春雷卓球"
-        updated: 2026-04-02
+        updated: 2026-04-03
         access_modes: ["purchase"]
       - title: "[おまけ3]春雷卓球"
-        updated: 2026-03-26
+        updated: 2026-03-27
         access_modes: ["free"]
       - title: "[第11打]春雷卓球"
-        updated: 2026-03-19
+        updated: 2026-03-20
         access_modes: ["purchase"]
       - title: "[第10打]春雷卓球"
-        updated: 2026-03-12
+        updated: 2026-03-13
         access_modes: ["purchase"]
       - title: "[第9打]春雷卓球"
-        updated: 2026-03-05
+        updated: 2026-03-06
         access_modes: ["purchase"]
       - title: "[おまけ2]春雷卓球"
-        updated: 2026-02-26
+        updated: 2026-02-27
         access_modes: ["free"]
       - title: "[第8打]春雷卓球"
-        updated: 2026-02-19
+        updated: 2026-02-20
         access_modes: ["purchase"]
       - title: "[第7打]春雷卓球"
-        updated: 2026-02-12
+        updated: 2026-02-13
         access_modes: ["purchase"]
       - title: "[第6打]春雷卓球"
-        updated: 2026-02-05
+        updated: 2026-02-06
         access_modes: ["purchase"]
       - title: "[おまけ]春雷卓球"
-        updated: 2026-01-29
+        updated: 2026-01-30
         access_modes: ["free"]
       - title: "[第5打]春雷卓球"
-        updated: 2026-01-22
+        updated: 2026-01-23
         access_modes: ["purchase"]
       - title: "[第4打]春雷卓球"
-        updated: 2026-01-15
+        updated: 2026-01-16
         access_modes: ["purchase"]
       - title: "[第3打]春雷卓球"
-        updated: 2026-01-08
+        updated: 2026-01-09
         access_modes: ["free"]
       - title: "[第2打]春雷卓球"
-        updated: 2026-01-01
+        updated: 2026-01-02
         access_modes: ["free"]
       - title: "[第1打]春雷卓球"
-        updated: 2025-12-25
+        updated: 2025-12-26
         access_modes: ["free"]
   - work_title: "アイ・ヘイ・チュー"
     author: "長門知大"
@@ -5179,19 +5246,19 @@ works:
     chapter_count: 5
     chapters:
       - title: "第５話　罪のお味は"
-        updated: 2026-10-07
+        updated: 2026-10-08
         access_modes: ["purchase"]
       - title: "第４話　水泡にすら帰さず"
-        updated: 2026-10-07
+        updated: 2026-10-08
         access_modes: ["purchase"]
       - title: "第３話　手も品も替えるな"
-        updated: 2026-10-07
+        updated: 2026-10-08
         access_modes: ["purchase"]
       - title: "第２話　悪夢にも勝る"
-        updated: 2026-10-07
+        updated: 2026-10-08
         access_modes: ["purchase"]
       - title: "第１話　垂涎に反吐"
-        updated: 2026-10-07
+        updated: 2026-10-08
         access_modes: ["free"]
   - work_title: "ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～"
     author: "漫画：でかいるか/原作：エリーゼ/キャラクター原案：がわこ"
@@ -5328,301 +5395,301 @@ works:
     chapter_count: 99
     chapters:
       - title: "第34話 嘘(3)"
-        updated: 2026-10-17
+        updated: 2026-10-18
         access_modes: ["purchase"]
       - title: "第34話 嘘(2)"
-        updated: 2026-10-17
+        updated: 2026-10-18
         access_modes: ["purchase"]
       - title: "第34話 嘘(1)"
-        updated: 2026-10-17
+        updated: 2026-10-18
         access_modes: ["purchase"]
       - title: "第33話 朱くて空っぽ(3)"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["purchase"]
       - title: "第33話 朱くて空っぽ(2)"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["purchase"]
       - title: "第33話 朱くて空っぽ(1)"
-        updated: 2026-09-17
+        updated: 2026-09-18
         access_modes: ["purchase"]
       - title: "第32話 ほどいて(2)"
-        updated: 2026-08-17
+        updated: 2026-08-18
         access_modes: ["purchase"]
       - title: "第32話 ほどいて(1)"
-        updated: 2026-08-17
+        updated: 2026-08-18
         access_modes: ["purchase"]
       - title: "第31話 再会(3)"
-        updated: 2026-07-17
+        updated: 2026-07-18
         access_modes: ["purchase"]
       - title: "第31話 再会(2)"
-        updated: 2026-07-17
+        updated: 2026-07-18
         access_modes: ["purchase"]
       - title: "第31話 再会(1)"
-        updated: 2026-07-17
+        updated: 2026-07-18
         access_modes: ["purchase"]
       - title: "第30話 薄日の下で(4)"
-        updated: 2026-05-17
+        updated: 2026-05-18
         access_modes: ["purchase"]
       - title: "第30話 薄日の下で(3)"
-        updated: 2026-05-17
+        updated: 2026-05-18
         access_modes: ["purchase"]
       - title: "第30話 薄日の下で(2)"
-        updated: 2026-05-17
+        updated: 2026-05-18
         access_modes: ["purchase"]
       - title: "第30話 薄日の下で(1)"
-        updated: 2026-05-17
+        updated: 2026-05-18
         access_modes: ["purchase"]
       - title: "第29話 記憶の檻(3)"
-        updated: 2026-04-17
+        updated: 2026-04-18
         access_modes: ["purchase"]
       - title: "第29話 記憶の檻(2)"
-        updated: 2026-04-17
+        updated: 2026-04-18
         access_modes: ["purchase"]
       - title: "第29話 記憶の檻(1)"
-        updated: 2026-04-17
+        updated: 2026-04-18
         access_modes: ["purchase"]
       - title: "第28話 メッキの下(3)"
-        updated: 2026-03-17
+        updated: 2026-03-18
         access_modes: ["purchase"]
       - title: "第28話 メッキの下(2)"
-        updated: 2026-03-17
+        updated: 2026-03-18
         access_modes: ["purchase"]
       - title: "第28話 メッキの下(1)"
-        updated: 2026-03-17
+        updated: 2026-03-18
         access_modes: ["purchase"]
       - title: "第27話 錯綜(2)"
-        updated: 2026-01-17
+        updated: 2026-01-18
         access_modes: ["purchase"]
       - title: "第27話 錯綜(1)"
-        updated: 2026-01-17
+        updated: 2026-01-18
         access_modes: ["purchase"]
       - title: "第26話 淡い空席(3)"
-        updated: 2025-12-17
+        updated: 2025-12-18
         access_modes: ["purchase"]
       - title: "第26話 淡い空席(2)"
-        updated: 2025-12-17
+        updated: 2025-12-18
         access_modes: ["purchase"]
       - title: "第26話 淡い空席(1)"
-        updated: 2025-12-17
+        updated: 2025-12-18
         access_modes: ["purchase"]
       - title: "第25話 声(4)"
-        updated: 2025-10-17
+        updated: 2025-10-18
         access_modes: ["purchase"]
       - title: "第25話 声(3)"
-        updated: 2025-10-17
+        updated: 2025-10-18
         access_modes: ["purchase"]
       - title: "第25話 声(2)"
-        updated: 2025-10-17
+        updated: 2025-10-18
         access_modes: ["purchase"]
       - title: "第25話 声(1)"
-        updated: 2025-10-17
+        updated: 2025-10-18
         access_modes: ["purchase"]
       - title: "第24話 まだらもよう(3)"
-        updated: 2025-09-17
+        updated: 2025-09-18
         access_modes: ["purchase"]
       - title: "第24話 まだらもよう(2)"
-        updated: 2025-09-17
+        updated: 2025-09-18
         access_modes: ["purchase"]
       - title: "第24話 まだらもよう(1)"
-        updated: 2025-09-17
+        updated: 2025-09-18
         access_modes: ["purchase"]
       - title: "第23話 溢れる(3)"
-        updated: 2025-08-17
+        updated: 2025-08-18
         access_modes: ["purchase"]
       - title: "第23話 溢れる(2)"
-        updated: 2025-08-17
+        updated: 2025-08-18
         access_modes: ["purchase"]
       - title: "第23話 溢れる(1)"
-        updated: 2025-08-17
+        updated: 2025-08-18
         access_modes: ["purchase"]
       - title: "第22話 マリオネット(3)"
-        updated: 2025-07-17
+        updated: 2025-07-18
         access_modes: ["purchase"]
       - title: "第22話 マリオネット(2)"
-        updated: 2025-07-17
+        updated: 2025-07-18
         access_modes: ["purchase"]
       - title: "第22話 マリオネット(1)"
-        updated: 2025-07-17
+        updated: 2025-07-18
         access_modes: ["purchase"]
       - title: "第21話 楽しい学校生活(3)"
-        updated: 2025-06-17
+        updated: 2025-06-18
         access_modes: ["purchase"]
       - title: "第21話 楽しい学校生活(2)"
-        updated: 2025-06-17
+        updated: 2025-06-18
         access_modes: ["purchase"]
       - title: "第21話 楽しい学校生活(1)"
-        updated: 2025-06-17
+        updated: 2025-06-18
         access_modes: ["purchase"]
       - title: "第20話 私の友達(3)"
-        updated: 2025-04-17
+        updated: 2025-04-18
         access_modes: ["purchase"]
       - title: "第20話 私の友達(2)"
-        updated: 2025-04-17
+        updated: 2025-04-18
         access_modes: ["purchase"]
       - title: "第20話 私の友達(1)"
-        updated: 2025-04-17
+        updated: 2025-04-18
         access_modes: ["purchase"]
       - title: "第19話 レンチキュラー(3)"
-        updated: 2025-03-17
+        updated: 2025-03-18
         access_modes: ["purchase"]
       - title: "第19話 レンチキュラー(2)"
-        updated: 2025-03-17
+        updated: 2025-03-18
         access_modes: ["purchase"]
       - title: "第19話 レンチキュラー(1)"
-        updated: 2025-03-17
+        updated: 2025-03-18
         access_modes: ["purchase"]
       - title: "第18話 濁って軋んで(2)"
-        updated: 2025-01-17
+        updated: 2025-01-18
         access_modes: ["purchase"]
       - title: "第18話 濁って軋んで(1)"
-        updated: 2025-01-17
+        updated: 2025-01-18
         access_modes: ["purchase"]
       - title: "第17話 くらくらする(2)"
-        updated: 2024-12-17
+        updated: 2024-12-18
         access_modes: ["purchase"]
       - title: "第17話 くらくらする(1)"
-        updated: 2024-12-17
+        updated: 2024-12-18
         access_modes: ["purchase"]
       - title: "第16話 透過波(2)"
-        updated: 2024-11-17
+        updated: 2024-11-18
         access_modes: ["purchase"]
       - title: "第16話 透過波(1)"
-        updated: 2024-11-17
+        updated: 2024-11-18
         access_modes: ["purchase"]
       - title: "第15話 影は呼ぶ(3)"
-        updated: 2024-09-17
+        updated: 2024-09-18
         access_modes: ["purchase"]
       - title: "第15話 影は呼ぶ(2)"
-        updated: 2024-09-17
+        updated: 2024-09-18
         access_modes: ["purchase"]
       - title: "第15話 影は呼ぶ(1)"
-        updated: 2024-09-17
+        updated: 2024-09-18
         access_modes: ["purchase"]
       - title: "第14話 鏡の向こう側(3)"
-        updated: 2024-08-17
+        updated: 2024-08-18
         access_modes: ["purchase"]
       - title: "第14話 鏡の向こう側(2)"
-        updated: 2024-08-17
+        updated: 2024-08-18
         access_modes: ["purchase"]
       - title: "第14話 鏡の向こう側(1)"
-        updated: 2024-08-17
+        updated: 2024-08-18
         access_modes: ["purchase"]
       - title: "第13話 たられば(3)"
-        updated: 2024-06-17
+        updated: 2024-06-18
         access_modes: ["purchase"]
       - title: "第13話 たられば(2)"
-        updated: 2024-06-17
+        updated: 2024-06-18
         access_modes: ["purchase"]
       - title: "第13話 たられば(1)"
-        updated: 2024-06-17
+        updated: 2024-06-18
         access_modes: ["purchase"]
       - title: "第12話 約束(2)"
-        updated: 2024-05-17
+        updated: 2024-05-18
         access_modes: ["purchase"]
       - title: "第12話 約束(1)"
-        updated: 2024-05-17
+        updated: 2024-05-18
         access_modes: ["purchase"]
       - title: "第11話 宵を灯す(4)"
-        updated: 2024-04-17
+        updated: 2024-04-18
         access_modes: ["purchase"]
       - title: "第11話 宵を灯す(3)"
-        updated: 2024-04-17
+        updated: 2024-04-18
         access_modes: ["purchase"]
       - title: "第11話 宵を灯す(2)"
-        updated: 2024-04-17
+        updated: 2024-04-18
         access_modes: ["purchase"]
       - title: "第11話 宵を灯す(1)"
-        updated: 2024-04-17
+        updated: 2024-04-18
         access_modes: ["purchase"]
       - title: "第10話 白日の下に(3)"
-        updated: 2024-02-17
+        updated: 2024-02-18
         access_modes: ["purchase"]
       - title: "第10話 白日の下に(2)"
-        updated: 2024-02-17
+        updated: 2024-02-18
         access_modes: ["purchase"]
       - title: "第10話 白日の下に(1)"
-        updated: 2024-02-17
+        updated: 2024-02-18
         access_modes: ["purchase"]
       - title: "第9話 ちぐはぐ(2)"
-        updated: 2024-01-17
+        updated: 2024-01-18
         access_modes: ["purchase"]
       - title: "第9話 ちぐはぐ(1)"
-        updated: 2024-01-17
+        updated: 2024-01-18
         access_modes: ["purchase"]
       - title: "第8話 嬉しそうだから(3)"
-        updated: 2023-12-17
+        updated: 2023-12-18
         access_modes: ["purchase"]
       - title: "第8話 嬉しそうだから(2)"
-        updated: 2023-12-17
+        updated: 2023-12-18
         access_modes: ["purchase"]
       - title: "第8話 嬉しそうだから(1)"
-        updated: 2023-12-17
+        updated: 2023-12-18
         access_modes: ["purchase"]
       - title: "第7話 私の特別な女の子(3)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第7話 私の特別な女の子(2)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第7話 私の特別な女の子(1)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第6話 よどみ、ぬかるみ(4)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第6話 よどみ、ぬかるみ(3)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第6話 よどみ、ぬかるみ(2)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第6話 よどみ、ぬかるみ(1)"
-        updated: 2023-10-17
+        updated: 2023-10-18
         access_modes: ["purchase"]
       - title: "第5話 その赤だけは鮮やかで(3)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第5話 その赤だけは鮮やかで(2)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第5話 その赤だけは鮮やかで(1)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第4話 ぜんぶ忘れる(2)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第4話 ぜんぶ忘れる(1)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第3話 刻む言葉(3)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第3話 刻む言葉(2)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第3話 刻む言葉(1)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第2話 逃げ場なんてない(3)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第2話 逃げ場なんてない(2)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第2話 逃げ場なんてない(1)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["purchase"]
       - title: "第1話 悪い子だね(4)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["free"]
       - title: "第1話 悪い子だね(3)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["free"]
       - title: "第1話 悪い子だね(2)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["free"]
       - title: "第1話 悪い子だね(1)"
-        updated: 2023-09-20
+        updated: 2023-09-21
         access_modes: ["free"]
   - work_title: "雨夜の月"
     author: "くずしろ"
@@ -6358,140 +6425,145 @@ works:
     chapter_count: 46
     chapters:
       - title: "第４６話　大ヒット☆はずかしい☆ガール"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["purchase"]
       - title: "第４５話　ラブ☆ソング☆ガール"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["purchase"]
       - title: "第４４話　想いを込めて☆作詞☆ガール"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["purchase"]
       - title: "第４３話　マネーイズ☆パワー☆ガール"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["purchase"]
       - title: "第４２話　豪遊☆調教☆ガール"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["purchase"]
       - title: "第４１話　大人気作曲家☆突撃☆ガール"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["purchase"]
       - title: "第４０話　もっと私を☆大切にすべき☆ガール"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["purchase"]
       - title: "第３９話　万能☆メイド☆ガール"
-        updated: 2026-08-16
+        updated: 2026-08-17
         access_modes: ["purchase"]
       - title: "第３８話　私たちの戦いは☆これからだ☆ガール"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "第３７話　破産する☆勇気☆ガール"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "第３６話　いいなり☆メイド☆ガール"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "第３５話　拡散☆ドーナツ☆ガール"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "第３４話　敗北は☆死☆ガール"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "第３３話　脳汁☆中毒☆ガール"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "第３２話　絶対☆辱める☆ガール"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "第３１話　お金は☆大切に☆ガール"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "第３０話　３０００万円☆ギャンブル☆ガール"
-        updated: 2026-05-14
+        updated: 2026-05-15
         access_modes: ["purchase"]
       - title: "第２９話　絶好調☆人助け☆ガール"
-        updated: 2026-03-16
+        updated: 2026-03-17
         access_modes: ["purchase"]
       - title: "第２８話　極悪プロデューサー☆許さない☆ガール"
-        updated: 2026-03-16
+        updated: 2026-03-17
         access_modes: ["purchase"]
       - title: "第２７話　示談金☆１０００万円☆ガール"
-        updated: 2026-03-16
+        updated: 2026-03-17
         access_modes: ["purchase"]
       - title: "第２６話　審査員☆ぶっ飛ばせ☆ガール"
-        updated: 2026-03-16
+        updated: 2026-03-17
         access_modes: ["purchase"]
       - title: "第２５話　教えて☆後輩☆ガール"
-        updated: 2026-03-16
+        updated: 2026-03-17
         access_modes: ["purchase"]
       - title: "第２４話　億万長者よりも☆ヒモ☆ガール"
-        updated: 2026-03-16
+        updated: 2026-03-17
         access_modes: ["purchase"]
       - title: "第２３話　はじめての☆成長☆ガール"
-        updated: 2026-03-16
+        updated: 2026-03-17
         access_modes: ["purchase"]
       - title: "第２２話　才能開花☆リフォーム☆ガール"
-        updated: 2026-03-16
+        updated: 2026-03-17
         access_modes: ["purchase"]
       - title: "第２１話　いけてる☆クリエイト☆ガール"
-        updated: 2025-12-16
+        updated: 2025-12-17
         access_modes: ["purchase"]
       - title: "第２０話　お金が増えるよ☆ＦＸ☆ガール"
-        updated: 2025-12-16
+        updated: 2025-12-17
         access_modes: ["purchase"]
       - title: "第１９話　教えて☆スーパーお金持ち☆ガール"
-        updated: 2025-12-16
+        updated: 2025-12-17
         access_modes: ["purchase"]
       - title: "第１８話　絶対落札☆オークション☆ガール"
-        updated: 2025-12-16
+        updated: 2025-12-17
         access_modes: ["purchase"]
       - title: "第１７話　ドリーム☆ウォッチ☆ガール"
-        updated: 2025-12-16
+        updated: 2025-12-17
         access_modes: ["purchase"]
       - title: "第１６話　遥かなる☆ドーム☆ガール"
-        updated: 2025-12-16
+        updated: 2025-12-17
         access_modes: ["purchase"]
       - title: "第１５話　とりかえせ☆千恵☆ガール"
-        updated: 2025-12-16
+        updated: 2025-12-17
         access_modes: ["purchase"]
       - title: "第１４話　ぐいぐい☆ヒモ☆ガール"
-        updated: 2025-12-16
+        updated: 2025-12-17
         access_modes: ["purchase"]
       - title: "第１３話　７億円☆狙われる☆ガール"
-        updated: 2025-10-16
+        updated: 2025-10-17
         access_modes: ["purchase"]
       - title: "第１２話　ハイブランド☆困惑☆ガール"
-        updated: 2025-10-16
+        updated: 2025-10-17
         access_modes: ["purchase"]
       - title: "第１１話　プロの☆メイド☆ガール"
-        updated: 2025-10-16
+        updated: 2025-10-17
         access_modes: ["purchase"]
       - title: "第１０話　自己肯定感☆喪失☆ガール"
-        updated: 2025-10-16
+        updated: 2025-10-17
         access_modes: ["purchase"]
       - title: "第９話　お金が☆心配☆ガール"
-        updated: 2025-10-16
+        updated: 2025-10-17
         access_modes: ["purchase"]
       - title: "第８話　再始動☆アイドル☆ガール"
-        updated: 2025-10-16
+        updated: 2025-10-17
         access_modes: ["purchase"]
       - title: "第７話　４０００万円☆説得☆ガール"
-        updated: 2025-10-16
+        updated: 2025-10-17
         access_modes: ["purchase"]
       - title: "第６話　推しの自宅☆突撃☆ガール"
-        updated: 2025-10-16
+        updated: 2025-10-17
         access_modes: ["purchase"]
       - title: "第５話　芸能事務所☆突撃☆ガール"
-        updated: 2025-08-11
+        updated: 2025-08-12
         access_modes: ["purchase"]
       - title: "第４話　全力☆推し活☆ガール"
-        updated: 2025-08-11
+        updated: 2025-08-12
         access_modes: ["purchase"]
       - title: "第３話　かわいい☆メイド☆ガール"
-        updated: 2025-08-11
+        updated: 2025-08-12
         access_modes: ["purchase"]
       - title: "第２話　やりたいこと☆無限大☆ガール"
-        updated: 2025-08-11
+        updated: 2025-08-12
         access_modes: ["purchase"]
       - title: "第１話　７億円☆当たる☆ガール"
-        updated: 2025-08-11
+        updated: 2025-08-12
         access_modes: ["free"]
+  - work_title: "DOUBLE HELIX BLOSSOM"
+    author: "SWAV / アサウラ / 西馬ごめゆき"
+    url: "https://www.corocoro.jp/title/65"
+    platform_name: "コロコロオンライン"
+    route: "author-link"

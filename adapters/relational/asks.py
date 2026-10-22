@@ -485,16 +485,18 @@ POPULATIONS = {
     # HOW MANY VOLUMES THE CORPUS HOLDS OF EACH WORK, the most any of its print records states.
     # `bookwalker.py` asks the shop about a quiet series again only when this rises, since a
     # 完結巻 is a new volume and the shop's answer cannot change without one.
-    # THE ROWS `incomplete attested rows` COUNTS, with the page a reader would open, for the pass
-    # that fills them. Grouped by work, because the pass fetches a work's page once.
+    # THE ROWS THE BACKFILL PASS FILLS, with the page a reader would open. One per row and not per
+    # work: a GigaViewer work is still fetched once, since one series feed answers for all of it,
+    # and マガポケ states access only on each episode's own page, so the pass needs every address.
     "incomplete attested rows": {
-        "sql": "SELECT coalesce(w.title, release.work_raw) AS work, min(release.url) AS url,"
+        "sql": "SELECT coalesce(w.title, release.work_raw) AS work, release.url AS url,"
                " release.platform AS platform,"
                " max(trim(coalesce(release.instalment, '')) = '') AS no_instalment,"
                " max(release.author IS NULL) AS no_author"
                " FROM release LEFT JOIN work w ON w.id = release.work"
                " WHERE " + INCOMPLETE + " AND release.url IS NOT NULL"
-               " GROUP BY coalesce(w.title, release.work_raw), release.platform ORDER BY 1",
+               " GROUP BY coalesce(w.title, release.work_raw), release.platform, release.url"
+               " ORDER BY 1, 2",
         "reads": ("release", "release_access_mode", "work")},
     # THE ROWS `attested rows with no access state` COUNTS, by platform and by the date basis that
     # names the route which read them, so a route that never reads access shows as one line.

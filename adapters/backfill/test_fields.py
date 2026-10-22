@@ -12,7 +12,40 @@ import testkit
 import fields as bf
 
 
+def nuxt(point, visible, ticket):
+    """A マガポケ episode page's payload, built the way the real one is: values are indices."""
+    import json
+    arr = [{"web_title": 1, "episode": 3}, {"author_text": 2}, "閉伊川広輔",
+           {"episode_id": 4, "episode_name": 5, "start_time": 6, "point": 7,
+            "is_page_visible": 8, "ticket_rental_enabled": 9, "single_sale_enabled": 10},
+           445525, "【第4話】言いなり", "2026-10-22 00:00:00", point, visible, ticket, 1]
+    return f'<script type="application/json" id="__NUXT_DATA__">{json.dumps(arr)}</script>'
+
+
 def main(s):
+    # マガポケ'S EPISODE PAGE STATES ITS OWN ACCESS in an indexed payload: free, a ticket or a price.
+    s.eq(bf.magapoke_episode(nuxt(70, 0, 0)),
+         ("閉伊川広輔", {"title": "【第4話】言いなり", "updated": "2026-10-22", "access_modes": ["purchase"]}),
+         "a point price with single sale is purchase, and the title and opening day come with it")
+    s.eq(bf.magapoke_episode(nuxt(60, 0, 1))[1]["access_modes"], ["free-timed"],
+         "a ticket that opens it is free-timed")
+    s.eq(bf.magapoke_episode(nuxt(0, 1, 0))[1]["access_modes"], ["free"], "and a visible page is free")
+    s.eq(bf.magapoke_episode("<html>no payload</html>"), (None, None), "a page without one says nothing")
+    s.check(bf.MAGAPOKE.match("https://pocket.shonenmagazine.com/title/03349/episode/445525"),
+            "an episode address is recognised")
+    s.check(not bf.MAGAPOKE.match("https://pocket.shonenmagazine.com/title/03349"),
+            "and a work's page is not")
+
+    # A WORK ON TWO PLATFORMS IS TWO FILLS, and one run's must not take the other's place.
+    prior = [{"work_title": "ドリジャン", "url": "https://comic-days.com/episode/1", "platform_name": "コミックDAYS",
+              "route": "gigaviewer-feed", "chapters": [{"title": "第46話", "updated": "2026-01-01"}]}]
+    fresh = [{"work_title": "ドリジャン", "url": "https://pocket.shonenmagazine.com/title/1/episode/2",
+              "platform": "マガポケ", "route": "magapoke-episode", "work_access": None, "episodes": []}]
+    s.eq(sorted(w["platform"] for w in bf.kept(fresh, prior)), ["コミックDAYS", "マガポケ"],
+         "the earlier fill on another platform is kept beside the new one")
+    gaps = [{"work": "ドリジャン", "url": "https://pocket.shonenmagazine.com/title/1/episode/2", "platform": "マガポケ"}]
+    s.eq(len(bf.asked(gaps, prior)), 2, "and asked again, because the gap names only the other platform")
+
     s.eq(bf.host_of("https://Comic-Days.com/episode/1"), "comic-days.com",
          "the host is lower-cased, so comparisons hold")
     s.eq(bf.host_of("http://x.jp/a/b"), "x.jp", "http works the same as https")

@@ -31,6 +31,8 @@ import yaml
 import pathlib as _pl, sys as _sy                                         # noqa: E401,E402
 _sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1]))    # noqa: E402
 import htmlbits as _htmlbits                                            # noqa: E402
+_sy.path.insert(0, str(_pl.Path(__file__).resolve().parents[1] / "gigaviewer"))
+import series_feeds as _sf                                              # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"
 PAUSE = 1.0
@@ -122,11 +124,61 @@ def gigaviewer_feed(url, html):
         au, ln = E_AUTHOR.search(b), E_LINK.search(b)
         if au and not author:
             author = _html.unescape(au.group(1)).strip()
-        row = {"title": _html.unescape(t.group(1)).strip(), "updated": u.group(1)[:10]}
+        # THE DATE IN JAPAN, which slicing the UTC stamp is not: a chapter out at 15:00Z is the
+        # next day there, and the platform's own list says so.
+        row = {"title": _html.unescape(t.group(1)).strip(), "updated": _sf.jst_date(u.group(1))}
         if free and ln:
             row["access_modes"] = ["free"] if ln.group(1) in free else ["purchase"]
         out.append(row)
     return author, out
+
+
+MAGAPOKE = re.compile(r"^https?://pocket\.shonenmagazine\.com/title/\d+/episode/\d+")
+NUXT = re.compile(r'<script[^>]*id="__NUXT_DATA__"[^>]*>(.*?)</script>', re.S)
+
+
+def magapoke_episode(html):
+    """`(author, chapter)` from a マガポケ episode page, or `(None, None)`.
+
+    THE FEED THAT LISTS EVERY CHAPTER STATES NO ACCESS, and the work page that does draws ten. The
+    episode page states its own in the data it is rendered from, a Nuxt payload in which every
+    value is an index into one array: `point` is the price, `ticket_rental_enabled` says a 作品
+    チケット opens it, and `is_page_visible` says it can be read now without either. Checked
+    against the badges the rendered capture reads on 将来的に死んでくれ, one of each kind, and all
+    three agreed: 第3話 free, 第5話 a ticket, 第42話 sixty points.
+    """
+    m = NUXT.search(html or "")
+    if not m:
+        return None, None
+    try:
+        arr = json.loads(m.group(1))
+    except ValueError:
+        return None, None
+
+    def at(v):
+        return arr[v] if isinstance(v, int) and not isinstance(v, bool) and 0 <= v < len(arr) else v
+
+    ep = next((x for x in arr if isinstance(x, dict) and "episode_id" in x and "point" in x), None)
+    if not ep:
+        return None, None
+    title = at(ep.get("episode_name"))
+    opened = str(at(ep.get("start_time")) or "")[:10]
+    if not title or not opened:
+        return None, None
+    if at(ep.get("is_page_visible")) == 1 and not at(ep.get("point")):
+        modes = ["free"]
+    elif at(ep.get("ticket_rental_enabled")) == 1:
+        modes = ["free-timed"]
+    elif at(ep.get("point")) and at(ep.get("single_sale_enabled")) == 1:
+        modes = ["purchase"]
+    else:
+        modes = []
+    work = next((x for x in arr if isinstance(x, dict) and "author_text" in x), None)
+    author = str(at(work.get("author_text")) or "").strip() or None if work else None
+    chapter = {"title": str(title).strip(), "updated": opened}
+    if modes:
+        chapter["access_modes"] = modes
+    return author, chapter
 
 
 def title_tail(url, html):
@@ -158,20 +210,30 @@ def asked(gaps, prior):
     list alone takes the fill away again (a filter reading its own output). So what this file
     already holds is asked again every run, which also follows a page that changes.
     """
-    named = {g.get("work") for g in gaps}
+    # A WORK ON TWO PLATFORMS IS TWO FILLS. ドリーム☆ジャンボ☆ガール is read from コミックDAYS's
+    # series feed and from マガポケ's episode pages, and keyed by title alone the second replaced the
+    # first and took 46 chapters with it.
+    named = [(g.get("work"), g.get("platform")) for g in gaps]
     return list(gaps) + [{"work": w["work_title"], "url": w["url"], "platform": w.get("platform_name")}
                          for w in prior if w.get("work_title") and w.get("url")
-                         and w["work_title"] not in named]
+                         and not _same_fill((w["work_title"], w.get("platform_name")), named)]
+
+
+def _same_fill(key, keys):
+    """Whether `(work, platform)` is one of `keys`: the same title, and the same platform wherever
+    both name one, so a gap that names none still finds the fill it is about."""
+    return any(key[0] == k[0] and (not key[1] or not k[1] or key[1] == k[1]) for k in keys)
 
 
 def kept(works, prior):
     """Each earlier fill this run could not refresh, in the shape `works` holds, so a page that
     did not load costs nothing it had already given."""
-    have = {w["work_title"] for w in works}
+    have = [(w["work_title"], w.get("platform")) for w in works]
     return works + [{"work_title": w["work_title"], "author": w.get("author"), "url": w["url"],
                      "platform": w.get("platform_name"), "route": w.get("route"),
                      "work_access": w.get("access_modes"), "episodes": w.get("chapters") or []}
-                    for w in prior if w.get("work_title") and w["work_title"] not in have]
+                    for w in prior if w.get("work_title")
+                    and not _same_fill((w["work_title"], w.get("platform_name")), have)]
 
 
 def main():
@@ -192,30 +254,38 @@ def main():
     prior = ((yaml.safe_load(outf.read_text(encoding="utf-8")) or {}).get("works") or []
              if outf.exists() else [])
     gaps = asked(gaps, prior)
+    # KEYED BY WORK AND PLATFORM, since access is a fact about a chapter ON A PLATFORM and the build
+    # only carries it between rows that agree on the platform. This adapter spans hosts and would
+    # otherwise declare none, which is why its first run filled in five authors and no access at all.
     by_work = defaultdict(set)
-    plat_of, order = {}, []
+    order = []
     for g in gaps:
         w, u = g.get("work"), g.get("url")
         if not (w and u):
             continue
-        if w not in by_work:
-            order.append(w)
-        by_work[w].add(u)
-        # Access is a fact about a chapter ON A PLATFORM, so the build only carries it between rows
-        # that agree on the platform. This adapter spans hosts and would otherwise declare none,
-        # which is why its first run filled in five authors and no access at all.
-        if g.get("platform"):
-            plat_of.setdefault(w, g["platform"])
+        key = (w, g.get("platform"))
+        if key not in by_work:
+            order.append(key)
+        by_work[key].add(u)
 
     works, how, missed = [], Counter(), []
-    for w in order:
-        url = sorted(by_work[w])[0]
+    for key in order:
+        w, plat = key
+        url = sorted(by_work[key])[0]
         html = get(url)
         if not html:
             missed.append((w, "page did not load"))
             continue
         author, eps = gigaviewer_feed(url, html)
         route = "gigaviewer-feed" if eps else None
+        # マガポケ STATES ACCESS PER EPISODE, so each episode the store holds without it is read.
+        if not eps and MAGAPOKE.match(url):
+            for i, u in enumerate(sorted(by_work[key])):
+                au, ch = magapoke_episode(html if i == 0 else get(u))
+                if ch:
+                    author = author or au
+                    eps.append(ch)
+            route = "magapoke-episode" if eps else None
         if not eps:
             au, access = title_tail(url, html)
             if au or access:
@@ -223,7 +293,7 @@ def main():
                 # No chapter list from this route; the fields are stated for the work, so they are
                 # recorded at work level and the build carries them onto its rows.
                 works.append({"work_title": w, "author": author, "url": url,
-                              "platform": plat_of.get(w), "route": route,
+                              "platform": plat, "route": route,
                               "work_access": access, "episodes": []})
                 how[route] += 1
                 continue
@@ -231,7 +301,7 @@ def main():
             au = author_links(url)
             if au:
                 works.append({"work_title": w, "author": au, "url": url,
-                              "platform": plat_of.get(w), "route": "author-link",
+                              "platform": plat, "route": "author-link",
                               "work_access": None, "episodes": []})
                 how["author-link"] += 1
                 continue
@@ -239,7 +309,7 @@ def main():
             continue
         how[route] += 1
         works.append({"work_title": w, "author": author, "url": url,
-                      "platform": plat_of.get(w), "route": route,
+                      "platform": plat, "route": route,
                       "work_access": None, "episodes": eps})
 
     resolved = len(works)

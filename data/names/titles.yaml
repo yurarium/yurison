@@ -10717,29 +10717,35 @@ names:
     reading_source_kind: derived
     verified: false
   お姉さまと巨人 ～お嬢さまが異世界転生～:
-    basis: licensed
-    en: 'Sister and Giant: A Young Lady Is Reborn in Another World'
-    en_at: '2026-08-10'
+    basis: official-jp
+    en: MY SISTER AND GIANT
+    en_at: '2026-10-22'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: Onee-sama and the Giant ~The Young Lady's Isekai Reincarnation~
-    en_reviewed: '2026-08-10'
-    en_source: Yen Press
-    en_source_kind: licensor
-    en_url: https://yenpress.com/series/sister-and-giant-a-young-lady-is-reborn-in-another-world
-    note: Yen Press credit Be-con, the author on our record of KADOKAWA's three volumes. This replaces
-      Onee-sama and the Giant ~The Young Lady's Isekai Reincarnation~, which was ours, and a licensor's
-      name outranks one composed here. The `:` variant of this work carries the Japanese publisher's own
-      MY SISTER AND GIANT, which outranks a licensor's in turn.
+    - basis: licensed
+      source: Yen Press
+      value: 'Sister and Giant: A Young Lady Is Reborn in Another World'
+    en_reviewed: '2026-10-22'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/M869334
+    note: 'The parallel title MADB records for KADOKAWA''s first volume, which is the Japanese publisher''s
+      own English and outranks a licensor''s. It was filed under the catalogue''s `:` spelling of the
+      title, and this spelling, which the work is shown by, carried Yen Press''s Sister and Giant: A Young
+      Lady Is Reborn in Another World instead, so the work read without its My until 2026-10-22. Yen Press''s
+      name is kept beside it as the licensed form, from https://yenpress.com/series/sister-and-giant-a-young-lady-is-reborn-in-another-world,
+      which credits Be-con as our record of the three volumes does.'
     reading: オネエサマ ト キョジン ～ オジョウサマ ガ イセカイ テンセイ ～
-    reading_at: '2026-08-10'
+    reading_at: '2026-10-22'
     reading_basis: researched
     reading_corroborated:
     - Yen Press
+    - mediaarts-db
     reading_note: Read from the title. Checked by aligning it against the surface, so every kana run in
       the title is accounted for and the ruby lands on the right characters.
-    reading_reviewed: '2026-08-10'
+    reading_reviewed: '2026-10-22'
     reading_source_kind: derived
     translation_note: 'Our own rendering, which the entry carried as its name until the licensor''s was
       found. It is kept rather than discarded: お姉さま is the address the title uses and Yen Press''s Sister
@@ -60613,18 +60619,23 @@ names:
     reading_source_kind: analyser
     verified: false
   悪役令嬢の中の人〜断罪された転生者のため嘘つきヒロインに復讐いたします〜:
-    basis: translated
-    en: The Person Inside the Villainess ~Taking Revenge on the Lying Heroine for the Falsely Condemned
-      Reincarnator~
-    en_at: '2026-08-04'
-    en_reviewed: '2026-08-04'
-    en_source: yurarium
-    en_source_kind: derived
-    note: 中の人 is the idiom for whoever is inside a costume or mascot; the synopsis is the villainess Remilia's
-      own original soul, watching from within as "Emi", the reincarnator who took her body, is falsely
-      condemned, waking up to take revenge herself.
+    basis: official-jp
+    en: The person in a villainess
+    en_at: '2026-10-22'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Person Inside the Villainess ~Taking Revenge on the Lying Heroine for the Falsely Condemned
+        Reincarnator~
+    en_reviewed: '2026-10-22'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/M868555
+    note: The parallel title MADB records, the publisher's own English for the work and in its capitals.
+      It was filed under the catalogue's `:` spelling, and this one, which the work is shown by, showed
+      our rendering instead until 2026-10-22.
     reading: アクヤク レイジョウ ノ ナカ ノ ヒト 〜 ダンザイ サレタ テンセイシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス 〜
-    reading_at: '2026-08-04'
+    reading_at: '2026-10-22'
     reading_basis: researched
     reading_conflicts:
     - basis: analyser
@@ -60635,11 +60646,15 @@ names:
       value: アクヤク レイジョウ ノ ナカ ノ ヒト
     reading_corroborated:
     - yurarium
+    - mediaarts-db
     reading_note: 転生者 is てんせいしゃ.
-    reading_reviewed: '2026-08-04'
+    reading_reviewed: '2026-10-22'
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033275345
+    translation_note: 中の人 is the idiom for whoever is inside a costume or mascot; the synopsis is the
+      villainess Remilia's own original soul, watching from within as "Emi", the reincarnator who took
+      her body, is falsely condemned, waking up to take revenge herself.
     verified: false
   悪役令嬢は天使のようなライバル美少女に愛を誓われる:
     basis: translated
@@ -72595,17 +72610,20 @@ names:
     reading_source_kind: analyser
     verified: false
   白と黒～Black & White～:
-    basis: licensed
-    en: 'Black and White: Tough Love at the Office'
-    en_at: '2026-08-08'
+    basis: official-jp
+    en: Black & White
+    en_at: '2026-10-22'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: White and Black ~Black & White~
-    en_reviewed: '2026-08-08'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/black-and-white-tough-love-at-the-office/
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: 'Black and White: Tough Love at the Office'
+    en_reviewed: '2026-10-22'
+    en_source: mediaarts-db
+    en_source_kind: bibliography
+    en_url: https://mediaarts-db.artmuseums.go.jp/id/C450485
     furigana_spans:
     - - 白
       - しろ
@@ -72615,8 +72633,11 @@ names:
       - くろ
     - - ～Black & White～
       - null
-    note: The licensor's own catalogue entry, which states the Japanese title as 白と黒~Black & White~. An
-      English reader meets the work under this name.
+    note: 'The publisher''s own English, printed in the Japanese title and recorded by MADB as its parallel
+      title, which outranks a licensor''s. It was filed under the catalogue''s `白と黒 = Black & White` spelling,
+      and this one, which the work is shown by, carried Seven Seas'' Black and White: Tough Love at the
+      Office until 2026-10-22. That is kept beside it as the licensed form, from https://sevenseasentertainment.com/series/black-and-white-tough-love-at-the-office/,
+      whose catalogue entry states the Japanese title as 白と黒~Black & White~.'
     reading: シロ ト クロ ～ Black   &   White ～
     reading_at: '2026-08-06'
     reading_basis: analyser

@@ -27,6 +27,22 @@ def main(s):
     s.check(all(c["title"] != "笑顔のたえない職場です。" for c in added),
             "and a work a capture already holds is not fetched twice from another address")
 
+    # AN ADDRESS A PERSON FOUND JOINS THE WORK, where 百合ナビ's would be left out for being named.
+    inaba = [{"title": "魔法少女イナバ", "platforms": ["カドコミ"],
+              "urls": ["https://comic-walker.com/detail/KC_007952_S"]}]
+    growl = {"title": "魔法少女イナバ", "platform": "コミックグロウル",
+             "url": "https://comic-growl.com/series/aa1ae7d41e228"}
+    out, n = cd.found(inaba, [growl])
+    s.eq((out[0]["urls"], out[0]["platforms"], n),
+         (["https://comic-walker.com/detail/KC_007952_S", "https://comic-growl.com/series/aa1ae7d41e228"],
+          ["カドコミ", "コミックグロウル"], 1),
+         "a found address is added to the candidate the work already has")
+    s.eq(inaba[0]["urls"], ["https://comic-walker.com/detail/KC_007952_S"], "without editing the list it was given")
+    s.eq(cd.found(out, [growl])[1], 0, "and the same address twice is one target")
+    out, n = cd.found([], [dict(growl, title="どこにもない")])
+    s.eq((len(out), out[0]["platforms"], n), (1, ["コミックグロウル"], 1),
+         "a work no list names gets a candidate of its own")
+
     # THE COUNTER-CASE THE FIRST VERSION GOT WRONG. A capture holding the work at the address this
     # list gave it is the list's own catch; dropping the work for it starves that capture next run.
     nico = {"title": "アイドルビーバック！", "platforms": ["ニコニコ漫画"],

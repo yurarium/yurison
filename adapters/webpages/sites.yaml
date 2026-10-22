@@ -156,6 +156,30 @@ sites:
     min_works: 1
     verified: 2026-08-02
 
+  # コミックグロウル — ブシロードワークス, and comici now. The reconnaissance file still holds it as
+  # a GigaViewer-shaped `episode/<digits>` address, which 301s to the home page; the site serves
+  # `/series/<hex>` and `/episodes/<hex>` with comici's CDN, as チャンピオンクロス does. Onboarded
+  # 2026-10-22, when 魔法少女イナバ was found a chapter ahead of カドコミ there.
+  - id: comic-growl
+    name: コミックグロウル
+    publisher: ブシロードワークス
+    host: comic-growl.com
+    engine: comici
+    min_episodes: 1
+    min_works: 1
+    verified: 2026-10-22
+
+  # マンガゼグラ — スターツ出版, comici. Onboarded 2026-10-22 for a work whose only other capture,
+  # comicグラスト's, refuses this project's reader, which is how the work left the corpus.
+  - id: manga-zegra
+    name: マンガゼグラ
+    publisher: スターツ出版
+    host: manga-zegra.com
+    engine: comici
+    min_episodes: 1
+    min_works: 1
+    verified: 2026-10-22
+
   # ビビビコミック — a comici site the reconnaissance pass filed as `strategy: none`, which was the
   # generic heuristic failing rather than the platform being unreadable. Two chapters for ㊙のライラ
   # when comici was asked, 2026-08-15.

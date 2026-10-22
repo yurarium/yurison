@@ -170,6 +170,9 @@ entries:
     max_age_days: 3
 
   # ── data/coverage ──────────────────────────────────────────────────────────────────────────────
+  - paths: [data/coverage/found-addresses.yaml]
+    status: hand
+    note: addresses a person found for works the lists do not carry there
   - paths: [data/coverage/webcomics-works.yaml, data/coverage/webcomics-gap.yaml]
     status: run
     producer: stage-0:webcomics-coverage

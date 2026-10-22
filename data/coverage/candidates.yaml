@@ -1,5 +1,6 @@
 # What the capture steps target: webcomics-works.yaml, plus the 百合ナビ WEB連載 works
-# no candidate names and no capture holds at another address. Written by
+# no candidate names and no capture holds at another address, plus the addresses
+# a person found in found-addresses.yaml. Written by
 # adapters/candidates.py every run;
 # see its docstring for why the antenna's own file is left as it is.
 source: adapters/candidates.py
@@ -556,8 +557,12 @@ candidates:
 - title: えろいことするために巨乳美少女奴隷を買ったはずが、お師匠さまと慕われて思った通りにいかなくなる話
   platforms:
   - comicグラスト
+  - マンガゼグラ
+  - ニコニコ漫画
   urls:
   - https://novema.jp/comic/serial/n10
+  - https://manga-zegra.com/series/f34aa93530b90
+  - https://manga.nicovideo.jp/comic/73501
 - title: おかえりるうちゃん
   platforms:
   - となりのヤングジャンプ
@@ -8812,3 +8817,8 @@ candidates:
   - 竹コミ！
   urls:
   - https://takecomic.jp/series/68270e5ebb4a6
+- title: 魔法少女イナバ
+  platforms:
+  - コミックグロウル
+  urls:
+  - https://comic-growl.com/series/aa1ae7d41e228

@@ -123,11 +123,41 @@ def merge(base, extra, already_held):
     return out, added
 
 
+def found(candidates, entries):
+    """`candidates` with each address a person found added to its work, and how many were added.
+
+    A THIRD LIST, AND IT IS NOT MERGED LIKE THE SECOND. `merge` leaves out a work the antenna already
+    names, which is right for 百合ナビ, whose links are the same pages by another road. An address in
+    `data/coverage/found-addresses.yaml` is somebody pointing at a platform no list carries the work
+    on: 魔法少女イナバ was held from カドコミ and ニコニコ漫画 while コミックグロウル was a chapter
+    ahead of both. So the address joins the work's own candidate, and a work no list names gets one.
+    """
+    out = [dict(c, platforms=list(c.get("platforms") or []), urls=list(c.get("urls") or []))
+           for c in candidates]
+    by = {norm_work(c.get("title") or ""): c for c in out}
+    n = 0
+    for e in entries:
+        k, url = norm_work(e.get("title") or ""), e.get("url")
+        if not k or not url:
+            continue
+        c = by.get(k)
+        if c is None:
+            c = by[k] = {"title": e["title"], "platforms": [], "urls": []}
+            out.append(c)
+        if address(url) not in {address(u) for u in c["urls"]}:
+            c["urls"].append(url)
+            n += 1
+        if e.get("platform") and e["platform"] not in c["platforms"]:
+            c["platforms"].append(e["platform"])
+    return out, n
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--antenna", default="data/coverage/webcomics-works.yaml")
     ap.add_argument("--yurinavi", default="data/coverage/yurinavi-works.yaml")
     ap.add_argument("--sources", default="data/source")
+    ap.add_argument("--found", default="data/coverage/found-addresses.yaml")
     ap.add_argument("--out", default="data/coverage/candidates.yaml")
     a = ap.parse_args(argv)
 
@@ -136,15 +166,20 @@ def main(argv=None):
     extra = ((yaml.safe_load(yp.read_text(encoding="utf-8")) or {}).get("candidates") or []) \
         if yp.exists() else []
     merged, added = merge(base, extra, held_at(a.sources))
+    fp = pathlib.Path(a.found)
+    merged, joined = found(merged, ((yaml.safe_load(fp.read_text(encoding="utf-8")) or {})
+                                    .get("addresses") or []) if fp.exists() else [])
     head = ["# What the capture steps target: webcomics-works.yaml, plus the 百合ナビ WEB連載 works",
-            "# no candidate names and no capture holds at another address. Written by",
+            "# no candidate names and no capture holds at another address, plus the addresses",
+            "# a person found in found-addresses.yaml. Written by",
             "# adapters/candidates.py every run;",
             "# see its docstring for why the antenna's own file is left as it is.",
             ]
     body = yaml.safe_dump({"source": "adapters/candidates.py", "role": "capture-targets",
                            "candidates": merged}, sort_keys=False, allow_unicode=True, width=1000)
     pathlib.Path(a.out).write_text("\n".join(head) + "\n" + body, encoding="utf-8")
-    print(f"candidates: {len(base)} from the antenna, {len(added)} added from 百合ナビ"
+    print(f"candidates: {len(base)} from the antenna, {len(added)} added from 百合ナビ, "
+          f"{joined} address(es) a person found"
           + "".join(f"\n  + {c.get('title')} ({', '.join(c.get('platforms') or [])})" for c in added))
     return 0
 

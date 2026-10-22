@@ -16883,6 +16883,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  佐藤36:
+    basis: romaji
+    furigana_spans:
+    - - 佐藤
+      - さとう
+    - - '36'
+      - null
+    reading: サトウ36
+    reading_at: '2026-10-22'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   佐藤　はつき:
     basis: romaji
     reading: サトウ ハツキ
@@ -32889,6 +32905,23 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784758022217
     verified: true
+  煮豆シューター:
+    basis: romaji
+    furigana_spans:
+    - - 煮豆
+      - にまめ
+    - - シューター
+      - null
+    reading: ニマメ シューター
+    reading_at: '2026-10-22'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   熊倉献:
     basis: romaji
     furigana_spans:

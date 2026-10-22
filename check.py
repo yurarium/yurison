@@ -2220,6 +2220,29 @@ def budget_works_without_an_english_name(ctx):
                                                                 "translated"))
 
 
+def budget_works_shown_under_an_outranked_spelling(ctx):
+    """Works whose shown English ranks below one another spelling of the same title holds.
+
+    ONE WORK, TWO SPELLINGS, TWO ANSWERS. お姉さまと巨人 is shown by its web title,
+    `お姉さまと巨人 ～お嬢さまが異世界転生～`, and that spelling held Yen Press's Sister and Giant,
+    while MADB's `お姉さまと巨人 : お嬢さまが異世界転生` held the publisher's own MY SISTER AND
+    GIANT. The two fold apart on the key the site joins by, so `names/fold` never weighed one
+    against the other and the work read without its My. Counted on the looser fold
+    `facts/worktitle` makes, against the rank `names/fold` already ranks by.
+    """
+    sys.path.insert(0, str(ROOT / "adapters"))
+    sys.path.insert(0, str(ROOT / "adapters" / "names"))
+    from facts.worktitle import norm_work
+    import fold as _fold
+    best = {}
+    for spelling, rec in ((ctx.get("names_shipped") or {}).get("titles") or {}).items():
+        k, r = norm_work(spelling), _fold.fullness(rec)[:2]
+        if r > best.get(k, (0, 0)):
+            best[k] = r
+    return sum(1 for r in ctx["series"]
+               if _fold.fullness(r.get("work_en") or {})[:2] < best.get(norm_work(r.get("work") or ""), (0, 0)))
+
+
 def _shipped_lists(ctx):
     """The lists a build publishes, as (name, [(title, credit)]).
 
@@ -4698,6 +4721,10 @@ BUDGETS_DEF = [
      "works with no English name, showing a romanisation instead. Distinct from the budget above, "
      "which a romanisation satisfies: this is the one that answers 'can a reader tell what this "
      "is'. Never reaches zero, because romanising is right for a coinage."),
+    ("works shown under an outranked spelling", budget_works_shown_under_an_outranked_spelling,
+     "works whose shown English ranks below the English another spelling of the same title holds: "
+     "the publisher's name filed under a catalogue's spelling while the work is shown by its web "
+     "title. A rise means a work a reader sees under a lesser name than the corpus has for it."),
     ("titles carrying cataloguing punctuation", budget_titles_carrying_cataloguing_punctuation,
      "titles a reader is shown that still hold a bibliography's own ISBD markup: an equals sign "
      "in any spelling, or a reissue marker from the closed set adapters/facts/cataloguing holds. A subtitle "
@@ -5457,6 +5484,12 @@ def self_test():
         ("a withdrawn source stays withdrawn", inv_a_withdrawn_source_stays_withdrawn,
          lambda c: c.update(withdrawn=list(c.get("withdrawn") or [])
                             + [("data/source/webpages/CANARY.yaml", True)])),
+        ("works shown under an outranked spelling", budget_works_shown_under_an_outranked_spelling,
+         lambda c: (c.update(series=list(c["series"]) + [
+             {"id": "CANARY", "work": "カナリア ～歌～", "work_en": {"en": "Song", "basis": "translated"}}],
+             names_shipped=dict(c.get("names_shipped") or {}, titles=dict(
+                 (c.get("names_shipped") or {}).get("titles") or {},
+                 **{"カナリア:歌": {"en": "CANARY SONG", "basis": "official-jp"}})))), 1),
         ("a disabled platform leaves no output", inv_a_disabled_platform_leaves_no_output,
          lambda c: c.update(disabled_outputs=list(c.get("disabled_outputs") or [])
                             + [("canary", "data/source/gigaviewer/canary-series.yaml")])),

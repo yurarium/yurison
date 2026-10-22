@@ -544,9 +544,17 @@ platforms:
 - id: comic-growl
   name: コミックグロウル
   en: Comic Growl
-  publisher: コアミックス
+  publisher: ブシロードワークス
   host: comic-growl.com
-  watched: false
+  watched: true
+  notes: comici engine; read by adapters/webpages from 2026-10-22. The site's footer is ©BUSHIROAD WORKS, and this entry had named コアミックス.
+- id: manga-zegra
+  name: マンガゼグラ
+  en: Manga Zegra
+  publisher: スターツ出版
+  host: manga-zegra.com
+  watched: true
+  notes: comici engine; read by adapters/webpages from 2026-10-22. The footer is © STARTS PUBLISHING CORPORATION, and the site writes no Latin name but its domain.
 - id: zerosum-online
   name: ゼロサムオンライン
   en: Zero-Sum Online

@@ -106,6 +106,12 @@ STRUCTURED = {
 }
 
 
+def enough(eps, structured):
+    """Whether a render's rows are a work's chapters: two from a generic extractor, one from the
+    platform's own list read by its own markup, which is all a one-shot has."""
+    return len(eps) >= (1 if structured else MIN_EPISODES)
+
+
 def episodes_structured(html, spec):
     out = []
     for b in re.split(spec["item"], html)[1:]:
@@ -343,6 +349,7 @@ def main():
                                   note='rendered; the page yielded no DOM to read')
                 continue
             spec = STRUCTURED.get(plat["id"])
+            structured = False
             if plat["id"] == "pixivcomic":
                 # No generic fallback here. A pixiv work with one chapter is an ordinary new
                 # serialisation, and falling through to the generic extractor on that basis is what
@@ -351,9 +358,16 @@ def main():
                 eps = episodes_pixiv(html)
             else:
                 eps = episodes_structured(html, spec) if spec else []
-                if len(eps) < MIN_EPISODES:
+                # ONE ROW IS ENOUGH FROM THE PLATFORM'S OWN LIST. The floor below is there for the
+                # generic extractors, which find a date beside a label anywhere on a page. A
+                # structured parse reads the platform's episode list by its own markup, and a
+                # one-shot lists one episode: アマデウス, 太刀んぼ キルコ and ソシャゲのお姉ちゃん
+                # each parsed as free, under the date マンガワン states, and were thrown away for
+                # being one, so the remaining pass held them with no access and the day it read them.
+                structured = len(eps) >= 1
+                if not structured:
                     eps = episodes(html)
-            if len(eps) >= MIN_EPISODES:
+            if enough(eps, structured):
                 row = {"work_title": t.get("title"), "url": t["url"], "episodes": eps}
                 au = None
                 if plat["id"] == "pixivcomic":

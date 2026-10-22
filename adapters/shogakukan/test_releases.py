@@ -40,6 +40,8 @@ def main(s):
     s.eq(b["B"], ["free-timed"], "チケット is readable now, not a purchase")
     s.eq(b["C"], ["purchase"], "the coin mark is a purchase")
     s.check(b["D"] is None, "a chapter with no badge records no access rather than a guess")
+    both = sk.chapters(row("E", 2026, 1, 5, "黄色いCマークと青いPマーク"), today)
+    s.eq(both[0].get("access_modes"), ["purchase"], "and so is the coin mark beside the points mark")
 
     # A row missing either half is skipped rather than half-recorded.
     s.eq(sk.chapters('<li class="bg-white"><time>2026/1/1</time></li>', today), [],

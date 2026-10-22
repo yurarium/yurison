@@ -28,6 +28,7 @@ import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import candidates as _candidates                                         # noqa: E402
+from facts import sources as _sources                                    # noqa: E402
 import dedicated                                                         # noqa: E402
 from facts.worktitle import norm_work                                    # noqa: E402
 
@@ -51,7 +52,10 @@ def targets(cands, held, covered=dedicated.covers):
     """
     out = []
     for c in cands:
-        urls = [u for u in c.get("urls") or [] if u and not covered(u)]
+        # NOT A SOURCE IS NOT A TARGET. ダ・ヴィンチニュース runs 試し読み of finished books and was
+        # ruled out on 2026-08-10, and this pass read its page for 君のためのカーテンコール all the
+        # same, since the candidate list carries whatever the antenna links.
+        urls = [u for u in c.get("urls") or [] if u and not covered(u) and not _sources.not_a_source(u)]
         if not urls or not c.get("title"):
             continue
         own = {_candidates.address(u) for u in urls}

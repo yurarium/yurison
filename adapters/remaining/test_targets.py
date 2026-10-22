@@ -24,6 +24,9 @@ def main(s):
 
     got = rt.targets(cands, {}, nobody)
     s.eq([r["title"] for r in got], ["A", "B", "C", "D"], "a work nothing holds is a target")
+    s.eq(rt.targets([{"title": "E", "platforms": ["ダ・ヴィンチニュース"],
+                      "urls": ["https://ddnavi.com/serial/1/"]}], {}, nobody), [],
+         "and a host ruled not a source is no target, whatever the candidate list links")
     s.eq(got[2]["platform"], "P", "the platform is the one named beside the address used")
 
     n = rt.norm_work

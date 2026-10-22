@@ -31,6 +31,8 @@ Access badges, which are images with Japanese alt text:
     無料          free
     チケット       free-timed — readable with a 作品チケット rather than by paying
     黄色いCマーク   purchase — the coin badge
+    黄色いCマークと青いPマーク   purchase, by coins or by points. Added 2026-10-23, when
+                  DOUBLE HELIX BLOSSOM's 第102話 carried it and the row stated no access at all.
 
 A row dated in the future is 次回更新予定, announced and not published, and is not a release.
 
@@ -56,7 +58,8 @@ ROW = re.compile(r'<li class="bg-white">(.*?)</li>', re.S)
 ROW_TITLE = re.compile(r'alt="([^"]+?)\s*の話サムネイル"')
 ROW_DATE = re.compile(r"<time[^>]*>\s*(\d{4})/(\d{1,2})/(\d{1,2})")
 AUTHOR = re.compile(r'href="/author/\d+"[^>]*>(?:\s*<[^>]*>)*\s*([^<]{1,24})')
-BADGE = {"無料": ["free"], "チケット": ["free-timed"], "黄色いCマーク": ["purchase"]}
+BADGE = {"無料": ["free"], "チケット": ["free-timed"], "黄色いCマーク": ["purchase"],
+         "黄色いCマークと青いPマーク": ["purchase"]}
 
 
 def get(url):

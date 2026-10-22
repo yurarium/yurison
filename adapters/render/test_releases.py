@@ -31,6 +31,15 @@ def main(s):
         "<body><h1>怨霊日和</h1><div>あなたへのオススメ！</div><div>イマイ悠</div></body>", "怨霊日和"),
         "イマイ悠", "the recommendations heading is stepped over and the byline under it is taken")
 
+    # A ONE-SHOT LISTS ONE EPISODE, and the platform's own list is enough to say so.
+    page = ('<div class="cursor-pointer block border-b-1 x"><p class="line-clamp-1 y">アマデウス</p>'
+            '<span>無料</span><p class="text-xs text-gray-700 z">2025/02/24</p></div>')
+    eps = rd.episodes_structured(page, rd.STRUCTURED["mangaone"])
+    s.eq(eps, [{"title": "アマデウス", "updated": "2025-02-24", "access_modes": ["free"]}],
+         "マンガワン's list states a one-shot's date and access")
+    s.check(rd.enough(eps, True), "and one row from the platform's own list is a work's chapters")
+    s.check(not rd.enough(eps, False), "while one row from a generic extractor is not")
+
     # THE AGE BADGE IS NOT THE EPISODE'S NAME. pixiv sets 本日UP or 5日前UP beside a recent episode,
     # so the same chapter was captured under a new title every day.
     page = ('<a href="/viewer/stories/1"><div>16-①</div><div>本日UP</div>'

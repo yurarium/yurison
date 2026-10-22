@@ -197,6 +197,47 @@ ONESHOT_LATE_FROM = "2026-10-18"
 #: A ONE-SHOT'S MARK IN THE PLATFORM'S OWN EPISODE ID: コミック アース・スター's `harumegu_yomikiri`,
 #: コミックOGYAAA's `SPICA_YOMIKIRI_001`.
 YOMIKIRI_ID = re.compile(r"yomikiri", re.I)
+#: The access state of a chapter its platform has rotated out of reading. Not free and not for sale,
+#: and a reader is told so rather than shown nothing.
+WITHDRAWN = "withdrawn"
+
+
+def access_from_lists(releases, lists):
+    """Give each release with no access the state its platform's own episode list gives it.
+
+    A CHAPTER THE PLATFORM HAS WITHDRAWN IS IN THAT STATE, and the row said nothing. サンデーうぇぶり
+    and the other GigaViewer sites rotate a chapter out of reading after its window, and their own
+    episode lists mark it `unpublished`; `gigaviewer/episode_lists.py` records that as `withdrawn`
+    and gives it no access mode, since it is neither free nor for sale. The release row read off the
+    feed carried no access at all, so 28 rows counted as having none for a fact the platform had
+    stated. The same list states free and purchase for the chapters still readable, and 小春と湊's
+    第39話 lacked access beside a list entry saying free.
+
+    Matched on the chapter's own address first, because the list titles a chapter its own way (39話
+    against the feed's 第39話), and on work and chapter where the addresses differ. Only where the
+    row's own source says nothing about access, so a route that read the page keeps its answer.
+    `lists` are the episode-list documents.
+    """
+    at, named = {}, {}
+    for d in lists:
+        for w in d.get("works") or []:
+            for c in w.get("chapters") or []:
+                modes = [WITHDRAWN] if c.get("withdrawn") else list(c.get("access_modes") or [])
+                if not modes:
+                    continue
+                if c.get("url"):
+                    at[str(c["url"]).rstrip("/")] = modes
+                named[(norm_work(w.get("work_title") or ""), norm_work(c.get("title") or ""))] = modes
+    for r in releases:
+        if r.get("access_modes"):
+            continue
+        modes = (at.get(str(r.get("url") or "").rstrip("/"))
+                 or named.get((norm_work(r.get("work") or ""), norm_work(r.get("ep") or ""))))
+        if modes:
+            r["access_modes"] = list(modes)
+            r["access_basis"] = ("the platform's own episode list marks this chapter no longer readable"
+                                 if modes == [WITHDRAWN] else "the platform's own episode list")
+    return releases
 
 # WHY A ROW IS CALLED A ONE-SHOT: the routes, strongest first, each with the sentence a reader is
 # shown for it in both languages.
@@ -4355,6 +4396,9 @@ def main():
                 # open section carries none because it is in no channel.
                 "channel_src": w.get("channel") or "",
             })
+
+    access_from_lists(releases, [yaml.safe_load(open(f)) or {} for f in
+                                 sorted(glob.glob("data/source/gigaviewer/*-episode-lists.yaml"))])
 
     # Platform-wide access defaults, applied only where the source gave no per-chapter value.
     default_access = {}

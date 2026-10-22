@@ -177,6 +177,21 @@ def main(s):
     s.eq(b.mark_continued(got, [{"a": "w00336", "b": "w03314"}], lambda i: i), 0,
          "and nothing where the registry states no order")
 
+    # ── A CHAPTER ITS PLATFORM HAS WITHDRAWN SAYS SO ──────────────────────────────────────────────
+    lists = [{"works": [{"work_title": "なとりとしずは", "chapters": [
+        {"title": "第9話 静羽と夢芽", "url": "https://www.sunday-webry.com/episode/9", "withdrawn": True},
+        {"title": "10話", "url": "https://www.sunday-webry.com/episode/10",
+         "access_modes": ["free"]}]}]}]
+    rows = [{"work": "なとりとしずは", "ep": "第9話 静羽と夢芽", "url": "https://www.sunday-webry.com/episode/9"},
+            {"work": "なとりとしずは", "ep": "第9話 静羽と夢芽", "url": "https://elsewhere.example/9"},
+            {"work": "なとりとしずは", "ep": "第10話 期待", "url": "https://www.sunday-webry.com/episode/10"},
+            {"work": "なとりとしずは", "ep": "第9話 静羽と夢芽", "access_modes": ["purchase"]}]
+    b.access_from_lists(rows, lists)
+    s.eq([r.get("access_modes") for r in rows],
+         [["withdrawn"], ["withdrawn"], ["free"], ["purchase"]],
+         "the list's state reaches a row with none, by address where the list titles it otherwise, "
+         "and a row stating its own access keeps it")
+
     # ── AN ADAPTER'S MODULE NAME IS NOT A SOURCE'S NAME ──────────────────────────────────────────
     #
     # `sourced_from` is rendered in the work page's "Other data" table, and a pass that reads many

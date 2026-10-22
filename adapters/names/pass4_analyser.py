@@ -1454,7 +1454,7 @@ def renderer_fingerprint():
     # `CLOSES` AND `OPENS` ARE DATA THE RENDERER READS, and a table is as much of the renderer as
     # the code that consults it: adding the ASCII marks to them changed 500 phrases.
     for fn in (chapter_en, part_marks, credit_line_phrase, romanise_ja, latinise,
-               is_credit_line,
+               is_credit_line, said_phrases, tighten,
                analyse, analyse_best):
         try:
             parts.append(inspect.getsource(fn))
@@ -1464,6 +1464,58 @@ def renderer_fingerprint():
               WRAPPED_PAT.pattern,
               repr(sorted(EXTRA_EN.items())), repr(sorted(CIRCLED.items()))]
     return hashlib.sha256("".join(parts).encode("utf-8")).hexdigest()[:16]
+
+
+def tighten(s):
+    """No space before a closing mark and none after an opening one, the rule `analyse` keeps."""
+    s = re.sub(r"\s+([" + re.escape(CLOSES) + r"])", r"\1", s or "")
+    return re.sub(r"([" + re.escape(OPENS) + r"])\s+", r"\1", s)
+
+
+#: Which bases are somebody's word for where a name divides, as against a machine's.
+SAID_BASES = ("researched", "stated")
+
+
+def said_phrases(records):
+    """`{string: phrase}` for each name whose own record holds a reading somebody divided.
+
+    ONE NAME, ONE ANSWER. The phrase map analysed every string afresh, including the ones the name
+    store already answers for, and on 422 of them the two disagreed: ささだあすか held the stated
+    ササダ アスカ while its phrase read `Sasa Dāsu Ka`, 一七八ハチ held イナバ ハチ and read
+    `Ichinanahachi Hachi`, and お葉花を愛でる, settled off its series art as おバカをめでる, read
+    `O Ha Hana o Mederu`. Wherever a string reaches a reader through the phrase map rather than its
+    record, it was the analyser's guess that showed.
+
+    ONLY A READING SOMEBODY DIVIDED. A stated reading with no space in it is a filing key, which NDL
+    and openBD write without word breaks, and romanising one gives `Hyakunichigonisakuyuri` for
+    100日後に咲く百合; the analyser's division is worth more than none.
+
+    ONLY ONE THAT SPELLS THE WHOLE STRING. 怪異部～M県Y市の怪現象について～ holds a reading of its main
+    title alone, and taking it lost the subtitle: `Kaii Bu`. A reading `kana.align` cannot lay over
+    the string is a reading of something shorter.
+
+    AND FOR A TITLE, ONLY A PERSON'S. A catalogue's stated reading of a title runs its particles into
+    the words beside them, so との came out `Tono` and へ came out `He`; a person's name has no
+    particle to lose, so a stated reading of one is taken. `records` is `{kind: {string: record}}`,
+    `authors` romanised as a person and the rest as titles.
+    """
+    from facts import romanisation as _rom
+    import kana as _kana
+    out = {}
+    for kind, recs in records.items():
+        style = _rom.PERSON if kind == "authors" else _rom.TITLE
+        bases = SAID_BASES if kind == "authors" else ("researched",)
+        for name, rec in (recs or {}).items():
+            r = (rec or {}).get("reading") or ""
+            if (rec.get("reading_basis") in bases and " " in r.strip() and has_japanese(name)
+                    and _kana.align(name, r) is not None):
+                en = tighten(_rom.romanise(r, "macron", style))
+                # AND ONE THAT KEEPS THE TITLE'S OWN MARKS. 陰キャギャルでもイキがりたい！ holds a
+                # reading without its ！, and the phrase would have lost it.
+                marks = lambda t: sorted(c for c in unicodedata.normalize("NFKC", t) if c in "!?")
+                if en and not has_japanese(en) and marks(en) == marks(name):
+                    out[name] = en
+    return out
 
 
 def fill_chapters(names_seen, quiet=False, ruled=None, credits=True):
@@ -1505,6 +1557,14 @@ def fill_chapters(names_seen, quiet=False, ruled=None, credits=True):
         doc["renderer"] = fp
         if not quiet and carried:
             print(f"  chapter renderer changed; re-rendering {len(carried)} phrase(s)")
+    # A STRING THE NAME STORE ANSWERS FOR TAKES THE STORE'S ANSWER, every run, because a record's
+    # reading can be settled after its phrase was written. A chapter label is still read as one
+    # first: 【完結】冬木先輩と夏井 is structure before it is a name.
+    said = said_phrases({k: (yaml.safe_load((STORE / f"{k}.yaml").read_text()) or {}).get("names")
+                         for k in ("titles", "authors") if (STORE / f"{k}.yaml").exists()})
+    for x in set(names_seen) | set(carried) | set(names):
+        if x in said and chapter_en(x, lambda t: t) is None:
+            names[x] = said[x]
     # Also strings that are only Japanese PUNCTUATION — IDOL×IDOL STORY！ has no kana or kanji and
     # still reads as Japanese typography on an English page.
     todo = [x for x in set(names_seen) | set(carried)

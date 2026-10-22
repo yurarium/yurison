@@ -120,6 +120,15 @@ def main(s):
     rows = gr.episodes("", "markup")
     s.eq(rows, [], "an empty page yields nothing")
 
+    # AN ACCESS BADGE IS THE ACCESS, NOT THE NAME. webアクション prints 無料 in front of each free
+    # episode, and the label carried it while the row said nothing about access.
+    page = ('<ul><li class="ep"><a>無料 第12話(1) 前編</a><span>2026/10/11</span></li>'
+            '<li class="ep"><a>第11話 後編</a><span>2026/09/27</span></li></ul>')
+    got = gr.episodes(page, "markup")
+    s.eq([(e["title"], e.get("access_modes")) for e in got],
+         [("第12話(1) 前編", ["free"]), ("第11話 後編", None)],
+         "a leading 無料 becomes the access state and leaves the label")
+
     # CHAPTERISH is what decides whether a scraped string is a chapter label at all. It has to
     # accept the numbering styles publishers actually use, or a platform comes back with a
     # fraction of its chapters.

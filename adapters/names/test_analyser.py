@@ -269,6 +269,28 @@ def main(s):
     s.eq(p4.chapter_en("最終話-1 さよなら", plain), "Final, Part 1 さよなら",
          "and a part keeps the subtitle after it")
 
+    # ONE NAME, ONE ANSWER. A string the store holds a divided, sourced reading for takes its phrase
+    # from that reading rather than from a fresh analysis.
+    said = p4.said_phrases({
+        "authors": {"ささだあすか": {"reading": "ササダ アスカ", "reading_basis": "stated"},
+                    "とりいしづく": {"reading": "トリイシヅク", "reading_basis": "stated"},
+                    "ふみつき": {"reading": "フミ ツキ", "reading_basis": "analyser"}},
+        "titles": {"きみとボドゲが作りたい！": {"reading": "キミ ト ボドゲ ガ ツクリタイ ！",
+                                             "reading_basis": "researched"}}})
+    s.eq(said.get("ささだあすか"), "Sasada Asuka", "a stated, divided reading is the phrase")
+    s.eq(said.get("きみとボドゲが作りたい！"), "Kimi to Bodoge ga Tsukuritai!",
+         "romanised as a title, with no space before its closing mark")
+    s.check("とりいしづく" not in said, "an undivided filing key is not taken for a division")
+    s.check("ふみつき" not in said, "and nor is a machine's division")
+    said = p4.said_phrases({"titles": {
+        "怪異部～M県Y市の怪現象について～": {"reading": "カイイ ブ", "reading_basis": "researched"},
+        "遠山えま百合集 センセイとの時間。": {"reading": "トオヤマ エマ ユリシュウ センセイ トノ ジカン。",
+                                       "reading_basis": "stated"}}})
+    s.eq(said, {}, "a reading of part of the string is not taken, nor a catalogue's for a title")
+    s.eq(p4.said_phrases({"titles": {"陰キャギャルでもイキがりたい！": {
+        "reading": "インキャ ギャル デモ イキガリタイ", "reading_basis": "researched"}}}), {},
+         "and a reading that drops the title's own exclamation mark is not taken either")
+
     # THE SAME LABEL, WRAPPED. A bracket around a chapter label is punctuation, and CHAPTER_PAT
     # anchors at the start, so a wrapper made it miss and the whole thing was romanised. 186
     # phrases read "( Dai 18Wa ) Shippai no Tatsujin" and "[Dai 100Wa]shin Awasete".

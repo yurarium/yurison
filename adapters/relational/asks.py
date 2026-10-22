@@ -290,17 +290,27 @@ INVARIANTS = {
 }
 
 
-#: AN ATTESTED RELEASE MISSING WHAT A MOVED SELECTOR TAKES OUT: a chapter name, an author, or an
-#: access state on a platform whose other rows carry one. One predicate, because the budget counts
-#: these rows and `adapters/backfill/fields.py` goes and fills them, and the two must agree on
-#: which rows they mean.
-INCOMPLETE = ("provenance = 'attested' "
-              "AND (trim(coalesce(instalment, '')) = '' OR author IS NULL "
-              "OR (NOT EXISTS (SELECT 1 FROM release_access_mode m WHERE m.release = release.id)"
-              "    AND EXISTS (SELECT 1 FROM release o"
-              "                JOIN release_access_mode am ON am.release = o.id"
-              "                WHERE o.platform = release.platform"
-              "                  AND o.provenance = 'attested')))")
+#: AN ATTESTED RELEASE MISSING A CHAPTER NAME OR AN AUTHOR, which is what a moved selector takes out
+#: and no route is entitled to return empty. A WORK-LEVEL EVENT HAS NO CHAPTER TO NAME: ニコニコ漫画's
+#: update capture says a work updated on a day and names no instalment, so its row is complete
+#: without one, and two of them were counted as broken selectors.
+UNNAMED = ("provenance = 'attested' "
+           "AND ((trim(coalesce(instalment, '')) = '' AND coalesce(work_level, 0) = 0) "
+           "     OR author IS NULL)")
+#: AN ATTESTED RELEASE WITH NO ACCESS STATE on a platform whose other rows carry one. Not a selector
+#: fault as a rule: on 2026-10-22 every one of the 47 rows the combined count held was this, from a
+#: route that reads no access (マガポケ's feed, the remaining pass's render) or a chapter the
+#: platform had withdrawn, which `build.access_from_lists` now states.
+#: A work-level event is left out here too: it names no chapter, so there is no chapter to be free.
+NO_ACCESS = ("provenance = 'attested' AND coalesce(work_level, 0) = 0 "
+             "AND NOT EXISTS (SELECT 1 FROM release_access_mode m WHERE m.release = release.id)"
+             " AND EXISTS (SELECT 1 FROM release o"
+             "             JOIN release_access_mode am ON am.release = o.id"
+             "             WHERE o.platform = release.platform"
+             "               AND o.provenance = 'attested')")
+#: EITHER, which is what `adapters/backfill/fields.py` goes and fills: one predicate for the pass,
+#: so the pass and the two counts agree on which rows they mean.
+INCOMPLETE = f"(({UNNAMED}) OR ({NO_ACCESS}))"
 
 
 #: What is counted and ratchets down. The number lives in `docs/budgets.json` beside every other
@@ -340,13 +350,19 @@ BUDGETS = {
     # and exempts only the routes `data/coverage/extract.yaml` DECLARES read no access, so a
     # platform going silent unannounced still stops the run there.
     "incomplete attested rows": {
-        "sql": "SELECT count(*) FROM release WHERE " + INCOMPLETE,
+        "sql": "SELECT count(*) FROM release WHERE " + UNNAMED,
+        "reads": ("release",),
+        "why": "attested releases missing a chapter name or an author. The classic sign of a moved "
+               "CSS selector: the adapter still returns rows, just emptier ones. It counted a "
+               "missing access state too until 2026-10-22, and rose and fell with each day's mix "
+               "of routes while nothing had broken; that half is counted below on its own."},
+    "attested rows with no access state": {
+        "sql": "SELECT count(*) FROM release WHERE " + NO_ACCESS,
         "reads": ("release", "release_access_mode"),
-        "why": "attested releases missing a chapter name, author or access state. The classic sign "
-               "of a moved CSS selector: the adapter still returns rows, just emptier ones. It "
-               "rose 37 to 52 when the store began taking the compiler's rows rather than the "
-               "feed's: 1,270 releases against the 961 the feed publishes, and the window was "
-               "never the population this asks about."},
+        "why": "attested releases that state no access on a platform whose other rows do, nearly "
+               "always because the route that read them reads none. `rows with no access state, "
+               "by route` lists them. A number to work down by route, not a tripwire: "
+               "`adapters/fieldaudit.py` is the one for a platform going silent."},
     # A NAME WITH NOTHING TO SHOW AN ENGLISH READER. The floor answers for most strings, so what
     # this counts is a title the store holds no reading, no rendering and no romanisation for.
     "works without English": {
@@ -480,6 +496,12 @@ POPULATIONS = {
                " WHERE " + INCOMPLETE + " AND release.url IS NOT NULL"
                " GROUP BY coalesce(w.title, release.work_raw), release.platform ORDER BY 1",
         "reads": ("release", "release_access_mode", "work")},
+    # THE ROWS `attested rows with no access state` COUNTS, by platform and by the date basis that
+    # names the route which read them, so a route that never reads access shows as one line.
+    "rows with no access state, by route": {
+        "sql": "SELECT platform, basis, count(*) AS n, max(published) AS latest FROM release"
+               " WHERE " + NO_ACCESS + " GROUP BY platform, basis ORDER BY n DESC",
+        "reads": ("release", "release_access_mode")},
     "volumes held per work": {
         "sql": "SELECT w.title AS work, max(p.volumes) AS volumes"
                " FROM print_row p JOIN work w ON w.id = p.work"

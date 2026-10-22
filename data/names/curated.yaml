@@ -28309,12 +28309,23 @@ titles:
       劇薬 is a drug potent enough to be dangerous, a category with its own labelling rules in Japanese
       pharmacy, so it is stronger than poison but shorter to say. Both halves of the title are
       character names and stay as they are.
+    reading: "ブラックヤギー ト ゲキヤク マドレーヌ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      まどれーぬ is マドレーヌ, the cake, written in hiragana as a name, and is one word. The analyser
+      cut it into ま, どれ and ぬ, an interjection, a pronoun and a suffix.
 
   "ブラックヤギーと劇薬まどれーぬ : 完全版":
     en: "Black Yaggy and Madeleine the Poison: Complete Edition"
     basis: translated
     source: yurarium
     source_kind: derived
+    reading: "ブラックヤギー ト ゲキヤク マドレーヌ : カンゼンバン"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      As the work it collects: まどれーぬ is マドレーヌ and one word.
     reviewed: '2026-08-06'
     note: >-
       The same work in the edition with nothing left out, which 完全版 labels. 劇薬 is a drug potent enough
@@ -28800,6 +28811,13 @@ titles:
       The subtitle says the same thing again in katakana and kana, which is a cover design habit
       rather than new information, and the English keeps the doubling because the title is built on
       it.
+    reading: "キュウケツキ ノ ハナヨメ ー ヴァンプドール ノ ハナヨメ ー"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      Both ー are dashes around the subtitle, the long-vowel mark standing in for ‐, and はなよめ is
+      花嫁 again in kana. The analyser read the first as lengthening 花嫁 and cut the second はなよめ
+      into はなよ and め.
 
   幼馴染みの吸血鬼さん:
     en: "My Childhood Friend the Vampire"
@@ -32422,6 +32440,12 @@ titles:
       ェェェェ is the cry drawn out, so the English stretches the word it is attached to rather than
       adding punctuation the Japanese does not have. 服着て下さい is a plain request to put clothes
       on, and 先生 is left as it is because what she teaches is not stated.
+    reading: "センセェェェェ フク キテ クダサイ!!"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      ェェェェ draws out the last vowel of センセ, which is how the cry is written. The analyser read
+      先生 as サキ and ナマ, two words.
   "ホントのキモチ":
     en: "How I Really Feel"
     basis: translated

@@ -97,6 +97,15 @@ def render_page(url, cache):
     return _remaining.render(url, pathlib.Path(cache))
 
 
+#: AN ACCESS BADGE IN FRONT OF THE LABEL IS THE PLATFORM'S STATEMENT OF ACCESS, and not part of the
+#: chapter's name. webアクション's list prints 無料 before each free episode, so the label came out
+#: `無料 第12話(1) E・E・S① 前編` and the row said nothing about access while the platform had said
+#: it plainly; four rows counted as incomplete for it. Only the two words that mean an access
+#: state, at the very front of the label.
+BADGE = re.compile(r"^(無料|有料)\s+")
+BADGE_ACCESS = {"無料": "free", "有料": "purchase"}
+
+
 def episodes(html, strategy, today=None, page_url=""):
     if strategy == DATELESS:
         got = try_labels(html, page_url)
@@ -141,11 +150,15 @@ def episodes(html, strategy, today=None, page_url=""):
             if "<" in label:
                 label = title[max(0, m.start() - 4): m.end()]
             label = label.strip(" 　·・|/-")
+        access = None
+        mb = BADGE.match(label)
+        if mb:
+            access, label = BADGE_ACCESS[mb.group(1)], label[mb.end():].strip()
         k = (label, date)
         if k in seen:
             continue
         seen.add(k)
-        out.append({"title": label, "updated": date})
+        out.append({"title": label, "updated": date, **({"access_modes": [access]} if access else {})})
     return out
 
 
@@ -310,6 +323,8 @@ def main():
                 L.append(f"        updated: {e['updated']}")
                 if e.get("author"):
                     L.append(f"        author: {js(e['author'])}")
+                if e.get("access_modes"):
+                    L.append(f"        access_modes: {json.dumps(e['access_modes'])}")
                 L.append("        date_basis: heuristic")
         L.append("")
         (out / f"generic-{pid}.yaml").write_text("\n".join(L))

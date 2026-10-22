@@ -36074,22 +36074,17 @@ names:
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - ブラックヤギーと
-      - null
-    - - 劇薬
-      - げきやく
-    - - まどれーぬ
-      - null
     note: 劇薬 is a drug potent enough to be dangerous, a category with its own labelling rules in Japanese
       pharmacy, so it is stronger than poison but shorter to say. Both halves of the title are character
       names and stay as they are.
     reading: ブラックヤギー ト ゲキヤク マドレーヌ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_at: '2026-08-06'
+    reading_basis: researched
+    reading_note: まどれーぬ is マドレーヌ, the cake, written in hiragana as a name, and is one word. The analyser
+      cut it into ま, どれ and ぬ, an interjection, a pronoun and a suffix.
+    reading_reviewed: '2026-08-06'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   'ブラックヤギーと劇薬まどれーぬ : 完全版':
     basis: translated
@@ -36098,25 +36093,16 @@ names:
     en_reviewed: '2026-08-06'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - ブラックヤギーと
-      - null
-    - - 劇薬
-      - げきやく
-    - - 'まどれーぬ : '
-      - null
-    - - 完全
-      - かんぜん
-    - - 版
-      - ばん
     note: The same work in the edition with nothing left out, which 完全版 labels. 劇薬 is a drug potent enough
       to be dangerous.
-    reading: 'ブラックヤギー ト ゲキヤク マドレーヌ   :   カンゼン バン'
-    reading_at: '2026-08-05'
-    reading_basis: analyser
+    reading: 'ブラックヤギー ト ゲキヤク マドレーヌ : カンゼンバン'
+    reading_at: '2026-08-06'
+    reading_basis: researched
+    reading_note: 'As the work it collects: まどれーぬ is マドレーヌ and one word.'
     reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
+    reading_reviewed: '2026-08-06'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   ブラックリリィと白百合ちゃん:
     basis: translated
@@ -45709,15 +45695,18 @@ names:
     note: ェェェェ is the cry drawn out, so the English stretches the word it is attached to rather than adding
       punctuation the Japanese does not have. 服着て下さい is a plain request to put clothes on, and 先生 is left
       as it is because what she teaches is not stated.
-    reading: サキ ナマ ェェェェ フク キテ クダサイ!!
-    reading_at: '2026-09-03'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
-    reading_source_kind: analyser
-    reading_uncertain: true
+    reading: センセェェェェ フク キテ クダサイ!!
+    reading_at: '2026-09-26'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: SudachiPy 0.6.11, SudachiDict-core 20260723
+      value: サキ ナマ ェェェェ フク キテ クダサイ!!
+    reading_note: ェェェェ draws out the last vowel of センセ, which is how the cry is written. The analyser
+      read 先生 as サキ and ナマ, two words.
+    reading_reviewed: '2026-09-26'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   先生観察女子高生。:
     basis: translated
@@ -50222,13 +50211,15 @@ names:
     en_source_kind: derived
     note: The subtitle says the same thing again in katakana and kana, which is a cover design habit rather
       than new information, and the English keeps the doubling because the title is built on it.
-    reading: キュウケツキ ノ ハナ ヨメーヴァンプドール ノ ハナヨ メー
+    reading: キュウケツキ ノ ハナヨメ ー ヴァンプドール ノ ハナヨメ ー
     reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    reading_uncertain: true
+    reading_basis: researched
+    reading_note: Both ー are dashes around the subtitle, the long-vowel mark standing in for ‐, and はなよめ
+      is 花嫁 again in kana. The analyser read the first as lengthening 花嫁 and cut the second はなよめ into
+      はなよ and め.
+    reading_reviewed: '2026-08-06'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   吸血鬼の花嫁ーヴァンプドールのはなよめー【総集編】:
     basis: romaji
@@ -60631,7 +60622,7 @@ names:
     en_source: mediaarts-db
     en_source_kind: bibliography
     en_url: https://mediaarts-db.artmuseums.go.jp/id/M868555
-    note: The parallel title MADB records, the publisher's own English for the work and in its capitals.
+    note: The parallel title MADB records, the publisher's own English for the work, cased as it is there.
       It was filed under the catalogue's `:` spelling, and this one, which the work is shown by, showed
       our rendering instead until 2026-10-22.
     reading: アクヤク レイジョウ ノ ナカ ノ ヒト 〜 ダンザイ サレタ テンセイシャ ノ タメ ウソツキ ヒロイン ニ フクシュウ イタシマス 〜

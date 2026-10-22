@@ -54,6 +54,7 @@ ARRIVAL = frozenset({
 })
 
 REPORT = frozenset({
+    "attested rows with no access state",
     "predicted updates already behind the run",
     "readings an analyser no longer installed produced",
     "targets a capture wrote no row for",

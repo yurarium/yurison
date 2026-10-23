@@ -10017,12 +10017,19 @@ names:
     reading_source_kind: analyser
     verified: false
   おしごとですよ！赤根さん:
-    basis: translated
-    en: It's Work, Akane-san!
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
-    en_source: yurarium
-    en_source_kind: derived
+    basis: official-jp
+    en: Great Worker Akane
+    en_at: '2026-10-23'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: It's Work, Akane-san!
+    en_corroborated:
+    - series-art
+    en_reviewed: '2026-10-23'
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/001774/resized/001774_001_01_0001.jpg
     furigana_spans:
     - - おしごとですよ！
       - null
@@ -10030,14 +10037,17 @@ names:
       - あかね
     - - さん
       - null
-    note: ですよ is the correction offered politely to somebody who has forgotten. The name is written with
-      the characters for red root.
+    note: The work's own English, set on a tag beside the logo in its series art at カドコミ and printed on
+      its title page as well, both pointed out by the project owner on 2026-10-23. The art's credit line
+      reads © 木村まつり / BUSHIROAD MEDIA, the コミックグロウル side of the work.
     reading: オ シゴトデス ヨ！ アカネサン
     reading_at: '2026-08-06'
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    translation_note: ですよ is the correction offered politely to somebody who has forgotten. The name is
+      written with the characters for red root.
     verified: false
   おそとごはんをご一緒に:
     basis: translated

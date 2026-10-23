@@ -2,17 +2,17 @@
 #
 # Left alone deliberately. An unclosed row risks a second identifier later; a wrong
 # anchor ties one work's identity to another work's address and is harder to see.
-retrieved: 2026-10-22
+retrieved: 2026-10-23
 count: 10
 rows:
-  - url: "https://www.comic-essay.com/episode/a1006/"
-    work: "キジとイナサ"
-    id: "w03249"
-    state: "no-series"
+  - url: "https://kimicomi.com/episodes/9f79b9c018e62/"
+    work: "午後4時。透明、ときどき声優"
+    id: "w03303"
+    state: "unread"
   - url: "https://younganimal.com/episodes/24a3e6bcb998e"
     work: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
     id: "w03269"
-    state: "no-series"
+    state: "unread"
   - url: "https://championcross.jp/episodes/c588f534a4870/"
     work: "阿佐ヶ谷サキュバス同人物語"
     id: "w00092"
@@ -21,10 +21,10 @@ rows:
     work: "贋作の第十番"
     id: "w03266"
     state: "unread"
-  - url: "https://kimicomi.com/episodes/9f79b9c018e62/"
-    work: "午後4時。透明、ときどき声優"
-    id: "w03303"
-    state: "unread"
+  - url: "https://www.comic-essay.com/episode/a1006/"
+    work: "キジとイナサ"
+    id: "w03249"
+    state: "no-series"
   - url: "https://viewer.heros-web.com/episode/3269632237305675090"
     work: "とくにある日々"
     id: "w03246"

@@ -1,4 +1,4 @@
-generated: '2026-10-22'
+generated: '2026-10-23'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -8301,6 +8301,42 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  あめのひもがも～八百屋お七炎上図　葛飾応為筆～:
+    basis: romaji
+    furigana_spans:
+    - - あめのひもがも～
+      - null
+    - - 八百屋
+      - やおや
+    - - お
+      - null
+    - - 七
+      - なな
+    - - 炎上
+      - えんじょう
+    - - 図
+      - ず
+    - - 　
+      - null
+    - - 葛飾
+      - かつしか
+    - - 応
+      - おう
+    - - 為
+      - ため
+    - - 筆
+      - ふで
+    - - ～
+      - null
+    reading: アメ ノ ヒモ ガ モ ～ ヤオヤ オ ナナ エンジョウ ズ 　 カツシカ オウ タメ フデ ～
+    reading_at: '2026-10-23'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   あやさな総集編　風の少女達へ:
     basis: translated
     en: 'Aya and Sana Omnibus: To the Girls of the Wind'
@@ -70795,6 +70831,26 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  王子はさけて通れない！:
+    basis: romaji
+    furigana_spans:
+    - - 王子
+      - おうじ
+    - - はさけて
+      - null
+    - - 通
+      - とお
+    - - れない！
+      - null
+    reading: オウジ ワ サケテ トオレナイ！
+    reading_at: '2026-10-23'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   王子様系女子しかいないアイドルユニット:

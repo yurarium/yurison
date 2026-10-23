@@ -22471,6 +22471,19 @@ works:
     title: "セカンドバレンタイン"
     anchors:
       - "web:https://flowercomics.jp/title/2258"
+  - id: w03447
+    title: "おみかんジュースと、レモネード"
+    anchors:
+      - "web:https://comic-earthstar.com/episode/12207421984388736593"
+      - "web:https://comic-earthstar.com/atom/series/12207421984388735830"
+      - "web:https://comic-earthstar.com/series/12207421984388735830/first_episode"
+    attached:
+      - anchor: "web:https://comic-earthstar.com/atom/series/12207421984388735830"
+        basis: "the chapter page at https://comic-earthstar.com/episode/12207421984388736593 links its own series feed at https://comic-earthstar.com/atom/series/12207421984388735830, so the platform places this chapter in series 12207421984388735830"
+        retrieved: 2026-10-22
+      - anchor: "web:https://comic-earthstar.com/series/12207421984388735830/first_episode"
+        basis: "the chapter page at https://comic-earthstar.com/episode/12207421984388736593 links its own series feed at https://comic-earthstar.com/atom/series/12207421984388735830, so the platform places this chapter in series 12207421984388735830, and the og:title there names the work: 【読切】おみかんジュースと、レモネード / おみかんジュースと、レモネード - 漫画：海雄ロック | コミック アース・スター. https://comic-earthstar.com/series/12207421984388735830/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-10-23
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a
@@ -22483,15 +22496,18 @@ works:
 # 一迅プラス imported its catalogue, while the serialisation's real start of
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
-  - id: w03447
-    title: "おみかんジュースと、レモネード"
+  - id: w03448
+    title: null
     anchors:
-      - "web:https://comic-earthstar.com/episode/12207421984388736593"
-      - "web:https://comic-earthstar.com/atom/series/12207421984388735830"
-    attached:
-      - anchor: "web:https://comic-earthstar.com/atom/series/12207421984388735830"
-        basis: "the chapter page at https://comic-earthstar.com/episode/12207421984388736593 links its own series feed at https://comic-earthstar.com/atom/series/12207421984388735830, so the platform places this chapter in series 12207421984388735830"
-        retrieved: 2026-10-22
+      - "madb:bw-439005"
+  - id: w03449
+    title: "あめのひもがも～八百屋お七炎上図　葛飾応為筆～"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_020142_S"
+  - id: w03450
+    title: "王子はさけて通れない！"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_021486_S"
 related:
   - a: w00156
     b: w00486

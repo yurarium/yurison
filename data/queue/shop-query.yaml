@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-10-23
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 248
+  hits_agreeing_on_a_creator: 249
   hits_on_the_title_alone: 111
-  hits_stating_a_print_edition_date: 207
-  works_asked: 881
-  works_with_a_hit: 266
+  hits_stating_a_print_edition_date: 208
+  works_asked: 883
+  works_with_a_hit: 267
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -1744,6 +1744,16 @@ works:
     notes:
       - "author query answered nothing"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-earthstar.com/episode/12207421984388736593"
+    id: "w03447"
+    work: "おみかんジュースと、レモネード"
+    author: "海雄ロック"
+    platform: "コミック アース・スター"
+    retrieved: "2026-10-23"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://comic-earthstar.com/episode/2550689798369117852"
     id: "w00725"
     work: "ソリスターズ・ハイ"
@@ -10388,6 +10398,22 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://www.sunday-webry.com/episode/12207421984411790033"
+    id: "w00095"
+    work: "メイド&ロイドはお嬢様のお役に立ちたい!"
+    author: "みやしろ"
+    platform: "サンデーうぇぶり"
+    query: "author"
+    retrieved: "2026-10-23"
+    hits:
+      - series_url: null
+        title_listed: "メイド＆ロイドはお嬢様のお役に立ちたい！（１）"
+        shop_author: "みやしろ(著)"
+        imprint: "サンデーGXコミックス"
+        publisher: "小学館"
+        printed: "2026/8/24"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://www.sunday-webry.com/episode/14079602755180542200"
     id: "w00815"
     work: "君に惹かれた理由"

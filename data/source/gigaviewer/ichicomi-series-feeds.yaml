@@ -10,7 +10,7 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-10-23
+retrieved: 2026-10-24
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 180
@@ -3327,50 +3327,42 @@ works:
         updated: 2025-08-08
         author: "青乃下/いのり。/花ヶ田"
         url: "https://ichicomi.com/episode/2550912965923212541"
-        free_from: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第9話"
         updated: 2025-08-08
         author: "青乃下/いのり。/花ヶ田"
         url: "https://ichicomi.com/episode/2550912965923211896"
-        free_from: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第8話"
         updated: 2025-08-08
         author: "青乃下/いのり。/花ヶ田"
         url: "https://ichicomi.com/episode/2550912965923211165"
-        free_from: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第7話"
         updated: 2025-08-08
         author: "青乃下/いのり。/花ヶ田"
         url: "https://ichicomi.com/episode/2550912965923210385"
-        free_from: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第6話"
         updated: 2025-08-08
         author: "青乃下/いのり。/花ヶ田"
         url: "https://ichicomi.com/episode/2550912965923209496"
-        free_from: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話"
         updated: 2025-08-08
         author: "青乃下/いのり。/花ヶ田"
         url: "https://ichicomi.com/episode/2550912965923208758"
-        free_from: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話"
         updated: 2025-08-08
         author: "青乃下/いのり。/花ヶ田"
         url: "https://ichicomi.com/episode/2550912965923207833"
-        free_from: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第3話"
         updated: 2025-08-08
         author: "青乃下/いのり。/花ヶ田"
         url: "https://ichicomi.com/episode/2550912965923206778"
-        free_from: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第2話"
         updated: 2025-08-08
         author: "青乃下/いのり。/花ヶ田"
@@ -4146,66 +4138,6 @@ works:
         url: "https://ichicomi.com/episode/12207421984151786084"
         free_from: 2026-09-16
         access_modes: ["free"]
-  - work_title: "ひなちゃんが生きてるなら"
-    series_id: "2551460909862285568"
-    url: "https://ichicomi.com/atom/series/2551460909862285568"
-    chapter_count: 10
-    chapters:
-      - title: "第10話"
-        updated: 2026-10-16
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/12207421984374441760"
-        free_from: 2026-11-26
-        access_modes: ["purchase"]
-      - title: "第9話"
-        updated: 2026-08-18
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/12207421984089197909"
-        access_modes: ["purchase"]
-      - title: "第8話"
-        updated: 2026-07-16
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/12207421983947227374"
-        access_modes: ["purchase"]
-      - title: "第7話"
-        updated: 2026-06-17
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/12207421983829237057"
-        access_modes: ["purchase"]
-      - title: "第6話"
-        updated: 2026-05-18
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/12207421983722175005"
-        access_modes: ["purchase"]
-      - title: "第5話"
-        updated: 2026-04-17
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/12207421983611646788"
-        access_modes: ["purchase"]
-      - title: "第4話"
-        updated: 2026-03-17
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/12207421983480188907"
-        free_from: 2026-04-16
-        access_modes: ["free"]
-      - title: "第3話"
-        updated: 2026-03-17
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/12207421983480188893"
-        free_from: 2026-03-19
-        access_modes: ["free"]
-      - title: "第2話"
-        updated: 2026-03-12
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/12207421983480087924"
-        free_from: 2026-03-12
-        access_modes: ["free"]
-      - title: "第1話"
-        updated: 2025-12-04
-        author: "紬めめ"
-        url: "https://ichicomi.com/episode/2551460909885349908"
-        free_from: 2025-12-04
-        access_modes: ["free"]
   - work_title: "君のせいなんだから、責任とってよね。"
     series_id: "2551460909791966658"
     url: "https://ichicomi.com/atom/series/2551460909791966658"
@@ -4312,6 +4244,64 @@ works:
         url: "https://ichicomi.com/episode/2551460909671541131"
         free_from: 2025-10-09
         access_modes: ["free"]
+  - work_title: "ひなちゃんが生きてるなら"
+    series_id: "2551460909862285568"
+    url: "https://ichicomi.com/atom/series/2551460909862285568"
+    chapter_count: 10
+    chapters:
+      - title: "第10話"
+        updated: 2026-10-16
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/12207421984374441760"
+        free_from: 2026-11-26
+        access_modes: ["purchase"]
+      - title: "第9話"
+        updated: 2026-08-18
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/12207421984089197909"
+        access_modes: ["purchase"]
+      - title: "第8話"
+        updated: 2026-07-16
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/12207421983947227374"
+        access_modes: ["purchase"]
+      - title: "第7話"
+        updated: 2026-06-17
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/12207421983829237057"
+        access_modes: ["purchase"]
+      - title: "第6話"
+        updated: 2026-05-18
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/12207421983722175005"
+        access_modes: ["purchase"]
+      - title: "第5話"
+        updated: 2026-04-17
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/12207421983611646788"
+        access_modes: ["purchase"]
+      - title: "第4話"
+        updated: 2026-03-17
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/12207421983480188907"
+        access_modes: ["purchase"]
+      - title: "第3話"
+        updated: 2026-03-17
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/12207421983480188893"
+        access_modes: ["purchase"]
+      - title: "第2話"
+        updated: 2026-03-12
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/12207421983480087924"
+        free_from: 2026-03-12
+        access_modes: ["free"]
+      - title: "第1話"
+        updated: 2025-12-04
+        author: "紬めめ"
+        url: "https://ichicomi.com/episode/2551460909885349908"
+        free_from: 2025-12-04
+        access_modes: ["free"]
   - work_title: "誰かオオカミさんのしつけ方知りませんか！？"
     series_id: "12207421983347940142"
     url: "https://ichicomi.com/atom/series/12207421983347940142"
@@ -4353,133 +4343,6 @@ works:
         author: "餡実ツキ"
         url: "https://ichicomi.com/episode/12207421983347947242"
         free_from: 2026-02-18
-        access_modes: ["free"]
-  - work_title: "現実世界でも幸せにしてくださいね？"
-    series_id: "2550912965923183598"
-    url: "https://ichicomi.com/atom/series/2550912965923183598"
-    chapter_count: 22
-    chapters:
-      - title: "第22話"
-        updated: 2026-09-16
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421984222532954"
-        free_from: 2026-11-05
-        access_modes: ["purchase"]
-      - title: "第21話"
-        updated: 2026-07-16
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983947227390"
-        access_modes: ["purchase"]
-      - title: "第20話"
-        updated: 2026-06-17
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983829237083"
-        access_modes: ["purchase"]
-      - title: "第19話"
-        updated: 2026-04-17
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983611646819"
-        access_modes: ["purchase"]
-      - title: "第18話"
-        updated: 2026-03-17
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983484494111"
-        access_modes: ["purchase"]
-      - title: "第17話"
-        updated: 2026-04-02
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983484494108"
-        access_modes: ["purchase"]
-      - title: "第16話"
-        updated: 2026-04-02
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983484494102"
-        access_modes: ["purchase"]
-      - title: "第15話"
-        updated: 2026-04-02
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983484494097"
-        access_modes: ["purchase"]
-      - title: "第14話"
-        updated: 2026-04-02
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983484494089"
-        access_modes: ["purchase"]
-      - title: "第13話"
-        updated: 2026-04-02
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983484494085"
-        access_modes: ["purchase"]
-      - title: "第12話"
-        updated: 2026-04-02
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/12207421983480734443"
-        access_modes: ["purchase"]
-      - title: "第11話"
-        updated: 2025-11-27
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2551460909862300219"
-        free_from: 2025-12-25
-        access_modes: ["free"]
-      - title: "第10話"
-        updated: 2025-10-23
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2551460909729508311"
-        free_from: 2025-11-27
-        access_modes: ["free"]
-      - title: "第9話"
-        updated: 2025-09-25
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2551460909624506014"
-        free_from: 2025-10-23
-        access_modes: ["free"]
-      - title: "第8話"
-        updated: 2025-08-28
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2551460909505316650"
-        free_from: 2025-09-25
-        access_modes: ["free"]
-      - title: "第7話"
-        updated: 2025-08-28
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2550912966048555598"
-        free_from: 2025-08-28
-        access_modes: ["free"]
-      - title: "第6話"
-        updated: 2025-08-08
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2550912966048555575"
-        free_from: 2025-08-08
-        access_modes: ["free"]
-      - title: "第5話"
-        updated: 2025-08-08
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2550912965923209236"
-        free_from: 2026-10-16
-        access_modes: ["free"]
-      - title: "第4話"
-        updated: 2025-08-08
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2550912965923208368"
-        free_from: 2026-10-16
-        access_modes: ["free"]
-      - title: "第3話"
-        updated: 2025-08-08
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2550912965923206723"
-        free_from: 2026-10-16
-        access_modes: ["free"]
-      - title: "第2話"
-        updated: 2025-08-08
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2550912965923206039"
-        free_from: 2025-08-08
-        access_modes: ["free"]
-      - title: "第1話"
-        updated: 2025-08-08
-        author: "しぼりかすこ"
-        url: "https://ichicomi.com/episode/2550912965923204058"
-        free_from: 2025-08-08
         access_modes: ["free"]
   - work_title: "私だって青春したいですよ、本当は。"
     series_id: "2550912966077785019"
@@ -4994,6 +4857,124 @@ works:
         updated: 2025-08-08
         author: "岩見樹代子"
         url: "https://ichicomi.com/episode/2550912965923203802"
+        free_from: 2025-08-08
+        access_modes: ["free"]
+  - work_title: "現実世界でも幸せにしてくださいね？"
+    series_id: "2550912965923183598"
+    url: "https://ichicomi.com/atom/series/2550912965923183598"
+    chapter_count: 22
+    chapters:
+      - title: "第22話"
+        updated: 2026-09-16
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421984222532954"
+        free_from: 2026-11-05
+        access_modes: ["purchase"]
+      - title: "第21話"
+        updated: 2026-07-16
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983947227390"
+        access_modes: ["purchase"]
+      - title: "第20話"
+        updated: 2026-06-17
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983829237083"
+        access_modes: ["purchase"]
+      - title: "第19話"
+        updated: 2026-04-17
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983611646819"
+        access_modes: ["purchase"]
+      - title: "第18話"
+        updated: 2026-03-17
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983484494111"
+        access_modes: ["purchase"]
+      - title: "第17話"
+        updated: 2026-04-02
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983484494108"
+        access_modes: ["purchase"]
+      - title: "第16話"
+        updated: 2026-04-02
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983484494102"
+        access_modes: ["purchase"]
+      - title: "第15話"
+        updated: 2026-04-02
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983484494097"
+        access_modes: ["purchase"]
+      - title: "第14話"
+        updated: 2026-04-02
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983484494089"
+        access_modes: ["purchase"]
+      - title: "第13話"
+        updated: 2026-04-02
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983484494085"
+        access_modes: ["purchase"]
+      - title: "第12話"
+        updated: 2026-04-02
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/12207421983480734443"
+        access_modes: ["purchase"]
+      - title: "第11話"
+        updated: 2025-11-27
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2551460909862300219"
+        access_modes: ["purchase"]
+      - title: "第10話"
+        updated: 2025-10-23
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2551460909729508311"
+        access_modes: ["purchase"]
+      - title: "第9話"
+        updated: 2025-09-25
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2551460909624506014"
+        access_modes: ["purchase"]
+      - title: "第8話"
+        updated: 2025-08-28
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2551460909505316650"
+        access_modes: ["purchase"]
+      - title: "第7話"
+        updated: 2025-08-28
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2550912966048555598"
+        access_modes: ["purchase"]
+      - title: "第6話"
+        updated: 2025-08-08
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2550912966048555575"
+        access_modes: ["purchase"]
+      - title: "第5話"
+        updated: 2025-08-08
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2550912965923209236"
+        access_modes: ["purchase"]
+      - title: "第4話"
+        updated: 2025-08-08
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2550912965923208368"
+        access_modes: ["purchase"]
+      - title: "第3話"
+        updated: 2025-08-08
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2550912965923206723"
+        access_modes: ["purchase"]
+      - title: "第2話"
+        updated: 2025-08-08
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2550912965923206039"
+        free_from: 2025-08-08
+        access_modes: ["free"]
+      - title: "第1話"
+        updated: 2025-08-08
+        author: "しぼりかすこ"
+        url: "https://ichicomi.com/episode/2550912965923204058"
         free_from: 2025-08-08
         access_modes: ["free"]
   - work_title: "citrus+"

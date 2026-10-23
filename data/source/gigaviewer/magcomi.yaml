@@ -6,11 +6,42 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-10-23
+retrieved: 2026-10-24
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "magcomi:episode:12207421984406812442"
+    work_title: "君とは一緒に死ねない～警視庁怪異調査室～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第2話「〇〇しないと出られない部屋」"
+    release_type: "chapter"
+    date: "2026-10-23"
+    date_basis: "observed"
+    first_seen: "2026-10-24"
+    first_reported: "2026-10-23T03:00:00Z"
+    platform_updated: "2026-10-23T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984406812442"
+    author: "森"
+    advances_narrative: true
+  - release_id: "magcomi:episode:12207421984406812438"
+    work_title: "君とは一緒に死ねない～警視庁怪異調査室～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第1話「ワケあり一軒家」"
+    release_type: "chapter"
+    date: "2026-10-23"
+    date_basis: "observed"
+    first_seen: "2026-10-24"
+    first_reported: "2026-10-23T03:00:00Z"
+    platform_updated: "2026-10-23T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984406812438"
+    author: "森"
+    free_term_start: "2026-10-23T03:00:00Z"
+    advances_narrative: true
   - release_id: "magcomi:episode:12207421984304225723"
     work_title: "ボイタボイネ"
     web_status: "serialised"

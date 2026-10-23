@@ -10,7 +10,7 @@ source: gigaviewer
 platform: mangatime-square
 platform_name: "まんがタイムSquare"
 publisher: ""
-retrieved: 2026-10-23
+retrieved: 2026-10-24
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 2
@@ -21,17 +21,17 @@ works:
     url: "https://mangatime-square.com/atom/series/12207421984001570933"
     chapter_count: 5
     chapters:
+      - title: "第6話"
+        updated: 2026-10-23
+        author: "いくたはな"
+        url: "https://mangatime-square.com/episode/12207421984001577957"
+        free_from: 2026-10-23
+        access_modes: ["free"]
       - title: "第5話"
         updated: 2026-09-25
         author: "いくたはな"
         url: "https://mangatime-square.com/episode/12207421984001577953"
         free_from: 2026-09-25
-        access_modes: ["free"]
-      - title: "第4話"
-        updated: 2026-08-28
-        author: "いくたはな"
-        url: "https://mangatime-square.com/episode/12207421984001577949"
-        free_from: 2026-08-06
         access_modes: ["free"]
       - title: "第3話"
         updated: 2026-07-24

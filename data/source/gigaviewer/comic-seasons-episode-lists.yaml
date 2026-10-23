@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: comic-seasons
 platform_name: "Seasons"
-retrieved: "2026-10-23"
+retrieved: "2026-10-24"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -30,7 +30,7 @@ works:
   - work_title: "悪役令嬢のお嫁さま"
     series_id: "2550912965184685912"
     url: "https://comic-seasons.com/atom/series/2550912965184685912"
-    chapter_count: 37
+    chapter_count: 38
     chapters:
       - title: "第1話 前編"
         updated: "2025-02-14"
@@ -173,9 +173,13 @@ works:
       - title: "第18話 前編"
         updated: "2026-09-25"
         url: "https://comic-seasons.com/episode/12207421984252388667"
+        withdrawn: true
       - title: "第18話 後編"
         updated: "2026-10-09"
         url: "https://comic-seasons.com/episode/12207421984340714654"
+      - title: "第19話 前編"
+        updated: "2026-10-23"
+        url: "https://comic-seasons.com/episode/12207421984340714666"
   - work_title: "今夜、エーテルで待ちあわせ"
     series_id: "2551460909766155404"
     url: "https://comic-seasons.com/atom/series/2551460909766155404"

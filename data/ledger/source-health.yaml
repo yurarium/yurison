@@ -1,13 +1,13 @@
 # Written by adapters/runhealth.py each run; see its docstring.
-updated: '2026-10-23'
+updated: '2026-10-24'
 sources:
   backfill:
     stage: stage-post
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   bookwalker-completion:
     stage: stage-post
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   bookwalker-shelf:
     stage: stage-print
@@ -27,50 +27,50 @@ sources:
     consecutive: 0
   candidates:
     stage: stage-0
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   claims-trace:
     stage: stage-post
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   cmoa-shelf:
     stage: stage-print
-    consecutive: 17
-    last_failed: '2026-10-23'
+    consecutive: 18
+    last_failed: '2026-10-24'
     failing_since: '2026-10-16'
     error: 'net.Refused: www.cmoa.jp refused https://www.cmoa.jp/search/result/?genre_id=0000037&sort=14&page=1: HTTP 503 after 5 attempt(s)'
-    last_run: https://github.com/yurarium/yurison/actions/runs/39924800333
+    last_run: https://github.com/yurarium/yurison/actions/runs/40011940685
   cmoa-volumes:
     stage: stage-print
     last_ok: '2026-10-23'
     consecutive: 0
   comicboost:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   comicfuz:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   comparator-claims:
     stage: stage-0
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   comparator-completion:
     stage: stage-0
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:COMIC FUZ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:COMIC OGYAAA!!:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:FEEL web:
     stage: checks
@@ -78,19 +78,19 @@ sources:
     consecutive: 0
   fieldaudit:Gコミ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:HERO'S Web:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:MAGCOMI:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:Seasons:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:comicグラスト:
     stage: checks
@@ -98,95 +98,95 @@ sources:
     consecutive: 0
   fieldaudit:comicブースト:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:pixivコミック:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:webアクション:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:くらげバンチ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:ちゃおプラス:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:となりのヤングジャンプ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:まんがタイムSquare:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:カドコミ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:ガンガンONLINE:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:キミコミ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:コミック アース・スター:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:コミックDAYS:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:コミックガルド:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:コミックグロウル:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:コミックゼノン:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:コミックトレイル:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:コロコロオンライン:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:サンデーうぇぶり:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:チャンピオンクロス:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:ニコニコ漫画:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:ビッコミ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:ビビビコミック:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:フラコミlike!:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:マイナビニュース:
     stage: checks
@@ -194,81 +194,81 @@ sources:
     consecutive: 0
   fieldaudit:マガポケ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:マンガよもんが:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:マンガゼグラ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:マンガワン:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:ヤングアニマルWeb:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:ヤングチャンピオン:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:ヤンジャン+:
     stage: checks
     consecutive: 0
     last_failed: '2026-10-16'
     last_run: https://github.com/yurarium/yurison/actions/runs/38805987219
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
   fieldaudit:ヤンマガWeb:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:ライコミ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:一迅プラス:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:少年ジャンプ+:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:竹コミ:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:花とゆめ+:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   fieldaudit:裏サンデー:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   ganganonline:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   generic:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   generic-rendered:
     stage: stage-c
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-confirm:
     stage: stage-0
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-episode-lists:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-id-conventions:
     stage: stage-post
@@ -276,83 +276,83 @@ sources:
     consecutive: 0
   gigaviewer-platform-feeds:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comic-action:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comic-days:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comic-earthstar:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comic-gardo:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comic-ogyaaa:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comic-seasons:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comic-trail:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comic-y-ours:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comic-zenon:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-comicborder:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-feelweb:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-kuragebunch:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-magcomi:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-mangatime-square:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-ourfeel:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-shonenjumpplus:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-sundaywebry:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-series-feeds-tonarinoyj:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   gigaviewer-workaddress:
     stage: stage-post
@@ -360,21 +360,21 @@ sources:
     consecutive: 0
   kadokomi:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
     last_failed: '2026-10-16'
     last_run: https://github.com/yurarium/yurison/actions/runs/38789928874
   kadokomi-catalogue:
     stage: stage-0
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   kadokomi-confirm:
     stage: stage-0
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   magapoke-feeds:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   magapoke-lengths:
     stage: stage-post
@@ -385,38 +385,38 @@ sources:
     consecutive: 0
     last_failed: '2026-10-19'
     last_run: https://github.com/yurarium/yurison/actions/runs/39225053764
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
   nicovideo:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   nicovideo-works:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   openbd:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   remaining-releases:
     stage: stage-c
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   remaining-targets:
     stage: stage-c
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   render-releases:
     stage: stage-c
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   render-targets:
     stage: stage-c
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   self-test:
     stage: checks
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   shelfingest:
     stage: stage-print
@@ -424,223 +424,225 @@ sources:
     consecutive: 0
   shogakukan:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   shopquery:
     stage: stage-post
     consecutive: 0
     last_failed: '2026-10-22'
     last_run: https://github.com/yurarium/yurison/actions/runs/39748365232
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
   sitemap:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-0:candidates:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-0:comparator-claims:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-0:comparator-completion:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-0:gigaviewer-confirm:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-0:kadokomi-catalogue:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-0:kadokomi-confirm:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-0:webcomics-coverage:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-0:yurinavi-discover:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-0:yurinavi-webyuri:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:comicboost:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:comicfuz:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:ganganonline:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:generic:
     stage: freshness
     last_ok: '2026-10-23'
-    consecutive: 0
-    last_failed: '2026-10-20'
-    last_run: https://github.com/yurarium/yurison/actions/runs/39393352255
+    consecutive: 1
+    last_failed: '2026-10-24'
+    last_run: https://github.com/yurarium/yurison/actions/runs/40011940685
+    failing_since: '2026-10-24'
+    error: 1 file(s) past their age, e.g. data/source/webpages/generic-www-alphapolis-co-jp.yaml dated 2026-10-20
   stale:stage-a:gigaviewer-episode-lists:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:gigaviewer-platform-feeds:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
     last_failed: '2026-10-20'
     last_run: https://github.com/yurarium/yurison/actions/runs/39393352255
   stale:stage-a:gigaviewer-series-feeds*:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:kadokomi:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:magapoke-feeds:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:nicovideo:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:nicovideo-works:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:openbd:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:shogakukan:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:sitemap:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:webpages:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-a:yomonga:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-c:remaining-releases:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-c:remaining-targets:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-c:render-releases:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-c:render-targets:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-post:backfill:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-post:bookwalker-completion:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-post:bylines:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-post:claims-trace:
     stage: freshness
     consecutive: 0
     last_failed: '2026-10-16'
     last_run: https://github.com/yurarium/yurison/actions/runs/38779148001
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
   stale:stage-post:gigaviewer-id-conventions:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-post:gigaviewer-workaddress:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-post:magapoke-lengths:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-post:shopquery:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-print:bookwalker-shelf:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-print:bookwalker-volumes:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-print:bwingest:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   stale:stage-print:cmoa-shelf:
     stage: freshness
-    consecutive: 17
-    last_failed: '2026-10-23'
+    consecutive: 18
+    last_failed: '2026-10-24'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-yuri.yaml dated 2026-08-04
-    last_run: https://github.com/yurarium/yurison/actions/runs/39924800333
+    last_run: https://github.com/yurarium/yurison/actions/runs/40011940685
   stale:stage-print:cmoa-volumes:
     stage: freshness
-    consecutive: 17
-    last_failed: '2026-10-23'
+    consecutive: 18
+    last_failed: '2026-10-24'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-volumes.yaml dated 2026-08-05
-    last_run: https://github.com/yurarium/yurison/actions/runs/39924800333
+    last_run: https://github.com/yurarium/yurison/actions/runs/40011940685
   stale:stage-print:shelfingest:
     stage: freshness
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   webcomics-coverage:
     stage: stage-0
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   webpages:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   yomonga:
     stage: stage-a
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
   yurinavi-discover:
     stage: stage-0
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
     last_failed: '2026-10-18'
     last_run: https://github.com/yurarium/yurison/actions/runs/39109600659
   yurinavi-webyuri:
     stage: stage-0
-    last_ok: '2026-10-23'
+    last_ok: '2026-10-24'
     consecutive: 0
     last_failed: '2026-10-18'
     last_run: https://github.com/yurarium/yurison/actions/runs/39109600659

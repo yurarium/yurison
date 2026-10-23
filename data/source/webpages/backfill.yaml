@@ -12,7 +12,7 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-10-23
+retrieved: 2026-10-24
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -145,11 +145,11 @@ works:
     route: "gigaviewer-feed"
     chapter_count: 10
     chapters:
+      - title: "第19話 前編"
+        updated: 2026-10-23
+        access_modes: ["free"]
       - title: "第18話 後編"
         updated: 2026-10-09
-        access_modes: ["free"]
-      - title: "第18話 前編"
-        updated: 2026-09-25
         access_modes: ["free"]
       - title: "第9話 後編"
         updated: 2025-11-14
@@ -413,11 +413,11 @@ works:
     route: "gigaviewer-feed"
     chapter_count: 44
     chapters:
-      - title: "コミックス２巻発売記念イラスト！"
-        updated: 2026-10-09
-        access_modes: ["free"]
       - title: "第１６話 とっておきの服"
         updated: 2026-10-23
+        access_modes: ["free"]
+      - title: "コミックス２巻発売記念イラスト！"
+        updated: 2026-10-09
         access_modes: ["free"]
       - title: "ショートショート これも大事な宝物"
         updated: 2026-10-16

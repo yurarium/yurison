@@ -22508,6 +22508,19 @@ works:
     title: "王子はさけて通れない！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_021486_S"
+  - id: w03451
+    title: "君とは一緒に死ねない～警視庁怪異調査室～"
+    anchors:
+      - "web:https://magcomi.com/episode/12207421984406812438"
+      - "web:https://magcomi.com/atom/series/12207421984406802550"
+    attached:
+      - anchor: "web:https://magcomi.com/atom/series/12207421984406802550"
+        basis: "the chapter page at https://magcomi.com/episode/12207421984406812438 links its own series feed at https://magcomi.com/atom/series/12207421984406802550, so the platform places this chapter in series 12207421984406802550"
+        retrieved: 2026-10-23
+  - id: w03452
+    title: "弟子入り厨娘ごはん日記"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_021172_S"
 related:
   - a: w00156
     b: w00486

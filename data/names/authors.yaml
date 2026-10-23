@@ -36326,6 +36326,23 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  米湯:
+    basis: romaji
+    furigana_spans:
+    - - 米
+      - べい
+    - - 湯
+      - ゆ
+    reading: ベイユ
+    reading_at: '2026-10-23'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   米田タロウ:
     basis: romaji
     furigana_spans:

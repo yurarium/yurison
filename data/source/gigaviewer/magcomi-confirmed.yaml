@@ -10,11 +10,28 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-10-23
+retrieved: 2026-10-24
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 2
+works_confirmed: 3
 works:
+  - work_title: "君とは一緒に死ねない～警視庁怪異調査室～"
+    author: "森"
+    url: "https://magcomi.com/episode/12207421984406812438"
+    series_id: "12207421984406802550"
+    is_oneshot: false
+    discovered_via:
+      signal: "new-serial"
+      article: "https://yurinavi.com/2026/10/23/kimitohaissyoni-start/"
+      headline: "凸凹先輩後輩バディが怪異に挑む百合漫画「君とは一緒に死ねない～警視庁怪異調査室～」WEBでスタート"
+    chapter_count: 2
+    chapters:
+      - title: "第2話「〇〇しないと出られない部屋」"
+        updated: 2026-10-23
+        url: "https://magcomi.com/episode/12207421984406812442"
+      - title: "第1話「ワケあり一軒家」"
+        updated: 2026-10-23
+        url: "https://magcomi.com/episode/12207421984406812438"
   - work_title: "天使なんかにならないで"
     author: "鍵野"
     url: "https://magcomi.com/episode/12207421984187016919"

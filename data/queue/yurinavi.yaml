@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-10-23
+retrieved: 2026-10-24
 record_type: discovery_queue
 candidates:
   - work_title: "死神さんと昇天ごはん"
@@ -52,6 +52,15 @@ candidates:
     platform_code: "12207421984336824147"
     work_url: "https://ichicomi.com/episode/12207421984336824147"
     headline: "静寂にきらめく学園ガールズラブ「だって恋は月夜に灯るから」百合姫で連載開始。WEBでも第1話が公開"
+    status: unconfirmed
+  - work_title: "君とは一緒に死ねない～警視庁怪異調査室～"
+    signal: "new-serial"
+    announced: "Fri, 23 Oct 2026 10:45:02 +0000"
+    url: "https://yurinavi.com/2026/10/23/kimitohaissyoni-start/"
+    platform: "magcomi"
+    platform_code: "12207421984406812438"
+    work_url: "https://magcomi.com/episode/12207421984406812438"
+    headline: "凸凹先輩後輩バディが怪異に挑む百合漫画「君とは一緒に死ねない～警視庁怪異調査室～」WEBでスタート"
     status: unconfirmed
   - work_title: "ぎるてぃらいぶらり"
     signal: "new-serial"

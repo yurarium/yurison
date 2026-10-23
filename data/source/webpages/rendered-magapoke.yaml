@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-23
+retrieved: 2026-10-24
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -1620,13 +1620,17 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03349"
     stated_schedule:
       cadence: "毎週木曜"
-      next_update: "2027-10-22"
-    chapter_count: 3
+      next_update: "2026-10-29"
+    chapter_count: 4
     chapters:
-      - title: "【第3話】一緒に入ろっか"
-        updated: 2026-10-15
+      - title: "【第4話】言いなり"
+        updated: 2026-10-22
         access_modes: ["purchase"]
         access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第3話】一緒に入ろっか"
+        updated: 2026-10-15
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第2話】キスマークってなんですか？／君のナカ"
         updated: 2026-10-08

@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: comic-trail
 platform_name: "コミックトレイル"
-retrieved: "2026-10-23"
+retrieved: "2026-10-24"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -13,7 +13,7 @@ works:
   - work_title: "お嬢様、懺悔する。"
     series_id: "2551460909751842548"
     url: "https://comic-trail.com/atom/series/2551460909751842548"
-    chapter_count: 25
+    chapter_count: 26
     chapters:
       - title: "第１話 〈１〉"
         updated: "2025-11-14"
@@ -106,6 +106,10 @@ works:
       - title: "第12話〈２〉"
         updated: "2026-09-18"
         url: "https://comic-trail.com/episode/12207421984098141841"
+        withdrawn: true
       - title: "第13話〈１〉"
         updated: "2026-10-02"
         url: "https://comic-trail.com/episode/12207421984222624853"
+      - title: "第13話〈２〉"
+        updated: "2026-10-23"
+        url: "https://comic-trail.com/episode/12207421984222624857"

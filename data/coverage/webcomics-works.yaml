@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-10-23
+retrieved: 2026-10-24
 record_type: candidate_works
 works: 310
 candidates:
@@ -335,7 +335,7 @@ candidates:
   - title: "おみかんジュースと、レモネード"
     platforms: ["コミック アース・スター"]
     urls: ["https://comic-earthstar.com/episode/12207421984388736593"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "おもいあいノ石人間"
     platforms: ["となりのヤングジャンプ"]
     urls: ["https://tonarinoyj.jp/episode/2551460909920554413"]
@@ -2098,7 +2098,7 @@ candidates:
   - title: "今年注目のエースちゃん"
     platforms: ["竹コミ‎‏‎"]
     urls: ["https://takecomic.jp/series/b53a116d9f0e7"]
-    tags: ["マイナースポーツ", "女子高生", "百合", "運動系部活"]
+    tags: ["マイナースポーツ", "女子高生", "最近のコメント数", "百合", "運動系部活"]
   - title: "今日、お姉さんとエッチしない? 百合アンソロジー"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984000326426"]
@@ -2378,6 +2378,10 @@ candidates:
   - title: "君となら、明日を歌えるの"
     platforms: ["カドコミ", "ヤングエースUP(更新終了)"]
     urls: ["https://comic-walker.com/detail/KC_007138_S", "https://web-ace.jp/youngaceup/contents/1000320/"]
+    tags: ["百合"]
+  - title: "君とは一緒に死ねない～警視庁怪異調査室～"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/12207421984406812438"]
     tags: ["百合"]
   - title: "君と綴るうたかた"
     platforms: ["pixivコミック", "コミックDAYS", "ニコニコ漫画"]

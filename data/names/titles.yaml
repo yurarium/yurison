@@ -49504,6 +49504,42 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  君とは一緒に死ねない～警視庁怪異調査室～:
+    basis: romaji
+    furigana_spans:
+    - - 君
+      - きみ
+    - - とは
+      - null
+    - - 一緒
+      - いっしょ
+    - - に
+      - null
+    - - 死
+      - し
+    - - ねない～
+      - null
+    - - 警視
+      - けいし
+    - - 庁
+      - ちょう
+    - - 怪異
+      - かいい
+    - - 調査
+      - ちょうさ
+    - - 室
+      - しつ
+    - - ～
+      - null
+    reading: キミ ト ワ イッショ ニ シネナイ ～ ケイシチョウ カイイ チョウサシツ ～
+    reading_at: '2026-10-23'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   君と夏の音:
     basis: translated
     en: You and the Sound of Summer
@@ -57329,6 +57365,32 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  弟子入り厨娘ごはん日記:
+    basis: romaji
+    furigana_spans:
+    - - 弟子
+      - でし
+    - - 入
+      - い
+    - - り
+      - null
+    - - 厨
+      - くりや
+    - - 娘
+      - むすめ
+    - - ごはん
+      - null
+    - - 日記
+      - にっき
+    reading: デシ イリ クリヤ ムスメ ゴハン ニッキ
+    reading_at: '2026-10-23'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   弱虫のキス:
@@ -85688,6 +85750,24 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  錬金術師のハンドメイド:
+    basis: romaji
+    furigana_spans:
+    - - 錬金
+      - れんきん
+    - - 術師
+      - じゅつし
+    - - のハンドメイド
+      - null
+    reading: レンキン ジュツシ ノ ハンドメイド
+    reading_at: '2026-10-23'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   錬金術師のハンドメイド ～フリマやってるだけなのに伝説的な扱いされてました～:

@@ -7,13 +7,13 @@
 # this is neither. Results are embedded in the page, so the disallowed API is not called.
 source: kadokomi
 role: attesting
-retrieved: 2026-10-23
+retrieved: 2026-10-24
 record_type: platform_yuri_catalogue
 tags_enumerated:
-  - { name: 百合, uuid: 018b8a02-f3d9-7a59-969d-288cb905f0fc, listed: 363 }
+  - { name: 百合, uuid: 018b8a02-f3d9-7a59-969d-288cb905f0fc, listed: 365 }
   - { name: GL, uuid: 018b8a02-f448-7b77-b194-cafcc706ed85, listed: 8 }
-total_reported: 371
-works_enumerated: 365
+total_reported: 373
+works_enumerated: 367
 works:
   - code: "KC_000031_S"
     title: "もし、恋が見えたなら"
@@ -1681,7 +1681,7 @@ works:
     tag: "百合"
     marketing_label: yuri
   - code: "KC_014276_S"
-    title: "錬金術師のハンドメイド ～フリマやってるだけなのに伝説的な扱いされてました～"
+    title: "錬金術師のハンドメイド"
     status: "ongoing"
     tag: "百合"
     marketing_label: yuri
@@ -1835,8 +1835,18 @@ works:
     status: "unknown"
     tag: "百合"
     marketing_label: yuri
+  - code: "KC_021172_S"
+    title: "弟子入り厨娘ごはん日記"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
   - code: "KC_021305_S"
     title: "死神さんと昇天ごはん"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_021486_S"
+    title: "王子はさけて通れない！"
     status: "ongoing"
     tag: "百合"
     marketing_label: yuri

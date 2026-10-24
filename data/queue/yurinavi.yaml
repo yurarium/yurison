@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-10-24
+retrieved: 2026-10-25
 record_type: discovery_queue
 candidates:
   - work_title: "死神さんと昇天ごはん"
@@ -17,14 +17,6 @@ candidates:
     platform_code: "KC_021305_S"
     work_url: "https://comic-walker.com/detail/KC_021305_S"
     headline: "孤独な少女と死神のひとつ屋根の下で描かれる百合グルメコメディ「死神さんと昇天ごはん」WEBでスタート"
-    status: unconfirmed
-  - work_title: "葵とおねーちゃん"
-    signal: "oneshot"
-    announced: "Tue, 13 Oct 2026 11:38:24 +0000"
-    url: "https://yurinavi.com/2026/10/13/aoitone-chan-yomikiri/"
-    platform: "comic-boost"
-    work_url: "https://comic-boost.com/content/01780001?=s"
-    headline: "素直になれない姉妹が贈る、ひと夏のガールズコメディ――百合読み切り「葵とおねーちゃん」WEBで公開"
     status: unconfirmed
   - work_title: "キミに触れて、感じたい"
     signal: "oneshot"
@@ -44,6 +36,15 @@ candidates:
     work_url: "https://ichicomi.com/episode/12207421984354015835"
     headline: "遠距離JDカップルに立ちはだかる梅田駅!? 百合読み切り「百合の間に挟まる梅田ダンジョン」WEBで公開"
     status: unconfirmed
+  - work_title: "王子はさけて通れない！"
+    signal: "new-serial"
+    announced: "Sat, 24 Oct 2026 11:00:11 +0000"
+    url: "https://yurinavi.com/2026/10/24/oujisamahasakete-start/"
+    platform: "kadokomi"
+    platform_code: "KC_021486_S"
+    work_url: "https://comic-walker.com/detail/KC_021486_S"
+    headline: "四人の“王子様”に振りまわされる学園百合漫画「王子はさけて通れない！」WEBでスタート"
+    status: unconfirmed
   - work_title: "だって恋は月夜に灯るから"
     signal: "new-serial"
     announced: "Mon, 19 Oct 2026 10:56:15 +0000"
@@ -61,6 +62,14 @@ candidates:
     platform_code: "12207421984406812438"
     work_url: "https://magcomi.com/episode/12207421984406812438"
     headline: "凸凹先輩後輩バディが怪異に挑む百合漫画「君とは一緒に死ねない～警視庁怪異調査室～」WEBでスタート"
+    status: unconfirmed
+  - work_title: "葵とおねーちゃん"
+    signal: "oneshot"
+    announced: "2026-10-13"
+    url: "https://yurinavi.com/2026/10/13/aoitone-chan-yomikiri/"
+    platform: "comic-boost"
+    work_url: "https://comic-boost.com/content/01780001?=s"
+    headline: "素直になれない姉妹が贈る、ひと夏のガールズコメディ――百合読み切り「葵とおねーちゃん」WEBで公開"
     status: unconfirmed
   - work_title: "ぎるてぃらいぶらり"
     signal: "new-serial"

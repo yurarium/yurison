@@ -6,7 +6,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-10-24
+retrieved: 2026-10-25
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -90,6 +90,7 @@ releases:
     author: "天野しゅにんた"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984335676445"
+    in_current_window: false
     work_title: "大室家"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -106,6 +107,7 @@ releases:
     raw_title: "大室家の138"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984335676473"
+    in_current_window: false
     work_title: "私の推しは悪役令嬢。"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -121,6 +123,7 @@ releases:
     author: "青乃下/いのり。/花ヶ田"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984335676468"
+    in_current_window: false
     work_title: "私の推しは悪役令嬢。"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -136,6 +139,7 @@ releases:
     author: "青乃下/いのり。/花ヶ田"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984335676427"
+    in_current_window: false
     work_title: "今日はカノジョがいないから"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -152,6 +156,7 @@ releases:
     author: "岩見樹代子"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984335676416"
+    in_current_window: false
     work_title: "今日はカノジョがいないから"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -168,6 +173,7 @@ releases:
     author: "岩見樹代子"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984335676411"
+    in_current_window: false
     work_title: "今日はカノジョがいないから"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -184,6 +190,7 @@ releases:
     author: "岩見樹代子"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984335676438"
+    in_current_window: false
     work_title: "ぜんぶ壊して地獄で愛して"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -200,6 +207,7 @@ releases:
     author: "くわばらたもつ"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984335676430"
+    in_current_window: false
     work_title: "ぜんぶ壊して地獄で愛して"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -216,6 +224,7 @@ releases:
     author: "くわばらたもつ"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984335676420"
+    in_current_window: false
     work_title: "ぜんぶ壊して地獄で愛して"
     web_status: "serialised"
     identified_via: "known-work-match"

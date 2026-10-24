@@ -13,6 +13,62 @@ record_type: update_claims
 window_days: 60
 claims: 429
 updates:
+  - work: "私を喰べたい、ひとでなし"
+    platform: "カドコミ"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_003258_S"
+    listing_tags: ["異種族・人外", "百合", "女子高生", "妖怪", "アニメ化"]
+  - work: "暗殺組合の山田さん"
+    platform: "キミコミ"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://kimicomi.com/series/397963f4f9cfd"
+    listing_tags: ["百合", "暗殺者・殺し屋"]
+  - work: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "pixivコミック"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/13373"
+    listing_tags: ["百合"]
+  - work: "メイド&ロイドはお嬢様のお役に立ちたい!"
+    platform: "マンガワン"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-one.com/manga/28129/chapter/355684"
+    listing_tags: ["百合"]
+  - work: "バカ女26時"
+    platform: "ヤンジャン+"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ynjn.jp/title/12102"
+    listing_tags: ["百合"]
+  - work: "ダメ犬彼女"
+    platform: "カドコミ"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_006666_S"
+    listing_tags: ["百合", "学園", "お色気・微エロ", "ラブコメ"]
+  - work: "オカワリいただけただろうか?"
+    platform: "pixivコミック"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/11565"
+    listing_tags: ["百合", "妖怪", "現代", "女子高生"]
+  - work: "オカルトタイムズ"
+    platform: "マガポケ"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    listing_tags: ["百合", "オカルト"]
   - work: "エイティエイトを２でわって 有馬"
     platform: "きららベース"
     date: 2026-10-24
@@ -25,12 +81,26 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "ひとりみです"
+    platform: "カドコミ"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_006607_S"
+    listing_tags: ["百合", "ヒューマンドラマ", "おばあちゃん"]
   - work: "ぬるめた こかむも"
     platform: "きららベース"
     date: 2026-10-24
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "ぜんぶ壊して地獄で愛して"
+    platform: "マガポケ"
+    date: 2026-10-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02367"
+    listing_tags: ["百合", "女子高生"]
   - work: "しあわせ鳥見んぐ わらびもちきなこ"
     platform: "きららベース"
     date: 2026-10-24
@@ -65,13 +135,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021486_S"
     listing_tags: ["百合"]
-  - work: "暗殺組合の山田さん"
-    platform: "キミコミ"
-    date: 2026-10-23
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://kimicomi.com/series/397963f4f9cfd"
-    listing_tags: ["百合", "暗殺者・殺し屋"]
   - work: "春雷卓球"
     platform: "少年ジャンプ+"
     date: 2026-10-23
@@ -85,7 +148,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_019660_S"
-    listing_tags: ["百合", "筋肉"]
+    listing_tags: ["最近のコメント数"]
   - work: "悪役令嬢のお嫁さま"
     platform: "Seasons"
     date: 2026-10-23
@@ -161,20 +224,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_016982_S"
     listing_tags: ["百合", "VTuber"]
-  - work: "メイド&ロイドはお嬢様のお役に立ちたい!"
-    platform: "マンガワン"
-    date: 2026-10-23
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-one.com/manga/28129/chapter/355684"
-    listing_tags: ["百合"]
-  - work: "バカ女26時"
-    platform: "ヤンジャン+"
-    date: 2026-10-23
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ynjn.jp/title/12102"
-    listing_tags: ["百合"]
   - work: "ニセアイホンアイ"
     platform: "まんがタイムSquare"
     date: 2026-10-23
@@ -182,13 +231,6 @@ updates:
     provenance: claimed
     url: "https://mangatime-square.com/episode/12207421984001577937"
     listing_tags: ["百合"]
-  - work: "オカルトタイムズ"
-    platform: "マガポケ"
-    date: 2026-10-23
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    listing_tags: ["百合", "オカルト"]
   - work: "イジめてイジられて"
     platform: "カドコミ"
     date: 2026-10-23
@@ -210,13 +252,6 @@ updates:
     provenance: claimed
     url: "https://g-comi.jp/series/fef424c168c44"
     listing_tags: ["百合", "先輩と後輩", "大学生"]
-  - work: "ぜんぶ壊して地獄で愛して"
-    platform: "マガポケ"
-    date: 2026-10-23
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02367"
-    listing_tags: ["百合", "女子高生"]
   - work: "さざめとりお"
     platform: "カドコミ"
     date: 2026-10-23
@@ -303,7 +338,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://ichicomi.com/episode/2551460909807196609"
-    listing_tags: ["百合", "女子高生"]
+    listing_tags: ["最近のコメント数"]
   - work: "拝啓、在りし日に咲く花たちへ"
     platform: "カドコミ"
     date: 2026-10-22
@@ -770,13 +805,6 @@ updates:
     provenance: claimed
     url: "https://comic-days.com/episode/3269632237276869027"
     listing_tags: ["音楽", "女子高生", "百合", "障害者"]
-  - work: "私を喰べたい、ひとでなし"
-    platform: "ニコニコ漫画"
-    date: 2026-10-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/49677"
-    listing_tags: ["百合", "妖怪", "アニメ化"]
   - work: "百合フェチLIFE"
     platform: "Gコミ"
     date: 2026-10-17
@@ -810,13 +838,6 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic.pixiv.net/works/13457"
-    listing_tags: ["百合"]
-  - work: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "pixivコミック"
-    date: 2026-10-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/13373"
     listing_tags: ["百合"]
   - work: "十字トンボは空を飛ばない 織日ちひろ/虫原"
     platform: "きららベース"
@@ -2374,13 +2395,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_006547_S"
     listing_tags: ["オカルト", "サスペンス", "ホラー", "残酷・グロテスク", "架空の部活", "女子高生", "デスゲーム", "百合", "完結"]
-  - work: "ダメ犬彼女"
-    platform: "カドコミ"
-    date: 2026-09-26
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_006666_S"
-    listing_tags: ["百合", "学園", "お色気・微エロ", "ラブコメ"]
   - work: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     platform: "コミックDAYS"
     date: 2026-09-26
@@ -2388,13 +2402,6 @@ updates:
     provenance: claimed
     url: "https://comic-days.com/episode/2550912964518073379"
     listing_tags: ["暗殺者・殺し屋", "VR", "中二病", "先生と生徒・師弟", "女子高生", "忍者", "ブロ・シスマンス", "スキル制", "百合"]
-  - work: "オカワリいただけただろうか?"
-    platform: "pixivコミック"
-    date: 2026-09-26
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/11565"
-    listing_tags: ["百合", "妖怪", "現代", "女子高生"]
   - work: "GOOD HUNT"
     platform: "となりのヤングジャンプ"
     date: 2026-09-26
@@ -2815,13 +2822,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_019973_S"
     listing_tags: ["百合", "ギャグ・コメディ", "筋肉", "読み切り", "運動・筋トレ"]
-  - work: "ひとりみです"
-    platform: "カドコミ"
-    date: 2026-08-29
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_006607_S"
-    listing_tags: ["百合", "ヒューマンドラマ", "おばあちゃん"]
   - work: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     platform: "ニコニコ漫画"
     date: 2026-08-28

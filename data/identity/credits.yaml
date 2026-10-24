@@ -10,7 +10,7 @@
 # the survivor, because an address published once has to keep working.
 #
 # See adapters/credit_identity.py and data/identity/credit-rulings.yaml.
-generated: 2026-10-23
+generated: 2026-10-24
 credits:
   - id: c00001
     credit: "クール教信者"
@@ -10775,6 +10775,10 @@ credits:
     credit: "尾西たまも"
     anchors:
       - "credit:尾西たまも"
+  - id: c02411
+    credit: "米湯"
+    anchors:
+      - "credit:米湯"
 
 # Credits sharing one reading that were examined and KEPT APART. Recorded so the
 # question is not re-derived at every capture and so the reasoning is not lost each

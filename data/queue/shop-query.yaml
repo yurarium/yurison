@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 249
   hits_on_the_title_alone: 111
   hits_stating_a_print_edition_date: 208
-  works_asked: 885
+  works_asked: 887
   works_with_a_hit: 267
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -4001,6 +4001,16 @@ works:
     notes:
       - "author query answered nothing"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_021172_S"
+    id: "w03452"
+    work: "弟子入り厨娘ごはん日記"
+    author: "米湯 / みみ"
+    platform: "カドコミ"
+    retrieved: "2026-10-24"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://comic-walker.com/detail/KC_021305_S"
     id: "w03320"
     work: "死神さんと昇天ごはん"
@@ -6097,6 +6107,16 @@ works:
     author: "音橋りた"
     platform: "MAGCOMI"
     retrieved: "2026-10-14"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://magcomi.com/episode/12207421984406812438"
+    id: "w03451"
+    work: "君とは一緒に死ねない～警視庁怪異調査室～"
+    author: "森"
+    platform: "MAGCOMI"
+    retrieved: "2026-10-24"
     hits: []
     notes:
       - "author query returned no title this database recognises"

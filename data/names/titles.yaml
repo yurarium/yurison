@@ -66251,6 +66251,25 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  本命は秘密:
+    basis: romaji
+    furigana_spans:
+    - - 本命
+      - ほんめい
+    - - は
+      - null
+    - - 秘密
+      - ひみつ
+    reading: ホンメイ ワ ヒミツ
+    reading_at: '2026-10-25'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   杉並区立魔法女学園平和維持部:
     basis: official-jp
     en: peace keeping club of suginami municipal school for witches

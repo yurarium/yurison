@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-25
+retrieved: 2026-10-26
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -19,9 +19,9 @@ platforms_missing:
     works: 12
   - platform: "COMICリュウライブ"
     works: 3
-  - platform: "きら星ポータル"
-    works: 2
   - platform: "ヤンジャン+"
+    works: 2
+  - platform: "きら星ポータル"
     works: 2
   - platform: "pixivコミックマガジン"
     works: 1

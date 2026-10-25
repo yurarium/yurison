@@ -6,11 +6,26 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-10-25
+retrieved: 2026-10-26
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421984415835014"
+    work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第２６話　特別なイベント"
+    release_type: "chapter"
+    date: "2026-10-26"
+    date_basis: "observed"
+    first_seen: "2026-10-26"
+    first_reported: "2026-10-25T15:00:00Z"
+    platform_updated: "2026-10-25T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421984415835014"
+    author: "空山トキ/五色安未/泉乃せん/伍長"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421984407034847"
     work_title: "ファタールゲーム"
     web_status: "serialised"
@@ -75,6 +90,7 @@ releases:
     author: "山田恵庸"
     advances_narrative: true
   - release_id: "comicdays:episode:2550689798616042974"
+    in_current_window: false
     work_title: "オタクには人生を積むことしかできない"
     web_status: "serialised"
     identified_via: "discovery-candidate"

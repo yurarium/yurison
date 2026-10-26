@@ -19,8 +19,13 @@ works:
   - work_title: "優等生がアダルトグッズを買いに来た"
     series_id: "12207421983996994170"
     url: "https://comic-gardo.com/atom/series/12207421983996994170"
-    chapter_count: 7
+    chapter_count: 8
     chapters:
+      - title: "第4話「だから安心して泣きついて」(2)"
+        updated: 2026-10-26
+        author: "コナタエル/4kaえんぴつ/千種みのり"
+        url: "https://comic-gardo.com/episode/12207421984415789581"
+        access_modes: ["purchase"]
       - title: "第4話「だから安心して泣きついて」(1)"
         updated: 2026-10-12
         author: "コナタエル/4kaえんぴつ/千種みのり"
@@ -30,7 +35,8 @@ works:
         updated: 2026-09-21
         author: "コナタエル/4kaえんぴつ/千種みのり"
         url: "https://comic-gardo.com/episode/12207421984251695869"
-        access_modes: ["purchase"]
+        free_from: 2026-10-26
+        access_modes: ["free"]
       - title: "第3話「そっちの穴も開けてあげるから」(1)"
         updated: 2026-09-07
         author: "コナタエル/4kaえんぴつ/千種みのり"
@@ -47,8 +53,7 @@ works:
         updated: 2026-08-17
         author: "コナタエル/4kaえんぴつ/千種みのり"
         url: "https://comic-gardo.com/episode/12207421984094260440"
-        free_from: 2026-09-07
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第2話「放っといたら、寝覚めが悪いから」(1)"
         updated: 2026-08-17
         author: "コナタエル/4kaえんぴつ/千種みのり"

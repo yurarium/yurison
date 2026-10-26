@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 249
   hits_on_the_title_alone: 111
   hits_stating_a_print_edition_date: 208
-  works_asked: 887
+  works_asked: 889
   works_with_a_hit: 267
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -782,6 +782,14 @@ works:
     work: "葵とおねーちゃん"
     platform: "comicブースト"
     retrieved: "2026-10-14"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-boost.com/content/01830001"
+    id: "w03453"
+    work: "本命は秘密"
+    platform: "comicブースト"
+    retrieved: "2026-10-26"
     hits: []
     notes:
       - "title query returned no title this database recognises"
@@ -2389,6 +2397,16 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://comic-gardo.com/episode/12207421984415789581"
+    id: "w03270"
+    work: "優等生がアダルトグッズを買いに来た"
+    author: "コナタエル"
+    platform: "コミックガルド"
+    retrieved: "2026-10-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://comic-growl.com/series/3b60fbd61d3f8"
     id: "w03419"
     work: "一目溺れ"

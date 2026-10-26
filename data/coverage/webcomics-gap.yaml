@@ -19,9 +19,9 @@ platforms_missing:
     works: 12
   - platform: "COMICリュウライブ"
     works: 3
-  - platform: "ヤンジャン+"
-    works: 2
   - platform: "きら星ポータル"
+    works: 2
+  - platform: "ヤンジャン+"
     works: 2
   - platform: "pixivコミックマガジン"
     works: 1
@@ -286,6 +286,16 @@ works_missing:
     url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
     antenna_id: "181056"
     tags: ["百合", "妖怪", "女子高生", "コミカライズ", "ざまぁ", "頭脳戦・心理戦", "現代", "チート"]
+  - title: "あたし達って付き合ってるよね!?"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_011928_S"
+    antenna_id: "210688"
+    tags: ["百合", "ラブコメ", "女子高生"]
+  - title: "紅魔館の女たち"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002973_S"
+    antenna_id: "163756"
+    tags: ["東方", "百合", "ギャグ・コメディ"]
   - title: "ひとりみです"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006607_S"
@@ -391,11 +401,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008372_S"
     antenna_id: "201618"
     tags: ["百合", "お色気・微エロ", "異種族・人外"]
-  - title: "あたし達って付き合ってるよね!?"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_011928_S"
-    antenna_id: "210688"
-    tags: ["百合", "ラブコメ", "女子高生"]
   - title: "ホームセンターごと呼び出された私の大迷宮リノベーション!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006431_S"
@@ -471,11 +476,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006978_S"
     antenna_id: "194591"
     tags: ["百合", "教師", "女子高生", "人妻", "コミカライズ"]
-  - title: "紅魔館の女たち"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_002973_S"
-    antenna_id: "163756"
-    tags: ["東方", "百合", "ギャグ・コメディ"]
   - title: "彼女のカノジョと不純な初恋"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_009359_S"
@@ -736,6 +736,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "紅魔館の女たち"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/67189"
+    antenna_id: "163749"
+    tags: ["百合", "東方"]
   - title: "私を喰べたい、ひとでなし"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/49677"
@@ -861,11 +866,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/54592"
     antenna_id: "123953"
     tags: ["忍者", "百合", "暗殺者・殺し屋", "シュール", "アニメ化"]
-  - title: "紅魔館の女たち"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/67189"
-    antenna_id: "163749"
-    tags: ["百合", "東方"]
   - title: "人妻教師が教え子の女子高生にドはまりする話"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/74091"

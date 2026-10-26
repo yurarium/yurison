@@ -11,14 +11,55 @@ role: provisional-claims
 retrieved: 2026-10-26
 record_type: update_claims
 window_days: 60
-claims: 424
+claims: 425
 updates:
+  - work: "紅魔館の女たち risui"
+    platform: "カドコミ"
+    date: 2026-10-26
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "紅魔館の女たち"
+    platform: "カドコミ"
+    date: 2026-10-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_002973_S"
+    listing_tags: ["東方", "百合", "ギャグ・コメディ"]
+  - work: "君めく夜に焦がれて"
+    platform: "きら星ポータル"
+    date: 2026-10-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://kirapo.jp/ambre/titles/kimimeku"
+    listing_tags: ["百合", "不良・ヤンキー"]
+  - work: "優等生がアダルトグッズを買いに来た"
+    platform: "コミックガルド"
+    date: 2026-10-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-gardo.com/episode/12207421984094260425"
+    listing_tags: ["百合"]
+  - work: "ベイビー車中ハッカーズ"
+    platform: "ヤンジャン+"
+    date: 2026-10-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ynjn.jp/title/16787"
+    listing_tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
   - work: "きょうはなにしよう？ サスケ"
     platform: "カドコミ"
     date: 2026-10-26
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "あたし達って付き合ってるよね!?"
+    platform: "カドコミ"
+    date: 2026-10-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_011928_S"
+    listing_tags: ["百合", "ラブコメ", "女子高生"]
   - work: "百合のはじまりは奴隷から"
     platform: "pixivコミック"
     date: 2026-10-25
@@ -40,13 +81,6 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/4133"
     listing_tags: ["百合"]
-  - work: "ベイビー車中ハッカーズ"
-    platform: "ヤンジャン+"
-    date: 2026-10-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ynjn.jp/title/16787"
-    listing_tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
   - work: "ファタールゲーム"
     platform: "マガポケ"
     date: 2026-10-25
@@ -728,13 +762,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_006778_S"
     listing_tags: ["百合", "女子高生", "学園"]
-  - work: "君めく夜に焦がれて"
-    platform: "きら星ポータル"
-    date: 2026-10-19
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://kirapo.jp/ambre/titles/kimimeku"
-    listing_tags: ["百合", "不良・ヤンキー"]
   - work: "今日はカノジョがいないから"
     platform: "マガポケ"
     date: 2026-10-19
@@ -1392,13 +1419,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "あたし達って付き合ってるよね!?"
-    platform: "カドコミ"
-    date: 2026-10-13
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_011928_S"
-    listing_tags: ["百合", "ラブコメ", "女子高生"]
   - work: "#ギャルとギャルの百合 イノウエ"
     platform: "サンデーうぇぶり"
     date: 2026-10-13
@@ -1438,13 +1458,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "優等生がアダルトグッズを買いに来た"
-    platform: "コミックガルド"
-    date: 2026-10-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-gardo.com/episode/12207421984094260425"
-    listing_tags: ["百合"]
   - work: "わたしのために脱ぎなさいっ！ 九郎"
     platform: "カドコミ"
     date: 2026-10-12
@@ -2296,13 +2309,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/13345"
     listing_tags: ["百合", "サスペンス"]
-  - work: "紅魔館の女たち"
-    platform: "ニコニコ漫画"
-    date: 2026-09-28
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/67189"
-    listing_tags: ["百合", "東方"]
   - work: "彼女のカノジョと不純な初恋"
     platform: "カドコミ"
     date: 2026-09-28

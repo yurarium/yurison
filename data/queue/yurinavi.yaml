@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-10-26
+retrieved: 2026-10-27
 record_type: discovery_queue
 candidates:
   - work_title: "キミに触れて、感じたい"
@@ -17,15 +17,6 @@ candidates:
     platform_code: "12207421984222943969"
     work_url: "https://ichicomi.com/episode/12207421984222943969"
     headline: "触れたいのに触れられないーー羊と狼の恋を描く百合読み切り「キミに触れて、感じたい」WEBで公開"
-    status: unconfirmed
-  - work_title: "百合の間に挟まる梅田ダンジョン"
-    signal: "oneshot"
-    announced: "Thu, 15 Oct 2026 11:16:57 +0000"
-    url: "https://yurinavi.com/2026/10/15/yurinoaida-umeda-yomikiri/"
-    platform: "ichicomi"
-    platform_code: "12207421984354015835"
-    work_url: "https://ichicomi.com/episode/12207421984354015835"
-    headline: "遠距離JDカップルに立ちはだかる梅田駅!? 百合読み切り「百合の間に挟まる梅田ダンジョン」WEBで公開"
     status: unconfirmed
   - work_title: "本命は秘密"
     signal: "oneshot"
@@ -44,6 +35,14 @@ candidates:
     work_url: "https://comic-walker.com/detail/KC_021486_S"
     headline: "四人の“王子様”に振りまわされる学園百合漫画「王子はさけて通れない！」WEBでスタート"
     status: unconfirmed
+  - work_title: "きっと、彼女が好きだから"
+    signal: "new-serial"
+    announced: "Mon, 26 Oct 2026 12:43:30 +0000"
+    url: "https://yurinavi.com/2026/10/26/kitto-kanojyogasuki-start/"
+    platform: "g-comi"
+    work_url: "https://g-comi.jp/episodes/733105e64bf91"
+    headline: "想いが交錯する三角すれ違い百合漫画「きっと、彼女が好きだから」WEBで連載中"
+    status: unconfirmed
   - work_title: "だって恋は月夜に灯るから"
     signal: "new-serial"
     announced: "Mon, 19 Oct 2026 10:56:15 +0000"
@@ -61,6 +60,15 @@ candidates:
     platform_code: "12207421984406812438"
     work_url: "https://magcomi.com/episode/12207421984406812438"
     headline: "凸凹先輩後輩バディが怪異に挑む百合漫画「君とは一緒に死ねない～警視庁怪異調査室～」WEBでスタート"
+    status: unconfirmed
+  - work_title: "百合の間に挟まる梅田ダンジョン"
+    signal: "oneshot"
+    announced: "2026-10-15"
+    url: "https://yurinavi.com/2026/10/15/yurinoaida-umeda-yomikiri/"
+    platform: "ichicomi"
+    platform_code: "12207421984354015835"
+    work_url: "https://ichicomi.com/episode/12207421984354015835"
+    headline: "遠距離JDカップルに立ちはだかる梅田駅!? 百合読み切り「百合の間に挟まる梅田ダンジョン」WEBで公開"
     status: unconfirmed
   - work_title: "死神さんと昇天ごはん"
     signal: "new-serial"

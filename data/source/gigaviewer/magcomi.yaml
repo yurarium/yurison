@@ -6,7 +6,7 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-10-26
+retrieved: 2026-10-27
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -43,6 +43,7 @@ releases:
     free_term_start: "2026-10-23T03:00:00Z"
     advances_narrative: true
   - release_id: "magcomi:episode:12207421984304225723"
+    in_current_window: false
     work_title: "ボイタボイネ"
     web_status: "serialised"
     identified_via: "discovery-candidate"

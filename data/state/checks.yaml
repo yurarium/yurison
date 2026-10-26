@@ -1,6 +1,6 @@
 checks:
   COMIC ポルタ|OLと人魚:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -160,7 +160,7 @@ checks:
     last_reached: '2026-10-26'
     result: ok
   pixivコミック|ひとりみです:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -325,7 +325,7 @@ checks:
     last_reached: '2026-10-26'
     result: ok
   pixivコミック|マユノウタ:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -335,7 +335,7 @@ checks:
     last_reached: '2026-10-26'
     result: ok
   pixivコミック|ライバルアライバル:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -345,7 +345,7 @@ checks:
     last_reached: '2026-10-26'
     result: empty
   pixivコミック|ロリースイートロリー:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -575,7 +575,7 @@ checks:
     last_reached: '2026-10-26'
     result: ok
   pixivコミック|星の体温、巡る夢:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -620,7 +620,7 @@ checks:
     last_reached: '2026-10-26'
     result: ok
   pixivコミック|百合のはじまりは奴隷から:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -830,7 +830,7 @@ checks:
     note: fetched, but no reader here can parse this site
     result: error
   カドコミ|バカに告白:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -855,7 +855,7 @@ checks:
     note: fetched, but no reader here can parse this site
     result: error
   カドコミ|妄執女と芥川:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -865,12 +865,12 @@ checks:
     note: fetched, but no reader here can parse this site
     result: error
   カドコミ|性悪天才幼馴染との勝負に負けて初体験を全部奪われる話:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
   カドコミ|私の彼女はボディビルダー:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -930,7 +930,7 @@ checks:
     note: fetched, but no reader here can parse this site
     result: error
   ニコニコ漫画|ささやくように恋を唄う:
-    fails: 11
+    fails: 12
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -1210,7 +1210,7 @@ checks:
     last_reached: '2026-10-26'
     result: ok
   マンガよもんが|女にはそれぞれ裏がある:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -1275,7 +1275,7 @@ checks:
     last_reached: '2026-10-26'
     result: ok
   ヤンジャン+|エリオと電気人形:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -1300,7 +1300,7 @@ checks:
     last_reached: '2026-10-26'
     result: empty
   ヤンジャン+|英雄少女と呪われの銀姫:
-    fails: 25
+    fails: 26
     last_checked: '2026-10-26'
     note: fetched, but no reader here can parse this site
     result: error
@@ -1320,7 +1320,7 @@ checks:
     last_reached: '2026-08-03'
     result: empty
   新都社|バトル・ウィッチーズ:
-    fails: 26
+    fails: 27
     last_checked: '2026-10-26'
     note: HTTP 200
     result: error
@@ -1349,4 +1349,9 @@ checks:
     last_checked: '2026-08-03'
     last_reached: '2026-08-03'
     result: ok
+  裏サンデー|妖怪殲滅のサイコリリー:
+    fails: 1
+    last_checked: '2026-10-26'
+    note: fetched, but no reader here can parse this site
+    result: error
 updated: '2026-10-26'

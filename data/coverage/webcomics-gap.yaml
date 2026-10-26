@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-26
+retrieved: 2026-10-27
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -19,9 +19,9 @@ platforms_missing:
     works: 12
   - platform: "COMICリュウライブ"
     works: 3
-  - platform: "きら星ポータル"
-    works: 2
   - platform: "ヤンジャン+"
+    works: 2
+  - platform: "きら星ポータル"
     works: 2
   - platform: "pixivコミックマガジン"
     works: 1
@@ -36,6 +36,11 @@ platforms_missing:
   - platform: "マンガボックス"
     works: 1
 works_missing:
+  - title: "しゅがー・みーつ・がーる!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3108"
+    antenna_id: "166358"
+    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -81,11 +86,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3397"
     antenna_id: "159994"
     tags: ["百合", "女子高生", "4コマ"]
-  - title: "しゅがー・みーつ・がーる!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3108"
-    antenna_id: "166358"
-    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
@@ -345,7 +345,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_004432_S"
     antenna_id: "99613"
-    tags: ["百合", "ギャグ・コメディ", "エロ", "女子高生", "女性向け", "お色気・微エロ", "現代", "同性愛・LGBTQ+", "青春"]
+    tags: ["最近のコメント数"]
   - title: "拝啓、在りし日に咲く花たちへ"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006092_S"

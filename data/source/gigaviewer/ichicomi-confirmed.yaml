@@ -10,7 +10,7 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-10-26
+retrieved: 2026-10-27
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works_confirmed: 10
@@ -29,20 +29,6 @@ works:
       - title: "読み切り作品"
         updated: 2026-09-17
         url: "https://ichicomi.com/episode/12207421984222943969"
-  - work_title: "百合の間に挟まる梅田ダンジョン"
-    author: "矢嶋こずみ"
-    url: "https://ichicomi.com/episode/12207421984354015835"
-    series_id: "12207421984335596372"
-    is_oneshot: true
-    discovered_via:
-      signal: "oneshot"
-      article: "https://yurinavi.com/2026/10/15/yurinoaida-umeda-yomikiri/"
-      headline: "遠距離JDカップルに立ちはだかる梅田駅!? 百合読み切り「百合の間に挟まる梅田ダンジョン」WEBで公開"
-    chapter_count: 1
-    chapters:
-      - title: "読み切り作品"
-        updated: 2026-10-15
-        url: "https://ichicomi.com/episode/12207421984354015835"
   - work_title: "だって恋は月夜に灯るから"
     author: "meji"
     url: "https://ichicomi.com/episode/12207421984336824147"
@@ -60,6 +46,20 @@ works:
       - title: "第1話"
         updated: 2026-10-16
         url: "https://ichicomi.com/episode/12207421984336824147"
+  - work_title: "百合の間に挟まる梅田ダンジョン"
+    author: "矢嶋こずみ"
+    url: "https://ichicomi.com/episode/12207421984354015835"
+    series_id: "12207421984335596372"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/10/15/yurinoaida-umeda-yomikiri/"
+      headline: "遠距離JDカップルに立ちはだかる梅田駅!? 百合読み切り「百合の間に挟まる梅田ダンジョン」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り作品"
+        updated: 2026-10-15
+        url: "https://ichicomi.com/episode/12207421984354015835"
   - work_title: "ホテルの外でもあいたいよ"
     author: "らぱ☆"
     url: "https://ichicomi.com/episode/12207421984222944066"

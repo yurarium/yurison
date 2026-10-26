@@ -8,11 +8,53 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-10-26
+retrieved: 2026-10-27
 record_type: update_claims
 window_days: 60
-claims: 425
+claims: 430
 updates:
+  - work: "真夜中に愛してよ 甘崎水菓"
+    platform: "カドコミ"
+    date: 2026-10-27
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "残光再撮 若鶏にこみ"
+    platform: "カドコミ"
+    date: 2026-10-27
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "新米姉妹のふたりごはん 柊ゆたか"
+    platform: "カドコミ"
+    date: 2026-10-27
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "或いは、私の名探偵 毒田ぺパ子"
+    platform: "カドコミ"
+    date: 2026-10-27
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "保健室の鍵閉めてっ 蕗屋文字"
+    platform: "きららベース"
+    date: 2026-10-27
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "モブヘブン 徳永パン"
+    platform: "カドコミ"
+    date: 2026-10-27
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "この恋、一旦持ち帰らせていただきます！ あおと響"
+    platform: "カドコミ"
+    date: 2026-10-27
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "紅魔館の女たち risui"
     platform: "カドコミ"
     date: 2026-10-26
@@ -47,6 +89,20 @@ updates:
     provenance: claimed
     url: "https://ynjn.jp/title/16787"
     listing_tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
+  - work: "なとりとしずは"
+    platform: "サンデーうぇぶり"
+    date: 2026-10-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.sunday-webry.com/episode/12207421983745504350"
+    listing_tags: ["百合", "女子高生", "運動系部活", "柔道"]
+  - work: "しゅがー・みーつ・がーる!"
+    platform: "COMIC FUZ"
+    date: 2026-10-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3108"
+    listing_tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - work: "きょうはなにしよう？ サスケ"
     platform: "カドコミ"
     date: 2026-10-26
@@ -60,6 +116,13 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_011928_S"
     listing_tags: ["百合", "ラブコメ", "女子高生"]
+  - work: "#ギャルとギャルの百合"
+    platform: "サンデーうぇぶり"
+    date: 2026-10-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.sunday-webry.com/episode/2550912965814192510"
+    listing_tags: ["百合", "女子高生", "恋愛"]
   - work: "百合のはじまりは奴隷から"
     platform: "pixivコミック"
     date: 2026-10-25
@@ -453,7 +516,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_004432_S"
-    listing_tags: ["百合", "ギャグ・コメディ", "エロ", "女子高生", "女性向け", "お色気・微エロ", "現代", "同性愛・LGBTQ+", "青春"]
+    listing_tags: ["最近のコメント数"]
   - work: "マユノウタ シクシク"
     platform: "一迅プラス"
     date: 2026-10-22
@@ -647,7 +710,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
-    listing_tags: ["エロ", "女子高生", "日常", "ギャグ・コメディ", "百合", "フェチ・性癖"]
+    listing_tags: ["最近のコメント数"]
   - work: "一畳間まんきつ暮らし！ ひさまくまこ"
     platform: "きららベース"
     date: 2026-10-20
@@ -1379,20 +1442,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "なとりとしずは"
-    platform: "サンデーうぇぶり"
-    date: 2026-10-13
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.sunday-webry.com/episode/12207421983745504350"
-    listing_tags: ["百合", "女子高生", "運動系部活", "柔道"]
-  - work: "しゅがー・みーつ・がーる!"
-    platform: "COMIC FUZ"
-    date: 2026-10-13
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3108"
-    listing_tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - work: "ささやくように恋を唄う"
     platform: "マガポケ"
     date: 2026-10-13
@@ -1425,13 +1474,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "#ギャルとギャルの百合"
-    platform: "サンデーうぇぶり"
-    date: 2026-10-13
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.sunday-webry.com/episode/2550912965814192510"
-    listing_tags: ["百合", "女子高生", "恋愛"]
   - work: "真先輩の前ではかっこつけられない！ 藤本れもち"
     platform: "カドコミ"
     date: 2026-10-12
@@ -2862,17 +2904,3 @@ updates:
     provenance: claimed
     url: "https://comic-porta.com/series/7981/"
     listing_tags: ["百合"]
-  - work: "知らないまっぴるま"
-    platform: "となりのヤングジャンプ"
-    date: 2026-08-27
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://tonarinoyj.jp/episode/12207421984115943564"
-    listing_tags: ["百合", "読み切り"]
-  - work: "妖怪殲滅のサイコリリー"
-    platform: "マンガワン"
-    date: 2026-08-27
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-one.com/viewer/225633"
-    listing_tags: ["百合", "ホラー", "オカルト", "女子高生"]

@@ -288,9 +288,13 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 47
+      next_update: "2026-10-30"
+    chapter_count: 48
     chapters:
+      - code: "KC_0000760005100011_E"
+        title: "プロローグ6"
+        updated: "2026-10-27"
+        access_modes: ["free"]
       - code: "KC_0000760005000011_E"
         title: "入れ替わっちゃった"
         updated: "2026-03-20"
@@ -4097,7 +4101,7 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update_undecided: true
+      next_update: "2026-11-06"
     chapter_count: 28
     chapters:
       - code: "KC_0024680002500021_E"
@@ -4286,12 +4290,16 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 100
+      next_update: "2026-11-24"
+    chapter_count: 101
     chapters:
       - code: "KC_0027430007300011_E"
         title: "第1巻"
         updated: "2017-08-25"
+      - code: "KC_0027430009600021_E"
+        title: "第79話②"
+        updated: "2026-10-27"
+        access_modes: ["free"]
       - code: "KC_0027430009600011_E"
         title: "第79話①"
         updated: "2026-09-22"
@@ -4300,8 +4308,6 @@ works:
       - code: "KC_0027430009500011_E"
         title: "第78話"
         updated: "2026-08-25"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0027430009300011_E"
         title: "番外編 はじめての卵焼き"
         updated: "2026-05-26"
@@ -6343,8 +6349,12 @@ works:
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
       next_update: "2026-11-07"
-    chapter_count: 212
+    chapter_count: 213
     chapters:
+      - code: "KC_0032580009500011_E"
+        title: "コミックス13巻発売告知"
+        updated: "2026-10-27"
+        access_modes: ["free"]
       - code: "KC_0032580009400021_E"
         title: "第60話➁"
         updated: "2026-10-24"
@@ -8550,7 +8560,7 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-02"
+      next_update: "2026-12-07"
     chapter_count: 136
     chapters:
       - code: "KC_0041970006400021_E"
@@ -8565,12 +8575,10 @@ works:
         title: "第60話「Cherry Blossoms for the Two of Us2」②"
         updated: "2026-09-21"
         access_modes: ["free"]
-        free_until: "2026-11-02"
       - code: "KC_0041970006300011_E"
         title: "第60話「Cherry Blossoms for the Two of Us2」①"
         updated: "2026-09-07"
         access_modes: ["free"]
-        free_until: "2026-11-02"
       - code: "KC_0041970006200021_E"
         title: "第59話「Cherry Blossoms for the Two of Us1」②"
         updated: "2026-08-17"
@@ -9662,18 +9670,12 @@ works:
       - code: "KC_0044320000800011_E"
         title: "Chapter7 羽根井 凛"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0044320000700011_E"
         title: "Chapter6 大門 翼②"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0044320000600011_E"
         title: "Chapter5 大門 翼"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0044320000500011_E"
         title: "Bonus Comic　保健室で同級生に魔が差した話"
         updated: "2020-03-11"
@@ -9681,18 +9683,12 @@ works:
       - code: "KC_0044320000400011_E"
         title: "Chapter4 四方塚まこと②"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0044320000300011_E"
         title: "Chapter3 河野るる香"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0044320000200011_E"
         title: "Chapter2 神定日葵"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0044320000100011_E"
         title: "Chapter1 四方塚まこと"
         updated: "2020-02-03"
@@ -15241,9 +15237,13 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 21
+      next_update: "2026-11-24"
+    chapter_count: 22
     chapters:
+      - code: "KC_0064310001500011_E"
+        title: "コミックス第2巻発売記念イラスト"
+        access_modes: ["free"]
+        rotated_date: "2026-10-27"
       - code: "KC_0064310001400021_E"
         title: "第10話後編"
         updated: "2026-10-13"
@@ -15832,7 +15832,7 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update_undecided: true
+      next_update: "2026-10-29"
     chapter_count: 6
     chapters:
       - code: "KC_0066080000900011_E"
@@ -16733,6 +16733,7 @@ works:
         title: "第13話-1"
         updated: "2026-09-25"
         access_modes: ["free"]
+        free_until: "2026-10-30"
       - code: "KC_0067980001800011_E"
         title: "番外編2"
         updated: "2026-09-11"
@@ -17005,13 +17006,9 @@ works:
       - code: "KC_0069780001200021_E"
         title: "第10話後半"
         updated: "2026-09-28"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0069780001200011_E"
         title: "第10話前半"
         updated: "2026-09-18"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0069780001100021_E"
         title: "第9話後半"
         updated: "2026-08-28"
@@ -17792,14 +17789,17 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 7
+      next_update: "2026-11-27"
+    chapter_count: 8
     chapters:
+      - code: "KC_0083670000900011_E"
+        title: "第8話"
+        updated: "2026-10-27"
+        access_modes: ["free"]
+        free_until: "2026-11-27"
       - code: "KC_0083670000800011_E"
         title: "第7話"
         updated: "2026-09-27"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0083670000700011_E"
         title: "第6話"
         updated: "2026-08-27"
@@ -18652,14 +18652,17 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 5
+      next_update: "2026-12-27"
+    chapter_count: 6
     chapters:
+      - code: "KC_0119270000800011_E"
+        title: "第6話"
+        updated: "2026-10-27"
+        access_modes: ["free"]
+        free_until: "2026-12-27"
       - code: "KC_0119270000600011_E"
         title: "第5話"
         updated: "2026-09-27"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0119270000500011_E"
         title: "第4話"
         updated: "2026-08-27"
@@ -18687,9 +18690,13 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 7
+      next_update: "2026-11-27"
+    chapter_count: 8
     chapters:
+      - code: "KC_0119280000800011_E"
+        title: "第7話"
+        updated: "2026-10-27"
+        access_modes: ["free"]
       - code: "KC_0119280001000011_E"
         title: "1巻宣伝漫画"
         updated: "2026-10-26"
@@ -18701,8 +18708,6 @@ works:
       - code: "KC_0119280000600011_E"
         title: "第5話"
         updated: "2026-09-27"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0119280000500011_E"
         title: "第4話"
         updated: "2026-08-27"
@@ -19260,9 +19265,13 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 6
+      next_update: "2026-11-24"
+    chapter_count: 7
     chapters:
+      - code: "KC_0194750000500021_E"
+        title: "第4話②"
+        updated: "2026-10-27"
+        access_modes: ["free"]
       - code: "KC_0194750000500011_E"
         title: "第4話①"
         updated: "2026-10-13"
@@ -19300,9 +19309,13 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 8
+      next_update: "2026-11-10"
+    chapter_count: 9
     chapters:
+      - code: "KC_0196580000600021_E"
+        title: "第5話②"
+        updated: "2026-10-27"
+        access_modes: ["free"]
       - code: "KC_0196580000600011_E"
         title: "第5話①"
         updated: "2026-10-13"
@@ -19664,9 +19677,13 @@ works:
       retrieved: "2026-10-27"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 1
+      next_update: "2026-11-27"
+    chapter_count: 2
     chapters:
+      - code: "KC_0201580000300011_E"
+        title: "第２話"
+        updated: "2026-10-27"
+        access_modes: ["free"]
       - code: "KC_0201580000200011_E"
         title: "第１話"
         updated: "2026-09-27"
@@ -19983,14 +20000,17 @@ works:
     tags: ["日常系", "学園モノ", "ほのぼの", "女子高校生(JK)", "友情・仲間"]
     authors: ["徳永パン"]
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 15
+      next_update: "2026-11-27"
+    chapter_count: 16
     chapters:
+      - code: "KC_0067250001600011_E"
+        title: "第15話"
+        updated: "2026-10-27"
+        access_modes: ["free"]
+        free_until: "2026-11-27"
       - code: "KC_0067250001500011_E"
         title: "第14話"
         updated: "2026-08-27"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0067250001400011_E"
         title: "第13話"
         updated: "2026-07-27"
@@ -22266,9 +22286,13 @@ works:
     tags: ["異能力", "ラノベ原作", "とある"]
     authors: ["乃木康仁", "鎌池和馬", "はいむらきよたか"]
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 60
+      next_update: "2026-11-24"
+    chapter_count: 61
     chapters:
+      - code: "KC_0039230004900011_E"
+        title: "第38話"
+        updated: "2026-10-27"
+        access_modes: ["free"]
       - code: "KC_0039230004800011_E"
         title: "第37話"
         updated: "2026-09-29"
@@ -22280,8 +22304,6 @@ works:
       - code: "KC_0039230004600011_E"
         title: "第36.5話"
         updated: "2026-07-28"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0039230004500021_E"
         title: "第36話後編"
         updated: "2026-06-30"
@@ -25350,19 +25372,19 @@ works:
     tags: ["ラブコメ", "現代", "学園モノ", "女子高校生(JK)", "いちゃラブ", "高校生", "異能力"]
     authors: ["仲谷鳰"]
     stated_schedule:
-      next_update: "2026-11-08"
+      next_update: "2026-12-13"
     chapter_count: 24
     chapters:
       - code: "KC_0071130001400021_E"
         title: "第11話 世界がまだ無事な理由②"
         updated: "2026-10-25"
         access_modes: ["free"]
-        free_until: "2026-11-08"
+        free_until: "2026-12-13"
       - code: "KC_0071130001400011_E"
         title: "第11話 世界がまだ無事な理由①"
         updated: "2026-10-11"
         access_modes: ["free"]
-        free_until: "2026-11-08"
+        free_until: "2026-12-13"
       - code: "KC_0071130001300021_E"
         title: "第10話 欲望を覗くもの②"
         updated: "2026-09-27"
@@ -28479,19 +28501,20 @@ works:
     tags: []
     authors: ["毒田ぺパ子"]
     stated_schedule:
-      next_update: "2026-10-27"
-    chapter_count: 23
+      next_update: "2026-12-27"
+    chapter_count: 24
     chapters:
+      - code: "KC_0070140001400011_E"
+        title: "第12話"
+        updated: "2026-10-27"
+        access_modes: ["free"]
+        free_until: "2026-12-27"
       - code: "KC_0070140001300021_E"
         title: "第11話-2"
         updated: "2026-09-27"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0070140001300011_E"
         title: "第11話-1"
         updated: "2026-09-27"
-        access_modes: ["free"]
-        free_until: "2026-10-27"
       - code: "KC_0070140001200011_E"
         title: "第10話"
         updated: "2026-07-27"
@@ -29006,6 +29029,26 @@ works:
       - code: "KC_0029730000100011_E"
         title: "第1話"
         updated: "2024-01-29"
+        access_modes: ["free"]
+  - work_title: "紫蘭さまにはなびきません！"
+    platform_code: "KC_021516_S"
+    url: "https://comic-walker.com/detail/KC_021516_S"
+    status: "ongoing"
+    marketing_label: "yuri"
+    tags: ["ラブコメ", "現代", "胸キュン", "女子高校生(JK)", "イケメン", "笑える", "癒やされる", "百合", "ギャップ女子", "地味女子", "アイドル"]
+    authors: ["くも子"]
+    marketing_label_basis:
+      source: kadokomi
+      url: "https://comic-walker.com/detail/KC_021516_S"
+      retrieved: "2026-10-27"
+      note: "Publisher applies the tag 百合 on カドコミ."
+    stated_schedule:
+      next_update: "2026-11-27"
+    chapter_count: 1
+    chapters:
+      - code: "KC_0215160000200011_E"
+        title: "第１話"
+        updated: "2026-10-27"
         access_modes: ["free"]
   - work_title: "結城友奈は勇者である 勇者部びより Party♪"
     platform_code: "KC_001680_S"

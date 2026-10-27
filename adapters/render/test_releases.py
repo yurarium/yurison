@@ -117,6 +117,37 @@ def main(s):
 
 
     a_clean_read_is_recorded(s)
+    renders_rendered_together_do_not_expire_together(s)
+
+
+def renders_rendered_together_do_not_expire_together(s):
+    """Every page was rendered on 2026-10-20 in 2944 s of a 50-minute step, so every page expired
+    on the 27th and the step was killed half way. The age limit now varies by url, and past the
+    run's budget a page is read from whatever copy it has rather than rendered."""
+    import tempfile, time as _time
+    urls = [f"https://example.test/works/{n}" for n in range(200)]
+    ages = {rd.max_age(u) for u in urls}
+    s.check(len(ages) > 1, "two hundred urls do not share one age limit")
+    s.check(all(rd.RENDER_AGE_DAYS - rd.STAGGER_DAYS <= a <= rd.RENDER_AGE_DAYS for a in ages),
+            "and each lies within the stagger below the full age")
+    s.eq(rd.max_age(urls[0]), rd.max_age(urls[0]), "a url keeps the same limit from run to run")
+
+    with tempfile.TemporaryDirectory() as d:
+        cache = pathlib.Path(d)
+        url = "https://example.test/old"
+        key = rd.re.sub(r"[^A-Za-z0-9]", "_", url)[-120:]
+        old = cache / f"{key}.html"
+        old.write_text("<html>stale</html>")
+        month = _time.time() - 30 * 86400
+        __import__("os").utime(old, (month, month))
+        spent = _time.time() - 1
+        s.eq(rd.render(url, cache, deadline=spent), "<html>stale</html>",
+             "past the budget, a stale copy is read instead of rendering")
+        try:
+            rd.render("https://example.test/never", cache, deadline=spent)
+            s.check(False, "a page with no copy past the budget is refused")
+        except rd.OverBudget:
+            s.check(True, "a page with no copy past the budget is refused")
 
 
 def a_clean_read_is_recorded(s):

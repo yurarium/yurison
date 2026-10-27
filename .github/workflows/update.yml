@@ -499,6 +499,8 @@ jobs:
       - name: Put the compile's store back unless the names landed
         if: always() && !(steps.naming.outputs.pushed == 'yes' && steps.naming.outputs.outcome == 'committed')
         run: |
+          # A run that stopped before the compile has no compiled store to put back.
+          [ -f "$RUNNER_TEMP/store-compiled.db" ] || { echo "no compile ran; nothing to put back"; exit 0; }
           cp "$RUNNER_TEMP/store-compiled.db" data/relational.db
           git checkout -- data/names data/completion-reviewed.yaml 2>/dev/null || true
           echo "naming: ${{ steps.naming.outputs.outcome || 'did not finish' }}; publishing the compile's store"

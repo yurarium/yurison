@@ -41,6 +41,8 @@ from extract import CHAPTERISH, norm_date, try_jsonld, try_markup, try_next, try
 from names import credits as _credits  # noqa: E402
 import dedicated  # noqa: E402
 import textnorm  # noqa: E402
+# The per-url age limit, so a batch rendered in one run does not expire in one run.
+from render.releases import max_age  # noqa: E402
 
 UA = "Mozilla/5.0 (compatible; yurarium/0.1; +https://yurarium.github.io/)"
 CHROME = next((c for c in ("/snap/bin/chromium", "/usr/bin/chromium",
@@ -86,7 +88,7 @@ RENDER_AGE_DAYS = 7
 def render(url, cache):
     key = re.sub(r"[^A-Za-z0-9]", "_", url)[-110:]
     f = cache / f"{key}.html"
-    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < RENDER_AGE_DAYS:
+    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age(url, RENDER_AGE_DAYS):
         return f.read_text()
     if not CHROME:
         return ""

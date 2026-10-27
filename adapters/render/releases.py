@@ -23,7 +23,7 @@ feed it published and stronger than a pattern matched in markup.
 Usage:  releases.py --targets data/coverage/render-targets.yaml --out data/source/webpages \
                     --cache $YURI_CACHE/render-cache --retrieved 2026-08-01
 """
-import argparse, html as _html, json, pathlib, re, subprocess, sys, time
+import argparse, html as _html, json, pathlib, re, subprocess, sys, time, zlib
 from collections import Counter
 
 import yaml
@@ -59,12 +59,37 @@ MIN_EPISODES = 2
 #: state, and a week-old answer to that is worth more than no answer.
 RENDER_AGE_DAYS = 7
 
+#: HOW FAR EACH PAGE'S AGE LIMIT IS PULLED IN, so that pages rendered together do not expire
+#: together. On 2026-10-20 every page was rendered in one run, 2944 s of a 50-minute step; seven
+#: days later every page expired at once and the step timed out with the work half done. Each url
+#: now keeps between RENDER_AGE_DAYS - STAGGER_DAYS and RENDER_AGE_DAYS, fixed by its own text, so
+#: a batch rendered on one day comes due across four.
+STAGGER_DAYS = 3
 
-def render(url, cache, max_age_days=RENDER_AGE_DAYS):
+#: THE WALL-CLOCK SHARE OF STAGE C THIS ROUTE MAY TAKE. Past it, no page is rendered: a page with
+#: a cached copy, however old, is read from that, and one without is left for the next run. A week-
+#: old chapter list is a smaller loss than a step killed before the routes after it have run.
+RENDER_BUDGET_S = 30 * 60
+
+
+class OverBudget(Exception):
+    """The run's render time is spent and this page has no cached copy to fall back on."""
+
+
+def max_age(url, days=RENDER_AGE_DAYS, stagger=STAGGER_DAYS):
+    """This url's age limit in days: `days`, less a part of `stagger` fixed by the url's text."""
+    return days - zlib.crc32(url.encode()) % (stagger + 1)
+
+
+def render(url, cache, max_age_days=RENDER_AGE_DAYS, deadline=None):
     key = re.sub(r"[^A-Za-z0-9]", "_", url)[-120:]
     f = cache / f"{key}.html"
-    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
+    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age(url, max_age_days):
         return f.read_text()
+    if deadline is not None and time.time() >= deadline:
+        if f.exists():
+            return f.read_text()
+        raise OverBudget(url)
     if not CHROME:
         sys.exit("no chromium found; this adapter needs a browser binary on the system")
     out = subprocess.run(
@@ -327,6 +352,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     spec = yaml.safe_load(open(a.targets)) or {}
+    deadline = time.time() + RENDER_BUDGET_S
     for plat in rendered_platforms(spec):
         rows, failed = [], Counter()
         # SAYING WHAT IT IS DOING, because this stage was silent for 24 minutes. A browser render is
@@ -337,9 +363,12 @@ def main():
               f" (cached renders are reused for {RENDER_AGE_DAYS} days)", flush=True)
         for t in want:
             try:
-                html = render(t["url"], cache)
+                html = render(t["url"], cache, deadline=deadline)
             except subprocess.TimeoutExpired:
                 failed["timeout"] += 1
+                continue
+            except OverBudget:
+                failed["left for the next run"] += 1
                 continue
             if not html:
                 failed['empty render'] += 1

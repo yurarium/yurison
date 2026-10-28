@@ -4,15 +4,15 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: coverage_gap
-works_listed: 132
+works_listed: 135
 platforms_total: 25
 platforms_watched: 17
-works_on_watched_platforms: 97
+works_on_watched_platforms: 100
 platforms:
   - platform: "カドコミ"
-    works: 52
+    works: 54
     watched: true
   - platform: "きららベース"
     works: 24
@@ -41,6 +41,9 @@ platforms:
   - platform: "コミックオギャー!!"
     works: 2
     watched: true
+  - platform: "チャンピオンクロス"
+    works: 2
+    watched: true
   - platform: "マガポケ"
     works: 2
     watched: false
@@ -65,9 +68,6 @@ platforms:
   - platform: "マグコミ"
     works: 1
     watched: false
-  - platform: "チャンピオンクロス"
-    works: 1
-    watched: true
   - platform: "週刊コロコロ"
     works: 1
     watched: false
@@ -80,10 +80,10 @@ platforms:
   - platform: "COMIC OGYAAA!!"
     works: 1
     watched: true
-  - platform: "ビビビコミック"
+  - platform: "くらげバンチ"
     works: 1
     watched: true
-  - platform: "くらげバンチ"
+  - platform: "ビビビコミック"
     works: 1
     watched: true
 works:
@@ -263,10 +263,10 @@ works:
     url: "https://manga.nicovideo.jp/comic/69333"
   - raw: "ファーストペンギン・レクイエム タダノなつ"
     platform: "くらげバンチ"
-    last_update_seen: 11-24
+    last_update_seen: 10-27
     watched_platform: true
     title: "ファーストペンギン・レクイエム"
-    url: "https://kuragebunch.com/episode/12207421984130957366"
+    url: "https://kuragebunch.com/episode/12207421984241210596"
   - raw: "英雄少女と呪われの銀姫 アルト/絵本奈央"
     platform: "となりのヤングジャンプ"
     last_update_seen: 10-06
@@ -495,6 +495,12 @@ works:
     watched_platform: true
     title: "忍者と殺し屋のふたりぐらし"
     url: "https://comic-walker.com/detail/KC_004464_S"
+  - raw: "志乃と恋 千種みのり"
+    platform: "カドコミ"
+    last_update_seen: 10-27
+    watched_platform: true
+    title: "志乃と恋"
+    url: "https://comic-walker.com/detail/KC_000076_S"
   - raw: "悪いが私は百合じゃない もちオーレ"
     platform: "カドコミ"
     last_update_seen: 10-22
@@ -537,6 +543,12 @@ works:
     watched_platform: true
     title: "機動戦士ガンダム 水星の魔女 青春フロンティア"
     url: "https://comic-walker.com/detail/KC_006679_S"
+  - raw: "死神さんと昇天ごはん 菅野マナミ"
+    platform: "カドコミ"
+    last_update_seen: 10-28
+    watched_platform: true
+    title: "死神さんと昇天ごはん"
+    url: "https://comic-walker.com/detail/KC_021305_S"
   - raw: "残光再撮 若鶏にこみ"
     platform: "カドコミ"
     last_update_seen: 10-27
@@ -675,6 +687,12 @@ works:
     watched_platform: false
     title: "春雷卓球"
     url: "https://shonenjumpplus.com/episode/17107094912913096422"
+  - raw: "上伊那ぼたん、酔へる姿は百合の花 塀"
+    platform: "チャンピオンクロス"
+    last_update_seen: 10-27
+    watched_platform: true
+    title: "上伊那ぼたん、酔へる姿は百合の花"
+    url: "https://championcross.jp/episodes/773c9878f071f"
   - raw: "阿佐ヶ谷サキュバス同人物語 縁山"
     platform: "チャンピオンクロス"
     last_update_seen: 10-10

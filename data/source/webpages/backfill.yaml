@@ -12,10 +12,52 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "アイドラトリィ"
+    author: "原作/大鷹シン 漫画/ホマレ"
+    url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 3
+    chapters:
+      - title: "【#51】princess"
+        updated: 2026-08-26
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
+      - title: "【#52】Midnight"
+        updated: 2026-09-09
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/443443"
+      - title: "【単行本宣伝話】"
+        updated: 2026-09-16
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/444080"
+  - work_title: "ドリーム☆ジャンボ☆ガール"
+    author: "ヒロユキ"
+    url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 4
+    chapters:
+      - title: "【第54話】力を合わせて☆生き残れ☆ガール"
+        updated: 2026-08-26
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
+      - title: "【第55話】全力☆買収☆ガール"
+        updated: 2026-09-02
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443414"
+      - title: "【第56話】仲間全員☆NTR☆ガール"
+        updated: 2026-09-09
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443793"
+      - title: "【第57話】不安は☆友達☆ガール"
+        updated: 2026-09-16
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/444146"
   - work_title: "#ギャルとギャルの百合"
     author: "イノウエ"
     url: "https://www.sunday-webry.com/episode/12207421984435787565"
@@ -349,40 +391,6 @@ works:
       - title: "第1話 前編"
         updated: 2025-02-14
         access_modes: ["free"]
-  - work_title: "アイドラトリィ"
-    author: "原作/大鷹シン 漫画/ホマレ"
-    url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 2
-    chapters:
-      - title: "【#51】princess"
-        updated: 2026-08-26
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
-      - title: "【#52】Midnight"
-        updated: 2026-09-09
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/443443"
-  - work_title: "ドリーム☆ジャンボ☆ガール"
-    author: "ヒロユキ"
-    url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 3
-    chapters:
-      - title: "【第54話】力を合わせて☆生き残れ☆ガール"
-        updated: 2026-08-26
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
-      - title: "【第55話】全力☆買収☆ガール"
-        updated: 2026-09-02
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02758/episode/443414"
-      - title: "【第56話】仲間全員☆NTR☆ガール"
-        updated: 2026-09-09
-        access_modes: ["purchase"]
-        url: "https://pocket.shonenmagazine.com/title/02758/episode/443793"
   - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
     author: "みやしろ"
     url: "https://www.sunday-webry.com/episode/12207421984093448208"
@@ -858,8 +866,11 @@ works:
     url: "https://comic-days.com/episode/12207421983566481766"
     platform_name: "コミックDAYS"
     route: "gigaviewer-feed"
-    chapter_count: 345
+    chapter_count: 346
     chapters:
+      - title: "第３４３話②　「可哀想な人」"
+        updated: 2026-10-28
+        access_modes: ["purchase"]
       - title: "第３４３話①　「可哀想な人」"
         updated: 2026-10-21
         access_modes: ["purchase"]
@@ -868,13 +879,13 @@ works:
         access_modes: ["purchase"]
       - title: "第３４１話　「エンペラーオブレイパー」"
         updated: 2026-10-07
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第３４０話　「キングレイパー」"
         updated: 2026-09-30
         access_modes: ["free"]
       - title: "第３３９話②　「射銃」"
         updated: 2026-09-23
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第３３９話①　「射銃」"
         updated: 2026-09-16
         access_modes: ["purchase"]
@@ -4566,34 +4577,34 @@ works:
         access_modes: ["purchase"]
       - title: "第208話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第207話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第206話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第205話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第204話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第203話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第202話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第201話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第200話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第199話"
         updated: 2025-08-08
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第198話"
         updated: 2025-08-08
         access_modes: ["purchase"]

@@ -8,7 +8,7 @@
 # this pass: the works list carries credit fields with the notation already taken off, so
 # 3,076 of its 3,077 rows name nobody's job. The labels come from the release rows, which
 # keep the field as the platform wrote it. See docs/GAPS.md.
-generated: 2026-10-27
+generated: 2026-10-28
 count: 2376
 credits:
   - id: c00001
@@ -921,6 +921,7 @@ credits:
       - id: w00896
       - id: w01240
       - id: webaction:https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P:第11話(1) 丑の刻参り 後編
+      - id: webaction:https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P:第11話(2) 丑の刻参り 後編
       - id: webaction:https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P:第12話(1) E・E・S① 前編
   - id: c00203
     works:
@@ -1601,6 +1602,7 @@ credits:
       - id: w00238
       - id: w01929
       - id: w03389
+      - id: w03454
   - id: c00350
     works:
       - id: w01684

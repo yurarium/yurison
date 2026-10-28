@@ -5,14 +5,14 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 311
-works_on_watched_platform: 286
+distinct_works: 309
+works_on_watched_platform: 284
 platforms_total: 53
-platforms_watched: 41
+platforms_watched: 40
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
@@ -151,11 +151,6 @@ works_missing:
     url: "https://g-comi.jp/series/f5a28c7f5cc1b"
     antenna_id: "149312"
     tags: ["百合", "現代ファンタジー", "オカルト"]
-  - title: "喫茶 秘匿異"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/82ac8f503cf40"
-    antenna_id: "211917"
-    tags: ["百合", "読み切り", "ホラー"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
@@ -171,6 +166,11 @@ works_missing:
     url: "https://comic-boost.com/content/01780001"
     antenna_id: "216014"
     tags: ["百合", "読み切り"]
+  - title: "冷たくて 柔らか"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/11800"
+    antenna_id: "188533"
+    tags: ["百合"]
   - title: "姫騎士と姫巫女"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13609"
@@ -236,11 +236,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/12795"
     antenna_id: "202751"
     tags: ["百合", "不動産", "擬人化", "女子高生"]
-  - title: "冷たくて 柔らか"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/11800"
-    antenna_id: "188533"
-    tags: ["百合"]
   - title: "ロリースイートロリー"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13522"
@@ -261,11 +256,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/5470"
     antenna_id: "90674"
     tags: ["百合", "田舎"]
-  - title: "声に乗せてファンファーレ"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13440"
-    antenna_id: "211937"
-    tags: ["百合", "読み切り"]
   - title: "ゆりひめ@ピクシブ"
     platform: "pixivコミックマガジン"
     url: "https://comic.pixiv.net/magazines/206"
@@ -286,6 +276,16 @@ works_missing:
     url: "https://televikun-super-hero-comics.com/rensai/gokumonnadeshiko/"
     antenna_id: "181056"
     tags: ["百合", "妖怪", "女子高生", "コミカライズ", "ざまぁ", "頭脳戦・心理戦", "現代", "チート"]
+  - title: "アウトサイダーパラダイス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_021488_S"
+    antenna_id: "217263"
+    tags: ["最近のコメント数"]
+  - title: "らぶぶいっ!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008372_S"
+    antenna_id: "201618"
+    tags: ["百合", "お色気・微エロ", "異種族・人外"]
   - title: "紫蘭さまにはなびきません!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021516_S"
@@ -306,6 +306,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_007014_S"
     antenna_id: "195108"
     tags: ["百合"]
+  - title: "モブヘブン"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006725_S"
+    antenna_id: "190110"
+    tags: ["女子高生", "青春", "転生", "百合"]
   - title: "ホームセンターごと呼び出された私の大迷宮リノベーション!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006431_S"
@@ -426,11 +431,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_021441_S"
     antenna_id: "216689"
     tags: ["百合", "読み切り"]
-  - title: "らぶぶいっ!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_008372_S"
-    antenna_id: "201618"
-    tags: ["百合", "お色気・微エロ", "異種族・人外"]
   - title: "真先輩の前ではかっこつけられない!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006747_S"
@@ -616,11 +616,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019441_S"
     antenna_id: "212575"
     tags: ["百合", "読み切り"]
-  - title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_005942_S"
-    antenna_id: "177768"
-    tags: ["百合", "現代", "お色気・微エロ"]
   - title: "香り屋さんの纏さん"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2286"
@@ -646,6 +641,16 @@ works_missing:
     url: "https://www.ganganonline.com/title/1593"
     antenna_id: "146334"
     tags: ["百合", "ギャグ・コメディ", "吸血鬼・ヴァンパイア", "アニメ化"]
+  - title: "ステラ・ステップ"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/8acb58b98ca8f"
+    antenna_id: "193724"
+    tags: ["百合"]
+  - title: "ワインガールズ"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    antenna_id: "205919"
+    tags: ["百合", "擬人化"]
   - title: "魔王城デート大作戦!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
@@ -656,16 +661,6 @@ works_missing:
     url: "https://kimicomi.com/series/397963f4f9cfd"
     antenna_id: "213718"
     tags: ["百合", "暗殺者・殺し屋"]
-  - title: "ワインガールズ"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    antenna_id: "205919"
-    tags: ["百合", "擬人化"]
-  - title: "ステラ・ステップ"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/8acb58b98ca8f"
-    antenna_id: "193724"
-    tags: ["百合"]
   - title: "新米錬金術師の店舗経営"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/3e22b763a1c0f"
@@ -695,12 +690,7 @@ works_missing:
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
     antenna_id: "191960"
-    tags: ["最近のコメント数"]
-  - title: "侵略のプリマステラ!"
-    platform: "コミックボーダー"
-    url: "https://comicborder.com/episode/12207421983750440973"
-    antenna_id: "210510"
-    tags: ["百合"]
+    tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
   - title: "DOUBLE HELIX BLOSSOM"
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/65"
@@ -761,6 +751,11 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/53991"
     antenna_id: "121994"
     tags: ["百合", "女子高生", "4コマ", "アニメ化"]
+  - title: "モブヘブン"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/73164"
+    antenna_id: "190076"
+    tags: ["女子高生", "青春", "転生", "百合"]
   - title: "紅魔館の女たち"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/67189"
@@ -926,11 +921,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/47265"
     antenna_id: "104037"
     tags: ["百合", "女子高生", "アニメ化", "ラブコメ", "完結"]
-  - title: "顔だけ良いクラスメイトが、やたらとグイグイ来る百合の話。"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/70139"
-    antenna_id: "177729"
-    tags: ["百合", "現代"]
   - title: "セイ少女黙示録 ですぺあ"
     platform: "ビッコミ"
     url: "https://bigcomics.jp/series/2c1db177ce231"
@@ -951,6 +941,11 @@ works_missing:
     url: "https://flowercomics.jp/title/2780"
     antenna_id: "193062"
     tags: ["百合"]
+  - title: "怨霊日和"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    antenna_id: "202785"
+    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -961,11 +956,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
     tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
-  - title: "怨霊日和"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03125"
-    antenna_id: "202785"
-    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"
@@ -1066,6 +1056,11 @@ works_missing:
     url: "https://ynjn.jp/title/6108"
     antenna_id: "173220"
     tags: ["百合", "ロボ・人造人間"]
+  - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/e95df2815bad1"
+    antenna_id: "171118"
+    tags: ["最近のコメント数"]
   - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/86c1162f34a04"
@@ -1076,11 +1071,6 @@ works_missing:
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
     antenna_id: "148792"
     tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
-  - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/e95df2815bad1"
-    antenna_id: "171118"
-    tags: ["百合", "女子高生", "コミカライズ"]
   - title: "限界OLさんは悪役令嬢さまに仕えたい"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/90af950945671"
@@ -1206,11 +1196,6 @@ works_missing:
     url: "https://takecomic.jp/series/1c1afe76da717"
     antenna_id: "177609"
     tags: ["漫画家・絵描き", "料理・グルメ", "百合", "片思い", "完結"]
-  - title: "灼熱の卓球娘 REBURN!!"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/b3efcd5f3a6a7"
-    antenna_id: "146783"
-    tags: ["百合", "スポーツ"]
   - title: "フレンドガールフレンド"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"

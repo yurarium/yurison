@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -2481,8 +2481,12 @@ works:
     title_id: "2901"
     url: "https://pocket.shonenmagazine.com/title/02901"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2901/feed.xml"
-    chapter_count: 61
+    chapter_count: 62
     chapters:
+      - title: "【#57】Shoes"
+        updated: 2026-10-28
+        author: "原作/大鷹シン 漫画/ホマレ"
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/445733"
       - title: "【#56】ドロップアウト"
         updated: 2026-10-21
         author: "原作/大鷹シン 漫画/ホマレ"
@@ -3053,8 +3057,12 @@ works:
     title_id: "2758"
     url: "https://pocket.shonenmagazine.com/title/02758"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2758/feed.xml"
-    chapter_count: 67
+    chapter_count: 68
     chapters:
+      - title: "【第62話】有能☆後輩☆ガール"
+        updated: 2026-10-28
+        author: "ヒロユキ"
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/446039"
       - title: "【第61話】最強☆親友☆ガール"
         updated: 2026-10-21
         author: "ヒロユキ"

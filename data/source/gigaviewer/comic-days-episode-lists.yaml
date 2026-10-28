@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
-retrieved: "2026-10-27"
+retrieved: "2026-10-28"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -1275,7 +1275,7 @@ works:
   - work_title: "サタノファニ"
     series_id: "13932016480029395540"
     url: "https://comic-days.com/atom/series/13932016480029395540"
-    chapter_count: 345
+    chapter_count: 346
     chapters:
       - title: "第１話　「甘城千歌」"
         updated: "2018-02-01"
@@ -2640,7 +2640,7 @@ works:
       - title: "第３３９話②　「射銃」"
         updated: "2026-09-23"
         url: "https://comic-days.com/episode/12207421983566481748"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第３４０話　「キングレイパー」"
         updated: "2026-09-30"
         url: "https://comic-days.com/episode/12207421983566481752"
@@ -2648,7 +2648,7 @@ works:
       - title: "第３４１話　「エンペラーオブレイパー」"
         updated: "2026-10-07"
         url: "https://comic-days.com/episode/12207421983566481756"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第３４２話　「逸した洞察」"
         updated: "2026-10-14"
         url: "https://comic-days.com/episode/12207421983566481761"
@@ -2656,6 +2656,10 @@ works:
       - title: "第３４３話①　「可哀想な人」"
         updated: "2026-10-21"
         url: "https://comic-days.com/episode/12207421983566481766"
+        access_modes: ["purchase"]
+      - title: "第３４３話②　「可哀想な人」"
+        updated: "2026-10-28"
+        url: "https://comic-days.com/episode/12207421983566481770"
         access_modes: ["purchase"]
   - work_title: "愛されてもいいんだよ"
     series_id: "13933686331609651836"
@@ -3600,95 +3604,95 @@ works:
       - title: "第２話　健康になったので、やってみた"
         updated: "2024-03-08"
         url: "https://comic-days.com/episode/2550689798271538684"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第３話　成長しました"
         updated: "2024-03-08"
         url: "https://comic-days.com/episode/2550689798271538962"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第４話　本編スタート"
         updated: "2024-03-08"
         url: "https://comic-days.com/episode/2550689798271539142"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第５話　神の使い"
         updated: "2024-03-08"
         url: "https://comic-days.com/episode/2550689798271539391"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第６話　魔力測定試験"
         updated: "2024-03-08"
         url: "https://comic-days.com/episode/2550689798271539547"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第７話　因果の乱れ"
         updated: "2024-03-08"
         url: "https://comic-days.com/episode/2550689798271539799"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第８話　レベル９９"
         updated: "2024-06-07"
         url: "https://comic-days.com/episode/2550689798630127848"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第９話　エリザベート無双"
         updated: "2024-06-07"
         url: "https://comic-days.com/episode/2550689798630129685"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１０話　聖女カレンの力"
         updated: "2024-06-07"
         url: "https://comic-days.com/episode/2550689798630130965"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１１話　神前決闘裁判"
         updated: "2024-06-07"
         url: "https://comic-days.com/episode/2550689798630131991"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１２話　レウス、猛攻！"
         updated: "2024-06-07"
         url: "https://comic-days.com/episode/2550689798630133440"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１３話　火魔法奥義"
         updated: "2024-06-07"
         url: "https://comic-days.com/episode/2550689798630134672"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１４話　原始の森の伝説"
         updated: "2024-06-07"
         url: "https://comic-days.com/episode/2550689798630135573"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１５話　新入生歓迎パーティー"
         updated: "2024-06-07"
         url: "https://comic-days.com/episode/2550689798630136269"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１６話　土の騎士ルクス"
         updated: "2024-09-09"
         url: "https://comic-days.com/episode/2550912964542547765"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１７話　懲罰委員会"
         updated: "2024-09-09"
         url: "https://comic-days.com/episode/2550912964542549316"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１８話　懲罰委員会の後で"
         updated: "2024-09-09"
         url: "https://comic-days.com/episode/2550912964542550627"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第１９話　学院の森"
         updated: "2024-09-09"
         url: "https://comic-days.com/episode/2550912964542551792"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第２０話　湯煙の先に"
         updated: "2024-09-09"
         url: "https://comic-days.com/episode/2550912964542553323"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第２１話　デスバーン襲来"
         updated: "2024-09-09"
         url: "https://comic-days.com/episode/2550912964542554233"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第２２話　裏ボス対決！？"
         updated: "2024-09-09"
         url: "https://comic-days.com/episode/2550912964542554993"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第２３話　変貌"
         updated: "2024-09-09"
         url: "https://comic-days.com/episode/2550912964542555570"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第２４話　祝賀会にて"
         updated: "2024-09-09"
         url: "https://comic-days.com/episode/2550912964542556249"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第２５話　学院長の召集"
         updated: "2024-12-09"
         url: "https://comic-days.com/episode/2550912964940569975"

@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 252
   hits_on_the_title_alone: 111
   hits_stating_a_print_edition_date: 211
-  works_asked: 893
+  works_asked: 894
   works_with_a_hit: 270
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -4076,6 +4076,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_021516_S"
+    id: "w03454"
+    work: "紫蘭さまにはなびきません！"
+    author: "くも子"
+    platform: "カドコミ"
+    retrieved: "2026-10-28"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-y-ours.com/episode/12207421983394553051"
     id: "w03296"
     work: "アンラッキースケベ"

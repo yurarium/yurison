@@ -10,10 +10,10 @@
 source: nicovideo
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: web_work_chapters
 identification_mode: known-works
-works_resolved: 498
+works_resolved: 499
 works:
   - work_title: "ひとりぼっちの○○生活"
     author: "カツヲ(著者)"
@@ -23658,16 +23658,36 @@ works:
     platform_code: "69929"
     started: "2024-12-10"
     updated: "2026-10-13"
-    episode_count_stated: 4
+    episode_count_stated: 14
     partial: true
     rights: ["ライムマン", "芳文社"]
-    chapter_count: 4
+    chapter_count: 14
     chapters:
       - title: "第1話"
         access_modes: ["free"]
       - title: "第2話"
         access_modes: ["free"]
       - title: "第3話"
+        access_modes: ["free"]
+      - title: "第4話"
+        access_modes: ["free"]
+      - title: "第5話"
+        access_modes: ["free"]
+      - title: "第6話"
+        access_modes: ["free"]
+      - title: "第7話"
+        access_modes: ["free"]
+      - title: "第8話"
+        access_modes: ["free"]
+      - title: "第9話"
+        access_modes: ["free"]
+      - title: "第10話"
+        access_modes: ["free"]
+      - title: "第11話"
+        access_modes: ["free"]
+      - title: "第13話"
+        access_modes: ["free"]
+      - title: "第14話"
         access_modes: ["free"]
       - title: "第23話"
         access_modes: ["free"]
@@ -25271,6 +25291,23 @@ works:
       - title: "第10話"
         app_only: true
       - title: "第11話"
+        access_modes: ["free"]
+  - work_title: "モブヘブン"
+    author: "徳永パン(著者)"
+    url: "https://manga.nicovideo.jp/comic/73164"
+    platform_code: "73164"
+    started: "2025-06-27"
+    updated: "2026-10-27"
+    episode_count_stated: 3
+    partial: true
+    rights: ["徳永パン"]
+    chapter_count: 3
+    chapters:
+      - title: "第1話前編"
+        access_modes: ["free"]
+      - title: "第1話後編"
+        access_modes: ["free"]
+      - title: "第15話"
         access_modes: ["free"]
   - work_title: "愛焦がれキャラメリゼ"
     author: "杉谷エコ"

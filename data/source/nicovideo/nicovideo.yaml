@@ -9,12 +9,40 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 498
 works:
+  - work_title: "柚子森さん"
+    author: "江島絵理"
+    url: "https://manga.nicovideo.jp/comic/22191"
+    comic_id: "22191"
+    updated: "2026-10-28"
+    started: "2016-06-30"
+    channel: "もっとやわらかスピリッツ"
+    channel_slug: "yawaspi"
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-10-28"
+    started: "2019-10-20"
+    episode_count: 184
+    free_episodes: 184
+    latest_episode: "ロボ31-4"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1170777"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-10-28"
+    started: "2022-08-31"
+    episode_count: 159
+    free_episodes: 159
+    latest_episode: "第13話の3"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1170778"
   - work_title: "きみが死ぬまで恋をしたい"
     author: "あおのなち"
     url: "https://manga.nicovideo.jp/comic/56065"
@@ -63,6 +91,18 @@ works:
     channel_slug: "nico-yurihime"
     latest_episode: "第5話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1167264"
+  - work_title: "モブヘブン"
+    author: "徳永パン(著者)"
+    url: "https://manga.nicovideo.jp/comic/73164"
+    comic_id: "73164"
+    updated: "2026-10-27"
+    started: "2025-06-27"
+    episode_count: 3
+    free_episodes: 3
+    channel: "ニコニコキューン"
+    channel_slug: "comiccune"
+    latest_episode: "第15話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1139199"
   - work_title: "新米姉妹のふたりごはん"
     author: "柊ゆたか(著者)"
     url: "https://manga.nicovideo.jp/comic/18981"
@@ -171,26 +211,6 @@ works:
     channel_slug: "mangatime"
     latest_episode: "第148話　後半"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1144116"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-10-27"
-    started: "2019-10-20"
-    episode_count: 183
-    free_episodes: 183
-    latest_episode: "ロボ31-3"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1170455"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-10-27"
-    started: "2022-08-31"
-    episode_count: 158
-    free_episodes: 158
-    latest_episode: "第13話の2"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1170456"
   - work_title: "紅魔館の女たち"
     author: "risui(著者)"
     url: "https://manga.nicovideo.jp/comic/67189"
@@ -373,14 +393,6 @@ works:
     channel_slug: "compace"
     latest_episode: "第31話-2"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1113331"
-  - work_title: "柚子森さん"
-    author: "江島絵理"
-    url: "https://manga.nicovideo.jp/comic/22191"
-    comic_id: "22191"
-    updated: "2026-10-23"
-    started: "2016-06-30"
-    channel: "もっとやわらかスピリッツ"
-    channel_slug: "yawaspi"
   - work_title: "転生して成長チートを手に入れたら、最凶スキルもついたのですが!?"
     author: "やま ゆずもと 我美蘭"
     url: "https://manga.nicovideo.jp/comic/71212"
@@ -711,8 +723,8 @@ works:
     comic_id: "69929"
     updated: "2026-10-13"
     started: "2024-12-10"
-    episode_count: 14
-    free_episodes: 14
+    episode_count: 4
+    free_episodes: 4
     channel: "きららベース"
     channel_slug: "kirara"
     latest_episode: "第23話"
@@ -1953,18 +1965,6 @@ works:
     channel_slug: "manga-bang"
     latest_episode: "第3話\t堕ちた日 (3)"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg903865"
-  - work_title: "アウトサイダーパラダイス"
-    author: "涼川りん"
-    url: "https://manga.nicovideo.jp/comic/65506"
-    comic_id: "65506"
-    updated: "2025-03-14"
-    started: "2023-09-29"
-    episode_count: 11
-    free_episodes: 11
-    channel: "月刊のアクション"
-    channel_slug: "m_action"
-    latest_episode: "第18話　後編"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg901303"
   - work_title: "友達が私を理解らせにくるので勝利の女神の力を借りてこっちも理解らせにいきます。"
     author: "ショウマケイト"
     url: "https://manga.nicovideo.jp/comic/61994"

@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -206,8 +206,12 @@ works:
   - work_title: "ステラ・ステップ"
     author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
     url: "https://comic.pixiv.net/works/10790"
-    chapter_count: 4
+    chapter_count: 5
     chapters:
+      - title: "Step.15② 光の向こうへ"
+        updated: 2026-10-27
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "Step.15① 光の向こうへ"
         updated: 2026-10-13
         access_modes: ["free"]
@@ -621,8 +625,8 @@ works:
     url: "https://comic.pixiv.net/works/11565"
     chapter_count: 3
     chapters:
-      - title: "第11話① 丑の刻参り（後編）"
-        updated: 2026-09-26
+      - title: "第11話② 丑の刻参り（後編）"
+        updated: 2026-10-24
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話 運命のきつねうどん　後編"
@@ -740,19 +744,6 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2025-10-15
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "バクガタリzzZ"
-    author: "鰤尾みちる"
-    url: "https://comic.pixiv.net/works/12795"
-    chapter_count: 2
-    chapters:
-      - title: "第7話"
-        updated: 2026-09-29
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2026-02-17
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "私だって青春したいですよ、本当は。"
@@ -908,8 +899,8 @@ works:
     url: "https://comic.pixiv.net/works/13373"
     chapter_count: 2
     chapters:
-      - title: "第16話 決別する女の子の話①"
-        updated: 2026-10-17
+      - title: "第17話 決別する女の子の話②"
+        updated: 2026-10-24
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話 たぬき女に迫られる話"
@@ -1503,8 +1494,8 @@ works:
     url: "https://comic.pixiv.net/works/7182"
     chapter_count: 8
     chapters:
-      - title: "第49話 私たちはここにいる"
-        updated: 2026-10-20
+      - title: "第50話 世界との接点①"
+        updated: 2026-10-27
         access_modes: ["free"]
         date_basis: rendered
       - title: "第41話 受け入れてくれる場所"
@@ -2367,6 +2358,19 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2026-08-25
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "バクガタリzzZ"
+    author: "鰤尾みちる"
+    url: "https://comic.pixiv.net/works/12795"
+    chapter_count: 2
+    chapters:
+      - title: "第7話"
+        updated: 2026-09-29
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2026-02-17
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "かいじゅう色の島"

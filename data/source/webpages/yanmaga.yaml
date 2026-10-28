@@ -6,7 +6,7 @@ platform: yanmaga
 platform_name: "ヤンマガWeb"
 publisher: "講談社"
 engine: yanmaga
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -128,7 +128,7 @@ works:
         access_modes: ["purchase"]
   - work_title: "サタノファニ"
     url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
-    chapter_count: 7
+    chapter_count: 6
     chapters:
       - title: "第１話　「甘城千歌」"
         updated: "2020-06-01"
@@ -142,10 +142,6 @@ works:
         updated: "2020-07-06"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/cdb72517f48da888f270d863dc8c06f0"
         access_modes: ["free"]
-      - title: "第３４１話　「エンペラーオブレイパー」"
-        updated: "2026-10-07"
-        url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/68e9f1a5c9f44e15085cdab36f3e6a90"
-        access_modes: ["purchase"]
       - title: "第３４２話　「逸した洞察」"
         updated: "2026-10-14"
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/a2dca12acfa1ab378afd1bdccce565c6"
@@ -155,6 +151,8 @@ works:
         url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/35787c5226a258448a975c0f71595d8f"
         access_modes: ["purchase"]
       - title: "第３４３話　「可哀想な人」②"
+        updated: "2026-10-28"
+        url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B/1f69acf2a01bbbf3d89d61e78cab4c1d"
         access_modes: ["purchase"]
   - work_title: "シュガーガール・ドリップ"
     url: "https://yanmaga.jp/comics/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB_%E3%83%89%E3%83%AA%E3%83%83%E3%83%97"

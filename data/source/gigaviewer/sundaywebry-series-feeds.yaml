@@ -10,11 +10,11 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 69
-series_held: 69
+series_resolved: 70
+series_held: 70
 works:
   - work_title: "contact"
     series_id: "3270296674373045696"
@@ -1699,6 +1699,107 @@ works:
         author: "アキリ"
         url: "https://www.sunday-webry.com/episode/3269754496551508566"
         free_from: 2020-09-30
+        access_modes: ["free"]
+  - work_title: "上杉くんは女の子をやめたい"
+    series_id: "2550912964699074885"
+    url: "https://www.sunday-webry.com/atom/series/2550912964699074885"
+    chapter_count: 16
+    chapters:
+      - title: "第36話"
+        updated: 2026-10-17
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/12207421984387262030"
+        free_from: 2026-10-16
+        access_modes: ["free"]
+      - title: "イラスト"
+        updated: 2026-10-03
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/12207421984321657717"
+        free_from: 2026-10-02
+        access_modes: ["free"]
+      - title: "イラスト"
+        updated: 2026-09-05
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/12207421984187774699"
+        free_from: 2026-09-04
+        access_modes: ["free"]
+      - title: "本誌７月号出張番外編"
+        updated: 2026-08-15
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/12207421984094535779"
+        free_from: 2026-08-14
+        access_modes: ["free"]
+      - title: "イラスト"
+        updated: 2026-08-01
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/12207421984039246490"
+        free_from: 2026-07-31
+        access_modes: ["free"]
+      - title: "イラスト"
+        updated: 2026-07-04
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/12207421983921842188"
+        free_from: 2026-07-03
+        access_modes: ["free"]
+      - title: "33話予告"
+        updated: 2026-06-06
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/12207421983805402686"
+        free_from: 2026-06-05
+        access_modes: ["free"]
+      - title: "番外編「髪は女の命？」"
+        updated: 2026-02-21
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/12207421983409423039"
+        free_from: 2026-02-20
+        access_modes: ["free"]
+      - title: "番外編「飯野さんはメンタルが限界」"
+        updated: 2026-01-17
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/2551460910048173815"
+        free_from: 2026-01-16
+        access_modes: ["free"]
+      - title: "番外編"
+        updated: 2026-01-10
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/2551460910022581560"
+        free_from: 2026-01-09
+        access_modes: ["free"]
+      - title: "番外編 「八重村くんは夢みたい」"
+        updated: 2025-12-20
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/2551460909947036087"
+        free_from: 2025-12-19
+        access_modes: ["free"]
+      - title: "番外編"
+        updated: 2025-10-18
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/2551460909714347490"
+        free_from: 2025-10-17
+        access_modes: ["free"]
+      - title: "第22.5話"
+        updated: 2025-09-06
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/2551460909546725814"
+        free_from: 2025-09-05
+        access_modes: ["free"]
+      - title: "第3話"
+        updated: 2024-10-19
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/2550912964772186977"
+        free_from: 2024-10-18
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: 2024-10-05
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/2550912964707755416"
+        free_from: 2024-10-04
+        access_modes: ["free"]
+      - title: "第1話"
+        updated: 2024-10-05
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/2550912964699154588"
+        free_from: 2024-10-04
         access_modes: ["free"]
   - work_title: "中一、五月。"
     series_id: "3270296674368769680"

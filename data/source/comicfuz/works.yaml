@@ -2,7 +2,7 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -29,8 +29,11 @@ works:
       - chapter_id: 80977
         title: "第32皿(2)"
         updated: 2026-10-27
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-10-28"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80974
         title: "第32皿(1)"
         updated: 2026-10-13
@@ -4946,9 +4949,6 @@ works:
         title: "５巻 第４９話「空撮シミュレーション」"
         updated: 2026-10-26
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-10-27"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 64791
         title: "５巻 第４８話「銀狼フロウ」"
@@ -13862,267 +13862,191 @@ works:
         title: "３巻 第１２話"
         updated: 2019-12-21
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7230
         title: "３巻 第１１話"
         updated: 2019-12-14
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7229
         title: "３巻 第１０話"
         updated: 2019-12-07
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7228
         title: "３巻 第９話"
         updated: 2019-11-30
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7227
         title: "３巻 第８話"
         updated: 2019-11-23
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7226
         title: "３巻 第７話"
         updated: 2019-11-16
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7225
         title: "３巻 第６話"
         updated: 2019-11-09
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7224
         title: "３巻 第５話"
         updated: 2019-11-02
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7223
         title: "３巻 第４話"
         updated: 2019-10-26
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7222
         title: "３巻 第３話"
         updated: 2019-10-19
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7221
         title: "３巻 第２話"
         updated: 2019-10-12
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7220
         title: "３巻 第１話"
         updated: 2019-10-05
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7219
         title: "３巻 第０話"
         updated: 2019-09-28
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7218
         title: "２巻 第１３話"
         updated: 2019-09-21
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7217
         title: "２巻 第１２話"
         updated: 2019-09-14
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7216
         title: "２巻 第１１話"
         updated: 2019-09-07
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7215
         title: "２巻 第１０話"
         updated: 2019-08-31
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7214
         title: "２巻 第９話"
         updated: 2019-08-24
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7213
         title: "２巻 第８話"
         updated: 2019-08-17
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7212
         title: "２巻 第７話"
         updated: 2019-08-10
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7211
         title: "２巻 第６話"
         updated: 2019-08-03
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7210
         title: "２巻 第５話"
         updated: 2019-07-27
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7209
         title: "２巻 第４話"
         updated: 2019-07-20
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7208
         title: "２巻 第３話"
         updated: 2019-07-13
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7207
         title: "２巻 第２話"
         updated: 2019-07-06
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 7206
         title: "２巻 第１話"
         updated: 2019-06-29
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 6511
         title: "２巻 第０話"
         updated: 2019-06-22
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2811
         title: "１巻 第１３話"
         updated: 2019-06-15
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2810
         title: "１巻 第１２話"
         updated: 2019-06-08
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2809
         title: "１巻 第１１話"
         updated: 2019-06-01
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2808
         title: "１巻 第１０話"
         updated: 2019-05-25
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2807
         title: "１巻 第９話"
         updated: 2019-05-18
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2806
         title: "１巻 第８話"
         updated: 2019-05-11
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2805
         title: "１巻 第７話"
         updated: 2019-05-04
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2804
         title: "１巻 第６話"
         updated: 2019-04-27
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2803
         title: "１巻 第５話"
         updated: 2019-04-13
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2802
         title: "１巻 第４話"
         updated: 2019-04-06
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2801
         title: "１巻 第３話"
         updated: 2019-03-30
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-10-27"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 2800
         title: "１巻 第２話"
@@ -16771,9 +16695,6 @@ works:
         title: "第38話(2)"
         updated: 2026-10-26
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-10-27"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80953
         title: "第38話(1)"
@@ -17220,17 +17141,28 @@ works:
   - work_title: "花唄メモワール"
     yomi: "はなうためもわーる"
     url: "https://comic-fuz.com/manga/3274"
-    latest_updated: "2026-10-14"
+    latest_updated: "2026-10-28"
     authors: ["一ノ瀬けい"]
     tags: ["水曜日", "男性向け", "SF・ファンタジー", "お仕事・趣味", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "日常"]
-    chapter_count: 89
+    chapter_count: 91
     chapters:
-      - chapter_id: 80965
-        title: "第三十六唄(2)"
+      - chapter_id: 80971
+        title: "特別編4(2)"
         advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-28
+        free_from: 2026-11-25
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 80968
+        title: "特別編4(1)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-11-11
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 80965
+        title: "第三十六唄(2)"
+        updated: 2026-10-28
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 80962
         title: "第三十六唄(1)"
         updated: 2026-10-14
@@ -22548,8 +22480,11 @@ works:
       - chapter_id: 80998
         title: "第15話（2）"
         updated: 2026-10-27
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-10-28"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80995
         title: "第15話（1）"
         updated: 2026-10-13

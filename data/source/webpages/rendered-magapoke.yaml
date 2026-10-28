@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -326,7 +326,7 @@ works:
     author: "田口囁一"
     url: "https://pocket.shonenmagazine.com/title/01357"
     stated_schedule:
-      cadence: "毎月第1金曜"
+      cadence: "毎週月曜"
     chapter_count: 10
     chapters:
       - title: "【その32】ふたりエスケープ(2)"
@@ -378,7 +378,7 @@ works:
     author: "樫風"
     url: "https://pocket.shonenmagazine.com/title/01376"
     stated_schedule:
-      cadence: "毎月第1金曜"
+      cadence: "毎週日曜"
     chapter_count: 10
     chapters:
       - title: "【第32話(3)】"
@@ -430,7 +430,7 @@ works:
     author: "戌井だいじ"
     url: "https://pocket.shonenmagazine.com/title/01418"
     stated_schedule:
-      cadence: "毎月第1金曜"
+      cadence: "毎週月曜"
     chapter_count: 10
     chapters:
       - title: "【最終話】「彼女は彼女が好き」"
@@ -480,7 +480,7 @@ works:
     author: "サスケ"
     url: "https://pocket.shonenmagazine.com/title/01509"
     stated_schedule:
-      cadence: "毎月第1金曜"
+      cadence: "毎週日曜"
     chapter_count: 10
     chapters:
       - title: "【最終話(3)】"
@@ -531,7 +531,7 @@ works:
   - work_title: "ハロー、メランコリック!"
     url: "https://pocket.shonenmagazine.com/title/01544"
     stated_schedule:
-      cadence: "毎月第1金曜"
+      cadence: "毎週日曜"
     chapter_count: 10
     chapters:
       - title: "【track14】ハロー、メランコリック！(2)"
@@ -583,7 +583,7 @@ works:
     author: "まにお"
     url: "https://pocket.shonenmagazine.com/title/01645"
     stated_schedule:
-      cadence: "毎月第1金曜"
+      cadence: "毎週日曜"
     chapter_count: 10
     chapters:
       - title: "【act.26(5)】"
@@ -688,7 +688,7 @@ works:
     author: "雨水汐"
     url: "https://pocket.shonenmagazine.com/title/01837"
     stated_schedule:
-      cadence: "毎月第1金曜"
+      cadence: "毎週日曜"
     chapter_count: 10
     chapters:
       - title: "【32日目】"
@@ -792,7 +792,7 @@ works:
   - work_title: "甘えさせて雛森さん!"
     url: "https://pocket.shonenmagazine.com/title/02043"
     stated_schedule:
-      cadence: "毎月第1金曜"
+      cadence: "毎週日曜"
     chapter_count: 10
     chapters:
       - title: "【第21話】"
@@ -957,7 +957,7 @@ works:
     author: "シクシク"
     url: "https://pocket.shonenmagazine.com/title/02260"
     stated_schedule:
-      cadence: "毎週月曜"
+      cadence: "毎週火曜"
     chapter_count: 10
     chapters:
       - title: "【第15話】終着点（３）"
@@ -1058,7 +1058,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/02367"
     stated_schedule:
       cadence: "毎週土曜"
-      next_update: "2027-10-24"
+      next_update: "2026-11-28"
     chapter_count: 10
     chapters:
       - title: "【第34話】嘘(3)"
@@ -1110,7 +1110,7 @@ works:
     author: "ひの宙子"
     url: "https://pocket.shonenmagazine.com/title/02390"
     stated_schedule:
-      cadence: "毎週月曜"
+      cadence: "毎週火曜"
     chapter_count: 10
     chapters:
       - title: "【第20話(2)】"
@@ -1160,7 +1160,7 @@ works:
     author: "山座一心"
     url: "https://pocket.shonenmagazine.com/title/02596"
     stated_schedule:
-      cadence: "隔週金曜"
+      cadence: "毎週水曜"
     chapter_count: 10
     chapters:
       - title: "【第23話(2)】アリス・ジャバウォックに花束を"
@@ -1210,7 +1210,7 @@ works:
     author: "月野和青"
     url: "https://pocket.shonenmagazine.com/title/02604"
     stated_schedule:
-      cadence: "毎週月曜"
+      cadence: "毎週火曜"
     chapter_count: 10
     chapters:
       - title: "【第25話】正しい愛し方(後編）"
@@ -1260,7 +1260,7 @@ works:
     author: "やとさきはる"
     url: "https://pocket.shonenmagazine.com/title/02709"
     stated_schedule:
-      cadence: "毎月第1金曜"
+      cadence: "毎週日曜"
     chapter_count: 10
     chapters:
       - title: "【最終回(2)】聖夜の天使たち"
@@ -1313,6 +1313,11 @@ works:
       cadence: "毎週水曜"
     chapter_count: 10
     chapters:
+      - title: "【第62話】有能☆後輩☆ガール"
+        updated: 2026-10-28
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
       - title: "【第61話】最強☆親友☆ガール"
         updated: 2026-10-21
         access_modes: ["purchase"]
@@ -1329,10 +1334,6 @@ works:
         date_basis: rendered
       - title: "【第58話】ごほうび☆バニー☆ガール"
         updated: 2026-09-24
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第57話】不安は☆友達☆ガール"
-        updated: 2026-09-16
         access_modes: ["free"]
         date_basis: rendered
       - title: "【第5話】芸能事務所☆突撃☆ガール"
@@ -1369,13 +1370,17 @@ works:
     url: "https://pocket.shonenmagazine.com/title/02901"
     stated_schedule:
       cadence: "毎週水曜"
-      next_update: "2026-10-28"
+      next_update: "2026-11-04"
     chapter_count: 10
     chapters:
-      - title: "【#56】ドロップアウト"
-        updated: 2026-10-21
+      - title: "【#57】Shoes"
+        updated: 2026-10-28
         access_modes: ["purchase"]
         access_note: "point price 90"
+        date_basis: rendered
+      - title: "【#56】ドロップアウト"
+        updated: 2026-10-21
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【#55】dodger"
         updated: 2026-10-14
@@ -1387,11 +1392,7 @@ works:
         date_basis: rendered
       - title: "【#53】Cuteness"
         updated: 2026-09-23
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【単行本宣伝話】"
-        updated: 2026-09-16
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
         date_basis: rendered
       - title: "【#5】Pinkie swan"
         updated: 2025-08-20
@@ -1422,11 +1423,62 @@ works:
         updated: 2025-07-16
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "ファタールゲーム"
+    author: "ばったん"
+    url: "https://pocket.shonenmagazine.com/title/03056"
+    stated_schedule:
+      cadence: "隔週日曜"
+      next_update: "2026-11-08"
+    chapter_count: 10
+    chapters:
+      - title: "【17話(2)】やっぱり叩き潰します!! 漫画で"
+        updated: 2026-10-23
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【17話(1)】やっぱり叩き潰します!! 漫画で"
+        updated: 2026-10-23
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【16話(2)】世界はどうでもいい人と双海さんしかいない"
+        updated: 2026-09-25
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【16話(1)】世界はどうでもいい人と双海さんしかいない"
+        updated: 2026-09-25
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【15話(2)】あたしが証明します！"
+        updated: 2026-08-25
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【4話(2)】あたし以外の全部が灰色になっちゃうくらい"
+        updated: 2025-12-11
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【4話(1)】あたし以外の全部が灰色になっちゃうくらい"
+        updated: 2025-12-11
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【3話】神様がわたしのために用意した人"
+        updated: 2025-12-11
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【2話】友達よりも親密だけど恋人じゃない"
+        updated: 2025-12-11
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【1話】地獄だっていけるんです"
+        updated: 2025-12-11
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "GURU"
     author: "陣ノ内康暉"
     url: "https://pocket.shonenmagazine.com/title/03068"
     stated_schedule:
-      cadence: "隔週金曜"
+      cadence: "毎週水曜"
     chapter_count: 10
     chapters:
       - title: "【単行本宣伝話】"
@@ -1569,7 +1621,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03282"
     stated_schedule:
       cadence: "毎週土曜"
-      next_update: "2027-10-24"
+      next_update: "2026-10-31"
     chapter_count: 10
     chapters:
       - title: "【第26.5話】キョンシー・アンド・トリート"
@@ -1717,53 +1769,5 @@ works:
         date_basis: rendered
       - title: "【第1話】呪い髪の女"
         updated: 2026-09-09
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ファタールゲーム"
-    author: "ばったん"
-    url: "https://pocket.shonenmagazine.com/title/03056"
-    chapter_count: 10
-    chapters:
-      - title: "【16話(2)】世界はどうでもいい人と双海さんしかいない"
-        updated: 2026-09-25
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【16話(1)】世界はどうでもいい人と双海さんしかいない"
-        updated: 2026-09-25
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【15話(2)】あたしが証明します！"
-        updated: 2026-08-25
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【15話(1)】あたしが証明します！"
-        updated: 2026-08-25
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【14話(2)】これはほとんど愛かもしれない"
-        updated: 2026-07-24
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【4話(2)】あたし以外の全部が灰色になっちゃうくらい"
-        updated: 2025-12-11
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【4話(1)】あたし以外の全部が灰色になっちゃうくらい"
-        updated: 2025-12-11
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【3話】神様がわたしのために用意した人"
-        updated: 2025-12-11
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【2話】友達よりも親密だけど恋人じゃない"
-        updated: 2025-12-11
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【1話】地獄だっていけるんです"
-        updated: 2025-12-11
         access_modes: ["free"]
         date_basis: rendered

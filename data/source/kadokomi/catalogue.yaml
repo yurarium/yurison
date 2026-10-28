@@ -7,13 +7,13 @@
 # this is neither. Results are embedded in the page, so the disallowed API is not called.
 source: kadokomi
 role: attesting
-retrieved: 2026-10-27
+retrieved: 2026-10-28
 record_type: platform_yuri_catalogue
 tags_enumerated:
-  - { name: 百合, uuid: 018b8a02-f3d9-7a59-969d-288cb905f0fc, listed: 365 }
+  - { name: 百合, uuid: 018b8a02-f3d9-7a59-969d-288cb905f0fc, listed: 367 }
   - { name: GL, uuid: 018b8a02-f448-7b77-b194-cafcc706ed85, listed: 8 }
-total_reported: 373
-works_enumerated: 367
+total_reported: 375
+works_enumerated: 369
 works:
   - code: "KC_000031_S"
     title: "もし、恋が見えたなら"
@@ -1357,7 +1357,7 @@ works:
     marketing_label: yuri
   - code: "KC_006549_S"
     title: "ゆり×こちょ！"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_006598_S"
@@ -1702,7 +1702,7 @@ works:
     marketing_label: yuri
   - code: "KC_016896_S"
     title: "クレアちゃん飼育日記―カブトムシ少女にお世話されてます―"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_016898_S"
@@ -1847,6 +1847,16 @@ works:
     marketing_label: yuri
   - code: "KC_021486_S"
     title: "王子はさけて通れない！"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_021488_S"
+    title: "アウトサイダーパラダイス"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_021516_S"
+    title: "紫蘭さまにはなびきません！"
     status: "ongoing"
     tag: "百合"
     marketing_label: yuri

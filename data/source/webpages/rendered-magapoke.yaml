@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-10-28
+retrieved: 2026-10-29
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -1672,13 +1672,17 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03349"
     stated_schedule:
       cadence: "毎週木曜"
-      next_update: "2026-10-29"
-    chapter_count: 4
+      next_update: "2026-11-05"
+    chapter_count: 5
     chapters:
-      - title: "【第4話】言いなり"
-        updated: 2026-10-22
+      - title: "【第5話】漫画じゃないんだから"
+        updated: 2026-10-29
         access_modes: ["purchase"]
         access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第4話】言いなり"
+        updated: 2026-10-22
+        access_modes: ["free"]
         date_basis: rendered
       - title: "【第3話】一緒に入ろっか"
         updated: 2026-10-15

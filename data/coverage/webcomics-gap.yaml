@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-28
+retrieved: 2026-10-29
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -36,6 +36,11 @@ platforms_missing:
   - platform: "マンガボックス"
     works: 1
 works_missing:
+  - title: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3140"
+    antenna_id: "138856"
+    tags: ["百合", "アイドル"]
   - title: "しゅがー・みーつ・がーる!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3108"
@@ -71,11 +76,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3423"
     antenna_id: "187224"
     tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
-  - title: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3140"
-    antenna_id: "138856"
-    tags: ["百合", "アイドル"]
   - title: "百合SMでふたりの気持ちはつながりますか?"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/2391"
@@ -616,6 +616,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019441_S"
     antenna_id: "212575"
     tags: ["百合", "読み切り"]
+  - title: "私がモテないのはどう考えてもお前らが悪い!"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/29"
+    antenna_id: "745"
+    tags: ["最近のコメント数"]
   - title: "香り屋さんの纏さん"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2286"
@@ -631,11 +636,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/2349"
     antenna_id: "194497"
     tags: ["百合", "ヤンデレ"]
-  - title: "私がモテないのはどう考えてもお前らが悪い!"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/29"
-    antenna_id: "745"
-    tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
   - title: "ひきこまり吸血姫の悶々"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/1593"
@@ -941,21 +941,21 @@ works_missing:
     url: "https://flowercomics.jp/title/2780"
     antenna_id: "193062"
     tags: ["百合"]
+  - title: "ぎるてぃらいぶらり"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03349"
+    antenna_id: "216326"
+    tags: ["最近のコメント数"]
   - title: "怨霊日和"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["ホラー", "幽霊", "百合", "女子高生"]
+    tags: ["最近のコメント数"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
     antenna_id: "211531"
     tags: ["百合", "オカルト"]
-  - title: "ぎるてぃらいぶらり"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03349"
-    antenna_id: "216326"
-    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"

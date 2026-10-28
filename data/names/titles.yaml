@@ -85580,68 +85580,6 @@ names:
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
-  鈴木りつ短編集　考幻学入門:
-    basis: translated
-    en: 'Suzuki Ritsu Short Stories: An Introduction to Phantasmology'
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
-    en_source: yurarium
-    en_source_kind: derived
-    furigana_spans:
-    - - 鈴木
-      - すずき
-    - - りつ
-      - null
-    - - 短編集
-      - たんぺんしゅう
-    - - 　
-      - null
-    - - 考
-      - かんがえ
-    - - 幻
-      - まぼろし
-    - - 学
-      - がく
-    - - 入門
-      - にゅうもん
-    note: 考幻学 is 考古学 with 幻 swapped for 古, so archaeology becomes the study of illusions instead of the
-      study of the old. The English builds the same joke on the same suffix. 入門 is the introductory textbook.
-    reading: スズキ リツ タンペンシュウ 　 カンガエ マボロシガク ニュウモン
-    reading_at: '2026-08-06'
-    reading_basis: analyser
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    reading_uncertain: true
-    verified: false
-  鈴木りつ短編集考幻学入門:
-    basis: romaji
-    furigana_spans:
-    - - 鈴木
-      - すずき
-    - - りつ
-      - null
-    - - 短
-      - たん
-    - - 編集
-      - へんしゅう
-    - - 考
-      - こう
-    - - 幻
-      - げん
-    - - 学
-      - がく
-    - - 入門
-      - にゅうもん
-    reading: スズキ リツ タン ヘンシュウコウ ゲンガク ニュウモン
-    reading_at: '2026-08-07'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
   銀の河に星の城:
     basis: translated
     en: A Castle of Stars on the Silver River

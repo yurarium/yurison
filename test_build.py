@@ -461,6 +461,13 @@ def main(s):
     s.eq(b.work_alias("超深宇宙より愛をこめて【読み切り版】"), "超深宇宙より愛をこめて【読み切り版】",
          "a one-shot beside its serialisation is NOT the same work and is not aliased")
     s.eq(b.work_alias("citrus+"), "citrus+", "and a sequel keeps its own title")
+    # A PLATFORM'S DATE FOR A WHOLE WORK IS FILED WHERE IT IS ASKED FOR. ニコニコ漫画 spells it
+    # 鈴木りつ短編集考幻学入門 and the row reads it under the canonical 鈴木りつ短編集.
+    s.eq(b.work_level_key("鈴木りつ短編集考幻学入門", "ニコニコ漫画"),
+         b.work_level_key("鈴木りつ短編集", "ニコニコ漫画"),
+         "an aliased spelling and its canonical title file one work-level date")
+    s.check(b.work_level_key("鈴木りつ短編集", "ニコニコ漫画") != b.work_level_key("鈴木りつ短編集", "カドコミ"),
+            "and one platform's date is not another's")
 
     # AN UNDATED WORK STILL SAYS WHERE, which is what DEFINITIONS §6's scope test actually asks.
     # This returned `venue: None` on 1,209 records whose sources all named a publisher.

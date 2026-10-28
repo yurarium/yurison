@@ -1742,6 +1742,17 @@ def work_alias(title):
     return _WORK_ALIASES.get(norm_work(title), title)
 
 
+def work_level_key(title, platform):
+    """Where a platform's date for a whole work is filed, and looked up.
+
+    UNDER THE CANONICAL TITLE ON BOTH SIDES. ニコニコ漫画 states when a work last updated and the
+    serialisation row reads it back, and the row's title is already aliased where the capture's is
+    not. 鈴木りつ短編集 lost its 2026-02-17 the day its alias was added, because the date was filed
+    under ニコニコ's spelling and asked for under the work's.
+    """
+    return norm_work(work_alias(title)), platform or ""
+
+
 def catalogued_title(title):
     """A print record's title area with the work's own name in the Japanese slot.
 
@@ -4396,7 +4407,7 @@ def main():
             # THE PLATFORM SAID IT, so the corpus holds it. What it is NOT is a chapter date, and
             # `latest_work_level` is what says so to whatever draws it.
             if u and w.get("work_title"):
-                _WORK_LEVEL_LATEST[(norm_work(w["work_title"]), "ニコニコ漫画")] = u
+                _WORK_LEVEL_LATEST[work_level_key(w["work_title"], "ニコニコ漫画")] = u
             if not u or u < wcut or u > wtoday:
                 continue
             # AN APP-ONLY ROUTE PUBLISHES NO WEB CHAPTER, so its 更新 date is a store restocking
@@ -6366,7 +6377,7 @@ def main():
         # able to tell the two apart.
         if not row["latest"]:
             _stated_work_date = _WORK_LEVEL_LATEST.get(
-                (norm_work(row.get("work") or ""), row.get("platform") or ""))
+                work_level_key(row.get("work") or "", row.get("platform") or ""))
             if _stated_work_date:
                 row["latest"] = _stated_work_date
                 row["latest_work_level"] = True

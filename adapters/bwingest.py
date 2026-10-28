@@ -119,6 +119,22 @@ def title_of(work):
     return without_volume_number((vols[0].get("title") or "").strip())
 
 
+def series_of(work):
+    """The shop's own series id for this listing, or None where it states none.
+
+    A SERIES LISTING IS ITS SERIES, AND A SINGLE-VOLUME LISTING NAMES THE SERIES ITS VOLUME IS IN.
+    That is the shop's identifier and not a lead from a title: 鈴木りつ短編集 was on the shelf as
+    series 541043 and again as its first volume 45593173, which BOOK☆WALKER files under 541043,
+    and the titles differed by the volume's own subtitle, so the title fold missed it and both
+    became works on 2026-10-15.
+    """
+    if work.get("id_kind") == "series":
+        return str(work.get("shop_id"))
+    own = [v for v in work.get("volumes") or [] if str(v.get("uuid")) == str(work.get("shop_id"))]
+    sid = (own[0] if own else {}).get("series_id")
+    return str(sid) if sid else None
+
+
 def without_volume_number(title):
     """`title` with a trailing volume number removed, where the number is the volume's and not the
     work's. A title that is nothing but its number keeps it, having no name left otherwise."""
@@ -226,6 +242,7 @@ def record(work, retrieved):
         "chapter_count": len(vols) if by_chapter else 0,
         "title": title,
         "shop_id": work.get("shop_id"),
+        "series_id": series_of(work),
         "url": work.get("url"),
         # A CAPTURED AUTHOR THAT CANNOT BE A NAME IS NOT ONE. The shelf gave `７` as the creator
         # of four books, one of them published by ななつぼし, which is a fragment of the listing
@@ -254,8 +271,11 @@ def record(work, retrieved):
     }
 
 
-def one_per_title(records, kept_ids=()):
-    """`(records, doubles)`: one record per title, and the listings beyond the first.
+def one_per_title(records, kept_ids=(), key="_key"):
+    """`(records, doubles)`: one record per `key`, and the listings beyond the first.
+
+    `key` is the folded title by default and `series_id` for the shop's own grouping; a record
+    with no value under `key` is never folded by it.
 
     THE SHELF LISTS SOME WORKS TWICE, once as a series and once as a single volume, and both became
     records: きみは終末 stood as w02969 and w03353 on 2026-10-16. This pass subtracts its own earlier
@@ -266,16 +286,16 @@ def one_per_title(records, kept_ids=()):
     """
     # A RECORD ALREADY WRITTEN IS NEVER DROPPED HERE, even beside another written one: it is a work
     # the registry holds and a reader can open, and unpublishing it is a person's decision.
-    written = {r["_key"] for r in records if str(r["shop_id"]) in kept_ids}
+    written = {r[key] for r in records if str(r["shop_id"]) in kept_ids and r.get(key)}
     best = {}
     for r in records:
-        if str(r["shop_id"]) in kept_ids or r["_key"] in written:
+        if str(r["shop_id"]) in kept_ids or r.get(key) in written or not r.get(key):
             continue
-        cur = best.get(r["_key"])
+        cur = best.get(r[key])
         if cur is None or (r.get("volume_count") or 0) > (cur.get("volume_count") or 0):
-            best[r["_key"]] = r
+            best[r[key]] = r
     keep = {id(r) for r in best.values()}
-    keep |= {id(r) for r in records if str(r["shop_id"]) in kept_ids}
+    keep |= {id(r) for r in records if str(r["shop_id"]) in kept_ids or not r.get(key)}
     return [r for r in records if id(r) in keep], [r for r in records if id(r) not in keep]
 
 
@@ -345,7 +365,9 @@ def main(argv=None):
             mine.add(norm_work(_cat.without_edition_apparatus(got)))
     held -= mine
     written = {f.stem[3:] for f in pathlib.Path(a.out).glob("bw-*.yaml")}
-    records, doubles = one_per_title(records, written)
+    records, doubles = one_per_title(records, written, key="series_id")
+    records, more = one_per_title(records, written)
+    doubles += more
     new, review = split(records, held)
     review += doubles
 

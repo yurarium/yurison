@@ -16183,6 +16183,7 @@ works:
       - "madb:bw-45593173-7c3d-442e-9de6-5cdc1d9ffa89"
       - "web:https://manga.nicovideo.jp/comic/76698"
       - "web:https://comic-walker.com/detail/KC_008443_S"
+      - "madb:bw-541043"
     attached:
       - anchor: "web:https://manga.nicovideo.jp/comic/76698"
         basis: "creator 鈴木りつ is named on the platform page"
@@ -21966,6 +21967,8 @@ works:
       - "madb:bw-5043bdec-4468-4b60-8cc3-033ad111f6df"
   - id: w03345
     title: null
+    merged_into: w02190
+    merge_basis: "BOOK☆WALKER files product 45593173-7c3d-442e-9de6-5cdc1d9ffa89 (鈴木りつ短編集　考幻学入門, the record behind w02190) under its own series 541043 (鈴木りつ短編集, the record behind w03345), and both listings carry the same two volumes by 鈴木りつ from 青騎士コミックス: the shop's series id, not a title match. Minted twice by the 2026-10-15 intake because the series name lacks the first volume's subtitle."
     anchors:
       - "madb:bw-541043"
   - id: w03346
@@ -22484,18 +22487,6 @@ works:
       - anchor: "web:https://comic-earthstar.com/series/12207421984388735830/first_episode"
         basis: "the chapter page at https://comic-earthstar.com/episode/12207421984388736593 links its own series feed at https://comic-earthstar.com/atom/series/12207421984388735830, so the platform places this chapter in series 12207421984388735830, and the og:title there names the work: 【読切】おみかんジュースと、レモネード / おみかんジュースと、レモネード - 漫画：海雄ロック | コミック アース・スター. https://comic-earthstar.com/series/12207421984388735830/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-10-23
-
-# Related works. A relation and not a merge: whether a one-shot beside a
-# serialisation is a distinct work, an instalment the run absorbed, or a story a
-# later chapter retells differs case by case, and relating them says what the
-# evidence supports. Continuations belong here too, citrus and citrus+ among them.
-#
-# `precedes` is optional and is set by hand. It is NOT derived from the dates we
-# hold, because those carry import stamps in exactly the cases where order matters:
-# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day
-# 一迅プラス imported its catalogue, while the serialisation's real start of
-# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
-# one-shot after the run it came before.
   - id: w03448
     title: null
     anchors:
@@ -22529,6 +22520,18 @@ works:
     title: "紫蘭さまにはなびきません！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_021516_S"
+
+# Related works. A relation and not a merge: whether a one-shot beside a
+# serialisation is a distinct work, an instalment the run absorbed, or a story a
+# later chapter retells differs case by case, and relating them says what the
+# evidence supports. Continuations belong here too, citrus and citrus+ among them.
+#
+# `precedes` is optional and is set by hand. It is NOT derived from the dates we
+# hold, because those carry import stamps in exactly the cases where order matters:
+# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day
+# 一迅プラス imported its catalogue, while the serialisation's real start of
+# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
+# one-shot after the run it came before.
 related:
   - a: w00156
     b: w00486

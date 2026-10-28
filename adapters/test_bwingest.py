@@ -243,6 +243,23 @@ def main(s):
     keep, doubles = bw.one_per_title(recs, kept_ids={"d2c9", "579215"})
     s.eq((len(keep), doubles), (3, []), "and two records both already written both stay")
 
+    # ONE RECORD PER SHOP SERIES, whatever the titles say. 鈴木りつ短編集 was listed as series
+    # 541043 and as its first volume, whose title carries the volume's subtitle.
+    series = {"id_kind": "series", "shop_id": "541043", "volumes": [
+        {"uuid": "4559", "series_id": "541043"}, {"uuid": "59aa", "series_id": "541043"}]}
+    single = {"id_kind": "detail", "shop_id": "4559", "volumes": [
+        {"uuid": "4559", "series_id": "541043"}, {"uuid": "59aa", "series_id": "541043"}]}
+    s.eq((bw.series_of(series), bw.series_of(single)), ("541043", "541043"),
+         "a series listing and its volume's own listing name the same series")
+    s.eq(bw.series_of({"id_kind": "detail", "shop_id": "x", "volumes": [{"uuid": "y", "series_id": "9"}]}),
+         None, "a listing whose own product is not among its volumes names no series")
+    recs = [{"_key": "鈴木りつ短編集", "series_id": "541043", "shop_id": "541043", "volume_count": 2},
+            {"_key": "鈴木りつ短編集考幻学入門", "series_id": "541043", "shop_id": "4559", "volume_count": 2},
+            {"_key": "other", "series_id": None, "shop_id": "7", "volume_count": 1}]
+    keep, doubles = bw.one_per_title(recs, kept_ids={"4559"}, key="series_id")
+    s.eq(([r["shop_id"] for r in keep], [r["shop_id"] for r in doubles]), (["4559", "7"], ["541043"]),
+         "a second listing of a series already written goes to review, and no series id folds nothing")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

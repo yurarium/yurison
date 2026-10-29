@@ -4,7 +4,7 @@
 # shop says is all there is. Joined presumptively on its title, and a title that
 # already names a work we hold went to data/queue/bw-review.yaml instead of here.
 source: bookwalker
-retrieved: 2026-08-05
+retrieved: 2026-10-29
 work_id: "bw-531729"
 record_type: retailer_work_record
 shop_id: "531729"
@@ -14,7 +14,7 @@ title:
 creator: "梶井　スパナ"
 publisher: "ナンバーナイン"
 imprint: "百合コレ"
-volume_count: 3
+volume_count: 4
 date_basis: "no-print-date-stated"
 venue: "ナンバーナイン"
 completed: false
@@ -28,10 +28,13 @@ volumes:
   - title: "【最新刊】幼馴染は王子ではなく淑女です 03"
     number: "03"
     delivered: "2026-05-01"
+  - title: "【最新刊】幼馴染は王子ではなく淑女です 04"
+    number: "04"
+    delivered: "2026-11-13"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
-    retrieved: 2026-08-05
+    retrieved: 2026-10-29
     note: >-
       A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
       rebuttable, and never a marketing_label (§4).
@@ -39,7 +42,7 @@ marketing_label: none
 marketing_label_basis:
   source: bookwalker
   url: "https://bookwalker.jp/series/531729/"
-  retrieved: 2026-08-05
+  retrieved: 2026-10-29
   note: >-
     Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
     labelling (§4), so this axis stays `none`, which says nothing about content.

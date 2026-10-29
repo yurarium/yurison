@@ -6,12 +6,13 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-10-29
+retrieved: 2026-10-30
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "magcomi:episode:12207421984406812442"
+    in_current_window: false
     work_title: "君とは一緒に死ねない～警視庁怪異調査室～"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -27,6 +28,7 @@ releases:
     author: "森"
     advances_narrative: true
   - release_id: "magcomi:episode:12207421984406812438"
+    in_current_window: false
     work_title: "君とは一緒に死ねない～警視庁怪異調査室～"
     web_status: "serialised"
     identified_via: "discovery-candidate"

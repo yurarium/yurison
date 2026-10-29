@@ -920,6 +920,16 @@ names:
     note: already Latin on the platform's own page; no romanisation involved
     script: latin
     verified: true
+  APPLE:
+    basis: official-jp
+    en: APPLE
+    en_at: '2026-10-29'
+    en_pass: 0
+    en_source: surface
+    en_source_kind: platform
+    note: already Latin on the platform's own page; no romanisation involved
+    script: latin
+    verified: true
   AVALON:
     basis: translated
     en: AVALON
@@ -4956,6 +4966,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  「アルカディア」への道:
+    basis: romaji
+    furigana_spans:
+    - - 「アルカディア」への
+      - null
+    - - 道
+      - みち
+    reading: 「アルカディア」 エ ノ ミチ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   「ガールズインアポカリプス」シリーズ:
     basis: translated
     en: The “Girls in Apocalypse” Series
@@ -8301,6 +8327,20 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  あめのちゆき:
+    basis: romaji
+    furigana_spans:
+    - - あめのちゆき
+      - null
+    reading: アメ ノチ ユキ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   あめのひもがも～八百屋お七炎上図　葛飾応為筆～:
     basis: translated
     en: 'If Only for a Rainy Day: Greengrocer Oshichi Aflame, Painted by Katsushika Oi'
@@ -15311,6 +15351,21 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  しちてんはっき！:
+    basis: romaji
+    furigana_spans:
+    - - しちてんはっき！
+      - null
+    reading: シチ テン ハッキ！
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   しっかりメイドのぽんこつお嬢さま観察日記:
     basis: translated
     en: The Capable Maid's Diary of Observing Her Useless Young Lady
@@ -18044,6 +18099,21 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  どこまでほどいていいですか？:
+    basis: romaji
+    furigana_spans:
+    - - どこまでほどいていいですか？
+      - null
+    reading: ドコ マデ ホドイテ イイデス カ？
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   どっちにしろ、どつぼ:
     basis: translated
     en: Either Way, It's a Pit
@@ -19235,6 +19305,21 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  ひとひらのサクラスミレ:
+    basis: romaji
+    furigana_spans:
+    - - ひとひらのサクラスミレ
+      - null
+    reading: ヒトヒラ ノ サクラ スミレ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   ひとりと話すので精一杯:
     basis: translated
     en: Talking to One Person Is All I Can Manage
@@ -19421,6 +19506,25 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ひみつ暮らし:
+    basis: romaji
+    furigana_spans:
+    - - ひみつ
+      - null
+    - - 暮
+      - く
+    - - らし
+      - null
+    reading: ヒミツ クラシ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   ひめちゃんは重い女:
     basis: translated
     en: Hime-chan Is a Heavy Woman
@@ -20845,6 +20949,21 @@ names:
     en_source: yurarium
     en_source_kind: derived
     note: まほまほ doubles the まほう of both halves of the subtitle.
+    verified: false
+  まみやとあおい:
+    basis: romaji
+    furigana_spans:
+    - - まみやとあおい
+      - null
+    reading: マ ミヤ ト アオイ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   まめコーデ:
     basis: translated
@@ -26131,6 +26250,32 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  オトゲユリ!～ゲーセンに百合の花は咲きますか?～:
+    basis: romaji
+    furigana_spans:
+    - - オトゲユリ!～ゲーセンに
+      - null
+    - - 百合
+      - ゆり
+    - - の
+      - null
+    - - 花
+      - はな
+    - - は
+      - null
+    - - 咲
+      - さ
+    - - きますか?～
+      - null
+    reading: オトゲユリ! ～ ゲーセン ニ ユリ ノ ハナ ワ サキマス カ? ～
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   オトメの帝国:
     basis: translated
     en: The Maiden Empire
@@ -29749,6 +29894,24 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  サブスク彼女-How to Love:
+    basis: romaji
+    furigana_spans:
+    - - サブスク
+      - null
+    - - 彼女
+      - かのじょ
+    - - -How to Love
+      - null
+    reading: サブスク カノジョ - How to   Love
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   サボりなら保健室でどうぞ？:
@@ -42499,6 +42662,27 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  乙女たちの推しゴト:
+    basis: romaji
+    furigana_spans:
+    - - 乙女
+      - おとめ
+    - - たちの
+      - null
+    - - 推
+      - お
+    - - しゴト
+      - null
+    reading: オトメタチ ノ オシ ゴト
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   乙女のおかず:
     basis: translated
     en: Otome's Side Dish
@@ -49354,6 +49538,39 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  名門校に通う庶民なので、お嬢様と恋はできません！:
+    basis: romaji
+    furigana_spans:
+    - - 名門校
+      - めいもんこう
+    - - に
+      - null
+    - - 通
+      - かよ
+    - - う
+      - null
+    - - 庶民
+      - しょみん
+    - - なので、お
+      - null
+    - - 嬢様
+      - じょうさま
+    - - と
+      - null
+    - - 恋
+      - こい
+    - - はできません！
+      - null
+    reading: メイモンコウ ニ カヨウ ショミンナ ノデ、 オジョウサマ ト コイ ワ デキマセン！
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   向かいの学校でデスゲームやってるっぽい:
@@ -67094,6 +67311,31 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  楽園にて春を待つ:
+    basis: romaji
+    furigana_spans:
+    - - 楽園
+      - らくえん
+    - - にて
+      - null
+    - - 春
+      - はる
+    - - を
+      - null
+    - - 待
+      - ま
+    - - つ
+      - null
+    reading: ラクエン ニテ ハル ヲ マツ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   楽園の季節:
     basis: translated
     en: A Season in Paradise
@@ -70244,6 +70486,25 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  煌めきの隣:
+    basis: romaji
+    furigana_spans:
+    - - 煌
+      - きら
+    - - めきの
+      - null
+    - - 隣
+      - となり
+    reading: キラメキ ノ トナリ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   煙に寄せて:
     basis: translated
     en: A Tribute to Smoke
@@ -70430,6 +70691,22 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  燻日:
+    basis: romaji
+    furigana_spans:
+    - - 燻
+      - いぶし
+    - - 日
+      - ひ
+    reading: イブシ ヒ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   犬と仕事は煙に巻けない:
@@ -82178,6 +82455,23 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  花結び:
+    basis: romaji
+    furigana_spans:
+    - - 花結
+      - はなむす
+    - - び
+      - null
+    reading: ハナムスビ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   花達の幸福論:
     basis: translated
     en: The Flowers' Theory of Happiness
@@ -83632,6 +83926,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  誕プレなしでもキスはほしい:
+    basis: romaji
+    furigana_spans:
+    - - 誕
+      - たん
+    - - プレなしでもキスはほしい
+      - null
+    reading: タン プレ ナシ デ モ キス ワ ホシイ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   誰かオオカミさんのしつけ方知りませんか！？:
     basis: translated
     en: Does Anyone Know How to Discipline a Wolf Girl?!
@@ -84744,6 +85054,23 @@ names:
     reading_source: Yen Press
     reading_source_kind: derived
     reading_url: https://yenpress.com/series/the-magical-revolution-of-the-reincarnated-princess-and-the-genius-young-lady-manga
+    verified: false
+  辛党パティシエール:
+    basis: romaji
+    furigana_spans:
+    - - 辛党
+      - からとう
+    - - パティシエール
+      - null
+    reading: カラトウ パティシエール
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   辿り着けない星:
     basis: translated
@@ -86830,6 +87157,24 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  零時のひまわり:
+    basis: romaji
+    furigana_spans:
+    - - 零
+      - れい
+    - - 時
+      - じ
+    - - のひまわり
+      - null
+    reading: レイ ジ ノ ヒマワリ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   電波系Xエンカウント:

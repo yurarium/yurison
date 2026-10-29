@@ -4,7 +4,7 @@
 # shop says is all there is. Joined presumptively on its title, and a title that
 # already names a work we hold went to data/queue/bw-review.yaml instead of here.
 source: bookwalker
-retrieved: 2026-08-05
+retrieved: 2026-10-29
 work_id: "bw-508433"
 record_type: retailer_work_record
 shop_id: "508433"
@@ -14,7 +14,7 @@ title:
 creator: "倫理きよ / Ｓｙｏｕｓａ．(原著) / jimao(企画・原案)"
 publisher: "主婦と生活社"
 imprint: "PASH! コミックス"
-volume_count: 3
+volume_count: 4
 first_published: "2025-02-17"
 venue: "主婦と生活社"
 completed: false
@@ -30,10 +30,13 @@ volumes:
   - title: "【最新刊】あなたの未来を許さない（コミック）３"
     designation: ")3"
     delivered: "2026-08-07"
+  - title: "【最新刊】あなたの未来を許さない（コミック）４"
+    designation: ")4"
+    delivered: "2026-10-02"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
-    retrieved: 2026-08-05
+    retrieved: 2026-10-29
     note: >-
       A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
       rebuttable, and never a marketing_label (§4).
@@ -41,7 +44,7 @@ marketing_label: none
 marketing_label_basis:
   source: bookwalker
   url: "https://bookwalker.jp/series/508433/"
-  retrieved: 2026-08-05
+  retrieved: 2026-10-29
   note: >-
     Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
     labelling (§4), so this axis stays `none`, which says nothing about content.

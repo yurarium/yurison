@@ -5,13 +5,13 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-29
+retrieved: 2026-10-30
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 309
+distinct_works: 308
 works_on_watched_platform: 284
-platforms_total: 53
+platforms_total: 52
 platforms_watched: 40
 # ranked by works reachable on NO watched platform
 platforms_missing:
@@ -33,9 +33,17 @@ platforms_missing:
     works: 1
   - platform: "ドリコミ+"
     works: 1
-  - platform: "マンガボックス"
-    works: 1
 works_missing:
+  - title: "うさぎはかく語りき"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3572"
+    antenna_id: "173581"
+    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
+  - title: "球詠"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/441"
+    antenna_id: "88071"
+    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "IDOL×IDOL STORY!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3140"
@@ -61,16 +69,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3818"
     antenna_id: "194415"
     tags: ["自然科学・科学技術", "学問・研究", "大学生", "百合"]
-  - title: "うさぎはかく語りき"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3572"
-    antenna_id: "173581"
-    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
-  - title: "球詠"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/441"
-    antenna_id: "88071"
-    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "エイティエイトを2でわって"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3423"
@@ -950,7 +948,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
-    tags: ["最近のコメント数"]
+    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - title: "怨霊日和"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
@@ -1021,21 +1019,16 @@ works_missing:
     url: "https://www.yomonga.com/titles/2532/"
     antenna_id: "200569"
     tags: ["百合"]
-  - title: "世界で一番おっぱいが好き!"
-    platform: "マンガボックス"
-    url: "https://www.mangabox.me/reader/262412/"
-    antenna_id: "156579"
-    tags: ["百合"]
-  - title: "かわいい同盟"
-    platform: "マンガワン"
-    url: "https://manga-one.com/viewer/290902"
-    antenna_id: "189002"
-    tags: ["百合", "学園", "女子高生", "女装", "ルッキズム"]
   - title: "付き合ってあげてもいいかな"
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/70173"
     antenna_id: "180171"
     tags: ["百合", "大学生", "実写化"]
+  - title: "かわいい同盟"
+    platform: "マンガワン"
+    url: "https://manga-one.com/viewer/290902"
+    antenna_id: "189002"
+    tags: ["百合", "学園", "女子高生", "女装", "ルッキズム"]
   - title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
     platform: "マンガワン"
     url: "https://manga-one.com/manga/27253/chapter/307792"
@@ -1065,7 +1058,7 @@ works_missing:
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/e95df2815bad1"
     antenna_id: "171118"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "女子高生", "コミカライズ"]
   - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/86c1162f34a04"
@@ -1211,6 +1204,11 @@ works_missing:
     url: "https://hanayume.com/series/dcaacd8b4831f"
     antenna_id: "213961"
     tags: ["百合", "読み切り"]
+  - title: "かわいい同盟"
+    platform: "裏サンデー"
+    url: "https://urasunday.com/title/26962"
+    antenna_id: "188987"
+    tags: ["百合", "学園", "女子高生", "女装", "社会派"]
   - title: "付き合ってあげてもいいかな"
     platform: "裏サンデー"
     url: "https://urasunday.com/title/603"

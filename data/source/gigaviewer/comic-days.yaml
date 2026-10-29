@@ -6,7 +6,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-10-29
+retrieved: 2026-10-30
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -42,6 +42,7 @@ releases:
     author: "空山トキ/五色安未/泉乃せん/伍長"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984407034847"
+    in_current_window: false
     work_title: "ファタールゲーム"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -58,6 +59,7 @@ releases:
     author: "ばったん"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984407034842"
+    in_current_window: false
     work_title: "ファタールゲーム"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -74,6 +76,7 @@ releases:
     author: "ばったん"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984407034837"
+    in_current_window: false
     work_title: "ファタールゲーム"
     web_status: "serialised"
     identified_via: "discovery-candidate"

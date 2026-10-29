@@ -6249,6 +6249,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  はなうためありー:
+    basis: romaji
+    reading: ハナウタメアリー
+    reading_at: '2026-10-29'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   はなこ:
     basis: romaji
     reading: ハナコ
@@ -6837,6 +6845,23 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ふゆつみ千明:
+    basis: romaji
+    furigana_spans:
+    - - ふゆつみ
+      - null
+    - - 千明
+      - ちあき
+    reading: フユツミ チアキ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   ふらみんこ:
     basis: romaji
     en_at: '2026-08-02'
@@ -8977,6 +9002,14 @@ names:
     reading_pass: 1
     reading_reviewed: '2026-08-07'
     reading_source_kind: derived
+    verified: true
+  わんころり:
+    basis: romaji
+    reading: ワンコロリ
+    reading_at: '2026-10-29'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
     verified: true
   ゐぬゐ:
     basis: romaji
@@ -14757,6 +14790,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I023582167
     verified: true
+  三浦ぴのの:
+    basis: romaji
+    furigana_spans:
+    - - 三浦
+      - みうら
+    - - ぴのの
+      - null
+    reading: ミウラ ピノノ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   三浦コズミ:
     basis: romaji
     reading: ミウラ コズミ
@@ -19859,6 +19909,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  國光恐竜:
+    basis: romaji
+    furigana_spans:
+    - - 國光
+      - くにみつ
+    - - 恐竜
+      - きょうりゅう
+    reading: クニミツキョウリュウ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   園河ソノ:
     basis: romaji
     furigana_spans:
@@ -21933,6 +21999,20 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I023338526
     verified: true
+  守崎:
+    basis: romaji
+    furigana_spans:
+    - - 守崎
+      - まもりざき
+    reading: マモリザキ
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   安房さとる:
     basis: romaji
     en: ABOU Satoru
@@ -34573,6 +34653,25 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/34950
+    verified: false
+  白藍まこと:
+    basis: romaji
+    furigana_spans:
+    - - 白
+      - しろ
+    - - 藍
+      - あい
+    - - まこと
+      - null
+    reading: シロアイ マコト
+    reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   白野 アキヒロ:
     basis: romaji

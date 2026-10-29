@@ -4,7 +4,7 @@
 # shop says is all there is. Joined presumptively on its title, and a title that
 # already names a work we hold went to data/queue/bw-review.yaml instead of here.
 source: bookwalker
-retrieved: 2026-08-05
+retrieved: 2026-10-29
 work_id: "bw-5f9f6fc3-69fd-4234-8600-2d8a84c7ee88"
 record_type: retailer_work_record
 shop_id: "5f9f6fc3-69fd-4234-8600-2d8a84c7ee88"
@@ -14,7 +14,7 @@ title:
 creator: "辻森　悠 / 深水紅茶 / 白峰　かな"
 publisher: "KADOKAWA"
 imprint: "電撃コミックスNEXT"
-volume_count: 1
+volume_count: 2
 first_published: "2025-02-27"
 venue: "KADOKAWA"
 completed: false
@@ -23,10 +23,14 @@ volumes:
     designation: "(1) ~崖っぷち食堂の副料理長、はじめました"
     published: "2025-02-27"
     delivered: "2025-02-27"
+  - title: "【最新刊】転生少女の三ツ星レシピ（２）　～崖っぷち食堂の副料理長、はじめました～"
+    designation: "(2) ~崖っぷち食堂の副料理長、はじめました"
+    published: "2026-08-27"
+    delivered: "2026-08-27"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
-    retrieved: 2026-08-05
+    retrieved: 2026-10-29
     note: >-
       A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
       rebuttable, and never a marketing_label (§4).
@@ -34,7 +38,7 @@ marketing_label: none
 marketing_label_basis:
   source: bookwalker
   url: "https://bookwalker.jp/de5f9f6fc3-69fd-4234-8600-2d8a84c7ee88/"
-  retrieved: 2026-08-05
+  retrieved: 2026-10-29
   note: >-
     Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
     labelling (§4), so this axis stays `none`, which says nothing about content.

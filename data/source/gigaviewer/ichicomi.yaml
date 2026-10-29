@@ -6,11 +6,27 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-10-29
+retrieved: 2026-10-30
 record_type: web_releases
 identification_mode: genre
-yuri_series_count: 174
+yuri_series_count: 175
 releases:
+  - release_id: "ichijinsha:episode:12207421984387218979"
+    work_title: "APPLE"
+    web_status: "serialised"
+    identified_via: "platform-genre"
+    episode_title: "読み切り作品"
+    release_type: "oneshot"
+    date: "2026-10-30"
+    date_basis: "observed"
+    first_seen: "2026-10-30"
+    first_reported: "2026-10-29T15:00:00Z"
+    platform_updated: "2026-10-29T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://ichicomi.com/episode/12207421984387218979"
+    author: "Ayster"
+    free_term_start: "2026-10-29T15:00:00Z"
+    advances_narrative: true
   - release_id: "ichijinsha:episode:12207421984374441848"
     in_current_window: false
     work_title: "映しちゃダメな顔"

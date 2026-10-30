@@ -13,8 +13,8 @@ publisher: "一迅社"
 retrieved: 2026-10-30
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 180
-series_held: 180
+series_resolved: 181
+series_held: 181
 works:
   - work_title: "超深宇宙より愛をこめて"
     series_id: "2550912965923183753"
@@ -5807,6 +5807,18 @@ works:
         author: "未幡"
         url: "https://ichicomi.com/episode/2550912965923203016"
         free_from: 2025-08-08
+        access_modes: ["free"]
+  - work_title: "APPLE"
+    series_id: "12207421984387217482"
+    url: "https://ichicomi.com/atom/series/12207421984387217482"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り作品"
+        updated: 2026-10-30
+        content_id: "20251_001"
+        author: "Ayster"
+        url: "https://ichicomi.com/episode/12207421984387218979"
+        free_from: 2026-10-29
         access_modes: ["free"]
   - work_title: "百合の間に挟まる梅田ダンジョン"
     series_id: "12207421984335596372"

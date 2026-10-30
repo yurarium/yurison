@@ -22532,6 +22532,91 @@ works:
 # 一迅プラス imported its catalogue, while the serialisation's real start of
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
+  - id: w03455
+    title: null
+    anchors:
+      - "madb:bw-34a0a236-3b2d-4af7-a370-469f79218c3d"
+  - id: w03456
+    title: null
+    anchors:
+      - "madb:bw-3aadefe5-0786-42b3-90c1-cbafc8d83ed0"
+  - id: w03457
+    title: null
+    anchors:
+      - "madb:bw-44e11cd7-a2cb-42bc-a923-6b80666cc773"
+  - id: w03458
+    title: null
+    anchors:
+      - "madb:bw-595034e1-a5a1-41bd-9b93-192e47802c51"
+  - id: w03459
+    title: null
+    anchors:
+      - "madb:bw-633377"
+  - id: w03460
+    title: null
+    anchors:
+      - "madb:bw-8557fd28-7dff-480f-a9a7-2ff4ab6fd6eb"
+  - id: w03461
+    title: null
+    anchors:
+      - "madb:bw-8c60765e-7cda-416e-af9b-3560f7b07ed3"
+  - id: w03462
+    title: null
+    anchors:
+      - "madb:bw-8dff2298-bcb9-4630-a080-8adcb1b3baf2"
+  - id: w03463
+    title: null
+    anchors:
+      - "madb:bw-9cc6a8bd-8ec8-495c-ab8a-fb092f5f73e3"
+  - id: w03464
+    title: null
+    anchors:
+      - "madb:bw-a3eef62e-3108-458a-8d99-306b6e29015d"
+  - id: w03465
+    title: null
+    anchors:
+      - "madb:bw-b82d4795-d430-4e11-8123-ee45cad2dea9"
+  - id: w03466
+    title: null
+    anchors:
+      - "madb:bw-bee7fa7d-60b4-4d93-a01a-6548a08f8875"
+  - id: w03467
+    title: null
+    anchors:
+      - "madb:bw-c91ab5f7-6c9d-4cfc-acfa-d511344a1f4a"
+  - id: w03468
+    title: null
+    anchors:
+      - "madb:bw-ca0cabaf-b266-4759-a91b-b6f059cf2f94"
+  - id: w03469
+    title: null
+    anchors:
+      - "madb:bw-cb69efbe-1fc3-455f-9c9c-554d4c404f87"
+  - id: w03470
+    title: null
+    anchors:
+      - "madb:bw-e5654aa9-c724-4f27-b109-1c0000b0f1c1"
+  - id: w03471
+    title: null
+    anchors:
+      - "madb:bw-ef25d4bd-f2ac-42ca-9aa4-f731dc305c97"
+  - id: w03472
+    title: null
+    anchors:
+      - "madb:bw-faaa75ad-7f8b-429d-bd2e-4d3804b0d2f3"
+  - id: w03473
+    title: "APPLE"
+    anchors:
+      - "web:https://ichicomi.com/episode/12207421984387218979"
+      - "web:https://ichicomi.com/atom/series/12207421984387217482"
+    attached:
+      - anchor: "web:https://ichicomi.com/atom/series/12207421984387217482"
+        basis: "the chapter page at https://ichicomi.com/episode/12207421984387218979 links its own series feed at https://ichicomi.com/atom/series/12207421984387217482, so the platform places this chapter in series 12207421984387217482"
+        retrieved: 2026-10-30
+  - id: w03474
+    title: "聖騎士様のお気に入り"
+    anchors:
+      - "web:https://comic-boost.com/content/01840001"
 related:
   - a: w00156
     b: w00486

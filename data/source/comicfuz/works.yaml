@@ -9,12 +9,24 @@ works:
   - work_title: "うさぎはかく語りき"
     yomi: "うさぎはかくかたりき"
     url: "https://comic-fuz.com/manga/3572"
-    latest_updated: "2026-10-23"
+    latest_updated: "2026-10-30"
     is_original: true
     authors: ["鴻巣覚"]
     tags: ["金曜日", "オリジナル", "男性向け", "SF・ファンタジー", "お仕事・趣味", "バトル・アクション", "FUZコミックス", "オリジナル作品の最新話が無料化！", "異世界"]
-    chapter_count: 67
+    chapter_count: 69
     chapters:
+      - chapter_id: 81688
+        title: "第23話(2)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2027-01-01
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 81685
+        title: "第23話(1)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-18
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 80797
         title: "第22.5話"
         advance_paid: true   # published and paid; free from free_from
@@ -331,7 +343,7 @@ works:
   - work_title: "球詠"
     yomi: "たまよみ"
     url: "https://comic-fuz.com/manga/441"
-    latest_updated: "2026-10-23"
+    latest_updated: "2026-10-30"
     authors: ["マウンテンプクイチ"]
     tags: ["金曜日", "男性向け", "学園", "メディア化", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "スポーツ"]
     chapter_count: 240
@@ -632,10 +644,9 @@ works:
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 53756
         title: "１５巻 第８６球 「無理してないかな」（１）"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-10-30
+        updated: 2026-10-30
         access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 53753
         title: "１５巻 第８５球 「暴挙！」（２）"
         updated: 2026-10-23
@@ -5639,8 +5650,11 @@ works:
       - chapter_id: 58959
         title: "３巻 第４０話"
         updated: 2026-10-29
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-10-30"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 58956
         title: "３巻 第３９話"
         updated: 2026-10-22
@@ -12375,8 +12389,11 @@ works:
       - chapter_id: 59796
         title: "１５巻 第１９０話"
         updated: 2026-10-29
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-10-30"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 59793
         title: "１５巻 第１８９話"
         updated: 2026-10-22

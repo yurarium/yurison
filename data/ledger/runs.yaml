@@ -1,73 +1,6 @@
 note: 'What each source returned, run over run. Append-only within a window of 40.
   A source that was not re-fetched is not compared: see adapters/ledger.py.'
 runs:
-- at: '2026-10-12T16:16:04+00:00'
-  sources:
-    bookwalker:
-      files: 1644
-      works: 0
-      rows: 0
-      retrieved: '2026-08-05'
-    comicfuz:
-      files: 2
-      works: 130
-      rows: 6242
-      retrieved: '2026-10-13'
-    comparators:
-      files: 5
-      works: 8
-      rows: 0
-      retrieved: '2026-08-05'
-    editions:
-      files: 1
-      works: 4
-      rows: 0
-      retrieved: '2026-08-07'
-    gigaviewer:
-      files: 72
-      works: 614
-      rows: 7862
-      retrieved: '2026-10-13'
-    ichijinsha:
-      files: 364
-      works: 0
-      rows: 0
-      retrieved: '2026-08-08'
-    kadokomi:
-      files: 5
-      works: 983
-      rows: 7033
-      retrieved: '2026-10-13'
-    madb:
-      files: 943
-      works: 0
-      rows: 0
-      retrieved: '2026-08-07'
-    madb-title:
-      files: 57
-      works: 0
-      rows: 0
-      retrieved: '2026-08-06'
-    nicovideo:
-      files: 3
-      works: 1339
-      rows: 10674
-      retrieved: '2026-10-13'
-    openbd:
-      files: 847
-      works: 0
-      rows: 0
-      retrieved: '2026-10-13'
-    reachable:
-      files: 1
-      works: 246
-      rows: 0
-      retrieved: '2026-08-02'
-    webpages:
-      files: 48
-      works: 590
-      rows: 8177
-      retrieved: '2026-10-13'
 - at: '2026-10-12T18:07:04+00:00'
   sources:
     bookwalker:
@@ -2680,4 +2613,71 @@ runs:
       files: 50
       works: 654
       rows: 9385
+      retrieved: '2026-10-30'
+- at: '2026-10-30T10:40:01+00:00'
+  sources:
+    bookwalker:
+      files: 1746
+      works: 0
+      rows: 0
+      retrieved: '2026-10-29'
+    comicfuz:
+      files: 2
+      works: 130
+      rows: 6288
+      retrieved: '2026-10-30'
+    comparators:
+      files: 5
+      works: 8
+      rows: 0
+      retrieved: '2026-10-30'
+    editions:
+      files: 1
+      works: 4
+      rows: 0
+      retrieved: '2026-08-07'
+    gigaviewer:
+      files: 86
+      works: 1261
+      rows: 17224
+      retrieved: '2026-10-30'
+    ichijinsha:
+      files: 364
+      works: 0
+      rows: 0
+      retrieved: '2026-08-08'
+    kadokomi:
+      files: 5
+      works: 1015
+      rows: 7130
+      retrieved: '2026-10-30'
+    madb:
+      files: 943
+      works: 0
+      rows: 0
+      retrieved: '2026-08-07'
+    madb-title:
+      files: 57
+      works: 0
+      rows: 0
+      retrieved: '2026-08-06'
+    nicovideo:
+      files: 3
+      works: 1343
+      rows: 10733
+      retrieved: '2026-10-30'
+    openbd:
+      files: 847
+      works: 0
+      rows: 0
+      retrieved: '2026-10-30'
+    reachable:
+      files: 1
+      works: 246
+      rows: 0
+      retrieved: '2026-08-02'
+    webpages:
+      files: 50
+      works: 655
+      rows: 9403
       retrieved: '2026-10-30'

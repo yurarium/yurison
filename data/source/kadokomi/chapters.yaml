@@ -288,9 +288,14 @@ works:
       retrieved: "2026-10-30"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-30"
-    chapter_count: 48
+      next_update: "2026-11-03"
+    chapter_count: 49
     chapters:
+      - code: "KC_0000760005200011_E"
+        title: "映画デート"
+        updated: "2026-10-30"
+        access_modes: ["free"]
+        free_until: "2026-11-03"
       - code: "KC_0000760005100011_E"
         title: "プロローグ6"
         updated: "2026-10-27"
@@ -6682,312 +6687,408 @@ works:
         access_modes: ["free"]
       - code: "KC_0032580004100041_E"
         title: "第31話④"
-        updated: "2025-02-03"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580004100031_E"
         title: "第31話③"
-        updated: "2025-02-03"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580004100021_E"
         title: "第31話②"
-        updated: "2025-02-03"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580004100011_E"
         title: "第31話①"
-        updated: "2025-02-03"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580004000031_E"
         title: "第30話③"
-        updated: "2025-02-03"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580004000021_E"
         title: "第30話②"
-        updated: "2025-02-03"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580004000011_E"
         title: "第30話①"
-        updated: "2025-02-03"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003900031_E"
         title: "第29話③"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003900021_E"
         title: "第29話②"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003900011_E"
         title: "第29話①"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003800041_E"
         title: "第28話④"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003800031_E"
         title: "第28話③"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003800021_E"
         title: "第28話②"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003800011_E"
         title: "第28話①"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003700011_E"
         title: "コミックス6巻発売告知"
         updated: "2023-03-27"
         access_modes: ["free"]
       - code: "KC_0032580003600011_E"
         title: "わたたべっ！"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003500031_E"
         title: "第27話③"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003500021_E"
         title: "第27話②"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003500011_E"
         title: "第27話①"
-        updated: "2025-12-19"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003400031_E"
         title: "第26話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003400021_E"
         title: "第26話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003400011_E"
         title: "第26話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003300011_E"
         title: "幕間 在りし日"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003200031_E"
         title: "第25話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003200021_E"
         title: "第25話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003200011_E"
         title: "第25話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003100041_E"
         title: "第24話④"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003100031_E"
         title: "第24話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003100021_E"
         title: "第24話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003100011_E"
         title: "第24話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580003000011_E"
         title: "コミックス5巻発売告知"
         updated: "2022-09-26"
         access_modes: ["free"]
       - code: "KC_0032580002900031_E"
         title: "第23話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002900021_E"
         title: "第23話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002900011_E"
         title: "第23話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002800031_E"
         title: "第22話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002800021_E"
         title: "第22話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002800011_E"
         title: "第22話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002700031_E"
         title: "第21話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002700021_E"
         title: "第21話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002700011_E"
         title: "第21話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002600031_E"
         title: "第20話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002600021_E"
         title: "第20話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002600011_E"
         title: "第20話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002500011_E"
         title: "コミックス4巻発売告知"
         updated: "2022-05-27"
         access_modes: ["free"]
       - code: "KC_0032580002400011_E"
         title: "幕間②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002300011_E"
         title: "幕間①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002200041_E"
         title: "第19話④"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002200031_E"
         title: "第19話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002200021_E"
         title: "第19話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002200011_E"
         title: "第19話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002100031_E"
         title: "第18話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002100021_E"
         title: "第18話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002100011_E"
         title: "第18話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002000031_E"
         title: "第17話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002000021_E"
         title: "第17話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580002000011_E"
         title: "第17話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001900041_E"
         title: "第16話④"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001900031_E"
         title: "第16話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001900021_E"
         title: "第16話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001900011_E"
         title: "第16話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001800041_E"
         title: "第15話④"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001800031_E"
         title: "第15話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001800021_E"
         title: "第15話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001800011_E"
         title: "第15話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001600041_E"
         title: "第14話④"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001700011_E"
         title: "コミックス3巻発売告知"
         updated: "2021-11-26"
         access_modes: ["free"]
       - code: "KC_0032580001600031_E"
         title: "第14話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001600021_E"
         title: "第14話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001600011_E"
         title: "第14話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001500021_E"
         title: "第13話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001500011_E"
         title: "第13話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001400011_E"
         title: "幕間"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001300041_E"
         title: "第12話④"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001300031_E"
         title: "第12話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001300021_E"
         title: "第12話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001300011_E"
         title: "第12話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001200021_E"
         title: "第11話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001200011_E"
         title: "第11話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001100041_E"
         title: "第10話④"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001100031_E"
         title: "第10話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001100021_E"
         title: "第10話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001100011_E"
         title: "第10話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001000041_E"
         title: "第9話➃"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001000031_E"
         title: "第9話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001000021_E"
         title: "第9話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580001000011_E"
         title: "第9話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000900021_E"
         title: "第8話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000900011_E"
         title: "第8話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000800021_E"
         title: "第7話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000800011_E"
         title: "第7話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000700011_E"
         title: "コミックス1巻発売告知"
         updated: "2021-02-27"
         access_modes: ["free"]
       - code: "KC_0032580000600021_E"
         title: "第6話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000600011_E"
         title: "第6話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000500041_E"
         title: "第5話④"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000500031_E"
         title: "第5話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000500021_E"
         title: "第5話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000500011_E"
         title: "第5話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000400041_E"
         title: "第4話④"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000400031_E"
         title: "第4話③"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000400021_E"
         title: "第4話②"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000400011_E"
         title: "第4話①"
-        updated: "2026-08-07"
+        opens_on: "2026-11-06"
+        not_yet_delivered: true
       - code: "KC_0032580000300041_E"
         title: "第3話④"
         updated: "2024-05-25"
@@ -7051,9 +7152,13 @@ works:
       retrieved: "2026-10-30"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-30"
-    chapter_count: 72
+      next_update: "2026-11-27"
+    chapter_count: 73
     chapters:
+      - code: "KC_0032970007400011_E"
+        title: "第64話"
+        updated: "2026-10-30"
+        access_modes: ["free"]
       - code: "KC_0032970007300011_E"
         title: "第63.5話"
         updated: "2026-09-25"
@@ -7061,8 +7166,6 @@ works:
       - code: "KC_0032970007200011_E"
         title: "第63話"
         updated: "2026-07-31"
-        access_modes: ["free"]
-        free_until: "2026-10-30"
       - code: "KC_0032970007100011_E"
         title: "第62話"
         updated: "2026-06-26"
@@ -12001,6 +12104,7 @@ works:
         title: "第26話"
         updated: "2026-09-01"
         access_modes: ["free"]
+        free_until: "2026-11-01"
       - code: "KC_0055310002600011_E"
         title: "第25話"
         updated: "2026-08-01"
@@ -15477,7 +15581,7 @@ works:
     url: "https://comic-walker.com/detail/KC_006547_S"
     status: "finished"
     marketing_label: "yuri"
-    tags: ["学園モノ", "美少女", "ドキドキハラハラ", "友情・仲間", "百合", "異能力", "お色気", "ダーク", "ざまぁ", "妖怪", "デキる女", "年の差", "ヤンデレ", "怪異"]
+    tags: ["学園モノ", "美少女", "ドキドキハラハラ", "友情・仲間", "百合", "異能力", "お色気", "ダーク", "ざまぁ", "妖怪", "デキる女", "年の差", "怪異", "ヤンデレ"]
     authors: ["さりい・Ｂ"]
     marketing_label_basis:
       source: kadokomi
@@ -15776,9 +15880,13 @@ works:
       retrieved: "2026-10-30"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-30"
-    chapter_count: 19
+      next_update_undecided: true
+    chapter_count: 20
     chapters:
+      - code: "KC_0066070002100011_E"
+        title: "コミックス告知"
+        updated: "2026-10-30"
+        access_modes: ["free"]
       - code: "KC_0066070002000011_E"
         title: "第16話"
         updated: "2026-10-24"
@@ -16753,9 +16861,13 @@ works:
       retrieved: "2026-10-30"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-30"
-    chapter_count: 29
+      next_update: "2026-11-13"
+    chapter_count: 30
     chapters:
+      - code: "KC_0067980002000011_E"
+        title: "第14話-1"
+        updated: "2026-10-30"
+        access_modes: ["free"]
       - code: "KC_0067980001900021_E"
         title: "第13話-2"
         updated: "2026-10-09"
@@ -16763,8 +16875,6 @@ works:
       - code: "KC_0067980001900011_E"
         title: "第13話-1"
         updated: "2026-09-25"
-        access_modes: ["free"]
-        free_until: "2026-10-30"
       - code: "KC_0067980001800011_E"
         title: "番外編2"
         updated: "2026-09-11"
@@ -18105,16 +18215,19 @@ works:
         updated: "2026-07-17"
       - code: "KC_0084290000500021_E"
         title: "第3話-2"
-        opens_on: "2026-10-30"
-        not_yet_delivered: true
+        access_modes: ["free"]
+        free_until: "2026-11-13"
+        rotated_date: "2026-10-30"
       - code: "KC_0084290000500011_E"
         title: "第3話-1"
-        opens_on: "2026-10-30"
-        not_yet_delivered: true
+        access_modes: ["free"]
+        free_until: "2026-11-13"
+        rotated_date: "2026-10-30"
       - code: "KC_0084290000300021_E"
         title: "第2話-2"
-        opens_on: "2026-10-30"
-        not_yet_delivered: true
+        access_modes: ["free"]
+        free_until: "2026-11-13"
+        rotated_date: "2026-10-30"
       - code: "KC_0084290000400011_E"
         title: "2話おまけ"
         updated: "2026-05-29"
@@ -18292,7 +18405,7 @@ works:
     url: "https://comic-walker.com/detail/KC_008654_S"
     status: "ongoing"
     marketing_label: "yuri"
-    tags: ["コミカライズ", "異世界", "ラブコメ", "女主人公", "ドキドキハラハラ", "なろう系", "友情・仲間", "カクヨム", "切ない", "カッコいい", "百合", "ハッピー", "異能力", "冒険", "スカッとする", "ラノベ原作", "アツい", "WEB小説", "ツンデレ", "最強", "悪役令嬢", "デキる女", "角川ビーンズ文庫"]
+    tags: ["コミカライズ", "異世界", "ラブコメ", "女主人公", "ドキドキハラハラ", "なろう系", "友情・仲間", "カクヨム", "切ない", "カッコいい", "百合", "ハッピー", "冒険", "異能力", "スカッとする", "ラノベ原作", "アツい", "WEB小説", "ツンデレ", "最強", "悪役令嬢", "デキる女", "角川ビーンズ文庫"]
     authors: ["新城一", "二三　夏一", "久賀　フーナ"]
     marketing_label_basis:
       source: kadokomi
@@ -18307,6 +18420,7 @@ works:
         title: "第4話②"
         updated: "2026-08-12"
         access_modes: ["free"]
+        free_until: "2026-11-04"
       - code: "KC_0086540000500011_E"
         title: "第4話①"
         updated: "2026-08-05"
@@ -19020,24 +19134,6 @@ works:
         title: "第1話"
         updated: "2026-06-26"
         access_modes: ["free"]
-  - work_title: "天瀬ましろはイきたくない！"
-    platform_code: "KC_016898_S"
-    url: "https://comic-walker.com/detail/KC_016898_S"
-    status: "unknown"
-    marketing_label: "yuri"
-    tags: ["現代", "美少女", "女主人公", "大人向け", "いちゃラブ", "百合", "人外", "お色気", "おっぱい", "秘密の関係", "ギャップ女子"]
-    authors: ["ぶり大根"]
-    marketing_label_basis:
-      source: kadokomi
-      url: "https://comic-walker.com/detail/KC_016898_S"
-      retrieved: "2026-10-30"
-      note: "Publisher applies the tag 百合 on カドコミ."
-    chapter_count: 1
-    chapters:
-      - code: "KC_0168980000200011_E"
-        title: "読切"
-        updated: "2026-06-25"
-        access_modes: ["free"]
   - work_title: "世界一可愛い私の幼馴染が隠れてVTuberをしているらしい"
     platform_code: "KC_016982_S"
     url: "https://comic-walker.com/detail/KC_016982_S"
@@ -19115,8 +19211,9 @@ works:
         updated: "2026-09-28"
       - code: "KC_0181630000400011_E"
         title: "3皿目"
-        opens_on: "2026-10-30"
-        not_yet_delivered: true
+        updated: "2026-10-30"
+        access_modes: ["free"]
+        free_until: "2026-11-13"
       - code: "KC_0181630000300011_E"
         title: "2皿目"
         updated: "2026-07-27"
@@ -19152,9 +19249,13 @@ works:
       retrieved: "2026-10-30"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-30"
-    chapter_count: 15
+      next_update: "2026-11-06"
+    chapter_count: 16
     chapters:
+      - code: "KC_0190520001700011_E"
+        title: "第15話"
+        updated: "2026-10-30"
+        access_modes: ["free"]
       - code: "KC_0190520001600011_E"
         title: "第14話"
         updated: "2026-10-23"
@@ -19396,9 +19497,14 @@ works:
       retrieved: "2026-10-30"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-30"
-    chapter_count: 9
+      next_update: "2026-11-06"
+    chapter_count: 10
     chapters:
+      - code: "KC_0196600000500031_E"
+        title: "第四話③"
+        updated: "2026-10-30"
+        access_modes: ["free"]
+        free_until: "2026-11-13"
       - code: "KC_0196600000500021_E"
         title: "第四話②"
         updated: "2026-10-23"
@@ -19407,8 +19513,6 @@ works:
       - code: "KC_0196600000500011_E"
         title: "第四話①"
         updated: "2026-10-16"
-        access_modes: ["free"]
-        free_until: "2026-10-30"
       - code: "KC_0196600000400031_E"
         title: "第参話③"
         updated: "2026-10-09"
@@ -19484,9 +19588,14 @@ works:
       retrieved: "2026-10-30"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-10-30"
-    chapter_count: 10
+      next_update: "2026-11-06"
+    chapter_count: 11
     chapters:
+      - code: "KC_0199370001200011_E"
+        title: "第11話"
+        updated: "2026-10-30"
+        access_modes: ["free"]
+        free_until: "2026-11-13"
       - code: "KC_0199370001100011_E"
         title: "第10話"
         updated: "2026-10-23"
@@ -19495,8 +19604,6 @@ works:
       - code: "KC_0199370001000011_E"
         title: "第9話"
         updated: "2026-10-16"
-        access_modes: ["free"]
-        free_until: "2026-10-30"
       - code: "KC_0199370000900011_E"
         title: "第8話"
         updated: "2026-10-09"
@@ -19751,7 +19858,7 @@ works:
     url: "https://comic-walker.com/detail/KC_020389_S"
     status: "ongoing"
     marketing_label: "yuri"
-    tags: ["コミカライズ", "異世界", "美少女", "女主人公", "ドキドキハラハラ", "なろう系", "友情・仲間", "転生", "カッコいい", "百合", "異能力", "冒険", "スカッとする", "チート", "ラノベ原作", "WEB小説", "最強", "子ども", "無双", "MFブックス"]
+    tags: ["コミカライズ", "異世界", "美少女", "女主人公", "ドキドキハラハラ", "なろう系", "友情・仲間", "転生", "カッコいい", "百合", "冒険", "異能力", "スカッとする", "チート", "ラノベ原作", "WEB小説", "最強", "子ども", "無双", "MFブックス"]
     authors: ["邪武丸", "遠藤だいず", "ファルまろ"]
     marketing_label_basis:
       source: kadokomi
@@ -20526,14 +20633,16 @@ works:
     tags: ["現代", "学園モノ", "ほのぼの", "ドラマ", "女主人公", "女子高校生(JK)", "友情・仲間", "スローライフ", "群像劇", "ガンダム"]
     authors: ["波多ヒロ", "HISADAKE", "矢立肇・富野由悠季"]
     stated_schedule:
-      next_update: "2026-10-30"
-    chapter_count: 16
+      next_update: "2026-11-27"
+    chapter_count: 17
     chapters:
+      - code: "KC_0066790001200011_E"
+        title: "第8-1話"
+        updated: "2026-10-30"
+        access_modes: ["free"]
       - code: "KC_0066790001000021_E"
         title: "第7-2話"
         updated: "2026-09-25"
-        access_modes: ["free"]
-        free_until: "2026-10-30"
       - code: "KC_0066790001100011_E"
         title: "休載告知"
         updated: "2026-08-28"
@@ -20541,8 +20650,6 @@ works:
       - code: "KC_0066790001000011_E"
         title: "第7-1話"
         updated: "2026-07-31"
-        access_modes: ["free"]
-        free_until: "2026-10-30"
       - code: "KC_0066790000900011_E"
         title: "コミックス2巻発売告知"
         updated: "2026-07-24"
@@ -21040,9 +21147,13 @@ works:
     tags: ["ショート", "TS", "性転換"]
     authors: ["佐藤はつき"]
     stated_schedule:
-      next_update: "2026-10-30"
-    chapter_count: 86
+      next_update_undecided: true
+    chapter_count: 87
     chapters:
+      - code: "KC_0043290008800011_E"
+        title: "第77話"
+        updated: "2026-10-30"
+        access_modes: ["free"]
       - code: "KC_0043290008700011_E"
         title: "第76話"
         updated: "2026-09-04"
@@ -25459,12 +25570,14 @@ works:
         updated: "2026-06-05"
       - code: "KC_0068450000600011_E"
         title: "第5話"
-        opens_on: "2026-10-30"
-        not_yet_delivered: true
+        access_modes: ["free"]
+        free_until: "2026-11-13"
+        rotated_date: "2026-10-30"
       - code: "KC_0068450000500011_E"
         title: "第4話"
-        opens_on: "2026-10-30"
-        not_yet_delivered: true
+        access_modes: ["free"]
+        free_until: "2026-11-13"
+        rotated_date: "2026-10-30"
       - code: "KC_0068450000400011_E"
         title: "第3話"
         updated: "2025-09-12"
@@ -25712,7 +25825,7 @@ works:
     url: "https://comic-walker.com/detail/KC_006657_S"
     status: "ongoing"
     marketing_label: "none"
-    tags: ["コミカライズ", "異世界", "美少女", "女主人公", "カクヨム", "異能力", "冒険", "人外", "チート", "スローライフ", "モンスター", "MFブックス"]
+    tags: ["コミカライズ", "異世界", "美少女", "女主人公", "カクヨム", "冒険", "異能力", "人外", "チート", "スローライフ", "モンスター", "MFブックス"]
     authors: ["よっしゃあっ！", "QZO。", "和狸　ナオ"]
     stated_schedule:
       next_update: "2026-11-12"
@@ -29475,4 +29588,22 @@ works:
       - code: "KC_0094910000200011_E"
         title: "第１話★終わりの始まりと始まりの終わり"
         updated: "2026-05-25"
+        access_modes: ["free"]
+  - work_title: "天瀬ましろはイきたくない！"
+    platform_code: "KC_016898_S"
+    url: "https://comic-walker.com/detail/KC_016898_S"
+    status: "unknown"
+    marketing_label: "yuri"
+    tags: ["現代", "美少女", "女主人公", "大人向け", "いちゃラブ", "百合", "人外", "お色気", "おっぱい", "秘密の関係", "ギャップ女子"]
+    authors: ["ぶり大根"]
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_016898_S"
+      retrieved: "2026-10-30"
+      note: "Publisher applies the tag 百合 on カドコミ."
+    chapter_count: 1
+    chapters:
+      - code: "KC_0168980000200011_E"
+        title: "読切"
+        updated: "2026-06-25"
         access_modes: ["free"]

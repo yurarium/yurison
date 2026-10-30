@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
-retrieved: "2026-10-30"
+retrieved: "2026-10-31"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -892,6 +892,15 @@ works:
       - title: "読み切り作品"
         updated: "2026-10-15"
         url: "https://ichicomi.com/episode/12207421984354015835"
+        access_modes: ["free"]
+  - work_title: "APPLE"
+    series_id: "12207421984387217482"
+    url: "https://ichicomi.com/atom/series/12207421984387217482"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り作品"
+        updated: "2026-10-30"
+        url: "https://ichicomi.com/episode/12207421984387218979"
         access_modes: ["free"]
   - work_title: "私の小さなおひめさま"
     series_id: "2550912965913086122"

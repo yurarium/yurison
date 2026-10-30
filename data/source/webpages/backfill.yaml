@@ -12,10 +12,21 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-10-30
+retrieved: 2026-10-31
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "雨夜の月"
+    author: "くずしろ"
+    url: "https://pocket.shonenmagazine.com/title/02202/episode/446160"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 1
+    chapters:
+      - title: "【第52話(2)】相愛"
+        updated: 2026-10-31
+        access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/02202/episode/446160"
   - work_title: "APPLE"
     author: "Ayster"
     url: "https://ichicomi.com/episode/12207421984387218979"

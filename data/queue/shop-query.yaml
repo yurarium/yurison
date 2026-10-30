@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-10-28
+retrieved: 2026-10-31
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 252
-  hits_on_the_title_alone: 111
+  hits_on_the_title_alone: 112
   hits_stating_a_print_edition_date: 211
-  works_asked: 894
-  works_with_a_hit: 270
+  works_asked: 897
+  works_with_a_hit: 271
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -790,6 +790,14 @@ works:
     work: "本命は秘密"
     platform: "comicブースト"
     retrieved: "2026-10-26"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-boost.com/content/01840001"
+    id: "w03474"
+    work: "聖騎士様のお気に入り"
+    platform: "comicブースト"
+    retrieved: "2026-10-31"
     hits: []
     notes:
       - "title query returned no title this database recognises"
@@ -5280,6 +5288,23 @@ works:
         publisher: "一迅社"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://ichicomi.com/episode/12207421984387218979"
+    id: "w03473"
+    work: "APPLE"
+    author: "Ayster"
+    platform: "一迅プラス"
+    query: "title"
+    retrieved: "2026-10-31"
+    hits:
+      - series_url: null
+        title_listed: "applesongs"
+        shop_author: "しょうじひでまさ"
+        imprint: "appleorchard"
+        publisher: "appleorchard"
+        agreement: "title-only"
+        completed_marker: false
+    notes:
+      - "author query returned no title this database recognises"
   - work_url: "https://ichicomi.com/episode/2550912965913104445"
     id: "w00481"
     work: "今宵、悪役令嬢の手をとれたら"
@@ -7689,6 +7714,16 @@ works:
     author: "閉伊川広輔"
     platform: "マガポケ"
     retrieved: "2026-10-23"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://pocket.shonenmagazine.com/title/03349/episode/445741"
+    id: "w03309"
+    work: "ぎるてぃらいぶらり"
+    author: "閉伊川広輔"
+    platform: "マガポケ"
+    retrieved: "2026-10-31"
     hits: []
     notes:
       - "author query answered nothing"

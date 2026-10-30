@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-30
+retrieved: 2026-10-31
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -314,6 +314,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_021488_S"
     antenna_id: "217263"
     tags: ["百合"]
+  - title: "盗賊少女に転生したけど、周回ボーナスで楽勝です! 100%盗む&逃げるでラクラク冒険者生活"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_020389_S"
+    antenna_id: "215767"
+    tags: ["ゲーム世界", "転生", "ファンタジー", "百合"]
   - title: "らぶぶいっ!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008372_S"
@@ -623,7 +628,7 @@ works_missing:
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/29"
     antenna_id: "745"
-    tags: ["最近のコメント数"]
+    tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
   - title: "香り屋さんの纏さん"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2286"
@@ -734,6 +739,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "タイムトラベル少女 ～ミライのサキ～"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/77287"
+    antenna_id: "204961"
+    tags: ["百合"]
   - title: "人妻とJK"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/51899"
@@ -884,11 +894,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/53909"
     antenna_id: "121533"
     tags: ["百合", "アイドル", "アニメ化", "4コマ"]
-  - title: "タイムトラベル少女 ～ミライのサキ～"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/77287"
-    antenna_id: "204961"
-    tags: ["百合"]
   - title: "人妻教師が教え子の女子高生にドはまりする話"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/74091"
@@ -939,6 +944,11 @@ works_missing:
     url: "https://bibibi-comic.com/series/e889bd092d08d"
     antenna_id: "213150"
     tags: ["百合"]
+  - title: "オカルトタイムズ"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    antenna_id: "211531"
+    tags: ["百合", "オカルト"]
   - title: "ぎるてぃらいぶらり"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
@@ -949,11 +959,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
     tags: ["ホラー", "幽霊", "百合", "女子高生"]
-  - title: "オカルトタイムズ"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    antenna_id: "211531"
-    tags: ["百合", "オカルト"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"

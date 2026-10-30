@@ -8,11 +8,18 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-10-30
+retrieved: 2026-10-31
 record_type: update_claims
 window_days: 60
-claims: 447
+claims: 448
 updates:
+  - work: "雨夜の月"
+    platform: "ヤンマガWeb"
+    date: 2026-10-30
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://yanmaga.jp/comics/%E9%9B%A8%E5%A4%9C%E3%81%AE%E6%9C%88"
+    listing_tags: ["最近のコメント数"]
   - work: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     platform: "ニコニコ漫画"
     date: 2026-10-30
@@ -109,6 +116,20 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_003297_S"
     listing_tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
+  - work: "タイムトラベル少女 ～ミライのサキ～"
+    platform: "ニコニコ漫画"
+    date: 2026-10-30
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga.nicovideo.jp/comic/77287"
+    listing_tags: ["百合"]
+  - work: "オカルトタイムズ"
+    platform: "マガポケ"
+    date: 2026-10-30
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    listing_tags: ["百合", "オカルト"]
   - work: "イジめてイジられて"
     platform: "カドコミ"
     date: 2026-10-30
@@ -171,7 +192,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://www.ganganonline.com/title/29"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
   - work: "忍者と殺し屋のふたりぐらし ハンバーガー"
     platform: "カドコミ"
     date: 2026-10-29
@@ -234,6 +255,13 @@ updates:
     provenance: claimed
     url: "https://youngchampion.jp/series/e95df2815bad1"
     listing_tags: ["百合", "女子高生", "コミカライズ"]
+  - work: "盗賊少女に転生したけど、周回ボーナスで楽勝です! 100%盗む&逃げるでラクラク冒険者生活"
+    platform: "カドコミ"
+    date: 2026-10-28
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_020389_S"
+    listing_tags: ["ゲーム世界", "転生", "ファンタジー", "百合"]
   - work: "死神さんと昇天ごはん 菅野マナミ"
     platform: "カドコミ"
     date: 2026-10-28
@@ -732,13 +760,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/11565"
     listing_tags: ["百合", "妖怪", "現代", "女子高生"]
-  - work: "オカルトタイムズ"
-    platform: "マガポケ"
-    date: 2026-10-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    listing_tags: ["百合", "オカルト"]
   - work: "エイティエイトを２でわって 有馬"
     platform: "きららベース"
     date: 2026-10-24
@@ -2575,13 +2596,6 @@ updates:
     provenance: claimed
     url: "https://comic-ryu.jp/series/326efc41c1767"
     listing_tags: ["アイドル", "百合", "アニメ化", "オタク", "完結"]
-  - work: "タイムトラベル少女 ～ミライのサキ～"
-    platform: "ニコニコ漫画"
-    date: 2026-09-30
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/77287"
-    listing_tags: ["百合"]
   - work: "星の体温、巡る夢"
     platform: "pixivコミック"
     date: 2026-09-29
@@ -3009,10 +3023,3 @@ updates:
     provenance: claimed
     url: "https://comic-y-ours.com/episode/2551460909791888785"
     listing_tags: ["百合", "教師", "完結"]
-  - work: "エリオと電気人形"
-    platform: "ヤンジャン+"
-    date: 2026-08-31
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ynjn.jp/title/6108"
-    listing_tags: ["百合", "ロボ・人造人間"]

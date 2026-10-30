@@ -9,7 +9,7 @@
 # 3,076 of its 3,077 rows name nobody's job. The labels come from the release rows, which
 # keep the field as the platform wrote it. See docs/GAPS.md.
 generated: 2026-10-30
-count: 2376
+count: 2383
 credits:
   - id: c00001
     works:
@@ -286,6 +286,7 @@ credits:
   - id: c00064
     works:
       - id: w00016
+        roles: ["著"]
       - id: w00091
       - id: w00216
       - id: w00397
@@ -2114,6 +2115,8 @@ credits:
   - id: c00450
     works:
       - id: w00333
+      - id: w03464
+      - id: w03473
   - id: c00451
     works:
       - id: w00333
@@ -2803,6 +2806,7 @@ credits:
     works:
       - id: w00485
       - id: w01661
+      - id: w03462
   - id: c00609
     works:
       - id: w00487
@@ -4022,6 +4026,7 @@ credits:
   - id: c00936
     works:
       - id: w00822
+      - id: w03461
   - id: c00937
     works:
       - id: w00831
@@ -4080,6 +4085,7 @@ credits:
       - id: w02401
       - id: w02683
       - id: w03409
+      - id: w03470
   - id: c00953
     works:
       - id: w00849
@@ -4880,6 +4886,7 @@ credits:
     works:
       - id: w01896
         roles: ["著者"]
+      - id: w03460
   - id: c01155
     works:
       - id: w01641
@@ -7139,6 +7146,7 @@ credits:
       - id: w02935
       - id: w03021
       - id: w03095
+      - id: w03455
   - id: c01639
     works:
       - id: w01531
@@ -7235,6 +7243,7 @@ credits:
       - id: w01553
       - id: w01979
       - id: w03393
+      - id: w03463
   - id: c01659
     works:
       - id: w01559
@@ -7837,6 +7846,7 @@ credits:
       - id: w02861
       - id: w02904
       - id: w02943
+      - id: w03459
   - id: c01806
     works:
       - id: w01942
@@ -8616,6 +8626,7 @@ credits:
   - id: c02026
     works:
       - id: w02454
+      - id: w03468
   - id: c02027
     works:
       - id: w02456
@@ -8625,6 +8636,7 @@ credits:
   - id: c02029
     works:
       - id: w02462
+      - id: w03471
   - id: c02030
     works:
       - id: w02466
@@ -8911,6 +8923,7 @@ credits:
     works:
       - id: w02747
       - id: w03058
+      - id: w03467
   - id: c02113
     works:
       - id: w02750
@@ -9694,6 +9707,7 @@ credits:
   - id: c02365
     works:
       - id: w03353
+      - id: w03466
   - id: c02366
     works:
       - id: w03357
@@ -9837,3 +9851,24 @@ credits:
   - id: c02411
     works:
       - id: w03452
+  - id: c02412
+    works:
+      - id: w03456
+  - id: c02413
+    works:
+      - id: w03457
+  - id: c02414
+    works:
+      - id: w03458
+  - id: c02415
+    works:
+      - id: w03462
+  - id: c02416
+    works:
+      - id: w03465
+  - id: c02417
+    works:
+      - id: w03469
+  - id: c02418
+    works:
+      - id: w03472

@@ -11,15 +11,50 @@ role: provisional-claims
 retrieved: 2026-10-31
 record_type: update_claims
 window_days: 60
-claims: 448
+claims: 447
 updates:
-  - work: "雨夜の月"
-    platform: "ヤンマガWeb"
-    date: 2026-10-30
+  - work: "魔女とくゅらす"
+    platform: "HERO'S Web"
+    date: 2026-10-31
     source: "webcomics.jp"
     provenance: claimed
-    url: "https://yanmaga.jp/comics/%E9%9B%A8%E5%A4%9C%E3%81%AE%E6%9C%88"
-    listing_tags: ["最近のコメント数"]
+    url: "https://heros-web.com/series/2b64bc0622a2a"
+    listing_tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
+  - work: "雨夜の月"
+    platform: "コミックDAYS"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/3269632237276869027"
+    listing_tags: ["音楽", "女子高生", "百合", "障害者"]
+  - work: "英雄少女と呪われの銀姫"
+    platform: "ヤンジャン+"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ynjn.jp/title/27600"
+    listing_tags: ["百合", "ファンタジー"]
+  - work: "タイムトラベル少女 ～ミライのサキ～"
+    platform: "ニコニコ漫画"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga.nicovideo.jp/comic/77287"
+    listing_tags: ["百合"]
+  - work: "ココロメイク コスメティカ"
+    platform: "カドコミ"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_009488_S"
+    listing_tags: ["百合"]
+  - work: "オカルトタイムズ"
+    platform: "マガポケ"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    listing_tags: ["百合", "オカルト"]
   - work: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     platform: "ニコニコ漫画"
     date: 2026-10-30
@@ -80,7 +115,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://shonenjumpplus.com/episode/17107094912913096422"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["女子高生", "運動系部活", "百合", "スポーツ", "卓球"]
   - work: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します"
     platform: "カドコミ"
     date: 2026-10-30
@@ -101,7 +136,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://manga-one.com/viewer/70173"
-    listing_tags: ["百合", "大学生", "実写化"]
+    listing_tags: ["最近のコメント数"]
   - work: "人妻とJK"
     platform: "ニコニコ漫画"
     date: 2026-10-30
@@ -116,20 +151,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_003297_S"
     listing_tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
-  - work: "タイムトラベル少女 ～ミライのサキ～"
-    platform: "ニコニコ漫画"
-    date: 2026-10-30
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/77287"
-    listing_tags: ["百合"]
-  - work: "オカルトタイムズ"
-    platform: "マガポケ"
-    date: 2026-10-30
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    listing_tags: ["百合", "オカルト"]
   - work: "イジめてイジられて"
     platform: "カドコミ"
     date: 2026-10-30
@@ -1307,13 +1328,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "雨夜の月"
-    platform: "コミックDAYS"
-    date: 2026-10-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-days.com/episode/3269632237276869027"
-    listing_tags: ["音楽", "女子高生", "百合", "障害者"]
   - work: "百合フェチLIFE"
     platform: "Gコミ"
     date: 2026-10-17
@@ -1361,13 +1375,6 @@ updates:
     provenance: claimed
     url: "https://www.corocoro.jp/title/515"
     listing_tags: ["BL", "女装", "三角関係", "TS", "同性愛・LGBTQ+", "幼なじみ", "現代", "恋愛", "青春", "百合"]
-  - work: "ココロメイク コスメティカ"
-    platform: "カドコミ"
-    date: 2026-10-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_009488_S"
-    listing_tags: ["百合"]
   - work: "アイ・ヘイ・チュー"
     platform: "pixivコミック"
     date: 2026-10-17
@@ -1502,13 +1509,6 @@ updates:
     provenance: claimed
     url: "https://comic-ogyaaa.com/episode/2550912965818317820"
     listing_tags: ["百合", "同棲"]
-  - work: "魔女とくゅらす"
-    platform: "HERO'S Web"
-    date: 2026-10-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://heros-web.com/series/2b64bc0622a2a"
-    listing_tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
   - work: "運命のヤマダダダダダダダダダダ おにぎりパクパク"
     platform: "きららベース"
     date: 2026-10-15
@@ -2862,13 +2862,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/56012"
     listing_tags: ["百合", "アニメ化"]
-  - work: "英雄少女と呪われの銀姫"
-    platform: "ヤンジャン+"
-    date: 2026-09-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ynjn.jp/title/27600"
-    listing_tags: ["百合", "ファンタジー"]
   - work: "T.Tラバーズ。"
     platform: "カドコミ"
     date: 2026-09-12

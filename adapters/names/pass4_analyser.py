@@ -1062,10 +1062,23 @@ def chapter_en(name, romanise_rest):
         rest = (m.group(2) or "").strip()
         # A BRACKET THAT CLOSES AFTER THE NUMBER holds the number with the word: [おまけ18]春雷卓球 is
         # the eighteenth bonus, and the closer fell into the subtitle as `Bonus 18] Shunrai Takkyū`.
-        mb = re.match(r"^([0-9]+)\s*[】）)\]]\s*(.*)$", rest) if re.match(r"^\s*[【（(\[]", n) else None
+        # A NUMBER IN ITS OWN PARENTHESES is a part, as the hyphen below is: 【最終話(1)】 is the final
+        # instalment's first part, and its closer fell into the subtitle as `Final (1)]`.
+        mb = (re.match(r"^(\()?([0-9]+)(?(1)\))\s*[】）)\]]\s*(.*)$", rest)
+              if re.match(r"^\s*[【（(\[]", n) else None)
         if mb:
-            sub = mb.group(2).strip()
-            out = f"{EXTRA_EN[m.group(1)]} {mb.group(1)}" + (f" {romanise_rest(sub)}" if sub else "")
+            sub = mb.group(3).strip()
+            word = EXTRA_EN[m.group(1)]
+            head = f"{word}, Part {mb.group(2)}" if mb.group(1) else f"{word} {mb.group(2)}"
+            out = head + (f" {romanise_rest(sub)}" if sub else "")
+            return latinise((f"Vol. {vol}, " + out) if vol else out)
+        # The separator between the word and its subtitle belongs to neither, as it does after a
+        # chapter number: 最終話：きさらぎ異聞 read `Final : Kisaragi Ibun`.
+        rest = re.sub(r"^[\s.．・:：、,—]+", "", rest).strip()
+        # A PART WORD AFTER THE FINAL ONE is its part: 最終回・後編 read `Final Kōhen`, romanising the
+        # one word the table already translates.
+        if rest in ("前編", "中編", "後編") and m.group(1) in ("最終話", "最終回"):
+            out = f"{EXTRA_EN[m.group(1)]}, {EXTRA_EN[rest]}"
             return latinise((f"Vol. {vol}, " + out) if vol else out)
         # 最終回-② is the final instalment's second part, in the words 前編 and 後編 already use. The
         # hyphen is what says so, and a circled digit arrives as one: 番外編1 and 特別編40 are the
@@ -1428,7 +1441,19 @@ def romanise_ja(tok, modes, text):
     r, _unc = analyse_best(tok, text, modes)
     if not r:
         return latinise(text)       # nothing readable; at least fix the punctuation
-    return latinise(_romanisation_facts().romanise(r, "macron"))
+    return colon_as_written(text, latinise(_romanisation_facts().romanise(r, "macron")))
+
+
+def colon_as_written(source, en):
+    """A colon keeps the spacing the title gave it.
+
+    THE READING SPACES EVERY MARK AS A WORD, so EMODELAS：エモ came out `EMODELAS : Emo` and
+    最終話：きさらぎ異聞 `Final : Kisaragi Ibun`, a space before the colon that neither Japanese nor
+    English typography writes. 62 phrases carried one. Where the source sets a space before its own
+    colon (`NTR : 寝取られ百合アンソロジー`) that is the title's spacing and it stays."""
+    if not en or re.search(r"\s[:：]", source or ""):
+        return en
+    return re.sub(r"\s+:", ":", en)
 
 
 def renderer_fingerprint():

@@ -30,7 +30,13 @@ def main(s):
     s.eq(misread.corrected("第90話-2 八尺様リバイバルV"), "第90話-2 ハッシャク様リバイバルV",
          "and it is replaced wherever in the string it sits")
 
+    s.eq(misread.corrected("おまけ③ 柚稀＆梓ができるまで"), "おまけ③ 柚稀＆アズサができるまで",
+         "梓 standing as a person is the given name")
+
     # ── and only where it applies ──────────────────────────────────────────────────────────────
+    s.eq(misread.corrected("梓月は天に咲う"), "梓月は天に咲う",
+         "a compound the word sits inside is a different word and is left for its own record")
+    s.eq(misread.corrected("上梓"), "上梓", "and so is the noun the analyser already reads")
     s.eq(misread.corrected("裏世界ピクニック"), "裏世界ピクニック",
          "a string holding no misread word comes back as it went in")
     s.eq(misread.corrected(""), "", "and so does an empty one")

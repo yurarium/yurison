@@ -1742,6 +1742,23 @@ def work_alias(title):
     return _WORK_ALIASES.get(norm_work(title), title)
 
 
+def group_identity(row, index):
+    """The identifier a platform row joins its work's group under, or None.
+
+    THE FEED THE ROW WAS READ FROM, WHERE ITS NEWEST CHAPTER IS NO ANCHOR. A GigaViewer row's
+    address is its newest chapter, which the registry has never seen, so Seasons' エーテル serial
+    reached the grouping with no identifier once its 番外編 arrived, and joined the group its 読切
+    owned under the shared title, while its feed /atom/series/12207421983858392884 is w03271's own
+    anchor. The 読切's address answered first and the serial was published as w00391. Consulted
+    second, so a row the headline already answers for is unchanged.
+    """
+    for u in (row.get("url"), row.get("feed_url")):
+        got = index.get(identity.web_anchor(u)) if u else None
+        if got:
+            return got
+    return None
+
+
 def work_level_key(title, platform):
     """Where a platform's date for a whole work is filed, and looked up.
 
@@ -6943,7 +6960,7 @@ def main():
     for _grow in series.values():
         _gkey = norm_work(_grow["work"])
         _gkey = _gkey if _gkey not in distinct else f"{_gkey}|{_grow['platform']}"
-        _gid = _reg_index.get(identity.web_anchor(_grow.get("url")))
+        _gid = group_identity(_grow, _reg_index)
         _gkeys.append((_grow, _gkey, _gid))
         if _gid:
             _plats_of[(_gkey, _gid)].add(_grow["platform"])

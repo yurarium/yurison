@@ -34,7 +34,17 @@ MISREAD = {
              "the 八尺瓊 of the imperial regalia and a different word, so the analyser answers "
              "confidently and `is_oov` is false. Reached readers as `Yasakasama Ribaibaru` on the "
              "chapter names of 裏世界ピクニック, whose 八尺様 is the yōkai."),
+    "梓": ("アズサ",
+           "The given name. SudachiDict holds 梓 as 固有名詞・人名 read アズサ and also as a common "
+           "noun read シ, the printing block of 上梓, and on its own picks the noun. Every 梓 the "
+           "corpus holds outside 梓月 is a person: the pen name 和郷梓 on 少年ジャンプ＋, and the "
+           "characters of 柚稀＆梓ができるまで and 第７７話　梓の願い, which reached readers as "
+           "`Kazusato Shi` and `Yuki & Shi`."),
 }
+
+#: Compounds a row does not apply inside, because the word there is a different word. 梓月 is read
+#: あづき, which its own title record states, and 上梓 is the noun the analyser already reads.
+NOT_INSIDE = {"梓": ("梓月", "上梓")}
 
 
 def corrected(text):
@@ -45,8 +55,19 @@ def corrected(text):
     """
     out = str(text or "")
     for surface, (kana, _why) in MISREAD.items():
-        if surface in out:
+        if surface not in out:
+            continue
+        keep = NOT_INSIDE.get(surface, ())
+        if not keep:
             out = out.replace(surface, kana)
+            continue
+        # A compound is held aside under a mark no surface contains, then put back.
+        held = {f"\x00{i}\x00": c for i, c in enumerate(keep)}
+        for mark, c in held.items():
+            out = out.replace(c, mark)
+        out = out.replace(surface, kana)
+        for mark, c in held.items():
+            out = out.replace(mark, c)
     return out
 
 

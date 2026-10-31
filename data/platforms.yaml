@@ -452,6 +452,20 @@ platforms:
   host: michikusacomics.jp
   watched: true
   notes: markup strategy, read by adapters/generic.
+# 新都社, registered 2026-10-31. A posting site for author-published web manga, which DEFINITIONS
+# puts in scope beside pixiv and X. It was filed `no-response` on 2026-08-15, when neetsha.jp sent
+# every work to manga.okiba.jp and that host answered 403. Works have since moved to まんがおきばR
+# at manga.okiba.info, which answers a plain fetch and permits every path in its robots.txt.
+- id: neetsha
+  name: 新都社
+  en: Neetsha
+  host: neetsha.jp
+  hosts:
+  - manga.okiba.info
+  - manga.okiba.jp
+  watched: true
+  notes: markup strategy, read by adapters/remaining. A work page states only its latest chapter
+    and that chapter's date, so each run holds one dated row and earlier chapters are not dated.
 # ヤングアニマルWeb, enabled 2026-08-15. 白泉社 runs it on comici, the same engine as its 花とゆめ+,
 # and the antenna lists seven works reachable nowhere else watched. It was in no register at all
 # until a new serial announced on it was refused by the admission policy for want of one.

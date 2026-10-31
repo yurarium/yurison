@@ -469,6 +469,18 @@ def main(s):
     s.check(b.work_level_key("鈴木りつ短編集", "ニコニコ漫画") != b.work_level_key("鈴木りつ短編集", "カドコミ"),
             "and one platform's date is not another's")
 
+    # A ROW WHOSE NEWEST CHAPTER IS NO ANCHOR JOINS ITS WORK BY THE FEED IT WAS READ FROM.
+    reg = {"web:https://comic-seasons.com/atom/series/1": "w03271",
+           "web:https://comic-seasons.com/episode/9": "w00391"}
+    serial = {"url": "https://comic-seasons.com/episode/5",
+              "feed_url": "https://comic-seasons.com/atom/series/1"}
+    s.eq(b.group_identity(serial, reg), "w03271",
+         "a serial whose 番外編 the registry has never seen is still the work its feed anchors")
+    s.eq(b.group_identity(dict(serial, url="https://comic-seasons.com/episode/9"), reg), "w00391",
+         "and a headline the registry knows answers first")
+    s.eq(b.group_identity({"url": "https://comic-seasons.com/episode/5"}, reg), None,
+         "and a row neither address resolves keeps no identifier")
+
     # AN UNDATED WORK STILL SAYS WHERE, which is what DEFINITIONS §6's scope test actually asks.
     # This returned `venue: None` on 1,209 records whose sources all named a publisher.
     fp = b.undated_publication({"venue": "ナンバーナイン", "date_basis": "no-print-edition"})

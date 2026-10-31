@@ -270,6 +270,18 @@ def main(s):
          "and a bracket closing after the number holds the number, not the subtitle")
     s.eq(p4.chapter_en("最終話-1 さよなら", plain), "Final, Part 1 さよなら",
          "and a part keeps the subtitle after it")
+    s.eq(p4.chapter_en("最終話：きさらぎ異聞", plain), "Final きさらぎ異聞",
+         "the separator after the word belongs to neither, as it does after a chapter number")
+    s.eq(p4.chapter_en("【最終話(1)】愛", plain), "Final, Part 1 愛",
+         "a number in its own parentheses inside the bracket is a part, and the closer is not text")
+    s.eq(p4.chapter_en("最終回・後編", plain), "Final, Part 2",
+         "and a part word after the final one is its part")
+
+    # A COLON KEEPS THE SPACING THE TITLE GAVE IT. The reading spaces every mark as a word.
+    s.eq(p4.colon_as_written("EMODELAS：エモ", "EMODELAS : Emo"), "EMODELAS: Emo",
+         "a colon set against its word stays against it")
+    s.eq(p4.colon_as_written("NTR : 寝取られ", "NTR : Netorare"), "NTR : Netorare",
+         "and one the title spaced keeps its space")
 
     # ONE NAME, ONE ANSWER. A string the store holds a divided, sourced reading for takes its phrase
     # from that reading rather than from a fresh analysis.

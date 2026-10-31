@@ -201,8 +201,8 @@ platforms:
   host: neetsha.jp
   work_url: http://neetsha.jp/inside/comic.php?id=23916
   exclusive_works: 3
-  strategy: no-response
-  strategy_note: "asked again 2026-08-15: the host 302s to manga.okiba.jp, which answers 403 to every user agent and to a browser, an XSERVER block"
+  strategy: markup
+  strategy_note: "asked again 2026-10-31: works now redirect to manga.okiba.info (まんがおきばR), which answers 200 and states the latest chapter with its date; バトル・ウィッチーズ reads 第17話 2026-08-13. いじめっこ♡いじめられっこ still goes to manga.okiba.jp and its 403, and ユリコアメイト now redirects to the author's own site. On 2026-08-15 every work went to manga.okiba.jp, an XSERVER block"
 - platform: ヤンジャン+
   host: ynjn.jp
   work_url: https://ynjn.jp/title/28795

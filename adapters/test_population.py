@@ -93,6 +93,13 @@ def main(s):
                       encoding="utf-8")
     s.eq(population.titles(titles), ["やがて君になる", "citrus"],
          "a named titles file is read as the population it states")
+    works = titles.with_name("works.json")
+    works.write_text(json.dumps({"works": [{"work_id": "r1", "volumes": [
+        {"designation": "考幻学入門", "subtitle": "考幻学入門"}, {"number": "2"},
+        {"designation": "垂直・宇宙・無限", "subtitle": "垂直・宇宙・無限"}]}]}, ensure_ascii=False),
+        encoding="utf-8")
+    s.eq(population.volume_subtitles(works), ["垂直・宇宙・無限", "考幻学入門"],
+         "a volume's own name is in the population, and a volume called only by its number is not")
     import relational as _rel
     was = _rel.DB
     try:

@@ -6,6 +6,12 @@ Each title arrives with `key` (the Japanese title, which you return unchanged), 
 `platforms`, `pages` to read, and `related`: titles already named that share its start. A volume,
 sequel or sister series of a related title is named the way that title was.
 
+A title with `volume_of` is one book's own title inside a work: a collection's second book, an
+anthology's volume, a doujin series' issue. `volume_of` gives the work's Japanese title and the
+English it shows, and `volume` is what the record calls the book. Name the book so it reads under
+the work's English, without repeating it, and look on the same pages for an English the book
+carries itself: an English edition lists its volume titles too.
+
 ## Choosing the name, in this order
 
 1. `official-jp`: an English title the work carries itself, on its platform page, its logo or

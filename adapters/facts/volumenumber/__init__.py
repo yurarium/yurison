@@ -258,3 +258,151 @@ def volume_number(v):
     return int(m.group(1)) if m else None
 
 
+
+
+# ── WHAT A VOLUME IS CALLED IN ITS OWN RIGHT, which is the third part of this fact ─────────────
+#
+# A designation is what a product is called within its series; part of it can be a position and
+# part a name. `鈴木りつ第二短編集　垂直・宇宙・無限` is the second of two collections and every word
+# of it is a title, `2巻 ワタシがいなくちゃダメなカノジョのハナシ` is a position and a title, and
+# `2巻` is a position and nothing else. The name is what a reader is owed in their own language, and
+# the name store answers for it the way it answers for a work's title, keyed by the string; so the
+# string has to be the name alone, with the position and the work's own title off.
+
+#: A POSITION WRITTEN BEFORE OR AFTER THE NAME, in the ways the corpus writes one beside a title.
+#: `その3`, `ep1`, `Game 3` and `#2` are doujin, anthology and chapter-style numbering; the rest are
+#: FORMS above with the anchors taken off, because there the number is the whole tail and here it
+#: shares one with a name.
+_POSITION = (r"(?:第\s*)?\d+(?:\.\d+)?\s*(?:巻|集|部|号|話)?|[(（]\s*\d+\s*[)）]"
+             r"|(?:volume|vol|no|ep|episode|game|act|part|chapter|stage|round|lesson|phase)\.?\s*\d+"
+             r"|#\s*\d+|その\s*\d+|[上中下]巻?|[前中後]編")
+#: WHAT PARTS A POSITION FROM A NAME. Only separators: a closing bracket or a full stop ending the
+#: name belongs to it, and `LEAD`, which is for a tail a series title was cut off, would take it.
+_SEPS = " \u3000-‐―–—~〜:：・"
+POSITION_HEAD = re.compile(rf"^\s*(?:{_POSITION})(?=[{re.escape(_SEPS)}「『(（]|$)\s*", re.I)
+POSITION_TAIL = re.compile(rf"(?:^|(?<=[{re.escape(_SEPS + LEAD)}]))(?:{_POSITION})\s*$", re.I)
+
+#: An imprint the record wrote into the designation, `(ノヴァコミックス)`. The imprint is on the record
+#: in its own field and is not what the volume is called.
+IMPRINT_ASIDE = re.compile(r"[(（][^)）]*(?:コミックス|COMICS|文庫|ノベルス|ブックス)[^)）]*[)）]", re.I)
+
+#: WHAT MAKES A DESIGNATION A LABEL FOR AN EDITION OR AN EXTRA RATHER THAN A NAME. A word in this set
+#: says which printing, which bonus or which language a product is, and none of it is a title.
+EDITION_WORD = re.compile(r"特装版|限定版|通常版|新装版|完全版|愛蔵版|合本版|分冊版|単話版|小冊子|特典"
+                          r"|翻訳版|語版|おまけ|試し読み|お試し版")
+
+
+#: A word that says what kind of thing a volume is and nothing about which: `4 volume` is a position
+#: and the counter it was written with.
+COUNTER_WORD = re.compile(r"^(?:volume|vol|book|part|episode|chapter|巻)\.?$", re.I)
+
+#: How much of a work's title a designation must repeat before a partial copy of it counts as the
+#: title. Eight characters is longer than any volume name that merely shares a word with its work.
+TRUNCATED = 8
+
+
+def _flat(t):
+    """A title as two spellings of it compare: the shop's marks, any position, and every mark,
+    space and symbol off."""
+    t = _unpositioned(_shown(unicodedata.normalize("NFKC", str(t or "")).strip()))
+    return "".join(c for c in _folded(t)[0] if unicodedata.category(c)[0] not in "PSZC")
+
+
+def _same(a, b):
+    """Whether `a` is the title `b`, whole or in part: a record that copies the work's title into
+    the volume's designation, cut short or without a word of it, has named the work again and not
+    the volume. `魔女と僕についての物語` is filed under `短編オリジナルコミックアンソロジー
+    魔女と僕についての物語 ～誰も知らないきみのこと～` with its first two characters dropped."""
+    fa, fb = _flat(a), _flat(b)
+    return bool(fa) and bool(fb) and (fa == fb or (len(fa) >= TRUNCATED and fa in fb))
+
+
+def _unpositioned(text):
+    """`text` with a position before or after it taken off, where a separator parts the two."""
+    for _ in range(3):
+        # ー opens nothing in Japanese, so at the front it is a dash the record typed as a vowel mark.
+        shorter = POSITION_TAIL.sub("", POSITION_HEAD.sub("", text)).strip().strip(_SEPS).lstrip("ー")
+        if shorter == text:
+            break
+        text = shorter
+    return text
+
+
+def subtitle(designation, titles=()):
+    """The name a volume's designation carries in its own right, or None where it carries none.
+
+    `titles` are the work's own titles, as the work and the record that lists the volume write them;
+    a designation repeating one of them says nothing a reader does not already see. None for a
+    position alone, for an issue of a periodical, and for an edition or extra marked as one: none of
+    those is a title, and `volLabel` already says them in a reader's language.
+
+    THE NUMBER STAYS WHERE IT IS GLUED TO THE NAME. `妹とキスとメガネさん2` keeps its 2, because
+    `あやめ14` and `魔法少女201` are names and nothing in the string tells the two apart; a position
+    comes off only where a space or a mark separates it.
+    """
+    text = unicodedata.normalize("NFKC", str(designation or "")).strip()
+    if not text or ISSUE.search(text) or MAGAZINE.search(text) or EDITION_WORD.search(text):
+        return None
+    text = IMPRINT_ASIDE.sub(" ", _shown(text)).strip()
+    # FROM THE FRONT ONLY, AND ONLY WHERE SOMETHING PARTS IT FROM WHAT FOLLOWS. `beyond_series`
+    # finds a series anywhere in a product title, which is right for a shop's badge and wrong here:
+    # under the umbrella work メガネさん, `妹とキスとメガネさん2` holds the work's title inside its
+    # own, and under 三姉妹, `三姉妹の真ん中` is one name that begins with it.
+    seen, where = _folded(text)
+    for t in sorted({str(t) for t in titles if t}, key=len, reverse=True):
+        want, _ = _folded(t)
+        if not want or not seen.startswith(want) or len(seen) <= len(want):
+            continue
+        rest = text[where[len(want) - 1] + 1:]
+        if rest[:1] and (rest[:1] in _SEPS + LEAD + "(（[【" or rest[:1].isdigit()):
+            # What the work's title left stranded comes off the front; a closing bracket or full
+            # stop at the END belongs to the volume's own name.
+            text = rest.lstrip(_SEPS + LEAD)
+            break
+    text = _unpositioned(text.strip())
+    # A TRANSLATED EDITION NAMES ITS VOLUME TWICE, `Friendly Feuding Families - 組長達のなかよし`,
+    # the second time in the work's own title, which is already on the page.
+    for t in titles:
+        head, sep, last = text.rpartition(" - ")
+        if sep and head and _same(last, t):
+            text = head.strip()
+            break
+    if not text or not any(ch.isalpha() for ch in text) or COUNTER_WORD.match(text):
+        return None
+    if any(_same(text, t) for t in titles if t):
+        return None
+    return text
+
+
+#: THE ORDER PART WORDS RUN IN, across both ways of writing a set: 上中下 for volumes and 前中後編
+#: for parts of a story. Which number each word takes depends on which of them the run uses.
+PART_ORDER = ("前", "上", "中", "下", "後")
+
+
+def position(designation, titles=()):
+    """Where the designation places its volume, as the integer it states or the part word it uses,
+    or None where it states neither.
+
+    THE SAME POSITION `subtitle` TAKES OFF, read rather than discarded. `(1) -民宿かがや` and
+    `(2) -民宿かがや` are two books with one name, and once the name is said apart from the number
+    the number is the only thing telling them apart. A part word comes back as itself, one of
+    `PART_ORDER`, because 下 is the second of 上下 and the third of 上中下 and only the run can say
+    which.
+    """
+    text = unicodedata.normalize("NFKC", str(designation or "")).strip()
+    if not text or ISSUE.search(text) or MAGAZINE.search(text):
+        return None
+    text = IMPRINT_ASIDE.sub(" ", _shown(text)).strip()
+    if any(_same(text, t) for t in titles if t):
+        return None
+    m = POSITION_HEAD.match(text) or POSITION_TAIL.search(text)
+    if not m:
+        return None
+    said = m.group(0).strip()
+    word = re.fullmatch(r"([上中下])巻?|([前中後])編", said)
+    if word:
+        return word.group(1) or word.group(2)
+    digits = re.search(r"\d+(?:\.\d+)?", said)
+    if not digits or "." in digits.group(0):
+        return None
+    return int(digits.group(0))

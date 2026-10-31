@@ -40,6 +40,7 @@ from names import publishers as _pubmod                                 # noqa: 
 from facts import imprint as _impmod                                    # noqa: E402
 from facts import namekey as _namekey                                   # noqa: E402
 from facts import inclusion as _inclusion                              # noqa: E402
+from facts import volumenumber as _volnum                               # noqa: E402
 try:
     import pass4_analyser as _p4                                        # noqa: E402
 except Exception:                                                       # noqa: BLE001
@@ -297,10 +298,12 @@ def works(db):
     """
     per_record = {}
     for (rec, number, number_n, designation, openbd, openbd_date, madb_id, isbn_source, cover,
-         final, fsource, fprov, fvols, fret, vid) in db.execute(
-            "SELECT record, number_raw, volume, designation, openbd, openbd_date, madb_id,"
-            " isbn_source, cover_url, final_volume, final_source, final_provenance, final_volumes,"
-            " final_retrieved, id FROM volume ORDER BY record, seq"):
+         final, fsource, fprov, fvols, fret, vid, work_title, record_title) in db.execute(
+            "SELECT v.record, v.number_raw, v.volume, v.designation, v.openbd, v.openbd_date,"
+            " v.madb_id, v.isbn_source, v.cover_url, v.final_volume, v.final_source,"
+            " v.final_provenance, v.final_volumes, v.final_retrieved, v.id, w.title, r.title"
+            " FROM volume v LEFT JOIN work w ON w.id = v.work LEFT JOIN record r ON r.id = v.record"
+            " ORDER BY v.record, v.seq"):
         isbns = [i for i, in db.execute(
             "SELECT isbn FROM volume_isbn WHERE volume = ? ORDER BY seq", (vid,))]
         events = {k: (d, b, s, st) for k, d, b, s, st in db.execute(
@@ -313,6 +316,13 @@ def works(db):
             vol["number"] = number
         if designation is not None:
             vol["designation"] = designation
+        # WHAT THE VOLUME IS CALLED IN ITS OWN RIGHT, where it is called anything: the name the
+        # name store answers for in English, as it does a work's title. `facts/volumenumber` says
+        # which part of the designation that is.
+        named = _volnum.subtitle(designation if designation is not None else number,
+                                 (work_title, record_title))
+        if named:
+            vol["subtitle"] = named
         if isbns:
             vol["isbn"] = isbns[0]
         printed = events.get("printing")

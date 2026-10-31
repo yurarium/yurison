@@ -248,6 +248,9 @@ STORE_ANSWERS = (
     "works.json:works[].volumes[].published",
     "works.json:works[].volumes[].delivered",
     "works.json:works[].volumes[].designation",
+    # A volume's own name, which `emit.works` reads out of the designation against the work's and
+    # the record's titles: three columns the store holds and one rule in `facts/volumenumber`.
+    "works.json:works[].volumes[].subtitle",
     "works.json:works[].volumes[].published_basis",
     "works.json:works[].volumes[].published_source",
     "works.json:works[].volumes[].isbn_source",

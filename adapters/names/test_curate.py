@@ -601,12 +601,23 @@ def main(s):
         s.check(raised, "so checking against no answer refuses rather than passing")
 
         (b / "titles.json").write_text(_json.dumps({"titles": ["ある作品", "私の百合はお仕事です！"]}))
+        (b / "works.json").write_text(_json.dumps({"works": []}))
         known = curate.known_titles(str(b))
         s.eq(known, {"ある作品", "私の百合はお仕事です！"}, "and a stated set is read as it stands")
         s.eq(curate.unmatched({"titles": {"私の百合はお仕事です!": {}}}, known), [],
              "a half-width variant of a title we hold is that title")
         s.eq(curate.unmatched({"titles": {"知らない作品": {}}}, known), ["知らない作品"],
              "and one nobody holds is reported")
+
+        # A VOLUME'S OWN NAME IS A TITLE WE HOLD. 考幻学入門 is the first book of 鈴木りつ短編集
+        # and is named in English the way a work is, so its curated entry is not a stray.
+        (b / "works.json").write_text(_json.dumps({"works": [{"work_id": "r1", "volumes": [
+            {"designation": "考幻学入門", "subtitle": "考幻学入門"}, {"number": "2"}]}]}))
+        known = curate.known_titles(str(b))
+        s.check("考幻学入門" in known and "ある作品" in known,
+                "a volume's subtitle is held beside the works' titles")
+        s.eq(curate.unmatched({"titles": {"考幻学入門": {}}}, known), [],
+             "so a curated name for it names something we hold")
 
     # A KEY WRITTEN TWICE VALIDATES AND DISAPPEARS. yaml.safe_load keeps the later mapping and drops
     # the earlier without a word, so the file parses cleanly and holds one of the two decisions. 12

@@ -10,7 +10,9 @@ exactly that, and nothing of the project reaches the job but the rules it names 
 WHAT AN ITEM HOLDS. `key`, the title as the store holds it, which is the key the curated file is
 written under; `author`; `platforms`; `pages`, the addresses a reader would open; and `related`, up to
 three titles already named that share the start of this one or its creator, so a second volume, a
-sister series or a companion book is named the way the first was.
+sister series or a companion book is named the way the first was. A volume's own title carries
+`volume_of`, the work it is a book of and that work's English, and `volume`, what the record calls
+the book.
 
     items.py [--limit 12] [--out data/build/naming-items.json]
 """
@@ -71,6 +73,41 @@ def item(row, named, kin=()):
             "pages": pages[:4], "related": related(row.get("work"), named, kin=kin)}
 
 
+def volume_items(series, records, named, limit):
+    """One item for each volume subtitle nobody has named yet, newest book first.
+
+    A BOOK'S OWN TITLE INSIDE A WORK, named the way a work's title is and kept in the same file.
+    考幻学入門 is the first of 鈴木りつ短編集's two collections, and its English belongs beside the
+    work's: `volume_of` hands over the work's title and the English it shows, so the book is named
+    to sit under it rather than as a title on its own. One subtitle shared by two books is asked
+    about once, because the curated file keys on the string.
+    """
+    of_record = {rec: row for row in series for p in (row.get("print") or [])
+                 for rec in (p.get("work_ids") or [])}
+    seen, found = set(), []
+    for r in records:
+        row = of_record.get(r.get("work_id"))
+        if not row:
+            continue
+        for v in r.get("volumes") or []:
+            sub = v.get("subtitle")
+            if not sub or sub in named or sub in seen:
+                continue
+            seen.add(sub)
+            found.append((str(v.get("published") or v.get("delivered") or ""), sub, row, r, v))
+    found.sort(key=lambda f: (f[0], f[1]), reverse=True)
+    out = []
+    for _, sub, row, r, v in found[:limit]:
+        pages = [p.get("shop_url") for p in (row.get("print") or [])
+                 if r.get("work_id") in (p.get("work_ids") or []) and p.get("shop_url")]
+        out.append({"key": sub, "author": row.get("author") or "", "platforms": [],
+                    "pages": pages[:4], "related": related(sub, named),
+                    "volume_of": {"ja": row.get("work"),
+                                  "en": (row.get("work_en") or {}).get("en")},
+                    "volume": v.get("designation") or v.get("number")})
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--limit", type=int, default=12)
@@ -85,6 +122,10 @@ def main(argv=None):
             by.setdefault(r["author"], []).append(r.get("work"))
     rows = untitled(series, set(named))[:a.limit]
     items = [item(r, named, by.get(r.get("author")) or ()) for r in rows]
+    # WORKS FIRST, AND A VOLUME'S OWN TITLE WITH WHAT IS LEFT. A work showing a romanisation is on
+    # every page that lists it; a volume's subtitle is on its work's page alone.
+    if len(items) < a.limit:
+        items += volume_items(series, population.records(None), named, a.limit - len(items))
     pathlib.Path(a.out).write_text(json.dumps(items, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{len(items)} title(s) to name -> {a.out}")
     if os.environ.get("GITHUB_OUTPUT"):

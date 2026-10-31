@@ -3723,6 +3723,20 @@ def main():
             if volume_number(v) is not None:
                 m["number_n"] = volume_number(v)
             vols.append(m)
+        # WHERE THE DESIGNATION PLACES A VOLUME THE RECORD DOES NOT NUMBER. `(1) -民宿かがや` and
+        # `(2) -民宿かがや` are two books with one name, and once a page says the name apart from
+        # the number, the number is all that tells the two rows apart. A part word is placed over
+        # this record's own volumes, for the reason the run above gives: 下 is the second of 上下
+        # and the third of 上中下.
+        _desig_said = {id(_desig_vol): _volnum.position(_desig_vol["designation"], ((w.get("title") or {}).get("ja"),))
+                 for _desig_vol in vols if "number_n" not in _desig_vol and _desig_vol.get("designation")}
+        _desig_parts = [_desig_word for _desig_word in _volnum.PART_ORDER if _desig_word in _desig_said.values()]
+        for _desig_vol in vols:
+            _desig_at = _desig_said.get(id(_desig_vol))
+            if isinstance(_desig_at, int):
+                _desig_vol["number_n"] = _desig_at
+            elif _desig_at:
+                _desig_vol["number_n"] = _desig_parts.index(_desig_at) + 1
         w["volumes"] = vols
         # THE SERIES FINISHED, ON A SHOP'S SAY-SO. Recorded as a claim with whose it is, never
         # merged into a bibliographic field. 258 print works had no completion information from any
@@ -7708,6 +7722,19 @@ def main():
                       for _vwk in works for _vw in (_vwk.get("volumes") or ())
                       for _vfield in ("number", "designation")
                       if str(_vw.get(_vfield) or "").strip()}
+        # AND THE NAME A VOLUME CARRIES IN ITS OWN RIGHT, which is what a volume row asks the maps
+        # for once its position is said apart from it. Worked out the way `emit.works` works it
+        # out, against the work's title and the record's, so the floor holds the string the page
+        # looks up.
+        _vol_work = {_vrec: _vol_row.get("work") for _vol_row in series_rows
+                     for _vprint in (_vol_row.get("print") or ())
+                     for _vrec in (_vprint.get("work_ids") or ())}
+        _vol_words |= {_vsub for _vwk in works for _vw in (_vwk.get("volumes") or ())
+                       for _vsub in [_volnum.subtitle(
+                           _vw.get("designation") if _vw.get("designation") is not None
+                           else _vw.get("number"),
+                           (_vol_work.get(_vwk.get("work_id")),
+                            (_vwk.get("title") or {}).get("ja")))] if _vsub}
         _p4.fill_chapters({x for r in releases + series_rows
                            for x in (r.get("ep"), r.get("latest_ep"), r.get("collection"),
                                      (r.get("author") or "").strip(),

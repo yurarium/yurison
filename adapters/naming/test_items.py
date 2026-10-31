@@ -36,6 +36,32 @@ def main(s):
     book = {"work": "本", "print": [{"shop_url": "https://www.cmoa.jp/title/1/"}]}
     s.eq(ni.item(book, {})["pages"], ["https://www.cmoa.jp/title/1/"],
          "a book's page is its shop's, since it has no web source")
+    volumes(s)
+
+
+def volumes(s):
+    """A volume's own title is asked about with the work it belongs to beside it."""
+    series = [{"work": "鈴木りつ短編集", "author": "鈴木りつ",
+               "work_en": {"basis": "translated", "en": "Suzuki Ritsu Short Stories"},
+               "print": [{"work_ids": ["bw-541043"], "shop_url": "https://bookwalker.jp/series/541043/"}]}]
+    records = [{"work_id": "bw-541043", "volumes": [
+                   {"designation": "考幻学入門", "subtitle": "考幻学入門", "published": "2025-08-20"},
+                   {"designation": "鈴木りつ第二短編集 垂直・宇宙・無限",
+                    "subtitle": "鈴木りつ第二短編集 垂直・宇宙・無限", "published": "2026-09-20"},
+                   {"number": "3", "published": "2027-01-01"}]},
+               {"work_id": "bw-elsewhere", "volumes": [{"subtitle": "考幻学入門"}]},
+               {"work_id": "nobody", "volumes": [{"subtitle": "どこにもない"}]}]
+    got = ni.volume_items(series, records, {}, 10)
+    s.eq([i["key"] for i in got], ["鈴木りつ第二短編集 垂直・宇宙・無限", "考幻学入門"],
+         "each subtitle once, newest book first; a book called by its number and one no work "
+         "holds are not asked about")
+    s.eq((got[1]["volume_of"], got[1]["pages"], got[1]["author"]),
+         ({"ja": "鈴木りつ短編集", "en": "Suzuki Ritsu Short Stories"},
+          ["https://bookwalker.jp/series/541043/"], "鈴木りつ"),
+         "with the work's title and English beside it, and the page that lists the book")
+    s.eq([i["key"] for i in ni.volume_items(series, records, {"考幻学入門": {"en": "x"}}, 10)],
+         ["鈴木りつ第二短編集 垂直・宇宙・無限"], "a subtitle already named is not asked again")
+    s.eq(len(ni.volume_items(series, records, {}, 1)), 1, "and the limit holds")
 
 
 if __name__ == "__main__":

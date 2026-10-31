@@ -38,3 +38,13 @@ called `A・B` matches a product called `AB`. That is what makes `MURCIÉLAGO` m
 it means a short series title made mostly of punctuation could be found inside a product title by
 accident. No case of this exists in the corpus as measured, which is a statement about today's data
 rather than about the rule.
+
+## A volume's own name is read off its designation, and some designations are not one
+
+`subtitle` and `position` split a designation into a name and a place in the run. They cannot see
+a number glued to a name, so `妹とキスとメガネさん2` keeps its 2 and places nothing; that is chosen,
+because `あやめ14` is a name. They cannot see a reading gloss inside a designation, so
+`百合(レズ)合コンと迷い込んだノンケの娘` is not recognised as its work's title written another way.
+And a record that cut its designation short mid-word, `その後~「瞳`, yields the fragment as the name.
+What catches each of these is a person reading a work page, or the naming run declining an item it
+cannot make sense of.

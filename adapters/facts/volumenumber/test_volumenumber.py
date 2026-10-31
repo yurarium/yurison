@@ -192,6 +192,81 @@ def volume_numbers(s):
              f"{raw!r} states no volume number")
     s.eq(vn.volume_number({}), None, "a volume stating nothing answers nothing")
     s.eq(vn.volume_number({"number": None}), None, "and so does one whose field is empty")
+    subtitles(s)
+
+
+def subtitles(s):
+    """What a volume is called in its own right, which the name store answers for in English.
+
+    Every designation here is one a record in the corpus states, under the work it is filed in."""
+    named = [
+        ("考幻学入門", ["鈴木りつ短編集"], "考幻学入門",
+         "a collection's first book is called what the shop calls it"),
+        ("鈴木りつ短編集　考幻学入門", ["鈴木りつ短編集"], "考幻学入門",
+         "and the work's title in front of it comes off"),
+        ("【最新刊】鈴木りつ第二短編集　垂直・宇宙・無限", ["鈴木りつ短編集"], "鈴木りつ第二短編集 垂直・宇宙・無限",
+         "a second collection's own title keeps the words that only resemble the work's"),
+        ("2巻 ワタシがいなくちゃダメなカノジョのハナシ", [], "ワタシがいなくちゃダメなカノジョのハナシ",
+         "a position before the name is not part of it"),
+        ("その4 対消滅でエスケープ編", [], "対消滅でエスケープ編", "nor is a doujin's その4"),
+        ("ep1 銀河を駈ける魂", [], "銀河を駈ける魂", "nor an ep1"),
+        ("#2 傷だらけの天使", [], "傷だらけの天使", "nor a #2"),
+        ("第1巻 ー山神の日常", [], "山神の日常", "nor a dash the record typed as a vowel mark"),
+        ("その後~「交換」4", [], "その後~「交換」", "a closing bracket ending the name stays"),
+        ("「お母さん二人いてもいいかな!?」の、これまで。 中巻", ["ママ母手帳"],
+         "「お母さん二人いてもいいかな!?」の、これまで。", "and so does a full stop"),
+        ("Friendly Feuding Families - 組長達のなかよし", ["組長達のなかよし"], "Friendly Feuding Families",
+         "a translated edition's volume does not name the work a second time"),
+        # THE COUNTER-CASES. A work's title inside a volume's own is not the work's title.
+        ("妹とキスとメガネさん2", ["メガネさんシリーズ", "メガネさん"], "妹とキスとメガネさん2",
+         "an umbrella work's title inside the volume's name stays, and a glued number with it"),
+        ("三姉妹の真ん中", ["三姉妹"], "三姉妹の真ん中",
+         "a volume whose name begins with the work's title, with nothing parting them, keeps it"),
+        ("あやめ14", [], "あやめ14", "a number glued to a name is part of the name"),
+    ]
+    for designation, titles, want, why in named:
+        s.eq(vn.subtitle(designation, titles), want, why)
+    nameless = [
+        ("2巻", [], "a position alone"),
+        ("(ノヴァコミックス)3", ["ジャガイモ農家の村娘、剣神と謳われるまで"], "an imprint and a position"),
+        ("4 volume", ["球詠"], "a position and its counter"),
+        ("Game 3", ["灼熱の卓球娘 REBURN!!"], "a chapter-style position"),
+        ("中編", [], "the middle of three parts"),
+        ("2025年5月号", ["ガレット"], "an issue of a periodical"),
+        ("『citrus +』5巻特装版小冊子電子版", ["『citrus +』小冊子"], "an extra marked as one"),
+        ("わたしと霊夢とわたし(英語版)", ["わたしと霊夢とわたし"], "an edition in another language"),
+        ("トワ・エ・モア(1)", ["トワ・エ・モア"], "the work's own title and a position"),
+        ("百合探偵少女 ~朱理推", ["百合探偵少女 ～朱理推～"], "the work's title spelled with other marks"),
+        ("死角の寵児 前編", ["死角の寵児　前編"], "the work's title with its own position"),
+        ("不眠症少女とASMRおやすみボイス", ["不眠症少女とASMRおやすみボイス【タテスク】"],
+         "the work's title without the shop's bracket"),
+        ("突然パパになった最強ドラゴンの子育て日記~かわいい娘、ほのぼのと人間界最強に",
+         ["「突然パパになった最強ドラゴンの子育て日記～かわいい娘、ほのぼのと人間界最強に育つ～」"],
+         "the work's title cut short"),
+        ("オリジナルコミックアンソロジー 魔女と僕についての物語 誰も知らないきみのこと",
+         ["短編オリジナルコミックアンソロジー 魔女と僕についての物語 ～誰も知らないきみのこと～"],
+         "the work's title with a word of it dropped"),
+        ("", [], "nothing"),
+    ]
+    for designation, titles, why in nameless:
+        s.eq(vn.subtitle(designation, titles), None, f"no name of its own: {why}")
+
+    # WHERE THE DESIGNATION PLACES THE BOOK, which is all that tells `(1) -民宿かがや` from
+    # `(2) -民宿かがや` once the name is said apart from the number.
+    placed = [("(2) -民宿かがや", 2), ("2巻 ワタシがいなくちゃダメなカノジョのハナシ", 2),
+              ("その4 対消滅でエスケープ編", 4), ("ep1 銀河を駈ける魂", 1), ("0 好きって言って", 0),
+              ("「お母さん二人いてもいいかな!?」の、これまで。 下巻", "下"),
+              ("蛇をつついて恋を出す 後編", "後")]
+    for designation, want in placed:
+        s.eq(vn.position(designation), want, f"{designation!r} is placed at {want!r}")
+    for designation, why in [("妹とキスとメガネさん2", "a number glued to a name is the name's"),
+                             ("キスしたくなりました。2.5", "a half volume is no integer position"),
+                             ("2025年5月号", "an issue is dated, not placed"),
+                             ("考幻学入門", "a name alone places nothing")]:
+        s.eq(vn.position(designation), None, why)
+    s.check(all(w in vn.PART_ORDER for w in ("前", "上", "中", "下", "後")),
+            "every part word the reader returns has a place in the order a run is read in")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

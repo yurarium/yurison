@@ -189,6 +189,18 @@ def feed_window(path=None):
     return out
 
 
+def volume_subtitles(path=None):
+    """Every name a volume carries in its own right, as `works.json` states it under `subtitle`.
+
+    A TITLE THE NAME STORE ANSWERS FOR, AND NOT A WORK. 考幻学入門 is the first book of
+    鈴木りつ短編集 and is named in English the way a work is, so the passes that ask "do we hold this
+    title" ask it of these too. `titles` stays the works alone: `bwingest` reads it as the corpus a
+    new listing is checked against, and a volume's name is not a work a listing could duplicate.
+    """
+    return sorted({str(v["subtitle"]) for r in records(path)
+                   for v in (r.get("volumes") or []) if v.get("subtitle")})
+
+
 def records(path=None):
     """The record layer, as `works.json` states it: one row per catalogued book run."""
     path = _named(path)

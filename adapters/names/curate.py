@@ -465,7 +465,7 @@ _fold = key.fold
 
 
 def unmatched(doc, known):
-    """Curated keys that name no work we hold.
+    """Curated keys that name no work we hold, nor any volume's own title.
 
     A key is the Japanese title exactly as the catalogue stores it, and a hand-typed one that is
     off by a wave dash or a full-width bracket applies cleanly, changes nothing, and reports
@@ -574,7 +574,7 @@ def duplicate_keys(path=None):
 
 
 def known_titles(build="data/build"):
-    """Every title the build says it knows, folded.
+    """Every title the build says it knows, a work's or a volume's own, folded.
 
     ASKED, NOT REASSEMBLED. This used to union the feed's rolling window with the series list, and
     later the month archives too, none of which is the corpus: the window forgets a work after a
@@ -590,7 +590,9 @@ def known_titles(build="data/build"):
     import sys as _sys
     _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
     import population
-    return set(population.titles(pathlib.Path(build) / "titles.json" if build else None))
+    # AND EVERY NAME A VOLUME CARRIES, which the curated file names in English as it names a work.
+    return (set(population.titles(pathlib.Path(build) / "titles.json" if build else None))
+            | set(population.volume_subtitles(pathlib.Path(build) / "works.json" if build else None)))
 
 
 def todo(build="data/build", limit=None, curated=None):

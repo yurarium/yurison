@@ -162,9 +162,11 @@ SURFACES = [
     # `vol. 2`, and the ruling in NOT_A_NAME below was carrying the field on the strength of 上 and
     # 下 being rendered, which they are and it was not. Asked of the RECORD, because the label is
     # made from the designation and the position the build placed it at together.
+    # AND WHAT THE VOLUME IS CALLED IN ITS OWN RIGHT, which `volLabel` says through the titles map
+    # a work's title is said through, beside the position the build placed it at.
     Surface("works[].volumes[]", "volLabel", "record", "value",
             "the label on a volume row: its number, or what the record calls it instead",
-            fields=("number", "designation")),
+            fields=("number", "designation", "subtitle")),
     Surface("works[].creator", "creditNames", "value", "person",
             "the 発売 tab's byline, the credit field split into the people in it"),
     # `publisherChip` IS THE ENTRY POINT FOR ONE HOUSE'S NAME, added when the houses got addresses

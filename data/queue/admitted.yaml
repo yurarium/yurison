@@ -9,9 +9,9 @@
 #
 # Still data/queue/: these are candidates. Admission into data/source/ needs the joins
 # and the volume histories that give a work its dates.
-retrieved: 2026-10-29
-admitted: 4450
-by_shop: {"bookwalker.jp": 2606, "cmoa.jp": 1844}
+retrieved: 2026-10-31
+admitted: 4496
+by_shop: {"bookwalker.jp": 2652, "cmoa.jp": 1844}
 excluded: {"published on ヤングアンリアルコミックス, an adult imprint": 5, "published on 秋水社ORIGINAL, an adult imprint": 16}
 works:
   - title: "#ふれない"
@@ -124,6 +124,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "11番目のねこはねね"
+    authors: ["はりかも"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/523710/"
+    shop: "bookwalker.jp"
+    shop_id: "523710"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_006624_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "15才"
     authors: []
     publisher: null
@@ -575,6 +587,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "DarkArtsMaster-黶き魔法使い-"
+    authors: ["神原絵理華"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/223691/"
+    shop: "bookwalker.jp"
+    shop_id: "223691"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_002704_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "Day In, Day Out"
     authors: ["Rion Nomiya"]
     publisher: null
@@ -597,6 +621,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "Dear NOMAN"
+    authors: ["寝路"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/237435/"
+    shop: "bookwalker.jp"
+    shop_id: "237435"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003992_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "Devil'sLover"
     authors: []
     publisher: null
@@ -1312,6 +1348,18 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "OLさんと猫のはなし"
+    authors: ["嵩乃朔"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/237436/"
+    shop: "bookwalker.jp"
+    shop_id: "237436"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004044_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "OLと人魚"
     authors: []
     publisher: null
@@ -4832,6 +4880,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "かりん歩"
+    authors: ["柳原望"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/153426/"
+    shop: "bookwalker.jp"
+    shop_id: "153426"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_001724_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "かわいいから襲ってみた 総集編"
     authors: []
     publisher: null
@@ -6196,6 +6256,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "せんぱいあい。"
+    authors: ["冬梨。"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/dea7b62638-b93f-467a-b555-6dd9f5bf7e49/"
+    shop: "bookwalker.jp"
+    shop_id: "a7b62638-b93f-467a-b555-6dd9f5bf7e49"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_001784_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "ぜんぶきみの性"
     authors: []
     publisher: null
@@ -7197,6 +7269,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "はじめてのキャンプさん"
+    authors: ["双葉末月"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/309699/"
+    shop: "bookwalker.jp"
+    shop_id: "309699"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_000973_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "はずかしがりやのれいむさん"
     authors: ["著者: あとき"]
     publisher: null
@@ -7219,6 +7303,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "はつ恋、ときめき うすいほん"
+    authors: ["高橋哲哉"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/216251/"
+    shop: "bookwalker.jp"
+    shop_id: "216251"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_000256_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "はなにあらし"
     authors: []
     publisher: null
@@ -7659,6 +7755,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ふたつ屋根の下"
+    authors: ["ほなみ彩"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/165124/"
+    shop: "bookwalker.jp"
+    shop_id: "165124"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003287_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "ふたりでひとりぐらし、"
     authors: []
     publisher: null
@@ -9122,6 +9230,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "わたしたちの終わりと"
+    authors: ["こるせ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de0fa5a726-cc41-4d25-9e31-38623fe740bb/"
+    shop: "bookwalker.jp"
+    shop_id: "0fa5a726-cc41-4d25-9e31-38623fe740bb"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003931_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "わたしと霊夢とわたし"
     authors: ["著者: かやこ"]
     publisher: null
@@ -9144,6 +9264,18 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "わたしのお腹の責任取って!"
+    authors: ["肉丸", "ジョーさん。"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/338109/"
+    shop: "bookwalker.jp"
+    shop_id: "338109"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004049_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "わたしのために脱ぎなさいっ!"
     authors: []
     publisher: null
@@ -9188,6 +9320,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "わたしの友達が世界一かわいい 1"
+    authors: ["三月"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de7a3d9f2f-6ae1-441e-ba20-7d53012148dd/"
+    shop: "bookwalker.jp"
+    shop_id: "7a3d9f2f-6ae1-441e-ba20-7d53012148dd"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004371_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "わたしはサキュバスとキスをした"
     authors: []
     publisher: null
@@ -9221,6 +9365,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "んねこん"
+    authors: ["柴田康平"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de4e445535-5d98-47ad-8f78-82e7a4f9fac4/"
+    shop: "bookwalker.jp"
+    shop_id: "4e445535-5d98-47ad-8f78-82e7a4f9fac4"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003374_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "アイドルが甘いモノを食べるお話"
     authors: ["海産物 他"]
     publisher: null
@@ -9727,6 +9883,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ウィッチギルド ファンタジア"
+    authors: ["漆野りひと"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/184164/"
+    shop: "bookwalker.jp"
+    shop_id: "184164"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_005043_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "ウィーンで歌ってみて"
     authors: []
     publisher: null
@@ -10090,6 +10258,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "オンリー☆ユー ~あなたと私の二人ぼっち計画~(1)"
+    authors: ["めきめき"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/debf633476-7e22-483d-84f2-1f5653bfcae5/"
+    shop: "bookwalker.jp"
+    shop_id: "bf633476-7e22-483d-84f2-1f5653bfcae5"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003706_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "カナリアは綺羅星の夢をみる"
     authors: []
     publisher: null
@@ -10178,6 +10358,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "カーグラフィティJK"
+    authors: ["さきしまえのき"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/153522/"
+    shop: "bookwalker.jp"
+    shop_id: "153522"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004813_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "カーテンコール e.p."
     authors: ["著者: 舞村そうじ"]
     publisher: null
@@ -10673,6 +10865,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ギャルとオタクはわかりあえない。"
+    authors: ["河合朗"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/78317/"
+    shop: "bookwalker.jp"
+    shop_id: "78317"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004642_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "ギャルとギャルがゆるく暮らす話"
     authors: ["朝日夜"]
     publisher: null
@@ -10794,6 +10998,18 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "クラスのアイドルは今日も推せない"
+    authors: ["荒木美咲"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/def41c8696-3cd3-4f4d-a3c5-e59b2c6964f5/"
+    shop: "bookwalker.jp"
+    shop_id: "f41c8696-3cd3-4f4d-a3c5-e59b2c6964f5"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_000355_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "クラス全員で百合カプを守る話 1"
     authors: ["若林アスカ"]
     publisher: null
@@ -11069,6 +11285,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "サクラ*ナデシコ"
+    authors: ["葉賀ユイ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/64776/"
+    shop: "bookwalker.jp"
+    shop_id: "64776"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_001230_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "サクランボッチ"
     authors: []
     publisher: null
@@ -11388,6 +11616,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "シーズンシアターシアトリカル 1"
+    authors: ["源久也", "MooNPhase"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de51d6e076-3380-4874-95e1-ec051ee88197/"
+    shop: "bookwalker.jp"
+    shop_id: "51d6e076-3380-4874-95e1-ec051ee88197"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004781_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "シーツの下に銃ふたつ"
     authors: []
     publisher: null
@@ -11564,6 +11804,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ストロベリー・フィールズをもう一度"
+    authors: ["木野咲カズラ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/134854/"
+    shop: "bookwalker.jp"
+    shop_id: "134854"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003952_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "スパッツちゃんと触手ちゃん 1"
     authors: ["鵤れいし"]
     publisher: null
@@ -11916,6 +12168,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ダイガクちゃん×はいすくーる!"
+    authors: ["馬かのこ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/279814/"
+    shop: "bookwalker.jp"
+    shop_id: "279814"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_000822_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "ダッフルコートアーミー"
     authors: []
     publisher: null
@@ -12125,6 +12389,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "トラとハチドリ"
+    authors: ["ヨドカワ", "MB"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/179726/"
+    shop: "bookwalker.jp"
+    shop_id: "179726"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003139_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "トランススイッチ"
     authors: []
     publisher: null
@@ -12312,6 +12588,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ネコと海の彼方"
+    authors: ["星期一回收日", "陳巧蓉(巧ミャオ)"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de6749a747-409c-413f-8069-559c32dda06a/"
+    shop: "bookwalker.jp"
+    shop_id: "6749a747-409c-413f-8069-559c32dda06a"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_005113_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "ネジクギ劇場番外編(1)"
     authors: ["釘ヲ 他"]
     publisher: null
@@ -13159,6 +13447,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ブラッドフレンド 1"
+    authors: ["三家本 礼"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/dec00970db-3701-4346-ab49-4bfdc379b9bf/"
+    shop: "bookwalker.jp"
+    shop_id: "c00970db-3701-4346-ab49-4bfdc379b9bf"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_014262_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "ブルーダイヤモンド"
     authors: ["著者: 朱村咲"]
     publisher: null
@@ -14270,6 +14570,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "リリー&アイビー ~ケンカップル百合×性愛アンソロジー~"
+    authors: ["くわばらたもつ", "nipi", "もえきち。", "れぇ", "たなかあひる", "タチ", "コダマナオコ", "焔すばる", "純玲", "リスくん", "凡竜", "ピロヤ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de4efe570a-c905-4546-a231-7cbe9808729c/"
+    shop: "bookwalker.jp"
+    shop_id: "4efe570a-c905-4546-a231-7cbe9808729c"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004715_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "リリーズ【タテスク】"
     authors: ["小宮 ゆと"]
     publisher: null
@@ -14380,6 +14692,18 @@ works:
     doujin: true
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "レストア! ~改造車工房へようこそ~ 1"
+    authors: ["御名原 雅"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de5ea463f4-5c87-4cba-9598-0e54612a00f1/"
+    shop: "bookwalker.jp"
+    shop_id: "5ea463f4-5c87-4cba-9598-0e54612a00f1"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_018205_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "レズと七人の彼女たち"
     authors: []
     publisher: null
@@ -17240,6 +17564,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "同居人が不安定でして"
+    authors: ["タカダフミ子"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/85103/"
+    shop: "bookwalker.jp"
+    shop_id: "85103"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003102_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "同性交遊俱楽部"
     authors: []
     publisher: null
@@ -17526,6 +17862,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "吸血鬼ちゃん×後輩ちゃん"
+    authors: ["嵩乃朔"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/132195/"
+    shop: "bookwalker.jp"
+    shop_id: "132195"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_002132_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "吸血鬼ちゃんとメイドさん"
     authors: ["著者: ざんか"]
     publisher: null
@@ -18494,6 +18842,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "女子には歴史がありまして 平尾アウリ短編集"
+    authors: ["平尾アウリ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de65acb975-a22c-481a-a3e1-742deb93f524/"
+    shop: "bookwalker.jp"
+    shop_id: "65acb975-a22c-481a-a3e1-742deb93f524"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_001170_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "女子大生が合コンでお姉さんに持ち帰られる話"
     authors: []
     publisher: null
@@ -18604,6 +18964,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "女子高生の生態図鑑"
+    authors: ["しまぷ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de32686403-fb64-4175-9100-d000471f3788/"
+    shop: "bookwalker.jp"
+    shop_id: "32686403-fb64-4175-9100-d000471f3788"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003121_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "女流作家とユキ"
     authors: []
     publisher: null
@@ -19198,6 +19570,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "寮長は料理上手"
+    authors: ["吉村佳"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/116616/"
+    shop: "bookwalker.jp"
+    shop_id: "116616"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004954_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "寺生まれのギャル"
     authors: ["ラブハンター権田原"]
     publisher: null
@@ -20023,6 +20407,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "彼女のイデア"
+    authors: ["冬芽沙也"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/225248/"
+    shop: "bookwalker.jp"
+    shop_id: "225248"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_000200_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "彼女のカノジョと不純な初恋1"
     authors: ["Akeo 他"]
     publisher: null
@@ -20298,6 +20694,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "恋する名画"
+    authors: ["みもと"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/233850/"
+    shop: "bookwalker.jp"
+    shop_id: "233850"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_002738_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "恋する狼とミルフィーユ"
     authors: []
     publisher: null
@@ -20650,6 +21058,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "悪役令嬢が正ヒロインを口説き落とす話。"
+    authors: ["ふじい葛西"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/374417/"
+    shop: "bookwalker.jp"
+    shop_id: "374417"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003988_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "悪役令嬢ですが、ヒロインに攻略されてますわ!? アンソロジーコミック"
     authors: []
     publisher: null
@@ -20727,6 +21147,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "悪魔のリドル"
+    authors: ["南方純", "高河ゆん"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/6872/"
+    shop: "bookwalker.jp"
+    shop_id: "6872"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_000360_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "悪魔は笑って嘘をつく 1"
     authors: ["著者: 福井遥香"]
     publisher: null
@@ -20980,6 +21412,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "憎たらしいけど可愛いメスガキとイチャイチャしちゃう アンソロジーコミック"
+    authors: ["肉丸", "大城戸カロ", "かんむり", "くまパンツ", "剛田ナギ", "ササマシン", "汐焼あゆ", "神社えーる", "吸斬", "高橋ぽてと", "ねこ末端", "やわらかブラック"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de50abcdfa-5af1-4e79-b711-adb4fd2008ff/"
+    shop: "bookwalker.jp"
+    shop_id: "50abcdfa-5af1-4e79-b711-adb4fd2008ff"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_002321_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "成美ちゃんは愛されたい"
     authors: ["著者: インド僧"]
     publisher: null
@@ -22278,6 +22722,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "桜の世界"
+    authors: ["つるせ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/395123/"
+    shop: "bookwalker.jp"
+    shop_id: "395123"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004943_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "森永みるく&袴田めら百合合同誌"
     authors: []
     publisher: null
@@ -22608,6 +23064,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "水野と茶山"
+    authors: ["西尾雄太"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/232200/"
+    shop: "bookwalker.jp"
+    shop_id: "232200"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_002610_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "永世乙女の戦い方"
     authors: []
     publisher: null
@@ -23081,6 +23549,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "狼よ、震えて眠れ"
+    authors: ["犬童千絵"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/529138/"
+    shop: "bookwalker.jp"
+    shop_id: "529138"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_006737_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "猫とシュガーポット 【電子限定おまけ付き】"
     authors: ["著者: 雪子"]
     publisher: null
@@ -23290,6 +23770,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "琥珀の貴女"
+    authors: ["東河みそ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de77c64b59-56a5-449a-a310-0b0904872f06/"
+    shop: "bookwalker.jp"
+    shop_id: "77c64b59-56a5-449a-a310-0b0904872f06"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_004475_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "瑠東さんには敵いません!"
     authors: []
     publisher: null
@@ -23774,6 +24266,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "白ギャルと黒ギャルの誘惑"
+    authors: ["白石浩平"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/deb9754111-6e68-4dd4-8c44-a08bfeb5aa3f/"
+    shop: "bookwalker.jp"
+    shop_id: "b9754111-6e68-4dd4-8c44-a08bfeb5aa3f"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003896_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "白亜の約束"
     authors: ["著者: あとき"]
     publisher: null
@@ -23961,6 +24465,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "百合な私と悪魔な彼女(?)"
+    authors: ["もこやま仁"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/54984/"
+    shop: "bookwalker.jp"
+    shop_id: "54984"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003626_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "百合にはさまりたくない僕が百合告白を目撃した件"
     authors: ["やまもとまも"]
     publisher: null
@@ -24390,6 +24906,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "百合鍵 ~先輩の秘密をのぞいてみた~"
+    authors: ["瀬田せた"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/deb1a1cdf4-2e54-4a74-8128-0350500dbc3d/"
+    shop: "bookwalker.jp"
+    shop_id: "b1a1cdf4-2e54-4a74-8128-0350500dbc3d"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_002992_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "百年の恋が冷めるまで"
     authors: ["著者: 桜木晶"]
     publisher: null
@@ -25149,6 +25677,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "私のジャンルに「神」がいます"
+    authors: ["真田つづる"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/series/273331/"
+    shop: "bookwalker.jp"
+    shop_id: "273331"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_005130_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "私の前世は悪役令嬢で黒歴史な上に恋敵です"
     authors: ["海月:モトキ"]
     publisher: null
@@ -26568,6 +27108,18 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "菅野マナミ短編集 良い子さんと不良先生"
+    authors: ["菅野マナミ"]
+    publisher: null
+    imprint: null
+    url: "https://bookwalker.jp/de068d8cc6-a18a-4263-98e0-90557c8392fb/"
+    shop: "bookwalker.jp"
+    shop_id: "068d8cc6-a18a-4263-98e0-90557c8392fb"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+    publisher_label: {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_003788_S", "retrieved": "2026-11-01", "label": "百合", "note": "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."}
   - title: "菫戦争"
     authors: []
     publisher: null

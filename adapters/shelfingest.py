@@ -92,6 +92,10 @@ def normalise(row, shop):
         "doujin": bool(row.get("doujin")),
         "age_gated": age_gated(row, shop),
         "explicit_content": explicit(row),
+        # THE PUBLISHER'S OWN LABEL, where the row came from one rather than from a shop's shelf.
+        # `labelshelf.py` writes it for KADOKAWA works カドコミ tags 百合; it is carried as it came,
+        # because the record bwingest writes cites it as the work's marketing label.
+        **({"publisher_label": row["publisher_label"]} if row.get("publisher_label") else {}),
     }
 
 
@@ -119,17 +123,28 @@ def main(argv=None):
 
     q = pathlib.Path(a.queue)
     shops = [("bookwalker.jp", q / "bookwalker-yuri.yaml", "items"),
-             ("cmoa.jp", q / "cmoa-yuri.yaml", "titles")]
+             ("cmoa.jp", q / "cmoa-yuri.yaml", "titles"),
+             # A PUBLISHER'S LABEL, matched to the BOOK☆WALKER listing that sells the volumes, so
+             # it is a BOOK☆WALKER row and the print intake reads it as one (adapters/labelshelf.py).
+             ("bookwalker.jp", q / "kadokomi-label.yaml", "items")]
     all_rows, excluded, per = [], {}, {}
     for shop, path, key in shops:
         if not path.exists():
             continue
         doc = yaml.safe_load(path.read_text()) or {}
         recs, why = ingest(doc.get(key) or [], shop)
+        # ONE ROW PER LISTING. A listing a shop shelves and the publisher also labels is one work,
+        # and the label is the stronger statement, so it is kept on the row the shelf gave.
+        have = {(r["shop"], str(r["shop_id"])): r for r in all_rows}
         for r in recs:
             r["shop"] = shop
-        all_rows += recs
-        per[shop] = len(recs)
+            prev = have.get((shop, str(r["shop_id"])))
+            if prev is not None:
+                if r.get("publisher_label"):
+                    prev["publisher_label"] = r["publisher_label"]
+                continue
+            all_rows.append(r)
+            per[shop] = per.get(shop, 0) + 1
         for k, v in why.items():
             excluded[k] = excluded.get(k, 0) + v
 
@@ -153,6 +168,8 @@ def main(argv=None):
         for k in ("authors", "publisher", "imprint", "url", "shop", "shop_id",
                   "completed", "doujin", "explicit_content", "age_gated"):
             L.append(f"    {k}: {js(r[k])}")
+        if r.get("publisher_label"):
+            L.append(f"    publisher_label: {js(r['publisher_label'])}")
     L.append("")
     pathlib.Path(a.out).write_text("\n".join(L))
     print(f"admitted {len(all_rows)} of {len(all_rows) + sum(excluded.values())} shelf rows "

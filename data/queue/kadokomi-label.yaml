@@ -1,0 +1,473 @@
+# The publisher's own 百合 label, read as a shelf (adapters/labelshelf.py).
+#
+# KADOKAWA works カドコミ tags 百合 and serves no episode of, each matched to the
+# BOOK☆WALKER series that sells its volumes. Candidates, in data/queue/: shelfingest.py
+# admits them and the print intake gives them records.
+retrieved: 2026-10-31
+found: 46
+items:
+  - title: "11番目のねこはねね"
+    authors: ["はりかも"]
+    url: "https://bookwalker.jp/series/523710/"
+    id: "523710"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_006624_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "DarkArtsMaster-黶き魔法使い-"
+    authors: ["神原絵理華"]
+    url: "https://bookwalker.jp/series/223691/"
+    id: "223691"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_002704_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "Dear NOMAN"
+    authors: ["寝路"]
+    url: "https://bookwalker.jp/series/237435/"
+    id: "237435"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003992_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "OLさんと猫のはなし"
+    authors: ["嵩乃朔"]
+    url: "https://bookwalker.jp/series/237436/"
+    id: "237436"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004044_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "かりん歩"
+    authors: ["柳原望"]
+    url: "https://bookwalker.jp/series/153426/"
+    id: "153426"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_001724_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "せんぱいあい。"
+    authors: ["冬梨。"]
+    url: "https://bookwalker.jp/dea7b62638-b93f-467a-b555-6dd9f5bf7e49/"
+    id: "a7b62638-b93f-467a-b555-6dd9f5bf7e49"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_001784_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "はじめてのキャンプさん"
+    authors: ["双葉末月"]
+    url: "https://bookwalker.jp/series/309699/"
+    id: "309699"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_000973_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "はつ恋、ときめき うすいほん"
+    authors: ["高橋哲哉"]
+    url: "https://bookwalker.jp/series/216251/"
+    id: "216251"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_000256_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "ふたつ屋根の下"
+    authors: ["ほなみ彩"]
+    url: "https://bookwalker.jp/series/165124/"
+    id: "165124"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003287_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "わたしたちの終わりと"
+    authors: ["こるせ"]
+    url: "https://bookwalker.jp/de0fa5a726-cc41-4d25-9e31-38623fe740bb/"
+    id: "0fa5a726-cc41-4d25-9e31-38623fe740bb"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003931_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "わたしのお腹の責任取って！"
+    authors: ["肉丸", "ジョーさん。"]
+    url: "https://bookwalker.jp/series/338109/"
+    id: "338109"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004049_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "わたしの友達が世界一かわいい 1"
+    authors: ["三月"]
+    url: "https://bookwalker.jp/de7a3d9f2f-6ae1-441e-ba20-7d53012148dd/"
+    id: "7a3d9f2f-6ae1-441e-ba20-7d53012148dd"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004371_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "んねこん"
+    authors: ["柴田康平"]
+    url: "https://bookwalker.jp/de4e445535-5d98-47ad-8f78-82e7a4f9fac4/"
+    id: "4e445535-5d98-47ad-8f78-82e7a4f9fac4"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003374_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "ウィッチギルド ファンタジア"
+    authors: ["漆野りひと"]
+    url: "https://bookwalker.jp/series/184164/"
+    id: "184164"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_005043_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "オンリー☆ユー ～あなたと私の二人ぼっち計画～(1)"
+    authors: ["めきめき"]
+    url: "https://bookwalker.jp/debf633476-7e22-483d-84f2-1f5653bfcae5/"
+    id: "bf633476-7e22-483d-84f2-1f5653bfcae5"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003706_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "カーグラフィティJK"
+    authors: ["さきしまえのき"]
+    url: "https://bookwalker.jp/series/153522/"
+    id: "153522"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004813_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "ギャルとオタクはわかりあえない。"
+    authors: ["河合朗"]
+    url: "https://bookwalker.jp/series/78317/"
+    id: "78317"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004642_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "クラスのアイドルは今日も推せない"
+    authors: ["荒木美咲"]
+    url: "https://bookwalker.jp/def41c8696-3cd3-4f4d-a3c5-e59b2c6964f5/"
+    id: "f41c8696-3cd3-4f4d-a3c5-e59b2c6964f5"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_000355_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "サクラ*ナデシコ"
+    authors: ["葉賀ユイ"]
+    url: "https://bookwalker.jp/series/64776/"
+    id: "64776"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_001230_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "シーズンシアターシアトリカル 1"
+    authors: ["源久也", "ＭｏｏＮＰｈａｓｅ"]
+    url: "https://bookwalker.jp/de51d6e076-3380-4874-95e1-ec051ee88197/"
+    id: "51d6e076-3380-4874-95e1-ec051ee88197"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004781_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "ストロベリー・フィールズをもう一度"
+    authors: ["木野咲カズラ"]
+    url: "https://bookwalker.jp/series/134854/"
+    id: "134854"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003952_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "ダイガクちゃん×はいすくーる！"
+    authors: ["馬かのこ"]
+    url: "https://bookwalker.jp/series/279814/"
+    id: "279814"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_000822_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "トラとハチドリ"
+    authors: ["ヨドカワ", "MB"]
+    url: "https://bookwalker.jp/series/179726/"
+    id: "179726"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003139_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "ネコと海の彼方"
+    authors: ["星期一回收日", "陳巧蓉（巧ミャオ）"]
+    url: "https://bookwalker.jp/de6749a747-409c-413f-8069-559c32dda06a/"
+    id: "6749a747-409c-413f-8069-559c32dda06a"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_005113_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "ブラッドフレンド 1"
+    authors: ["三家本　礼"]
+    url: "https://bookwalker.jp/dec00970db-3701-4346-ab49-4bfdc379b9bf/"
+    id: "c00970db-3701-4346-ab49-4bfdc379b9bf"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_014262_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "リリー＆アイビー ～ケンカップル百合×性愛アンソロジー～"
+    authors: ["くわばらたもつ", "nipi", "もえきち。", "れぇ", "たなかあひる", "タチ", "コダマナオコ", "焔すばる", "純玲", "リスくん", "凡竜", "ピロヤ"]
+    url: "https://bookwalker.jp/de4efe570a-c905-4546-a231-7cbe9808729c/"
+    id: "4efe570a-c905-4546-a231-7cbe9808729c"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004715_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "レストア！ ～改造車工房へようこそ～ １"
+    authors: ["御名原 雅"]
+    url: "https://bookwalker.jp/de5ea463f4-5c87-4cba-9598-0e54612a00f1/"
+    id: "5ea463f4-5c87-4cba-9598-0e54612a00f1"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_018205_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "同居人が不安定でして"
+    authors: ["タカダフミ子"]
+    url: "https://bookwalker.jp/series/85103/"
+    id: "85103"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003102_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "吸血鬼ちゃん×後輩ちゃん"
+    authors: ["嵩乃朔"]
+    url: "https://bookwalker.jp/series/132195/"
+    id: "132195"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_002132_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "女子には歴史がありまして 平尾アウリ短編集"
+    authors: ["平尾アウリ"]
+    url: "https://bookwalker.jp/de65acb975-a22c-481a-a3e1-742deb93f524/"
+    id: "65acb975-a22c-481a-a3e1-742deb93f524"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_001170_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "女子高生の生態図鑑"
+    authors: ["しまぷ"]
+    url: "https://bookwalker.jp/de32686403-fb64-4175-9100-d000471f3788/"
+    id: "32686403-fb64-4175-9100-d000471f3788"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003121_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "寮長は料理上手"
+    authors: ["吉村佳"]
+    url: "https://bookwalker.jp/series/116616/"
+    id: "116616"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004954_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "彼女のイデア"
+    authors: ["冬芽沙也"]
+    url: "https://bookwalker.jp/series/225248/"
+    id: "225248"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_000200_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "恋する名画"
+    authors: ["みもと"]
+    url: "https://bookwalker.jp/series/233850/"
+    id: "233850"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_002738_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "悪役令嬢が正ヒロインを口説き落とす話。"
+    authors: ["ふじい葛西"]
+    url: "https://bookwalker.jp/series/374417/"
+    id: "374417"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003988_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "悪魔のリドル"
+    authors: ["南方純", "高河ゆん"]
+    url: "https://bookwalker.jp/series/6872/"
+    id: "6872"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_000360_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "憎たらしいけど可愛いメスガキとイチャイチャしちゃう アンソロジーコミック"
+    authors: ["肉丸", "大城戸カロ", "かんむり", "くまパンツ", "剛田ナギ", "ササマシン", "汐焼あゆ", "神社えーる", "吸斬", "高橋ぽてと", "ねこ末端", "やわらかブラック"]
+    url: "https://bookwalker.jp/de50abcdfa-5af1-4e79-b711-adb4fd2008ff/"
+    id: "50abcdfa-5af1-4e79-b711-adb4fd2008ff"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_002321_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "桜の世界"
+    authors: ["つるせ"]
+    url: "https://bookwalker.jp/series/395123/"
+    id: "395123"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004943_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "水野と茶山"
+    authors: ["西尾雄太"]
+    url: "https://bookwalker.jp/series/232200/"
+    id: "232200"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_002610_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "狼よ、震えて眠れ"
+    authors: ["犬童千絵"]
+    url: "https://bookwalker.jp/series/529138/"
+    id: "529138"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_006737_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "琥珀の貴女"
+    authors: ["東河みそ"]
+    url: "https://bookwalker.jp/de77c64b59-56a5-449a-a310-0b0904872f06/"
+    id: "77c64b59-56a5-449a-a310-0b0904872f06"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_004475_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "白ギャルと黒ギャルの誘惑"
+    authors: ["白石浩平"]
+    url: "https://bookwalker.jp/deb9754111-6e68-4dd4-8c44-a08bfeb5aa3f/"
+    id: "b9754111-6e68-4dd4-8c44-a08bfeb5aa3f"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003896_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "百合な私と悪魔な彼女(？)"
+    authors: ["もこやま仁"]
+    url: "https://bookwalker.jp/series/54984/"
+    id: "54984"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003626_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "百合鍵 ～先輩の秘密をのぞいてみた～"
+    authors: ["瀬田せた"]
+    url: "https://bookwalker.jp/deb1a1cdf4-2e54-4a74-8128-0350500dbc3d/"
+    id: "b1a1cdf4-2e54-4a74-8128-0350500dbc3d"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_002992_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "私のジャンルに「神」がいます"
+    authors: ["真田つづる"]
+    url: "https://bookwalker.jp/series/273331/"
+    id: "273331"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_005130_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+  - title: "菅野マナミ短編集 良い子さんと不良先生"
+    authors: ["菅野マナミ"]
+    url: "https://bookwalker.jp/de068d8cc6-a18a-4263-98e0-90557c8392fb/"
+    id: "068d8cc6-a18a-4263-98e0-90557c8392fb"
+    publisher_label:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_003788_S"
+      retrieved: "2026-11-01"
+      label: "百合"
+      note: "The publisher applies its 百合 tag to this work on カドコミ, its own platform, which lists the work and serves no episode of it."
+checked:
+  "契約しましょ おつかれさま女子、世話焼き悪魔と暮らす": "2026-10-31"
+  "憎らしいほど愛してる　～不倫×百合＆上司×部下～": "2026-10-31"
+  "本当にあったかもしれない百合な話": "2026-10-31"
+  "＜harmony/＞ ハーモニー": "2026-10-31"

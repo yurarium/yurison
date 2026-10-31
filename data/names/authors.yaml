@@ -3430,6 +3430,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  かんむり:
+    basis: romaji
+    reading: カンムリ
+    reading_at: '2026-10-31'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   がわこ:
     basis: romaji
     en_at: '2026-08-02'
@@ -3640,6 +3648,14 @@ names:
     basis: romaji
     reading: クマノミソフト
     reading_at: '2026-10-18'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
+  くまパンツ:
+    basis: romaji
+    reading: クマパンツ
+    reading_at: '2026-10-31'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -4117,6 +4133,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  さきしまえのき:
+    basis: romaji
+    reading: サキシマエノキ
+    reading_at: '2026-10-31'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   ささた汐:
     basis: romaji
     furigana_spans:
@@ -4529,6 +4553,14 @@ names:
     en_source: surface
     reading: シマヅ
     reading_at: '2026-08-02'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
+  しまぷ:
+    basis: romaji
+    reading: シマプ
+    reading_at: '2026-10-31'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -8006,6 +8038,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  めきめき:
+    basis: romaji
+    reading: メキメキ
+    reading_at: '2026-10-31'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   めざし:
     basis: romaji
     reading: メザシ
@@ -8093,6 +8133,23 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  もこやま仁:
+    basis: romaji
+    furigana_spans:
+    - - もこやま
+      - null
+    - - 仁
+      - ひとし
+    reading: モコヤマ ヒトシ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   もし:
     basis: romaji
     reading: モシ
@@ -8375,6 +8432,14 @@ names:
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/54065
     verified: false
+  やわらかブラック:
+    basis: romaji
+    reading: ヤワラカブラック
+    reading_at: '2026-10-31'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   やナい:
     basis: romaji
     reading: ヤナイ
@@ -10862,6 +10927,14 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ササマシン:
+    basis: romaji
+    reading: ササマシン
+    reading_at: '2026-10-31'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   サスケ:
     basis: romaji
     en: Sasuke
@@ -11585,6 +11658,23 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/37310
+    verified: false
+  タカダ フミ子:
+    basis: romaji
+    furigana_spans:
+    - - タカダ フミ
+      - null
+    - - 子
+      - こ
+    reading: タカダ フミコ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   タカノハル:
     basis: romaji
@@ -14638,6 +14728,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  三家本礼:
+    basis: romaji
+    furigana_spans:
+    - - 三家本
+      - みかもと
+    - - 礼
+      - あや
+    reading: ミカモトアヤ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   三廼:
     basis: romaji
     furigana_spans:
@@ -14692,6 +14798,22 @@ names:
       - みと
     reading: ミト
     reading_at: '2026-10-15'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  三月:
+    basis: romaji
+    furigana_spans:
+    - - 三
+      - さん
+    - - 月
+      - がつ
+    reading: サンガツ
+    reading_at: '2026-10-31'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
@@ -17667,6 +17789,24 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784801983144
     verified: true
+  冬梨。:
+    basis: romaji
+    furigana_spans:
+    - - 冬
+      - ふゆ
+    - - 梨
+      - なし
+    - - 。
+      - null
+    reading: フユナシ。
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   冬眠　結:
     basis: romaji
     furigana_spans:
@@ -18851,6 +18991,26 @@ names:
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/52650
     verified: false
+  双葉　末月:
+    basis: romaji
+    furigana_spans:
+    - - 双葉
+      - ふたば
+    - - 　
+      - null
+    - - 末
+      - すえ
+    - - 月
+      - つき
+    reading: フタバスエツキ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   双葉はづき:
     basis: romaji
     furigana_spans:
@@ -19596,6 +19756,22 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/14180
+    verified: false
+  吸斬:
+    basis: romaji
+    furigana_spans:
+    - - 吸
+      - きゅう
+    - - 斬
+      - ざん
+    reading: キュウザン
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   吾嬬竜孝:
     basis: romaji
@@ -20893,6 +21069,23 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784758073196
     verified: true
+  大城戸カロ:
+    basis: romaji
+    furigana_spans:
+    - - 大城戸
+      - おおきど
+    - - カロ
+      - null
+    reading: オオキド カロ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   大塚英志:
     basis: romaji
     en: Eiji Ōtsuka
@@ -24940,6 +25133,26 @@ names:
     reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q18458173
     verified: false
+  御名原　雅:
+    basis: romaji
+    furigana_spans:
+    - - 御
+      - ご
+    - - 名原
+      - なはら
+    - - 　
+      - null
+    - - 雅
+      - みやび
+    reading: ゴナハラミヤビ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   御坊:
     basis: romaji
     furigana_spans:
@@ -26316,6 +26529,28 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033897302
     verified: true
+  星期一回收日:
+    basis: romaji
+    furigana_spans:
+    - - 星
+      - せい
+    - - 期
+      - き
+    - - 一回
+      - いちかい
+    - - 收
+      - おさむ
+    - - 日
+      - ひ
+    reading: セイキイチカイオサムヒ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   星空の下:
     basis: romaji
     reading: ホシゾラノシタ
@@ -27282,6 +27517,25 @@ names:
       weakest on pen names and coinages
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  木野咲カズラ:
+    basis: romaji
+    furigana_spans:
+    - - 木野
+      - きの
+    - - 咲
+      - さき
+    - - カズラ
+      - null
+    reading: キノサキ カズラ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   未勇:
@@ -28403,6 +28657,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I9784868052142
     verified: true
+  柳原望:
+    basis: romaji
+    furigana_spans:
+    - - 柳原
+      - やなぎはら
+    - - 望
+      - のぞむ
+    reading: ヤナギハラノゾム
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   柳川麻衣:
     basis: romaji
     reading: ヤナガワ マイ
@@ -31039,6 +31309,25 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  汐焼あゆ:
+    basis: romaji
+    furigana_spans:
+    - - 汐
+      - しお
+    - - 焼
+      - やき
+    - - あゆ
+      - null
+    reading: シオヤキ アユ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   江ノ内　愛:
     basis: romaji
     reading: エノウチ アイ
@@ -32546,6 +32835,22 @@ names:
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
+  漆野りひと:
+    basis: romaji
+    furigana_spans:
+    - - 漆野
+      - うるしの
+    - - りひと
+      - null
+    reading: ウルシノリヒト
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   潤海そら:
     basis: romaji
     furigana_spans:
@@ -32699,6 +33004,23 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/45196
+    verified: false
+  瀬田 せた:
+    basis: romaji
+    furigana_spans:
+    - - 瀬田
+      - せた
+    - - ' せた'
+      - null
+    reading: セタ セタ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   瀬田せた:
     basis: romaji
@@ -33343,6 +33665,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033161239
     verified: true
+  犬童千絵:
+    basis: romaji
+    furigana_spans:
+    - - 犬童
+      - いんどう
+    - - 千絵
+      - ちえ
+    reading: インドウチエ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   狐ヶ崎:
     basis: romaji
     en: Kitsunegasaki
@@ -34634,6 +34972,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A14252100000
     verified: true
+  白石浩平:
+    basis: romaji
+    furigana_spans:
+    - - 白石
+      - しらいし
+    - - 浩平
+      - こうへい
+    reading: シライシコウヘイ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   白米所:
     basis: romaji
     reading: ハクマイドコロ
@@ -34910,6 +35264,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033517222
     verified: true
+  真田　つづる:
+    basis: romaji
+    furigana_spans:
+    - - 真田
+      - さなだ
+    - - 　つづる
+      - null
+    reading: サナダ ツヅル
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   真田ハイジ:
     basis: romaji
     furigana_spans:
@@ -35376,6 +35747,25 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784403621857
     verified: true
+  神原　絵理華:
+    basis: romaji
+    furigana_spans:
+    - - 神原
+      - かんばら
+    - - 　
+      - null
+    - - 絵理華
+      - えりか
+    reading: カンバラ エリカ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   神岡鳥乃:
     basis: romaji
     reading: カミオカ トリノ
@@ -35471,6 +35861,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A18437800000
     verified: true
+  神社えーる:
+    basis: romaji
+    furigana_spans:
+    - - 神社
+      - じんじゃ
+    - - えーる
+      - null
+    reading: ジンジャ エール
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   神谷回る:
     basis: romaji
     furigana_spans:
@@ -38357,6 +38764,25 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  荒木　美咲:
+    basis: romaji
+    furigana_spans:
+    - - 荒木
+      - あらき
+    - - 　
+      - null
+    - - 美咲
+      - みさき
+    reading: アラキ ミサキ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   荒木美咲:
     basis: romaji
     en: ARAKI Misaki
@@ -38604,6 +39030,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1032900
     verified: true
+  葉賀ユイ:
+    basis: romaji
+    furigana_spans:
+    - - 葉賀
+      - はが
+    - - ユイ
+      - null
+    reading: ハガ ユイ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   葛城かなで:
     basis: romaji
     reading: カツラギ カナデ
@@ -41892,6 +42335,27 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I034589307
     verified: true
+  陳　巧蓉:
+    basis: romaji
+    furigana_spans:
+    - - 陳
+      - ちん
+    - - 　
+      - null
+    - - 巧
+      - たくみ
+    - - 蓉
+      - よう
+    reading: チンタクミヨウ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    reading_uncertain: true
+    verified: false
   陳巧蓉:
     basis: romaji
     en: Chen Chiao-Jung (陳巧蓉)
@@ -42970,6 +43434,23 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  馬かのこ:
+    basis: romaji
+    furigana_spans:
+    - - 馬
+      - うま
+    - - かのこ
+      - null
+    reading: ウマ カノコ
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   馬頭ゆずお:
     basis: romaji
     furigana_spans:
@@ -43259,6 +43740,23 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784403671210
     verified: true
+  高橋ぽてと:
+    basis: romaji
+    furigana_spans:
+    - - 高橋
+      - たかはし
+    - - ぽてと
+      - null
+    reading: タカハシ ポテト
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   高橋依摘:
     basis: romaji
     furigana_spans:
@@ -43360,6 +43858,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1074910
     verified: true
+  高河ゆん:
+    basis: romaji
+    furigana_spans:
+    - - 高河
+      - こうが
+    - - ゆん
+      - null
+    reading: コウガ ユン
+    reading_at: '2026-10-31'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   高瀬わか:
     basis: romaji
     en: Waka Takase

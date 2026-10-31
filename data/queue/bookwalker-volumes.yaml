@@ -56,25 +56,25 @@ role: volume-histories
 record_type: retailer_volume_capture
 from_queue: data/queue/admitted.yaml
 key: shop_id
-retrieved: 2026-10-29
+retrieved: 2026-10-31
 first_captured: 2026-08-05
-admitted_rows: 2606
-works_captured: 2591
+admitted_rows: 2652
+works_captured: 2637
 counts:
-  with_a_date: 909
+  with_a_date: 954
   undated_no_print_edition: 505
   undated_chapter_serial: 304
-  undated_no_print_date_stated: 728
+  undated_no_print_date_stated: 729
   undated_print_edition_unknown: 145
   unread_no_volumes_found: 0
-  with_a_venue: 2591
-  volumes_read: 6341
-  volumes_with_print_date: 2590
+  with_a_venue: 2637
+  volumes_read: 6439
+  volumes_with_print_date: 2686
   volumes_with_isbn: 0
-  marked_completed: 825
+  marked_completed: 849
 fetches:
-  last_pass_requests: 400
-  last_pass_volumes: 86
+  last_pass_requests: 39
+  last_pass_volumes: 9
   volume_pages_unusable_total: 0
 excluded_last_pass:
   "published on ヤングアンリアルコミックス, an adult imprint": 2
@@ -1601,6 +1601,45 @@ works:
         category: "マンガ"
         delivered: "2021-04-08"
         printed: null
+        isbn: null
+  - shop_id: "068d8cc6-a18a-4263-98e0-90557c8392fb"
+    url: "https://bookwalker.jp/de068d8cc6-a18a-4263-98e0-90557c8392fb/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["菅野マナミ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2015-12-17"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "菅野マナミ短編集　良い子さんと不良先生"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "068d8cc6-a18a-4263-98e0-90557c8392fb"
+        title: "菅野マナミ短編集　良い子さんと不良先生"
+        series_id: "57372"
+        series_title: "良い子さんと不良先生（電撃コミックスNEXT）"
+        authors: ["菅野マナミ"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2015-12-19"
+        printed: "2015-12-17"
         isbn: null
   - shop_id: "06b0cd7a-3cc8-44b9-8f68-5335ad4b048c"
     url: "https://bookwalker.jp/de06b0cd7a-3cc8-44b9-8f68-5335ad4b048c/"
@@ -3719,6 +3758,45 @@ works:
         delivered: "2026-08-28"
         printed: null
         isbn: null
+  - shop_id: "0fa5a726-cc41-4d25-9e31-38623fe740bb"
+    url: "https://bookwalker.jp/de0fa5a726-cc41-4d25-9e31-38623fe740bb/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "ビームコミックス"
+    publisher: "KADOKAWA"
+    authors: ["こるせ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2022-08-12"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "わたしたちの終わりと"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "0fa5a726-cc41-4d25-9e31-38623fe740bb"
+        title: "わたしたちの終わりと"
+        series_id: "370030"
+        series_title: "わたしたちの終わりと（ビームコミックス）"
+        authors: ["こるせ"]
+        imprint: "ビームコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-08-12"
+        printed: "2022-08-12"
+        isbn: null
   - shop_id: "0fe83c8a-ffff-446b-a626-ef9e88086214"
     url: "https://bookwalker.jp/de0fe83c8a-ffff-446b-a626-ef9e88086214/"
     id_kind: "detail"
@@ -5447,6 +5525,78 @@ works:
         delivered: "2025-05-29"
         printed: "2025-05-29"
         isbn: null
+  - shop_id: "116616"
+    url: "https://bookwalker.jp/series/116616/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 4
+    volumes_found: 4
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 4
+    isbns_stated: 0
+    imprint: "MFC　キューンシリーズ"
+    publisher: "KADOKAWA"
+    authors: ["吉村佳"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2017-06-26"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "寮長は料理上手　1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "5868f943-10d9-4ea0-ae81-c3a8e64bd42c"
+        title: "寮長は料理上手　1"
+        series_id: "116616"
+        series_title: "寮長は料理上手（MFC　キューンシリーズ）"
+        authors: ["吉村佳"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2017-06-26"
+        printed: "2017-06-26"
+        isbn: null
+      - uuid: "200d8d4f-1566-410d-b7e8-50448e3da7d0"
+        title: "寮長は料理上手　2"
+        series_id: "116616"
+        series_title: "寮長は料理上手（MFC　キューンシリーズ）"
+        authors: ["吉村佳"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-06-27"
+        printed: "2018-06-27"
+        isbn: null
+      - uuid: "cae6dbbf-476e-4ee5-876c-fa734f604c65"
+        title: "寮長は料理上手　3"
+        series_id: "116616"
+        series_title: "寮長は料理上手（MFC　キューンシリーズ）"
+        authors: ["吉村佳"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-03-27"
+        printed: "2019-03-27"
+        isbn: null
+      - uuid: "ff0f50b9-aea9-4d31-a929-b50160de3b0b"
+        title: "【最終巻】寮長は料理上手　4"
+        series_id: "116616"
+        series_title: "寮長は料理上手（MFC　キューンシリーズ）"
+        authors: ["吉村佳"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-12-27"
+        printed: "2019-12-27"
+        isbn: null
   - shop_id: "116756"
     url: "https://bookwalker.jp/series/116756/"
     id_kind: "series"
@@ -6926,6 +7076,78 @@ works:
         delivered: "2018-06-27"
         printed: "2018-06-27"
         isbn: null
+  - shop_id: "132195"
+    url: "https://bookwalker.jp/series/132195/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 4
+    volumes_found: 4
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 4
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["嵩乃朔"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2017-09-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "吸血鬼ちゃん×後輩ちゃん１"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "d3456834-e281-4302-bb52-5381765835cb"
+        title: "吸血鬼ちゃん×後輩ちゃん１"
+        series_id: "132195"
+        series_title: "吸血鬼ちゃん×後輩ちゃん（電撃コミックスNEXT）"
+        authors: ["嵩乃朔"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2017-09-27"
+        printed: "2017-09-27"
+        isbn: null
+      - uuid: "bd4641e2-3189-47a7-b3e6-320434d7a3e7"
+        title: "吸血鬼ちゃん×後輩ちゃん２"
+        series_id: "132195"
+        series_title: "吸血鬼ちゃん×後輩ちゃん（電撃コミックスNEXT）"
+        authors: ["嵩乃朔"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-03-24"
+        printed: "2018-03-27"
+        isbn: null
+      - uuid: "b21899fd-6ef8-4c4e-af4e-6429c7f8834c"
+        title: "吸血鬼ちゃん×後輩ちゃん３"
+        series_id: "132195"
+        series_title: "吸血鬼ちゃん×後輩ちゃん（電撃コミックスNEXT）"
+        authors: ["嵩乃朔"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-09-25"
+        printed: "2018-09-27"
+        isbn: null
+      - uuid: "cff90ddb-b53c-4d2f-a4ed-c7daa95669e0"
+        title: "【最終巻】吸血鬼ちゃん×後輩ちゃん４"
+        series_id: "132195"
+        series_title: "吸血鬼ちゃん×後輩ちゃん（電撃コミックスNEXT）"
+        authors: ["嵩乃朔"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-03-27"
+        printed: "2019-03-27"
+        isbn: null
   - shop_id: "133375"
     url: "https://bookwalker.jp/series/133375/"
     id_kind: "series"
@@ -7280,6 +7502,67 @@ works:
         category: "マンガ"
         delivered: "2020-10-26"
         printed: "2020-10-27"
+        isbn: null
+  - shop_id: "134854"
+    url: "https://bookwalker.jp/series/134854/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 3
+    volumes_found: 3
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 3
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["木野咲カズラ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2017-10-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "ストロベリー・フィールズをもう一度(1)"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "e629d9a2-89c3-476f-9dfc-66fe832c1fce"
+        title: "ストロベリー・フィールズをもう一度(1)"
+        series_id: "134854"
+        series_title: "ストロベリー・フィールズをもう一度（電撃コミックスNEXT）"
+        authors: ["木野咲カズラ"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2017-10-27"
+        printed: "2017-10-27"
+        isbn: null
+      - uuid: "b6fef60a-f00f-4299-85e4-9c8cd7854887"
+        title: "ストロベリー・フィールズをもう一度(2)"
+        series_id: "134854"
+        series_title: "ストロベリー・フィールズをもう一度（電撃コミックスNEXT）"
+        authors: ["木野咲カズラ"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-08-27"
+        printed: "2018-08-27"
+        isbn: null
+      - uuid: "a32e3539-497d-47c1-a1a0-abd192723644"
+        title: "【最終巻】ストロベリー・フィールズをもう一度(3)"
+        series_id: "134854"
+        series_title: "ストロベリー・フィールズをもう一度（電撃コミックスNEXT）"
+        authors: ["木野咲カズラ"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-08-26"
+        printed: "2019-08-27"
         isbn: null
   - shop_id: "134972"
     url: "https://bookwalker.jp/series/134972/"
@@ -9739,6 +10022,78 @@ works:
         delivered: "2019-03-23"
         printed: "2019-03-23"
         isbn: null
+  - shop_id: "153426"
+    url: "https://bookwalker.jp/series/153426/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 4
+    volumes_found: 4
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 4
+    isbns_stated: 0
+    imprint: "MFコミックス　フラッパーシリーズ"
+    publisher: "KADOKAWA"
+    authors: ["柳原望"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2016-12-23"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "かりん歩　1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "66081dd8-9bcd-4311-9ba9-1b872b6c2877"
+        title: "かりん歩　1"
+        series_id: "153426"
+        series_title: "かりん歩（MFコミックス　フラッパーシリーズ）"
+        authors: ["柳原望"]
+        imprint: "MFコミックス　フラッパーシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-12-23"
+        printed: "2016-12-23"
+        isbn: null
+      - uuid: "17b32681-4ed0-4f28-a444-c9c99f5cbdb2"
+        title: "かりん歩　2"
+        series_id: "153426"
+        series_title: "かりん歩（MFコミックス　フラッパーシリーズ）"
+        authors: ["柳原望"]
+        imprint: "MFコミックス　フラッパーシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2017-07-22"
+        printed: "2017-07-22"
+        isbn: null
+      - uuid: "537f0396-587a-4de6-a884-4fe1174c8de4"
+        title: "かりん歩　3"
+        series_id: "153426"
+        series_title: "かりん歩（MFコミックス　フラッパーシリーズ）"
+        authors: ["柳原望"]
+        imprint: "MFコミックス　フラッパーシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-02-23"
+        printed: "2018-02-23"
+        isbn: null
+      - uuid: "74b2ece9-1671-4b80-b8ad-21eb7b40a09d"
+        title: "【最終巻】かりん歩　4"
+        series_id: "153426"
+        series_title: "かりん歩（MFコミックス　フラッパーシリーズ）"
+        authors: ["柳原望"]
+        imprint: "MFコミックス　フラッパーシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-09-21"
+        printed: "2018-09-21"
+        isbn: null
   - shop_id: "153515"
     url: "https://bookwalker.jp/series/153515/"
     id_kind: "series"
@@ -9810,6 +10165,78 @@ works:
         category: "マンガ"
         delivered: "2017-12-22"
         printed: "2017-12-22"
+        isbn: null
+  - shop_id: "153522"
+    url: "https://bookwalker.jp/series/153522/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 4
+    volumes_found: 4
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 4
+    isbns_stated: 0
+    imprint: "MFコミックス　アライブシリーズ"
+    publisher: "KADOKAWA"
+    authors: ["さきしまえのき"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2015-09-19"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "カーグラフィティJK　1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "fc19d8a2-989a-4942-a610-de3df4b5c24c"
+        title: "カーグラフィティJK　1"
+        series_id: "153522"
+        series_title: "カーグラフィティJK（MFコミックス　アライブシリーズ）"
+        authors: ["さきしまえのき"]
+        imprint: "MFコミックス　アライブシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2015-09-19"
+        printed: "2015-09-19"
+        isbn: null
+      - uuid: "18f1f82a-81d0-4e17-898f-63749034d755"
+        title: "カーグラフィティJK　2"
+        series_id: "153522"
+        series_title: "カーグラフィティJK（MFコミックス　アライブシリーズ）"
+        authors: ["さきしまえのき"]
+        imprint: "MFコミックス　アライブシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-08-23"
+        printed: "2016-08-23"
+        isbn: null
+      - uuid: "a3ead3cc-4284-4ec4-b22e-f9612be6ff92"
+        title: "カーグラフィティJK　3"
+        series_id: "153522"
+        series_title: "カーグラフィティJK（MFコミックス　アライブシリーズ）"
+        authors: ["さきしまえのき"]
+        imprint: "MFコミックス　アライブシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2017-05-23"
+        printed: "2017-05-23"
+        isbn: null
+      - uuid: "d638dd6a-f30d-40b1-b1fe-69831183e98f"
+        title: "【最終巻】カーグラフィティJK　4"
+        series_id: "153522"
+        series_title: "カーグラフィティJK（MFコミックス　アライブシリーズ）"
+        authors: ["さきしまえのき"]
+        imprint: "MFコミックス　アライブシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-03-23"
+        printed: "2018-03-23"
         isbn: null
   - shop_id: "153660"
     url: "https://bookwalker.jp/series/153660/"
@@ -14149,6 +14576,56 @@ works:
         delivered: "2018-09-19"
         printed: null
         isbn: null
+  - shop_id: "165124"
+    url: "https://bookwalker.jp/series/165124/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["ほなみ彩"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2018-06-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "ふたつ屋根の下(1)"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "f4c1209f-26cf-40fa-bc92-1e84951f5374"
+        title: "ふたつ屋根の下(1)"
+        series_id: "165124"
+        series_title: "ふたつ屋根の下（電撃コミックスNEXT）"
+        authors: ["ほなみ彩"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-06-27"
+        printed: "2018-06-27"
+        isbn: null
+      - uuid: "aa65ef36-1181-4e9c-b854-e6760acab168"
+        title: "【最終巻】ふたつ屋根の下(2)"
+        series_id: "165124"
+        series_title: "ふたつ屋根の下（電撃コミックスNEXT）"
+        authors: ["ほなみ彩"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-01-25"
+        printed: "2019-01-26"
+        isbn: null
   - shop_id: "165258"
     url: "https://bookwalker.jp/series/165258/"
     id_kind: "series"
@@ -17239,6 +17716,78 @@ works:
         delivered: "2023-03-17"
         printed: null
         isbn: null
+  - shop_id: "179726"
+    url: "https://bookwalker.jp/series/179726/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 4
+    volumes_found: 4
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 4
+    isbns_stated: 0
+    imprint: "カドカワデジタルコミックス"
+    publisher: "KADOKAWA"
+    authors: ["ヨドカワ", "MB"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2018-11-08"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "トラとハチドリ（１）"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "6c0eb863-b4b6-4c77-935f-9b6ee6a97e9c"
+        title: "トラとハチドリ（１）"
+        series_id: "179726"
+        series_title: "トラとハチドリ（カドカワデジタルコミックス）"
+        authors: ["ヨドカワ", "MB"]
+        imprint: "カドカワデジタルコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-11-08"
+        printed: "2018-11-08"
+        isbn: null
+      - uuid: "d3f4de73-4b1f-487b-a94d-6899cea4b785"
+        title: "トラとハチドリ（２）"
+        series_id: "179726"
+        series_title: "トラとハチドリ（カドカワデジタルコミックス）"
+        authors: ["ヨドカワ", "MB"]
+        imprint: "カドカワデジタルコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-08-03"
+        printed: "2019-08-03"
+        isbn: null
+      - uuid: "2e6a549c-f714-4b31-a9f3-84daad027200"
+        title: "トラとハチドリ（３）"
+        series_id: "179726"
+        series_title: "トラとハチドリ（カドカワデジタルコミックス）"
+        authors: ["ヨドカワ", "MB"]
+        imprint: "カドカワデジタルコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-03-28"
+        printed: "2020-03-28"
+        isbn: null
+      - uuid: "16e6f013-ec02-4261-9d9d-5e11786866a6"
+        title: "【最終巻】トラとハチドリ（４）"
+        series_id: "179726"
+        series_title: "トラとハチドリ（カドカワデジタルコミックス）"
+        authors: ["ヨドカワ", "MB"]
+        imprint: "カドカワデジタルコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-11-07"
+        printed: "2020-11-07"
+        isbn: null
   - shop_id: "17a32890-6ae0-4d49-b8ce-1ea1e8e20e37"
     url: "https://bookwalker.jp/de17a32890-6ae0-4d49-b8ce-1ea1e8e20e37/"
     id_kind: "detail"
@@ -17887,6 +18436,56 @@ works:
         category: "マンガ"
         delivered: "2014-06-26"
         printed: "2014-04-26"
+        isbn: null
+  - shop_id: "184164"
+    url: "https://bookwalker.jp/series/184164/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "ドラゴンコミックスエイジ"
+    publisher: "KADOKAWA"
+    authors: ["漆野りひと"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2018-12-07"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "ウィッチギルド　ファンタジア　１"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "4882a944-e37b-46ef-865b-4fd6a41970ee"
+        title: "ウィッチギルド　ファンタジア　１"
+        series_id: "184164"
+        series_title: "ウィッチギルド　ファンタジア（ドラゴンコミックスエイジ）"
+        authors: ["漆野りひと"]
+        imprint: "ドラゴンコミックスエイジ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-12-07"
+        printed: "2018-12-07"
+        isbn: null
+      - uuid: "2abfa0a7-6616-4d54-b5a7-2c78cc8605cc"
+        title: "【最新刊】ウィッチギルド　ファンタジア　２"
+        series_id: "184164"
+        series_title: "ウィッチギルド　ファンタジア（ドラゴンコミックスエイジ）"
+        authors: ["漆野りひと"]
+        imprint: "ドラゴンコミックスエイジ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2021-06-08"
+        printed: "2021-06-09"
         isbn: null
   - shop_id: "18440"
     url: "https://bookwalker.jp/series/18440/"
@@ -20474,7 +21073,7 @@ works:
       venue_volume: null
       country: "JP"
       country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
-      note: "The shop states no 底本発行日 for this work, and the imprint does state one elsewhere, so the imprint being digital-only does not account for it. Whether a print edition exists is unresolved. The imprint is MFC, which states one on 92 of its 98 volumes elsewhere."
+      note: "The shop states no 底本発行日 for this work, and the imprint does state one elsewhere, so the imprint being digital-only does not account for it. Whether a print edition exists is unresolved. The imprint is MFC, which states one on 95 of its 101 volumes elsewhere."
     volumes:
       - uuid: "c2b3618b-428f-4a10-b4be-87acf78d215f"
         title: "【最終巻】星川銀座四丁目　下"
@@ -27656,6 +28255,67 @@ works:
         delivered: "2020-12-26"
         printed: "2020-12-26"
         isbn: null
+  - shop_id: "216251"
+    url: "https://bookwalker.jp/series/216251/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 3
+    volumes_found: 3
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 3
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["高橋哲哉"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2019-08-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "はつ恋、ときめき うすいほん　１【電子特別版】"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "b3afd3a5-e633-471e-9236-998628e34d2c"
+        title: "はつ恋、ときめき うすいほん　１【電子特別版】"
+        series_id: "216251"
+        series_title: "はつ恋、ときめき うすいほん（電撃コミックスNEXT）"
+        authors: ["高橋哲哉"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-08-26"
+        printed: "2019-08-27"
+        isbn: null
+      - uuid: "9c7080a9-0bb7-4bba-a3ed-6aa3390488a1"
+        title: "はつ恋、ときめき うすいほん　２【電子特別版】"
+        series_id: "216251"
+        series_title: "はつ恋、ときめき うすいほん（電撃コミックスNEXT）"
+        authors: ["高橋哲哉"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-12-26"
+        printed: "2020-12-26"
+        isbn: null
+      - uuid: "fd35c68d-0b24-458e-8eb3-564ef8cd3e2f"
+        title: "【最終巻】はつ恋、ときめき うすいほん　３"
+        series_id: "216251"
+        series_title: "はつ恋、ときめき うすいほん（電撃コミックスNEXT）"
+        authors: ["高橋哲哉"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2021-12-25"
+        printed: "2021-12-27"
+        isbn: null
   - shop_id: "216252"
     url: "https://bookwalker.jp/series/216252/"
     id_kind: "series"
@@ -28826,6 +29486,67 @@ works:
         delivered: "2022-10-01"
         printed: null
         isbn: null
+  - shop_id: "223691"
+    url: "https://bookwalker.jp/series/223691/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 3
+    volumes_found: 3
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 3
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["神原　絵理華"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2019-10-26"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "DarkArtsMaster-黶き魔法使い- １"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "f0ec1edf-b64d-4b45-8c70-d9f873a1b628"
+        title: "DarkArtsMaster-黶き魔法使い- １"
+        series_id: "223691"
+        series_title: "DarkArtsMaster-黶き魔法使い-（電撃コミックスNEXT）"
+        authors: ["神原　絵理華"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-10-25"
+        printed: "2019-10-26"
+        isbn: null
+      - uuid: "be07db7c-3b57-4dcd-b62e-7eac846fc8c1"
+        title: "DarkArtsMaster-黶き魔法使い- ２"
+        series_id: "223691"
+        series_title: "DarkArtsMaster-黶き魔法使い-（電撃コミックスNEXT）"
+        authors: ["神原　絵理華"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-06-26"
+        printed: "2020-06-27"
+        isbn: null
+      - uuid: "00f8837f-df4d-4ea1-a655-5d5835a0ad3c"
+        title: "【最終巻】DarkArtsMaster-黶き魔法使い- ３"
+        series_id: "223691"
+        series_title: "DarkArtsMaster-黶き魔法使い-（電撃コミックスNEXT）"
+        authors: ["神原　絵理華"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-06-26"
+        printed: "2020-06-27"
+        isbn: null
   - shop_id: "223780"
     url: "https://bookwalker.jp/series/223780/"
     id_kind: "series"
@@ -29533,6 +30254,67 @@ works:
         category: "マンガ"
         delivered: "2020-09-25"
         printed: null
+        isbn: null
+  - shop_id: "225248"
+    url: "https://bookwalker.jp/series/225248/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 3
+    volumes_found: 3
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 3
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["冬芽沙也"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2019-11-09"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "彼女のイデア 1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "7169bb27-6f89-466e-9056-9bf749527aa3"
+        title: "彼女のイデア 1"
+        series_id: "225248"
+        series_title: "彼女のイデア（電撃コミックスNEXT）"
+        authors: ["冬芽沙也"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-11-09"
+        printed: "2019-11-09"
+        isbn: null
+      - uuid: "d28ba351-2c6f-4932-990f-d7a0737e9785"
+        title: "彼女のイデア 2"
+        series_id: "225248"
+        series_title: "彼女のイデア（電撃コミックスNEXT）"
+        authors: ["冬芽沙也"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-05-27"
+        printed: "2020-05-27"
+        isbn: null
+      - uuid: "62aa223f-1d22-43ad-b033-b3fa8cce1a0b"
+        title: "【最終巻】彼女のイデア 3"
+        series_id: "225248"
+        series_title: "彼女のイデア（電撃コミックスNEXT）"
+        authors: ["冬芽沙也"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2021-01-09"
+        printed: "2021-01-09"
         isbn: null
   - shop_id: "225301"
     url: "https://bookwalker.jp/series/225301/"
@@ -30903,6 +31685,56 @@ works:
       country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
       note: "Sold by the chapter on the shop's 話・連載 store. There are no volumes and no print edition, and the only date the shop states is 更新, the day the latest chapter went up, which is the most recent publication rather than the first."
     volumes:
+  - shop_id: "232200"
+    url: "https://bookwalker.jp/series/232200/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "ビームコミックス"
+    publisher: "KADOKAWA"
+    authors: ["西尾雄太"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2020-01-11"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "【最終巻】水野と茶山　下"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "1a3ea1a4-27fd-4269-be23-c70fd483e5a9"
+        title: "【最終巻】水野と茶山　下"
+        series_id: "232200"
+        series_title: "水野と茶山（ビームコミックス）"
+        authors: ["西尾雄太"]
+        imprint: "ビームコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-01-11"
+        printed: "2020-01-11"
+        isbn: null
+      - uuid: "33c140fa-29c9-4691-b16e-7811fe7390b2"
+        title: "水野と茶山　上"
+        series_id: "232200"
+        series_title: "水野と茶山（ビームコミックス）"
+        authors: ["西尾雄太"]
+        imprint: "ビームコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-01-11"
+        printed: "2020-01-11"
+        isbn: null
   - shop_id: "232443"
     url: "https://bookwalker.jp/series/232443/"
     id_kind: "series"
@@ -31075,6 +31907,56 @@ works:
         delivered: "2021-02-25"
         printed: "2021-03-12"
         isbn: null
+  - shop_id: "233850"
+    url: "https://bookwalker.jp/series/233850/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "MFコミックス　フラッパーシリーズ"
+    publisher: "KADOKAWA"
+    authors: ["みもと"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2020-01-23"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "恋する名画 １"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "3f492c91-e028-4e59-acb8-a4aeff357d1b"
+        title: "恋する名画 １"
+        series_id: "233850"
+        series_title: "恋する名画（MFコミックス　フラッパーシリーズ）"
+        authors: ["みもと"]
+        imprint: "MFコミックス　フラッパーシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-01-23"
+        printed: "2020-01-23"
+        isbn: null
+      - uuid: "f99a7c7b-010e-4ad6-a292-aaf85fdcea21"
+        title: "【最終巻】恋する名画 ２"
+        series_id: "233850"
+        series_title: "恋する名画（MFコミックス　フラッパーシリーズ）"
+        authors: ["みもと"]
+        imprint: "MFコミックス　フラッパーシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-11-21"
+        printed: "2020-11-21"
+        isbn: null
   - shop_id: "233965"
     url: "https://bookwalker.jp/series/233965/"
     id_kind: "series"
@@ -31217,7 +32099,7 @@ works:
       venue_volume: null
       country: "JP"
       country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
-      note: "The shop states no 底本発行日 for this work, and the imprint does state one elsewhere, so the imprint being digital-only does not account for it. Whether a print edition exists is unresolved. The imprint is 電撃コミックスNEXT, which states one on 289 of its 298 volumes elsewhere."
+      note: "The shop states no 底本発行日 for this work, and the imprint does state one elsewhere, so the imprint being digital-only does not account for it. Whether a print edition exists is unresolved. The imprint is 電撃コミックスNEXT, which states one on 321 of its 331 volumes elsewhere."
     volumes:
       - uuid: "23396e19-3633-45dc-a7d5-f6dca48571ca"
         title: "彼女のカノジョと不純な初恋１"
@@ -31929,6 +32811,106 @@ works:
         category: "マンガ"
         delivered: "2019-07-25"
         printed: "2019-08-09"
+        isbn: null
+  - shop_id: "237435"
+    url: "https://bookwalker.jp/series/237435/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["寝路"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2020-02-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "Dear NOMAN 1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "0abb0ed0-6321-4a8c-b797-a94fa82e6595"
+        title: "Dear NOMAN 1"
+        series_id: "237435"
+        series_title: "Dear NOMAN（電撃コミックスNEXT）"
+        authors: ["寝路"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-02-27"
+        printed: "2020-02-27"
+        isbn: null
+      - uuid: "b2925432-2d80-4b47-99fd-5e1ec3c90af4"
+        title: "【最終巻】Dear NOMAN 2"
+        series_id: "237435"
+        series_title: "Dear NOMAN（電撃コミックスNEXT）"
+        authors: ["寝路"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-08-26"
+        printed: "2020-08-27"
+        isbn: null
+  - shop_id: "237436"
+    url: "https://bookwalker.jp/series/237436/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["嵩乃朔"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2020-02-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "OLさんと猫のはなし　1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "18eee4f4-155a-47ca-8d20-c53ce2bce3cc"
+        title: "OLさんと猫のはなし　1"
+        series_id: "237436"
+        series_title: "OLさんと猫のはなし（電撃コミックスNEXT）"
+        authors: ["嵩乃朔"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-02-27"
+        printed: "2020-02-27"
+        isbn: null
+      - uuid: "735d5676-b50b-4d14-8c30-62ae19ad57b5"
+        title: "【最終巻】OLさんと猫のはなし　2"
+        series_id: "237436"
+        series_title: "OLさんと猫のはなし（電撃コミックスNEXT）"
+        authors: ["嵩乃朔"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-10-10"
+        printed: "2020-10-10"
         isbn: null
   - shop_id: "237621"
     url: "https://bookwalker.jp/series/237621/"
@@ -39211,6 +40193,67 @@ works:
         delivered: "2021-10-29"
         printed: "2021-11-12"
         isbn: null
+  - shop_id: "273331"
+    url: "https://bookwalker.jp/series/273331/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 3
+    volumes_found: 3
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 3
+    isbns_stated: 0
+    imprint: "コミックエッセイ"
+    publisher: "KADOKAWA"
+    authors: ["真田　つづる"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2020-11-12"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "私のジャンルに「神」がいます"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "89ad67c0-f787-455c-9c8f-ae6edd7d3a33"
+        title: "私のジャンルに「神」がいます"
+        series_id: "273331"
+        series_title: "私のジャンルに「神」がいます（コミックエッセイ）"
+        authors: ["真田　つづる"]
+        imprint: "コミックエッセイ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-11-12"
+        printed: "2020-11-12"
+        isbn: null
+      - uuid: "efeacd19-bf66-4426-892f-47c9650016e8"
+        title: "私のジャンルに「神」がいます２"
+        series_id: "273331"
+        series_title: "私のジャンルに「神」がいます（コミックエッセイ）"
+        authors: ["真田　つづる"]
+        imprint: "コミックエッセイ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2021-11-11"
+        printed: "2021-11-11"
+        isbn: null
+      - uuid: "e76f378d-bd69-4c24-aed0-f73a9d8927b6"
+        title: "【最新刊】私のジャンルに「神」がいます３"
+        series_id: "273331"
+        series_title: "私のジャンルに「神」がいます（コミックエッセイ）"
+        authors: ["真田　つづる"]
+        imprint: "コミックエッセイ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-11-10"
+        printed: "2022-11-10"
+        isbn: null
   - shop_id: "27418faa-6c52-4a4d-8932-84f5acd3b276"
     url: "https://bookwalker.jp/de27418faa-6c52-4a4d-8932-84f5acd3b276/"
     id_kind: "detail"
@@ -39728,6 +40771,56 @@ works:
       country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
       note: "Sold by the chapter on the shop's 話・連載 store. There are no volumes and no print edition, and the only date the shop states is 更新, the day the latest chapter went up, which is the most recent publication rather than the first."
     volumes:
+  - shop_id: "279814"
+    url: "https://bookwalker.jp/series/279814/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "ドラゴンコミックスエイジ"
+    publisher: "KADOKAWA"
+    authors: ["馬かのこ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2020-12-09"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "ダイガクちゃん×はいすくーる！ 1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "96ff2b16-177f-48df-840f-8b79cb9365c6"
+        title: "ダイガクちゃん×はいすくーる！ 1"
+        series_id: "279814"
+        series_title: "ダイガクちゃん×はいすくーる！（ドラゴンコミックスエイジ）"
+        authors: ["馬かのこ"]
+        imprint: "ドラゴンコミックスエイジ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-12-09"
+        printed: "2020-12-09"
+        isbn: null
+      - uuid: "440c4d2b-4e19-41f9-bd97-5e4573c359ec"
+        title: "【最終巻】ダイガクちゃん×はいすくーる！ 2"
+        series_id: "279814"
+        series_title: "ダイガクちゃん×はいすくーる！（ドラゴンコミックスエイジ）"
+        authors: ["馬かのこ"]
+        imprint: "ドラゴンコミックスエイジ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2021-10-08"
+        printed: "2021-10-08"
+        isbn: null
   - shop_id: "279930"
     url: "https://bookwalker.jp/series/279930/"
     id_kind: "series"
@@ -48670,6 +49763,67 @@ works:
         delivered: "2021-07-30"
         printed: null
         isbn: null
+  - shop_id: "309699"
+    url: "https://bookwalker.jp/series/309699/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 3
+    volumes_found: 3
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 3
+    isbns_stated: 0
+    imprint: "MFC　キューンシリーズ"
+    publisher: "KADOKAWA"
+    authors: ["双葉　末月"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2021-07-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "はじめてのキャンプさん　１"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "dde30edd-06cc-4a04-b418-b8167b9c37bb"
+        title: "はじめてのキャンプさん　１"
+        series_id: "309699"
+        series_title: "はじめてのキャンプさん（MFC　キューンシリーズ）"
+        authors: ["双葉　末月"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2021-07-27"
+        printed: "2021-07-27"
+        isbn: null
+      - uuid: "59541524-4440-4099-8836-f62eb2c7e960"
+        title: "はじめてのキャンプさん　２"
+        series_id: "309699"
+        series_title: "はじめてのキャンプさん（MFC　キューンシリーズ）"
+        authors: ["双葉　末月"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-02-26"
+        printed: "2022-02-26"
+        isbn: null
+      - uuid: "59c1a41f-22de-432d-96f4-1bedf86c119c"
+        title: "【最終巻】はじめてのキャンプさん　３"
+        series_id: "309699"
+        series_title: "はじめてのキャンプさん（MFC　キューンシリーズ）"
+        authors: ["双葉　末月"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-10-27"
+        printed: "2022-10-27"
+        isbn: null
   - shop_id: "30a33edd-850f-4447-9300-59fd9a21d84e"
     url: "https://bookwalker.jp/de30a33edd-850f-4447-9300-59fd9a21d84e/"
     id_kind: "detail"
@@ -52057,6 +53211,45 @@ works:
         delivered: "2015-07-03"
         printed: "2014-11-28"
         isbn: null
+  - shop_id: "32686403-fb64-4175-9100-d000471f3788"
+    url: "https://bookwalker.jp/de32686403-fb64-4175-9100-d000471f3788/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 0
+    isbns_stated: 0
+    imprint: "中経☆コミックス"
+    publisher: "KADOKAWA"
+    authors: ["しまぷ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: null
+      date_basis: "no-print-date-stated"
+      venue: "KADOKAWA"
+      venue_type: "imprint"
+      venue_volume: null
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The shop states no 底本発行日 for this work, and the imprint does state one elsewhere, so the imprint being digital-only does not account for it. Whether a print edition exists is unresolved. The imprint is 中経☆コミックス, which states one on 5 of its 6 volumes elsewhere."
+    volumes:
+      - uuid: "32686403-fb64-4175-9100-d000471f3788"
+        title: "女子高生の生態図鑑"
+        series_id: "85037"
+        series_title: "女子高生の生態図鑑（中経☆コミックス）"
+        authors: ["しまぷ"]
+        imprint: "中経☆コミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-09-29"
+        printed: null
+        isbn: null
   - shop_id: "327019"
     url: "https://bookwalker.jp/series/327019/"
     id_kind: "series"
@@ -53388,6 +54581,56 @@ works:
       country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
       note: "Sold by the chapter on the shop's 話・連載 store. There are no volumes and no print edition, and the only date the shop states is 更新, the day the latest chapter went up, which is the most recent publication rather than the first."
     volumes:
+  - shop_id: "338109"
+    url: "https://bookwalker.jp/series/338109/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "角川コミックス・エース"
+    publisher: "KADOKAWA"
+    authors: ["肉丸", "ジョーさん。(料理監修)"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2022-01-26"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "わたしのお腹の責任取って！(1)"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "03143164-fdab-44fa-be2f-63281ea0ea9c"
+        title: "わたしのお腹の責任取って！(1)"
+        series_id: "338109"
+        series_title: "わたしのお腹の責任取って！（角川コミックス・エース）"
+        authors: ["肉丸", "ジョーさん。(料理監修)"]
+        imprint: "角川コミックス・エース"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-01-26"
+        printed: "2022-01-26"
+        isbn: null
+      - uuid: "646b4692-e831-4e79-b14d-900212b6e676"
+        title: "【最終巻】わたしのお腹の責任取って！(2)"
+        series_id: "338109"
+        series_title: "わたしのお腹の責任取って！（角川コミックス・エース）"
+        authors: ["肉丸", "ジョーさん。(料理監修)"]
+        imprint: "角川コミックス・エース"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-11-26"
+        printed: "2022-11-26"
+        isbn: null
   - shop_id: "338114"
     url: "https://bookwalker.jp/series/338114/"
     id_kind: "series"
@@ -53691,7 +54934,7 @@ works:
       venue_volume: null
       country: "JP"
       country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
-      note: "The shop states no 底本発行日 for this work, and the imprint does state one elsewhere, so the imprint being digital-only does not account for it. Whether a print edition exists is unresolved. The imprint is MFC　キューンシリーズ, which states one on 115 of its 117 volumes elsewhere."
+      note: "The shop states no 底本発行日 for this work, and the imprint does state one elsewhere, so the imprint being digital-only does not account for it. Whether a print edition exists is unresolved. The imprint is MFC　キューンシリーズ, which states one on 129 of its 131 volumes elsewhere."
     volumes:
       - uuid: "3389058b-7005-4364-b401-84b78ed43651"
         title: "あたし達って付き合ってるよね!?　1"
@@ -59104,6 +60347,56 @@ works:
         delivered: "2022-11-01"
         printed: null
         isbn: null
+  - shop_id: "374417"
+    url: "https://bookwalker.jp/series/374417/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "ビームコミックス"
+    publisher: "KADOKAWA"
+    authors: ["ふじい葛西"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2022-09-12"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "悪役令嬢が正ヒロインを口説き落とす話。"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "e5f4d728-9761-4b23-b98f-02c80db0f3c9"
+        title: "悪役令嬢が正ヒロインを口説き落とす話。"
+        series_id: "374417"
+        series_title: "悪役令嬢が正ヒロインを口説き落とす話。（ビームコミックス）"
+        authors: ["ふじい葛西"]
+        imprint: "ビームコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-09-12"
+        printed: "2022-09-12"
+        isbn: null
+      - uuid: "b31b6088-972e-4bdc-8289-a1a3b8fa43e0"
+        title: "【最新刊】悪役令嬢が正ヒロインを口説き落とす話。 ２"
+        series_id: "374417"
+        series_title: "悪役令嬢が正ヒロインを口説き落とす話。（ビームコミックス）"
+        authors: ["ふじい葛西"]
+        imprint: "ビームコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2023-07-12"
+        printed: "2023-07-12"
+        isbn: null
   - shop_id: "375757"
     url: "https://bookwalker.jp/series/375757/"
     id_kind: "series"
@@ -61386,6 +62679,56 @@ works:
         category: "マンガ"
         delivered: "2020-08-28"
         printed: null
+        isbn: null
+  - shop_id: "395123"
+    url: "https://bookwalker.jp/series/395123/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "単行本コミックス"
+    publisher: "KADOKAWA"
+    authors: ["つるせ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2023-01-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "桜の世界(上)"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "e7a41ed8-ac97-4b00-98d8-a0f37605694b"
+        title: "桜の世界(上)"
+        series_id: "395123"
+        series_title: "桜の世界（単行本コミックス）"
+        authors: ["つるせ"]
+        imprint: "単行本コミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2023-01-27"
+        printed: "2023-01-27"
+        isbn: null
+      - uuid: "6c2b0067-ca6c-4a92-adb5-53d1b3e79ea0"
+        title: "【最終巻】桜の世界(下)"
+        series_id: "395123"
+        series_title: "桜の世界（単行本コミックス）"
+        authors: ["つるせ"]
+        imprint: "単行本コミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2023-02-27"
+        printed: "2023-02-27"
         isbn: null
   - shop_id: "395273"
     url: "https://bookwalker.jp/series/395273/"
@@ -82614,6 +83957,45 @@ works:
         delivered: "2026-02-13"
         printed: null
         isbn: null
+  - shop_id: "4e445535-5d98-47ad-8f78-82e7a4f9fac4"
+    url: "https://bookwalker.jp/de4e445535-5d98-47ad-8f78-82e7a4f9fac4/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "HARTA COMIX"
+    publisher: "KADOKAWA"
+    authors: ["柴田　康平"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2020-01-15"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "んねこん"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "4e445535-5d98-47ad-8f78-82e7a4f9fac4"
+        title: "んねこん"
+        series_id: "232129"
+        series_title: "んねこん（ビームコミックス（ハルタ））"
+        authors: ["柴田　康平"]
+        imprint: "HARTA COMIX"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-01-14"
+        printed: "2020-01-15"
+        isbn: null
   - shop_id: "4e855b34-5101-404c-9c9a-11a37636042b"
     url: "https://bookwalker.jp/de4e855b34-5101-404c-9c9a-11a37636042b/"
     id_kind: "detail"
@@ -82691,6 +84073,45 @@ works:
         category: "マンガ"
         delivered: "2025-01-10"
         printed: null
+        isbn: null
+  - shop_id: "4efe570a-c905-4546-a231-7cbe9808729c"
+    url: "https://bookwalker.jp/de4efe570a-c905-4546-a231-7cbe9808729c/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["くわばら たもつ", "nipi", "もえきち。", "れぇ", "たなかあひる", "タチ", "コダマナオコ", "焔すばる", "純玲", "リスくん", "凡竜", "ピロヤ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2022-09-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "リリー＆アイビー　～ケンカップル百合×性愛アンソロジー～"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "4efe570a-c905-4546-a231-7cbe9808729c"
+        title: "リリー＆アイビー　～ケンカップル百合×性愛アンソロジー～"
+        series_id: "376175"
+        series_title: "ケンカップル百合×性愛アンソロジー（電撃コミックスNEXT）"
+        authors: ["くわばら たもつ", "nipi", "もえきち。", "れぇ", "たなかあひる", "タチ", "コダマナオコ", "焔すばる", "純玲", "リスくん", "凡竜", "ピロヤ"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-09-26"
+        printed: "2022-09-27"
         isbn: null
   - shop_id: "4f38f3a9-6798-4ff4-b9a1-5f2734e8a61d"
     url: "https://bookwalker.jp/de4f38f3a9-6798-4ff4-b9a1-5f2734e8a61d/"
@@ -85664,6 +87085,45 @@ works:
         delivered: "2020-10-02"
         printed: null
         isbn: null
+  - shop_id: "50abcdfa-5af1-4e79-b711-adb4fd2008ff"
+    url: "https://bookwalker.jp/de50abcdfa-5af1-4e79-b711-adb4fd2008ff/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["肉丸(カバーイラスト)", "大城戸カロ", "かんむり", "くまパンツ", "剛田ナギ", "ササマシン", "汐焼あゆ", "神社えーる", "吸斬", "高橋ぽてと", "ねこ末端", "やわらかブラック"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2023-11-27"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "憎たらしいけど可愛いメスガキとイチャイチャしちゃう アンソロジーコミック"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "50abcdfa-5af1-4e79-b711-adb4fd2008ff"
+        title: "憎たらしいけど可愛いメスガキとイチャイチャしちゃう アンソロジーコミック"
+        series_id: "446204"
+        series_title: "憎たらしいけど可愛いメスガキとイチャイチャしちゃう アンソロジーコミック（電撃コミックスNEXT）"
+        authors: ["肉丸(カバーイラスト)", "大城戸カロ", "かんむり", "くまパンツ", "剛田ナギ", "ササマシン", "汐焼あゆ", "神社えーる", "吸斬", "高橋ぽてと", "ねこ末端", "やわらかブラック"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2023-11-27"
+        printed: "2023-11-27"
+        isbn: null
   - shop_id: "50ad0e0c-8bfa-47af-9d6d-3e381873304d"
     url: "https://bookwalker.jp/de50ad0e0c-8bfa-47af-9d6d-3e381873304d/"
     id_kind: "detail"
@@ -87816,6 +89276,45 @@ works:
         delivered: "2026-08-10"
         printed: null
         isbn: null
+  - shop_id: "51d6e076-3380-4874-95e1-ec051ee88197"
+    url: "https://bookwalker.jp/de51d6e076-3380-4874-95e1-ec051ee88197/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "MFC　キューンシリーズ"
+    publisher: "KADOKAWA"
+    authors: ["源久也", "ＭｏｏｎＰｈａｓｅ(原案協力)"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2016-11-24"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "シーズンシアターシアトリカル　1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "51d6e076-3380-4874-95e1-ec051ee88197"
+        title: "シーズンシアターシアトリカル　1"
+        series_id: "90923"
+        series_title: "シーズンシアターシアトリカル（MFC　キューンシリーズ）"
+        authors: ["源久也", "ＭｏｏｎＰｈａｓｅ(原案協力)"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-11-26"
+        printed: "2016-11-24"
+        isbn: null
   - shop_id: "520891"
     url: "https://bookwalker.jp/series/520891/"
     id_kind: "series"
@@ -88420,6 +89919,56 @@ works:
         category: "マンガ"
         delivered: "2026-05-27"
         printed: null
+        isbn: null
+  - shop_id: "523710"
+    url: "https://bookwalker.jp/series/523710/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "HARTA COMIX"
+    publisher: "KADOKAWA"
+    authors: ["はりかも"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2025-05-15"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "11番目のねこはねね　１"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "9c45e6a0-0cc3-4f54-a3f6-fb6ddb921f40"
+        title: "11番目のねこはねね　１"
+        series_id: "523710"
+        series_title: "11番目のねこはねね（HARTA COMIX）"
+        authors: ["はりかも"]
+        imprint: "HARTA COMIX"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2025-05-15"
+        printed: "2025-05-15"
+        isbn: null
+      - uuid: "3d562226-556f-4c00-902b-d892c368914b"
+        title: "【最新刊】11番目のねこはねね　２"
+        series_id: "523710"
+        series_title: "11番目のねこはねね（HARTA COMIX）"
+        authors: ["はりかも"]
+        imprint: "HARTA COMIX"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2026-01-15"
+        printed: "2026-01-15"
         isbn: null
   - shop_id: "523b05ad-10f1-4900-bedf-1718ba2e65a6"
     url: "https://bookwalker.jp/de523b05ad-10f1-4900-bedf-1718ba2e65a6/"
@@ -90662,6 +92211,56 @@ works:
       country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
       note: "Sold by the chapter on the shop's 話・連載 store. There are no volumes and no print edition, and the only date the shop states is 更新, the day the latest chapter went up, which is the most recent publication rather than the first."
     volumes:
+  - shop_id: "529138"
+    url: "https://bookwalker.jp/series/529138/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "HARTA COMIX"
+    publisher: "KADOKAWA"
+    authors: ["犬童千絵"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2025-06-13"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "狼よ、震えて眠れ（1）"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "e83916f5-6f34-4c63-ae2f-2a05b14fbb0d"
+        title: "狼よ、震えて眠れ（1）"
+        series_id: "529138"
+        series_title: "狼よ、震えて眠れ（HARTA COMIX）"
+        authors: ["犬童千絵"]
+        imprint: "HARTA COMIX"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2025-06-13"
+        printed: "2025-06-13"
+        isbn: null
+      - uuid: "4a112885-70f1-4b48-83cb-ece83ba8d8b9"
+        title: "【最終巻】狼よ、震えて眠れ（2）"
+        series_id: "529138"
+        series_title: "狼よ、震えて眠れ（HARTA COMIX）"
+        authors: ["犬童千絵"]
+        imprint: "HARTA COMIX"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2026-01-15"
+        printed: "2026-01-15"
+        isbn: null
   - shop_id: "52ba10e1-2af8-42d9-8d04-75ad72e87562"
     url: "https://bookwalker.jp/de52ba10e1-2af8-42d9-8d04-75ad72e87562/"
     id_kind: "detail"
@@ -94763,6 +96362,56 @@ works:
         category: "マンガ"
         delivered: "2019-11-27"
         printed: "2019-11-27"
+        isbn: null
+  - shop_id: "54984"
+    url: "https://bookwalker.jp/series/54984/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 2
+    volumes_found: 2
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "角川コミックス・エース"
+    publisher: "KADOKAWA"
+    authors: ["もこやま仁"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2015-10-29"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "百合な私と悪魔な彼女(？)(1)"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "36c5067d-433d-45a5-ae9e-4d58ac2e38f3"
+        title: "百合な私と悪魔な彼女(？)(1)"
+        series_id: "54984"
+        series_title: "百合な私と悪魔な彼女(？)（角川コミックス・エース）"
+        authors: ["もこやま仁"]
+        imprint: "角川コミックス・エース"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2015-11-04"
+        printed: "2015-10-29"
+        isbn: null
+      - uuid: "36e9337c-e0db-4388-bf79-01ba6fd5b668"
+        title: "【最終巻】百合な私と悪魔な彼女(？)(2)"
+        series_id: "54984"
+        series_title: "百合な私と悪魔な彼女(？)（角川コミックス・エース）"
+        authors: ["もこやま仁"]
+        imprint: "角川コミックス・エース"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-07-04"
+        printed: "2016-06-29"
         isbn: null
   - shop_id: "54995"
     url: "https://bookwalker.jp/series/54995/"
@@ -103412,6 +105061,45 @@ works:
         delivered: "2024-02-23"
         printed: null
         isbn: null
+  - shop_id: "5ea463f4-5c87-4cba-9598-0e54612a00f1"
+    url: "https://bookwalker.jp/de5ea463f4-5c87-4cba-9598-0e54612a00f1/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "HARTA COMIX"
+    publisher: "KADOKAWA"
+    authors: ["御名原　雅"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2026-07-15"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "レストア！ ～改造車工房へようこそ～　１"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "5ea463f4-5c87-4cba-9598-0e54612a00f1"
+        title: "レストア！ ～改造車工房へようこそ～　１"
+        series_id: "611764"
+        series_title: "レストア！ ～改造車工房へようこそ～（HARTA COMIX）"
+        authors: ["御名原　雅"]
+        imprint: "HARTA COMIX"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2026-07-15"
+        printed: "2026-07-15"
+        isbn: null
   - shop_id: "5eb40bc7-f1c2-4dd9-9054-a67510eee209"
     url: "https://bookwalker.jp/de5eb40bc7-f1c2-4dd9-9054-a67510eee209/"
     id_kind: "detail"
@@ -107185,6 +108873,67 @@ works:
         delivered: "2020-09-01"
         printed: null
         isbn: null
+  - shop_id: "64776"
+    url: "https://bookwalker.jp/series/64776/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 3
+    volumes_found: 3
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 2
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["葉賀ユイ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2016-03-24"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "サクラ*ナデシコ(1)"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "b1586c1e-af32-4176-9526-0050e142a538"
+        title: "サクラ*ナデシコ(1)"
+        series_id: "64776"
+        series_title: "サクラ*ナデシコ（電撃コミックスNEXT）"
+        authors: ["葉賀ユイ"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-03-26"
+        printed: "2016-03-24"
+        isbn: null
+      - uuid: "0b46b253-cfbc-48e8-b57e-6fc50567283a"
+        title: "サクラ*ナデシコ(2)"
+        series_id: "64776"
+        series_title: "サクラ*ナデシコ（電撃コミックスNEXT）"
+        authors: ["葉賀ユイ"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2017-02-27"
+        printed: null
+        isbn: null
+      - uuid: "7a8131b0-3de4-49e8-b196-dd1f7451f9b4"
+        title: "【最終巻】サクラ*ナデシコ(3)"
+        series_id: "64776"
+        series_title: "サクラ*ナデシコ（電撃コミックスNEXT）"
+        authors: ["葉賀ユイ"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-01-27"
+        printed: "2018-01-27"
+        isbn: null
   - shop_id: "649a7335-7f36-4899-8692-5cc543359985"
     url: "https://bookwalker.jp/de649a7335-7f36-4899-8692-5cc543359985/"
     id_kind: "detail"
@@ -107817,6 +109566,45 @@ works:
         delivered: "2022-07-01"
         printed: null
         isbn: null
+  - shop_id: "65acb975-a22c-481a-a3e1-742deb93f524"
+    url: "https://bookwalker.jp/de65acb975-a22c-481a-a3e1-742deb93f524/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["平尾アウリ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2022-03-26"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "女子には歴史がありまして　平尾アウリ短編集"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "65acb975-a22c-481a-a3e1-742deb93f524"
+        title: "女子には歴史がありまして　平尾アウリ短編集"
+        series_id: "347590"
+        series_title: "平尾アウリ短編集（電撃コミックスNEXT）"
+        authors: ["平尾アウリ"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-03-25"
+        printed: "2022-03-26"
+        isbn: null
   - shop_id: "65b37d5a-f863-4cd5-ac96-e1ad72de0b5e"
     url: "https://bookwalker.jp/de65b37d5a-f863-4cd5-ac96-e1ad72de0b5e/"
     id_kind: "detail"
@@ -108183,6 +109971,45 @@ works:
         category: "マンガ"
         delivered: "2023-12-08"
         printed: null
+        isbn: null
+  - shop_id: "6749a747-409c-413f-8069-559c32dda06a"
+    url: "https://bookwalker.jp/de6749a747-409c-413f-8069-559c32dda06a/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "MFC"
+    publisher: "KADOKAWA"
+    authors: ["星期一回收日", "陳　巧蓉（巧ミャオ）"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2023-07-22"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "ネコと海の彼方"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "6749a747-409c-413f-8069-559c32dda06a"
+        title: "ネコと海の彼方"
+        series_id: "426416"
+        series_title: "ネコと海の彼方（MFC）"
+        authors: ["星期一回收日", "陳　巧蓉（巧ミャオ）"]
+        imprint: "MFC"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2023-07-22"
+        printed: "2023-07-22"
         isbn: null
   - shop_id: "67624"
     url: "https://bookwalker.jp/series/67624/"
@@ -108866,6 +110693,89 @@ works:
         category: "マンガ"
         delivered: "2022-08-14"
         printed: null
+        isbn: null
+  - shop_id: "6872"
+    url: "https://bookwalker.jp/series/6872/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 5
+    volumes_found: 5
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 5
+    isbns_stated: 0
+    imprint: "角川コミックス・エース"
+    publisher: "KADOKAWA"
+    authors: ["高河ゆん", "南方純"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2013-07-10"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "悪魔のリドル(1)"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "1f4181d4-0424-4346-b424-a1850e8d9099"
+        title: "悪魔のリドル(1)"
+        series_id: "6872"
+        series_title: "悪魔のリドル（角川コミックス・エース）"
+        authors: ["高河ゆん", "南方純"]
+        imprint: "角川コミックス・エース"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2013-07-16"
+        printed: "2013-07-10"
+        isbn: null
+      - uuid: "d4c65318-fdd0-4766-a812-a804c815ab40"
+        title: "悪魔のリドル(2)"
+        series_id: "6872"
+        series_title: "悪魔のリドル（角川コミックス・エース）"
+        authors: ["高河ゆん", "南方純"]
+        imprint: "角川コミックス・エース"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2014-03-10"
+        printed: "2014-03-10"
+        isbn: null
+      - uuid: "cf9e7227-d9c8-4f07-9ff1-683b6934023f"
+        title: "悪魔のリドル(3)"
+        series_id: "6872"
+        series_title: "悪魔のリドル（角川コミックス・エース）"
+        authors: ["高河ゆん", "南方純"]
+        imprint: "角川コミックス・エース"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2014-12-10"
+        printed: "2014-12-05"
+        isbn: null
+      - uuid: "76416b17-7d9f-4b55-9e30-db7822ded0d2"
+        title: "悪魔のリドル(4)"
+        series_id: "6872"
+        series_title: "悪魔のリドル（角川コミックス・エース）"
+        authors: ["高河ゆん", "南方純"]
+        imprint: "角川コミックス・エース"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-01-26"
+        printed: "2016-01-22"
+        isbn: null
+      - uuid: "09271af6-9c21-48e3-aea0-9561443ec005"
+        title: "【最終巻】悪魔のリドル(5)"
+        series_id: "6872"
+        series_title: "悪魔のリドル（角川コミックス・エース）"
+        authors: ["高河ゆん", "南方純"]
+        imprint: "角川コミックス・エース"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-12-10"
+        printed: "2016-12-07"
         isbn: null
   - shop_id: "68d9924e-d681-415a-a3ed-fb403549f24e"
     url: "https://bookwalker.jp/de68d9924e-d681-415a-a3ed-fb403549f24e/"
@@ -111707,6 +113617,45 @@ works:
         delivered: "2025-07-04"
         printed: null
         isbn: null
+  - shop_id: "77c64b59-56a5-449a-a310-0b0904872f06"
+    url: "https://bookwalker.jp/de77c64b59-56a5-449a-a310-0b0904872f06/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "ビームコミックス"
+    publisher: "KADOKAWA"
+    authors: ["東河みそ"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2023-06-12"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "琥珀の貴女"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "77c64b59-56a5-449a-a310-0b0904872f06"
+        title: "琥珀の貴女"
+        series_id: "419438"
+        series_title: "琥珀の貴女（ビームコミックス）"
+        authors: ["東河みそ"]
+        imprint: "ビームコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2023-06-12"
+        printed: "2023-06-12"
+        isbn: null
   - shop_id: "77e4ce94-9d91-4011-9320-21b683149ba8"
     url: "https://bookwalker.jp/de77e4ce94-9d91-4011-9320-21b683149ba8/"
     id_kind: "detail"
@@ -111823,6 +113772,89 @@ works:
         category: "マンガ"
         delivered: "2024-01-17"
         printed: null
+        isbn: null
+  - shop_id: "78317"
+    url: "https://bookwalker.jp/series/78317/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 5
+    volumes_found: 5
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 5
+    isbns_stated: 0
+    imprint: "MFC　キューンシリーズ"
+    publisher: "KADOKAWA"
+    authors: ["河合朗"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2016-07-25"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "ギャルとオタクはわかりあえない。　1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "d292f824-6d4d-4b79-aa9e-aac2d448ad96"
+        title: "ギャルとオタクはわかりあえない。　1"
+        series_id: "78317"
+        series_title: "ギャルとオタクはわかりあえない。（MFC　キューンシリーズ）"
+        authors: ["河合朗"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-07-27"
+        printed: "2016-07-25"
+        isbn: null
+      - uuid: "0700979a-b5d7-44bb-bb99-50f5b67e47ca"
+        title: "ギャルとオタクはわかりあえない。　2"
+        series_id: "78317"
+        series_title: "ギャルとオタクはわかりあえない。（MFC　キューンシリーズ）"
+        authors: ["河合朗"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2017-04-27"
+        printed: "2017-04-27"
+        isbn: null
+      - uuid: "79b6fb5e-57b1-4cee-b172-3ea1c8e14776"
+        title: "ギャルとオタクはわかりあえない。　3"
+        series_id: "78317"
+        series_title: "ギャルとオタクはわかりあえない。（MFC　キューンシリーズ）"
+        authors: ["河合朗"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-05-26"
+        printed: "2018-05-26"
+        isbn: null
+      - uuid: "e58ce788-38d1-4b20-b274-38031b026126"
+        title: "ギャルとオタクはわかりあえない。　4"
+        series_id: "78317"
+        series_title: "ギャルとオタクはわかりあえない。（MFC　キューンシリーズ）"
+        authors: ["河合朗"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2019-02-27"
+        printed: "2019-02-27"
+        isbn: null
+      - uuid: "1d7dd6a7-b233-4ec0-b911-5b6aa6e26e67"
+        title: "【最終巻】ギャルとオタクはわかりあえない。　5"
+        series_id: "78317"
+        series_title: "ギャルとオタクはわかりあえない。（MFC　キューンシリーズ）"
+        authors: ["河合朗"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2020-01-27"
+        printed: "2020-01-27"
         isbn: null
   - shop_id: "7881"
     url: "https://bookwalker.jp/series/7881/"
@@ -112313,6 +114345,45 @@ works:
         category: "マンガ"
         delivered: "2018-06-09"
         printed: null
+        isbn: null
+  - shop_id: "7a3d9f2f-6ae1-441e-ba20-7d53012148dd"
+    url: "https://bookwalker.jp/de7a3d9f2f-6ae1-441e-ba20-7d53012148dd/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "MFC　キューンシリーズ"
+    publisher: "KADOKAWA"
+    authors: ["三月"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2016-03-24"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "わたしの友達が世界一かわいい　1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "7a3d9f2f-6ae1-441e-ba20-7d53012148dd"
+        title: "わたしの友達が世界一かわいい　1"
+        series_id: "64455"
+        series_title: "わたしの友達が世界一かわいい（MFC　キューンシリーズ）"
+        authors: ["三月"]
+        imprint: "MFC　キューンシリーズ"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-03-26"
+        printed: "2016-03-24"
         isbn: null
   - shop_id: "7a50a109-a358-4eb0-968c-ea21cc166c51"
     url: "https://bookwalker.jp/de7a50a109-a358-4eb0-968c-ea21cc166c51/"
@@ -115043,6 +117114,67 @@ works:
         category: "マンガ"
         delivered: "2023-03-17"
         printed: null
+        isbn: null
+  - shop_id: "85103"
+    url: "https://bookwalker.jp/series/85103/"
+    id_kind: "series"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 3
+    volumes_found: 3
+    chapters: null
+    last_updated: null
+    completed: "completed"
+    dates_stated: 3
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["タカダ フミ子"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2016-09-23"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "同居人が不安定でして(1)"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "bfc06b90-1574-42b7-ab32-cfbaffed692d"
+        title: "同居人が不安定でして(1)"
+        series_id: "85103"
+        series_title: "同居人が不安定でして（電撃コミックスNEXT）"
+        authors: ["タカダ フミ子"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-09-27"
+        printed: "2016-09-23"
+        isbn: null
+      - uuid: "f62860fb-209b-417e-9bf5-0bc41649a49c"
+        title: "同居人が不安定でして(2)"
+        series_id: "85103"
+        series_title: "同居人が不安定でして（電撃コミックスNEXT）"
+        authors: ["タカダ フミ子"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2017-05-27"
+        printed: "2017-05-27"
+        isbn: null
+      - uuid: "3a35db53-a016-4ccf-933c-c0de1b92e15d"
+        title: "【最終巻】同居人が不安定でして(3)"
+        series_id: "85103"
+        series_title: "同居人が不安定でして（電撃コミックスNEXT）"
+        authors: ["タカダ フミ子"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-01-26"
+        printed: "2018-01-27"
         isbn: null
   - shop_id: "851bc0cf-79c5-4248-b75f-4c97527b9445"
     url: "https://bookwalker.jp/de851bc0cf-79c5-4248-b75f-4c97527b9445/"
@@ -124518,6 +126650,45 @@ works:
         delivered: "2024-08-30"
         printed: null
         isbn: null
+  - shop_id: "a7b62638-b93f-467a-b555-6dd9f5bf7e49"
+    url: "https://bookwalker.jp/dea7b62638-b93f-467a-b555-6dd9f5bf7e49/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "MFC"
+    publisher: "KADOKAWA"
+    authors: ["冬梨。"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2016-11-18"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "せんぱいあい。"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "a7b62638-b93f-467a-b555-6dd9f5bf7e49"
+        title: "せんぱいあい。"
+        series_id: "90173"
+        series_title: "せんぱいあい。（MFC）"
+        authors: ["冬梨。"]
+        imprint: "MFC"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-11-21"
+        printed: "2016-11-18"
+        isbn: null
   - shop_id: "a7e49861-50a9-4234-9b8a-2e0ecb410880"
     url: "https://bookwalker.jp/dea7e49861-50a9-4234-9b8a-2e0ecb410880/"
     id_kind: "detail"
@@ -126429,6 +128600,45 @@ works:
         delivered: "2020-06-22"
         printed: null
         isbn: null
+  - shop_id: "b1a1cdf4-2e54-4a74-8128-0350500dbc3d"
+    url: "https://bookwalker.jp/deb1a1cdf4-2e54-4a74-8128-0350500dbc3d/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "MFC"
+    publisher: "KADOKAWA"
+    authors: ["瀬田 せた"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2018-02-22"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "百合鍵　～先輩の秘密をのぞいてみた～"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "b1a1cdf4-2e54-4a74-8128-0350500dbc3d"
+        title: "百合鍵　～先輩の秘密をのぞいてみた～"
+        series_id: "150087"
+        series_title: "百合鍵　～先輩の秘密をのぞいてみた～（MFC）"
+        authors: ["瀬田 せた"]
+        imprint: "MFC"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2018-02-22"
+        printed: "2018-02-22"
+        isbn: null
   - shop_id: "b2e66d6e-9806-404d-947f-d45a2e6f4e27"
     url: "https://bookwalker.jp/deb2e66d6e-9806-404d-947f-d45a2e6f4e27/"
     id_kind: "detail"
@@ -127442,6 +129652,45 @@ works:
         category: "マンガ"
         delivered: "2021-07-01"
         printed: null
+        isbn: null
+  - shop_id: "b9754111-6e68-4dd4-8c44-a08bfeb5aa3f"
+    url: "https://bookwalker.jp/deb9754111-6e68-4dd4-8c44-a08bfeb5aa3f/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "ビームコミックス"
+    publisher: "KADOKAWA"
+    authors: ["白石浩平"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2022-08-12"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "白ギャルと黒ギャルの誘惑"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "b9754111-6e68-4dd4-8c44-a08bfeb5aa3f"
+        title: "白ギャルと黒ギャルの誘惑"
+        series_id: "370037"
+        series_title: "白ギャルと黒ギャルの誘惑（ビームコミックス）"
+        authors: ["白石浩平"]
+        imprint: "ビームコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-08-12"
+        printed: "2022-08-12"
         isbn: null
   - shop_id: "b9b67ce1-d434-412a-af7e-d3967b687ae0"
     url: "https://bookwalker.jp/deb9b67ce1-d434-412a-af7e-d3967b687ae0/"
@@ -129237,6 +131486,45 @@ works:
         delivered: "2024-06-21"
         printed: null
         isbn: null
+  - shop_id: "bf633476-7e22-483d-84f2-1f5653bfcae5"
+    url: "https://bookwalker.jp/debf633476-7e22-483d-84f2-1f5653bfcae5/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "電撃コミックスNEXT"
+    publisher: "KADOKAWA"
+    authors: ["めきめき"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2016-02-25"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "オンリー☆ユー　～あなたと私の二人ぼっち計画～(1)"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "bf633476-7e22-483d-84f2-1f5653bfcae5"
+        title: "オンリー☆ユー　～あなたと私の二人ぼっち計画～(1)"
+        series_id: "62441"
+        series_title: "オンリー☆ユー（電撃コミックスNEXT）"
+        authors: ["めきめき"]
+        imprint: "電撃コミックスNEXT"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2016-02-27"
+        printed: "2016-02-25"
+        isbn: null
   - shop_id: "bf967666-030d-4efa-944a-93f87c1f1e9d"
     url: "https://bookwalker.jp/debf967666-030d-4efa-944a-93f87c1f1e9d/"
     id_kind: "detail"
@@ -129353,6 +131641,45 @@ works:
         category: "マンガ"
         delivered: "2025-06-25"
         printed: null
+        isbn: null
+  - shop_id: "c00970db-3701-4346-ab49-4bfdc379b9bf"
+    url: "https://bookwalker.jp/dec00970db-3701-4346-ab49-4bfdc379b9bf/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "ビームコミックス"
+    publisher: "KADOKAWA"
+    authors: ["三家本礼"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2026-06-12"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "ブラッドフレンド　1"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "c00970db-3701-4346-ab49-4bfdc379b9bf"
+        title: "ブラッドフレンド　1"
+        series_id: "600828"
+        series_title: "ブラッドフレンド（ビームコミックス）"
+        authors: ["三家本礼"]
+        imprint: "ビームコミックス"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2026-06-12"
+        printed: "2026-06-12"
         isbn: null
   - shop_id: "c036f8a1-2279-4bf7-8c33-6368fce4ca3f"
     url: "https://bookwalker.jp/dec036f8a1-2279-4bf7-8c33-6368fce4ca3f/"
@@ -140078,6 +142405,45 @@ works:
         category: "マンガ"
         delivered: "2023-05-26"
         printed: null
+        isbn: null
+  - shop_id: "f41c8696-3cd3-4f4d-a3c5-e59b2c6964f5"
+    url: "https://bookwalker.jp/def41c8696-3cd3-4f4d-a3c5-e59b2c6964f5/"
+    id_kind: "detail"
+    store: "単行本"
+    series_read: true
+    pages_read: 1
+    volumes_stated: 1
+    volumes_found: 1
+    chapters: null
+    last_updated: null
+    completed: null
+    dates_stated: 1
+    isbns_stated: 0
+    imprint: "HARTA COMIX"
+    publisher: "KADOKAWA"
+    authors: ["荒木　美咲"]
+    shop_genre: null
+    listed_on: "2026-10-31"
+    first_publication:
+      date: "2022-11-15"
+      date_basis: "print-base-edition"
+      venue: "KADOKAWA"
+      venue_type: "tankobon-imprint"
+      venue_volume: "クラスのアイドルは今日も推せない"
+      country: "JP"
+      country_basis: "Japanese-language edition from a Japanese publisher on the shop's Japanese store. Not a check against §6's localisation exclusion, which needs the publisher examined."
+      note: "The earliest 底本発行日 across the work's volumes, which is the publication date of the print edition the file was made from. A serialised work appeared in a magazine before its tankōbon and this shop never mentions the magazine, so this is the earliest publication the shop attests rather than the work's first."
+    volumes:
+      - uuid: "f41c8696-3cd3-4f4d-a3c5-e59b2c6964f5"
+        title: "クラスのアイドルは今日も推せない"
+        series_id: "383927"
+        series_title: "クラスのアイドルは今日も推せない（HARTA COMIX）"
+        authors: ["荒木　美咲"]
+        imprint: "HARTA COMIX"
+        publisher: "KADOKAWA"
+        category: "マンガ"
+        delivered: "2022-11-15"
+        printed: "2022-11-15"
         isbn: null
   - shop_id: "f448db50-fef2-46bb-83e4-69f844ebad52"
     url: "https://bookwalker.jp/def448db50-fef2-46bb-83e4-69f844ebad52/"

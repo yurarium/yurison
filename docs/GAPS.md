@@ -4208,3 +4208,29 @@ NOT YET READ, in rough order of yield:
 - Full episode lists outside GigaViewer: pixivコミック keeps withdrawn ranges in its list and マンガワン
   states 全N話, which give the length and the last instalment as GigaViewer's lists now do.
 - A print run's own last volume marked （完） or 最終巻 in the bibliographic record's designation.
+
+## Seven licensed works the corpus does not hold, and what Japan says about them. Found 2026-10-31
+
+Seven Seas' catalogue, captured on 2026-08-05 in `data/queue/english-licences.yaml`, names eight
+yuri titles the corpus held under no name. 悪魔のリドル is one of the 47 KADOKAWA works
+`adapters/labelshelf.py` now brings in on カドコミ's own 百合 tag. The other seven are not KADOKAWA's,
+and a licensor choosing a book is a fact about the English edition, so each was asked what the
+Japanese side states, on 2026-10-31:
+
+- **メジロバナの咲く** (中村明日美子, 白泉社). The publisher's own description of volumes 2 and 4,
+  as 紀伊國屋 prints it under 出版社内容情報, calls it the author's first full-length ガールズラブ.
+  That is §4's `gl`, publisher-side. No route here reaches a record: BOOK☆WALKER does not sell it,
+  コミックシーモア is down, and the ISBN route needs a MADB release nobody has downloaded since
+  August (volume 2 is 978-4-592-71184-1).
+- **ハナとヒナは放課後** (森永みるく, 双葉社), **フラグタイム** (さと, 秋田書店), **きのこ人間の結婚**
+  (村山慶, 太田出版), **ななしのアステリズム** (小林キナ, スクウェア・エニックス), **遠藤靖子は夜迷町に
+  隠れてる** (FLOWERCHILD, 少年画報社) and **紫色のクオリア** (綱島志朗, KADOKAWA's 電撃コミックス).
+  BOOK☆WALKER files none of them under tag 14, openBD holds their records with no description,
+  and the publisher text 紀伊國屋 prints, where it prints any, applies no label. Every 百合 on those
+  pages is a reader's review, which §4 refuses. 百合ナビ and コミックシーモア's genre 37, the two
+  comparators that would admit them presumptively, could not be asked: the first is not reachable
+  by search and the second is down.
+
+So all seven stay out until a comparator lists them or a publisher-side page is found. Nothing here
+says they are not yuri: §4's `none` describes marketing, and a seinen venue like ヤングコミック or a
+general one like ガンガンONLINE withholds the label as a matter of course.

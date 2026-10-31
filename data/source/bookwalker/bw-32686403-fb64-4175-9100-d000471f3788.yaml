@@ -1,0 +1,31 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-31
+work_id: "bw-32686403-fb64-4175-9100-d000471f3788"
+record_type: retailer_work_record
+shop_id: "32686403-fb64-4175-9100-d000471f3788"
+shop_url: "https://bookwalker.jp/de32686403-fb64-4175-9100-d000471f3788/"
+title:
+  ja: "女子高生の生態図鑑"
+creator: "しまぷ"
+publisher: "KADOKAWA"
+imprint: "中経☆コミックス"
+volume_count: 1
+date_basis: "no-print-date-stated"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "女子高生の生態図鑑"
+    delivered: "2016-09-29"
+marketing_label: yuri
+marketing_label_basis:
+  source: "kadokomi"
+  url: "https://comic-walker.com/detail/KC_003121_S"
+  retrieved: 2026-11-01
+  note: >-
+    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The
+    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.

@@ -1,0 +1,41 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-31
+work_id: "bw-223691"
+record_type: retailer_work_record
+shop_id: "223691"
+shop_url: "https://bookwalker.jp/series/223691/"
+title:
+  ja: "DarkArtsMaster-黶き魔法使い-"
+creator: "神原　絵理華"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 3
+first_published: "2019-10-26"
+venue: "KADOKAWA"
+completed: true
+volumes:
+  - title: "DarkArtsMaster-黶き魔法使い- １"
+    number: "1"
+    published: "2019-10-26"
+    delivered: "2019-10-25"
+  - title: "DarkArtsMaster-黶き魔法使い- ２"
+    number: "2"
+    published: "2020-06-27"
+    delivered: "2020-06-26"
+  - title: "【最終巻】DarkArtsMaster-黶き魔法使い- ３"
+    number: "3"
+    published: "2020-06-27"
+    delivered: "2020-06-26"
+marketing_label: yuri
+marketing_label_basis:
+  source: "kadokomi"
+  url: "https://comic-walker.com/detail/KC_002704_S"
+  retrieved: 2026-11-01
+  note: >-
+    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The
+    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.

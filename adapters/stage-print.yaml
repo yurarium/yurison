@@ -22,6 +22,13 @@ commands:
     every_days: 7
     argv: [adapters/cmoa_shelf.py, --cache, "{CACHE}/cmoa-shelf"]
 
+  # The publisher's own 百合 label as a third shelf: KADOKAWA works カドコミ tags and serves no
+  # episode of, matched to the BOOK☆WALKER listing that sells them (adapters/labelshelf.py).
+  - id: kadokomi-label
+    optional: true
+    every_days: 7
+    argv: [adapters/labelshelf.py]
+
   - id: shelfingest
     optional: true
     every_days: 7

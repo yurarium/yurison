@@ -1,0 +1,33 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-31
+work_id: "bw-5ea463f4-5c87-4cba-9598-0e54612a00f1"
+record_type: retailer_work_record
+shop_id: "5ea463f4-5c87-4cba-9598-0e54612a00f1"
+shop_url: "https://bookwalker.jp/de5ea463f4-5c87-4cba-9598-0e54612a00f1/"
+title:
+  ja: "レストア！ ～改造車工房へようこそ～"
+creator: "御名原　雅"
+publisher: "KADOKAWA"
+imprint: "HARTA COMIX"
+volume_count: 1
+first_published: "2026-07-15"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "レストア！ ～改造車工房へようこそ～　１"
+    number: "1"
+    published: "2026-07-15"
+    delivered: "2026-07-15"
+marketing_label: yuri
+marketing_label_basis:
+  source: "kadokomi"
+  url: "https://comic-walker.com/detail/KC_018205_S"
+  retrieved: 2026-11-01
+  note: >-
+    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The
+    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.

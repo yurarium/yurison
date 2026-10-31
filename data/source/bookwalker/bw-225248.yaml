@@ -1,0 +1,41 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-31
+work_id: "bw-225248"
+record_type: retailer_work_record
+shop_id: "225248"
+shop_url: "https://bookwalker.jp/series/225248/"
+title:
+  ja: "彼女のイデア"
+creator: "冬芽沙也"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 3
+first_published: "2019-11-09"
+venue: "KADOKAWA"
+completed: true
+volumes:
+  - title: "彼女のイデア 1"
+    number: "1"
+    published: "2019-11-09"
+    delivered: "2019-11-09"
+  - title: "彼女のイデア 2"
+    number: "2"
+    published: "2020-05-27"
+    delivered: "2020-05-27"
+  - title: "【最終巻】彼女のイデア 3"
+    number: "3"
+    published: "2021-01-09"
+    delivered: "2021-01-09"
+marketing_label: yuri
+marketing_label_basis:
+  source: "kadokomi"
+  url: "https://comic-walker.com/detail/KC_000200_S"
+  retrieved: 2026-11-01
+  note: >-
+    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The
+    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.

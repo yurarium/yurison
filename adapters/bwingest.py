@@ -312,6 +312,35 @@ def split(records, held):
     return new, review
 
 
+def publisher_labels(path):
+    """`{shop id: publisher_label}` for the admitted BOOK☆WALKER rows that stand on one."""
+    import yaml
+    p = pathlib.Path(path)
+    if not p.exists():
+        return {}
+    return {str(w.get("shop_id")): w["publisher_label"]
+            for w in (yaml.safe_load(p.read_text()) or {}).get("works") or []
+            if w.get("shop") == SHOP and w.get("publisher_label")}
+
+
+def label_lines(label, quote):
+    """The record's `marketing_label` block where the publisher labels the work itself.
+
+    THE PUBLISHER'S STATEMENT, NOT THE SHOP'S. These works reached the print intake from
+    `labelshelf.py`, which found them by KADOKAWA's own 百合 tag on カドコミ, and BOOK☆WALKER only
+    supplies the volumes. §4's publisher-side label is satisfied by that page and not by the shop,
+    so the basis names カドコミ and no shelf is claimed as the admission."""
+    return ["marketing_label: yuri",
+            "marketing_label_basis:",
+            f"  source: {quote(label.get('source') or 'kadokomi')}",
+            f"  url: {quote(label.get('url') or '')}",
+            f"  retrieved: {label.get('retrieved') or ''}",
+            "  note: >-",
+            "    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The",
+            "    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.",
+            ""]
+
+
 def main(argv=None):
     import argparse
     import json
@@ -330,10 +359,13 @@ def main(argv=None):
     ap.add_argument("--build", default=None)
     ap.add_argument("--out", default="data/source/bookwalker")
     ap.add_argument("--review", default="data/queue/bw-review.yaml")
+    ap.add_argument("--admitted", default="data/queue/admitted.yaml",
+                    help="the admitted rows, read for the publisher labels some of them carry")
     a = ap.parse_args(argv)
 
     doc = yaml.safe_load(pathlib.Path(a.capture).read_text()) or {}
     retrieved = str(doc.get("retrieved") or "")
+    labels = publisher_labels(a.admitted)
     # EACH WORK IS DATED BY ITS OWN LISTING, which the capture records as `listed_on`. The file's
     # date is its last pass, and stamping every work with it would claim a fresh read of volumes
     # last listed in August; a work never relisted keeps the first capture's day.
@@ -411,6 +443,11 @@ def main(argv=None):
             for k in ("number", "designation", "published", "delivered"):
                 if v.get(k) is not None:
                     L.append(f"    {k}: {js(v[k])}")
+        label = labels.get(str(r["shop_id"]))
+        if label:
+            L += label_lines(label, js)
+            (out / f"{wid}.yaml").write_text("\n".join(L))
+            continue
         # §2's third branch: a licensed retailer's yuri shelf is a comparator, and §4 keeps a
         # shop's shelf out of marketing_label however strong a lead it is.
         L += _inclusion.admitted_by([SHOP], r.get("retrieved") or retrieved, quote=js)

@@ -260,6 +260,29 @@ def main(s):
     s.eq(([r["shop_id"] for r in keep], [r["shop_id"] for r in doubles]), (["4559", "7"], ["541043"]),
          "a second listing of a series already written goes to review, and no series id folds nothing")
 
+    labelled(s)
+
+
+def labelled(s):
+    """A work the publisher labels is written with the publisher's label, not the shelf's."""
+    import json, tempfile, yaml
+    q = pathlib.Path(tempfile.mkdtemp()) / "admitted.yaml"
+    label = {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_002610_S",
+             "retrieved": "2026-10-31"}
+    q.write_text(json.dumps({"works": [
+        {"shop": "bookwalker.jp", "shop_id": "6", "publisher_label": label},
+        {"shop": "bookwalker.jp", "shop_id": "7"},
+        {"shop": "cmoa.jp", "shop_id": "6", "publisher_label": label}]}, ensure_ascii=False),
+        encoding="utf-8")
+    s.eq(bw.publisher_labels(q), {"6": label},
+         "only a BOOK☆WALKER row carrying a label is read as labelled")
+    block = yaml.safe_load("\n".join(bw.label_lines(label, json.dumps)))
+    s.eq((block["marketing_label"], block["marketing_label_basis"]["source"],
+          block["marketing_label_basis"]["url"]),
+         ("yuri", "kadokomi", "https://comic-walker.com/detail/KC_002610_S"),
+         "and its record names the publisher's page as the label's basis")
+    s.check("admitted_by" not in block, "claiming no shop shelf as its admission")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

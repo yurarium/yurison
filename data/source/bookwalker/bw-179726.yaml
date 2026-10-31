@@ -1,0 +1,45 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-31
+work_id: "bw-179726"
+record_type: retailer_work_record
+shop_id: "179726"
+shop_url: "https://bookwalker.jp/series/179726/"
+title:
+  ja: "トラとハチドリ"
+creator: "ヨドカワ / MB"
+publisher: "KADOKAWA"
+imprint: "カドカワデジタルコミックス"
+volume_count: 4
+first_published: "2018-11-08"
+venue: "KADOKAWA"
+completed: true
+volumes:
+  - title: "トラとハチドリ（１）"
+    number: "1"
+    published: "2018-11-08"
+    delivered: "2018-11-08"
+  - title: "トラとハチドリ（２）"
+    number: "2"
+    published: "2019-08-03"
+    delivered: "2019-08-03"
+  - title: "トラとハチドリ（３）"
+    number: "3"
+    published: "2020-03-28"
+    delivered: "2020-03-28"
+  - title: "【最終巻】トラとハチドリ（４）"
+    number: "4"
+    published: "2020-11-07"
+    delivered: "2020-11-07"
+marketing_label: yuri
+marketing_label_basis:
+  source: "kadokomi"
+  url: "https://comic-walker.com/detail/KC_003139_S"
+  retrieved: 2026-11-01
+  note: >-
+    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The
+    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.

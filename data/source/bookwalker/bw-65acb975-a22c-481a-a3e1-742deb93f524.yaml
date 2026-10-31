@@ -1,0 +1,32 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-31
+work_id: "bw-65acb975-a22c-481a-a3e1-742deb93f524"
+record_type: retailer_work_record
+shop_id: "65acb975-a22c-481a-a3e1-742deb93f524"
+shop_url: "https://bookwalker.jp/de65acb975-a22c-481a-a3e1-742deb93f524/"
+title:
+  ja: "平尾アウリ短編集"
+creator: "平尾アウリ"
+publisher: "KADOKAWA"
+imprint: "電撃コミックスNEXT"
+volume_count: 1
+first_published: "2022-03-26"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "女子には歴史がありまして　平尾アウリ短編集"
+    published: "2022-03-26"
+    delivered: "2022-03-25"
+marketing_label: yuri
+marketing_label_basis:
+  source: "kadokomi"
+  url: "https://comic-walker.com/detail/KC_001170_S"
+  retrieved: 2026-11-01
+  note: >-
+    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The
+    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.

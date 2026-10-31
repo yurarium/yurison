@@ -1,0 +1,32 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-31
+work_id: "bw-0fa5a726-cc41-4d25-9e31-38623fe740bb"
+record_type: retailer_work_record
+shop_id: "0fa5a726-cc41-4d25-9e31-38623fe740bb"
+shop_url: "https://bookwalker.jp/de0fa5a726-cc41-4d25-9e31-38623fe740bb/"
+title:
+  ja: "わたしたちの終わりと"
+creator: "こるせ"
+publisher: "KADOKAWA"
+imprint: "ビームコミックス"
+volume_count: 1
+first_published: "2022-08-12"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "わたしたちの終わりと"
+    published: "2022-08-12"
+    delivered: "2022-08-12"
+marketing_label: yuri
+marketing_label_basis:
+  source: "kadokomi"
+  url: "https://comic-walker.com/detail/KC_003931_S"
+  retrieved: 2026-11-01
+  note: >-
+    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The
+    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.

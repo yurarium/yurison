@@ -1,0 +1,32 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-31
+work_id: "bw-b1a1cdf4-2e54-4a74-8128-0350500dbc3d"
+record_type: retailer_work_record
+shop_id: "b1a1cdf4-2e54-4a74-8128-0350500dbc3d"
+shop_url: "https://bookwalker.jp/deb1a1cdf4-2e54-4a74-8128-0350500dbc3d/"
+title:
+  ja: "百合鍵　～先輩の秘密をのぞいてみた～"
+creator: "瀬田 せた"
+publisher: "KADOKAWA"
+imprint: "MFC"
+volume_count: 1
+first_published: "2018-02-22"
+venue: "KADOKAWA"
+completed: false
+volumes:
+  - title: "百合鍵　～先輩の秘密をのぞいてみた～"
+    published: "2018-02-22"
+    delivered: "2018-02-22"
+marketing_label: yuri
+marketing_label_basis:
+  source: "kadokomi"
+  url: "https://comic-walker.com/detail/KC_002992_S"
+  retrieved: 2026-11-01
+  note: >-
+    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The
+    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.

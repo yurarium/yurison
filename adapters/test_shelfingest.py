@@ -49,6 +49,30 @@ def main(s):
                       "bookwalker.jp")["authors"], ["蒼井紫"],
          "a credit role is stripped before the name is stored")
     s.eq(si.normalise({"title": "", "genre": "マンガ"}, "cmoa.jp"), None, "no title, no record")
+    labelled(s)
+
+
+def labelled(s):
+    """A publisher's label arrives as a BOOK☆WALKER row and stays one row with the shelf's."""
+    import json, tempfile, yaml
+    q = pathlib.Path(tempfile.mkdtemp())
+    label = {"source": "kadokomi", "url": "https://comic-walker.com/detail/KC_002610_S"}
+    (q / "bookwalker-yuri.yaml").write_text(json.dumps(
+        {"items": [{"title": "棚にもある", "id": "5", "url": "https://bookwalker.jp/series/5/"}]},
+        ensure_ascii=False), encoding="utf-8")
+    (q / "kadokomi-label.yaml").write_text(json.dumps(
+        {"items": [{"title": "棚にもある", "id": "5", "url": "https://bookwalker.jp/series/5/",
+                    "publisher_label": label},
+                   {"title": "水野と茶山", "id": "6", "url": "https://bookwalker.jp/series/6/",
+                    "authors": ["西UKO"], "publisher_label": label}]},
+        ensure_ascii=False), encoding="utf-8")
+    out = q / "admitted.yaml"
+    si.main(["--queue", str(q), "--out", str(out)])
+    rows = {r["shop_id"]: r for r in yaml.safe_load(out.read_text())["works"]}
+    s.eq(sorted(rows), ["5", "6"], "a listing both the shelf and the label name is one row")
+    s.eq(rows["5"].get("publisher_label"), label, "and it carries the publisher's label")
+    s.eq((rows["6"]["shop"], rows["6"]["publisher_label"]["source"]), ("bookwalker.jp", "kadokomi"),
+         "a labelled listing no shelf holds is a BOOK☆WALKER row standing on the label")
 
 
 if __name__ == "__main__":

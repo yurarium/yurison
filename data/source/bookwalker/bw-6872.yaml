@@ -1,0 +1,49 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-10-31
+work_id: "bw-6872"
+record_type: retailer_work_record
+shop_id: "6872"
+shop_url: "https://bookwalker.jp/series/6872/"
+title:
+  ja: "悪魔のリドル"
+creator: "高河ゆん / 南方純"
+publisher: "KADOKAWA"
+imprint: "角川コミックス・エース"
+volume_count: 5
+first_published: "2013-07-10"
+venue: "KADOKAWA"
+completed: true
+volumes:
+  - title: "悪魔のリドル(1)"
+    number: "1"
+    published: "2013-07-10"
+    delivered: "2013-07-16"
+  - title: "悪魔のリドル(2)"
+    number: "2"
+    published: "2014-03-10"
+    delivered: "2014-03-10"
+  - title: "悪魔のリドル(3)"
+    number: "3"
+    published: "2014-12-05"
+    delivered: "2014-12-10"
+  - title: "悪魔のリドル(4)"
+    number: "4"
+    published: "2016-01-22"
+    delivered: "2016-01-26"
+  - title: "【最終巻】悪魔のリドル(5)"
+    number: "5"
+    published: "2016-12-07"
+    delivered: "2016-12-10"
+marketing_label: yuri
+marketing_label_basis:
+  source: "kadokomi"
+  url: "https://comic-walker.com/detail/KC_000360_S"
+  retrieved: 2026-11-01
+  note: >-
+    The publisher applies its 百合 tag to this work on カドコミ, its own platform. The
+    volumes and their dates are BOOK☆WALKER's, which sells the publisher's edition.

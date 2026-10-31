@@ -57,8 +57,27 @@ def moved(s):
          "a row keeps the address it was asked for")
 
 
+def maintenance(s):
+    """A site refusing every page with its maintenance notice is reported as that, not a redesign."""
+    import io, urllib.error
+    notice = "<p>NOT AVAILABLE メンテナンス中です。</p>".encode()
+    err = urllib.error.HTTPError("https://younganimal.com/series/1", 403, "x", {}, io.BytesIO(notice))
+    note = wp.refusal_note(err)
+    s.check(note, "a 403 carrying the site's maintenance notice says so")
+    s.eq(wp.refusal_note(urllib.error.HTTPError("u", 403, "x", {}, io.BytesIO(b"denied"))), "",
+         "and a plain refusal says nothing it does not")
+    down = [("a", "HTTP 403" + note), ("b", "HTTP 403" + note)]
+    s.check("maintenance notice" in wp.health_line("younganimal", 0, 1, down),
+            "every page answering with the notice is reported as maintenance")
+    s.check("markup may have changed" in wp.health_line("younganimal", 0, 1, down + [("c", "HTTP 403")]),
+            "while one page refused otherwise leaves the old diagnosis")
+    s.check("markup may have changed" in wp.health_line("younganimal", 0, 1, []),
+            "and so does a site that answered and parsed nothing")
+
+
 def main(s):
     moved(s)
+    maintenance(s)
     rows = wp.episodes(li("第1話", 2026, 8, 3) + li("第2話", 2026, 8, 10, "/e/2"),
                        ENG, "https://x.jp")
     s.eq(len(rows), 2, "both blocks are read")

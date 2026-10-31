@@ -1213,6 +1213,51 @@ def load_platform_history(files):
     return out
 
 
+def load_partial_listings(files):
+    """(work, platform) -> (the dates a PARTIAL listing shows, the day it was read).
+
+    WHAT A PARTIAL LISTING MAY SAY. カドコミ returns its newest episodes and its first, ニコニコ
+    states a work-level update date, and neither is a whole history, so `load_platform_history`
+    rightly refuses them: they cannot deny a chapter. They can still say we looked. A claim on
+    カドコミ for バカに告白 dated 2026-10-08, against a listing read on 2026-10-31 whose newest
+    episode is 2026-09-07, was reported as "we hold no chapter history for this work on this
+    platform", which asked somebody to go and look at a page this pipeline reads twice a day.
+    """
+    owners = host_platforms(
+        (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {}).get("platforms", []))
+    out = {}
+    for f in files:
+        if not pathlib.Path(f).exists():
+            continue
+        doc = yaml.safe_load(open(f)) or {}
+        read = str(doc.get("retrieved") or "")[:10]
+        held = {k: set(v) for k, v in load_platform_history([f]).items()}
+        # A WORK'S OWN LAST-UPDATE DATE IS ON THE LISTING TOO. ニコニコ dates no chapter and states
+        # when the work last updated: ささやくように恋を唄う, 2021-12-16, read on 2026-10-31.
+        for w in doc.get("works") or []:
+            if w.get("updated"):
+                pn = platform_of(w.get("url"), owners) or w.get("platform_name") or \
+                    doc.get("platform_name") or ""
+                key = (norm_work(w.get("work_title") or ""), norm_work(pn))
+                if key[0] and key[1]:
+                    held.setdefault(key, set()).add(str(w["updated"])[:10])
+        for key, ds in held.items():
+            if len(ds) >= len(out.get(key, ((), ""))[0]):
+                out[key] = (sorted(ds), read)
+    return out
+
+
+def quiet_listing(listing, when, days=7):
+    """Whether a partial listing, read after `when`, shows nothing within `days` of it."""
+    if not listing or not when:
+        return False
+    dates, read = listing
+    if not read or read < when:
+        return False
+    w = datetime.date.fromisoformat(when)
+    return not any(abs((w - datetime.date.fromisoformat(d)).days) <= days for d in dates)
+
+
 def fold_map(records, fold):
     """Key records by their folded name, keeping the fullest where several fold together.
 
@@ -4639,6 +4684,11 @@ def main():
         # in a file called claim-resolved.yaml. Fetched, written, and read by nothing.
         + glob.glob("data/source/webpages/*.yaml"))
 
+    # AND WHAT THE PARTIAL LISTINGS SHOW, which may say we looked and may never deny a chapter.
+    partial_listings = load_partial_listings(["data/source/kadokomi/chapters.yaml",
+                                              "data/source/nicovideo/works.yaml",
+                                              "data/source/webpages/yomonga.yaml"])
+
     # WHAT EACH PLATFORM SAYS ABOUT ITS OWN RHYTHM. GigaViewer prints a work's cadence and its
     # next update date, and we were inferring both from gaps between the chapters we happened to
     # capture. See adapters/render/schedule_text.py for why that was not merely redundant.
@@ -5020,12 +5070,19 @@ def main():
                 # the report matches what the platform says it does. That is corroboration from the
                 # platform and it is not attestation of a chapter, so it gets its own disposition
                 # rather than being called absorbed: no row exists for it in the database.
-                if _sched_fits(sched.get("cadence"), when):
+                # AND A DATE THE PLATFORM ANNOUNCED. カドコミ states no cadence, only the day of the
+                # next update, so ココロメイク コスメティカ, announced for 2026-10-31 and claimed for
+                # 2026-10-31, read as a claim nobody had looked into.
+                if _sched_fits(sched.get("cadence"), when) or (
+                        sched.get("next_update") and str(sched["next_update"])[:10] == when):
                     trace(c, w, "scheduled",
-                          f"the platform states it updates {sched['cadence']} and this date falls "
-                          f"where that puts one"
-                          + (f"; it announces the next for {sched['next_update']}"
-                             if sched.get("next_update") else ""),
+                          (f"the platform states it updates {sched['cadence']} and this date falls "
+                           f"where that puts one"
+                           + (f"; it announces the next for {sched['next_update']}"
+                              if sched.get("next_update") else ""))
+                          if _sched_fits(sched.get("cadence"), when) else
+                          f"the platform announced its next update for {sched['next_update']}, "
+                          "the date claimed",
                           cadence=sched.get("cadence"), next_update=sched.get("next_update"))
                 elif held_back:
                     # The cadence rides along even where it does not decide. A gap of 419 days
@@ -5056,6 +5113,14 @@ def main():
                           "no URL reported, and this platform carries works published elsewhere "
                           "without an index we can enumerate, so there is no page to address",
                           chapters_held=0)
+                elif quiet_listing(partial_listings.get((nw, norm_work(c.get("platform") or ""))),
+                                   when):
+                    _pds, _pread = partial_listings[(nw, norm_work(c.get("platform") or ""))]
+                    trace(c, w, "unsettleable",
+                          f"we read this platform's own listing on {_pread} and it carries nothing "
+                          f"dated within a week of the claim, its newest being {max(_pds)}; the "
+                          "listing is partial, so its silence cannot refute the claim",
+                          chapters_held=len(_pds), last_looked=_pread)
                 else:
                     trace(c, w, "open",
                           ("we hold no chapter history for this work on this platform"

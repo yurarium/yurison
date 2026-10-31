@@ -17,7 +17,30 @@ DONE = f"<title>【完結】コンカフェ嬢は恋を着る（ＦＵＺコミ�
 RUNNING = f"<title>きみが死ぬまで恋をしたい（百合姫コミックス）{TAIL}</title>"
 
 
+def no_results(s):
+    """A search the shop has nothing for answers 404, and that is an answer."""
+    import io, urllib.error
+
+    def refuse(code):
+        def get(url):
+            raise urllib.error.HTTPError(url, code, "x", {}, io.BytesIO(b""))
+        return get
+
+    s.eq(bw.search(refuse(404), "岐阜の善き魔女"), "",
+         "a title the shop does not stock is an empty search, so the work is marked asked")
+    s.eq(bw.series_ids(bw.search(refuse(404), "岐阜の善き魔女")), [],
+         "and it names no series")
+    raised = None
+    try:
+        bw.search(refuse(503), "岐阜の善き魔女")
+    except urllib.error.HTTPError as e:
+        raised = e.code
+    s.eq(raised, 503, "while a refusal is still an error, and the work is asked again")
+    s.check("word=" in bw.search(lambda u: u, "citrus"), "and a page that answers is the page")
+
+
 def main(s):
+    no_results(s)
     s.eq(bw.status(DONE, "コンカフェ嬢は恋を着る"), "completed",
          "the shop marks a finished series in front of its name")
 

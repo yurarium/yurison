@@ -63,6 +63,33 @@ def fetch(url, cache, max_age_days=1):
     return t
 
 
+MAINTENANCE_NOTE = " (the site's maintenance notice)"
+
+
+def refusal_note(err):
+    """What a refusal's own page says it is, where it says: a maintenance notice, or nothing."""
+    try:
+        body = err.read().decode("utf-8", "replace")
+    except Exception:                                                       # noqa: BLE001
+        return ""
+    return MAINTENANCE_NOTE if "メンテナンス" in body else ""
+
+
+def health_line(site_id, parsed, floor, failed):
+    """The line a site below its floor reports, saying why where the pages said why.
+
+    A SITE UNDER MAINTENANCE IS NOT A REDESIGN. From 2026-10-22 every comici site answered 403
+    with a page reading メンテナンス中です, and this said "markup may have changed" seventeen times
+    a run: the one diagnosis the evidence ruled out, since nothing had been parsed at all. Where
+    every work asked was refused with the site's maintenance notice, the line says that instead.
+    """
+    head = f"HEALTH: {site_id} — {parsed} works parsed (< {floor}); "
+    if failed and all(why.endswith(MAINTENANCE_NOTE) for _t, why in failed):
+        return head + (f"all {len(failed)} page(s) answered with the site's maintenance notice. "
+                       "Keeping what is held; writing nothing for this site.")
+    return head + "markup may have changed. Writing nothing for this site."
+
+
 def at(url, html, site):
     """Where the page says it lives, when that is on the site's own host, else the address asked.
 
@@ -353,7 +380,7 @@ def main():
             try:
                 html = fetch(tgt["url"], cache)
             except urllib.error.HTTPError as e:
-                failed.append((tgt["title"], f"HTTP {e.code}"))
+                failed.append((tgt["title"], f"HTTP {e.code}" + refusal_note(e)))
                 continue
             # AND A FAILURE BELOW HTTP, which ended the whole adapter on 2026-10-16: one name that
             # did not resolve, during a moment of flaky DNS, and seven platforms wrote nothing.
@@ -421,8 +448,12 @@ def main():
         # (4 candidates) and COMICリュエル (1) the first time they ran.
         floor = floor_for(site, targets, refused)
         if len(works) < floor:
-            print(f"HEALTH: {site['id']} — {len(works)} works parsed (< {floor}); "
-                  "markup may have changed. Writing nothing for this site.", file=sys.stderr)
+            line = health_line(site["id"], len(works), floor, failed)
+            # TO THE LOG AS WELL AS STDERR. The stage runner shows a step's stdout, so this line
+            # never reached the run's log, and 17 comici sites wrote nothing for nine days with
+            # only their files' ages to say so.
+            print(line)
+            print(line, file=sys.stderr)
             continue
 
         L = [f"# {site['name']} ({site.get('publisher') or 'publisher not established'}) — chapters from "

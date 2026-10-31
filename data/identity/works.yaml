@@ -16523,6 +16523,7 @@ works:
     title: null
     anchors:
       - "madb:bw-482086"
+      - "madb:bw-491623"
   - id: w02241
     title: null
     anchors:
@@ -16603,6 +16604,8 @@ works:
       - "madb:bw-490886"
   - id: w02257
     title: null
+    merged_into: w02240
+    merge_basis: "BOOK☆WALKER series 491623 is ●合本版●君めく夜に焦がれて, three 合本版 volumes by 鴒 / アンブル編集部 from ライブコミックス collecting the instalments sold as series 482086, 君めく夜に焦がれて, by the same creator and publisher. A collected edition is the same work (DEFINITIONS §7)."
     anchors:
       - "madb:bw-491623"
   - id: w02258
@@ -22520,18 +22523,6 @@ works:
     title: "紫蘭さまにはなびきません！"
     anchors:
       - "web:https://comic-walker.com/detail/KC_021516_S"
-
-# Related works. A relation and not a merge: whether a one-shot beside a
-# serialisation is a distinct work, an instalment the run absorbed, or a story a
-# later chapter retells differs case by case, and relating them says what the
-# evidence supports. Continuations belong here too, citrus and citrus+ among them.
-#
-# `precedes` is optional and is set by hand. It is NOT derived from the dates we
-# hold, because those carry import stamps in exactly the cases where order matters:
-# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day
-# 一迅プラス imported its catalogue, while the serialisation's real start of
-# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
-# one-shot after the run it came before.
   - id: w03455
     title: null
     anchors:
@@ -22617,6 +22608,18 @@ works:
     title: "聖騎士様のお気に入り"
     anchors:
       - "web:https://comic-boost.com/content/01840001"
+
+# Related works. A relation and not a merge: whether a one-shot beside a
+# serialisation is a distinct work, an instalment the run absorbed, or a story a
+# later chapter retells differs case by case, and relating them says what the
+# evidence supports. Continuations belong here too, citrus and citrus+ among them.
+#
+# `precedes` is optional and is set by hand. It is NOT derived from the dates we
+# hold, because those carry import stamps in exactly the cases where order matters:
+# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day
+# 一迅プラス imported its catalogue, while the serialisation's real start of
+# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
+# one-shot after the run it came before.
 related:
   - a: w00156
     b: w00486

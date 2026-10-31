@@ -180,6 +180,24 @@ def plan(works, checked, today, limit, volumes=None, every_days=182):
     return [w for _, w in due[:limit]]
 
 
+def search(get, work):
+    """The shop's search page for `work`, or "" where the shop stocks nothing by that name.
+
+    A SEARCH WITH NO RESULTS ANSWERS 404, with an ordinary results page in the body. The pass read
+    that as a failure, so the work was never marked asked and came first in the queue again the
+    next run: the same twelve works the shop does not carry were asked every run and reported as
+    twelve errors, while the step said ok. An empty page is what no results means here; any other
+    refusal is still an error.
+    """
+    import urllib.error, urllib.parse                                     # noqa: PLC0415
+    try:
+        return get("https://bookwalker.jp/search/?word=" + urllib.parse.quote(work))
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return ""
+        raise
+
+
 def main(argv=None):
     """Ask the shop about works whose state rests on silence, a batch a run."""
     import argparse, datetime, json, pathlib, time, urllib.parse, urllib.request
@@ -227,7 +245,7 @@ def main(argv=None):
     found = 0
     for w in todo:
         try:
-            ids = series_ids(get("https://bookwalker.jp/search/?word=" + urllib.parse.quote(w["work"])))
+            ids = series_ids(search(get, w["work"]))
             checked[w["work"]] = {"on": today, "volumes": held.get(w["work"])}
             if not ids:
                 continue

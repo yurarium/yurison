@@ -469,6 +469,25 @@ def main(s):
     s.check(b.work_level_key("鈴木りつ短編集", "ニコニコ漫画") != b.work_level_key("鈴木りつ短編集", "カドコミ"),
             "and one platform's date is not another's")
 
+    # A PARTIAL LISTING READ AFTER A CLAIM MAY SAY WE LOOKED, and never says more.
+    s.check(b.quiet_listing((["2026-09-07"], "2026-10-31"), "2026-10-08"),
+            "a listing read after the claim, showing nothing near it, is a look that found nothing")
+    s.check(not b.quiet_listing((["2026-10-06"], "2026-10-31"), "2026-10-08"),
+            "while a chapter within a week of the claim is not silence")
+    s.check(not b.quiet_listing((["2026-09-07"], "2026-10-01"), "2026-10-08"),
+            "and a listing read before the claim cannot speak to it")
+    s.check(not b.quiet_listing(None, "2026-10-08"), "and no listing is no look")
+    import tempfile as _tf
+    _d = pathlib.Path(_tf.mkdtemp()) / "works.yaml"
+    _d.write_text("platform_name: ニコニコ漫画\nretrieved: 2026-10-31\nworks:\n"
+                  "  - work_title: ささやくように恋を唄う\n"
+                  "    url: https://manga.nicovideo.jp/comic/56012\n"
+                  "    updated: '2021-12-16'\n    chapters:\n      - title: 第1話\n",
+                  encoding="utf-8")
+    _got = b.load_partial_listings([str(_d)])
+    s.eq(list(_got.values()), [(["2021-12-16"], "2026-10-31")],
+         "a work's own last-update date counts where its chapters carry none, with the day read")
+
     # A ROW WHOSE NEWEST CHAPTER IS NO ANCHOR JOINS ITS WORK BY THE FEED IT WAS READ FROM.
     reg = {"web:https://comic-seasons.com/atom/series/1": "w03271",
            "web:https://comic-seasons.com/episode/9": "w00391"}

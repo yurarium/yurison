@@ -5,14 +5,14 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-10-31
+retrieved: 2026-11-01
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 308
-works_on_watched_platform: 283
-platforms_total: 51
-platforms_watched: 39
+distinct_works: 309
+works_on_watched_platform: 284
+platforms_total: 52
+platforms_watched: 40
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
@@ -25,15 +25,30 @@ platforms_missing:
     works: 2
   - platform: "きら星ポータル"
     works: 2
-  - platform: "pixivコミックマガジン"
+  - platform: "マンガPark"
     works: 1
-  - platform: "新都社"
+  - platform: "pixivコミックマガジン"
     works: 1
   - platform: "COMIC ポルタ"
     works: 1
   - platform: "ドリコミ+"
     works: 1
 works_missing:
+  - title: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/4133"
+    antenna_id: "212772"
+    tags: ["百合"]
+  - title: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3776"
+    antenna_id: "209939"
+    tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
+  - title: "百合SMでふたりの気持ちはつながりますか?"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/2391"
+    antenna_id: "102691"
+    tags: ["百合", "フェチ・性癖"]
   - title: "うさぎはかく語りき"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3572"
@@ -54,16 +69,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3108"
     antenna_id: "166358"
     tags: ["百合", "学園", "料理・グルメ", "女子高生"]
-  - title: "君が一等星に光るまで"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/4133"
-    antenna_id: "212772"
-    tags: ["百合"]
-  - title: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3776"
-    antenna_id: "209939"
-    tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
   - title: "6億年の博物旅"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3818"
@@ -74,11 +79,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3423"
     antenna_id: "187224"
     tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
-  - title: "百合SMでふたりの気持ちはつながりますか?"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/2391"
-    antenna_id: "102691"
-    tags: ["百合", "フェチ・性癖"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -153,7 +153,7 @@ works_missing:
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
     antenna_id: "186534"
-    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
+    tags: ["最近のコメント数"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
@@ -169,6 +169,16 @@ works_missing:
     url: "https://comic-boost.com/content/01780001"
     antenna_id: "216014"
     tags: ["百合", "読み切り"]
+  - title: "怪獣ロマンティクス"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13457"
+    antenna_id: "211990"
+    tags: ["百合"]
+  - title: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13373"
+    antenna_id: "211154"
+    tags: ["百合"]
   - title: "冷たくて 柔らか"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/11800"
@@ -204,21 +214,11 @@ works_missing:
     url: "https://comic.pixiv.net/works/13537"
     antenna_id: "213216"
     tags: ["百合"]
-  - title: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13373"
-    antenna_id: "211154"
-    tags: ["百合"]
   - title: "ふたりべや"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/5364"
     antenna_id: "89009"
     tags: ["日常", "百合", "4コマ"]
-  - title: "怪獣ロマンティクス"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13457"
-    antenna_id: "211990"
-    tags: ["百合"]
   - title: "彼なんかより、私のほうがいいでしょ?"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/11817"
@@ -689,11 +689,6 @@ works_missing:
     url: "https://kimicomi.com/series/f7db55fffae10"
     antenna_id: "192717"
     tags: ["百合"]
-  - title: "私の好きな人はとても〇〇"
-    platform: "コミックDAYS"
-    url: "https://comic-days.com/episode/12207421983805333025"
-    antenna_id: "212438"
-    tags: ["読み切り", "百合"]
   - title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
@@ -704,11 +699,6 @@ works_missing:
     url: "https://www.corocoro.jp/title/65"
     antenna_id: "163124"
     tags: ["異能・超能力", "近未来SF", "バディ", "警察", "百合"]
-  - title: "獄門撫子此処ニ在リ"
-    platform: "コロコロオンライン"
-    url: "https://www.corocoro.jp/title/773"
-    antenna_id: "182492"
-    tags: ["妖怪", "オカルト", "百合"]
   - title: "さざめとりお"
     platform: "ダ・ヴィンチニュース"
     url: "https://ddnavi.com/sazametorio/"
@@ -999,6 +989,11 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03292"
     antenna_id: "213072"
     tags: ["百合"]
+  - title: "ロックは淑女の嗜みでして"
+    platform: "マンガPark"
+    url: "https://manga-park.com/title/67724"
+    antenna_id: "148272"
+    tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
   - title: "女にはそれぞれ裏がある"
     platform: "マンガよもんが"
     url: "https://www.yomonga.com/titles/2571/"
@@ -1019,6 +1014,11 @@ works_missing:
     url: "https://www.yomonga.com/titles/2532/"
     antenna_id: "200569"
     tags: ["百合"]
+  - title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
+    platform: "マンガワン"
+    url: "https://manga-one.com/manga/27253/chapter/307792"
+    antenna_id: "200450"
+    tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
   - title: "付き合ってあげてもいいかな"
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/70173"
@@ -1029,11 +1029,6 @@ works_missing:
     url: "https://manga-one.com/viewer/290902"
     antenna_id: "189002"
     tags: ["百合", "学園", "女子高生", "女装", "ルッキズム"]
-  - title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
-    platform: "マンガワン"
-    url: "https://manga-one.com/manga/27253/chapter/307792"
-    antenna_id: "200450"
-    tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
   - title: "妖怪殲滅のサイコリリー"
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/225633"
@@ -1104,6 +1099,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "灼熱の卓球娘 REBURN!!"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/b3efcd5f3a6a7"
+    antenna_id: "146783"
+    tags: ["百合", "スポーツ"]
   - title: "狼の皮をかぶった羊姫"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/edb5080d3a3a1"

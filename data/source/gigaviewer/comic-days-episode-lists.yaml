@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
-retrieved: "2026-10-31"
+retrieved: "2026-11-01"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -7175,7 +7175,7 @@ works:
   - work_title: "雨夜の月"
     series_id: "3269632237268447047"
     url: "https://comic-days.com/atom/series/3269632237268447047"
-    chapter_count: 125
+    chapter_count: 126
     chapters:
       - title: "第１−１話　奏音と咲希"
         updated: "2021-06-12"
@@ -7668,7 +7668,7 @@ works:
       - title: "第５１−１話　静聴"
         updated: "2026-09-05"
         url: "https://comic-days.com/episode/12207421983645810044"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第５１−２話　静聴"
         updated: "2026-09-26"
         url: "https://comic-days.com/episode/12207421983645810052"
@@ -7676,6 +7676,10 @@ works:
       - title: "第５２−１話　相愛"
         updated: "2026-10-17"
         url: "https://comic-days.com/episode/12207421983645810058"
+        access_modes: ["free"]
+      - title: "第５２−２話　相愛"
+        updated: "2026-10-31"
+        url: "https://comic-days.com/episode/12207421983645810064"
         access_modes: ["purchase"]
   - work_title: "ナメられたくないナメカワさん"
     series_id: "3269754496296162129"

@@ -8,18 +8,24 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-10-31
+retrieved: 2026-11-01
 record_type: update_claims
 window_days: 60
-claims: 447
+claims: 436
 updates:
+  - work: "リリィズコンプレックス 館山けーた"
+    platform: "カドコミ"
+    date: 2026-11-01
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "魔女とくゅらす"
     platform: "HERO'S Web"
     date: 2026-10-31
     source: "webcomics.jp"
     provenance: claimed
     url: "https://heros-web.com/series/2b64bc0622a2a"
-    listing_tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
+    listing_tags: ["最近のコメント数"]
   - work: "雨夜の月"
     platform: "コミックDAYS"
     date: 2026-10-31
@@ -34,6 +40,55 @@ updates:
     provenance: claimed
     url: "https://ynjn.jp/title/27600"
     listing_tags: ["百合", "ファンタジー"]
+  - work: "百合SMでふたりの気持ちはつながりますか?"
+    platform: "COMIC FUZ"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/2391"
+    listing_tags: ["百合", "フェチ・性癖"]
+  - work: "灼熱の卓球娘 REBURN!!"
+    platform: "竹コミ‎‏‎"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://takecomic.jp/series/b3efcd5f3a6a7"
+    listing_tags: ["百合", "スポーツ"]
+  - work: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3776"
+    listing_tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
+  - work: "怪獣ロマンティクス"
+    platform: "pixivコミック"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/13457"
+    listing_tags: ["百合"]
+  - work: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "pixivコミック"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/13373"
+    listing_tags: ["百合"]
+  - work: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/4133"
+    listing_tags: ["百合"]
+  - work: "ロックは淑女の嗜みでして"
+    platform: "マンガPark"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-park.com/title/67724"
+    listing_tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
   - work: "タイムトラベル少女 ～ミライのサキ～"
     platform: "ニコニコ漫画"
     date: 2026-10-31
@@ -48,6 +103,13 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_009488_S"
     listing_tags: ["百合"]
+  - work: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
+    platform: "マンガワン"
+    date: 2026-10-31
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-one.com/manga/27253/chapter/307792"
+    listing_tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
   - work: "オカルトタイムズ"
     platform: "マガポケ"
     date: 2026-10-31
@@ -157,7 +219,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_019052_S"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ラブコメ", "百合", "お色気・微エロ", "フェチ・性癖", "変態"]
   - work: "ひとりみです"
     platform: "カドコミ"
     date: 2026-10-30
@@ -718,20 +780,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/13537"
     listing_tags: ["百合"]
-  - work: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    date: 2026-10-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3776"
-    listing_tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
-  - work: "君が一等星に光るまで"
-    platform: "COMIC FUZ"
-    date: 2026-10-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/4133"
-    listing_tags: ["百合"]
   - work: "ファタールゲーム"
     platform: "マガポケ"
     date: 2026-10-25
@@ -746,13 +794,6 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/3818"
     listing_tags: ["自然科学・科学技術", "学問・研究", "大学生", "百合"]
-  - work: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "pixivコミック"
-    date: 2026-10-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/13373"
-    listing_tags: ["百合"]
   - work: "メイド&ロイドはお嬢様のお役に立ちたい!"
     platform: "マンガワン"
     date: 2026-10-24
@@ -975,6 +1016,12 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965923204780"
     listing_tags: ["百合", "学園", "宇宙人", "女子高生"]
+  - work: "私がモテないのはどう考えてもお前らが悪い! 谷川ニコ"
+    platform: "ガンガンONLINE"
+    date: 2026-10-22
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "桃色カンパネラ"
     platform: "ニコニコ漫画"
     date: 2026-10-22
@@ -1238,6 +1285,12 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/47294"
     listing_tags: ["百合", "女子高生", "ゲーム・eスポーツ", "青春", "ギャグ・コメディ", "アニメ化"]
+  - work: "安達としまむら 柚原もけ/入間人間"
+    platform: "カドコミ"
+    date: 2026-10-19
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "安達としまむら"
     platform: "カドコミ"
     date: 2026-10-19
@@ -1245,6 +1298,12 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_004197_S"
     listing_tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
+  - work: "堕天使そぷらのちゃんの復讐 藤本セツナ"
+    platform: "カドコミ"
+    date: 2026-10-19
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "堕天使そぷらのちゃんの復讐"
     platform: "カドコミ"
     date: 2026-10-19
@@ -1259,6 +1318,12 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/01839"
     listing_tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
+  - work: "ボイタボイネ 夏草"
+    platform: "pixivコミック"
+    date: 2026-10-19
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "ボイタボイネ"
     platform: "pixivコミック"
     date: 2026-10-19
@@ -1280,13 +1345,6 @@ updates:
     provenance: claimed
     url: "https://www.ganganonline.com/title/38"
     listing_tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
-  - work: "百合SMでふたりの気持ちはつながりますか?"
-    platform: "COMIC FUZ"
-    date: 2026-10-18
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/2391"
-    listing_tags: ["百合", "フェチ・性癖"]
   - work: "八尺様とコロポックル-215cmと135cmの女子高生-"
     platform: "Gコミ"
     date: 2026-10-18
@@ -1328,6 +1386,12 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "私を喰べたい、ひとでなし 苗川采"
+    platform: "カドコミ"
+    date: 2026-10-17
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "百合フェチLIFE"
     platform: "Gコミ"
     date: 2026-10-17
@@ -1355,13 +1419,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/48976"
     listing_tags: ["宇宙人", "百合", "4コマ", "青春", "アニメ化", "実写化"]
-  - work: "怪獣ロマンティクス"
-    platform: "pixivコミック"
-    date: 2026-10-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/13457"
-    listing_tags: ["百合"]
   - work: "十字トンボは空を飛ばない 織日ちひろ/虫原"
     platform: "きららベース"
     date: 2026-10-17
@@ -1402,6 +1459,12 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/11521"
     listing_tags: ["百合", "宇宙人", "学園", "女子高生"]
+  - work: "死に戻り王女は生き延びるために百合ハーレムを作ることにした 朱白あおい / 糀もろみ / 村田真哉 / 柳井伸彦"
+    platform: "ニコニコ静画"
+    date: 2026-10-16
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "暴走!?サキュバスせんぱい"
     platform: "Gコミ"
     date: 2026-10-16
@@ -1575,6 +1638,12 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421983456056454"
     listing_tags: ["百合", "SF", "ロボ・人造人間"]
+  - work: "新刊100億冊ください 破賀ミチル"
+    platform: "コミックDAYS"
+    date: 2026-10-15
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "新刊100億冊ください"
     platform: "コミックDAYS"
     date: 2026-10-15
@@ -1582,6 +1651,12 @@ updates:
     provenance: claimed
     url: "https://comic-days.com/episode/2550912965415315207"
     listing_tags: ["オタク", "同人活動", "百合", "漫画家・絵描き", "中二病", "ブロ・シスマンス"]
+  - work: "彼岸でランデヴー 臼井ともみ"
+    platform: "カドコミ"
+    date: 2026-10-15
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "好都合セミフレンド 千種みのり"
     platform: "きららベース"
     date: 2026-10-15
@@ -1815,6 +1890,12 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "フレンドガールフレンド 瑠夏子"
+    platform: "花とゆめ＋"
+    date: 2026-10-12
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "わたしのために脱ぎなさいっ！ 九郎"
     platform: "カドコミ"
     date: 2026-10-12
@@ -1854,6 +1935,12 @@ updates:
     provenance: claimed
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     listing_tags: ["百合"]
+  - work: "裏世界ピクニック 宮澤伊織/水野英多"
+    platform: "ガンガンONLINE"
+    date: 2026-10-11
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "オカワリいただけただろうか?"
     platform: "がうがうモンスター"
     date: 2026-10-11
@@ -1983,6 +2070,12 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/d8e8c084c4c6c"
     listing_tags: ["百合"]
+  - work: "春雷卓球 平方昌宏"
+    platform: "ジャンプ+"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "悪役令嬢のお嫁さま かわのあきこ"
     platform: "Seasons"
     date: 2026-10-09
@@ -2047,6 +2140,12 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/135220287d820"
     listing_tags: ["百合", "女子高生", "SF", "コミカライズ", "ギャグ・コメディ"]
+  - work: "イジめてイジられて 千田大輔"
+    platform: "カドコミ"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "まるせっせんす"
     platform: "COMIC OGYAAA!!"
     date: 2026-10-09
@@ -2061,6 +2160,18 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_008613_S"
     listing_tags: ["百合", "ギャグ・コメディ", "お色気・微エロ"]
+  - work: "てくのぱにっくゆにばーす 伏見ダイキ"
+    platform: "サンデーうぇぶり"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "さざめとりお 服部雀"
+    platform: "カドコミ"
+    date: 2026-10-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "魔性の乙女の役廻り"
     platform: "竹コミ‎‏‎"
     date: 2026-10-08
@@ -2185,12 +2296,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965923203770"
     listing_tags: ["百合", "女子高生", "アニメ化"]
-  - work: "英雄少女と呪われの銀姫 アルト/絵本奈央"
-    platform: "となりのヤングジャンプ"
-    date: 2026-10-06
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "私に天使が舞い降りた!"
     platform: "ニコニコ漫画"
     date: 2026-10-06
@@ -2252,24 +2357,6 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/3700"
     listing_tags: ["百合", "サキュバス"]
-  - work: "彗星、ロック・ユー 晴瀬ひろき"
-    platform: "カドコミ"
-    date: 2026-10-05
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "安達としまむら 柚原もけ/入間人間"
-    platform: "カドコミ"
-    date: 2026-10-05
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "堕天使そぷらのちゃんの復讐 藤本セツナ"
-    platform: "カドコミ"
-    date: 2026-10-05
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     date: 2026-10-05
@@ -2277,30 +2364,6 @@ updates:
     provenance: claimed
     url: "https://g-comi.jp/series/58238b3987c11"
     listing_tags: ["百合", "ファンタジー", "エルフ・ハーフエルフ", "魔女", "料理・グルメ"]
-  - work: "リコリス・リコイル 備前やすのり"
-    platform: "カドコミ"
-    date: 2026-10-05
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "ボイタボイネ 夏草"
-    platform: "pixivコミック"
-    date: 2026-10-05
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "フレンドガールフレンド 瑠夏子"
-    platform: "花とゆめ＋"
-    date: 2026-10-05
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "裏世界ピクニック 宮澤伊織/水野英多"
-    platform: "ガンガンONLINE"
-    date: 2026-10-04
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "ペアリングギア"
     platform: "竹コミ‎‏‎"
     date: 2026-10-04
@@ -2336,18 +2399,6 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/de0a74a9b5715"
     listing_tags: ["百合", "自転車", "女子高生", "サトリ"]
-  - work: "聖女先生の魔法は進んでる！ しまづ/鴉ぴえろ"
-    platform: "カドコミ"
-    date: 2026-10-03
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "私を喰べたい、ひとでなし 苗川采"
-    platform: "カドコミ"
-    date: 2026-10-03
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "上杉くんは女の子をやめたい"
     platform: "ちゃおプラス"
     date: 2026-10-03
@@ -2362,12 +2413,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/11081"
     listing_tags: ["百合"]
-  - work: "おちこぼれフルーツタルト 浜弓場 双"
-    platform: "きららベース"
-    date: 2026-10-03
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "おちこぼれフルーツタルト"
     platform: "ニコニコ漫画"
     date: 2026-10-03
@@ -2396,18 +2441,6 @@ updates:
     provenance: claimed
     url: "https://mangatime-square.com/episode/12207421983656607506"
     listing_tags: ["百合", "4コマ"]
-  - work: "死に戻り王女は生き延びるために百合ハーレムを作ることにした 朱白あおい / 糀もろみ / 村田真哉 / 柳井伸彦"
-    platform: "ニコニコ静画"
-    date: 2026-10-02
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "春雷卓球 平方昌宏"
-    platform: "ジャンプ+"
-    date: 2026-10-02
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "怪獣ロマンティクス"
     platform: "マガポケ"
     date: 2026-10-02
@@ -2429,18 +2462,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_020132_S"
     listing_tags: ["百合", "読み切り"]
-  - work: "イジめてイジられて 千田大輔"
-    platform: "カドコミ"
-    date: 2026-10-02
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～ 中村カンコ"
-    platform: "webアクション"
-    date: 2026-10-02
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     platform: "webアクション"
     date: 2026-10-02
@@ -2448,30 +2469,6 @@ updates:
     provenance: claimed
     url: "https://comic-action.com/episode/2550912964579811935"
     listing_tags: ["百合", "ギャグ・コメディ", "宇宙人"]
-  - work: "てくのぱにっくゆにばーす 伏見ダイキ"
-    platform: "サンデーうぇぶり"
-    date: 2026-10-02
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "さざめとりお 服部雀"
-    platform: "カドコミ"
-    date: 2026-10-02
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "30まで独りだったら一緒に暮らそうって言ったよね？ くずしろ"
-    platform: "竹コミ！"
-    date: 2026-10-02
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "陰キャギャルでもイキがりたい！ かしわぎつきこ"
-    platform: "一迅プラス"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "陰キャギャルでもイキがりたい!"
     platform: "一迅プラス"
     date: 2026-10-01
@@ -2479,18 +2476,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965923204503"
     listing_tags: ["百合", "女子高生"]
-  - work: "私がモテないのはどう考えてもお前らが悪い! 谷川ニコ"
-    platform: "ガンガンONLINE"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～ 玉崎たま"
-    platform: "一迅プラス"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
     platform: "一迅プラス"
     date: 2026-10-01
@@ -2498,12 +2483,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965923204144"
     listing_tags: ["百合", "聖女", "王女・姫", "異世界", "ファンタジー"]
-  - work: "映しちゃダメな顔 FLOWERCHILD"
-    platform: "一迅プラス"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "映しちゃダメな顔"
     platform: "一迅プラス"
     date: 2026-10-01
@@ -2511,24 +2490,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965919401763"
     listing_tags: ["百合", "エロ", "水商売", "役者・声優"]
-  - work: "新刊100億冊ください 破賀ミチル"
-    platform: "コミックDAYS"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "彼岸でランデヴー 臼井ともみ"
-    platform: "カドコミ"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
-  - work: "平良深姉妹はどっちもヤんでる 金子ある"
-    platform: "一迅プラス"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "平良深姉妹はどっちもヤんでる"
     platform: "一迅プラス"
     date: 2026-10-01
@@ -2536,12 +2497,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965923204071"
     listing_tags: ["百合", "姉妹", "ヤンデレ"]
-  - work: "小春と湊 わたしのパートナーは女の子 ひあるろん＆達磨"
-    platform: "一迅プラス"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "小春と湊 わたしのパートナーは女の子"
     platform: "一迅プラス"
     date: 2026-10-01
@@ -2549,12 +2504,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965923203373"
     listing_tags: ["百合", "エッセイ"]
-  - work: "リリィズコンプレックス 館山けーた"
-    platform: "カドコミ"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "リリィズコンプレックス"
     platform: "カドコミ"
     date: 2026-10-01
@@ -2569,12 +2518,6 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/86a4f1e41d627"
     listing_tags: ["百合", "レース", "青春", "架空の部活", "女子高生", "学園", "スポーツ"]
-  - work: "キミが吠えるための歌を、 樫風"
-    platform: "一迅プラス"
-    date: 2026-10-01
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "キミが吠えるための歌を、"
     platform: "一迅プラス"
     date: 2026-10-01
@@ -2778,13 +2721,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_001277_S"
     listing_tags: ["百合", "社会人", "女子高生", "同棲"]
-  - work: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
-    platform: "マンガワン"
-    date: 2026-09-20
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-one.com/manga/27253/chapter/307792"
-    listing_tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
   - work: "さきゅりふぁいす!"
     platform: "キミコミ"
     date: 2026-09-19

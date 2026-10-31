@@ -7,9 +7,9 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-10-31
+retrieved: 2026-11-01
 record_type: candidate_works
-works: 308
+works: 309
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -1949,6 +1949,7 @@ candidates:
   - title: "ロックは淑女の嗜みでして"
     platforms: ["マンガPark", "ヤングアニマルWeb"]
     urls: ["https://manga-park.com/title/67724", "https://younganimal.com/series/88091737601a5"]
+    tags: ["アニメ化", "女子高生", "百合", "青春", "音楽"]
   - title: "ロマンスコード"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204184"]

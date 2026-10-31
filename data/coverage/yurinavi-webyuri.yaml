@@ -4,36 +4,33 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-10-31
+retrieved: 2026-11-01
 record_type: coverage_gap
-works_listed: 135
-platforms_total: 25
-platforms_watched: 17
-works_on_watched_platforms: 100
+works_listed: 128
+platforms_total: 24
+platforms_watched: 16
+works_on_watched_platforms: 94
 platforms:
   - platform: "カドコミ"
     works: 54
     watched: true
   - platform: "きららベース"
-    works: 24
+    works: 23
     watched: false
   - platform: "一迅プラス"
-    works: 17
+    works: 13
     watched: true
   - platform: "竹コミ！"
-    works: 6
+    works: 5
     watched: true
   - platform: "ガンガンONLINE"
     works: 4
     watched: true
-  - platform: "コミックDAYS"
-    works: 3
-    watched: true
   - platform: "サンデーうぇぶり"
     works: 3
     watched: false
-  - platform: "花とゆめ＋"
-    works: 2
+  - platform: "コミックDAYS"
+    works: 3
     watched: true
   - platform: "Seasons"
     works: 2
@@ -44,28 +41,19 @@ platforms:
   - platform: "チャンピオンクロス"
     works: 2
     watched: true
+  - platform: "花とゆめ＋"
+    works: 2
+    watched: true
   - platform: "マガポケ"
     works: 2
     watched: false
   - platform: "一迅社プラス"
     works: 2
     watched: false
-  - platform: "webアクション"
-    works: 1
-    watched: true
-  - platform: "ニコニコ静画"
-    works: 1
-    watched: true
-  - platform: "ジャンプ+"
+  - platform: "マグコミ"
     works: 1
     watched: false
-  - platform: "pixivコミック"
-    works: 1
-    watched: true
-  - platform: "となりのヤングジャンプ"
-    works: 1
-    watched: true
-  - platform: "マグコミ"
+  - platform: "ジャンプ+"
     works: 1
     watched: false
   - platform: "週刊コロコロ"
@@ -80,7 +68,16 @@ platforms:
   - platform: "COMIC OGYAAA!!"
     works: 1
     watched: true
+  - platform: "ニコニコ静画"
+    works: 1
+    watched: true
+  - platform: "pixivコミック"
+    works: 1
+    watched: true
   - platform: "くらげバンチ"
+    works: 1
+    watched: true
+  - platform: "となりのヤングジャンプ"
     works: 1
     watched: true
   - platform: "ビビビコミック"
@@ -107,22 +104,10 @@ works:
     url: "https://comic-seasons.com/episode/2550912965184704375"
   - raw: "ボイタボイネ 夏草"
     platform: "pixivコミック"
-    last_update_seen: 10-05
+    last_update_seen: 10-19
     watched_platform: true
     title: "ボイタボイネ"
     url: "https://comic.pixiv.net/works/12194"
-  - raw: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～ 中村カンコ"
-    platform: "webアクション"
-    last_update_seen: 10-02
-    watched_platform: true
-    title: "ゆりゆりぱにっく～尊すぎる事案が発生しています！～"
-    url: "https://comic-action.com/episode/12207421984312649338"
-  - raw: "おちこぼれフルーツタルト 浜弓場 双"
-    platform: "きららベース"
-    last_update_seen: 10-03
-    watched_platform: false
-    title: "おちこぼれフルーツタルト"
-    url: "https://manga.nicovideo.jp/comic/53909"
   - raw: "きみとボドゲが作りたい！ 赤城ナツイチ"
     platform: "きららベース"
     last_update_seen: 10-15
@@ -269,7 +254,7 @@ works:
     url: "https://kuragebunch.com/episode/12207421984241210596"
   - raw: "英雄少女と呪われの銀姫 アルト/絵本奈央"
     platform: "となりのヤングジャンプ"
-    last_update_seen: 10-06
+    last_update_seen: 11-03
     watched_platform: true
     title: "英雄少女と呪われの銀姫"
     url: "https://tonarinoyj.jp/episode/2551460910044575820"
@@ -305,7 +290,7 @@ works:
     url: "https://comic-walker.com/detail/KC_008367_S"
   - raw: "さざめとりお 服部雀"
     platform: "カドコミ"
-    last_update_seen: 10-02
+    last_update_seen: 10-09
     watched_platform: true
     title: "さざめとりお"
     url: "https://comic-walker.com/detail/KC_019937_S"
@@ -347,7 +332,7 @@ works:
     url: "https://comic-walker.com/detail/KC_007220_S"
   - raw: "イジめてイジられて 千田大輔"
     platform: "カドコミ"
-    last_update_seen: 10-02
+    last_update_seen: 10-09
     watched_platform: true
     title: "イジめてイジられて"
     url: "https://comic-walker.com/detail/KC_019052_S"
@@ -383,13 +368,13 @@ works:
     url: "https://comic-walker.com/detail/KC_006725_S"
   - raw: "リコリス・リコイル 備前やすのり"
     platform: "カドコミ"
-    last_update_seen: 10-05
+    last_update_seen: 11-05
     watched_platform: true
     title: "リコリス・リコイル"
     url: "https://comic-walker.com/detail/KC_003821_S"
   - raw: "リリィズコンプレックス 館山けーた"
     platform: "カドコミ"
-    last_update_seen: 10-01
+    last_update_seen: 11-01
     watched_platform: true
     title: "リリィズコンプレックス"
     url: "https://comic-walker.com/detail/KC_005531_S"
@@ -443,7 +428,7 @@ works:
     url: "https://comic-walker.com/detail/KC_006662_S"
   - raw: "堕天使そぷらのちゃんの復讐 藤本セツナ"
     platform: "カドコミ"
-    last_update_seen: 10-05
+    last_update_seen: 10-19
     watched_platform: true
     title: "堕天使そぷらのちゃんの復讐"
     url: "https://comic-walker.com/detail/KC_006778_S"
@@ -455,7 +440,7 @@ works:
     url: "https://comic-walker.com/detail/KC_019475_S"
   - raw: "安達としまむら 柚原もけ/入間人間"
     platform: "カドコミ"
-    last_update_seen: 10-05
+    last_update_seen: 10-19
     watched_platform: true
     title: "安達としまむら"
     url: "https://comic-walker.com/detail/KC_004197_S"
@@ -467,7 +452,7 @@ works:
     url: "https://comic-walker.com/detail/KC_002994_S"
   - raw: "彗星、ロック・ユー 晴瀬ひろき"
     platform: "カドコミ"
-    last_update_seen: 10-05
+    last_update_seen: 11-02
     watched_platform: true
     title: "彗星、ロック・ユー"
     url: "https://comic-walker.com/detail/KC_009491_S"
@@ -485,7 +470,7 @@ works:
     url: "https://comic-walker.com/detail/KC_009359_S"
   - raw: "彼岸でランデヴー 臼井ともみ"
     platform: "カドコミ"
-    last_update_seen: 10-01
+    last_update_seen: 10-15
     watched_platform: true
     title: "彼岸でランデヴー"
     url: "https://comic-walker.com/detail/KC_020017_S"
@@ -575,7 +560,7 @@ works:
     url: "https://comic-walker.com/detail/KC_020158_S"
   - raw: "私を喰べたい、ひとでなし 苗川采"
     platform: "カドコミ"
-    last_update_seen: 10-03
+    last_update_seen: 10-17
     watched_platform: true
     title: "私を喰べたい、ひとでなし"
     url: "https://comic-walker.com/detail/KC_003258_S"
@@ -587,7 +572,7 @@ works:
     url: "https://comic-walker.com/detail/KC_002973_S"
   - raw: "聖女先生の魔法は進んでる！ しまづ/鴉ぴえろ"
     platform: "カドコミ"
-    last_update_seen: 10-03
+    last_update_seen: 11-14
     watched_platform: true
     title: "聖女先生の魔法は進んでる！"
     url: "https://comic-walker.com/detail/KC_006695_S"
@@ -605,13 +590,13 @@ works:
     url: "https://www.ganganonline.com/title/11"
   - raw: "私がモテないのはどう考えてもお前らが悪い! 谷川ニコ"
     platform: "ガンガンONLINE"
-    last_update_seen: 10-01
+    last_update_seen: 10-22
     watched_platform: true
     title: "私がモテないのはどう考えてもお前らが悪い!"
     url: "http://www.ganganonline.com/contents/watashiga/"
   - raw: "裏世界ピクニック 宮澤伊織/水野英多"
     platform: "ガンガンONLINE"
-    last_update_seen: 10-04
+    last_update_seen: 10-11
     watched_platform: true
     title: "裏世界ピクニック"
     url: "http://www.ganganonline.com/contents/urasekai/"
@@ -623,10 +608,10 @@ works:
     url: "https://www.ganganonline.com/title/2286"
   - raw: "新刊100億冊ください 破賀ミチル"
     platform: "コミックDAYS"
-    last_update_seen: 10-01
+    last_update_seen: 10-15
     watched_platform: true
     title: "新刊100億冊ください"
-    url: "https://comic-days.com/episode/12207421983484134422"
+    url: "https://comic-days.com/episode/12207421983484134435"
   - raw: "笑顔のたえない職場です。 くずしろ"
     platform: "コミックDAYS"
     last_update_seen: 10-10
@@ -671,7 +656,7 @@ works:
     url: "https://www.sunday-webry.com/episode/2550912965814192510"
   - raw: "てくのぱにっくゆにばーす 伏見ダイキ"
     platform: "サンデーうぇぶり"
-    last_update_seen: 10-02
+    last_update_seen: 10-09
     watched_platform: false
     title: "てくのぱにっくゆにばーす"
     url: "https://www.sunday-webry.com/episode/2551460909679507683"
@@ -683,7 +668,7 @@ works:
     url: "https://www.sunday-webry.com/episode/12207421983745504350"
   - raw: "春雷卓球 平方昌宏"
     platform: "ジャンプ+"
-    last_update_seen: 10-02
+    last_update_seen: 10-09
     watched_platform: false
     title: "春雷卓球"
     url: "https://shonenjumpplus.com/episode/17107094912913096422"
@@ -701,7 +686,7 @@ works:
     url: "https://championcross.jp/episodes/c588f534a4870/"
   - raw: "死に戻り王女は生き延びるために百合ハーレムを作ることにした 朱白あおい / 糀もろみ / 村田真哉 / 柳井伸彦"
     platform: "ニコニコ静画"
-    last_update_seen: 10-02
+    last_update_seen: 10-16
     watched_platform: true
     title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     url: "https://manga.nicovideo.jp/comic/69846"
@@ -749,10 +734,10 @@ works:
     url: "https://ichicomi.com/episode/12207421984374441896"
   - raw: "キミが吠えるための歌を、 樫風"
     platform: "一迅プラス"
-    last_update_seen: 10-01
+    last_update_seen: 11-05
     watched_platform: true
     title: "キミが吠えるための歌を、"
-    url: "https://ichicomi.com/episode/12207421984089197931"
+    url: "https://ichicomi.com/episode/12207421984222532942"
   - raw: "バリキャリJKモネ先輩 椋木ななつ"
     platform: "一迅プラス"
     last_update_seen: 10-15
@@ -771,42 +756,24 @@ works:
     watched_platform: true
     title: "大室家"
     url: "https://ichicomi.com/episode/12207421984374441892"
-  - raw: "小春と湊 わたしのパートナーは女の子 ひあるろん＆達磨"
-    platform: "一迅プラス"
-    last_update_seen: 10-01
-    watched_platform: true
-    title: "小春と湊 わたしのパートナーは女の子"
-    url: "https://ichicomi.com/episode/12207421984089197965"
   - raw: "平良深姉妹はどっちもヤんでる 金子ある"
     platform: "一迅プラス"
-    last_update_seen: 10-01
+    last_update_seen: 11-05
     watched_platform: true
     title: "平良深姉妹はどっちもヤんでる"
-    url: "https://ichicomi.com/episode/12207421984039246734"
+    url: "https://ichicomi.com/episode/12207421984039246741"
   - raw: "彩純ちゃんはレズ風俗に興味があります！ 伊月クロ"
     platform: "一迅プラス"
     last_update_seen: 10-08
     watched_platform: true
     title: "彩純ちゃんはレズ風俗に興味があります！"
     url: "https://ichicomi.com/episode/12207421984089197958"
-  - raw: "映しちゃダメな顔 FLOWERCHILD"
-    platform: "一迅プラス"
-    last_update_seen: 10-01
-    watched_platform: true
-    title: "映しちゃダメな顔"
-    url: "https://ichicomi.com/episode/12207421984089197939"
   - raw: "晴れた日のドレスコード あげはる"
     platform: "一迅プラス"
     last_update_seen: 10-22
     watched_platform: true
     title: "晴れた日のドレスコード"
     url: "https://ichicomi.com/episode/12207421984222532905"
-  - raw: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～ 玉崎たま"
-    platform: "一迅プラス"
-    last_update_seen: 10-01
-    watched_platform: true
-    title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
-    url: "https://ichicomi.com/episode/12207421984089197935"
   - raw: "神は私を撮りたいって言ってます！ 散葉ちんみ"
     platform: "一迅プラス"
     last_update_seen: 10-15
@@ -819,12 +786,6 @@ works:
     watched_platform: true
     title: "超深宇宙より愛をこめて"
     url: "https://ichicomi.com/episode/12207421984222532928"
-  - raw: "陰キャギャルでもイキがりたい！ かしわぎつきこ"
-    platform: "一迅プラス"
-    last_update_seen: 10-01
-    watched_platform: true
-    title: "陰キャギャルでもイキがりたい！"
-    url: "https://ichicomi.com/episode/12207421984089197954"
   - raw: "骨に願いを、星に呪いを いくたはな"
     platform: "一迅プラス"
     last_update_seen: 10-22
@@ -843,12 +804,6 @@ works:
     watched_platform: false
     title: "聖なる姫のかくしごと"
     url: "https://ichicomi.com/episode/12207421984222532879"
-  - raw: "30まで独りだったら一緒に暮らそうって言ったよね？ くずしろ"
-    platform: "竹コミ！"
-    last_update_seen: 10-02
-    watched_platform: true
-    title: "30まで独りだったら一緒に暮らそうって言ったよね？"
-    url: "https://takecomic.jp/series/4ad31024142fd"
   - raw: "ウは宇宙ヤバイのウ！ 宮澤伊織/ぴよぴよ丸"
     platform: "竹コミ！"
     last_update_seen: 10-08
@@ -881,7 +836,7 @@ works:
     url: "https://takecomic.jp/series/0d7dee548d547"
   - raw: "フレンドガールフレンド 瑠夏子"
     platform: "花とゆめ＋"
-    last_update_seen: 10-05
+    last_update_seen: 10-12
     watched_platform: true
     title: "フレンドガールフレンド"
     url: "https://hanayume.com/series/f3ce082d639de"

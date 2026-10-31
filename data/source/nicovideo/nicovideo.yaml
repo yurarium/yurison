@@ -9,12 +9,42 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-10-31
+retrieved: 2026-11-01
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 498
 works:
+  - work_title: "タイムトラベル少女 ～ミライのサキ～"
+    author: "ぱぺっときゃすと！"
+    url: "https://manga.nicovideo.jp/comic/77287"
+    comic_id: "77287"
+    updated: "2026-10-31"
+    started: "2026-03-31"
+    episode_count: 8
+    free_episodes: 8
+    latest_episode: "第8話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1172089"
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-10-31"
+    started: "2019-10-20"
+    episode_count: 187
+    free_episodes: 187
+    latest_episode: "ロボ32-1"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1172189"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-10-31"
+    started: "2022-08-31"
+    episode_count: 162
+    free_episodes: 162
+    latest_episode: "第14話の2"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1172192"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"
@@ -87,26 +117,6 @@ works:
     channel_slug: "comicwalker"
     latest_episode: "第77話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1170920"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-10-30"
-    started: "2019-10-20"
-    episode_count: 186
-    free_episodes: 186
-    latest_episode: "ロボ31-6"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1171764"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-10-30"
-    started: "2022-08-31"
-    episode_count: 161
-    free_episodes: 161
-    latest_episode: "第14話の1"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1171766"
   - work_title: "忍者と殺し屋のふたりぐらし"
     author: "ハンバーガー(著者)"
     url: "https://manga.nicovideo.jp/comic/54592"
@@ -1099,16 +1109,6 @@ works:
     channel_slug: "asuka"
     latest_episode: "ANOTHER SCENE 4 Side B"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1136120"
-  - work_title: "タイムトラベル少女 ～ミライのサキ～"
-    author: "ぱぺっときゃすと！"
-    url: "https://manga.nicovideo.jp/comic/77287"
-    comic_id: "77287"
-    updated: "2026-09-30"
-    started: "2026-03-31"
-    episode_count: 7
-    free_episodes: 7
-    latest_episode: "第7話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1155296"
   - work_title: "神仙桃娘 宮廷の贄"
     author: "上地優歩(著者)"
     url: "https://manga.nicovideo.jp/comic/71694"

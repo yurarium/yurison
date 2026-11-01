@@ -10,7 +10,7 @@
 # the survivor, because an address published once has to keep working.
 #
 # See adapters/credit_identity.py and data/identity/credit-rulings.yaml.
-generated: 2026-10-31
+generated: 2026-11-01
 credits:
   - id: c00001
     credit: "クール教信者"
@@ -85,6 +85,11 @@ credits:
     credit: "濱田みふみ"
     anchors:
       - "credit:濱田みふみ"
+      - "credit:ハマダミフミ"
+    attached:
+      - anchor: "credit:ハマダミフミ"
+        basis: "ハマダミフミ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `濱田みふみ / ハマダミフミ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 濱田みふみ credits 1 work(s), among them はるい駈歩. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00018
     credit: "文尾文"
     anchors:
@@ -303,6 +308,11 @@ credits:
     credit: "瑠夏子"
     anchors:
       - "credit:瑠夏子"
+      - "credit:ルカコ"
+    attached:
+      - anchor: "credit:ルカコ"
+        basis: "ルカコ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `瑠夏子 / ルカコ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 瑠夏子 credits 3 work(s), among them フレンドガールフレンド. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00055
     credit: "りんご水"
     anchors:
@@ -329,6 +339,11 @@ credits:
     credit: "涼海来夏"
     anchors:
       - "credit:涼海来夏"
+      - "credit:スズミライカ"
+    attached:
+      - anchor: "credit:スズミライカ"
+        basis: "スズミライカ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `涼海来夏 / スズミライカ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 涼海来夏 credits 6 work(s), among them 黒の世界は白墨に染まる. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00059
     credit: "水野英多"
     anchors:
@@ -358,6 +373,11 @@ credits:
     credit: "くずしろ"
     anchors:
       - "credit:くずしろ"
+      - "credit:クズシロ"
+    attached:
+      - anchor: "credit:クズシロ"
+        basis: "クズシロ is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `くずしろ / クズシロ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. くずしろ credits 11 work(s), among them 雨夜の月. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00065
     credit: "ひさまくまこ"
     anchors:
@@ -597,6 +617,11 @@ credits:
     credit: "南方純"
     anchors:
       - "credit:南方純"
+      - "credit:ミナカタスナオ"
+    attached:
+      - anchor: "credit:ミナカタスナオ"
+        basis: "ミナカタスナオ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `kikipub. 2018 / 南方純 / ミナカタスナオ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 南方純 credits 6 work(s), among them 「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00111
     credit: "kiki"
     anchors:
@@ -982,6 +1007,11 @@ credits:
     credit: "みやしろ"
     anchors:
       - "credit:みやしろ"
+      - "credit:ミヤシロ"
+    attached:
+      - anchor: "credit:ミヤシロ"
+        basis: "ミヤシロ is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `みやしろ / ミヤシロ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. みやしろ credits 2 work(s), among them メイド&ロイドはお嬢様のお役に立ちたい!. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00179
     credit: "潤海そら"
     anchors:
@@ -1211,6 +1241,11 @@ credits:
     credit: "古部亮"
     anchors:
       - "credit:古部亮"
+      - "credit:フルベリョウ"
+    attached:
+      - anchor: "credit:フルベリョウ"
+        basis: "フルベリョウ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `古部亮 / フルベリョウ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 古部亮 credits 1 work(s), among them スカベンジャーズアナザースカイ. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00215
     credit: "一ノ瀬けい"
     anchors:
@@ -1259,6 +1294,11 @@ credits:
     credit: "芽瑠藻"
     anchors:
       - "credit:芽瑠藻"
+      - "credit:メルモ"
+    attached:
+      - anchor: "credit:メルモ"
+        basis: "メルモ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `芽瑠藻 / メルモ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 芽瑠藻 credits 1 work(s), among them らぶぶいっ！. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00222
     credit: "雪子"
     anchors:
@@ -1298,6 +1338,11 @@ credits:
     credit: "吉富昭仁"
     anchors:
       - "credit:吉富昭仁"
+      - "credit:ヨシトミアキヒト"
+    attached:
+      - anchor: "credit:ヨシトミアキヒト"
+        basis: "ヨシトミアキヒト is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `吉富昭仁 / ヨシトミアキヒト`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 吉富昭仁 credits 7 work(s), among them 謎のユリイカ. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00228
     credit: "鮎川あお"
     anchors:
@@ -1373,6 +1418,11 @@ credits:
     credit: "夏鈴糖"
     anchors:
       - "credit:夏鈴糖"
+      - "credit:カリントウ"
+    attached:
+      - anchor: "credit:カリントウ"
+        basis: "カリントウ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `夏鈴糖 / カリントウ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 夏鈴糖 credits 1 work(s), among them むちむち漫画家の完全勝利メシ 最強ボディで余命も担当編集もぶっ飛ばす!. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00243
     credit: "長門知大"
     anchors:
@@ -1565,6 +1615,11 @@ credits:
     credit: "あげはる"
     anchors:
       - "credit:あげはる"
+      - "credit:アゲハル"
+    attached:
+      - anchor: "credit:アゲハル"
+        basis: "アゲハル is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `あげはる / アゲハル`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. あげはる credits 4 work(s), among them 晴れた日のドレスコード. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00276
     credit: "夏村東和"
     anchors:
@@ -2211,6 +2266,11 @@ credits:
     credit: "にたもと"
     anchors:
       - "credit:にたもと"
+      - "credit:ニタモト"
+    attached:
+      - anchor: "credit:ニタモト"
+        basis: "ニタモト is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `にたもと / ニタモト`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. にたもと credits 1 work(s), among them 散り損ないのヒラエス. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00392
     credit: "藍藤 唯"
     anchors:
@@ -2257,6 +2317,11 @@ credits:
     credit: "餡実ツキ"
     anchors:
       - "credit:餡実ツキ"
+      - "credit:アンミツキ"
+    attached:
+      - anchor: "credit:アンミツキ"
+        basis: "アンミツキ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `餡実ツキ / アンミツキ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 餡実ツキ credits 2 work(s), among them 誰かオオカミさんのしつけ方知りませんか！？. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00401
     credit: "根岸岳春"
     anchors:
@@ -2407,6 +2472,11 @@ credits:
     credit: "ほしあらん"
     anchors:
       - "credit:ほしあらん"
+      - "credit:ホシアラン"
+    attached:
+      - anchor: "credit:ホシアラン"
+        basis: "ホシアラン is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `ほしあらん / ホシアラン`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. ほしあらん credits 1 work(s), among them ロリースイートロリー. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00426
     credit: "シャチ"
     anchors:
@@ -3026,6 +3096,11 @@ credits:
     credit: "柚木涼太"
     anchors:
       - "credit:柚木涼太"
+      - "credit:ユズキリョウタ"
+    attached:
+      - anchor: "credit:ユズキリョウタ"
+        basis: "ユズキリョウタ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `柚木涼太 / ユズキリョウタ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 柚木涼太 credits 2 work(s), among them お姉さんは女子小学生に興味があります。. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00550
     credit: "ほしつ"
     anchors:
@@ -3087,14 +3162,29 @@ credits:
     credit: "ひつじたかこ"
     anchors:
       - "credit:ひつじたかこ"
+      - "credit:ヒツジタカコ"
+    attached:
+      - anchor: "credit:ヒツジタカコ"
+        basis: "ヒツジタカコ is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `ひつじたかこ / 神楽坂淳 / 紗嶋 / カグラザカアツシ / サジマ / ヒツジタカコ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. ひつじたかこ credits 1 work(s), among them 異世界温泉の和菓子屋JK. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00565
     credit: "神楽坂淳"
     anchors:
       - "credit:神楽坂淳"
+      - "credit:カグラザカアツシ"
+    attached:
+      - anchor: "credit:カグラザカアツシ"
+        basis: "カグラザカアツシ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `ひつじたかこ / 神楽坂淳 / 紗嶋 / カグラザカアツシ / サジマ / ヒツジタカコ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 神楽坂淳 credits 1 work(s), among them 異世界温泉の和菓子屋JK. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00566
     credit: "紗嶋"
     anchors:
       - "credit:紗嶋"
+      - "credit:サジマ"
+    attached:
+      - anchor: "credit:サジマ"
+        basis: "サジマ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `ひつじたかこ / 神楽坂淳 / 紗嶋 / カグラザカアツシ / サジマ / ヒツジタカコ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 紗嶋 credits 1 work(s), among them 異世界温泉の和菓子屋JK. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00567
     credit: "福田宏"
     anchors:
@@ -3134,6 +3224,11 @@ credits:
     credit: "なうち"
     anchors:
       - "credit:なうち"
+      - "credit:ナウチ"
+    attached:
+      - anchor: "credit:ナウチ"
+        basis: "ナウチ is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `なうち / ナウチ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. なうち credits 9 work(s), among them 雪解けとアガパンサス. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00573
     credit: "千葉らき"
     anchors:
@@ -3201,6 +3296,11 @@ credits:
     credit: "仲藤ぬい"
     anchors:
       - "credit:仲藤ぬい"
+      - "credit:ナカトウヌイ"
+    attached:
+      - anchor: "credit:ナカトウヌイ"
+        basis: "ナカトウヌイ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `仲藤ぬい / ナカトウヌイ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 仲藤ぬい credits 1 work(s), among them トワ・エ・モア. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00586
     credit: "さとうしほ"
     anchors:
@@ -3654,6 +3754,11 @@ credits:
     credit: "赤城ナツイチ"
     anchors:
       - "credit:赤城ナツイチ"
+      - "credit:アカギナツイチ"
+    attached:
+      - anchor: "credit:アカギナツイチ"
+        basis: "アカギナツイチ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `赤城ナツイチ / アカギナツイチ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 赤城ナツイチ credits 2 work(s), among them あの子が嫌いな17から18の理由. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00684
     credit: "篠月しのぶ"
     anchors:
@@ -3729,10 +3834,20 @@ credits:
     credit: "白梅ナズナ"
     anchors:
       - "credit:白梅ナズナ"
+      - "credit:シラウメナズナ"
+    attached:
+      - anchor: "credit:シラウメナズナ"
+        basis: "シラウメナズナ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `まきぶろ / 白梅ナズナ / シラウメナズナ / マキブロ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 白梅ナズナ credits 1 work(s), among them 悪役令嬢の中の人〜断罪された転生者のため嘘つきヒロインに復讐いたします〜. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00699
     credit: "まきぶろ"
     anchors:
       - "credit:まきぶろ"
+      - "credit:マキブロ"
+    attached:
+      - anchor: "credit:マキブロ"
+        basis: "マキブロ is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `まきぶろ / 白梅ナズナ / シラウメナズナ / マキブロ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. まきぶろ credits 1 work(s), among them 悪役令嬢の中の人〜断罪された転生者のため嘘つきヒロインに復讐いたします〜. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00700
     credit: "紫 真依"
     anchors:
@@ -3792,6 +3907,11 @@ credits:
     credit: "卯花つかさ"
     anchors:
       - "credit:卯花つかさ"
+      - "credit:ウノハナツカサ"
+    attached:
+      - anchor: "credit:ウノハナツカサ"
+        basis: "ウノハナツカサ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `卯花つかさ / ウノハナツカサ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 卯花つかさ credits 3 work(s), among them アニマエール！. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c00711
     credit: "おぎしろ"
     anchors:
@@ -5524,6 +5644,11 @@ credits:
     credit: "晴瀬ひろき"
     anchors:
       - "credit:晴瀬ひろき"
+      - "credit:ハルセヒロキ"
+    attached:
+      - anchor: "credit:ハルセヒロキ"
+        basis: "ハルセヒロキ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `晴瀬ひろき / ハルセヒロキ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 晴瀬ひろき credits 2 work(s), among them 私以外人類全員百合. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c01125
     credit: "塩胡蝶"
     anchors:
@@ -5733,6 +5858,11 @@ credits:
     credit: "じゃこ"
     anchors:
       - "credit:じゃこ"
+      - "credit:ジャコ"
+    attached:
+      - anchor: "credit:ジャコ"
+        basis: "ジャコ is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `じゃこ / 伏見つかさ / ジャコ / フシミツカサ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. じゃこ credits 2 work(s), among them 勇者サポートセンター魔王城支部. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c01177
     credit: "隈井"
     anchors:
@@ -5919,6 +6049,11 @@ credits:
     credit: "海老川ケイ"
     anchors:
       - "credit:海老川ケイ"
+      - "credit:エビガワケイ"
+    attached:
+      - anchor: "credit:エビガワケイ"
+        basis: "エビガワケイ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `海老川ケイ / エビガワケイ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 海老川ケイ credits 2 work(s), among them 夢見るルネサンス. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c01221
     credit: "ゆとりーぬ"
     anchors:
@@ -9539,6 +9674,11 @@ credits:
     credit: "棚木防衛"
     anchors:
       - "credit:棚木防衛"
+      - "credit:タナギボウエイ"
+    attached:
+      - anchor: "credit:タナギボウエイ"
+        basis: "タナギボウエイ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `棚木防衛 / タナギボウエイ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 棚木防衛 credits 3 work(s), among them ヨドヨドな助走たち。. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c02114
     credit: "上城たすく"
     anchors:
@@ -10202,10 +10342,20 @@ credits:
     credit: "みなぱか"
     anchors:
       - "credit:みなぱか"
+      - "credit:ミナパカ"
+    attached:
+      - anchor: "credit:ミナパカ"
+        basis: "ミナパカ is the same spelling with its kana converted between the two scripts wholesale, and it credits no work of its own. A source states both forms in one credit field, `みなぱか / 泉賢太郎 / イズミケンタロウ / ミナパカ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. みなぱか credits 1 work(s), among them ６億年の博物旅. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c02268
     credit: "泉賢太郎"
     anchors:
       - "credit:泉賢太郎"
+      - "credit:イズミケンタロウ"
+    attached:
+      - anchor: "credit:イズミケンタロウ"
+        basis: "イズミケンタロウ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `みなぱか / 泉賢太郎 / イズミケンタロウ / ミナパカ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 泉賢太郎 credits 1 work(s), among them ６億年の博物旅. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c02269
     credit: "テルヤ"
     anchors:
@@ -10226,6 +10376,11 @@ credits:
     credit: "科戸コウ"
     anchors:
       - "credit:科戸コウ"
+      - "credit:シナトコウ"
+    attached:
+      - anchor: "credit:シナトコウ"
+        basis: "シナトコウ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `科戸コウ / シナトコウ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 科戸コウ credits 1 work(s), among them フルボイス！. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c02274
     credit: "吉田ユウマ"
     anchors:
@@ -10246,6 +10401,11 @@ credits:
     credit: "倉崎もろこ"
     anchors:
       - "credit:倉崎もろこ"
+      - "credit:クラサキモロコ"
+    attached:
+      - anchor: "credit:クラサキモロコ"
+        basis: "クラサキモロコ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `みかみてれん / 倉崎もろこ / クラサキモロコ / ミカミテレン`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 倉崎もろこ credits 1 work(s), among them 負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c02279
     credit: "灯立夏"
     anchors:
@@ -10322,6 +10482,11 @@ credits:
     credit: "伏見つかさ"
     anchors:
       - "credit:伏見つかさ"
+      - "credit:フシミツカサ"
+    attached:
+      - anchor: "credit:フシミツカサ"
+        basis: "フシミツカサ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `じゃこ / 伏見つかさ / ジャコ / フシミツカサ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 伏見つかさ credits 1 work(s), among them 私の初恋は恥ずかしすぎて誰にも言えない. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c02298
     credit: "かんざきひろ"
     anchors:
@@ -10346,6 +10511,11 @@ credits:
     credit: "有野金吾"
     anchors:
       - "credit:有野金吾"
+      - "credit:アリノキンゴ"
+    attached:
+      - anchor: "credit:アリノキンゴ"
+        basis: "アリノキンゴ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `有野金吾 / アリノキンゴ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 有野金吾 credits 1 work(s), among them 神絵師のおしごと. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c02304
     credit: "れいぴあ"
     anchors:
@@ -10358,6 +10528,11 @@ credits:
     credit: "ケム木村"
     anchors:
       - "credit:ケム木村"
+      - "credit:ケムキムラ"
+    attached:
+      - anchor: "credit:ケムキムラ"
+        basis: "ケムキムラ is the whole of that reading written in kana, and it credits no work of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. ケム木村 credits 1 work(s), among them 田舎エッチ ～田舎のエッチな女の子と過ごすひと夏のエッチな思い出～ アンソロジーコミック. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c02307
     credit: "ひととせひるね"
     anchors:
@@ -10378,6 +10553,11 @@ credits:
     credit: "塩井こぬ"
     anchors:
       - "credit:塩井こぬ"
+      - "credit:シオイコヌ"
+    attached:
+      - anchor: "credit:シオイコヌ"
+        basis: "シオイコヌ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `塩井こぬ / シオイコヌ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 塩井こぬ credits 1 work(s), among them 犬窪ノアとなかよしするまで. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+        retrieved: 2026-11-01
   - id: c02312
     credit: "つくる"
     anchors:
@@ -10807,6 +10987,166 @@ credits:
     credit: "はなうためありー"
     anchors:
       - "credit:はなうためありー"
+  - id: c02419
+    credit: "木野咲カズラ"
+    anchors:
+      - "credit:木野咲カズラ"
+  - id: c02420
+    credit: "柳原望"
+    anchors:
+      - "credit:柳原望"
+  - id: c02421
+    credit: "さきしまえのき"
+    anchors:
+      - "credit:さきしまえのき"
+  - id: c02422
+    credit: "MB"
+    anchors:
+      - "credit:MB"
+  - id: c02423
+    credit: "漆野りひと"
+    anchors:
+      - "credit:漆野りひと"
+  - id: c02424
+    credit: "高橋哲哉"
+    anchors:
+      - "credit:高橋哲哉"
+  - id: c02425
+    credit: "神原　絵理華"
+    anchors:
+      - "credit:神原絵理華"
+  - id: c02426
+    credit: "真田　つづる"
+    anchors:
+      - "credit:真田つづる"
+  - id: c02427
+    credit: "馬かのこ"
+    anchors:
+      - "credit:馬かのこ"
+  - id: c02428
+    credit: "双葉　末月"
+    anchors:
+      - "credit:双葉末月"
+  - id: c02429
+    credit: "しまぷ"
+    anchors:
+      - "credit:しまぷ"
+  - id: c02430
+    credit: "ジョーさん。"
+    anchors:
+      - "credit:ジョーさん。"
+  - id: c02431
+    credit: "ふじい葛西"
+    anchors:
+      - "credit:ふじい葛西"
+  - id: c02432
+    credit: "つるせ"
+    anchors:
+      - "credit:つるせ"
+  - id: c02433
+    credit: "リスくん"
+    anchors:
+      - "credit:リスくん"
+  - id: c02434
+    credit: "ピロヤ"
+    anchors:
+      - "credit:ピロヤ"
+  - id: c02435
+    credit: "大城戸カロ"
+    anchors:
+      - "credit:大城戸カロ"
+  - id: c02436
+    credit: "かんむり"
+    anchors:
+      - "credit:かんむり"
+  - id: c02437
+    credit: "くまパンツ"
+    anchors:
+      - "credit:くまパンツ"
+  - id: c02438
+    credit: "ササマシン"
+    anchors:
+      - "credit:ササマシン"
+  - id: c02439
+    credit: "汐焼あゆ"
+    anchors:
+      - "credit:汐焼あゆ"
+  - id: c02440
+    credit: "神社えーる"
+    anchors:
+      - "credit:神社えーる"
+  - id: c02441
+    credit: "吸斬"
+    anchors:
+      - "credit:吸斬"
+  - id: c02442
+    credit: "高橋ぽてと"
+    anchors:
+      - "credit:高橋ぽてと"
+  - id: c02443
+    credit: "やわらかブラック"
+    anchors:
+      - "credit:やわらかブラック"
+  - id: c02444
+    credit: "ＭｏｏｎＰｈａｓｅ"
+    anchors:
+      - "credit:MoonPhase"
+  - id: c02445
+    credit: "犬童千絵"
+    anchors:
+      - "credit:犬童千絵"
+  - id: c02446
+    credit: "もこやま仁"
+    anchors:
+      - "credit:もこやま仁"
+  - id: c02447
+    credit: "御名原　雅"
+    anchors:
+      - "credit:御名原雅"
+  - id: c02448
+    credit: "葉賀ユイ"
+    anchors:
+      - "credit:葉賀ユイ"
+  - id: c02449
+    credit: "星期一回收日"
+    anchors:
+      - "credit:星期一回收日"
+  - id: c02450
+    credit: "陳　巧蓉"
+    anchors:
+      - "credit:陳巧蓉"
+  - id: c02451
+    credit: "高河ゆん"
+    anchors:
+      - "credit:高河ゆん"
+  - id: c02452
+    credit: "三月"
+    anchors:
+      - "credit:三月"
+  - id: c02453
+    credit: "タカダ フミ子"
+    anchors:
+      - "credit:タカダフミ子"
+  - id: c02454
+    credit: "冬梨。"
+    anchors:
+      - "credit:冬梨。"
+  - id: c02455
+    credit: "白石浩平"
+    anchors:
+      - "credit:白石浩平"
+  - id: c02456
+    credit: "めきめき"
+    anchors:
+      - "credit:めきめき"
+  - id: c02457
+    credit: "三家本礼"
+    anchors:
+      - "credit:三家本礼"
+  - id: c02458
+    credit: "荒木　美咲"
+    anchors:
+      - "credit:荒木美咲"
 
 # Credits sharing one reading that were examined and KEPT APART. Recorded so the
 # question is not re-derived at every capture and so the reasoning is not lost each

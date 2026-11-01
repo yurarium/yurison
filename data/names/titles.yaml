@@ -1,4 +1,4 @@
-generated: '2026-10-31'
+generated: '2026-11-01'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -1435,6 +1435,16 @@ names:
     note: Already English, in the Japanese construction that puts Dear before a possessive. It is the
       work's own and is not corrected.
     verified: false
+  Dear NOMAN:
+    basis: official-jp
+    en: Dear NOMAN
+    en_at: '2026-11-01'
+    en_pass: 0
+    en_source: surface
+    en_source_kind: platform
+    note: already Latin on the platform's own page; no romanisation involved
+    script: latin
+    verified: true
   Devil'sLover:
     basis: official-jp
     en: Devil'sLover
@@ -16135,15 +16145,14 @@ names:
     - - せんぱいあい。
       - null
     reading: センパイアイ。
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ぜんぜんかわいくない:
     basis: translated
     en: Not Cute At All
@@ -18830,18 +18839,15 @@ names:
     verified: true
   はじめてのキャンプさん:
     basis: romaji
-    furigana_spans:
-    - - はじめてのキャンプさん
-      - null
-    reading: ハジメテ ノ キャンプサン
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading: ハジメテノキャンプサン
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   はずかしがりやのれいむさん:
     basis: official-jp
     en: Reimu is Easily Embarrassed
@@ -24448,18 +24454,15 @@ names:
     verified: false
   んねこん（ビームコミックス（ハルタ））:
     basis: romaji
-    furigana_spans:
-    - - んねこん（ビームコミックス（ハルタ））
-      - null
-    reading: ン ネコン （ビーム コミックス （ハルタ））
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading: ンネコン（ビームコミックス（ハルタ））
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   アイドラトリィ:
     basis: translated
     en: Idolatry
@@ -25816,16 +25819,15 @@ names:
     verified: true
   ウィッチギルド　ファンタジア:
     basis: romaji
-    reading: ウィッチ ギルド 　 ファンタジア
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading: ウィッチギルド　ファンタジア
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ウィーンで歌ってみて:
     basis: translated
     en: Try Singing in Vienna
@@ -26951,16 +26953,15 @@ names:
     verified: false
   オンリー☆ユー:
     basis: romaji
-    reading: オンリー ☆ ユー
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading: オンリー☆ユー
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   オートクチュールの果たし状/読み切り:
     basis: translated
     en: A Haute Couture Duel Challenge
@@ -28712,6 +28713,13 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ギャルとオタクはわかりあえない。:
+    reading: ギャルトオタクハワカリアエナイ。
+    reading_at: '2026-11-01'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   ギャルとギャルがゆるく暮らす話:
     basis: translated
     en: A Story About Two Gyaru Living an Easy Life Together
@@ -30119,16 +30127,15 @@ names:
     verified: false
   サクラ*ナデシコ:
     basis: romaji
-    reading: サクラ * ナデシコ
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading: サクラ*ナデシコ
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   サクランボッチ:
     basis: translated
     en: Cherry Alone
@@ -31447,16 +31454,15 @@ names:
     verified: false
   シーズンシアターシアトリカル:
     basis: romaji
-    reading: シーズン シアター シアトリカル
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading: シーズンシアターシアトリカル
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   シーソー×ゲーム:
     basis: translated
     en: Seesaw × Game
@@ -33231,18 +33237,15 @@ names:
     verified: true
   ダイガクちゃん×はいすくーる！:
     basis: romaji
-    furigana_spans:
-    - - ダイガクちゃん×はいすくーる！
-      - null
-    reading: ダイガクチャン × ハイ スクール！
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading: ダイガクチャン×ハイスクール！
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ダッフルコートアーミー:
     basis: translated
     en: Duffle Coat Army
@@ -33922,19 +33925,15 @@ names:
     verified: true
   トラとハチドリ:
     basis: romaji
-    furigana_spans:
-    - - トラとハチドリ
-      - null
-    reading: トラ ト ハチドリ
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading: トラトハチドリ
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   トラにツバサ:
     basis: translated
     en: Wings on a Tiger
@@ -37049,15 +37048,15 @@ names:
     verified: true
   ブラッドフレンド:
     basis: romaji
-    reading: ブラッド フレンド
-    reading_at: '2026-10-31'
-    reading_basis: analyser
+    reading: ブラッドフレンド
+    reading_at: '2026-11-01'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ブランクスペース:
     basis: translated
     en: Blank Space
@@ -66398,6 +66397,8 @@ names:
       - やまだ
     - - さん
       - null
+    note: 組合 is a union or a guild in the sense of a trade body, which is what makes the title funny beside
+      暗殺.
     reading: アサシンギルド ノ ヤマダサン
     reading_at: '2026-11-01'
     reading_basis: stated

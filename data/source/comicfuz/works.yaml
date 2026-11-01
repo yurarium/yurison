@@ -264,9 +264,6 @@ works:
         title: "第37話"
         updated: 2026-11-01
         access_modes: ["free"]
-        access_changed: "purchase -> free"
-        access_changed_on: "2026-11-01"
-        became_free: true
       - chapter_id: 79715
         title: "おまけ"
         updated: 2026-10-04
@@ -283,8 +280,6 @@ works:
         title: "第36話(1)"
         updated: 2026-08-16
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-11-01"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78788
         title: "６巻発売のお知らせ＆フェア情報"
@@ -1431,9 +1426,6 @@ works:
         title: "１５巻 第８６球 「無理してないかな」（１）"
         updated: 2026-10-30
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-01"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 53753
         title: "１５巻 第８５球 「暴挙！」（２）"
@@ -5881,9 +5873,6 @@ works:
         title: "第６２話"
         updated: 2026-10-31
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-01"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 81673
         title: "第６１話"

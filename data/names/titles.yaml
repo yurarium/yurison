@@ -62170,21 +62170,24 @@ names:
     verified: false
   悪魔のリドル:
     basis: licensed
-    en: Riddle Story of Devil
+    en: 'Akuma no Riddle: Riddle Story of Devil'
     en_at: '2026-11-01'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Devil's Riddle
     en_reviewed: '2026-11-01'
-    en_source: Seven Seas
+    en_source: Seven Seas Entertainment
     en_source_kind: licensor
-    en_url: https://sevenseas.com/series/riddle-story-of-devil/
+    en_url: https://sevenseasentertainment.com/series/akuma-no-riddle-riddle-story-of-devil/
     furigana_spans:
     - - 悪魔
       - あくま
     - - のリドル
       - null
-    note: Seven Seas released the manga in English as Riddle Story of Devil, matching the 2014 anime's
-      English title. The Japanese title means 'Devil's Riddle', about assassin girls in a boarding school.
-      The licensor page URL was inferred and not opened, with the publisher confirmed through Anime News
-      Network and retailer listings.
+    note: 'The licensor''s own series page heads the work Akuma no Riddle: Riddle Story of Devil, story
+      and art by Sunao Minakata and Yun Kouga. The page first recorded here, at sevenseas.com, had been
+      inferred and not opened, and the name it gave left out the romanised title.'
     reading: アクマ ノ リドル
     reading_at: '2026-10-31'
     reading_basis: analyser
@@ -62193,6 +62196,8 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
+    translation_note: 悪魔 is a devil and リドル is the English word riddle in katakana; の makes the riddle
+      the devil's. The licensed name keeps the romanised title in front of an English subtitle.
     verified: false
   悪魔の口の中/ジャンプ+漫画賞春期:
     basis: translated
@@ -69846,8 +69851,8 @@ names:
       - null
     - - 茶山
       - ちゃやま
-    note: Yen Press publishes this two-volume yuri drama as an omnibus titled Mizuno and Chayama. The
-      title is just the two girls' surnames joined by と, as the BOOK☆WALKER page shows.
+    note: Yen Press publishes this two-volume yuri drama as an omnibus titled Mizuno and Chayama, by Yuhta
+      Nishio. The title is the two girls' surnames joined by と, as the BOOK☆WALKER page shows.
     reading: ミズノ ト チャヤマ
     reading_at: '2026-10-31'
     reading_basis: analyser
@@ -69856,6 +69861,8 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
+    translation_refused: Two surnames joined by と. Our rendering is Mizuno and Chayama, which is the licensed
+      name, and neither surname is a word the title is using for its meaning.
     verified: false
   永世乙女の戦い方:
     basis: translated

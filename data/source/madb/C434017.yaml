@@ -1,0 +1,47 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.21"
+retrieved: 2026-11-01
+work_id: C434017
+route: isbn-from-publisher-text
+grouping: mixed
+madb_id: C434017
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C434017
+record_type: manga_book_series
+title:
+  ja: "メジロバナの咲く"
+  yomi: "メジロバナ ノ サク"
+creator: "[著]中村明日美子"
+publisher: "白泉社"
+imprint: ""
+volume_count: 4
+first_published: 2019-10
+last_published: 2024-09
+volumes:
+  - madb_id: M811779
+    number: "1"
+    isbn: "9784592711568"
+    published: 2019-10
+  - madb_id: M847311
+    number: "2"
+    isbn: "9784592711841"
+    published: 2021-05
+  - madb_id: M879148
+    number: "3"
+    isbn: "9784592712145"
+    published: 2022-12
+  - madb_id: M972849
+    number: "4"
+    isbn: "9784592712442"
+    published: 2024-09
+marketing_label: gl
+marketing_label_basis:
+  source: "publisher"
+  url: "https://www.kinokuniya.co.jp/f/dsg-01-9784592711841"
+  retrieved: 2026-11-01
+  term: "ガールズラブ"
+  quote: "全寮制の女学園を舞台に、繊細かつ芯の強い描線でルビーとステフの深まる関係を軸に紡がれる著者初の長編ガールズラブ、待望の第2巻。"
+  note: >-
+    The publisher's own catalogue text applies this label to the work (DEFINITIONS §4,
+    catalogue entry). The term is quoted from it as printed.

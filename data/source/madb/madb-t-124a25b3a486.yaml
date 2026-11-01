@@ -1,0 +1,42 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.21"
+retrieved: 2026-11-01
+work_id: madb-t-124a25b3a486
+route: imprint-selection
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "溺愛理想主義 : 岩見樹代子作品集"
+  yomi: "デキアイ リソウ シュギ : イワミ キヨコ サクヒンシュウ"
+creator: "岩見樹代子 / イワミキヨコ"
+publisher: "一迅社"
+distributor: "講談社"
+publisher_stated: "[頒布]講談社 / 一迅社"
+publishers:
+  - name: "講談社"
+    role: distributor
+    role_stated: "頒布"
+  - name: "一迅社"
+    role: publisher
+imprint: "IDコミックス. コミック百合姫"
+volume_count: 1
+first_published: 2026-07-20
+last_published: 2026-07-20
+volumes:
+  - madb_id: M1115347
+    isbn: "9784758099370"
+    published: 2026-07-20
+marketing_label: yuri
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-11-01
+  note: >-
+    Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand
+    that was matched, spelled as MADB spells it (schema:brand). Imprint is
+    publisher-side labelling under DEFINITIONS §4.

@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: madb-t-627a9018671b
 route: shop-query
 grouping: title-only
@@ -16,9 +16,9 @@ title:
 creator: "卯花つかさ / ウノハナツカサ"
 publisher: "芳文社"
 imprint: "Manga time KR comics. Kirara menu"
-volume_count: 3
+volume_count: 4
 first_published: 2023-05
-last_published: 2025-10-27
+last_published: 2026-07-20
 volumes:
   - madb_id: M927588
     number: "1"
@@ -32,13 +32,17 @@ volumes:
     number: "4"
     isbn: "9784832296664"
     published: 2025-10-27
+  - madb_id: M1115436
+    number: "5"
+    isbn: "9784832297296"
+    published: 2026-07-20
 identified_by:
   route: shop-query
   shop: bookwalker.jp
   query: "author"
   url: "https://bookwalker.jp/series/409502/list/"
   serialisation: "ニコニコ漫画"
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     The shop was asked what it stocks for a work this database already held, and its
     answer agreed on the title and on a person. A shop is discovery only
@@ -48,7 +52,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Identified by asking a licensed retailer what it stocks for a work this database
     already held. A shop's stock is not publisher-side labelling (§4), so this

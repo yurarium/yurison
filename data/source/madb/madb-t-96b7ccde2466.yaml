@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: madb-t-96b7ccde2466
 route: shop-query
 grouping: title-only
@@ -16,9 +16,9 @@ title:
 creator: "得能正太郎 / トクノウショウタロウ"
 publisher: "芳文社"
 imprint: "FUZ comics"
-volume_count: 10
+volume_count: 11
 first_published: 2023-05
-last_published: 2026-04-27
+last_published: 2026-08-31
 volumes:
   - madb_id: M927287
     number: "Volume. 1"
@@ -60,13 +60,17 @@ volumes:
     number: "Volume. 10"
     isbn: "9784832206038"
     published: 2026-04-27
+  - madb_id: M1119763
+    number: "Volume. 11"
+    isbn: "9784832206373"
+    published: 2026-08-31
 identified_by:
   route: shop-query
   shop: bookwalker.jp
   query: "author"
   url: "https://bookwalker.jp/series/409505/list/"
   serialisation: "COMIC FUZ"
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     The shop was asked what it stocks for a work this database already held, and its
     answer agreed on the title and on a person. A shop is discovery only
@@ -76,7 +80,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Identified by asking a licensed retailer what it stocks for a work this database
     already held. A shop's stock is not publisher-side labelling (§4), so this

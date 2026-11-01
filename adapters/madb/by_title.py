@@ -270,13 +270,14 @@ def main(argv=None):
 
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--cache", required=True, help="a pinned MADB release directory")
-    ap.add_argument("--tag", required=True, help="MADB release tag, recorded in every record")
+    ap.add_argument("--tag", help="MADB release tag; read from RELEASE.json by default")
     ap.add_argument("--works", default="data/source/bookwalker")
     ap.add_argument("--out", default="data/source/madb-title")
     ap.add_argument("--review", default="data/queue/madb-title-review.yaml")
     ap.add_argument("--retrieved", default=datetime.date.today().isoformat())
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
+    extract.pinned(a)
 
     rows = [yaml.safe_load(p.read_text()) for p in sorted(pathlib.Path(a.works).glob("*.yaml"))]
     todo = [r for r in rows if r and undated(r)]

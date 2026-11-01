@@ -40,8 +40,11 @@ KADOKOMI_TAG = {
 def main(s):
     # ── the order, which is the whole point of the module ────────────────────────────────────
     s.eq(credence.rank("imprint"), 1, "the publisher's own imprint is the strongest evidence")
-    s.eq(credence.rank("platform-tag"), 2, "the publisher's platform tag comes next")
-    s.eq(credence.rank("shelf"), 4, "a licensed retailer's shelf is weaker than either")
+    s.eq(credence.rank("description"), 2, "the publisher's own catalogue text comes next")
+    s.eq(credence.rank("platform-tag"), 3, "then the publisher's platform tag")
+    s.eq(credence.rank("shelf"), 5, "a licensed retailer's shelf is weaker than any of them")
+    s.eq(len(set(credence.RANK.values())), len(credence.RANK),
+         "and no two kinds share a rank, which the store keys on")
     s.check(credence.rank("imprint") < credence.rank("platform-tag") < credence.rank("shelf"),
             "imprint outranks platform tag outranks retailer shelf")
     s.check(credence.rank("magazine") < credence.rank("shelf"),

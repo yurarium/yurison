@@ -1418,6 +1418,17 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://xfolio.jp/
     verified: true
+  グラストCOMICS:
+    basis: romaji
+    reading: グラスト COMICS
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   グループ・ゼロ:
     basis: romaji
     en: Group Zero
@@ -1842,6 +1853,22 @@ names:
       weakest on pen names and coinages
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  スターツ出版:
+    basis: romaji
+    furigana_spans:
+    - - スターツ
+      - null
+    - - 出版
+      - しゅっぱん
+    reading: スターツシュッパン
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   スピリッツ女子部:
@@ -2348,6 +2375,14 @@ names:
     reading_source: read off the name itself
     reading_source_kind: derived
     verified: false
+  ブリーゼコミックス:
+    basis: romaji
+    reading: ブリーゼコミックス
+    reading_at: '2026-11-01'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   ブレイドコミックス:
     basis: romaji
     en: Blade Comics

@@ -130,8 +130,19 @@ arrives. What is not done:
 - コミックシーモア refused every request from here on 2026-10-15 (HTTP 503, home page included). The
   shelf producer it never had, `adapters/cmoa_shelf.py`, is written and scheduled, and a run will
   say whether CI reaches the shop. Its volume capture does not yet list a held work again.
-- Of the reference sources, MADB needs its pinned release re-pinned before the joins by ISBN can
-  run, and the NDL passes use a path its robots.txt disallows, so they stay stopped for the owner.
+- The NDL passes use a path its robots.txt disallows, so they stay stopped for the owner.
+
+MADB has run weekly in the same stage since 2026-11-01. `adapters/madb/release.py` keeps the newest
+monthly release in `$YURI_CACHE/madb-cache/current` (one request when it is already held, and a
+release smaller than the one it replaces is refused), and the routes read it in order: the 百合姫
+imprints, the publisher texts in `data/publisher-text.yaml`, the ISBNs コミックシーモア and the
+platforms state, the shop query, and dates for undated BOOK☆WALKER rows. Each record states the
+release it was read from, so a re-pin is a diff once a month and nothing in between. The first run,
+from 1.2.18 to 1.2.21, added volumes to about fifty works, 39 work records and 9 date records.
+`naming/mint.py` now attaches each record a join places to the work it prints before minting
+anything, and holds back a record titled like a work the corpus holds. Of the 39, 33 were joins and
+five were books BOOK☆WALKER or 一迅社's own platform already carried, so one was a new work,
+メジロバナの咲く.
 
 ### 3. A run succeeds unless something unexpected broke
 

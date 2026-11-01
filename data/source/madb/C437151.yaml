@@ -1,0 +1,69 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.21"
+retrieved: 2026-11-01
+work_id: C437151
+route: shop-query
+grouping: title-match
+madb_id: C437151
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C437151
+record_type: manga_book_series
+title:
+  ja: "舞ちゃんのお姉さん飼育ごはん。"
+  yomi: "マイチャン ノ オネエサン シイク ゴハン 。"
+creator: "[著]秋津貴央"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 7
+first_published: 2020-07
+last_published: 2026-03-23
+volumes:
+  - madb_id: M830961
+    number: "2"
+    isbn: "9784801971820"
+  - madb_id: M821079
+    number: "1"
+    isbn: "9784801969933"
+    published: 2020-07
+  - madb_id: M859422
+    number: "3"
+    isbn: "9784801975156"
+    published: 2021-12
+  - madb_id: M933209
+    number: "4"
+    isbn: "9784801981157"
+    published: 2023-08
+  - madb_id: M968770
+    number: "5"
+    isbn: "9784801982956"
+    published: 2024-05
+  - madb_id: M1060748
+    number: "6"
+    isbn: "9784801985605"
+    published: 2025-03-28
+  - madb_id: M1109897
+    number: "7"
+    isbn: "9784801988781"
+    published: 2026-03-23
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/253726/list/"
+  serialisation: "竹コミ"
+  retrieved: 2026-11-01
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C437151
+  retrieved: 2026-11-01
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

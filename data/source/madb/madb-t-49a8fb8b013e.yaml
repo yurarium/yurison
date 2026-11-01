@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: madb-t-49a8fb8b013e
 route: isbn-from-platform
 grouping: title-only
@@ -28,7 +28,7 @@ identified_by:
   route: isbn-from-platform
   platform: "pixivコミック"
   url: "https://comic.pixiv.net/works/9237"
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     The work's own platform page links the shops selling its collected volumes, and
     the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
@@ -37,7 +37,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Identified from the work's own platform page, which links the shops selling
     its collected volumes. A link to a shop is not publisher-side labelling

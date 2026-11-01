@@ -1552,6 +1552,7 @@ def run(db):
     return {"generated": got.get("generated") or "",
             "releases": number("releases"), "platforms": number("platforms"),
             "works": number("works"), "series_rows": number("series_rows"),
+            "madb_release": got.get("madb_release") or None,
             "sources": [{"source": s, "files": f, "works": w, "rows": r, "retrieved": ret,
                          "in_scope": bool(sc), "empty": bool(e),
                          "stated_rows": st, "conforming_rows": cf}

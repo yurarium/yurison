@@ -2,10 +2,10 @@
 # and on a person's name. NOT a record of the shop's edition: see adapters/madb/by_title.py for
 # why a title match alone is refused and what the join had to agree on before this was written.
 source: madb-title
-retrieved: 2026-08-06
+retrieved: 2026-11-01
 work_id: "bw-307339"
 record_type: volume_enrichment
-madb_release: "1.2.18"
+madb_release: "1.2.21"
 volumes:
   - isbn: "9784832238329"
     published: 2021-06

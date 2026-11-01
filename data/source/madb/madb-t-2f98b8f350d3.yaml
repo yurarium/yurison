@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: madb-t-2f98b8f350d3
 route: imprint-selection
 grouping: title-only
@@ -24,9 +24,9 @@ publishers:
   - name: "一迅社"
     role: publisher
 imprint: "IDコミックス. Yurihime comics"
-volume_count: 2
+volume_count: 3
 first_published: 2025-02-03
-last_published: 2025-10-20
+last_published: 2026-07-20
 volumes:
   - madb_id: M1035161
     number: "1"
@@ -36,11 +36,15 @@ volumes:
     number: "2"
     isbn: "9784758029704"
     published: 2025-10-20
+  - madb_id: M1115352
+    number: "3"
+    isbn: "9784758098373"
+    published: 2026-07-20
 marketing_label: yuri
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand
     that was matched, spelled as MADB spells it (schema:brand). Imprint is

@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: madb-t-03b3bb0716cf
 route: shop-query
 grouping: title-only
@@ -16,9 +16,9 @@ title:
 creator: "中島零 / 羽田遼亮 / 赤衣丸歩郎 / アカイマルボロウ / ナカジマレイ / ハタリョウスケ"
 publisher: "講談社"
 imprint: "KCDX. 週刊少年マガジン"
-volume_count: 10
+volume_count: 11
 first_published: 2024-03
-last_published: 2026-06-29
+last_published: 2026-09-28
 volumes:
   - madb_id: M966615
     number: "1"
@@ -60,13 +60,17 @@ volumes:
     number: "10"
     isbn: "9784065438923"
     published: 2026-06-29
+  - madb_id: M1121165
+    number: "11"
+    isbn: "9784065449530"
+    published: 2026-09-28
 identified_by:
   route: shop-query
   shop: bookwalker.jp
   query: "title"
   url: "https://bookwalker.jp/series/460229/list/"
   serialisation: "マガポケ"
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     The shop was asked what it stocks for a work this database already held, and its
     answer agreed on the title and on a person. A shop is discovery only
@@ -76,7 +80,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Identified by asking a licensed retailer what it stocks for a work this database
     already held. A shop's stock is not publisher-side labelling (§4), so this

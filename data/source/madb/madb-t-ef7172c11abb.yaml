@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: madb-t-ef7172c11abb
 route: isbn-from-platform
 grouping: title-only
@@ -15,6 +15,7 @@ title:
   yomi: "アクヤク レイジョウ ノ ナカ ノ ヒト"
 creator: "まきぶろ / 白梅ナズナ / シラウメナズナ / マキブロ"
 publisher: "一迅社"
+distributor: "講談社"
 publisher_stated: "[頒布]講談社 / 一迅社"
 publishers:
   - name: "講談社"
@@ -35,7 +36,7 @@ identified_by:
   route: isbn-from-platform
   platform: "pixivコミック"
   url: "https://comic.pixiv.net/works/7926"
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     The work's own platform page links the shops selling its collected volumes, and
     the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
@@ -44,7 +45,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Identified from the work's own platform page, which links the shops selling
     its collected volumes. A link to a shop is not publisher-side labelling

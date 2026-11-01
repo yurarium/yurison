@@ -7,7 +7,10 @@ Reads a pinned MADB release from a local cache, selects 単行本 by imprint, re
 Deterministic: same release tag in, same records out. No judgment, no network, no model calls.
 Classification beyond the mechanical marketing_label is not done here — see docs/REQUIREMENTS.md §6.
 
-Usage:  extract.py --cache $YURI_CACHE/madb-cache/1.2.18 --tag 1.2.18 --out data/source/madb
+Usage:  extract.py --cache $YURI_CACHE/madb-cache/current --out data/source/madb
+
+`release.py` keeps `current` on the newest release and writes its tag beside it; a hand-pinned
+directory with no RELEASE.json takes `--tag` and `--retrieved`.
 """
 import argparse, hashlib, json, pathlib, re, sys, unicodedata
 from collections import Counter, defaultdict, namedtuple
@@ -353,6 +356,24 @@ def load(cache, name):
     return json.loads(p.read_text())["@graph"]
 
 
+def pinned(a):
+    """Fill `a.tag` and `a.retrieved` from the release directory's RELEASE.json where not given.
+
+    `release.py` writes that file beside the bulk files it installs, so a scheduled route names the
+    directory and nothing else, and the tag a record states is the release it was read from rather
+    than one typed beside the path. A hand-pinned directory with no RELEASE.json still needs both.
+    """
+    got = {}
+    p = pathlib.Path(a.cache) / "RELEASE.json"
+    if p.exists():
+        got = json.loads(p.read_text())
+    a.tag = a.tag or got.get("tag")
+    a.retrieved = a.retrieved or got.get("retrieved")
+    if not (a.tag and a.retrieved):
+        sys.exit(f"{a.cache} has no RELEASE.json; pass --tag and --retrieved")
+    return a
+
+
 # Which pass wrote a record. Each pass deletes only its own, because a pass must not delete what
 # it is not looking at: the ISBN route writes into this same directory and a blanket wipe here
 # removed everything it had just produced.
@@ -624,12 +645,16 @@ def work_id(sid):
             if sid.startswith("T:") else sid)
 
 
-def render(sid, vs, series, how, tag, retrieved, route, label, extra=()):
+def render(sid, vs, series, how, tag, retrieved, route, label, extra=(), basis=None):
     """The YAML text of one work record.
 
     ONE PLACE THE RECORD SHAPE IS DECIDED. Two passes select volumes by different criteria and
     both write into data/source/madb/; a second copy of this layout would drift the moment either
     side gained a field.
+
+    `basis` names where the label was read when that is not this record: `by_publisher_text.py`
+    takes the label from the publisher's own catalogue text and the volumes from MADB, and a basis
+    citing MADB for a word MADB never printed would send a reader to a page without it.
     """
     synthetic = sid.startswith("T:")
     # A title-only work has no cm104 record; take its descriptive fields from the first volume.
@@ -748,16 +773,14 @@ def render(sid, vs, series, how, tag, retrieved, route, label, extra=()):
     # comparator listing it, and a reader is owed the name of the comparator.
     L += list(extra)
     # Mechanical, publisher-side. The interpretive axis is deliberately absent (DEFINITIONS §3).
-    L += [
-        f"marketing_label: {value}",
-        "marketing_label_basis:",
-        "  source: madb",
-        f"  url: {'' if synthetic else f'https://mediaarts-db.artmuseums.go.jp/id/{sid}'}",
-        f"  retrieved: {retrieved}",
-        "  note: >-",
-        f"    {note}",
-        "",
-    ]
+    L += [f"marketing_label: {value}", "marketing_label_basis:"]
+    if basis:
+        L += [f"  {k}: {v if k == 'retrieved' else yaml_str(v)}" for k, v in basis.items()]
+    else:
+        L += ["  source: madb",
+              f"  url: {'' if synthetic else f'https://mediaarts-db.artmuseums.go.jp/id/{sid}'}",
+              f"  retrieved: {retrieved}"]
+    L += ["  note: >-", f"    {note}", ""]
     return "\n".join(L)
 
 
@@ -786,10 +809,11 @@ def write(out, by_series, grouping, series, tag, retrieved, route, label):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", required=True)
-    ap.add_argument("--tag", required=True, help="MADB release tag, recorded in every record")
+    ap.add_argument("--tag", help="MADB release tag; read from RELEASE.json by default")
     ap.add_argument("--out", required=True)
-    ap.add_argument("--retrieved", required=True, help="ISO date the cache was downloaded")
+    ap.add_argument("--retrieved", help="ISO date the cache was downloaded; RELEASE.json by default")
     a = ap.parse_args()
+    pinned(a)
 
     books = load(a.cache, "metadata101.json")
     series = {r["schema:identifier"]: r for r in load(a.cache, "metadata104.json")}

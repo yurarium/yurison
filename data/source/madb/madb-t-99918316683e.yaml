@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: madb-t-99918316683e
 route: isbn-from-platform
 grouping: title-only
@@ -11,7 +11,9 @@ grouping: title-only
 madb_id: null
 record_type: manga_book_series
 title:
-  ja: "ニニンがシノブ伝ぷらす = 2×2=SHINOBUDEN+"
+  ja: "ニニンがシノブ伝ぷらす"
+  en: "2×2=SHINOBUDEN+"
+  en_basis: parallel-title
   yomi: "2×2=SHINOBUDEN+"
 creator: "[著]古賀亮一"
 publisher: "KADOKAWA"
@@ -33,7 +35,7 @@ identified_by:
   route: isbn-from-platform
   platform: "カドコミ"
   url: "https://comic-walker.com/detail/KC_003297_S"
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     The work's own platform page links the shops selling its collected volumes, and
     the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
@@ -42,7 +44,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Identified from the work's own platform page, which links the shops selling
     its collected volumes. A link to a shop is not publisher-side labelling

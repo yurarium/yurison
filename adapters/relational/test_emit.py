@@ -41,7 +41,8 @@ def _unit(s):
     rep = relational.load_rulings(relational.create(":memory:"))
     relational.note(rep, {"generated": "2026-08-14", "releases": 1260, "works": 2574,
                           "platforms": 23, "series_rows": 3039, "collapsed.samples": 36,
-                          "collapsed.thin_sitemap": 8, "ledger.runs_held": 40})
+                          "collapsed.thin_sitemap": 8, "ledger.runs_held": 40,
+                          "madb_release": "1.2.21"})
     rep.execute("INSERT INTO run_source (source, files, works, rows, retrieved, in_scope, empty,"
                 " stated_rows, conforming_rows) VALUES ('comicfuz',2,129,6189,'2026-08-14',1,0,"
                 " 6189, 6180)")
@@ -105,6 +106,7 @@ def _unit(s):
     s.check("ledger" not in got,
             "and the ledger's own keys stay out of it, being the ledger's rather than the run's")
     s.eq(got["releases"], 1260, "a count comes back a number rather than the text it is stored as")
+    s.eq(got["madb_release"], "1.2.21", "and the bibliography's release as the tag it is, for the footer")
     s.eq([x["source"] for x in got["sources"]], ["comicfuz"], "the census is the connector list")
     s.eq(got["sources"][0]["in_scope"], True, "with its flags as booleans rather than as 0 and 1")
 

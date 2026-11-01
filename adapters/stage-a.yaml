@@ -220,7 +220,7 @@ commands:
   - id: openbd
     optional: true
     argv: [adapters/openbd/enrich.py, --works, data/source/madb, --out, data/source/openbd,
-           --madb-cache, "{CACHE}/madb-cache/1.2.18", --fetch, --retrieved, "{R}"]
+           --madb-cache, "{CACHE}/madb-cache/current", --fetch, --retrieved, "{R}"]
 
   - id: webpages
     optional: true

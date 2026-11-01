@@ -867,6 +867,28 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  6億年の博物旅:
+    basis: romaji
+    furigana_spans:
+    - - 6億
+      - ろくおく
+    - - 年
+      - ねん
+    - - の
+      - null
+    - - 博物
+      - はくぶつ
+    - - 旅
+      - たび
+    reading: ロクオク ネン ノ ハクブツ タビ
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   7日間限定彼女:
     basis: romaji
     furigana_spans:
@@ -13853,6 +13875,34 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  この恋、一旦持ち帰らせていただきます!:
+    basis: romaji
+    furigana_spans:
+    - - この
+      - null
+    - - 恋
+      - こい
+    - - 、
+      - null
+    - - 一旦
+      - いったん
+    - - 持
+      - も
+    - - ち
+      - null
+    - - 帰
+      - かえ
+    - - らせていただきます!
+      - null
+    reading: コノ コイ、 イッタン モチカエラセテ イタダキマス!
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   この恋、一旦持ち帰らせていただきます！:
     basis: translated
     en: Let Me Take This Love Back to the Office!
@@ -21215,6 +21265,20 @@ names:
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
+  まりあ✝ほりっく:
+    basis: romaji
+    furigana_spans:
+    - - まりあ✝ほりっく
+      - null
+    reading: マリア ✝ ホリック
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   まりさのなつやすみ:
     basis: translated
     en: Marisa's Summer Holiday
@@ -21734,6 +21798,48 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  'むちむち漫画家の完全勝利メシ : 最強ボディで余命も担当編集もぶっ飛ばす':
+    basis: romaji
+    furigana_spans:
+    - - むちむち
+      - null
+    - - 漫画家
+      - まんがか
+    - - の
+      - null
+    - - 完全
+      - かんぜん
+    - - 勝利
+      - しょうり
+    - - 'メシ : '
+      - null
+    - - 最強
+      - さいきょう
+    - - ボディで
+      - null
+    - - 余命
+      - よめい
+    - - も
+      - null
+    - - 担当
+      - たんとう
+    - - 編集
+      - へんしゅう
+    - - もぶっ
+      - null
+    - - 飛
+      - と
+    - - ばす
+      - null
+    reading: 'ムチムチ マンガカ ノ カンゼン ショウリ メシ  :   サイキョウ ボディ デ ヨメイ モ タントウ ヘンシュウ モ ブットバス'
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   むちむち漫画家の完全勝利メシ 最強ボディで余命も担当編集もぶっ飛ばす!:
     basis: translated
     en: 'The Chubby Mangaka''s Total-Victory Meal: Blow Away Your Remaining Lifespan and Your Editor with
@@ -23640,6 +23746,21 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  らぶぶいっ!:
+    basis: romaji
+    furigana_spans:
+    - - らぶぶいっ!
+      - null
+    reading: ラブ ブ イッ!
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   らぶぶいっ！:
     basis: translated
     en: Love Parts!
@@ -24405,6 +24526,17 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  アイドルビーバック!:
+    basis: romaji
+    reading: アイドルビーバック!
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   アイドルビーバック！:
@@ -27580,6 +27712,22 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  'ガールズ・エラー : コダマナオコ短編集':
+    basis: romaji
+    furigana_spans:
+    - - 'ガールズ・エラー : コダマナオコ'
+      - null
+    - - 短編集
+      - たんぺんしゅう
+    reading: 'ガールズ・ エラー  :   コダマ ナオコ タンペンシュウ'
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   ガールズ・エラー コダマナオコ短編集:
@@ -32112,6 +32260,32 @@ names:
     translation_note: 知らないうちに is without knowing it, and ました closes the title as something the speaker
       has only just found out. MAX is the title's own, in Latin letters, and stays in capitals.
     verified: false
+  スライム倒して300年、知らないうちにレベルmaxになってました:
+    basis: romaji
+    furigana_spans:
+    - - スライム
+      - null
+    - - 倒
+      - たお
+    - - して300
+      - null
+    - - 年
+      - ねん
+    - - 、
+      - null
+    - - 知
+      - し
+    - - らないうちにレベルmaxになってました
+      - null
+    reading: スライム タオシテ 300 ネン、 シラナイ ウチ ニ レベル max ニ ナッテマシタ
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   スリーピングビューティーの見た夢:
     basis: translated
     en: The Dream Sleeping Beauty Had
@@ -32455,6 +32629,37 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  セフレ沼から抜け出せないっ!百合えっちアンソロジー:
+    basis: romaji
+    furigana_spans:
+    - - セフレ
+      - null
+    - - 沼
+      - ぬま
+    - - から
+      - null
+    - - 抜
+      - ぬ
+    - - け
+      - null
+    - - 出
+      - だ
+    - - せないっ!
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー
+      - null
+    reading: セフレ ヌマ カラ ヌケダセナ イッ! ユリ エッチ アンソロジー
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   セフレ沼から抜け出せないっ！百合えっちアンソロジー:
     basis: translated
     en: 'I Can''t Climb Out of the Friends with Benefits Swamp!: A Yuri Sex Anthology'
@@ -38534,6 +38739,24 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  メジロバナの咲く:
+    basis: romaji
+    furigana_spans:
+    - - メジロバナの
+      - null
+    - - 咲
+      - さ
+    - - く
+      - null
+    reading: メジロバナ ノ サク
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   メッてされてキャッ:
     basis: translated
     en: Scolded, and a Squeal
@@ -44385,6 +44608,30 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  '今日、お姉さんとエッチしない? : 百合アンソロジー':
+    basis: romaji
+    furigana_spans:
+    - - 今日
+      - きょう
+    - - 、お
+      - null
+    - - 姉
+      - ねえ
+    - - 'さんとエッチしない? : '
+      - null
+    - - 百合
+      - ゆり
+    - - アンソロジー
+      - null
+    reading: 'キョウ、 オネエサン ト エッチ シナイ?  :   ユリ アンソロジー'
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   今日、お姉さんとエッチしない？ 百合アンソロジー:
     basis: translated
     en: 'Want to Have Sex with an Older Woman Today?: A Yuri Anthology'
@@ -45898,6 +46145,32 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '偏愛至上主義 : 岩見樹代子作品集':
+    basis: romaji
+    furigana_spans:
+    - - 偏愛
+      - へんあい
+    - - 至上
+      - しじょう
+    - - 主義
+      - しゅぎ
+    - - ' : '
+      - null
+    - - 岩見
+      - いわみ
+    - - 樹代子
+      - きよこ
+    - - 作品集
+      - さくひんしゅう
+    reading: 'ヘンアイ シジョウ シュギ  :   イワミ キヨコ サクヒンシュウ'
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   偏愛至上主義～岩見樹代子作品集～:
@@ -66117,27 +66390,23 @@ names:
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
-    - - 暗殺
-      - あんさつ
-    - - 組合
-      - くみあい
+    - - 暗殺組合
+      - あさしんぎるど
     - - の
       - null
     - - 山田
       - やまだ
     - - さん
       - null
-    note: 組合 is a union or a guild in the sense of a trade body, which is what makes the title funny beside
-      暗殺.
-    reading: アンサツ クミアイ ノ ヤマダサン
-    reading_at: '2026-08-19'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
+    reading: アサシンギルド ノ ヤマダサン
+    reading_at: '2026-11-01'
+    reading_basis: stated
+    reading_note: the source writes this title 暗殺組合(アサシンギルド)の山田さん, which prints the reading of the run
+      before each bracket
     reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source: title-furigana
     reading_source_kind: analyser
-    verified: false
+    verified: true
   暗黒騎士団長と青春ガール:
     basis: translated
     en: The Dark Knight Commander and the Girl in Her Prime
@@ -70600,6 +70869,30 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '溺愛理想主義 : 岩見樹代子作品集':
+    basis: romaji
+    furigana_spans:
+    - - 溺愛
+      - できあい
+    - - 理想主義
+      - りそうしゅぎ
+    - - ' : '
+      - null
+    - - 岩見
+      - いわみ
+    - - 樹代子
+      - きよこ
+    - - 作品集
+      - さくひんしゅう
+    reading: 'デキアイ リソウシュギ  :   イワミ キヨコ サクヒンシュウ'
+    reading_at: '2026-11-01'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   溺愛理想主義～岩見樹代子作品集～:
@@ -85019,6 +85312,28 @@ names:
       and Rui asking for a kiss instead. The English follows the sentence directly.
     reading: タン プレ ナシ デ モ キス ワ ホシイ
     reading_at: '2026-10-29'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  誰かオオカミさんのしつけ方知りませんか!?:
+    basis: romaji
+    furigana_spans:
+    - - 誰
+      - だれ
+    - - かオオカミさんのしつけ
+      - null
+    - - 方
+      - かた
+    - - 知
+      - し
+    - - りませんか!?
+      - null
+    reading: ダレ カ オオカミサン ノ シツケカタ シリマセン カ!?
+    reading_at: '2026-11-01'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages

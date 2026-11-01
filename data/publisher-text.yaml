@@ -1,0 +1,22 @@
+# A publisher's own catalogue text that applies a §4 label, read by adapters/madb/by_publisher_text.py.
+#
+# WHAT GOES HERE. A book whose publisher, in its own description, calls the work 百合 or
+# ガールズラブ, where no imprint, platform tag or shelf reaches it. DEFINITIONS §4 counts a catalogue
+# entry as publisher-side labelling, and the text a retailer prints under 出版社内容情報 is the
+# publisher's catalogue entry as supplied to the trade, kept apart on the page from the shop's own
+# copy and from reader reviews. A 百合 in a review never qualifies.
+#
+# WHAT EACH ENTRY STATES. The ISBN the text was printed for, which selects the work's record from
+# the national bibliography, so the volumes and dates are MADB's and not ours. Then the label value,
+# the publisher's own word (`term`) exactly as printed, the sentence it is printed in, the page it
+# was read from and the day.
+source: operator
+record_type: publisher-text
+works:
+  - isbn: "9784592711841"
+    title: "メジロバナの咲く"
+    label: gl
+    term: "ガールズラブ"
+    quote: "全寮制の女学園を舞台に、繊細かつ芯の強い描線でルビーとステフの深まる関係を軸に紡がれる著者初の長編ガールズラブ、待望の第2巻。"
+    url: "https://www.kinokuniya.co.jp/f/dsg-01-9784592711841"
+    retrieved: 2026-11-01

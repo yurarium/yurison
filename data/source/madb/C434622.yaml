@@ -1,11 +1,11 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: C434622
 route: imprint-selection
-grouping: mixed
+grouping: title-match
 madb_id: C434622
 madb_url: https://mediaarts-db.artmuseums.go.jp/id/C434622
 record_type: manga_book_series
@@ -25,9 +25,9 @@ publishers:
 imprint: "Yurihime comics"
 imprint_stated: "IDコミックス / Yurihime comics"
 imprint_from: volumes
-volume_count: 8
+volume_count: 9
 first_published: 2019-12
-last_published: 2024-07
+last_published: 2026-07-20
 volumes:
   - madb_id: M813622
     number: "vol. 1"
@@ -77,11 +77,19 @@ volumes:
     number: "6"
     isbn: "9784758027229"
     published: 2024-07
+  - madb_id: M1115399
+    number: "7"
+    isbn: "9784758099653"
+    published: 2026-07-20
+  - madb_id: M1115511
+    number: "7"
+    isbn: "9784758099660"
+    published: 2026-07-20
 marketing_label: yuri
 marketing_label_basis:
   source: madb
   url: https://mediaarts-db.artmuseums.go.jp/id/C434622
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Published under a 一迅社 百合姫 imprint. The `imprint` field names the brand
     that was matched, spelled as MADB spells it (schema:brand). Imprint is

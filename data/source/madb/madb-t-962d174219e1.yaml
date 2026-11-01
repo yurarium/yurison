@@ -1,0 +1,44 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.21"
+retrieved: 2026-11-01
+work_id: madb-t-962d174219e1
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "ガールズ×ヴァンパイア"
+  yomi: "ガールズ ヴァンパイア"
+creator: "みかみてれん / 千種みのり / チグサミノリ / ミカミテレン"
+publisher: "秋田書店"
+imprint: "SHŌNEN CHAMPION COMICS"
+volume_count: 1
+first_published: 2026-08-21
+last_published: 2026-08-21
+volumes:
+  - madb_id: M1120878
+    number: "1"
+    isbn: "9784253018715"
+    published: 2026-08-21
+identified_by:
+  route: isbn-from-platform
+  platform: "チャンピオンクロス"
+  url: "https://championcross.jp/series/f30e2f58bbbdf"
+  retrieved: 2026-11-01
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-11-01
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

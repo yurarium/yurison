@@ -4219,9 +4219,10 @@ Japanese side states, on 2026-10-31:
 
 - **メジロバナの咲く** (中村明日美子, 白泉社). The publisher's own description of volumes 2 and 4,
   as 紀伊國屋 prints it under 出版社内容情報, calls it the author's first full-length ガールズラブ.
-  That is §4's `gl`, publisher-side. No route here reaches a record: BOOK☆WALKER does not sell it,
-  コミックシーモア is down, and the ISBN route needs a MADB release nobody has downloaded since
-  August (volume 2 is 978-4-592-71184-1).
+  That is §4's `gl`, publisher-side. **In since 2026-11-01** as w03521: the label is kept in
+  `data/publisher-text.yaml` with the sentence and the page, and `adapters/madb/by_publisher_text.py`
+  takes the record, four volumes from 2019-10 to 2024-09, from MADB release 1.2.21 by volume 2's
+  ISBN.
 - **ハナとヒナは放課後** (森永みるく, 双葉社), **フラグタイム** (さと, 秋田書店), **きのこ人間の結婚**
   (村山慶, 太田出版), **ななしのアステリズム** (小林キナ, スクウェア・エニックス), **遠藤靖子は夜迷町に
   隠れてる** (FLOWERCHILD, 少年画報社) and **紫色のクオリア** (綱島志朗, KADOKAWA's 電撃コミックス).
@@ -4231,6 +4232,6 @@ Japanese side states, on 2026-10-31:
   comparators that would admit them presumptively, could not be asked: the first is not reachable
   by search and the second is down.
 
-So all seven stay out until a comparator lists them or a publisher-side page is found. Nothing here
+So the other six stay out until a comparator lists them or a publisher-side page is found. Nothing here
 says they are not yuri: §4's `none` describes marketing, and a seinen venue like ヤングコミック or a
 general one like ガンガンONLINE withholds the label as a matter of course.

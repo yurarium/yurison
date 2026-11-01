@@ -13,20 +13,25 @@ THE ORDER, AND THE CLAUSE EACH RANK WAS READ OUT OF.
                   imprint among the things that establish `marketing_label: yuri`, and the source
                   that records it is the national bibliography, Tier A in REQUIREMENTS §1. Nothing
                   else here is both the publisher's own act and catalogued by an authority.
-  2 platform-tag  The same publisher's web arm applying a tag to its own title. §4 counts
+  2 description   The publisher's own catalogue text calling the work 百合 or ガールズラブ, read
+                  by a person and kept in data/publisher-text.yaml. §4 names a catalogue entry
+                  among publisher-side labelling. It ranks below the imprint because it is prose
+                  on a page, where the imprint is a field an authority catalogued, and above the
+                  platform tag because the publisher is speaking about the book itself.
+  3 platform-tag  The same publisher's web arm applying a tag to its own title. §4 counts
                   platform-side labelling, so this is a label and not a comparator. It ranks below
                   the imprint because it is a field on a page the platform rewrites at will and
                   because REQUIREMENTS §1 puts platforms in Tier B.
-  3 magazine      `marketing_label: magazine`, which §4 calls deliberately weaker than `yuri` and
+  4 magazine      `marketing_label: magazine`, which §4 calls deliberately weaker than `yuri` and
                   `gl` for attributing the venue's identity to the work.
-  4 shelf         A licensed retailer's yuri shelf. DEFINITIONS §2 admits it as a comparator,
+  5 shelf         A licensed retailer's yuri shelf. DEFINITIONS §2 admits it as a comparator,
                   presumptive and rebuttable; §4 says twice that it is never a `marketing_label`;
                   REQUIREMENTS §1 puts a reference site in Tier C.
-  5 listing       Any other comparator. §2 has a retailer standing above an aggregator without
+  6 listing       Any other comparator. §2 has a retailer standing above an aggregator without
                   becoming publisher-side, so a site that neither publishes the work nor sells it
                   sits at the bottom of the same branch.
 
-RANKS 3 AND 5 MATCH NOTHING IN THE CORPUS TODAY. They are here because §4 defines four label
+RANKS 4 AND 6 MATCH NOTHING IN THE CORPUS TODAY. They are here because §4 defines four label
 values and §2 defines two kinds of comparator, and a value the ranking cannot place would reach
 the page in whatever order the loop happened to build it. `rank()` raises on an unknown kind for
 the same reason: a missing rank must stop the build rather than sort silently to the top.
@@ -49,10 +54,14 @@ import re
 
 # Rank 1 is the strongest. The reasoning for each is in the docstring above; the string here is
 # what the emitted row carries so a reader of the data can find the clause without this file.
-RANK = {"imprint": 1, "platform-tag": 2, "magazine": 3, "shelf": 4, "listing": 5}
+#
+# ONE RANK PER KIND. The store holds rank as a unique key, so two kinds sharing a number would drop
+# one of them and refuse every evidence row of that kind on its foreign key.
+RANK = {"imprint": 1, "description": 2, "platform-tag": 3, "magazine": 4, "shelf": 5, "listing": 6}
 
 RULE = {
     "imprint": "DEFINITIONS §4 imprint; REQUIREMENTS §1 tier A",
+    "description": "DEFINITIONS §4 catalogue entry, the publisher's own text",
     "platform-tag": "DEFINITIONS §4 platform-side; REQUIREMENTS §1 tier B",
     "magazine": "DEFINITIONS §4 magazine, weaker than yuri and gl",
     "shelf": "DEFINITIONS §2 comparator, never §4; REQUIREMENTS §1 tier C",
@@ -61,7 +70,7 @@ RULE = {
 
 # What kind of party is speaking. The page translates these five words and nothing else in the
 # table, because everything else is a proper noun or a quotation.
-TYPE = {"imprint": "publisher", "platform-tag": "platform", "magazine": "magazine",
+TYPE = {"imprint": "publisher", "description": "publisher", "platform-tag": "platform", "magazine": "magazine",
         "shelf": "retailer", "listing": "listing"}
 
 # Where a label read from this source came from. A bibliography records the publisher's imprint;
@@ -172,6 +181,14 @@ def label_row(rec, platform=None):
     src = str(basis.get("source") or "").strip()
     if label == "magazine":
         kind, term = "magazine", str(rec.get("venue") or rec.get("magazine") or "").strip()
+        source = str(rec.get("publisher") or "").strip()
+    elif src == "publisher" and basis.get("term"):
+        # THE PUBLISHER'S WORD, as `by_publisher_text.py` copied it out of the sentence on the page.
+        # Checked before the imprint branch: the publisher is speaking either way, and a basis that
+        # quotes its own word is citing a description rather than an imprint.
+        kind, term = "description", str(basis.get("term") or "").strip()
+        if not YURI_TERM.search(term):
+            return None
         source = str(rec.get("publisher") or "").strip()
     elif src in PLATFORM_SIDE:
         kind = "platform-tag"

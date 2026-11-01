@@ -7,6 +7,10 @@
 # through the backlog over several weeks. A shop that is down costs that week and is recorded as a
 # failed source like any other; what each file already holds stays.
 #
+# The national bibliography's monthly release is fetched here too, and the MADB routes read it
+# after the shops: each route asks it about ISBNs or titles one of the captures above states, so
+# it runs on what this week's captures hold.
+#
 # The National Diet Library is not here. Its search API is under a path its robots.txt disallows,
 # which the project takes literally (adapters/names/ndl_reading.py), so the NDL passes stay frozen
 # until the owner decides otherwise.
@@ -51,3 +55,46 @@ commands:
     optional: true
     every_days: 7
     argv: [adapters/cmoa_volumes.py, --limit, "200"]
+
+  # ── the national bibliography ─────────────────────────────────────────────────────────────────
+  # Its newest release into {CACHE}/madb-cache/current, which costs one request when it is held.
+  # Each route below reads the tag from there, so a record states the release it was read from.
+  - id: madb-release
+    optional: true
+    every_days: 7
+    argv: [adapters/madb/release.py, --root, "{CACHE}/madb-cache"]
+
+  # The 百合姫 imprints, then the publisher texts a person found, then the ISBNs the shops and the
+  # platforms state, then the shop query, in that order: each route leaves alone a work an earlier
+  # one holds, and the imprint is the strongest evidence any of them carries.
+  - id: madb-imprint
+    optional: true
+    every_days: 7
+    argv: [adapters/madb/extract.py, --cache, "{CACHE}/madb-cache/current", --out, data/source/madb]
+
+  - id: madb-publisher-text
+    optional: true
+    every_days: 7
+    argv: [adapters/madb/by_publisher_text.py, --cache, "{CACHE}/madb-cache/current"]
+
+  - id: madb-isbn
+    optional: true
+    every_days: 7
+    argv: [adapters/madb/by_isbn.py, --cache, "{CACHE}/madb-cache/current",
+           --capture, data/queue/cmoa-volumes.yaml]
+
+  - id: madb-platform-isbn
+    optional: true
+    every_days: 7
+    argv: [adapters/madb/by_platform_isbn.py, --cache, "{CACHE}/madb-cache/current"]
+
+  - id: madb-shop-query
+    optional: true
+    every_days: 7
+    argv: [adapters/madb/by_shop_query.py, --cache, "{CACHE}/madb-cache/current"]
+
+  # Dates for BOOK☆WALKER rows the shop leaves undated, joined on a title and a person.
+  - id: madb-title
+    optional: true
+    every_days: 7
+    argv: [adapters/madb/by_title.py, --cache, "{CACHE}/madb-cache/current"]

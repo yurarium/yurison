@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: C340797
 route: isbn-from-platform
 grouping: series-link
@@ -14,6 +14,7 @@ title:
   yomi: "コウカク ノ パンドラ"
 creator: "[原案]士郎正宗 / [漫画]六道神士"
 publisher: "角川書店"
+distributor: "角川グループパブリッシング"
 publisher_stated: "[発売]角川グループパブリッシング / 角川書店"
 publisher_from: volumes
 publishers:
@@ -115,7 +116,7 @@ identified_by:
   route: isbn-from-platform
   platform: "pixivコミック"
   url: "https://comic.pixiv.net/works/2082"
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     The work's own platform page links the shops selling its collected volumes, and
     the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
@@ -124,7 +125,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: https://mediaarts-db.artmuseums.go.jp/id/C340797
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Identified from the work's own platform page, which links the shops selling
     its collected volumes. A link to a shop is not publisher-side labelling

@@ -1,11 +1,11 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: C450012
 route: isbn-from-platform
-grouping: mixed
+grouping: title-match
 madb_id: C450012
 madb_url: https://mediaarts-db.artmuseums.go.jp/id/C450012
 record_type: manga_book_series
@@ -15,9 +15,9 @@ title:
 creator: "[著]ゆざきさかおみ"
 publisher: "KADOKAWA"
 imprint: "it COMICS"
-volume_count: 5
+volume_count: 6
 first_published: 2021-06
-last_published: 2024-02
+last_published: 2026-06-20
 volumes:
   - madb_id: M849463
     number: "1"
@@ -39,11 +39,15 @@ volumes:
     number: "5"
     isbn: "9784049153378"
     published: 2024-02
+  - madb_id: M1115268
+    number: "6"
+    isbn: "9784049159950"
+    published: 2026-06-20
 identified_by:
   route: isbn-from-platform
   platform: "pixivコミック"
   url: "https://comic.pixiv.net/works/7182"
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     The work's own platform page links the shops selling its collected volumes, and
     the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
@@ -52,7 +56,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: https://mediaarts-db.artmuseums.go.jp/id/C450012
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Identified from the work's own platform page, which links the shops selling
     its collected volumes. A link to a shop is not publisher-side labelling

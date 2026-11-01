@@ -1,0 +1,102 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.21"
+retrieved: 2026-11-01
+work_id: C301214
+route: shop-query
+grouping: series-link
+madb_id: C301214
+madb_url: https://mediaarts-db.artmuseums.go.jp/id/C301214
+record_type: manga_book_series
+title:
+  ja: "まりあ✝ほりっく"
+  yomi: "マリア ホリック"
+creator: "[著]遠藤海成"
+publisher: "メディアファクトリー"
+imprint: "MFコミックス　／　アライブシリーズ"
+volume_count: 14
+first_published: 2007-02
+last_published: 2015-02
+volumes:
+  - madb_id: M431764
+    number: "1"
+    isbn: "9784840116763"
+    published: 2007-02
+  - madb_id: M236549
+    number: "2"
+    isbn: "9784840119740"
+    published: 2007-11
+  - madb_id: M236545
+    number: "3"
+    isbn: "9784840122467"
+    published: 2008-07
+  - madb_id: M236542
+    number: "4"
+    isbn: "9784840125031"
+    published: 2008-12
+  - madb_id: M236515
+    number: "5"
+    isbn: "9784840125949"
+    published: 2009-10
+  - madb_id: M236519
+    number: "5"
+    isbn: "9784840125956"
+    published: 2009-10
+  - madb_id: M236517
+    number: "6"
+    isbn: "9784840129886"
+    published: 2010-02
+  - madb_id: M236512
+    number: "7"
+    isbn: "9784840133883"
+    published: 2010-10-31
+  - madb_id: M401053
+    number: "8"
+    isbn: "9784840137751"
+    published: 2011-03-31
+  - madb_id: M385208
+    number: "9"
+    isbn: "9784840144148"
+    published: 2012-02-29
+  - madb_id: M385209
+    number: "10"
+    isbn: "9784840147521"
+    published: 2012-11-30
+  - madb_id: M385210
+    number: "11"
+    isbn: "9784840147972"
+    published: 2013-02-28
+  - madb_id: M405633
+    number: "12"
+    isbn: "9784840153324"
+    published: 2013-09-30
+  - madb_id: M417987
+    number: "13"
+    isbn: "9784040662480"
+    published: 2014-01
+  - madb_id: M456015
+    number: "14"
+    isbn: "9784040672410"
+    published: 2015-02
+identified_by:
+  route: shop-query
+  shop: bookwalker.jp
+  query: "author"
+  url: "https://bookwalker.jp/series/153486/list/"
+  serialisation: "カドコミ"
+  retrieved: 2026-11-01
+  note: >-
+    The shop was asked what it stocks for a work this database already held, and its
+    answer agreed on the title and on a person. A shop is discovery only
+    (REQUIREMENTS §1) and states no ISBN here; this record is the national
+    bibliography's, joined on the title and on a person's name.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: https://mediaarts-db.artmuseums.go.jp/id/C301214
+  retrieved: 2026-11-01
+  note: >-
+    Identified by asking a licensed retailer what it stocks for a work this database
+    already held. A shop's stock is not publisher-side labelling (§4), so this
+    axis stays `none`, which says nothing about content.

@@ -406,6 +406,20 @@ def main(s):
     s.check('distributor: "講談社"' in nopub, "with the party MADB did name in its own field")
     s.check('publisher_stated: "[頒布]講談社"' in nopub, "and the string all of it was read out of")
 
+    # THE RELEASE A RECORD STATES IS THE ONE IT WAS READ FROM. `release.py` writes RELEASE.json
+    # beside the files it installs, and a route that names the directory takes the tag from there.
+    import argparse
+    import json
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        (pathlib.Path(d) / "RELEASE.json").write_text(json.dumps(
+            {"tag": "1.2.21", "published": "2026-10-16", "retrieved": "2026-11-01"}))
+        a = m.pinned(argparse.Namespace(cache=d, tag=None, retrieved=None))
+        s.eq((a.tag, a.retrieved), ("1.2.21", "2026-11-01"),
+             "a route given only the directory states the installed release and its day")
+        a = m.pinned(argparse.Namespace(cache=d, tag="1.2.18", retrieved="2026-08-05"))
+        s.eq((a.tag, a.retrieved), ("1.2.18", "2026-08-05"), "while a tag typed in still wins")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "madb.extract"))

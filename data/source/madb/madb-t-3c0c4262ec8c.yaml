@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.21"
+retrieved: 2026-11-01
+work_id: madb-t-3c0c4262ec8c
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "むちむち漫画家の完全勝利メシ : 最強ボディで余命も担当編集もぶっ飛ばす"
+  yomi: "ムチムチ マンガカ ノ カンゼン ショウリ メシ : サイキョウ ボディ デ ヨメイ モ タントウ ヘンシュウ モ ブットバス !"
+creator: "夏鈴糖 / カリントウ"
+publisher: "竹書房"
+imprint: "Bamboo comics"
+volume_count: 3
+first_published: 2025-05-30
+last_published: 2026-07-17
+volumes:
+  - madb_id: M1063440
+    number: "1"
+    isbn: "9784801986411"
+    published: 2025-05-30
+  - madb_id: M1119240
+    number: "2"
+    isbn: "9784801990227"
+    published: 2026-07-17
+  - madb_id: M1119230
+    number: "3"
+    isbn: "9784801990234"
+    published: 2026-07-17
+identified_by:
+  route: isbn-from-platform
+  platform: "竹コミ"
+  url: "https://takecomic.jp/series/1c1afe76da717"
+  retrieved: 2026-11-01
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-11-01
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

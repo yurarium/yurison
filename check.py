@@ -4242,6 +4242,11 @@ def budget_labels_with_nothing_to_quote(ctx):
         imp = str(rec.get("imprint") or "")
         if YURI_TERM_IN_IMPRINT.search(imp):
             return True
+        # A LABEL READ FROM THE PUBLISHER'S OWN TEXT QUOTES THE PUBLISHER'S WORD, which
+        # `by_publisher_text.py` stores as the basis's `term`. メジロバナの咲く has no imprint
+        # making the claim and its record holds the ガールズラブ the reader is shown.
+        if YURI_TERM_IN_IMPRINT.search(str((rec.get("marketing_label_basis") or {}).get("term") or "")):
+            return True
         line = _imp.resolve(rec.get("publisher"), imp, _idx)
         return bool(line and YURI_TERM_IN_IMPRINT.search(str(line.get("name") or "")))
 

@@ -3283,6 +3283,16 @@ def _store_census(src_health, scalars):
         print(f"store           : the census was not recorded ({why.__class__.__name__}: {why})")
 
 
+def madb_release(files):
+    """The newest MADB release tag the given records state as `source_version`, or None."""
+    tags = set()
+    for f in files:
+        m = re.search(r'^source_version: "?([0-9][0-9.]*)"?$', pathlib.Path(f).read_text(), re.M)
+        if m:
+            tags.add(m.group(1))
+    return max(tags, key=lambda t: tuple(int(x) for x in t.split(".") if x), default=None)
+
+
 def write_run_record(out, _today, releases, platforms, works, series_rows,
                      claim_trace, dropped_dupes, thin_dropped, resolver_dropped,
                      filled_author, filled_access, samples, catalogue_rows=()):
@@ -3545,7 +3555,11 @@ def write_run_record(out, _today, releases, platforms, works, series_rows,
                 # differ by the works still awaiting an identifier, and the status page called
                 # both of them "works".
                 "series_addressable": sum(1 for r in series_rows
-                                          if str(r.get("id") or "").startswith("w"))}
+                                          if str(r.get("id") or "").startswith("w")),
+                # THE BIBLIOGRAPHY'S RELEASE, which the site's footer cites. It was typed into the
+                # footer as 1.2.18 and stayed there when `madb/release.py` moved the routes on, so
+                # it is read off the records: the newest release any of them states.
+                "madb_release": madb_release(glob.glob("data/source/madb/*.yaml"))}
     for _section, _got in (("identification", dict(Counter(r.get("ident") for r in releases))),
                            ("collapsed", {"duplicate_chapters": dropped_dupes,
                                           "thin_sitemap": thin_dropped,

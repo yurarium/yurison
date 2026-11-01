@@ -171,8 +171,8 @@ def identified_by(lead, retrieved):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--cache", required=True, help="a pinned MADB release directory")
-    ap.add_argument("--tag", required=True, help="MADB release tag, recorded in every record")
-    ap.add_argument("--retrieved", required=True, help="ISO date the cache was downloaded")
+    ap.add_argument("--tag", help="MADB release tag; read from RELEASE.json by default")
+    ap.add_argument("--retrieved", help="ISO date the cache was downloaded; RELEASE.json by default")
     ap.add_argument("--capture", nargs="+", default=[CAPTURE])
     ap.add_argument("--out", default="data/source/madb")
     ap.add_argument("--joins", default="data/queue/shop-query-joins.yaml",
@@ -181,6 +181,7 @@ def main(argv=None):
                     help="hits the shop matched on the title alone, recorded and joined to nothing")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
+    extract.pinned(a)
 
     found = leads(a.capture)
     if not found:

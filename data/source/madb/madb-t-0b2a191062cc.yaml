@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.18"
-retrieved: 2026-08-07
+source_version: "1.2.21"
+retrieved: 2026-11-01
 work_id: madb-t-0b2a191062cc
 route: shop-query
 grouping: title-only
@@ -16,9 +16,9 @@ title:
 creator: "SWAV / アサウラ1984- / 西馬ごめゆき / アサウラ1984- / ニシマゴメユキ"
 publisher: "小学館"
 imprint: "コロコロコミックススペシャル"
-volume_count: 9
+volume_count: 10
 first_published: 2024-05
-last_published: 2026-06-22
+last_published: 2026-09-14
 volumes:
   - madb_id: M968892
     number: "1"
@@ -56,13 +56,17 @@ volumes:
     number: "9"
     isbn: "9784091542694"
     published: 2026-06-22
+  - madb_id: M1120706
+    number: "10"
+    isbn: "9784091543202"
+    published: 2026-09-14
 identified_by:
   route: shop-query
   shop: bookwalker.jp
   query: "author"
   url: "https://bookwalker.jp/series/468696/list/"
   serialisation: "コロコロオンライン"
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     The shop was asked what it stocks for a work this database already held, and its
     answer agreed on the title and on a person. A shop is discovery only
@@ -72,7 +76,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-08-07
+  retrieved: 2026-11-01
   note: >-
     Identified by asking a licensed retailer what it stocks for a work this database
     already held. A shop's stock is not publisher-side labelling (§4), so this

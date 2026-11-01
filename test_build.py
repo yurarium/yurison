@@ -469,6 +469,16 @@ def main(s):
     s.check(b.work_level_key("鈴木りつ短編集", "ニコニコ漫画") != b.work_level_key("鈴木りつ短編集", "カドコミ"),
             "and one platform's date is not another's")
 
+    # THE FOOTER CITES THE RELEASE THE RECORDS STATE, compared as a version and not as text.
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        for name, tag in (("a", "1.2.9"), ("b", "1.2.21"), ("c", None)):
+            (pathlib.Path(d) / f"{name}.yaml").write_text(
+                f'source_version: "{tag}"\n' if tag else "source: madb\n")
+        s.eq(b.madb_release(sorted(str(p) for p in pathlib.Path(d).iterdir())), "1.2.21",
+             "the newest release any record states, 1.2.21 above 1.2.9")
+    s.eq(b.madb_release([]), None, "and none where no record states one")
+
     # A PARTIAL LISTING READ AFTER A CLAIM MAY SAY WE LOOKED, and never says more.
     s.check(b.quiet_listing((["2026-09-07"], "2026-10-31"), "2026-10-08"),
             "a listing read after the claim, showing nothing near it, is a look that found nothing")

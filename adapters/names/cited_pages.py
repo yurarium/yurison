@@ -16,7 +16,7 @@ WHAT IT RECORDS, per address, in data/state/cited-pages.yaml:
               the page states them; a reading's catalogue page states kana, not English.
   absent      404 or 410. `absent_runs` counts the runs in a row that said so, because one 404
               during a deploy is not evidence (net.py, WHAT THIS DOES NOT DO). An answer resets it.
-  refused     the host declined: 403, 5xx, a timeout, or no answer for its robots.txt. Says nothing
+  refused     the host declined: 403, 5xx, a timeout. Says nothing
               about the page, so it leaves `absent_runs` where it was, and it is asked again after
               RETRY_REFUSED days rather than at the next rotation.
   disallowed  robots.txt asks us not to fetch it, so nothing was sent. Not a fault in the entry.
@@ -213,8 +213,13 @@ def run(doc, state, today, fetch_all, robots, limit=None, recheck_days=90):
 
     `fetch_all` returns `{url: net.Result}`; net.fetch_many keeps each host serial at its own pause
     while hosts run side by side. `robots(host)` returns the host's robots.txt body, None for no
-    file, or raises net.Refused when the host would not say, and a host that will not say is not
-    fetched this run. Both are passed in so a test drives the whole sweep with no network.
+    file, or raises net.Refused when the host would not serve one. Both are passed in so a test
+    drives the whole sweep with no network.
+
+    A HOST THAT DECLINES TO SERVE A ROBOTS.TXT HAS STATED NO RULE, so it is read as having none. The
+    project owner's ruling, 2026-11-01. It opens the image CDNs that answer the file with a 403.
+    Seven Seas answers the file and its pages alike with a Cloudflare 520, so its pages still come
+    back refused, and that refusal is recorded against each page rather than retried around.
     """
     cites = cited(doc)
     rules, counts, wanted = {}, {}, []
@@ -227,16 +232,11 @@ def run(doc, state, today, fetch_all, robots, limit=None, recheck_days=90):
         host = urllib.parse.urlparse(url).netloc
         if host not in rules:
             try:
-                rules[host] = ("ok", robots(host))
+                rules[host] = robots(host)
             except net.Refused:
-                rules[host] = ("refused", None)
-        status, body = rules[host]
-        if status == "refused":
-            # Recorded, so the state shows the address was asked about and the host would not say.
-            record(state, url, "refused", today, cites[url])
-            state[url]["why"] = "robots.txt unanswered"
-            counts["robots unanswered"] = counts.get("robots unanswered", 0) + 1
-        elif not robots_allows(body, url):
+                rules[host] = None
+                counts["robots.txt not served"] = counts.get("robots.txt not served", 0) + 1
+        if not robots_allows(rules[host], url):
             record(state, url, "disallowed", today, cites[url])
             counts["disallowed"] = counts.get("disallowed", 0) + 1
         else:

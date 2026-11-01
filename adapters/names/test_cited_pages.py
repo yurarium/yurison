@@ -114,14 +114,15 @@ def main(s):
 
     def refusing(host):
         raise net.Refused("no")
-    s.eq(cp.run(DOC, {}, day1, fetch_all, refusing), {"robots unanswered": 6},
-         "a host whose robots.txt will not answer is not fetched at all")
-
-    blocked = {}
-    cp.run(DOC, blocked, day1, fetch_all, refusing)
-    s.eq(blocked[REAL]["outcome"], "refused", "and each address it would have opened says so")
-    s.eq(len(cp.due(blocked, cites, day2, None, 90)), len(cites),
-         "a refusal is asked again after a week, not at the next rotation")
+    s.eq(cp.run(DOC, {}, day1, fetch_all, refusing)["robots.txt not served"], 6,
+         "each host whose robots.txt is not served is counted once")
+    open_ = {}
+    cp.run(DOC, open_, day1, fetch_all, refusing)
+    s.eq(open_[PRIVATE]["outcome"], "refused",
+         "and read as stating no rule, so its pages are opened and record what they answered")
+    s.eq(open_[REAL]["outcome"], "answered", "a page behind an unserved robots.txt is read")
+    s.eq(len(cp.due(open_, cites, day2, None, 90)), 1,
+         "a refused page is asked again after a week, not at the next rotation")
 
     gone = {"https://example.jp/old": {"checked": "2026-10-01", "outcome": "absent",
                                         "absent_runs": 3}}

@@ -1330,6 +1330,14 @@ lines:
     spellings:
       - ガンガンコミックスonline
 
+  - id: gangan-comics-joker
+    publishers: [スクウェア・エニックス]
+    name: ガンガンコミックスjoker
+    parent: ガンガンコミックス
+    name_basis: *squareenix
+    spellings:
+      - ガンガンコミックスjoker
+
   - id: gangan-comics-up
     publishers: [スクウェア・エニックス]
     name: ガンガンコミックスup!
@@ -1437,6 +1445,15 @@ lines:
       note: Four rows.
     spellings:
       - ヤングアンリアルコミックス
+
+  - id: brise-comics
+    publishers: [キルタイムコミュニケーション]
+    name: ブリーゼコミックス
+    name_basis:
+      source: corpus
+      note: One row, from the national bibliography's 1.2.21 release.
+    spellings:
+      - ブリーゼコミックス
 
   - id: shiny-comics
     publishers: [キルタイムコミュニケーション]
@@ -1767,6 +1784,18 @@ lines:
       note: the only spelling the corpus carries, on a house running no other line here
     spellings:
       - Bunkasha comics
+  - id: orsis
+    publishers: [ぶんか社]
+    name: orSiS
+    parent: Bunkasha comics
+    name_basis:
+      source: corpus
+      note: >-
+        Three BOOK☆WALKER rows write `orSiS` and the same three books in the national bibliography
+        write `Bunkasha comics. Orsis`, whose last segment is this line. The shop's casing is the
+        one the books carry.
+    spellings:
+      - orSiS
   - id: bunkasha-horror-m
     publishers: [ぶんか社]
     name: ぶんか社コミックス ホラーMシリーズ
@@ -1775,6 +1804,14 @@ lines:
       note: the only spelling the corpus carries, on a house running no other line here
     spellings:
       - ぶんか社コミックス ホラーMシリーズ
+  - id: glast-comics
+    publishers: [スターツ出版]
+    name: グラストCOMICS
+    name_basis:
+      source: corpus
+      note: the only spelling the corpus carries, on a house running no other line here
+    spellings:
+      - グラストCOMICS
   - id: border-comics
     publishers: [リイド社]
     name: ボーダーコミックス

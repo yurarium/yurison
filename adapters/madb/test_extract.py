@@ -135,6 +135,20 @@ def main(s):
     s.eq(m.key_of(KOD, ser2, m.title_index(ser2))[1], "title-match", "and the volume still joins")
     s.eq(m.people(KOD), {"なもり"}, "a role and a trailing reading are not people")
 
+    # ── THE CREATOR FIELD CARRIES NAMES, NOT THE READINGS LISTED AFTER THEM ─────────────────────
+    #
+    # ` / ` is the separator between people for every consumer, so writing the readings into the
+    # field made ジャコ and フシミツカサ two more authors.
+    TWO = {"schema:creator": ["じゃこ", "伏見つかさ", {"@value": "ジャコ", "@language": "ja-hrkt"},
+                              {"@value": "フシミツカサ", "@language": "ja-hrkt"}]}
+    s.eq(m.creator(TWO), "じゃこ / 伏見つかさ", "the readings stay out of the creator field")
+    s.eq(m.creator({"schema:creator": ["ヒジキ", {"@value": "ヒジキ", "@language": "ja-hrkt"}]}),
+         "ヒジキ", "a katakana name keeps itself when its reading repeats it")
+    s.eq(m.creator({"schema:creator": "[原作]森田季節 / [漫画]シバユウスケ"}),
+         "[原作]森田季節 / [漫画]シバユウスケ", "a field stated as one string is written as stated")
+    s.eq(m.creator({"schema:creator": {"@value": "ルゥ", "@language": "ja-hrkt"}}), "",
+         "a field holding only a reading names nobody")
+
     # AND THE CASE THE SAME HANDOVER TAKES WHEN NOBODY IS CREDITED. citrus is catalogued under
     # both houses with no creator on either record, which is said to leave the date as the only
     # field. It does not: the imprint is IDコミックス on both sides and joins them.

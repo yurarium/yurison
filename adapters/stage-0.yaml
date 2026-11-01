@@ -6,6 +6,15 @@
 # candidate list is rebuilt from whatever is there. See update.yml for each pass's history.
 sequential: true
 commands:
+  # THE NATIONAL BIBLIOGRAPHY'S RELEASE, into {CACHE}/madb-cache/current. Here and not in the print
+  # intake because openBD enrichment in Stage A reads the same release, and Stage A runs first: on
+  # 2026-11-01, the first run, openBD found no release and enriched nothing while the print intake
+  # downloaded one twenty minutes later. A held release costs one request.
+  - id: madb-release
+    optional: true
+    every_days: 7
+    argv: [adapters/madb/release.py, --root, "{CACHE}/madb-cache"]
+
   - id: yurinavi-discover
     optional: true
     argv: [adapters/yurinavi/discover.py, --out, data/queue, --cache, "{CACHE}/yurinavi-cache",

@@ -57,12 +57,8 @@ commands:
     argv: [adapters/cmoa_volumes.py, --limit, "200"]
 
   # ── the national bibliography ─────────────────────────────────────────────────────────────────
-  # Its newest release into {CACHE}/madb-cache/current, which costs one request when it is held.
-  # Each route below reads the tag from there, so a record states the release it was read from.
-  - id: madb-release
-    optional: true
-    every_days: 7
-    argv: [adapters/madb/release.py, --root, "{CACHE}/madb-cache"]
+  # Each route below reads {CACHE}/madb-cache/current and the tag from there, so a record states
+  # the release it was read from. The release itself is fetched in Stage 0 (adapters/stage-0.yaml).
 
   # The 百合姫 imprints, then the publisher texts a person found, then the ISBNs the shops and the
   # platforms state, then the shop query, in that order: each route leaves alone a work an earlier

@@ -505,6 +505,20 @@ def strip_role(part):
     return re.sub(r"\[[著作画原訳編監修構成脚本案翻・\s]*\]", "", name).strip()
 
 
+def creator(rec):
+    """The creator field as the record states it, the names without the readings MADB lists after.
+
+    MADB gives `["じゃこ", "伏見つかさ", {ja-hrkt: "ジャコ"}, {ja-hrkt: "フシミツカサ"}]`, and
+    writing it `flat` joined all four with ` / `, which is the separator between people. Every
+    consumer splits on it, so ジャコ and フシミツカサ became two more authors, and a kana name
+    standing beside its own reading was counted as two people under one reading. On release 1.2.21
+    that was 23 more one-word romanised names and 16 more kana names with no stated division.
+
+    A field holding only a reading (17 records in that release) names nobody, so it writes empty.
+    """
+    return " / ".join(values(rec.get("schema:creator", "")))
+
+
 def people(rec):
     """The creators named on a record, without their roles, and without a bare reading."""
     out = set()
@@ -723,7 +737,7 @@ def render(sid, vs, series, how, tag, retrieved, route, label, extra=(), basis=N
     imprint, imprec = imprint_of(chain)
     imp_stated = as_stated(imprec.get("schema:brand", ""))
     L += [
-        f"creator: {yaml_str(flat(s.get('schema:creator', '')))}",
+        f"creator: {yaml_str(creator(s))}",
         f"publisher: {yaml_str(who.name)}",
     ]
     # WHY THE SEAT IS EMPTY, on the record and not left to a consumer to infer from an empty

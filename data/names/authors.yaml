@@ -67,18 +67,6 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
-  4ka エンピツ:
-    basis: romaji
-    reading: 4ka エンピツ
-    reading_at: '2026-08-05'
-    reading_basis: analyser
-    reading_boundary: the kana in its own surface
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: sudachi
-    reading_source_kind: analyser
-    verified: false
   4kaえんぴつ:
     basis: romaji
     reading: 4ka エンピツ
@@ -1561,18 +1549,6 @@ names:
     reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q90885203
     script: latin
-    verified: false
-  sasaクマ:
-    basis: romaji
-    reading: sasa クマ
-    reading_at: '2026-08-09'
-    reading_basis: analyser
-    reading_boundary: the kana in its own surface
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
-    reading_source_kind: analyser
     verified: false
   sasa熊:
     basis: romaji
@@ -9140,49 +9116,10 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  アイザキウタウ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: アイザキ ウタウ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_boundary: 相崎うたう
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アオトヒビキ:
-    basis: romaji
-    reading: アオト ヒビキ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: あおと響
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   アオバ:
     basis: romaji
     reading: アオバ
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アカイマルボロウ:
-    basis: romaji
-    reading: アカイ マルボロウ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 赤衣丸歩郎
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アカギナツイチ:
-    basis: romaji
-    reading: アカギナツイチ
-    reading_at: '2026-08-13'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -9195,30 +9132,11 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  アガリザキユイコ:
-    basis: romaji
-    reading: アガリザキ ユイコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 東崎惟子
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   アキココット:
     basis: romaji
     reading: アキココット
     reading_at: '2026-08-07'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アキヤマハル:
-    basis: romaji
-    reading: アキヤマ ハル
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 秋山はる
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -9264,14 +9182,6 @@ names:
     reading_reviewed: '2026-08-07'
     reading_source_kind: derived
     verified: true
-  アゲハル:
-    basis: romaji
-    reading: アゲハル
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   アサウラ:
     basis: romaji
     en: Asaura
@@ -9300,16 +9210,6 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  アサキハヤト:
-    basis: romaji
-    reading: アサキ ハヤト
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 麻貴早人
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   アサギユメ:
     basis: romaji
     reading: アサギ ユメ
@@ -9348,15 +9248,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  アサノヤグラ:
-    basis: romaji
-    reading: アサノ ヤグラ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 朝野やぐら
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   アサルトリリィプロジェクト:
     basis: romaji
     en: Assault Lily Project
@@ -9370,14 +9261,6 @@ names:
       Asarutoririipurojekuto.'
     reading: アサルトリリィプロジェクト
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アシダカオズ:
-    basis: romaji
-    reading: アシダカオズ
-    reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -9503,77 +9386,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  アビシニアン:
-    basis: romaji
-    reading: アビシニアン
-    reading_at: '2026-08-13'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アボウサトル:
-    basis: romaji
-    reading: アボウ サトル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 安房さとる
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アマザキスイカ:
-    basis: romaji
-    reading: アマザキ スイカ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 甘崎 水菓, 甘崎水菓
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アマネ:
-    basis: romaji
-    reading: アマネ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アマミアンナ:
-    basis: romaji
-    reading: アマミ アンナ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 天海杏菜
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アメミクロ:
-    basis: romaji
-    reading: アメミクロ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アヤサトケイシ:
-    basis: romaji
-    reading: アヤサト ケイシ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 綾里けいし
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アヤノウラスケ:
-    basis: romaji
-    reading: アヤノ ウラスケ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 彩乃浦助
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   アラカワシン:
     basis: romaji
     reading: アラカワ シン
@@ -9588,22 +9400,6 @@ names:
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
     reading_url: http://id.ndl.go.jp/auth/entity/01239045
-    verified: true
-  アリノキンゴ:
-    basis: romaji
-    reading: アリノキンゴ
-    reading_at: '2026-08-13'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  アリマ:
-    basis: romaji
-    reading: アリマ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
     verified: true
   アルト:
     basis: romaji
@@ -9650,31 +9446,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  アンミツキ:
-    basis: romaji
-    reading: アンミツキ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イガラシジュン:
-    basis: romaji
-    reading: イガラシ ジュン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 五十嵐純
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イクタハナ:
-    basis: romaji
-    reading: イクタハナ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   イケダケイスケ:
     basis: romaji
     reading: イケダ ケイスケ
@@ -9710,56 +9481,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  イシトユラ:
-    basis: romaji
-    reading: イシト ユラ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 石ト悠良
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イズミケンタロウ:
-    basis: romaji
-    reading: イズミケンタロウ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イズミノセン:
-    basis: romaji
-    reading: イズミノ セン
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 泉乃せん
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イチジンシャ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: イチジンシャ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イトウハチ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: イトウ ハチ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_boundary: 伊藤ハチ
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   イトウモロコ:
     basis: romaji
     reading: イトウ モロコ
@@ -9774,32 +9495,6 @@ names:
     reading_source: ndlsearch.ndl.go.jp
     reading_source_kind: derived
     reading_url: http://id.ndl.go.jp/auth/entity/031704478
-    verified: true
-  イドンチ:
-    basis: romaji
-    reading: イドンチ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イヌカイアンズ:
-    basis: romaji
-    reading: イヌカイ アンズ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 犬甘あんず
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イヌヤマアム:
-    basis: romaji
-    reading: イヌヤマ アム
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 犬山あむ
-    reading_pass: 1
-    reading_source: surface
     verified: true
   イノウエ:
     basis: romaji
@@ -9878,34 +9573,6 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033378875
     verified: true
-  イルマヒトマ:
-    basis: romaji
-    reading: イルマ ヒトマ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 入間人間
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イワシタケイ:
-    basis: romaji
-    reading: イワシタ ケイ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 岩下継
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  イワミキヨコ:
-    basis: romaji
-    reading: イワミ キヨコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 岩見樹代子
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   インド僧:
     basis: romaji
     reading: インドソウ
@@ -9939,62 +9606,6 @@ names:
     reading_reviewed: '2026-08-07'
     reading_source_kind: derived
     verified: true
-  ウサミミキ:
-    basis: romaji
-    reading: ウサミ ミキ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: うさみみき
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ウスイシオ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: ウスイ シオ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_boundary: 雨水汐
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ウスイトモミ:
-    basis: romaji
-    reading: ウスイ トモミ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 臼井ともみ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ウノハナツカサ:
-    basis: romaji
-    reading: ウノハナツカサ
-    reading_at: '2026-08-13'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ウハナリリカ:
-    basis: romaji
-    reading: ウハナ リリカ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 卯花りりか
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ウミノアロイ:
-    basis: romaji
-    reading: ウミノ アロイ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 海野アロイ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ウミノモクズ:
     basis: romaji
     reading: ウミ ノ モクズ
@@ -10014,14 +9625,6 @@ names:
     basis: romaji
     reading: ウメ
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ウラアラレ:
-    basis: romaji
-    reading: ウラアラレ
-    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -10046,22 +9649,6 @@ names:
     reading_source_kind: analyser
     reading_uncertain: true
     verified: false
-  エビガワケイ:
-    basis: romaji
-    reading: エビガワケイ
-    reading_at: '2026-08-13'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  エモフウ:
-    basis: romaji
-    reading: エモフウ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   エリーゼ:
     basis: romaji
     en_at: '2026-08-02'
@@ -10081,101 +9668,11 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  オウチカエル:
-    basis: romaji
-    reading: オウチ カエル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 御家かえる
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  オオイシヒビ:
-    basis: romaji
-    reading: オオイシ ヒビ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 大石日々
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  オオサワヤヨイ:
-    basis: romaji
-    reading: オオサワ ヤヨイ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 大沢やよい
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  オオタカシン:
-    basis: romaji
-    reading: オオタカ シン
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 大鷹シン
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   オオハチ:
     basis: romaji
     reading: オオハチ
     reading_at: '2026-08-06'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  オガワイッスイ:
-    basis: romaji
-    reading: オガワ イッスイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 小川一水
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  オギシロ:
-    basis: romaji
-    reading: オギシロ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  オドロオドロシー:
-    basis: romaji
-    reading: オドロオ ドロシー
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 棘尾どろしー
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  オニギリ パクパク:
-    basis: romaji
-    reading: オニギリ パクパク
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  オノリン:
-    basis: romaji
-    reading: オノ リン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 尾野 凛, 尾野凛
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  オバタルイ:
-    basis: romaji
-    reading: オバタ ルイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 小畠　泪, 小畠泪
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -10211,33 +9708,6 @@ names:
     note: Wikidata English label; word order is the source's, not the author's
     reading: カオミン
     reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カカトブシ:
-    basis: romaji
-    reading: カカトブシ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カギアナ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: カギアナ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カグラザカアツシ:
-    basis: romaji
-    reading: カグラザカアツシ
-    reading_at: '2026-11-01'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -10283,40 +9753,11 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784403621819
     verified: true
-  カシカゼ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: カシカゼ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カシワギツキコ:
-    basis: romaji
-    reading: カシワギ ツキコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: かしわぎつきこ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   カスタムサイズ:
     basis: romaji
     reading: カスタムサイズ
     reading_at: '2026-08-07'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カツラギカナデ:
-    basis: romaji
-    reading: カツラギ カナデ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 葛城かなで
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -10358,24 +9799,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  カネコアル:
-    basis: romaji
-    reading: カネコ アル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 金子ある
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カネハラミズヒト:
-    basis: romaji
-    reading: カネハラ ミズヒト
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 金原瑞人
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   カボちゃ:
     basis: romaji
     en_at: '2026-08-02'
@@ -10383,14 +9806,6 @@ names:
     en_source: surface
     reading: カボチャ
     reading_at: '2026-08-02'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カミネシ:
-    basis: romaji
-    reading: カミネシ
-    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -10403,31 +9818,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  カヤコ:
-    basis: romaji
-    reading: カヤコ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カラスピエロ:
-    basis: romaji
-    reading: カラス ピエロ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 鴉ぴえろ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カリントウ:
-    basis: romaji
-    reading: カリントウ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   カレヤタミエ:
     basis: romaji
     reading: カレヤタミエ
@@ -10436,48 +9826,11 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  カワカミシオン:
-    basis: romaji
-    reading: カワカミ シオン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 川上しをん
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カワカミダイシロウ:
-    basis: romaji
-    reading: カワカミ ダイシロウ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 河上だいしろう
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カワダアキオ:
-    basis: romaji
-    reading: カワダ アキオ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 川田暁生
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   カワヅ:
     basis: romaji
     reading: カワヅ
     reading_at: '2026-08-06'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  カワノアキコ:
-    basis: romaji
-    reading: カワノ アキコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: かわの あきこ, かわのあきこ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -10555,23 +9908,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  キョウソ レイ:
-    basis: romaji
-    reading: キョウソ レイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  キリュウスルガ:
-    basis: romaji
-    reading: キリュウ スルガ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 鬼龍駿河
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   キンタ:
     basis: romaji
     en_at: '2026-08-02'
@@ -10607,79 +9943,11 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  クズシロ:
-    basis: romaji
-    reading: クズシロ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  クドウエル:
-    basis: romaji
-    reading: クドウ エル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 工藤える
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  クモコ:
-    basis: romaji
-    reading: クモコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  クラウチニガツ:
-    basis: romaji
-    reading: クラウチ ニガツ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 臓内ニガツ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  クラサキモロコ:
-    basis: romaji
-    reading: クラサキモロコ
-    reading_at: '2026-08-13'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  クリサキキング:
-    basis: romaji
-    reading: クリサキ キング
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 栗崎きんぐ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   クレセント:
     basis: romaji
     reading: クレセント
     reading_at: '2026-10-15'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  クロイ モリ:
-    basis: romaji
-    reading: クロイ モリ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  クワバラタモツ:
-    basis: romaji
-    reading: クワバラ タモツ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: くわばら たもつ, くわばらたもつ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -10706,14 +9974,6 @@ names:
     reading_source: national-library
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I9784575862560
-    verified: true
-  ケム キムラ:
-    basis: romaji
-    reading: ケム キムラ
-    reading_at: '2026-08-13'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
     verified: true
   ケム木村:
     basis: romaji
@@ -10743,32 +10003,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  コイダヌキ:
-    basis: romaji
-    reading: コイダヌキ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  コウジモロミ:
-    basis: romaji
-    reading: コウジ モロミ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 糀もろみ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  コウノスサトリ:
-    basis: romaji
-    reading: コウノス サトリ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 鴻巣覚
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   コガネイチ:
     basis: romaji
     reading: コガネイチ
@@ -10777,39 +10011,10 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  コガユウト:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: コガ ユウト
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_boundary: 古賀由人
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   コキリン:
     basis: romaji
     reading: コキリン
     reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  コサメヒヨリ:
-    basis: romaji
-    reading: コサメ ヒヨリ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 小雨日和
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  コタマル:
-    basis: romaji
-    reading: コタマル
-    reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -10863,15 +10068,6 @@ names:
     reading_reviewed: '2026-08-07'
     reading_source_kind: derived
     verified: true
-  コバヤシコテイ:
-    basis: romaji
-    reading: コバヤシ コテイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 小林湖底
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   コミックnishi:
     basis: romaji
     en: Comic nishi
@@ -10914,35 +10110,6 @@ names:
       is カドカワ''s magazine コミックニュータイプ. A magazine''s editorial department has no personal name to read,
       so nothing replaces the '
     verified: false
-  コルセ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: コルセ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  コンドウトモヨ:
-    basis: romaji
-    reading: コンドウ トモヨ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 今東　ともよ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ゴシキアミ:
-    basis: romaji
-    reading: ゴシキ アミ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 五色安未
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   サウスのサウス:
     basis: romaji
     reading: サウスノサウス
@@ -10967,36 +10134,10 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  サクラギレン:
-    basis: romaji
-    reading: サクラギ レン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 桜木蓮
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ササトウゴロウ:
-    basis: romaji
-    reading: ササ トウゴロウ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 笹塔五郎
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ササマシン:
     basis: romaji
     reading: ササマシン
     reading_at: '2026-10-31'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  サジマ:
-    basis: romaji
-    reading: サジマ
-    reading_at: '2026-11-01'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -11103,14 +10244,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  サリイ ビー:
-    basis: romaji
-    reading: サリイ ビー
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   サンクス仮面:
     basis: romaji
     furigana_spans:
@@ -11166,27 +10299,10 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  シイバヒロミ:
-    basis: romaji
-    reading: シイバ ヒロミ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 椎葉裕巳
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   シウ:
     basis: romaji
     reading: シウ
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シオイコヌ:
-    basis: romaji
-    reading: シオイコヌ
-    reading_at: '2026-08-13'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -11242,86 +10358,10 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  シナトコウ:
-    basis: romaji
-    reading: シナトコウ
-    reading_at: '2026-08-13'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シノア:
-    basis: romaji
-    reading: シノア
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シノツキシノブ:
-    basis: romaji
-    reading: シノツキ シノブ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 篠月しのぶ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シバタケンシロウ:
-    basis: romaji
-    reading: シバタ ケンシロウ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 柴田賢志郎
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シバタコウヘイ:
-    basis: romaji
-    reading: シバタ コウヘイ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 柴田康平
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   シバユウスケ:
     basis: romaji
     reading: シバユウスケ
     reading_at: '2026-10-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シボリ カスコ:
-    basis: romaji
-    reading: シボリ カスコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シマ:
-    basis: romaji
-    reading: シマ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シマザキムジルシ:
-    basis: romaji
-    reading: シマザキ ムジルシ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 島崎無印
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シマズ:
-    basis: romaji
-    reading: シマズ
-    reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -11360,32 +10400,6 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784801981584
     verified: true
-  シラウメナズナ:
-    basis: romaji
-    reading: シラウメ ナズナ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 白梅ナズナ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シラノアキヒロ:
-    basis: romaji
-    reading: シラノ アキヒロ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 白野アキヒロ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  シル:
-    basis: romaji
-    reading: シル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ジェイ:
     basis: romaji
     reading: ジェイ
@@ -11414,14 +10428,6 @@ names:
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
     reading_source_kind: analyser
     verified: false
-  ジャコ:
-    basis: romaji
-    reading: ジャコ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ジョーさん。:
     basis: romaji
     en_at: '2026-08-02'
@@ -11429,36 +10435,6 @@ names:
     en_source: surface
     reading: ジョーサン。
     reading_at: '2026-08-02'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ジンノウチコウキ:
-    basis: romaji
-    reading: ジンノウチ コウキ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 陣ノ内康暉
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  スオウ:
-    basis: romaji
-    en: Suoh
-    en_at: '2026-08-09'
-    en_pass: 2
-    en_source: wikidata
-    en_url: http://www.wikidata.org/entity/Q107102032
-    reading: スオウ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  スズエ:
-    basis: romaji
-    reading: スズエ
-    reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -11476,39 +10452,6 @@ names:
     reading_basis: surface
     reading_corroborated:
     - mangaupdates
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  スズキフミエ:
-    basis: romaji
-    reading: スズキ フミエ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 鈴木二三江
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  スズミライカ:
-    basis: romaji
-    reading: スズミライカ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  スタジオ クロマト:
-    basis: romaji
-    reading: スタジオ クロマト
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  スタジオ コロリド:
-    basis: romaji
-    reading: スタジオ コロリド
-    reading_at: '2026-08-09'
-    reading_basis: surface
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -11658,16 +10601,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ソガベシュウジ:
-    basis: romaji
-    reading: ソガベ シュウジ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 曽我部修司
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ソノフワン:
     basis: romaji
     en_at: '2026-08-02'
@@ -11676,23 +10609,6 @@ names:
     reading: ソノフワン
     reading_at: '2026-08-02'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ソメチメ:
-    basis: romaji
-    reading: ソメチメ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ソラヤマトキ:
-    basis: romaji
-    reading: ソラヤマ トキ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 空山トキ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -11758,15 +10674,6 @@ names:
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
-  タカノハル:
-    basis: romaji
-    reading: タカノ ハル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: タカノ晴
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   タカノ晴:
     basis: romaji
     furigana_spans:
@@ -11840,27 +10747,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  タグチケンジ:
-    basis: romaji
-    reading: タグチ ケンジ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 田口ケンジ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  タグチショウイチ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: タグチ ショウイチ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_boundary: 田口囁一
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   タケシス:
     basis: romaji
     reading: タケシス
@@ -11906,91 +10792,10 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  タチバナマナリ:
-    basis: romaji
-    reading: タチバナ マナリ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 橘まなり
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   タツノコッソ:
     basis: romaji
     reading: タツノコッソ
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  タテヤマケータ:
-    basis: romaji
-    reading: タテヤマ ケータ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 館山けーた
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  タナカアヒル:
-    basis: romaji
-    reading: タナカ アヒル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: たなかあひる
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  タナカコメ:
-    basis: romaji
-    reading: タナカ コメ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 田中こめ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  タナギボウエイ:
-    basis: romaji
-    reading: タナギボウエイ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  タビレコ:
-    basis: romaji
-    reading: タビレコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  タマサキタマ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: タマサキ タマ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_boundary: 玉崎たま
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  タマナニニコ:
-    basis: romaji
-    reading: タマナ ニニコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 珠奈ににこ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  タルハル:
-    basis: romaji
-    reading: タルハル
-    reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -12003,101 +10808,6 @@ names:
     reading: ターマイオニー
     reading_at: '2026-08-02'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ダルマ:
-    basis: romaji
-    reading: ダルマ
-    reading_at: '2026-08-08'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  チグサミノリ:
-    basis: romaji
-    reading: チグサ ミノリ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 千種みのり
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  チサコ:
-    basis: romaji
-    reading: チサコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  チバラキ:
-    basis: romaji
-    reading: チバ ラキ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 千葉らき
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  チルハチンミ:
-    basis: romaji
-    reading: チルハ チンミ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 散葉 ちんみ, 散葉ちんみ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ツキノワアオ:
-    basis: romaji
-    reading: ツキノワ アオ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 月野和青
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ツキヨルイ:
-    basis: romaji
-    reading: ツキヨ ルイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 月夜 涙, 月夜涙
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ツチイ:
-    basis: romaji
-    reading: ツチイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ツツイイツキ:
-    basis: romaji
-    reading: ツツイ イツキ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 筒井いつき
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ツミキツキ:
-    basis: romaji
-    reading: ツミキツキ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ツムギメメ:
-    basis: romaji
-    reading: ツムギ メメ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 紬 めめ, 紬めめ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -12117,23 +10827,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  デカイルカ:
-    basis: romaji
-    reading: デカイルカ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  デスヤマハナコ:
-    basis: romaji
-    reading: デスヤマ ハナコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: デス山ハナ子
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   デス山ハナ子:
     basis: romaji
     reading: デスヤマ ハナコ
@@ -12149,51 +10842,6 @@ names:
     reading_source: national-library
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I9784048119917
-    verified: true
-  トウマ:
-    basis: romaji
-    reading: トウマ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  トオノメザ:
-    basis: romaji
-    reading: トオノ メザ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 遠野めざ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  トキトウセツナ:
-    basis: romaji
-    reading: トキトウ セツナ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 時任せつな
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  トクナガパン:
-    basis: romaji
-    reading: トクナガ パン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 徳永パン
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  トクノウショウタロウ:
-    basis: romaji
-    reading: トクノウ ショウタロウ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 得能正太郎
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
     verified: true
   トクヲツム:
     basis: romaji
@@ -12220,125 +10868,10 @@ names:
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/17179
     verified: false
-  トミノヨシユキ:
-    basis: romaji
-    reading: トミノ ヨシユキ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 富野由悠季
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  トリイシズク:
-    basis: romaji
-    reading: トリイシズク
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ドウガ トウコウ ショウジョ:
-    basis: romaji
-    reading: ドウガ トウコウ ショウジョ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ドクタペパコ:
-    basis: romaji
-    reading: ドクタ ペパコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 毒田ぺパ子, 毒田ペパ子
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ドスコイ:
     basis: romaji
     reading: ドスコイ
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナウチ:
-    basis: romaji
-    reading: ナウチ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナオオオオオオ:
-    basis: romaji
-    reading: ナオオオオオオ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナカジマレイ:
-    basis: romaji
-    reading: ナカジマ レイ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 中島零
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナカトウヌイ:
-    basis: romaji
-    reading: ナカトウ ヌイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 仲藤ぬい
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナカムラオダク:
-    basis: romaji
-    reading: ナカムラ オダク
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 中村汚濁
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナカムラカンコ:
-    basis: romaji
-    reading: ナカムラ カンコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 中村カンコ
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナガシロルージュ:
-    basis: romaji
-    reading: ナガシロ ルージュ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 長代ルージュ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナガタサンズイ:
-    basis: romaji
-    reading: ナガタ サンズイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 永田　さんずい, 永田さんずい
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナギト:
-    basis: romaji
-    reading: ナギト
-    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -12348,32 +10881,6 @@ names:
     reading: ナスムスビム
     reading_at: '2026-08-07'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナダカハルツグ:
-    basis: romaji
-    reading: ナダカ ハルツグ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 南高春告
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナツクサ:
-    basis: romaji
-    reading: ナツクサ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナツムラトワ:
-    basis: romaji
-    reading: ナツムラ トワ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 夏村東和
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -12392,35 +10899,10 @@ names:
     reading_source_kind: derived
     reading_url: http://id.ndl.go.jp/auth/entity/001292432
     verified: true
-  ナナツ フジ:
-    basis: romaji
-    reading: ナナツ フジ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナナハシラク:
-    basis: romaji
-    reading: ナナハシ ラク
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 七橋　楽, 七橋楽
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ナニカシイラ:
     basis: romaji
     reading: ナニカシイラ
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ナマズ:
-    basis: romaji
-    reading: ナマズ
-    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -12444,46 +10926,9 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  ニクマル:
-    basis: romaji
-    reading: ニクマル
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ニシナ:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: ニシナ
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ニシハタケイ:
     basis: romaji
-    reading: ニシハタ ケイ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 西畑けい
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ニシマゴメユキ:
-    basis: romaji
-    reading: ニシマ ゴメユキ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 西馬ごめゆき
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ニタモト:
-    basis: romaji
-    reading: ニタモト
+    reading: ニシハタケイ
     reading_at: '2026-11-01'
     reading_basis: surface
     reading_pass: 1
@@ -12493,14 +10938,6 @@ names:
     basis: romaji
     reading: ニョニョトマコト
     reading_at: '2026-08-13'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ニル カジツ:
-    basis: romaji
-    reading: ニル カジツ
-    reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -12530,23 +10967,6 @@ names:
     basis: romaji
     reading: ネギタヌ
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ネギシタケハル:
-    basis: romaji
-    reading: ネギシ タケハル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 根岸岳春
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ネコタロウ:
-    basis: romaji
-    reading: ネコタロウ
-    reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -12617,15 +11037,6 @@ names:
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/59488
     verified: false
-  ノシロリョウ:
-    basis: romaji
-    reading: ノシロ リョウ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 能代リョウ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ノムラララ:
     basis: romaji
     en_at: '2026-08-02'
@@ -12654,76 +11065,6 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  ハイダコウコウ:
-    basis: romaji
-    reading: ハイダ コウコウ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 灰田高鴻
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハガミチル:
-    basis: romaji
-    reading: ハガ ミチル
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 破賀ミチル
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハシモトライドン:
-    basis: romaji
-    reading: ハシモト ライドン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 橋本ライドン
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハタヒロ:
-    basis: romaji
-    reading: ハタ ヒロ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 波多ヒロ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハタリョウスケ:
-    basis: romaji
-    reading: ハタ リョウスケ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 羽田遼亮
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハチコ:
-    basis: romaji
-    reading: ハチコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハットリマサキ:
-    basis: romaji
-    reading: ハットリ マサキ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: はっとりまさき
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハッピー ゼリー ポンチ:
-    basis: romaji
-    reading: ハッピー ゼリー ポンチ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ハッピーゼリーポンチ:
     basis: romaji
     en_at: '2026-08-02'
@@ -12743,24 +11084,6 @@ names:
     reading_reviewed: '2026-08-07'
     reading_source_kind: derived
     verified: true
-  ハナカゲアルト:
-    basis: romaji
-    reading: ハナカゲ アルト
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 花影あると
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハネダウサ:
-    basis: romaji
-    reading: ハネダ ウサ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 羽田 宇佐
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ハマゴウ:
     basis: romaji
     en_at: '2026-08-02'
@@ -12772,35 +11095,10 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ハマダミフミ:
-    basis: romaji
-    reading: ハマダミフミ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ハマノーン:
     basis: romaji
     reading: ハマノーン
     reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハヤシショウゴ:
-    basis: romaji
-    reading: ハヤシ ショウゴ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 林星悟
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハルセヒロキ:
-    basis: romaji
-    reading: ハルセヒロキ
-    reading_at: '2026-11-01'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -12830,24 +11128,6 @@ names:
     reading_source_kind: derived
     reading_url: http://id.ndl.go.jp/auth/entity/001092299
     verified: true
-  ハンザワカオリ:
-    basis: romaji
-    reading: ハンザワカオリ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ハンダホトリ:
-    basis: romaji
-    reading: ハンダ ホトリ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 半田畔
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ハンバーガー:
     basis: romaji
     en: Hundred Burger
@@ -12860,22 +11140,6 @@ names:
     note: Wikidata English label; word order is the source's, not the author's
     reading: ハンバーガー
     reading_at: '2026-08-02'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  バタッチ:
-    basis: romaji
-    reading: バタッチ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  バッタン:
-    basis: romaji
-    reading: バッタン
-    reading_at: '2026-08-07'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -12912,14 +11176,6 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784801980716
     verified: true
-  ヒアルロン:
-    basis: romaji
-    reading: ヒアルロン
-    reading_at: '2026-08-08'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ヒジキ:
     basis: romaji
     en: Hijiki
@@ -12948,23 +11204,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ヒツジタカコ:
-    basis: romaji
-    reading: ヒツジタカコ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヒトトセリン:
-    basis: romaji
-    reading: ヒトトセ リン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 春夏秋冬鈴
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ヒノサカアキ:
     basis: romaji
     en_at: '2026-08-02'
@@ -12976,15 +11215,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ヒノヒロコ:
-    basis: romaji
-    reading: ヒノ ヒロコ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: ひの宙子
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ヒマワリソウヤ:
     basis: romaji
     en_at: '2026-08-05'
@@ -12993,25 +11223,6 @@ names:
     reading: ヒマワリソウヤ
     reading_at: '2026-08-05'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヒヤマユキ:
-    basis: romaji
-    reading: ヒヤマ ユキ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 檜山ユキ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヒラカタマサヒロ:
-    basis: romaji
-    reading: ヒラカタ マサヒロ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 平方昌宏
-    reading_boundary_basis: community-printed
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -13117,14 +11328,6 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I04000000A16587000000
     verified: true
-  ピヨピヨマル:
-    basis: romaji
-    reading: ピヨピヨマル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ピロヤ:
     basis: romaji
     en_at: '2026-08-02'
@@ -13136,53 +11339,11 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ファユセ:
-    basis: romaji
-    reading: ファユセ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ファルまろ:
     basis: romaji
     reading: ファルマロ
     reading_at: '2026-10-15'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フカウミコン:
-    basis: romaji
-    reading: フカウミ コン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 深海 紺, 深海紺
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フカツ:
-    basis: romaji
-    reading: フカツ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フキヤモジ:
-    basis: romaji
-    reading: フキヤモジ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フクダヒロシ:
-    basis: romaji
-    reading: フクダ ヒロシ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 福田宏
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -13201,80 +11362,11 @@ names:
     reading_source_kind: derived
     reading_url: http://id.ndl.go.jp/auth/entity/001183665
     verified: true
-  フシミダイキ:
-    basis: romaji
-    reading: フシミ ダイキ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 伏見ダイキ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フシミツカサ:
-    basis: romaji
-    reading: フシミツカサ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フジイニコ:
-    basis: romaji
-    reading: フジイ ニコ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 藤居にこ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フジガワヨツバ:
-    basis: romaji
-    reading: フジガワヨツバ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フジチカ:
-    basis: romaji
-    reading: フジチカ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フジモトセツナ:
-    basis: romaji
-    reading: フジモト セツナ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 藤本セツナ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フジモトレモチ:
-    basis: romaji
-    reading: フジモト レモチ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 藤本　れもち, 藤本れもち
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   フジヤマルリ:
     basis: romaji
     reading: フジヤマルリ
     reading_at: '2026-09-14'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  フユジマクレ:
-    basis: romaji
-    reading: フユジマ クレ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 冬島暮
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -13298,15 +11390,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  フルベリョウ:
-    basis: romaji
-    reading: フルベ リョウ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 古部亮
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ブミィ:
     basis: romaji
     reading: ブミィ
@@ -13325,15 +11408,6 @@ names:
     reading_pass: 1
     reading_source: surface
     reading_source_kind: analyser
-    verified: true
-  ブリオミチル:
-    basis: romaji
-    reading: ブリオ ミチル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 鰤尾みちる
-    reading_pass: 1
-    reading_source: surface
     verified: true
   ブリリアント:
     basis: romaji
@@ -13358,14 +11432,6 @@ names:
     reading_pass: 1
     reading_source: surface
     transliterates: unknown
-    verified: true
-  プラパ:
-    basis: romaji
-    reading: プラパ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
     verified: true
   プルちょめ:
     basis: romaji
@@ -13404,45 +11470,11 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ヘリヤマ:
-    basis: romaji
-    reading: ヘリヤマ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ホクトスイ:
-    basis: romaji
-    reading: ホクト スイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 北斗　すい, 北斗すい
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ホシアラン:
-    basis: romaji
-    reading: ホシアラン
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ホシィェモ:
     basis: romaji
     reading: ホシィェモ
     reading_at: '2026-08-06'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ホシザキコン:
-    basis: romaji
-    reading: ホシザキ コン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 星崎崑
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -13457,29 +11489,11 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ホンマリョウタ:
-    basis: romaji
-    reading: ホンマ リョウタ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 本間リョウタ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ホークアイ:
     basis: romaji
     reading: ホークアイ
     reading_at: '2026-08-09'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ボンカラ:
-    basis: romaji
-    reading: ボン カラ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 梵辛
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -13534,14 +11548,6 @@ names:
     reading_reviewed: '2026-08-07'
     reading_source_kind: derived
     verified: true
-  マキブロ:
-    basis: romaji
-    reading: マキブロ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   マシマロまろん:
     basis: romaji
     reading: マシマロマロン
@@ -13590,15 +11596,6 @@ names:
     reading: マツダイヨ
     reading_at: '2026-08-02'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  マツモトトモキ:
-    basis: romaji
-    reading: マツモト トモキ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 松本トモキ
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -13658,31 +11655,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ミカミテレン:
-    basis: romaji
-    reading: ミカミ テレン
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: みかみてれん
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ミカン ウジ:
-    basis: romaji
-    reading: ミカン ウジ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ミギハラ:
-    basis: romaji
-    reading: ミギハラ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ミズタマ:
     basis: romaji
     reading: ミズタマ
@@ -13732,35 +11704,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ミナカタスナオ:
-    basis: romaji
-    reading: ミナカタ スナオ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 南方純
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ミナパカ:
-    basis: romaji
-    reading: ミナパカ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ミナミpub. 2025:
-    basis: romaji
-    reading: ミナミ pub.2025
-    reading_at: '2026-08-09'
-    reading_basis: analyser
-    reading_boundary: the kana in its own surface
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
-    reading_source_kind: analyser
-    verified: false
   ミナミト:
     basis: romaji
     en: Minamito
@@ -13776,31 +11719,6 @@ names:
     reading_basis: surface
     reading_corroborated:
     - mangaupdates
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ミナミフミカ:
-    basis: romaji
-    reading: ミナミ フミカ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 南文夏
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ミミシキ:
-    basis: romaji
-    reading: ミミシキ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ミモト:
-    basis: romaji
-    reading: ミモト
-    reading_at: '2026-08-09'
-    reading_basis: surface
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -13821,24 +11739,6 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  ミヤザワイオリ:
-    basis: romaji
-    reading: ミヤザワ イオリ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 宮澤伊織
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ミヤシロ:
-    basis: romaji
-    reading: ミヤシロ
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ミユキルリア:
     basis: romaji
     en: Ruria Miyuki
@@ -13869,55 +11769,11 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ミレイチョコ:
-    basis: romaji
-    reading: ミレイ チョコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 美鈴ちょこ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ムク:
-    basis: romaji
-    reading: ムク
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ムググ:
     basis: romaji
     reading: ムググ
     reading_at: '2026-08-06'
     reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ムチャ:
-    basis: romaji
-    reading: ムチャ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ムトウヤスユキ:
-    basis: romaji
-    reading: ムトウ ヤスユキ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: むとう やすゆき, むとうやすゆき
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ムラタシンヤ:
-    basis: romaji
-    reading: ムラタ シンヤ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 村田真哉
-    reading_boundary_basis: community-printed
     reading_pass: 1
     reading_source: surface
     verified: true
@@ -13943,14 +11799,6 @@ names:
     basis: romaji
     reading: メジカラシーン
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  メルモ:
-    basis: romaji
-    reading: メルモ
-    reading_at: '2026-11-01'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -14024,71 +11872,6 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784832241121
     verified: true
-  ヤキニク テイショク:
-    basis: romaji
-    en_at: '2026-08-05'
-    en_pass: 1
-    en_source: surface
-    reading: ヤキニク テイショク
-    reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヤサカシュウ:
-    basis: romaji
-    reading: ヤサカ シュウ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: 矢坂しゅう
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヤサシイ ナイゾウ:
-    basis: romaji
-    reading: ヤサシイ ナイゾウ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヤダテハジメ:
-    basis: romaji
-    reading: ヤダテ ハジメ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 矢立肇
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヤトサキハル:
-    basis: romaji
-    reading: ヤトサキ ハル
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: やとさきはる
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヤナイノブヒコ:
-    basis: romaji
-    reading: ヤナイ ノブヒコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 柳井伸彦
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヤブウチユウ:
-    basis: romaji
-    reading: ヤブウチ ユウ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_boundary: やぶうち優
-    reading_boundary_basis: community-printed
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ヤマダソーダ:
     basis: romaji
     en_at: '2026-08-02'
@@ -14108,39 +11891,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ヤマモトマト:
-    basis: romaji
-    reading: ヤマモト マト
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 山本まと
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ユアマ:
-    basis: romaji
-    reading: ユアマ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ユウテモ:
-    basis: romaji
-    reading: ユウテモ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ユキコ:
-    basis: romaji
-    reading: ユキコ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ユキムラ:
     basis: romaji
     reading: ユキムラ
@@ -14152,14 +11902,6 @@ names:
     reading_source: openBD
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784403671630
-    verified: true
-  ユズキリョウタ:
-    basis: romaji
-    reading: ユズキリョウタ
-    reading_at: '2026-08-13'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
     verified: true
   ユニ:
     basis: romaji
@@ -14198,22 +11940,6 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784047355781
     verified: true
-  ヨシトミアキヒト:
-    basis: romaji
-    reading: ヨシトミアキヒト
-    reading_at: '2026-11-01'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヨツバマスミ:
-    basis: romaji
-    reading: ヨツバマスミ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ヨドカワ:
     basis: romaji
     en: Yodokawa
@@ -14230,23 +11956,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  ヨネダタロウ:
-    basis: romaji
-    reading: ヨネダ タロウ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_boundary: 米田タロウ
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヨモギモチ:
-    basis: romaji
-    reading: ヨモギモチ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   ヨリフジ:
     basis: romaji
     en_at: '2026-08-02'
@@ -14254,14 +11963,6 @@ names:
     en_source: surface
     reading: ヨリフジ
     reading_at: '2026-08-02'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヨル ノ ヒツジグモ:
-    basis: romaji
-    reading: ヨル ノ ヒツジグモ
-    reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -14357,14 +12058,6 @@ names:
     reading_source_kind: publisher-jp
     reading_url: https://api.openbd.jp/v1/get?isbn=9784781622675
     verified: true
-  リイチュ:
-    basis: romaji
-    reading: リイチュ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   リカチ:
     basis: romaji
     en: Rikachi
@@ -14398,22 +12091,6 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
-  リンゴアメ サード:
-    basis: romaji
-    reading: リンゴアメ サード
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  リンゴスイ:
-    basis: romaji
-    reading: リンゴスイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
   リンリココ:
     basis: romaji
     en_at: '2026-08-02'
@@ -14429,14 +12106,6 @@ names:
     basis: romaji
     reading: リーフィ
     reading_at: '2026-08-06'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ルカコ:
-    basis: romaji
-    reading: ルカコ
-    reading_at: '2026-11-01'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface
@@ -14467,46 +12136,6 @@ names:
     en_source: surface
     reading: ロクロイチ
     reading_at: '2026-08-05'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ロココ:
-    basis: romaji
-    reading: ロココ
-    reading_at: '2026-08-07'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ワタリニフネ:
-    basis: romaji
-    reading: ワタリニフネ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ワルギワナイ:
-    basis: romaji
-    reading: ワルギワナイ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ンミ:
-    basis: romaji
-    reading: ンミ
-    reading_at: '2026-08-09'
-    reading_basis: surface
-    reading_pass: 1
-    reading_source: surface
-    verified: true
-  ヴェジタブル:
-    basis: romaji
-    reading: ヴェジタブル
-    reading_at: '2026-08-09'
     reading_basis: surface
     reading_pass: 1
     reading_source: surface

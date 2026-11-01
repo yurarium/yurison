@@ -1420,14 +1420,15 @@ names:
     verified: true
   グラストCOMICS:
     basis: romaji
-    reading: グラスト COMICS
+    note: スターツ出版's comics line, catalogued by the National Diet Library as the series グラストCOMICS (https://ndlsearch.ndl.go.jp/books/R100000002-I032029108).
+    reading: グラスト コミックス
     reading_at: '2026-11-01'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
+    reading_basis: researched
+    reading_note: グラスト is katakana and is its own reading. COMICS is the English word, which every line
+      in this file reads コミックス.
+    reading_reviewed: '2026-11-01'
+    reading_source: read off the name itself
+    reading_source_kind: derived
     verified: false
   グループ・ゼロ:
     basis: romaji
@@ -1857,19 +1858,20 @@ names:
     verified: false
   スターツ出版:
     basis: romaji
-    furigana_spans:
-    - - スターツ
-      - null
-    - - 出版
-      - しゅっぱん
-    reading: スターツシュッパン
+    en: Starts Publishing
+    en_at: '2026-11-01'
+    en_reviewed: '2026-11-01'
+    en_source: read off the name itself
+    en_source_kind: derived
+    note: スターツ is the English word starts, the name of the group the company belongs to, and 出版 is publishing.
+      The whole is assembled here and is not read off a page.
+    reading: スターツ シュッパン
     reading_at: '2026-11-01'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
+    reading_basis: researched
+    reading_note: スターツ is katakana and is its own reading. 出版 is シュッパン and has no second reading.
+    reading_reviewed: '2026-11-01'
+    reading_source: read off the name itself
+    reading_source_kind: derived
     verified: false
   スピリッツ女子部:
     basis: romaji

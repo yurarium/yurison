@@ -5966,11 +5966,21 @@ def self_test():
     # data/names/authors.yaml was in for all 82 pairs on the morning of 2026-08-08. Taking a ruling
     # away puts one pair back into it, and a count that cannot rise here is a count that would let an
     # artist quietly hold two addresses.
+    #
+    # THE RULING TAKEN AWAY IS ONE WHOSE PAIR THE MAP STILL SHIPS. A ruling outlives its pair when a
+    # spelling stops being a credit: on 2026-11-01 MADB's readings stopped being written as names and
+    # 270 reading-only spellings left the map, so the first ruling on file was about a pair that no
+    # longer exists and taking it away changed nothing for the right reason.
     c = _Scratch(ctx)
     was = budget_credits_sharing_a_reading_nobody_ruled_on(c)
     rulings = (c["credit_rulings"] or {}).get("rulings") or []
-    if rulings:
-        c["credit_rulings"]["rulings"] = rulings[1:]
+    shipped = (c["names_shipped"] or {}).get("authors") or {}
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from facts import namekey as _nk
+    live = next((r for r in rulings if r.get("decision") == "merge"
+                 and all(_nk.fold(sp) in shipped for sp in r.get("surfaces") or [])), None)
+    if live:
+        c["credit_rulings"]["rulings"] = [r for r in rulings if r is not live]
         if budget_credits_sharing_a_reading_nobody_ruled_on(c) != was + 1:
             print("  self-test FAILED — 'credits sharing a reading nobody has ruled on' did not "
                   "count a pair whose ruling was taken away")

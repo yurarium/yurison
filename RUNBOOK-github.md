@@ -153,7 +153,7 @@ adapters/madb/extract.py
 ```
 
 `enrich.py` wants `--madb-cache $YURI_CACHE/madb-cache/current`, the release `adapters/madb/release.py`
-keeps there each week (see the print stage, below). openBD is a publisher's own registration and
+keeps there each week (it runs in Stage 0, so the release is in place before this pass). openBD is a publisher's own registration and
 is thin for older books; the MADB index answers an ISBN openBD does not hold, at no request. The
 pass prints how many dates each catalogue supplied, and it is correct for the MADB figure to read
 nought while every ISBN-bearing record in the corpus is MADB's own, because the pass refuses to

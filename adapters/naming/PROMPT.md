@@ -20,6 +20,9 @@ carries itself: an English edition lists its volume titles too.
 2. `licensed`: the title of an English edition, from the licensor's own catalogue (Seven Seas, Yen
    Press, Kodansha USA, VIZ and so on). `source_kind` is `licensor`; give that page as
    `source_url`. Search for one before translating anything adapted from a novel or long-running.
+   Cite only a page you opened and read the title on. An address worked out from a pattern is not
+   a source, and an entry whose note says its page was not opened is refused; if the licensor's
+   page will not load, translate the title instead.
 3. `translated`: your own rendering, `source_kind` `derived`. Translate the meaning, keep a pun
    or coinage where English can carry it, and read the synopsis before choosing.
 4. `romaji`: a title that is itself a coinage or a proper name with nothing to translate,

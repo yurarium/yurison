@@ -44,6 +44,23 @@ def main(s):
     s.check(curate.problems("titles", "x", with_(reviewed=None)),
             "an entry with no review date")
 
+    # A CITED PAGE NOBODY OPENED. The naming job's 悪魔のリドル cited a guessed Seven Seas address
+    # that returns 404 and said so in its note; every rule above passed it.
+    s.check(curate.problems("titles", "x", with_(
+        note="Seven Seas released it in English. The licensor page URL was inferred and not "
+             "opened, with the publisher confirmed through retailer listings.")),
+            "an attributed name whose note admits the page was never opened")
+    s.check(curate.problems("titles", "x", with_(
+        note="The address sevenseas.com/series/x/ was guessed from the series name.")),
+            "the admission is found past a full stop inside a hostname")
+    s.eq(curate.problems("titles", "x", with_(
+        note="The licensor's series page heads the work Otherside Picnic. The front cover was "
+             "not reached, and the kana is not read off a page.")), [],
+         "a page word and a negation in different claims are not an admission")
+    s.eq(curate.problems("titles", "x", dict(OURS, note="No licensor page was opened, because "
+                                             "none exists; the title is translated.")), [],
+         "a translation of our own cites no page, so its note cannot admit an unopened one")
+
     # ── THE ENGLISH'S OWN SOURCE, WHICH THE CHECK COULD NOT SEE ──────────────────────────────────
     #
     # ONE ENTRY, TWO CLAIMS, TWO SOURCES. `en_source_kind` mirrors `reading_source_kind` and was

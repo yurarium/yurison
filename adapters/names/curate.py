@@ -196,6 +196,23 @@ FLATTENS_THE_COMMA = ("mediaarts-db", "openBD")
 #: set across two lines.
 CLOSED_COMMA = re.compile(r",[A-Za-z]")
 
+# A NOTE THAT SAYS THE CITED PAGE WAS NEVER OPENED. The naming job's 悪魔のリドル entry cited
+# sevenseas.com/series/riddle-story-of-devil/ as a licensor page, and its own note said the address
+# "was inferred and not opened". The address returns 404, and the licensor's real page names the work
+# Akuma no Riddle: Riddle Story of Devil, so the name was wrong as well as unsourced. Every rule
+# above accepted it, because each asks whether a page is cited and none can ask whether anyone read
+# it. The note is the one place that answers, so an attributed name whose note admits the page was
+# guessed is refused, and the entry has to cite a page that was read.
+#
+# A PAGE WORD AND AN ADMISSION IN ONE SENTENCE, either way round. Either word alone is ordinary in
+# this file: notes say a reading was "not read off a page" or a cover "was not reached", and neither
+# is about the address the entry cites. A full stop inside a hostname does not end the sentence.
+_ADMITS = (r"(?:inferred|guessed|constructed|assumed|unverified|unopened"
+           r"|(?:not|never)\s+(?:been\s+)?(?:opened|fetched|loaded|visited))")
+_PAGE = r"(?:url|address|page|link)"
+_GAP = r"(?:[^.]|\.(?=\S)){0,80}?"
+UNOPENED = re.compile(rf"\b{_PAGE}\b{_GAP}\b{_ADMITS}\b|\b{_ADMITS}\b{_GAP}\b{_PAGE}\b", re.I)
+
 # What a reading may contain. Katakana and the marks that ride along with it: a title's own
 # punctuation stays in its reading, and 100日後 keeps its digits, so a rule allowing katakana alone
 # rejects readings the store already holds. What it still refuses is kanji and hiragana, which is
@@ -349,6 +366,9 @@ def problems(kind, ja, e):
                        f"{' or '.join(table[basis])}, not {esk!r}")
         if esk != "derived" and not (e.get("source_url") or e.get("en_url")):
             out.append(f"{where}: an attributed name needs the page it was read from")
+        if esk != "derived" and UNOPENED.search(" ".join(str(e.get("note") or "").split())):
+            out.append(f"{where}: the note says the cited page was not opened; an attributed name "
+                       f"rests on a page somebody read, so open it and cite what it says")
         if (e.get("en_source") or e.get("source")) in FLATTENS_THE_COMMA and CLOSED_COMMA.search(e["en"]):
             out.append(f"{where}: {e.get('en_source') or e.get('source')} transcribes a title onto "
                        f"one line, so a comma closed up in {e['en']!r} is the catalogue's and not "

@@ -273,3 +273,14 @@ commands:
     argv: [adapters/sitemap/releases.py, --sites, adapters/sitemap/sites.yaml,
            --works, data/coverage/candidates.yaml,
            --out, data/source/webpages, --retrieved, "{R}"]
+
+  # WHETHER THE PAGE EACH CURATED NAME CITES IS THERE, and whether it shows the name. curate.py sees
+  # that a page is cited and not whether anybody read it: the naming job's 悪魔のリドル cited a Seven
+  # Seas address worked out from the series name, which returns 404. Weekly, opening every address
+  # never checked and then rotating the rest every 90 days; robots.txt is read first for each host.
+  # The gate counts what it records in data/state/cited-pages.yaml.
+  - id: cited-pages
+    optional: true
+    every_days: 7
+    argv: [adapters/names/cited_pages.py, --cache, "{CACHE}/cited-pages-cache",
+           --retrieved, "{R}"]

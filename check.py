@@ -3395,6 +3395,54 @@ def budget_shadowed_names(ctx):
 # They are not dropped: `--gate` runs them before a commit, which is when the source can have
 # changed, and a run that skips them says so in checks.json rather than omitting the row. A budget
 # that quietly stops being measured is the failure this project keeps meeting.
+def _cited_pages():
+    """adapters/names/cited_pages.py with the curated file and the sweep's state, or None."""
+    sys.path.insert(0, str(ROOT / "adapters"))
+    from names import cited_pages
+    if not cited_pages.STATE.exists():
+        return None
+    return cited_pages, cited_pages.load(), _curated_doc()
+
+
+def _curated_doc():
+    import yaml as _y
+    f = ROOT / "data" / "names" / "curated.yaml"
+    return (_y.safe_load(f.read_text()) or {}) if f.exists() else {}
+
+
+def budget_curated_names_citing_a_page_that_is_not_there(ctx):
+    """Curated entries whose cited address has answered 404 or 410 on two runs of the sweep in a row.
+
+    curate.py can see that a page is cited and cannot see whether anybody read it. The naming job's
+    悪魔のリドル cited a Seven Seas address worked out from the series name, under a name the real
+    licensor page does not use, and nothing offline could tell. adapters/names/cited_pages.py opens
+    every cited address on a schedule and this counts what it found missing. Two runs, because one
+    404 during a deploy is not evidence.
+
+    UNMEASURED WITH NO STATE, because a sweep that has never run reads zero, and banking that zero
+    as the budget is the failure `UNMEASURED` exists for.
+    """
+    got = _cited_pages()
+    if got is None:
+        return UNMEASURED
+    cp, state, doc = got
+    return len(cp.absent(state, doc))
+
+
+def budget_attributed_names_their_cited_page_does_not_show(ctx):
+    """Licensed and official-jp names whose cited page answered and does not carry the name.
+
+    A lead for a person, which is why it is a budget: a page may set its English only in artwork,
+    and the sweep cannot tell that from a page naming the work differently. A rise means names are being attributed to pages that say something else,
+    or a licensor moved to pages assembled in the browser; either needs a person to open the page.
+    """
+    got = _cited_pages()
+    if got is None:
+        return UNMEASURED
+    cp, state, doc = got
+    return len(cp.unshown(state, doc))
+
+
 def budget_titles_with_no_translation_of_our_own(ctx):
     """Titles holding an official or licensed English name and no translation we made.
 
@@ -4551,6 +4599,16 @@ BUDGETS_DEF = [
      "records carrying a publisher-side yuri label whose imprint holds no term saying so, which "
      "is a label the work page cannot show a reader the evidence for. A rise means a pass has "
      "gone back to storing a field from a record other than the one that justified the label."),
+    ("curated names citing a page that is not there",
+     budget_curated_names_citing_a_page_that_is_not_there,
+     "curated entries whose cited address answered 404 or 410 on two sweeps in a row, recorded by "
+     "adapters/names/cited_pages.py. A rise means an entry cites a page nobody opened, or a "
+     "licensor moved its catalogue; either way the name has lost the page it rests on."),
+    ("attributed names their cited page does not show",
+     budget_attributed_names_their_cited_page_does_not_show,
+     "licensed and official-jp names whose cited page answered without carrying the name. Some are "
+     "pages assembled by script, which serve no title; the rest are names the page does not state. "
+     "Falls as entries are corrected or pages confirmed by hand."),
     ("titles with no translation of our own", budget_titles_with_no_translation_of_our_own,
      "titles whose only English is the publisher's or the licensor's, so a reader who moves those "
      "down EN_ORDER is shown a romanisation instead of an alternative. A rise means a translation "

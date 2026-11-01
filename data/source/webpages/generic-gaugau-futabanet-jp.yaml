@@ -12,7 +12,7 @@ source: webpages
 platform: gaugau-futabanet-jp
 platform_name: "webアクション"
 publisher: ""
-retrieved: 2026-11-01
+retrieved: 2026-11-02
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 extraction: markup
@@ -45,7 +45,7 @@ works:
         date_basis: heuristic
   - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     url: "https://gaugau.futabanet.jp/list/work/u4FdNLFgU91kEXBufRsVlnzEw"
-    chapter_count: 6
+    chapter_count: 5
     chapters:
       - title: "第18話 動物園：かるおもside"
         updated: 2026-10-04
@@ -53,10 +53,6 @@ works:
         date_basis: heuristic
       - title: "第17話(2) 後編 バードゾーンサバイブ！②"
         updated: 2026-09-06
-        access_modes: ["free"]
-        date_basis: heuristic
-      - title: "第17話(1) 前編 バードゾーンサバイブ！①"
-        updated: 2026-08-16
         access_modes: ["free"]
         date_basis: heuristic
       - title: "第2話(2) フライドチキンの衣が好き！"

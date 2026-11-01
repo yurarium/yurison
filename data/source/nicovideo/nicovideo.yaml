@@ -9,12 +9,32 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-11-01
+retrieved: 2026-11-02
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 498
 works:
+  - work_title: "ロボットJSにスキはありません!!"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/44519"
+    comic_id: "44519"
+    updated: "2026-11-01"
+    started: "2019-10-20"
+    episode_count: 188
+    free_episodes: 188
+    latest_episode: "ロボ32-2"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1172367"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-11-01"
+    started: "2022-08-31"
+    episode_count: 163
+    free_episodes: 163
+    latest_episode: "第14話の3"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1172368"
   - work_title: "タイムトラベル少女 ～ミライのサキ～"
     author: "ぱぺっときゃすと！"
     url: "https://manga.nicovideo.jp/comic/77287"
@@ -25,26 +45,6 @@ works:
     free_episodes: 8
     latest_episode: "第8話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1172089"
-  - work_title: "ロボットJSにスキはありません!!"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/44519"
-    comic_id: "44519"
-    updated: "2026-10-31"
-    started: "2019-10-20"
-    episode_count: 187
-    free_episodes: 187
-    latest_episode: "ロボ32-1"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1172189"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-10-31"
-    started: "2022-08-31"
-    episode_count: 162
-    free_episodes: 162
-    latest_episode: "第14話の2"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1172192"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"

@@ -5,12 +5,12 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-01
+retrieved: 2026-11-02
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 309
-works_on_watched_platform: 284
+works_on_watched_platform: 283
 platforms_total: 52
 platforms_watched: 40
 # ranked by works reachable on NO watched platform
@@ -19,14 +19,14 @@ platforms_missing:
     works: 12
   - platform: "COMICリュウライブ"
     works: 3
+  - platform: "マンガPark"
+    works: 2
   - platform: "comicブースト"
     works: 2
   - platform: "ヤンジャン+"
     works: 2
   - platform: "きら星ポータル"
     works: 2
-  - platform: "マンガPark"
-    works: 1
   - platform: "pixivコミックマガジン"
     works: 1
   - platform: "COMIC ポルタ"
@@ -989,6 +989,11 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03292"
     antenna_id: "213072"
     tags: ["百合"]
+  - title: "私のブルーガーネット"
+    platform: "マンガPark"
+    url: "https://manga-park.com/title/98459"
+    antenna_id: "197977"
+    tags: ["百合", "エロ"]
   - title: "ロックは淑女の嗜みでして"
     platform: "マンガPark"
     url: "https://manga-park.com/title/67724"

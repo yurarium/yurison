@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-01
+retrieved: 2026-11-02
 record_type: discovery_queue
 candidates:
   - work_title: "キミに触れて、感じたい"
@@ -25,6 +25,14 @@ candidates:
     platform: "comic-boost"
     work_url: "https://comic-boost.com/content/01830001"
     headline: "素直になれない女性ふたりの社会人百合読み切り「本命は秘密」WEBで公開"
+    status: unconfirmed
+  - work_title: "聖騎士様のお気に入り"
+    signal: "oneshot"
+    announced: "Sun, 01 Nov 2026 11:00:19 +0000"
+    url: "https://yurinavi.com/2026/11/01/seikishisamano-yomikiri/"
+    platform: "comic-boost"
+    work_url: "https://comic-boost.com/content/01840001"
+    headline: "幼馴染に恋する魔女の告白を描くファンタジー百合読み切り「聖騎士様のお気に入り」WEBで公開"
     status: unconfirmed
   - work_title: "王子はさけて通れない！"
     signal: "new-serial"

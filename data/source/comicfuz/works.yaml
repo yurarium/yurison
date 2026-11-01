@@ -2,7 +2,7 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-11-01
+retrieved: 2026-11-02
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -29,8 +29,11 @@ works:
       - chapter_id: 80101
         title: "episode8（2）"
         updated: 2026-11-01
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-02"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80098
         title: "episode8（1）"
         updated: 2026-10-25
@@ -133,8 +136,11 @@ works:
       - chapter_id: 78632
         title: "２巻 第２１話"
         updated: 2026-11-01
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-02"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78629
         title: "２巻 第２０話"
         updated: 2026-10-25
@@ -4876,7 +4882,7 @@ works:
   - work_title: "星屑テレパス"
     yomi: "ほしくずてれぱす"
     url: "https://comic-fuz.com/manga/2062"
-    latest_updated: "2026-10-26"
+    latest_updated: "2026-11-02"
     authors: ["大熊らすこ"]
     tags: ["月曜日", "男性向け", "４コマ", "SF・ファンタジー", "メディア化", "まんがタイムきらら", "まんがタイムKRコミックス"]
     chapter_count: 73
@@ -4967,10 +4973,9 @@ works:
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 64797
         title: "５巻 第５０話「前進メソッド」"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-11-02
+        updated: 2026-11-02
         access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 64794
         title: "５巻 第４９話「空撮シミュレーション」"
         updated: 2026-10-26
@@ -11372,8 +11377,11 @@ works:
       - chapter_id: 48187
         title: "３巻 第５話"
         updated: 2026-11-01
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-02"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 48184
         title: "３巻 第４話"
         updated: 2026-10-25

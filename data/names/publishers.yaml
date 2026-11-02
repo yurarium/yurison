@@ -214,16 +214,16 @@ names:
     reading_source_kind: derived
     verified: false
   IDコミックス:
-    basis: official-jp
+    basis: translated
     en: ID Comics
-    en_at: '2026-08-07'
-    en_reviewed: '2026-08-07'
-    en_source: ichijinsha.co.jp
-    en_source_kind: publisher-jp
-    en_url: https://www.ichijinsha.co.jp/
+    en_at: '2026-11-02'
+    en_reviewed: '2026-11-02'
+    en_source: yurarium
+    en_source_kind: derived
     note: Ichijinsha's umbrella comics line. The label itself is written IDコミックス, ID in Latin letters
-      already, and the rest is the English word it stands for.
-    verified: true
+      already, and コミックス is the English word it stands for, so the English is ours. It was filed as Ichijinsha's
+      own Latin name, citing its homepage, which states the label in neither script (read 2026-11-02).
+    verified: false
   Jコミックテラス×ナンバーナイン:
     basis: romaji
     en: J Comic Terrace x No9
@@ -513,16 +513,16 @@ names:
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033305898
     verified: true
   PASH! コミックス:
-    basis: official-jp
+    basis: translated
     en: PASH! Comics
-    en_at: '2026-08-07'
-    en_reviewed: '2026-08-07'
-    en_source: pash-up.jp
-    en_source_kind: publisher-jp
-    en_url: https://pash-up.jp/
+    en_at: '2026-11-02'
+    en_reviewed: '2026-11-02'
+    en_source: yurarium
+    en_source_kind: derived
     note: 主婦と生活社's comics line, already written PASH! in Latin letters on its own imprint, and コミックス is
-      the English word it stands for.
-    verified: true
+      the English word it stands for, so the English is ours. It was filed as the publisher's own Latin
+      name, citing pash-up.jp, whose page states the label in neither script (read 2026-11-02).
+    verified: false
   SBクリエイティブ:
     basis: official-jp
     en: SB Creative

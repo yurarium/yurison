@@ -72,6 +72,10 @@ def main(s):
          "a reading's catalogue page and our own translation are not looked for an English name")
     s.eq(cites[REAL][0]["en"], "Akuma no Riddle: Riddle Story of Devil",
          "a licensed name is looked for on the page it cites")
+    art = cp.cited({"titles": {"w": {"en": "WAVER(S)", "basis": "official-jp",
+                                     "source_kind": "publisher-jp", "source_url": REAL,
+                                     "en_shown": "artwork"}}})
+    s.eq(art[REAL][0]["en"], None, "a name the page sets only in its artwork is not looked for")
 
     s.check(cp.shows("<h1>Akuma no Riddle &ndash; Riddle Story of Devil</h1>",
                      "Akuma no Riddle: Riddle Story of Devil"),

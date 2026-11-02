@@ -84,7 +84,10 @@ def cited(doc):
                 if not url.startswith(("http://", "https://")):
                     continue
                 en = None
+                # A NAME SET ONLY IN ARTWORK is not in the markup, and a person has recorded
+                # that they looked (`en_shown` in curate.py), so the text is not searched for it.
                 if (carries_en and e.get("en") and e.get("basis") in STATED_BY_PAGE
+                        and e.get("en_shown") != "artwork"
                         and (e.get("en_source_kind") or e.get("source_kind")) != "derived"
                         and (field == "en_url" or not e.get("en_url"))):
                     en = str(e["en"])

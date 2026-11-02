@@ -1124,6 +1124,7 @@ titles:
     source: "mediaarts-db"
     source_kind: bibliography
     source_url: "https://mediaarts-db.artmuseums.go.jp/id/M867745"
+    en_shown: "artwork"
     en_source: "カドコミ"
     en_source_kind: platform
     en_url: "https://comic-walker.com/detail/KC_001719_S"
@@ -2130,8 +2131,9 @@ titles:
     en: "Tonight at the Mystia's Yatai"
     source: "comic-walker"
     source_kind: publisher-jp
-    source_url: "https://comic-walker.com/"
-    reviewed: '2026-08-12'
+    source_url: "https://comic-walker.com/detail/KC_018163_S"
+    en_shown: "artwork"
+    reviewed: '2026-11-02'
     note: >-
       The Latin title printed on the cover, accepted as official by the project owner on
       2026-08-12 with the reading recorded in data/queue/cover-names.yaml. 夜雀 is Mystia,
@@ -2220,6 +2222,7 @@ titles:
     en_source: "カドコミ"
     en_source_kind: platform
     en_url: "https://comic-walker.com/detail/KC_019475_S"
+    en_shown: "artwork"
     note: >-
       The series logo sets MERCENARY SISTERS in letterspaced capitals under the Japanese, so the
       work supplies its own English and the capitals are how it sets them, as with GUNBURED ×
@@ -7236,6 +7239,7 @@ titles:
     source: "サンデーうぇぶり"
     source_kind: "platform"
     source_url: "https://www.sunday-webry.com/episode/3269754496551508566"
+    en_shown: "artwork"
     reviewed: '2026-11-01'
     note: >-
       Replaces a translation made here. The series art sets VAMPEERZ, MY PEER VAMPIRES in
@@ -9689,6 +9693,7 @@ titles:
     source: series-art
     source_kind: platform
     source_url: https://ichicomi.com/episode/2550912965923204364
+    en_shown: "artwork"
     reviewed: '2026-08-05'
     note: >-
       The work's own Latin title, set on its series art. set as the main title with the Japanese below it; the foot repeats `Keep the END just a little longer / presented by KORUSE / published by ICHIJINSHA`
@@ -10201,6 +10206,7 @@ titles:
     source: カドコミ
     source_kind: platform
     source_url: https://comic-walker.com/detail/KC_006751_S
+    en_shown: "artwork"
     reviewed: '2026-08-10'
     note: >-
       THE WORK PRINTS THE WORD ITSELF. Its lead page on カドコミ shows Destiny in Latin letters, read there by the project owner on 2026-08-10, so the English name is the work's own and not a rendering of ours.
@@ -12845,6 +12851,7 @@ titles:
     source: "小学館"
     source_kind: "publisher-jp"
     source_url: "https://bookwalker.jp/series/167971/"
+    en_shown: "artwork"
     reviewed: '2026-08-10'
     note: >-
       The book's own English title, printed on the cover of book one above the Japanese. The cover
@@ -13933,18 +13940,16 @@ titles:
       and a reader looking for either finds neither.
 
   "ばっどがーる画集":
-    translation: "Bad Girl: A Collection of Pictures"
-    translation_note: >-
-      画集 is a book of an artist's pictures. The licensed art book is the trade's word for
-      the same object.
-    en: "Bad Girl: The Art Book"
-    basis: "licensed"
-    source: "yenpress.com"
-    source_kind: "licensor"
-    source_url: "https://yenpress.com/series/bad-girl"
-    reviewed: '2026-08-06'
+    en: "Bad Girl: A Collection of Pictures"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-11-02'
     note: >-
-      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Nikumaru, which is 肉丸, and this row is the 画集, the art book that goes with the series Yen Press publishes as Bad Girl. The series name is the licensor's; naming this row as its art book is ours.
+      画集 is a book of an artist's pictures, here 肉丸's for the series Yen Press publishes as Bad
+      Girl. The series name is the licensor's and this book's English is ours: Yen Press's series
+      page lists Bad Girl Vols. 1 to 3 and no art book (https://yenpress.com/series/bad-girl, read
+      2026-11-02). It was filed as licensed under the name Bad Girl: The Art Book until then.
 
   "Now loading…!":
     en: "Now Loading…!"
@@ -17684,17 +17689,17 @@ titles:
       Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. Credited to Nauchi, which is なうち, and the licensor keeps both names with their suffixes, so the titles are the same string in two scripts. The synopsis names Takane and Arashi.
 
   "高音さんと嵐ちゃん　はじめの話":
-    translation: "Takane-san and Arashi-chan: How It Started"
-    translation_note: >-
-      はじめの話 is the story of the beginning, which the licensed first story numbers instead.
-    en: "Takane-san and Arashi-chan: The First Story"
-    basis: "licensed"
-    source: "yenpress.com"
-    source_kind: "licensor"
-    source_url: "https://yenpress.com/series/takane-san-and-arashi-chan"
-    reviewed: '2026-08-06'
+    en: "Takane-san and Arashi-chan: How It Started"
+    basis: "translated"
+    source: "yurarium"
+    source_kind: "derived"
+    reviewed: '2026-11-02'
     note: >-
-      Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the identification is made here on the creator the page credits and on what the series is. The same pair as 高音さんと嵐ちゃん, which Yen Press publishes as Takane-san and Arashi-chan. はじめの話 is the story that came first, and naming it in English is ours.
+      はじめの話 is the story of how the pair began, beside 高音さんと嵐ちゃん, which Yen Press
+      publishes as Takane-san and Arashi-chan. The series name is the licensor's and this book's
+      English is ours: Yen Press's series page lists Vol. 1 alone and no book of this name
+      (https://yenpress.com/series/takane-san-and-arashi-chan, read 2026-11-02). It was filed as
+      licensed under The First Story until then.
 
   "ゆりぐらし":
     translation: "Yuri Living"
@@ -29436,6 +29441,7 @@ titles:
     en_source: "ニコニコ漫画"
     en_source_kind: platform
     en_url: "https://manga.nicovideo.jp/watch/mg900183"
+    en_shown: "artwork"
     translation: "Michiru's Meals by the Sea"
     translation_note: >-
       みちる is a given name and also the verb for the tide coming in, and the title leaves both
@@ -30558,6 +30564,7 @@ titles:
     source: comic-walker.com
     source_kind: platform
     source_url: https://comic-walker.com/detail/KC_008387_S
+    en_shown: "artwork"
     reviewed: '2026-08-07'
     note: >-
       The title-page artwork on KADOKAWA's own カドコミ page prints W A V E R ( S ) under the
@@ -30586,6 +30593,7 @@ titles:
     source: bookwalker.jp
     source_kind: publisher-jp
     source_url: https://bookwalker.jp/series/517278/
+    en_shown: "artwork"
     reviewed: '2026-08-07'
     note: >-
       The cover of the ナンバーナイン edition sets MIKOREI across the top and LOG Vol 1 across the
@@ -52383,14 +52391,15 @@ publishers:
 
   "PASH! コミックス":
     en: "PASH! Comics"
-    basis: official-jp
-    source: "pash-up.jp"
-    source_kind: publisher-jp
-    source_url: "https://pash-up.jp/"
-    reviewed: '2026-08-07'
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-11-02'
     note: >-
       主婦と生活社's comics line, already written PASH! in Latin letters on its own imprint, and
-      コミックス is the English word it stands for.
+      コミックス is the English word it stands for, so the English is ours. It was filed as the
+      publisher's own Latin name, citing pash-up.jp, whose page states the label in neither script
+      (read 2026-11-02).
 
   "講談社":
     en: "Kodansha"
@@ -52583,13 +52592,15 @@ publishers:
       The company titles its own front page KTC - KILL TIME COMMUNICATION OFFICIAL WEB SITE.
   "IDコミックス":
     en: "ID Comics"
-    basis: official-jp
-    source: ichijinsha.co.jp
-    source_kind: publisher-jp
-    source_url: https://www.ichijinsha.co.jp/
-    reviewed: '2026-08-07'
+    basis: translated
+    source: yurarium
+    source_kind: derived
+    reviewed: '2026-11-02'
     note: >-
-      Ichijinsha's umbrella comics line. The label itself is written IDコミックス, ID in Latin letters already, and the rest is the English word it stands for.
+      Ichijinsha's umbrella comics line. The label itself is written IDコミックス, ID in Latin
+      letters already, and コミックス is the English word it stands for, so the English is ours.
+      It was filed as Ichijinsha's own Latin name, citing its homepage, which states the label in
+      neither script (read 2026-11-02).
 
 # ── THE SECOND ROUND, 2026-08-07 ─────────────────────────────────────────────────────────────
 #

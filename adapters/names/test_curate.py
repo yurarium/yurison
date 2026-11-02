@@ -44,6 +44,14 @@ def main(s):
     s.check(curate.problems("titles", "x", with_(reviewed=None)),
             "an entry with no review date")
 
+    # WHERE THE PAGE SHOWS THE NAME. A logo is a place a person looked, so it is recorded.
+    s.eq(curate.problems("titles", "x", with_(en_shown="artwork")), [],
+         "an attributed name the page sets in its artwork says so")
+    s.check(curate.problems("titles", "x", with_(en_shown="logo")),
+            "en_shown takes one word from its vocabulary")
+    s.check(curate.problems("titles", "x", dict(OURS, en_shown="artwork")),
+            "and our own rendering is on no page to be shown by")
+
     # A CITED PAGE NOBODY OPENED. The naming job's 悪魔のリドル cited a guessed Seven Seas address
     # that returns 404 and said so in its note; every rule above passed it.
     s.check(curate.problems("titles", "x", with_(

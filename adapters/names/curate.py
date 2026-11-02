@@ -149,6 +149,11 @@ KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "revi
         "candidate_note", "reading", "reading_basis", "reading_note", "reading_source_kind",
         "reading_source", "reading_url", "reading_boundary", "reading_refuted", "en_refuted",
         "translation", "translation_note",
+        # WHERE THE CITED PAGE SHOWS THE NAME, where that is not its text. `artwork` says the page
+        # sets the English only in a logo, a cover or a title page, so the weekly sweep of cited
+        # pages (names/cited_pages.py) does not look for it in the markup. Written by a person who
+        # looked; the naming job's answers carry no such field.
+        "en_shown",
         # THE KANA ARE THEMSELVES A TRANSLITERATION, which no rule can detect. ステファン・セジク
         # romanises to `Sutefan Sejiku`, a transliteration of a transliteration, and the person is
         # Stjepan Šejić; but るいす・まくられん is credited beside 楽時たらひ on Japanese anthologies
@@ -195,6 +200,9 @@ FLATTENS_THE_COMMA = ("mediaarts-db", "openBD")
 #: A comma with a letter hard against it. Digits are left alone: `Vol.1,2` is a list and not a title
 #: set across two lines.
 CLOSED_COMMA = re.compile(r",[A-Za-z]")
+
+#: Where a cited page shows an attributed name other than in its text. See `en_shown` in KEYS.
+EN_SHOWN = ("artwork",)
 
 # A NOTE THAT SAYS THE CITED PAGE WAS NEVER OPENED. The naming job's 悪魔のリドル entry cited
 # sevenseas.com/series/riddle-story-of-devil/ as a licensor page, and its own note said the address
@@ -366,6 +374,12 @@ def problems(kind, ja, e):
                        f"{' or '.join(table[basis])}, not {esk!r}")
         if esk != "derived" and not (e.get("source_url") or e.get("en_url")):
             out.append(f"{where}: an attributed name needs the page it was read from")
+        if e.get("en_shown") is not None:
+            if e.get("en_shown") not in EN_SHOWN:
+                out.append(f"{where}: en_shown {e.get('en_shown')!r} is not one of {EN_SHOWN}")
+            elif esk == "derived":
+                out.append(f"{where}: en_shown says where a page shows the name, and our own "
+                           f"rendering is on no page")
         if esk != "derived" and UNOPENED.search(" ".join(str(e.get("note") or "").split())):
             out.append(f"{where}: the note says the cited page was not opened; an attributed name "
                        f"rests on a page somebody read, so open it and cite what it says")

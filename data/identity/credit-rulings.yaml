@@ -26,7 +26,7 @@
 # `credits sharing a reading nobody has ruled on`, so a newly sourced reading that puts two credits
 # together arrives as a number that has risen.
 retrieved: 2026-08-09
-count: 266
+count: 270
 rulings:
   - reading: "4kaエンピツ"
     surfaces:
@@ -2664,3 +2664,49 @@ rulings:
     decision: "merge"
     keep: "瑠夏子"
     basis: "ルカコ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `瑠夏子 / ルカコ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 瑠夏子 credits 3 work(s), among them フレンドガールフレンド. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+  - reading: "イクタハナ"
+    surfaces:
+      - "いくたはな"
+      - "育田花"
+    shape: "kana-reading"
+    decision: "merge"
+    keep: "いくたはな"
+    basis: "育田花 is the media arts database's catalogue form, and it credits no work of its own. MADB writes it, with its reading イクタハナ, as the creator of 骨に願いを、星に呪いを, ニセアイホンアイ and エルフとひとつ屋根の下, which the platforms and shops credit to いくたはな. The two spellings are one credit field read by two sources, so 育田花 is attached to the identifier いくたはな holds, and any later run that meets it resolves to the same address."
+  - reading: "ナカケント"
+    surfaces:
+      - "なか憲人"
+      - "中憲人"
+    shape: "unrelated"
+    decision: "merge"
+    keep: "なか憲人"
+    basis: "One person under one national library authority. NDL files 雑な生活 (KADOKAWA BEAM COMIX, 2020), whose statement reads 中憲人, and とくにある日々 1 (ヒーローズ, 2022), whose statement reads なか憲人, under the same heading 中, 憲人 ナカ, ケント, authority 001310257 (https://ndlsearch.ndl.go.jp/books/R100000002-I031933163 and https://ndlsearch.ndl.go.jp/en/books/R100000002-I030341579). KADOKAWA's own page writes 中 憲人. なか憲人 is kept because it is the spelling on the eight-volume series and on every platform that carries it."
+  - reading: "ハイジマ"
+    surfaces:
+      - "はいじま"
+      - "灰縞"
+    shape: "kana-reading"
+    decision: "keep"
+    basis: "Two credits on different works, and nothing ties them. はいじま credits 同居人に片思いしてる百合漫画 on ニコニコ漫画, whose author profile says the artist works as 灰島, with 島 and not 縞 (https://manga.nicovideo.jp/comic/55537). 灰縞 credits その花の名はキラキラ (白泉社, 黒蜜) on マンガPark, which gives no profile. The national library holds neither. A merge would need a page naming both, and none was found on 2026-11-02."
+  - reading: "ハンザワカオリ"
+    surfaces:
+      - "はんざわかおり"
+      - "半澤香織"
+    shape: "kana-reading"
+    decision: "merge"
+    keep: "はんざわかおり"
+    basis: "半澤香織 is the media arts database's catalogue form, and it credits no work of its own. MADB writes it as the creator of アイドルビーバック! (芳文社, まんがタイムKRコミックス), which the shops credit to はんざわかおり, the author of こみっくがーるず. So 半澤香織 is attached to the identifier はんざわかおり holds, and any later run that meets it resolves to the same address."
+  - reading: "ミト"
+    surfaces:
+      - "ミト"
+      - "三戸"
+    shape: "kana-reading"
+    decision: "keep"
+    basis: "Two people by the national library's account. NDL files 狼の皮をかぶった羊姫 (竹書房) under ミト, authority 001355681 (https://ndlsearch.ndl.go.jp/books/R100000002-I031457653), and 売れない漫画家と世話焼きの怨霊さん (竹書房) under 三戸, read ミト, authority 001310126 (https://ndlsearch.ndl.go.jp/books/R100000002-I031576851). BOOK☆WALKER likewise lists 三戸's ten books on its own author page (https://bookwalker.jp/author/121602/) without 狼の皮をかぶった羊姫. An English listing that gives 三戸 as Mito's Japanese name is a community database and was not taken as evidence."
+  - reading: "ヨツバマスミ"
+    surfaces:
+      - "よつば◎ますみ。"
+      - "よつばますみ"
+    shape: "kana-reading"
+    decision: "merge"
+    keep: "よつば◎ますみ。"
+    basis: "よつばますみ is the media arts database's catalogue form, with the pen name's ◎ and 。 dropped, and it credits no work of its own. MADB writes it, with its reading ヨツバマスミ, as the creator of ユリノコ (KADOKAWA, 角川コミックス・エース), which the platforms credit to よつば◎ますみ。. So よつばますみ is attached to the identifier よつば◎ますみ。 holds, and any later run that meets it resolves to the same address."

@@ -233,6 +233,11 @@ credits:
     credit: "よつば◎ますみ。"
     anchors:
       - "credit:よつば◎ますみ。"
+      - "credit:よつばますみ"
+    attached:
+      - anchor: "credit:よつばますみ"
+        basis: "よつばますみ is the media arts database's catalogue form, with the pen name's ◎ and 。 dropped, and it credits no work of its own. MADB writes it, with its reading ヨツバマスミ, as the creator of ユリノコ (KADOKAWA, 角川コミックス・エース), which the platforms credit to よつば◎ますみ。. So よつばますみ is attached to the identifier よつば◎ますみ。 holds, and any later run that meets it resolves to the same address."
+        retrieved: 2026-11-02
   - id: c00040
     credit: "狐ヶ崎"
     anchors:
@@ -797,6 +802,11 @@ credits:
     credit: "いくたはな"
     anchors:
       - "credit:いくたはな"
+      - "credit:育田花"
+    attached:
+      - anchor: "credit:育田花"
+        basis: "育田花 is the media arts database's catalogue form, and it credits no work of its own. MADB writes it, with its reading イクタハナ, as the creator of 骨に願いを、星に呪いを, ニセアイホンアイ and エルフとひとつ屋根の下, which the platforms and shops credit to いくたはな. The two spellings are one credit field read by two sources, so 育田花 is attached to the identifier いくたはな holds, and any later run that meets it resolves to the same address."
+        retrieved: 2026-11-02
   - id: c00141
     credit: "ゆあま"
     anchors:
@@ -4416,6 +4426,11 @@ credits:
     credit: "はんざわかおり"
     anchors:
       - "credit:はんざわかおり"
+      - "credit:半澤香織"
+    attached:
+      - anchor: "credit:半澤香織"
+        basis: "半澤香織 is the media arts database's catalogue form, and it credits no work of its own. MADB writes it as the creator of アイドルビーバック! (芳文社, まんがタイムKRコミックス), which the shops credit to はんざわかおり, the author of こみっくがーるず. So 半澤香織 is attached to the identifier はんざわかおり holds, and any later run that meets it resolves to the same address."
+        retrieved: 2026-11-02
   - id: c00828
     credit: "むちゃ"
     anchors:
@@ -6259,6 +6274,8 @@ credits:
       - "credit:小虎"
   - id: c01268
     credit: "中憲人"
+    merged_into: c02293
+    merge_basis: "One person under one national library authority. NDL files 雑な生活 (KADOKAWA BEAM COMIX, 2020), whose statement reads 中憲人, and とくにある日々 1 (ヒーローズ, 2022), whose statement reads なか憲人, under the same heading 中, 憲人 ナカ, ケント, authority 001310257 (https://ndlsearch.ndl.go.jp/books/R100000002-I031933163 and https://ndlsearch.ndl.go.jp/en/books/R100000002-I030341579). KADOKAWA's own page writes 中 憲人. なか憲人 is kept because it is the spelling on the eight-volume series and on every platform that carries it."
     anchors:
       - "credit:中憲人"
   - id: c01269
@@ -10466,6 +10483,7 @@ credits:
     credit: "なか憲人"
     anchors:
       - "credit:なか憲人"
+      - "credit:中憲人"
   - id: c02294
     credit: "日日ねるこ"
     anchors:
@@ -11210,3 +11228,19 @@ homophones:
         credit: "瀧"
     shape: "unrelated"
     basis: "多㐂 and 瀧 share a reading and nothing else. 㐂 is the variant of 喜 that reads キ, so 多㐂 reads タキ by the characters; 瀧 reads タキ as an ordinary surname. One credits a 一迅社 book and the other a 百合コレ one. Two names that sound alike."
+  - reading: "ハイジマ"
+    credits:
+      - id: c02320
+        credit: "はいじま"
+      - id: c00582
+        credit: "灰縞"
+    shape: "kana-reading"
+    basis: "Two credits on different works, and nothing ties them. はいじま credits 同居人に片思いしてる百合漫画 on ニコニコ漫画, whose author profile says the artist works as 灰島, with 島 and not 縞 (https://manga.nicovideo.jp/comic/55537). 灰縞 credits その花の名はキラキラ (白泉社, 黒蜜) on マンガPark, which gives no profile. The national library holds neither. A merge would need a page naming both, and none was found on 2026-11-02."
+  - reading: "ミト"
+    credits:
+      - id: c00093
+        credit: "ミト"
+      - id: c02364
+        credit: "三戸"
+    shape: "kana-reading"
+    basis: "Two people by the national library's account. NDL files 狼の皮をかぶった羊姫 (竹書房) under ミト, authority 001355681 (https://ndlsearch.ndl.go.jp/books/R100000002-I031457653), and 売れない漫画家と世話焼きの怨霊さん (竹書房) under 三戸, read ミト, authority 001310126 (https://ndlsearch.ndl.go.jp/books/R100000002-I031576851). BOOK☆WALKER likewise lists 三戸's ten books on its own author page (https://bookwalker.jp/author/121602/) without 狼の皮をかぶった羊姫. An English listing that gives 三戸 as Mito's Japanese name is a community database and was not taken as evidence."

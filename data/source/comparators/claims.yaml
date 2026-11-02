@@ -11,21 +11,56 @@ role: provisional-claims
 retrieved: 2026-11-02
 record_type: update_claims
 window_days: 60
-claims: 437
+claims: 439
 updates:
+  - work: "私の焦がれる彼女"
+    platform: "フラコミlike!"
+    date: 2026-11-02
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://flowercomics.jp/title/6162"
+    listing_tags: ["百合"]
+  - work: "私のブルーガーネット"
+    platform: "マンガPark"
+    date: 2026-11-02
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-park.com/title/98459"
+    listing_tags: ["百合", "エロ"]
   - work: "彗星、ロック・ユー 晴瀬ひろき"
     platform: "カドコミ"
     date: 2026-11-02
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "私のブルーガーネット"
-    platform: "マンガPark"
-    date: 2026-11-01
+  - work: "堕天使そぷらのちゃんの復讐"
+    platform: "カドコミ"
+    date: 2026-11-02
     source: "webcomics.jp"
     provenance: claimed
-    url: "https://manga-park.com/title/98459"
-    listing_tags: ["百合", "エロ"]
+    url: "https://comic-walker.com/detail/KC_006778_S"
+    listing_tags: ["百合", "女子高生", "学園"]
+  - work: "ファタールゲーム"
+    platform: "コミックDAYS"
+    date: 2026-11-02
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550912965726740557"
+    listing_tags: ["百合", "漫画家・絵描き"]
+  - work: "オタクには人生を積むことしかできない"
+    platform: "コミックDAYS"
+    date: 2026-11-02
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550689798616042670"
+    listing_tags: ["推し活", "やり直し", "百合", "タイムループ"]
+  - work: "この関西人がウザすぎる!!〜なにわギャルとイケズ京男に振り回されています〜"
+    platform: "pixivコミック"
+    date: 2026-11-02
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/13903"
+    listing_tags: ["百合"]
   - work: "百合SMでふたりの気持ちはつながりますか?"
     platform: "COMIC FUZ"
     date: 2026-11-01
@@ -108,7 +143,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://heros-web.com/series/2b64bc0622a2a"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
   - work: "雨夜の月"
     platform: "コミックDAYS"
     date: 2026-10-31
@@ -316,7 +351,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://www.ganganonline.com/title/29"
-    listing_tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
+    listing_tags: ["最近のコメント数"]
   - work: "忍者と殺し屋のふたりぐらし ハンバーガー"
     platform: "カドコミ"
     date: 2026-10-29
@@ -1338,13 +1373,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "堕天使そぷらのちゃんの復讐"
-    platform: "カドコミ"
-    date: 2026-10-19
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_006778_S"
-    listing_tags: ["百合", "女子高生", "学園"]
   - work: "今日はカノジョがいないから"
     platform: "マガポケ"
     date: 2026-10-19
@@ -1365,13 +1393,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/12194"
     listing_tags: ["百合"]
-  - work: "オタクには人生を積むことしかできない"
-    platform: "コミックDAYS"
-    date: 2026-10-19
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-days.com/episode/2550689798616042670"
-    listing_tags: ["推し活", "やり直し", "百合", "タイムループ"]
   - work: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     date: 2026-10-18
@@ -2657,13 +2678,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/13522"
     listing_tags: ["百合"]
-  - work: "ファタールゲーム"
-    platform: "コミックDAYS"
-    date: 2026-09-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-days.com/episode/2550912965726740557"
-    listing_tags: ["百合", "漫画家・絵描き"]
   - work: "オカワリいただけただろうか?"
     platform: "webアクション"
     date: 2026-09-25

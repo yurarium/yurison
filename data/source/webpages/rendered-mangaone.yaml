@@ -20,14 +20,18 @@ works:
     url: "https://manga-one.com/manga/27253/chapter/307792"
     chapter_count: 10
     chapters:
-      - title: "第10話"
-        updated: 2026-11-01
+      - title: "第11話(前編)"
+        updated: 2026-11-15
         access_modes: ["purchase"]
         access_note: "released early to paying readers (先読)"
         date_basis: rendered
+      - title: "第10話"
+        updated: 2026-11-01
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第9話(後編)"
         updated: 2026-09-20
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "第9話(前編)"
         updated: 2026-08-16
@@ -55,10 +59,6 @@ works:
         date_basis: rendered
       - title: "第6話(後編)"
         updated: 2026-04-26
-        access_modes: ["purchase"]
-        date_basis: rendered
-      - title: "第6話(前編)"
-        updated: 2026-04-12
         access_modes: ["purchase"]
         date_basis: rendered
   - work_title: "ソシャゲのお姉ちゃん"

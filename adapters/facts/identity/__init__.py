@@ -58,6 +58,11 @@ def id_re(prefix=PREFIX):
 ID = id_re()
 BRACKETED = re.compile(r"[【\[（(][^】\]）)]*[】\]）)]")
 NOISE = re.compile(r"[\s　・!！?？。、,，~〜ー―\-–—:：;；'\"“”‘’]+")
+# THREE CIRCLES A TITLE USES FOR ONE PLACEHOLDER. 異種族女子に〇〇する話 is written with the kanji
+# zero U+3007 on pixivコミック and with the shape U+25CB on ニコニコ漫画, and NFKC maps neither onto
+# the other, so the same work was minted twice. Folded to one rather than dropped, because the mark
+# is part of the title: ○○な話 and な話 are two titles.
+CIRCLES = str.maketrans({"〇": "○", "◯": "○"})
 
 
 def match_key(s):
@@ -71,7 +76,7 @@ def match_key(s):
     without meaning anything, so they are removed. Bracketed matter goes too, because it carries
     edition and bonus notes rather than the name of the work.
     """
-    s = unicodedata.normalize("NFKC", str(s or ""))
+    s = unicodedata.normalize("NFKC", str(s or "")).translate(CIRCLES)
     for _ in range(3):
         s = BRACKETED.sub("", s)
     return NOISE.sub("", s).lower()
@@ -353,6 +358,15 @@ def attach(entries, anchor, wid, basis, retrieved=None):
         return entries, (f"{anchor} was detached from {wid} by hand and is not re-joined. The "
                          f"reason is in the registry beside {wid}.")
     held = index(entries).get(anchor)
+    # A JOIN NAMING A RETIRED WORK IS SATISFIED BY ITS SURVIVOR. The shop query still names w00281,
+    # the 【タテスク】 edition merged into w00225, and w00225 holds the record, so the join says
+    # what the registry already does. Refusing it reported a merge to make every week.
+    seen, alive = set(), wid
+    while by_id.get(alive, {}).get("merged_into") and alive not in seen:
+        seen.add(alive)
+        alive = by_id[alive]["merged_into"]
+    if held and held == alive:
+        return entries, None
     if held and held != wid:
         return entries, (f"{anchor} is already held by {held}. Attaching it to {wid} as well would "
                          f"say the two are one work, which is a merge and needs --merge.")

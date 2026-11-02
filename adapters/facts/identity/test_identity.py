@@ -65,6 +65,9 @@ def main(s):
     s.eq(ident.stable_url(""), "", "an empty address is empty")
 
     s.eq(ident.match_key("Ａ　Ｂ！"), "ab", "width, spacing and decoration are not part of a name")
+    s.eq(ident.match_key("異種族女子に〇〇する話"), ident.match_key("異種族女子に○○する話"),
+         "the kanji zero and the circle are one placeholder, so one work is not minted twice")
+    s.ne(ident.match_key("○○な話"), ident.match_key("な話"), "and the placeholder stays in the title")
     s.eq(ident.match_key("彩純ちゃん【カラーイラスト特典付】"), ident.match_key("彩純ちゃん"),
          "and neither is a bonus note in brackets")
 
@@ -166,6 +169,14 @@ def main(s):
 
     s.check(ident.attach(reg, "web:x", "w99999", "basis")[1],
             "attaching to an identifier that does not exist is refused")
+
+    # A JOIN NAMING A RETIRED WORK. The record is held by the survivor, so the join is satisfied.
+    retired = [dict(e) for e in attached] + [{"id": "w00009", "title": "x", "anchors": [],
+                                              "merged_into": "w00002"}]
+    s.eq(ident.attach(retired, "web:u2", "w00009", "names the retired work")[1], None,
+         "a join to a work merged into the holder is already satisfied")
+    s.check(ident.attach(retired, "web:u2", "w00001", "hopeful")[1],
+            "while a join to a different live work is still refused")
 
     # THE WHOLE FILE AT ONCE, which is how a discovery pass applies two hundred of them. The joins
     # file is the record and this registry is derived from it, so a second run must be a no-op.

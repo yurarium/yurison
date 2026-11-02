@@ -141,6 +141,28 @@ def main(s):
 
     s.eq(by_title.match([], {}), ({}, []), "no rows, no answers and nothing to review")
 
+    # ONE PEN NAME IN TWO BRACKET STYLES. The shop's ＬＥＮ［Ａ－７］ and the catalogue's LEN〈A-7〉
+    # were refused as two people on the one book both name.
+    LOVE = [rec("ラブスコア", "[著]LEN〈A-7〉", "クロスフォリオ出版", "", "2019-01", "9784000000001")]
+    row = {"work_id": "bw-477591", "title": {"ja": "ラブスコア"}, "creator": "ＬＥＮ［Ａ－７］"}
+    s.eq(len(by_title.agreeing(row, LOVE)), 1, "brackets are typography, not part of the name")
+    s.eq(len(by_title.agreeing(dict(row, creator="LEN"), LOVE)), 0,
+         "and a shorter name is still a different name")
+
+    # A CATALOGUE SPELLING THE REGISTRY ATTACHES. MADB writes 育田花 for the book the shop credits
+    # to いくたはな, and only the ruling that attached one to the other's identifier can say so.
+    TIGER = [rec("龍と虎", "育田花", "コルク", "", "2021-04", "9784000000002")]
+    tiger = {"work_id": "bw-307179", "title": {"ja": "龍と虎"}, "creator": "いくたはな"}
+    who = {"育田花": "c00140", "いくたはな": "c00140", "玄鉄絢": "c00999"}.get
+    s.eq(len(by_title.agreeing(tiger, TIGER)), 0, "without the registry the spellings disagree")
+    s.eq(len(by_title.agreeing(tiger, TIGER, who)), 1, "with it they are one credit")
+    s.eq(len(by_title.agreeing(dict(tiger, creator="玄鉄絢"), TIGER, who)), 0,
+         "and two identifiers are still two people")
+    s.eq(len(by_title.agreeing(dict(tiger, creator="菅野マナミ"), MEMORIES, who)), 0,
+         "a spelling the registry does not hold falls back to its folded form")
+    s.eq(len(by_title.agreeing(row, LOVE, {"ＬＥＮ［Ａ－７］": "c01920"}.get)), 1,
+         "and a name only one side's spelling resolves still agrees on its folded form")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

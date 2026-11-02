@@ -4,9 +4,9 @@
 # one of them. The commonest cause here is the bibliography naming nobody on an older
 # import, and the second is an anthology, which has no single author to agree on.
 source: madb-title
-retrieved: 2026-11-01
+retrieved: 2026-11-02
 role: title-matches-refused
-refused: 32
+refused: 30
 works:
   - {"work_id": "bw-11342823-83e7-4310-b499-1da743f19709", "title": "Day In, Day Out", "creator": "Rion Nomiya", "publisher": "クロスフォリオ出版", "titles_matched": 2, "people_agreed": 0, "bibliography_names": ["[著]内田美奈子"], "why": "no person agreed"}
   - {"work_id": "bw-125046", "title": "ちゃおデラックスホラー", "creator": "ちゃお編集部", "publisher": "小学館", "titles_matched": 7, "people_agreed": 0, "bibliography_names": [""], "why": "no person agreed"}
@@ -14,13 +14,11 @@ works:
   - {"work_id": "bw-1dacffdb-1437-46df-8496-35ffd0e24fa6", "title": "WITH YOU", "creator": "tsuke", "publisher": "ユーリカ", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["[著]折原みと"], "why": "no person agreed"}
   - {"work_id": "bw-268850", "title": "恋の方程式", "creator": "ぐるめ", "publisher": "ぐるめ", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["[原作]ジョー・リー"], "why": "no person agreed"}
   - {"work_id": "bw-2944c075-5b37-44ae-b251-8918557b6373", "title": "恋とは呼べない", "creator": "真くん", "publisher": "ライトリーズン", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[原作]榎田尤利"], "why": "no person agreed"}
-  - {"work_id": "bw-307179", "title": "龍と虎", "creator": "いくたはな", "publisher": "コルク", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["育田花"], "why": "no person agreed"}
   - {"work_id": "bw-349064", "title": "CottonCandy【単話版】", "creator": "浜野りんご", "publisher": "クロスフォリオ出版", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[著]牧村久実"], "why": "no person agreed"}
   - {"work_id": "bw-34f8a644-8e35-4819-b321-58487b184723", "title": "先生", "creator": "嵩乃朔", "publisher": "嵩乃朔", "titles_matched": 33, "people_agreed": 0, "bibliography_names": ["[編]創美社", "[著]水瀬藍", "[著]河原和音", "[著]藍川さき"], "why": "no person agreed"}
   - {"work_id": "bw-391715", "title": "NOAH", "creator": "ＮＯＡＨ編集部", "publisher": "NOAH編集部", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[著]しばの結花"], "why": "no person agreed"}
   - {"work_id": "bw-3d3711b8-c246-4d15-bad4-9b1f1e1df65e", "title": "魔性のメロ女に堕とされる百合アンソロジー", "creator": "", "publisher": "一迅社", "titles_matched": 1, "people_agreed": 0, "bibliography_names": [""], "why": "no person agreed"}
   - {"work_id": "bw-403717", "title": "三姉妹", "creator": "あまか", "publisher": "空色の音", "titles_matched": 1, "people_agreed": 0, "bibliography_names": ["[著]岡田まり子"], "why": "no person agreed"}
-  - {"work_id": "bw-477591", "title": "ラブスコア", "creator": "ＬＥＮ［Ａ－７］", "publisher": "クロスフォリオ出版", "titles_matched": 2, "people_agreed": 0, "bibliography_names": ["[著]LEN〈A-7〉"], "why": "no person agreed"}
   - {"work_id": "bw-4ca96381-b26f-496a-990e-2d01efea3a3a", "title": "ANSWER", "creator": "井上とさず", "publisher": "ライトリーズン", "titles_matched": 2, "people_agreed": 0, "bibliography_names": ["[著]鎌田洋次"], "why": "no person agreed"}
   - {"work_id": "bw-510617", "title": "秘すれば華なり", "creator": "ふぁゆ瀬", "publisher": "ナンバーナイン", "titles_matched": 3, "people_agreed": 0, "bibliography_names": ["[作画]葛原昏"], "why": "no person agreed"}
   - {"work_id": "bw-54691", "title": "従姉ヴァレリア", "creator": "福原ヒロ子", "publisher": "ぶんか社", "titles_matched": 2, "people_agreed": 2, "bibliography_names": ["[著]福原ヒロ子"], "why": "agreed, and no agreeing volume states both a date and an ISBN"}

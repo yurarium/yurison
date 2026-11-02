@@ -59,7 +59,38 @@ BASIS = "madb-tankobon-title-match"
 MIN_MATCHES = 5
 
 
-def people(names):
+# BRACKETS ARE TYPOGRAPHY IN A PEN NAME. The shop writes ＬＥＮ［Ａ－７］ and the catalogue
+# LEN〈A-7〉 for one artist, and `extract.norm` keeps the brackets, so the one book both name was
+# refused as two people disagreeing. Folded here and not in `extract.norm`, which also keys the
+# volumes of one work inside the catalogue, where a looser key would merge two works.
+BRACKETS = re.compile(r"[\[\]〈〉<>《》「」『』【】()（）{}]")
+
+
+def person_keys(name, who=None):
+    """The keys one person's name is compared under: the folded spelling, and the credit
+    identifier as well where the registry holds one. Two names agree when any key is shared, so a
+    spelling only one side's registry entry knows still meets the other on its folded form.
+
+    WHO IS ASKED BECAUSE A CATALOGUE SPELLS A PEN NAME ITS OWN WAY. MADB credits 龍と虎 to 育田花,
+    the shop to いくたはな, and a ruling in data/identity/credit-rulings.yaml attaches the first to
+    the second's identifier. The folded strings share nothing, so only the registry can say they
+    are one credit. `who(name)` returns the identifier or None.
+    """
+    key = BRACKETS.sub("", extract.norm(name))
+    got = who(name) if who and key else None
+    return {k for k in (key, got and f"id:{got}") if k}
+
+
+def registry(path):
+    """`who(name)` over a credits registry: the identifier a spelling resolves to, or None."""
+    import credit_identity
+
+    entries, _doc = credit_identity.load(path)
+    found = identity.index(entries)
+    return lambda name: found.get(credit_identity.anchor(name))
+
+
+def people(names, who=None):
     """The comparison keys for the shop's credit string.
 
     `split_authors` splits it, because the shop writes `冬芽沙也 / 中村 朱里` and that module is
@@ -70,9 +101,8 @@ def people(names):
     out = set()
     for name, _reading in split_authors(names or ""):
         # The shop writes a role in brackets after a name: `のん(キャラクターデザイン)`.
-        bare = extract.norm(re.sub(r"[（(][^）)]*[）)]\s*$", "", name).strip())
-        if bare:
-            out.add(bare)
+        bare = re.sub(r"[（(][^）)]*[）)]\s*$", "", name).strip()
+        out |= person_keys(bare, who)
     return out
 
 
@@ -107,7 +137,7 @@ def keys(title):
     return {k for k in (identity.match_key(f) for f in forms) if k}
 
 
-def credits(record):
+def credits(record, who=None):
     """Every person a bibliography record names, read for a join across two catalogues.
 
     WHY THIS IS NOT `extract.people`, WHICH ANSWERS ALMOST THE SAME QUESTION. That function reads
@@ -127,8 +157,8 @@ def credits(record):
     read here can only ever confirm a title that has already matched.
     """
     raw = extract.primary(record.get("schema:creator", ""))
-    return {extract.norm(extract.strip_role(part))
-            for part in re.split(r"\s*/\s*", raw) if extract.strip_role(part)}
+    return {k for part in re.split(r"\s*/\s*", raw) if extract.strip_role(part)
+            for k in person_keys(extract.strip_role(part), who)}
 
 
 def undated(record):
@@ -152,27 +182,27 @@ def dated_volumes(records):
     return sorted(out)
 
 
-def agreeing(row, records):
+def agreeing(row, records, who=None):
     """The bibliography records that agree with this row on at least one person's name.
 
     A record naming nobody agrees with nothing. MADB leaves `schema:creator` empty on some older
     imports, and treating an empty set as agreement would turn the rule into a title match, which
     is the rule this module exists to avoid being.
     """
-    ours = people(row.get("creator"))
+    ours = people(row.get("creator"), who)
     if not ours:
         return []
-    return [r for r in records if credits(r) & ours]
+    return [r for r in records if credits(r, who) & ours]
 
 
-def answer(row, records):
+def answer(row, records, who=None):
     """`(date, isbn, matched)` for one row, or None where nothing agrees.
 
     `matched` is the evidence: how many records shared the title, how many agreed on a person, and
     which record supplied the date. A stored join that does not carry what convinced it cannot be
     audited and cannot be withdrawn on better evidence (DEFINITIONS §5).
     """
-    fit = agreeing(row, records)
+    fit = agreeing(row, records, who)
     dates = dated_volumes(fit)
     if not dates:
         return None
@@ -191,7 +221,7 @@ def index(records):
     return out
 
 
-def match(rows, by_title):
+def match(rows, by_title, who=None):
     """`(answers, review)` over every row, where `answers` are joins the person rule accepted.
 
     A row whose title matched and whose people did not is NOT silently dropped. It goes to
@@ -210,7 +240,7 @@ def match(rows, by_title):
         records = list(found.values())
         if not records:
             continue
-        got = answer(row, records)
+        got = answer(row, records, who)
         if got:
             date, number, matched = got
             answers[row["work_id"]] = {"date": date, "isbn": number, "matched": matched}
@@ -218,10 +248,10 @@ def match(rows, by_title):
             review.append({"work_id": row["work_id"], "title": title,
                            "creator": row.get("creator"), "publisher": row.get("publisher"),
                            "titles_matched": len(records),
-                           "people_agreed": len(agreeing(row, records)),
+                           "people_agreed": len(agreeing(row, records, who)),
                            "bibliography_names": sorted(
                                {extract.primary(r.get("schema:creator", "")) for r in records}),
-                           "why": ("no person agreed" if not agreeing(row, records)
+                           "why": ("no person agreed" if not agreeing(row, records, who)
                                    else "agreed, and no agreeing volume states both a date and "
                                         "an ISBN")})
     return answers, review
@@ -274,6 +304,9 @@ def main(argv=None):
     ap.add_argument("--works", default="data/source/bookwalker")
     ap.add_argument("--out", default="data/source/madb-title")
     ap.add_argument("--review", default="data/queue/madb-title-review.yaml")
+    ap.add_argument("--credits", default="data/identity/credits.yaml",
+                    help="the credit registry, so a catalogue's spelling of a pen name agrees "
+                         "with the shop's where a ruling says they are one credit")
     ap.add_argument("--retrieved", default=datetime.date.today().isoformat())
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
@@ -285,7 +318,7 @@ def main(argv=None):
 
     records = list(isbn_dates.records(pathlib.Path(a.cache) / isbn_dates.VOLUMES))
     print(f"{len(records)} 単行本 record(s) in {a.tag}")
-    answers, review = match(todo, index(records))
+    answers, review = match(todo, index(records), registry(a.credits))
     print(f"HEALTH: {len(answers)} row(s) joined on a title and a person, "
           f"{len(review)} matched a title and no person")
     if len(answers) < MIN_MATCHES:

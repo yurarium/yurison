@@ -7,9 +7,9 @@
 # through the backlog over several weeks. A shop that is down costs that week and is recorded as a
 # failed source like any other; what each file already holds stays.
 #
-# The national bibliography's monthly release is fetched here too, and the MADB routes read it
-# after the shops: each route asks it about ISBNs or titles one of the captures above states, so
-# it runs on what this week's captures hold.
+# The MADB routes read the national bibliography's release, which Stage 0 fetches, after the
+# shops: each route asks it about ISBNs or titles one of the captures above states, so it runs on
+# what this week's captures hold.
 #
 # The National Diet Library is not here. Its search API is under a path its robots.txt disallows,
 # which the project takes literally (adapters/names/ndl_reading.py), so the NDL passes stay frozen
@@ -78,6 +78,16 @@ commands:
     every_days: 7
     argv: [adapters/madb/by_isbn.py, --cache, "{CACHE}/madb-cache/current",
            --capture, data/queue/cmoa-volumes.yaml]
+
+  # THE SHOPS EACH WEB WORK'S OWN PLATFORM PAGE LINKS, and the ISBNs on them, which the route
+  # below takes to the bibliography. Written by hand on 2026-08-07 and never again: its default
+  # input was series.json, which the build stopped writing, so a scheduled run would have died
+  # before asking anything. Monthly, asking every work not yet seen and again every 60 days any
+  # work its platform listed no volume for.
+  - id: platform-editions
+    optional: true
+    every_days: 30
+    argv: [adapters/editions/capture.py, --cache, "{CACHE}/editions-cache", --retrieved, "{R}"]
 
   - id: madb-platform-isbn
     optional: true

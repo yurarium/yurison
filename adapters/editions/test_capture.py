@@ -79,6 +79,38 @@ def main(s):
     s.eq(by["https://a/1"]["volumes"], [{"isbn": "9784000000001"}],
          "and an untouched one keeps its own")
 
+    # ── which works a run asks about ────────────────────────────────────────────────────────
+    import datetime
+    today = datetime.date(2026, 11, 2)
+    rows = {"https://a/1": {"volumes": [{"isbn": "9784000000001"}], "retrieved": "2026-08-07"},
+            "https://a/2": {"volumes": [], "retrieved": "2026-08-07"},
+            "https://a/4": {"volumes": [], "retrieved": "2026-10-30"}}
+    s.check(capture.due(rows, "https://a/9", today), "a work never asked about is asked")
+    s.check(not capture.due(rows, "https://a/1", today), "a work with a volume is not asked again")
+    s.check(capture.due(rows, "https://a/2", today),
+            "a work that had no volume in August is asked again in November")
+    s.check(not capture.due(rows, "https://a/4", today), "and one answered last week is not")
+    rows["https://a/5"] = {"volumes": [], "retrieved": "2026-11-01",
+                           "notes": ["cmoa title 1 not fetched"]}
+    s.check(capture.due(rows, "https://a/5", today),
+            "a page that was not fetched is asked again at once, because it is no answer")
+
+    # A HOST THAT KEEPS REFUSING is not asked again this run.
+    import net
+    calls = []
+    real = net.fetch
+    net.fetch = lambda url, cache, age: (calls.append(url),
+                                        net.Result(None, 503, url, None, False, "HTTP 503",
+                                                   "down.example"))[1]
+    try:
+        capture._refusals.clear()
+        got = [capture.fetch(f"https://down.example/{i}", None) for i in range(6)]
+    finally:
+        net.fetch = real
+        capture._refusals.clear()
+    s.eq(got, [None] * 6, "every request to it answers nothing")
+    s.eq(len(calls), capture.DOWN_AFTER, "and only the first few are sent")
+
     # ── what the file says, read back ────────────────────────────────────────────────────────
     out = capture.render({
         "source": "platform-retail-links", "role": "print-edition-discovery",

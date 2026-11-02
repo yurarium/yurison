@@ -1,0 +1,52 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+# Curation and content classification belong in the overlay layer.
+source: madb
+source_version: "1.2.21"
+retrieved: 2026-11-01
+work_id: madb-t-f170ee3b7484
+route: isbn-from-platform
+grouping: title-only
+# No cm104 series record; volumes grouped by normalised title. Verify before
+# treating as one work — see docs/MADB.md.
+madb_id: null
+record_type: manga_book_series
+title:
+  ja: "灼熱の魔女様の楽しい温泉領地経営 : 魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます"
+  yomi: "シャクネツ ノ マジョサマ ノ タノシイ オンセン リョウチ ケイエイ : マリョク ゼロ デ ヘンキョウ ニ ツイホウ サレマシタガ サイヤクキュウ ノ アタタメ スキル デ オンセン テイコク ツクッチャイマス"
+creator: "[原作]海野アロイ, 切符 / [漫画]むぎちゃぽよこ"
+publisher: "アース・スターエンターテイメント"
+imprint: "EARTH STAR COMICS"
+volume_count: 3
+first_published: 2023-04
+last_published: 2024-05
+volumes:
+  - madb_id: M926636
+    number: "1"
+    isbn: "9784803017694"
+    published: 2023-04
+  - madb_id: M942121
+    number: "2"
+    isbn: "9784803018592"
+    published: 2023-11
+  - madb_id: M968432
+    number: "3"
+    isbn: "9784803019445"
+    published: 2024-05
+identified_by:
+  route: isbn-from-platform
+  platform: "コミック アース・スター"
+  url: "https://comic-earthstar.com/episode/2551460909469511389"
+  retrieved: 2026-11-01
+  note: >-
+    The work's own platform page links the shops selling its collected volumes, and
+    the ISBN was read off that page's links. A shop is discovery only (REQUIREMENTS
+    §1); this record is the national bibliography's answer to the ISBN.
+marketing_label: none
+marketing_label_basis:
+  source: madb
+  url: 
+  retrieved: 2026-11-01
+  note: >-
+    Identified from the work's own platform page, which links the shops selling
+    its collected volumes. A link to a shop is not publisher-side labelling
+    (§4), so this axis stays `none`, which says nothing about content.

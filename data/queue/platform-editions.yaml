@@ -21,12 +21,12 @@
 source: platform-retail-links
 role: print-edition-discovery
 record_type: platform_retail_capture
-retrieved: 2026-08-07
+retrieved: 2026-11-02
 key: platform_url
 counts:
-  isbns: 440
-  works: 839
-  works_with_a_printed_volume: 293
+  isbns: 448
+  works: 941
+  works_with_a_printed_volume: 304
 works:
   - platform_url: "https://comic-ogyaaa.com/episode/12207421983939282905"
     id: "w00188"
@@ -85,6 +85,36 @@ works:
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-ogyaaa.com/episode/12207421984276173446"
+    id: "w00415"
+    work: "ゆりゾン"
+    platform: "COMIC OGYAAA!!"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-ogyaaa.com/episode/12207421984341976248"
+    id: "w00192"
+    work: "まるせっせんす"
+    platform: "COMIC OGYAAA!!"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "block 'まるせっせんす 1 (集英社ホームコミックス)' states no number"
+  - platform_url: "https://comic-ogyaaa.com/episode/12207421984374790241"
+    id: "w00108"
+    work: "壊していいよ、すいかちゃん"
+    platform: "COMIC OGYAAA!!"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
   - platform_url: "https://comic-ogyaaa.com/episode/2550689798327509028"
     id: "w00731"
     work: "きみと観たいレースがある"
@@ -108,7 +138,7 @@ works:
     platform: "COMIC OGYAAA!!"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -118,7 +148,7 @@ works:
     platform: "COMIC OGYAAA!!"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -144,7 +174,7 @@ works:
     platform: "COMIC OGYAAA!!"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -164,10 +194,40 @@ works:
     platform: "COMIC OGYAAA!!"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-y-ours.com/episode/12207421983394553051"
+    id: "w03296"
+    work: "アンラッキースケベ"
+    platform: "COMIC Y-OURS"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-y-ours.com/episode/12207421983499079730"
+    id: "w03295"
+    work: "ホントのキモチ"
+    platform: "COMIC Y-OURS"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-ryu.jp/series/b90143637a741"
+    id: "w03209"
+    work: "ゆりでなる♥えすぽわーる"
+    platform: "COMICリュウ"
+    engine: "comici"
+    steps: "page -> store item"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "page not fetched"
   - platform_url: "https://comic.j-nbooks.jp/series/25f1325d1fd40"
     id: "w00983"
     work: "SHWD《シュード》"
@@ -201,7 +261,7 @@ works:
     platform: "FEEL web"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -221,52 +281,70 @@ works:
     platform: "Gコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
+  - platform_url: "https://g-comi.jp/series/3f172ce77f966"
+    id: "w03305"
+    work: "八尺様とコロポックル-215cmと135cmの女子高生-"
+    platform: "Gコミ"
+    engine: "comici"
+    steps: "page -> store item"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "page not fetched"
   - platform_url: "https://g-comi.jp/series/5448ec9f6077b"
     id: "w00160"
     work: "暴走!?サキュバスせんぱい"
     platform: "Gコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://g-comi.jp/series/58238b3987c11"
     id: "w00217"
     work: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
+  - platform_url: "https://g-comi.jp/series/74403f9e30641"
+    id: "w03443"
+    work: "きっと、彼女が好きだから"
+    platform: "Gコミ"
+    engine: "comici"
+    steps: "page -> store item"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "page not fetched"
   - platform_url: "https://g-comi.jp/series/7e3c698bca968"
     id: "w00126"
     work: "百合フェチLIFE"
     platform: "Gコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "store item 19270 offers no printed edition"
-      - "store item 19269 offers no printed edition"
-      - "the platform states 2 volume(s)"
+      - "page not fetched"
   - platform_url: "https://g-comi.jp/series/82ac8f503cf40"
     id: "w00163"
     work: "喫茶 秘匿異"
     platform: "Gコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://g-comi.jp/series/bb5c13d2cf687"
     id: "w00393"
     work: "イヴとイヴたち"
@@ -297,11 +375,10 @@ works:
     platform: "Gコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "store item 19275 offers no printed edition"
-      - "the platform states 1 volume(s)"
+      - "page not fetched"
   - platform_url: "https://heros-web.com/series/2b64bc0622a2a"
     id: "w00119"
     work: "魔女とくゅらす"
@@ -332,7 +409,57 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://magcomi.com/episode/12207421984065499859"
+    id: "w03289"
+    work: "【今日の10ページ】女子高生VS首切り地蔵"
+    platform: "MAGCOMI"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://magcomi.com/episode/12207421984174948885"
+    id: "w03285"
+    work: "東京つけものがたり"
+    platform: "MAGCOMI"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://magcomi.com/episode/12207421984187016919"
+    id: "w03279"
+    work: "天使なんかにならないで"
+    platform: "MAGCOMI"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://magcomi.com/episode/12207421984355613624"
+    id: "w03315"
+    work: "忍者アシスタントとアナログ漫画家"
+    platform: "MAGCOMI"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://magcomi.com/episode/12207421984406812438"
+    id: "w03451"
+    work: "君とは一緒に死ねない～警視庁怪異調査室～"
+    platform: "MAGCOMI"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -342,7 +469,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -352,7 +479,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -362,7 +489,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -372,7 +499,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -382,7 +509,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -392,7 +519,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -416,7 +543,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -426,7 +553,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -436,7 +563,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -446,7 +573,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -456,7 +583,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -466,7 +593,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -476,7 +603,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -486,7 +613,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -496,7 +623,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -506,7 +633,7 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -526,7 +653,27 @@ works:
     platform: "MAGCOMI"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ourfeel.jp/episode/2550912966077179576"
+    id: "w03297"
+    work: "明日の空を見る人よ"
+    platform: "OUR FEEL"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-seasons.com/episode/12207421984209200929"
+    id: "w03271"
+    work: "今夜、エーテルで待ちあわせ"
+    platform: "Seasons"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -536,7 +683,7 @@ works:
     platform: "Seasons"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -546,7 +693,7 @@ works:
     platform: "comicブースト"
     engine: "comicboost"
     steps: "page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス block; the platform lists no volume for this series"
@@ -568,7 +715,7 @@ works:
     platform: "comicブースト"
     engine: "comicboost"
     steps: "page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス block; the platform lists no volume for this series"
@@ -600,7 +747,7 @@ works:
     platform: "comicブースト"
     engine: "comicboost"
     steps: "page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス block; the platform lists no volume for this series"
@@ -610,7 +757,7 @@ works:
     platform: "comicブースト"
     engine: "comicboost"
     steps: "page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス block; the platform lists no volume for this series"
@@ -630,7 +777,7 @@ works:
     platform: "comicブースト"
     engine: "comicboost"
     steps: "page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス block; the platform lists no volume for this series"
@@ -654,6 +801,36 @@ works:
     volumes:
       - isbn: "9784344856981"
         via: "https://www.gentosha-comics.net/book/b671924.html"
+  - platform_url: "https://comic-boost.com/content/01780001"
+    id: "w03317"
+    work: "葵とおねーちゃん"
+    platform: "comicブースト"
+    engine: "comicboost"
+    steps: "page -> publisher book page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no コミックス block; the platform lists no volume for this series"
+  - platform_url: "https://comic-boost.com/content/01830001"
+    id: "w03453"
+    work: "本命は秘密"
+    platform: "comicブースト"
+    engine: "comicboost"
+    steps: "page -> publisher book page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no コミックス block; the platform lists no volume for this series"
+  - platform_url: "https://comic-boost.com/content/01840001"
+    id: "w03474"
+    work: "聖騎士様のお気に入り"
+    platform: "comicブースト"
+    engine: "comicboost"
+    steps: "page -> publisher book page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no コミックス block; the platform lists no volume for this series"
   - platform_url: "https://comic.pixiv.net/works/10005"
     id: "w00175"
     work: "酒と鬼は二合まで"
@@ -724,7 +901,7 @@ works:
     platform: "pixivコミック"
     engine: "pixiv"
     steps: "api"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "pixivコミック lists no printed book for this work"
@@ -734,7 +911,7 @@ works:
     platform: "pixivコミック"
     engine: "pixiv"
     steps: "api"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "pixivコミック lists no printed book for this work"
@@ -959,7 +1136,7 @@ works:
     platform: "pixivコミック"
     engine: "pixiv"
     steps: "api"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "pixivコミック lists no printed book for this work"
@@ -1002,7 +1179,7 @@ works:
     platform: "pixivコミック"
     engine: "pixiv"
     steps: "api"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "pixivコミック lists no printed book for this work"
@@ -1017,6 +1194,28 @@ works:
       - isbn: "9784825100152"
         stated_title: "晴れた日のドレスコード(1) (百合姫コミックス)"
         via: "https://comic.pixiv.net/api/app/works/13425/ad_books"
+  - platform_url: "https://comic.pixiv.net/works/13457"
+    id: "w00198"
+    work: "怪獣ロマンティクス"
+    platform: "pixivコミック"
+    engine: "pixiv"
+    steps: "api"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784065450352"
+        stated_title: "怪獣ロマンティクス(1) (KCデラックス)"
+        via: "https://comic.pixiv.net/api/app/works/13457/ad_books"
+  - platform_url: "https://comic.pixiv.net/works/13609"
+    id: "w03311"
+    work: "姫騎士と姫巫女"
+    platform: "pixivコミック"
+    engine: "pixiv"
+    steps: "api"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784048114578"
+        stated_title: "姫巫子と姫騎士 (カドコミ)"
+        via: "https://comic.pixiv.net/api/app/works/13609/ad_books"
   - platform_url: "https://comic.pixiv.net/works/2082"
     id: "w00616"
     work: "紅殻のパンドラ"
@@ -1399,7 +1598,7 @@ works:
     platform: "pixivコミック"
     engine: "pixiv"
     steps: "api"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "pixivコミック lists no printed book for this work"
@@ -1498,7 +1697,7 @@ works:
     platform: "pixivコミック"
     engine: "pixiv"
     steps: "api"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "pixivコミック lists no printed book for this work"
@@ -1599,7 +1798,7 @@ works:
     platform: "pixivコミック"
     engine: "pixiv"
     steps: "api"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "pixivコミック lists no printed book for this work"
@@ -1648,7 +1847,7 @@ works:
     platform: "pixivコミック"
     engine: "pixiv"
     steps: "api"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "pixivコミック lists no printed book for this work"
@@ -1709,7 +1908,7 @@ works:
     platform: "webアクション"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1768,13 +1967,24 @@ works:
       - isbn: "9784575857085"
         stated_title: "単行本発売中!"
         via: "https://comic-action.com/episode/14079602755480532354"
+  - platform_url: "https://comic-action.com/episode/14079602755480532358"
+    id: "w00782"
+    work: "SAL"
+    platform: "webアクション"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784575857085"
+        stated_title: "単行本発売中!"
+        via: "https://comic-action.com/episode/14079602755480532358"
   - platform_url: "https://comic-action.com/episode/2550668105997132927"
     id: "w00744"
     work: "百合拳"
     platform: "webアクション"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1828,7 +2038,7 @@ works:
     platform: "webアクション"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1849,7 +2059,7 @@ works:
     platform: "webアクション"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1881,7 +2091,7 @@ works:
     platform: "webアクション"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1891,7 +2101,7 @@ works:
     platform: "webアクション"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1905,13 +2115,23 @@ works:
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://kuragebunch.com/episode/12207421983458660590"
+    id: "w00337"
+    work: "メイドのベル"
+    platform: "くらげバンチ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
   - platform_url: "https://kuragebunch.com/episode/12207421983529910910"
     id: "w00327"
     work: "ママ活女"
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1931,7 +2151,17 @@ works:
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://kuragebunch.com/episode/12207421984241210596"
+    id: "w00073"
+    work: "ファーストペンギン・レクイエム"
+    platform: "くらげバンチ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1941,7 +2171,7 @@ works:
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1951,7 +2181,7 @@ works:
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1961,7 +2191,7 @@ works:
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1971,7 +2201,7 @@ works:
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1981,7 +2211,7 @@ works:
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -1991,7 +2221,7 @@ works:
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2018,7 +2248,7 @@ works:
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2028,7 +2258,7 @@ works:
     platform: "くらげバンチ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2038,7 +2268,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2048,7 +2278,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2058,7 +2288,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2068,7 +2298,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2078,7 +2308,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2088,7 +2318,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2098,7 +2328,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2108,7 +2338,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2118,7 +2348,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2146,6 +2376,76 @@ works:
       - isbn: "9784087927498"
         stated_title: "博イラスト集 ~明日ちゃんまでの足跡~ (愛蔵版コミックス)"
         via: "https://tonarinoyj.jp/episode/12207421983966650782"
+  - platform_url: "https://tonarinoyj.jp/episode/12207421984080790252"
+    id: "w03290"
+    work: "凛としてきゅん"
+    platform: "となりのヤングジャンプ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://tonarinoyj.jp/episode/12207421984115943558"
+    id: "w03288"
+    work: "死神デリート"
+    platform: "となりのヤングジャンプ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://tonarinoyj.jp/episode/12207421984115943564"
+    id: "w03287"
+    work: "知らないまっぴるま"
+    platform: "となりのヤングジャンプ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://tonarinoyj.jp/episode/12207421984147413209"
+    id: "w03281"
+    work: "17歳"
+    platform: "となりのヤングジャンプ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://tonarinoyj.jp/episode/12207421984173978509"
+    id: "w00130"
+    work: "英雄少女と呪われの銀姫"
+    platform: "となりのヤングジャンプ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://tonarinoyj.jp/episode/12207421984183316998"
+    id: "w03282"
+    work: "獄宝"
+    platform: "となりのヤングジャンプ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://tonarinoyj.jp/episode/12207421984252566649"
+    id: "w03298"
+    work: "GOOD HUNT"
+    platform: "となりのヤングジャンプ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
   - platform_url: "https://tonarinoyj.jp/episode/13933686331772859580"
     id: "w00982"
     work: "ストライク・オア・ガター"
@@ -2162,7 +2462,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2172,7 +2472,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2182,7 +2482,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2192,7 +2492,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2213,7 +2513,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2223,7 +2523,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2233,7 +2533,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2254,7 +2554,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2286,7 +2586,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2296,7 +2596,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2306,7 +2606,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2316,7 +2616,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2326,7 +2626,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2336,7 +2636,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2346,7 +2646,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2356,7 +2656,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2366,7 +2666,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2376,7 +2676,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2386,7 +2686,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2396,7 +2696,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2406,7 +2706,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2416,7 +2716,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2426,7 +2726,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2436,7 +2736,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2457,7 +2757,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2467,7 +2767,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2477,7 +2777,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2487,7 +2787,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2497,17 +2797,28 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://tonarinoyj.jp/episode/2550912964971198667"
+    id: "w00689"
+    work: "清田さんは汚されたい!?"
+    platform: "となりのヤングジャンプ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784088935232"
+        stated_title: "清田さんは汚されたい!? 3 (ヤングジャンプコミックスDIGITAL)"
+        via: "https://tonarinoyj.jp/episode/2550912964971198667"
   - platform_url: "https://tonarinoyj.jp/episode/2550912965159409071"
     id: "w00587"
     work: "天使と書いて悪魔と読む。逆もまた然り。"
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2517,7 +2828,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2527,7 +2838,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2537,7 +2848,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2547,7 +2858,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2557,7 +2868,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2567,7 +2878,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2577,7 +2888,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2587,7 +2898,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2597,7 +2908,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2607,7 +2918,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2617,7 +2928,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2627,7 +2938,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2637,7 +2948,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2647,7 +2958,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2657,7 +2968,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2678,7 +2989,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2688,7 +2999,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2698,7 +3009,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2708,7 +3019,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2718,7 +3029,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2728,7 +3039,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2738,7 +3049,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2748,7 +3059,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2758,7 +3069,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2779,7 +3090,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2789,7 +3100,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2810,7 +3121,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2820,7 +3131,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2830,7 +3141,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2840,7 +3151,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2850,7 +3161,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2860,7 +3171,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2870,7 +3181,7 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -2880,10 +3191,21 @@ works:
     platform: "となりのヤングジャンプ"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://tonarinoyj.jp/episode/4856001361535681694"
+    id: "w03433"
+    work: "しょうもない女"
+    platform: "となりのヤングジャンプ"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784088927978"
+        stated_title: "国家心中 枝田作品集 (ヤングジャンプコミックス)"
+        via: "https://tonarinoyj.jp/episode/4856001361535681694"
   - platform_url: "https://asacomi.jp/series/d67c4f256e18f"
     id: "w00309"
     work: "ガールミートガール"
@@ -3032,7 +3354,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3042,7 +3364,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3088,7 +3410,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3182,10 +3504,10 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "cmoa title 310870 states no ISBN, so no printed edition is identified"
+      - "cmoa title 310870 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_001433_S"
     id: "w00444"
     work: "ギャングスタガールズ"
@@ -3276,7 +3598,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "5 volume(s) listed and no shop link identifies an edition"
@@ -3358,7 +3680,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3464,7 +3786,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3570,7 +3892,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3604,7 +3926,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3614,7 +3936,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3708,7 +4030,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3754,7 +4076,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3776,7 +4098,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3798,7 +4120,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3820,7 +4142,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3878,7 +4200,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3900,17 +4222,17 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
   - platform_url: "https://comic-walker.com/detail/KC_005499_S"
-    id: "w00712"
+    id: "w03238"
     work: "すき焼き定食なんかキライだ"
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -3932,7 +4254,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4062,7 +4384,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4072,7 +4394,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4082,7 +4404,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4116,7 +4438,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4138,7 +4460,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "1 volume(s) listed and no shop link identifies an edition"
@@ -4148,7 +4470,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "1 volume(s) listed and no shop link identifies an edition"
@@ -4158,7 +4480,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4216,7 +4538,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4262,7 +4584,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4272,7 +4594,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4318,7 +4640,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4328,7 +4650,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4350,7 +4672,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4396,7 +4718,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4430,7 +4752,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4440,7 +4762,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4462,7 +4784,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4484,10 +4806,10 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "2 volume(s) listed and no shop link identifies an edition"
   - platform_url: "https://comic-walker.com/detail/KC_006608_S"
     id: "w00268"
     work: "オンニって呼んでもいいですか？"
@@ -4614,7 +4936,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4732,7 +5054,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4742,7 +5064,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4764,10 +5086,10 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "cmoa title 372908 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_007122_S"
     id: "w00030"
     work: "七限目は忍者修行です！"
@@ -4786,7 +5108,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4808,7 +5130,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4818,7 +5140,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4852,10 +5174,10 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "1 volume(s) listed and no shop link identifies an edition"
+      - "cmoa title 367835 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_007254_S"
     id: "w00129"
     work: "創る庭"
@@ -4922,7 +5244,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -4980,10 +5302,10 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "cmoa title 373741 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_008445_S"
     id: "w00065"
     work: "バクガタリzzZ"
@@ -5002,7 +5324,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5012,7 +5334,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5022,7 +5344,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5032,7 +5354,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5042,37 +5364,37 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "cmoa title 375468 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_008654_S"
     id: "w00125"
     work: "わたくし、負けませんので。 政略結婚は令嬢のたしなみ"
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "cmoa title 371164 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_008658_S"
     id: "w00085"
     work: "月はタピオカみたいに"
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "cmoa title 375611 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_008695_S"
     id: "w00295"
     work: "ハルとアリア"
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5082,7 +5404,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5092,7 +5414,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5102,17 +5424,17 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "cmoa title 375609 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_008775_S"
     id: "w00290"
     work: "終末、おやつ食べよ。"
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5122,10 +5444,10 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "1 volume(s) listed and no shop link identifies an edition"
   - platform_url: "https://comic-walker.com/detail/KC_009434_S"
     id: "w00053"
     work: "あきらかに年齢を詐称している女子高生VTuber"
@@ -5144,10 +5466,10 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "cmoa title 376551 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_010238_S"
     id: "w00281"
     work: "転生王女と天才令嬢の魔法革命 【タテスク】"
@@ -5164,37 +5486,37 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "cmoa title 375469 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_011928_S"
     id: "w00087"
     work: "あたし達って付き合ってるよね!?"
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "カドコミ lists no collected volume for this work"
+      - "1 volume(s) listed and no shop link identifies an edition"
   - platform_url: "https://comic-walker.com/detail/KC_014260_S"
     id: "w00220"
     work: "その手紙代行します！"
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
   - platform_url: "https://comic-walker.com/detail/KC_014276_S"
     id: "w00110"
-    work: "錬金術師のハンドメイド ～フリマやってるだけなのに伝説的な扱いされてました～"
+    work: "錬金術師のハンドメイド"
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5216,7 +5538,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5238,7 +5560,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5248,7 +5570,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5258,7 +5580,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5268,7 +5590,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5278,7 +5600,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5288,7 +5610,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5298,7 +5620,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5308,7 +5630,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5318,7 +5640,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5328,7 +5650,17 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_019452_S"
+    id: "w03254"
+    work: "メイドinお嬢さま"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5338,7 +5670,7 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
@@ -5348,20 +5680,230 @@ works:
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_019660_S"
+    id: "w03272"
+    work: "悪役令嬢覇王伝　転生したら身長245cm体重210kgの恵体でした。だから無双します"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "cmoa title 372750 not fetched"
   - platform_url: "https://comic-walker.com/detail/KC_019740_S"
     id: "w00025"
     work: "この湯で、あなたと"
     platform: "カドコミ"
     engine: "kadokomi"
     steps: "page -> shop title page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_019946_S"
+    id: "w03245"
+    work: "こいのおわりをねがうとき"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_019973_S"
+    id: "w03265"
+    work: "私の彼女はボディビルダー／読切版"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_020013_S"
+    id: "w03241"
+    work: "No marriage, No magic"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_020017_S"
+    id: "w03283"
+    work: "彼岸でランデヴー"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_020054_S"
+    id: "w03324"
+    work: "きらめきのDolphin Line"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_020132_S"
+    id: "w03301"
+    work: "仕事のあとは同じ教室で"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_020142_S"
+    id: "w03449"
+    work: "あめのひもがも～八百屋お七炎上図　葛飾応為筆～"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_020158_S"
+    id: "w03300"
+    work: "真夜中に愛してよ"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_020317_S"
+    id: "w03299"
+    work: "リユナイテッド・ルナ"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_020389_S"
+    id: "w03323"
+    work: "盗賊少女に転生したけど、周回ボーナスで楽勝です！　100％盗む＆逃げるでラクラク冒険者生活"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_020962_S"
+    id: "w03304"
+    work: "JKのストレス発散方法"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_021172_S"
+    id: "w03452"
+    work: "弟子入り厨娘ごはん日記"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_021305_S"
+    id: "w03320"
+    work: "死神さんと昇天ごはん"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_021441_S"
+    id: "w03319"
+    work: "ノスフェルワイス"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_021486_S"
+    id: "w03450"
+    work: "王子はさけて通れない！"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://comic-walker.com/detail/KC_021516_S"
+    id: "w03454"
+    work: "紫蘭さまにはなびきません！"
+    platform: "カドコミ"
+    engine: "kadokomi"
+    steps: "page -> shop title page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "カドコミ lists no collected volume for this work"
+  - platform_url: "https://www.ganganonline.com/title/1222"
+    id: "w03437"
+    work: "春綴る、桜咲くこの部屋で"
+    platform: "ガンガンONLINE"
+    engine: "gangan"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no 単行本 section on the page"
+  - platform_url: "https://www.ganganonline.com/title/1525"
+    id: "w03427"
+    work: "〆切前には百合が捗る"
+    platform: "ガンガンONLINE"
+    engine: "gangan"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no 単行本 section on the page"
+  - platform_url: "https://www.ganganonline.com/title/1587"
+    id: "w03424"
+    work: "レベル1の最強テイマー ～幸運極振りの初心者ゲーマーはもふもふ軍団を従え最強へ至ります～"
+    platform: "ガンガンONLINE"
+    engine: "gangan"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no 単行本 section on the page"
+  - platform_url: "https://www.ganganonline.com/title/2286"
+    id: "w03268"
+    work: "香り屋さんの纏さん"
+    platform: "ガンガンONLINE"
+    engine: "gangan"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no 単行本 section on the page"
   - platform_url: "https://www.ganganonline.com/title/2349"
     id: "w00232"
     work: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
@@ -5394,6 +5936,16 @@ works:
       - isbn: "9784301005155"
         stated_title: "裏世界ピクニック 16巻"
         via: "https://www.ganganonline.com/title/38"
+  - platform_url: "https://kimicomi.com/episodes/9f79b9c018e62/"
+    id: "w03303"
+    work: "午後4時。透明、ときどき声優"
+    platform: "キミコミ"
+    engine: "comici"
+    steps: "page -> store item"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "page not fetched"
   - platform_url: "https://kimicomi.com/series/22386346e628c"
     id: "w00425"
     work: "Qyootie Q! ―麒麟娘と婚約事情―"
@@ -5438,11 +5990,10 @@ works:
     platform: "キミコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "store item 18422 offers no printed edition"
-      - "the platform states 1 volume(s)"
+      - "page not fetched"
   - platform_url: "https://kimicomi.com/series/8acb58b98ca8f"
     id: "w00008"
     work: "ステラ・ステップ"
@@ -5511,7 +6062,7 @@ works:
     platform: "コミック アース・スター"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5521,7 +6072,7 @@ works:
     platform: "コミック アース・スター"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5539,13 +6090,33 @@ works:
       - isbn: "9784803021448"
         stated_title: "ガイド役の天使を殴り倒したら、死霊術師になりました~激カワゴスロリ魔神様、サイコー!~ (1) (アース・スター コミックス)"
         via: "https://comic-earthstar.com/episode/12207421983861577217"
+  - platform_url: "https://comic-earthstar.com/episode/12207421984241521945"
+    id: "w03302"
+    work: "はるは巡る"
+    platform: "コミック アース・スター"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-earthstar.com/episode/12207421984388736593"
+    id: "w03447"
+    work: "おみかんジュースと、レモネード"
+    platform: "コミック アース・スター"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
   - platform_url: "https://comic-earthstar.com/episode/2550689798369117852"
     id: "w00725"
     work: "ソリスターズ・ハイ"
     platform: "コミック アース・スター"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5555,17 +6126,31 @@ works:
     platform: "コミック アース・スター"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-earthstar.com/episode/2551460909469511389"
+    id: "w03435"
+    work: "灼熱の魔女様の楽しい温泉領地経営　～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます～"
+    platform: "コミック アース・スター"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784803019445"
+        stated_title: "灼熱の魔女様の楽しい温泉領地経営 ~魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます~ (3) (アース・スター コミックス)"
+        via: "https://comic-earthstar.com/episode/2551460909469511389"
+      - isbn: "9784803017694"
+        stated_title: "灼熱の魔女様の楽しい温泉領地経営　～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝国つくっちゃいます～　1 (アース・スターコミックス)"
+        via: "https://comic-earthstar.com/episode/2551460909469511389"
   - platform_url: "https://comic-days.com/episode/10044607041200244956"
     id: "w00762"
     work: "ごめんね柳子"
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5575,7 +6160,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5585,7 +6170,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5595,7 +6180,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5605,7 +6190,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5658,7 +6243,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5668,7 +6253,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5688,7 +6273,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5698,7 +6283,17 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-days.com/episode/12207421983805333025"
+    id: "w03294"
+    work: "私の好きな人はとても〇〇"
+    platform: "コミックDAYS"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5728,7 +6323,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5738,7 +6333,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5759,6 +6354,26 @@ works:
     engine: "giga"
     steps: "page"
     retrieved: "2026-08-07"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-days.com/episode/12207421984094554382"
+    id: "w03286"
+    work: "ゆあとさき"
+    platform: "コミックDAYS"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-days.com/episode/12207421984289601457"
+    id: "w03170"
+    work: "アイ・ヘイ・チュー"
+    platform: "コミックDAYS"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5809,7 +6424,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5819,7 +6434,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5829,7 +6444,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5839,7 +6454,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5849,7 +6464,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5859,7 +6474,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5869,7 +6484,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5883,13 +6498,23 @@ works:
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-days.com/episode/2550689798616042974"
+    id: "w00137"
+    work: "オタクには人生を積むことしかできない"
+    platform: "コミックDAYS"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
   - platform_url: "https://comic-days.com/episode/2550689798663938691"
     id: "w00692"
     work: "不思議なゆりこさん"
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5899,7 +6524,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5909,7 +6534,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5919,7 +6544,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5930,6 +6555,16 @@ works:
     engine: "giga"
     steps: "page"
     retrieved: "2026-08-07"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-days.com/episode/2550912964610797527"
+    id: "w00648"
+    work: "どうしようもなく辛かったよ"
+    platform: "コミックDAYS"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5950,7 +6585,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5960,7 +6595,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5970,7 +6605,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -5990,7 +6625,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6000,7 +6635,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6020,7 +6655,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6030,7 +6665,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6040,7 +6675,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6050,7 +6685,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6064,13 +6699,23 @@ works:
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-days.com/episode/2550912965827266916"
+    id: "w00513"
+    work: "私と彼女のかわいい恋のはじめ方"
+    platform: "コミックDAYS"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
   - platform_url: "https://comic-days.com/episode/2550912965979276316"
     id: "w00453"
     work: "極北にて。"
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6093,7 +6738,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6113,7 +6758,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6123,7 +6768,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6133,7 +6778,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6143,7 +6788,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6153,7 +6798,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6163,7 +6808,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6173,7 +6818,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6183,7 +6828,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6210,13 +6855,23 @@ works:
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-days.com/episode/3269754496519423985"
+    id: "w00968"
+    work: "その恋よきにはからえ!"
+    platform: "コミックDAYS"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
   - platform_url: "https://comic-days.com/episode/3269754496571931465"
     id: "w00963"
     work: "ダルマ・マイノリティ"
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6226,7 +6881,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6280,7 +6935,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6300,7 +6955,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6310,7 +6965,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6320,7 +6975,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6330,7 +6985,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6353,7 +7008,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6363,7 +7018,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6373,7 +7028,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6383,7 +7038,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6393,7 +7048,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6403,7 +7058,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6413,7 +7068,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6423,7 +7078,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6433,7 +7088,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6443,7 +7098,7 @@ works:
     platform: "コミックDAYS"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6454,6 +7109,26 @@ works:
     engine: "giga"
     steps: "page"
     retrieved: "2026-08-07"
+    volumes: []
+    notes:
+      - "block '最新2巻8月20日発売！' states no number"
+  - platform_url: "https://comic-gardo.com/episode/12207421984415789581"
+    id: "w03270"
+    work: "優等生がアダルトグッズを買いに来た"
+    platform: "コミックガルド"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "block '最新1巻11月20日発売！' states no number"
+  - platform_url: "https://comic-gardo.com/episode/12207421984415789682"
+    id: "w00059"
+    work: "病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～"
+    platform: "コミックガルド"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "block '最新2巻8月20日発売！' states no number"
@@ -6483,7 +7158,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6493,7 +7168,37 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-zenon.com/episode/12207421983944323781"
+    id: "w03172"
+    work: "画家の肖像"
+    platform: "コミックゼノン"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-zenon.com/episode/12207421983944323839"
+    id: "w03173"
+    work: "散らないで菊"
+    platform: "コミックゼノン"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://comic-zenon.com/episode/12207421984039817859"
+    id: "w03292"
+    work: "予行練習"
+    platform: "コミックゼノン"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6503,7 +7208,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6513,7 +7218,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6523,7 +7228,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6533,7 +7238,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6543,7 +7248,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6573,7 +7278,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6583,7 +7288,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6593,7 +7298,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6603,7 +7308,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6613,7 +7318,7 @@ works:
     platform: "コミックゼノン"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6637,7 +7342,7 @@ works:
     platform: "コミックボーダー"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6657,7 +7362,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6667,7 +7372,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6677,7 +7382,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6687,7 +7392,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6697,7 +7402,17 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://www.sunday-webry.com/episode/12207421983909949999"
+    id: "w03293"
+    work: "高井さんの見える世界"
+    platform: "サンデーうぇぶり"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6707,7 +7422,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6717,7 +7432,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6753,6 +7468,16 @@ works:
       - isbn: "9784098543892"
         stated_title: "#ギャルとギャルの百合 (1) (サンデーうぇぶり)"
         via: "https://www.shogakukan.co.jp/books/09854389"
+  - platform_url: "https://www.sunday-webry.com/episode/12207421984030879903"
+    id: "w03291"
+    work: "ももと宮村"
+    platform: "サンデーうぇぶり"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
   - platform_url: "https://www.sunday-webry.com/episode/12207421984039246490"
     id: "w00033"
     work: "上杉くんは女の子をやめたい"
@@ -6763,13 +7488,58 @@ works:
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://www.sunday-webry.com/episode/12207421984204046950"
+    id: "w03280"
+    work: "放課後の恋バナ"
+    platform: "サンデーうぇぶり"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://www.sunday-webry.com/episode/12207421984388028467"
+    id: "w03442"
+    work: "つるこさん"
+    platform: "サンデーうぇぶり"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://www.sunday-webry.com/episode/12207421984434311066"
+    id: "w00131"
+    work: "なとりとしずは"
+    platform: "サンデーうぇぶり"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784098548392"
+        stated_title: "なとりとしずは (1) (少年サンデーコミックス)"
+        via: "https://www.shogakukan.co.jp/books/09854839"
+  - platform_url: "https://www.sunday-webry.com/episode/12207421984435787565"
+    id: "w00060"
+    work: "#ギャルとギャルの百合"
+    platform: "サンデーうぇぶり"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784098548385"
+        stated_title: "＃ギャルとギャルの百合（２） (サンデーうぇぶりコミックス)"
+        via: "https://www.shogakukan.co.jp/books/09854838"
+      - isbn: "9784098543892"
+        stated_title: "#ギャルとギャルの百合 (1) (サンデーうぇぶり)"
+        via: "https://www.shogakukan.co.jp/books/09854389"
   - platform_url: "https://www.sunday-webry.com/episode/14079602755180542200"
     id: "w00815"
     work: "君に惹かれた理由"
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6779,7 +7549,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6789,7 +7559,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6799,7 +7569,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6819,7 +7589,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6829,7 +7599,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6839,7 +7609,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6849,7 +7619,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6859,7 +7629,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6869,7 +7639,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6879,7 +7649,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6889,7 +7659,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6899,7 +7669,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6909,7 +7679,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6919,7 +7689,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6929,7 +7699,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6939,7 +7709,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6949,7 +7719,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6959,7 +7729,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6969,7 +7739,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6979,7 +7749,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6989,7 +7759,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -6999,7 +7769,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7009,7 +7779,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7019,7 +7789,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7029,7 +7799,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7039,7 +7809,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7049,7 +7819,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7059,7 +7829,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7069,7 +7839,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7079,7 +7849,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7145,7 +7915,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7155,7 +7925,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7165,7 +7935,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7175,7 +7945,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7185,7 +7955,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7195,7 +7965,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7205,7 +7975,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7229,7 +7999,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7239,7 +8009,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7249,7 +8019,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7259,7 +8029,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7269,7 +8039,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7279,7 +8049,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7289,7 +8059,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7299,7 +8069,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7309,7 +8079,7 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -7319,10 +8089,20 @@ works:
     platform: "サンデーうぇぶり"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://championcross.jp/episodes/b52d54db17eb4"
+    id: "w03266"
+    work: "贋作の第十番"
+    platform: "チャンピオンクロス"
+    engine: "comici"
+    steps: "page -> store item"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "page not fetched"
   - platform_url: "https://championcross.jp/episodes/c588f534a4870"
     id: "w00092"
     work: "阿佐ヶ谷サキュバス同人物語"
@@ -7367,20 +8147,20 @@ works:
     platform: "チャンピオンクロス"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://championcross.jp/series/701179c397505"
     id: "w00619"
     work: "海は荒れども、風は吹く/読み切り"
     platform: "チャンピオンクロス"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://championcross.jp/series/72ba4fac7c0f4"
     id: "w00296"
     work: "エルフとひとつ屋根の下"
@@ -7427,30 +8207,30 @@ works:
     platform: "チャンピオンクロス"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://championcross.jp/series/899b7db428f7b"
     id: "w00649"
     work: "ライオンと不時着(第17回NC佳作)"
     platform: "チャンピオンクロス"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://championcross.jp/series/957d9214c3166"
     id: "w00686"
     work: "オートクチュールの果たし状/読み切り"
     platform: "チャンピオンクロス"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://championcross.jp/series/ae4257e66bab5"
     id: "w00057"
     work: "上伊那ぼたん、酔へる姿は百合の花"
@@ -7471,30 +8251,30 @@ works:
     platform: "チャンピオンクロス"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://championcross.jp/series/b66656c873d76"
     id: "w00668"
     work: "ダブルピース/読み切り"
     platform: "チャンピオンクロス"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://championcross.jp/series/e7725cd6cc1a4"
     id: "w00571"
     work: "ガラスノキック/読み切り"
     platform: "チャンピオンクロス"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://championcross.jp/series/f30e2f58bbbdf"
     id: "w00178"
     work: "ガールズ×ヴァンパイア"
@@ -7513,10 +8293,10 @@ works:
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/0c17f3dd1d34a"
     id: "w00550"
     work: "人魚姫"
@@ -7548,20 +8328,20 @@ works:
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/1d33d6f523321"
     id: "w00335"
     work: "実乃莉ちゃんのカメラ"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/2c1db177ce231"
     id: "w00282"
     work: "セイ少女黙示録 ですぺあ"
@@ -7581,60 +8361,60 @@ works:
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/3a2e5c054830e"
     id: "w00688"
     work: "月とシャンプー"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/3bd48e69edc37"
     id: "w00742"
     work: "怪物の友達"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/5ac7d2bcccaad"
     id: "w00568"
     work: "あの子が嫌いな17から18の理由"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/6464eb02d70cd"
     id: "w00227"
     work: "ハグフレンド(スピリッツ賞・佳作)"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/70aa2bf74a1ec"
     id: "w00710"
     work: "恋は族車に乗って(ヤングスペリオール新人賞・佳作)"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/7c900aada4b46"
     id: "w00697"
     work: "抱かれたい女〜JDだけどアラサー女子に買われています〜"
@@ -7655,90 +8435,90 @@ works:
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/9a5ca4fa0d6af"
     id: "w00275"
     work: "由花緒リニューアル"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/a40dfbeee9e5b"
     id: "w00729"
     work: "ランチメイト症候群(スピリッツ賞・奨励賞)"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/ae25feca1b999"
     id: "w00675"
     work: "臨死"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/b202bac863b25"
     id: "w00695"
     work: "おカネしか勝たん(第94回新人コミック大賞・佳作)"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/b30107af76b3b"
     id: "w00414"
     work: "潮滅に沈む翡翠、北のまちの黒曜"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/b62e5ec6aa51f"
     id: "w00251"
     work: "すべては拳から始まる(青年漫画賞・入選)"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/c0cb3b452eb5f"
     id: "w00617"
     work: "シンデレラ穢れない!"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/c0dcac7a0fd15"
     id: "w00711"
     work: "白けた夜(ヤングスペリオール新人賞・佳作)"
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://bigcomics.jp/series/cad403cdddf52"
     id: "w00079"
     work: "あくまで!アットホームな職場です。"
@@ -7771,10 +8551,10 @@ works:
     platform: "ビッコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://youngchampion.jp/series/81d9b296d7bc7"
     id: "w00118"
     work: "スカベンジャーズアナザースカイ"
@@ -7847,17 +8627,17 @@ works:
     platform: "ヤングチャンピオン"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://yanmaga.jp/comics/%E3%81%86%E3%81%BF%E3%81%AD%E3%81%93%E3%81%AB%E3%81%AF%E8%B2%A0%E3%81%91%E3%81%AA%E3%81%84%EF%BC%81/df507db7f2c0ee5b88ab8e56c9622169"
     id: "w00781"
     work: "うみねこには負けない!"
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -7867,7 +8647,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -7877,7 +8657,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -7897,7 +8677,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -7907,7 +8687,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -7927,7 +8707,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -7961,13 +8741,23 @@ works:
     volumes:
       - isbn: "9784065438503"
         via: "https://www.kodansha.co.jp/comic/products/0000427633"
+  - platform_url: "https://yanmaga.jp/comics/%E5%85%88%E7%94%9F%E3%82%A7%E3%82%A7%E3%82%A7%E3%82%A7%E6%9C%8D%E7%9D%80%E3%81%A6%E4%B8%8B%E3%81%95%E3%81%84/e52cbbdeec531e99dbd119bc7d656fe8"
+    id: "w03284"
+    work: "先生ェェェェ服着て下さい!!"
+    platform: "ヤンマガWeb"
+    engine: "yanmaga"
+    steps: "series page -> publisher book page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no コミックス banner; the platform lists no volume for this series"
   - platform_url: "https://yanmaga.jp/comics/%E5%90%8C%E3%81%98%E6%99%82%E3%82%92%E7%94%9F%E3%81%8D%E3%81%9F%E3%81%84/96971b7a40212ffe851712428d27c840"
     id: "w01486"
     work: "同じ時を生きたい"
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -7977,7 +8767,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -7987,7 +8777,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -7997,7 +8787,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -8007,7 +8797,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -8017,7 +8807,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -8027,7 +8817,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -8037,7 +8827,7 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
@@ -8047,10 +8837,20 @@ works:
     platform: "ヤンマガWeb"
     engine: "yanmaga"
     steps: "series page -> publisher book page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no コミックス banner; the platform lists no volume for this series"
+  - platform_url: "https://comicride.jp/series/0ff97eb531021"
+    id: "w03444"
+    work: "転性魔王さまは勇者に勝てない!"
+    platform: "ライコミ"
+    engine: "comici"
+    steps: "page -> store item"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "page not fetched"
   - platform_url: "https://comicride.jp/series/7b86cbca64ebe"
     id: "w00048"
     work: "「お前ごときが魔王に勝てると思うな」と勇者パーティを追放されたので、王都で気ままに暮らしたい"
@@ -8071,10 +8871,10 @@ works:
     platform: "ライコミ"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://comicride.jp/series/b95a6b1493469"
     id: "w00075"
     work: "『人斬り』少女、公爵令嬢の護衛になる"
@@ -8106,7 +8906,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8116,7 +8916,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8126,7 +8926,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8136,7 +8936,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8157,7 +8957,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8168,6 +8968,16 @@ works:
     engine: "giga"
     steps: "page"
     retrieved: "2026-08-07"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/12207421983782047532"
+    id: "w00262"
+    work: "レンアイ♥女子課"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8182,13 +8992,24 @@ works:
       - isbn: "9784758072434"
         stated_title: "女の子合わせ (百合姫コミックス)"
         via: "https://ichicomi.com/episode/12207421983782265302"
+  - platform_url: "https://ichicomi.com/episode/12207421983782265325"
+    id: "w00265"
+    work: "女の子合わせ"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784758072434"
+        stated_title: "女の子合わせ (百合姫コミックス)"
+        via: "https://ichicomi.com/episode/12207421983782265325"
   - platform_url: "https://ichicomi.com/episode/12207421983829237024"
     id: "w00242"
     work: "浪人なんてろくでもない！"
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8218,7 +9039,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8268,13 +9089,124 @@ works:
       - isbn: "9784758027809"
         stated_title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～(1) (百合姫コミックス)"
         via: "https://ichicomi.com/episode/12207421983947227383"
+  - platform_url: "https://ichicomi.com/episode/12207421984115855223"
+    id: "w03258"
+    work: "幼馴染の方程式"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/12207421984222532901"
+    id: "w00171"
+    work: "残骸少女、きらきらな世界の底"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784825101210"
+        stated_title: "残骸少女、きらきらな世界の底(1) (1) (百合姫コミックス)"
+        via: "https://ichicomi.com/episode/12207421984222532901"
+  - platform_url: "https://ichicomi.com/episode/12207421984222943969"
+    id: "w03273"
+    work: "キミに触れて、感じたい"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/12207421984222944066"
+    id: "w03274"
+    work: "ホテルの外でもあいたいよ"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/12207421984336824147"
+    id: "w03440"
+    work: "だって恋は月夜に灯るから"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/12207421984354015835"
+    id: "w03321"
+    work: "百合の間に挟まる梅田ダンジョン"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "block 'コミック百合姫2026年12月号' states no number"
+  - platform_url: "https://ichicomi.com/episode/12207421984374441699"
+    id: "w03276"
+    work: "いじめてくれる君がすき"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/12207421984374441709"
+    id: "w03275"
+    work: "聖なる姫のかくしごと"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/12207421984374441713"
+    id: "w03263"
+    work: "神は私を撮りたいって言ってます！"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/12207421984374441717"
+    id: "w03252"
+    work: "バリキャリJKモネ先輩"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/12207421984387218979"
+    id: "w03473"
+    work: "APPLE"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
   - platform_url: "https://ichicomi.com/episode/2550912965913104445"
     id: "w00481"
     work: "今宵、悪役令嬢の手をとれたら"
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8284,7 +9216,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8294,7 +9226,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8304,7 +9236,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8314,7 +9246,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8324,7 +9256,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8334,7 +9266,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8344,7 +9276,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8354,7 +9286,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8364,7 +9296,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8374,7 +9306,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8384,7 +9316,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8394,7 +9326,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8404,7 +9336,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8414,7 +9346,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8424,7 +9356,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8465,7 +9397,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8485,7 +9417,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8495,7 +9427,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8505,7 +9437,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8515,7 +9447,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8525,7 +9457,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8535,7 +9467,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8545,7 +9477,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8555,7 +9487,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8565,7 +9497,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8575,7 +9507,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8585,7 +9517,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8620,7 +9552,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8630,7 +9562,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8640,7 +9572,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8650,7 +9582,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8660,7 +9592,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8670,7 +9602,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8680,7 +9612,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8690,7 +9622,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8700,7 +9632,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8710,17 +9642,41 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/2550912965923211613"
+    id: "w00778"
+    work: "ヤンデレめる子ちゃんはせんぱいがお好き"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/2550912965923213976"
+    id: "w00609"
+    work: "奈落の花園"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes:
+      - isbn: "9784758027823"
+        stated_title: "奈落の花園・下 (百合姫コミックス)"
+        via: "https://ichicomi.com/episode/2550912965923213976"
+      - isbn: "9784758027816"
+        stated_title: "奈落の花園・上 (百合姫コミックス)"
+        via: "https://ichicomi.com/episode/2550912965923213976"
   - platform_url: "https://ichicomi.com/episode/2550912965979340968"
     id: "w00508"
     work: "百合バリズム部"
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8730,7 +9686,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8740,7 +9696,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8750,7 +9706,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8760,7 +9716,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8770,7 +9726,7 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8794,7 +9750,17 @@ works:
     platform: "一迅プラス"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://ichicomi.com/episode/2551460910021695025"
+    id: "w03175"
+    work: "姫虐が止まらない白桃さん"
+    platform: "一迅プラス"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8804,7 +9770,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8814,7 +9780,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8824,7 +9790,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8834,7 +9800,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8844,7 +9810,27 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://shonenjumpplus.com/episode/17106371883871790625"
+    id: "w03425"
+    work: "ココと嘘吐く小指／24年4月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    platform: "少年ジャンプ+"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://shonenjumpplus.com/episode/17106371883871799675"
+    id: "w03426"
+    work: "私の瞳に生きるまで／24年4月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    platform: "少年ジャンプ+"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8854,7 +9840,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8864,7 +9850,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8874,7 +9860,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8884,7 +9870,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8894,7 +9880,17 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://shonenjumpplus.com/episode/17106567264307961241"
+    id: "w03422"
+    work: "田中さんの呪い／25年1月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    platform: "少年ジャンプ+"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8904,7 +9900,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8924,7 +9920,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8934,7 +9930,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8944,7 +9940,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8954,7 +9950,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8964,7 +9960,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8974,7 +9970,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8984,7 +9980,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -8994,7 +9990,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9014,7 +10010,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9024,7 +10020,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9034,7 +10030,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9044,7 +10040,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9054,7 +10050,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9064,7 +10060,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9084,7 +10080,17 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://shonenjumpplus.com/episode/316112896954051106"
+    id: "w03436"
+    work: "ケモノ／22年8月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    platform: "少年ジャンプ+"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9094,7 +10100,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9104,7 +10110,17 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://shonenjumpplus.com/episode/316190247047937848"
+    id: "w03434"
+    work: "0088／22年10月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    platform: "少年ジャンプ+"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9114,7 +10130,17 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "no series-book-details block; the platform lists no volume for this series"
+  - platform_url: "https://shonenjumpplus.com/episode/3270296674415978656"
+    id: "w03438"
+    work: "シャッフル／22年4月期JUMP新世界漫画賞／週刊少年ジャンプ"
+    platform: "少年ジャンプ+"
+    engine: "giga"
+    steps: "page"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9124,7 +10150,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9134,7 +10160,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9144,7 +10170,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9154,7 +10180,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9164,7 +10190,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9174,7 +10200,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9184,7 +10210,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9204,7 +10230,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9214,7 +10240,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9224,7 +10250,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9244,7 +10270,7 @@ works:
     platform: "少年ジャンプ+"
     engine: "giga"
     steps: "page"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
       - "no series-book-details block; the platform lists no volume for this series"
@@ -9421,31 +10447,40 @@ works:
     platform: "花とゆめ+"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "store item 18240 offers no printed edition"
-      - "the platform states 1 volume(s)"
+      - "page not fetched"
   - platform_url: "https://hanayume.com/series/96cd6ffadb9ee"
     id: "w00213"
     work: "魔法使いの作庭/よみきり"
     platform: "花とゆめ+"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "no 単行本情報 block; the platform lists no volume for this series"
+      - "page not fetched"
   - platform_url: "https://hanayume.com/series/ca4ef0eb47ea3"
     id: "w00012"
     work: "運命は役に立たない"
     platform: "花とゆめ+"
     engine: "comici"
     steps: "page -> store item"
-    retrieved: "2026-08-07"
+    retrieved: "2026-11-02"
     volumes: []
     notes:
-      - "store item 20915 offers no printed edition"
+      - "page not fetched"
+  - platform_url: "https://hanayume.com/series/dcaacd8b4831f"
+    id: "w03242"
+    work: "あの子のスカート/よみきり"
+    platform: "花とゆめ+"
+    engine: "comici"
+    steps: "page -> store item"
+    retrieved: "2026-11-02"
+    volumes: []
+    notes:
+      - "page not fetched"
   - platform_url: "https://hanayume.com/series/f3ce082d639de"
     id: "w00007"
     work: "フレンドガールフレンド"

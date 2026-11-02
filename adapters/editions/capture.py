@@ -52,7 +52,6 @@ import stores as S                                                             #
 import yaml                                                                    # noqa: E402
 
 OUT = "data/queue/platform-editions.yaml"
-SERIES = "data/build/series.json"
 
 # A series page and a book page both change a few times a year, and a publication does not change
 # at all. Nothing here is a release feed, so the cache is allowed to answer for a fortnight.
@@ -96,11 +95,32 @@ def gap_works(path=None):
                            "works with a serialisation and no print edition")
 
 
+#: Refusals in a row after which a host is not asked again this run. cmoa answered nothing for
+#: weeks after it was attacked, and every カドコミ work routed through it waited out five attempts
+#: and their backoff, so a run that should take minutes took most of a day.
+DOWN_AFTER = 3
+_refusals = collections.Counter()
+
+
 def fetch(url, cache, headers=None):
-    """One page, from the shared fetcher. Returns the body or None, never raising."""
+    """One page, from the shared fetcher. Returns the body or None, never raising.
+
+    A host that has refused DOWN_AFTER requests in a row is not asked again in this process, and
+    the caller gets None, which every route already records as `not fetched`.
+    """
+    host = urllib.parse.urlparse(url).netloc
+    if _refusals[host] >= DOWN_AFTER:
+        return None
     if headers:
         return _fetch_with(url, cache, headers)
-    return net.fetch(url, cache, AGE).text
+    r = net.fetch(url, cache, AGE)
+    if net.is_refusal(r):
+        _refusals[host] += 1
+        if _refusals[host] == DOWN_AFTER:
+            print(f"  {host} refused {DOWN_AFTER} requests in a row; not asked again this run")
+    else:
+        _refusals[host] = 0
+    return r.text
 
 
 def _fetch_with(url, cache, headers):
@@ -370,6 +390,35 @@ ROUTES = {"giga": from_giga, "comici": from_comici, "kadokomi": from_kadokomi,
           "yanmaga": from_yanmaga}
 
 
+#: Days before a work the platform listed no volume for is asked again. Most of those are a
+#: serialisation too young for a tankōbon in August, and a book run that started since then was
+#: invisible while the file only ever asked about works it had not seen.
+RECHECK = 60
+
+
+def due(held, url, today, recheck_days=RECHECK):
+    """Whether this run asks about `url`: never asked, or answered with no volume long enough ago.
+
+    A work the platform led to a volume for is not asked again. Its ISBNs are what the bibliography
+    route reads, and a later answer can only add a volume the bibliography route also finds by
+    the work's own record.
+    """
+    row = held.get(url)
+    if row is None:
+        return True
+    if row.get("volumes"):
+        return False
+    # A PAGE THAT WAS NOT FETCHED IS NO ANSWER, so the row is asked again on the next run rather
+    # than standing for sixty days as though the platform had said it lists nothing.
+    if any("not fetched" in str(n) for n in row.get("notes") or []):
+        return True
+    try:
+        then = datetime.date.fromisoformat(str(row.get("retrieved") or "")[:10])
+    except ValueError:
+        return True
+    return (today - then).days >= recheck_days
+
+
 def merge(doc, rows):
     """Fold new rows into the document, keeping every work the rows do not mention.
 
@@ -451,7 +500,11 @@ def render(doc):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--out", default=OUT)
-    ap.add_argument("--series", default=SERIES)
+    # NO DEFAULT FILE. series.json stopped being written when the store became the compiled form,
+    # and this default made every run die before it asked anything, which is how the file froze at
+    # 2026-08-07. The population comes from the store unless a file is named.
+    ap.add_argument("--series", default=None, help="a series.json to read instead of the store")
+    ap.add_argument("--recheck-days", type=int, default=RECHECK)
     ap.add_argument("--cache", default=str(paths.cache("editions-cache")))
     ap.add_argument("--engine", nargs="*", help="only these engines")
     ap.add_argument("--limit", type=int)
@@ -475,7 +528,8 @@ def main(argv=None):
         return 0
 
     wanted = gap_works(a.series)
-    held = {w["platform_url"] for w in (doc.get("works") or [])}
+    held = {w["platform_url"]: w for w in (doc.get("works") or [])}
+    today = datetime.date.fromisoformat(a.retrieved)
     todo = []
     for w in wanted:
         eng = engines.engine_of(w["url"])
@@ -483,7 +537,7 @@ def main(argv=None):
             continue
         if a.engine and eng[0] not in a.engine:
             continue
-        if w["url"] in held:
+        if not due(held, w["url"], today, a.recheck_days):
             continue
         todo.append((w, eng[0]))
     if a.limit:

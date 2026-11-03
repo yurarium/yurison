@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-03
+retrieved: 2026-11-04
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -659,12 +659,12 @@ works:
     url: "https://comic.pixiv.net/works/11800"
     chapter_count: 5
     chapters:
-      - title: "17-②"
-        updated: 2026-09-28
+      - title: "18-②"
+        updated: 2026-10-28
         access_modes: ["free"]
         date_basis: rendered
-      - title: "17-①"
-        updated: 2026-09-28
+      - title: "18-①"
+        updated: 2026-10-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "1-③"
@@ -792,14 +792,10 @@ works:
   - work_title: "君のせいなんだから、責任とってよね。"
     author: "当麻"
     url: "https://comic.pixiv.net/works/13225"
-    chapter_count: 4
+    chapter_count: 3
     chapters:
       - title: "第5話"
         updated: 2026-09-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4話"
-        updated: 2026-08-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2話"

@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-03
+retrieved: 2026-11-04
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -264,11 +264,6 @@ works_missing:
     url: "https://comic.pixiv.net/magazines/206"
     antenna_id: "67308"
     tags: ["百合"]
-  - title: "変な奴"
-    platform: "webアクション"
-    url: "https://comic-action.com/episode/12207421984440039225"
-    antenna_id: "217535"
-    tags: ["最近のコメント数"]
   - title: "君めく夜に焦がれて"
     platform: "きら星ポータル"
     url: "https://kirapo.jp/ambre/titles/kimimeku"
@@ -279,11 +274,6 @@ works_missing:
     url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
     antenna_id: "213409"
     tags: ["読み切り", "百合"]
-  - title: "タマさんの猥談原稿"
-    platform: "くらげバンチ"
-    url: "https://kuragebunch.com/episode/12207421984452460688"
-    antenna_id: "217539"
-    tags: ["百合", "読み切り"]
   - title: "私の可愛いボーイッシュちゃん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021614_S"
@@ -333,7 +323,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_003297_S"
     antenna_id: "108614"
-    tags: ["最近のコメント数"]
+    tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
   - title: "オンニって呼んでもいいですか?"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006608_S"
@@ -343,7 +333,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021488_S"
     antenna_id: "217263"
-    tags: ["百合"]
+    tags: ["最近のコメント数"]
   - title: "盗賊少女に転生したけど、周回ボーナスで楽勝です! 100%盗む&逃げるでラクラク冒険者生活"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020389_S"
@@ -724,6 +714,11 @@ works_missing:
     url: "https://ddnavi.com/sazametorio/"
     antenna_id: "213473"
     tags: ["百合"]
+  - title: "ガールズ×ヴァンパイア"
+    platform: "チャンピオンクロス"
+    url: "https://championcross.jp/series/f30e2f58bbbdf"
+    antenna_id: "200285"
+    tags: ["百合", "吸血鬼・ヴァンパイア"]
   - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/21fe5b3d50300"
@@ -734,11 +729,6 @@ works_missing:
     url: "https://championcross.jp/series/ae4257e66bab5"
     antenna_id: "87443"
     tags: ["百合", "大学生", "アニメ化"]
-  - title: "ガールズ×ヴァンパイア"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/f30e2f58bbbdf"
-    antenna_id: "200285"
-    tags: ["百合", "吸血鬼・ヴァンパイア"]
   - title: "お葉花を愛でる"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/46c8d0a17ed62"
@@ -959,6 +949,11 @@ works_missing:
     url: "https://flowercomics.jp/title/6162"
     antenna_id: "217483"
     tags: ["百合"]
+  - title: "怨霊日和"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    antenna_id: "202785"
+    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -969,11 +964,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
     tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
-  - title: "怨霊日和"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03125"
-    antenna_id: "202785"
-    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"

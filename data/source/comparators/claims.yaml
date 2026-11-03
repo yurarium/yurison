@@ -8,11 +8,17 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-03
+retrieved: 2026-11-04
 record_type: update_claims
 window_days: 60
-claims: 437
+claims: 438
 updates:
+  - work: "きっと、彼女が好きだから ヒロアキ"
+    platform: "Gコミ"
+    date: 2026-11-04
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "黒の世界は白墨に染まる"
     platform: "マンガよもんが"
     date: 2026-11-03
@@ -81,7 +87,14 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://magcomi.com/episode/12207421984122057940"
-    listing_tags: ["百合"]
+    listing_tags: ["百合", "編集", "レシピ"]
+  - work: "怨霊日和"
+    platform: "マガポケ"
+    date: 2026-11-03
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    listing_tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - work: "志乃と恋"
     platform: "カドコミ"
     date: 2026-11-03
@@ -166,13 +179,41 @@ updates:
     provenance: claimed
     url: "https://hanayume.com/series/f3ce082d639de"
     listing_tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
+  - work: "ドリーム☆ジャンボ☆ガール"
+    platform: "マガポケ"
+    date: 2026-11-03
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02758"
+    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
   - work: "タマさんの猥談原稿"
     platform: "くらげバンチ"
     date: 2026-11-03
     source: "webcomics.jp"
     provenance: claimed
     url: "https://kuragebunch.com/episode/12207421984452460688"
-    listing_tags: ["百合", "読み切り"]
+    listing_tags: ["最近のコメント数"]
+  - work: "サタノファニ"
+    platform: "ヤンマガWeb"
+    date: 2026-11-03
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
+    listing_tags: ["最近のコメント数"]
+  - work: "ガールズ×ヴァンパイア"
+    platform: "チャンピオンクロス"
+    date: 2026-11-03
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://championcross.jp/series/f30e2f58bbbdf"
+    listing_tags: ["百合", "吸血鬼・ヴァンパイア"]
+  - work: "アイドラトリィ"
+    platform: "マガポケ"
+    date: 2026-11-03
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02901"
+    listing_tags: ["百合", "アイドル", "推し活"]
   - work: "ひとりみです"
     platform: "pixivコミック"
     date: 2026-11-03
@@ -469,7 +510,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_003297_S"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
   - work: "イジめてイジられて"
     platform: "カドコミ"
     date: 2026-10-30
@@ -601,13 +642,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "怨霊日和"
-    platform: "マガポケ"
-    date: 2026-10-28
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03125"
-    listing_tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - work: "冷たくて 柔らか"
     platform: "pixivコミック"
     date: 2026-10-28
@@ -636,27 +670,13 @@ updates:
     provenance: claimed
     url: "https://kimicomi.com/series/8acb58b98ca8f"
     listing_tags: ["百合"]
-  - work: "サタノファニ"
-    platform: "ヤンマガWeb"
-    date: 2026-10-28
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
-    listing_tags: ["エロ", "バトル", "裏社会", "雑学・豆知識", "偉人・歴史上の人物", "百合"]
   - work: "アウトサイダーパラダイス"
     platform: "カドコミ"
     date: 2026-10-28
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021488_S"
-    listing_tags: ["百合"]
-  - work: "アイドラトリィ"
-    platform: "マガポケ"
-    date: 2026-10-28
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02901"
-    listing_tags: ["百合", "アイドル", "推し活"]
+    listing_tags: ["最近のコメント数"]
   - work: "らぶぶいっ!"
     platform: "カドコミ"
     date: 2026-10-28
@@ -1330,13 +1350,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_006662_S"
     listing_tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
-  - work: "ドリーム☆ジャンボ☆ガール"
-    platform: "マガポケ"
-    date: 2026-10-21
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02758"
-    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
   - work: "スカベンジャーズアナザースカイ"
     platform: "ヤンチャンWeb"
     date: 2026-10-21
@@ -1344,13 +1357,6 @@ updates:
     provenance: claimed
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
     listing_tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
-  - work: "ガールズ×ヴァンパイア"
-    platform: "チャンピオンクロス"
-    date: 2026-10-21
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://championcross.jp/series/f30e2f58bbbdf"
-    listing_tags: ["百合", "吸血鬼・ヴァンパイア"]
   - work: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     date: 2026-10-20

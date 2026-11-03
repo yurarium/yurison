@@ -6,11 +6,26 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-11-03
+retrieved: 2026-11-04
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421983566481774"
+    work_title: "サタノファニ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第３４４話　「大義のために」"
+    release_type: "chapter"
+    date: "2026-11-04"
+    date_basis: "observed"
+    first_seen: "2026-11-04"
+    first_reported: "2026-11-03T15:00:00Z"
+    platform_updated: "2026-11-03T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421983566481774"
+    author: "山田恵庸"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421983645810064"
     work_title: "雨夜の月"
     web_status: "serialised"
@@ -28,6 +43,7 @@ releases:
     raw_title: "第５２−２話　相愛"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421983566481770"
+    in_current_window: false
     work_title: "サタノファニ"
     web_status: "serialised"
     identified_via: "discovery-candidate"

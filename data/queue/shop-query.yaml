@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-03
+retrieved: 2026-11-04
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 252
   hits_on_the_title_alone: 112
   hits_stating_a_print_edition_date: 211
-  works_asked: 897
+  works_asked: 901
   works_with_a_hit: 271
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -554,6 +554,16 @@ works:
     hits: []
     notes:
       - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-action.com/episode/12207421984440039225"
+    id: "w03522"
+    work: "変な奴"
+    author: "ダゲル8079"
+    platform: "webアクション"
+    retrieved: "2026-11-04"
+    hits: []
+    notes:
+      - "author query answered nothing"
       - "title query returned no title this database recognises"
   - work_url: "https://comic-action.com/episode/14079602755480532354"
     id: "w00782"
@@ -4094,6 +4104,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_021614_S"
+    id: "w03524"
+    work: "私の可愛いボーイッシュちゃん"
+    author: "奥一"
+    platform: "カドコミ"
+    retrieved: "2026-11-04"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-y-ours.com/episode/12207421983394553051"
     id: "w03296"
     work: "アンラッキースケベ"
@@ -6041,6 +6061,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://kuragebunch.com/episode/12207421984452460688"
+    id: "w03523"
+    work: "タマさんの猥談原稿"
+    author: "戦上まい子"
+    platform: "くらげバンチ"
+    retrieved: "2026-11-04"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://kuragebunch.com/episode/14079602755430095088"
     id: "w00786"
     work: "スウィングが無ければ意味が無い"
@@ -7684,6 +7714,16 @@ works:
     author: "イマイ悠"
     platform: "マガポケ"
     retrieved: "2026-10-21"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03338/episode/446299"
+    id: "w03314"
+    work: "怨霊日和"
+    author: "イマイ悠"
+    platform: "マガポケ"
+    retrieved: "2026-11-04"
     hits: []
     notes:
       - "author query returned no title this database recognises"

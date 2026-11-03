@@ -303,6 +303,17 @@ def main(s):
              "AND WRITES NOTHING, which is what a delta converging means; the alias is already "
              "where it belongs and re-stating it every build is the bug this asserts against")
 
+        # AND AN ALIAS THE DATA WITHDRAWS IS WITHDRAWN HERE. The pass only ever set the column, so
+        # `ニニンがシノブ伝ぷらす=2×2=SHINOBUDEN+` kept an alias a rebuild no longer stated, and the
+        # names the site was sent disagreed with the store.
+        scratch.execute("UPDATE surface SET alias_of = NULL WHERE id = ?", (v2,))
+        _c3, refused3, _m3 = relational.apply(live, fresh=scratch)
+        s.eq(refused3, [], "a scratch that drops an alias is applied without refusal")
+        s.eq(live.execute("SELECT alias_of FROM surface WHERE folded = 'variant2'").fetchone()[0],
+             None, "and the alias the scratch no longer states is cleared from the store")
+        s.eq(relational.apply(live, fresh=scratch)[0].get("surface", (0, 0, 0))[0], 0,
+             "and applying it again writes nothing")
+
         # ONLY `coalesce`, WHICH IS THE WHOLE OF WHAT THIS SCHEMA WRITES. An expression this has
         # not been taught to read answers nothing rather than guessing a column out of it.
         db.execute("CREATE TABLE probe (a TEXT, b TEXT)")

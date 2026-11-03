@@ -216,6 +216,29 @@ def _unit(s):
             is CATALOGUED,
             "and a target holding no translation of ours carries nothing across")
 
+    # AND THE SHIPPED ENTRY NAMES THE TITLE IT TOOK THE FORM FROM. A store built back from the
+    # file restores links from `alias_of`, so an entry that gained a translation without one came
+    # back without its English: six titles failed the parity block this way.
+    linked = relational.create(":memory:")
+    for folded in ("おとなになっても", "おとなになっても=Evenifwebecomeadults"):
+        linked.execute("INSERT INTO surface (kind, folded) VALUES ('title', ?)", (folded,))
+    linked.execute("UPDATE surface SET alias_of = (SELECT id FROM surface WHERE folded = ?)"
+                   " WHERE folded = ?", ("おとなになっても", "おとなになっても=Evenifwebecomeadults"))
+    _real_raw = emit._raw
+    emit._raw = lambda _db, _kind: {"おとなになっても": SHOWN,
+                                     "おとなになっても=Evenifwebecomeadults": CATALOGUED}
+    try:
+        mapped = emit._map(linked, "title")
+    finally:
+        emit._raw = _real_raw
+    cat = mapped.get("おとなになっても=Evenifwebecomeadults") or {}
+    s.eq(cat.get("alias_of"), "おとなになっても",
+         "a spelling with its own record names the title its translation came from")
+    s.eq((cat.get("en_forms") or {}).get("translated"), "Even If We Grow Up",
+         "and still gains that translation")
+    s.check("alias_of" not in (mapped.get("おとなになっても") or {}),
+            "while the title it points at is not marked as anyone's alias")
+
 
 def main(s):
     # ── THE UNIT ASSERTIONS RUN ALWAYS AND THE PARITY COMPARISON RUNS WHERE THERE IS A BUILD ──

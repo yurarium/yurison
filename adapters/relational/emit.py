@@ -618,7 +618,13 @@ def _map(db, kind):
             # ON A MAP OF ITS OWN, which is the sharing the earlier attempts came off. `en_forms`
             # under a shallow copy is the SAME object as the target's, so writing into it would
             # put this form on the shown record too. A fresh map is what makes the fill safe.
-            out[folded] = our_form_from(out[folded], out[target])
+            #
+            # AND THE ENTRY SAYS WHICH TITLE IT TOOK THE FORM FROM. Without the link the file held
+            # a translation with nothing to say where it came from, and a store built back from the
+            # file, which is what `renderings` does and what test_emit's parity block does, had no
+            # alias to take it across: six titles, 偏愛至上主義:岩見樹代子作品集 among them, came
+            # back without their English.
+            out[folded] = dict(our_form_from(out[folded], out[target]), alias_of=target)
     return out
 
 

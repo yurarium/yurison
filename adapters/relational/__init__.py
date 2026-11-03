@@ -2254,6 +2254,23 @@ def apply(db, source=None, quarantine=False, at=None, fresh=None):
                                    f" AND ({column} IS NULL OR {column} <> ?)")
                         db.execute(put_sql, (want, mine_id, want))
                         touched.add(table)
+                # AND WHAT THE SCRATCH NO LONGER STATES IS CLEARED. The pass above only ever set
+                # a reference, so one withdrawn from the data stayed in this store for ever.
+                # `ニニンがシノブ伝ぷらす=2×2=SHINOBUDEN+` was an alias of the plain title while
+                # its print record was catalogued under that spelling; the record's title changed,
+                # a rebuild stated no alias, and the live store went on carrying it. The site's
+                # `names.json`, emitted from the scratch, then disagreed with the store about the
+                # English that spelling shows.
+                unstated = {tuple(r[:-1]) for r in fresh.execute(
+                    f"SELECT {', '.join(key)}, {column} FROM {table}")
+                    if r[-1] is None}
+                for r in db.execute(
+                        f"SELECT {', '.join(key)}, {addr} FROM {table}"
+                        f" WHERE {column} IS NOT NULL").fetchall():
+                    if tuple(r[:-1]) in unstated:
+                        db.execute(f"UPDATE {table} SET {column} = NULL WHERE {addr} = ?",
+                                   (r[-1],))
+                        touched.add(table)
         # AND WHAT THIS TABLE'S OWN NUMBERS BECAME, for the children walked after it. Its address,
         # which the insert handed out here and there and which agree about nothing; and any column
         # already translated on the way in, since a child pointing at THAT column needs the same map.

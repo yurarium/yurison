@@ -33381,6 +33381,24 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  タマさんの猥談原稿:
+    basis: romaji
+    furigana_spans:
+    - - タマさんの
+      - null
+    - - 猥談
+      - わいだん
+    - - 原稿
+      - げんこう
+    reading: タマサン ノ ワイダン ゲンコウ
+    reading_at: '2026-11-03'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   ダイガクちゃん×はいすくーる！:
     basis: translated
     en: University-chan × High School!
@@ -52641,6 +52659,25 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  変な奴:
+    basis: romaji
+    furigana_spans:
+    - - 変
+      - へん
+    - - な
+      - null
+    - - 奴
+      - やつ
+    reading: ヘンナ ヤツ
+    reading_at: '2026-11-03'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   変態祓魔師燈明院牡丹:
@@ -79253,6 +79290,27 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
+  私の可愛いボーイッシュちゃん:
+    basis: romaji
+    furigana_spans:
+    - - 私
+      - わたし
+    - - の
+      - null
+    - - 可愛
+      - かわい
+    - - いボーイッシュちゃん
+      - null
+    reading: ワタシ ノ カワイイ ボーイッシュチャン
+    reading_at: '2026-11-03'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   私の可愛い子猫ちゃん:

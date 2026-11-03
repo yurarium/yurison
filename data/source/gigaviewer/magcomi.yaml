@@ -11,6 +11,21 @@ record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "magcomi:episode:12207421984304225733"
+    work_title: "東京つけものがたり"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第3話「塩麹漬け（後編）」"
+    release_type: "chapter"
+    date: "2026-11-03"
+    date_basis: "observed"
+    first_seen: "2026-11-03"
+    first_reported: "2026-11-03T03:00:00Z"
+    platform_updated: "2026-11-03T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984304225733"
+    author: "ぜろわん/あずやちとせ"
+    advances_narrative: true
   - release_id: "magcomi:episode:12207421984406812442"
     in_current_window: false
     work_title: "君とは一緒に死ねない～警視庁怪異調査室～"

@@ -13,8 +13,8 @@ publisher: "新潮社"
 retrieved: 2026-11-03
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 13
-series_held: 13
+series_resolved: 14
+series_held: 14
 works:
   - work_title: "さえちゃんのとなり"
     series_id: "2550912964605789737"
@@ -51,6 +51,18 @@ works:
         author: "類家海"
         url: "https://kuragebunch.com/episode/2550912965383006850"
         free_from: 2025-03-07
+        access_modes: ["free"]
+  - work_title: "タマさんの猥談原稿"
+    series_id: "12207421984452459649"
+    url: "https://kuragebunch.com/atom/series/12207421984452459649"
+    chapter_count: 1
+    chapters:
+      - title: "タマさんの猥談原稿"
+        updated: 2026-11-03
+        content_id: "tamasannowaidangenkou"
+        author: "戦上まい子"
+        url: "https://kuragebunch.com/episode/12207421984452460688"
+        free_from: 2026-11-03
         access_modes: ["free"]
   - work_title: "ファーストペンギン・レクイエム"
     series_id: "12207421983893646743"

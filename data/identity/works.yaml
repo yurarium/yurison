@@ -22996,6 +22996,28 @@ works:
 # 一迅プラス imported its catalogue, while the serialisation's real start of
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
+  - id: w03522
+    title: "変な奴"
+    anchors:
+      - "web:https://comic-action.com/episode/12207421984440039225"
+      - "web:https://comic-action.com/atom/series/12207421984435118775"
+    attached:
+      - anchor: "web:https://comic-action.com/atom/series/12207421984435118775"
+        basis: "the chapter page at https://comic-action.com/episode/12207421984440039225 links its own series feed at https://comic-action.com/atom/series/12207421984435118775, so the platform places this chapter in series 12207421984435118775"
+        retrieved: 2026-11-03
+  - id: w03523
+    title: "タマさんの猥談原稿"
+    anchors:
+      - "web:https://kuragebunch.com/episode/12207421984452460688"
+      - "web:https://kuragebunch.com/atom/series/12207421984452459649"
+    attached:
+      - anchor: "web:https://kuragebunch.com/atom/series/12207421984452459649"
+        basis: "the chapter page at https://kuragebunch.com/episode/12207421984452460688 links its own series feed at https://kuragebunch.com/atom/series/12207421984452459649, so the platform places this chapter in series 12207421984452459649"
+        retrieved: 2026-11-03
+  - id: w03524
+    title: "私の可愛いボーイッシュちゃん"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_021614_S"
 related:
   - a: w00156
     b: w00486

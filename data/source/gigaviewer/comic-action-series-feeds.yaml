@@ -13,8 +13,8 @@ publisher: "双葉社"
 retrieved: 2026-11-03
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 19
-series_held: 19
+series_resolved: 20
+series_held: 20
 works:
   - work_title: "SAL"
     series_id: "3269754496854110417"
@@ -838,6 +838,18 @@ works:
         author: "ふじちか"
         url: "https://comic-action.com/episode/3269754496556523502"
         free_from: 2021-10-22
+        access_modes: ["free"]
+  - work_title: "変な奴"
+    series_id: "12207421984435118775"
+    url: "https://comic-action.com/atom/series/12207421984435118775"
+    chapter_count: 1
+    chapters:
+      - title: "変な奴"
+        updated: 2026-11-03
+        content_id: "hennayatshu_001"
+        author: "ダゲル8079"
+        url: "https://comic-action.com/episode/12207421984440039225"
+        free_from: 2026-11-03
         access_modes: ["free"]
   - work_title: "大好きな親友がVチューバーの自分にガチ恋してた話"
     series_id: "4856001361584720983"

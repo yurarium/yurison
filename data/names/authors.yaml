@@ -10811,6 +10811,18 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ダゲル8079:
+    basis: romaji
+    reading: ダゲル 8079
+    reading_at: '2026-11-03'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   テラーノベル:
     basis: romaji
     reading: テラーノベル
@@ -23524,6 +23536,26 @@ names:
       weakest on pen names and coinages
     reading_pass: 4
     reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source_kind: analyser
+    verified: false
+  戦上まい子:
+    basis: romaji
+    furigana_spans:
+    - - 戦
+      - いくさ
+    - - 上
+      - うえ
+    - - まい
+      - null
+    - - 子
+      - こ
+    reading: イクサウエマイコ
+    reading_at: '2026-11-03'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   戸崎映:

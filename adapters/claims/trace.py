@@ -117,6 +117,23 @@ def merge(doc, rows):
     return doc
 
 
+def unreachable(status, text):
+    """The ledger result for a page we did not get, or None where we got it.
+
+    A REFUSAL HAS A BODY TOO. CloudFront answers a comici page with a 403 and a page of its own, so
+    testing for text let the refusal through to the readers, which found no comici markup and
+    recorded "fetched, but no reader here can parse this site": an adapter owed, when what happened
+    is that the platform would not show us the page. The status decides before the body is read.
+    """
+    if text and (status or 200) < 400:
+        return None
+    if status in (401, 403, 429):
+        return "blocked"
+    if status in (404, 410):
+        return "missing"
+    return "error"
+
+
 def read_page(url, html, cache):
     """Chapters for one work page, or None where no reader here can take it."""
     eng = engine_of(html)
@@ -161,11 +178,10 @@ def main(argv=None):
     for t in todo:
         res = pages[t["url"]]
         plat = t["platform_name"] or (t["url"].split("/")[2])
-        if not res.text:
+        bad = unreachable(res.status, res.text)
+        if bad:
             tally[f"unreachable ({res.status or res.error})"] += 1
-            checkstate.record(checks, plat, t["work_title"],
-                              "blocked" if res.status in (401, 403, 429) else
-                              "missing" if res.status in (404, 410) else "error",
+            checkstate.record(checks, plat, t["work_title"], bad,
                               note=f"HTTP {res.status}" if res.status else res.error)
             continue
         eng, chs = read_page(t["url"], res.text, cache)
@@ -189,6 +205,9 @@ def main(argv=None):
         tally[eng] += 1
         rows.append({"work_title": t["work_title"], "url": t["url"],
                      "platform_name": t["platform_name"], "route": eng,
+                     # The day this page was read. The file's own `retrieved` moves on every run
+                     # while most of its works were read on an earlier one; see build.py.
+                     "read": datetime.date.today().isoformat(),
                      "chapter_count": len(dated),
                      "chapters": [{"title": c.get("title") or "", "updated": c["updated"]}
                                   for c in dated]})

@@ -36,6 +36,7 @@ from facts import division as _division  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "adapters"))
 import checkstate  # noqa: E402
+import platform_access  # noqa: E402
 from facts import identity  # noqa: E402
 from facts import dating as _dating  # noqa: E402
 from facts import printblock as _printblock  # noqa: E402
@@ -1166,8 +1167,13 @@ def resolver_superseded(releases):
     return [r for r in releases if r.get("plat") not in ROUTES or key(r) not in covered]
 
 
-def load_platform_history(files):
+def load_platform_history(files, reads=None):
     """(work, platform) -> the dates that platform lists for that work, from whole-history sources.
+
+    `reads`, WHERE GIVEN, IS FILLED WITH THE DAY EACH HISTORY WAS READ: the work's own `read` where
+    the file records one, else the file's `retrieved`. A history is evidence about the days before
+    it was read and none at all about the days after, which is the question a claim on a platform
+    that has since closed to us asks of it.
 
     ONLY WHOLE HISTORIES. Absence of evidence is evidence of absence just where the list is known
     to be complete. A source that shows what it happens to carry can attest a chapter and must
@@ -1186,6 +1192,7 @@ def load_platform_history(files):
     for f in files:
         d0 = yaml.safe_load(open(f)) or {}
         filewide = d0.get("platform_name") or ""
+        file_read = str(d0.get("retrieved") or "")[:10]
         for w in d0.get("works") or []:
             ti = norm_work(w.get("work_title") or w.get("title") or "")
             label = w.get("platform_name") or filewide
@@ -1208,6 +1215,8 @@ def load_platform_history(files):
             # refutable claim back into an open one.
             if len(ds) >= len(out.get((ti, pn), ())):
                 out[(ti, pn)] = ds
+                if reads is not None:
+                    reads[(ti, pn)] = str(w.get("read") or file_read)[:10]
     for t, lab, own, u in misfiled:
         print(f"  note: {t} was filed under {lab} and read from {own} ({u}); using {own}")
     return out
@@ -3181,6 +3190,16 @@ def write_feed_split(out, releases, _today, platforms, plat_meta, lapsed,
             for k in sorted(set(o) | set(n)):
                 if k not in o:
                     diffs.append(f"    + not in the published month: {k}  ({_fdate(n[k])})")
+                elif k not in n and o[k].get("provenance") == "claimed" and any(
+                        x.get("provenance") != "claimed"
+                        and norm_work(x.get("work") or "") == norm_work(o[k].get("work") or "")
+                        and (x.get("plat_name") or x.get("plat")) == (o[k].get("plat_name")
+                                                                      or o[k].get("plat"))
+                        for x in by_month[m]):
+                    # A LISTING SITE'S REPORT, NOW HELD AS THE PLATFORM'S OWN ROW. The platform
+                    # reopened and attested the update, so the claim was absorbed: the same event
+                    # with a chapter attached, not an update that stopped having happened.
+                    diffs.append(f"    = reported, now attested by the platform: {k}")
                 elif k not in n:
                     diffs.append(f"    - published but no longer built: {k}  ({_fdate(o[k])})")
                 else:
@@ -4689,6 +4708,7 @@ def main():
     # Absence of evidence is only evidence of absence where the list is known to be complete, so
     # the sources permitted here are only those that return whole histories. Everything else can
     # attest what it shows and must not be used to deny what it does not.
+    history_read = {}
     platform_history = load_platform_history(
         glob.glob("data/source/gigaviewer/*-series-feeds.yaml")
         + glob.glob("data/source/gigaviewer/*-confirmed.yaml")
@@ -4696,7 +4716,7 @@ def main():
         # The comici and rendered-page adapters write here, in the same shape. Omitting them left
         # 28 of 43 claims reported as untraced while their chapter lists sat on disk, one of them
         # in a file called claim-resolved.yaml. Fetched, written, and read by nothing.
-        + glob.glob("data/source/webpages/*.yaml"))
+        + glob.glob("data/source/webpages/*.yaml"), reads=history_read)
 
     # AND WHAT THE PARTIAL LISTINGS SHOW, which may say we looked and may never deny a chapter.
     partial_listings = load_partial_listings(["data/source/kadokomi/chapters.yaml",
@@ -4810,6 +4830,30 @@ def main():
                           (yaml.safe_load(pathlib.Path("data/platforms.yaml").read_text()) or {})
                           .get("no_chapter_dates") or []}
 
+    # PLATFORMS CLOSED TO US, and the works we hold there. A claim on a platform that refuses every
+    # page we ask cannot be traced however often it is retried, and the listing site's report is
+    # then the only account of the update anyone can give. See adapters/platform_access.py and the
+    # `reported` disposition below. Keyed by the platform's registered name, as claims are.
+    _access = platform_access.load()
+    closed_platforms = {}
+    for _closed_pn in _access:
+        _row = platform_access.closed(_access, _closed_pn, _dating.today())
+        if _row:
+            closed_platforms[norm_work(alias_to_name.get(norm_work(_closed_pn), _closed_pn))] = \
+                dict(_row, name=_closed_pn)
+    _regf = pathlib.Path("data/identity/works.yaml")
+    _reg_entries = ((yaml.safe_load(_regf.read_text()) or {}).get("works") or []) \
+        if _regf.exists() else []
+    work_by_anchor = identity.index(_reg_entries)
+    # THE REGISTRY'S TITLE, not the listing site's. Web漫画アンテナ cuts a long title short with
+    # "...", and a row named by the cut would name a work that does not exist.
+    registry_title = {e["id"]: e.get("title") for e in _reg_entries}
+    # The capture route each platform's attested rows travel, so a reported row files with them.
+    plat_slug_of = {}
+    for r in releases:
+        if r.get("plat_name") and r.get("plat"):
+            plat_slug_of.setdefault(r["plat_name"], r["plat"])
+
     # Attested dates by (work, platform), for recognising a claim that reports what we already hold.
     platform_dates = {}
     for r in releases:
@@ -4840,6 +4884,12 @@ def main():
     #               confirm nor refute. Not neglect; there is nothing there to read.
     #   open        not traced yet. This is work to do now, and it is the only bucket that should
     #               ever shrink by doing something.
+    #   reported    the platform has closed to us (adapters/platform_access.py), the work is one we
+    #               hold at the address the listing site gives, and nothing we hold was read after
+    #               the claimed date. The listing site's report is then the only account of the
+    #               update there is, and it is PUBLISHED, named as the listing site's, with no
+    #               chapter and no access stated, because it gives neither. Owner's ruling
+    #               2026-11-03: the comici sites closed to us on 2026-10-22 and are not expected back.
     #
     # THE CAPTURE GUARDS exist because "we found nothing" and "we fetched nothing" look identical
     # from inside. A refutation is only allowed when our own capture is deep enough to carry it:
@@ -4998,11 +5048,23 @@ def main():
             # honest reading is that we cannot see the whole run, whatever the reason.
             CONTRADICTION_MAX_GAP = 120   # days
             raw_hist = platform_history.get((nw, norm_work(c.get("platform") or "")))
+            read = history_read.get((nw, norm_work(c.get("platform") or "")))
             plat_hist, held_back = raw_hist, None
             if raw_hist:
                 gap = (datetime.date.fromisoformat(when)
                        - datetime.date.fromisoformat(max(raw_hist))).days
-                if gap > CONTRADICTION_MAX_GAP:
+                # A HISTORY SPEAKS FOR THE DAYS BEFORE IT WAS READ. Every comici capture stopped on
+                # 2026-10-22, when the sites began refusing us, and the depth and gap tests above
+                # would still have let a history read that day deny a chapter claimed for November:
+                # three chapters held, a gap of three weeks, nothing near the date. We had not
+                # looked. Whether we found nothing is a question only a reading after the date can
+                # answer. THE SAME DAY IS NOT AFTER. きっと、彼女が好きだから is claimed for
+                # 2026-10-22 and Gコミ's page was last read that day, before the chapter went up.
+                if read and read <= when:
+                    plat_hist, held_back = None, (
+                        f"we last read this listing on {read}, no later than the claimed date, so "
+                        f"it cannot show what appeared after")
+                elif gap > CONTRADICTION_MAX_GAP:
                     plat_hist, held_back = None, (
                         f"we hold {len(raw_hist)} chapters ending {max(raw_hist)}, {gap} days before "
                         f"the claim — too far behind to argue the platform shows nothing")
@@ -5079,6 +5141,23 @@ def main():
                 # both leave the same absence behind. adapters/claims/trace.py records every look.
                 looked = claim_checks.get(f"{c.get('platform') or ''}|{w}") or {}
                 sched = stated_schedule.get((nw, norm_work(c.get("platform") or ""))) or {}
+                # THE PLATFORM IS WHERE THE ADDRESS IS, as `load_platform_history` has it. The
+                # listing site files ヤングチャンピオン's pages under チャンピオンクロス, which
+                # carries the same works, and a row naming the platform the link does not open
+                # would send a reader to one site under the other's name.
+                pn_where = platform_of(c.get("url"), _owners) or pn_claim
+                closed = closed_platforms.get(norm_work(pn_where))
+                claim_wid = work_by_anchor.get(f"web:{c.get('url')}") if c.get("url") else None
+                if closed and claim_wid and not (read and read > when):
+                    trace(c, w, "reported",
+                          f"{closed['name']} has refused every page we asked since "
+                          f"{closed['refused_since']}, so the listing site's report is the only "
+                          "account of this update, and it is published as theirs",
+                          wid=claim_wid, refused_since=closed["refused_since"], author=author,
+                          chapters_held=len(raw_hist or []),
+                          title_unsplit=unsplit, platform_name=pn_where)
+                    claims_kept += 1
+                    continue
                 # THE PLATFORM'S OWN SCHEDULE PUTS AN UPDATE HERE. 平良深姉妹はどっちもヤんでる
                 # states 毎月第3金曜 and announces a next update; 2026-07-17 is a third Friday, so
                 # the report matches what the platform says it does. That is corroboration from the
@@ -5147,6 +5226,36 @@ def main():
                           blocked=looked.get("note"))
             # (indexed by trace() itself, for every disposition)
             claims_kept += 1
+
+    # THE REPORTED CLAIMS, AS ROWS. Built after the loop rather than inside it because a second
+    # listing site reporting the same update folds its name into the first one's `source`, and the
+    # row should name both. A row says what the listing site said and nothing more: the work, the
+    # platform, the day, and who said so. No chapter, so `kind` is inferred from what we hold, and
+    # no `access_modes`, so the Free view does not claim it.
+    for rec in claim_trace:
+        if rec.get("disposition") != "reported":
+            continue
+        _rep_plat = alias_to_name.get(norm_work(rec.get("platform_name") or ""),
+                                      rec.get("platform_name") or "")
+        releases.append({
+            "id": f"reported:{plat_slug_of.get(_rep_plat) or norm_work(_rep_plat)}:"
+                  f"{rec.get('url')}:{rec['claimed']}",
+            "work": registry_title.get(rec["wid"]) or rec["work"], "wid": rec["wid"],
+            # A CHAPTER where we hold the work's chapters on this platform: an update to a
+            # serialisation we have read is an instalment of it, even unnamed.
+            "ep": "", "type": "chapter" if rec.get("chapters_held") else "unclassified",
+            "chapters_held": rec.get("chapters_held"),
+            "adv": True, "web": "serialised", "pub": rec["claimed"], "feed_date": rec["claimed"],
+            "seen": str((d if cf.exists() else {}).get("retrieved") or rec["claimed"])[:10],
+            "basis": "listing-site", "conf": "reported",
+            "why": "the date a listing site reported the update; the platform's own record is "
+                   "closed to us",
+            "moved": "", "url": rec.get("url"), "author": rec.get("author") or "",
+            "title_unsplit": rec.get("title_unsplit"),
+            "plat": plat_slug_of.get(_rep_plat) or "", "plat_name": _rep_plat,
+            "ident": "comparator-claim", "free_from": None, "free": False,
+            "provenance": "claimed", "claim_source": rec.get("source"),
+        })
 
     # A channel is a section of a host platform, not a platform. Naming the host is always correct.
     # Calling a particular work *syndicated*, though, is a claim about where it was first published,
@@ -5550,6 +5659,12 @@ def main():
         elif has_earlier:
             # Not the first release we hold for this work, so not the start of it.
             r["kind"], r["kind_basis"] = "new-chapter", "work has an earlier release here"
+        elif r.get("provenance") == "claimed" and r.get("chapters_held"):
+            # A REPORTED ROW CARRIES NO CHAPTER, and the feed window holds none of the work's
+            # earlier ones, but the platform's own history we read before it closed does.
+            r["kind"] = "new-chapter"
+            r["kind_basis"] = (f"we hold {r['chapters_held']} earlier chapters of this work on "
+                               f"this platform")
         elif attested_titles and any(
                 norm_work(r["work"]).startswith(a) or a.startswith(norm_work(r["work"]))
                 for a in attested_titles if len(a) > 2):

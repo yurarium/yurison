@@ -296,6 +296,28 @@ def text_of(html):
     return re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", " ", t)))
 
 
+def _compact(t):
+    import unicodedata
+    t = unicodedata.normalize("NFKC", t or "")
+    return "".join(ch for ch in t if ch.isalnum())
+
+
+def names_work(html, title):
+    """Whether a rendered page is about the work we asked for, by finding its title on it.
+
+    A REFUSAL RENDERS TOO. Chromium draws CloudFront's 403 page as readily as a work page, and a page
+    with no dates on it was recorded as "the platform draws no dates on this page": a finding about
+    the platform, made from a page the platform never sent. COMICリュウ was recorded that way four
+    times after it closed to us. A page that does not name the work is not a reading of it.
+
+    The opening of the title is enough, because a platform may print a subtitle differently.
+    """
+    want = _compact(title)
+    if not want:
+        return False
+    return want[:8] in _compact(text_of(html))
+
+
 def carry_over(path, rows):
     """Fold this run's rows into whatever the file already holds, keyed on URL.
 
@@ -421,6 +443,11 @@ def main():
                 # and was still listed overdue on the 8th because success left no trace.
                 checkstate.record(CHECKS, plat['name'], t.get('title') or '', 'ok',
                                   note=f'rendered; {len(eps)} episode(s) read')
+            elif not names_work(html, t.get("title")):
+                failed['not the work\'s page'] += 1
+                checkstate.record(CHECKS, plat['name'], t.get('title') or '', 'blocked',
+                                  note='rendered; the page does not name this work, so it was '
+                                       'not shown to us')
             else:
                 failed['no dated chapters'] += 1
                 # A FINDING, not a failure. The page rendered and the platform drew no dates on it,

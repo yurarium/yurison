@@ -1887,8 +1887,8 @@ def _load_feed(db, source, put, counts):
             " episode_count, free_episodes, started, work_level, in_collection, syndicated,"
             " origin_note, origin_unknown, same_title_elsewhere, ahead_n, ahead_ep,"
             " ahead_next_free, ahead_next_ep, channel_name, channel_host, channel_origin,"
-            " channel_home, channel_syndicated, access_stated, channel_stated)"
-            " VALUES (" + ",".join("?" * 57) + ")",
+            " channel_home, channel_syndicated, access_stated, channel_stated, claim_source)"
+            " VALUES (" + ",".join("?" * 58) + ")",
             (rid, wid, rel["plat_name"], rel.get("ep"), rel.get("pub"), rel.get("url"),
              rel.get("type"), rel.get("seen"),
              rel.get("work"), rel.get("author"), rel.get("author_basis"), rel.get("plat"),
@@ -1907,7 +1907,8 @@ def _load_feed(db, source, put, counts):
              rel.get("ahead_next_free"), rel.get("ahead_next_ep"),
              ch.get("name") or rel.get("channel_name"), ch.get("host"), ch.get("origin"),
              ch.get("home"), _flag(ch, "syndicated"),
-             int("access_modes" in rel), int("channel" in rel)), f"release {rid[:40]}")
+             int("access_modes" in rel), int("channel" in rel), rel.get("claim_source")),
+            f"release {rid[:40]}")
         for i, mode in enumerate(rel.get("access_modes") or []):
             put("INSERT OR IGNORE INTO release_access_mode (release, seq, mode) VALUES (?,?,?)",
                 (rid, i, mode), f"access mode {rid[:30]}")

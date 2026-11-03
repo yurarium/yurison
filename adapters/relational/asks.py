@@ -190,17 +190,23 @@ INVARIANTS = {
         "asserts": "empty",
         "fallback": "the status page counts whatever the last successful write left",
         "canary": "DELETE FROM run_source"},
-    # THE FEED HOLDS WHAT A PLATFORM ATTESTED AND NOTHING ELSE. A listing site's claim is an INPUT
-    # to the pipeline, and a row that reached the feed on one is the pipeline publishing its own
-    # working. The claim survives on status.html, where it is labelled as a claim.
-    "feed holds only attested rows": {
-        "sql": "SELECT work_raw, id FROM release WHERE coalesce(provenance, '') <> 'attested'",
+    # THE FEED HOLDS WHAT A PLATFORM ATTESTED, AND WHAT A LISTING SITE REPORTED WHERE NO PLATFORM
+    # CAN. A claim is an input to the pipeline, and a row that reached the feed on one is the
+    # pipeline publishing its own working, except where the platform has closed to us: the owner
+    # ruled on 2026-11-03 that the listing site's report is then published, named as theirs. Such a
+    # row says who reported it, and that is what is asked here. A claim row without its reporter is
+    # the old fault, an unattributed claim in the feed.
+    "a feed row is attested or names who reported it": {
+        "sql": "SELECT work_raw, id FROM release WHERE coalesce(provenance, '') <> 'attested'"
+               " AND NOT (provenance = 'claimed' AND coalesce(claim_source, '') <> ''"
+               " AND basis = 'listing-site')",
         "reads": ("release",),
         "asserts": "empty",
         "fallback": "drop the row from the feed; it stays in the claim trace on status.html",
         "canary": "INSERT INTO release (id, platform, provenance) "
                   "VALUES ('canary', (SELECT name FROM platform LIMIT 1), 'claimed')"},
-    # EVERY UPDATE SAYS WHAT KIND OF UPDATE IT IS. `unknown` meant a claim row, and those are gone.
+    # EVERY UPDATE SAYS WHAT KIND OF UPDATE IT IS. `unknown` meant a claim row with nothing to infer
+    # a kind from. A reported row takes its kind from the history we read before its platform closed.
     "every update has a kind": {
         "sql": "SELECT work_raw, id FROM release WHERE event = 'unknown'",
         "reads": ("release",),

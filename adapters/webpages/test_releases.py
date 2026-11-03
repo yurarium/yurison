@@ -177,6 +177,17 @@ def main(s):
         s.eq(wp.carry_over(pathlib.Path(d) / "absent.yaml", []), [],
              "a site with no file yet carries nothing over")
 
+        # A CARRIED WORK KEEPS THE DAY IT WAS READ, or the file's new `retrieved` makes a page we
+        # did not open this run look freshly read, and the build lets that listing deny a claim.
+        f.write_text('retrieved: 2026-10-01\nworks:\n'
+                     '  - work_title: "old"\n    url: "https://x/1"\n    chapters: []\n'
+                     '  - work_title: "dated"\n    url: "https://x/3"\n    read: "2026-09-15"\n'
+                     '    chapters: []\n')
+        got = {w["work_title"]: w.get("read") for w in wp.carry_over(f, [])}
+        s.eq(got.get("old"), "2026-10-01",
+             "a row from before `read` existed answers with the date its old file gave")
+        s.eq(got.get("dated"), "2026-09-15", "a row's own read date is kept")
+
 
     a_byline_from_the_series_page(s)
     a_candidate_at_another_works_page(s)

@@ -1240,7 +1240,8 @@ def feed(db, rows=None):
             " preferred_reason, is_preferred, feed_date, work, episode_count, free_episodes,"
             " started, work_level, in_collection, syndicated, origin_note, origin_unknown,"
             " same_title_elsewhere, channel_name, channel_host, channel_origin, channel_home,"
-            " channel_syndicated, access_stated, channel_stated FROM release ORDER BY rowid"):
+            " channel_syndicated, access_stated, channel_stated, claim_source FROM release"
+            " ORDER BY rowid"):
         (rid, work, ep, kind, adv, web, pub, seen, basis, conf, why, moved, url, series_url,
          author, author_basis, plat, plat_name, ident, free_from, discovered_on, late_discovered,
          access_basis, became_free, access_changed, date_means, provenance, free, ahead_n,
@@ -1248,7 +1249,7 @@ def feed(db, rows=None):
          preferred, preferred_reason, is_preferred, feed_date, wid, episode_count, free_episodes,
          started, work_level, in_collection, syndicated, origin_note, origin_unknown,
          same_title, channel_name, channel_host, channel_origin, channel_home,
-         channel_syndicated, access_stated, channel_stated) = r
+         channel_syndicated, access_stated, channel_stated, claim_source) = r
         row = {"id": rid, "work": work, "ep": ep, "type": kind, "adv": bool(adv), "web": web,
                "pub": pub, "seen": seen, "basis": basis, "conf": conf, "why": why, "moved": moved,
                "url": url}
@@ -1276,6 +1277,8 @@ def feed(db, rows=None):
         if date_means is not None:
             row["date_means"] = date_means
         row["provenance"] = provenance
+        if claim_source is not None:
+            row["claim_source"] = claim_source
         row["free"] = bool(free)
         if ahead_n is not None:
             row["ahead_n"] = ahead_n

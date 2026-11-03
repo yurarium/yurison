@@ -21,6 +21,7 @@ import argparse, json, pathlib, re, sys, time, urllib.error, urllib.request
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import comici  # noqa: E402
+import platform_access  # noqa: E402
 import textnorm  # noqa: E402
 from collections import Counter
 
@@ -133,6 +134,11 @@ def carry_over(path, urls):
 
     A work reached this time is replaced, because a fresh reading beats an old one. A work not
     reached is kept, because not looking at a page is not a finding about it.
+
+    AND IT KEEPS THE DAY IT WAS READ. The file's `retrieved` moves on every run that writes it, so
+    a carried work read on 2026-10-01 sat under a later date and looked freshly read. The build asks
+    when a listing was last read before letting it deny a claim, so a carried work answers with its
+    own `read`, and a row written before that field existed answers with the date its old file gave.
     """
     p = pathlib.Path(path)
     if not p.exists():
@@ -145,6 +151,8 @@ def carry_over(path, urls):
         # The file names the list `chapters` and the run names it `episodes`. The writer takes the
         # run's shape, so a carried work is handed back in it.
         w = dict(w, episodes=w.get("chapters") or [])
+        if not w.get("read") and old.get("retrieved"):
+            w["read"] = str(old["retrieved"])[:10]
         w.pop("chapters", None)
         w.pop("chapter_count", None)
         keep.append(w)
@@ -334,7 +342,10 @@ def main():
     ap.add_argument("--sites", default="adapters/webpages/sites.yaml")
     ap.add_argument("--limit", type=int, default=60)
     ap.add_argument("--registry", default="data/identity/works.yaml")
+    ap.add_argument("--access", default=str(platform_access.STORE),
+                    help="the per-platform access ledger; see adapters/platform_access.py")
     a = ap.parse_args()
+    access = platform_access.load(a.access)
 
     # WHICH HELD WORK EACH ADDRESS BELONGS TO, so a candidate the aggregator filed at another work's
     # page can be refused instead of written under the wrong title. See `misdirected`.
@@ -376,17 +387,23 @@ def main():
             continue
 
         works, failed, refused = [], [], []
+        # WHAT EACH SERIES PAGE ANSWERED, for the access ledger. A site that refuses every page we
+        # ask is a different condition from a parser that emptied, and only this loop can tell.
+        statuses = []
         for tgt in targets:
             try:
                 html = fetch(tgt["url"], cache)
             except urllib.error.HTTPError as e:
+                statuses.append(e.code)
                 failed.append((tgt["title"], f"HTTP {e.code}" + refusal_note(e)))
                 continue
             # AND A FAILURE BELOW HTTP, which ended the whole adapter on 2026-10-16: one name that
             # did not resolve, during a moment of flaky DNS, and seven platforms wrote nothing.
             except (urllib.error.URLError, OSError) as e:
+                statuses.append(None)
                 failed.append((tgt["title"], type(e).__name__))
                 continue
+            statuses.append(200)
             # THE INNER FETCH IS GUARDED TOO. `episodes` is handed this to read the pages a
             # series is paginated over, and it was `lambda u: fetch(u, cache)` with nothing round
             # it, while the fetch of the series page above records an HTTP error against that one
@@ -446,6 +463,12 @@ def main():
         # with how many works the site actually has, or a platform carrying one yuri title is
         # permanently indistinguishable from a broken one — which is what happened to 花とゆめ+
         # (4 candidates) and COMICリュエル (1) the first time they ran.
+        if platform_access.run_refused(statuses):
+            notes = sorted({why for _t, why in failed})
+            platform_access.record(access, site["name"], True, a.retrieved,
+                                   note=f"every page asked answered {', '.join(notes)}")
+        elif works:
+            platform_access.record(access, site["name"], False, a.retrieved)
         floor = floor_for(site, targets, refused)
         if len(works) < floor:
             line = health_line(site["id"], len(works), floor, failed)
@@ -474,6 +497,7 @@ def main():
             if w.get("author"):
                 L.append(f"    author: {js(w['author'])}")
             L.append(f"    url: {js(w['url'])}")
+            L.append(f"    read: {js(str(w.get('read') or a.retrieved))}")
             L.append(f"    chapter_count: {len(w['episodes'])}")
             L.append("    chapters:")
             for e in w["episodes"]:
@@ -500,6 +524,7 @@ def main():
         for title, url, wid, held in refused:
             print(f"    refused {title!r}: {url} is {wid} {held!r}, so not written under that title")
 
+    platform_access.save(access, a.access, today=a.retrieved)
     print()
     print(f"total: {grand['works']} works, {grand['chapters']} chapters -> {out}")
 

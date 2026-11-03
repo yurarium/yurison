@@ -13,6 +13,17 @@ import releases as rd
 
 
 def main(s):
+    # A REFUSAL RENDERS TOO, and a page that does not name the work is not a reading of it.
+    s.check(not rd.names_work("<html><body><h1>403 ERROR</h1>The request could not be satisfied."
+                              "</body></html>", "ひなゆり冒険記"),
+            "CloudFront's 403 page does not name the work")
+    s.check(rd.names_work("<html><body><h1>ひなゆり冒険記</h1><p>第1話</p></body></html>",
+                          "ひなゆり冒険記"), "a work page naming the work does")
+    s.check(rd.names_work("<html><body><h1>お姉さんは女子小学生に興味があります。 1巻</h1></body></html>",
+                          "お姉さんは 女子小学生に興味があります"),
+            "spacing and punctuation do not decide it, and a longer printed title still names it")
+    s.check(not rd.names_work("<html><body>anything</body></html>", ""),
+            "a target with no title cannot be confirmed by its page")
     # ── A PLATFORM WITH ITS OWN ADAPTER IS NOT RENDERED AS WELL ───────────────────────────────
     spec = {"platforms": [{"id": "magapoke"}, {"id": "ganganonline",
                                                "own_adapter": "adapters/ganganonline/releases.py"}]}

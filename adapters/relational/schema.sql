@@ -1772,7 +1772,11 @@ CREATE TABLE release (
   -- 19 state a channel of `null`, meaning the platform has channels and this row is not in one.
   -- A row that was never asked has neither, and the file spells the three apart.
   access_stated INTEGER NOT NULL DEFAULT 0 CHECK (access_stated IN (0, 1)),
-  channel_stated INTEGER NOT NULL DEFAULT 0 CHECK (channel_stated IN (0, 1))
+  channel_stated INTEGER NOT NULL DEFAULT 0 CHECK (channel_stated IN (0, 1)),
+  -- WHO REPORTED IT, where the platform's own record is closed to us and a listing site's report
+  -- is the only account of the update (`provenance` = 'claimed'). `webcomics.jp`, `yurinavi`, or
+  -- both joined by `+`. NULL on every row a platform attests.
+  claim_source TEXT
 );
 
 -- HOW A READER GETS AT IT, which is a LIST because a chapter can be free now and purchasable later.

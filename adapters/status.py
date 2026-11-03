@@ -52,6 +52,9 @@ MEANS = {
     # English sentences. A key with no gloss falls through to the key, which is the machinery
     # reaching a reader.
     "known-work-match": "Matched updates to works the database already held",
+    # A LISTING SITE'S REPORT, PUBLISHED. Where a platform has closed to us its updates reach the
+    # feed as the listing site reported them; see `reported` in build.py.
+    "comparator-claim": "Published updates a listing site reported on a platform closed to us",
 }
 
 

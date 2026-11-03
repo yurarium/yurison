@@ -400,6 +400,29 @@ What it does **not** change:
   the attested record wins and the claim is dropped, including when 百合ナビ's title-plus-author
   cell means the two do not match on an exact key.
 
+#### Where the platform has closed to us
+
+**Decided 2026-11-03.** From 2026-08-02 claims stopped reaching the feed: a claim either became an
+attested row or stayed on status.html. From 2026-10-22 every comici site answered our requests with
+a 403, and the platform's own record of those works stopped moving. The owner ruled that a listing
+site's report is then published, because it is the only account of the update anyone can give.
+
+The rule is narrow. A claim is published as `reported` only where the platform is recorded in
+`data/state/platform-access.yaml` as refusing every page we asked for at least three days, with no
+successful read since, and where the claim's address is a registered anchor of a work we hold. A
+listing site establishes no inclusion, so a work new to us stays out. `adapters/platform_access.py`
+writes the access record.
+
+A history speaks only for the days before it was read. One read on 22 October says nothing about
+November, so no history may deny a chapter claimed for a day on or after its reading. That holds
+for every claim, on a closed platform or an open one, and it is what kept a reported claim from
+being refuted first.
+
+The row names who reported it (`claim_source`), the interface shows "via Web漫画アンテナ", and the
+row states no chapter and no access, because the report gives neither. It is a citation in the
+place every other row names its platform, which is why it is not the 要確認 marker the August
+decision removed. When the platform lets us in again, its own rows absorb the reports.
+
 ### Update kind, and what may be inferred
 
 Feed entries carry `kind`: `new-series`, `new-chapter`, `other` or `unknown`, derived from

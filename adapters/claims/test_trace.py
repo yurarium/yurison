@@ -73,6 +73,16 @@ def main(s):
     s.eq(eng, None, "an unreadable page reports no engine")
     s.eq(chs, [], "and no chapters")
 
+    # A REFUSAL WITH A BODY IS STILL A REFUSAL. CloudFront's 403 page is text, and reading it as a
+    # page we got recorded the platform's refusal as a reader we had not written.
+    s.eq(trace.unreachable(403, "<html>現在、一部の通信環境からのアクセスを制限しております</html>"),
+         "blocked", "a 403 with a page of its own is blocked")
+    s.eq(trace.unreachable(429, ""), "blocked", "a 429 is blocked")
+    s.eq(trace.unreachable(404, "<html>not found</html>"), "missing", "a 404 is missing")
+    s.eq(trace.unreachable(503, "<html>busy</html>"), "error", "a 503 is an error, worth another look")
+    s.eq(trace.unreachable(None, ""), "error", "no answer at all is an error")
+    s.eq(trace.unreachable(200, "<html>ok</html>"), None, "a page we got is not unreachable")
+
 
 if __name__ == "__main__":
     raise SystemExit(testkit.run(main, pathlib.Path(__file__).name))

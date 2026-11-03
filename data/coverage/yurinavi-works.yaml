@@ -2,12 +2,15 @@
 # links them. Tier C, discovery only, like webcomics-works.yaml and kept apart from it.
 source: yurinavi.com
 role: discovery-only
-retrieved: 2026-11-02
+retrieved: 2026-11-03
 record_type: candidate_works
 candidates:
   - title: "壊していいよ、すいかちゃん"
     platforms: ["COMIC OGYAAA!!"]
     urls: ["https://comic-ogyaaa.com/episode/12207421983608495081"]
+  - title: "きっと、彼女が好きだから"
+    platforms: ["Gコミ"]
+    urls: ["https://g-comi.jp/series/74403f9e30641"]
   - title: "今夜、エーテルで待ちあわせ"
     platforms: ["Seasons"]
     urls: ["https://comic-seasons.com/episode/12207421983858404523"]
@@ -101,6 +104,9 @@ candidates:
   - title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_003240_S"]
+  - title: "お菊さんはいちゃ憑きたい"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_002468_S"]
   - title: "きょうはなにしよう？"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008653_S"]
@@ -236,6 +242,9 @@ candidates:
   - title: "猫に白鳥、蛍に小判"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006798_S"]
+  - title: "王子はさけて通れない！"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_021486_S"]
   - title: "真先輩の前ではかっこつけられない！"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006747_S"]
@@ -248,6 +257,9 @@ candidates:
   - title: "紅魔館の女たち"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_002973_S"]
+  - title: "紫蘭さまにはなびきません！"
+    platforms: ["カドコミ"]
+    urls: ["https://comic-walker.com/detail/KC_021516_S"]
   - title: "聖女先生の魔法は進んでる！"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006695_S"]
@@ -317,6 +329,9 @@ candidates:
   - title: "怨霊日和"
     platforms: ["マガポケ"]
     urls: ["https://pocket.shonenmagazine.com/title/03338/episode/443763"]
+  - title: "君とは一緒に死ねない～警視庁怪異調査室～"
+    platforms: ["マグコミ"]
+    urls: ["https://magcomi.com/episode/12207421984406812442"]
   - title: "東京つけものがたり"
     platforms: ["マグコミ"]
     urls: ["https://magcomi.com/episode/12207421984174948874"]

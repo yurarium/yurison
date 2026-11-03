@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-02
+retrieved: 2026-11-03
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -34,6 +34,11 @@ platforms_missing:
   - platform: "ドリコミ+"
     works: 1
 works_missing:
+  - title: "このままモブじゃ終われない!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3700"
+    antenna_id: "203870"
+    tags: ["百合", "サキュバス"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -84,11 +89,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/3397"
     antenna_id: "159994"
     tags: ["百合", "女子高生", "4コマ"]
-  - title: "このままモブじゃ終われない!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3700"
-    antenna_id: "203870"
-    tags: ["百合", "サキュバス"]
   - title: "愛でたいセンセイ"
     platform: "COMIC Y-OURS"
     url: "https://comic-y-ours.com/episode/2551460909791888785"
@@ -318,7 +318,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_003297_S"
     antenna_id: "108614"
-    tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
+    tags: ["最近のコメント数"]
   - title: "オンニって呼んでもいいですか?"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006608_S"
@@ -378,7 +378,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002743_S"
     antenna_id: "36257"
-    tags: ["レシピ", "料理・グルメ", "日常", "雑学・豆知識", "実写化", "百合", "ホームドラマ", "義理の兄弟姉妹"]
+    tags: ["レシピ", "料理・グルメ", "日常", "雑学・豆知識", "実写化", "百合", "ホームドラマ", "義理の兄弟姉妹", "継母・継父"]
   - title: "紅魔館の女たち"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002973_S"
@@ -624,6 +624,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019441_S"
     antenna_id: "212575"
     tags: ["百合", "読み切り"]
+  - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/2349"
+    antenna_id: "194497"
+    tags: ["百合", "ヤンデレ"]
   - title: "私がモテないのはどう考えてもお前らが悪い!"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/29"
@@ -639,16 +644,16 @@ works_missing:
     url: "https://www.ganganonline.com/title/38"
     antenna_id: "77857"
     tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
-  - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2349"
-    antenna_id: "194497"
-    tags: ["百合", "ヤンデレ"]
   - title: "ひきこまり吸血姫の悶々"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/1593"
     antenna_id: "146334"
     tags: ["百合", "ギャグ・コメディ", "吸血鬼・ヴァンパイア", "アニメ化"]
+  - title: "魔王城デート大作戦!"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/0cd32d6a7efc2"
+    antenna_id: "212084"
+    tags: ["百合"]
   - title: "ワインガールズ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/f42014b3e7df6"
@@ -663,11 +668,6 @@ works_missing:
     platform: "キミコミ"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
     antenna_id: "193724"
-    tags: ["百合"]
-  - title: "魔王城デート大作戦!"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    antenna_id: "212084"
     tags: ["百合"]
   - title: "暗殺組合の山田さん"
     platform: "キミコミ"

@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-02
+retrieved: 2026-11-03
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -847,14 +847,10 @@ works:
   - work_title: "アイ・ヘイ・チュー"
     author: "長門知大"
     url: "https://comic.pixiv.net/works/13324"
-    chapter_count: 5
+    chapter_count: 4
     chapters:
       - title: "第6話 今に木阿弥"
         updated: 2026-10-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第5話 罪のお味は"
-        updated: 2026-09-12
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3話 手も品も変えるな"
@@ -874,12 +870,12 @@ works:
     url: "https://comic.pixiv.net/works/13345"
     chapter_count: 4
     chapters:
-      - title: "第4片"
-        updated: 2026-09-28
+      - title: "第5片"
+        updated: 2026-10-28
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第3片"
-        updated: 2026-08-28
+      - title: "第4片"
+        updated: 2026-09-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2片"
@@ -925,16 +921,16 @@ works:
     url: "https://comic.pixiv.net/works/13457"
     chapter_count: 6
     chapters:
+      - title: "第4-2話 地獄の特訓！たえFly High!"
+        updated: 2026-10-31
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第4-1話 地獄の特訓！たえFly High!"
         updated: 2026-10-17
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3-2話 ライバルとーじょー!? 小さくたって大怪獣！"
         updated: 2026-09-26
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3-1話 ライバルとーじょー!? 小さくたって大怪獣！"
-        updated: 2026-09-12
         access_modes: ["free"]
         date_basis: rendered
       - title: "第2-2話 Totsuzenタンデム!? ドギマギ山頂でぇと"
@@ -2243,38 +2239,10 @@ works:
   - work_title: "バカ女26時"
     author: "原作：遠野めざ, 作画：彩乃浦助"
     url: "https://comic.pixiv.net/works/9913"
-    chapter_count: 10
+    chapter_count: 3
     chapters:
-      - title: "EPISODE 32"
-        updated: 2026-09-16
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE 31"
-        updated: 2026-07-29
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE 30"
-        updated: 2026-06-24
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE 29"
-        updated: 2026-05-27
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE 28"
-        updated: 2026-03-25
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE 27"
-        updated: 2026-02-25
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE 26"
-        updated: 2026-01-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE 25"
-        updated: 2025-12-24
+      - title: "EPISODE 33"
+        updated: 2026-10-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "EPISODE 02①"

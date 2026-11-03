@@ -10,10 +10,10 @@ source: gigaviewer
 platform: ichicomi
 platform_name: "一迅プラス"
 publisher: "一迅社"
-retrieved: 2026-11-02
+retrieved: 2026-11-03
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 10
+works_confirmed: 11
 works:
   - work_title: "キミに触れて、感じたい"
     author: "宇留米いわし"
@@ -29,6 +29,20 @@ works:
       - title: "読み切り作品"
         updated: 2026-09-17
         url: "https://ichicomi.com/episode/12207421984222943969"
+  - work_title: "APPLE"
+    author: "Ayster"
+    url: "https://ichicomi.com/episode/12207421984387218979"
+    series_id: "12207421984387217482"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/11/02/apple-yomikiri/"
+      headline: "心に傷を負った少女と、彼女に寄り添う少女の出会いを描く百合読み切り「APPLE」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り作品"
+        updated: 2026-10-30
+        url: "https://ichicomi.com/episode/12207421984387218979"
   - work_title: "だって恋は月夜に灯るから"
     author: "meji"
     url: "https://ichicomi.com/episode/12207421984336824147"

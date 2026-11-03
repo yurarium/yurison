@@ -4,15 +4,15 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-11-02
+retrieved: 2026-11-03
 record_type: coverage_gap
-works_listed: 128
-platforms_total: 24
-platforms_watched: 16
-works_on_watched_platforms: 94
+works_listed: 133
+platforms_total: 25
+platforms_watched: 17
+works_on_watched_platforms: 98
 platforms:
   - platform: "カドコミ"
-    works: 54
+    works: 57
     watched: true
   - platform: "きららベース"
     works: 23
@@ -32,6 +32,9 @@ platforms:
   - platform: "コミックDAYS"
     works: 3
     watched: true
+  - platform: "マグコミ"
+    works: 2
+    watched: false
   - platform: "Seasons"
     works: 2
     watched: true
@@ -49,9 +52,6 @@ platforms:
     watched: false
   - platform: "一迅社プラス"
     works: 2
-    watched: false
-  - platform: "マグコミ"
-    works: 1
     watched: false
   - platform: "ジャンプ+"
     works: 1
@@ -80,6 +80,9 @@ platforms:
   - platform: "となりのヤングジャンプ"
     works: 1
     watched: true
+  - platform: "Gコミ"
+    works: 1
+    watched: true
   - platform: "ビビビコミック"
     works: 1
     watched: true
@@ -90,6 +93,12 @@ works:
     watched_platform: true
     title: "壊していいよ、すいかちゃん"
     url: "https://comic-ogyaaa.com/episode/12207421983608495081"
+  - raw: "きっと、彼女が好きだから ヒロアキ"
+    platform: "Gコミ"
+    last_update_seen: 11-04
+    watched_platform: true
+    title: "きっと、彼女が好きだから"
+    url: "https://g-comi.jp/series/74403f9e30641"
   - raw: "今夜、エーテルで待ちあわせ ヨン"
     platform: "Seasons"
     last_update_seen: 10-16
@@ -276,6 +285,12 @@ works:
     watched_platform: true
     title: "お姉さまと巨人 ～お嬢さまが異世界転生～"
     url: "https://comic-walker.com/detail/KC_003240_S"
+  - raw: "お菊さんはいちゃ憑きたい 結野ちり"
+    platform: "カドコミ"
+    last_update_seen: 11-06
+    watched_platform: true
+    title: "お菊さんはいちゃ憑きたい"
+    url: "https://comic-walker.com/detail/KC_002468_S"
   - raw: "きょうはなにしよう？ サスケ"
     platform: "カドコミ"
     last_update_seen: 10-26
@@ -546,6 +561,12 @@ works:
     watched_platform: true
     title: "猫に白鳥、蛍に小判"
     url: "https://comic-walker.com/detail/KC_006798_S"
+  - raw: "王子はさけて通れない！ ひのえだみやこ"
+    platform: "カドコミ"
+    last_update_seen: 11-06
+    watched_platform: true
+    title: "王子はさけて通れない！"
+    url: "https://comic-walker.com/detail/KC_021486_S"
   - raw: "真先輩の前ではかっこつけられない！ 藤本れもち"
     platform: "カドコミ"
     last_update_seen: 10-12
@@ -570,6 +591,12 @@ works:
     watched_platform: true
     title: "紅魔館の女たち"
     url: "https://comic-walker.com/detail/KC_002973_S"
+  - raw: "紫蘭さまにはなびきません！ くも子"
+    platform: "カドコミ"
+    last_update_seen: 11-03
+    watched_platform: true
+    title: "紫蘭さまにはなびきません！"
+    url: "https://comic-walker.com/detail/KC_021516_S"
   - raw: "聖女先生の魔法は進んでる！ しまづ/鴉ぴえろ"
     platform: "カドコミ"
     last_update_seen: 11-14
@@ -708,6 +735,12 @@ works:
     watched_platform: false
     title: "怨霊日和"
     url: "https://pocket.shonenmagazine.com/title/03338/episode/443763"
+  - raw: "君とは一緒に死ねない～警視庁怪異調査室～ 森"
+    platform: "マグコミ"
+    last_update_seen: 11-27
+    watched_platform: false
+    title: "君とは一緒に死ねない～警視庁怪異調査室～"
+    url: "https://magcomi.com/episode/12207421984406812442"
   - raw: "東京つけものがたり ぜろわん / あずやちとせ"
     platform: "マグコミ"
     last_update_seen: 10-06

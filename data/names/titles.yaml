@@ -353,7 +353,12 @@ names:
     reading_uncertain: true
     verified: false
   11番目のねこはねね:
-    basis: romaji
+    basis: translated
+    en: The 11th Cat Is Nene
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - '11'
       - null
@@ -361,6 +366,8 @@ names:
       - ばんめ
     - - のねこはねね
       - null
+    note: The BOOK☆WALKER page gives no English title. Nene is a mouse who poses as the eleventh cat among
+      ten cat waitresses, so the title is translated directly.
     reading: 11バンメ ノ ネコ ワ ネネ
     reading_at: '2026-10-31'
     reading_basis: analyser
@@ -1415,7 +1422,15 @@ names:
     script: latin
     verified: true
   DarkArtsMaster-黶き魔法使い-:
-    basis: romaji
+    basis: translated
+    en: 'Dark Arts Master: The Darkened Mage'
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page shows only the Japanese title, which already contains the Latin 'DarkArtsMaster',
+      so it is spaced out. The subtitle 黶き魔法使い is rendered as a darkened mage, matching the story of a
+      girl who holds a lost forbidden magic.
     reading: DarkArtsMaster - エンキ マホウ ツカイ -
     reading_at: '2026-10-31'
     reading_basis: analyser
@@ -2746,7 +2761,12 @@ names:
     reading_source_kind: analyser
     verified: false
   OLさんと猫のはなし:
-    basis: romaji
+    basis: translated
+    en: A Story of an Office Lady and a Cat
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - OLさんと
       - null
@@ -2754,6 +2774,8 @@ names:
       - ねこ
     - - のはなし
       - null
+    note: The BOOK☆WALKER page gives no English title. It is the series version of the related one-shot
+      'A Story About an Office Lady Who Picks Up a Cat.', so the wording is kept close to that.
     reading: OLサン ト ネコ ノ ハナシ
     reading_at: '2026-10-31'
     reading_basis: analyser
@@ -11892,12 +11914,19 @@ names:
     reading_source: surface
     verified: true
   かりん歩:
-    basis: romaji
+    basis: translated
+    en: Karin's Walk
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - かりん
       - null
     - - 歩
       - ふ
+    note: The BOOK☆WALKER page lists no English title. Karin is the elder sister and 歩 refers to the sisters'
+      walks they take to work through problems, so the name is kept and the word translated.
     reading: カリン フ
     reading_at: '2026-10-31'
     reading_basis: analyser
@@ -16140,10 +16169,17 @@ names:
     reading_source_kind: analyser
     verified: true
   せんぱいあい。:
-    basis: romaji
+    basis: translated
+    en: Senpai Love.
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - せんぱいあい。
       - null
+    note: The BOOK☆WALKER page shows no English title. The story is about learning what love is through
+      a beloved upperclassman, so せんぱい愛 becomes 'Senpai Love.' with the full stop kept.
     reading: センパイアイ。
     reading_at: '2026-11-01'
     reading_basis: surface
@@ -18838,7 +18874,14 @@ names:
     reading_source_kind: analyser
     verified: true
   はじめてのキャンプさん:
-    basis: romaji
+    basis: translated
+    en: A Beginner Camper
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page gives no English title. It follows a new university student discovering
+      camping for the first time, so 'First-Time Camper' is rendered as 'A Beginner Camper'.
     reading: ハジメテノキャンプサン
     reading_at: '2026-11-01'
     reading_basis: surface
@@ -18890,7 +18933,12 @@ names:
     reading_source_kind: analyser
     verified: true
   はつ恋、ときめき うすいほん:
-    basis: romaji
+    basis: translated
+    en: 'First Love, Heart Flutters: A Thin Book'
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - はつ
       - null
@@ -18898,6 +18946,8 @@ names:
       - こい
     - - 、ときめき うすいほん
       - null
+    note: The BOOK☆WALKER page lists no English title. Two sheltered girls learn about romance from a
+      'thin book' (doujinshi), so うすいほん is kept literal.
     reading: ハツ コイ、 トキメキ   ウスイ ホン
     reading_at: '2026-10-31'
     reading_basis: analyser
@@ -19990,7 +20040,12 @@ names:
     reading_source: surface
     verified: true
   ふたつ屋根の下:
-    basis: romaji
+    basis: translated
+    en: Under Two Roofs
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ふたつ
       - null
@@ -20000,6 +20055,9 @@ names:
       - null
     - - 下
       - した
+    note: The BOOK☆WALKER page gives no English title. It echoes ひとつ屋根の下 ('Under One Roof'), fitting a
+      girl living next door to her twin childhood friends, so the English turns the same phrase to 'Two
+      Roofs'.
     reading: フタツ ヤネ ノ シタ
     reading_at: '2026-10-31'
     reading_basis: analyser
@@ -24090,7 +24148,12 @@ names:
     reading_source_kind: analyser
     verified: false
   わたしたちの終わりと:
-    basis: romaji
+    basis: translated
+    en: With Our Ending
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - わたしたちの
       - null
@@ -24098,6 +24161,9 @@ names:
       - お
     - - わりと
       - null
+    note: The BOOK☆WALKER page shows no English title. The story follows the last two people alive after
+      humanity ends, so 終わり is rendered as 'Ending' and the trailing と as 'With', which keeps the open-ended
+      feel of the Japanese.
     reading: ワタシタチ ノ オワリ ト
     reading_at: '2026-10-31'
     reading_basis: analyser
@@ -79648,6 +79714,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  私の恋人は追加課金制の契約彼女です! ~契約彼女なのにめちゃめちゃ迫ってくるのでとても辛いです:
+    basis: translated
+    en: My Girlfriend Is a Pay-Per-Extra Contract Girlfriend! ~She Comes On Way Too Strong for a Contract
+      Girlfriend and It's So Hard on Me
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is a volume of the BCf Anthology Micro Series on BOOK☆WALKER. The title is translated in
+      full, with 追加課金制 as pay-per-extra and the tilde subtitle kept.
+    verified: false
   私の拳をうけとめて！:
     basis: translated
     en: Take My Fist!
@@ -81921,6 +81998,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  紫炎:
+    basis: translated
+    en: Purple Flame
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is one story in the crime yuri anthology, written by 仁科, as listed on the BOOK☆WALKER page.
+      紫炎 means a violet or purple flame, and it is rendered literally.
+    verified: false
   紫蘭さまにはなびきません！:
     basis: translated
     en: I Won't Fall for Lady Shiran!
@@ -82481,6 +82568,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  結婚で隔てられた愛情の末路:
+    basis: translated
+    en: The Fate of Love Divided by Marriage
+    en_at: '2026-11-03'
+    en_reviewed: '2026-11-03'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is a short volume of the BCf Anthology Micro Series. The BOOK☆WALKER series page describes
+      two childhood friends separated by marriage who reconnect after twenty years, and the title is translated
+      literally.
     verified: false
   結局そんなきみが好き:
     basis: translated

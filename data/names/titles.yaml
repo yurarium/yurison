@@ -97,6 +97,16 @@ names:
     reading_source_kind: platform
     reading_url: https://bookwalker.jp/de577ed880-248c-4e6f-9349-a8e8cb23a0c1/
     verified: true
+  (3)中編:
+    basis: translated
+    en: (3) Middle Part
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER series page lists this as the middle part of volume 3, between the first and
+      last parts. 中編 means the middle installment, so it is rendered as (3) Middle Part.
+    verified: false
   0088/2022年10月期JUMP新世界漫画賞:
     basis: romaji
     furigana_spans:
@@ -3815,6 +3825,22 @@ names:
     en_source_kind: platform
     script: latin
     verified: false
+  THE SECRET LIGHT AMOUNG US:
+    basis: official-jp
+    en: THE SECRET LIGHT AMOUNG US
+    en_at: '2026-11-04'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: The Secret Light Among Us
+    en_reviewed: '2026-11-04'
+    en_source: bookwalker.jp
+    en_source_kind: platform
+    en_url: https://bookwalker.jp/deb9b67ce1-d434-412a-af7e-d3967b687ae0/
+    note: The BOOK☆WALKER page gives the title as 夏の光と山の闇 - THE SECRET LIGHT AMOUNG US -, so this English
+      subtitle is the work's own. It is kept as printed, including the apparent misspelling of 'among'.
+    translation_note: The printed 'AMOUNG' looks like a typo for 'among'.
+    verified: true
   TOUKO Swing-by!:
     basis: official-jp
     en: TOUKO Swing-by!
@@ -4638,6 +4664,30 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  re1:
+    basis: romaji
+    en: re1
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists this as the first volume of こころココロリ, titled 'こころココロリ re1'. The label
+      is a Latin-letter volume marker with no translatable meaning, so it is kept as written.
+    translation_refused: Translated it would still come out as 're1', since it is just a volume label
+      with no word to translate.
+    verified: false
+  re2:
+    basis: romaji
+    en: re2
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists this as the second volume of こころココロリ, titled 'こころココロリ re2'. The label
+      is a Latin-letter volume marker with no translatable meaning, so it is kept as written.
+    translation_refused: Translated it would still come out as 're2', since it is just a volume label
+      with no word to translate.
     verified: false
   résonance:
     basis: official-jp
@@ -9084,6 +9134,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  いちゃいちゃ編:
+    basis: translated
+    en: Lovey-Dovey Edition
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists this as the latest volume of Suu and Ame, a series that is described
+      as constant flirting between the two women. いちゃいちゃ is 'lovey-dovey' and 編 marks an edition or arc,
+      so it is rendered as Lovey-Dovey Edition.
     verified: false
   いちゃらぶしかない百合アンソロジーコミック:
     basis: translated
@@ -22138,6 +22199,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  もっとしたくて:
+    basis: translated
+    en: Wanting to Do More
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER series page lists this as volume 5 of BLOODDIARY, a vampire yuri romance between
+      Rue and Kurumi. もっとしたくて means 'wanting to do more', which fits the continuing romance, so it is
+      rendered literally.
+    verified: false
   もっとヒーローになりたい:
     basis: translated
     en: I Want to Be More of a Hero
@@ -34566,7 +34638,15 @@ names:
     reading_source: surface
     verified: true
   ナイーブ・リザーブド:
-    basis: romaji
+    basis: translated
+    en: Naive Reserved
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'The title is katakana English, so it is spelled as the English it borrows: Naive Reserved.
+      The となりのヤングジャンプ series page gives no English title or synopsis, so nothing more specific could be
+      read from it.'
     reading: ナイーブ・リザーブド
     reading_at: '2026-11-04'
     reading_basis: surface
@@ -47766,6 +47846,17 @@ names:
     reading_source: yurarium
     reading_source_kind: derived
     verified: false
+  公爵令嬢アルベルティーヌはぶっ潰す:
+    basis: translated
+    en: Albertine, the Duke's Daughter, Is Going to Crush Them
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is a short story in the BCf Anthology Micro Series on BOOK☆WALKER, which adapts fantasy
+      romance yuri novels. ぶっ潰す is a blunt 'smash' or 'crush', and Albertine is kept as the heroine's
+      name.
+    verified: false
   共依存魔法少女:
     basis: translated
     en: Codependent Magical Girl
@@ -53255,6 +53346,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  夜会のど真ん中で痴女になりそうな私を助けてくれる人:
+    basis: translated
+    en: The Person Who Helps Me When I'm About to Become a Lewd Woman in the Middle of a Ball
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is a short story in the BCf Anthology Micro Series on BOOK☆WALKER, which adapts fantasy
+      romance yuri novels. 夜会 is an evening ball and 痴女 a lewd woman, and the long title is translated
+      directly.
     verified: false
   夜嵐にわらう:
     basis: translated
@@ -74221,6 +74323,17 @@ names:
     translation_note: 畜生 is an animal and is also what a person swears. The publisher's beast keeps the
       creature and not the curse.
     verified: false
+  番外編 花車の贈り物:
+    basis: translated
+    en: 'Side Story: A Gift from the Flower Cart'
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page for the main volume mentions this spin-off, Bangaihen Kasha no Okurimono.
+      番外編 is 'side story' and 花車の贈り物 is 'the flower cart's gift', so it is rendered as a gift from the
+      flower cart.
+    verified: false
   異世界でも風俗嬢やってみた:
     basis: translated
     en: I Tried Sex Work in Another World Too
@@ -88986,6 +89099,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  離婚前夜、夫に『好きです』と告白してしまった悪妻の末路:
+    basis: translated
+    en: The Fate of a Bad Wife Who Confessed 'I Love You' to Her Husband on the Eve of Divorce
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is a short story in the BCf Anthology Micro Series on BOOK☆WALKER, a collection of fantasy
+      romance yuri stories adapted from novels. The long web-novel style title is translated directly.
+    verified: false
   雨。のち、晴れ！:
     basis: translated
     en: Rain. Then, Clear Skies!
@@ -91676,6 +91799,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  黒の鴉に嫁入りした世界で一番美しい公爵令嬢:
+    basis: translated
+    en: The Most Beautiful Duke's Daughter in the World Who Married the Black Crow
+    en_at: '2026-11-04'
+    en_reviewed: '2026-11-04'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is a short story in the BCf Anthology Micro Series on BOOK☆WALKER, which adapts fantasy
+      romance yuri novels. The long web-novel style title is translated directly.
     verified: false
   黒百合短編集:
     basis: translated

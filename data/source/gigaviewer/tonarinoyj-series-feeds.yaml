@@ -10,11 +10,11 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-11-04
+retrieved: 2026-11-05
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 90
-series_held: 90
+series_resolved: 91
+series_held: 91
 works:
   - work_title: "17歳"
     series_id: "12207421984147412782"
@@ -501,6 +501,19 @@ works:
         author: "タコアシ"
         url: "https://tonarinoyj.jp/episode/2550912965562081792"
         free_from: 2025-04-18
+        access_modes: ["free"]
+  - work_title: "ナイーブ・リザーブド"
+    series_id: "12207421984467761498"
+    url: "https://tonarinoyj.jp/atom/series/12207421984467761498"
+    chapter_count: 1
+    chapters:
+      - title: "ナイーブ・リザーブド"
+        updated: 2026-11-05
+        citation: "ヤングジャンプ新人漫画大賞#049 佳作＋月間ベスト＋審査員特別賞＋初受賞ボーナス (2026年9月期)"
+        content_id: "mangashou_naivereserved_0001"
+        author: "不飽和デザ"
+        url: "https://tonarinoyj.jp/episode/12207421984467777208"
+        free_from: 2026-11-04
         access_modes: ["free"]
   - work_title: "ハートは腐らない"
     series_id: "2550912965766156051"

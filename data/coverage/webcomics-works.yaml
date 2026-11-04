@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-11-04
+retrieved: 2026-11-05
 record_type: candidate_works
 works: 310
 candidates:
@@ -441,7 +441,7 @@ candidates:
   - title: "きっと、彼女が好きだから"
     platforms: ["Gコミ"]
     urls: ["https://g-comi.jp/episodes/733105e64bf91", "https://g-comi.jp/series/74403f9e30641"]
-    tags: ["百合"]
+    tags: ["お色気・微エロ", "ギャグ・コメディ", "片思い", "百合"]
   - title: "きみがわるい!"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965923204215"]
@@ -1558,6 +1558,10 @@ candidates:
   - title: "ナイショの彼女"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/2550912965919401704"]
+  - title: "ナイーブ・リザーブド"
+    platforms: ["となりのヤングジャンプ"]
+    urls: ["https://tonarinoyj.jp/episode/12207421984467777208"]
+    tags: ["最近のコメント数"]
   - title: "ナキノン"
     platforms: ["HERO'S Web"]
     urls: ["https://heros-web.com/series/696d291fa1769"]
@@ -2498,7 +2502,7 @@ candidates:
   - title: "変な奴"
     platforms: ["webアクション"]
     urls: ["https://comic-action.com/episode/12207421984440039225"]
-    tags: ["最近のコメント数"]
+    tags: ["最近のコメント数", "百合", "読み切り"]
   - title: "変態祓魔師燈明院牡丹"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_006123_S"]

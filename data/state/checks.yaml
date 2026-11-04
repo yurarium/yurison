@@ -5,25 +5,25 @@ checks:
     note: fetched, but no reader here can parse this site
     result: error
   COMICリュウ|ひなゆり冒険記:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
-    note: rendered; the page does not name this work, so it was not shown to us
+    note: rendered; the page yielded no DOM to read
     result: blocked
   COMICリュウ|もふかのポプリ:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
-    note: rendered; the page does not name this work, so it was not shown to us
+    note: rendered; the page yielded no DOM to read
     result: blocked
   COMICリュウ|ゆりでなる♡えすぽわーる:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
-    note: rendered; the page does not name this work, so it was not shown to us
+    note: rendered; the page yielded no DOM to read
     result: blocked
   COMICリュウ|私の魂を食べて下さい!:
-    fails: 3
+    fails: 4
     last_checked: '2026-11-04'
     last_reached: '2026-11-02'
     note: rendered; the page yielded no DOM to read
@@ -59,7 +59,7 @@ checks:
     last_reached: '2026-08-03'
     result: ok
   pixivコミック|1×1/2-イチトニブンノイチ-:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -170,7 +170,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|ひとりみです:
-    fails: 43
+    fails: 44
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
@@ -200,7 +200,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|ふらちな倫理ちゃん:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -221,7 +221,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|ゆりひめ@ピクシブ:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -232,7 +232,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|ゆるおやこ:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -338,7 +338,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|マユノウタ:
-    fails: 43
+    fails: 44
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
@@ -348,18 +348,18 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|ライバルアライバル:
-    fails: 43
+    fails: 44
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
   pixivコミック|リリー&アイビー ～ケンカップル百合×性愛アンソロジー～:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
     result: blocked
   pixivコミック|ロリースイートロリー:
-    fails: 43
+    fails: 44
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
@@ -374,7 +374,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|今日から未来:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -495,7 +495,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|姫のためなら死ねる:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -591,7 +591,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|星の体温、巡る夢:
-    fails: 43
+    fails: 44
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
@@ -636,7 +636,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|百合のはじまりは奴隷から:
-    fails: 43
+    fails: 44
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
@@ -646,7 +646,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   pixivコミック|神絵師JKとOL腐女子:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -762,7 +762,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   がうがうモンスター|ゆりゆりぱにっく～尊すぎる事案が発生しています!～:
-    fails: 7
+    fails: 8
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
@@ -942,7 +942,7 @@ checks:
     last_reached: '2026-08-03'
     result: ok
   ドリコミ+|勇者の旅の裏側で:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -1008,7 +1008,7 @@ checks:
     note: fetched, but no reader here can parse this site
     result: error
   ニコニコ漫画|映しちゃダメな顔:
-    fails: 1
+    fails: 2
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
@@ -1043,7 +1043,7 @@ checks:
     note: fetched, but no reader here can parse this site
     result: error
   フラコミlike!|私の焦がれる彼女:
-    fails: 5
+    fails: 6
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
@@ -1069,8 +1069,8 @@ checks:
     result: ok
   マガポケ|きみが死ぬまで恋をしたい:
     fails: 0
-    last_checked: '2026-11-03'
-    last_reached: '2026-11-03'
+    last_checked: '2026-11-04'
+    last_reached: '2026-11-04'
     result: ok
   マガポケ|ぎるてぃらいぶらり:
     fails: 0
@@ -1109,8 +1109,8 @@ checks:
     result: ok
   マガポケ|アイ・ヘイ・チュー!:
     fails: 0
-    last_checked: '2026-11-03'
-    last_reached: '2026-11-03'
+    last_checked: '2026-11-04'
+    last_reached: '2026-11-04'
     result: ok
   マガポケ|オカルトタイムズ:
     fails: 0
@@ -1124,8 +1124,8 @@ checks:
     result: ok
   マガポケ|ドリーム☆ジャンボ☆ガール:
     fails: 0
-    last_checked: '2026-11-03'
-    last_reached: '2026-11-03'
+    last_checked: '2026-11-04'
+    last_reached: '2026-11-04'
     result: ok
   マガポケ|ハロー、メランコリック!:
     fails: 0
@@ -1159,8 +1159,8 @@ checks:
     result: ok
   マガポケ|女ともだちと結婚してみた。:
     fails: 0
-    last_checked: '2026-11-03'
-    last_reached: '2026-11-03'
+    last_checked: '2026-11-04'
+    last_reached: '2026-11-04'
     result: ok
   マガポケ|姫野姫子の奴隷みてえな彼氏:
     fails: 0
@@ -1169,8 +1169,8 @@ checks:
     result: ok
   マガポケ|将来的に死んでくれ:
     fails: 0
-    last_checked: '2026-11-03'
-    last_reached: '2026-11-03'
+    last_checked: '2026-11-04'
+    last_reached: '2026-11-04'
     result: ok
   マガポケ|平良深姉妹はどっちもヤんでる:
     fails: 0
@@ -1209,8 +1209,8 @@ checks:
     result: ok
   マガポケ|甘えさせて雛森さん!:
     fails: 0
-    last_checked: '2026-11-03'
-    last_reached: '2026-11-03'
+    last_checked: '2026-11-04'
+    last_reached: '2026-11-04'
     result: ok
   マガポケ|私に天使が舞い降りた!:
     fails: 0
@@ -1253,18 +1253,18 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   マンガよもんが|女にはそれぞれ裏がある:
-    fails: 43
+    fails: 44
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
   マンガボックス|世界で一番おっぱいが好き!:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
     result: blocked
   マンガボックス|趣味のラブホテル:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -1295,7 +1295,7 @@ checks:
     last_reached: '2026-11-04'
     result: ok
   マンガワン|ラスボス姫は男装勇者にリア恋営業をかけられる!?:
-    fails: 2
+    fails: 3
     last_checked: '2026-11-04'
     last_reached: '2026-11-03'
     note: rendered; the page does not name this work, so it was not shown to us
@@ -1346,7 +1346,7 @@ checks:
     last_reached: '2026-11-04'
     result: empty
   ヤンジャン+|英雄少女と呪われの銀姫:
-    fails: 42
+    fails: 43
     last_checked: '2026-11-04'
     note: fetched, but no reader here can parse this site
     result: error
@@ -1371,7 +1371,7 @@ checks:
     last_reached: '2026-08-03'
     result: empty
   新都社|バトル・ウィッチーズ:
-    fails: 43
+    fails: 44
     last_checked: '2026-11-04'
     note: HTTP 200
     result: error

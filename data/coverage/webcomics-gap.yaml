@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-04
+retrieved: 2026-11-05
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -34,6 +34,11 @@ platforms_missing:
   - platform: "ドリコミ+"
     works: 1
 works_missing:
+  - title: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3140"
+    antenna_id: "138856"
+    tags: ["百合", "アイドル"]
   - title: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
@@ -64,11 +69,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/441"
     antenna_id: "88071"
     tags: ["野球", "女子高生", "アニメ化", "百合"]
-  - title: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3140"
-    antenna_id: "138856"
-    tags: ["百合", "アイドル"]
   - title: "しゅがー・みーつ・がーる!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3108"
@@ -118,7 +118,7 @@ works_missing:
     platform: "Gコミ"
     url: "https://g-comi.jp/series/74403f9e30641"
     antenna_id: "214224"
-    tags: ["百合"]
+    tags: ["百合", "ギャグ・コメディ", "お色気・微エロ", "片思い"]
   - title: "たゆたうふたり"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/fef424c168c44"
@@ -274,6 +274,11 @@ works_missing:
     url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
     antenna_id: "213409"
     tags: ["読み切り", "百合"]
+  - title: "ナイーブ・リザーブド"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/12207421984467777208"
+    antenna_id: "217607"
+    tags: ["最近のコメント数"]
   - title: "アウトサイダーパラダイス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021488_S"
@@ -624,11 +629,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019442_S"
     antenna_id: "212580"
     tags: ["百合", "読み切り"]
-  - title: "あなたのとなり"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_019441_S"
-    antenna_id: "212575"
-    tags: ["百合", "読み切り"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -698,11 +698,6 @@ works_missing:
     platform: "キミコミ"
     url: "https://kimicomi.com/series/f7db55fffae10"
     antenna_id: "192717"
-    tags: ["百合"]
-  - title: "是騒騒"
-    platform: "コミックDAYS"
-    url: "https://comic-days.com/episode/12207421984407366672"
-    antenna_id: "217591"
     tags: ["百合"]
   - title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platform: "コミックガルド"
@@ -934,16 +929,16 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/47265"
     antenna_id: "104037"
     tags: ["百合", "女子高生", "アニメ化", "ラブコメ", "完結"]
-  - title: "セイ少女黙示録 ですぺあ"
-    platform: "ビッコミ"
-    url: "https://bigcomics.jp/series/2c1db177ce231"
-    antenna_id: "181120"
-    tags: ["百合", "バトル", "ファンタジー", "残酷・グロテスク"]
   - title: "あくまで!アットホームな職場です。"
     platform: "ビッコミ"
     url: "https://bigcomics.jp/series/cad403cdddf52"
     antenna_id: "181048"
     tags: ["ギャグ・コメディ", "仕事", "ファンタジー", "社畜・過重労働者", "悪魔", "百合"]
+  - title: "セイ少女黙示録 ですぺあ"
+    platform: "ビッコミ"
+    url: "https://bigcomics.jp/series/2c1db177ce231"
+    antenna_id: "181120"
+    tags: ["百合", "バトル", "ファンタジー", "残酷・グロテスク"]
   - title: "㊙のライラ"
     platform: "ビビビコミック"
     url: "https://bibibi-comic.com/series/e889bd092d08d"
@@ -954,21 +949,21 @@ works_missing:
     url: "https://flowercomics.jp/title/6162"
     antenna_id: "217483"
     tags: ["百合"]
+  - title: "ぎるてぃらいぶらり"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03349"
+    antenna_id: "216326"
+    tags: ["最近のコメント数"]
   - title: "怨霊日和"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["ホラー", "幽霊", "百合", "女子高生"]
+    tags: ["最近のコメント数"]
   - title: "オカルトタイムズ"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03282"
     antenna_id: "211531"
     tags: ["百合", "オカルト"]
-  - title: "ぎるてぃらいぶらり"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03349"
-    antenna_id: "216326"
-    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"
@@ -1039,16 +1034,16 @@ works_missing:
     url: "https://www.yomonga.com/titles/2532/"
     antenna_id: "200569"
     tags: ["百合"]
-  - title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
-    platform: "マンガワン"
-    url: "https://manga-one.com/manga/27253/chapter/307792"
-    antenna_id: "200450"
-    tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
   - title: "付き合ってあげてもいいかな"
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/70173"
     antenna_id: "180171"
     tags: ["百合", "大学生", "実写化"]
+  - title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
+    platform: "マンガワン"
+    url: "https://manga-one.com/manga/27253/chapter/307792"
+    antenna_id: "200450"
+    tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
   - title: "かわいい同盟"
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/290902"
@@ -1074,6 +1069,11 @@ works_missing:
     url: "https://ynjn.jp/title/6108"
     antenna_id: "173220"
     tags: ["百合", "ロボ・人造人間"]
+  - title: "スカベンジャーズアナザースカイ"
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/81d9b296d7bc7"
+    antenna_id: "148792"
+    tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
   - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/86c1162f34a04"
@@ -1084,11 +1084,6 @@ works_missing:
     url: "https://youngchampion.jp/series/e95df2815bad1"
     antenna_id: "171118"
     tags: ["百合", "女子高生", "コミカライズ"]
-  - title: "スカベンジャーズアナザースカイ"
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/81d9b296d7bc7"
-    antenna_id: "148792"
-    tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
   - title: "限界OLさんは悪役令嬢さまに仕えたい"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/90af950945671"

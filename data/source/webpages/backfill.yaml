@@ -12,10 +12,56 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-11-04
+retrieved: 2026-11-05
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "ぎるてぃらいぶらり"
+    author: "閉伊川広輔"
+    url: "https://pocket.shonenmagazine.com/title/03349/episode/445525"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 2
+    chapters:
+      - title: "【第4話】言いなり"
+        updated: 2026-10-22
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03349/episode/445525"
+      - title: "【第6話】1年で1番多い日"
+        updated: 2026-11-05
+        access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/03349/episode/446085"
+  - work_title: "ドリーム☆ジャンボ☆ガール"
+    author: "ヒロユキ"
+    url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 6
+    chapters:
+      - title: "【第54話】力を合わせて☆生き残れ☆ガール"
+        updated: 2026-08-26
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
+      - title: "【第55話】全力☆買収☆ガール"
+        updated: 2026-09-02
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443414"
+      - title: "【第56話】仲間全員☆NTR☆ガール"
+        updated: 2026-09-09
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/443793"
+      - title: "【第57話】不安は☆友達☆ガール"
+        updated: 2026-09-16
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/444146"
+      - title: "【第58話】ごほうび☆バニー☆ガール"
+        updated: 2026-09-24
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/444438"
+      - title: "【第63話】先輩は☆過去の女☆ガール"
+        updated: 2026-11-04
+        access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/446290"
   - work_title: "アイドラトリィ"
     author: "原作/大鷹シン 漫画/ホマレ"
     url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
@@ -1087,33 +1133,6 @@ works:
       - title: "第１話　「甘城千歌」"
         updated: 2018-02-01
         access_modes: ["free"]
-  - work_title: "ドリーム☆ジャンボ☆ガール"
-    author: "ヒロユキ"
-    url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 5
-    chapters:
-      - title: "【第54話】力を合わせて☆生き残れ☆ガール"
-        updated: 2026-08-26
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
-      - title: "【第55話】全力☆買収☆ガール"
-        updated: 2026-09-02
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02758/episode/443414"
-      - title: "【第56話】仲間全員☆NTR☆ガール"
-        updated: 2026-09-09
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02758/episode/443793"
-      - title: "【第57話】不安は☆友達☆ガール"
-        updated: 2026-09-16
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02758/episode/444146"
-      - title: "【第63話】先輩は☆過去の女☆ガール"
-        updated: 2026-11-04
-        access_modes: ["purchase"]
-        url: "https://pocket.shonenmagazine.com/title/02758/episode/446290"
   - work_title: "怨霊日和"
     author: "イマイ悠"
     url: "https://pocket.shonenmagazine.com/title/03338/episode/445801"
@@ -2867,17 +2886,6 @@ works:
       - title: "Memory1 彼女の居場所"
         updated: 2026-03-27
         access_modes: ["free"]
-  - work_title: "ぎるてぃらいぶらり"
-    author: "閉伊川広輔"
-    url: "https://pocket.shonenmagazine.com/title/03349/episode/445525"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 1
-    chapters:
-      - title: "【第4話】言いなり"
-        updated: 2026-10-22
-        access_modes: ["free"]
-        url: "https://pocket.shonenmagazine.com/title/03349/episode/445525"
   - work_title: "姫野姫子の奴隷みてえな彼氏"
     author: "麦トラM"
     url: "https://pocket.shonenmagazine.com/title/03301/episode/440916"

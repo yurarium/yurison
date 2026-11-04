@@ -4,12 +4,12 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-11-04
+retrieved: 2026-11-05
 record_type: coverage_gap
-works_listed: 134
+works_listed: 135
 platforms_total: 25
 platforms_watched: 17
-works_on_watched_platforms: 99
+works_on_watched_platforms: 100
 platforms:
   - platform: "カドコミ"
     works: 57
@@ -53,6 +53,9 @@ platforms:
   - platform: "一迅社プラス"
     works: 2
     watched: false
+  - platform: "ニコニコ静画"
+    works: 2
+    watched: true
   - platform: "Gコミ"
     works: 2
     watched: true
@@ -69,9 +72,6 @@ platforms:
     works: 1
     watched: false
   - platform: "COMIC OGYAAA!!"
-    works: 1
-    watched: true
-  - platform: "ニコニコ静画"
     works: 1
     watched: true
   - platform: "pixivコミック"
@@ -723,6 +723,12 @@ works:
     watched_platform: true
     title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     url: "https://manga.nicovideo.jp/comic/69846"
+  - raw: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話 倉崎もろこ/みかみてれん"
+    platform: "ニコニコ静画"
+    last_update_seen: 11-04
+    watched_platform: true
+    title: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
+    url: "https://manga.nicovideo.jp/comic/73060"
   - raw: "超かぐやメシ！ テルヤ / 山下清悟 / フジヤマルリ"
     platform: "ビビビコミック"
     last_update_seen: 11-13

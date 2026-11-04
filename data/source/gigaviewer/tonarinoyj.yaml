@@ -6,11 +6,28 @@ source: gigaviewer
 platform: tonarinoyj
 platform_name: "となりのヤングジャンプ"
 publisher: "集英社"
-retrieved: 2026-11-04
+retrieved: 2026-11-05
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "tonarino_yj:episode:12207421984467777208"
+    work_title: "ナイーブ・リザーブド"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "ナイーブ・リザーブド"
+    release_type: "unclassified"
+    date: "2026-11-05"
+    date_basis: "observed"
+    first_seen: "2026-11-05"
+    first_reported: "2026-11-04T15:00:00Z"
+    platform_updated: "2026-11-04T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421984467777208"
+    author: "不飽和デザ"
+    free_term_start: "2026-11-04T15:00:00Z"
+    raw_title: "ナイーブ・リザーブド"
+    advances_narrative: false
   - release_id: "tonarino_yj:episode:12207421984454510608"
     work_title: "英雄少女と呪われの銀姫"
     web_status: "serialised"

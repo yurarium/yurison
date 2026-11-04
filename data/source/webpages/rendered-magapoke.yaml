@@ -10,12 +10,64 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-11-04
+retrieved: 2026-11-05
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
+  - work_title: "将来的に死んでくれ"
+    author: "長門知大"
+    url: "https://pocket.shonenmagazine.com/title/00195"
+    stated_schedule:
+      cadence: "毎月9日前後"
+    chapter_count: 10
+    chapters:
+      - title: "【第42話】将来的に死んでくれ"
+        updated: 2019-10-09
+        access_modes: ["purchase"]
+        access_note: "point price 60"
+        date_basis: rendered
+      - title: "【第41話】あなたは法楽"
+        updated: 2019-09-09
+        access_modes: ["purchase"]
+        access_note: "point price 60"
+        date_basis: rendered
+      - title: "【第40話】暗鏡乱水（あんきょうらんすい）"
+        updated: 2019-08-09
+        access_modes: ["purchase"]
+        access_note: "point price 60"
+        date_basis: rendered
+      - title: "【第39話】我らの考え休むに似たり"
+        updated: 2019-07-09
+        access_modes: ["purchase"]
+        access_note: "point price 60"
+        date_basis: rendered
+      - title: "【第38話】柳眉が逆立っているような"
+        updated: 2019-06-08
+        access_modes: ["purchase"]
+        access_note: "point price 60"
+        date_basis: rendered
+      - title: "【第5話】姉になりたい"
+        updated: 2017-04-30
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第4話】押しも押されもせぬ"
+        updated: 2017-03-30
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話】胸に手を当てて考えろ"
+        updated: 2017-03-02
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】はじめての疑惑"
+        updated: 2017-01-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】「あなたのためなら、いくらでも」"
+        updated: 2016-12-30
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "ささやくように恋を唄う"
     author: "竹嶋えく"
     url: "https://pocket.shonenmagazine.com/title/01045"
@@ -67,6 +119,58 @@ works:
         date_basis: rendered
       - title: "【第1話】屋上と、ギターと、先輩と。"
         updated: 2020-02-21
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "きみが死ぬまで恋をしたい"
+    author: "あおのなち"
+    url: "https://pocket.shonenmagazine.com/title/01049"
+    stated_schedule:
+      cadence: "隔週月曜"
+    chapter_count: 10
+    chapters:
+      - title: "【第42話】わたしの恋(3)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第42話】わたしの恋(2)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第42話】わたしの恋(1)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第41話】うそつき(3)"
+        updated: 2026-08-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第41話】うそつき(2)"
+        updated: 2026-08-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第4話】ちゃんと痛いよ(1)"
+        updated: 2020-03-04
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話】わたしはわたし"
+        updated: 2020-03-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】キス(2)"
+        updated: 2020-03-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】キス(1)"
+        updated: 2020-03-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】はじめまして"
+        updated: 2020-03-04
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "私の百合はお仕事です!"
@@ -580,6 +684,58 @@ works:
         updated: 2022-03-10
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "女ともだちと結婚してみた。"
+    author: "雨水汐"
+    url: "https://pocket.shonenmagazine.com/title/01837"
+    stated_schedule:
+      cadence: "毎週日曜"
+    chapter_count: 10
+    chapters:
+      - title: "【32日目】"
+        updated: 2023-11-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【31日目】"
+        updated: 2023-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【30日目(2)】"
+        updated: 2023-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【30日目(1)】"
+        updated: 2023-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【29日目】"
+        updated: 2023-08-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【4日目】"
+        updated: 2022-08-02
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【3日目】"
+        updated: 2022-08-02
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【2日目】"
+        updated: 2022-08-02
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【1日目(2)】"
+        updated: 2022-08-02
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【1日目(1)】"
+        updated: 2022-08-02
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "今日はカノジョがいないから"
     author: "岩見樹代子"
     url: "https://pocket.shonenmagazine.com/title/01839"
@@ -631,6 +787,57 @@ works:
         date_basis: rendered
       - title: "【第1話(1)】「接触」"
         updated: 2022-07-22
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "甘えさせて雛森さん!"
+    url: "https://pocket.shonenmagazine.com/title/02043"
+    stated_schedule:
+      cadence: "毎週日曜"
+    chapter_count: 10
+    chapters:
+      - title: "【第21話】"
+        updated: 2023-04-18
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第20話(2)】"
+        updated: 2023-04-18
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第20話(1)】"
+        updated: 2023-04-18
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第19話】"
+        updated: 2023-03-18
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第18話(2)】"
+        updated: 2023-03-18
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第2話(1)】"
+        updated: 2023-01-30
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第1話(4)】"
+        updated: 2023-01-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話(3)】"
+        updated: 2023-01-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話(2)】"
+        updated: 2023-01-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話(1)】"
+        updated: 2023-01-30
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "雨夜の月"
@@ -1099,6 +1306,56 @@ works:
         updated: 2024-12-09
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "ドリーム☆ジャンボ☆ガール"
+    author: "ヒロユキ"
+    url: "https://pocket.shonenmagazine.com/title/02758"
+    stated_schedule:
+      cadence: "毎週水曜"
+    chapter_count: 10
+    chapters:
+      - title: "【第63話】先輩は☆過去の女☆ガール"
+        updated: 2026-11-04
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第62話】有能☆後輩☆ガール"
+        updated: 2026-10-28
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第61話】最強☆親友☆ガール"
+        updated: 2026-10-21
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第60話】信じて☆スゴスゴ☆ガール"
+        updated: 2026-10-14
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第59話】さみしくて☆くっつき☆ガール"
+        updated: 2026-09-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第5話】芸能事務所☆突撃☆ガール"
+        updated: 2025-06-25
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第4話】全力☆推し活☆ガール"
+        updated: 2025-06-18
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話】かわいい☆メイド☆ガール"
+        updated: 2025-06-11
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】やりたいこと☆無限大☆ガール"
+        updated: 2025-06-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】7億円☆当たる☆ガール"
+        updated: 2025-05-28
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "第十二号蘇生魔術"
     author: "加速"
     url: "https://pocket.shonenmagazine.com/title/02875"
@@ -1113,7 +1370,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/02901"
     stated_schedule:
       cadence: "毎週水曜"
-      next_update: "2026-11-04"
+      next_update: "2027-11-04"
     chapter_count: 10
     chapters:
       - title: "【#57】Shoes"
@@ -1327,6 +1584,38 @@ works:
         updated: 2026-07-09
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "アイ・ヘイ・チュー!"
+    url: "https://pocket.shonenmagazine.com/title/03273"
+    stated_schedule:
+      cadence: "毎月第2土曜"
+    chapter_count: 6
+    chapters:
+      - title: "【第6話】今に木阿弥"
+        updated: 2026-10-08
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第5話】罪のお味は"
+        updated: 2026-09-09
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第4話】水泡にすら帰さず"
+        updated: 2026-08-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第3話】手も品も変えるな"
+        updated: 2026-08-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】悪夢にも勝る"
+        updated: 2026-07-09
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】垂涎に反吐"
+        updated: 2026-06-09
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "オカルトタイムズ"
     author: "いどんち"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -1483,282 +1772,5 @@ works:
         date_basis: rendered
       - title: "【第1話】呪い髪の女"
         updated: 2026-09-09
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "将来的に死んでくれ"
-    author: "長門知大"
-    url: "https://pocket.shonenmagazine.com/title/00195"
-    chapter_count: 10
-    chapters:
-      - title: "【第42話】将来的に死んでくれ"
-        updated: 2019-10-09
-        access_modes: ["purchase"]
-        access_note: "point price 60"
-        date_basis: rendered
-      - title: "【第41話】あなたは法楽"
-        updated: 2019-09-09
-        access_modes: ["purchase"]
-        access_note: "point price 60"
-        date_basis: rendered
-      - title: "【第40話】暗鏡乱水（あんきょうらんすい）"
-        updated: 2019-08-09
-        access_modes: ["purchase"]
-        access_note: "point price 60"
-        date_basis: rendered
-      - title: "【第39話】我らの考え休むに似たり"
-        updated: 2019-07-09
-        access_modes: ["purchase"]
-        access_note: "point price 60"
-        date_basis: rendered
-      - title: "【第38話】柳眉が逆立っているような"
-        updated: 2019-06-08
-        access_modes: ["purchase"]
-        access_note: "point price 60"
-        date_basis: rendered
-      - title: "【第5話】姉になりたい"
-        updated: 2017-04-30
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第4話】押しも押されもせぬ"
-        updated: 2017-03-30
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話】胸に手を当てて考えろ"
-        updated: 2017-03-02
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】はじめての疑惑"
-        updated: 2017-01-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】「あなたのためなら、いくらでも」"
-        updated: 2016-12-30
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "きみが死ぬまで恋をしたい"
-    author: "あおのなち"
-    url: "https://pocket.shonenmagazine.com/title/01049"
-    chapter_count: 10
-    chapters:
-      - title: "【第42話】わたしの恋(3)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 120"
-        date_basis: rendered
-      - title: "【第42話】わたしの恋(2)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 120"
-        date_basis: rendered
-      - title: "【第42話】わたしの恋(1)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 120"
-        date_basis: rendered
-      - title: "【第41話】うそつき(3)"
-        updated: 2026-08-18
-        access_modes: ["purchase"]
-        access_note: "point price 120"
-        date_basis: rendered
-      - title: "【第41話】うそつき(2)"
-        updated: 2026-08-18
-        access_modes: ["purchase"]
-        access_note: "point price 120"
-        date_basis: rendered
-      - title: "【第4話】ちゃんと痛いよ(1)"
-        updated: 2020-03-04
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話】わたしはわたし"
-        updated: 2020-03-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】キス(2)"
-        updated: 2020-03-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】キス(1)"
-        updated: 2020-03-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】はじめまして"
-        updated: 2020-03-04
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "女ともだちと結婚してみた。"
-    author: "雨水汐"
-    url: "https://pocket.shonenmagazine.com/title/01837"
-    chapter_count: 10
-    chapters:
-      - title: "【32日目】"
-        updated: 2023-11-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【31日目】"
-        updated: 2023-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【30日目(2)】"
-        updated: 2023-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【30日目(1)】"
-        updated: 2023-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【29日目】"
-        updated: 2023-08-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【4日目】"
-        updated: 2022-08-02
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【3日目】"
-        updated: 2022-08-02
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【2日目】"
-        updated: 2022-08-02
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【1日目(2)】"
-        updated: 2022-08-02
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【1日目(1)】"
-        updated: 2022-08-02
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "甘えさせて雛森さん!"
-    url: "https://pocket.shonenmagazine.com/title/02043"
-    chapter_count: 10
-    chapters:
-      - title: "【第21話】"
-        updated: 2023-04-18
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【第20話(2)】"
-        updated: 2023-04-18
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【第20話(1)】"
-        updated: 2023-04-18
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【第19話】"
-        updated: 2023-03-18
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【第18話(2)】"
-        updated: 2023-03-18
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【第2話(1)】"
-        updated: 2023-01-30
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第1話(4)】"
-        updated: 2023-01-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話(3)】"
-        updated: 2023-01-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話(2)】"
-        updated: 2023-01-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話(1)】"
-        updated: 2023-01-30
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ドリーム☆ジャンボ☆ガール"
-    author: "ヒロユキ"
-    url: "https://pocket.shonenmagazine.com/title/02758"
-    chapter_count: 10
-    chapters:
-      - title: "【第62話】有能☆後輩☆ガール"
-        updated: 2026-10-28
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【第61話】最強☆親友☆ガール"
-        updated: 2026-10-21
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【第60話】信じて☆スゴスゴ☆ガール"
-        updated: 2026-10-14
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【第59話】さみしくて☆くっつき☆ガール"
-        updated: 2026-09-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第58話】ごほうび☆バニー☆ガール"
-        updated: 2026-09-24
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第5話】芸能事務所☆突撃☆ガール"
-        updated: 2025-06-25
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第4話】全力☆推し活☆ガール"
-        updated: 2025-06-18
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話】かわいい☆メイド☆ガール"
-        updated: 2025-06-11
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】やりたいこと☆無限大☆ガール"
-        updated: 2025-06-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】7億円☆当たる☆ガール"
-        updated: 2025-05-28
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "アイ・ヘイ・チュー!"
-    url: "https://pocket.shonenmagazine.com/title/03273"
-    chapter_count: 6
-    chapters:
-      - title: "【第6話】今に木阿弥"
-        updated: 2026-10-08
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第5話】罪のお味は"
-        updated: 2026-09-09
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第4話】水泡にすら帰さず"
-        updated: 2026-08-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第3話】手も品も変えるな"
-        updated: 2026-08-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】悪夢にも勝る"
-        updated: 2026-07-09
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】垂涎に反吐"
-        updated: 2026-06-09
         access_modes: ["free"]
         date_basis: rendered

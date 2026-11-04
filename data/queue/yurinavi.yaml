@@ -6,17 +6,17 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-04
+retrieved: 2026-11-05
 record_type: discovery_queue
 candidates:
-  - work_title: "キミに触れて、感じたい"
-    signal: "oneshot"
-    announced: "Thu, 22 Oct 2026 11:00:43 +0000"
-    url: "https://yurinavi.com/2026/10/22/kiminihurete-yomikiri/"
-    platform: "ichicomi"
-    platform_code: "12207421984222943969"
-    work_url: "https://ichicomi.com/episode/12207421984222943969"
-    headline: "触れたいのに触れられないーー羊と狼の恋を描く百合読み切り「キミに触れて、感じたい」WEBで公開"
+  - work_title: "付き合ってあげてもいいかな"
+    signal: "adaptation"
+    announced: "Wed, 04 Nov 2026 11:00:51 +0000"
+    url: "https://yurinavi.com/2026/11/04/tsukikana-muryou/"
+    platform: "manga-one"
+    platform_code: "603"
+    work_url: "https://manga-one.com/manga/603/chapter/60189"
+    headline: "TVドラマ化記念！「付き合ってあげてもいいかな」30話分がWEBで無料公開【11/6まで】"
     status: unconfirmed
   - work_title: "本命は秘密"
     signal: "oneshot"
@@ -68,6 +68,15 @@ candidates:
     platform_code: "12207421984406812438"
     work_url: "https://magcomi.com/episode/12207421984406812438"
     headline: "凸凹先輩後輩バディが怪異に挑む百合漫画「君とは一緒に死ねない～警視庁怪異調査室～」WEBでスタート"
+    status: unconfirmed
+  - work_title: "キミに触れて、感じたい"
+    signal: "oneshot"
+    announced: "2026-10-22"
+    url: "https://yurinavi.com/2026/10/22/kiminihurete-yomikiri/"
+    platform: "ichicomi"
+    platform_code: "12207421984222943969"
+    work_url: "https://ichicomi.com/episode/12207421984222943969"
+    headline: "触れたいのに触れられないーー羊と狼の恋を描く百合読み切り「キミに触れて、感じたい」WEBで公開"
     status: unconfirmed
   - work_title: "だって恋は月夜に灯るから"
     signal: "new-serial"
@@ -371,15 +380,6 @@ candidates:
     platform_code: "KC_014260_S"
     work_url: "https://comic-walker.com/detail/KC_014260_S"
     headline: "誰かへの想いを代筆する秘密の部活動を描いた百合読み切り「その手紙代行します！」WEBで公開"
-    status: unconfirmed
-  - work_title: "付き合ってあげてもいいかな"
-    signal: "adaptation"
-    announced: "2026-07-06"
-    url: "https://yurinavi.com/2026/07/06/tsukikana-jissya/"
-    platform: "manga-one"
-    platform_code: "603"
-    work_url: "https://manga-one.com/manga/603/chapter/60189"
-    headline: "大学生百合漫画「付き合ってあげてもいいかな」実写ドラマ化決定。9月10日より放送開始"
     status: unconfirmed
   - work_title: "ムルシエラゴ"
     signal: "adaptation"

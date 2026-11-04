@@ -23027,6 +23027,15 @@ works:
       - anchor: "web:https://comic-days.com/atom/series/12207421984407366164"
         basis: "the chapter page at https://comic-days.com/episode/12207421984407366672 links its own series feed at https://comic-days.com/atom/series/12207421984407366164, so the platform places this chapter in series 12207421984407366164"
         retrieved: 2026-11-04
+  - id: w03526
+    title: "ナイーブ・リザーブド"
+    anchors:
+      - "web:https://tonarinoyj.jp/episode/12207421984467777208"
+      - "web:https://tonarinoyj.jp/atom/series/12207421984467761498"
+    attached:
+      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984467761498"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984467777208 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984467761498, so the platform places this chapter in series 12207421984467761498"
+        retrieved: 2026-11-04
 related:
   - a: w00156
     b: w00486

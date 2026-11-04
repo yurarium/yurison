@@ -114,16 +114,16 @@ works_missing:
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
     antenna_id: "161471"
     tags: ["百合", "獣人", "お色気・微エロ"]
-  - title: "たゆたうふたり"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/fef424c168c44"
-    antenna_id: "210855"
-    tags: ["百合", "先輩と後輩", "大学生"]
   - title: "きっと、彼女が好きだから"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/74403f9e30641"
     antenna_id: "214224"
     tags: ["百合"]
+  - title: "たゆたうふたり"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/fef424c168c44"
+    antenna_id: "210855"
+    tags: ["百合", "先輩と後輩", "大学生"]
   - title: "八尺様とコロポックル-215cmと135cmの女子高生-"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/3f172ce77f966"
@@ -274,11 +274,21 @@ works_missing:
     url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
     antenna_id: "213409"
     tags: ["読み切り", "百合"]
+  - title: "アウトサイダーパラダイス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_021488_S"
+    antenna_id: "217263"
+    tags: ["最近のコメント数"]
+  - title: "咲きそめコンプレックス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006662_S"
+    antenna_id: "188908"
+    tags: ["最近のコメント数"]
   - title: "私の可愛いボーイッシュちゃん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021614_S"
     antenna_id: "217543"
-    tags: ["最近のコメント数"]
+    tags: ["百合"]
   - title: "志乃と恋"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_000076_S"
@@ -329,11 +339,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006608_S"
     antenna_id: "192654"
     tags: ["百合", "アイドル"]
-  - title: "アウトサイダーパラダイス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_021488_S"
-    antenna_id: "217263"
-    tags: ["最近のコメント数"]
   - title: "盗賊少女に転生したけど、周回ボーナスで楽勝です! 100%盗む&逃げるでラクラク冒険者生活"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020389_S"
@@ -424,11 +429,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006092_S"
     antenna_id: "178772"
     tags: ["百合", "オムニバス・短編集"]
-  - title: "咲きそめコンプレックス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006662_S"
-    antenna_id: "188908"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "ぐがぐもぐるてん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008419_S"
@@ -699,6 +699,11 @@ works_missing:
     url: "https://kimicomi.com/series/f7db55fffae10"
     antenna_id: "192717"
     tags: ["百合"]
+  - title: "是騒騒"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421984407366672"
+    antenna_id: "217591"
+    tags: ["百合"]
   - title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
@@ -739,6 +744,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "咲きそめコンプレックス"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72944"
+    antenna_id: "188893"
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
   - title: "私に天使が舞い降りた!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/56284"
@@ -824,11 +834,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/74044"
     antenna_id: "198457"
     tags: ["百合", "お色気・微エロ", "異種族・人外", "4コマ"]
-  - title: "咲きそめコンプレックス"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/72944"
-    antenna_id: "188893"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
   - title: "ラブかライクか分からない!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/70757"
@@ -1033,7 +1038,7 @@ works_missing:
     platform: "マンガよもんが"
     url: "https://www.yomonga.com/titles/2532/"
     antenna_id: "200569"
-    tags: ["最近のコメント数"]
+    tags: ["百合"]
   - title: "ギャラクシーぷーちゃん 宇宙のはじっこでこんにちは"
     platform: "マンガワン"
     url: "https://manga-one.com/manga/27253/chapter/307792"
@@ -1069,16 +1074,16 @@ works_missing:
     url: "https://ynjn.jp/title/6108"
     antenna_id: "173220"
     tags: ["百合", "ロボ・人造人間"]
-  - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/e95df2815bad1"
-    antenna_id: "171118"
-    tags: ["百合", "女子高生", "コミカライズ"]
   - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/86c1162f34a04"
     antenna_id: "197348"
     tags: ["ファンタジー", "令嬢", "百合"]
+  - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/e95df2815bad1"
+    antenna_id: "171118"
+    tags: ["百合", "女子高生", "コミカライズ"]
   - title: "スカベンジャーズアナザースカイ"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"

@@ -288,14 +288,17 @@ works:
       retrieved: "2026-11-04"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-03"
-    chapter_count: 49
+      next_update: "2026-11-06"
+    chapter_count: 50
     chapters:
+      - code: "KC_0000760005300011_E"
+        title: "2年生に……"
+        updated: "2026-11-03"
+        access_modes: ["free"]
+        free_until: "2026-11-06"
       - code: "KC_0000760005200011_E"
         title: "映画デート"
         updated: "2026-10-30"
-        access_modes: ["free"]
-        free_until: "2026-11-03"
       - code: "KC_0000760005100011_E"
         title: "プロローグ6"
         updated: "2026-10-27"
@@ -6131,9 +6134,13 @@ works:
       retrieved: "2026-11-04"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-03"
-    chapter_count: 66
+      next_update: "2026-12-01"
+    chapter_count: 67
     chapters:
+      - code: "KC_0032550005600011_E"
+        title: "第50話"
+        updated: "2026-11-03"
+        access_modes: ["free"]
       - code: "KC_0032550005500011_E"
         title: "第49話"
         updated: "2026-10-06"
@@ -6141,8 +6148,6 @@ works:
       - code: "KC_0032550005400021_E"
         title: "第48話②"
         updated: "2026-09-15"
-        access_modes: ["free"]
-        free_until: "2026-11-03"
       - code: "KC_0032550005400011_E"
         title: "第48話①"
         updated: "2026-09-01"
@@ -16165,14 +16170,16 @@ works:
       retrieved: "2026-11-04"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-04"
-    chapter_count: 27
+      next_update: "2026-11-18"
+    chapter_count: 28
     chapters:
+      - code: "KC_0066620001500021_E"
+        title: "第14話-2"
+        updated: "2026-11-04"
+        access_modes: ["free"]
       - code: "KC_0066620001500011_E"
         title: "第14話-1"
         updated: "2026-10-21"
-        access_modes: ["free"]
-        free_until: "2026-11-04"
       - code: "KC_0066620001400021_E"
         title: "第13話-2"
         updated: "2026-09-30"
@@ -16354,7 +16361,7 @@ works:
       retrieved: "2026-11-04"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-07"
+      next_update: "2026-11-14"
     chapter_count: 22
     chapters:
       - code: "KC_0066660001400021_E"
@@ -17664,7 +17671,7 @@ works:
       retrieved: "2026-11-04"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-12"
+      next_update: "2026-11-19"
     chapter_count: 11
     chapters:
       - code: "KC_0072200001200011_E"
@@ -18420,14 +18427,17 @@ works:
       retrieved: "2026-11-04"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-04"
-    chapter_count: 7
+      next_update: "2026-11-11"
+    chapter_count: 8
     chapters:
+      - code: "KC_0086540000600011_E"
+        title: "第5話①"
+        updated: "2026-11-04"
+        access_modes: ["free"]
+        free_until: "2026-11-11"
       - code: "KC_0086540000500021_E"
         title: "第4話②"
         updated: "2026-08-12"
-        access_modes: ["free"]
-        free_until: "2026-11-04"
       - code: "KC_0086540000500011_E"
         title: "第4話①"
         updated: "2026-08-05"
@@ -18448,43 +18458,6 @@ works:
       - code: "KC_0086540000200011_E"
         title: "第1話"
         updated: "2026-04-08"
-        access_modes: ["free"]
-  - work_title: "月はタピオカみたいに"
-    platform_code: "KC_008658_S"
-    url: "https://comic-walker.com/detail/KC_008658_S"
-    status: "ongoing"
-    marketing_label: "yuri"
-    tags: ["ほのぼの", "転生", "癒やされる", "百合", "魔法", "グルメ", "萌え"]
-    authors: ["小畠泪", "今安"]
-    marketing_label_basis:
-      source: kadokomi
-      url: "https://comic-walker.com/detail/KC_008658_S"
-      retrieved: "2026-11-04"
-      note: "Publisher applies the tag 百合 on カドコミ."
-    stated_schedule:
-      next_update: "2026-11-27"
-    chapter_count: 6
-    chapters:
-      - code: "KC_0086580000700011_E"
-        title: "第6話"
-        updated: "2026-09-27"
-        access_modes: ["free"]
-        free_until: "2026-11-27"
-      - code: "KC_0086580000600011_E"
-        title: "第5話"
-        updated: "2026-08-27"
-      - code: "KC_0086580000500011_E"
-        title: "第4話"
-        updated: "2026-07-27"
-      - code: "KC_0086580000400011_E"
-        title: "第3話"
-        updated: "2026-08-27"
-      - code: "KC_0086580000300011_E"
-        title: "第2話"
-        updated: "2026-08-27"
-      - code: "KC_0086580000200011_E"
-        title: "第1話"
-        updated: "2026-04-27"
         access_modes: ["free"]
   - work_title: "ハルとアリア"
     platform_code: "KC_008695_S"
@@ -20001,9 +19974,14 @@ works:
       retrieved: "2026-11-04"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-03"
-    chapter_count: 3
+      next_update: "2026-11-11"
+    chapter_count: 4
     chapters:
+      - code: "KC_0214880000500011_E"
+        title: "第4話"
+        updated: "2026-11-04"
+        access_modes: ["free"]
+        free_until: "2026-11-11"
       - code: "KC_0214880000400011_E"
         title: "第3話"
         updated: "2026-10-28"
@@ -25765,14 +25743,17 @@ works:
     tags: []
     authors: ["狐ヶ崎"]
     stated_schedule:
-      next_update: "2026-11-04"
-    chapter_count: 26
+      next_update: "2026-12-04"
+    chapter_count: 27
     chapters:
+      - code: "KC_0059280002800011_E"
+        title: "第27話"
+        updated: "2026-11-04"
+        access_modes: ["free"]
+        free_until: "2026-12-04"
       - code: "KC_0059280002700011_E"
         title: "第26話"
         updated: "2026-10-04"
-        access_modes: ["free"]
-        free_until: "2026-11-04"
       - code: "KC_0059280002600011_E"
         title: "第25話"
         updated: "2026-09-04"
@@ -29644,4 +29625,41 @@ works:
       - code: "KC_0094910000200011_E"
         title: "第１話★終わりの始まりと始まりの終わり"
         updated: "2026-05-25"
+        access_modes: ["free"]
+  - work_title: "月はタピオカみたいに"
+    platform_code: "KC_008658_S"
+    url: "https://comic-walker.com/detail/KC_008658_S"
+    status: "ongoing"
+    marketing_label: "yuri"
+    tags: ["ほのぼの", "転生", "癒やされる", "百合", "魔法", "グルメ", "萌え"]
+    authors: ["小畠泪", "今安"]
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_008658_S"
+      retrieved: "2026-11-04"
+      note: "Publisher applies the tag 百合 on カドコミ."
+    stated_schedule:
+      next_update: "2026-11-27"
+    chapter_count: 6
+    chapters:
+      - code: "KC_0086580000700011_E"
+        title: "第6話"
+        updated: "2026-09-27"
+        access_modes: ["free"]
+        free_until: "2026-11-27"
+      - code: "KC_0086580000600011_E"
+        title: "第5話"
+        updated: "2026-08-27"
+      - code: "KC_0086580000500011_E"
+        title: "第4話"
+        updated: "2026-07-27"
+      - code: "KC_0086580000400011_E"
+        title: "第3話"
+        updated: "2026-08-27"
+      - code: "KC_0086580000300011_E"
+        title: "第2話"
+        updated: "2026-08-27"
+      - code: "KC_0086580000200011_E"
+        title: "第1話"
+        updated: "2026-04-27"
         access_modes: ["free"]

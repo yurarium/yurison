@@ -23018,6 +23018,15 @@ works:
     title: "私の可愛いボーイッシュちゃん"
     anchors:
       - "web:https://comic-walker.com/detail/KC_021614_S"
+  - id: w03525
+    title: "是騒騒"
+    anchors:
+      - "web:https://comic-days.com/episode/12207421984407366672"
+      - "web:https://comic-days.com/atom/series/12207421984407366164"
+    attached:
+      - anchor: "web:https://comic-days.com/atom/series/12207421984407366164"
+        basis: "the chapter page at https://comic-days.com/episode/12207421984407366672 links its own series feed at https://comic-days.com/atom/series/12207421984407366164, so the platform places this chapter in series 12207421984407366164"
+        retrieved: 2026-11-04
 related:
   - a: w00156
     b: w00486

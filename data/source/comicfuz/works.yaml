@@ -23,8 +23,11 @@ works:
       - chapter_id: 80779
         title: "第３２話"
         updated: 2026-11-03
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-04"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80776
         title: "第３１話"
         updated: 2026-10-06

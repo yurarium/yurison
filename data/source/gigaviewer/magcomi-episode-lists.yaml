@@ -31,7 +31,7 @@ works:
   - work_title: "東京つけものがたり"
     series_id: "12207421984122057558"
     url: "https://magcomi.com/atom/series/12207421984122057558"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
       - title: "第1話「スイカの皮の白だし漬け」"
         updated: "2026-09-01"
@@ -44,6 +44,10 @@ works:
       - title: "第3話「塩麹漬け（前編）」"
         updated: "2026-10-06"
         url: "https://magcomi.com/episode/12207421984174948885"
+        access_modes: ["free"]
+      - title: "第3話「塩麹漬け（後編）」"
+        updated: "2026-11-03"
+        url: "https://magcomi.com/episode/12207421984304225733"
         access_modes: ["purchase"]
   - work_title: "天使なんかにならないで"
     series_id: "12207421984187014169"

@@ -6,10 +6,10 @@ source: yurinavi-webyuri
 role: coverage-yardstick
 retrieved: 2026-11-04
 record_type: coverage_gap
-works_listed: 133
+works_listed: 134
 platforms_total: 25
 platforms_watched: 17
-works_on_watched_platforms: 98
+works_on_watched_platforms: 99
 platforms:
   - platform: "カドコミ"
     works: 57
@@ -53,6 +53,9 @@ platforms:
   - platform: "一迅社プラス"
     works: 2
     watched: false
+  - platform: "Gコミ"
+    works: 2
+    watched: true
   - platform: "ジャンプ+"
     works: 1
     watched: false
@@ -80,9 +83,6 @@ platforms:
   - platform: "となりのヤングジャンプ"
     works: 1
     watched: true
-  - platform: "Gコミ"
-    works: 1
-    watched: true
   - platform: "ビビビコミック"
     works: 1
     watched: true
@@ -99,6 +99,12 @@ works:
     watched_platform: true
     title: "きっと、彼女が好きだから"
     url: "https://g-comi.jp/series/74403f9e30641"
+  - raw: "クズ女子が本気の恋に落ちるまで 櫻井亜矢子"
+    platform: "Gコミ"
+    last_update_seen: 11-04
+    watched_platform: true
+    title: "クズ女子が本気の恋に落ちるまで"
+    url: "https://g-comi.jp/episodes/de67c6535ad59"
   - raw: "今夜、エーテルで待ちあわせ ヨン"
     platform: "Seasons"
     last_update_seen: 10-16

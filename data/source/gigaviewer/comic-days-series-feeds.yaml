@@ -13,8 +13,8 @@ publisher: "講談社"
 retrieved: 2026-11-04
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 111
-series_held: 111
+series_resolved: 112
+series_held: 112
 works:
   - work_title: "14gの逃避行"
     series_id: "4856001361139111458"
@@ -11930,6 +11930,23 @@ works:
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/2550912965415315207"
         free_from: 2025-05-01
+        access_modes: ["free"]
+  - work_title: "是騒騒"
+    series_id: "12207421984407366164"
+    url: "https://comic-days.com/atom/series/12207421984407366164"
+    chapter_count: 2
+    chapters:
+      - title: "第２話①"
+        updated: 2026-11-04
+        author: "羅川真里茂"
+        url: "https://comic-days.com/episode/12207421984407366684"
+        free_from: 2026-11-18
+        access_modes: ["purchase"]
+      - title: "第１話"
+        updated: 2026-11-04
+        author: "羅川真里茂"
+        url: "https://comic-days.com/episode/12207421984407366672"
+        free_from: 2026-11-04
         access_modes: ["free"]
   - work_title: "最後の晩餐"
     series_id: "4856001361294668558"

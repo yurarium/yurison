@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-11-04
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 252
+  hits_agreeing_on_a_creator: 253
   hits_on_the_title_alone: 112
   hits_stating_a_print_edition_date: 211
-  works_asked: 901
-  works_with_a_hit: 271
+  works_asked: 903
+  works_with_a_hit: 272
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -6211,6 +6211,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://magcomi.com/episode/12207421984304225733"
+    id: "w03285"
+    work: "東京つけものがたり"
+    author: "ぜろわん"
+    platform: "MAGCOMI"
+    retrieved: "2026-11-04"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://magcomi.com/episode/12207421984355613624"
     id: "w03315"
     work: "忍者アシスタントとアナログ漫画家"
@@ -8873,6 +8883,21 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984454510608"
+    id: "w00130"
+    work: "英雄少女と呪われの銀姫"
+    author: "アルト / 絵本奈央"
+    platform: "となりのヤングジャンプ"
+    query: "author"
+    retrieved: "2026-11-04"
+    hits:
+      - series_url: null
+        title_listed: "英雄少女と呪われの銀姫 1"
+        shop_author: "アルト(Story) 絵本奈央(Comic)"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://tonarinoyj.jp/episode/13933686331772859580"
     id: "w00982"
     work: "ストライク・オア・ガター"

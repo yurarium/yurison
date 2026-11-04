@@ -1,4 +1,4 @@
-generated: '2026-11-03'
+generated: '2026-11-04'
 names:
   '*sow*':
     basis: stated
@@ -35668,6 +35668,25 @@ names:
     reading_source: wikidata
     reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q98309416
+    verified: false
+  羅川真里茂:
+    basis: romaji
+    furigana_spans:
+    - - 羅
+      - ら
+    - - 川
+      - かわ
+    - - 真里茂
+      - まりも
+    reading: ラカワマリモ
+    reading_at: '2026-11-04'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    reading_uncertain: true
     verified: false
   美澄零:
     basis: romaji

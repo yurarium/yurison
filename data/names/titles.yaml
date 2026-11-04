@@ -66700,22 +66700,21 @@ names:
     verified: false
   是騒騒:
     basis: romaji
-    furigana_spans:
-    - - 是
-      - ぜ
-    - - 騒
-      - さわぎ
-    - - 騒
-      - さわぎ
-    reading: ゼ サワギ サワギ
+    reading: コレ サイサイ
     reading_at: '2026-11-04'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
-    verified: false
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+      value: ゼ サワギ サワギ
+    reading_note: The series art on this page, the image its og:image names, prints コレサイサイ in a box under
+      the logo, so 是 is read コレ and each 騒 is read サイ. An analyser read the characters as ゼ サワギ サワギ, and
+      a title that prints its own reading outranks that.
+    reading_reviewed: '2026-11-04'
+    reading_source: コミックDAYS
+    reading_source_kind: platform
+    reading_url: https://comic-days.com/episode/12207421984407366672
+    verified: true
   昼のひもので夜もすがら:
     basis: translated
     en: Dried Fish by Day, All Through the Night

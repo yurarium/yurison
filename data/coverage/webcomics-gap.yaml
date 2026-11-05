@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-05
+retrieved: 2026-11-06
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -34,6 +34,16 @@ platforms_missing:
   - platform: "ドリコミ+"
     works: 1
 works_missing:
+  - title: "うさぎはかく語りき"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3572"
+    antenna_id: "173581"
+    tags: ["最近のコメント数"]
+  - title: "球詠"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/441"
+    antenna_id: "88071"
+    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "IDOL×IDOL STORY!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3140"
@@ -59,16 +69,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/2391"
     antenna_id: "102691"
     tags: ["百合", "フェチ・性癖"]
-  - title: "うさぎはかく語りき"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3572"
-    antenna_id: "173581"
-    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
-  - title: "球詠"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/441"
-    antenna_id: "88071"
-    tags: ["野球", "女子高生", "アニメ化", "百合"]
   - title: "しゅがー・みーつ・がーる!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3108"
@@ -293,7 +293,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021614_S"
     antenna_id: "217543"
-    tags: ["百合"]
+    tags: ["最近のコメント数"]
   - title: "志乃と恋"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_000076_S"
@@ -619,6 +619,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019445_S"
     antenna_id: "212582"
     tags: ["百合", "読み切り"]
+  - title: "香り屋さんの纏さん"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/2286"
+    antenna_id: "189564"
+    tags: ["百合", "読み切り", "サトリ"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -629,11 +634,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/29"
     antenna_id: "745"
     tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
-  - title: "香り屋さんの纏さん"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/2286"
-    antenna_id: "189564"
-    tags: ["百合", "読み切り", "サトリ"]
   - title: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
@@ -943,7 +943,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
-    tags: ["最近のコメント数"]
+    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - title: "怨霊日和"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
@@ -1024,6 +1024,11 @@ works_missing:
     url: "https://www.yomonga.com/titles/2532/"
     antenna_id: "200569"
     tags: ["百合"]
+  - title: "かわいい同盟"
+    platform: "マンガワン"
+    url: "https://manga-one.com/viewer/290902"
+    antenna_id: "189002"
+    tags: ["百合", "学園", "女子高生", "女装", "ルッキズム"]
   - title: "付き合ってあげてもいいかな"
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/70173"
@@ -1034,11 +1039,6 @@ works_missing:
     url: "https://manga-one.com/manga/27253/chapter/307792"
     antenna_id: "200450"
     tags: ["SF", "フルカラー", "宇宙人", "漫画家・絵描き", "ギャグ・コメディ", "百合", "姉妹", "シュール", "同居人・居候"]
-  - title: "かわいい同盟"
-    platform: "マンガワン"
-    url: "https://manga-one.com/viewer/290902"
-    antenna_id: "189002"
-    tags: ["百合", "学園", "女子高生", "女装", "ルッキズム"]
   - title: "妖怪殲滅のサイコリリー"
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/225633"

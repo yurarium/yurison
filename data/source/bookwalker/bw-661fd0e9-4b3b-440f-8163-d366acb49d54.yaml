@@ -1,0 +1,38 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-11-05
+work_id: "bw-661fd0e9-4b3b-440f-8163-d366acb49d54"
+record_type: retailer_work_record
+shop_id: "661fd0e9-4b3b-440f-8163-d366acb49d54"
+shop_url: "https://bookwalker.jp/de661fd0e9-4b3b-440f-8163-d366acb49d54/"
+title:
+  ja: "片方だけ愛が重いと見せかけて、もう片方も大概な百合"
+creator: "水瀬アオバ"
+publisher: "ナンバーナイン"
+imprint: "百合コレ"
+volume_count: 1
+date_basis: "no-print-date-stated"
+venue: "ナンバーナイン"
+completed: false
+volumes:
+  - title: "片方だけ愛が重いと見せかけて、もう片方も大概な百合"
+    delivered: "2026-11-13"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-11-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/de661fd0e9-4b3b-440f-8163-d366acb49d54/"
+  retrieved: 2026-11-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

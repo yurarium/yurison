@@ -1,0 +1,55 @@
+# Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
+#
+# BOOK☆WALKER states no ISBN, so no catalogue record stands behind this one: what the
+# shop says is all there is. Joined presumptively on its title, and a title that
+# already names a work we hold went to data/queue/bw-review.yaml instead of here.
+source: bookwalker
+retrieved: 2026-11-05
+work_id: "bw-246577"
+record_type: retailer_work_record
+shop_id: "246577"
+shop_url: "https://bookwalker.jp/series/246577/"
+title:
+  ja: "田所さんシリーズ"
+creator: "ＴＡＴＳＵＢＯＮ"
+publisher: "キルタイムコミュニケーション"
+imprint: "ヴァルキリーコミックス"
+volume_count: 5
+first_published: "2020-05-04"
+venue: "キルタイムコミュニケーション"
+completed: false
+volumes:
+  - title: "田所さん1"
+    designation: "田所さん1"
+    published: "2020-05-04"
+    delivered: "2020-04-28"
+  - title: "田所さん2"
+    designation: "田所さん2"
+    published: "2020-11-05"
+    delivered: "2020-10-28"
+  - title: "田所さん3"
+    designation: "田所さん3"
+    published: "2021-07-16"
+    delivered: "2021-07-08"
+  - title: "【最新刊】田所さん4"
+    designation: "田所さん4"
+    published: "2022-01-16"
+    delivered: "2022-01-08"
+  - title: "田所さん1"
+    designation: "田所さん1"
+    delivered: "2026-11-06"
+admitted_by:
+  - comparator: "bookwalker.jp"
+    shelf: "tag 14 (百合)"
+    retrieved: 2026-11-05
+    note: >-
+      A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
+      rebuttable, and never a marketing_label (§4).
+marketing_label: none
+marketing_label_basis:
+  source: bookwalker
+  url: "https://bookwalker.jp/series/246577/"
+  retrieved: 2026-11-05
+  note: >-
+    Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
+    labelling (§4), so this axis stays `none`, which says nothing about content.

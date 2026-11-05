@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-05
+retrieved: 2026-11-06
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 253
   hits_on_the_title_alone: 112
   hits_stating_a_print_edition_date: 211
-  works_asked: 908
+  works_asked: 910
   works_with_a_hit: 272
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -4617,6 +4617,26 @@ works:
     retrieved: "2026-10-19"
     hits: []
     notes:
+      - "title query returned no title this database recognises"
+  - work_url: "https://g-comi.jp/episodes/733105e64bf91"
+    id: "w03529"
+    work: "きっと、彼女が好きだから"
+    author: "ヒロアキ"
+    platform: "Gコミ"
+    retrieved: "2026-11-06"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://g-comi.jp/episodes/de67c6535ad59"
+    id: "w03528"
+    work: "クズ女子が本気の恋に落ちるまで"
+    author: "櫻井亜矢子"
+    platform: "Gコミ"
+    retrieved: "2026-11-06"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
   - work_url: "https://g-comi.jp/series/192003ee77e21"
     id: "w00300"

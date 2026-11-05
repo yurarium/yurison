@@ -9,9 +9,9 @@
 #
 # Still data/queue/: these are candidates. Admission into data/source/ needs the joins
 # and the volume histories that give a work its dates.
-retrieved: 2026-10-31
-admitted: 4496
-by_shop: {"bookwalker.jp": 2652, "cmoa.jp": 1844}
+retrieved: 2026-11-05
+admitted: 4503
+by_shop: {"bookwalker.jp": 2659, "cmoa.jp": 1844}
 excluded: {"published on ヤングアンリアルコミックス, an adult imprint": 5, "published on 秋水社ORIGINAL, an adult imprint": 16}
 works:
   - title: "#ふれない"
@@ -11727,6 +11727,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "スチームドリーム 1巻"
+    authors: ["絵茶漬け"]
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/dece75926b-1693-4bfc-920f-4f0da5a8613a/"
+    shop: "bookwalker.jp"
+    shop_id: "ce75926b-1693-4bfc-920f-4f0da5a8613a"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ステラ☆レコード"
     authors: ["著者: しおやてるこ"]
     publisher: null
@@ -12143,6 +12154,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "617630"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "タバコとか吸わなそうな後輩"
+    authors: []
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/series/617632/"
+    shop: "bookwalker.jp"
+    shop_id: "617632"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -13136,6 +13158,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "22410"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "パープル"
+    authors: ["いえねこいと"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de286d6d69-a60c-4720-9723-d0f9ab55a71b/"
+    shop: "bookwalker.jp"
+    shop_id: "286d6d69-a60c-4720-9723-d0f9ab55a71b"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -15494,6 +15527,17 @@ works:
     shop_id: "218950"
     completed: false
     doujin: true
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "乙女たちの推しゴト"
+    authors: []
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/series/633370/"
+    shop: "bookwalker.jp"
+    shop_id: "633370"
+    completed: false
+    doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "乙女たちの推しゴト 1"
@@ -23483,6 +23527,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "片方だけ愛が重いと見せかけて、もう片方も大概な百合"
+    authors: ["水瀬アオバ"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/de661fd0e9-4b3b-440f-8163-d366acb49d54/"
+    shop: "bookwalker.jp"
+    shop_id: "661fd0e9-4b3b-440f-8163-d366acb49d54"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "犬も歩けば姫に当たる"
     authors: ["観乃 ふみ"]
     publisher: null
@@ -24042,6 +24097,17 @@ works:
     url: "https://bookwalker.jp/de8fc4e0ba-6db3-4d56-a7f2-c98c4d4e0e50/"
     shop: "bookwalker.jp"
     shop_id: "8fc4e0ba-6db3-4d56-a7f2-c98c4d4e0e50"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "田所さんシリーズ"
+    authors: []
+    publisher: null
+    imprint: "ヴァルキリーコミックス"
+    url: "https://bookwalker.jp/series/246577/"
+    shop: "bookwalker.jp"
+    shop_id: "246577"
     completed: false
     doujin: false
     explicit_content: false
@@ -28128,6 +28194,17 @@ works:
     url: "https://bookwalker.jp/de45593173-7c3d-442e-9de6-5cdc1d9ffa89/"
     shop: "bookwalker.jp"
     shop_id: "45593173-7c3d-442e-9de6-5cdc1d9ffa89"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "銀の河に星の城(1)"
+    authors: ["空木帆子"]
+    publisher: null
+    imprint: "フラワーコミックスα"
+    url: "https://bookwalker.jp/de9a9d1acf-ad0f-47bb-a0ee-85e7c26ba6a1/"
+    shop: "bookwalker.jp"
+    shop_id: "9a9d1acf-ad0f-47bb-a0ee-85e7c26ba6a1"
     completed: false
     doujin: false
     explicit_content: false

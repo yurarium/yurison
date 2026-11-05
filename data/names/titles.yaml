@@ -32248,6 +32248,18 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  スチームドリーム:
+    basis: romaji
+    reading: スチーム ドリーム
+    reading_at: '2026-11-05'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   ステラ★レコード:
     basis: official-jp
     en: STELLA★RECORD
@@ -36712,6 +36724,18 @@ names:
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  パープル:
+    basis: romaji
+    reading: パープル
+    reading_at: '2026-11-05'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
     reading_pass: 4
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
@@ -72797,6 +72821,45 @@ names:
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
+  片方だけ愛が重いと見せかけて、もう片方も大概な百合:
+    basis: romaji
+    furigana_spans:
+    - - 片方
+      - かたほう
+    - - だけ
+      - null
+    - - 愛
+      - あい
+    - - が
+      - null
+    - - 重
+      - おも
+    - - いと
+      - null
+    - - 見
+      - み
+    - - せかけて、もう
+      - null
+    - - 片方
+      - かたほう
+    - - も
+      - null
+    - - 大概
+      - たいがい
+    - - な
+      - null
+    - - 百合
+      - ゆり
+    reading: カタホウ ダケ アイ ガ オモイ ト ミセカケテ、 モウ カタホウ モ タイガイナ ユリ
+    reading_at: '2026-11-05'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   犬と仕事は煙に巻けない:
     basis: translated
     en: You Can't Fool a Dog, or Your Job
@@ -74206,6 +74269,22 @@ names:
     reading_source: wikidata
     reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q102128142
+    verified: false
+  田所さんシリーズ:
+    basis: romaji
+    furigana_spans:
+    - - 田所
+      - たどころ
+    - - さんシリーズ
+      - null
+    reading: タドコロサン シリーズ
+    reading_at: '2026-11-05'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   田所さん（２）:
     basis: romaji

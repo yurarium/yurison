@@ -101,6 +101,17 @@ def main(s):
     s.eq(row["aliases"], ["COMICリュウライブ"], "an alias one register states survives the other")
     s.eq(row["en"], "COMIC Ryu", "beside the field the other register states")
 
+    # WHAT THE REGISTER SAYS IS NOT A WORK, by address, so a target naming it can be passed over.
+    with tempfile.TemporaryDirectory() as d:
+        p = pathlib.Path(d, "p.yaml")
+        p.write_text("not_works:\n  - title: ゆりひめ@ピクシブ\n    url: https://comic.pixiv.net/magazines/206\n"
+                     "  - title: no address\n", encoding="utf-8")
+        s.eq(platform.not_works(p), {"https://comic.pixiv.net/magazines/206": "ゆりひめ@ピクシブ"},
+             "a not-work is keyed by its address, and one with no address keys nothing")
+        s.eq(platform.not_works(pathlib.Path(d, "absent.yaml")), {}, "a missing register lists none")
+    s.check("https://comic.pixiv.net/magazines/206" in platform.not_works(),
+            "the real register lists pixiv百合姫's channel")
+
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, __file__))

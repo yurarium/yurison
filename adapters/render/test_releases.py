@@ -24,6 +24,76 @@ def main(s):
             "spacing and punctuation do not decide it, and a longer printed title still names it")
     s.check(not rd.names_work("<html><body>anything</body></html>", ""),
             "a target with no title cannot be confirmed by its page")
+
+    # ── A PAGE THAT DOES NOT NAME THE WORK SAYS WHY, WHERE IT CAN ─────────────────────────────
+    #
+    # Sixteen were recorded as refusals in the week `names_work` came in, and five were.
+    cf = "<html><body><h1>403 ERROR</h1>The request could not be satisfied.</body></html>"
+    s.eq(rd.why_not_named(cf, "https://drecomi-plus.jp/series/CD00038")[0], "blocked",
+         "CloudFront's 403 page is a refusal")
+    comici = "<body><p>現在、一部の通信環境からのアクセスを制限しております</p></body>"
+    s.eq(rd.why_not_named(comici, "https://bigcomics.jp/series/x")[0], "blocked",
+         "comici's restricted-network page is a refusal")
+    pixiv = ('<body><nav>ホーム 単行本</nav><p>お探しのページは見つかりませんでした。</p>'
+             '<a href="/">トップページへ戻る</a></body>')
+    s.eq(rd.why_not_named(pixiv, "https://comic.pixiv.net/works/2454")[0], "missing",
+         "pixivコミック's own not-found page says the work is not there")
+    one = "<body><p>お探しのページは見つかりませんでした。 コンテンツの掲載期間が 終了した可能性があります。</p></body>"
+    s.eq(rd.why_not_named(one, "https://manga-one.com/viewer/268349")[0], "missing",
+         "and so does マンガワン's")
+    mb = ('<head><link rel="canonical" href="https://www.mangabox.me/reader/"></head>'
+          '<body>絶対服従タワーマンション 比良坂小学校の裏校舎</body>')
+    r, note = rd.why_not_named(mb, "https://www.mangabox.me/reader/262412/")
+    s.eq(r, "missing", "マンガボックス sending a work's reader on to the listing is the work gone")
+    s.check("https://www.mangabox.me/reader/" in note, "and the note says where the address went")
+    ryu = '<head><link rel="canonical" href="https://comic-ryu.jp"></head><body>新着情報</body>'
+    s.eq(rd.why_not_named(ryu, "https://www.comic-ryu.jp/series/hinayuriboukenki/")[0], "missing",
+         "COMICリュウ sending a series page to its front page, across www, is the page gone")
+    same = ('<head><link rel="canonical" href="https://comic.pixiv.net/works/7440"></head>'
+            '<body>何か</body>')
+    s.eq(rd.why_not_named(same, "https://comic.pixiv.net/works/7440/")[0], "blocked",
+         "a page that calls itself the address we asked and names nothing gives no reason,"
+         " and stays the reading names_work was written for")
+    other = '<head><link rel="canonical" href="https://elsewhere.jp/"></head><body>何か</body>'
+    s.eq(rd.why_not_named(other, "https://www.mangabox.me/reader/1/")[0], "blocked",
+         "another site's front page is not this site saying the work is gone")
+    s.check(not rd.above("https://www.mangabox.me/reader/1/", "https://www.mangabox.me/read"),
+            "a shorter path counts only on a segment boundary")
+    s.eq(rd.says_it_is('<meta property="og:url" content="https://comic.pixiv.net/magazines/206">'),
+         "https://comic.pixiv.net/magazines/206", "og:url stands in where there is no canonical link")
+
+    # A REFUSAL IS ASKED AGAIN, so one that lifts is seen the next run. A page gone is kept.
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        cache = pathlib.Path(d)
+        checks = {}
+        for url, page in (("https://drecomi-plus.jp/series/CD00038", cf),
+                          ("https://comic.pixiv.net/works/2454", pixiv)):
+            rd.cache_file(url, cache).write_text(page)
+        s.eq(rd.not_named(checks, "ドリコミ+", {"title": "勇者の旅の裏側で",
+                                                "url": "https://drecomi-plus.jp/series/CD00038"},
+                          cf, cache), "refused", "a refusal is counted as one")
+        s.check(not rd.cache_file("https://drecomi-plus.jp/series/CD00038", cache).exists(),
+                "and its cached copy is dropped")
+        s.eq(checks["ドリコミ+|勇者の旅の裏側で"]["result"], "blocked", "and recorded blocked")
+        s.eq(rd.not_named(checks, "pixivコミック", {"title": "姫のためなら死ねる",
+                                                    "url": "https://comic.pixiv.net/works/2454"},
+                          pixiv, cache), "not there", "a page gone is counted as gone")
+        s.check(rd.cache_file("https://comic.pixiv.net/works/2454", cache).exists(),
+                "and its cached copy is kept for its week")
+        s.eq(checks["pixivコミック|姫のためなら死ねる"]["result"], "missing", "and recorded missing")
+
+    # ── WHAT THE REGISTER SAYS IS NOT A WORK IS NOT RENDERED AS ONE ───────────────────────────
+    plat = {"works": [{"title": "ゆりひめ@ピクシブ", "url": "https://comic.pixiv.net/magazines/206"},
+                      {"title": "a", "url": "https://comic.pixiv.net/works/1"},
+                      {"title": "b", "url": "https://comic.pixiv.net/works/2"}]}
+    nw = {"https://comic.pixiv.net/magazines/206": "ゆりひめ@ピクシブ"}
+    s.eq([w["title"] for w in rd.works_to_render(plat, nw, 40)], ["a", "b"],
+         "pixiv百合姫's channel is passed over")
+    s.eq([w["title"] for w in rd.works_to_render(plat, nw, 1)], ["a"],
+         "and the limit counts the works rendered, not the one passed over")
+    s.eq([w["title"] for w in rd.works_to_render(plat, {}, 40)][0], "ゆりひめ@ピクシブ",
+         "where the register lists nothing, every target is rendered")
     # ── A PLATFORM WITH ITS OWN ADAPTER IS NOT RENDERED AS WELL ───────────────────────────────
     spec = {"platforms": [{"id": "magapoke"}, {"id": "ganganonline",
                                                "own_adapter": "adapters/ganganonline/releases.py"}]}

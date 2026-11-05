@@ -30,6 +30,7 @@ import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import checkstate  # noqa: E402
+from facts import platform  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import schedule_text  # noqa: E402
 
@@ -81,9 +82,15 @@ def max_age(url, days=RENDER_AGE_DAYS, stagger=STAGGER_DAYS):
     return days - zlib.crc32(url.encode()) % (stagger + 1)
 
 
-def render(url, cache, max_age_days=RENDER_AGE_DAYS, deadline=None):
+def cache_file(url, cache):
+    """Where a render of `url` is kept. `artwork/covers.py` reads the same name, and its test
+    reads the `key =` line below to hold the two together."""
     key = re.sub(r"[^A-Za-z0-9]", "_", url)[-120:]
-    f = cache / f"{key}.html"
+    return cache / f"{key}.html"
+
+
+def render(url, cache, max_age_days=RENDER_AGE_DAYS, deadline=None):
+    f = cache_file(url, cache)
     if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age(url, max_age_days):
         return f.read_text()
     if deadline is not None and time.time() >= deadline:
@@ -318,6 +325,85 @@ def names_work(html, title):
     return want[:8] in _compact(text_of(html))
 
 
+#: WHAT A REFUSAL SAYS. CloudFront's 403 page, comici's 「現在、一部の通信環境からのアクセスを制限して
+#: おります」 and LINEマンガ's 「本サービスは日本国内でのみご利用いただけます」.
+REFUSED = ("The request could not be satisfied", "403 ERROR", "403 Forbidden", "Access Denied",
+           "アクセスを制限", "国内でのみ")
+
+#: WHAT A PLATFORM'S OWN PAGE SAYS WHEN THE ADDRESS LEADS NOWHERE. pixivコミック and マンガワン both
+#: draw 「お探しのページは見つかりませんでした」, and マンガワン adds that the listing period may have
+#: ended.
+NOT_THERE = ("見つかりませんでした", "ページが見つかりません", "掲載期間が終了", "404 Not Found",
+             "Page Not Found")
+
+
+def _place(url):
+    """`(host without www., path without its trailing slash)`, for comparing two addresses."""
+    m = re.match(r"https?://([^/?#]+)([^?#]*)", url or "")
+    if not m:
+        return None
+    return m.group(1).lower().removeprefix("www."), m.group(2).rstrip("/")
+
+
+def says_it_is(html):
+    """The address the page gives for itself: its canonical link, or failing that its og:url."""
+    for pat in (r'<link[^>]*rel="canonical"[^>]*href="([^"]+)"',
+                r'<link[^>]*href="([^"]+)"[^>]*rel="canonical"',
+                r'<meta[^>]*property="og:url"[^>]*content="([^"]+)"'):
+        m = re.search(pat, html or "")
+        if m:
+            return _html.unescape(m.group(1))
+    return None
+
+
+def above(asked, said):
+    """Whether `said` is a page above `asked` on the same site: its front page or a listing."""
+    a, s = _place(asked), _place(said)
+    if not a or not s or a[0] != s[0] or a[1] == s[1]:
+        return False
+    return a[1].startswith(s[1] + "/")
+
+
+def why_not_named(html, url):
+    """`(result, note)` for a rendered page that does not name the work we asked for.
+
+    NOT EVERY SUCH PAGE IS A REFUSAL. When `names_work` came in on 2026-11-03 everything it caught
+    was recorded `blocked`, "not shown to us", and of the sixteen it caught that week five were.
+    Seven pixivコミック works and a マンガワン one rendered the platform's own page saying the address
+    leads nowhere, and both マンガボックス readers had been sent on to the reader's listing, which
+    names itself as that page. A work the platform took down is a fact about the platform; a
+    refusal is a fact about us. Of the five refusals, ドリコミ+ reads through Tokyo, and the four
+    COMICリュウ series pages now go on to the COMICリュウライブ front page.
+
+    A PAGE SAYING NOTHING OF WHY stays `blocked`, the reading `names_work` was written for.
+    """
+    text = text_of(html)
+    if any(m in text for m in REFUSED):
+        return "blocked", "rendered; the platform refused the page"
+    if any(m in text for m in NOT_THERE):
+        return "missing", "rendered; the platform's page says this address leads nowhere"
+    said = says_it_is(html)
+    if above(url, said):
+        return "missing", f"rendered; the address now opens {said}, not the work's page"
+    return "blocked", "rendered; the page does not name this work, so it was not shown to us"
+
+
+def not_named(checks, plat_name, target, html, cache):
+    """Record a rendered page that does not name the work, and say which kind it was.
+
+    A REFUSAL IS ASKED AGAIN. ドリコミ+ refused us from outside Japan, the refusal was cached, and on
+    2026-11-05 the first run through Tokyo read that copy instead of the page the route now
+    reaches. A refusal can lift, so the next run asks again. A page saying the work is gone is
+    kept for its week like any other render.
+    """
+    result, note = why_not_named(html, target["url"])
+    checkstate.record(checks, plat_name, target.get("title") or "", result, note=note)
+    if result == "blocked":
+        cache_file(target["url"], cache).unlink(missing_ok=True)
+        return "refused"
+    return "not there"
+
+
 def carry_over(path, rows):
     """Fold this run's rows into whatever the file already holds, keyed on URL.
 
@@ -356,6 +442,17 @@ def rendered_platforms(spec):
     return [p for p in (spec or {}).get("platforms") or [] if not p.get("own_adapter")]
 
 
+def works_to_render(plat, not_works, limit):
+    """The platform's targets, less any the register records as not a work, up to `limit`.
+
+    THE REGISTER HAS ALREADY DECIDED. ゆりひめ@ピクシブ is pixivコミック's channel for コミック百合姫,
+    listed under `not_works` with its address, and it stayed a target here because the target list
+    was written by hand before that entry and `targets.py` only adds. Its page is titled pixiv百合姫
+    and lists eighty-five works, so it named no work and was recorded as a refusal.
+    """
+    return [w for w in plat.get("works") or [] if w.get("url") not in not_works][:limit]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--targets", required=True)
@@ -374,13 +471,14 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     spec = yaml.safe_load(open(a.targets)) or {}
+    not_works = platform.not_works()
     deadline = time.time() + RENDER_BUDGET_S
     for plat in rendered_platforms(spec):
         rows, failed = [], Counter()
         # SAYING WHAT IT IS DOING, because this stage was silent for 24 minutes. A browser render is
         # ten seconds and this walks a hundred of them, so a run that has hung and a run that is
         # working looked exactly alike from outside: one line per platform, before the work starts.
-        want = (plat.get("works") or [])[: a.limit_per_host]
+        want = works_to_render(plat, not_works, a.limit_per_host)
         print(f"{plat.get('name') or plat.get('platform') or '?':22} rendering {len(want)} work(s)"
               f" (cached renders are reused for {RENDER_AGE_DAYS} days)", flush=True)
         for t in want:
@@ -444,10 +542,7 @@ def main():
                 checkstate.record(CHECKS, plat['name'], t.get('title') or '', 'ok',
                                   note=f'rendered; {len(eps)} episode(s) read')
             elif not names_work(html, t.get("title")):
-                failed['not the work\'s page'] += 1
-                checkstate.record(CHECKS, plat['name'], t.get('title') or '', 'blocked',
-                                  note='rendered; the page does not name this work, so it was '
-                                       'not shown to us')
+                failed[not_named(CHECKS, plat['name'], t, html, cache)] += 1
             else:
                 failed['no dated chapters'] += 1
                 # A FINDING, not a failure. The page rendered and the platform drew no dates on it,

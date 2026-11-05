@@ -120,6 +120,20 @@ def geoblocked(path=REGISTER):
     return [dict(g) for g in (doc.get("geoblocked") or []) if g.get("host")]
 
 
+def not_works(path=REGISTER):
+    """The addresses the register records as something other than a work: `{url: title}`.
+
+    A magazine channel such as ゆりひめ@ピクシブ carries a hundred works and is none of them. The
+    rendered route had it as a target from the list written by hand on 2026-08-02, rendered a
+    page titled pixiv百合姫, and recorded that the platform would not show us the work.
+    """
+    p = pathlib.Path(path)
+    if not p.exists():
+        return {}
+    doc = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+    return {x["url"]: x.get("title") for x in (doc.get("not_works") or []) if x.get("url")}
+
+
 def owners(platforms=None):
     """`{host: platform name}` for every host exactly one platform claims."""
     if platforms is None:

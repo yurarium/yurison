@@ -9552,12 +9552,17 @@ names:
     reading_source_kind: analyser
     verified: false
   いばら姫とおやすみ。:
-    basis: translated
-    en: Good Night with Briar Rose
+    basis: official-jp
+    en: Goodnight, Sleeping Beauty.
     en_at: '2026-11-05'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Good Night with Briar Rose
     en_reviewed: '2026-11-05'
-    en_source: yurarium
-    en_source_kind: derived
+    en_source: kadokomi
+    en_source_kind: platform
+    en_url: https://comic-walker.com/detail/KC_021576_S
     furigana_spans:
     - - いばら
       - null
@@ -9565,10 +9570,9 @@ names:
       - ひめ
     - - とおやすみ。
       - null
-    note: いばら姫 is the Japanese name for Sleeping Beauty (Briar Rose), and the girl in the story is called
-      Ibara and looks like a fairy-tale princess. おやすみ is a bedtime goodnight, which fits the synopsis
-      on the Comic Walker page about a sleepless office worker who begins sleeping next to her. The English
-      keeps the fairy-tale name and the goodnight.
+    note: The work's own English, printed on the title page of 第1話 on カドコミ and read there by the project
+      owner on 2026-11-05. The page is an image in the viewer, so no text on the series page carries it.
+      The full stop is the title's own, as the Japanese ends in 。.
     reading: イバラ ヒメ ト オヤスミ。
     reading_at: '2026-11-05'
     reading_basis: analyser
@@ -9578,6 +9582,10 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
+    translation_note: Our own rendering, made before the work's English was known and kept beside it because
+      EN_ORDER is the reader's to set. いばら姫 is the Japanese name for Sleeping Beauty (Briar Rose), and
+      おやすみ is a bedtime goodnight, which fits the synopsis on the カドコミ page about a sleepless office worker
+      who begins sleeping next to her.
     verified: false
   いまも永遠のアン・フィーユ:
     basis: translated

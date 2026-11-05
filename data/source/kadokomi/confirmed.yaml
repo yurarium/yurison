@@ -4,6 +4,35 @@ source: kadokomi
 retrieved: 2026-11-05
 record_type: web_work_confirmation
 works:
+  - work_title: "いばら姫とおやすみ。"
+    platform_code: "KC_021576_S"
+    url: "https://comic-walker.com/detail/KC_021576_S"
+    genre: {"code": "0201", "id": "018a178c-a906-7b25-bb70-4cba748efdfa", "name": "少年"}
+    sub_genre: {"code": "0208", "id": "018a262f-9865-788e-9694-4758845b6e7d", "name": "恋愛"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "ドラドラふらっと♭"
+    marketing_label: "yuri"
+    tags: ["現代", "胸キュン", "女主人公", "女子高校生(JK)", "大人向け", "いちゃラブ", "百合", "WEB小説", "働く女子", "社会人", "年の差", "尽くす系女子"]
+    authors:
+      - name: "深水紅茶"
+        role: "原作"
+      - name: "千野なこ"
+        role: "作画"
+      - name: "椎名くろ"
+        role: "キャラクター原案"
+    marketing_label_basis:
+      source: "kadokomi"
+      url: "https://comic-walker.com/detail/KC_021576_S"
+      retrieved: "2026-11-05"
+      note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/11/05/ibarahimeto-comic-start/"
   - work_title: "王子はさけて通れない！"
     platform_code: "KC_021486_S"
     url: "https://comic-walker.com/detail/KC_021486_S"

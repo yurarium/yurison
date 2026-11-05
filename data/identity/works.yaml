@@ -23036,6 +23036,10 @@ works:
       - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984467761498"
         basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984467777208 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984467761498, so the platform places this chapter in series 12207421984467761498"
         retrieved: 2026-11-04
+  - id: w03527
+    title: "いばら姫とおやすみ。"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_021576_S"
 related:
   - a: w00156
     b: w00486

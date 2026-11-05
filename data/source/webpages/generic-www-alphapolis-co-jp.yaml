@@ -21,7 +21,7 @@ date_confidence: low
 works:
   - work_title: "君の初恋を私は知らない"
     url: "https://www.alphapolis.co.jp/manga/official/791000435"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
       - title: "第3回"
         updated: 2022-05-23
@@ -31,4 +31,7 @@ works:
         date_basis: heuristic
       - title: "第1回"
         updated: 2022-03-28
+        date_basis: heuristic
+      - title: "５回目の人生、転生したら死にそうな孤児でした"
+        updated: 2026-11-05
         date_basis: heuristic

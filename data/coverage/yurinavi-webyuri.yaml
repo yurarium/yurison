@@ -6,10 +6,10 @@ source: yurinavi-webyuri
 role: coverage-yardstick
 retrieved: 2026-11-05
 record_type: coverage_gap
-works_listed: 135
+works_listed: 136
 platforms_total: 25
 platforms_watched: 17
-works_on_watched_platforms: 100
+works_on_watched_platforms: 101
 platforms:
   - platform: "カドコミ"
     works: 57
@@ -18,7 +18,7 @@ platforms:
     works: 23
     watched: false
   - platform: "一迅プラス"
-    works: 13
+    works: 14
     watched: true
   - platform: "竹コミ！"
     works: 5
@@ -819,6 +819,12 @@ works:
     watched_platform: true
     title: "晴れた日のドレスコード"
     url: "https://ichicomi.com/episode/12207421984222532905"
+  - raw: "現実世界でも幸せにしてくださいね？ しぼりかすこ"
+    platform: "一迅プラス"
+    last_update_seen: 11-05
+    watched_platform: true
+    title: "現実世界でも幸せにしてくださいね？"
+    url: "https://ichicomi.com/episode/12207421984222532954"
   - raw: "神は私を撮りたいって言ってます！ 散葉ちんみ"
     platform: "一迅プラス"
     last_update_seen: 10-15

@@ -1,4 +1,4 @@
-generated: '2026-11-04'
+generated: '2026-11-05'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -9528,6 +9528,25 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  いばら姫とおやすみ。:
+    basis: romaji
+    furigana_spans:
+    - - いばら
+      - null
+    - - 姫
+      - ひめ
+    - - とおやすみ。
+      - null
+    reading: イバラ ヒメ ト オヤスミ。
+    reading_at: '2026-11-05'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   いまも永遠のアン・フィーユ:

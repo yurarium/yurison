@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 253
   hits_on_the_title_alone: 112
   hits_stating_a_print_edition_date: 211
-  works_asked: 905
+  works_asked: 906
   works_with_a_hit: 272
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -8918,6 +8918,16 @@ works:
         publisher: "集英社"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://tonarinoyj.jp/episode/12207421984467777208"
+    id: "w03526"
+    work: "ナイーブ・リザーブド"
+    author: "不飽和デザ"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-11-05"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query returned no title this database recognises"
   - work_url: "https://tonarinoyj.jp/episode/13933686331772859580"
     id: "w00982"
     work: "ストライク・オア・ガター"

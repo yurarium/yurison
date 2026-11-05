@@ -42,6 +42,9 @@ def _unit(s):
     geo.execute("DELETE FROM geoblocked_host")
     s.eq(emit.meta(geo, "x", 14, None, [], 0)["japan_only"], [],
          "and lists none where the register records none")
+    geo.execute("DROP TABLE geoblocked_host")
+    s.eq(emit.meta(geo, "x", 14, None, [], 0)["japan_only"], [],
+         "and a store published before the table existed emits none rather than stopping the site")
     # ── THE RUN'S REPORT ON ITSELF, §13 ───────────────────────────────────────────────────────
     #
     # BUILT HERE RATHER THAN READ FROM THE STORE ON DISK, because these tables are written after

@@ -1341,6 +1341,18 @@ def feed(db, rows=None):
     return [held[i] for i in rows if i in held]
 
 
+def _present(db, table):
+    """Whether the store holds `table`, for a field added after stores the site still accepts.
+
+    THE SITE BUILDS FROM THIS EMITTER AT ITS NEWEST AND FROM THE STORE LAST PUBLISHED, which can be
+    older. `KNOWN_SCHEMAS` there accepts that older store, and on 2026-11-05 the emitter asked it
+    for `geoblocked_host`, which it did not have, and the night's deploy stopped on a traceback. A
+    field the older store cannot answer is emitted empty until a store that can is published.
+    """
+    return db.execute("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
+                      (table,)).fetchone() is not None
+
+
 def meta(db, generated, window_days, archive_from, archive_months, samples_dropped):
     """`feed/meta.json`: what the run saw of each platform, and what it has not confirmed yet.
 
@@ -1381,7 +1393,8 @@ def meta(db, generated, window_days, archive_from, archive_months, samples_dropp
         "platforms": platforms,
         # HOSTS THAT REFUSE READERS OUTSIDE JAPAN. The interface marks every link to one, whichever
         # template drew it, so a reader abroad knows before following it.
-        "japan_only": [h for h, in db.execute("SELECT host FROM geoblocked_host ORDER BY host")],
+        "japan_only": ([h for h, in db.execute("SELECT host FROM geoblocked_host ORDER BY host")]
+                       if _present(db, "geoblocked_host") else []),
         # WORKS A COMPARATOR REPORTS AS UPDATING THAT THE PLATFORM'S OWN HISTORY CONTRADICTS. The
         # table is the platform census and a contradiction is a row in it; none stands today, which
         # is a state and not an omission.

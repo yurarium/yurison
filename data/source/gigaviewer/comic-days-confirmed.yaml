@@ -13,8 +13,25 @@ publisher: "講談社"
 retrieved: 2026-11-05
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 3
+works_confirmed: 4
 works:
+  - work_title: "是騒騒"
+    author: "羅川真里茂"
+    url: "https://comic-days.com/episode/12207421984407366672"
+    series_id: "12207421984407366164"
+    is_oneshot: false
+    discovered_via:
+      signal: "new-serial"
+      article: "https://yurinavi.com/2026/11/05/koresaisai-start/"
+      headline: "大学生と謎の淑女の出会いを描く妖艶ガールミーツガール「是騒騒」WEBで連載スタート"
+    chapter_count: 2
+    chapters:
+      - title: "第２話①"
+        updated: 2026-11-04
+        url: "https://comic-days.com/episode/12207421984407366684"
+      - title: "第１話"
+        updated: 2026-11-04
+        url: "https://comic-days.com/episode/12207421984407366672"
   - work_title: "下部七花はかく語りき"
     author: "暮みちる"
     url: "https://comic-days.com/episode/12207421983885192770"

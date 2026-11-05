@@ -6,7 +6,7 @@ platform: takecomic
 platform_name: "竹コミ"
 publisher: "竹書房"
 engine: comici
-retrieved: 2026-10-22
+retrieved: 2026-11-05
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,6 +14,7 @@ works:
     status: "連載中"
     author: "くずしろ"
     url: "https://takecomic.jp/series/4ad31024142fd"
+    read: "2026-11-05"
     chapter_count: 11
     chapters:
       - title: "1話"
@@ -53,6 +54,7 @@ works:
     status: "連載中"
     author: "しのぎあさ"
     url: "https://takecomic.jp/series/0e7fd362c2c11"
+    read: "2026-11-05"
     chapter_count: 20
     chapters:
       - title: "1話"
@@ -119,6 +121,7 @@ works:
     status: "完結"
     author: "柚木涼太"
     url: "https://takecomic.jp/series/2ff377e5bc873"
+    read: "2026-11-05"
     chapter_count: 64
     chapters:
       - title: "1話"
@@ -317,6 +320,7 @@ works:
     status: "完結"
     author: "アジイチ"
     url: "https://takecomic.jp/series/21c8e22896612"
+    read: "2026-11-05"
     chapter_count: 3
     chapters:
       - title: "1話"
@@ -332,6 +336,7 @@ works:
     status: "完結"
     author: "夏鈴糖"
     url: "https://takecomic.jp/series/1c1afe76da717"
+    read: "2026-11-05"
     chapter_count: 19
     chapters:
       - title: "1話"
@@ -395,6 +400,7 @@ works:
     status: "連載中"
     author: "宮澤伊織,ぴよぴよ丸,今井哲也"
     url: "https://takecomic.jp/series/135220287d820"
+    read: "2026-11-05"
     chapter_count: 20
     chapters:
       - title: "1話"
@@ -461,7 +467,8 @@ works:
     status: "連載中"
     author: "シャチ,かみねし,エストレーヤ★彡"
     url: "https://takecomic.jp/series/86a4f1e41d627"
-    chapter_count: 14
+    read: "2026-11-05"
+    chapter_count: 15
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -489,7 +496,7 @@ works:
         access_modes: ["free-timed"]
       - title: "9話"
         updated: "2025-12-11"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "10話"
         updated: "2026-01-08"
         access_modes: ["purchase"]
@@ -501,14 +508,18 @@ works:
         access_modes: ["purchase"]
       - title: "13話"
         updated: "2026-09-03"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "14話"
         updated: "2026-10-01"
+        access_modes: ["free"]
+      - title: "15話"
+        updated: "2026-11-05"
         access_modes: ["purchase"]
   - work_title: "ペアリングギア"
     status: "連載中"
     author: "教祖れい"
     url: "https://takecomic.jp/series/f6b42b56cc099"
+    read: "2026-11-05"
     chapter_count: 7
     chapters:
       - title: "1話"
@@ -536,7 +547,8 @@ works:
     status: "連載中"
     author: "ゔぇじたぶる"
     url: "https://takecomic.jp/series/b53a116d9f0e7"
-    chapter_count: 19
+    read: "2026-11-05"
+    chapter_count: 20
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -591,14 +603,18 @@ works:
         access_modes: ["purchase"]
       - title: "18話"
         updated: "2026-08-07"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "19話"
         updated: "2026-09-04"
+        access_modes: ["free"]
+      - title: "20話"
+        updated: "2026-10-23"
         access_modes: ["purchase"]
   - work_title: "夢でフラれてはじまる百合"
     status: "連載中"
     author: "ヒジキ"
     url: "https://takecomic.jp/series/8e32550d65684"
+    read: "2026-11-05"
     chapter_count: 56
     chapters:
       - title: "1話"
@@ -773,6 +789,7 @@ works:
     status: "完結"
     author: "雨水汐"
     url: "https://takecomic.jp/series/a7d2a290d0cc7"
+    read: "2026-11-05"
     chapter_count: 19
     chapters:
       - title: "1話"
@@ -836,7 +853,8 @@ works:
     status: "連載中"
     author: "朝野やぐら"
     url: "https://takecomic.jp/series/b3efcd5f3a6a7"
-    chapter_count: 26
+    read: "2026-11-05"
+    chapter_count: 27
     chapters:
       - title: "0話"
         updated: "2025-10-17"
@@ -912,15 +930,19 @@ works:
         access_modes: ["purchase"]
       - title: "20話"
         updated: "2026-05-02"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "21話"
         updated: "2026-07-17"
+        access_modes: ["free"]
+      - title: "22話"
+        updated: "2026-10-30"
         access_modes: ["purchase"]
   - work_title: "狼の皮をかぶった羊姫"
     status: "連載中"
     author: "ミト"
     url: "https://takecomic.jp/series/edb5080d3a3a1"
-    chapter_count: 9
+    read: "2026-11-05"
+    chapter_count: 10
     chapters:
       - title: "1話"
         updated: "2026-01-30"
@@ -933,7 +955,7 @@ works:
         access_modes: ["free-timed"]
       - title: "4話"
         updated: "2026-04-24"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "5話"
         updated: "2026-05-22"
         access_modes: ["purchase"]
@@ -945,14 +967,18 @@ works:
         access_modes: ["purchase"]
       - title: "8話"
         updated: "2026-08-28"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "9話"
         updated: "2026-09-25"
+        access_modes: ["free"]
+      - title: "10話"
+        updated: "2026-10-30"
         access_modes: ["purchase"]
   - work_title: "白き乙女の人狼"
     status: "連載中"
     author: "アジイチ,王月よう"
     url: "https://takecomic.jp/series/d8e8c084c4c6c"
+    read: "2026-11-05"
     chapter_count: 50
     chapters:
       - title: "1話"
@@ -1109,6 +1135,7 @@ works:
     status: "連載中"
     author: "橘まなり"
     url: "https://takecomic.jp/series/5b8e11d2274cc"
+    read: "2026-11-05"
     chapter_count: 16
     chapters:
       - title: "1話"
@@ -1163,6 +1190,7 @@ works:
     status: "連載中"
     author: "スズオ"
     url: "https://takecomic.jp/series/e060f5eef826c"
+    read: "2026-11-05"
     chapter_count: 19
     chapters:
       - title: "1話"
@@ -1226,6 +1254,7 @@ works:
     status: "完結"
     author: "くも子"
     url: "https://takecomic.jp/series/5a87d01128492"
+    read: "2026-11-05"
     chapter_count: 23
     chapters:
       - title: "1話"
@@ -1301,6 +1330,7 @@ works:
     status: "連載中"
     author: "ななつ藤"
     url: "https://takecomic.jp/series/ae1cf555c8b01"
+    read: "2026-11-05"
     chapter_count: 16
     chapters:
       - title: "1話"
@@ -1355,6 +1385,7 @@ works:
     status: "連載中"
     author: "もくふう"
     url: "https://takecomic.jp/series/de0a74a9b5715"
+    read: "2026-11-05"
     chapter_count: 20
     chapters:
       - title: "1話"
@@ -1421,6 +1452,7 @@ works:
     status: "連載中"
     author: "鬼無サケル"
     url: "https://takecomic.jp/series/4e4bb1b935407"
+    read: "2026-11-05"
     chapter_count: 16
     chapters:
       - title: "1話"
@@ -1475,6 +1507,7 @@ works:
     status: "完結"
     author: "サスケ"
     url: "https://takecomic.jp/series/2706e9d937d5f"
+    read: "2026-11-05"
     chapter_count: 14
     chapters:
       - title: "1話"
@@ -1523,6 +1556,7 @@ works:
     status: "連載中"
     author: "小野中彰大"
     url: "https://takecomic.jp/series/0d7dee548d547"
+    read: "2026-11-05"
     chapter_count: 71
     chapters:
       - title: "1話"
@@ -1742,6 +1776,7 @@ works:
     status: "連載中"
     author: "秋津貴央"
     url: "https://takecomic.jp/series/68270e5ebb4a6"
+    read: "2026-11-05"
     chapter_count: 40
     chapters:
       - title: "1話"

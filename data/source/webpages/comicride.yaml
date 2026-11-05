@@ -6,7 +6,7 @@ platform: comicride
 platform_name: "ライコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-10-23
+retrieved: 2026-11-05
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,7 +14,8 @@ works:
     status: "連載中"
     author: "南方純,kiki,キンタ"
     url: "https://comicride.jp/series/7b86cbca64ebe"
-    chapter_count: 75
+    read: "2026-11-05"
+    chapter_count: 76
     chapters:
       - title: "第1話"
         updated: "2023-11-30"
@@ -222,7 +223,7 @@ works:
         access_modes: ["free-timed"]
       - title: "第37話前編"
         updated: "2026-05-20"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第37話中編"
         updated: "2026-06-17"
         access_modes: ["free"]
@@ -231,7 +232,7 @@ works:
         access_modes: ["free"]
       - title: "第37話後編②"
         updated: "2026-07-29"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第38話前編"
         updated: "2026-08-19"
         access_modes: ["purchase"]
@@ -241,10 +242,14 @@ works:
       - title: "第38話後編①"
         updated: "2026-10-14"
         access_modes: ["purchase"]
+      - title: "第38話後編②"
+        updated: "2026-10-28"
+        access_modes: ["purchase"]
   - work_title: "『人斬り』少女、公爵令嬢の護衛になる"
     status: "完結"
     author: "スメラギ,笹塔五郎,ミユキルリア"
     url: "https://comicride.jp/series/b95a6b1493469"
+    read: "2026-11-05"
     chapter_count: 51
     chapters:
       - title: "第1話"
@@ -255,37 +260,37 @@ works:
         access_modes: ["free"]
       - title: "第2話②"
         updated: "2024-04-15"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第2話③"
         updated: "2024-04-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第2話④"
         updated: "2024-04-29"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第3話①"
         updated: "2024-05-06"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第3話②"
         updated: "2024-05-20"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第3話③"
         updated: "2024-05-27"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第4話①"
         updated: "2024-06-03"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第4話②"
         updated: "2024-06-17"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第4話③"
         updated: "2024-06-24"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第5話①"
         updated: "2024-07-08"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第5話②"
         updated: "2024-07-22"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "コミックス告知"
         updated: "2024-08-27"
         access_modes: ["free"]
@@ -404,6 +409,7 @@ works:
     status: "読み切り"
     author: "星文ろの"
     url: "https://comicride.jp/series/b59a539f01669"
+    read: "2026-11-05"
     chapter_count: 2
     chapters:
       - title: "前編"
@@ -416,6 +422,7 @@ works:
     status: "連載中"
     author: "ミルクセーキ,くまのみそふと,chihiro"
     url: "https://comicride.jp/series/0ff97eb531021"
+    read: "2026-11-05"
     chapter_count: 1
     chapters:
       - title: "第1話"

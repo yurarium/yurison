@@ -16,6 +16,33 @@ retrieved: 2026-11-05
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "アイドラトリィ"
+    author: "原作/大鷹シン 漫画/ホマレ"
+    url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 5
+    chapters:
+      - title: "【#51】princess"
+        updated: 2026-08-26
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
+      - title: "【#52】Midnight"
+        updated: 2026-09-09
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/443443"
+      - title: "【単行本宣伝話】"
+        updated: 2026-09-16
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/444080"
+      - title: "【#53】Cuteness"
+        updated: 2026-09-23
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/444087"
+      - title: "【#58】lgnite"
+        updated: 2026-11-04
+        access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/446072"
   - work_title: "新刊100億冊ください"
     author: "破賀ミチル"
     url: "https://comic-days.com/episode/12207421983484134468"
@@ -192,29 +219,6 @@ works:
         updated: 2026-11-04
         access_modes: ["purchase"]
         url: "https://pocket.shonenmagazine.com/title/02758/episode/446290"
-  - work_title: "アイドラトリィ"
-    author: "原作/大鷹シン 漫画/ホマレ"
-    url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 4
-    chapters:
-      - title: "【#51】princess"
-        updated: 2026-08-26
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
-      - title: "【#52】Midnight"
-        updated: 2026-09-09
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/443443"
-      - title: "【単行本宣伝話】"
-        updated: 2026-09-16
-        access_modes: ["free"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/444080"
-      - title: "【#58】lgnite"
-        updated: 2026-11-04
-        access_modes: ["purchase"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/446072"
   - work_title: "サタノファニ"
     author: "山田恵庸"
     url: "https://comic-days.com/episode/12207421983566481774"

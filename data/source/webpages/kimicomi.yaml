@@ -6,7 +6,7 @@ platform: kimicomi
 platform_name: "キミコミ"
 publisher: "キルタイムコミュニケーション"
 engine: comici
-retrieved: 2026-10-22
+retrieved: 2026-11-05
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,6 +14,7 @@ works:
     status: "連載中"
     author: "しおバター"
     url: "https://kimicomi.com/series/22386346e628c"
+    read: "2026-11-05"
     chapter_count: 8
     chapters:
       - title: "第1話"
@@ -44,6 +45,7 @@ works:
     status: "連載中"
     author: "南瓜かぷちー"
     url: "https://kimicomi.com/series/617d2958d4953"
+    read: "2026-11-05"
     chapter_count: 24
     chapters:
       - title: "TARGET.1"
@@ -122,6 +124,7 @@ works:
     status: "完結"
     author: "ほりとも"
     url: "https://kimicomi.com/series/5fa1c045cc164"
+    read: "2026-11-05"
     chapter_count: 24
     chapters:
       - title: "第1話さくら舞い散る初登校"
@@ -200,7 +203,8 @@ works:
     status: "連載中"
     author: "りんご水,林星悟,餡こたく"
     url: "https://kimicomi.com/series/8acb58b98ca8f"
-    chapter_count: 27
+    read: "2026-11-05"
+    chapter_count: 28
     chapters:
       - title: "Step.0"
         updated: "2025-08-22"
@@ -267,7 +271,7 @@ works:
         access_modes: ["free-timed"]
       - title: "Step.12②"
         updated: "2026-05-04"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "Step.13①"
         updated: "2026-06-22"
         access_modes: ["purchase"]
@@ -279,14 +283,18 @@ works:
         access_modes: ["purchase"]
       - title: "Step.14②"
         updated: "2026-08-18"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "Step.15①"
         updated: "2026-10-13"
+        access_modes: ["free"]
+      - title: "Step.15②"
+        updated: "2026-10-27"
         access_modes: ["free"]
   - work_title: "タコと天使たち"
     status: "完結"
     author: "KENTO OKAYAMA"
     url: "https://kimicomi.com/series/a5503338d0099"
+    read: "2026-11-05"
     chapter_count: 21
     chapters:
       - title: "第1話"
@@ -356,6 +364,7 @@ works:
     status: "完結"
     author: "ほしあらん"
     url: "https://kimicomi.com/series/f7db55fffae10"
+    read: "2026-11-05"
     chapter_count: 6
     chapters:
       - title: "第1話"
@@ -380,7 +389,8 @@ works:
     status: "連載中"
     author: "真田一輝"
     url: "https://kimicomi.com/series/f42014b3e7df6"
-    chapter_count: 27
+    read: "2026-11-05"
+    chapter_count: 29
     chapters:
       - title: "熟成01"
         updated: "2026-04-19"
@@ -450,24 +460,31 @@ works:
         access_modes: ["free-timed"]
       - title: "熟成23"
         updated: "2026-09-20"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "熟成24"
         updated: "2026-09-27"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "熟成25"
         updated: "2026-10-04"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "熟成26"
         updated: "2026-10-11"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "熟成27"
         updated: "2026-10-18"
+        access_modes: ["free"]
+      - title: "熟成28"
+        updated: "2026-10-25"
+        access_modes: ["purchase"]
+      - title: "熟成29"
+        updated: "2026-11-01"
         access_modes: ["purchase"]
   - work_title: "人妻とJK"
     status: "連載中"
     author: "焼肉定食"
     url: "https://kimicomi.com/series/01e004cee82d9"
-    chapter_count: 42
+    read: "2026-11-05"
+    chapter_count: 43
     chapters:
       - title: "第1話"
         updated: "2025-08-22"
@@ -582,10 +599,10 @@ works:
         access_modes: ["free-timed"]
       - title: "第38話"
         updated: "2025-08-22"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第39話"
         updated: "2025-09-29"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第40話"
         updated: "2025-10-20"
         access_modes: ["free"]
@@ -594,12 +611,16 @@ works:
         access_modes: ["free"]
       - title: "第41話"
         updated: "2026-06-08"
+        access_modes: ["free"]
+      - title: "第42話"
+        updated: "2026-11-02"
         access_modes: ["purchase"]
   - work_title: "午後4時。透明、ときどき声優"
     status: "連載中"
     author: "漆赤,岬鷺宮,いちかわはる"
     url: "https://kimicomi.com/episodes/9f79b9c018e62/"
-    chapter_count: 5
+    read: "2026-11-05"
+    chapter_count: 6
     chapters:
       - title: "第1話"
         updated: "2026-09-19"
@@ -612,106 +633,20 @@ works:
         access_modes: ["free"]
       - title: "第3話①"
         updated: "2026-10-06"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第3話②"
         updated: "2026-10-20"
+        access_modes: ["purchase"]
+      - title: "第4話①"
+        updated: "2026-11-03"
         access_modes: ["purchase"]
   - work_title: "新米錬金術師の店舗経営"
     status: "連載中"
     author: "kirero,いつきみずほ,ふーみ"
     url: "https://kimicomi.com/series/3e22b763a1c0f"
-    chapter_count: 62
+    read: "2026-11-05"
+    chapter_count: 32
     chapters:
-      - title: "1st management"
-        updated: "2025-08-22"
-        access_modes: ["free"]
-      - title: "2nd management"
-        updated: "2025-08-22"
-        access_modes: ["free"]
-      - title: "3rd management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "4th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "5th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "6th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "7th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "8th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "9th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "10th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "11th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "12th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "13th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "14th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "15th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "16th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "17th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "18th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "19th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "20th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "21st management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "22nd management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "23rd management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "24th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "25th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "26th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "27th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "28th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "29th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
-      - title: "30th management"
-        updated: "2025-08-22"
-        access_modes: ["free-timed"]
       - title: "31st management"
         updated: "2025-08-22"
         access_modes: ["free-timed"]
@@ -809,9 +744,10 @@ works:
         updated: "2026-10-12"
         access_modes: ["purchase"]
   - work_title: "暗殺組合の山田さん"
-    status: "連載中"
+    status: "完結"
     author: "BLZ"
     url: "https://kimicomi.com/series/397963f4f9cfd"
+    read: "2026-11-05"
     chapter_count: 10
     chapters:
       - title: "第一話"
@@ -834,10 +770,10 @@ works:
         access_modes: ["purchase"]
       - title: "第七話"
         updated: "2026-09-30"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第八話"
         updated: "2026-10-07"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第九話"
         updated: "2026-10-14"
         access_modes: ["purchase"]
@@ -848,6 +784,7 @@ works:
     status: "完結"
     author: "TATSUBON"
     url: "https://kimicomi.com/series/a869ecfca8da9"
+    read: "2026-11-05"
     chapter_count: 29
     chapters:
       - title: "第1-2話"
@@ -941,6 +878,7 @@ works:
     status: "完結"
     author: "鈴音れな,あらおし悠"
     url: "https://kimicomi.com/series/9485e36b66a9d"
+    read: "2026-11-05"
     chapter_count: 18
     chapters:
       - title: "第1話"
@@ -1001,6 +939,7 @@ works:
     status: "完結"
     author: "金子ある"
     url: "https://kimicomi.com/series/65ca0e7b80087"
+    read: "2026-11-05"
     chapter_count: 11
     chapters:
       - title: "1日目"
@@ -1040,7 +979,8 @@ works:
     status: "連載中"
     author: "棘尾どろしー"
     url: "https://kimicomi.com/series/330f3ad1270c8"
-    chapter_count: 37
+    read: "2026-11-05"
+    chapter_count: 39
     chapters:
       - title: "第1話"
         updated: "2025-08-22"
@@ -1143,21 +1083,28 @@ works:
         access_modes: ["free-timed"]
       - title: "第33話"
         updated: "2026-07-02"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "第34話"
         updated: "2026-07-23"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第35話"
         updated: "2026-09-17"
         access_modes: ["free"]
       - title: "第36話"
         updated: "2026-10-08"
+        access_modes: ["free"]
+      - title: "第37話"
+        updated: "2026-10-29"
         access_modes: ["purchase"]
+      - title: "単行本6巻発売告知"
+        updated: "2026-11-05"
+        access_modes: ["free"]
   - work_title: "魔王城デート大作戦!"
     status: "連載中"
     author: "涼海来夏"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    chapter_count: 14
+    read: "2026-11-05"
+    chapter_count: 16
     chapters:
       - title: "OPERATION1"
         updated: "2026-07-20"
@@ -1188,16 +1135,22 @@ works:
         access_modes: ["free-timed"]
       - title: "OPERATION10"
         updated: "2026-09-21"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "OPERATION11"
         updated: "2026-09-28"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "OPERATION12"
         updated: "2026-10-05"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "OPERATION13"
         updated: "2026-10-12"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "OPERATION14"
         updated: "2026-10-19"
+        access_modes: ["free"]
+      - title: "OPERATION15"
+        updated: "2026-10-26"
+        access_modes: ["purchase"]
+      - title: "OPERATION16"
+        updated: "2026-11-02"
         access_modes: ["purchase"]

@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 253
   hits_on_the_title_alone: 112
   hits_stating_a_print_edition_date: 211
-  works_asked: 906
+  works_asked: 908
   works_with_a_hit: 272
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -1012,6 +1012,16 @@ works:
     author: "灯立夏"
     platform: "コミックDAYS"
     retrieved: "2026-09-26"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-days.com/episode/12207421984407366672"
+    id: "w03525"
+    work: "是騒騒"
+    author: "羅川真里茂"
+    platform: "コミックDAYS"
+    retrieved: "2026-11-05"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -4113,6 +4123,16 @@ works:
     hits: []
     notes:
       - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_021576_S"
+    id: "w03527"
+    work: "いばら姫とおやすみ。"
+    author: "深水紅茶 / 千野なこ / 椎名くろ"
+    platform: "カドコミ"
+    retrieved: "2026-11-05"
+    hits: []
+    notes:
+      - "author query answered nothing"
       - "title query returned no title this database recognises"
   - work_url: "https://comic-walker.com/detail/KC_021614_S"
     id: "w03524"

@@ -6,7 +6,7 @@ platform: g-comi
 platform_name: "Gコミ"
 publisher: ""
 engine: comici
-retrieved: 2026-10-22
+retrieved: 2026-11-05
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,6 +14,7 @@ works:
     status: "完結"
     author: "ヨドカワ"
     url: "https://g-comi.jp/series/063225706887f"
+    read: "2026-11-05"
     chapter_count: 7
     chapters:
       - title: "第1話"
@@ -40,8 +41,9 @@ works:
   - work_title: "きっと、彼女が好きだから"
     status: "連載中"
     author: "ヒロアキ"
-    url: "https://g-comi.jp/series/74403f9e30641"
-    chapter_count: 5
+    url: "https://g-comi.jp/episodes/733105e64bf91"
+    read: "2026-11-05"
+    chapter_count: 8
     chapters:
       - title: "第1話"
         updated: "2026-08-28"
@@ -57,22 +59,63 @@ works:
         access_modes: ["purchase"]
       - title: "第5話"
         updated: "2026-10-14"
+        access_modes: ["purchase"]
+      - title: "第6話"
+        updated: "2026-10-21"
+        access_modes: ["purchase"]
+      - title: "第7話"
+        updated: "2026-11-04"
         access_modes: ["free"]
+      - title: "第8話"
+        updated: "2026-11-04"
+        access_modes: ["purchase"]
+  - work_title: "きっと、彼女が好きだから"
+    status: "連載中"
+    author: "ヒロアキ"
+    url: "https://g-comi.jp/series/74403f9e30641"
+    read: "2026-11-05"
+    chapter_count: 8
+    chapters:
+      - title: "第1話"
+        updated: "2026-08-28"
+        access_modes: ["free"]
+      - title: "第2話"
+        updated: "2026-09-02"
+        access_modes: ["free-timed"]
+      - title: "第3話"
+        updated: "2026-09-09"
+        access_modes: ["purchase"]
+      - title: "第4話"
+        updated: "2026-10-07"
+        access_modes: ["purchase"]
+      - title: "第5話"
+        updated: "2026-10-14"
+        access_modes: ["purchase"]
+      - title: "第6話"
+        updated: "2026-10-21"
+        access_modes: ["purchase"]
+      - title: "第7話"
+        updated: "2026-11-04"
+        access_modes: ["free"]
+      - title: "第8話"
+        updated: "2026-11-04"
+        access_modes: ["purchase"]
   - work_title: "たゆたうふたり"
     status: "連載中"
     author: "ぷえぶろ"
     url: "https://g-comi.jp/series/fef424c168c44"
-    chapter_count: 8
+    read: "2026-11-05"
+    chapter_count: 9
     chapters:
       - title: "1服目"
         updated: "2026-06-28"
         access_modes: ["free"]
       - title: "2服目"
         updated: "2026-06-28"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "3服目"
         updated: "2026-06-28"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "4服目"
         updated: "2026-07-01"
         access_modes: ["purchase"]
@@ -87,11 +130,15 @@ works:
         access_modes: ["purchase"]
       - title: "8服目"
         updated: "2026-10-14"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
+      - title: "9服目"
+        updated: "2026-10-21"
+        access_modes: ["purchase"]
   - work_title: "イヴとイヴたち"
     status: "完結"
     author: "長代ルージュ"
     url: "https://g-comi.jp/series/bb5c13d2cf687"
+    read: "2026-11-05"
     chapter_count: 5
     chapters:
       - title: "後悔"
@@ -113,6 +160,7 @@ works:
     status: "連載中"
     author: "裏海マユ,ちょきんぎょ。"
     url: "https://g-comi.jp/series/58238b3987c11"
+    read: "2026-11-05"
     chapter_count: 4
     chapters:
       - title: "第1話"
@@ -120,10 +168,10 @@ works:
         access_modes: ["free"]
       - title: "第2話"
         updated: "2026-08-07"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第3話"
         updated: "2026-09-04"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第4話"
         updated: "2026-10-02"
         access_modes: ["purchase"]
@@ -131,6 +179,7 @@ works:
     status: "連載中"
     author: "Hiramedousa,いとまん"
     url: "https://g-comi.jp/series/3f172ce77f966"
+    read: "2026-11-05"
     chapter_count: 4
     chapters:
       - title: "第1話"
@@ -149,6 +198,7 @@ works:
     status: "読み切り"
     author: "おやすみまくら"
     url: "https://g-comi.jp/series/82ac8f503cf40"
+    read: "2026-11-05"
     chapter_count: 1
     chapters:
       - title: "喫茶 秘匿異"
@@ -158,6 +208,7 @@ works:
     status: "連載中"
     author: "窓口基"
     url: "https://g-comi.jp/series/f5a28c7f5cc1b"
+    read: "2026-11-05"
     chapter_count: 12
     chapters:
       - title: "第1話 爪女のウワサ"
@@ -168,22 +219,22 @@ works:
         access_modes: ["free"]
       - title: "第3話 呪いのカセットテープのウワサ"
         updated: "2023-10-27"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第4話 人形呪物のウワサ"
         updated: "2024-03-01"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話 妙な間取りの家のウワサ"
         updated: "2024-07-12"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5.5話 404号室の双子のウワサ"
         updated: "2024-09-06"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "単行本第①巻発売記念！描き下ろしイラスト！"
         updated: "2024-10-25"
         access_modes: ["free"]
       - title: "第6話 口大習村のウワサ①"
         updated: "2025-01-03"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第7話 口大習村のウワサ②"
         updated: "2025-03-14"
         access_modes: ["purchase"]
@@ -200,6 +251,7 @@ works:
     status: "連載中"
     author: "ミナミト"
     url: "https://g-comi.jp/series/5448ec9f6077b"
+    read: "2026-11-05"
     chapter_count: 12
     chapters:
       - title: "第1話"
@@ -207,10 +259,10 @@ works:
         access_modes: ["free"]
       - title: "第2話"
         updated: "2025-12-19"
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第3話"
         updated: "2026-01-23"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第4話"
         updated: "2026-02-20"
         access_modes: ["purchase"]
@@ -242,6 +294,7 @@ works:
     status: "読み切り"
     author: "あまね"
     url: "https://g-comi.jp/series/192003ee77e21"
+    read: "2026-11-05"
     chapter_count: 1
     chapters:
       - title: "狙いはキミだけ！"
@@ -251,6 +304,7 @@ works:
     status: "連載中"
     author: "館山けーた"
     url: "https://g-comi.jp/series/7e3c698bca968"
+    read: "2026-11-05"
     chapter_count: 10
     chapters:
       - title: "第1話"
@@ -282,4 +336,38 @@ works:
         access_modes: ["purchase"]
       - title: "第7.5話"
         updated: "2026-10-14"
+        access_modes: ["purchase"]
+  - work_title: "クズ女子が本気の恋に落ちるまで"
+    status: "連載中"
+    author: "櫻井亜矢子"
+    url: "https://g-comi.jp/episodes/de67c6535ad59"
+    read: "2026-11-05"
+    chapter_count: 9
+    chapters:
+      - title: "1幕"
+        updated: "2026-06-28"
         access_modes: ["free"]
+      - title: "2幕"
+        updated: "2026-06-28"
+        access_modes: ["free-timed"]
+      - title: "3幕"
+        updated: "2026-06-28"
+        access_modes: ["purchase"]
+      - title: "4幕"
+        updated: "2026-07-22"
+        access_modes: ["purchase"]
+      - title: "5幕"
+        updated: "2026-09-23"
+        access_modes: ["purchase"]
+      - title: "6幕"
+        updated: "2026-10-07"
+        access_modes: ["purchase"]
+      - title: "7幕"
+        updated: "2026-10-14"
+        access_modes: ["purchase"]
+      - title: "8幕"
+        updated: "2026-11-04"
+        access_modes: ["free"]
+      - title: "9幕"
+        updated: "2026-11-04"
+        access_modes: ["purchase"]

@@ -29355,6 +29355,37 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  クズ女子が本気の恋に落ちるまで:
+    basis: romaji
+    furigana_spans:
+    - - クズ
+      - null
+    - - 女子
+      - じょし
+    - - が
+      - null
+    - - 本気
+      - ほんき
+    - - の
+      - null
+    - - 恋
+      - こい
+    - - に
+      - null
+    - - 落
+      - お
+    - - ちるまで
+      - null
+    reading: クズ ジョシ ガ ホンキ ノ コイ ニ オチル マデ
+    reading_at: '2026-11-05'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   クズ浪人生、人生が辛いので夜のお姉さんを呼んでみた:
     basis: translated
     en: I'm a Loser Ronin Student, So I Tried Calling a Lady of the Night

@@ -1379,6 +1379,9 @@ def meta(db, generated, window_days, archive_from, archive_months, samples_dropp
             "oneshot": bool(oneshot)})
     return {
         "platforms": platforms,
+        # HOSTS THAT REFUSE READERS OUTSIDE JAPAN. The interface marks every link to one, whichever
+        # template drew it, so a reader abroad knows before following it.
+        "japan_only": [h for h, in db.execute("SELECT host FROM geoblocked_host ORDER BY host")],
         # WORKS A COMPARATOR REPORTS AS UPDATING THAT THE PLATFORM'S OWN HISTORY CONTRADICTS. The
         # table is the platform census and a contradiction is a row in it; none stands today, which
         # is a state and not an omission.

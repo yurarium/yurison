@@ -647,22 +647,128 @@ no_chapter_dates:
     either, so this is not something a better adapter reaches. What it does publish is forward-looking:
     which day the next instalment is due.'
 access_notes: see the comment above
+# ── HOSTS THAT REFUSE READERS OUTSIDE JAPAN ─────────────────────────────────────────────
+# A host is here when it refuses requests from outside Japan and serves the same page to one from
+# Japan, or when it redirects every reader to a host that does. `checked` is the day that comparison was last made. Two things read this list: the reader's
+# interface marks every link to one of these hosts as readable only from Japan, and `adapters/route.py`
+# sends the update run's requests for a host marked `route: jp` through our server in Tokyo
+# (REQUIREMENTS, "Where the platform has closed to us"). A host the server cannot reach either
+# carries no `route`.
+#
+# piccoma.com was listed here from 2026-08-01, with a note that nothing in our data points at it.
+# On 2026-11-05 its front page answered from outside Japan, so it is no longer recorded as refusing.
 geoblocked:
 - name: ドリコミ+
   host: drecomi-plus.jp
-  observed: HTTP 403
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
 - name: LINEマンガ
   host: manga.line.me
-  observed: HTTP 412
+  observed: HTTP 412 「本サービスは日本国内でのみご利用いただけます」
+  checked: '2026-11-05'
   note: Also marked 更新終了 by Web漫画アンテナ, so it was already in the needs-nothing bucket. The 412 was read
-    as bot protection in the first survey; it is the geoblock.
+    as bot protection in the first survey; it is the geoblock. Our server in Tokyo gets the same 412, so the
+    service does not count that address as Japan, and the route does not reach it.
 - name: comicグラスト
   host: novema.jp
-  observed: HTTP 403
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
   note: Identified as a geoblock by the project owner 2026-08-01, having been filed as bot protection.
     It answers 403 to every agent because of where the request comes from.
-- name: piccoma
-  host: piccoma.com
-  note: 'Checked 2026-08-01: piccoma appears NOWHERE in our data — not as a platform, not in any candidate
-    URL, not in either comparator''s listings. Recorded so the question does not get asked again. Nothing
-    is lost to its geoblock because nothing points at it.'
+- name: ビッコミ
+  host: bigcomics.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+  note: Every comici site refused requests from outside Japan from 2026-10-22, with a CloudFront page
+    reading 「現在、一部の通信環境からのアクセスを制限しております」. From Tokyo the same pages answer.
+- name: 竹コミ
+  host: takecomic.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: チャンピオンクロス
+  host: championcross.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: キミコミ
+  host: kimicomi.com
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: Gコミ
+  host: g-comi.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: 花とゆめ+
+  host: hanayume.com
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: COMICリュウ
+  host: comic-ryu.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: ライコミ
+  host: comicride.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: COMICリュエル
+  host: comic.j-nbooks.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: ヤングチャンピオン
+  host: youngchampion.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: アサコミ
+  host: asacomi.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: "HERO'S Web"
+  host: heros-web.com
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: コミックグロウル
+  host: comic-growl.com
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: マンガゼグラ
+  host: manga-zegra.com
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: ビビビコミック
+  host: bibibi-comic.com
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: MAGKAN
+  host: kansai.mag-garden.co.jp
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: ヤングアニマルWeb
+  host: younganimal.com
+  observed: HTTP 403 outside Japan, 200 from Tokyo
+  checked: '2026-11-05'
+  route: jp
+- name: "HERO'S Web"
+  host: viewer.heros-web.com
+  observed: HTTP 301 to heros-web.com, from anywhere
+  checked: '2026-11-05'
+- name: COMICリュウ
+  host: www.comic-ryu.jp
+  observed: HTTP 301 to comic-ryu.jp, from anywhere
+  checked: '2026-11-05'

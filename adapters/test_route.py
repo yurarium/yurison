@@ -16,13 +16,13 @@ import route
 
 
 def main(s):
-    sites = [{"host": "bigcomics.jp", "engine": "comici", "route": "jp"},
-             {"host": "comic-days.com", "engine": "gigaviewer"},
-             {"host": "takecomic.jp", "engine": "comici", "route": "jp"},
-             {"host": "takecomic.jp", "engine": "comici", "route": "jp"},
-             {"host": "example.jp", "route": "elsewhere"}]
+    sites = [{"name": "ビッコミ", "host": "bigcomics.jp", "route": "jp"},
+             {"name": "LINEマンガ", "host": "manga.line.me"},
+             {"name": "竹コミ", "host": "takecomic.jp", "route": "jp"},
+             {"name": "竹コミ", "host": "takecomic.jp", "route": "jp"},
+             {"name": "x", "host": "example.jp", "route": "elsewhere"}]
     names = route.hosts(sites)
-    s.eq(names, ["bigcomics.jp", "takecomic.jp"], "only rows marked route: jp, once each, sorted")
+    s.eq(names, ["bigcomics.jp", "takecomic.jp"], "only hosts marked route: jp, once each, sorted; a geoblocked host the server cannot reach is left out")
 
     pairs = route.plan(names)
     s.eq(pairs, [("bigcomics.jp", "127.0.1.1"), ("takecomic.jp", "127.0.1.2")],
@@ -39,7 +39,7 @@ def main(s):
     s.check('command="/usr/sbin/nologin"' in opts, "a session on the key gets no shell")
     s.check('permitopen="bigcomics.jp:443"' in opts and 'permitopen="takecomic.jp:443"' in opts,
             "the key may open exactly the routed hosts")
-    s.check("comic-days.com" not in opts, "and no host left unrouted")
+    s.check("manga.line.me" not in opts, "and no host left unrouted")
     s.eq(route.probe(pairs), "https://bigcomics.jp/", "the probe asks a routed host's front page,"
          " which the block refuses, and not robots.txt, which it serves to everyone")
     s.eq(route.probe([]), "", "nothing routed, nothing to probe")
@@ -47,18 +47,19 @@ def main(s):
     s.raises(ValueError, lambda: route.plan([f"h{i}.jp" for i in range(255)]),
              "more hosts than the block holds is refused, not wrapped")
 
-    # The real registry: every site marked is a comici site, the platforms that closed together.
+    # The real register: what it routes is a subset of what it records as refusing other countries.
     real = route.load()
-    marked = [x for x in real if x.get("route") == route.JP]
-    s.check(len(marked) > 0, "the registry marks some sites for the route")
-    s.eq(sorted({x.get("engine") for x in marked}), ["comici"],
-         "only comici sites are routed, the ones the 2026-11-05 ruling covers")
+    s.check(len(route.hosts(real)) > 0, "the register marks some hosts for the route")
+    s.check(set(route.hosts(real)) <= {g["host"] for g in real},
+            "every routed host is one the register records as geoblocked")
 
     with tempfile.TemporaryDirectory() as d:
-        p = pathlib.Path(d) / "sites.yaml"
-        p.write_text("sites:\n  - {host: a.jp, route: jp}\n", encoding="utf-8")
-        s.eq(route.load(p), [{"host": "a.jp", "route": "jp"}], "a registry file loads its sites")
-
+        p = pathlib.Path(d) / "platforms.yaml"
+        p.write_text("platforms: []\ngeoblocked:\n  - {name: A, host: a.jp, route: jp}\n"
+                     "  - {name: B, note: no host}\n", encoding="utf-8")
+        s.eq(route.load(p), [{"name": "A", "host": "a.jp", "route": "jp"}],
+             "the register's geoblocked hosts load, and an entry with no host is not one")
+        s.eq(route.load(pathlib.Path(d) / "absent.yaml"), [], "a missing register routes nothing")
 
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "route"))

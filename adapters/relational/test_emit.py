@@ -33,6 +33,15 @@ BUILD = pathlib.Path(__file__).resolve().parents[2] / "data" / "build"
 
 def _unit(s):
     """What holds with no build on disk: the emitters over a store made here."""
+    # ── HOSTS THAT REFUSE READERS OUTSIDE JAPAN reach the interface, which marks their links ──
+    geo, _c, _r = relational.build(path=":memory:", source={"meta": {"platforms": []}})
+    held = [h for h, in geo.execute("SELECT host FROM geoblocked_host ORDER BY host")]
+    s.check(len(held) > 0, "the register's geoblocked hosts reach the store")
+    s.eq(emit.meta(geo, "x", 14, None, [], 0)["japan_only"], held,
+         "and `feed/meta.json` lists every one of them, so every link to one can be marked")
+    geo.execute("DELETE FROM geoblocked_host")
+    s.eq(emit.meta(geo, "x", 14, None, [], 0)["japan_only"], [],
+         "and lists none where the register records none")
     # ── THE RUN'S REPORT ON ITSELF, §13 ───────────────────────────────────────────────────────
     #
     # BUILT HERE RATHER THAN READ FROM THE STORE ON DISK, because these tables are written after

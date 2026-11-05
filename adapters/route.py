@@ -5,7 +5,10 @@ WHY THIS EXISTS. From 2026-10-22 every comici site has answered 403 with a page 
 「現在、一部の通信環境からのアクセスを制限しております」: access restricted by network. From a server in
 Tokyo the same pages answer. The owner ruled on 2026-11-05 that reading them from a network the
 site allows, through a server we hold, is ordinary use (REQUIREMENTS, "Where the platform has closed
-to us"). Nothing else about the request changes. The user agent, robots.txt and the pause per host
+to us"). ドリコミ+ and comicグラスト refuse other countries the same way and answer from Tokyo too.
+Which hosts go this way is the register's to say: `data/platforms.yaml` lists every host that
+refuses readers outside Japan under `geoblocked`, and marks `route: jp` on the ones our server
+reaches. Nothing else about the request changes. The user agent, robots.txt and the pause per host
 are the same ones every other fetch keeps, and a refusal through the server is still a refusal.
 
 HOW, AND WHY BELOW PYTHON. Thirty-odd modules open URLs, each with its own urlopen, and two drive
@@ -13,7 +16,7 @@ Chromium. Teaching each of them a proxy would leave the next one written without
 workflow opens one SSH connection to the server with a local forward per host, each on its own
 loopback address at port 443, and then points the host's name at that address in /etc/hosts. The
 server makes the connection to the site, TLS runs end to end with the site's own certificate, and
-every client takes the route without being told. A host this file does not name is fetched
+every client takes the route without being told. A host the register does not mark is fetched
 directly, as before.
 
 WHAT HAPPENS WHEN IT FAILS. The workflow writes /etc/hosts only once the forwards are up and a
@@ -30,12 +33,10 @@ import argparse
 import pathlib
 import sys
 
-import yaml
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from facts import platform  # noqa: E402
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-SITES = ROOT / "adapters" / "webpages" / "sites.yaml"
-
-#: The value of a site's `route` key that sends it through the server in Tokyo.
+#: The value of a geoblocked host's `route` key that sends it through the server in Tokyo.
 JP = "jp"
 
 #: Linux answers on the whole of 127/8, so each host gets an address of its own and every forward
@@ -44,9 +45,9 @@ BASE = "127.0.1."
 PORT = 443
 
 
-def hosts(sites):
-    """The hosts to route, from the webpages registry's rows marked `route: jp`."""
-    return sorted({s["host"] for s in sites if s.get("route") == JP})
+def hosts(entries):
+    """The hosts to route: the register's geoblocked hosts marked `route: jp`."""
+    return sorted({g["host"] for g in entries if g.get("route") == JP})
 
 
 def plan(names):
@@ -89,18 +90,18 @@ def probe(pairs):
     return f"https://{pairs[0][0]}/" if pairs else ""
 
 
-def load(path=SITES):
-    return (yaml.safe_load(pathlib.Path(path).read_text(encoding="utf-8")) or {}).get("sites") or []
+def load(path=platform.REGISTER):
+    return platform.geoblocked(path)
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("what", choices=("forwards", "hosts-file", "authorized-keys", "probe"))
-    ap.add_argument("--sites", default=str(SITES))
+    ap.add_argument("--register", default=str(platform.REGISTER))
     a = ap.parse_args(argv)
-    pairs = plan(hosts(load(a.sites)))
+    pairs = plan(hosts(load(a.register)))
     if not pairs:
-        sys.exit(f"no site in {a.sites} is marked route: {JP}")
+        sys.exit(f"no geoblocked host in {a.register} is marked route: {JP}")
     if a.what == "forwards":
         print(" ".join(forwards(pairs)))
     elif a.what == "hosts-file":

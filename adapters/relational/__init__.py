@@ -937,6 +937,12 @@ def _load_all(db, source, put, counts, refused):
             " VALUES (?,?,?,?,?)",
             (_p["name"], _p.get("id"), _p.get("publisher"), _p.get("host"), _p.get("en")),
             f"platform register {_p['name']}")
+    for _g in _plat_mod.geoblocked():
+        put("INSERT OR IGNORE INTO geoblocked_host (host, platform, observed, checked, route)"
+            " VALUES (?,?,?,?,?)",
+            (_g["host"], _g.get("name"), _g.get("observed"),
+             str(_g["checked"]) if _g.get("checked") else None, _g.get("route")),
+            f"geoblocked host {_g['host']}")
 
     from facts import content as _content_mod
     # AND THE MARKETING FLAGS, which are the other half of the register the check compares against.

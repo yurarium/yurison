@@ -1547,6 +1547,18 @@ CREATE TABLE platform_register (
   en        TEXT
 ) WITHOUT ROWID;
 
+-- HOSTS THAT REFUSE READERS OUTSIDE JAPAN, from the register's `geoblocked` list. The interface marks
+-- every link to one as readable only from Japan, so a reader abroad is told before following it
+-- rather than meeting a refusal. `route` is 'jp' where the update run reads the host through our
+-- server in Tokyo. A fact about the host, not about any work on it.
+CREATE TABLE geoblocked_host (
+  host     TEXT PRIMARY KEY,
+  platform TEXT NOT NULL,
+  observed TEXT,
+  checked  TEXT,
+  route    TEXT
+) WITHOUT ROWID;
+
 CREATE TABLE platform (
   name TEXT PRIMARY KEY,
   -- THE CAPTURE ROUTE'S OWN NAME, which `release.plat_slug` also carries: six display names carry

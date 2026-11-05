@@ -105,6 +105,21 @@ def registered():
     return list(out.values())
 
 
+def geoblocked(path=REGISTER):
+    """Every host the register records as refusing readers outside Japan, as written there.
+
+    `{name, host, observed, checked}`, and `route` where the update run reads the host through our
+    server in Tokyo. Two callers: the interface marks a link to any of these hosts as readable only
+    from Japan, and `adapters/route.py` routes the ones marked `route: jp`. One list, so the hosts
+    a reader is warned about and the hosts the run reaches another way cannot drift apart.
+    """
+    p = pathlib.Path(path)
+    if not p.exists():
+        return []
+    doc = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+    return [dict(g) for g in (doc.get("geoblocked") or []) if g.get("host")]
+
+
 def owners(platforms=None):
     """`{host: platform name}` for every host exactly one platform claims."""
     if platforms is None:

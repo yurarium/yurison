@@ -4,10 +4,6 @@
 # pass after a site redesign is a bounded edit. Each site declares how to find episode blocks and
 # how to read a title, date and access state out of one.
 #
-# `route: jp` sends a site's requests through our server in Tokyo. Every comici site has refused
-# other networks since 2026-10-22, and the owner ruled on 2026-11-05 that reading them from one they
-# allow is ordinary use. adapters/route.py turns these marks into the update run's forwards.
-#
 # None of these platforms applies a 百合 tag, so nothing here establishes marketing_label
 # (DEFINITIONS §4). Works are named by the Tier C yardsticks; the platform attests the chapters.
 
@@ -19,7 +15,6 @@ sites:
     publisher: 小学館
     host: bigcomics.jp
     engine: comici
-    route: jp
     min_episodes: 1
 
   - id: takecomic
@@ -27,7 +22,6 @@ sites:
     publisher: 竹書房
     host: takecomic.jp
     engine: comici
-    route: jp
     min_episodes: 1
 
   # championcross.jp — NOT mangacross.jp. Its /atom is an app shell, but the work pages run the
@@ -37,7 +31,6 @@ sites:
     publisher: 秋田書店
     host: championcross.jp
     engine: comici
-    route: jp
     min_episodes: 1
 
   - id: kimicomi
@@ -49,7 +42,6 @@ sites:
     publisher: キルタイムコミュニケーション
     host: kimicomi.com
     engine: comici
-    route: jp
     min_episodes: 1
 
   - id: yanmaga
@@ -71,7 +63,6 @@ sites:
     name: Gコミ
     host: g-comi.jp
     engine: comici
-    route: jp
     min_episodes: 1
     exclusive_works_at_onboarding: 11
     verified: 2026-08-01
@@ -84,7 +75,6 @@ sites:
     publisher: 白泉社
     host: hanayume.com
     engine: comici
-    route: jp
     min_episodes: 1
     # One of its four candidate URLs resolves to a series page here; the other three point
     # elsewhere. The parser demonstrably works on the one that does, so the redesign-detection
@@ -103,7 +93,6 @@ sites:
     publisher: 徳間書店
     host: comic-ryu.jp
     engine: comici
-    route: jp
     min_episodes: 1
     min_works: 1
     verified: 2026-10-15
@@ -112,7 +101,6 @@ sites:
     name: ライコミ
     host: comicride.jp
     engine: comici
-    route: jp
     min_episodes: 1
     exclusive_works_at_onboarding: 3
     verified: 2026-08-01
@@ -121,7 +109,6 @@ sites:
     name: COMICリュエル
     host: comic.j-nbooks.jp
     engine: comici
-    route: jp
     min_episodes: 1
     exclusive_works_at_onboarding: 1
     verified: 2026-08-01
@@ -134,7 +121,6 @@ sites:
     publisher: 秋田書店
     host: youngchampion.jp
     engine: comici
-    route: jp
     min_episodes: 1
     min_works: 1
     verified: 2026-08-01
@@ -148,7 +134,6 @@ sites:
     publisher: 朝日新聞出版
     host: asacomi.jp
     engine: comici
-    route: jp
     min_episodes: 1
     min_works: 1
     supersedes: sonorama.asahi.com
@@ -167,7 +152,6 @@ sites:
     # ten chapters for the work probed on 2026-08-15.
     hosts: [heros-web.com, viewer.heros-web.com]
     engine: comici
-    route: jp
     min_episodes: 1
     min_works: 1
     verified: 2026-08-02
@@ -181,7 +165,6 @@ sites:
     publisher: ブシロードワークス
     host: comic-growl.com
     engine: comici
-    route: jp
     min_episodes: 1
     min_works: 1
     verified: 2026-10-22
@@ -193,7 +176,6 @@ sites:
     publisher: スターツ出版
     host: manga-zegra.com
     engine: comici
-    route: jp
     min_episodes: 1
     min_works: 1
     verified: 2026-10-22
@@ -205,7 +187,6 @@ sites:
     name: ビビビコミック
     host: bibibi-comic.com
     engine: comici
-    route: jp
     min_episodes: 1
     min_works: 1
     verified: 2026-08-15
@@ -218,7 +199,6 @@ sites:
     publisher: マッグガーデン
     host: kansai.mag-garden.co.jp
     engine: comici
-    route: jp
     min_episodes: 1
     min_works: 1
     verified: 2026-08-15
@@ -235,7 +215,6 @@ sites:
     publisher: 白泉社
     host: younganimal.com
     engine: comici
-    route: jp
     min_episodes: 1
     min_works: 1
     verified: 2026-08-15

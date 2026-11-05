@@ -310,6 +310,9 @@ STORE_ANSWERS = (
     "feed/meta.json:platform_meta{}", "feed/meta.json:lapsed", "feed/meta.json:lapsed[]",
     "feed/meta.json:archive_months", "feed/meta.json:archive_from",
     "feed/meta.json:window_days", "feed/meta.json:generated",
+    # HOSTS THAT REFUSE READERS OUTSIDE JAPAN, from `geoblocked_host`, which the register's
+    # `geoblocked` list fills. The interface marks every link to one.
+    "feed/meta.json:japan_only", "feed/meta.json:japan_only[]",
     # §5: THE RENDERINGS. A name is a `surface` row keyed by the fold the feed joins on, what is
     # claimed about it is a `claim` row, and what a reader is shown in Latin is a `romanisation` or
     # a `ruby` row. The three name maps take the same paths because they are the same shape.

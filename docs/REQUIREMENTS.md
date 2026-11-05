@@ -427,9 +427,17 @@ decision removed. When the platform lets us in again, its own rows absorb the re
 network (「一部の通信環境からのアクセスを制限しております」), and the same pages answer from a server in
 Tokyo. The owner ruled that reading them through a server we hold there is ordinary use and not a
 way round the block. Every other part of the request stays as it is: the yurarium user agent,
-robots.txt, the pause per host. A refusal through the server is still a refusal. A site is routed
-when `adapters/webpages/sites.yaml` marks it `route: jp`, and `adapters/route.py` says how the update
-run sets that up. When the route reads a closed platform, the access record reopens it and its own
+robots.txt, the pause per host. A refusal through the server is still a refusal. The same holds for
+ドリコミ+ and comicグラスト, which refuse other countries and answer from Tokyo.
+
+`data/platforms.yaml` lists under `geoblocked` every host that refuses readers outside Japan, with
+the day that was last compared, and marks `route: jp` on the ones our server reaches. LINEマンガ
+refuses our server too, so it carries no mark. `adapters/route.py` says how the update run routes
+the marked hosts.
+
+**A reader is told before following such a link.** The interface marks every link to a host on that
+list 「国内のみ」 or "Japan only", whichever template drew the link. It is a fact about the host,
+stated as one, and not a judgement about the work. When the route reads a closed platform, the access record reopens it and its own
 rows absorb the reports, as above. When the route is down, nothing changes from the rule above.
 
 ### Update kind, and what may be inferred

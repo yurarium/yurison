@@ -423,6 +423,15 @@ row states no chapter and no access, because the report gives neither. It is a c
 place every other row names its platform, which is why it is not the 要確認 marker the August
 decision removed. When the platform lets us in again, its own rows absorb the reports.
 
+**Decided 2026-11-05: read from a network the site allows.** The comici block restricts access by
+network (「一部の通信環境からのアクセスを制限しております」), and the same pages answer from a server in
+Tokyo. The owner ruled that reading them through a server we hold there is ordinary use and not a
+way round the block. Every other part of the request stays as it is: the yurarium user agent,
+robots.txt, the pause per host. A refusal through the server is still a refusal. A site is routed
+when `adapters/webpages/sites.yaml` marks it `route: jp`, and `adapters/route.py` says how the update
+run sets that up. When the route reads a closed platform, the access record reopens it and its own
+rows absorb the reports, as above. When the route is down, nothing changes from the rule above.
+
 ### Update kind, and what may be inferred
 
 Feed entries carry `kind`: `new-series`, `new-chapter`, `other` or `unknown`, derived from

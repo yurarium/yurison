@@ -101,6 +101,49 @@ jobs:
         # it was published, which reads later as a fault in the data rather than in the clock.
         run: echo "R=$(TZ=Asia/Tokyo date +%F)" >> "$GITHUB_ENV"
 
+      # THE COMICI SITES ARE READ THROUGH OUR SERVER IN TOKYO. Since 2026-10-22 every one of them has
+      # refused other networks with 「現在、一部の通信環境からのアクセスを制限しております」, and the owner
+      # ruled on 2026-11-05 that reading them from a network they allow is ordinary use. One SSH
+      # connection carries a forward per site, and /etc/hosts points each name at its forward, so
+      # every fetcher and Chromium take the route without knowing. See `adapters/route.py`.
+      #
+      # IT CAN ONLY ADD READS. /etc/hosts is written after the forwards are up, and put back unless
+      # a page the block refuses answers through them, so a broken route leaves the sites refused
+      # exactly as before and their listing-site reports go on publishing. The key is restricted on
+      # the server to these forwards; it opens no shell.
+      - name: Open the route through Tokyo for the comici sites
+        continue-on-error: true
+        env:
+          JP_ROUTE_KEY: ${{ secrets.JP_ROUTE_KEY }}
+          JP_ROUTE_LOGIN: ${{ secrets.JP_ROUTE_LOGIN }}
+          JP_ROUTE_KNOWN_HOSTS: ${{ secrets.JP_ROUTE_KNOWN_HOSTS }}
+        run: |
+          if [ -z "$JP_ROUTE_KEY" ] || [ -z "$JP_ROUTE_LOGIN" ] || [ -z "$JP_ROUTE_KNOWN_HOSTS" ]; then
+            echo "::notice::no route secrets; the comici sites are fetched directly"
+            exit 0
+          fi
+          k="$RUNNER_TEMP/jp_route"; kh="$RUNNER_TEMP/jp_known_hosts"
+          install -m 600 /dev/null "$k"
+          printf '%s\n' "$JP_ROUTE_KEY" > "$k"
+          printf '%s\n' "$JP_ROUTE_KNOWN_HOSTS" > "$kh"
+          # Each forward listens on 443, the port the URLs name, on its own loopback address.
+          sudo sysctl -q -w net.ipv4.ip_unprivileged_port_start=443
+          ssh -fN -i "$k" -o IdentitiesOnly=yes -o BatchMode=yes \
+            -o UserKnownHostsFile="$kh" -o StrictHostKeyChecking=yes \
+            -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 -o ServerAliveCountMax=4 \
+            $(python3 adapters/route.py forwards) "$JP_ROUTE_LOGIN"
+          rm -f "$k"
+          sudo cp /etc/hosts "$RUNNER_TEMP/hosts.before"
+          python3 adapters/route.py hosts-file | sudo tee -a /etc/hosts >/dev/null
+          probe=$(python3 adapters/route.py probe)
+          got=$(curl -sS -m 30 -o /dev/null -w '%{http_code} %{remote_ip}' "$probe" || true)
+          case "$got" in
+            "200 127.0.1."*) echo "route open: $(python3 adapters/route.py hosts-file | wc -l) sites through Tokyo" ;;
+            *) sudo cp "$RUNNER_TEMP/hosts.before" /etc/hosts
+               echo "::warning::$probe answered '$got' through the route; the comici sites are fetched directly"
+               exit 1 ;;
+          esac
+
       # ── Stage 0 — the work queue. Everything downstream reads what this writes. ───────────────
       # webcomics-works.yaml and webcomics-gap.yaml are the inputs to comicfuz, kadokomi,
       # nicovideo, webpages and generic. This is a dependency, not a report, and it runs first.

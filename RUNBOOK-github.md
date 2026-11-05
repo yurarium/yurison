@@ -38,6 +38,7 @@ So: build in `yurison`, push artefacts to `yurarium.github.io`.
 | Source credentials | none. Every adapter fetches public pages unauthenticated |
 | Write access to the site repo | a deploy key or fine-grained PAT, repo secret |
 | `LEAK_DENY` | already required by the existing leak-guard workflow |
+| `JP_ROUTE_KEY`, `JP_ROUTE_LOGIN`, `JP_ROUTE_KNOWN_HOSTS` | the route through Tokyo for sites marked `route: jp`; see §2b. Optional: without them those sites are fetched directly |
 
 Verify the browser before relying on it:
 
@@ -76,6 +77,28 @@ ssh-keygen -t ed25519 -N "" -C "yurarium-ci" -f /tmp/ci_key
 Public half → `yurarium.github.io` → Settings → Deploy keys → Add, **tick "Allow write access"**.
 Private half → `yurison` → Settings → Secrets → Actions → `SITE_DEPLOY_KEY`. Then delete both
 local copies; the private half exists only in the secret from then on.
+
+## 2b. The route through Tokyo
+
+Sites marked `route: jp` in `adapters/webpages/sites.yaml` are read through our server in Tokyo
+(REQUIREMENTS, "Where the platform has closed to us"). The update workflow opens one SSH connection
+with a forward per site and points each name at its forward in `/etc/hosts`; `adapters/route.py`
+explains why it is done below Python. Three secrets:
+
+| secret | holds |
+|---|---|
+| `JP_ROUTE_KEY` | the private half of a key used for nothing else |
+| `JP_ROUTE_LOGIN` | `user@address` of the server |
+| `JP_ROUTE_KNOWN_HOSTS` | the server's host key line, checked against its console before storing |
+
+The public half goes in that user's `~/.ssh/authorized_keys` behind the options
+`python3 adapters/route.py authorized-keys` prints. They allow forwards to the routed sites and
+nothing else: no shell, no other host. **When a site gains or loses `route: jp`, replace that line**,
+or the key refuses the new site's forward and the step falls back to fetching directly. The step's
+log says which happened: `route open: N sites through Tokyo`, or a warning naming what the probe got.
+
+The server address is in a secret and not in this repository for the same reason the deploy key
+attaches no identity: it is paid for by a person.
 
 ### What the guard does and does not need to cover here
 

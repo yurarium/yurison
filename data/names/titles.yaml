@@ -1,4 +1,4 @@
-generated: '2026-11-05'
+generated: '2026-11-06'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -32309,16 +32309,15 @@ names:
     en_source_kind: derived
     note: The title is katakana for 'steam dream', matching the steam-technology city in the synopsis
       on the BOOK☆WALKER page. It is spelled as the English it borrows.
-    reading: スチーム ドリーム
-    reading_at: '2026-11-05'
-    reading_basis: analyser
+    reading: スチームドリーム
+    reading_at: '2026-11-06'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ステラ★レコード:
     basis: official-jp
     en: STELLA★RECORD
@@ -36807,15 +36806,14 @@ names:
     note: The title is katakana for the English word purple, so it is spelled as that English word. The
       BOOK☆WALKER page gives no separate English title and describes two classmates who start dating.
     reading: パープル
-    reading_at: '2026-11-05'
-    reading_basis: analyser
+    reading_at: '2026-11-06'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   パーリーモンスター:
     basis: translated
     en: Party Monster
@@ -49453,6 +49451,31 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  勇者の旅の裏側で:
+    basis: romaji
+    furigana_spans:
+    - - 勇者
+      - ゆうしゃ
+    - - の
+      - null
+    - - 旅
+      - たび
+    - - の
+      - null
+    - - 裏側
+      - うらがわ
+    - - で
+      - null
+    reading: ユウシャ ノ タビ ノ ウラガワデ
+    reading_at: '2026-11-06'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   勇者の運命:

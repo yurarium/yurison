@@ -23076,6 +23076,10 @@ works:
 # 一迅プラス imported its catalogue, while the serialisation's real start of
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
+  - id: w03534
+    title: "勇者の旅の裏側で"
+    anchors:
+      - "web:https://drecomi-plus.jp/series/CD00038"
 related:
   - a: w00156
     b: w00486

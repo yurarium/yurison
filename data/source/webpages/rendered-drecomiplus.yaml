@@ -1,0 +1,44 @@
+# ドリコミ+ — chapters read from a RENDERED page.
+#
+# This platform serves a shell and builds its chapter list in JavaScript, so a fetch
+# returns nothing to parse. The page is rendered with headless chromium and the DOM
+# it produced is read — the platform's own page, as it chose to draw it.
+#
+# date_basis: rendered — weaker than a feed the platform published, stronger than a
+# pattern matched in static markup. No genre label is established here (§4).
+source: webpages
+platform: drecomiplus
+platform_name: "ドリコミ+"
+publisher: ""
+retrieved: 2026-11-06
+record_type: web_work_chapters
+identification_mode: discovery-candidate
+date_basis: rendered
+date_confidence: reported
+works:
+  - work_title: "勇者の旅の裏側で"
+    author: "勇者の旅の裏側で"
+    url: "https://drecomi-plus.jp/series/CD00038"
+    chapter_count: 7
+    chapters:
+      - title: "第14話（2） 公開："
+        updated: 2026-08-24
+        date_basis: rendered
+      - title: "第14話（1） 公開："
+        updated: 2026-08-10
+        date_basis: rendered
+      - title: "第13話（2） 公開："
+        updated: 2026-07-27
+        date_basis: rendered
+      - title: "第13話（1） 公開："
+        updated: 2026-07-13
+        date_basis: rendered
+      - title: "第12話（2） 公開："
+        updated: 2026-06-22
+        date_basis: rendered
+      - title: "第12話（1） 公開："
+        updated: 2026-06-08
+        date_basis: rendered
+      - title: "第11話（3） 公開："
+        updated: 2026-05-25
+        date_basis: rendered

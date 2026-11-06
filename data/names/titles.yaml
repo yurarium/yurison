@@ -19172,6 +19172,22 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  はぐれアイドル地獄変:
+    basis: romaji
+    furigana_spans:
+    - - はぐれアイドル
+      - null
+    - - 地獄変
+      - じごくへん
+    reading: ハグレ アイドル ジゴクヘン
+    reading_at: '2026-11-06'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   はじめてのキャンプさん:
     basis: translated
     en: A Beginner Camper

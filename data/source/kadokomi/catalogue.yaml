@@ -7,13 +7,13 @@
 # this is neither. Results are embedded in the page, so the disallowed API is not called.
 source: kadokomi
 role: attesting
-retrieved: 2026-11-06
+retrieved: 2026-11-07
 record_type: platform_yuri_catalogue
 tags_enumerated:
-  - { name: 百合, uuid: 018b8a02-f3d9-7a59-969d-288cb905f0fc, listed: 368 }
+  - { name: 百合, uuid: 018b8a02-f3d9-7a59-969d-288cb905f0fc, listed: 369 }
   - { name: GL, uuid: 018b8a02-f448-7b77-b194-cafcc706ed85, listed: 8 }
-total_reported: 376
-works_enumerated: 370
+total_reported: 377
+works_enumerated: 371
 works:
   - code: "KC_000031_S"
     title: "もし、恋が見えたなら"
@@ -1367,7 +1367,7 @@ works:
     marketing_label: yuri
   - code: "KC_006607_S"
     title: "ひとりみです"
-    status: "ongoing"
+    status: "finished"
     tag: "百合"
     marketing_label: yuri
   - code: "KC_006608_S"
@@ -1857,6 +1857,11 @@ works:
     marketing_label: yuri
   - code: "KC_021516_S"
     title: "紫蘭さまにはなびきません！"
+    status: "ongoing"
+    tag: "百合"
+    marketing_label: yuri
+  - code: "KC_021576_S"
+    title: "いばら姫とおやすみ。"
     status: "ongoing"
     tag: "百合"
     marketing_label: yuri

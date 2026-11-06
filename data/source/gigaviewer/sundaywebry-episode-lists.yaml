@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
-retrieved: "2026-11-06"
+retrieved: "2026-11-07"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -325,7 +325,7 @@ works:
   - work_title: "上杉くんは女の子をやめたい"
     series_id: "2550912964699074885"
     url: "https://www.sunday-webry.com/atom/series/2550912964699074885"
-    chapter_count: 51
+    chapter_count: 52
     chapters:
       - title: "第1話"
         updated: "2024-10-05"
@@ -515,6 +515,10 @@ works:
       - title: "第36話"
         updated: "2026-10-17"
         url: "https://www.sunday-webry.com/episode/12207421984387262030"
+        withdrawn: true
+      - title: "第37話"
+        updated: "2026-11-07"
+        url: "https://www.sunday-webry.com/episode/12207421984485539224"
   - work_title: "色知らぬ黒は青に触れる"
     series_id: "2550912964875384025"
     url: "https://www.sunday-webry.com/atom/series/2550912964875384025"
@@ -681,7 +685,7 @@ works:
   - work_title: "てくのぱにっくゆにばーす"
     series_id: "2551460909679434702"
     url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
-    chapter_count: 50
+    chapter_count: 51
     chapters:
       - title: "第１話 この狭い宇宙をはみ出たもの"
         updated: "2025-10-10"
@@ -842,9 +846,13 @@ works:
       - title: "第１６話 とっておきの服"
         updated: "2026-10-23"
         url: "https://www.sunday-webry.com/episode/12207421984411784639"
+        withdrawn: true
       - title: "ショートショート 画期的な収納術"
         updated: "2026-10-30"
         url: "https://www.sunday-webry.com/episode/12207421984443232841"
+      - title: "第１７話 真夏の怪"
+        updated: "2026-11-06"
+        url: "https://www.sunday-webry.com/episode/12207421984476416025"
   - work_title: "ダンジョン・リリィ"
     series_id: "2551460909740175978"
     url: "https://www.sunday-webry.com/atom/series/2551460909740175978"

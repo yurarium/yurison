@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-action
 platform_name: "webアクション"
 publisher: "双葉社"
-retrieved: 2026-11-06
+retrieved: 2026-11-07
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 20
@@ -212,8 +212,13 @@ works:
   - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     series_id: "2550912964579611664"
     url: "https://comic-action.com/atom/series/2550912964579611664"
-    chapter_count: 27
+    chapter_count: 28
     chapters:
+      - title: "事案19 透明"
+        updated: 2026-11-06
+        author: "中村カンコ"
+        url: "https://comic-action.com/episode/12207421984476675562"
+        access_modes: ["purchase"]
       - title: "おまけ漫画②"
         updated: 2026-10-02
         author: "中村カンコ"
@@ -224,13 +229,13 @@ works:
         updated: 2026-09-04
         author: "中村カンコ"
         url: "https://comic-action.com/episode/12207421984056083521"
-        access_modes: ["purchase"]
+        free_from: 2026-11-06
+        access_modes: ["free"]
       - title: "事案17 バードゾーンサバイブ！②"
         updated: 2026-08-07
         author: "中村カンコ"
         url: "https://comic-action.com/episode/12207421983913993746"
-        free_from: 2026-09-04
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "事案17 バードゾーンサバイブ！①"
         updated: 2026-07-03
         author: "中村カンコ"

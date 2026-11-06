@@ -9,12 +9,70 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-11-06
+retrieved: 2026-11-07
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 498
 works:
+  - work_title: "お菊さんはいちゃ憑きたい"
+    author: "結野ちり(著者)"
+    url: "https://manga.nicovideo.jp/comic/54197"
+    comic_id: "54197"
+    updated: "2026-11-06"
+    started: "2021-07-18"
+    episode_count: 4
+    free_episodes: 4
+    channel: "ComicWalker"
+    channel_slug: "comicwalker"
+    latest_episode: "第21話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173428"
+  - work_title: "イジめてイジられて"
+    author: "千田大輔(著者)"
+    url: "https://manga.nicovideo.jp/comic/83472"
+    comic_id: "83472"
+    updated: "2026-11-06"
+    started: "2026-07-17"
+    episode_count: 17
+    free_episodes: 17
+    channel: "ヤングエースUP"
+    channel_slug: "youngaceup"
+    latest_episode: "第16話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1169460"
+  - work_title: "夢でフラれてはじまる百合"
+    author: "ヒジキ"
+    url: "https://manga.nicovideo.jp/comic/58368"
+    comic_id: "58368"
+    updated: "2026-11-06"
+    started: "2022-05-14"
+    episode_count: 3
+    free_episodes: 3
+    channel: "竹コミ！"
+    channel_slug: "takecomic"
+    latest_episode: "第54話　お泊まり会"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1171939"
+  - work_title: "魔法科高校の優等生 2nd Season"
+    author: "おだまさる(作画) 佐島勤(原作) 石田可奈(キャラクターデザイン) 森夕(構成協力)"
+    url: "https://manga.nicovideo.jp/comic/54840"
+    comic_id: "54840"
+    updated: "2026-11-06"
+    started: "2021-09-10"
+    episode_count: 2
+    free_episodes: 2
+    channel: "電撃大王"
+    channel_slug: "daioh"
+    latest_episode: "第42話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1131638"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-11-06"
+    started: "2022-08-31"
+    episode_count: 168
+    free_episodes: 168
+    latest_episode: "第15話の4"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173757"
   - work_title: "魔法少女201"
     author: "むちゃ"
     url: "https://manga.nicovideo.jp/comic/65870"
@@ -61,16 +119,6 @@ works:
     free_episodes: 192
     latest_episode: "第32話の6（完結）"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173378"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-11-05"
-    started: "2022-08-31"
-    episode_count: 167
-    free_episodes: 167
-    latest_episode: "第15話の3"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173379"
   - work_title: "不器用ビンボーダンス　３"
     author: "なをををををを"
     url: "https://manga.nicovideo.jp/comic/70296"
@@ -183,18 +231,6 @@ works:
     free_episodes: 8
     latest_episode: "第8話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1172089"
-  - work_title: "イジめてイジられて"
-    author: "千田大輔(著者)"
-    url: "https://manga.nicovideo.jp/comic/83472"
-    comic_id: "83472"
-    updated: "2026-10-30"
-    started: "2026-07-17"
-    episode_count: 16
-    free_episodes: 16
-    channel: "ヤングエースUP"
-    channel_slug: "youngaceup"
-    latest_episode: "第15話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1168125"
   - work_title: "ニニンがシノブ伝ぷらす"
     author: "古賀亮一(著者)"
     url: "https://manga.nicovideo.jp/comic/49574"
@@ -565,8 +601,8 @@ works:
     comic_id: "71182"
     updated: "2026-10-24"
     started: "2024-12-28"
-    episode_count: 9
-    free_episodes: 9
+    episode_count: 30
+    free_episodes: 30
     channel: "電撃マオウ"
     channel_slug: "maoh"
     latest_episode: "第１７話③"
@@ -581,18 +617,6 @@ works:
     free_episodes: 17
     latest_episode: "第17話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1169713"
-  - work_title: "夢でフラれてはじまる百合"
-    author: "ヒジキ"
-    url: "https://manga.nicovideo.jp/comic/58368"
-    comic_id: "58368"
-    updated: "2026-10-23"
-    started: "2022-05-14"
-    episode_count: 2
-    free_episodes: 2
-    channel: "竹コミ！"
-    channel_slug: "takecomic"
-    latest_episode: "第53話　落ち着け！"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1166115"
   - work_title: "わたし、二番目の彼女でいいから。"
     author: "にの子(漫画) 西条陽(原作) Re岳(キャラクター原案)"
     url: "https://manga.nicovideo.jp/comic/60396"
@@ -1073,18 +1097,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第21話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1159945"
-  - work_title: "魔法科高校の優等生 2nd Season"
-    author: "おだまさる(作画) 佐島勤(原作) 石田可奈(キャラクターデザイン) 森夕(構成協力)"
-    url: "https://manga.nicovideo.jp/comic/54840"
-    comic_id: "54840"
-    updated: "2026-10-02"
-    started: "2021-09-10"
-    episode_count: 2
-    free_episodes: 2
-    channel: "電撃大王"
-    channel_slug: "daioh"
-    latest_episode: "第41話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1131637"
   - work_title: "Mr.マロウブルー"
     author: "サマミヤアカザ(著者)"
     url: "https://manga.nicovideo.jp/comic/45735"
@@ -1349,18 +1361,6 @@ works:
     channel_slug: "maoh"
     latest_episode: "コミックス第9巻発売告知"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1070334"
-  - work_title: "お菊さんはいちゃ憑きたい"
-    author: "結野ちり(著者)"
-    url: "https://manga.nicovideo.jp/comic/54197"
-    comic_id: "54197"
-    updated: "2026-06-25"
-    started: "2021-07-18"
-    episode_count: 5
-    free_episodes: 5
-    channel: "ComicWalker"
-    channel_slug: "comicwalker"
-    latest_episode: "第20話-2"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1095928"
   - work_title: "たゆたう恋の散り際に"
     author: "ゆあま"
     url: "https://manga.nicovideo.jp/comic/77731"

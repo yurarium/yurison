@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-06
+retrieved: 2026-11-07
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 253
-  hits_on_the_title_alone: 112
-  hits_stating_a_print_edition_date: 211
-  works_asked: 910
-  works_with_a_hit: 272
+  hits_on_the_title_alone: 113
+  hits_stating_a_print_edition_date: 212
+  works_asked: 911
+  works_with_a_hit: 273
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -4524,6 +4524,23 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://drecomi-plus.jp/series/CD00038"
+    id: "w03534"
+    work: "勇者の旅の裏側で"
+    author: "勇者の旅の裏側で"
+    platform: "ドリコミ+"
+    query: "author"
+    retrieved: "2026-11-07"
+    hits:
+      - series_url: "https://bookwalker.jp/series/550930/list/"
+        title_listed: "勇者の旅の裏側で（DREコミックス）"
+        shop_author: "高岸 かも(漫画) 八月森(原作) Nat.(キャラクター原案)"
+        imprint: "DREコミックス"
+        publisher: "ドリコム"
+        printed: "2025/10/20"
+        agreement: "title-only"
+        volumes_stated: 3
+        completed_marker: true
   - work_url: "https://feelweb.jp/episode/2550689798763776115"
     id: "w00669"
     work: "まとう君、ほころぶ私"

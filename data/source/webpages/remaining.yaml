@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-11-06
+retrieved: 2026-11-07
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -42,6 +42,42 @@ works:
       - title: "読み切り"
         updated: 2026-08-12
         author: "もろみ新"
+        date_basis: heuristic
+  - work_title: "はぐれアイドル地獄変"
+    url: "https://gorakuweb.com/episode/4632579990158199795"
+    platform_name: "ゴラクエッグ"
+    route: "markup"
+    chapter_count: 10
+    chapters:
+      - title: "第128話 Lesson.128 - ②"
+        updated: 2026-02-27
+        date_basis: heuristic
+      - title: "第128話 Lesson.128 - ①"
+        updated: 2026-02-20
+        date_basis: heuristic
+      - title: "第127話 Lesson.127 - ②"
+        updated: 2026-01-30
+        date_basis: heuristic
+      - title: "第127話 Lesson.127 - ①"
+        updated: 2026-01-23
+        date_basis: heuristic
+      - title: "第126話 Lesson.126 - ②"
+        updated: 2025-12-26
+        date_basis: heuristic
+      - title: "第5話 静かな夜に"
+        updated: 2026-04-28
+        date_basis: heuristic
+      - title: "第4話 朱-AKA-"
+        updated: 2026-04-28
+        date_basis: heuristic
+      - title: "第3話 SINGING QUEEN"
+        updated: 2025-06-01
+        date_basis: heuristic
+      - title: "第2話 アマゾンダダダ!!"
+        updated: 2025-06-01
+        date_basis: heuristic
+      - title: "第1話 The Gate of the HELL"
+        updated: 2025-06-01
         date_basis: heuristic
   - work_title: "ケモノ/2022年8月期JUMP新世界漫画賞"
     author: "上田さかひら"

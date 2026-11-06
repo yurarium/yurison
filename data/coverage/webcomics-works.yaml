@@ -7,7 +7,7 @@
 # Distinct from webcomics-gap.yaml, which lists only what is NOT yet reachable.
 source: webcomics.jp
 role: discovery-only
-retrieved: 2026-11-06
+retrieved: 2026-11-07
 record_type: candidate_works
 works: 309
 candidates:
@@ -291,7 +291,7 @@ candidates:
   - title: "いばら姫とおやすみ。"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_021576_S"]
-    tags: ["百合"]
+    tags: ["最近のコメント数", "百合"]
   - title: "うさぎはかく語りき"
     platforms: ["COMIC FUZ"]
     urls: ["https://comic-fuz.com/manga/3572"]
@@ -770,6 +770,10 @@ candidates:
   - title: "のんちゃんとアカリ"
     platforms: ["HERO'S Web"]
     urls: ["https://viewer.heros-web.com/episode/10834108156740407901"]
+  - title: "はぐれアイドル地獄変"
+    platforms: ["ゴラクエッグ"]
+    urls: ["https://gorakuweb.com/episode/4632579990158199795"]
+    tags: ["アニメ化", "格闘技", "百合"]
   - title: "はつ恋、ときめき うすいほん"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000256_S"]

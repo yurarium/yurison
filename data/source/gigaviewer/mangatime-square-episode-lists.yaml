@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: mangatime-square
 platform_name: "まんがタイムSquare"
-retrieved: "2026-11-06"
+retrieved: "2026-11-07"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -13,7 +13,7 @@ works:
   - work_title: "腹割るウチらの秘密ごと!"
     series_id: "12207421983530024812"
     url: "https://mangatime-square.com/atom/series/12207421983530024812"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
       - title: "第1話"
         updated: "2026-05-15"
@@ -39,9 +39,13 @@ works:
       - title: "第7話"
         updated: "2026-09-04"
         url: "https://mangatime-square.com/episode/12207421983715352414"
+        withdrawn: true
       - title: "第8話"
         updated: "2026-10-02"
         url: "https://mangatime-square.com/episode/12207421983715352419"
+      - title: "第9話"
+        updated: "2026-11-06"
+        url: "https://mangatime-square.com/episode/12207421983715352428"
   - work_title: "ニセアイホンアイ"
     series_id: "12207421984001570933"
     url: "https://mangatime-square.com/atom/series/12207421984001570933"

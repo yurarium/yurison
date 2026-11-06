@@ -8,11 +8,17 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-06
+retrieved: 2026-11-07
 record_type: update_claims
 window_days: 60
-claims: 433
+claims: 435
 updates:
+  - work: "DOUBLE HELIX BLOSSOM アサウラ/西馬ごめゆき"
+    platform: "週刊コロコロ"
+    date: 2026-11-07
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "香り屋さんの纏さん"
     platform: "ガンガンONLINE"
     date: 2026-11-06
@@ -129,6 +135,20 @@ updates:
     provenance: claimed
     url: "https://g-comi.jp/series/58238b3987c11"
     listing_tags: ["最近のコメント数"]
+  - work: "上杉くんは女の子をやめたい"
+    platform: "サンデーうぇぶり"
+    date: 2026-11-06
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.sunday-webry.com/episode/2550912964699154588"
+    listing_tags: ["TS", "青春", "恋愛", "お色気・微エロ", "幼なじみ", "同性愛・LGBTQ+", "女装", "三角関係", "ギャグ・コメディ", "百合"]
+  - work: "オカルトタイムズ"
+    platform: "マガポケ"
+    date: 2026-11-06
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    listing_tags: ["百合", "オカルト"]
   - work: "イジめてイジられて"
     platform: "ニコニコ漫画"
     date: 2026-11-06
@@ -142,7 +162,14 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-action.com/episode/2550912964579811935"
-    listing_tags: ["百合", "ギャグ・コメディ", "宇宙人"]
+    listing_tags: ["最近のコメント数"]
+  - work: "はぐれアイドル地獄変"
+    platform: "ゴラクエッグ"
+    date: 2026-11-06
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://gorakuweb.com/episode/4632579990158199795"
+    listing_tags: ["アニメ化", "百合", "格闘技"]
   - work: "てくのぱにっくゆにばーす"
     platform: "サンデーうぇぶり"
     date: 2026-11-06
@@ -183,7 +210,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-fuz.com/manga/3572"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
   - work: "あめのひもがも～八百屋お七炎上図 葛飾応為筆～"
     platform: "カドコミ"
     date: 2026-11-06
@@ -303,7 +330,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021576_S"
-    listing_tags: ["百合"]
+    listing_tags: ["最近のコメント数"]
   - work: "あくまで!アットホームな職場です。"
     platform: "ビッコミ"
     date: 2026-11-05
@@ -473,7 +500,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021614_S"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合"]
   - work: "私に天使が舞い降りた!"
     platform: "ニコニコ漫画"
     date: 2026-11-03
@@ -779,13 +806,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_009488_S"
     listing_tags: ["百合"]
-  - work: "オカルトタイムズ"
-    platform: "マガポケ"
-    date: 2026-10-31
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    listing_tags: ["百合", "オカルト"]
   - work: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     platform: "ニコニコ漫画"
     date: 2026-10-30
@@ -2519,13 +2539,6 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/de0a74a9b5715"
     listing_tags: ["百合", "自転車", "女子高生", "サトリ"]
-  - work: "上杉くんは女の子をやめたい"
-    platform: "ちゃおプラス"
-    date: 2026-10-03
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ciao.shogakukan.co.jp/comics/title/00577/episode/22025"
-    listing_tags: ["三角関係", "恋愛", "女装", "同性愛・LGBTQ+", "現代", "青春", "TS", "幼なじみ", "BL", "百合"]
   - work: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     platform: "pixivコミック"
     date: 2026-10-03

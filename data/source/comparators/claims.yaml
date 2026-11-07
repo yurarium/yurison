@@ -13,12 +13,68 @@ record_type: update_claims
 window_days: 60
 claims: 435
 updates:
+  - work: "私を喰べたい、ひとでなし"
+    platform: "カドコミ"
+    date: 2026-11-07
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_003258_S"
+    listing_tags: ["異種族・人外", "百合", "女子高生", "妖怪", "アニメ化"]
+  - work: "怨霊日和"
+    platform: "pixivコミック"
+    date: 2026-11-07
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/13946"
+    listing_tags: ["百合"]
+  - work: "彼氏の女友達がぐいぐい来る(私に)"
+    platform: "pixivコミック"
+    date: 2026-11-07
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/13373"
+    listing_tags: ["百合"]
+  - work: "上杉くんは女の子をやめたい"
+    platform: "コロコロオンライン"
+    date: 2026-11-07
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.corocoro.jp/title/515"
+    listing_tags: ["BL", "女装", "三角関係", "TS", "同性愛・LGBTQ+", "幼なじみ", "現代", "恋愛", "青春", "百合"]
+  - work: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
+    platform: "コミックDAYS"
+    date: 2026-11-07
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550912964518073379"
+    listing_tags: ["暗殺者・殺し屋", "VR", "中二病", "先生と生徒・師弟", "女子高生", "忍者", "ブロ・シスマンス", "スキル制", "百合"]
+  - work: "オカルトタイムズ"
+    platform: "マガポケ"
+    date: 2026-11-07
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    listing_tags: ["百合", "オカルト"]
   - work: "DOUBLE HELIX BLOSSOM アサウラ/西馬ごめゆき"
     platform: "週刊コロコロ"
     date: 2026-11-07
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "DOUBLE HELIX BLOSSOM"
+    platform: "コロコロオンライン"
+    date: 2026-11-07
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.corocoro.jp/title/65"
+    listing_tags: ["異能・超能力", "近未来SF", "バディ", "警察", "百合"]
+  - work: "30まで独りだったら一緒に暮らそうって言ったよね?"
+    platform: "竹コミ‎‏‎"
+    date: 2026-11-07
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://takecomic.jp/series/4ad31024142fd"
+    listing_tags: ["百合", "現代", "同居人・居候"]
   - work: "香り屋さんの纏さん"
     platform: "ガンガンONLINE"
     date: 2026-11-06
@@ -85,7 +141,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_019660_S"
-    listing_tags: ["百合", "筋肉", "ファンタジー", "転生", "ギャグ・コメディ"]
+    listing_tags: ["最近のコメント数"]
   - work: "志乃と恋"
     platform: "カドコミ"
     date: 2026-11-06
@@ -135,20 +191,6 @@ updates:
     provenance: claimed
     url: "https://g-comi.jp/series/58238b3987c11"
     listing_tags: ["最近のコメント数"]
-  - work: "上杉くんは女の子をやめたい"
-    platform: "サンデーうぇぶり"
-    date: 2026-11-06
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.sunday-webry.com/episode/2550912964699154588"
-    listing_tags: ["TS", "青春", "恋愛", "お色気・微エロ", "幼なじみ", "同性愛・LGBTQ+", "女装", "三角関係", "ギャグ・コメディ", "百合"]
-  - work: "オカルトタイムズ"
-    platform: "マガポケ"
-    date: 2026-11-06
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    listing_tags: ["百合", "オカルト"]
   - work: "イジめてイジられて"
     platform: "ニコニコ漫画"
     date: 2026-11-06
@@ -296,7 +338,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://tonarinoyj.jp/episode/12207421984467777208"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "読み切り"]
   - work: "シュナイダーラリー"
     platform: "竹コミ‎‏‎"
     date: 2026-11-05
@@ -785,13 +827,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/13457"
     listing_tags: ["百合"]
-  - work: "彼氏の女友達がぐいぐい来る(私に)"
-    platform: "pixivコミック"
-    date: 2026-10-31
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/13373"
-    listing_tags: ["百合"]
   - work: "タイムトラベル少女 ～ミライのサキ～"
     platform: "ニコニコ漫画"
     date: 2026-10-31
@@ -1043,13 +1078,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021516_S"
     listing_tags: ["百合"]
-  - work: "私を喰べたい、ひとでなし"
-    platform: "ニコニコ漫画"
-    date: 2026-10-27
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/49677"
-    listing_tags: ["百合", "妖怪", "アニメ化"]
   - work: "真夜中に愛してよ 甘崎水菓"
     platform: "カドコミ"
     date: 2026-10-27
@@ -1856,7 +1884,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://www.ganganonline.com/title/38"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
   - work: "八尺様とコロポックル-215cmと135cmの女子高生-"
     platform: "Gコミ"
     date: 2026-10-18
@@ -1930,13 +1958,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "上杉くんは女の子をやめたい"
-    platform: "コロコロオンライン"
-    date: 2026-10-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.corocoro.jp/title/515"
-    listing_tags: ["BL", "女装", "三角関係", "TS", "同性愛・LGBTQ+", "幼なじみ", "現代", "恋愛", "青春", "百合"]
   - work: "アイ・ヘイ・チュー"
     platform: "pixivコミック"
     date: 2026-10-17
@@ -2357,13 +2378,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/67095"
     listing_tags: ["百合"]
-  - work: "DOUBLE HELIX BLOSSOM"
-    platform: "コロコロオンライン"
-    date: 2026-10-10
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.corocoro.jp/title/65"
-    listing_tags: ["異能・超能力", "近未来SF", "バディ", "警察", "百合"]
   - work: "見える子ちゃん"
     platform: "ニコニコ漫画"
     date: 2026-10-09
@@ -2553,13 +2567,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/53909"
     listing_tags: ["百合", "アイドル", "アニメ化", "4コマ"]
-  - work: "30まで独りだったら一緒に暮らそうって言ったよね?"
-    platform: "竹コミ‎‏‎"
-    date: 2026-10-03
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://takecomic.jp/series/4ad31024142fd"
-    listing_tags: ["百合", "現代", "同居人・居候"]
   - work: "葵とおねーちゃん"
     platform: "comicブースト"
     date: 2026-10-02
@@ -2700,13 +2707,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_006547_S"
     listing_tags: ["オカルト", "サスペンス", "ホラー", "残酷・グロテスク", "架空の部活", "女子高生", "デスゲーム", "百合", "完結"]
-  - work: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
-    platform: "コミックDAYS"
-    date: 2026-09-26
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-days.com/episode/2550912964518073379"
-    listing_tags: ["暗殺者・殺し屋", "VR", "中二病", "先生と生徒・師弟", "女子高生", "忍者", "ブロ・シスマンス", "スキル制", "百合"]
   - work: "GOOD HUNT"
     platform: "となりのヤングジャンプ"
     date: 2026-09-26

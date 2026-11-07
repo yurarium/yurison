@@ -43,9 +43,6 @@ works:
         title: "第22話(1)"
         updated: 2026-11-06
         access_modes: ["free"]
-        access_changed: "purchase -> free"
-        access_changed_on: "2026-11-07"
-        became_free: true
       - chapter_id: 80011
         title: "第21.5話"
         updated: 2026-10-23
@@ -66,8 +63,6 @@ works:
         title: "第20話(2)"
         updated: 2026-09-11
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-11-07"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78677
         title: "第20話(1)"
@@ -644,9 +639,6 @@ works:
         title: "１５巻 第８６球 「無理してないかな」（２）"
         updated: 2026-11-06
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-07"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 53756
         title: "１５巻 第８６球 「無理してないかな」（１）"
@@ -12408,9 +12400,6 @@ works:
         title: "１５巻 第１９１話"
         updated: 2026-11-05
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-07"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 59796
         title: "１５巻 第１９０話"

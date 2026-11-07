@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-07
+retrieved: 2026-11-08
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -424,12 +424,8 @@ works:
   - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     author: "中村カンコ"
     url: "https://comic.pixiv.net/works/11081"
-    chapter_count: 4
+    chapter_count: 3
     chapters:
-      - title: "第17話②"
-        updated: 2026-10-03
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "第3話"
         updated: 2025-01-04
         access_modes: ["free"]

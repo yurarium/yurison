@@ -261,6 +261,17 @@ def volumes_of(work, series=None):
         if v.get("delivered"):
             row["delivered"] = str(v["delivered"])[:10]
         out.append(row)
+    # PRODUCTS NOTHING ELSE TELLS APART ARE CALLED BY THE NAME AHEAD OF THE SERIES NAME. A story an
+    # anthology sells on its own puts its own name first, `たとえばこんな恋愛様式　恋愛ショート
+    # アンソロジーコミック`, so with no number and nothing after the series name eight stories read
+    # as the anthology eight times. Asked only where two or more products are in that state: a lone
+    # book whose title runs longer than its series name is not being told apart from anything.
+    blank = [r for r in out if not r.get("number") and not r.get("designation")]
+    if len(blank) > 1:
+        for r in blank:
+            got = _volnum.named_ahead(r["title"], series)
+            if got:
+                r["designation"] = got
     return out
 
 

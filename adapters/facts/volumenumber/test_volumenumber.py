@@ -116,6 +116,37 @@ def main(s):
     s.eq(vn.designation("【最新刊】「がちゆり」ゆるゆり 特装版小冊子電子版", "ゆるゆり　小冊子"),
          "「がちゆり」ゆるゆり 特装版小冊子電子版",
          "while the shop's own bracket comes off, because 【】 is where BOOK☆WALKER writes its marks")
+
+    # A PART IN THE SHOP'S BRACKETS IS THE PRODUCT'S NAME, and a story sold under its anthology's
+    # name puts its own name first. Both were drawn as the work itself, several times over, in
+    # the Releases list of 2026-11-08.
+    s.eq([vn.designation(x, "先輩の後輩") for x in ("先輩の後輩【前編】", "【最新刊】先輩の後輩【後編】")],
+         ["前編", "後編"], "【前編】 and 【後編】 are the two halves, not two copies of the book")
+    s.eq(vn.stated("Mr.マロウブルー【第３巻】", "Mr.マロウブルー"), "3",
+         "and a number the shop sets in its brackets is still the volume's number")
+    s.eq(vn.designation("Frag 2 fragtime another stories ～Fragment of Fragtime～", "Frag"),
+         "2 fragtime another stories ~Fragment of Fragtime",
+         "a Latin series name is read as a whole word, not inside Fragtime at the end, where it"
+         " left all four volumes called `time`")
+    s.eq([vn.designation(x, "Distortion") for x in
+          ("Distortion 【１】 共依存なふたり", "【最終巻】Distortion 【２】 共依存なふたり")],
+         ["1 共依存なふたり", "2 共依存なふたり"],
+         "and a bare number in the shop's brackets keeps its place in the name")
+    s.eq(vn.named_ahead("たとえばこんな恋愛様式　恋愛ショートアンソロジーコミック",
+                        "恋愛ショートアンソロジーコミック"), "たとえばこんな恋愛様式",
+         "a story named ahead of its anthology's name is called by that name")
+    s.eq(vn.named_ahead("ストーカー女とプリンス女-沼地どろまる百合短編集-", "沼地どろまる百合短編集"),
+         "ストーカー女とプリンス女", "including where the anthology's name is set off in dashes")
+    s.eq(vn.named_ahead("リリー＆アイビー　～ケンカップル百合×性愛アンソロジー～",
+                        "ケンカップル百合×性愛アンソロジー"), "リリー&アイビー",
+         "and a long vowel at the end of the name is the name's, not a dash")
+    s.eq(vn.named_ahead("【最新刊】ストーカー女", "【最新刊】ストーカー女"), None,
+         "while a product that is the work alone says nothing more")
+    s.eq(vn.named_ahead("【限定版】百合百景", "百合百景"), None,
+         "and a shop's badge ahead of the series name is no name")
+    s.eq(vn.designation("たとえばこんな恋愛様式　恋愛ショートアンソロジーコミック",
+                        "恋愛ショートアンソロジーコミック"), None,
+         "designation itself still reads only what follows the series name")
     s.eq(vn.designation("コミック百合姫 2017年1月号[雑誌]", "コミック百合姫"), "2017年1月号",
          "and so does its format tag")
     # AND A NUMBER IS NEVER INSIDE EITHER BRACKET, so reading one still strips both.

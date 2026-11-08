@@ -53,6 +53,12 @@ _SHOP_ASIDE = r"[【\[][^】\]]{0,28}[】\]]"
 _TITLE_ASIDE = r"[〈「][^〉」]{0,28}[〉」]"
 
 _ASIDE = f"(?:{_SHOP_ASIDE}|{_TITLE_ASIDE})"
+
+#: A PART OF THE WORK SET IN THE SHOP'S BRACKETS, which is the product's own name and not a mark.
+#: `先輩の後輩【前編】` and `【後編】` were stripped as badges, so the two halves of one book were
+#: drawn as the book twice, and `Mr.マロウブルー【第１巻】` to `【第６巻】` lost their numbers. The
+#: bracket comes off and what it holds stays.
+PART_IN_BRACKETS = re.compile(r"[【\[]\s*((?:第\s*)?[0-9０-９]+\s*巻?|[前中後]編|[上中下]巻?)\s*[】\]]")
 BRACKET_TAIL = re.compile(rf"\s*{_ASIDE}\s*$")
 BRACKET_HEAD = re.compile(rf"^\s*{_ASIDE}\s*")
 SHOP_TAIL = re.compile(rf"\s*{_SHOP_ASIDE}\s*$")
@@ -126,15 +132,72 @@ def beyond_series(title, series):
     where a rule that removed a leading `【…】` first ate the whole of the second title. The LAST
     occurrence is taken, so a badge that quotes the series name loses to the real one.
     """
+    span = _series_span(title, series)
+    if span is None:
+        return None
+    return PART_IN_BRACKETS.sub(r"\1", str(title or "")[span[1]:])
+
+
+def _series_span(title, series):
+    """`(start, end)` of the series name in `title`'s own characters, or None.
+
+    THE LAST OCCURRENCE, AND A WHOLE WORD WHERE THE NAME IS SPELLED IN LATIN LETTERS. `Frag` stands
+    at the front of `Frag 1 fragtime another stories ～Fragment of Fragtime～` and again inside
+    `Fragtime` at the end, and the last of those left `time` as the designation of all four volumes.
+    A Latin name touching another Latin letter is part of a longer word; where no occurrence is a
+    whole word, the last one is taken as before.
+    """
     body = str(title or "")
     seen, where = _folded(body)
     want, _ = _folded(series)
     if not want:
         return None
-    at = seen.rfind(want)
-    if at < 0:
+    found, at = [], seen.find(want)
+    while at >= 0:
+        found.append((where[at], where[at + len(want) - 1] + 1))
+        at = seen.find(want, at + 1)
+    if not found:
         return None
-    return body[where[at + len(want) - 1] + 1:]
+
+    def latin(c):
+        return c.isascii() and c.isalpha()
+
+    def whole(span):
+        a, b = span
+        return not ((latin(want[0]) and a > 0 and latin(body[a - 1]))
+                    or (latin(want[-1]) and b < len(body) and latin(body[b])))
+    return next((s for s in reversed(found) if whole(s)), found[-1])
+
+
+#: What sits between a name and the series name after it: spaces, a wave dash, a hyphen or dash.
+#: Not `LEAD`, which takes ー as a dash and so cut リリー＆アイビー to リリー＆アイビ.
+_BETWEEN = " 　～~-‐―–—"
+
+
+def named_ahead(title, series):
+    """The name a product title gives ahead of its series name, or None.
+
+    A STORY SOLD UNDER ITS ANTHOLOGY'S NAME PUTS ITS OWN NAME FIRST. 恋愛ショートアンソロジーコミック's
+    eight products are each `たとえばこんな恋愛様式　恋愛ショートアンソロジーコミック` and so on, so
+    nothing follows the series name and all eight were drawn as the anthology itself. The caller
+    asks this only where a listing's products cannot be told apart otherwise: on a book whose title
+    merely runs longer than its series name, the front of it is no designation.
+    """
+    ahead = before_series(title, series)
+    if ahead is None:
+        return None
+    ahead = SHOP_HEAD.sub("", unicodedata.normalize("NFKC", ahead)).strip(_BETWEEN)
+    return ahead or None
+
+
+def before_series(title, series):
+    """What a product title says ahead of the series name, or None where it does not name it."""
+    span = _series_span(title, series)
+    if span is None:
+        return None
+    ahead = PART_IN_BRACKETS.sub(r"\1", str(title or "")[:span[0]])
+    # A stranded bracket or badge opener is not a name.
+    return ahead if any(ch.isalnum() for ch in ahead) else None
 
 
 def _strip(tail, head, end):

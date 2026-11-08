@@ -209,6 +209,21 @@ def main(s):
     s.check("designation" not in one["volumes"][0], "a lone volume that is the work is not labelled")
     s.eq(one["volumes"][0]["delivered"], "2019-03-01", "and carries the shop's own date")
 
+    # STORIES SOLD UNDER THEIR ANTHOLOGY'S NAME ARE TOLD APART BY THEIR OWN, and only where needed.
+    s_ = "恋愛ショートアンソロジーコミック"
+    two = bw.volumes_of(work(volumes=[
+        {"title": f"たとえばこんな恋愛様式　{s_}", "series_title": s_, "delivered": "2021-09-24"},
+        {"title": f"好きになったらだめな人　{s_}", "series_title": s_, "delivered": "2021-09-29"}]), s_)
+    s.eq([v.get("designation") for v in two], ["たとえばこんな恋愛様式", "好きになったらだめな人"],
+         "two stories that would read as the anthology twice are each called by name")
+    lone = bw.volumes_of(work(volumes=[
+        {"title": "奏　青春バンド百合アンソロジー", "series_title": "青春バンド百合アンソロジー",
+         "delivered": "2023-01-01"},
+        {"title": "青春バンド百合アンソロジー 2", "series_title": "青春バンド百合アンソロジー"}]),
+        "青春バンド百合アンソロジー")
+    s.check("designation" not in lone[0],
+            "while a book whose title merely runs longer than its series name is left as it was")
+
     # 付き合ってあげてもいいかな【単話】 lists 133 items, numbered （１） to （133） by the shop
     # itself, and calling them 第1巻 to 第133巻 says the work is 133 volumes long.
     s.check(bw.chapterwise("付き合ってあげてもいいかな【単話】"), "単話 is sold one chapter at a time")

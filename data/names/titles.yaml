@@ -1436,6 +1436,15 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  CottonCandy:
+    basis: translated
+    en: CottonCandy
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title is already English, set as one word. The shop's 単話 mark is not part of the title.
+    verified: false
   CottonCandy【単話版】:
     basis: translated
     en: CottonCandy (single chapters)
@@ -3388,6 +3397,46 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  SM百合えっちアンソロジー『さらけ出した沼の底で』:
+    basis: translated
+    en: 'An SM Yuri Erotic Anthology: ''At the Bottom of the Swamp, Laid Bare'''
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - SM
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー『さらけ
+      - null
+    - - 出
+      - だ
+    - - した
+      - null
+    - - 沼
+      - ぬま
+    - - の
+      - null
+    - - 底
+      - そこ
+    - - で』
+      - null
+    note: さらけ出す is exposing what one would rather keep covered, of the self rather than the body. 沼 is
+      the swamp the internet uses for an obsession one cannot climb out of. Sold on its own as a 単話, and
+      the shop's mark is not part of the title; the anthology's English is the one the book SM百合えっちアンソロジー
+      carries.
+    reading: SM ユリ エッチ アンソロジー 『サラケダシタ ヌマ ノ ソコ デ』
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   SM百合えっちアンソロジー『さらけ出した沼の底で』【単話】:
     basis: translated
     en: 'An SM Yuri Sex Anthology: ''At the Bottom of the Swamp, Laid Bare'' [Single Chapter]'
@@ -3430,6 +3479,33 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  SM百合えっちアンソロジー『じらしじらされ』:
+    basis: translated
+    en: 'An SM Yuri Erotic Anthology: ''Teasing and Teased'''
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - SM
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー『じらしじらされ』
+      - null
+    note: じらす is holding somebody at the edge of what they want, and the title runs the active straight
+      into the passive. Sold on its own as a 単話, and the shop's mark is not part of the title; the anthology's
+      English is the one the book SM百合えっちアンソロジー carries.
+    reading: SM ユリ エッチ アンソロジー 『ジラシ ジラサレ』
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   SM百合えっちアンソロジー『じらしじらされ』【単話】:
     basis: translated
     en: 'An SM Yuri Sex Anthology: ''Teasing and Teased'' [Single Chapter]'
@@ -3457,6 +3533,37 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  SM百合えっちアンソロジー『ずっと見てるね』:
+    basis: translated
+    en: 'An SM Yuri Erotic Anthology: ''I''ll Be Watching the Whole Time'''
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - SM
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー『ずっと
+      - null
+    - - 見
+      - み
+    - - てるね』
+      - null
+    note: ずっと is without a break from start to finish. The ね at the end turns the statement into something
+      said to the other person. Sold on its own as a 単話, and the shop's mark is not part of the title;
+      the anthology's English is the one the book SM百合えっちアンソロジー carries.
+    reading: SM ユリ エッチ アンソロジー 『ズット ミテル ネ』
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   SM百合えっちアンソロジー『ずっと見てるね』【単話】:
@@ -3492,6 +3599,32 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  SM百合えっちアンソロジー『カガミアワセ』:
+    basis: translated
+    en: 'An SM Yuri Erotic Anthology: ''Mirrored'''
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - SM
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー『カガミアワセ』
+      - null
+    note: 鏡合わせ in katakana is two things facing each other so that each shows the other reversed. Sold
+      on its own as a 単話, and the shop's mark is not part of the title; the anthology's English is the
+      one the book SM百合えっちアンソロジー carries.
+    reading: SM ユリ エッチ アンソロジー 『カガミアワセ』
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   SM百合えっちアンソロジー『カガミアワセ』【単話】:
     basis: translated
     en: 'An SM Yuri Sex Anthology: ''Mirrored'' [Single Chapter]'
@@ -3521,6 +3654,32 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  SM百合えっちアンソロジー『ナイショのオシオキ』:
+    basis: translated
+    en: 'An SM Yuri Erotic Anthology: ''A Secret Punishment'''
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - SM
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー『ナイショのオシオキ』
+      - null
+    note: お仕置き with its polite お is the punishment given to a child, which is the register the scene is
+      borrowing. Sold on its own as a 単話, and the shop's mark is not part of the title; the anthology's
+      English is the one the book SM百合えっちアンソロジー carries.
+    reading: SM ユリ エッチ アンソロジー 『ナイショ ノ オシオキ』
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   SM百合えっちアンソロジー『ナイショのオシオキ』【単話】:
     basis: translated
     en: 'An SM Yuri Sex Anthology: ''A Secret Punishment'' [Single Chapter]'
@@ -3548,6 +3707,41 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  SM百合えっちアンソロジー『メイドとお嬢様の秘密のレッスン』:
+    basis: translated
+    en: 'An SM Yuri Erotic Anthology: ''The Maid and the Young Lady''s Secret Lesson'''
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - SM
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー『メイドとお
+      - null
+    - - 嬢様
+      - じょうさま
+    - - の
+      - null
+    - - 秘密
+      - ひみつ
+    - - のレッスン』
+      - null
+    note: お嬢様 is the daughter of the house as her staff address her, so the pair are set by rank before
+      anything else happens. Sold on its own as a 単話, and the shop's mark is not part of the title; the
+      anthology's English is the one the book SM百合えっちアンソロジー carries.
+    reading: SM ユリ エッチ アンソロジー 『メイド ト オジョウサマ ノ ヒミツ ノ レッスン』
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   SM百合えっちアンソロジー『メイドとお嬢様の秘密のレッスン』【単話】:
@@ -3585,6 +3779,49 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  SM百合えっちアンソロジー『待てない彼女の躾け方』:
+    basis: translated
+    en: 'An SM Yuri Erotic Anthology: ''How to Train a Girlfriend Who Can''t Wait'''
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - SM
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー『
+      - null
+    - - 待
+      - ま
+    - - てない
+      - null
+    - - 彼女
+      - かのじょ
+    - - の
+      - null
+    - - 躾
+      - しつ
+    - - け
+      - null
+    - - 方
+      - かた
+    - - 』
+      - null
+    note: 躾け is the training given to a child or an animal, written with a character made in Japan out
+      of body and beauty. Sold on its own as a 単話, and the shop's mark is not part of the title; the anthology's
+      English is the one the book SM百合えっちアンソロジー carries.
+    reading: SM ユリ エッチ アンソロジー 『マテナイ カノジョ ノ シツケカタ』
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   SM百合えっちアンソロジー『待てない彼女の躾け方』【単話】:
@@ -3632,6 +3869,45 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  SM百合えっちアンソロジー『素直になれない二人の夜』:
+    basis: translated
+    en: 'An SM Yuri Erotic Anthology: ''A Night for Two Who Can''t Be Honest'''
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - SM
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー『
+      - null
+    - - 素直
+      - すなお
+    - - になれない
+      - null
+    - - 二人
+      - ふたり
+    - - の
+      - null
+    - - 夜
+      - よる
+    - - 』
+      - null
+    note: 素直 is taking a thing straight without twisting it, said of a person who admits what they feel.
+      Sold on its own as a 単話, and the shop's mark is not part of the title; the anthology's English is
+      the one the book SM百合えっちアンソロジー carries.
+    reading: SM ユリ エッチ アンソロジー 『スナオニ ナレナイ フタリ ノ ヨル』
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   SM百合えっちアンソロジー『素直になれない二人の夜』【単話】:
     basis: translated
     en: 'An SM Yuri Sex Anthology: ''A Night for Two Who Can''t Be Honest'' [Single Chapter]'
@@ -3671,6 +3947,37 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  SM百合えっちアンソロジー『赤いリボンでぎゅっ』:
+    basis: translated
+    en: 'An SM Yuri Erotic Anthology: ''Tied Tight with a Red Ribbon'''
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - SM
+      - null
+    - - 百合
+      - ゆり
+    - - えっちアンソロジー『
+      - null
+    - - 赤
+      - あか
+    - - いリボンでぎゅっ』
+      - null
+    note: ぎゅっ is the sound word for pulling something firmly closed, and the verb it belongs to is left
+      out. Sold on its own as a 単話, and the shop's mark is not part of the title; the anthology's English
+      is the one the book SM百合えっちアンソロジー carries.
+    reading: SM ユリ エッチ アンソロジー 『アカイ リボン デ ギュッ』
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   SM百合えっちアンソロジー『赤いリボンでぎゅっ』【単話】:
@@ -8230,6 +8537,28 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     reading_uncertain: true
+    verified: false
+  あのレモンかじって。:
+    basis: translated
+    en: Bite That Lemon.
+    en_at: '2026-11-08'
+    en_reviewed: '2026-11-08'
+    en_source: yurarium
+    en_source_kind: derived
+    furigana_spans:
+    - - あのレモンかじって。
+      - null
+    note: かじる is to bite into something hard, an apple or a lemon. The shop's 単話 mark is not part of the
+      title.
+    reading: アノ レモン カジッテ。
+    reading_at: '2026-11-08'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   あのレモンかじって。【単話】:
     basis: translated

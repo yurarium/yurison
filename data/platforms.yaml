@@ -605,6 +605,14 @@ platforms:
   en: Comic Nettai
   host: www.comicnettai.com
   watched: false
+- id: bookwalker
+  name: BOOK☆WALKER
+  en: BOOK☆WALKER
+  host: bookwalker.jp
+  watched: false
+  notes: A shop. A listing it marks 【単話】, 【単話版】 or 【分冊版】 sells a work by the chapter, and those
+    chapters are read as chapters (project owner, 2026-11-08) by adapters/bwingest.py, priced and dated
+    by delivery. Its volumes reach the print half through the same pass.
 
 
 # ── THE ENGLISH NAME FOR A PLATFORM THE ADAPTER'S OWN LIST HOLDS ───────────────────────

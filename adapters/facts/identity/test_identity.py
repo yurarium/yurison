@@ -92,6 +92,21 @@ def main(s):
          "while a URL of its own needs no title to disambiguate it")
     s.eq(ident.web_anchor(""), None, "no URL, no anchor")
 
+    # A SHOP LISTING ANSWERS AS THE RECORD ALREADY REGISTERED FOR IT, so its 単話 join the work.
+    s.eq(ident.web_anchor("https://bookwalker.jp/series/188653/"), "madb:bw-188653",
+         "a BOOK☆WALKER series page is the listing bwingest wrote as bw-188653")
+    s.eq(ident.web_anchor("https://bookwalker.jp/de5cc82d06-9341-4948-94fa-2b8297f3de27/"),
+         "madb:bw-5cc82d06-9341-4948-94fa-2b8297f3de27", "and a product page by its uuid")
+    s.eq(ident.shop_record("https://bookwalker.jp/series/188653/list/"), None,
+         "a page under the listing is not the listing")
+    s.eq(ident.shop_record("https://comic-walker.com/detail/KC_021576_S"), None,
+         "another shop's address is no BOOK☆WALKER record")
+    reg, _c = ident.assign([{"id": "w00522", "title": "付き合ってあげてもいいかな",
+                             "anchors": ["madb:bw-188653"]}],
+                           [(ident.web_anchor("https://bookwalker.jp/series/188653/"), [],
+                             "付き合ってあげてもいいかな")])
+    s.eq([e["id"] for e in reg], ["w00522"], "so the listing's chapters mint no second work")
+
     reg, conflicts = ident.assign([], [("web:u1", [], "One"), ("web:u2", [], "Two")])
     s.eq([e["id"] for e in reg], ["w00001", "w00002"], "each work gets an identifier")
     s.eq(conflicts, [], "and nothing is in conflict on a first run")

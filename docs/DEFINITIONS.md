@@ -373,6 +373,23 @@ releases the listing is an edition of.
 as the purchase routes they are; `【単話版】` and `【分冊版】` are recorded, not refused. What is
 refused is a chapter route a reader cannot open in a browser at all.
 
+### A 単話 is a chapter, and a volume is what the publisher sells as one
+
+Ruled by the project owner on 2026-11-08, in three parts.
+
+**A listing the shop marks `【単話】`, `【単話版】` or `【分冊版】` sells the work by the chapter, and
+each item is a chapter.** It is dated by the day the shop began delivering it and is a purchase. It
+sits beside the work's web platforms as a shop selling chapters, and is not called a web
+serialisation, because it is not one. `adapters/bwingest.py` writes these.
+
+**A volume is what the publisher sells as a volume.** 百合コレ numbers 45-page items `1巻`, `2巻`
+and NETCOMICS sells webtoon episodes the same way. They are volumes because that is what they are
+sold as, and nothing here re-sizes them.
+
+**A story sold on its own is a work, related to the book that collects it.** BOOK☆WALKER sells nine
+stories of SM百合えっちアンソロジー one at a time, so each is a work, and the registry relates each
+to the anthology with `kind: collection` rather than inventing a container the shop does not sell.
+
 **Asked of the whole route, not the chapter.** A work whose opening chapters open in a browser and
 whose later ones have moved into the app is a web serialisation, and those app chapters are real
 chapters of one. They are simply not free. 108 works are in that state against 12 that are not.

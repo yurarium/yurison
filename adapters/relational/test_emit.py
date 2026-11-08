@@ -110,6 +110,59 @@ def _unit(s):
         except Exception:                                                # noqa: BLE001
             s.check(True, f"{why} is refused")
 
+    # A STORY AND THE BOOK COLLECTING IT, each page told which side it is on.
+    for wid, t in (("w01460", "SM百合えっちアンソロジー"), ("w02566", "SM百合えっちアンソロジー『カガミアワセ』")):
+        rel.execute("INSERT INTO work (id, title) VALUES (?, ?)", (wid, t))
+    rel.execute("INSERT INTO work_relation (a, b, kind, holds) VALUES"
+                " ('w01460','w02566','collection','w01460')")
+    rel.execute("INSERT INTO serialisation (work, chapters, first, latest) VALUES"
+                " ('w02566',1,'2024-08-29','2024-08-29')")
+    by = {r["id"]: r for r in emit.series(rel, "2026-11-08")["series"]}
+    s.eq((by["w02566"]["related"][0]["kind"], by["w02566"]["related"][0]["holds"],
+          by["w02566"]["related"][0]["id"]), ("collection", "other", "w01460"),
+         "the story's page names the book that collects it")
+    s.check("holds" not in by["w03344"]["related"][0], "and a pair that is no collection says nothing")
+    for bad, why in ((("w00336", "w02460", "collection", None), "a collection naming no book"),
+                     (("w00336", "w02460", "collection", "w00001"), "a collection whose book is"
+                                                                    " neither work"),
+                     (("w00336", "w02460", "series", "w00336"), "a book named on a series pair")):
+        try:
+            rel.execute("INSERT INTO work_relation (a, b, kind, holds) VALUES (?,?,?,?)", bad)
+            s.check(False, f"{why} must be refused")
+        except Exception:                                                # noqa: BLE001
+            s.check(True, f"{why} is refused")
+    # A 単話 LISTING IS A SHOP SELLING BY THE CHAPTER, and the record it left in the print half is
+    # no book. One folded with a record holding volumes is a book run and stays one.
+    src = [{"url": "https://bookwalker.jp/de7214a66a-78d3-4abf-b57d-412c92df7ec9/",
+            "sold_by_chapter": True}]
+    lone = emit._chapter_listings(src, [{"work_id": "bw-7214a66a-78d3-4abf-b57d-412c92df7ec9",
+                                         "work_ids": ["bw-7214a66a-78d3-4abf-b57d-412c92df7ec9"],
+                                         "volumes": 0}])
+    s.check(lone[0].get("sold_by_chapter"), "the story's own listing holds no volume and says so")
+    run = emit._chapter_listings([{"url": "https://bookwalker.jp/series/188653/",
+                                   "sold_by_chapter": True}],
+                                 [{"work_id": "C418294", "work_ids": ["C418294", "bw-188653"],
+                                   "volumes": 13}])
+    s.check(not run[0].get("sold_by_chapter"), "while 付き合ってあげてもいいかな's thirteen volumes stay a run")
+    s.check(not emit._chapter_listings([], lone[:0] + [{"work_id": "bw-1", "volumes": 0}])[0]
+            .get("sold_by_chapter"), "and a listing no chapter route names is left as it was")
+
+    # A STORE FROM BEFORE `holds` IS STILL READ, because the site builds from the newest emitter
+    # against whichever store was last published.
+    old = relational.create(":memory:")
+    old.execute("ALTER TABLE work_relation DROP COLUMN holds")
+    s.check(not emit._has_column(old, "work_relation", "holds"), "an older store has no `holds`")
+    s.check(emit._has_column(rel, "work_relation", "holds"), "and this one does")
+    for wid in ("w02460", "w03344"):
+        old.execute("INSERT INTO work (id, title) VALUES (?, 't')", (wid,))
+        old.execute("INSERT INTO serialisation (work, chapters) VALUES (?, 1)", (wid,))
+    old.execute("INSERT INTO work_relation (a, b, kind) VALUES ('w02460','w03344','series')")
+    s.eq([r.get("related") for r in emit.series(old, "2026-11-08")["series"]
+          if r["id"] == "w02460"][0],
+         [{"id": "w03344", "work": "t", "kind": "series", "chapters": 1, "first": None,
+           "latest": None}],
+         "and emits its relations without one")
+
     got = emit.run(rep)
     # THE DOTTED KEYS COME BACK APART, which is the whole reason `run_report` can hold scalars and
     # still serve a shape with sections in it.

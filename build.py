@@ -7029,10 +7029,13 @@ def main():
     _idfile = pathlib.Path("data/identity/works.yaml")
     _reg_doc = yaml.safe_load(_idfile.read_text()) if _idfile.exists() else None
     _reg_index = identity.index((_reg_doc or {}).get("works") or [])
-    _known_web = {a for a in _reg_index if a.startswith("web:")}
+    # AND A SHOP LISTING'S ADDRESS ANSWERS AS THE RECORD REGISTERED FOR IT, `madb:bw-<id>`, so the
+    # test is whether the registry holds the anchor and not whether it is a `web:` one. Asking for
+    # `web:` dropped four works' 単話 here, 心の声が漏れやすいメイドさん's 72 among them, because the
+    # platform titles each with 【単話版】 on the end and the registry title has none.
     _before = len(series)
     series = {k: v for k, v in series.items()
-              if k[0] in _cands or identity.web_anchor(v.get("url")) in _known_web}
+              if k[0] in _cands or identity.web_anchor(v.get("url")) in _reg_index}
     _out_of_scope = _before - len(series)
 
     for row in series.values():

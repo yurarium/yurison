@@ -491,12 +491,20 @@ CREATE INDEX work_anchor_work ON work_anchor (work);
 -- 夏みくちゃんとちひろさん. Each title is the work a Japanese shop sells under it, ruled by the
 -- project owner on 2026-10-18, and the relation is what joins them; a version and a sequel are
 -- different relations, so a reader is told which.
+--
+-- `kind` IS `collection` FOR A STORY AND THE BOOK THAT COLLECTS IT, and `holds` names the book.
+-- 一迅社 printed SM百合えっちアンソロジー on 2024-07-29 and a month later BOOK☆WALKER began selling
+-- nine of its stories one at a time, each under the anthology's name with its own title after it.
+-- Each story is a work because it is sold as one, ruled by the project owner on 2026-11-08, and a
+-- story is neither a version of the book nor the next title in a series.
 CREATE TABLE work_relation (
   a        TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   b        TEXT NOT NULL REFERENCES work(id) ON DELETE CASCADE,
   precedes TEXT CHECK (precedes IS NULL OR precedes = a OR precedes = b),
   note     TEXT,
-  kind     TEXT CHECK (kind IS NULL OR kind = 'series'),
+  kind     TEXT CHECK (kind IS NULL OR kind IN ('series', 'collection')),
+  holds    TEXT CHECK ((COALESCE(kind, '') = 'collection') = (holds IS NOT NULL)
+                   AND (holds IS NULL OR holds IN (a, b))),
   PRIMARY KEY (a, b),
   CHECK (a < b)
 );

@@ -32,6 +32,7 @@ import population as _population  # noqa: E402
 from names import credits as _credits  # noqa: E402
 from facts import inclusion as _inclusion  # noqa: E402
 from facts import volumenumber as _volnum  # noqa: E402
+import delivery as _delivery  # noqa: E402
 
 SHOP = "bookwalker.jp"
 # ONE HOME FOR WHAT A SHOP'S YURI SHELF IS CALLED (§3): this and `madb/by_isbn.SHELVES` each said
@@ -156,6 +157,71 @@ CHAPTERWISE = re.compile(r"【\s*(?:単話|単話版|分冊版|話売り)\s*】|
 def chapterwise(title):
     """Whether the shop sells this one chapter at a time, by its own marking on the title."""
     return bool(CHAPTERWISE.search(title or ""))
+
+
+#: Where the 単話 go: a chapter file the build reads beside every other platform's.
+CHAPTERS_OUT = "data/source/webpages/bookwalker-tanwa.yaml"
+
+
+def chapter_rows(records):
+    """`[{work_title, author, url, status?, chapters}]` for the records the shop sells by chapter.
+
+    単話 ARE CHAPTERS, ruled by the project owner on 2026-11-08. `record` set the items aside from
+    the volumes and the writer below never wrote them, so 付き合ってあげてもいいかな's 133 delivery
+    dates were read and thrown away, and a work sold only this way, such as each of the ten stories
+    of SM百合えっちアンソロジー, reached the site with no date at all.
+
+    A CHAPTER IS CALLED WHAT THE SHOP CALLS IT: the number it writes after the series name, `１` or
+    `（１）`, as `volumenumber` reads it. A listing of one item numbers nothing, and that item is the
+    whole story, so its chapter carries the work's title. The date is the day the shop began
+    delivering it, which is when this chapter went on sale, and the file says so.
+    """
+    out = []
+    for r in records:
+        if not r.get("chapterwise"):
+            continue
+        work = CHAPTERWISE.sub("", r["title"]).strip()
+        chs = []
+        for v in r.get("chapters") or []:
+            if not v.get("delivered"):
+                continue
+            chs.append({"title": v.get("number") or v.get("designation") or work,
+                        "updated": v["delivered"], "access_modes": ["purchase"]})
+        if not chs:
+            continue
+        row = {"work_title": work, "author": r.get("creator") or "", "url": r["url"],
+               "chapters": sorted(chs, key=lambda c: c["updated"])}
+        if r.get("completed"):
+            row["status"] = "完結"
+        out.append(row)
+    return out
+
+
+def chapter_file(rows, retrieved, js):
+    """The text of `CHAPTERS_OUT`."""
+    L = ["# BOOK☆WALKER's 単話: chapters it sells one file at a time, written by adapters/bwingest.py.",
+         "#",
+         "# A listing the shop marks 【単話】, 【単話版】 or 【分冊版】 is a work sold by the chapter,",
+         "# and each item is a chapter (ruled 2026-11-08). The date is the day the shop began",
+         "# delivering the file. The listing itself stays a record in data/source/bookwalker.",
+         "source: bookwalker", "platform: bookwalker", f"platform_name: {js('BOOK☆WALKER')}",
+         f"retrieved: {retrieved}", "record_type: web_work_chapters",
+         "identification_mode: shop-listing", f"date_basis: {js(_delivery.BASIS)}",
+         "date_confidence: reported", "works:"]
+    for w in rows:
+        L.append(f"  - work_title: {js(w['work_title'])}")
+        if w.get("author"):
+            L.append(f"    author: {js(w['author'])}")
+        L.append(f"    url: {js(w['url'])}")
+        if w.get("status"):
+            L.append(f"    status: {js(w['status'])}")
+        L.append("    chapters:")
+        for c in w["chapters"]:
+            L.append(f"      - title: {js(c['title'])}")
+            L.append(f"        updated: {c['updated']}")
+            L.append(f"        access_modes: {js(c['access_modes'])}")
+    L.append("")
+    return "\n".join(L)
 
 
 def volumes_of(work, series=None):
@@ -359,6 +425,8 @@ def main(argv=None):
     ap.add_argument("--build", default=None)
     ap.add_argument("--out", default="data/source/bookwalker")
     ap.add_argument("--review", default="data/queue/bw-review.yaml")
+    ap.add_argument("--chapters", default=CHAPTERS_OUT,
+                    help="where the 単話 go, as chapters (see chapter_rows)")
     ap.add_argument("--admitted", default="data/queue/admitted.yaml",
                     help="the admitted rows, read for the publisher labels some of them carry")
     a = ap.parse_args(argv)
@@ -476,10 +544,15 @@ def main(argv=None):
     R.append("")
     pathlib.Path(a.review).write_text("\n".join(R))
 
+    tanwa = chapter_rows(new)
+    pathlib.Path(a.chapters).write_text(chapter_file(tanwa, retrieved, js))
+
     print(f"BOOK☆WALKER: {len(records)} works read, {skipped} skipped with nothing captured")
     print(f"  new records      : {len(new)} -> {a.out}")
     print(f"  titles we hold   : {len(review)} -> {a.review}, for review rather than merge")
     print(f"  dated by the shop: {sum(1 for r in new if r.get('first_published'))}")
+    print(f"  sold by chapter  : {len(tanwa)} work(s), "
+          f"{sum(len(w['chapters']) for w in tanwa)} chapter(s) -> {a.chapters}")
     return 0
 
 

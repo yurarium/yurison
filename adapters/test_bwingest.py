@@ -223,6 +223,42 @@ def main(s):
     s.eq(ch["chapter_count"], 2, "the items are counted as what they are")
     s.eq(len(ch["chapters"]), 2, "and kept, so their dates are not lost")
 
+    # 単話 ARE CHAPTERS, and reach the build as one: the writer dropped them, so the dates were
+    # read and lost. Each item is called what the shop numbers it and dated by its delivery.
+    tw = bw.record(work(title="付き合ってあげてもいいかな【単話】", completed="completed", volumes=[
+        {"title": "付き合ってあげてもいいかな【単話】（２）", "series_title": "付き合ってあげてもいいかな【単話】",
+         "delivered": "2019-01-18"},
+        {"title": "付き合ってあげてもいいかな【単話】（１）", "series_title": "付き合ってあげてもいいかな【単話】",
+         "delivered": "2019-01-11"},
+        {"title": "付き合ってあげてもいいかな【単話】（３）", "series_title": "付き合ってあげてもいいかな【単話】"}]),
+        "2026-08-06")
+    rows = bw.chapter_rows([tw, bw.record(work(), "2026-08-06")])
+    s.eq(len(rows), 1, "a listing sold by the volume gives no chapters")
+    s.eq(rows[0]["work_title"], "付き合ってあげてもいいかな", "the work is named without the shop's marking")
+    s.eq([(c["title"], c["updated"]) for c in rows[0]["chapters"]],
+         [("1", "2019-01-11"), ("2", "2019-01-18")],
+         "each chapter is the number the shop wrote, in the order it went on sale, and an item with"
+         " no delivery date gives no chapter")
+    s.eq(rows[0]["chapters"][0]["access_modes"], ["purchase"], "a 単話 is sold")
+    s.eq(rows[0]["status"], "完結", "and a listing the shop calls complete says so")
+    story = bw.record(work(title="SM百合えっちアンソロジー『カガミアワセ』【単話】", completed=None, volumes=[
+        {"title": "SM百合えっちアンソロジー『カガミアワセ』【単話】",
+         "series_title": "SM百合えっちアンソロジー『カガミアワセ』【単話】（百合姫コミックス）",
+         "delivered": "2024-08-29"}]), "2026-08-06")
+    one = bw.chapter_rows([story])[0]
+    s.eq([c["title"] for c in one["chapters"]], ["SM百合えっちアンソロジー『カガミアワセ』"],
+         "a listing of one unnumbered item is the whole story, and its chapter carries its title")
+    s.check("status" not in one, "and a listing that says nothing of completion says nothing")
+    import json as _json
+    import yaml as _yaml
+    doc = _yaml.safe_load(bw.chapter_file(rows, "2026-11-08",
+                                          lambda v: _json.dumps(v, ensure_ascii=False)))
+    s.eq((doc["record_type"], doc["platform_name"], doc["date_basis"]),
+         ("web_work_chapters", "BOOK☆WALKER", "shop-delivery-date"),
+         "the file is a chapter list the build reads, dated by delivery and saying so")
+    s.eq(doc["works"][0]["chapters"][1], {"title": "2", "updated": __import__("datetime").date(2019, 1, 18),
+                                          "access_modes": ["purchase"]}, "and parses back whole")
+
     # A MATCHING TITLE DECIDES WHICH PILE, NEVER A MERGE. トワ・エ・モア is one title over two
     # unrelated works, which is why this cannot be allowed to join anything by itself.
     recs = [{"_key": "a", "title": "A"}, {"_key": "b", "title": "B"}]

@@ -1,0 +1,1608 @@
+# BOOK☆WALKER's 単話: chapters it sells one file at a time, written by adapters/bwingest.py.
+#
+# A listing the shop marks 【単話】, 【単話版】 or 【分冊版】 is a work sold by the chapter,
+# and each item is a chapter (ruled 2026-11-08). The date is the day the shop began
+# delivering the file. The listing itself stays a record in data/source/bookwalker.
+source: bookwalker
+platform: bookwalker
+platform_name: "BOOK☆WALKER"
+retrieved: 2026-11-05
+record_type: web_work_chapters
+identification_mode: shop-listing
+date_basis: "shop-delivery-date"
+date_confidence: reported
+works:
+  - work_title: "伊勢さんと志摩さん"
+    author: "トクヲツム"
+    url: "https://bookwalker.jp/series/186882/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2018-12-14
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2018-12-14
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2018-12-14
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2018-12-14
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2018-12-14
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2018-12-14
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2019-02-01
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2019-04-01
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2019-05-01
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2019-08-01
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2019-11-01
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2020-02-01
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2020-05-01
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2020-08-01
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2020-11-01
+        access_modes: ["purchase"]
+  - work_title: "付き合ってあげてもいいかな"
+    author: "たみふる"
+    url: "https://bookwalker.jp/series/188653/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2019-01-11
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2019-01-11
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2019-01-11
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2019-01-11
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2019-01-11
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2019-01-11
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2019-01-11
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2019-01-11
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2019-01-11
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2019-02-12
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2019-02-19
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2019-03-12
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2019-03-19
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2019-04-12
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2019-04-19
+        access_modes: ["purchase"]
+      - title: "16"
+        updated: 2019-05-10
+        access_modes: ["purchase"]
+      - title: "17"
+        updated: 2019-05-17
+        access_modes: ["purchase"]
+      - title: "18"
+        updated: 2019-06-12
+        access_modes: ["purchase"]
+      - title: "19"
+        updated: 2019-06-19
+        access_modes: ["purchase"]
+      - title: "20"
+        updated: 2019-07-12
+        access_modes: ["purchase"]
+      - title: "21"
+        updated: 2019-07-19
+        access_modes: ["purchase"]
+      - title: "22"
+        updated: 2019-08-08
+        access_modes: ["purchase"]
+      - title: "23"
+        updated: 2019-08-19
+        access_modes: ["purchase"]
+      - title: "24"
+        updated: 2019-09-19
+        access_modes: ["purchase"]
+      - title: "25"
+        updated: 2019-10-11
+        access_modes: ["purchase"]
+      - title: "26"
+        updated: 2019-10-18
+        access_modes: ["purchase"]
+      - title: "27"
+        updated: 2019-11-12
+        access_modes: ["purchase"]
+      - title: "28"
+        updated: 2019-11-26
+        access_modes: ["purchase"]
+      - title: "29"
+        updated: 2019-12-12
+        access_modes: ["purchase"]
+      - title: "30"
+        updated: 2019-12-19
+        access_modes: ["purchase"]
+      - title: "31"
+        updated: 2020-01-10
+        access_modes: ["purchase"]
+      - title: "32"
+        updated: 2020-02-12
+        access_modes: ["purchase"]
+      - title: "33"
+        updated: 2020-03-12
+        access_modes: ["purchase"]
+      - title: "34"
+        updated: 2020-03-19
+        access_modes: ["purchase"]
+      - title: "35"
+        updated: 2020-04-10
+        access_modes: ["purchase"]
+      - title: "36"
+        updated: 2020-04-17
+        access_modes: ["purchase"]
+      - title: "37"
+        updated: 2020-05-12
+        access_modes: ["purchase"]
+      - title: "38"
+        updated: 2020-06-12
+        access_modes: ["purchase"]
+      - title: "39"
+        updated: 2020-07-10
+        access_modes: ["purchase"]
+      - title: "40"
+        updated: 2020-07-17
+        access_modes: ["purchase"]
+      - title: "41"
+        updated: 2020-08-12
+        access_modes: ["purchase"]
+      - title: "42"
+        updated: 2020-08-19
+        access_modes: ["purchase"]
+      - title: "43"
+        updated: 2020-09-11
+        access_modes: ["purchase"]
+      - title: "44"
+        updated: 2020-09-18
+        access_modes: ["purchase"]
+      - title: "45"
+        updated: 2020-10-12
+        access_modes: ["purchase"]
+      - title: "46"
+        updated: 2020-10-16
+        access_modes: ["purchase"]
+      - title: "47"
+        updated: 2020-11-19
+        access_modes: ["purchase"]
+      - title: "48"
+        updated: 2020-12-11
+        access_modes: ["purchase"]
+      - title: "49"
+        updated: 2020-12-18
+        access_modes: ["purchase"]
+      - title: "50"
+        updated: 2021-01-12
+        access_modes: ["purchase"]
+      - title: "51"
+        updated: 2021-01-19
+        access_modes: ["purchase"]
+      - title: "52"
+        updated: 2021-02-12
+        access_modes: ["purchase"]
+      - title: "53"
+        updated: 2021-02-19
+        access_modes: ["purchase"]
+      - title: "54"
+        updated: 2021-03-18
+        access_modes: ["purchase"]
+      - title: "55"
+        updated: 2021-04-12
+        access_modes: ["purchase"]
+      - title: "56"
+        updated: 2021-04-19
+        access_modes: ["purchase"]
+      - title: "57"
+        updated: 2021-05-12
+        access_modes: ["purchase"]
+      - title: "58"
+        updated: 2021-05-19
+        access_modes: ["purchase"]
+      - title: "59"
+        updated: 2021-06-10
+        access_modes: ["purchase"]
+      - title: "60"
+        updated: 2021-06-17
+        access_modes: ["purchase"]
+      - title: "61"
+        updated: 2021-07-16
+        access_modes: ["purchase"]
+      - title: "62"
+        updated: 2021-08-11
+        access_modes: ["purchase"]
+      - title: "63"
+        updated: 2021-08-18
+        access_modes: ["purchase"]
+      - title: "64"
+        updated: 2021-09-16
+        access_modes: ["purchase"]
+      - title: "65"
+        updated: 2021-10-12
+        access_modes: ["purchase"]
+      - title: "66"
+        updated: 2021-10-18
+        access_modes: ["purchase"]
+      - title: "67"
+        updated: 2021-11-11
+        access_modes: ["purchase"]
+      - title: "68"
+        updated: 2021-11-18
+        access_modes: ["purchase"]
+      - title: "69"
+        updated: 2021-12-10
+        access_modes: ["purchase"]
+      - title: "70"
+        updated: 2022-01-12
+        access_modes: ["purchase"]
+      - title: "71"
+        updated: 2022-01-19
+        access_modes: ["purchase"]
+      - title: "72"
+        updated: 2022-02-17
+        access_modes: ["purchase"]
+      - title: "73"
+        updated: 2022-03-10
+        access_modes: ["purchase"]
+      - title: "74"
+        updated: 2022-03-18
+        access_modes: ["purchase"]
+      - title: "75"
+        updated: 2022-04-12
+        access_modes: ["purchase"]
+      - title: "76"
+        updated: 2022-04-19
+        access_modes: ["purchase"]
+      - title: "77"
+        updated: 2022-05-12
+        access_modes: ["purchase"]
+      - title: "78"
+        updated: 2022-05-18
+        access_modes: ["purchase"]
+      - title: "79"
+        updated: 2022-06-10
+        access_modes: ["purchase"]
+      - title: "80"
+        updated: 2022-07-12
+        access_modes: ["purchase"]
+      - title: "81"
+        updated: 2022-07-19
+        access_modes: ["purchase"]
+      - title: "82"
+        updated: 2022-08-10
+        access_modes: ["purchase"]
+      - title: "83"
+        updated: 2022-09-12
+        access_modes: ["purchase"]
+      - title: "84"
+        updated: 2022-09-16
+        access_modes: ["purchase"]
+      - title: "85"
+        updated: 2022-10-12
+        access_modes: ["purchase"]
+      - title: "86"
+        updated: 2022-10-19
+        access_modes: ["purchase"]
+      - title: "87"
+        updated: 2022-11-10
+        access_modes: ["purchase"]
+      - title: "88"
+        updated: 2022-11-17
+        access_modes: ["purchase"]
+      - title: "89"
+        updated: 2022-12-19
+        access_modes: ["purchase"]
+      - title: "90"
+        updated: 2023-01-12
+        access_modes: ["purchase"]
+      - title: "91"
+        updated: 2023-01-19
+        access_modes: ["purchase"]
+      - title: "92"
+        updated: 2023-02-10
+        access_modes: ["purchase"]
+      - title: "93"
+        updated: 2023-03-10
+        access_modes: ["purchase"]
+      - title: "94"
+        updated: 2023-03-17
+        access_modes: ["purchase"]
+      - title: "95"
+        updated: 2023-04-12
+        access_modes: ["purchase"]
+      - title: "96"
+        updated: 2023-04-18
+        access_modes: ["purchase"]
+      - title: "97"
+        updated: 2023-05-12
+        access_modes: ["purchase"]
+      - title: "98"
+        updated: 2023-06-12
+        access_modes: ["purchase"]
+      - title: "99"
+        updated: 2023-06-19
+        access_modes: ["purchase"]
+      - title: "100"
+        updated: 2023-07-12
+        access_modes: ["purchase"]
+      - title: "101"
+        updated: 2023-08-09
+        access_modes: ["purchase"]
+      - title: "102"
+        updated: 2023-08-18
+        access_modes: ["purchase"]
+      - title: "103"
+        updated: 2023-09-12
+        access_modes: ["purchase"]
+      - title: "104"
+        updated: 2023-09-19
+        access_modes: ["purchase"]
+      - title: "105"
+        updated: 2023-10-12
+        access_modes: ["purchase"]
+      - title: "106"
+        updated: 2023-11-10
+        access_modes: ["purchase"]
+      - title: "107"
+        updated: 2023-11-17
+        access_modes: ["purchase"]
+      - title: "108"
+        updated: 2023-12-12
+        access_modes: ["purchase"]
+      - title: "109"
+        updated: 2023-12-19
+        access_modes: ["purchase"]
+      - title: "110"
+        updated: 2024-01-12
+        access_modes: ["purchase"]
+      - title: "111"
+        updated: 2024-02-09
+        access_modes: ["purchase"]
+      - title: "112"
+        updated: 2024-03-12
+        access_modes: ["purchase"]
+      - title: "113"
+        updated: 2024-03-19
+        access_modes: ["purchase"]
+      - title: "114"
+        updated: 2024-04-11
+        access_modes: ["purchase"]
+      - title: "115"
+        updated: 2024-05-10
+        access_modes: ["purchase"]
+      - title: "116"
+        updated: 2024-05-17
+        access_modes: ["purchase"]
+      - title: "117"
+        updated: 2024-06-11
+        access_modes: ["purchase"]
+      - title: "118"
+        updated: 2024-07-11
+        access_modes: ["purchase"]
+      - title: "119"
+        updated: 2024-07-18
+        access_modes: ["purchase"]
+      - title: "120"
+        updated: 2024-08-08
+        access_modes: ["purchase"]
+      - title: "121"
+        updated: 2024-08-19
+        access_modes: ["purchase"]
+      - title: "122"
+        updated: 2024-10-10
+        access_modes: ["purchase"]
+      - title: "123"
+        updated: 2024-11-12
+        access_modes: ["purchase"]
+      - title: "124"
+        updated: 2024-11-19
+        access_modes: ["purchase"]
+      - title: "125"
+        updated: 2024-12-12
+        access_modes: ["purchase"]
+      - title: "126"
+        updated: 2025-01-10
+        access_modes: ["purchase"]
+      - title: "127"
+        updated: 2025-01-17
+        access_modes: ["purchase"]
+      - title: "128"
+        updated: 2025-02-12
+        access_modes: ["purchase"]
+      - title: "129"
+        updated: 2025-03-12
+        access_modes: ["purchase"]
+      - title: "130"
+        updated: 2025-03-18
+        access_modes: ["purchase"]
+      - title: "131"
+        updated: 2025-04-11
+        access_modes: ["purchase"]
+      - title: "133"
+        updated: 2025-04-17
+        access_modes: ["purchase"]
+      - title: "132"
+        updated: 2025-04-17
+        access_modes: ["purchase"]
+  - work_title: "異世界でも風俗嬢やってみた"
+    author: "森尾正博"
+    url: "https://bookwalker.jp/series/194664/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2019-03-01
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2019-03-01
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2019-04-01
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2019-04-01
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2019-05-01
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2019-05-01
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2019-06-01
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2019-06-01
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2019-07-01
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2019-07-01
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2019-08-01
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2019-08-01
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2019-09-01
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2019-10-01
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2019-10-01
+        access_modes: ["purchase"]
+      - title: "16"
+        updated: 2019-11-01
+        access_modes: ["purchase"]
+      - title: "17"
+        updated: 2019-11-01
+        access_modes: ["purchase"]
+      - title: "18"
+        updated: 2019-12-01
+        access_modes: ["purchase"]
+      - title: "19"
+        updated: 2019-12-01
+        access_modes: ["purchase"]
+      - title: "20"
+        updated: 2020-01-01
+        access_modes: ["purchase"]
+      - title: "21"
+        updated: 2020-02-01
+        access_modes: ["purchase"]
+      - title: "22"
+        updated: 2020-03-01
+        access_modes: ["purchase"]
+      - title: "23"
+        updated: 2020-03-01
+        access_modes: ["purchase"]
+      - title: "24"
+        updated: 2020-04-01
+        access_modes: ["purchase"]
+      - title: "25"
+        updated: 2020-04-01
+        access_modes: ["purchase"]
+      - title: "26"
+        updated: 2020-05-01
+        access_modes: ["purchase"]
+      - title: "27"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+      - title: "28"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+      - title: "29"
+        updated: 2020-07-01
+        access_modes: ["purchase"]
+      - title: "30"
+        updated: 2020-07-01
+        access_modes: ["purchase"]
+      - title: "31"
+        updated: 2020-08-01
+        access_modes: ["purchase"]
+      - title: "32"
+        updated: 2020-08-01
+        access_modes: ["purchase"]
+      - title: "33"
+        updated: 2020-09-01
+        access_modes: ["purchase"]
+      - title: "34"
+        updated: 2020-10-01
+        access_modes: ["purchase"]
+      - title: "35"
+        updated: 2020-10-01
+        access_modes: ["purchase"]
+      - title: "36"
+        updated: 2020-11-01
+        access_modes: ["purchase"]
+      - title: "37"
+        updated: 2020-11-01
+        access_modes: ["purchase"]
+      - title: "38"
+        updated: 2020-12-01
+        access_modes: ["purchase"]
+      - title: "39"
+        updated: 2020-12-01
+        access_modes: ["purchase"]
+      - title: "40"
+        updated: 2021-01-01
+        access_modes: ["purchase"]
+      - title: "41"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "42"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "43"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "44"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "45"
+        updated: 2021-04-01
+        access_modes: ["purchase"]
+      - title: "46"
+        updated: 2021-04-01
+        access_modes: ["purchase"]
+      - title: "47"
+        updated: 2021-05-01
+        access_modes: ["purchase"]
+      - title: "48"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "49"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "50"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "51"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "52"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "53"
+        updated: 2021-09-01
+        access_modes: ["purchase"]
+      - title: "54"
+        updated: 2021-09-01
+        access_modes: ["purchase"]
+      - title: "55"
+        updated: 2021-10-01
+        access_modes: ["purchase"]
+      - title: "56"
+        updated: 2021-10-01
+        access_modes: ["purchase"]
+      - title: "57"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "58"
+        updated: 2021-12-01
+        access_modes: ["purchase"]
+      - title: "59"
+        updated: 2021-12-01
+        access_modes: ["purchase"]
+      - title: "60"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "61"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "62"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "63"
+        updated: 2022-02-01
+        access_modes: ["purchase"]
+      - title: "64"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "65"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "66"
+        updated: 2022-04-01
+        access_modes: ["purchase"]
+      - title: "67"
+        updated: 2022-04-01
+        access_modes: ["purchase"]
+      - title: "68"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "69"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "70"
+        updated: 2022-06-01
+        access_modes: ["purchase"]
+      - title: "71"
+        updated: 2022-07-01
+        access_modes: ["purchase"]
+  - work_title: "おやすみシェヘラザード"
+    author: "篠房六郎"
+    url: "https://bookwalker.jp/series/249431/"
+    chapters:
+      - title: "38"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "1"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "16"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "17"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "18"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "19"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "20"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "21"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "22"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "23"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "24"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "25"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "26"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "27"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "28"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "29"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "30"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "31"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "32"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "33"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "34"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "35"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "36"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "37"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2020-05-29
+        access_modes: ["purchase"]
+  - work_title: "女子校だからセーフ"
+    author: "おーうち"
+    url: "https://bookwalker.jp/series/250140/"
+    chapters:
+      - title: "5"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+      - title: "1"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+  - work_title: "男だけど死神姫の嫁になりました（仮）"
+    author: "午子 / ふかみん"
+    url: "https://bookwalker.jp/series/250141/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2020-06-01
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2020-07-01
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2020-07-01
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2020-07-01
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2020-08-01
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2020-08-01
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2020-09-01
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2020-09-01
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2020-10-01
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2020-11-01
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2020-11-01
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2020-12-01
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2021-01-01
+        access_modes: ["purchase"]
+      - title: "16"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "17"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "18"
+        updated: 2021-04-01
+        access_modes: ["purchase"]
+      - title: "19"
+        updated: 2021-05-01
+        access_modes: ["purchase"]
+      - title: "20"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "21"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "22"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "23"
+        updated: 2021-09-01
+        access_modes: ["purchase"]
+      - title: "24"
+        updated: 2021-10-01
+        access_modes: ["purchase"]
+      - title: "25"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "26"
+        updated: 2021-12-01
+        access_modes: ["purchase"]
+      - title: "27"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "28"
+        updated: 2022-02-01
+        access_modes: ["purchase"]
+      - title: "29"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+  - work_title: "ヤンキー×ジャーキー"
+    author: "由井ひな子"
+    url: "https://bookwalker.jp/series/286569/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2021-02-01
+        access_modes: ["purchase"]
+      - title: "18"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "16"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+      - title: "17"
+        updated: 2021-06-01
+        access_modes: ["purchase"]
+  - work_title: "姉を好きなお姉さんと"
+    author: "真くん"
+    url: "https://bookwalker.jp/series/289561/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "18"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "16"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "17"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+  - work_title: "百合ＳＭでふたりの気持ちはつながりますか？"
+    author: "みら"
+    url: "https://bookwalker.jp/series/289564/"
+    chapters:
+      - title: "1"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2021-03-01
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2022-03-01
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2023-03-01
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2023-03-01
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2023-03-01
+        access_modes: ["purchase"]
+      - title: "16"
+        updated: 2023-03-01
+        access_modes: ["purchase"]
+      - title: "17"
+        updated: 2023-03-01
+        access_modes: ["purchase"]
+      - title: "18"
+        updated: 2023-03-01
+        access_modes: ["purchase"]
+      - title: "19"
+        updated: 2024-06-01
+        access_modes: ["purchase"]
+      - title: "20"
+        updated: 2024-06-01
+        access_modes: ["purchase"]
+      - title: "21"
+        updated: 2024-06-01
+        access_modes: ["purchase"]
+      - title: "22"
+        updated: 2024-06-01
+        access_modes: ["purchase"]
+      - title: "23"
+        updated: 2024-06-01
+        access_modes: ["purchase"]
+      - title: "24"
+        updated: 2024-06-01
+        access_modes: ["purchase"]
+      - title: "25"
+        updated: 2025-06-01
+        access_modes: ["purchase"]
+      - title: "26"
+        updated: 2025-06-01
+        access_modes: ["purchase"]
+      - title: "27"
+        updated: 2025-06-01
+        access_modes: ["purchase"]
+      - title: "28"
+        updated: 2025-06-01
+        access_modes: ["purchase"]
+      - title: "29"
+        updated: 2025-06-01
+        access_modes: ["purchase"]
+      - title: "30"
+        updated: 2025-06-01
+        access_modes: ["purchase"]
+      - title: "31"
+        updated: 2025-06-01
+        access_modes: ["purchase"]
+      - title: "38"
+        updated: 2026-08-01
+        access_modes: ["purchase"]
+      - title: "32"
+        updated: 2026-08-01
+        access_modes: ["purchase"]
+      - title: "33"
+        updated: 2026-08-01
+        access_modes: ["purchase"]
+      - title: "34"
+        updated: 2026-08-01
+        access_modes: ["purchase"]
+      - title: "35"
+        updated: 2026-08-01
+        access_modes: ["purchase"]
+      - title: "36"
+        updated: 2026-08-01
+        access_modes: ["purchase"]
+      - title: "37"
+        updated: 2026-08-01
+        access_modes: ["purchase"]
+  - work_title: "ゆうやけトリップ"
+    author: "ともひ"
+    url: "https://bookwalker.jp/series/295062/"
+    chapters:
+      - title: "1"
+        updated: 2021-04-01
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2021-04-01
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2021-04-01
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2021-04-01
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2021-04-01
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2021-04-01
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2023-10-01
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2023-10-01
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2023-10-01
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2023-10-01
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2023-10-01
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2023-10-01
+        access_modes: ["purchase"]
+  - work_title: "心の声が漏れやすいメイドさん"
+    author: "ぎんもく"
+    url: "https://bookwalker.jp/series/307339/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2021-07-01
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "16"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2021-11-01
+        access_modes: ["purchase"]
+      - title: "17"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "18"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "19"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "20"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "21"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "22"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "23"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "24"
+        updated: 2022-05-01
+        access_modes: ["purchase"]
+      - title: "25"
+        updated: 2022-08-01
+        access_modes: ["purchase"]
+      - title: "26"
+        updated: 2022-08-01
+        access_modes: ["purchase"]
+      - title: "27"
+        updated: 2022-08-01
+        access_modes: ["purchase"]
+      - title: "28"
+        updated: 2022-08-01
+        access_modes: ["purchase"]
+      - title: "29"
+        updated: 2022-08-01
+        access_modes: ["purchase"]
+      - title: "30"
+        updated: 2022-08-01
+        access_modes: ["purchase"]
+      - title: "31"
+        updated: 2022-08-01
+        access_modes: ["purchase"]
+      - title: "32"
+        updated: 2022-08-01
+        access_modes: ["purchase"]
+      - title: "33"
+        updated: 2023-01-01
+        access_modes: ["purchase"]
+      - title: "34"
+        updated: 2023-01-01
+        access_modes: ["purchase"]
+      - title: "35"
+        updated: 2023-01-01
+        access_modes: ["purchase"]
+      - title: "36"
+        updated: 2023-01-01
+        access_modes: ["purchase"]
+      - title: "37"
+        updated: 2023-01-01
+        access_modes: ["purchase"]
+      - title: "38"
+        updated: 2023-01-01
+        access_modes: ["purchase"]
+      - title: "39"
+        updated: 2023-01-01
+        access_modes: ["purchase"]
+      - title: "40"
+        updated: 2023-01-01
+        access_modes: ["purchase"]
+      - title: "41"
+        updated: 2023-05-01
+        access_modes: ["purchase"]
+      - title: "42"
+        updated: 2023-05-01
+        access_modes: ["purchase"]
+      - title: "43"
+        updated: 2023-05-01
+        access_modes: ["purchase"]
+      - title: "44"
+        updated: 2023-05-01
+        access_modes: ["purchase"]
+      - title: "45"
+        updated: 2023-05-01
+        access_modes: ["purchase"]
+      - title: "46"
+        updated: 2023-05-01
+        access_modes: ["purchase"]
+      - title: "47"
+        updated: 2023-05-01
+        access_modes: ["purchase"]
+      - title: "48"
+        updated: 2023-05-01
+        access_modes: ["purchase"]
+      - title: "49"
+        updated: 2023-08-01
+        access_modes: ["purchase"]
+      - title: "50"
+        updated: 2023-08-01
+        access_modes: ["purchase"]
+      - title: "51"
+        updated: 2023-08-01
+        access_modes: ["purchase"]
+      - title: "52"
+        updated: 2023-08-01
+        access_modes: ["purchase"]
+      - title: "53"
+        updated: 2023-08-01
+        access_modes: ["purchase"]
+      - title: "54"
+        updated: 2023-08-01
+        access_modes: ["purchase"]
+      - title: "55"
+        updated: 2023-08-01
+        access_modes: ["purchase"]
+      - title: "56"
+        updated: 2023-08-01
+        access_modes: ["purchase"]
+      - title: "57"
+        updated: 2023-11-01
+        access_modes: ["purchase"]
+      - title: "58"
+        updated: 2023-11-01
+        access_modes: ["purchase"]
+      - title: "59"
+        updated: 2023-11-01
+        access_modes: ["purchase"]
+      - title: "60"
+        updated: 2023-11-01
+        access_modes: ["purchase"]
+      - title: "61"
+        updated: 2023-11-01
+        access_modes: ["purchase"]
+      - title: "62"
+        updated: 2023-11-01
+        access_modes: ["purchase"]
+      - title: "63"
+        updated: 2023-11-01
+        access_modes: ["purchase"]
+      - title: "64"
+        updated: 2023-11-01
+        access_modes: ["purchase"]
+      - title: "72"
+        updated: 2024-01-01
+        access_modes: ["purchase"]
+      - title: "65"
+        updated: 2024-01-01
+        access_modes: ["purchase"]
+      - title: "66"
+        updated: 2024-01-01
+        access_modes: ["purchase"]
+      - title: "67"
+        updated: 2024-01-01
+        access_modes: ["purchase"]
+      - title: "68"
+        updated: 2024-01-01
+        access_modes: ["purchase"]
+      - title: "69"
+        updated: 2024-01-01
+        access_modes: ["purchase"]
+      - title: "70"
+        updated: 2024-01-01
+        access_modes: ["purchase"]
+      - title: "71"
+        updated: 2024-01-01
+        access_modes: ["purchase"]
+  - work_title: "ひめちゃんは重い女"
+    author: "花束葬式"
+    url: "https://bookwalker.jp/series/311871/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2021-08-01
+        access_modes: ["purchase"]
+      - title: "10"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "11"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "12"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "13"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "14"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "15"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "16"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2022-01-01
+        access_modes: ["purchase"]
+      - title: "25"
+        updated: 2022-09-01
+        access_modes: ["purchase"]
+      - title: "17"
+        updated: 2022-09-01
+        access_modes: ["purchase"]
+      - title: "18"
+        updated: 2022-09-01
+        access_modes: ["purchase"]
+      - title: "19"
+        updated: 2022-09-01
+        access_modes: ["purchase"]
+      - title: "20"
+        updated: 2022-09-01
+        access_modes: ["purchase"]
+      - title: "21"
+        updated: 2022-09-01
+        access_modes: ["purchase"]
+      - title: "22"
+        updated: 2022-09-01
+        access_modes: ["purchase"]
+      - title: "23"
+        updated: 2022-09-01
+        access_modes: ["purchase"]
+      - title: "24"
+        updated: 2022-09-01
+        access_modes: ["purchase"]
+  - work_title: "冬馬くん"
+    author: "天野しゅにんた"
+    url: "https://bookwalker.jp/series/314852/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2018-04-15
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2018-04-15
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2018-04-27
+        access_modes: ["purchase"]
+      - title: "4"
+        updated: 2018-08-09
+        access_modes: ["purchase"]
+      - title: "5"
+        updated: 2018-10-26
+        access_modes: ["purchase"]
+      - title: "6"
+        updated: 2019-02-22
+        access_modes: ["purchase"]
+      - title: "7"
+        updated: 2019-04-26
+        access_modes: ["purchase"]
+      - title: "8"
+        updated: 2019-07-26
+        access_modes: ["purchase"]
+      - title: "9"
+        updated: 2020-01-31
+        access_modes: ["purchase"]
+  - work_title: "CottonCandy"
+    author: "浜野りんご"
+    url: "https://bookwalker.jp/series/349064/"
+    status: "完結"
+    chapters:
+      - title: "1"
+        updated: 2018-12-20
+        access_modes: ["purchase"]
+      - title: "2"
+        updated: 2018-12-20
+        access_modes: ["purchase"]
+      - title: "3"
+        updated: 2018-12-21
+        access_modes: ["purchase"]
+  - work_title: "SM百合えっちアンソロジー『さらけ出した沼の底で』"
+    author: "結野ちり"
+    url: "https://bookwalker.jp/de5cc82d06-9341-4948-94fa-2b8297f3de27/"
+    chapters:
+      - title: "SM百合えっちアンソロジー『さらけ出した沼の底で』"
+        updated: 2024-08-29
+        access_modes: ["purchase"]
+  - work_title: "SM百合えっちアンソロジー『ずっと見てるね』"
+    author: "焼肉定食"
+    url: "https://bookwalker.jp/de5ed35756-3f39-441b-b7e9-75bf3101ce47/"
+    chapters:
+      - title: "SM百合えっちアンソロジー『ずっと見てるね』"
+        updated: 2024-08-29
+        access_modes: ["purchase"]
+  - work_title: "SM百合えっちアンソロジー『カガミアワセ』"
+    author: "焔すばる"
+    url: "https://bookwalker.jp/de7214a66a-78d3-4abf-b57d-412c92df7ec9/"
+    chapters:
+      - title: "SM百合えっちアンソロジー『カガミアワセ』"
+        updated: 2024-08-29
+        access_modes: ["purchase"]
+  - work_title: "SM百合えっちアンソロジー『赤いリボンでぎゅっ』"
+    author: "三本 ひより"
+    url: "https://bookwalker.jp/de7a751470-a3c9-456e-a467-d1535398b1b0/"
+    chapters:
+      - title: "SM百合えっちアンソロジー『赤いリボンでぎゅっ』"
+        updated: 2024-08-29
+        access_modes: ["purchase"]
+  - work_title: "SM百合えっちアンソロジー『素直になれない二人の夜』"
+    author: "日野アラシ"
+    url: "https://bookwalker.jp/dea39ed8e9-ee37-466d-a528-43aa62715c5e/"
+    chapters:
+      - title: "SM百合えっちアンソロジー『素直になれない二人の夜』"
+        updated: 2024-08-29
+        access_modes: ["purchase"]
+  - work_title: "SM百合えっちアンソロジー『待てない彼女の躾け方』"
+    author: "伊月クロ"
+    url: "https://bookwalker.jp/dea8b6c311-2732-41f7-bf6e-cd7036bd1866/"
+    chapters:
+      - title: "SM百合えっちアンソロジー『待てない彼女の躾け方』"
+        updated: 2024-08-29
+        access_modes: ["purchase"]
+  - work_title: "あのレモンかじって。"
+    author: "岩見樹代子"
+    url: "https://bookwalker.jp/deb8b49d32-b25d-4002-bc11-550180be05cf/"
+    chapters:
+      - title: "あのレモンかじって。"
+        updated: 2019-03-08
+        access_modes: ["purchase"]
+  - work_title: "SM百合えっちアンソロジー『じらしじらされ』"
+    author: "檜原フキ"
+    url: "https://bookwalker.jp/debf967666-030d-4efa-944a-93f87c1f1e9d/"
+    chapters:
+      - title: "SM百合えっちアンソロジー『じらしじらされ』"
+        updated: 2024-08-29
+        access_modes: ["purchase"]
+  - work_title: "SM百合えっちアンソロジー『ナイショのオシオキ』"
+    author: "sorani"
+    url: "https://bookwalker.jp/ded33cce25-9c32-4bcf-925d-a7c05ee827ff/"
+    chapters:
+      - title: "SM百合えっちアンソロジー『ナイショのオシオキ』"
+        updated: 2024-08-29
+        access_modes: ["purchase"]
+  - work_title: "SM百合えっちアンソロジー『メイドとお嬢様の秘密のレッスン』"
+    author: "森"
+    url: "https://bookwalker.jp/def1fbeb94-ef82-4781-9558-692406ffc3b3/"
+    chapters:
+      - title: "SM百合えっちアンソロジー『メイドとお嬢様の秘密のレッスン』"
+        updated: 2024-08-29
+        access_modes: ["purchase"]

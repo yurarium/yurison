@@ -821,11 +821,17 @@ def _load_all(db, source, put, counts, refused):
             continue
         lo, hi = sorted((a_, b_))
         first = _live(str(r_["precedes"])) if r_.get("precedes") else None
+        kind = r_.get("kind") if r_.get("kind") in ("series", "collection") else None
+        # THE BOOK, for a story and the collection holding it. A collection relation that names
+        # neither side as the book says nothing a reader can follow, so it is not taken.
+        holds = _live(str(r_["holds"])) if kind == "collection" and r_.get("holds") else None
+        if kind == "collection" and holds not in (lo, hi):
+            continue
         related.setdefault((lo, hi), (first if first in (lo, hi) else None, r_.get("note"),
-                                      "series" if r_.get("kind") == "series" else None))
-    for (lo, hi), (first, note, kind) in sorted(related.items()):
-        put("INSERT INTO work_relation (a, b, precedes, note, kind) VALUES (?,?,?,?,?)",
-            (lo, hi, first, note, kind), f"relation {lo} {hi}")
+                                      kind, holds))
+    for (lo, hi), (first, note, kind, holds) in sorted(related.items()):
+        put("INSERT INTO work_relation (a, b, precedes, note, kind, holds) VALUES (?,?,?,?,?,?)",
+            (lo, hi, first, note, kind, holds), f"relation {lo} {hi}")
     counts["work_relation"] = len(related)
     counts["work_anchor"] = db.execute("SELECT count(*) FROM work_anchor").fetchone()[0]
 

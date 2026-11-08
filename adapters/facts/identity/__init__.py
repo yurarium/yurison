@@ -108,6 +108,22 @@ CHAPTER_UNDER_COMICS = re.compile(r"^(https?://[^/]+/comics/[^/]+)/[0-9a-f]{32}/
 # a rule matching /manga/<n> alone would rewrite 78 rows into addresses that do not exist.
 MANGA_ONE_CHAPTER = re.compile(r"^(https?://manga-one\.com)/manga/(\d+)/chapter/\d+/?$")
 
+#: A BOOK☆WALKER listing: a series page by its number, or a single product by its uuid.
+SHOP_LISTING = re.compile(r"^https?://bookwalker\.jp/(?:series/(\d+)|de([0-9a-f-]{36}))/?$")
+
+
+def shop_record(url):
+    """The record `bwingest` registered for a BOOK☆WALKER listing, `bw-<id>`, or None.
+
+    A LISTING ALREADY HAS AN IDENTITY. `bwingest` writes each shop listing as `bw-<id>` and the
+    registry anchors it as `madb:bw-<id>`. Its 単話 are chapters (ruled by the project owner on
+    2026-11-08) and reach the build at the listing's address, which no registry entry held, so
+    `identity` would have minted a second work for 冬馬くん and for each of the ten stories of
+    SM百合えっちアンソロジー sold one at a time. The address names the record the work already has.
+    """
+    m = SHOP_LISTING.match(str(url or ""))
+    return f"bw-{m.group(1) or m.group(2)}" if m else None
+
 
 def stable_url(url):
     """The work-level address of a chapter address, or the address unchanged.
@@ -143,8 +159,12 @@ def web_anchor(url, title=None, shared=False):
     five stories one identity. `shared` is decided by the caller from the whole population, not
     guessed from the row.
 
-    A chapter address is reduced to its work's address first, so publishing does not move it.
+    A chapter address is reduced to its work's address first, so publishing does not move it, and a
+    shop listing answers as the record already registered for it (`shop_record`).
     """
+    shop = shop_record(url)
+    if shop:
+        return print_anchor(shop)
     url = stable_url(url)
     url = (url or "").strip()
     if not url:
@@ -684,6 +704,8 @@ def render(entries, rel, today=None, keep_order=False):
         L.append(f"    b: {r['b']}")
         if r.get("kind"):
             L.append(f"    kind: {r['kind']}")
+        if r.get("holds"):
+            L.append(f"    holds: {js(r['holds'])}")
         if r.get("precedes"):
             L.append(f"    precedes: {js(r['precedes'])}")
         L.append(f"    note: {js(r['note'])}")

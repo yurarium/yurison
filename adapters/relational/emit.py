@@ -31,6 +31,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "names"))
 from facts import division as _division                                 # noqa: E402
+from facts import identity as _identity                                 # noqa: E402
 from facts import script as _script                                     # noqa: E402
 from facts import serialisation as _ser                                 # noqa: E402
 from names import provenance as _prov                                   # noqa: E402
@@ -981,7 +982,8 @@ def series(db, generated):
         sources = [{"platform": p, "url": u, "chapters": n, "free": f, "free_timed": ft,
                     "priced": pr, "latest": la, "partial": bool(pa), "format": fmt,
                     "retrieved": re_,
-                    **({"latest_work_level": True} if wl else {})}
+                    **({"latest_work_level": True} if wl else {}),
+                    **({"sold_by_chapter": True} if _identity.shop_record(u) else {})}
                    for p, u, n, f, ft, pr, la, pa, fmt, re_, wl in db.execute(
                        "SELECT platform, url, instalments, free, free_timed, priced, latest,"
                        " partial, format, retrieved, latest_work_level FROM offer"
@@ -1017,9 +1019,13 @@ def series(db, generated):
         # page it sits on. `work` is the key the works list already renders a title through.
         related = []
         # `kind: series` WHERE THE TWO ARE TITLES OF ONE SERIES rather than versions of one story,
-        # so the page can say "next in the series" and not "continued as".
-        for other, first, note, title, kind in db.execute(
-                "SELECT CASE WHEN r.a = ? THEN r.b ELSE r.a END, r.precedes, r.note, w.title, r.kind"
+        # so the page can say "next in the series" and not "continued as". `kind: collection` for a
+        # story and the book collecting it, and `holds` says which side is the book: `this` on the
+        # book's page and `other` on the story's.
+        holds_col = "r.holds" if _has_column(db, "work_relation", "holds") else "NULL"
+        for other, first, note, title, kind, holds in db.execute(
+                "SELECT CASE WHEN r.a = ? THEN r.b ELSE r.a END, r.precedes, r.note, w.title, r.kind,"
+                f" {holds_col}"
                 " FROM work_relation r JOIN work w ON w.id = CASE WHEN r.a = ? THEN r.b ELSE r.a END"
                 " WHERE ? IN (r.a, r.b) ORDER BY 1", (wid, wid, wid)):
             ser = db.execute("SELECT chapters, first, latest FROM serialisation WHERE work = ?",
@@ -1028,6 +1034,7 @@ def series(db, generated):
                 "id": other, "work": title,
                 **({"order": "precedes" if first == wid else "follows"} if first else {}),
                 **({"kind": kind} if kind else {}),
+                **({"holds": "this" if holds == wid else "other"} if holds else {}),
                 **({"chapters": ser[0], "first": ser[1], "latest": ser[2]} if ser else {}),
                 **({"note": note} if note else {})})
         if related:
@@ -1073,7 +1080,7 @@ def series(db, generated):
                 block["next_from_cadence"] = nxt[4]
             block["platform"] = nxt[0]
             row["stated_next"] = block
-        blocks = _print_blocks(db, wid)
+        blocks = _chapter_listings(sources, _print_blocks(db, wid))
         if blocks:
             row["print"] = blocks
         # WHAT THE PRIMARY RECORD SAYS BEYOND ITS PRINT RUN. The row shows the record the block is
@@ -1351,6 +1358,29 @@ def _present(db, table):
     """
     return db.execute("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
                       (table,)).fetchone() is not None
+
+
+def _chapter_listings(sources, blocks):
+    """`blocks`, with a block that is only a 単話 listing marked `sold_by_chapter`.
+
+    A SHOP SELLING BY THE CHAPTER IS NOT A WEB SERIALISATION, AND ITS LISTING IS NO BOOK. A 単話
+    route is a chapter offer at a shop listing's address, marked `sold_by_chapter` where the source
+    row is built, and the record that listing also left in the print half holds no volume. Each
+    SM百合えっちアンソロジー story read `web serialisation and collected volumes` over an empty
+    volumes section, from one BOOK☆WALKER listing counted once as each. A block folded with a
+    record that does hold volumes is a book run and stays one.
+    """
+    by_chapter = {_identity.shop_record(s.get("url")) for s in sources if s.get("sold_by_chapter")}
+    for b in blocks:
+        if not b.get("volumes") and set(b.get("work_ids") or [b.get("work_id")]) <= by_chapter:
+            b["sold_by_chapter"] = True
+    return blocks
+
+
+def _has_column(db, table, column):
+    """Whether `table` has `column`, for the same reason `_present` exists: `work_relation.holds`
+    came after stores the site still accepts."""
+    return any(r[1] == column for r in db.execute(f"PRAGMA table_info({table})"))
 
 
 def meta(db, generated, window_days, archive_from, archive_months, samples_dropped):

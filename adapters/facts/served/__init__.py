@@ -378,6 +378,9 @@ STORE_ANSWERS = (
     "series.json:series[].first_followup",        # work_origin.date_followup
     "series.json:series[].oneshot_inferred",      # serialisation.oneshot_inferred
     "series.json:series[].print[].periodical",    # print_row.periodical
+    # A 単話 LISTING'S RECORD, which holds no volume: `emit._chapter_listings` reads it off the
+    # offers whose address is that listing (`identity.shop_record`), so `offer` answers it.
+    "series.json:series[].print[].sold_by_chapter",
     "works.json:works[].volumes[].editions",      # edition, every ISBN a volume carries
     "works.json:works[].volumes[].published_openbd",  # volume.openbd_date
 )

@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-11-08
+retrieved: 2026-11-09
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -900,6 +900,59 @@ works:
         updated: 2023-07-16
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "平良深姉妹はどっちもヤんでる"
+    author: "金子ある"
+    url: "https://pocket.shonenmagazine.com/title/02257"
+    stated_schedule:
+      cadence: "毎月第3金曜"
+      next_update: "2026-11-20"
+    chapter_count: 10
+    chapters:
+      - title: "【#28（４）】"
+        updated: 2026-03-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【#28（３）】"
+        updated: 2026-03-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【#28（２）】"
+        updated: 2026-03-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【#28（１）】"
+        updated: 2026-03-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【#27（２）】"
+        updated: 2026-01-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【#３（１）】"
+        updated: 2023-08-04
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【#２（２）】"
+        updated: 2023-08-04
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【#２（１）】"
+        updated: 2023-08-04
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【#１（２）】"
+        updated: 2023-08-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【#１（１）】"
+        updated: 2023-08-04
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "この世で一番素敵な終わり方"
     author: "シクシク"
     url: "https://pocket.shonenmagazine.com/title/02260"
@@ -998,6 +1051,109 @@ works:
         date_basis: rendered
       - title: "【第1話】悪役令嬢の身体を手に入れたぞ"
         updated: 2023-10-20
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ぜんぶ壊して地獄で愛して"
+    author: "くわばらたもつ"
+    url: "https://pocket.shonenmagazine.com/title/02367"
+    stated_schedule:
+      cadence: "毎週土曜"
+      next_update: "2026-11-28"
+    chapter_count: 10
+    chapters:
+      - title: "【第34話】嘘(3)"
+        updated: 2026-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第34話】嘘(2)"
+        updated: 2026-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第34話】嘘(1)"
+        updated: 2026-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第33話】朱くて空っぽ(3)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第33話】朱くて空っぽ(2)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第２話（１）】逃げ場なんてない"
+        updated: 2023-10-06
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第１話（４）】悪い子だね"
+        updated: 2023-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第１話（３）】悪い子だね"
+        updated: 2023-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第１話（２）】悪い子だね"
+        updated: 2023-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第１話（１）】悪い子だね"
+        updated: 2023-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "最果てのセレナード"
+    author: "ひの宙子"
+    url: "https://pocket.shonenmagazine.com/title/02390"
+    stated_schedule:
+      cadence: "毎月7日前後"
+    chapter_count: 10
+    chapters:
+      - title: "【第20話(2)】"
+        updated: 2025-01-24
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【第20話(1)】"
+        updated: 2025-01-24
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【第19話(2)】"
+        updated: 2024-12-24
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【第19話(1)】"
+        updated: 2024-12-24
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第18話(2)】"
+        updated: 2024-10-25
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話(2)】"
+        updated: 2023-12-13
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話(1)】"
+        updated: 2023-12-13
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第2話(2)】"
+        updated: 2023-12-13
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話(1)】"
+        updated: 2023-12-13
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】"
+        updated: 2023-12-13
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "頂のリヴィーツァ"
@@ -1272,7 +1428,7 @@ works:
     url: "https://pocket.shonenmagazine.com/title/03056"
     stated_schedule:
       cadence: "隔週日曜"
-      next_update: "2026-11-08"
+      next_update: "2027-11-08"
     chapter_count: 10
     chapters:
       - title: "【17話(2)】やっぱり叩き潰します!! 漫画で"
@@ -1366,6 +1522,15 @@ works:
         date_basis: rendered
       - title: "【1.】月と太陽の日々"
         updated: 2025-12-18
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "CUTE vs. COOL"
+    author: "波雲晴風"
+    url: "https://pocket.shonenmagazine.com/title/03099"
+    chapter_count: 1
+    chapters:
+      - title: "【特別読み切り】"
+        updated: 2026-01-19
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "怨霊日和"
@@ -1616,162 +1781,5 @@ works:
         date_basis: rendered
       - title: "【第1話】呪い髪の女"
         updated: 2026-09-09
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ぜんぶ壊して地獄で愛して"
-    author: "くわばらたもつ"
-    url: "https://pocket.shonenmagazine.com/title/02367"
-    chapter_count: 10
-    chapters:
-      - title: "【第34話】嘘(3)"
-        updated: 2026-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第34話】嘘(2)"
-        updated: 2026-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第34話】嘘(1)"
-        updated: 2026-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第33話】朱くて空っぽ(3)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第33話】朱くて空っぽ(2)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第２話（１）】逃げ場なんてない"
-        updated: 2023-10-06
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第１話（４）】悪い子だね"
-        updated: 2023-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第１話（３）】悪い子だね"
-        updated: 2023-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第１話（２）】悪い子だね"
-        updated: 2023-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第１話（１）】悪い子だね"
-        updated: 2023-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "最果てのセレナード"
-    author: "ひの宙子"
-    url: "https://pocket.shonenmagazine.com/title/02390"
-    chapter_count: 10
-    chapters:
-      - title: "【第20話(2)】"
-        updated: 2025-01-24
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第20話(1)】"
-        updated: 2025-01-24
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第19話(2)】"
-        updated: 2024-12-24
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第19話(1)】"
-        updated: 2024-12-24
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第18話(2)】"
-        updated: 2024-10-25
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話(2)】"
-        updated: 2023-12-13
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話(1)】"
-        updated: 2023-12-13
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第2話(2)】"
-        updated: 2023-12-13
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話(1)】"
-        updated: 2023-12-13
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】"
-        updated: 2023-12-13
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "平良深姉妹はどっちもヤんでる"
-    author: "金子ある"
-    url: "https://pocket.shonenmagazine.com/title/02257"
-    chapter_count: 10
-    chapters:
-      - title: "【#28（４）】"
-        updated: 2026-03-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【#28（３）】"
-        updated: 2026-03-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【#28（２）】"
-        updated: 2026-03-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【#28（１）】"
-        updated: 2026-03-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【#27（２）】"
-        updated: 2026-01-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【#３（１）】"
-        updated: 2023-08-04
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【#２（２）】"
-        updated: 2023-08-04
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【#２（１）】"
-        updated: 2023-08-04
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【#１（２）】"
-        updated: 2023-08-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【#１（１）】"
-        updated: 2023-08-04
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "CUTE vs. COOL"
-    author: "波雲晴風"
-    url: "https://pocket.shonenmagazine.com/title/03099"
-    chapter_count: 1
-    chapters:
-      - title: "【特別読み切り】"
-        updated: 2026-01-19
         access_modes: ["free"]
         date_basis: rendered

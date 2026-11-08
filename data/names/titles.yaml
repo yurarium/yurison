@@ -8545,21 +8545,17 @@ names:
     en_reviewed: '2026-11-08'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - あのレモンかじって。
-      - null
     note: かじる is to bite into something hard, an apple or a lemon. The shop's 単話 mark is not part of the
       title.
-    reading: アノ レモン カジッテ。
+    reading: アノレモンカジッテ。
     reading_at: '2026-11-08'
-    reading_basis: analyser
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   あのレモンかじって。【単話】:
     basis: translated
     en: Bite That Lemon. (single chapters)

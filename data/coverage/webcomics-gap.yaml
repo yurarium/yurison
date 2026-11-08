@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-08
+retrieved: 2026-11-09
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -19,17 +19,17 @@ platforms_missing:
     works: 11
   - platform: "COMICリュウライブ"
     works: 3
+  - platform: "ヤンジャン+"
+    works: 2
   - platform: "マンガPark"
     works: 2
   - platform: "comicブースト"
     works: 2
-  - platform: "ヤンジャン+"
-    works: 2
   - platform: "きら星ポータル"
     works: 2
-  - platform: "ゴラクエッグ"
-    works: 1
   - platform: "pixivコミックマガジン"
+    works: 1
+  - platform: "ゴラクエッグ"
     works: 1
   - platform: "COMIC ポルタ"
     works: 1
@@ -300,7 +300,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019660_S"
     antenna_id: "213830"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "筋肉", "ファンタジー", "転生", "ギャグ・コメディ"]
   - title: "令嬢VTuberはメイドの夜食に蹂躙される～禁断ご飯で食レポ生配信～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008429_S"
@@ -1001,16 +1001,16 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03292"
     antenna_id: "213072"
     tags: ["百合"]
-  - title: "ロックは淑女の嗜みでして"
-    platform: "マンガPark"
-    url: "https://manga-park.com/title/67724"
-    antenna_id: "148272"
-    tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
   - title: "私のブルーガーネット"
     platform: "マンガPark"
     url: "https://manga-park.com/title/98459"
     antenna_id: "197977"
     tags: ["百合", "エロ"]
+  - title: "ロックは淑女の嗜みでして"
+    platform: "マンガPark"
+    url: "https://manga-park.com/title/67724"
+    antenna_id: "148272"
+    tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
   - title: "女にはそれぞれ裏がある"
     platform: "マンガよもんが"
     url: "https://www.yomonga.com/titles/2571/"

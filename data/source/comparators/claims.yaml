@@ -8,11 +8,23 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-08
+retrieved: 2026-11-09
 record_type: update_claims
 window_days: 60
 claims: 430
 updates:
+  - work: "わたしのために脱ぎなさいっ！ 九郎"
+    platform: "カドコミ"
+    date: 2026-11-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "どれが恋かがわからない 奥たまむし"
+    platform: "カドコミ"
+    date: 2026-11-09
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "魔女とくゅらす"
     platform: "HERO'S Web"
     date: 2026-11-08
@@ -34,6 +46,13 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/7319"
     listing_tags: ["百合", "転生", "コミカライズ", "小説家になろう", "令嬢", "アニメ化"]
+  - work: "私のブルーガーネット"
+    platform: "マンガPark"
+    date: 2026-11-08
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-park.com/title/98459"
+    listing_tags: ["百合", "エロ"]
   - work: "私に天使が舞い降りた!"
     platform: "pixivコミック"
     date: 2026-11-08
@@ -97,6 +116,13 @@ updates:
     provenance: claimed
     url: "https://manga-park.com/title/67724"
     listing_tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
+  - work: "ベイビー車中ハッカーズ"
+    platform: "ヤンジャン+"
+    date: 2026-11-08
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ynjn.jp/title/16787"
+    listing_tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
   - work: "ファタールゲーム"
     platform: "マガポケ"
     date: 2026-11-08
@@ -111,6 +137,13 @@ updates:
     provenance: claimed
     url: "https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P"
     listing_tags: ["百合", "妖怪", "現代", "女子高生"]
+  - work: "ゆりひめ@ピクシブ"
+    platform: "pixivコミックマガジン"
+    date: 2026-11-08
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/magazines/206"
+    listing_tags: ["百合"]
   - work: "私を喰べたい、ひとでなし"
     platform: "カドコミ"
     date: 2026-11-07
@@ -239,7 +272,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_019660_S"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "筋肉", "ファンタジー", "転生", "ギャグ・コメディ"]
   - work: "志乃と恋"
     platform: "カドコミ"
     date: 2026-11-06
@@ -780,13 +813,6 @@ updates:
     provenance: claimed
     url: "https://flowercomics.jp/title/6162"
     listing_tags: ["百合"]
-  - work: "私のブルーガーネット"
-    platform: "マンガPark"
-    date: 2026-11-02
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-park.com/title/98459"
-    listing_tags: ["百合", "エロ"]
   - work: "彗星、ロック・ユー 晴瀬ひろき"
     platform: "カドコミ"
     date: 2026-11-02
@@ -1106,13 +1132,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_008372_S"
     listing_tags: ["百合", "お色気・微エロ", "異種族・人外"]
-  - work: "ゆりひめ@ピクシブ"
-    platform: "pixivコミックマガジン"
-    date: 2026-10-28
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/magazines/206"
-    listing_tags: ["百合"]
   - work: "ひなちゃんが生きてるなら"
     platform: "pixivコミック"
     date: 2026-10-28
@@ -1432,13 +1451,6 @@ updates:
     provenance: claimed
     url: "https://comic-gardo.com/episode/12207421984094260425"
     listing_tags: ["百合"]
-  - work: "ベイビー車中ハッカーズ"
-    platform: "ヤンジャン+"
-    date: 2026-10-26
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ynjn.jp/title/16787"
-    listing_tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
   - work: "きょうはなにしよう？ サスケ"
     platform: "カドコミ"
     date: 2026-10-26
@@ -2903,17 +2915,3 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965923203802"
     listing_tags: ["百合", "女子高生", "浮気・不倫", "エロ"]
-  - work: "大崎さんと小森さん"
-    platform: "カドコミ"
-    date: 2026-09-09
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_014277_S"
-    listing_tags: ["百合"]
-  - work: "バトル・ウィッチーズ"
-    platform: "新都社"
-    date: 2026-09-09
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "http://neetsha.jp/inside/comic.php?id=24919"
-    listing_tags: ["魔法少女", "エロ", "百合"]

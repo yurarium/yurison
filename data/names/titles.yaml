@@ -75328,9 +75328,13 @@ names:
     verified: false
   田所さんシリーズ:
     basis: translated
-    en: Tadokoro-san Series
-    en_at: '2026-11-05'
-    en_reviewed: '2026-11-05'
+    en: Tadokoro Series
+    en_at: '2026-11-08'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Tadokoro-san Series
+    en_reviewed: '2026-11-08'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -75338,9 +75342,9 @@ names:
       - たどころ
     - - さんシリーズ
       - null
-    note: The title is a surname with an honorific plus 'series', so it is rendered Tadokoro-san Series.
-      The BOOK☆WALKER series page describes a quiet girl who draws manga and her popular classmate Nikaido,
-      and gives no English title.
+    note: The title is a surname with an honorific plus 'series'. The honorific is dropped, as it is for
+      田所さん, so the two titles render the name the same way. The BOOK☆WALKER series page describes a quiet
+      girl who draws manga and her popular classmate Nikaido, and gives no English title.
     reading: タドコロサン シリーズ
     reading_at: '2026-11-05'
     reading_basis: analyser

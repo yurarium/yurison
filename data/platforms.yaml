@@ -605,6 +605,22 @@ platforms:
   en: Comic Nettai
   host: www.comicnettai.com
   watched: false
+- id: drecomiplus
+  name: ドリコミ+
+  en: Drecomi+
+  publisher: ドリコム
+  host: drecomi-plus.jp
+  watched: false
+  notes: Rendered (adapters/render). Refuses readers outside Japan and is read through Tokyo (see
+    `geoblocked`); first read that way on 2026-11-08.
+- id: gorakuegg
+  name: ゴラクエッグ
+  en: Goraku Egg
+  publisher: 日本文芸社
+  host: gorakuweb.com
+  watched: false
+  notes: The name the listing sites give it. Its work pages are on gorakuweb.com and reached this
+    corpus through the remaining route on 2026-11-08.
 - id: bookwalker
   name: BOOK☆WALKER
   en: BOOK☆WALKER

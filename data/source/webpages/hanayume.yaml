@@ -189,7 +189,7 @@ works:
     author: "まめ魚"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     read: "2026-11-08"
-    chapter_count: 20
+    chapter_count: 21
     chapters:
       - title: "1話"
         updated: "2026-04-20"
@@ -244,13 +244,16 @@ works:
         access_modes: ["free-timed"]
       - title: "15話"
         updated: "2026-09-27"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "16話"
         updated: "2026-10-11"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "おまけ"
         updated: "2026-10-25"
         access_modes: ["free"]
+      - title: "17話"
+        updated: "2026-11-08"
+        access_modes: ["purchase"]
   - work_title: "魔法使いの作庭/よみきり"
     status: "読み切り"
     author: "勇魚とり"

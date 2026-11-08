@@ -253,12 +253,16 @@ def ledger(s):
 
     HELD = {"summary": {"title": "A", "publisher": "B"}}
 
+    # A RECENT ABSENCE IS DATED FROM TODAY. It was written as 2026-08-08, which stopped being
+    # within the 90 days on 2026-11-06, and the test failed with no change to the code it covers.
+    import datetime
+    recent = (datetime.date.today() - datetime.timedelta(days=10)).isoformat()
     with tempfile.TemporaryDirectory() as d:
         ob.save({"9784000000001": HELD, "9784000000002": None},
-                {"9784000000001": "2026-08-08", "9784000000002": "2026-08-08"}, d)
+                {"9784000000001": recent, "9784000000002": recent}, d)
         recs, asked = ob.load(d)
         s.eq(recs["9784000000002"], None, "a null survives a round trip; it is an answer")
-        s.eq(asked["9784000000002"], "2026-08-08", "and carries the day it was established")
+        s.eq(asked["9784000000002"], recent, "and carries the day it was established")
 
         ask, known = ob.worth_asking(list(recs), recs, asked, 90)
         s.eq(ask, [], "neither ISBN is worth a request today")

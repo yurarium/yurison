@@ -208,7 +208,22 @@ def _strip(tail, head, end):
         if shorter == tail:
             break
         tail = shorter
-    return tail.strip(LEAD).strip()
+    return _trim(tail).strip()
+
+
+def _trim(s):
+    """`s` with `LEAD`'s marks off both ends, keeping a long vowel that ends a word in kana.
+
+    ー IS IN `LEAD` AS A DASH, and at the end of a word it is a long vowel: stripped as a dash,
+    `公式コミックアンソロジー` came out `公式コミックアンソロジ` and `リリー＆アイビー` lost its last
+    sound. One after kana is the word's own; one after anything else is a dash.
+    """
+    s = s.lstrip(LEAD)
+    while s and s[-1] in LEAD:
+        if s[-1] == "ー" and len(s) > 1 and "\u3040" <= s[-2] <= "\u30ff":
+            break
+        s = s[:-1]
+    return s
 
 
 def _clean(tail):

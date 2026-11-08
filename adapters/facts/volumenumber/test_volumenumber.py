@@ -137,6 +137,9 @@ def main(s):
          "a story named ahead of its anthology's name is called by that name")
     s.eq(vn.named_ahead("ストーカー女とプリンス女-沼地どろまる百合短編集-", "沼地どろまる百合短編集"),
          "ストーカー女とプリンス女", "including where the anthology's name is set off in dashes")
+    s.eq(vn.designation("きみが死ぬまで恋をしたい 公式コミックアンソロジー", "きみが死ぬまで恋をしたい"),
+         "公式コミックアンソロジー", "a long vowel ending a designation is the word's, not a dash")
+    s.eq(vn.designation("作品 -上巻-", "作品"), "上巻", "while a dash around a name still comes off")
     s.eq(vn.named_ahead("リリー＆アイビー　～ケンカップル百合×性愛アンソロジー～",
                         "ケンカップル百合×性愛アンソロジー"), "リリー&アイビー",
          "and a long vowel at the end of the name is the name's, not a dash")

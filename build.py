@@ -372,6 +372,20 @@ def at_first_sighting(chapter, first_seen):
     return chapter
 
 
+def primary_order(row):
+    """The sort key, highest first, for which platform's row speaks for a work.
+
+    A row whose every date is an import stamp loses to one that can say when the work published,
+    then the longer run leads. AND A SHOP SELLING 単話 LOSES TO ANY WEB PLATFORM FIRST, however many
+    chapters it lists: its run is the longest wherever the shop sells the whole back catalogue, so
+    on 2026-11-08 付き合ってあげてもいいかな and 異世界でも風俗嬢やってみた went out headed by their
+    BOOK☆WALKER listing and a reader following the work reached a shop and not the serialisation.
+    Where the shop is the only route it still leads.
+    """
+    return (not identity.shop_record(row.get("url")), not row.get("dates_imported"),
+            row["chapters"], row["latest"] or "")
+
+
 def stronger(a, b):
     """Whichever of two route names ranks higher, ignoring an absent one."""
     if not a:
@@ -7188,8 +7202,7 @@ def main():
         # A row whose every date is an import stamp cannot speak for the work's state, so it loses
         # to any row that can, however many chapters it holds. 一迅プラス holds all 77 chapters of
         # ナメられたくないナメカワさん at 2025-08-08 and コミックDAYS watched the run end in 2022.
-        rows.sort(key=lambda r: (not r.get("dates_imported"), r["chapters"], r["latest"] or ""),
-                  reverse=True)
+        rows.sort(key=primary_order, reverse=True)
         # The sources that hold an observed date, where any does. This is what stops a known
         # import stamp being published as the work's latest when another source knows better.
         # Where every source is an import stamp we do not know when this work last updated, and

@@ -1177,5 +1177,17 @@ def oneshot_sentences(s):
             "and the Japanese says it in Japanese: 106 rows read 'the platformは'")
 
 
+    # A SHOP'S 単話 DO NOT SPEAK FOR A WORK A WEB PLATFORM SERIALISES, however long the run.
+    shop = {"url": "https://bookwalker.jp/series/188653/", "chapters": 133, "latest": "2025-04-17"}
+    web = {"url": "https://manga-one.com/viewer/70173", "chapters": 9, "latest": "2026-10-30"}
+    stamped = dict(web, dates_imported=True, chapters=40)
+    s.eq(sorted([shop, web], key=b.primary_order, reverse=True)[0], web,
+         "マンガワン's nine chapters head the work, not BOOK☆WALKER's 133")
+    s.eq(sorted([shop], key=b.primary_order, reverse=True)[0], shop,
+         "and a work sold only by the chapter is still headed by its shop")
+    s.eq(sorted([stamped, web], key=b.primary_order, reverse=True)[0], web,
+         "while among web rows a run of import stamps still loses to one that was watched")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-11-09
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 255
+  hits_agreeing_on_a_creator: 256
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 215
-  works_asked: 915
-  works_with_a_hit: 276
+  works_asked: 917
+  works_with_a_hit: 277
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -7713,6 +7713,22 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://pocket.shonenmagazine.com/title/03196/episode/446666"
+    id: "w00198"
+    work: "怪獣ロマンティクス"
+    author: "じぃと"
+    platform: "マガポケ"
+    query: "author"
+    retrieved: "2026-11-09"
+    hits:
+      - series_url: "https://bookwalker.jp/series/633618/list/"
+        title_listed: "怪獣ロマンティクス（マガジンポケット）"
+        shop_author: "じぃと(著)"
+        imprint: "マガジンポケット"
+        publisher: "講談社"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://pocket.shonenmagazine.com/title/03273/episode/442380"
     id: "w03170"
     work: "アイ・ヘイ・チュー"
@@ -7800,6 +7816,16 @@ works:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
   - work_url: "https://pocket.shonenmagazine.com/title/03292/episode/446658"
+    id: "w03310"
+    work: "御贖事処 煮るばあな"
+    author: "城生"
+    platform: "マガポケ"
+    retrieved: "2026-11-09"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03292/episode/446659"
     id: "w03310"
     work: "御贖事処 煮るばあな"
     author: "城生"

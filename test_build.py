@@ -909,6 +909,7 @@ def series_addresses(s):
     volume_designations(s)
     volume_merge(s)
     import_dated(s)
+    oneshot_sentences(s)
     s.eq([r["n"] for r in b.one_source_per_address([
         {"platform": "P", "url": "u", "chapters": 1, "n": "a"},
         {"platform": "P", "url": "u", "chapters": 3, "n": "b"},
@@ -1161,6 +1162,19 @@ def import_dated(s):
          [("BOOK☆WALKER", "chapter"), ("COMICリュウ", "access-change")],
          "dropped on its own platform under any spelling of it; another platform and an access "
          "change stay")
+
+
+
+def oneshot_sentences(s):
+    """The reason a row is a one-shot names its platform, and each sentence is in its language."""
+    en, ja, inferred = b.oneshot_basis("platform-convention", "BOOK☆WALKER")
+    s.check(en.startswith("BOOK☆WALKER titles") and ja.startswith("BOOK☆WALKERは"),
+            "a named platform is in both sentences")
+    s.check(inferred is False, "and the convention is the platform's, not our reading")
+    en, ja, _i = b.oneshot_basis("platform-convention", None)
+    s.check(en.startswith("the platform titles"), "with none named, the English says the platform")
+    s.check("the platform" not in ja and ja.startswith("掲載サイトは"),
+            "and the Japanese says it in Japanese: 106 rows read 'the platformは'")
 
 
 if __name__ == "__main__":

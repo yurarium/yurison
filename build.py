@@ -353,8 +353,10 @@ ONESHOT_RANK = {k: i for i, k in enumerate(ONESHOT_WHY)}
 def oneshot_basis(why, plat=None):
     """(English, Japanese, inferred) for one route, or (None, None, False) where it says nothing."""
     en, ja, inferred = ONESHOT_WHY.get(why) or (None, None, False)
-    fmt = lambda s: s.format(plat=plat or "the platform") if s else None   # noqa: E731
-    return fmt(en), fmt(ja), inferred
+    # EACH SENTENCE IN ITS OWN LANGUAGE WHERE NO PLATFORM IS NAMED. One English fallback served
+    # both, and the Japanese sentence read "the platformは…".
+    return ((en.format(plat=plat or "the platform") if en else None),
+            (ja.format(plat=plat or "掲載サイト") if ja else None), inferred)
 
 
 def at_first_sighting(chapter, first_seen):
@@ -6714,8 +6716,11 @@ def main():
                 row["oneshot_inferred"] = False
                 row["oneshot_source_url"] = _rev_one.get("source_url")
             else:
+                # THE ROW'S OWN PLATFORM WHERE THE ROUTE NAMED NONE. `platform-convention` is a
+                # fact about the platform the row is on and is reached from the titling measure, not
+                # from a source, so nothing set `oneshot_plat` and 106 rows read "the platformは…".
                 _os_en, _os_ja, _os_inferred = oneshot_basis(
-                    _os_route, row.pop("oneshot_plat", None))
+                    _os_route, row.pop("oneshot_plat", None) or row.get("platform"))
                 row["oneshot_basis"], row["oneshot_basis_ja"] = _os_en, _os_ja
                 row["oneshot_inferred"] = _os_inferred
         row.pop("oneshot_plat", None)

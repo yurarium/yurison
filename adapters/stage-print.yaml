@@ -56,6 +56,13 @@ commands:
     every_days: 7
     argv: [adapters/cmoa_volumes.py, --limit, "200"]
 
+  # What the shop calls each book, by ISBN, read off the capture above. The build names a volume
+  # from it where the bibliography leaves two books of one work with no number and no name.
+  - id: shop-volume-names
+    optional: true
+    every_days: 7
+    argv: [adapters/shopnames.py]
+
   # ── the national bibliography ─────────────────────────────────────────────────────────────────
   # Each route below reads {CACHE}/madb-cache/current and the tag from there, so a record states
   # the release it was read from. The release itself is fetched in Stage 0 (adapters/stage-0.yaml).

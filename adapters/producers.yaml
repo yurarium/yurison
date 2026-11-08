@@ -81,6 +81,10 @@ entries:
   - paths: [data/source/comparators/shop-final-volumes.yaml]
     status: frozen
     producer: adapters/shopfinal.py
+  - paths: [data/source/comparators/shop-volume-names.yaml]
+    status: run
+    producer: stage-print:shop-volume-names
+    max_age_days: 10
   - paths: [data/source/comparators/resolved-titles.yaml, data/source/comparators/resolved-authors.yaml]
     status: hand
     note: one-off resolutions of 2026-08-01 and 08-02, kept as rulings

@@ -1189,5 +1189,30 @@ def oneshot_sentences(s):
          "while among web rows a run of import stamps still loses to one that was watched")
 
 
+    # TWO BOOKS WITH NO NUMBER AND NO NAME ARE CALLED WHAT THEIR ISBN IS PUBLISHED AS.
+    q = b.name_volumes([{"isbn": "9784823600289", "published": "2020-03"},
+                        {"isbn": "9784823600272", "published": "2020-03"}], "Qualia", {},
+                       {"9784823600272": "Qualia -Envy-", "9784823600289": "Qualia -Jealousy-"})
+    s.eq([v.get("designation") for v in q], ["Jealousy", "Envy"],
+         "Qualia's two books are told apart by the names the shop sells them under")
+    k = b.name_volumes([{"isbn": "9784758022217"}, {"isbn": "9784758022224"}], "クダンノフォークロア",
+                       {"9784758022217": "クダンノフォークロア",
+                        "9784758022224": "クダンノフォークロア 特装版"},
+                       {"9784758022224": "別の名前"})
+    s.eq([v.get("designation") for v in k], [None, "特装版"],
+         "the publisher's catalogue is asked first, and a book printed under the work's own title"
+         " needs no name beside it")
+    n = b.name_volumes([{"isbn": "1"}, {"isbn": "2"}], "Mr.マロウブルー", {},
+                       {"1": "Mr.マロウブルー【第１巻】", "2": "Mr.マロウブルー【第２巻】"})
+    s.eq([(v.get("number"), v.get("number_n")) for v in n], [("1", 1), ("2", 2)],
+         "a name stating a number gives the volume its number")
+    one = b.name_volumes([{"isbn": "1"}, {"isbn": "2", "number": "2"}], "X", {}, {"1": "X -A-"})
+    s.check("designation" not in one[0], "a lone unnamed book is not told apart from anything")
+    held = b.name_volumes([{"isbn": "1", "designation": "上"}, {"isbn": "2"}, {"isbn": "3"}], "X",
+                          {}, {"1": "X -A-", "2": "X -B-"})
+    s.eq([v.get("designation") for v in held], ["上", "B", None],
+         "a record's own name is never replaced, and an ISBN nobody names stays as it was")
+
+
 if __name__ == "__main__":
     sys.exit(testkit.run(main, "build"))

@@ -372,6 +372,41 @@ def at_first_sighting(chapter, first_seen):
     return chapter
 
 
+def name_volumes(vols, title, printed, shop):
+    """`vols` with each book the record leaves unnamed called what its ISBN is published as.
+
+    TWO BOOKS OF ONE WORK WITH NO NUMBER AND NO NAME READ AS ONE BOOK TWICE. MADB holds Qualia as
+    two ISBNs of 2020-03 and nothing else, and クダンノフォークロア the same way, so both were drawn
+    twice, identically. 一迅社's catalogue prints the second of クダンノフォークロア's as
+    `クダンノフォークロア 特装版`, and コミックシーモア sells Qualia's as `Qualia -Envy-` and
+    `Qualia -Jealousy-`. `printed` is the publisher's catalogue and `shop` the shop's, each
+    `{isbn: title}`, and the publisher's is asked first, because a volume is what the publisher
+    says it is.
+
+    ONLY WHERE TWO OR MORE BOOKS ARE IN THAT STATE, as `bwingest.volumes_of` asks of a listing: a
+    lone book is not being told apart from anything. The name is read against the title the work
+    is held under, by `facts/volumenumber`, and a record's own number or name is never replaced.
+    """
+    blank = [m for m in vols if not m.get("number") and not m.get("designation")]
+    if len(blank) < 2:
+        return vols
+    for m in blank:
+        key = re.sub(r"[^0-9Xx]", "", str(m.get("isbn") or "")).upper()
+        name = printed.get(key) or shop.get(key)
+        if not name:
+            continue
+        number = _volnum.stated(name, title)
+        if number:
+            m["number"] = number
+            if volume_number(m) is not None:
+                m["number_n"] = volume_number(m)
+            continue
+        said = _volnum.designation(name, title)
+        if said:
+            m["designation"] = said
+    return vols
+
+
 def primary_order(row):
     """The sort key, highest first, for which platform's row speaks for a work.
 
@@ -3678,6 +3713,12 @@ def main():
                                                   "volumes": _fnrow.get("volumes"),
                                                   "retrieved": str(_fvdoc.get("retrieved") or "")}
 
+    # What the shop calls each book, by ISBN. See `name_volumes`.
+    _svn = pathlib.Path("data/source/comparators/shop-volume-names.yaml")
+    SHOP_VOLUME_NAMES = ({str(r["isbn"]): r["title"] for r in
+                          ((yaml.safe_load(_svn.read_text()) or {}).get("volumes") or [])
+                          if r.get("isbn") and r.get("title")} if _svn.exists() else {})
+
     src = defaultdict(dict)
     for d in sorted(glob.glob("data/source/*")):
         name = pathlib.Path(d).name
@@ -3834,6 +3875,12 @@ def main():
             if volume_number(v) is not None:
                 m["number_n"] = volume_number(v)
             vols.append(m)
+        vols = name_volumes(
+            vols, (w.get("title") or {}).get("ja"),
+            {re.sub(r"[^0-9Xx]", "", str(x["isbn"])).upper(): x["title_printed"]
+             for x in (by_source.get("ichijinsha", {}).get("volumes") or [])
+             if x.get("isbn") and x.get("title_printed")},
+            SHOP_VOLUME_NAMES)
         # WHERE THE DESIGNATION PLACES A VOLUME THE RECORD DOES NOT NUMBER. `(1) -民宿かがや` and
         # `(2) -民宿かがや` are two books with one name, and once a page says the name apart from
         # the number, the number is all that tells the two rows apart. A part word is placed over

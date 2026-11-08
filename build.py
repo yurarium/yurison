@@ -4396,7 +4396,11 @@ def main():
             # メイドはお嬢様と笑いたい。 nowhere in 更新 once its 2023 date was read. Admitted the same
             # way, carrying its date, and `ONESHOT_LATE_FROM` below keeps the backlog out.
             _only = w.get("chapters") or []
-            late_oneshot = (not late and len(_only) == 1
+            # NOT FROM A SHOP'S LISTING, which keeps every item it ever sold, so nothing on it is
+            # found late: the ruling is for a web one-shot that leaves its platform before anyone
+            # notices. あのレモンかじって。, delivered 2019-03-08, reached 更新 on 2026-11-09 as a
+            # find on the day its 単話 became chapters.
+            late_oneshot = (not late and len(_only) == 1 and not identity.shop_record(w.get("url"))
                             and bool(ONESHOT_RE.search(str(_only[0].get("title") or ""))
                                      or ONESHOT_RE.search(str(w.get("work_title") or ""))
                                      or (pname_w in title_conventions and _titling.self_named(

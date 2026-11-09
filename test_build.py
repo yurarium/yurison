@@ -79,6 +79,14 @@ def main(s):
     s.check(not seen1({"ep": "第1話", "pub": "2026-10-24", "url": "https://example.jp/new"}, [], idx),
             "and another work's later chapters say nothing about this one")
 
+    # AN ACCESS CHANGE NAMES WHAT CHANGED. マンガワン's re-dated 第127話 was for purchase.
+    s.eq(b.access_change_kind({"access_modes": ["purchase"]})[0], "access-change",
+         "a paid chapter listed again is an access change and did not become free")
+    s.eq(b.access_change_kind({"access_modes": ["free"]})[0], "became-free",
+         "while a free one became free")
+    s.eq(b.access_change_kind({"became_free": True, "access_modes": []})[0], "became-free",
+         "as did one a platform says flipped")
+
     # A §2 REBUTTAL KEEPS THE WORK AND TAKES IT OUT OF THE LISTING. `out` is a source disagreeing
     # with a source; `marginal` is the operator declining to decide. Neither is deletion, and the
     # two are kept apart because they mean different things.

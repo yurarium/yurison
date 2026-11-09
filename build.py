@@ -1630,6 +1630,19 @@ def later_chapter_seen_before(r, siblings, index):
                for u in urls if u for ep, d in (index or {}).get(u, []))
 
 
+def access_change_kind(r):
+    """`(kind, basis)` for a release that changed how an earlier chapter can be read.
+
+    NOT EVERY ACCESS CHANGE IS A CHAPTER BECOMING FREE. マンガワン re-dated 第127話 to 第133話 of
+    付き合ってあげてもいいかな to 2026-09-04, eighteen months after the series ended, and six of the
+    seven were for purchase that day; the owner ruled them access changes, and 無料化 would have
+    said they became free. `became-free` is kept for a row that is free to read.
+    """
+    if r.get("became_free") or "free" in (r.get("access_modes") or []):
+        return "became-free", "an earlier chapter the platform made free to read"
+    return "access-change", "an earlier chapter the platform listed again or changed the terms of"
+
+
 def jst_date(stamp):
     """The date a Japanese platform considers a timestamp to fall on.
 
@@ -5703,8 +5716,7 @@ def main():
         # through them and came out `new-chapter` because the work was attested elsewhere, so 19
         # chapters of 幸腹グラフィティ, years old, were drawn as 新話 on 2026-10-16.
         if r.get("type") == _ser.ACCESS_CHANGE:
-            r["kind"] = "became-free"
-            r["kind_basis"] = "an earlier chapter the platform made free to read"
+            r["kind"], r["kind_basis"] = access_change_kind(r)
             continue
         # Before the generic notice rule, because a skipped slot is a more specific and more useful
         # fact than "notice": it is dated, publisher-attested, and says the schedule was kept while

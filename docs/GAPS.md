@@ -3464,7 +3464,19 @@ stops the visible harm and does not make completion a per-platform fact, which i
 
 ## A platform restating an old chapter's date announces a years-finished work as ending
 
-Reported by the project owner 2026-09-06. Diagnosed, not fixed.
+Reported by the project owner 2026-09-06. Ruled on 2026-11-09 for this case; the class is open.
+
+**THE RULING.** The project owner ruled the re-dated chapters access changes. The nine published
+rows (第127話 to 第133話 on マンガワン and 裏サンデー's two 最終話 rows) are reclassified by name in
+the site's `build/archive-corrections.yaml`, because the store no longer builds them and the site
+carries them as published. An access change to a chapter that is not free is `access-change`
+(配信変更); `became-free` (無料化) is kept for one that is, by `access_change_kind`.
+
+**WHAT IS STILL OPEN.** Nothing yet routes a future re-dating to an access change. The shape is a
+run of consecutively numbered chapters of one work, dated one day on one platform. Measured over
+the published archive on 2026-11-09 it matches about forty batches. Some are re-datings or free
+campaigns, but others are launches that opened with several chapters and backfills of claims, so
+it is not a rule on its own.
 
 **WHAT A READER WAS TOLD.** 付き合ってあげてもいいかな showed `第133話(最終話)` dated 2026-09-04.
 The work ended long before that, and the owner read it as a metadata bump. It is.

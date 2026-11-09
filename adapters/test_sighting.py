@@ -36,6 +36,7 @@ ROW = {"work": "公爵令嬢の籠絡ミッション～魔王との政略結婚�
 
 
 def main(s):
+    renames(s)
     # ── WHAT A RELEASE IS REMEMBERED AS ───────────────────────────────────────────────────────
     s.eq(sighting.key(ROW), "url|https://youngchampion.jp/series/86c1162f34a04|第9話1",
          "a release is remembered by its address and its chapter")
@@ -97,6 +98,28 @@ def main(s):
          "an index handed in answers as the one built here would")
     s.check("第9話1" in index and "url|" not in "".join(index),
             "and it is built from the old-form keys alone, the new form needing no search")
+
+
+
+def renames(s):
+    """A chapter renamed at its own address is the chapter already seen."""
+    ep1 = "https://comic-walker.com/detail/KC_021305_S/episodes/KC_0213050000200011_E"
+    ledger = {f"url|{ep1}|第1話": "2026-10-15",
+              f"url|{ep1}|第1話ソラとナデシコ": "2026-11-09",
+              "url|https://comic.pixiv.net/works/9380|25": "2026-08-02",
+              "url|https://championcross.jp/series/x|": "2026-11-04"}
+    row = {"url": ep1, "ep": "第1話 ソラとナデシコ"}
+    s.eq(sighting.renamed(ledger, row), "2026-10-15",
+         "死神さんと昇天ごはん's 第1話, given its subtitle on 9 November, was seen on 15 October")
+    s.check(sighting.renamed(ledger, {"url": ep1, "ep": "第1話"}) >= ledger[f"url|{ep1}|第1話"],
+            "the chapter under its first name finds nothing earlier than its own day")
+    s.eq(sighting.renamed(ledger, {"url": "https://comic.pixiv.net/works/9380", "ep": "256日前up"}),
+         None, "a name that extends a number is another chapter on a shared address")
+    s.eq(sighting.renamed(ledger, {"url": "https://championcross.jp/series/x", "ep": "第18話"}), None,
+         "an empty name, a work-level row's, matches no chapter")
+    s.eq(sighting.renamed(ledger, {"ep": "第1話 ソラとナデシコ"}), None, "a row with no address has none")
+    s.eq(sighting.renamed(ledger, {"url": "https://other/e/1", "ep": "第1話ソラとナデシコ"}), None,
+         "and a name at another address is another chapter")
 
 
 if __name__ == "__main__":

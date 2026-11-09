@@ -6016,6 +6016,7 @@ def main():
     _by_ep = _sighting.by_episode(ledger)
 
     carried = 0
+    _by_addr = _sighting.by_address(ledger)
     for r in releases:
         key = _sighting_key(r)
         if key not in ledger:
@@ -6026,6 +6027,14 @@ def main():
             else:
                 ledger[key] = today_iso
                 new_sightings += 1
+        # A CHAPTER RENAMED AT ITS OWN ADDRESS KEEPS THE DAY IT WAS FIRST SEEN, earlier names
+        # included; `sighting.renamed` says why. This also mends a sighting already written under
+        # the new name, which is a correction toward the truth the ledger records and not a
+        # revision of it: the chapter was seen on the earlier day.
+        was = _sighting.renamed(ledger, r, _by_addr)
+        if was and was < ledger[key]:
+            ledger[key] = was
+            carried += 1
         # The ledger wins over the source file's retrieved date, always. A source rewritten today
         # does not make an old release new.
         if r.get("late_discovered"):

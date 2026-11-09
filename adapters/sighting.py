@@ -80,3 +80,39 @@ def carried(ledger, row, index=None):
     seen = (index if index is not None else by_episode(ledger)).get(ep, ())
     got = [v for w, v in seen if w and (w.startswith(work) or work.startswith(w))]
     return min(got) if got else None
+
+
+def by_address(ledger):
+    """`{address: [(episode, date)]}` over the ledger's address keys, for `renamed` to search."""
+    out = {}
+    for k, v in ledger.items():
+        if not k.startswith("url|"):
+            continue
+        url, _, ep = k[4:].rpartition("|")
+        out.setdefault(url, []).append((ep, v))
+    return out
+
+
+def _subtitled(a, b):
+    """Whether `b` is `a` with something added after it that does not extend a number."""
+    return bool(a and b and a != b and b.startswith(a) and not b[len(a)].isdigit())
+
+
+def renamed(ledger, row, index=None):
+    """The earliest date this chapter was seen at its own address under a shorter or longer name.
+
+    A PLATFORM THAT ADDS A SUBTITLE HAS NOT PUBLISHED A CHAPTER. カドコミ listed 死神さんと昇天ごはん's
+    chapters as 第1話 and 第2話 in October and as 第1話 ソラとナデシコ and 第2話 日が暮れて途方に暮れて on
+    9 November. The key holds the name, so the renamed chapters were sightings of the 9th, and the
+    late-find rule put a work we had followed for a month at the top of Updates as new.
+
+    ONLY A NAME THE OTHER CONTINUES, and not into a number. Some routes give every chapter the
+    series page as its address, where 第1話 and 第1話② are two chapters and 25 and 256 are not one;
+    an empty name, which a work-level row carries, matches nothing.
+    """
+    if not row.get("url"):
+        return None
+    ep = norm_work(row.get("ep") or "")
+    held = (index if index is not None else by_address(ledger)).get(row["url"], ())
+    got = [v for e, v in held if _subtitled(e, ep) or _subtitled(ep, e)]
+    return min(got) if got else None

@@ -13,9 +13,10 @@ name in a queue rather than a release in the feed.
 Route, in two requests per candidate:
 
   /episode/<code>          the article's own link. Its <title> is "作品 - 作者 / 話 | プラット",
-                           which gives work and author, and its markup carries the series id as a
+                           which gives the author, and its markup carries the series id as a
                            link to that series' feed.
-  /atom/series/<id>        every episode with a date.
+  /atom/series/<id>        every episode with a date, and the work's name as the platform files
+                           it: "プラット（作品）".
 
 `is_oneshot` is then read rather than guessed: a series whose feed holds exactly one episode is a
 one-shot, which is what 読み切り means. A series with more is a serial the article happened to
@@ -106,6 +107,19 @@ def identity(html):
     return (parts[0] if parts else head), None
 
 
+def named(page, feed):
+    """work, author: the work as the series feed names it, the author from the chapter page.
+
+    THE SERIES FEED NAMES THE WORK, and the chapter page names the chapter. A one-shot's page
+    title is its chapter's, label and all: となりのヤングジャンプ titles the page
+    `[特別読切] 燕のあやかし画帳 - サスケ` and the feed `となりのヤングジャンプ（燕のあやかし画帳）`.
+    The platform pass reads the feed's name, so taking the page's here held one chapter under two
+    works, and Updates showed it twice. The page's name stands only where the feed states none.
+    """
+    work, author = identity(page)
+    return (_sf.feed_series_name(feed or "") or work), author
+
+
 def episodes(xml):
     out = []
     for b in re.findall(r"<entry>(.*?)</entry>", xml, re.S):
@@ -167,10 +181,12 @@ def main():
             failed.append((c.get("work_title"), "no series feed on the episode page"))
             continue
         try:
-            eps = episodes(fetch(f"https://{host}/atom/series/{sid.group(1)}", cache) or "")
+            feed = fetch(f"https://{host}/atom/series/{sid.group(1)}", cache) or ""
         except net.Refused as e:
             failed.append((c.get("work_title"), str(e)))
             continue
+        eps = episodes(feed)
+        work, author = named(ep, feed)
         if not eps:
             failed.append((c.get("work_title"), "series feed empty"))
             continue

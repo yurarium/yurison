@@ -35,6 +35,16 @@ def main(s):
 
     s.eq(gc.identity("<html>no title</html>"), (None, None), "a page with no title yields nothing")
 
+    # THE FEED NAMES THE WORK. A one-shot's page carries its chapter's label, and the platform pass
+    # files the chapter under the feed's name, so the page's name held it under a second work.
+    page = "<title>[特別読切] 燕のあやかし画帳 - サスケ | となりのヤングジャンプ</title>"
+    feed = "<feed><title>となりのヤングジャンプ（燕のあやかし画帳）</title></feed>"
+    s.eq(gc.named(page, feed), ("燕のあやかし画帳", "サスケ"),
+         "the work is the series feed's name and the author is the page's")
+    s.eq(gc.named(page, "<feed><title>となりのヤングジャンプ</title></feed>"),
+         ("[特別読切] 燕のあやかし画帳", "サスケ"),
+         "a feed that names no series leaves the page's name standing")
+
     xml = ('<feed><entry><title>第1話</title><updated>2026-08-03T00:00:00Z</updated>'
            '<link href="https://x.jp/e/1"/></entry>'
            '<entry><title>第2話</title></entry></feed>')

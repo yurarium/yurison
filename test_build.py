@@ -1189,6 +1189,22 @@ def oneshot_sentences(s):
          "while among web rows a run of import stamps still loses to one that was watched")
 
 
+    # ONE CHAPTER AT ONE ADDRESS IS ONE ROW, whatever each route calls its work.
+    url = "https://tonarinoyj.jp/episode/12207421984447306235"
+    feed = {"work": "燕のあやかし画帳", "ep": "[特別読切] 燕のあやかし画帳", "url": url,
+            "plat": "tonarinoyj", "plat_name": "となりのヤングジャンプ", "pub": "2026-11-06"}
+    page = dict(feed, work="[特別読切] 燕のあやかし画帳")
+    s.check(set(b.chapter_keys(feed)) & set(b.chapter_keys(page)),
+            "the feed's row and the confirmation's row for 燕のあやかし画帳 share a key")
+    s.check(not set(b.chapter_keys(feed)) & set(b.chapter_keys(dict(feed, ep="第2話"))),
+            "while a second chapter at the same address is a second row")
+    s.check(not set(b.chapter_keys(dict(feed, url=""))) & set(b.chapter_keys(dict(page, url=""))),
+            "and with no address, two names for the work are still two rows")
+    s.check(not set(b.chapter_keys(dict(feed, ep="", pub="2026-11-01")))
+            & set(b.chapter_keys(dict(feed, ep="", pub="2026-11-06"))),
+            "a row naming no chapter is told apart by its day")
+
+
     # TWO BOOKS WITH NO NUMBER AND NO NAME ARE CALLED WHAT THEIR ISBN IS PUBLISHED AS.
     q = b.name_volumes([{"isbn": "9784823600289", "published": "2020-03"},
                         {"isbn": "9784823600272", "published": "2020-03"}], "Qualia", {},

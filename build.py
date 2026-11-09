@@ -421,6 +421,27 @@ def primary_order(row):
             row["chapters"], row["latest"] or "")
 
 
+def chapter_keys(r):
+    """What makes two feed rows the same row: each key a row answers to, any one of them shared.
+
+    THE WORK, THE CHAPTER AND THE PLATFORM, which is what a row is about. An empty chapter name is
+    no identity, so a work-level row adds its date and is told apart from its neighbours by day.
+
+    AND THE CHAPTER'S OWN ADDRESS WITH ITS NAME, which holds when two routes call the work
+    different things. On 2026-11-09 となりのヤングジャンプ's feed filed one chapter under
+    燕のあやかし画帳 and the confirmation pass under its page's `[特別読切] 燕のあやかし画帳`, the
+    first key told them apart, and Updates showed the one-shot twice. The name is in the key as well
+    as the address because some rows carry a work's page and not a chapter's, and two chapters
+    held at one address are told apart by what they are called.
+    """
+    ep = (r.get("ep") or "").strip()
+    plat = r.get("plat_name") or r.get("plat")
+    keys = [(norm_work(r.get("work")), norm_work(ep), plat) + (() if ep else (r.get("pub"),))]
+    if ep and r.get("url"):
+        keys.append(("address", r["url"], norm_work(ep), plat))
+    return keys
+
+
 def stronger(a, b):
     """Whichever of two route names ranks higher, ignoring an absent one."""
     if not a:
@@ -5904,13 +5925,12 @@ def main():
         # 第５０−１話 and 第５０−２話 both key as n50 — using it here silently deleted every second
         # part of a split chapter. That is right for deciding "same chapter, two platforms" and
         # exactly wrong for deciding "same row twice".
-        k = (norm_work(r["work"]), norm_work(r.get("ep") or ""),
-             r.get("plat_name") or r.get("plat"))
         # An empty episode is not an identity: work-level rows (ニコニコ) and comparator claims
         # would all collapse into one per platform. Those are deduped by date instead.
-        if not (r.get("ep") or "").strip():
-            k = k + (r["pub"],)
-        if k in seen_chapter:
+        # `chapter_keys` says why a chapter's address is a second key.
+        keys = chapter_keys(r)
+        k = next((key for key in keys if key in seen_chapter), None)
+        if k is not None:
             # Merge what the duplicate knows rather than discarding it wholesale. The same chapter
             # arrives from the platform's own feed AND from confirmation, and only the confirmed
             # copy knows it is a one-shot — 下部七花はかく語りき was in the feed as an ordinary
@@ -5933,9 +5953,12 @@ def main():
             for f in ("author", "access_modes", "free_from", "url"):
                 if r.get(f) and not kept.get(f):
                     kept[f] = r[f]
+            for key in keys:
+                seen_chapter.setdefault(key, kept)
             dropped_dupes += 1
             continue
-        seen_chapter[k] = r
+        for key in keys:
+            seen_chapter[key] = r
         deduped.append(r)
     releases = deduped
     # `feed_date` is where a release sits in the list; `pub` remains what it always was, the

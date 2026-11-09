@@ -3,8 +3,10 @@
 
 COVERS = ['adapters/render/releases.py']
 """
+import os
 import pathlib
 import sys
+import time
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -13,6 +15,7 @@ import releases as rd
 
 
 def main(s):
+    scheduled(s)
     # A REFUSAL RENDERS TOO, and a page that does not name the work is not a reading of it.
     s.check(not rd.names_work("<html><body><h1>403 ERROR</h1>The request could not be satisfied."
                               "</body></html>", "ひなゆり冒険記"),
@@ -256,6 +259,43 @@ def a_clean_read_is_recorded(s):
     s.check(checkstate.overdue_days(checks, "P", "read cleanly", __import__("datetime").date(2026, 8, 8))
             < checkstate.overdue_days(checks, "P", "came back empty", __import__("datetime").date(2026, 8, 8)),
             "so recording the clean read is what stops it outranking a real failure")
+
+
+
+def scheduled(s):
+    """The pages a chapter is due on are rendered first and fresh; the rest wait for their floor."""
+    import due
+    want = [{"url": "https://p/a"}, {"url": "https://p/b"}, {"url": "https://p/c"}]
+    plans = {"https://p/a": (due.FLOOR_QUIET, "floor"), "https://p/b": (due.DUE_AGE, "observed"),
+             "https://p/c": (due.FLOOR_ACTIVE, "floor")}
+    s.eq([t["url"] for t in rd.render_order(want, plans)], ["https://p/b", "https://p/a", "https://p/c"],
+         "a due page is rendered before the budget can run out, the rest keep their order")
+    s.eq(rd.limit_for("https://p/b", plans["https://p/b"]), due.DUE_AGE,
+         "a due page is handed its own age, unstaggered")
+    s.check(due.FLOOR_QUIET - rd.STAGGER_DAYS <= rd.limit_for("https://p/a", plans["https://p/a"])
+            <= due.FLOOR_QUIET, "and a floor is staggered by the page's address")
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        url = "https://example.test/fresh"
+        f = rd.cache_file(url, pathlib.Path(d))
+        f.write_text("<html>copy</html>")
+        old = time.time() - 86400
+        os.utime(f, (old, old))
+        open_budget = time.time() + 3600
+        browser, rd.CHROME = rd.CHROME, None
+        try:
+            s.eq(rd.render(url, pathlib.Path(d), max_age_days=2, deadline=open_budget),
+                 "<html>copy</html>", "a copy a day old serves a page whose floor is two days")
+            try:
+                rd.render(url, pathlib.Path(d), max_age_days=due.DUE_AGE, deadline=open_budget)
+                went = False
+            except SystemExit:
+                went = True          # it reached for a browser, which is what rendering is
+            s.check(went, "a due page is not served yesterday's copy: it is rendered again")
+        finally:
+            rd.CHROME = browser
+    s.eq(rd.stated_schedules([{"url": "u", "stated_schedule": {"cadence": "毎週火曜"}}, {"url": "v"}]),
+         {"u": {"cadence": "毎週火曜"}}, "a page's stated schedule is carried from the last capture")
 
 
 if __name__ == "__main__":

@@ -23,7 +23,7 @@ feed it published and stronger than a pattern matched in markup.
 Usage:  releases.py --targets data/coverage/render-targets.yaml --out data/source/webpages \
                     --cache $YURI_CACHE/render-cache --retrieved 2026-08-01
 """
-import argparse, html as _html, json, pathlib, re, subprocess, sys, time, zlib
+import argparse, datetime, html as _html, json, pathlib, re, subprocess, sys, time, zlib
 from collections import Counter
 
 import yaml
@@ -33,6 +33,7 @@ import checkstate  # noqa: E402
 from facts import platform  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import schedule_text  # noqa: E402
+import due  # noqa: E402
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
 from extract import (CHAPTERISH, norm_date, try_jsonld, try_markup,  # noqa: E402
@@ -52,6 +53,11 @@ PAUSE = 1.0
 MIN_EPISODES = 2
 
 
+#: THE AGE A PAGE NOTHING MAKES DUE MAY REACH is now `due.py`'s floor, and this is the default for a
+#: caller that names none. WHAT FOLLOWS IS THE ROTATION IT REPLACED, kept for the reasoning: its
+#: claim that a missed chapter is "picked up by the feed adapters" did not hold for pixivコミック or
+#: マンガワン, which have no feed we read, and 30 of their chapters reached Updates a week late.
+#:
 #: HOW LONG A RENDERED PAGE IS WORTH REUSING, weighed against how often this actually runs. At two
 #: days, a run three days after the last one re-rendered every page: the cache had been saved, was
 #: restored, and every entry in it was stale by a day. That is 24 minutes of browser time thrown
@@ -89,9 +95,14 @@ def cache_file(url, cache):
     return cache / f"{key}.html"
 
 
-def render(url, cache, max_age_days=RENDER_AGE_DAYS, deadline=None):
+def render(url, cache, max_age_days=None, deadline=None):
+    """The page's DOM, from a copy younger than `max_age_days` or from a fresh render.
+
+    `max_age_days` is used as given; with none, the staggered default `max_age(url)` applies.
+    """
     f = cache_file(url, cache)
-    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age(url, max_age_days):
+    limit = max_age(url) if max_age_days is None else max_age_days
+    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < limit:
         return f.read_text()
     if deadline is not None and time.time() >= deadline:
         if f.exists():
@@ -453,6 +464,34 @@ def works_to_render(plat, not_works, limit):
     return [w for w in plat.get("works") or [] if w.get("url") not in not_works][:limit]
 
 
+def render_order(want, limits):
+    """The works due today first, then the rest, each group in the order it came.
+
+    THE DUE ONES SPEND THE BUDGET FIRST. Rendering stops when `RENDER_BUDGET_S` is spent, and a
+    page left over is read from its old copy, so the pages a chapter is expected on must not be
+    the ones left over.
+    """
+    return sorted(want, key=lambda t: limits[t["url"]][0] != due.DUE_AGE)
+
+
+def limit_for(url, plan):
+    """The copy age `render` is given: a due page's own, or its floor staggered by its address."""
+    days, _why = plan
+    return days if days == due.DUE_AGE else max_age(url, days)
+
+
+def prior_capture(path):
+    """The works the platform's last capture held, or none where there is no capture yet."""
+    p = pathlib.Path(path)
+    return ((yaml.safe_load(p.read_text()) or {}).get("works") or []) if p.exists() else []
+
+
+def stated_schedules(works):
+    """`{url: stated_schedule}` for the captured works whose pages stated one."""
+    return {w["url"]: w["stated_schedule"] for w in works
+            if w.get("url") and w.get("stated_schedule")}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--targets", required=True)
@@ -473,17 +512,34 @@ def main():
     spec = yaml.safe_load(open(a.targets)) or {}
     not_works = platform.not_works()
     deadline = time.time() + RENDER_BUDGET_S
+    history = due.load_history()
+    today = datetime.date.fromisoformat(str(a.retrieved)[:10])
     for plat in rendered_platforms(spec):
         rows, failed = [], Counter()
+        # WHAT THE LAST CAPTURE KNEW, before this run replaces it: the dates it held, which are the
+        # history for a page carried over unread, and what each page said about its own schedule.
+        prior = prior_capture(out / f"rendered-{plat['id']}.yaml")
+        stated = stated_schedules(prior)
+        for w in prior:
+            due.remember(history, w.get("url"), [c.get("updated") for c in w.get("chapters") or []])
+        want = works_to_render(plat, not_works, None)
+        plans = {t["url"]: due.age_limit(history.get(t["url"]), stated.get(t["url"]), today)
+                 for t in want}
+        want = render_order(want, plans)[:a.limit_per_host]
+        n_due = sum(1 for t in want if plans[t["url"]][0] == due.DUE_AGE)
         # SAYING WHAT IT IS DOING, because this stage was silent for 24 minutes. A browser render is
         # ten seconds and this walks a hundred of them, so a run that has hung and a run that is
         # working looked exactly alike from outside: one line per platform, before the work starts.
-        want = works_to_render(plat, not_works, a.limit_per_host)
-        print(f"{plat.get('name') or plat.get('platform') or '?':22} rendering {len(want)} work(s)"
-              f" (cached renders are reused for {RENDER_AGE_DAYS} days)", flush=True)
+        print(f"{plat.get('name') or plat.get('platform') or '?':22} {len(want)} work(s), "
+              f"{n_due} due today and rendered fresh; the rest reuse a copy younger than "
+              f"their floor", flush=True)
         for t in want:
+            if plans[t["url"]][0] == due.DUE_AGE:
+                print(f"    due  {str(t.get('title') or t['url'])[:30]:32} {plans[t['url']][1]}",
+                      flush=True)
             try:
-                html = render(t["url"], cache, deadline=deadline)
+                html = render(t["url"], cache, max_age_days=limit_for(t["url"], plans[t["url"]]),
+                              deadline=deadline)
             except subprocess.TimeoutExpired:
                 failed["timeout"] += 1
                 continue
@@ -517,6 +573,7 @@ def main():
                 if not structured:
                     eps = episodes(html)
             if enough(eps, structured):
+                due.remember(history, t["url"], [e.get("updated") for e in eps])
                 row = {"work_title": t.get("title"), "url": t["url"], "episodes": eps}
                 au = None
                 if plat["id"] == "pixivcomic":
@@ -613,6 +670,7 @@ def main():
               f"{('  ' + str(dict(failed))) if failed else ''}")
 
     checkstate.save(CHECKS)
+    due.save_history(history)
 
 
 if __name__ == "__main__":

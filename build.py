@@ -1615,6 +1615,21 @@ def after_stated_finale(r, siblings, finales=None, own_seen=None):
                for o in siblings)
 
 
+def later_chapter_seen_before(r, siblings, index):
+    """Whether the ledger saw a chapter numbered above 1 of this work before this row's date.
+
+    A FIRST CHAPTER CAN BE LISTED AGAIN. 裏サンデー re-listed 第1話 of 付き合ってあげてもいいかな, a
+    serialisation that began in 2018 and ended in 2025, with a guessed date of 2026-10-24, and it
+    was shown as 新連載. The build's own rows held nothing numbered higher, because the platform
+    page shows a window; the ledger had seen 第127話 there on 2026-09-14. `index` is
+    `sighting.by_address` over the ledger, and every address this work's rows use is searched.
+    """
+    pub = r.get("pub") or ""
+    urls = {r.get("url")} | {o.get("url") for o in siblings}
+    return any((ep_number(ep) or 0) > 1 and str(d)[:10] < pub
+               for u in urls if u for ep, d in (index or {}).get(u, []))
+
+
 def jst_date(stamp):
     """The date a Japanese platform considers a timestamp to fall on.
 
@@ -5678,8 +5693,9 @@ def main():
     _first_seen = {k: str(v) for k, v in
                    (((yaml.safe_load(_fs.read_text()) or {}).get("first_seen") or {})
                     if _fs.exists() else {}).items()}
+    _seen_at = _sighted.by_address(_first_seen)
     finales_seen = _sighted.finale_seen(
-        _sighted.by_address(_first_seen),
+        _seen_at,
         lambda ep: bool(FINAL_RE.search(unicodedata.normalize("NFKC", ep or ""))))
     for r in releases:
         ep = r.get("ep") or ""
@@ -5770,7 +5786,13 @@ def main():
                 and (ep_number(o.get("ep") or "") or 0) > 1
                 and o["pub"] < r["pub"]
                 for o in by_work_rows.get(norm_work(r["work"]), [])):
-            r["kind"], r["kind_basis"] = "new-series", "episode numbered 1"
+            if later_chapter_seen_before(r, by_work_rows.get(norm_work(r["work"]), []), _seen_at):
+                r["kind"] = "other"
+                r["kind_basis"] = ("chapter 1 of a work whose later chapters we had already seen: "
+                                   "listed again, not a start")
+                r["kind_inferred"] = True
+            else:
+                r["kind"], r["kind_basis"] = "new-series", "episode numbered 1"
         elif n == 1:
             # Chapter 1 dated after a later chapter of the same work is not a new series; it is a
             # misdated row. 妖怪殲滅のサイコリリー's 第1話 came back dated today from a rendered page

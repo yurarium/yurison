@@ -67,6 +67,18 @@ def main(s):
                       {"https://urasunday.com/title/603": "2026-09-07"}, "2026-08-16"),
             "nor is an earlier chapter re-listed with a later date, seen before the finale was")
 
+    # A FIRST CHAPTER LISTED AGAIN IS NOT A START. 裏サンデー re-listed 第1話 of a work that began in
+    # 2018; the ledger had seen 第127話 at the same address six weeks before.
+    seen1 = b.later_chapter_seen_before
+    ura = "https://urasunday.com/title/603"
+    idx = {ura: [("第1話恋しちゃいましょうか", "2026-08-16"), ("第127話幸福論", "2026-09-14")]}
+    s.check(seen1({"ep": "第1話", "pub": "2026-10-24", "url": ura}, [], idx),
+            "chapter 1 dated after a later chapter was seen is a re-listing")
+    s.check(not seen1({"ep": "第1話", "pub": "2026-09-01", "url": ura}, [], idx),
+            "and one dated before any later chapter was seen may still be a start")
+    s.check(not seen1({"ep": "第1話", "pub": "2026-10-24", "url": "https://example.jp/new"}, [], idx),
+            "and another work's later chapters say nothing about this one")
+
     # A §2 REBUTTAL KEEPS THE WORK AND TAKES IT OUT OF THE LISTING. `out` is a source disagreeing
     # with a source; `marginal` is the operator declining to decide. Neither is deletion, and the
     # two are kept apart because they mean different things.

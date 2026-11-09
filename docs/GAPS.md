@@ -3516,8 +3516,10 @@ chapter kind, because they leave the loop before this test; everything else afte
 guessed date and that is not something the series published after ending. Eight マンガワン rows of
 this work changed and no other work's did.
 
-**WHAT IS NOT ADDRESSED.** That 裏サンデー re-listing of 第1話 still shows as 新連載 on 16 August,
-from route "episode numbered 1"; its real date is 2018.
+**THE RE-LISTED 第1話 WAS 新連載, AND IS NOW OTHER.** It reached "episode numbered 1" because the
+build's rows held nothing higher for the work on 裏サンデー. `later_chapter_seen_before` asks the
+ledger instead, over every address the work's rows use: 第127話 was seen there on 2026-09-14, so a
+第1話 dated 2026-10-24 is the platform listing its first chapter again. No other row changed.
 
 ## Three works the corpus holds were counted as absent, because a subtitle is not a resemblance
 

@@ -1751,6 +1751,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  FC:
+    basis: translated
+    en: FC
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: FC is the usual abbreviation for fan club, matching the work's title 霧尾ファンクラブ (The Kirio Fan
+      Club). The English keeps the same letters.
+    verified: false
   FES部の雑談:
     basis: translated
     en: Small Talk in the FES Club
@@ -4874,7 +4884,12 @@ names:
     reading_source_kind: analyser
     verified: false
   '[特別読切] 燕のあやかし画帳':
-    basis: romaji
+    basis: translated
+    en: The Swallow's Yokai Sketchbook
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - '['
       - null
@@ -4890,6 +4905,9 @@ names:
       - null
     - - 画帳
       - がちょう
+    note: The となりのヤングジャンプ page gives no English title. 燕 means swallow (it may also be a name), あやかし are
+      yokai and 画帳 is a sketchbook, which fits a story about a manga research club and school mysteries.
+      The rendering keeps the literal sense.
     reading: '[トクベツ ヨミキリ]   エン ノ アヤカシ ガチョウ'
     reading_at: '2026-11-09'
     reading_basis: analyser
@@ -37094,6 +37112,16 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  バニラとセンチメンタル:
+    basis: translated
+    en: Vanilla and Sentimental
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title is katakana English, spelled as the English it borrows. The BOOK WALKER series page
+      lists it without an English title.
+    verified: false
   バニーズクエスト:
     basis: official-jp
     en: BUNNIE'S QUEST
@@ -38729,6 +38757,16 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  プロローグ:
+    basis: translated
+    en: Prologue
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: プロローグ is katakana English for Prologue. The BOOK WALKER page lists it as the free first book,
+      落差 プロローグ, of The Drop.
+    verified: false
   ベイビィオンボード:
     basis: translated
     en: Baby on Board
@@ -42625,6 +42663,16 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033124127
     verified: true
+  ロピ島行:
+    basis: translated
+    en: Trip to Ropi Island
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 行 after a place name means 'trip to', and ロピ島 is Ropi Island, a proper name kept as a name.
+      It is an episode of Fai and Sui's Unhurried Travel Diary on the BOOK WALKER series page.
+    verified: false
   ロボットJSにスキはありません!!:
     basis: romaji
     furigana_spans:
@@ -55744,6 +55792,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  天気雨と放物線:
+    basis: translated
+    en: Sun Shower and Parabola
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 天気雨 is a sun shower and 放物線 a parabola. The BOOK WALKER series page lists this as a book of
+      the joint zine but gives no English title, so the title is translated literally.
     verified: false
   天瀬ましろはイきたくない！:
     basis: translated
@@ -74553,6 +74611,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  猫ノ辺行:
+    basis: translated
+    en: Trip to Nekonobe
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 行 after a place name means 'trip to'. 猫ノ辺 reads as a place name (Nekonobe, 'Cat Vicinity'),
+      kept as a name. It is an episode of Fai and Sui's Unhurried Travel Diary on the BOOK WALKER series
+      page.
+    verified: false
   猫宮side 総集編+書き下ろし本:
     basis: translated
     en: Nekomiya Side Compilation + New Bonus Book
@@ -76059,6 +76128,16 @@ names:
     note: The BOOK☆WALKER page for the main volume mentions this spin-off, Bangaihen Kasha no Okurimono.
       番外編 is 'side story' and 花車の贈り物 is 'the flower cart's gift', so it is rendered as a gift from the
       flower cart.
+    verified: false
+  番外編「施設の一日:
+    basis: translated
+    en: 'Side Story: A Day at the Facility'
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 番外編 means side story and 施設の一日 means a day at the facility. This is an extra under A Kiss and
+      a Dystopia on the BOOK WALKER series page. The opening bracket is left unclosed in the source.
     verified: false
   異世界でも風俗嬢やってみた:
     basis: translated
@@ -85397,6 +85476,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  美少女空手家バトルストーリー:
+    basis: translated
+    en: 'Vol. 1: Beautiful Karate Girl Battle Story'
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The volume is vol.1 of Deadpan battle girl Nagon, and its title says 'beautiful girl karateka
+      battle story'. The BOOK WALKER page gives no English edition, so it is translated literally.
+    verified: false
   美貌の青空:
     basis: translated
     en: Beauty's Blue Sky
@@ -87181,6 +87270,17 @@ names:
     reading_source_kind: analyser
     translation_note: 虹龍洞 is the rainbow dragon cave the game is set in, which the game's English name
       replaces rather than renders.
+    verified: false
+  蛇をつついて恋を出す:
+    basis: translated
+    en: Poking the Snake Brings Out Love, Part 1
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title turns the proverb 藪をつついて蛇を出す (poke a bush and a snake comes out) by putting love where
+      the snake was. The record's volume is 前編, so it reads as Part 1 under The Mermaid Wears No Shoes
+      (single chapters).
     verified: false
   蜂も刺さずばうたれまい:
     basis: translated
@@ -89188,6 +89288,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  転生先が、十年後に処刑される予定の幼女:
+    basis: translated
+    en: Reincarnated as a Little Girl Scheduled to Be Executed in Ten Years
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title says the place of reincarnation is a little girl slated for execution ten years later.
+      It is part of the BCf Anthology Micro Series on BOOK WALKER, and no English edition was found.
+    verified: false
   転生少女の三ツ星レシピ:
     basis: translated
     en: The Reincarnated Girl's Three-Star Recipes
@@ -89239,6 +89349,18 @@ names:
     en_source_kind: derived
     note: This is volume 1 of the comic adaptation, listed on the BookWalker series page. It follows the
       English already given to the related THE COMIC title.
+    verified: false
+  転生悪役令嬢は『推し』のために婚約破棄を回避したい!(けど無理かもしれない......):
+    basis: translated
+    en: The Reincarnated Villainess Wants to Avoid a Broken Engagement for Her 'Oshi' (But It Might Be
+      Impossible...)
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title says a reincarnated villainess wants to avoid an annulled engagement for the sake
+      of her favorite (推し), though it may not work out. It is part of the BCf Anthology Micro Series on
+      BOOK WALKER, and no English edition was found.
     verified: false
   転生王女と天才令嬢の魔法革命:
     basis: official-jp

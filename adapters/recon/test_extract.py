@@ -198,6 +198,17 @@ def main(s):
     s.check(not extract.PAGER.search("第10話") and not extract.PAGER.search("最終話"),
             "while an ordinary chapter and a finale are not counts of anything")
 
+    # A READER'S COMMENT NAMING A CHAPTER IS NOT ONE. 裏サンデー printed it beside the list, dated.
+    comment = "1話の作風と過去作似てんのかな？って過去作調べたら全然違くて（中身も）最高でした"
+    s.eq(extract.try_pairs(f"<div>{comment}</div><time>2026/10/03</time>"), [],
+         "a sentence that opens by talking about chapter 1 is not chapter 1")
+    s.check(not extract.REFERENCE.search("番外編　41話のその後"),
+            "a side story set after chapter 41 says what it is first, and stays")
+    s.check(not extract.REFERENCE.search("第9話の3") and not extract.REFERENCE.search("9話の3"),
+            "and a chapter's numbered part is a part, with or without its 第")
+    s.eq([g["title"] for g in extract.try_pairs("<div>第1話 出遭い</div><time>2023/10/19</time>")],
+         ["第1話 出遭い"], "while an ordinary chapter still pairs with its date")
+
     # FURNITURE IS NOT A CHAPTER LIST. A page that only offers a button says nothing about how many
     # chapters it has, and the two-episode minimum is what refuses one row.
     s.eq(extract.try_labels('<h2>第1話を読む</h2><p>第2話 とても長い</p>', "https://x.jp/works/1"), [],

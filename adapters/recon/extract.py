@@ -46,6 +46,12 @@ CHAPTERISH = re.compile(
 #: and the `27話` in them. Both count instalments and neither names one, and `ずつ` and `分` are the
 #: words that say so.
 PAGER = re.compile(r"[0-9０-９]+\s*話\s*(ずつ|分)")
+#: A CHAPTER SPOKEN ABOUT, NOT A CHAPTER. A reader's comment on 裏サンデー, 「1話の作風と過去作似て
+#: んのかな？って過去作調べたら全然違くて（中身も）最高でした」, sat beside the chapter list with a
+#: date, and `CHAPTERISH` saw `1話` in it. A label that OPENS with a bare `N話の` is a sentence about
+#: chapter N. Real titles that mention another chapter say what they are first, 「番外編　41話のその後」,
+#: and the part numbering 「第9話の3」 carries its 第 and a digit after the の.
+REFERENCE = re.compile(r"^[0-9０-９]+\s*話の(?![0-9０-９])")
 ISO = re.compile(r"(\d{4})[-/.年](\d{1,2})[-/.月](\d{1,2})")
 # A JAPANESE PLATFORM WRITING ITS DATES IN ENGLISH. ちゃおプラス prints
 # <p class="c-episode-item__date">15 Aug 2026</p> beside <h3 class="c-episode-item__ttl">第35話</h3>,
@@ -267,7 +273,7 @@ def try_pairs(html):
         # `10話ずつ` IS A DISPLAY CONTROL AND NOT A CHAPTER. `CHAPTERISH` matches the `10話` in it,
         # so the pager was pairing with whatever date came next: on five of six 裏サンデー pages it
         # produced a release. `ずつ` after a counter is "N at a time" and names no instalment.
-        if PAGER.search(label):
+        if PAGER.search(label) or REFERENCE.search(label):
             continue
         if not label or (label, d) in seen:
             continue

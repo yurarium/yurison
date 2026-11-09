@@ -6125,6 +6125,22 @@ def main():
     # webpage route set `late_discovered` from its own cutoff and every other route left it unset,
     # so lateness was a property of which adapter happened to fetch a row. The ledger is one answer
     # for all of them.
+    # ── A CHAPTER AN EARLIER RUN MISSED IS NEWS ON THE DAY IT IS FOUND ────────────────────────
+    #
+    # Decided by the project owner on 2026-11-09, and `adapters/latefind.py` holds the rule: a
+    # chapter is a late find when an update ran after the day it was published and before the day
+    # we saw it. The month rule below surfaced only a chapter found in a later month, so
+    # 燕のあやかし画帳, out on Friday 6 November and found on Monday the 9th, was filed under the
+    # Friday, below three days a reader had already read.
+    #
+    # FROM THE START OF THE MONTH STILL OPEN. October is archived and a row in it must not move, so
+    # a sighting before `LATE_BY_RUNS_FROM` keeps the month rule and its exceptions; November's rows
+    # are re-filed, which is what the owner asked to see.
+    LATE_BY_RUNS_FROM = "2026-11-01"
+    import latefind as _latefind
+    _runs_doc = (yaml.safe_load(pathlib.Path("data/ledger/runs.yaml").read_text())
+                 if pathlib.Path("data/ledger/runs.yaml").exists() else {})
+    _run_days = _latefind.run_days(_runs_doc)
     for r in releases:
         if not r.get("web"):
             continue
@@ -6146,15 +6162,29 @@ def main():
         #
         # A month boundary is the same question the archive asks. Learned in a later month than it
         # was published means the month that would have carried it is shut, so it is news now.
+        #
+        # THE MONTH RULE STAYS UNDER THE RUN RULE, because it answers a case the run rule does not:
+        # a chapter of 31 October found on 1 November with no run between was found in time, and
+        # October is shut all the same.
         if pub and seen_on[:7] > pub[:7]:
             r["late_discovered"] = True
             r["discovered_on"] = seen_on
+        if pub and seen_on >= LATE_BY_RUNS_FROM and _latefind.missed(pub, seen_on, _run_days):
+            r["late_discovered"] = True
+            r["discovered_on"] = seen_on
+            r["late_by_runs"] = True
 
     # A WORK WITH OTHER RELEASES IN THE WINDOW IS NOT NEWLY DISCOVERED; only one of its chapters is
     # old, and surfacing it presents the same work twice, once as news.
+    #
+    # NOT FOR A CHAPTER AN EARLIER RUN MISSED. That exception is almost exactly the late chapters
+    # of works a reader already follows, which are the ones the owner asked to see where they
+    # arrive: the work then shows twice, its on-time chapters where they came out and its late
+    # ones under the day they were found, each marked for what it is.
     in_window_works = {norm_work(r["work"]) for r in releases if not r.get("late_discovered")}
     for r in releases:
-        if r.get("late_discovered") and norm_work(r["work"]) in in_window_works:
+        if (r.get("late_discovered") and not r.get("late_by_runs")
+                and norm_work(r["work"]) in in_window_works):
             r["late_discovered"] = False
             r["discovered_on"] = None
     for r in releases:

@@ -659,6 +659,29 @@ Not reachable this way, recorded with reasons in `sites.yaml`: pixivコミック
 31KB with 13 Japanese runs), マガポケ (Nuxt hydration payload rather than markup), ニコニコ漫画
 (`/atom` returns an app shell, and it is a low-quality syndicator anyway).
 
+#### A rendered page is read on the days its next chapter is due
+
+pixivコミック, マンガワン and the other client-rendered platforms are read by rendering each work's
+page in a browser, which costs seconds a page, so a page is not rendered every run. Until 2026-11-09
+each was rendered again four to seven days after the last time, and because these platforms have no
+feed to catch what a render missed, their chapters reached Updates up to a week late. A page is now
+rendered on the days its next chapter is due: on a date the page announces, where a rhythm the page
+states puts one, or where the dates we hold fall on one weekday, one day of the month or a steady
+interval. Every other page waits for a floor of a week or a fortnight. `adapters/render/due.py`
+holds the rule, and `data/ledger/rendered-dates.yaml` keeps the chapter dates each page has shown,
+because a rendered page shows a window of its chapters and not its history.
+
+#### A chapter an earlier update missed is listed on the day it was found
+
+A chapter is a late find when an update ran after the day it was published and before the day we
+first saw it, and it is listed under the day it was found with its publication date beside it.
+Found on a Monday, a Saturday chapter is late and a Sunday one is not. A reader who reads Updates
+down to where they stopped last time therefore meets everything that arrived since. Decided by the
+project owner on 2026-11-09, for sightings from 1 November; `adapters/latefind.py` holds the rule,
+and `data/ledger/runs.yaml` keeps every day an update ran. A completed work found late keeps its
+publication date, by the owner's earlier ruling, and a chapter found in a later month than it came
+out is still surfaced when no run fell between, because the month it belongs to is closed.
+
 > **Invisible characters break matching.** The antenna emits platform names carrying U+200E/U+200F
 > bidi marks — 竹コミ renders identically to 竹コミ‎‏‎ but compares unequal, so a fully-onboarded
 > platform kept reporting as a gap. Normalisation strips zero-width and bidi controls.

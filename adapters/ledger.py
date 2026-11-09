@@ -34,6 +34,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "names"))
 
 import captures  # noqa: E402
+import latefind  # noqa: E402
 import yaml
 import yamlfast  # noqa: F401,E402   for its effect: yaml.safe_load reads through libyaml
 
@@ -133,11 +134,17 @@ def main(argv=None):
     drops = compare(snap, previous)
 
     runs = append(runs, snap)
+    # THE DAYS OUTLAST THE WINDOW. `latefind` decides whether a chapter was found late from the
+    # days an update ran, and a decision read from forty runs would change as the oldest left:
+    # a row filed under the day it was found would move back two weeks later.
+    days = latefind.with_day((doc or {}).get("days"), runs[-1]["at"])
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(yaml.safe_dump(
         {"note": "What each source returned, run over run. Append-only within a window of "
-                 f"{KEEP}. A source that was not re-fetched is not compared: see adapters/ledger.py.",
-         "runs": runs}, allow_unicode=True, sort_keys=False))
+                 f"{KEEP}. A source that was not re-fetched is not compared: see adapters/ledger.py. "
+                 "`days` is every day in Japan an update ran, never trimmed, seeded on 2026-11-09 "
+                 "from the update runs' commits.",
+         "days": days, "runs": runs}, allow_unicode=True, sort_keys=False))
 
     # THE STORE IS WHERE THIS GOES, §13. `_store` puts the same four numbers in `run_drop` and
     # `run_report`, and `status.from_store` reads them there. The file had one reader, `status.py`,

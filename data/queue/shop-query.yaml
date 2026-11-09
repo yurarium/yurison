@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 257
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 215
-  works_asked: 918
+  works_asked: 919
   works_with_a_hit: 278
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -9075,6 +9075,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984447306235"
+    id: "w03536"
+    work: "燕のあやかし画帳"
+    author: "サスケ"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-11-09"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://tonarinoyj.jp/episode/12207421984454510608"
     id: "w00130"
     work: "英雄少女と呪われの銀姫"

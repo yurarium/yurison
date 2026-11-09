@@ -1492,9 +1492,14 @@ def renderer_fingerprint():
             parts.append(inspect.getsource(fn))
         except (OSError, TypeError):
             parts.append(repr(fn))
+    # THE MISREAD TABLE IS DATA `romanise_ja` READS, the same as `CLOSES`, and was left out: a row
+    # added for 燕 changed how `[特別読切] 燕のあやかし画帳` renders and the file would have gone on
+    # serving `En no Ayakashi Gachō`.
+    _mr = _misread()
     parts += [CHAPTER_PAT.pattern, EXTRA_PAT.pattern, VOLUME_PAT.pattern,
               WRAPPED_PAT.pattern,
-              repr(sorted(EXTRA_EN.items())), repr(sorted(CIRCLED.items()))]
+              repr(sorted(EXTRA_EN.items())), repr(sorted(CIRCLED.items())),
+              repr(sorted(_mr.MISREAD.items())), repr(sorted(_mr.NOT_INSIDE.items()))]
     return hashlib.sha256("".join(parts).encode("utf-8")).hexdigest()[:16]
 
 

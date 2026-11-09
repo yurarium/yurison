@@ -37,6 +37,10 @@ def main(s):
     s.eq(misread.corrected("梓月は天に咲う"), "梓月は天に咲う",
          "a compound the word sits inside is a different word and is left for its own record")
     s.eq(misread.corrected("上梓"), "上梓", "and so is the noun the analyser already reads")
+    s.eq(misread.corrected("[特別読切] 燕のあやかし画帳"), "[特別読切] ツバメのあやかし画帳",
+         "燕 standing alone is the bird")
+    s.eq(misread.corrected("江畔ノ燕々"), "江畔ノ燕々", "and the doubled 燕々 of verse is left alone")
+    s.eq(misread.corrected("燕尾服"), "燕尾服", "as is the on'yomi compound")
     s.eq(misread.corrected("裏世界ピクニック"), "裏世界ピクニック",
          "a string holding no misread word comes back as it went in")
     s.eq(misread.corrected(""), "", "and so does an empty one")

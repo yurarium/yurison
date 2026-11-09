@@ -36346,7 +36346,7 @@ titles:
     note: >-
       光陰 means light and shadow, an old word for passing time, and the title means 'the sisters of
       time'. The English carries the sense of passing years.
-  "[特別読切] 燕のあやかし画帳":
+  "燕のあやかし画帳":
     en: "The Swallow's Yokai Sketchbook"
     basis: translated
     source: yurarium
@@ -36356,6 +36356,13 @@ titles:
       The となりのヤングジャンプ page gives no English title. 燕 means swallow (it may also be a name), あやかし are
       yokai and 画帳 is a sketchbook, which fits a story about a manga research club and school
       mysteries. The rendering keeps the literal sense.
+    reading: "ツバメ ノ アヤカシ ガチョウ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      The platform's own id for the chapter is `tsubamenoayakashi_0001`, and 百合ナビ's article
+      address is `tsubamenoayakashi-start`. SudachiDict files a lone 燕 as the ancient state of Yan
+      and reads it えん.
   "天気雨と放物線":
     en: "Sun Shower and Parabola"
     basis: translated

@@ -420,6 +420,13 @@ def main(s):
     finally:
         p4.EXTRA_EN["番外編"] = was
     s.eq(p4.renderer_fingerprint(), before, "and putting it back puts the fingerprint back")
+    from facts import reading as _mr
+    _mr.MISREAD["試験"] = ("シケン", "a row added only to see the fingerprint move")
+    try:
+        s.check(p4.renderer_fingerprint() != before,
+                "a correction added to the misread table changes the fingerprint")
+    finally:
+        del _mr.MISREAD["試験"]
 
 
     # LATIN IS READ AS ITSELF. Sudachi lowercases it, returning `jk` for `ＪＫ`, so `ＪＫすぷらっしゅ！`

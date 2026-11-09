@@ -74166,22 +74166,28 @@ names:
     reading_source_kind: analyser
     verified: false
   燕のあやかし画帳:
-    basis: romaji
-    furigana_spans:
-    - - 燕
-      - えん
-    - - のあやかし
-      - null
-    - - 画帳
-      - がちょう
-    reading: エン ノ アヤカシ ガチョウ
+    basis: translated
+    en: The Swallow's Yokai Sketchbook
+    en_at: '2026-11-09'
+    en_reviewed: '2026-11-09'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The となりのヤングジャンプ page gives no English title. 燕 means swallow (it may also be a name), あやかし are
+      yokai and 画帳 is a sketchbook, which fits a story about a manga research club and school mysteries.
+      The rendering keeps the literal sense.
+    reading: ツバメ ノ アヤカシ ガチョウ
     reading_at: '2026-11-09'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+      value: エン ノ アヤカシ ガチョウ
+    reading_note: The platform's own id for the chapter is `tsubamenoayakashi_0001`, and 百合ナビ's article
+      address is `tsubamenoayakashi-start`. SudachiDict files a lone 燕 as the ancient state of Yan and
+      reads it えん.
+    reading_reviewed: '2026-11-09'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   燻日:
     basis: translated

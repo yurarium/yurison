@@ -40,11 +40,19 @@ MISREAD = {
            "corpus holds outside 梓月 is a person: the pen name 和郷梓 on 少年ジャンプ＋, and the "
            "characters of 柚稀＆梓ができるまで and 第７７話　梓の願い, which reached readers as "
            "`Kazusato Shi` and `Yuki & Shi`."),
+    "燕": ("ツバメ",
+           "The bird. SudachiDict holds a lone 燕 as 固有名詞・地名・国, the ancient Chinese state of "
+           "Yan, read エン, and picks it even in 燕が飛ぶ. となりのヤングジャンプ's own id for "
+           "燕のあやかし画帳 is tsubamenoayakashi_0001, and the title reached readers as "
+           "`En no Ayakashi Gachō`."),
 }
 
 #: Compounds a row does not apply inside, because the word there is a different word. 梓月 is read
-#: あづき, which its own title record states, and 上梓 is the noun the analyser already reads.
-NOT_INSIDE = {"梓": ("梓月", "上梓")}
+#: あづき, which its own title record states, and 上梓 is the noun the analyser already reads. The
+#: 燕 compounds are on'yomi words of their own: 燕尾服, 燕麦, 飛燕, 燕雀, and the doubled 燕々 of
+#: classical verse, which 江畔ノ燕々 holds.
+NOT_INSIDE = {"梓": ("梓月", "上梓"),
+              "燕": ("燕々", "燕燕", "燕尾", "燕麦", "飛燕", "燕雀", "燕京", "燕子花")}
 
 
 def corrected(text):

@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-11-09
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 256
+  hits_agreeing_on_a_creator: 257
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 215
-  works_asked: 917
-  works_with_a_hit: 277
+  works_asked: 918
+  works_with_a_hit: 278
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -2461,6 +2461,21 @@ works:
         printed: "2026/1/25"
         agreement: "creator"
         volumes_stated: 2
+        completed_marker: false
+  - work_url: "https://comic-gardo.com/episode/12207421984483962794"
+    id: "w03270"
+    work: "優等生がアダルトグッズを買いに来た"
+    author: "コナタエル"
+    platform: "コミックガルド"
+    query: "author"
+    retrieved: "2026-11-09"
+    hits:
+      - series_url: null
+        title_listed: "優等生がアダルトグッズを買いに来た 1"
+        shop_author: "コナタエル"
+        imprint: "ガルドコミックス"
+        publisher: "オーバーラップ"
+        agreement: "creator"
         completed_marker: false
   - work_url: "https://comic-growl.com/series/3b60fbd61d3f8"
     id: "w03419"

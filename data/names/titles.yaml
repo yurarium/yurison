@@ -1,4 +1,4 @@
-generated: '2026-11-08'
+generated: '2026-11-09'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -4871,6 +4871,32 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  '[特別読切] 燕のあやかし画帳':
+    basis: romaji
+    furigana_spans:
+    - - '['
+      - null
+    - - 特別
+      - とくべつ
+    - - 読切
+      - よみきり
+    - - '] '
+      - null
+    - - 燕
+      - えん
+    - - のあやかし
+      - null
+    - - 画帳
+      - がちょう
+    reading: '[トクベツ ヨミキリ]   エン ノ アヤカシ ガチョウ'
+    reading_at: '2026-11-09'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   au printemps:
@@ -74079,6 +74105,24 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  燕のあやかし画帳:
+    basis: romaji
+    furigana_spans:
+    - - 燕
+      - えん
+    - - のあやかし
+      - null
+    - - 画帳
+      - がちょう
+    reading: エン ノ アヤカシ ガチョウ
+    reading_at: '2026-11-09'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   燻日:

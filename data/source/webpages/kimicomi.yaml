@@ -1197,7 +1197,7 @@ works:
     author: "涼海来夏"
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     read: "2026-11-09"
-    chapter_count: 16
+    chapter_count: 17
     chapters:
       - title: "OPERATION1"
         updated: "2026-07-20"
@@ -1234,16 +1234,19 @@ works:
         access_modes: ["free-timed"]
       - title: "OPERATION12"
         updated: "2026-10-05"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "OPERATION13"
         updated: "2026-10-12"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "OPERATION14"
         updated: "2026-10-19"
         access_modes: ["free"]
       - title: "OPERATION15"
         updated: "2026-10-26"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "OPERATION16"
         updated: "2026-11-02"
+        access_modes: ["purchase"]
+      - title: "OPERATION17"
+        updated: "2026-11-09"
         access_modes: ["purchase"]

@@ -120,7 +120,7 @@ works_missing:
     platform: "Gコミ"
     url: "https://g-comi.jp/series/58238b3987c11"
     antenna_id: "211263"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "ファンタジー", "エルフ・ハーフエルフ", "魔女", "料理・グルメ"]
   - title: "多良さんのウワサ"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/f5a28c7f5cc1b"
@@ -155,7 +155,7 @@ works_missing:
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
     antenna_id: "186534"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
@@ -271,6 +271,16 @@ works_missing:
     url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
     antenna_id: "213409"
     tags: ["読み切り", "百合"]
+  - title: "どれが恋かがわからない"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_001190_S"
+    antenna_id: "131238"
+    tags: ["百合", "大学生", "恋愛"]
+  - title: "わたしのために脱ぎなさいっ!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_000188_S"
+    antenna_id: "76553"
+    tags: ["最近のコメント数"]
   - title: "盗賊少女に転生したけど、周回ボーナスで楽勝です! 100%盗む&逃げるでラクラク冒険者生活"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020389_S"
@@ -466,16 +476,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006747_S"
     antenna_id: "189542"
     tags: ["ラブコメ", "百合"]
-  - title: "どれが恋かがわからない"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_001190_S"
-    antenna_id: "131238"
-    tags: ["百合", "大学生", "恋愛"]
-  - title: "わたしのために脱ぎなさいっ!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_000188_S"
-    antenna_id: "76553"
-    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
   - title: "ぷれいめ～と"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008613_S"
@@ -726,6 +726,16 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "わたしのために脱ぎなさいっ!"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/34328"
+    antenna_id: "77574"
+    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
+  - title: "どれが恋かがわからない"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/56504"
+    antenna_id: "131227"
+    tags: ["百合", "大学生"]
   - title: "私を喰べたい、ひとでなし"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/49677"
@@ -856,16 +866,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/72312"
     antenna_id: "189669"
     tags: ["百合", "ギャグ・コメディ"]
-  - title: "わたしのために脱ぎなさいっ!"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/34328"
-    antenna_id: "77574"
-    tags: ["百合", "エロ", "漫画家・絵描き", "女子高生"]
-  - title: "どれが恋かがわからない"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/56504"
-    antenna_id: "131227"
-    tags: ["百合", "大学生"]
   - title: "このままモブじゃ終われない!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/67095"
@@ -950,7 +950,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["ホラー", "幽霊", "百合", "女子高生"]
+    tags: ["最近のコメント数"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"
@@ -1101,6 +1101,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "銀輪ボイス"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/de0a74a9b5715"
+    antenna_id: "128082"
+    tags: ["百合", "自転車", "女子高生", "サトリ"]
   - title: "30まで独りだったら一緒に暮らそうって言ったよね?"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/4ad31024142fd"
@@ -1171,11 +1176,6 @@ works_missing:
     url: "https://takecomic.jp/series/f6b42b56cc099"
     antenna_id: "197825"
     tags: ["百合", "SF", "ロボ・人造人間", "ディストピア", "逆転世界"]
-  - title: "銀輪ボイス"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/de0a74a9b5715"
-    antenna_id: "128082"
-    tags: ["百合", "自転車", "女子高生", "サトリ"]
   - title: "貴女へささげるサディスティック"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/ae1cf555c8b01"

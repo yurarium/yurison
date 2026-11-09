@@ -206,10 +206,14 @@ works:
     url: "https://manga-one.com/viewer/290902"
     chapter_count: 10
     chapters:
-      - title: "第22話"
-        updated: 2026-11-06
+      - title: "第23話"
+        updated: 2026-11-20
         access_modes: ["purchase"]
         access_note: "released early to paying readers (先読)"
+        date_basis: rendered
+      - title: "第22話"
+        updated: 2026-11-06
+        access_modes: ["free"]
         date_basis: rendered
       - title: "連載再開のお知らせ"
         updated: 2026-10-23
@@ -221,7 +225,7 @@ works:
         date_basis: rendered
       - title: "第21話"
         updated: 2026-10-23
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         date_basis: rendered
       - title: "第20話"
         updated: 2026-04-10
@@ -243,14 +247,14 @@ works:
         updated: 2026-02-13
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第17話"
-        updated: 2026-02-13
-        access_modes: ["purchase"]
-        date_basis: rendered
   - work_title: "付き合ってあげてもいいかな"
     url: "https://manga-one.com/viewer/70173"
     chapter_count: 10
     chapters:
+      - title: "重大発表！その3"
+        updated: 2026-11-05
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "番外編④"
         updated: 2026-11-13
         access_modes: ["purchase"]
@@ -287,8 +291,4 @@ works:
       - title: "TVドラマレポ漫画④"
         updated: 2026-10-02
         access_modes: ["free"]
-        date_basis: rendered
-      - title: "番外編②"
-        updated: 2026-10-09
-        access_modes: ["purchase"]
         date_basis: rendered

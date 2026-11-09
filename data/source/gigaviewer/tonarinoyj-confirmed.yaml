@@ -13,8 +13,22 @@ publisher: "集英社"
 retrieved: 2026-11-09
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 1
+works_confirmed: 2
 works:
+  - work_title: "[特別読切] 燕のあやかし画帳"
+    author: "サスケ"
+    url: "https://tonarinoyj.jp/episode/12207421984447306235"
+    series_id: "12207421984447279309"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/11/09/tsubamenoayakashi-start/"
+      headline: "相性最悪な女子高生バディが怪異に挑む読み切り漫画「燕のあやかし画帳」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] 燕のあやかし画帳"
+        updated: 2026-11-06
+        url: "https://tonarinoyj.jp/episode/12207421984447306235"
   - work_title: "[10Pショート読切] GOOD HUNT"
     author: "森数機"
     url: "https://tonarinoyj.jp/episode/12207421984252566649"

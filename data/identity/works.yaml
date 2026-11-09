@@ -23084,6 +23084,15 @@ works:
     title: "はぐれアイドル地獄変"
     anchors:
       - "web:https://gorakuweb.com/episode/4632579990158199795"
+  - id: w03536
+    title: "[特別読切] 燕のあやかし画帳"
+    anchors:
+      - "web:https://tonarinoyj.jp/episode/12207421984447306235"
+      - "web:https://tonarinoyj.jp/atom/series/12207421984447279309"
+    attached:
+      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984447279309"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984447306235 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984447279309, so the platform places this chapter in series 12207421984447279309"
+        retrieved: 2026-11-09
 related:
   - a: w00156
     b: w00486

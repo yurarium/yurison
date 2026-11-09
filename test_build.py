@@ -44,6 +44,29 @@ def main(s):
     s.check(not later("第10話", []),
             "and a work with no siblings at all has nothing later than its own chapter")
 
+    # AN ENDED SERIES CAN KEEP PUBLISHING. 付き合ってあげてもいいかな ended at 第133話(最終話) on
+    # マンガワン and posted TV-adaptation pieces after it, the newest of which was listed as Final.
+    after = b.after_stated_finale
+    mo = [{"ep": "第133話(最終話)", "pub": "2026-09-04", "plat": "mangaone"},
+          {"ep": "第132話", "pub": "2026-09-04", "plat": "mangaone"}]
+    s.check(after({"ep": "重大発表！その3", "pub": "2026-11-05", "plat": "mangaone"}, mo),
+            "a release after the platform's stated finale comes after the series")
+    s.check(not after({"ep": "第133話(最終話)", "pub": "2026-09-04", "plat": "mangaone"}, mo),
+            "the finale is not after itself, nor is anything published the same day")
+    s.check(not after({"ep": "第130話", "pub": "2026-11-05", "plat": "pixiv"}, mo),
+            "and another platform still running behind is publishing instalments")
+    seen = {"https://manga-one.com/viewer/70173": "2026-09-06"}
+    s.check(after({"ep": "重大発表！その3", "pub": "2026-11-05", "plat": "mangaone",
+                   "url": "https://manga-one.com/viewer/70173"}, [], seen),
+            "a finale that has left the page still counts, from the day the ledger saw it")
+    s.check(not after({"ep": "第132話", "pub": "2026-09-04", "plat": "mangaone",
+                       "url": "https://manga-one.com/viewer/70173"}, [], seen),
+            "and the chapters published before it was seen are not after it")
+    s.check(not after({"ep": "第1話 恋、しちゃいましょうか…？", "pub": "2026-10-24", "plat": "urasunday-com",
+                       "url": "https://urasunday.com/title/603"}, [],
+                      {"https://urasunday.com/title/603": "2026-09-07"}, "2026-08-16"),
+            "nor is an earlier chapter re-listed with a later date, seen before the finale was")
+
     # A §2 REBUTTAL KEEPS THE WORK AND TAKES IT OUT OF THE LISTING. `out` is a source disagreeing
     # with a source; `marginal` is the operator declining to decide. Neither is deletion, and the
     # two are kept apart because they mean different things.

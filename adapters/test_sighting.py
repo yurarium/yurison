@@ -35,8 +35,21 @@ ROW = {"work": "公爵令嬢の籠絡ミッション～魔王との政略結婚�
        "url": "https://youngchampion.jp/series/86c1162f34a04"}
 
 
+def finales(s):
+    import re
+    idx = sighting.by_address({
+        "url|https://manga-one.com/viewer/70173|第132話": "2026-09-06",
+        "url|https://manga-one.com/viewer/70173|第133話最終話": "2026-09-06",
+        "url|https://manga-one.com/viewer/70173|重大発表その3": "2026-11-09",
+        "url|https://example.jp/series/1|第5話": "2026-10-01"})
+    got = sighting.finale_seen(idx, lambda ep: bool(re.search("最終話", ep)))
+    s.eq(got, {"https://manga-one.com/viewer/70173": "2026-09-06"},
+         "an address remembers the day its finale was seen, and one with no finale is absent")
+
+
 def main(s):
     renames(s)
+    finales(s)
     # ── WHAT A RELEASE IS REMEMBERED AS ───────────────────────────────────────────────────────
     s.eq(sighting.key(ROW), "url|https://youngchampion.jp/series/86c1162f34a04|第9話1",
          "a release is remembered by its address and its chapter")

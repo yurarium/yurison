@@ -93,6 +93,21 @@ def by_address(ledger):
     return out
 
 
+def finale_seen(index, is_final):
+    """`{address: date}`: the earliest day a chapter `is_final` names the last was seen there.
+
+    A RENDERED PAGE SHOWS A WINDOW, and a finale leaves it while the work goes on posting extras.
+    付き合ってあげてもいいかな's 第133話(最終話) was seen on マンガワン on 2026-09-06 and was gone from
+    the page by November; the ledger is the record that keeps it.
+    """
+    out = {}
+    for url, eps in (index or {}).items():
+        days = [str(d)[:10] for ep, d in eps if is_final(ep)]
+        if days:
+            out[url] = min(days)
+    return out
+
+
 def _subtitled(a, b):
     """Whether `b` is `a` with something added after it that does not extend a number."""
     return bool(a and b and a != b and b.startswith(a) and not b[len(a)].isdigit())

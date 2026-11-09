@@ -3493,6 +3493,32 @@ platform's restatement of an old chapter is an update at all, and if it is, whet
 the feed as an access change rather than as a chapter. Both are the owner's, and both change what
 the updates tab means.
 
+## A finished series that kept publishing had its latest extra listed as the finale
+
+Reported by the project owner 2026-11-09. Fixed the same day.
+
+**WHAT A READER WAS TOLD.** 付き合ってあげてもいいかな showed `重大発表！その3` on 5 November as its
+final chapter. The serialisation ended with 第133話(最終話) and the last volume is out; what
+マンガワン has posted since is side chapters and pieces about the TV adaptation (drama report
+strips, an interview in two parts, announcements).
+
+**HOW.** Route two to `final` says the platform marks the series 完結 and this is the newest release
+we hold. A series that ends does not stop its platform posting under it, so the newest row was the
+latest of the extras. The finale itself had left the rendered page's window by November, which is
+why holding it in this build's rows was never going to be enough.
+
+**FIXED BY ASKING WHETHER THE FINALE CAME FIRST.** `after_stated_finale` answers from two places:
+the rows this build holds, and the first-seen ledger through `sighting.finale_seen`, which keeps the
+day a chapter titled as the last was first seen at each address. A row published after that day on
+the same platform is about the work and not part of it. Side chapters (`EXTRA_RE`) keep their
+chapter kind, because they leave the loop before this test; everything else after the finale is
+`other`. A chapter first seen before the finale is exempt, because 裏サンデー re-lists 第1話 with a
+guessed date and that is not something the series published after ending. Eight マンガワン rows of
+this work changed and no other work's did.
+
+**WHAT IS NOT ADDRESSED.** That 裏サンデー re-listing of 第1話 still shows as 新連載 on 16 August,
+from route "episode numbered 1"; its real date is 2018.
+
 ## Three works the corpus holds were counted as absent, because a subtitle is not a resemblance
 
 Found 2026-09-07, working a rise in `announced works the corpus does not hold`. Fixed.

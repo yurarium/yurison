@@ -1584,6 +1584,37 @@ def a_later_chapter_exists(ep, siblings):
     return any((ep_number(o.get("ep") or "") or 0) > mine for o in siblings)
 
 
+def after_stated_finale(r, siblings, finales=None, own_seen=None):
+    """Whether this platform already published a chapter titled as the last before this row.
+
+    A SERIES THAT HAS ENDED CAN KEEP PUBLISHING. 付き合ってあげてもいいかな ended with 第133話(最終話)
+    on マンガワン on 2026-09-04, and its TV adaptation brought 番外編, drama report strips and
+    重大発表 posts after it. The platform marks the work 完結, so the newest of those, 重大発表！その3
+    on 5 November, met "series marked 完結; newest release we hold" and was listed as the finale.
+
+    THE LEDGER COUNTS AS HOLDING IT. `finales` maps an address to the day a finale was first seen
+    there, from `sighting.finale_seen`, because the finale leaves a rendered page's window long
+    before the extras stop. A row published after that day comes after the series.
+
+    NOT A CHAPTER WE SAW BEFORE THE FINALE. `own_seen` is the day this row's own chapter was
+    first seen at its address. 裏サンデー re-listed 第1話 of the same work with a guessed date of
+    2026-10-24; it was first seen there on 2026-08-16, before the finale, and is not after it.
+
+    THE SAME PLATFORM ONLY. A platform running behind another publishes chapters after the other's
+    finale, and those are instalments; see `a_later_chapter_exists`.
+    """
+    import unicodedata
+    pub, plat = r.get("pub") or "", r.get("plat")
+    seen = (finales or {}).get(r.get("url") or "")
+    if own_seen and seen and str(own_seen)[:10] <= seen:
+        return False
+    if seen and seen < pub:
+        return True
+    return any(o.get("plat") == plat and (o.get("pub") or "") < pub
+               and FINAL_RE.search(unicodedata.normalize("NFKC", o.get("ep") or ""))
+               for o in siblings)
+
+
 def jst_date(stamp):
     """The date a Japanese platform considers a timestamp to fall on.
 
@@ -5642,6 +5673,14 @@ def main():
         series_titles.setdefault(norm_work(r["work"]), []).append(r.get("ep") or "")
 
     releases[:] = without_imports(releases, import_stamps())
+    import sighting as _sighted
+    _fs = pathlib.Path("data/ledger/first-seen.yaml")
+    _first_seen = {k: str(v) for k, v in
+                   (((yaml.safe_load(_fs.read_text()) or {}).get("first_seen") or {})
+                    if _fs.exists() else {}).items()}
+    finales_seen = _sighted.finale_seen(
+        _sighted.by_address(_first_seen),
+        lambda ep: bool(FINAL_RE.search(unicodedata.normalize("NFKC", ep or ""))))
     for r in releases:
         ep = r.get("ep") or ""
         # AN ACCESS CHANGE IS NOT AN INSTALMENT, and the rules below are about instalments. It went
@@ -5701,6 +5740,13 @@ def main():
         # the ending is the more informative fact about it.
         if FINAL_RE.search(unicodedata.normalize("NFKC", ep)):
             r["kind"], r["kind_basis"] = "final", "title states this is the last chapter"
+        elif after_stated_finale(r, by_work_rows.get(norm_work(r["work"]), []), finales_seen,
+                                 _first_seen.get(_sighted.key(r))):
+            # Side chapters left the loop above as extras; what reaches here after the finale is
+            # a strip, an interview or an announcement about the work, not an instalment of it.
+            r["kind"] = "other"
+            r["kind_basis"] = "published after the chapter titled as the last: about the work, not part of it"
+            r["kind_inferred"] = True
         elif (completed.get(norm_work(r["work"])) and r["pub"] == latest.get(norm_work(r["work"]))
               and not a_later_chapter_exists(ep, by_work_rows.get(norm_work(r["work"]), []))):
             # The platform marks the series 完結 and this is the newest release we hold for it.

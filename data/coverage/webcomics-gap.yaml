@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-09
+retrieved: 2026-11-10
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -36,6 +36,11 @@ platforms_missing:
   - platform: "ドリコミ+"
     works: 1
 works_missing:
+  - title: "しゅがー・みーつ・がーる!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3108"
+    antenna_id: "166358"
+    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -71,11 +76,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/2391"
     antenna_id: "102691"
     tags: ["百合", "フェチ・性癖"]
-  - title: "しゅがー・みーつ・がーる!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3108"
-    antenna_id: "166358"
-    tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - title: "6億年の博物旅"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3818"
@@ -1165,7 +1165,7 @@ works_missing:
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/2706e9d937d5f"
     antenna_id: "170811"
-    tags: ["百合", "女子中学生", "完結"]
+    tags: ["最近のコメント数"]
   - title: "「触れたい」は恋の始まり"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/5a87d01128492"
@@ -1200,7 +1200,7 @@ works_missing:
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     antenna_id: "206126"
-    tags: ["百合"]
+    tags: ["最近のコメント数"]
   - title: "あの子のスカート/よみきり"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/dcaacd8b4831f"

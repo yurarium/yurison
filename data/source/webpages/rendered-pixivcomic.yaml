@@ -10,48 +10,35 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-09
+retrieved: 2026-11-10
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
-  - work_title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
-    author: "玉崎たま"
-    url: "https://comic.pixiv.net/works/11080"
-    chapter_count: 4
+  - work_title: "ステラ・ステップ"
+    author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
+    url: "https://comic.pixiv.net/works/10790"
+    chapter_count: 5
     chapters:
-      - title: "第16話 アストラ"
-        updated: 2026-11-08
+      - title: "Step.15② 光の向こうへ"
+        updated: 2026-10-27
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第15話 目覚め"
-        updated: 2026-10-08
+      - title: "Step.15① 光の向こうへ"
+        updated: 2026-10-13
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第2話 重大な欠陥"
-        updated: 2024-12-08
+      - title: "Step.1② 砂漠に降る雨"
+        updated: 2024-11-15
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第1話 田村七夕"
-        updated: 2024-11-08
+      - title: "Step.1① 砂漠に降る雨"
+        updated: 2024-10-18
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
-    author: "中村カンコ"
-    url: "https://comic.pixiv.net/works/11081"
-    chapter_count: 3
-    chapters:
-      - title: "第3話"
-        updated: 2025-01-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2024-12-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2024-11-02
+      - title: "Step.0 星が堕ちた日"
+        updated: 2024-08-09
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "ボイタボイネ"
@@ -73,27 +60,6 @@ works:
         date_basis: rendered
       - title: "第1話 最強のボーイッシュ女子"
         updated: 2025-09-15
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "アイ・ヘイ・チュー"
-    author: "長門知大"
-    url: "https://comic.pixiv.net/works/13324"
-    chapter_count: 4
-    chapters:
-      - title: "第6話 今に木阿弥"
-        updated: 2026-10-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 手も品も変えるな"
-        updated: 2026-08-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 悪夢にも勝る"
-        updated: 2026-07-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 垂涎に反吐"
-        updated: 2026-06-13
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "きみが死ぬまで恋をしたい"
@@ -146,45 +112,62 @@ works:
         updated: 2019-06-08
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "私の推しは悪役令嬢。"
-    url: "https://comic.pixiv.net/works/7319"
+  - work_title: "作りたい女と食べたい女"
+    author: "ゆざきさかおみ"
+    url: "https://comic.pixiv.net/works/7182"
+    chapter_count: 8
+    chapters:
+      - title: "第51話 世界との接点②"
+        updated: 2026-11-03
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第41話 受け入れてくれる場所"
+        updated: 2026-08-25
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第40話 互いを確認すること"
+        updated: 2023-07-05
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第39話 良い家"
+        updated: 2023-06-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第4話 この世に同じ女はいない"
+        updated: 2021-02-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話 あなたの食費はどのくらい"
+        updated: 2021-02-03
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 唐揚げ定食とカレー"
+        updated: 2021-01-27
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 二人の女"
+        updated: 2021-01-20
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "姫騎士と姫巫女"
+    author: "真くん"
+    url: "https://comic.pixiv.net/works/13609"
     chapter_count: 4
     chapters:
-      - title: "第60話 本心"
-        updated: 2026-11-08
+      - title: "第11話"
+        updated: 2026-11-03
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第59話 運命と選択"
-        updated: 2026-10-08
+      - title: "第3話"
+        updated: 2026-09-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第2話 最初の勝負①"
-        updated: 2021-12-13
+      - title: "第2話"
+        updated: 2026-09-01
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第1話 乙女ゲームの世界"
-        updated: 2021-03-18
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "平良深姉妹はどっちもヤんでる"
-    author: "金子ある"
-    url: "https://comic.pixiv.net/works/9380"
-    chapter_count: 4
-    chapters:
-      - title: "#28"
-        updated: 2026-11-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "#27"
-        updated: 2026-10-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "#2"
-        updated: 2023-07-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "#1"
-        updated: 2023-06-08
+      - title: "第1話"
+        updated: 2026-08-25
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -374,31 +357,6 @@ works:
         updated: 2024-08-02
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "ステラ・ステップ"
-    author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
-    url: "https://comic.pixiv.net/works/10790"
-    chapter_count: 5
-    chapters:
-      - title: "Step.15② 光の向こうへ"
-        updated: 2026-10-27
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.15① 光の向こうへ"
-        updated: 2026-10-13
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.1② 砂漠に降る雨"
-        updated: 2024-11-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.1① 砂漠に降る雨"
-        updated: 2024-10-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.0 星が堕ちた日"
-        updated: 2024-08-09
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "不死犠コネクト"
     author: "shimazaki"
     url: "https://comic.pixiv.net/works/10792"
@@ -573,6 +531,44 @@ works:
         date_basis: rendered
       - title: "EPISODE.01 運命の出会い"
         updated: 2024-11-08
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
+    author: "玉崎たま"
+    url: "https://comic.pixiv.net/works/11080"
+    chapter_count: 4
+    chapters:
+      - title: "第16話 アストラ"
+        updated: 2026-11-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第15話 目覚め"
+        updated: 2026-10-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 重大な欠陥"
+        updated: 2024-12-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 田村七夕"
+        updated: 2024-11-08
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
+    author: "中村カンコ"
+    url: "https://comic.pixiv.net/works/11081"
+    chapter_count: 3
+    chapters:
+      - title: "第3話"
+        updated: 2025-01-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話"
+        updated: 2024-12-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2024-11-02
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "カナリアは綺羅星の夢をみる"
@@ -950,6 +946,27 @@ works:
         date_basis: rendered
       - title: "第1巻(1)"
         updated: 2026-06-26
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "アイ・ヘイ・チュー"
+    author: "長門知大"
+    url: "https://comic.pixiv.net/works/13324"
+    chapter_count: 4
+    chapters:
+      - title: "第6話 今に木阿弥"
+        updated: 2026-10-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話 手も品も変えるな"
+        updated: 2026-08-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 悪夢にも勝る"
+        updated: 2026-07-18
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 垂涎に反吐"
+        updated: 2026-06-13
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "骨に願いを、星に呪いを"
@@ -1481,43 +1498,6 @@ works:
         updated: 2020-12-28
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "作りたい女と食べたい女"
-    author: "ゆざきさかおみ"
-    url: "https://comic.pixiv.net/works/7182"
-    chapter_count: 8
-    chapters:
-      - title: "第51話 世界との接点②"
-        updated: 2026-11-03
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第41話 受け入れてくれる場所"
-        updated: 2026-08-25
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第40話 互いを確認すること"
-        updated: 2023-07-05
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第39話 良い家"
-        updated: 2023-06-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4話 この世に同じ女はいない"
-        updated: 2021-02-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 あなたの食費はどのくらい"
-        updated: 2021-02-03
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 唐揚げ定食とカレー"
-        updated: 2021-01-27
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 二人の女"
-        updated: 2021-01-20
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "百合SMでふたりの気持ちはつながりますか?"
     author: "みら"
     url: "https://comic.pixiv.net/works/7194"
@@ -1611,6 +1591,26 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2021-02-24
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "私の推しは悪役令嬢。"
+    url: "https://comic.pixiv.net/works/7319"
+    chapter_count: 4
+    chapters:
+      - title: "第60話 本心"
+        updated: 2026-11-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第59話 運命と選択"
+        updated: 2026-10-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 最初の勝負①"
+        updated: 2021-12-13
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 乙女ゲームの世界"
+        updated: 2021-03-18
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "ゆりづくしの教室で"
@@ -2115,6 +2115,27 @@ works:
         updated: 2023-04-18
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "平良深姉妹はどっちもヤんでる"
+    author: "金子ある"
+    url: "https://comic.pixiv.net/works/9380"
+    chapter_count: 4
+    chapters:
+      - title: "#28"
+        updated: 2026-11-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "#27"
+        updated: 2026-10-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "#2"
+        updated: 2023-07-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "#1"
+        updated: 2023-06-08
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "アラサー美女は地味女に餌付けされる"
     author: "梨尾"
     url: "https://comic.pixiv.net/works/9560"
@@ -2256,27 +2277,6 @@ works:
         date_basis: rendered
       - title: "ep01 夜明けの光"
         updated: 2023-11-28
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "姫騎士と姫巫女"
-    author: "真くん"
-    url: "https://comic.pixiv.net/works/13609"
-    chapter_count: 4
-    chapters:
-      - title: "第11話"
-        updated: 2026-11-03
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話"
-        updated: 2026-09-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2026-09-01
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2026-08-25
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "壊していいよ、すいかちゃん"

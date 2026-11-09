@@ -8,11 +8,35 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-09
+retrieved: 2026-11-10
 record_type: update_claims
 window_days: 60
-claims: 430
+claims: 431
 updates:
+  - work: "球詠 マウンテンプクイチ"
+    platform: "きららベース"
+    date: 2026-11-10
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "バクガタリzzZ 鰤尾みちる"
+    platform: "カドコミ"
+    date: 2026-11-10
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "セーラー服と関西弁 ライムマン"
+    platform: "きららベース"
+    date: 2026-11-10
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "ごきげんよう、一局いかが? 卯花つかさ"
+    platform: "きららベース"
+    date: 2026-11-10
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "銀輪ボイス"
     platform: "竹コミ‎‏‎"
     date: 2026-11-09
@@ -54,6 +78,13 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_000188_S"
     listing_tags: ["最近のコメント数"]
+  - work: "なとりとしずは"
+    platform: "サンデーうぇぶり"
+    date: 2026-11-09
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.sunday-webry.com/episode/12207421983745504350"
+    listing_tags: ["百合", "女子高生", "運動系部活", "柔道"]
   - work: "どれが恋かがわからない 奥たまむし"
     platform: "カドコミ"
     date: 2026-11-09
@@ -67,6 +98,20 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_001190_S"
     listing_tags: ["百合", "大学生", "恋愛"]
+  - work: "しゅがー・みーつ・がーる!"
+    platform: "COMIC FUZ"
+    date: 2026-11-09
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3108"
+    listing_tags: ["百合", "学園", "料理・グルメ", "女子高生"]
+  - work: "#ギャルとギャルの百合"
+    platform: "サンデーうぇぶり"
+    date: 2026-11-09
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.sunday-webry.com/episode/2550912965814192510"
+    listing_tags: ["百合", "女子高生", "恋愛"]
   - work: "魔女とくゅらす"
     platform: "HERO'S Web"
     date: 2026-11-08
@@ -1385,13 +1430,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "なとりとしずは"
-    platform: "サンデーうぇぶり"
-    date: 2026-10-27
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.sunday-webry.com/episode/12207421983745504350"
-    listing_tags: ["百合", "女子高生", "運動系部活", "柔道"]
   - work: "ぜんぶ壊して地獄で愛して"
     platform: "ニコニコ漫画"
     date: 2026-10-27
@@ -1399,13 +1437,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/65189"
     listing_tags: ["百合", "女子高生"]
-  - work: "しゅがー・みーつ・がーる!"
-    platform: "COMIC FUZ"
-    date: 2026-10-27
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3108"
-    listing_tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - work: "この恋、一旦持ち帰らせていただきます！ あおと響"
     platform: "カドコミ"
     date: 2026-10-27
@@ -1439,13 +1470,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "#ギャルとギャルの百合"
-    platform: "サンデーうぇぶり"
-    date: 2026-10-27
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.sunday-webry.com/episode/2550912965814192510"
-    listing_tags: ["百合", "女子高生", "恋愛"]
   - work: "紅魔館の女たち risui"
     platform: "カドコミ"
     date: 2026-10-26
@@ -2403,7 +2427,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
-    listing_tags: ["百合"]
+    listing_tags: ["最近のコメント数"]
   - work: "子供部屋ドラゴン"
     platform: "ニコニコ漫画"
     date: 2026-10-10
@@ -2494,7 +2518,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://takecomic.jp/series/2706e9d937d5f"
-    listing_tags: ["百合", "女子中学生", "完結"]
+    listing_tags: ["最近のコメント数"]
   - work: "彩純ちゃんはレズ風俗に興味があります!"
     platform: "一迅プラス"
     date: 2026-10-08
@@ -2894,24 +2918,3 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/71625"
     listing_tags: ["百合", "女子高生", "コミカライズ"]
-  - work: "私の百合はお仕事です!"
-    platform: "一迅プラス"
-    date: 2026-09-10
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2550912965923203016"
-    listing_tags: ["百合", "アニメ化", "カフェ・喫茶店"]
-  - work: "私の推しは悪役令嬢。"
-    platform: "一迅プラス"
-    date: 2026-09-10
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2550912965923202772"
-    listing_tags: ["百合", "乙女ゲーム", "悪役令嬢", "アニメ化"]
-  - work: "今日はカノジョがいないから"
-    platform: "一迅プラス"
-    date: 2026-09-10
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2550912965923203802"
-    listing_tags: ["百合", "女子高生", "浮気・不倫", "エロ"]

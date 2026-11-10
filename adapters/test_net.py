@@ -75,6 +75,22 @@ def main(s):
     s.check(net.is_refusal(flaky) and not net.is_refusal(gone),
             "is_refusal is the same test without the exception")
 
+    # A CHALLENGE IS A REFUSAL, whatever its status says. firecross.jp's AWS WAF answered 202 with
+    # an empty body, which read as a page with no chapters for 18 days.
+    s.eq(net.challenged(202, {"x-amzn-waf-action": "challenge"}, b""),
+         "challenge: AWS WAF challenge", "the firewall's own header names it")
+    s.eq(net.challenged(200, {"x-amzn-waf-action": "captcha"}, b"<html>"),
+         "challenge: AWS WAF captcha", "whatever the status and whatever the body")
+    s.check(net.challenged(202, {}, b""), "a 202 with no body is the same event, unnamed")
+    s.eq(net.challenged(202, {}, b"<html>queued</html>"), None, "a 202 with a body is an answer")
+    s.eq(net.challenged(200, {"content-type": "text/html"}, b"<html>"), None,
+         "and an ordinary page is not a challenge")
+    s.eq(net.challenged(200, {}, b""), None,
+         "nor is an empty 200, which the caller's parser answers for")
+    wall = net.Result(None, 202, "u", None, False, "challenge: AWS WAF challenge", "h")
+    s.eq(net.outcome(wall), net.REFUSED, "and a challenged fetch reads as refused")
+    s.check(202 not in net.RETRY, "and is not asked again within the run")
+
     # WHAT IS WORTH ASKING AGAIN. 404 must never be retried: it is an answer, and re-asking it
     # would spend the run's politeness budget on facts already established.
     s.check(503 in net.RETRY and 429 in net.RETRY, "the two rate-limit statuses are retried")

@@ -107,6 +107,7 @@ def titles(html):
 
 
 def main(s):
+    _through_net(s)
     # Leading and trailing space goes; internal runs are left, because a chapter label's own
     # spacing is content and the caller collapses it where it needs to.
     s.eq(gr.clean("  a  b  "), "a  b", "surrounding whitespace is stripped, internal is kept")
@@ -165,6 +166,36 @@ def main(s):
               '<p class="archives-list__date">2024/9/7</p></div></li>')
     s.check(any("ギャル" in t for t in titles(ddnavi)),
             "a heading the page did not mark as one node keeps its subtitle")
+
+
+def _through_net(s):
+    """A refused host is reported as refused, and the fetch goes through net.py."""
+    line, refuses = gr.report("ファイアCROSS", [], 0, 3, held=True)
+    s.check(refuses and "refused every page" in line,
+            "a host we hold a file from that refused every page fails the command, by name")
+    line, refuses = gr.report("新都社", [], 0, 1, held=False)
+    s.check(not refuses and "refused every page" in line,
+            "one that never gave us a file is printed and does not fail it")
+    line, refuses = gr.report("新都社", [], 0, 0)
+    s.check(not refuses and "nothing parsed (0 failed, 0 refused)" in line,
+            "a host that answered with nothing readable is not a refusal")
+    s.check(not gr.report("X", [], 2, 1)[1],
+            "nor is one where some pages failed some other way, which says less")
+    line, refuses = gr.report("裏サンデー", [{"w": 1}], 0, 1)
+    s.check(not refuses and "1 refused" in line, "a host that answered some pages still counts")
+
+    real = gr.net.fetch
+    try:
+        gr.net.fetch = lambda url, cache, max_age_days=1: gr.net.Result(
+            None, 202, url, None, False, "challenge: AWS WAF challenge", "firecross.jp")
+        s.raises(gr.net.Refused, lambda: gr.fetch("https://firecross.jp/ebook/series/541", None),
+                 "a challenge raises instead of reading as an empty page")
+        gr.net.fetch = lambda url, cache, max_age_days=1: gr.net.Result(
+            None, 404, url, None, False, "HTTP 404", "firecross.jp")
+        s.eq(gr.fetch("https://firecross.jp/ebook/series/9", None), None,
+             "and a 404 comes back as nothing there")
+    finally:
+        gr.net.fetch = real
 
 
 if __name__ == "__main__":

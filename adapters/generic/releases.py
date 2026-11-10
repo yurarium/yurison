@@ -26,24 +26,22 @@ Usage:  releases.py --works data/coverage/webcomics-works.yaml \
                     --cache $YURI_CACHE/generic-cache --retrieved 2026-08-01
 """
 import html as _html
-import argparse, json, pathlib, re, sys, time, unicodedata, urllib.error, urllib.request
+import argparse, json, pathlib, re, sys, unicodedata
 from collections import Counter
 
 import yaml
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import dedicated  # noqa: E402
+import net  # noqa: E402
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "recon"))
 from extract import (CHAPTERISH, norm_date, try_jsonld, try_labels,  # noqa: E402
                      try_markup, try_next, try_nuxt, try_pairs)
 
-# The compatible-token form. Several hosts (firecross.jp, www.yomonga.com) reject a bare product
-# token outright but serve this, and it is the long-standing convention — "Mozilla/5.0 (compatible;
-# Googlebot/2.1; +http://...)" has the same shape. It still names us and still links to the project,
-# so it is not the thing refused for pixivコミック: that would have meant claiming to be a browser
-# in order to pass an access control. This claims to be us, in the format the web expects.
-UA = ("Mozilla/5.0 (compatible; yurarium/0.1; bibliographic database; "
-      "+https://yurarium.github.io/)")
+# THE USER AGENT IS net.py's, in the same compatible-token form this module used to send its own:
+# firecross.jp and www.yomonga.com reject a bare product token and serve this one. It names us and
+# links to the project, so it claims to be us in the format the web expects, not a browser.
+#: Seconds between requests to one host, as before net.py; `net.set_pause` keeps it per host.
 PAUSE = 1.5
 MIN_EPISODES = 2
 #: `pairs` IS THE LAST OF THEM AND IT WAS NOT REACHABLE FROM HERE. `try_markup` reads a page that
@@ -66,19 +64,33 @@ def clean(s):
     return unicodedata.normalize("NFKC", s).strip()
 
 
-def fetch(url, cache, max_age_days=1):
-    key = re.sub(r"[^A-Za-z0-9]", "_", url)[-120:]
-    f = cache / f"{key}.html"
-    if f.exists() and (time.time() - f.stat().st_mtime) / 86400 < max_age_days:
-        return f.read_text()
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    try:
-        with urllib.request.urlopen(req, timeout=30) as r:
-            t = r.read(1_500_000).decode("utf-8", "replace")
-    finally:
-        time.sleep(PAUSE)
-    f.write_text(t)
-    return t
+def fetch(url, cache, max_age_days=net.AGE_FEED):
+    """The page at `url`, or None where the host says there is none. Raises `net.Refused`.
+
+    THROUGH net.py SINCE 2026-11-10. This module kept its own urlopen, which read firecross.jp's
+    firewall challenge (HTTP 202, empty body) as a page with no chapters, so a refused host showed
+    up as a stale file 18 days later. net.py names that a refusal, never caches one, keeps the
+    status, and paces each host on its own.
+    """
+    return net.body(net.fetch(url, cache, max_age_days=max_age_days))
+
+
+def report(platform, rows, failed, refused, held=False):
+    """The line printed for one host, and whether its refusal should fail the command.
+
+    A HOST WE HOLD A FILE FROM THAT NOW REFUSES EVERY PAGE FAILS THE COMMAND, so the run's report
+    names it and its issue says "refused" the same night. Writing nothing and exiting 0 is how
+    ファイアCROSS went 18 days reading as merely stale. A host that has never given us a file, as
+    新都社's one work behind manga.okiba.jp's block has not, loses us nothing by refusing: it is
+    printed and the run goes on, because an issue nobody can act on is not a thing to do.
+    """
+    name = f"{platform[:20]:22}"
+    if rows:
+        tail = f" ({refused} refused)" if refused else ""
+        return f"{name} {len(rows)} work(s){tail}", False
+    if refused and not failed:
+        return f"{name} refused every page ({refused}) — writing nothing", held
+    return f"{name} nothing parsed ({failed} failed, {refused} refused) — writing nothing", False
 
 
 #: A PAGE THAT ONLY EXISTS ONCE A BROWSER HAS RUN IT. 裏サンデー and アルファポリス serve a shell
@@ -270,19 +282,27 @@ def main():
                 targets[m.group(1)].append({"title": w.get("title"), "url": u})
                 break
 
-    written = []
+    written, refusing = [], []
     for host, plan in plans.items():
-        rows, failed = [], 0
+        net.set_pause(host, PAUSE)
+        rows, failed, refused = [], 0, 0
         for t in targets.get(host, []):
             try:
                 page = (render_page(t["url"], cache) if plan["strategy"] == RENDERED
                         else fetch(t["url"], cache))
+                if page is None:        # the host says there is nothing at this address
+                    failed += 1
+                    continue
                 # A RENDERED PAGE IS READ BY THE ORDINARY EXTRACTORS. What the browser supplies is
                 # the markup that was never in the response, and `try_markup` is what reads markup.
                 eps = episodes(page, plan.get("rendered_as", "pairs")
                                if plan["strategy"] == RENDERED else plan["strategy"],
                                today=a.retrieved, page_url=t["url"])
-            except (urllib.error.HTTPError, urllib.error.URLError, OSError):
+            except net.Refused as e:
+                refused += 1
+                why = str(e)
+                continue
+            except OSError:
                 failed += 1
                 continue
             if len(eps) >= MIN_EPISODES:
@@ -292,8 +312,13 @@ def main():
                         e.setdefault("author", who)
                 rows.append({"work_title": t["title"], "url": t["url"], "episodes": eps,
                              "author": who})
+        pid = re.sub(r"[^a-z0-9]+", "-", host.lower()).strip("-")
+        line, refuses = report(plan["platform"], rows, failed, refused,
+                               held=(out / f"generic-{pid}.yaml").exists())
         if not rows:
-            print(f"{plan['platform'][:20]:22} nothing parsed ({failed} failed) — writing nothing")
+            print(line)
+            if refuses:
+                refusing.append(f"{plan['platform']}: {why}")
             continue
         pid = re.sub(r"[^a-z0-9]+", "-", host.lower()).strip("-")
         L = [f"# {plan['platform']} — chapters extracted heuristically from work pages.",
@@ -331,10 +356,13 @@ def main():
         n = sum(len(w["episodes"]) for w in rows)
         written.append((plan["platform"], len(rows), n))
         print(f"{plan['platform'][:20]:22} works={len(rows):3} chapters={n:4}"
-              f"{f'  failed={failed}' if failed else ''}")
+              f"{f'  failed={failed}' if failed else ''}{f'  refused={refused}' if refused else ''}")
 
     print(f"\n{len(written)} platform(s), {sum(w for _, w, _ in written)} works, "
           f"{sum(c for _, _, c in written)} chapters -> {out}")
+    # Last, and to stderr through sys.exit, because the stage runner reports a command's last line.
+    if refusing:
+        sys.exit("refused: " + "; ".join(refusing))
 
 
 if __name__ == "__main__":

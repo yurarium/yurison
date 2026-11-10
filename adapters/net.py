@@ -344,6 +344,25 @@ def fetch(url, cache, max_age_days=AGE_FEED, attempts=ATTEMPTS, binary=False):
     return result
 
 
+def challenged(status, headers, data):
+    """Why a response that looks successful is not an answer, or None where it is one.
+
+    A BOT CHALLENGE IS A REFUSAL. From 2026-10-23 firecross.jp answered every request from outside
+    Japan with HTTP 202, an empty body and `x-amzn-waf-action: challenge`. Decoded as a page, that
+    was a page with no chapters on it: the generic pass reported "nothing parsed (0 failed)" for 18
+    days and the issue said its file was stale, not that the host had refused. The challenge asks
+    for a browser to run a script, which this project does not do to pass an access control, so the
+    only honest reading is the host declining to answer. A 202 with no body is the same event from
+    a host that does not name its firewall.
+    """
+    action = (headers.get("x-amzn-waf-action") or "").strip() if headers else ""
+    if action:
+        return f"challenge: AWS WAF {action}"
+    if status == 202 and not data:
+        return "challenge: HTTP 202 with no body"
+    return None
+
+
 def _once(url, host, f, binary=False):
     """One request, with the outcome recorded and nothing raised.
 
@@ -357,6 +376,10 @@ def _once(url, host, f, binary=False):
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
             data = r.read()
             final = r.geturl()
+            # Never written to the cache, so tomorrow asks again rather than replaying a refusal.
+            why = challenged(r.status, r.headers, data)
+            if why:
+                return Result(None, r.status, final, None, False, why, host)
             # Compared on the normalised form: a trailing slash or a changed scheme is not a move.
             moved = final if _differs(url, final) else None
             if binary:

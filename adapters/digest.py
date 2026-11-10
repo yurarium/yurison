@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The week in one email: how the runs went, what keeps failing, what moved, what it cost.
+"""The week in one discussion: how the runs went, what keeps failing, what moved, what it cost.
 
 WHY THIS EXISTS. The owner asked on 2026-10-15 for a weekly digest beside the per-source issues and
 the status page. A per-source issue reaches somebody when one thing breaks; this is for what no
@@ -7,7 +7,7 @@ single issue says: how many runs there were, which sources wobbled and recovered
 moved and by how much, and how much of the subscription the naming job used.
 
 `compose` builds the text from what the repository already records and is tested. `main` gathers
-those records with git and the ledger files, and the workflow emails the result.
+those records with git and the ledger files, and the workflow posts the result as a discussion.
 
     digest.py --since 2026-10-08 > digest.md
 """

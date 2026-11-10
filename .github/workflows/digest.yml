@@ -1,9 +1,10 @@
 name: digest
 
-# THE WEEK IN ONE EMAIL, asked for by the owner on 2026-10-15 beside the per-source issues and the
-# status page: how many runs there were, what keeps failing, which budgets moved, and what the
-# naming job used. It was an issue until 2026-11-10, when the owner ruled that issues are for
-# things that need doing. See adapters/digest.py and adapters/mail.py. The run summary keeps a copy.
+# THE WEEK IN ONE DISCUSSION, asked for by the owner on 2026-10-15 beside the per-source issues and
+# the status page: how many runs there were, what keeps failing, which budgets moved, and what the
+# naming job used. It was an issue until 2026-11-10, when the owner ruled that issues are for things
+# that need doing. A new discussion emails every watcher with its full text, so it reaches the owner
+# with no mail account of ours. See adapters/digest.py. The run summary keeps a copy.
 on:
   schedule:
     - cron: "17 0 * * 1"        # Monday 09:17 JST, clear of both update runs
@@ -11,6 +12,7 @@ on:
 
 permissions:
   contents: read
+  discussions: write
 
 jobs:
   digest:
@@ -34,14 +36,24 @@ jobs:
         run: python3 adapters/digest.py --store "$RUNNER_TEMP/corpus.sqlite" > digest.md
       - name: Keep a copy in the run summary
         run: cat digest.md >> "$GITHUB_STEP_SUMMARY"
-      # An unconfigured account fails the job, and GitHub reports a failed scheduled run.
-      - name: Email it
+      # The category is a repository variable so it can move without a code change. The API cannot
+      # create one, so it must exist; a missing one fails the run and says which.
+      - name: Post it as a discussion
         env:
-          MAIL_TO: ${{ secrets.MAIL_TO }}
-          MAIL_FROM: ${{ secrets.MAIL_FROM }}
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          GH_TOKEN: ${{ github.token }}
+          CATEGORY: ${{ vars.DIGEST_CATEGORY || 'Announcements' }}
         run: |
-          python3 adapters/mail.py --subject "Yurarium weekly digest: $(TZ=Asia/Tokyo date +%F)" digest.md
+          read -r repo cat < <(gh api graphql \
+            -f owner="${GITHUB_REPOSITORY%/*}" -f name="${GITHUB_REPOSITORY#*/}" \
+            -f query='query($owner:String!,$name:String!){repository(owner:$owner,name:$name){
+              id discussionCategories(first:50){nodes{id name}}}}' \
+            --jq '.data.repository | .id + " " + ([.discussionCategories.nodes[] | select(.name == $ENV.CATEGORY) | .id][0] // "")')
+          if [ -z "$cat" ]; then
+            echo "::error::no discussion category named '$CATEGORY'"; exit 1
+          fi
+          gh api graphql -f repo="$repo" -f cat="$cat" \
+            -f title="Weekly digest: $(TZ=Asia/Tokyo date +%F)" -F body=@digest.md \
+            -f query='mutation($repo:ID!,$cat:ID!,$title:String!,$body:String!){
+              createDiscussion(input:{repositoryId:$repo,categoryId:$cat,title:$title,body:$body}){
+                discussion{url}}}' \
+            --jq .data.createDiscussion.discussion.url

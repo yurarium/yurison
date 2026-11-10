@@ -10,11 +10,28 @@ source: gigaviewer
 platform: kuragebunch
 platform_name: "くらげバンチ"
 publisher: "新潮社"
-retrieved: 2026-11-10
+retrieved: 2026-11-11
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 1
+works_confirmed: 2
 works:
+  - work_title: "ヒモお姉さん、餌付け中。"
+    author: "春露彗"
+    url: "https://kuragebunch.com/episode/12207421984481017713"
+    series_id: "12207421984481011289"
+    is_oneshot: false
+    discovered_via:
+      signal: "new-serial"
+      article: "https://yurinavi.com/2026/11/10/himooneesan-start/"
+      headline: "中学生が無職のお姉さんを“飼う”――女子ふたりの秘密ごはん漫画「ヒモお姉さん、餌付け中。」WEBで連載開始"
+    chapter_count: 2
+    chapters:
+      - title: "第2話①　飼い猫契約とトマトリゾット"
+        updated: 2026-11-10
+        url: "https://kuragebunch.com/episode/12207421984481017724"
+      - title: "第1話　月見うどんとふたりの秘密"
+        updated: 2026-11-10
+        url: "https://kuragebunch.com/episode/12207421984481017713"
   - work_title: "ファーストペンギン・レクイエム"
     author: "タダノなつ"
     url: "https://kuragebunch.com/episode/12207421983893652478"

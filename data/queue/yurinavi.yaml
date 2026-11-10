@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-10
+retrieved: 2026-11-11
 record_type: discovery_queue
 candidates:
   - work_title: "付き合ってあげてもいいかな"
@@ -17,6 +17,15 @@ candidates:
     platform_code: "603"
     work_url: "https://manga-one.com/manga/603/chapter/60189"
     headline: "TVドラマ化記念！「付き合ってあげてもいいかな」30話分がWEBで無料公開【11/6まで】"
+    status: unconfirmed
+  - work_title: "ヒモお姉さん、餌付け中。"
+    signal: "new-serial"
+    announced: "Tue, 10 Nov 2026 11:13:07 +0000"
+    url: "https://yurinavi.com/2026/11/10/himooneesan-start/"
+    platform: "kuragebunch"
+    platform_code: "12207421984481017713"
+    work_url: "https://kuragebunch.com/episode/12207421984481017713"
+    headline: "中学生が無職のお姉さんを“飼う”――女子ふたりの秘密ごはん漫画「ヒモお姉さん、餌付け中。」WEBで連載開始"
     status: unconfirmed
   - work_title: "是騒騒"
     signal: "new-serial"
@@ -56,7 +65,7 @@ candidates:
     status: unconfirmed
   - work_title: "APPLE"
     signal: "oneshot"
-    announced: "Mon, 02 Nov 2026 11:13:20 +0000"
+    announced: "2026-11-02"
     url: "https://yurinavi.com/2026/11/02/apple-yomikiri/"
     platform: "ichicomi"
     platform_code: "12207421984387218979"

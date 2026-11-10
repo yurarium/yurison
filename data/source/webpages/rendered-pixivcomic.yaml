@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-10
+retrieved: 2026-11-11
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -60,114 +60,6 @@ works:
         date_basis: rendered
       - title: "第1話 最強のボーイッシュ女子"
         updated: 2025-09-15
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "きみが死ぬまで恋をしたい"
-    author: "あおのなち"
-    url: "https://comic.pixiv.net/works/5424"
-    chapter_count: 6
-    chapters:
-      - title: "第6話 ともだち"
-        updated: 2019-08-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第5話 死なない女の子"
-        updated: 2019-05-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4話 ちゃんと痛いよ"
-        updated: 2019-04-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 わたしはわたし"
-        updated: 2019-03-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 キス"
-        updated: 2019-02-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 はじめまして"
-        updated: 2019-01-08
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ささやくように恋を唄う"
-    author: "竹嶋えく"
-    url: "https://comic.pixiv.net/works/5758"
-    chapter_count: 4
-    chapters:
-      - title: "第62話 説明と、想い出と、手紙と。"
-        updated: 2026-10-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 放課後、2人の時間。"
-        updated: 2019-07-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 初恋と、桜と、後輩と。"
-        updated: 2019-06-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 屋上と、ギターと、先輩と。"
-        updated: 2019-06-08
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "作りたい女と食べたい女"
-    author: "ゆざきさかおみ"
-    url: "https://comic.pixiv.net/works/7182"
-    chapter_count: 8
-    chapters:
-      - title: "第52話 常に共に"
-        updated: 2026-11-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第41話 受け入れてくれる場所"
-        updated: 2026-08-25
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第40話 互いを確認すること"
-        updated: 2023-07-05
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第39話 良い家"
-        updated: 2023-06-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4話 この世に同じ女はいない"
-        updated: 2021-02-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 あなたの食費はどのくらい"
-        updated: 2021-02-03
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 唐揚げ定食とカレー"
-        updated: 2021-01-27
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 二人の女"
-        updated: 2021-01-20
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "姫騎士と姫巫女"
-    author: "真くん"
-    url: "https://comic.pixiv.net/works/13609"
-    chapter_count: 4
-    chapters:
-      - title: "第12話"
-        updated: 2026-11-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話"
-        updated: 2026-09-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2026-09-01
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2026-08-25
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -1258,6 +1150,56 @@ works:
         updated: 2018-12-18
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "きみが死ぬまで恋をしたい"
+    author: "あおのなち"
+    url: "https://comic.pixiv.net/works/5424"
+    chapter_count: 6
+    chapters:
+      - title: "第6話 ともだち"
+        updated: 2019-08-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第5話 死なない女の子"
+        updated: 2019-05-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第4話 ちゃんと痛いよ"
+        updated: 2019-04-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話 わたしはわたし"
+        updated: 2019-03-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 キス"
+        updated: 2019-02-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 はじめまして"
+        updated: 2019-01-08
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ささやくように恋を唄う"
+    author: "竹嶋えく"
+    url: "https://comic.pixiv.net/works/5758"
+    chapter_count: 4
+    chapters:
+      - title: "第62話 説明と、想い出と、手紙と。"
+        updated: 2026-10-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話 放課後、2人の時間。"
+        updated: 2019-07-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 初恋と、桜と、後輩と。"
+        updated: 2019-06-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 屋上と、ギターと、先輩と。"
+        updated: 2019-06-08
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "悪いが私は百合じゃない"
     author: "もちオーレ"
     url: "https://comic.pixiv.net/works/6356"
@@ -1496,6 +1438,43 @@ works:
         date_basis: rendered
       - title: "1日目"
         updated: 2020-12-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "作りたい女と食べたい女"
+    author: "ゆざきさかおみ"
+    url: "https://comic.pixiv.net/works/7182"
+    chapter_count: 8
+    chapters:
+      - title: "第52話 常に共に"
+        updated: 2026-11-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第41話 受け入れてくれる場所"
+        updated: 2026-08-25
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第40話 互いを確認すること"
+        updated: 2023-07-05
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第39話 良い家"
+        updated: 2023-06-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第4話 この世に同じ女はいない"
+        updated: 2021-02-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話 あなたの食費はどのくらい"
+        updated: 2021-02-03
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 唐揚げ定食とカレー"
+        updated: 2021-01-27
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 二人の女"
+        updated: 2021-01-20
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "百合SMでふたりの気持ちはつながりますか?"
@@ -2277,6 +2256,27 @@ works:
         date_basis: rendered
       - title: "ep01 夜明けの光"
         updated: 2023-11-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "姫騎士と姫巫女"
+    author: "真くん"
+    url: "https://comic.pixiv.net/works/13609"
+    chapter_count: 4
+    chapters:
+      - title: "第12話"
+        updated: 2026-11-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話"
+        updated: 2026-09-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話"
+        updated: 2026-09-01
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2026-08-25
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "壊していいよ、すいかちゃん"

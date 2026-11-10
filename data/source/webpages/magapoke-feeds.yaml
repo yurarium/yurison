@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-11-10
+retrieved: 2026-11-11
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -2489,8 +2489,16 @@ works:
     title_id: "2901"
     url: "https://pocket.shonenmagazine.com/title/02901"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2901/feed.xml"
-    chapter_count: 63
+    chapter_count: 65
     chapters:
+      - title: "【#59】Shoot!"
+        updated: 2026-11-11
+        author: "原作/大鷹シン 漫画/ホマレ"
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/446319"
+      - title: "【単行本宣伝話】"
+        updated: 2026-11-11
+        author: "原作/大鷹シン 漫画/ホマレ"
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/446692"
       - title: "【#58】lgnite"
         updated: 2026-11-04
         author: "原作/大鷹シン 漫画/ホマレ"
@@ -2781,8 +2789,12 @@ works:
     title_id: "3282"
     url: "https://pocket.shonenmagazine.com/title/03282"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3282/feed.xml"
-    chapter_count: 28
+    chapter_count: 29
     chapters:
+      - title: "【第27話】百人一首がおにあいどす"
+        updated: 2026-11-11
+        author: "いどんち"
+        url: "https://pocket.shonenmagazine.com/title/03282/episode/446245"
       - title: "【第26.5話】キョンシー・アンド・トリート"
         updated: 2026-10-14
         author: "いどんち"
@@ -3073,8 +3085,16 @@ works:
     title_id: "2758"
     url: "https://pocket.shonenmagazine.com/title/02758"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2758/feed.xml"
-    chapter_count: 69
+    chapter_count: 71
     chapters:
+      - title: "【第64話】命を賭した☆推し活☆ガール"
+        updated: 2026-11-11
+        author: "ヒロユキ"
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/446797"
+      - title: "【単行本宣伝話】"
+        updated: 2026-11-11
+        author: "ヒロユキ"
+        url: "https://pocket.shonenmagazine.com/title/02758/episode/446782"
       - title: "【第63話】先輩は☆過去の女☆ガール"
         updated: 2026-11-04
         author: "ヒロユキ"
@@ -5665,8 +5685,12 @@ works:
     title_id: "3338"
     url: "https://pocket.shonenmagazine.com/title/03338"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3338/feed.xml"
-    chapter_count: 9
+    chapter_count: 10
     chapters:
+      - title: "【第10話】蛇女"
+        updated: 2026-11-11
+        author: "イマイ悠"
+        url: "https://pocket.shonenmagazine.com/title/03338/episode/446790"
       - title: "【第9話】ギャルとバイト"
         updated: 2026-11-04
         author: "イマイ悠"

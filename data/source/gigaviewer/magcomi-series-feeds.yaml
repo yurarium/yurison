@@ -13,8 +13,8 @@ publisher: "マッグガーデン"
 retrieved: 2026-11-10
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 26
-series_held: 26
+series_resolved: 27
+series_held: 27
 works:
   - work_title: "お嬢様マッチングアプリ"
     series_id: "4856001361369138636"
@@ -156,6 +156,19 @@ works:
         author: "ぜろわん"
         url: "https://magcomi.com/episode/316190246985037259"
         free_from: 2022-12-10
+        access_modes: ["free"]
+  - work_title: "シアワセとりかえばや"
+    series_id: "12207421984482184469"
+    url: "https://magcomi.com/atom/series/12207421984482184469"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切"
+        updated: 2026-11-10
+        citation: "【月例マッグガーデンマンガ大賞 2026年9月期佳作】能天気でドジなオリガ姫のことが大嫌いな侍女・リーリャ。大国への嫁入り道中、無責任な姫に腹を立てたリーリャは、姫との「入れ替わり」を提案し――!?"
+        content_id: "monthlymagprize20260901"
+        author: "南儀よら"
+        url: "https://magcomi.com/episode/12207421984482234304"
+        free_from: 2026-11-10
         access_modes: ["free"]
   - work_title: "ボイタボイネ"
     series_id: "2551460909687430106"

@@ -16395,6 +16395,22 @@ names:
     reading_source_kind: community-db
     reading_url: http://www.wikidata.org/entity/Q55524444
     verified: false
+  南儀よら:
+    basis: romaji
+    furigana_spans:
+    - - 南儀
+      - なんぎ
+    - - よら
+      - null
+    reading: ナンギヨラ
+    reading_at: '2026-11-10'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   南国ばなな:
     basis: romaji
     furigana_spans:
@@ -24754,6 +24770,18 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/18825
+    verified: false
+  春露彗:
+    basis: romaji
+    reading: ハルロスイ
+    reading_at: '2026-11-10'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    reading_uncertain: true
     verified: false
   春風ふつう:
     basis: romaji

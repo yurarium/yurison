@@ -9,7 +9,7 @@ source: webcomics.jp
 role: discovery-only
 retrieved: 2026-11-10
 record_type: candidate_works
-works: 310
+works: 309
 candidates:
   - title: "0088/2022年10月期JUMP新世界漫画賞"
     platforms: ["少年ジャンプ+"]
@@ -1366,6 +1366,10 @@ candidates:
     platforms: ["pixivコミック", "一迅プラス"]
     urls: ["https://comic.pixiv.net/works/10956", "https://ichicomi.com/episode/2550912965923203807"]
     tags: ["不良・ヤンキー", "百合"]
+  - title: "シアワセとりかえばや"
+    platforms: ["MAGCOMI"]
+    urls: ["https://magcomi.com/episode/12207421984482234304"]
+    tags: ["百合", "読み切り"]
   - title: "シスターグレイ"
     platforms: ["コミックDAYS"]
     urls: ["https://comic-days.com/episode/316190247109747187"]
@@ -1678,6 +1682,10 @@ candidates:
   - title: "ヒトゴトですから!"
     platforms: ["FEEL web"]
     urls: ["https://feelweb.jp/episode/3269754496401056068"]
+    tags: ["百合"]
+  - title: "ヒモお姉さん、餌付け中。"
+    platforms: ["くらげバンチ"]
+    urls: ["https://kuragebunch.com/episode/12207421984481017713"]
     tags: ["百合"]
   - title: "ヒモとは絡みづらい"
     platforms: ["コミックDAYS"]
@@ -2921,8 +2929,8 @@ candidates:
     platforms: ["ビッコミ"]
     urls: ["https://bigcomics.jp/series/3bd48e69edc37"]
   - title: "怪獣ロマンティクス"
-    platforms: ["pixivコミック", "マガポケ"]
-    urls: ["https://comic.pixiv.net/works/13457", "https://pocket.shonenmagazine.com/title/03196"]
+    platforms: ["pixivコミック", "コミックDAYS", "マガポケ"]
+    urls: ["https://comic-days.com/episode/12207421984435356104", "https://comic.pixiv.net/works/13457", "https://pocket.shonenmagazine.com/title/03196"]
     tags: ["怪獣", "百合"]
   - title: "怪異部～M県Y市の怪現象について～"
     platforms: ["カドコミ"]

@@ -32221,6 +32221,17 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  シアワセとりかえばや:
+    basis: romaji
+    reading: シアワセトリカエバヤ
+    reading_at: '2026-11-10'
+    reading_basis: surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 1
+    reading_source: surface
+    reading_source_kind: analyser
+    verified: true
   シェパーズパース:
     basis: translated
     en: Shepherd's Purse
@@ -37882,6 +37893,33 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ヒモお姉さん、餌付け中。:
+    basis: romaji
+    furigana_spans:
+    - - ヒモお
+      - null
+    - - 姉
+      - ねえ
+    - - さん、
+      - null
+    - - 餌付
+      - えづ
+    - - け
+      - null
+    - - 中
+      - ちゅう
+    - - 。
+      - null
+    reading: ヒモ オネエサン、 エヅケチュウ。
+    reading_at: '2026-11-10'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   ヒモとは絡みづらい:
     basis: translated
     en: Hard to Get Tangled Up with a Freeloader

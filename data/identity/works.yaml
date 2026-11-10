@@ -23093,6 +23093,24 @@ works:
       - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984447279309"
         basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984447306235 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984447279309, so the platform places this chapter in series 12207421984447279309"
         retrieved: 2026-11-09
+  - id: w03537
+    title: "ヒモお姉さん、餌付け中。"
+    anchors:
+      - "web:https://kuragebunch.com/episode/12207421984481017724"
+      - "web:https://kuragebunch.com/atom/series/12207421984481011289"
+    attached:
+      - anchor: "web:https://kuragebunch.com/atom/series/12207421984481011289"
+        basis: "the chapter page at https://kuragebunch.com/episode/12207421984481017724 links its own series feed at https://kuragebunch.com/atom/series/12207421984481011289, so the platform places this chapter in series 12207421984481011289"
+        retrieved: 2026-11-10
+  - id: w03538
+    title: "シアワセとりかえばや"
+    anchors:
+      - "web:https://magcomi.com/episode/12207421984482234304"
+      - "web:https://magcomi.com/atom/series/12207421984482184469"
+    attached:
+      - anchor: "web:https://magcomi.com/atom/series/12207421984482184469"
+        basis: "the chapter page at https://magcomi.com/episode/12207421984482234304 links its own series feed at https://magcomi.com/atom/series/12207421984482184469, so the platform places this chapter in series 12207421984482184469"
+        retrieved: 2026-11-10
 related:
   - a: w00156
     b: w00486

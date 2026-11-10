@@ -13,8 +13,8 @@ publisher: "新潮社"
 retrieved: 2026-11-10
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 14
-series_held: 14
+series_resolved: 15
+series_held: 15
 works:
   - work_title: "さえちゃんのとなり"
     series_id: "2550912964605789737"
@@ -63,6 +63,23 @@ works:
         author: "戦上まい子"
         url: "https://kuragebunch.com/episode/12207421984452460688"
         free_from: 2026-11-03
+        access_modes: ["free"]
+  - work_title: "ヒモお姉さん、餌付け中。"
+    series_id: "12207421984481011289"
+    url: "https://kuragebunch.com/atom/series/12207421984481011289"
+    chapter_count: 2
+    chapters:
+      - title: "第2話①　飼い猫契約とトマトリゾット"
+        updated: 2026-11-10
+        author: "春露彗"
+        url: "https://kuragebunch.com/episode/12207421984481017724"
+        free_from: 2026-11-24
+        access_modes: ["purchase"]
+      - title: "第1話　月見うどんとふたりの秘密"
+        updated: 2026-11-10
+        author: "春露彗"
+        url: "https://kuragebunch.com/episode/12207421984481017713"
+        free_from: 2026-11-10
         access_modes: ["free"]
   - work_title: "ファーストペンギン・レクイエム"
     series_id: "12207421983893646743"

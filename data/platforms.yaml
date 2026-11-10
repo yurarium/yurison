@@ -682,6 +682,15 @@ access_notes: see the comment above
 # piccoma.com was listed here from 2026-08-01, with a note that nothing in our data points at it.
 # On 2026-11-05 its front page answered from outside Japan, so it is no longer recorded as refusing.
 geoblocked:
+- name: ファイアCROSS
+  host: firecross.jp
+  observed: HTTP 202 with an AWS WAF challenge outside Japan, 200 from Tokyo
+  checked: '2026-11-10'
+  route: jp
+  note: From 2026-10-23 every page outside Japan answered with an empty challenge
+    (x-amzn-waf-action), which the generic pass read as a page with no chapters. From Tokyo the
+    same pages answer in full, and robots.txt disallows only /my/, /reader/ and /ad/.
+
 - name: ドリコミ+
   host: drecomi-plus.jp
   observed: HTTP 403 outside Japan, 200 from Tokyo

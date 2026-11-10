@@ -166,7 +166,7 @@ status page and the issues can read it.
 A source-health ledger counts consecutive failures per source. After three, one
 GitHub issue per source opens, updates each run with the latest error, and closes itself when the
 source recovers. The status page lists failing and stale sources and for how long. A weekly digest
-issue sums up collection failures, budget movements, quarantined rows, queue depths and the
+email sums up collection failures, budget movements, quarantined rows, queue depths and the
 Claude job's usage. The site build is dispatched by the pipeline after it publishes, with a check
 afterwards that the served data carries the new store's stamp.
 

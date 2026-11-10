@@ -1,8 +1,9 @@
 name: digest
 
-# THE WEEK IN ONE ISSUE, asked for by the owner on 2026-10-15 beside the per-source issues and the
+# THE WEEK IN ONE EMAIL, asked for by the owner on 2026-10-15 beside the per-source issues and the
 # status page: how many runs there were, what keeps failing, which budgets moved, and what the
-# naming job used. Each digest closes the one before, so one is open at a time. See adapters/digest.py.
+# naming job used. It was an issue until 2026-11-10, when the owner ruled that issues are for
+# things that need doing. See adapters/digest.py and adapters/mail.py. The run summary keeps a copy.
 on:
   schedule:
     - cron: "17 0 * * 1"        # Monday 09:17 JST, clear of both update runs
@@ -10,7 +11,6 @@ on:
 
 permissions:
   contents: read
-  issues: write
 
 jobs:
   digest:
@@ -32,13 +32,16 @@ jobs:
         run: gh release download --repo "${{ github.repository }}" --pattern corpus.sqlite -D "$RUNNER_TEMP" || true
       - name: Write the digest
         run: python3 adapters/digest.py --store "$RUNNER_TEMP/corpus.sqlite" > digest.md
-      - name: Post it, and close last week's
+      - name: Keep a copy in the run summary
+        run: cat digest.md >> "$GITHUB_STEP_SUMMARY"
+      # An unconfigured account fails the job, and GitHub reports a failed scheduled run.
+      - name: Email it
         env:
-          GH_TOKEN: ${{ github.token }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_FROM: ${{ secrets.MAIL_FROM }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
         run: |
-          gh label create digest --color 0E8A16 --description "the weekly digest" 2>/dev/null || true
-          for n in $(gh issue list --label digest --state open --json number --jq '.[].number'); do
-            gh issue close "$n" --comment "Superseded by this week's digest."
-          done
-          gh issue create --title "Weekly digest: $(TZ=Asia/Tokyo date +%F)" \
-            --label digest --body-file digest.md
+          python3 adapters/mail.py --subject "Yurarium weekly digest: $(TZ=Asia/Tokyo date +%F)" digest.md

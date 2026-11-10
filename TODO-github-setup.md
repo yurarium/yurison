@@ -5,7 +5,7 @@
 Most of what follows the line below is history. The update runs on a schedule, twice a day at 00:37
 and 12:07 JST. The site builds itself from the store each run publishes, so no deploy key exists
 any more, and both repositories are public, so Actions minutes cost nothing. A source that keeps
-failing opens its own issue, and a digest issue arrives each Monday. docs/LAUNCH-PLAN.md has the
+failing opens its own issue, and a digest email arrives each Monday. docs/LAUNCH-PLAN.md has the
 rest.
 
 One step is the owner's, because it needs the owner's own Claude login. It switches on the naming
@@ -24,6 +24,13 @@ Until the secret exists the job checks for it, says so in a notice and stops, an
 Its usage is appended to `data/ledger/claude-usage.jsonl` each run and totalled in the digest. The
 repository variables `NAMING_MODEL` (default `sonnet`), `NAMING_MAX_TURNS` (80) and `NAMING_LIMIT`
 (12 items per list) tune it without a code change.
+
+The digest email is the owner's to switch on too, because it needs an account to send from. In
+the same secrets page, add `MAIL_TO` (the address it goes to), `SMTP_HOST`, `SMTP_USER` and
+`SMTP_PASSWORD` (an app password or SMTP token, never the account's own password), and optionally
+`SMTP_PORT` (587 by default; 465 for implicit TLS) and `MAIL_FROM` when the sender differs from the
+login. None of these enter the repository. Until they exist the Monday run fails and names the
+missing ones, and the run summary still holds that week's digest.
 
 ---
 

@@ -41,6 +41,16 @@ def stage_ids():
     return out
 
 
+def cadences():
+    """`{stage:id: every_days}` for the commands that run on a schedule of their own."""
+    out = {}
+    for f in (ROOT / "adapters").glob("stage-*.yaml"):
+        for c in yaml.safe_load(f.read_text())["commands"]:
+            if c.get("every_days"):
+                out[f"{f.stem}:{c['id']}"] = int(c["every_days"])
+    return out
+
+
 def main(s):
     entries = pr.load()
     s.check(len(entries) > 20, "the registry is read")
@@ -73,6 +83,16 @@ def main(s):
             if not ok:
                 bad.append(p)
     s.eq(bad, [], "every `run` entry names a command a stage manifest actually runs")
+
+    # A FILE MAY NOT GO STALE BEFORE ITS PRODUCER IS DUE. bookwalker-tanwa.yaml, written weekly,
+    # sat under stage A's three days and opened an issue every week it was working (#20).
+    every = cadences()
+    early = [f"{e['paths'][0]}: {e['max_age_days']} <= every {every[e['producer']]}"
+             for e in entries if e.get("status") == "run" and e.get("max_age_days")
+             and e.get("producer") in every and int(e["max_age_days"]) <= every[e["producer"]]]
+    s.eq(early, [], "no file's age limit runs out before its producer is next due")
+    s.eq((pr.entry("data/source/webpages/bookwalker-tanwa.yaml", entries) or {}).get("producer"),
+         "stage-print:bwingest", "the BOOK☆WALKER 単話 file is the weekly ingest's")
 
     # FRESHNESS, against files planted with dates.
     with tempfile.TemporaryDirectory() as d:

@@ -171,6 +171,13 @@ entries:
   - paths: [data/source/webpages/mynavi-carfairy.yaml]
     status: hand
     note: every instalment of a work that ended on 2024-01-01, read once on 2026-10-20
+  # WEEKLY, NOT STAGE A. bwingest writes this beside its shop records and runs every seven days;
+  # until 2026-11-10 the glob below took it and gave it stage A's three, so it read as stale four
+  # days of every seven (issue #20).
+  - paths: [data/source/webpages/bookwalker-tanwa.yaml]
+    status: run
+    producer: stage-print:bwingest
+    max_age_days: 10
   - paths: [data/source/webpages/*.yaml]
     status: run
     producer: stage-a:webpages

@@ -10,11 +10,11 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 27
-series_held: 27
+series_resolved: 28
+series_held: 28
 works:
   - work_title: "お嬢様マッチングアプリ"
     series_id: "4856001361369138636"
@@ -916,4 +916,17 @@ works:
         author: "ぜろわん/あずやちとせ"
         url: "https://magcomi.com/episode/12207421984122057940"
         free_from: 2026-09-01
+        access_modes: ["free"]
+  - work_title: "織りゆけサルデーニャ"
+    series_id: "12207421984482184473"
+    url: "https://magcomi.com/atom/series/12207421984482184473"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切"
+        updated: 2026-11-10
+        citation: "【月例マッグガーデンマンガ大賞 2026年9月期佳作】1950年代イタリア。サルデーニャ島で伝統的な織物業に従事する少女ピーナのもとに、本土から来たデザイナーのイレーネが現れる。織物業が衰退するなか、伝統と革新の狭間で、ピーナの心は揺れ動いていく…。"
+        content_id: "monthlymagprize20260902"
+        author: "今井 蓬"
+        url: "https://magcomi.com/episode/12207421984482234310"
+        free_from: 2026-11-10
         access_modes: ["free"]

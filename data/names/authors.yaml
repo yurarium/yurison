@@ -14164,6 +14164,25 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  今井 蓬:
+    basis: romaji
+    furigana_spans:
+    - - 今井
+      - いまい
+    - - ' '
+      - null
+    - - 蓬
+      - よもぎ
+    reading: イマイ ヨモギ
+    reading_at: '2026-11-11'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   今井伊紀:
     basis: romaji
     reading: イマイイノリ

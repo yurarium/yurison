@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -41,25 +41,21 @@ works:
         updated: 2024-08-09
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "ボイタボイネ"
-    author: "夏草"
-    url: "https://comic.pixiv.net/works/12194"
-    chapter_count: 4
+  - work_title: "腹割るウチらの秘密ごと!"
+    author: "夏村東和"
+    url: "https://comic.pixiv.net/works/11664"
+    chapter_count: 3
     chapters:
-      - title: "第23話 シュガー＆ソルト withバニラ"
-        updated: 2026-10-19
+      - title: "第１９話"
+        updated: 2026-09-17
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第22話 決闘スタンバイ(後編)"
-        updated: 2026-09-21
+      - title: "第２話"
+        updated: 2025-05-08
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第2話 男子制服の理由"
-        updated: 2025-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 最強のボーイッシュ女子"
-        updated: 2025-09-15
+      - title: "第１話"
+        updated: 2025-04-24
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -658,23 +654,6 @@ works:
         updated: 2025-04-05
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "腹割るウチらの秘密ごと!"
-    author: "夏村東和"
-    url: "https://comic.pixiv.net/works/11664"
-    chapter_count: 3
-    chapters:
-      - title: "第１９話"
-        updated: 2026-09-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第２話"
-        updated: 2025-05-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第１話"
-        updated: 2025-04-24
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "冷たくて 柔らか"
     author: "ウオズミアミ"
     url: "https://comic.pixiv.net/works/11800"
@@ -731,6 +710,27 @@ works:
         date_basis: rendered
       - title: "第1話 好きです、フッてください！"
         updated: 2025-07-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ボイタボイネ"
+    author: "夏草"
+    url: "https://comic.pixiv.net/works/12194"
+    chapter_count: 4
+    chapters:
+      - title: "第23話 シュガー＆ソルト withバニラ"
+        updated: 2026-10-19
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第22話 決闘スタンバイ(後編)"
+        updated: 2026-09-21
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 男子制服の理由"
+        updated: 2025-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 最強のボーイッシュ女子"
+        updated: 2025-09-15
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "いちこえ、にふり、タチアオイ"

@@ -23111,6 +23111,15 @@ works:
       - anchor: "web:https://magcomi.com/atom/series/12207421984482184469"
         basis: "the chapter page at https://magcomi.com/episode/12207421984482234304 links its own series feed at https://magcomi.com/atom/series/12207421984482184469, so the platform places this chapter in series 12207421984482184469"
         retrieved: 2026-11-10
+  - id: w03539
+    title: "織りゆけサルデーニャ"
+    anchors:
+      - "web:https://magcomi.com/episode/12207421984482234310"
+      - "web:https://magcomi.com/atom/series/12207421984482184473"
+    attached:
+      - anchor: "web:https://magcomi.com/atom/series/12207421984482184473"
+        basis: "the chapter page at https://magcomi.com/episode/12207421984482234310 links its own series feed at https://magcomi.com/atom/series/12207421984482184473, so the platform places this chapter in series 12207421984482184473"
+        retrieved: 2026-11-11
 related:
   - a: w00156
     b: w00486

@@ -4,9 +4,9 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 record_type: coverage_gap
-works_listed: 133
+works_listed: 134
 platforms_total: 25
 platforms_watched: 17
 works_on_watched_platforms: 98
@@ -32,10 +32,10 @@ platforms:
   - platform: "サンデーうぇぶり"
     works: 3
     watched: false
-  - platform: "一迅社プラス"
-    works: 2
-    watched: false
   - platform: "マガポケ"
+    works: 3
+    watched: false
+  - platform: "一迅社プラス"
     works: 2
     watched: false
   - platform: "コミックオギャー!!"
@@ -719,10 +719,16 @@ works:
     url: "https://bibibi-comic.com/series/41de76fc8df5f"
   - raw: "ぎるてぃらいぶらり 閉伊川広輔"
     platform: "マガポケ"
-    last_update_seen: 10-15
+    last_update_seen: 10-22
     watched_platform: false
     title: "ぎるてぃらいぶらり"
     url: "https://pocket.shonenmagazine.com/title/03349/episode/445014"
+  - raw: "アイ・ヘイ・チュー 長門知大"
+    platform: "マガポケ"
+    last_update_seen: 11-14
+    watched_platform: false
+    title: "アイ・ヘイ・チュー"
+    url: "https://pocket.shonenmagazine.com/title/03273/episode/439299"
   - raw: "怨霊日和 イマイ悠"
     platform: "マガポケ"
     last_update_seen: 11-04

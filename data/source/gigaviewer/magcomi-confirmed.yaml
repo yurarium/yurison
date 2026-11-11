@@ -10,11 +10,25 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 record_type: web_work_chapters
 identification_mode: discovery-candidate
-works_confirmed: 3
+works_confirmed: 4
 works:
+  - work_title: "織りゆけサルデーニャ"
+    author: "今井 蓬"
+    url: "https://magcomi.com/episode/12207421984482234310"
+    series_id: "12207421984482184473"
+    is_oneshot: true
+    discovered_via:
+      signal: "oneshot"
+      article: "https://yurinavi.com/2026/11/11/oriyuke-yomikiri/"
+      headline: "島で織物を受け継ぐ少女と大人の女性との出会いを描く読み切り漫画「織りゆけサルデーニャ」WEBで公開"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切"
+        updated: 2026-11-10
+        url: "https://magcomi.com/episode/12207421984482234310"
   - work_title: "君とは一緒に死ねない～警視庁怪異調査室～"
     author: "森"
     url: "https://magcomi.com/episode/12207421984406812438"

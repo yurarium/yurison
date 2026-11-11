@@ -6,7 +6,7 @@ platform: heros-web
 platform_name: "HERO'S Web"
 publisher: "ヒーローズ"
 engine: comici
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,7 +14,7 @@ works:
     status: "完結"
     author: "なか憲人"
     url: "https://viewer.heros-web.com/episode/3269632237305675090"
-    read: "2026-11-11"
+    read: "2026-11-12"
     chapter_count: 10
     chapters:
       - title: "最終話（コミックス第８巻でも最終話）"
@@ -51,7 +51,7 @@ works:
     status: "完結"
     author: "日日ねるこ"
     url: "https://viewer.heros-web.com/episode/10834108156740407901"
-    read: "2026-11-11"
+    read: "2026-11-12"
     chapter_count: 10
     chapters:
       - title: "第三十一話　呪"
@@ -88,7 +88,7 @@ works:
     status: "完結"
     author: "シガマ"
     url: "https://viewer.heros-web.com/episode/14079602755511903989"
-    read: "2026-11-11"
+    read: "2026-11-12"
     chapter_count: 10
     chapters:
       - title: "最終話「生きてる限り行けるとこまで」"
@@ -125,7 +125,7 @@ works:
     status: "完結"
     author: "根岸岳春"
     url: "https://heros-web.com/series/696d291fa1769"
-    read: "2026-11-11"
+    read: "2026-11-12"
     chapter_count: 22
     chapters:
       - title: "第一話　泣"
@@ -198,7 +198,7 @@ works:
     status: "完結"
     author: "熊倉献"
     url: "https://viewer.heros-web.com/episode/13933686331689971929"
-    read: "2026-11-11"
+    read: "2026-11-12"
     chapter_count: 10
     chapters:
       - title: "#17 空白の街"
@@ -235,7 +235,7 @@ works:
     status: "完結"
     author: "吉富昭仁"
     url: "https://viewer.heros-web.com/episode/10834108156700245168"
-    read: "2026-11-11"
+    read: "2026-11-12"
     chapter_count: 10
     chapters:
       - title: "#20.5 今日から未来を好きにする"
@@ -272,7 +272,7 @@ works:
     status: "完結"
     author: "にたもと"
     url: "https://heros-web.com/series/cd04567a696bb"
-    read: "2026-11-11"
+    read: "2026-11-12"
     chapter_count: 23
     chapters:
       - title: "第1話"
@@ -348,7 +348,7 @@ works:
     status: "連載中"
     author: "朱白あおい,糀もろみ,村田真哉,柳井伸彦"
     url: "https://heros-web.com/series/ec09a10dc9490"
-    read: "2026-11-11"
+    read: "2026-11-12"
     chapter_count: 31
     chapters:
       - title: "第１輪「ヤってしまいましたわ」"
@@ -448,7 +448,7 @@ works:
     status: "完結"
     author: "さと"
     url: "https://viewer.heros-web.com/episode/10834108156641210811"
-    read: "2026-11-11"
+    read: "2026-11-12"
     chapter_count: 10
     chapters:
       - title: "最終話 大好きなたった一人の神様がいた"
@@ -485,8 +485,8 @@ works:
     status: "連載中"
     author: "柴田康平"
     url: "https://heros-web.com/series/2b64bc0622a2a"
-    read: "2026-11-11"
-    chapter_count: 43
+    read: "2026-11-12"
+    chapter_count: 44
     chapters:
       - title: "第一服「魔女と再会」"
         updated: "2026-05-18"
@@ -607,13 +607,16 @@ works:
         access_modes: ["free-timed"]
       - title: "第二十服「魔女と再起」後編"
         updated: "2026-09-30"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第二十一服「魔女と背信」前編"
         updated: "2026-10-14"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第二十一服「魔女と背信」後編"
         updated: "2026-10-28"
         access_modes: ["purchase"]
       - title: "単行本3巻発売記念イラスト"
         updated: "2026-11-04"
         access_modes: ["free"]
+      - title: "第二十二服「魔女と崩壊」前編"
+        updated: "2026-11-11"
+        access_modes: ["purchase"]

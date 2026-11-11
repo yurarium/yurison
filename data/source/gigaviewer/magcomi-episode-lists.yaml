@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
-retrieved: "2026-11-11"
+retrieved: "2026-11-12"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -88,6 +88,15 @@ works:
       - title: "特別読切"
         updated: "2026-11-10"
         url: "https://magcomi.com/episode/12207421984482234304"
+        access_modes: ["free"]
+  - work_title: "織りゆけサルデーニャ"
+    series_id: "12207421984482184473"
+    url: "https://magcomi.com/atom/series/12207421984482184473"
+    chapter_count: 1
+    chapters:
+      - title: "特別読切"
+        updated: "2026-11-10"
+        url: "https://magcomi.com/episode/12207421984482234310"
         access_modes: ["free"]
   - work_title: "【今日の10ページ】世界の終わりにエロ本と先生と。"
     series_id: "2550689798336797203"

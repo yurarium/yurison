@@ -9,12 +9,22 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 498
 works:
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-11-12"
+    started: "2022-08-31"
+    episode_count: 174
+    free_episodes: 174
+    latest_episode: "第17話の2"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1175705"
   - work_title: "ばっどがーる"
     author: "肉丸"
     url: "https://manga.nicovideo.jp/comic/53991"
@@ -111,16 +121,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第16話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1171575"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-11-10"
-    started: "2022-08-31"
-    episode_count: 172
-    free_episodes: 172
-    latest_episode: "第16話の4"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1174805"
   - work_title: "女子高生の無駄づかい"
     author: "ビーノ(著者)"
     url: "https://manga.nicovideo.jp/comic/18905"

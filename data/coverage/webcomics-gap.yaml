@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -36,6 +36,11 @@ platforms_missing:
   - platform: "ドリコミ+"
     works: 1
 works_missing:
+  - title: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3140"
+    antenna_id: "138856"
+    tags: ["百合", "アイドル"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -66,11 +71,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/441"
     antenna_id: "88071"
     tags: ["野球", "女子高生", "アニメ化", "百合"]
-  - title: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3140"
-    antenna_id: "138856"
-    tags: ["百合", "アイドル"]
   - title: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
@@ -116,6 +116,11 @@ works_missing:
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
     antenna_id: "161471"
     tags: ["百合", "獣人", "お色気・微エロ"]
+  - title: "百合フェチLIFE"
+    platform: "Gコミ"
+    url: "https://g-comi.jp/series/7e3c698bca968"
+    antenna_id: "211227"
+    tags: ["百合", "エロ"]
   - title: "世界をすくってもお腹はすくから"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/58238b3987c11"
@@ -141,11 +146,6 @@ works_missing:
     url: "https://g-comi.jp/series/3f172ce77f966"
     antenna_id: "216310"
     tags: ["百合"]
-  - title: "百合フェチLIFE"
-    platform: "Gコミ"
-    url: "https://g-comi.jp/series/7e3c698bca968"
-    antenna_id: "211227"
-    tags: ["百合", "エロ"]
   - title: "暴走!?サキュバスせんぱい"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/5448ec9f6077b"
@@ -936,26 +936,26 @@ works_missing:
     url: "https://flowercomics.jp/title/6162"
     antenna_id: "217483"
     tags: ["百合"]
-  - title: "怨霊日和"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03125"
-    antenna_id: "202785"
-    tags: ["最近のコメント数"]
   - title: "ぎるてぃらいぶらり"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
     tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
-  - title: "踊り場にスカートが鳴る"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/01646"
-    antenna_id: "137359"
-    tags: ["百合", "女子高生", "運動系部活", "男装"]
   - title: "私に天使が舞い降りた!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01052"
     antenna_id: "101434"
     tags: ["4コマ", "百合", "アニメ化", "日常", "女子小学生"]
+  - title: "怨霊日和"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    antenna_id: "202785"
+    tags: ["最近のコメント数"]
+  - title: "踊り場にスカートが鳴る"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/01646"
+    antenna_id: "137359"
+    tags: ["百合", "女子高生", "運動系部活", "男装"]
   - title: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/02328"

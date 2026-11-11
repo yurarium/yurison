@@ -6,7 +6,7 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -25,6 +25,22 @@ releases:
     date_confidence: "reported"
     url: "https://magcomi.com/episode/12207421984482234304"
     author: "南儀よら"
+    free_term_start: "2026-11-10T03:00:00Z"
+    advances_narrative: true
+  - release_id: "magcomi:episode:12207421984482234310"
+    work_title: "織りゆけサルデーニャ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "特別読切"
+    release_type: "oneshot"
+    date: "2026-11-10"
+    date_basis: "observed"
+    first_seen: "2026-11-12"
+    first_reported: "2026-11-10T03:00:00Z"
+    platform_updated: "2026-11-10T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984482234310"
+    author: "今井 蓬"
     free_term_start: "2026-11-10T03:00:00Z"
     advances_narrative: true
   - release_id: "magcomi:episode:12207421984304225733"

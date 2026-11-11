@@ -8,11 +8,47 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 record_type: update_claims
 window_days: 60
-claims: 435
+claims: 440
 updates:
+  - work: "海のみちるごはん 花宮みぃ"
+    platform: "きららベース"
+    date: 2026-11-12
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "江口さんちの純情サキュバス 工藤える"
+    platform: "きららベース"
+    date: 2026-11-12
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "ウは宇宙ヤバイのウ！ 宮澤伊織/ぴよぴよ丸"
+    platform: "竹コミ！"
+    date: 2026-11-12
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "アイドルビーバック！ はんざわかおり"
+    platform: "きららベース"
+    date: 2026-11-12
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "なーんもうまくいかん！ ミナミト"
+    platform: "きららベース"
+    date: 2026-11-12
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "ぜんぶ壊して地獄で愛して くわばらたもつ"
+    platform: "一迅プラス"
+    date: 2026-11-12
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "酒と鬼は二合まで"
     platform: "ビッコミ"
     date: 2026-11-11
@@ -20,6 +56,20 @@ updates:
     provenance: claimed
     url: "https://bigcomics.jp/series/dd9141c4d469c"
     listing_tags: ["百合", "大学生", "異種族・人外"]
+  - work: "私に天使が舞い降りた!"
+    platform: "マガポケ"
+    date: 2026-11-11
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/01052"
+    listing_tags: ["4コマ", "百合", "アニメ化", "日常", "女子小学生"]
+  - work: "百合フェチLIFE"
+    platform: "Gコミ"
+    date: 2026-11-11
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://g-comi.jp/series/7e3c698bca968"
+    listing_tags: ["百合", "エロ"]
   - work: "怨霊日和"
     platform: "マガポケ"
     date: 2026-11-11
@@ -61,7 +111,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://yanmaga.jp/comics/%E3%82%B5%E3%82%BF%E3%83%8E%E3%83%95%E3%82%A1%E3%83%8B"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["エロ", "バトル", "裏社会", "雑学・豆知識", "偉人・歴史上の人物", "百合"]
   - work: "アウトサイダーパラダイス"
     platform: "カドコミ"
     date: 2026-11-11
@@ -69,6 +119,13 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021488_S"
     listing_tags: ["百合"]
+  - work: "アイ・ヘイ・チュー"
+    platform: "マガポケ"
+    date: 2026-11-11
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03273"
+    listing_tags: ["百合", "ラブコメ", "悪魔"]
   - work: "アイドラトリィ"
     platform: "マガポケ"
     date: 2026-11-11
@@ -83,6 +140,20 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_008372_S"
     listing_tags: ["百合", "お色気・微エロ", "異種族・人外"]
+  - work: "ぎるてぃらいぶらり"
+    platform: "マガポケ"
+    date: 2026-11-11
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03349"
+    listing_tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
+  - work: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    date: 2026-11-11
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3140"
+    listing_tags: ["百合", "アイドル"]
   - work: "魔王城デート大作戦!"
     platform: "キミコミ"
     date: 2026-11-10
@@ -766,13 +837,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2550912965923203479"
     listing_tags: ["百合", "音楽", "青春"]
-  - work: "ぎるてぃらいぶらり"
-    platform: "マガポケ"
-    date: 2026-11-05
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03349"
-    listing_tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - work: "いばら姫とおやすみ。"
     platform: "カドコミ"
     date: 2026-11-05
@@ -787,13 +851,6 @@ updates:
     provenance: claimed
     url: "https://bigcomics.jp/series/cad403cdddf52"
     listing_tags: ["ギャグ・コメディ", "仕事", "ファンタジー", "社畜・過重労働者", "悪魔", "百合"]
-  - work: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    date: 2026-11-05
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3140"
-    listing_tags: ["百合", "アイドル"]
   - work: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話 倉崎もろこ/みかみてれん"
     platform: "ニコニコ静画"
     date: 2026-11-04
@@ -948,7 +1005,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-action.com/episode/12207421984440039225"
-    listing_tags: ["百合", "読み切り"]
+    listing_tags: ["最近のコメント数"]
   - work: "人妻とJK"
     platform: "キミコミ"
     date: 2026-11-03
@@ -1890,6 +1947,12 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/3423"
     listing_tags: ["百合", "ギャグ・コメディ", "音楽", "4コマ"]
+  - work: "ぎるてぃらいぶらり 閉伊川広輔"
+    platform: "マガポケ"
+    date: 2026-10-22
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "おみかんジュースと、レモネード"
     platform: "コミック アース・スター"
     date: 2026-10-22
@@ -2087,13 +2150,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "百合フェチLIFE"
-    platform: "Gコミ"
-    date: 2026-10-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://g-comi.jp/series/7e3c698bca968"
-    listing_tags: ["百合", "エロ"]
   - work: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     date: 2026-10-17
@@ -2395,12 +2451,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_007220_S"
     listing_tags: ["百合"]
-  - work: "ぎるてぃらいぶらり 閉伊川広輔"
-    platform: "マガポケ"
-    date: 2026-10-15
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "きみとボドゲが作りたい！ 赤城ナツイチ"
     platform: "きららベース"
     date: 2026-10-15
@@ -2414,13 +2464,6 @@ updates:
     provenance: claimed
     url: "https://youngchampion.jp/series/90af950945671"
     listing_tags: ["召喚", "乙女ゲーム", "百合", "中世ヨーロッパ風", "悪役令嬢", "ファンタジー"]
-  - work: "私に天使が舞い降りた!"
-    platform: "マガポケ"
-    date: 2026-10-14
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/01052"
-    listing_tags: ["4コマ", "百合", "アニメ化", "日常", "女子小学生"]
   - work: "ノスフェルワイス"
     platform: "カドコミ"
     date: 2026-10-14
@@ -2477,13 +2520,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421983584564641"
     listing_tags: ["百合", "女子高生"]
-  - work: "アイ・ヘイ・チュー"
-    platform: "マガポケ"
-    date: 2026-10-10
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03273"
-    listing_tags: ["百合", "ラブコメ", "悪魔"]
   - work: "このままモブじゃ終われない!"
     platform: "ニコニコ漫画"
     date: 2026-10-10
@@ -2651,7 +2687,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/03196"
-    listing_tags: ["百合", "怪獣"]
+    listing_tags: ["最近のコメント数"]
   - work: "念願の悪役令嬢(ラスボス)の身体を手に入れたぞ!"
     platform: "マガポケ"
     date: 2026-10-02
@@ -2939,10 +2975,3 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/56012"
     listing_tags: ["百合", "アニメ化"]
-  - work: "T.Tラバーズ。"
-    platform: "カドコミ"
-    date: 2026-09-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_005506_S"
-    listing_tags: ["百合"]

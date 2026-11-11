@@ -6,9 +6,18 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-11
+retrieved: 2026-11-12
 record_type: discovery_queue
 candidates:
+  - work_title: "織りゆけサルデーニャ"
+    signal: "oneshot"
+    announced: "Wed, 11 Nov 2026 11:27:11 +0000"
+    url: "https://yurinavi.com/2026/11/11/oriyuke-yomikiri/"
+    platform: "magcomi"
+    platform_code: "12207421984482234310"
+    work_url: "https://magcomi.com/episode/12207421984482234310"
+    headline: "島で織物を受け継ぐ少女と大人の女性との出会いを描く読み切り漫画「織りゆけサルデーニャ」WEBで公開"
+    status: unconfirmed
   - work_title: "付き合ってあげてもいいかな"
     signal: "adaptation"
     announced: "Wed, 04 Nov 2026 11:00:51 +0000"

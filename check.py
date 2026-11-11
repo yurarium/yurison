@@ -1460,6 +1460,9 @@ def inv_curated_values_reach_the_store(ctx):
     outranks a romanisation, so `ゆゆ式` shows The Yuyu Style over Yuyushiki. This read the second
     case as a build that had not run. Both values come from the same entry and either being shown
     is the ranking working, so both are accepted and a THIRD value is still the stale one.
+
+    `official` is the same shape: the Japanese publisher's English beside a licensor's `en`, which
+    outranks it and so takes the slot.
     """
     bad = []
     for kind, rows in _curated().items():
@@ -1467,7 +1470,8 @@ def inv_curated_values_reach_the_store(ctx):
         for name, rec in rows.items():
             want = (rec or {}).get("en")
             got = (store.get(name) or {}).get("en")
-            if want and got and got not in (want, (rec or {}).get("translation")):
+            forms = (want, (rec or {}).get("translation"), (rec or {}).get("official"))
+            if want and got and got not in forms:
                 bad.append(f"{kind}/{name}: curated {want!r}, store holds {got!r}")
     return bad
 

@@ -165,7 +165,20 @@ KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "revi
         # printed `Scarlet`; `安達としまむら` is two surnames. `translation` is refused
         # when it repeats the `en`, so those titles could say nothing at all and sat in
         # `titles with no translation of our own` as work nobody could ever do.
-        "translation_refused"}
+        "translation_refused",
+        # THE JAPANESE PUBLISHER'S ENGLISH BESIDE A LICENSOR'S, for the same reason `translation`
+        # exists. An entry holds one attributed `en`, so a work whose licensed name was entered
+        # here could not also say what its own publisher calls it: 14 titles whose series art
+        # prints an English title sat in data/queue/cover-names.yaml accepted and unrecorded,
+        # because writing the cover's English into `en` would have erased the licensor's. Every
+        # form a work has is recorded and the reader's EN_ORDER picks one, so neither may displace
+        # the other here. Valid only beside a `licensed` en; anywhere else it is just the `en`.
+        "official", "official_source", "official_source_kind", "official_url", "official_shown",
+        "official_note"}
+
+#: The keys that describe `official` and are meaningless without it.
+OFFICIAL_KEYS = ("official_source", "official_source_kind", "official_url", "official_shown",
+                 "official_note")
 
 #: Bases whose `en` a reader may rank BELOW our translation, so an entry carrying one of them still
 #: owes a second form. Every level of EN_ORDER except `translated` itself, which IS the second form.
@@ -413,6 +426,32 @@ def problems(kind, ja, e):
             out.append(f"{where}: a translation needs a note saying what it rests on")
     elif e.get("translation_note"):
         out.append(f"{where}: translation_note with no translation")
+
+    if e.get("official"):
+        # HELD TO THE BAR AN `en` ON BASIS official-jp IS HELD TO, since it is one: the Japanese
+        # publisher or its platform, a page somebody opened, and an argument.
+        if e.get("basis") != "licensed":
+            out.append(f"{where}: `official` is the Japanese publisher's English beside a "
+                       f"licensor's `en`; with no licensed name to sit beside, write it as `en` on "
+                       f"basis official-jp")
+        kinds = KIND_ATTRIBUTION.get(kind, ATTRIBUTION).get("official-jp") or ()
+        if not e.get("official_source"):
+            out.append(f"{where}: `official` names no source")
+        if e.get("official_source_kind") not in kinds:
+            out.append(f"{where}: `official` needs evidence from {' or '.join(kinds)}, not "
+                       f"{e.get('official_source_kind')!r}")
+        if not str(e.get("official_url") or "").startswith(("http://", "https://")):
+            out.append(f"{where}: `official` needs the page it was read from")
+        if e.get("official_shown") is not None and e.get("official_shown") not in EN_SHOWN:
+            out.append(f"{where}: official_shown {e.get('official_shown')!r} is not one of "
+                       f"{EN_SHOWN}")
+        if not (e.get("official_note") or "").strip():
+            out.append(f"{where}: `official` needs a note saying where it was read")
+        if UNOPENED.search(" ".join(str(e.get("official_note") or "").split())):
+            out.append(f"{where}: the note says the cited page was not opened; open it and cite "
+                       f"what it says")
+    elif any(e.get(k) for k in OFFICIAL_KEYS):
+        out.append(f"{where}: {[k for k in OFFICIAL_KEYS if e.get(k)]} with no `official`")
 
     if e.get("translation_refused"):
         # THE RULING SAYS THERE IS NOTHING TO WRITE, so it has to be about a title that already has
@@ -743,6 +782,37 @@ def apply(store, doc):
                 store.record(kind, ja, en=tr, basis="translated", source=OURS,
                              source_kind="derived", translation_note=e.get("translation_note"),
                              at=str(e.get("reviewed")))
+            # THE PUBLISHER'S ENGLISH BESIDE THE LICENSOR'S, recorded as its own claim with its own
+            # citation. No `supersede`, for the reason the translation above has none: it would
+            # clear the slot the licensed name is in. official-jp outranks licensed, so the store
+            # makes it the live claim and keeps the licensor's in `en_conflicts`, which is how
+            # every work holding both already stands; en_forms ships the two side by side.
+            off = e.get("official")
+            if off:
+                rec = store.records[kind].get(ja) or {}
+                stale = [c for c in (rec.get("en_conflicts") or [])
+                         if c.get("basis") == "official-jp"
+                         and c.get("source") == e.get("official_source") and c.get("value") != off]
+                if stale:
+                    rec["en_conflicts"] = [c for c in rec["en_conflicts"] if c not in stale]
+                store.record(kind, ja, en=off, basis="official-jp", source=e.get("official_source"),
+                             source_kind=e.get("official_source_kind"),
+                             source_url=e.get("official_url"), at=str(e.get("reviewed")))
+                rec = store.records[kind].get(ja) or {}
+                # THE SAME STRING FROM BOTH IS STILL TWO CLAIMS. The rank rule reads an equal value
+                # as agreement and relabels it, so 裏世界ピクニック, whose publisher and licensor
+                # both say Otherside Picnic, lost its licensed form and with it the fact that a
+                # licensor publishes under that name. The licensed claim is kept beside it.
+                if e.get("en") == off and e.get("basis") == "licensed":
+                    NameStore._push(rec, "en_conflicts", off, "licensed", e.get("source"))
+                # Re-applying puts the licensed name back first, which files this claim as its
+                # conflict; the live claim is not also a conflict of itself.
+                live = [c for c in (rec.get("en_conflicts") or [])
+                        if c.get("value") == rec.get("en") and c.get("basis") == rec.get("basis")]
+                if live:
+                    rec["en_conflicts"] = [c for c in rec["en_conflicts"] if c not in live]
+                    if not rec["en_conflicts"]:
+                        rec.pop("en_conflicts")
             # AND A RULING THAT THERE IS NO SECOND FORM TAKES BACK THE ONE THAT WAS RECORDED. The
             # store is journal-backed, so a translation withdrawn from the file goes on shipping in
             # `en_forms` and a reader ranking ours first still meets it. 18 renderings that were the

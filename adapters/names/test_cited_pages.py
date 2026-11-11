@@ -76,6 +76,13 @@ def main(s):
                                      "source_kind": "publisher-jp", "source_url": REAL,
                                      "en_shown": "artwork"}}})
     s.eq(art[REAL][0]["en"], None, "a name the page sets only in its artwork is not looked for")
+    both = {"en": "Otherside Picnic", "basis": "licensed", "source_kind": "licensor",
+            "source_url": REAL, "official": "Otherside Picnic", "official_url": SHELL}
+    two = cp.cited({"titles": {"w": both}})
+    s.eq((two[REAL][0]["en"], two[SHELL][0]["en"]), ("Otherside Picnic", "Otherside Picnic"),
+         "the publisher's English beside a licensor's is looked for on its own page")
+    two = cp.cited({"titles": {"w": dict(both, official_shown="artwork")}})
+    s.eq(two[SHELL][0]["en"], None, "unless it too is set only in artwork")
 
     s.check(cp.shows("<h1>Akuma no Riddle &ndash; Riddle Story of Devil</h1>",
                      "Akuma no Riddle: Riddle Story of Devil"),

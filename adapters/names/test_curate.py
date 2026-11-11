@@ -328,6 +328,50 @@ def main(s):
         s.eq(rec.get("en_conflicts") or [], [],
              "the translation is taken back rather than left shipping under a withdrawn claim")
         s.eq(rec["en"], "Otherside Picnic", "and the attributed name is untouched by the ruling")
+
+    # THE JAPANESE PUBLISHER'S ENGLISH BESIDE A LICENSOR'S. One `en` could not hold both, so 14
+    # titles whose series art prints an English title stayed unrecorded rather than erase the
+    # licensed name. Every form is recorded and the reader chooses.
+    OFF = dict(LICENSED, official="The Otherside Picnic", official_source="series-art",
+               official_source_kind="platform", official_url="https://example.invalid/art.jpg",
+               official_shown="artwork", official_note="Set under the logo on the series art.")
+    s.eq(curate.problems("titles", "裏世界ピクニック", OFF), [],
+         "a licensed name and the publisher's own, each cited")
+    s.check(curate.problems("titles", "x", dict(OURS, **{k: v for k, v in OFF.items()
+                                                       if k.startswith("official")})),
+            "beside anything but a licensed name it is simply the `en`")
+    s.check(curate.problems("titles", "x", dict(OFF, official_url=None)),
+            "an attributed name needs the page it was read from")
+    s.check(curate.problems("titles", "x", dict(OFF, official_source_kind="community-db")),
+            "and is held to official-jp's bar")
+    s.check(curate.problems("titles", "x", dict(OFF, official_note="")),
+            "and carries an argument")
+    s.check(curate.problems("titles", "x", dict(LICENSED, official_url="https://example.invalid/a")),
+            "a citation for a form the entry does not give is refused")
+    with tempfile.TemporaryDirectory() as d:
+        st = NameStore(d)
+        curate.apply(st, {"titles": {"裏世界ピクニック": OFF}})
+        rec = st.records["titles"]["裏世界ピクニック"]
+        forms = {c["basis"]: c["value"] for c in [{"basis": rec["basis"], "value": rec["en"]}]
+                 + rec.get("en_conflicts", [])}
+        s.eq(forms, {"official-jp": "The Otherside Picnic", "licensed": "Otherside Picnic"},
+             "both are recorded, neither displacing the other out of the record")
+        s.eq(rec["en_url"], "https://example.invalid/art.jpg",
+             "the live claim cites its own page and not the licensor's")
+        curate.apply(st, {"titles": {"裏世界ピクニック": OFF}})
+        s.eq(len(rec.get("en_conflicts") or []), 1, "re-applying the file changes nothing")
+        curate.apply(st, {"titles": {"裏世界ピクニック": dict(OFF, official="Otherside Picnic!")}})
+        s.eq(sorted(c["value"] for c in rec["en_conflicts"]), ["Otherside Picnic"],
+             "a revised reading of the art replaces the one it revises")
+    with tempfile.TemporaryDirectory() as d:
+        st = NameStore(d)
+        SAME = dict(OFF, official="Otherside Picnic")
+        for _ in range(2):
+            curate.apply(st, {"titles": {"裏世界ピクニック": SAME}})
+        rec = st.records["titles"]["裏世界ピクニック"]
+        s.eq(((rec["basis"], rec["en"]), [(c["basis"], c["value"]) for c in rec.get("en_conflicts", [])]),
+             (("official-jp", "Otherside Picnic"), [("licensed", "Otherside Picnic")]),
+             "the same string from publisher and licensor is two claims, kept once each")
     # A REFUTATION THE FILE HAS WITHDRAWN LEAVES THE RECORD. A refutation says nothing can be put
     # in this slot, and research eventually putting something there is the outcome it was written
     # to wait for. 生肉's セイニク was dropped in August with nothing to replace it; まんが王国 files

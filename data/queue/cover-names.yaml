@@ -65,6 +65,14 @@
 # take-as-title` with `as_recorded` carrying the cased form, and `latin` left as the artwork has it
 # so nobody has to take my word for what it said.
 #
+# RULE ONE IS WITHDRAWN FOR TITLES, ruled by the project owner 2026-11-11. A title is recorded with
+# the capitals its source provides, an image included, and the site presents every title in title
+# case whatever the record holds. Casing is presentation, so the record keeps the evidence and the
+# reader's view does the normalising. `as_recorded` on a title row is now history: curated.yaml
+# holds the `latin`. Some rows read before the rule was written down carry an already recased
+# `latin`, and where curated.yaml holds a form in capitals read off the same art earlier, that form
+# is the printed one and stands. Credits are untouched by this ruling; rule seven still governs them.
+#
 # TWO. A Latin form that is only the Japanese title TRANSLITERATED is not the title, and is not
 # evidence about romanisation either: our own rules stand, and a publisher writing は as `ha` does
 # not change them. `decision: not-a-title`, kept in full for the owner to review rather than

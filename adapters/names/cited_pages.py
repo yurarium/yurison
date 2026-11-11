@@ -53,7 +53,7 @@ CURATED = ROOT / "data" / "names" / "curated.yaml"
 STATE = ROOT / "data" / "state" / "cited-pages.yaml"
 
 #: The fields of a curated entry that hold an address, and whether an English name rests on it.
-URL_FIELDS = {"source_url": True, "en_url": True, "reading_url": False}
+URL_FIELDS = {"source_url": True, "en_url": True, "reading_url": False, "official_url": True}
 
 #: The bases whose English claims the cited page states it.
 STATED_BY_PAGE = ("licensed", "official-jp")
@@ -84,6 +84,14 @@ def cited(doc):
                 if not url.startswith(("http://", "https://")):
                     continue
                 en = None
+                # THE PUBLISHER'S ENGLISH BESIDE A LICENSOR'S cites its own page and is looked for
+                # there, unless it too is set only in artwork.
+                if field == "official_url":
+                    if e.get("official") and e.get("official_shown") != "artwork":
+                        en = str(e["official"])
+                    out.setdefault(url, []).append({"kind": kind, "ja": str(ja), "field": field,
+                                                    "en": en})
+                    continue
                 # A NAME SET ONLY IN ARTWORK is not in the markup, and a person has recorded
                 # that they looked (`en_shown` in curate.py), so the text is not searched for it.
                 if (carries_en and e.get("en") and e.get("basis") in STATED_BY_PAGE

@@ -3490,14 +3490,17 @@ names:
     reading_source_kind: analyser
     verified: false
   SHWD《シュード》:
-    basis: licensed
-    en: SHWD
+    basis: official-jp
+    en: Special Hazardous Waste Disposal
     en_at: '2026-08-05'
-    en_conflicts: []
+    en_conflicts:
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: SHWD
     en_reviewed: '2026-08-05'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/shwd/
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://public-img-comic.pximg.net/images/work_main/7113.jpg?20230610120001
     note: The licensor's own catalogue entry, which states the Japanese title as ＳＨＷＤ《シュード》. An English
       reader meets the work under this name.
     reading: SHWD 《シュード》
@@ -13866,19 +13869,21 @@ names:
     verified: true
   きょうはなにしよう？:
     basis: official-jp
-    en: What Should We Do Today?
+    en: WHAT SHOULD WE DO TODAY?
     en_at: '2026-11-11'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: What Shall We Do Today?
+    - basis: official-jp
+      source: series-art
+      value: What Should We Do Today?
     en_reviewed: '2026-11-11'
     en_source: series-art
     en_source_kind: platform
     en_url: https://cdn.comic-walker.com/integration/cdpf/resources/008653/df499056-25b8-486f-a91e-09a05f45d88b.jpg
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title. The artwork sets it as WHAT SHOULD WE DO TODAY?, in
-      capitals throughout, recorded in initial caps under that file's rule one.
+      where it was decided to take it as the title. Recorded as printed.
     reading: キョウ ワ ナニ シヨウ？
     reading_at: '2026-11-11'
     reading_basis: researched
@@ -14043,17 +14048,20 @@ names:
     reading_source_kind: analyser
     verified: true
   きんいろモザイク:
-    basis: licensed
-    en: Kiniro Mosaic
+    basis: official-jp
+    en: kin-iro mosaic
     en_at: '2026-08-08'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: Golden Mosaic
+    - basis: licensed
+      source: yenpress.com
+      value: Kiniro Mosaic
     en_reviewed: '2026-08-08'
-    en_source: yenpress.com
-    en_source_kind: licensor
-    en_url: https://yenpress.com/series/kiniro-mosaic
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://img.comic-fuz.com/c/1xh4b2/5c.webp?h=h9Sgf3d6Da9zY9Ajx6ursQ&e=5000000000
     note: Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the
       identification is made here on the creator the page credits and on what the series is. Credited
       to Yui Hara, which is 原悠衣. The licensor romanises rather than translating, so Kiniro stands where
@@ -14475,17 +14483,20 @@ names:
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000002-I033390364
     verified: true
   けいおん！Ｓｈｕｆｆｌｅ:
-    basis: licensed
+    basis: official-jp
     en: K-ON! Shuffle
     en_at: '2026-08-04'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: Light Music! Shuffle
+    - basis: licensed
+      source: Yen Press
+      value: K-ON! Shuffle
     en_reviewed: '2026-08-04'
-    en_source: Yen Press
-    en_source_kind: licensor
-    en_url: https://yenpress.com/titles/9781975363116-k-on-shuffle-vol-1
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://img.comic-fuz.com/c/1z91bO/hG.webp?h=7zDeBIeMTwACOkxEkrl2yQ&e=5000000000
     furigana_spans:
     - - けいおん！
       - null
@@ -18894,15 +18905,18 @@ names:
     verified: false
   ときときチャンネル:
     basis: official-jp
-    en: Tokitoki Channel
+    en: TOKITOKI CHANNEL
     en_at: '2026-11-11'
+    en_conflicts:
+    - basis: official-jp
+      source: series-art
+      value: Tokitoki Channel
     en_reviewed: '2026-11-11'
     en_source: series-art
     en_source_kind: platform
     en_url: https://cdn.comic-walker.com/integration/cdpf/resources/007121/e97b37ea-a432-4913-bab6-1b3ba9e81a77.jpg
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title. The artwork sets it as TOKITOKI CHANNEL, in capitals
-      throughout, recorded in initial caps under that file's rule one.
+      where it was decided to take it as the title. Recorded as printed.
     reading: トキトキチャンネル
     reading_at: '2026-08-02'
     reading_basis: surface
@@ -25782,7 +25796,7 @@ names:
     verified: false
   わたしのために脱ぎなさいっ！:
     basis: official-jp
-    en: Take Off Your Clothes For Me!
+    en: TAKE OFF YOUR CLOTHES FOR ME!
     en_at: '2026-11-11'
     en_conflicts:
     - basis: romaji
@@ -25791,6 +25805,9 @@ names:
     - basis: translated
       source: yurarium
       value: Take It Off for Me!
+    - basis: official-jp
+      source: series-art
+      value: Take Off Your Clothes For Me!
     en_reviewed: '2026-11-11'
     en_source: series-art
     en_source_kind: platform
@@ -25803,8 +25820,7 @@ names:
     - - ぎなさいっ！
       - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title. The artwork sets it as TAKE OFF YOUR CLOTHES FOR ME!,
-      in capitals throughout, recorded in initial caps under that file's rule one.
+      where it was decided to take it as the title. Recorded as printed.
     reading: ワタシ ノ タメ ニ ヌギ ナサ イッ！
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -29777,7 +29793,7 @@ names:
     verified: false
   キミが吠えるための歌を、:
     basis: official-jp
-    en: Howling Song For Husky Girl
+    en: HOWLING SONG FOR HUSKY GIRL
     en_at: '2026-11-11'
     en_conflicts:
     - basis: romaji
@@ -29786,6 +29802,9 @@ names:
     - basis: translated
       source: yurarium
       value: A Song for You to Howl,
+    - basis: official-jp
+      source: series-art
+      value: Howling Song For Husky Girl
     en_corroborated:
     - mangaupdates
     en_reviewed: '2026-11-11'
@@ -29804,8 +29823,7 @@ names:
     - - を、
       - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title. The artwork sets it as HOWLING SONG FOR HUSKY GIRL,
-      in capitals throughout, recorded in initial caps under that file's rule one.
+      where it was decided to take it as the title. Recorded as printed.
     reading: キミ ガ ホエル タメ ノ ウタ ヲ、
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -30258,13 +30276,17 @@ names:
     reading_source_kind: analyser
     verified: false
   キリング・ミー！:
-    basis: licensed
+    basis: official-jp
     en: Killing Me!
     en_at: '2026-08-06'
+    en_conflicts:
+    - basis: licensed
+      source: yenpress.com
+      value: Killing Me!
     en_reviewed: '2026-08-06'
-    en_source: yenpress.com
-    en_source_kind: licensor
-    en_url: https://yenpress.com/series/killing-me
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://deliver.cdn.nicomanga.jp/ogp-images/comics/31753
     note: Yen Press publishes the work under this name. The catalogue prints no Japanese title, so the
       identification is made here on the creator the page credits and on what the series is. Credited
       to Akiyama, which is あきやま, and the Japanese title is the English one in katakana. The synopsis names
@@ -30739,12 +30761,15 @@ names:
     verified: false
   ギャルメイドと悪役令嬢 ～おじょーさまのハッピーエンドしか勝たん!～:
     basis: official-jp
-    en: Gal Maid & Villainess
+    en: GAL MAID & VILLAINESS
     en_at: '2026-11-11'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: 'The Gal Maid and the Villainess: Only My Lady''s Happy Ending Will Do!'
+    - basis: official-jp
+      source: series-art
+      value: Gal Maid & Villainess
     en_reviewed: '2026-11-11'
     en_source: series-art
     en_source_kind: platform
@@ -30763,8 +30788,7 @@ names:
     - - たん!～
       - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title. The artwork sets it as GAL MAID & VILLAINESS, in capitals
-      throughout, recorded in initial caps under that file's rule one.
+      where it was decided to take it as the title. Recorded as printed.
     reading: ギャルメイド ト アクヤク レイジョウ   ～ オ ジョー サマ ノ ハッピーエンド シカ カタン ! ～
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -33037,12 +33061,15 @@ names:
     verified: false
   シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～:
     basis: official-jp
-    en: Shadow Assassins World
+    en: SHADOW ASSASSINS WORLD
     en_at: '2026-11-11'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: 'Shadow Assassins World: I Don''t Cast Much of a Shadow, but I''m the Strongest Ninja'
+    - basis: official-jp
+      source: series-art
+      value: Shadow Assassins World
     en_reviewed: '2026-11-11'
     en_source: series-art
     en_source_kind: platform
@@ -33065,8 +33092,7 @@ names:
     - - やってます～
       - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title. The artwork sets it as SHADOW ASSASSINS WORLD, in
-      capitals throughout, recorded in initial caps under that file's rule one.
+      where it was decided to take it as the title. Recorded as printed.
     reading: シャドウ・ アサシンズ・ ワールド   ～ カゲ ワ ウスイケド、 サイキョウ ニンジャ ヤッテマス ～
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -42535,14 +42561,17 @@ names:
     reading_source_kind: analyser
     verified: false
   リコリス・リコイル:
-    basis: licensed
+    basis: official-jp
     en: Lycoris Recoil
     en_at: '2026-08-06'
-    en_conflicts: []
+    en_conflicts:
+    - basis: licensed
+      source: Yen Press
+      value: Lycoris Recoil
     en_reviewed: '2026-08-06'
-    en_source: Yen Press
-    en_source_kind: licensor
-    en_url: https://yenpress.com/series/lycoris-recoil-manga
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn.comic-walker.com/integration/cdpf/resources/003821/09467c9d-df61-4502-8028-7857efe9d7c8.jpg
     note: 'The string is the same one a katakana reading gives, so what changes is the attribution rather
       than what a reader sees. Yen Press prints no Japanese title, so the identification rests on the
       credit: the catalogue names Spider Lily as author and Yasunori Bizen as artist, and our record credits
@@ -53551,8 +53580,8 @@ names:
     reading_source_kind: analyser
     verified: false
   君としらない夏になる:
-    basis: licensed
-    en: Throw Away the Suit Together
+    basis: official-jp
+    en: Throw away the suit together.
     en_at: '2026-08-05'
     en_conflicts:
     - basis: romaji
@@ -53561,11 +53590,13 @@ names:
     - basis: translated
       source: yurarium
       value: It Becomes an Unknown Summer With You
-    en_pass: 2
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: Throw Away the Suit Together
     en_reviewed: '2026-08-05'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/throw-away-the-suit-together/
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://public-img-comic.pximg.net/images/work_main/9019.jpg?20260216132105
     furigana_spans:
     - - 君
       - きみ
@@ -54929,17 +54960,20 @@ names:
     reading_source_kind: analyser
     verified: false
   嘘つき花嫁と同性結婚論:
-    basis: licensed
-    en: The Lying Bride and the Same-Sex Marriage Debate
+    basis: official-jp
+    en: Lying Bride and Same-Sex Marriage Theory
     en_at: '2026-08-05'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: The Lying Bride and a Theory of Same-Sex Marriage
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: The Lying Bride and the Same-Sex Marriage Debate
     en_reviewed: '2026-08-05'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/the-lying-bride-and-the-same-sex-marriage-debate/
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965919360705-0798b8f4333797274638dcccccbe97a2?1752730099
     furigana_spans:
     - - 嘘
       - うそ
@@ -60356,8 +60390,8 @@ names:
     note: Two given names, the first of which is also a warm spell in early winter.
     verified: false
   小林さんちのメイドラゴン:
-    basis: licensed
-    en: Miss Kobayashi’s Dragon Maid
+    basis: official-jp
+    en: The maid dragon of Kobayashi-san
     en_at: '2026-08-08'
     en_conflicts:
     - basis: licensed
@@ -60366,10 +60400,13 @@ names:
     - basis: translated
       source: yurarium
       value: The Maid Dragon at the Kobayashis'
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: Miss Kobayashi’s Dragon Maid
     en_reviewed: '2026-08-08'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/miss-kobayashis-dragon-maid/
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.comic-action.com/public/series-thumbnail/13933686331613280406-c6549d8d44dae6371f9d8fb13a0289f4?1777365438
     furigana_spans:
     - - 小林
       - こばやし
@@ -63053,17 +63090,20 @@ names:
     reading_source_kind: analyser
     verified: false
   徒然日和:
-    basis: licensed
-    en: Our Wonderful Days
+    basis: official-jp
+    en: Wonderful Days
     en_at: '2026-08-05'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: An Idle Fine Day
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: Our Wonderful Days
     en_reviewed: '2026-08-05'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/our-wonderful-days/
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923184546-410a8253423eb0d7cfcca42828c73519?1752730099
     furigana_spans:
     - - 徒然
       - つれづれ
@@ -69506,7 +69546,7 @@ names:
     verified: false
   星屑テレパス:
     basis: official-jp
-    en: Hoshikuzu Telepath
+    en: HOSHIKUZU TELEPATH
     en_at: '2026-11-11'
     en_candidates:
     - note: 'Held as a candidate rather than a name because nothing on the Japanese side uses it: the
@@ -69522,6 +69562,9 @@ names:
     - basis: translated
       source: yurarium
       value: Stardust Telepath
+    - basis: official-jp
+      source: series-art
+      value: Hoshikuzu Telepath
     en_reviewed: '2026-11-11'
     en_source: series-art
     en_source_kind: platform
@@ -69532,8 +69575,7 @@ names:
     - - テレパス
       - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title. The artwork sets it as HOSHIKUZU TELEPATH, in capitals
-      throughout, recorded in initial caps under that file's rule one.
+      where it was decided to take it as the title. Recorded as printed.
     reading: ホシクズ テレパス
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -72527,12 +72569,15 @@ names:
     verified: false
   機動戦士ガンダム 水星の魔女 青春フロンティア:
     basis: official-jp
-    en: Mobile Suit Gundam The Witch From Mercury / Frontiers In Glory Days
+    en: MOBILE SUIT GUNDAM THE WITCH FROM MERCURY / FRONTIERS IN GLORY DAYS
     en_at: '2026-11-11'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: 'Mobile Suit Gundam: The Witch from Mercury, Youth Frontier'
+    - basis: official-jp
+      source: series-art
+      value: Mobile Suit Gundam The Witch From Mercury / Frontiers In Glory Days
     en_reviewed: '2026-11-11'
     en_source: series-art
     en_source_kind: platform
@@ -72557,9 +72602,7 @@ names:
     - - フロンティア
       - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title. The artwork sets it as MOBILE SUIT GUNDAM THE WITCH
-      FROM MERCURY / FRONTIERS IN GLORY DAYS, in capitals throughout, recorded in initial caps under that
-      file's rule one.
+      where it was decided to take it as the title. Recorded as printed.
     reading: キドウ センシ ガンダム   スイセイ ノ マジョ   セイシュン フロンティア
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -72631,17 +72674,20 @@ names:
     reading_source_kind: analyser
     verified: false
   欠けた月とドーナッツ:
-    basis: licensed
-    en: Doughnuts Under a Crescent Moon
+    basis: official-jp
+    en: missing moon and doughnuts
     en_at: '2026-08-05'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: The Waning Moon and the Donut
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: Doughnuts Under a Crescent Moon
     en_reviewed: '2026-08-05'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/doughnuts-under-a-crescent-moon/
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://deliver.cdn.nicomanga.jp/ogp-images/comics/56192
     furigana_spans:
     - - 欠
       - か
@@ -75680,13 +75726,16 @@ names:
     verified: false
   無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～:
     basis: official-jp
-    en: Helpless Saint and Powerless Princess
+    en: HELPLESS SAINT and POWERLESS PRINCESS
     en_at: '2026-11-11'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: 'The Powerless Saint and the Incompetent Princess: A Zero-Mana Saint''s Isekai Nation-Saving
         Chronicle'
+    - basis: official-jp
+      source: series-art
+      value: Helpless Saint and Powerless Princess
     en_reviewed: '2026-11-11'
     en_source: series-art
     en_source_kind: platform
@@ -75725,8 +75774,7 @@ names:
     - - ～
       - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title. The artwork sets it as HELPLESS SAINT and POWERLESS
-      PRINCESS, in capitals throughout, recorded in initial caps under that file's rule one.
+      where it was decided to take it as the title. Recorded as printed.
     reading: ムリョク セイジョ ト ムノウ オウジョ ～ マリョク ゼロ デ ショウカン サレタ セイジョ ノ イセカイ キュウコクキ ～
     reading_at: '2026-08-05'
     reading_basis: analyser
@@ -84138,8 +84186,8 @@ names:
     reading_source_kind: analyser
     verified: false
   私の推しは悪役令嬢。:
-    basis: licensed
-    en: I’m in Love with the Villainess (Manga)
+    basis: official-jp
+    en: I'm in Love with the Villainess
     en_at: '2026-08-08'
     en_conflicts:
     - basis: licensed
@@ -84148,10 +84196,13 @@ names:
     - basis: translated
       source: yurarium
       value: My Favourite Is the Villainess.
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: I’m in Love with the Villainess (Manga)
     en_reviewed: '2026-08-08'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/im-in-love-with-the-villainess-manga/
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923183996-6f30e7f54ac600a3b5a3e455dbcc27eb?1752730099
     furigana_spans:
     - - 私
       - わたし
@@ -89637,17 +89688,20 @@ names:
       no English title.
     verified: false
   裏世界ピクニック:
-    basis: licensed
+    basis: official-jp
     en: Otherside Picnic
     en_at: '2026-08-03'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: Picnic in the World Behind
+    - basis: licensed
+      source: Square Enix Manga & Books
+      value: Otherside Picnic
     en_reviewed: '2026-08-03'
-    en_source: Square Enix Manga & Books
-    en_source_kind: licensor
-    en_url: https://squareenixmangaandbooks.square-enix-games.com/en-us/series/otherside-picnic
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://www.ganganonline.com/secure/title/38/title_thumbnail_main/414309.webp?hash=Kauqr9MjGCjy_Vy56iX6lA&expires=1787011200
     furigana_spans:
     - - 裏
       - うら
@@ -90141,17 +90195,20 @@ names:
     reading_source_kind: analyser
     verified: false
   親がうるさいので後輩(♀)と偽装結婚してみた。:
-    basis: licensed
-    en: I Married My Best Friend to Shut My Parents Up
+    basis: official-jp
+    en: I Camouflage Marriage with a Junior(♀) Because My Parent is Very Noisy
     en_at: '2026-08-08'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: My Parents Wouldn't Let It Drop, So I Tried a Sham Marriage with My Junior (♀).
+    - basis: licensed
+      source: sevenseasentertainment.com
+      value: I Married My Best Friend to Shut My Parents Up
     en_reviewed: '2026-08-08'
-    en_source: sevenseasentertainment.com
-    en_source_kind: licensor
-    en_url: https://sevenseasentertainment.com/series/i-married-my-best-friend-to-shut-my-parents-up/
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-img.ichicomi.com/public/series-thumbnail/2550912965923183902-86e93c09e4664c303db4322f0677fed4?1754370570
     furigana_spans:
     - - 親
       - おや
@@ -95512,17 +95569,20 @@ names:
     reading_source_kind: analyser
     verified: false
   魔法少女にあこがれて:
-    basis: licensed
-    en: Gushing over Magical Girls
+    basis: official-jp
+    en: I admire magical girls, and ...
     en_at: '2026-08-08'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: Longing to Be a Magical Girl
+    - basis: licensed
+      source: Yen Press
+      value: Gushing over Magical Girls
     en_reviewed: '2026-08-08'
-    en_source: Yen Press
-    en_source_kind: licensor
-    en_url: https://yenpress.com/titles/9781718339316-gushing-over-magical-girls-volume-2-manga
+    en_source: series-art
+    en_source_kind: platform
+    en_url: https://cdn-public.comici.jp/series/1646812/20251009174229349AD2FFB8B43C8EE7B9907E897477F569C.webp
     furigana_spans:
     - - 魔法
       - まほう

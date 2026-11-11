@@ -9,8 +9,8 @@ retrieved: 2026-11-11
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 309
-works_on_watched_platform: 283
+distinct_works: 308
+works_on_watched_platform: 282
 platforms_total: 52
 platforms_watched: 40
 # ranked by works reachable on NO watched platform
@@ -271,6 +271,16 @@ works_missing:
     url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
     antenna_id: "213409"
     tags: ["読み切り", "百合"]
+  - title: "アウトサイダーパラダイス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_021488_S"
+    antenna_id: "217263"
+    tags: ["百合"]
+  - title: "らぶぶいっ!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_008372_S"
+    antenna_id: "201618"
+    tags: ["百合", "お色気・微エロ", "異種族・人外"]
   - title: "志乃と恋"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_000076_S"
@@ -326,11 +336,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008317_S"
     antenna_id: "200532"
     tags: ["百合", "アイドル", "入れ替わり"]
-  - title: "アウトサイダーパラダイス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_021488_S"
-    antenna_id: "217263"
-    tags: ["百合"]
   - title: "咲きそめコンプレックス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006662_S"
@@ -371,11 +376,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006608_S"
     antenna_id: "192654"
     tags: ["百合", "アイドル"]
-  - title: "らぶぶいっ!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_008372_S"
-    antenna_id: "201618"
-    tags: ["百合", "お色気・微エロ", "異種族・人外"]
   - title: "紫蘭さまにはなびきません!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021516_S"
@@ -680,7 +680,7 @@ works_missing:
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
     antenna_id: "191960"
-    tags: ["最近のコメント数"]
+    tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
   - title: "DOUBLE HELIX BLOSSOM"
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/65"
@@ -911,6 +911,11 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/69335"
     antenna_id: "178408"
     tags: ["百合"]
+  - title: "酒と鬼は二合まで"
+    platform: "ビッコミ"
+    url: "https://bigcomics.jp/series/dd9141c4d469c"
+    antenna_id: "165757"
+    tags: ["百合", "大学生", "異種族・人外"]
   - title: "あくまで!アットホームな職場です。"
     platform: "ビッコミ"
     url: "https://bigcomics.jp/series/cad403cdddf52"
@@ -935,7 +940,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
-    tags: ["ホラー", "幽霊", "百合", "女子高生"]
+    tags: ["最近のコメント数"]
   - title: "ぎるてぃらいぶらり"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"

@@ -3159,21 +3159,33 @@ titles:
     reading_note: >-
       重しれー is おもしれー, a colloquial 面白い, one word.
   酒と鬼は二合まで:
-    en: 'Sake and the Demon, Two Cups at Most'
-    basis: translated
-    source: yurarium
-    source_kind: derived
-    reviewed: '2026-08-03'
+    en: 'Alcohol and Ogre-girls'
+    basis: official-jp
+    source: 小学館
+    source_kind: publisher-jp
+    source_url: "https://yawaspi.com/alcoholandogre-girls/"
+    en_shown: "artwork"
+    reviewed: '2026-11-11'
     note: >-
-      合 is a traditional sake-measuring unit with no clean English equivalent, rendered as cups; the
+      Set in two letterspaced lines under the logo in the series banner on やわらかスピリッツ,
+      小学館's own platform, which also uses it as the address of the work's page. Read off the
+      artwork on 2026-08-11 and recorded in data/queue/cover-names.yaml, and given by the project
+      owner on 2026-11-11. The English leaves out 二合まで and takes the ruby instead: Ogre-girls is
+      鬼 read as オンナ. Accepted as printed, lowercase g included.
+    translation: 'Sake and the Demon, Two Cups at Most'
+    translation_note: >-
+      Our own rendering, which stood here until the publisher's English was applied. 合 is a
+      traditional sake-measuring unit with no clean English equivalent, rendered as cups; the
       title puts sake and the demon under the same limit. The synopsis is a would-be bartender who
       takes in a glittery gal housemate secretly hiding that she is an oni.
 
-    reading: "サケ ト オニ ワ ニ ゴウ マデ"
+    reading: "サケ ト オンナ ワ ニ ゴウ マデ"
     reading_basis: researched
     reading_source_kind: derived
     reading_note: >-
-      鬼 and the particle は were glued into オニワ.
+      The logo sets オンナ as ruby over 鬼, so the character for ogre is read as the word for woman,
+      and the publisher's Ogre-girls keeps both senses. The reading held before took 鬼 at its
+      dictionary value, オニ.
   遠山えま百合集　センセイとの時間。:
     en: 'Ema Tōyama''s Yuri Collection: Time with Sensei'
     basis: translated

@@ -10,17 +10,17 @@ pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 308
-works_on_watched_platform: 282
-platforms_total: 52
-platforms_watched: 40
+works_on_watched_platform: 281
+platforms_total: 51
+platforms_watched: 39
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
     works: 11
+  - platform: "ヤンジャン+"
+    works: 3
   - platform: "COMICリュウライブ"
     works: 3
-  - platform: "ヤンジャン+"
-    works: 2
   - platform: "マンガPark"
     works: 2
   - platform: "comicブースト"
@@ -155,7 +155,7 @@ works_missing:
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
     antenna_id: "186534"
-    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
+    tags: ["最近のコメント数"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
@@ -271,6 +271,11 @@ works_missing:
     url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
     antenna_id: "213409"
     tags: ["読み切り", "百合"]
+  - title: "拝啓、在りし日に咲く花たちへ"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006092_S"
+    antenna_id: "178772"
+    tags: ["百合", "オムニバス・短編集"]
   - title: "アウトサイダーパラダイス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021488_S"
@@ -436,11 +441,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_004432_S"
     antenna_id: "99613"
     tags: ["百合", "ギャグ・コメディ", "エロ", "女子高生", "女性向け", "お色気・微エロ", "現代", "同性愛・LGBTQ+", "青春"]
-  - title: "拝啓、在りし日に咲く花たちへ"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006092_S"
-    antenna_id: "178772"
-    tags: ["百合", "オムニバス・短編集"]
   - title: "ぐがぐもぐるてん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008419_S"
@@ -721,6 +721,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "拝啓、在りし日に咲く花たちへ"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/70738"
+    antenna_id: "178754"
+    tags: ["百合", "女子高生"]
   - title: "ばっどがーる"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/53991"
@@ -816,11 +821,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/67280"
     antenna_id: "166483"
     tags: ["百合", "同居人・居候", "日常", "娘", "4コマ"]
-  - title: "拝啓、在りし日に咲く花たちへ"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/70738"
-    antenna_id: "178754"
-    tags: ["百合", "女子高生"]
   - title: "桃色カンパネラ"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/74044"
@@ -940,7 +940,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
-    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
+    tags: ["最近のコメント数"]
   - title: "私に天使が舞い降りた!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01052"
@@ -1036,6 +1036,11 @@ works_missing:
     url: "https://younganimal.com/series/060a6130e55b2"
     antenna_id: "212464"
     tags: ["オカルト", "女子高生", "百合"]
+  - title: "あのこの冷蔵庫"
+    platform: "ヤンジャン+"
+    url: "https://ynjn.jp/title/41277"
+    antenna_id: "217951"
+    tags: ["百合", "読み切り"]
   - title: "ベイビー車中ハッカーズ"
     platform: "ヤンジャン+"
     url: "https://ynjn.jp/title/16787"
@@ -1096,6 +1101,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "ウは宇宙ヤバイのウ!"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/135220287d820"
+    antenna_id: "182681"
+    tags: ["百合", "女子高生", "SF", "コミカライズ", "ギャグ・コメディ"]
   - title: "銀輪ボイス"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/de0a74a9b5715"
@@ -1151,11 +1161,6 @@ works_missing:
     url: "https://takecomic.jp/series/d8e8c084c4c6c"
     antenna_id: "134693"
     tags: ["百合"]
-  - title: "ウは宇宙ヤバイのウ!"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/135220287d820"
-    antenna_id: "182681"
-    tags: ["百合", "女子高生", "SF", "コミカライズ", "ギャグ・コメディ"]
   - title: "魔性の乙女の役廻り"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/2706e9d937d5f"
@@ -1186,16 +1191,16 @@ works_missing:
     url: "https://takecomic.jp/series/e060f5eef826c"
     antenna_id: "165592"
     tags: ["百合"]
-  - title: "フレンドガールフレンド"
-    platform: "花とゆめ+"
-    url: "https://hanayume.com/series/f3ce082d639de"
-    antenna_id: "206108"
-    tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
   - title: "運命は役に立たない"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
     antenna_id: "206126"
     tags: ["百合"]
+  - title: "フレンドガールフレンド"
+    platform: "花とゆめ+"
+    url: "https://hanayume.com/series/f3ce082d639de"
+    antenna_id: "206108"
+    tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
   - title: "あの子のスカート/よみきり"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/dcaacd8b4831f"

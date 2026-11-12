@@ -43,8 +43,6 @@ works:
         title: "第98話"
         updated: 2026-10-15
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-11-12"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 81097
         title: "SSSオフショット98"
@@ -1092,9 +1090,6 @@ works:
         title: "第４３話"
         updated: 2026-11-11
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-12"
-        became_free: true
         access_note: "pointConsumption type=None amount=6 badge=None — チャージ, one per series per day"
       - chapter_id: 79676
         title: "第４２話"
@@ -17206,9 +17201,6 @@ works:
         title: "特別編4(1)"
         updated: 2026-11-11
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-12"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80965
         title: "第三十六唄(2)"
@@ -20370,9 +20362,6 @@ works:
         title: "第16話(2)"
         updated: 2026-11-12
         access_modes: ["free"]
-        access_changed: "purchase -> free"
-        access_changed_on: "2026-11-12"
-        became_free: true
       - chapter_id: 80467
         title: "第16話(1)"
         updated: 2026-09-24
@@ -20381,8 +20370,6 @@ works:
         title: "第15話(2)"
         updated: 2026-09-03
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-11-12"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78698
         title: "第15話(1)"

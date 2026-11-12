@@ -16,6 +16,16 @@ retrieved: 2026-11-12
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "あのこの冷蔵庫"
+    author: "藤原ハル"
+    url: "https://tonarinoyj.jp/episode/12207421984475668997"
+    platform_name: "となりのヤングジャンプ"
+    route: "gigaviewer-feed"
+    chapter_count: 1
+    chapters:
+      - title: "[特別読切] あのこの冷蔵庫"
+        updated: 2026-11-12
+        access_modes: ["free"]
   - work_title: "アイドラトリィ"
     author: "原作/大鷹シン 漫画/ホマレ"
     url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
@@ -6710,7 +6720,7 @@ works:
         access_modes: ["purchase"]
       - title: "第65話"
         updated: 2026-08-18
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第64話"
         updated: 2026-06-17
         access_modes: ["purchase"]
@@ -6924,7 +6934,7 @@ works:
         access_modes: ["purchase"]
       - title: "第39話"
         updated: 2026-09-16
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "番外編"
         updated: 2026-07-16
         access_modes: ["purchase"]

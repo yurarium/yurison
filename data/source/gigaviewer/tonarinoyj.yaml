@@ -11,6 +11,22 @@ record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "tonarino_yj:episode:12207421984475668997"
+    work_title: "あのこの冷蔵庫"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "[特別読切] あのこの冷蔵庫"
+    release_type: "oneshot"
+    date: "2026-11-12"
+    date_basis: "observed"
+    first_seen: "2026-11-12"
+    first_reported: "2026-11-12T03:00:00Z"
+    platform_updated: "2026-11-12T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://tonarinoyj.jp/episode/12207421984475668997"
+    author: "藤原ハル"
+    free_term_start: "2026-11-12T03:00:00Z"
+    advances_narrative: true
   - release_id: "tonarino_yj:episode:12207421984447306235"
     work_title: "燕のあやかし画帳"
     web_status: "serialised"

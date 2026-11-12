@@ -23120,6 +23120,10 @@ works:
       - anchor: "web:https://magcomi.com/atom/series/12207421984482184473"
         basis: "the chapter page at https://magcomi.com/episode/12207421984482234310 links its own series feed at https://magcomi.com/atom/series/12207421984482184473, so the platform places this chapter in series 12207421984482184473"
         retrieved: 2026-11-11
+  - id: w03540
+    title: "あのこの冷蔵庫"
+    anchors:
+      - "web:https://ynjn.jp/title/41277"
 related:
   - a: w00156
     b: w00486

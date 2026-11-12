@@ -1,4 +1,4 @@
-generated: '2026-11-11'
+generated: '2026-11-12'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -8755,6 +8755,23 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  あのこの冷蔵庫:
+    basis: romaji
+    furigana_spans:
+    - - あのこの
+      - null
+    - - 冷蔵庫
+      - れいぞうこ
+    reading: アノ コノ レイゾウコ
+    reading_at: '2026-11-12'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   あのこの花が欲しい:
     basis: translated
     en: I Want That Girl's Flower

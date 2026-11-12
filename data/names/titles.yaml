@@ -591,6 +591,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  1年目:
+    basis: translated
+    en: Year One
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 1年目 means 'the first year'. It is a volume of 不器用ビンボーダンス, which the BOOK☆WALKER page shows in
+      its second series, so it is rendered simply as 'Year One'.
+    verified: false
   1枚で読む百合SS:
     basis: translated
     en: One-Page Yuri Shorts
@@ -8788,12 +8798,20 @@ names:
     reading_source: surface
     verified: true
   あのこの冷蔵庫:
-    basis: romaji
+    basis: translated
+    en: That Girl's Fridge
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - あのこの
       - null
     - - 冷蔵庫
       - れいぞうこ
+    note: あのこ means 'that girl' and 冷蔵庫 is a refrigerator. The tonarinoyj one-shot page shows a woman
+      clearing her late best friend's room and finding the fridge full of food, so the possessive 'That
+      Girl's Fridge' fits the story.
     reading: アノ コノ レイゾウコ
     reading_at: '2026-11-12'
     reading_basis: analyser
@@ -11320,6 +11338,17 @@ names:
     en_source_kind: derived
     note: おしつけ means imposed or pushed on someone, and バカンス is vacation, so the title reads as a vacation
       pressed upon someone. Saturday is kept as the work's English subtitle. No English edition was found.
+    verified: false
+  おしゃべりなコーヒー -Saturday:
+    basis: translated
+    en: Chatty Coffee
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: おしゃべりな means 'talkative' and コーヒー is coffee. The BOOK☆WALKER series page lists it among the
+      Saturday (Manga) works by 綺月るり, whose titles end in '-Saturday-', so the label is left to the parent
+      work's name.
     verified: false
   おそとごはんをご一緒に:
     basis: translated
@@ -18672,19 +18701,6 @@ names:
     verified: true
   つつじの工業高校聖剣工房ＤＸ:
     basis: romaji
-    furigana_spans:
-    - - つつじの
-      - null
-    - - 工業高校
-      - こうぎょうこうこう
-    - - 聖
-      - せい
-    - - 剣
-      - けん
-    - - 工房
-      - こうぼう
-    - - ＤＸ
-      - でぃーえっくす
     reading: ツツジ ノ コウギョウコウコウ セイ ケン コウボウ DX
     reading_at: '2026-11-12'
     reading_basis: analyser
@@ -20313,6 +20329,17 @@ names:
     note: The book title completes the series title 放課後 (After School) as 放課後の女子湯, so it reads as the
       girls' bath after school. It is rendered as Girls' Bath to sit under After School without repeating
       it. Based on the BookWalker series page.
+    verified: false
+  の真ん中:
+    basis: translated
+    en: The Middle
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists the book as 三姉妹の真ん中, 'the middle of the three sisters'. The volume
+      title is the fragment の真ん中 attached to the work name 三姉妹, so it is rendered as 'The Middle' to read
+      under Three Sisters.
     verified: false
   の真ん中(2):
     basis: translated
@@ -32880,6 +32907,17 @@ names:
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
+  ザ セカンド:
+    basis: translated
+    en: The Second
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title is katakana for 'The Second', the second book of the Yurilog doujin reprint series.
+      The BOOK☆WALKER page for the first book is titled ザ ファースト (The First) and names this one as its
+      sequel, so it is rendered to read under Yurilog.
+    verified: false
   ザ ファースト:
     basis: translated
     en: The First
@@ -44665,6 +44703,16 @@ names:
     note: The BOOK☆WALKER page lists three volumes of 私立百合ヶ浜学院 named First, Second and Third Term, with
       no English. 一学期 is the first school term.
     verified: false
+  一学期編:
+    basis: translated
+    en: First Term Arc
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 一学期編 means the first-term (semester) arc. The BOOK☆WALKER series page for 先生観察女子高生。 lists it
+      as the first of three term-based volumes.
+    verified: false
   一巻:
     basis: translated
     en: Volume 1
@@ -46232,6 +46280,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  主に交際前まとめ:
+    basis: translated
+    en: '1: Roundup of Mostly Before They Get Together'
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 主に交際前 means 'mainly before dating' and まとめ is a roundup. This is volume 1 of the short-comic
+      collection on BOOK☆WALKER, so the number is kept in front.
+    verified: false
   主従百合アンソロジー　Rhodanthe:
     basis: translated
     en: 'A Mistress and Servant Yuri Anthology: Rhodanthe'
@@ -47038,6 +47096,16 @@ names:
     note: 二学期 is the second term of the Japanese school year. It is a volume of 私立百合ヶ浜学院 (Yurigahama Private
       Academy) on BookWalker.
     verified: false
+  二学期編:
+    basis: translated
+    en: Second Term Arc
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 二学期編 means the second-term (semester) arc. The BOOK☆WALKER series page for 先生観察女子高生。 lists the
+      first-, second- and third-term arcs as its volumes.
+    verified: false
   二巻 ご主人様編:
     basis: translated
     en: 'Volume 2: Master Arc'
@@ -47093,6 +47161,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  交際後まとめ:
+    basis: translated
+    en: '2: Roundup of After They Get Together'
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 交際後 means 'after dating begins' and まとめ is a roundup or compilation. This is volume 2 of the
+      short-comic collection on BOOK☆WALKER, the counterpart of the volume of pre-dating stories.
     verified: false
   京アミ！:
     basis: romaji
@@ -47198,6 +47276,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  人妻とJK3:
+    basis: translated
+    en: The Married Woman and the Schoolgirl 3
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is volume 3 of 人妻とJK, which the related titles name The Married Woman and the Schoolgirl.
+      The BOOK☆WALKER series page lists it as 人妻とJK3, so it takes the same name with the volume number.
     verified: false
   人妻とJK4:
     basis: translated
@@ -59784,6 +59872,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  宇宙漂流少女と宇宙一危ないヤツ:
+    basis: translated
+    en: The Space-Adrift Girl and the Most Dangerous Guy in the Universe
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 宇宙漂流少女 is a girl adrift in space, and 宇宙一危ないヤツ is the most dangerous character in the universe.
+      It is a story inside the 誰が為に (For Whose Sake) collection, and the title is translated literally.
+    verified: false
   安達としまむら:
     basis: licensed
     en: Adachi and Shimamura
@@ -70032,6 +70130,16 @@ names:
       banked under ash to smoulder slowly, the image the synopsis backs: a hopeful newcomer bringing her
       work to an editor she admires, who calls manga a king and its creator a god, and asks her to become
       one.'
+    verified: false
+  春の夜に香る:
+    basis: translated
+    en: '2: Fragrant on a Spring Night'
+    en_at: '2026-11-12'
+    en_reviewed: '2026-11-12'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 春の夜に香る means 'fragrant on a spring night'. It is volume 2 of 桜の下で逢いましょう (Let's Meet Under the
+      Cherry Trees), so the volume number is kept in front.
     verified: false
   春へ、:
     basis: translated

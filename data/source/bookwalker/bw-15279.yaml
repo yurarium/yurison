@@ -4,7 +4,7 @@
 # shop says is all there is. Joined presumptively on its title, and a title that
 # already names a work we hold went to data/queue/bw-review.yaml instead of here.
 source: bookwalker
-retrieved: 2026-10-15
+retrieved: 2026-11-12
 work_id: "bw-15279"
 record_type: retailer_work_record
 shop_id: "15279"
@@ -14,7 +14,7 @@ title:
 creator: "よしむらかな"
 publisher: "スクウェア・エニックス"
 imprint: "ヤングガンガンコミックス"
-volume_count: 29
+volume_count: 30
 first_published: "2014-04-25"
 venue: "スクウェア・エニックス"
 completed: false
@@ -128,10 +128,13 @@ volumes:
   - title: "【最新刊】MURCIÉLAGO -ムルシエラゴ- 29巻"
     number: "29"
     delivered: "2026-07-24"
+  - title: "【最新刊】MURCIÉLAGO -ムルシエラゴ- 30巻"
+    number: "30"
+    delivered: "2026-12-25"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
-    retrieved: 2026-10-15
+    retrieved: 2026-11-12
     note: >-
       A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
       rebuttable, and never a marketing_label (§4).
@@ -139,7 +142,7 @@ marketing_label: none
 marketing_label_basis:
   source: bookwalker
   url: "https://bookwalker.jp/series/15279/"
-  retrieved: 2026-10-15
+  retrieved: 2026-11-12
   note: >-
     Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
     labelling (§4), so this axis stays `none`, which says nothing about content.

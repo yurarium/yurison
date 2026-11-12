@@ -1718,10 +1718,18 @@ works:
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03196/episode/441093"
       - "web:https://pocket.shonenmagazine.com/title/03196"
+      - "web:https://comic-days.com/atom/series/12207421984435236457"
+      - "web:https://comic-days.com/series/12207421984435236457/first_episode"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/03196"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/03196/episode/441093, which is the same serialisation at an address that does not change when it publishes"
         retrieved: 2026-08-07
+      - anchor: "web:https://comic-days.com/atom/series/12207421984435236457"
+        basis: "the chapter page at https://comic-days.com/episode/12207421984435363797 links its own series feed at https://comic-days.com/atom/series/12207421984435236457, so the platform places this chapter in series 12207421984435236457, and the og:title there names the work: 怪獣ロマンティクス - じぃと / 第４話　地獄の特訓！たえＦｌｙ　Ｈｉｇｈ！ | コミックDAYS"
+        retrieved: 2026-11-12
+      - anchor: "web:https://comic-days.com/series/12207421984435236457/first_episode"
+        basis: "the chapter page at https://comic-days.com/episode/12207421984435363797 links its own series feed at https://comic-days.com/atom/series/12207421984435236457, so the platform places this chapter in series 12207421984435236457, and the og:title there names the work: 怪獣ロマンティクス - じぃと / 第４話　地獄の特訓！たえＦｌｙ　Ｈｉｇｈ！ | コミックDAYS. https://comic-days.com/series/12207421984435236457/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-11-12
   - id: w00199
     title: "私に天使が舞い降りた！"
     anchors:
@@ -10502,6 +10510,8 @@ works:
       - "web:https://pocket.shonenmagazine.com/title/03282/episode/442124"
       - "web:https://pocket.shonenmagazine.com/title/03282"
       - "madb:madb-t-64a9bb50bfee"
+      - "web:https://comic-days.com/atom/series/2551460909866728947"
+      - "web:https://comic-days.com/series/2551460909866728947/first_episode"
     attached:
       - anchor: "web:https://pocket.shonenmagazine.com/title/03282"
         basis: "the work-level address of https://pocket.shonenmagazine.com/title/03282/episode/442124, which is the same serialisation at an address that does not change when it publishes"
@@ -10509,6 +10519,12 @@ works:
       - anchor: "madb:madb-t-64a9bb50bfee"
         basis: "オカルトタイムズ lists no collected volume on its own platform page, and bookwalker.jp answers the author query with https://bookwalker.jp/series/565809/list/, whose credit shares a person with the credit this database holds. The bibliography's record for that title agrees on a person as well, so the serialisation and the book run are one work."
         retrieved: 2026-08-07
+      - anchor: "web:https://comic-days.com/atom/series/2551460909866728947"
+        basis: "the chapter page at https://comic-days.com/episode/12207421984440227169 links its own series feed at https://comic-days.com/atom/series/2551460909866728947, so the platform places this chapter in series 2551460909866728947, and the og:title there names the work: オカルトタイムズ - いどんち / 第１７話　清廉アイドル！　前編 | コミックDAYS"
+        retrieved: 2026-11-12
+      - anchor: "web:https://comic-days.com/series/2551460909866728947/first_episode"
+        basis: "the chapter page at https://comic-days.com/episode/12207421984440227169 links its own series feed at https://comic-days.com/atom/series/2551460909866728947, so the platform places this chapter in series 2551460909866728947, and the og:title there names the work: オカルトタイムズ - いどんち / 第１７話　清廉アイドル！　前編 | コミックDAYS. https://comic-days.com/series/2551460909866728947/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-11-12
   - id: w01227
     title: "ゆめぐりゆりめぐり"
     merged_into: w00989
@@ -23064,18 +23080,6 @@ works:
     title: null
     anchors:
       - "madb:bw-ce75926b-1693-4bfc-920f-4f0da5a8613a"
-
-# Related works. A relation and not a merge: whether a one-shot beside a
-# serialisation is a distinct work, an instalment the run absorbed, or a story a
-# later chapter retells differs case by case, and relating them says what the
-# evidence supports. Continuations belong here too, citrus and citrus+ among them.
-#
-# `precedes` is optional and is set by hand. It is NOT derived from the dates we
-# hold, because those carry import stamps in exactly the cases where order matters:
-# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day
-# 一迅プラス imported its catalogue, while the serialisation's real start of
-# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
-# one-shot after the run it came before.
   - id: w03534
     title: "勇者の旅の裏側で"
     anchors:
@@ -23089,19 +23093,27 @@ works:
     anchors:
       - "web:https://tonarinoyj.jp/episode/12207421984447306235"
       - "web:https://tonarinoyj.jp/atom/series/12207421984447279309"
+      - "web:https://tonarinoyj.jp/series/12207421984447279309/first_episode"
     attached:
       - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984447279309"
         basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984447306235 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984447279309, so the platform places this chapter in series 12207421984447279309"
         retrieved: 2026-11-09
+      - anchor: "web:https://tonarinoyj.jp/series/12207421984447279309/first_episode"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984447306235 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984447279309, so the platform places this chapter in series 12207421984447279309, and the og:title there names the work: [特別読切] 燕のあやかし画帳 - サスケ | となりのヤングジャンプ. https://tonarinoyj.jp/series/12207421984447279309/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-11-12
   - id: w03537
     title: "ヒモお姉さん、餌付け中。"
     anchors:
       - "web:https://kuragebunch.com/episode/12207421984481017724"
       - "web:https://kuragebunch.com/atom/series/12207421984481011289"
+      - "web:https://kuragebunch.com/series/12207421984481011289/first_episode"
     attached:
       - anchor: "web:https://kuragebunch.com/atom/series/12207421984481011289"
         basis: "the chapter page at https://kuragebunch.com/episode/12207421984481017724 links its own series feed at https://kuragebunch.com/atom/series/12207421984481011289, so the platform places this chapter in series 12207421984481011289"
         retrieved: 2026-11-10
+      - anchor: "web:https://kuragebunch.com/series/12207421984481011289/first_episode"
+        basis: "the chapter page at https://kuragebunch.com/episode/12207421984481017713 links its own series feed at https://kuragebunch.com/atom/series/12207421984481011289, so the platform places this chapter in series 12207421984481011289, and the og:title there names the work: ヒモお姉さん、餌付け中。 - 春露彗 / 第1話　月見うどんとふたりの秘密 | くらげバンチ. https://kuragebunch.com/series/12207421984481011289/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-11-12
   - id: w03538
     title: "シアワセとりかえばや"
     anchors:
@@ -23124,6 +23136,27 @@ works:
     title: "あのこの冷蔵庫"
     anchors:
       - "web:https://ynjn.jp/title/41277"
+
+# Related works. A relation and not a merge: whether a one-shot beside a
+# serialisation is a distinct work, an instalment the run absorbed, or a story a
+# later chapter retells differs case by case, and relating them says what the
+# evidence supports. Continuations belong here too, citrus and citrus+ among them.
+#
+# `precedes` is optional and is set by hand. It is NOT derived from the dates we
+# hold, because those carry import stamps in exactly the cases where order matters:
+# 超深宇宙より愛をこめて's 読み切り版 has one date, 2025-08-08, which is the day
+# 一迅プラス imported its catalogue, while the serialisation's real start of
+# 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
+# one-shot after the run it came before.
+  - id: w03541
+    title: "あのこの冷蔵庫"
+    anchors:
+      - "web:https://tonarinoyj.jp/episode/12207421984475668997"
+      - "web:https://tonarinoyj.jp/atom/series/12207421984475668612"
+    attached:
+      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984475668612"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984475668997 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984475668612, so the platform places this chapter in series 12207421984475668612"
+        retrieved: 2026-11-12
 related:
   - a: w00156
     b: w00486

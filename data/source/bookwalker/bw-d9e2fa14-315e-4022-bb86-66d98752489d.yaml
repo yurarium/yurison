@@ -4,7 +4,7 @@
 # shop says is all there is. Joined presumptively on its title, and a title that
 # already names a work we hold went to data/queue/bw-review.yaml instead of here.
 source: bookwalker
-retrieved: 2026-08-05
+retrieved: 2026-11-12
 work_id: "bw-d9e2fa14-315e-4022-bb86-66d98752489d"
 record_type: retailer_work_record
 shop_id: "d9e2fa14-315e-4022-bb86-66d98752489d"
@@ -24,7 +24,7 @@ volumes:
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
-    retrieved: 2026-08-05
+    retrieved: 2026-11-12
     note: >-
       A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
       rebuttable, and never a marketing_label (§4).
@@ -32,7 +32,7 @@ marketing_label: none
 marketing_label_basis:
   source: bookwalker
   url: "https://bookwalker.jp/ded9e2fa14-315e-4022-bb86-66d98752489d/"
-  retrieved: 2026-08-05
+  retrieved: 2026-11-12
   note: >-
     Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
     labelling (§4), so this axis stays `none`, which says nothing about content.

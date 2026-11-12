@@ -1721,6 +1721,22 @@ names:
     note: already Latin on the platform's own page; no romanisation involved
     script: latin
     verified: true
+  warabi餅:
+    basis: romaji
+    furigana_spans:
+    - - warabi
+      - null
+    - - 餅
+      - もち
+    reading: warabiモチ
+    reading_at: '2026-11-12'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   x0o0x:
     basis: stated
     en: x0o0x
@@ -30688,6 +30704,22 @@ names:
     reading_at: '2026-10-15'
     reading_basis: analyser
     reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
+  渡辺伊織:
+    basis: romaji
+    furigana_spans:
+    - - 渡辺
+      - わたなべ
+    - - 伊織
+      - いおり
+    reading: ワタナベイオリ
+    reading_at: '2026-11-12'
+    reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
     reading_pass: 4

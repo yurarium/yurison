@@ -9,9 +9,9 @@
 #
 # Still data/queue/: these are candidates. Admission into data/source/ needs the joins
 # and the volume histories that give a work its dates.
-retrieved: 2026-11-05
-admitted: 4503
-by_shop: {"bookwalker.jp": 2659, "cmoa.jp": 1844}
+retrieved: 2026-11-12
+admitted: 4513
+by_shop: {"bookwalker.jp": 2669, "cmoa.jp": 1844}
 excluded: {"published on ヤングアンリアルコミックス, an adult imprint": 5, "published on 秋水社ORIGINAL, an adult imprint": 16}
 works:
   - title: "#ふれない"
@@ -3688,7 +3688,7 @@ works:
     url: "https://bookwalker.jp/series/569563/"
     shop: "bookwalker.jp"
     shop_id: "569563"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -6576,6 +6576,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ちいさい天使にかなわない(単話版)"
+    authors: ["栗崎きんぐ"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/series/635592/"
+    shop: "bookwalker.jp"
+    shop_id: "635592"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ちいさい百合の花束"
     authors: ["著者: 紙魚いりこ"]
     publisher: null
@@ -6727,6 +6738,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "27f0e035-108a-4a9b-b94b-6d83b6e82bd0"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "つつじの工業高校聖剣工房DX 1"
+    authors: ["著者: 渡辺伊織"]
+    publisher: null
+    imprint: "角川コミックス・エース"
+    url: "https://bookwalker.jp/de8dccbb25-d5cb-4964-8628-cc915225506d/"
+    shop: "bookwalker.jp"
+    shop_id: "8dccbb25-d5cb-4964-8628-cc915225506d"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -11727,6 +11749,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "スチームドリーム"
+    authors: []
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/series/629493/"
+    shop: "bookwalker.jp"
+    shop_id: "629493"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "スチームドリーム 1巻"
     authors: ["絵茶漬け"]
     publisher: null
@@ -12087,6 +12120,17 @@ works:
     url: "https://bookwalker.jp/def00e50c8-e66d-41b8-8b87-c355d19a9f51/"
     shop: "bookwalker.jp"
     shop_id: "f00e50c8-e66d-41b8-8b87-c355d19a9f51"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ソリストたちは青春不可避! 1"
+    authors: ["著者: サンクス仮面"]
+    publisher: null
+    imprint: "MFC キューンシリーズ"
+    url: "https://bookwalker.jp/dee252d0b3-c5ff-4ad6-9a51-8fa69b259c0f/"
+    shop: "bookwalker.jp"
+    shop_id: "e252d0b3-c5ff-4ad6-9a51-8fa69b259c0f"
     completed: false
     doujin: false
     explicit_content: false
@@ -13697,6 +13741,17 @@ works:
     url: "https://bookwalker.jp/dea12d22ff-739a-4dc1-8533-15dbda39cdcf/"
     shop: "bookwalker.jp"
     shop_id: "a12d22ff-739a-4dc1-8533-15dbda39cdcf"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "マイ・リトル・ゴッデス(単話版)"
+    authors: ["みもと"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/series/635593/"
+    shop: "bookwalker.jp"
+    shop_id: "635593"
     completed: false
     doujin: false
     explicit_content: false
@@ -17697,6 +17752,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "君が一等星に光るまで"
+    authors: []
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/series/618469/"
+    shop: "bookwalker.jp"
+    shop_id: "618469"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "君が一等星に光るまで 1巻"
     authors: ["なうち"]
     publisher: null
@@ -17803,6 +17869,17 @@ works:
     url: "https://bookwalker.jp/series/240277/"
     shop: "bookwalker.jp"
     shop_id: "240277"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "君のせいなんだから、責任とってよね。 【連載版】"
+    authors: ["当麻"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/636229/"
+    shop: "bookwalker.jp"
+    shop_id: "636229"
     completed: false
     doujin: false
     explicit_content: false
@@ -21981,6 +22058,17 @@ works:
     url: "https://bookwalker.jp/de8d3f9380-2ecf-4e0b-927d-21d584317949/"
     shop: "bookwalker.jp"
     shop_id: "8d3f9380-2ecf-4e0b-927d-21d584317949"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "明日への手向け(単話版)"
+    authors: ["焔すばる"]
+    publisher: null
+    imprint: "orSiS"
+    url: "https://bookwalker.jp/series/635594/"
+    shop: "bookwalker.jp"
+    shop_id: "635594"
     completed: false
     doujin: false
     explicit_content: false
@@ -26723,6 +26811,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "綿ちゃんたちは恋してる。【電子特典付き】"
+    authors: ["著者: warabi餅"]
+    publisher: null
+    imprint: "中経☆コミックス"
+    url: "https://bookwalker.jp/decc675702-a98e-4ecf-8ef4-0da070189565/"
+    shop: "bookwalker.jp"
+    shop_id: "cc675702-a98e-4ecf-8ef4-0da070189565"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "緋色のナナ"
     authors: ["著者: 小田マサシ"]
     publisher: null
@@ -28194,6 +28293,17 @@ works:
     url: "https://bookwalker.jp/de45593173-7c3d-442e-9de6-5cdc1d9ffa89/"
     shop: "bookwalker.jp"
     shop_id: "45593173-7c3d-442e-9de6-5cdc1d9ffa89"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "銀の河に星の城"
+    authors: []
+    publisher: null
+    imprint: "フラワーコミックスα"
+    url: "https://bookwalker.jp/series/633978/"
+    shop: "bookwalker.jp"
+    shop_id: "633978"
     completed: false
     doujin: false
     explicit_content: false

@@ -4,7 +4,7 @@
 # shop says is all there is. Joined presumptively on its title, and a title that
 # already names a work we hold went to data/queue/bw-review.yaml instead of here.
 source: bookwalker
-retrieved: 2026-10-15
+retrieved: 2026-11-12
 work_id: "bw-154a2126-dcbf-4732-b9d8-78242ebd9432"
 record_type: retailer_work_record
 shop_id: "154a2126-dcbf-4732-b9d8-78242ebd9432"
@@ -14,7 +14,7 @@ title:
 creator: "桜家ゆきの"
 publisher: "クロスフォリオ出版"
 imprint: "BLIC-GL"
-volume_count: 1
+volume_count: 2
 date_basis: "no-print-edition"
 venue: "クロスフォリオ出版"
 completed: false
@@ -22,10 +22,13 @@ volumes:
   - title: "ユリログ ザ ファースト"
     designation: "ザ ファースト"
     delivered: "2026-08-28"
+  - title: "【最新刊】ユリログ ザ セカンド"
+    designation: "ザ セカンド"
+    delivered: "2026-10-30"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
-    retrieved: 2026-10-15
+    retrieved: 2026-11-12
     note: >-
       A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
       rebuttable, and never a marketing_label (§4).
@@ -33,7 +36,7 @@ marketing_label: none
 marketing_label_basis:
   source: bookwalker
   url: "https://bookwalker.jp/de154a2126-dcbf-4732-b9d8-78242ebd9432/"
-  retrieved: 2026-10-15
+  retrieved: 2026-11-12
   note: >-
     Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
     labelling (§4), so this axis stays `none`, which says nothing about content.

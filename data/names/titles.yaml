@@ -18670,6 +18670,30 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  つつじの工業高校聖剣工房ＤＸ:
+    basis: romaji
+    furigana_spans:
+    - - つつじの
+      - null
+    - - 工業高校
+      - こうぎょうこうこう
+    - - 聖
+      - せい
+    - - 剣
+      - けん
+    - - 工房
+      - こうぼう
+    - - ＤＸ
+      - でぃーえっくす
+    reading: ツツジ ノ コウギョウコウコウ セイ ケン コウボウ DX
+    reading_at: '2026-11-12'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   つまらない:
     basis: translated
     en: Boring
@@ -35210,6 +35234,26 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  ソリストたちは青春不可避！:
+    basis: romaji
+    furigana_spans:
+    - - ソリストたちは
+      - null
+    - - 青春
+      - せいしゅん
+    - - 不可避
+      - ふかひ
+    - - ！
+      - null
+    reading: ソリストタチ ワ セイシュン フカヒ！
+    reading_at: '2026-11-12'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   ゾンビ姫に抱っこ！【タテスク】:
     basis: official-jp
     en: Zombie Princess & Dakko!
@@ -87485,6 +87529,27 @@ names:
     reading_ordinary: true
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  綿ちゃんたちは恋してる。:
+    basis: romaji
+    furigana_spans:
+    - - 綿
+      - めん
+    - - ちゃんたちは
+      - null
+    - - 恋
+      - こい
+    - - してる。
+      - null
+    reading: メンチャンタチ ワ コイ シテル。
+    reading_at: '2026-11-12'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   緋色のナナ:

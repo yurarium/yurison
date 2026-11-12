@@ -2,9 +2,13 @@
 #
 # Left alone deliberately. An unclosed row risks a second identifier later; a wrong
 # anchor ties one work's identity to another work's address and is harder to see.
-retrieved: 2026-11-05
-count: 12
+retrieved: 2026-11-12
+count: 13
 rows:
+  - url: "https://younganimal.com/episodes/24a3e6bcb998e"
+    work: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
+    id: "w03269"
+    state: "no-series"
   - url: "https://g-comi.jp/episodes/de67c6535ad59"
     work: "クズ女子が本気の恋に落ちるまで"
     id: "w03528"
@@ -17,10 +21,6 @@ rows:
     work: "午後4時。透明、ときどき声優"
     id: "w03303"
     state: "no-series"
-  - url: "https://younganimal.com/episodes/24a3e6bcb998e"
-    work: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
-    id: "w03269"
-    state: "no-series"
   - url: "https://championcross.jp/episodes/c588f534a4870/"
     work: "阿佐ヶ谷サキュバス同人物語"
     id: "w00092"
@@ -32,6 +32,10 @@ rows:
   - url: "https://www.comic-essay.com/episode/a1006/"
     work: "キジとイナサ"
     id: "w03249"
+    state: "no-series"
+  - url: "https://gorakuweb.com/episode/4632579990158199795"
+    work: "はぐれアイドル地獄変"
+    id: "w03535"
     state: "no-series"
   - url: "https://viewer.heros-web.com/episode/3269632237305675090"
     work: "とくにある日々"

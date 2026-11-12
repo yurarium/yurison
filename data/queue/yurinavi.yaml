@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-12
+retrieved: 2026-11-13
 record_type: discovery_queue
 candidates:
   - work_title: "織りゆけサルデーニャ"
@@ -35,6 +35,13 @@ candidates:
     platform_code: "12207421984481017713"
     work_url: "https://kuragebunch.com/episode/12207421984481017713"
     headline: "中学生が無職のお姉さんを“飼う”――女子ふたりの秘密ごはん漫画「ヒモお姉さん、餌付け中。」WEBで連載開始"
+    status: unconfirmed
+  - work_title: "カースト上位に遊ばれて!!"
+    signal: "new-serial"
+    announced: "Thu, 12 Nov 2026 11:57:31 +0000"
+    url: "https://yurinavi.com/2026/11/12/ka-sutozyouini-start/"
+    platform_host: "cycomi.com"
+    headline: "気弱な女の子がつよつよギャル3人に甘やかされるガールズコメディ「カースト上位に遊ばれて!!」WEBでスタート"
     status: unconfirmed
   - work_title: "是騒騒"
     signal: "new-serial"

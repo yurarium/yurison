@@ -2,7 +2,7 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-11-13
+retrieved: 2026-11-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -4562,9 +4562,6 @@ works:
         title: "第６８話"
         updated: 2026-11-12
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-13"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80740
         title: "第６７話"
@@ -8720,15 +8717,10 @@ works:
         title: "第87話(1)"
         updated: 2026-11-13
         access_modes: ["free"]
-        access_changed: "purchase -> free"
-        access_changed_on: "2026-11-13"
-        became_free: true
       - chapter_id: 79987
         title: "第86話(2)"
         updated: 2026-10-02
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-11-13"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 79984
         title: "第86話(1)"
@@ -12432,9 +12424,6 @@ works:
         title: "１５巻 第１９２話"
         updated: 2026-11-12
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-13"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 59799
         title: "１５巻 第１９１話"

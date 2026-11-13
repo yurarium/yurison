@@ -10,12 +10,29 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-13
+retrieved: 2026-11-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
+  - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
+    author: "中村カンコ"
+    url: "https://comic.pixiv.net/works/11081"
+    chapter_count: 3
+    chapters:
+      - title: "第3話"
+        updated: 2025-01-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話"
+        updated: 2024-12-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2024-11-02
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "腹割るウチらの秘密ごと!"
     author: "夏村東和"
     url: "https://comic.pixiv.net/works/11664"
@@ -48,6 +65,69 @@ works:
         date_basis: rendered
       - title: "1 原罪"
         updated: 2026-03-20
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "アイ・ヘイ・チュー"
+    author: "長門知大"
+    url: "https://comic.pixiv.net/works/13324"
+    chapter_count: 4
+    chapters:
+      - title: "第6話 今に木阿弥"
+        updated: 2026-10-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話 手も品も変えるな"
+        updated: 2026-08-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 悪夢にも勝る"
+        updated: 2026-07-18
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 垂涎に反吐"
+        updated: 2026-06-13
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "彼氏の女友達がぐいぐい来る(私に)"
+    author: "あめみくろ"
+    url: "https://comic.pixiv.net/works/13373"
+    chapter_count: 2
+    chapters:
+      - title: "第19話 たぬき女とテーマパークに行く話"
+        updated: 2026-11-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 たぬき女に迫られる話"
+        updated: 2026-07-04
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "怪獣ロマンティクス"
+    author: "じぃと"
+    url: "https://comic.pixiv.net/works/13457"
+    chapter_count: 6
+    chapters:
+      - title: "第4-2話 地獄の特訓！たえFly High!"
+        updated: 2026-10-31
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第4-1話 地獄の特訓！たえFly High!"
+        updated: 2026-10-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3-2話 ライバルとーじょー!? 小さくたって大怪獣！"
+        updated: 2026-09-26
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2-2話 Totsuzenタンデム!? ドギマギ山頂でぇと"
+        updated: 2026-08-29
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2-1話 Totsuzenタンデム!? ドギマギ山頂でぇと"
+        updated: 2026-08-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 ぐっすん！ ドキドキ! 別れは出会いのシグナル"
+        updated: 2026-07-18
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -459,23 +539,6 @@ works:
         updated: 2024-11-08
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
-    author: "中村カンコ"
-    url: "https://comic.pixiv.net/works/11081"
-    chapter_count: 3
-    chapters:
-      - title: "第3話"
-        updated: 2025-01-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2024-12-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2024-11-02
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "カナリアは綺羅星の夢をみる"
     author: "sheepD"
     url: "https://comic.pixiv.net/works/11180"
@@ -840,27 +903,6 @@ works:
         updated: 2026-06-26
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "アイ・ヘイ・チュー"
-    author: "長門知大"
-    url: "https://comic.pixiv.net/works/13324"
-    chapter_count: 4
-    chapters:
-      - title: "第6話 今に木阿弥"
-        updated: 2026-10-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 手も品も変えるな"
-        updated: 2026-08-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 悪夢にも勝る"
-        updated: 2026-07-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 垂涎に反吐"
-        updated: 2026-06-13
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "骨に願いを、星に呪いを"
     author: "いくたはな"
     url: "https://comic.pixiv.net/works/13345"
@@ -882,19 +924,6 @@ works:
         updated: 2026-06-28
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "彼氏の女友達がぐいぐい来る(私に)"
-    author: "あめみくろ"
-    url: "https://comic.pixiv.net/works/13373"
-    chapter_count: 2
-    chapters:
-      - title: "第19話 たぬき女とテーマパークに行く話"
-        updated: 2026-11-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 たぬき女に迫られる話"
-        updated: 2026-07-04
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "晴れた日のドレスコード"
     author: "あげはる"
     url: "https://comic.pixiv.net/works/13425"
@@ -910,35 +939,6 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2026-07-17
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "怪獣ロマンティクス"
-    author: "じぃと"
-    url: "https://comic.pixiv.net/works/13457"
-    chapter_count: 6
-    chapters:
-      - title: "第4-2話 地獄の特訓！たえFly High!"
-        updated: 2026-10-31
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4-1話 地獄の特訓！たえFly High!"
-        updated: 2026-10-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3-2話 ライバルとーじょー!? 小さくたって大怪獣！"
-        updated: 2026-09-26
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2-2話 Totsuzenタンデム!? ドギマギ山頂でぇと"
-        updated: 2026-08-29
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2-1話 Totsuzenタンデム!? ドギマギ山頂でぇと"
-        updated: 2026-08-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 ぐっすん！ ドキドキ! 別れは出会いのシグナル"
-        updated: 2026-07-18
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "紅殻のパンドラ"

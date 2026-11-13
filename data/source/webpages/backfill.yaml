@@ -12,10 +12,25 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-11-13
+retrieved: 2026-11-14
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "雨夜の月"
+    author: "くずしろ"
+    url: "https://pocket.shonenmagazine.com/title/02202/episode/446160"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 2
+    chapters:
+      - title: "【第52話(2)】相愛"
+        updated: 2026-10-31
+        access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/02202/episode/446160"
+      - title: "【第52話(3)】相愛"
+        updated: 2026-11-14
+        access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/02202/episode/446842"
   - work_title: "てくのぱにっくゆにばーす"
     author: "伏見ダイキ"
     url: "https://www.sunday-webry.com/episode/12207421984508897408"
@@ -3079,17 +3094,6 @@ works:
       - title: "第１−１話　奏音と咲希"
         updated: 2021-06-12
         access_modes: ["free"]
-  - work_title: "雨夜の月"
-    author: "くずしろ"
-    url: "https://pocket.shonenmagazine.com/title/02202/episode/446160"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 1
-    chapters:
-      - title: "【第52話(2)】相愛"
-        updated: 2026-10-31
-        access_modes: ["purchase"]
-        url: "https://pocket.shonenmagazine.com/title/02202/episode/446160"
   - work_title: "APPLE"
     author: "Ayster"
     url: "https://ichicomi.com/episode/12207421984387218979"
@@ -4898,22 +4902,22 @@ works:
     chapters:
       - title: "第9話 かっこよすぎてどうしよう"
         updated: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第8話 ありがちな感情"
         updated: 2026-09-18
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第7話 屈しない！"
         updated: 2026-08-21
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第6話 アカツキ"
         updated: 2026-07-17
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第5話 絶対そうだ！"
         updated: 2026-06-19
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第4話 うそみたいな日"
         updated: 2026-05-15
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第3話 覚悟は決まった"
         updated: 2026-04-17
         access_modes: ["free"]

@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-13
+retrieved: 2026-11-14
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 261
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 219
-  works_asked: 929
+  works_asked: 932
   works_with_a_hit: 282
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -2775,6 +2775,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-seasons.com/episode/12207421984513315666"
+    id: "w03545"
+    work: "回って避ける"
+    author: "路田行"
+    platform: "Seasons"
+    retrieved: "2026-11-14"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-seasons.com/episode/2551460909766158255"
     id: "w00391"
     work: "今夜、エーテルで待ちあわせ"
@@ -4182,6 +4192,16 @@ works:
     notes:
       - "author query answered nothing"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_021599_S"
+    id: "w03547"
+    work: "天地運輸が運んでやる！"
+    author: "トヨダガク"
+    platform: "カドコミ"
+    retrieved: "2026-11-14"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://comic-walker.com/detail/KC_021614_S"
     id: "w03524"
     work: "私の可愛いボーイッシュちゃん"
@@ -6225,6 +6245,16 @@ works:
     author: "春露彗"
     platform: "くらげバンチ"
     retrieved: "2026-11-11"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://kuragebunch.com/episode/12207421984513254028"
+    id: "w03546"
+    work: "剣×薙"
+    author: "ながれで"
+    platform: "くらげバンチ"
+    retrieved: "2026-11-14"
     hits: []
     notes:
       - "author query returned no title this database recognises"

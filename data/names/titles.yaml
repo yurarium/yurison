@@ -38631,6 +38631,24 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  パラレル床下収納:
+    basis: romaji
+    furigana_spans:
+    - - パラレル
+      - null
+    - - 床下
+      - ゆかした
+    - - 収納
+      - しゅうのう
+    reading: パラレル ユカシタ シュウノウ
+    reading_at: '2026-11-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   パルフェ:
     basis: translated
     en: Parfait
@@ -56541,6 +56559,26 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  夜海とハロゲン灯:
+    basis: romaji
+    furigana_spans:
+    - - 夜
+      - よる
+    - - 海
+      - うみ
+    - - とハロゲン
+      - null
+    - - 灯
+      - とう
+    reading: ヨル ウミ ト ハロゲントウ
+    reading_at: '2026-11-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   夜空、彼方、銀河へと。:

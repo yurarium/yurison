@@ -18700,7 +18700,14 @@ names:
     reading_source_kind: analyser
     verified: true
   つつじの工業高校聖剣工房ＤＸ:
-    basis: romaji
+    basis: translated
+    en: Tsutsuji Technical High's Holy Sword Workshop DX
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page has no English title. The story follows girls at Tsutsuji Technical High
+      School who join a club forging swords and armor. The title is translated literally and keeps DX.
     reading: ツツジ ノ コウギョウコウコウ セイ ケン コウボウ DX
     reading_at: '2026-11-12'
     reading_basis: analyser
@@ -23655,6 +23662,17 @@ names:
     note: The BOOK☆WALKER series page lists this as volume 5 of BLOODDIARY, a vampire yuri romance between
       Rue and Kurumi. もっとしたくて means 'wanting to do more', which fits the continuing romance, so it is
       rendered literally.
+    verified: false
+  もっとずっとそばにいて:
+    basis: translated
+    en: Stay Even Closer, Forever
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is Act.13, the last of 13 volumes of 彼女のくちづけ感染するリビドー (Her Kiss, an Infectious Libido) on
+      the BOOK☆WALKER series page. The page gives no synopsis, so the subtitle is translated literally
+      as a plea to stay nearer and for longer.
     verified: false
   もっとヒーローになりたい:
     basis: translated
@@ -35273,7 +35291,12 @@ names:
     reading_source: surface
     verified: true
   ソリストたちは青春不可避！:
-    basis: romaji
+    basis: translated
+    en: Soloists Can't Avoid Youth!
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - ソリストたちは
       - null
@@ -35283,6 +35306,9 @@ names:
       - ふかひ
     - - ！
       - null
+    note: The BOOK☆WALKER page has no English title. It is about four lonely problem students called soloists
+      whom their teacher tries to turn into friends. The title is translated literally, with 青春不可避 as
+      youth being unavoidable.
     reading: ソリストタチ ワ セイシュン フカヒ！
     reading_at: '2026-11-12'
     reading_basis: analyser
@@ -38632,7 +38658,12 @@ names:
     reading_source_kind: analyser
     verified: true
   パラレル床下収納:
-    basis: romaji
+    basis: translated
+    en: Parallel Underfloor Storage
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - パラレル
       - null
@@ -38640,6 +38671,9 @@ names:
       - ゆかした
     - - 収納
       - しゅうのう
+    note: The Comic Walker page has no English title. The story has a student discovering parallel worlds
+      under the floor of her room, in the place where a under-floor storage compartment would be. The
+      title is translated literally.
     reading: パラレル ユカシタ シュウノウ
     reading_at: '2026-11-13'
     reading_basis: analyser
@@ -51535,7 +51569,15 @@ names:
     reading_source_kind: analyser
     verified: false
   剣×薙:
-    basis: romaji
+    basis: translated
+    en: Sword × Naginata
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The Kuragebunch page gives no English title. It is about a kendo club member, Tsurugi (剣), facing
+      a former kendo player turned naginata fighter, Nagisa (薙). The two characters for sword and naginata
+      are translated and the × is kept.
     reading: ケン × テイ
     reading_at: '2026-11-13'
     reading_basis: analyser
@@ -51730,6 +51772,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  創作マンガ短編集:
+    basis: translated
+    en: Original Manga Short Story Collection
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page shows this as the subtitle of Migihara Short Shorts volume 1, an anthology
+      of eight short original stories. The subtitle is translated literally.
     verified: false
   創作百合:
     basis: translated
@@ -55394,7 +55446,12 @@ names:
     reading_source_kind: derived
     verified: false
   回って避ける:
-    basis: romaji
+    basis: translated
+    en: Circling to Dodge
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 回
       - まわ
@@ -55404,6 +55461,8 @@ names:
       - さ
     - - ける
       - null
+    note: The Seasons page gives no English title for this one-shot, which is told from an avoidant person's
+      view of love. The phrase is rendered literally as going around and avoiding.
     reading: マワッテ サケル
     reading_at: '2026-11-13'
     reading_basis: analyser
@@ -56562,7 +56621,12 @@ names:
     reading_source_kind: analyser
     verified: false
   夜海とハロゲン灯:
-    basis: romaji
+    basis: translated
+    en: The Night Sea and the Halogen Lamp
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 夜
       - よる
@@ -56572,6 +56636,8 @@ names:
       - null
     - - 灯
       - とう
+    note: The Comic Walker page has no English title. The synopsis casts Iwami as a halogen lamp lighting
+      Kuroka's dark, lonely world, so the title is translated literally as night sea and halogen lamp.
     reading: ヨル ウミ ト ハロゲントウ
     reading_at: '2026-11-13'
     reading_basis: analyser
@@ -57494,7 +57560,12 @@ names:
     reading_source_kind: analyser
     verified: false
   天地運輸が運んでやる！:
-    basis: romaji
+    basis: translated
+    en: Tenchi Transport Will Deliver It!
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 天地
       - てんち
@@ -57506,6 +57577,9 @@ names:
       - はこ
     - - んでやる！
       - null
+    note: The Comic Walker page gives no English title. It is a one-shot about a courier of the delivery
+      firm Tenchi Unyu who ends up carrying a princess. The title is rendered literally, keeping Tenchi
+      as the company name.
     reading: テンチ ウンユ ガ ハコンデ ヤル！
     reading_at: '2026-11-13'
     reading_basis: analyser
@@ -69081,6 +69155,16 @@ names:
     reading_reviewed: '2026-08-04'
     reading_source: yurarium
     reading_source_kind: derived
+    verified: false
+  新婚なので、止まりません:
+    basis: translated
+    en: We're Newlyweds, So We Can't Stop
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is the first volume of 女子更衣室 (The Girls' Changing Room), as listed on the BOOK☆WALKER series
+      page, which gives no English title. The volume title is translated literally.
     verified: false
   新婚百合アンソロジー:
     basis: translated
@@ -87732,7 +87816,12 @@ names:
     reading_source_kind: analyser
     verified: false
   綿ちゃんたちは恋してる。:
-    basis: romaji
+    basis: translated
+    en: Wata-chan and Friends Are in Love.
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 綿
       - めん
@@ -87742,6 +87831,9 @@ names:
       - こい
     - - してる。
       - null
+    note: The BOOK☆WALKER page lists no English title. It is a school romantic comedy about several couples,
+      with 綿 as the lead's name. The name is kept with the honorific after a hyphen, and the reading Wata
+      is a best guess.
     reading: メンチャンタチ ワ コイ シテル。
     reading_at: '2026-11-12'
     reading_basis: analyser
@@ -90442,6 +90534,16 @@ names:
     reading_source_kind: derived
     translation_note: 見えてますよ is said to someone who cannot see what everyone else can, so the line is
       about what is on show rather than about being seen.
+    verified: false
+  見えてますよ! 愛沢さん1:
+    basis: translated
+    en: I See You, Aizawa-san! Vol. 1
+    en_at: '2026-11-13'
+    en_reviewed: '2026-11-13'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is the first book of the series already named I See You, Aizawa-san! (series). The BOOK☆WALKER
+      series page was read, and the volume is named after that series with its number.
     verified: false
   見えてますよ! 愛沢さん2:
     basis: translated

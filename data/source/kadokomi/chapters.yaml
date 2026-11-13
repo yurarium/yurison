@@ -288,14 +288,17 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-13"
-    chapter_count: 52
+      next_update_undecided: true
+    chapter_count: 53
     chapters:
+      - code: "KC_0000760005600011_E"
+        title: "目隠し"
+        updated: "2026-11-13"
+        access_modes: ["free"]
+        free_until: "2026-11-17"
       - code: "KC_0000760005500011_E"
         title: "梅雨"
         updated: "2026-11-10"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0000760005400011_E"
         title: "中学卒アル"
         updated: "2026-11-06"
@@ -6701,73 +6704,45 @@ works:
       - code: "KC_0032580004100041_E"
         title: "第31話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580004100031_E"
         title: "第31話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580004100021_E"
         title: "第31話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580004100011_E"
         title: "第31話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580004000031_E"
         title: "第30話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580004000021_E"
         title: "第30話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580004000011_E"
         title: "第30話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003900031_E"
         title: "第29話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003900021_E"
         title: "第29話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003900011_E"
         title: "第29話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003800041_E"
         title: "第28話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003800031_E"
         title: "第28話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003800021_E"
         title: "第28話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003800011_E"
         title: "第28話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003700011_E"
         title: "コミックス6巻発売告知"
         updated: "2023-03-27"
@@ -6775,78 +6750,48 @@ works:
       - code: "KC_0032580003600011_E"
         title: "わたたべっ！"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003500031_E"
         title: "第27話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003500021_E"
         title: "第27話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003500011_E"
         title: "第27話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003400031_E"
         title: "第26話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003400021_E"
         title: "第26話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003400011_E"
         title: "第26話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003300011_E"
         title: "幕間 在りし日"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003200031_E"
         title: "第25話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003200021_E"
         title: "第25話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003200011_E"
         title: "第25話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003100041_E"
         title: "第24話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003100031_E"
         title: "第24話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003100021_E"
         title: "第24話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003100011_E"
         title: "第24話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580003000011_E"
         title: "コミックス5巻発売告知"
         updated: "2022-09-26"
@@ -6854,63 +6799,39 @@ works:
       - code: "KC_0032580002900031_E"
         title: "第23話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002900021_E"
         title: "第23話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002900011_E"
         title: "第23話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002800031_E"
         title: "第22話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002800021_E"
         title: "第22話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002800011_E"
         title: "第22話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002700031_E"
         title: "第21話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002700021_E"
         title: "第21話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002700011_E"
         title: "第21話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002600031_E"
         title: "第20話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002600021_E"
         title: "第20話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002600011_E"
         title: "第20話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002500011_E"
         title: "コミックス4巻発売告知"
         updated: "2022-05-27"
@@ -6918,108 +6839,66 @@ works:
       - code: "KC_0032580002400011_E"
         title: "幕間②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002300011_E"
         title: "幕間①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002200041_E"
         title: "第19話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002200031_E"
         title: "第19話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002200021_E"
         title: "第19話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002200011_E"
         title: "第19話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002100031_E"
         title: "第18話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002100021_E"
         title: "第18話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002100011_E"
         title: "第18話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002000031_E"
         title: "第17話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002000021_E"
         title: "第17話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580002000011_E"
         title: "第17話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001900041_E"
         title: "第16話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001900031_E"
         title: "第16話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001900021_E"
         title: "第16話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001900011_E"
         title: "第16話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001800041_E"
         title: "第15話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001800031_E"
         title: "第15話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001800021_E"
         title: "第15話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001800011_E"
         title: "第15話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001600041_E"
         title: "第14話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001700011_E"
         title: "コミックス3巻発売告知"
         updated: "2021-11-26"
@@ -7027,123 +6906,75 @@ works:
       - code: "KC_0032580001600031_E"
         title: "第14話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001600021_E"
         title: "第14話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001600011_E"
         title: "第14話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001500021_E"
         title: "第13話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001500011_E"
         title: "第13話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001400011_E"
         title: "幕間"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001300041_E"
         title: "第12話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001300031_E"
         title: "第12話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001300021_E"
         title: "第12話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001300011_E"
         title: "第12話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001200021_E"
         title: "第11話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001200011_E"
         title: "第11話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001100041_E"
         title: "第10話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001100031_E"
         title: "第10話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001100021_E"
         title: "第10話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001100011_E"
         title: "第10話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001000041_E"
         title: "第9話➃"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001000031_E"
         title: "第9話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001000021_E"
         title: "第9話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580001000011_E"
         title: "第9話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000900021_E"
         title: "第8話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000900011_E"
         title: "第8話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000800021_E"
         title: "第7話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000800011_E"
         title: "第7話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000700011_E"
         title: "コミックス1巻発売告知"
         updated: "2021-02-27"
@@ -7151,53 +6982,33 @@ works:
       - code: "KC_0032580000600021_E"
         title: "第6話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000600011_E"
         title: "第6話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000500041_E"
         title: "第5話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000500031_E"
         title: "第5話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000500021_E"
         title: "第5話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000500011_E"
         title: "第5話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000400041_E"
         title: "第4話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000400031_E"
         title: "第4話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000400021_E"
         title: "第4話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000400011_E"
         title: "第4話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0032580000300041_E"
         title: "第3話④"
         updated: "2024-05-25"
@@ -9706,7 +9517,7 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-26"
+      next_update_undecided: true
     chapter_count: 64
     chapters:
       - code: "KC_0044320006400021_E"
@@ -11919,38 +11730,24 @@ works:
         access_modes: ["free"]
       - code: "KC_0055060002000021_E"
         title: "#017②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060002000011_E"
         title: "#017①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001900021_E"
         title: "#016②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001900011_E"
         title: "#016①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001800021_E"
         title: "#015②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001800011_E"
         title: "#015①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001500021_E"
         title: "#014②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001700011_E"
         title: "コミックス第２巻好評発売中！"
@@ -11962,103 +11759,63 @@ works:
         access_modes: ["free"]
       - code: "KC_0055060001500011_E"
         title: "#014①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001400021_E"
         title: "#013②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001400011_E"
         title: "#013①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001300021_E"
         title: "#012②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001300011_E"
         title: "#012①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001200021_E"
         title: "#011②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001200011_E"
         title: "#011①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001100021_E"
         title: "#010②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001100011_E"
         title: "#010①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001000021_E"
         title: "#009②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060001000011_E"
         title: "#009①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000900021_E"
         title: "#008 ②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000900011_E"
         title: "#008 ①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000800021_E"
         title: "#007 ②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000800011_E"
         title: "#007 ①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000700021_E"
         title: "#006 ②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000700011_E"
         title: "#006 ①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000600021_E"
         title: "#005 ②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000600011_E"
         title: "#005 ①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000500011_E"
         title: "#004"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0055060000400011_E"
         title: "#003"
@@ -14784,9 +14541,13 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-12"
-    chapter_count: 48
+      next_update_undecided: true
+    chapter_count: 49
     chapters:
+      - code: "KC_0060920003300021_E"
+        title: "第21話後編"
+        updated: "2026-11-12"
+        access_modes: ["free"]
       - code: "KC_0060920003300011_E"
         title: "第21話前編"
         updated: "2026-10-22"
@@ -14798,8 +14559,6 @@ works:
       - code: "KC_0060920003200011_E"
         title: "第20話前編"
         updated: "2026-09-24"
-        access_modes: ["free"]
-        free_until: "2026-11-12"
       - code: "KC_0060920003100011_E"
         title: "休載イラスト"
         updated: "2026-09-10"
@@ -16503,6 +16262,7 @@ works:
         title: "第10話-1"
         updated: "2026-09-26"
         access_modes: ["free"]
+        free_until: "2026-11-14"
       - code: "KC_0066660001300021_E"
         title: "第9話-2"
         updated: "2026-08-08"
@@ -16753,6 +16513,7 @@ works:
         title: "第23話-2"
         updated: "2026-11-02"
         access_modes: ["free"]
+        free_until: "2026-11-16"
       - code: "KC_0067780003300011_E"
         title: "短編①"
         updated: "2026-10-19"
@@ -16761,6 +16522,7 @@ works:
         title: "第23話-1"
         updated: "2026-10-05"
         access_modes: ["free"]
+        free_until: "2026-11-16"
       - code: "KC_0067780003100021_E"
         title: "第22話-2"
         updated: "2026-09-21"
@@ -17006,9 +16768,13 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-13"
-    chapter_count: 30
+      next_update: "2026-11-27"
+    chapter_count: 31
     chapters:
+      - code: "KC_0067980002000021_E"
+        title: "第14話-2"
+        updated: "2026-11-13"
+        access_modes: ["free"]
       - code: "KC_0067980002000011_E"
         title: "第14話-1"
         updated: "2026-10-30"
@@ -17016,8 +16782,6 @@ works:
       - code: "KC_0067980001900021_E"
         title: "第13話-2"
         updated: "2026-10-09"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0067980001900011_E"
         title: "第13話-1"
         updated: "2026-09-25"
@@ -17516,9 +17280,13 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-13"
-    chapter_count: 25
+      next_update: "2026-11-20"
+    chapter_count: 26
     chapters:
+      - code: "KC_0071380001200011_E"
+        title: "第10話-1"
+        updated: "2026-11-13"
+        access_modes: ["free"]
       - code: "KC_0071380001100031_E"
         title: "第9話-3"
         updated: "2026-10-09"
@@ -17723,9 +17491,13 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-12"
-    chapter_count: 19
+      next_update: "2026-11-26"
+    chapter_count: 20
     chapters:
+      - code: "KC_0071980001200021_E"
+        title: "第10話後編"
+        updated: "2026-11-12"
+        access_modes: ["free"]
       - code: "KC_0071980001200011_E"
         title: "第10話前編"
         updated: "2026-10-20"
@@ -17733,8 +17505,6 @@ works:
       - code: "KC_0071980001100021_E"
         title: "第9話後編"
         updated: "2026-08-20"
-        access_modes: ["free"]
-        free_until: "2026-11-12"
       - code: "KC_0071980001100011_E"
         title: "第9話前編"
         updated: "2026-08-06"
@@ -18371,18 +18141,12 @@ works:
       - code: "KC_0084290000500021_E"
         title: "第3話-2"
         updated: "2026-10-30"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0084290000500011_E"
         title: "第3話-1"
         updated: "2026-10-30"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0084290000300021_E"
         title: "第2話-2"
         updated: "2026-10-30"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0084290000400011_E"
         title: "2話おまけ"
         updated: "2026-05-29"
@@ -18917,6 +18681,7 @@ works:
         title: "第12話"
         updated: "2026-10-31"
         access_modes: ["free"]
+        free_until: "2026-11-28"
       - code: "KC_0094880001200011_E"
         title: "第11話"
         updated: "2026-10-17"
@@ -19085,9 +18850,13 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-13"
-    chapter_count: 9
+      next_update: "2026-11-27"
+    chapter_count: 10
     chapters:
+      - code: "KC_0142760000700011_E"
+        title: "第6話前編"
+        updated: "2026-11-13"
+        access_modes: ["free"]
       - code: "KC_0142760000600021_E"
         title: "第5話後編"
         updated: "2026-10-23"
@@ -19096,8 +18865,6 @@ works:
       - code: "KC_0142760000600011_E"
         title: "第5話前編"
         updated: "2026-10-09"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0142760000500021_E"
         title: "第4話後編"
         updated: "2026-09-25"
@@ -19397,8 +19164,6 @@ works:
       - code: "KC_0181630000400011_E"
         title: "3皿目"
         updated: "2026-10-30"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0181630000300011_E"
         title: "2皿目"
         updated: "2026-07-27"
@@ -19434,9 +19199,14 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-13"
-    chapter_count: 17
+      next_update: "2026-11-20"
+    chapter_count: 18
     chapters:
+      - code: "KC_0190520001900011_E"
+        title: "第17話"
+        updated: "2026-11-13"
+        access_modes: ["free"]
+        free_until: "2026-11-24"
       - code: "KC_0190520001800011_E"
         title: "第16話"
         updated: "2026-11-06"
@@ -19701,9 +19471,13 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-13"
-    chapter_count: 11
+      next_update: "2026-12-18"
+    chapter_count: 12
     chapters:
+      - code: "KC_0196600000600021_E"
+        title: "第五話②"
+        updated: "2026-11-13"
+        access_modes: ["free"]
       - code: "KC_0196600000600011_E"
         title: "第五話①"
         updated: "2026-11-06"
@@ -19712,8 +19486,6 @@ works:
       - code: "KC_0196600000500031_E"
         title: "第四話③"
         updated: "2026-10-30"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0196600000500021_E"
         title: "第四話②"
         updated: "2026-10-23"
@@ -19795,9 +19567,14 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-13"
-    chapter_count: 12
+      next_update: "2026-11-20"
+    chapter_count: 13
     chapters:
+      - code: "KC_0199370001400011_E"
+        title: "第13話"
+        updated: "2026-11-13"
+        access_modes: ["free"]
+        free_until: "2026-11-27"
       - code: "KC_0199370001300011_E"
         title: "第12話"
         updated: "2026-11-06"
@@ -19806,8 +19583,6 @@ works:
       - code: "KC_0199370001200011_E"
         title: "第11話"
         updated: "2026-10-30"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0199370001100011_E"
         title: "第10話"
         updated: "2026-10-23"
@@ -19913,9 +19688,13 @@ works:
       retrieved: "2026-11-13"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-12"
-    chapter_count: 4
+      next_update_undecided: true
+    chapter_count: 5
     chapters:
+      - code: "KC_0200170000400021_E"
+        title: "第3話-2"
+        updated: "2026-11-12"
+        access_modes: ["free"]
       - code: "KC_0200170000400011_E"
         title: "第3話-1"
         updated: "2026-10-29"
@@ -20857,33 +20636,21 @@ works:
         updated: "2026-08-12"
       - code: "KC_0066950000700031_E"
         title: "第5話-3"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0066950000700021_E"
         title: "第5話-2"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0066950000700011_E"
         title: "第5話-1"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0066950000800031_E"
         title: "第4話-3"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0066950000800021_E"
         title: "第4話-2"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0066950000800011_E"
         title: "第4話-1"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0066950000500011_E"
         title: "コミックス1巻発売告知"
@@ -20891,18 +20658,12 @@ works:
         access_modes: ["free"]
       - code: "KC_0066950000400031_E"
         title: "第3話-3"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0066950000400021_E"
         title: "第3話-2"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0066950000400011_E"
         title: "第3話-1"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0066950000300031_E"
         title: "第2話-3"
@@ -24090,9 +23851,14 @@ works:
     tags: ["コミカライズ"]
     authors: ["万歳寿大宴会", "鵜飼有志", "ねこめたる"]
     stated_schedule:
-      next_update: "2026-11-13"
-    chapter_count: 86
+      next_update: "2026-11-27"
+    chapter_count: 87
     chapters:
+      - code: "KC_0047670003300031_E"
+        title: "第31話-3"
+        updated: "2026-11-13"
+        access_modes: ["free"]
+        free_until: "2026-11-27"
       - code: "KC_0047670003300021_E"
         title: "第31話-2"
         updated: "2026-10-23"
@@ -25327,68 +25093,42 @@ works:
       - code: "KC_0061800001000031_E"
         title: "第８話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800001000021_E"
         title: "第８話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800001000011_E"
         title: "第８話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000900031_E"
         title: "第７話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000900021_E"
         title: "第７話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000900011_E"
         title: "第７話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000800041_E"
         title: "第６話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000800031_E"
         title: "第６話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000800021_E"
         title: "第６話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000800011_E"
         title: "第６話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000700031_E"
         title: "第５話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000700021_E"
         title: "第５話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000700011_E"
         title: "第５話①"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000600011_E"
         title: "コミックス第１巻発売告知"
         updated: "2025-04-25"
@@ -25396,43 +25136,27 @@ works:
       - code: "KC_0061800000500041_E"
         title: "第４話④"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000500031_E"
         title: "第４話③"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000500021_E"
         title: "第４話②"
         updated: "2026-11-06"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000500011_E"
         title: "第４話①"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000400041_E"
         title: "第３話④"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000400031_E"
         title: "第３話③"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000400021_E"
         title: "第３話②"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000400011_E"
         title: "第３話①"
         updated: "2026-10-13"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
       - code: "KC_0061800000300031_E"
         title: "第２話③"
         updated: "2025-01-25"
@@ -25896,13 +25620,9 @@ works:
         updated: "2026-06-05"
       - code: "KC_0068450000600011_E"
         title: "第5話"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-10-30"
       - code: "KC_0068450000500011_E"
         title: "第4話"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-10-30"
       - code: "KC_0068450000400011_E"
         title: "第3話"
@@ -26157,9 +25877,14 @@ works:
     tags: ["コミカライズ", "異世界", "美少女", "女主人公", "カクヨム", "冒険", "異能力", "人外", "チート", "スローライフ", "モンスター", "MFブックス"]
     authors: ["よっしゃあっ！", "QZO。", "和狸　ナオ"]
     stated_schedule:
-      next_update: "2026-11-12"
-    chapter_count: 15
+      next_update_undecided: true
+    chapter_count: 16
     chapters:
+      - code: "KC_0066570001700011_E"
+        title: "第15話"
+        updated: "2026-11-12"
+        access_modes: ["free"]
+        free_until: "2027-01-07"
       - code: "KC_0066570001600011_E"
         title: "第14話"
         updated: "2026-08-27"
@@ -26168,8 +25893,6 @@ works:
       - code: "KC_0066570001500011_E"
         title: "第13話"
         updated: "2026-07-30"
-        access_modes: ["free"]
-        free_until: "2026-11-12"
       - code: "KC_0066570001400011_E"
         title: "第12話"
         updated: "2026-06-25"
@@ -29052,6 +28775,19 @@ works:
         title: "特別読切"
         updated: "2024-12-07"
         access_modes: ["free"]
+  - work_title: "天地運輸が運んでやる！"
+    platform_code: "KC_021599_S"
+    url: "https://comic-walker.com/detail/KC_021599_S"
+    status: "unknown"
+    marketing_label: "none"
+    tags: ["異世界", "美少女", "女主人公", "友情・仲間", "冒険", "働く女子"]
+    authors: ["トヨダガク"]
+    chapter_count: 1
+    chapters:
+      - code: "KC_0215990000200011_E"
+        title: "読切"
+        updated: "2026-11-13"
+        access_modes: ["free"]
   - work_title: "彼女は私の顔もわからない【タテスク】"
     platform_code: "KC_002229_S"
     url: "https://comic-walker.com/detail/KC_002229_S"
@@ -29755,17 +29491,19 @@ works:
     tags: ["異世界", "現代", "美少女", "女主人公", "女子高校生(JK)", "イケメン", "友情・仲間", "笑える", "癒やされる", "ハッピー", "高校生", "同居", "ギャップ女子", "ツンデレ", "泣ける", "ギャル", "オタク", "推し活", "アイドル", "和風", "配信者", "ゲーム", "音楽", "ボカロ系"]
     authors: ["米田タロウ", "スタジオクロマト・スタジオコロリド"]
     stated_schedule:
-      next_update: "2026-11-13"
-    chapter_count: 15
+      next_update: "2026-11-27"
+    chapter_count: 16
     chapters:
+      - code: "KC_0082810001000011_E"
+        title: "第8話-1"
+        updated: "2026-11-13"
+        access_modes: ["free"]
       - code: "KC_0082810000900021_E"
         title: "第7話-2"
         updated: "2026-10-23"
-        access_modes: ["free"]
       - code: "KC_0082810000900011_E"
         title: "第7話-1"
         updated: "2026-10-09"
-        access_modes: ["free"]
       - code: "KC_0082810000800021_E"
         title: "第6話-2"
         updated: "2026-09-11"
@@ -29873,13 +29611,9 @@ works:
         access_modes: ["free"]
       - code: "KC_0094910001400021_E"
         title: "第６話★らしさ②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0094910001400011_E"
         title: "第６話★らしさ①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0094910001300011_E"
         title: "特別イラスト④"
@@ -29887,8 +29621,6 @@ works:
         access_modes: ["free"]
       - code: "KC_0094910001100021_E"
         title: "第５話★これでよかったんだ②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0094910001200011_E"
         title: "特別イラスト③"
@@ -29896,8 +29628,6 @@ works:
         access_modes: ["free"]
       - code: "KC_0094910001100011_E"
         title: "第５話★これでよかったんだ①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0094910001000011_E"
         title: "コミックス第１巻発売！"
@@ -29925,8 +29655,6 @@ works:
         access_modes: ["free"]
       - code: "KC_0094910000400021_E"
         title: "第３話★生存確認②"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0094910000500011_E"
         title: "番外編①"
@@ -29934,8 +29662,6 @@ works:
         access_modes: ["free"]
       - code: "KC_0094910000400011_E"
         title: "第３話★生存確認①"
-        access_modes: ["free"]
-        free_until: "2026-11-13"
         rotated_date: "2026-11-06"
       - code: "KC_0094910000300011_E"
         title: "第２話★自分勝手と馬鹿野郎"

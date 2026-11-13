@@ -6,11 +6,43 @@ source: gigaviewer
 platform: comic-ogyaaa
 platform_name: "COMIC OGYAAA!!"
 publisher: "一迅社"
-retrieved: 2026-11-12
+retrieved: 2026-11-13
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comic_ogyaaa:episode:12207421984504089428"
+    work_title: "恋より青く"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第44話"
+    release_type: "chapter"
+    date: "2026-11-13"
+    date_basis: "observed"
+    first_seen: "2026-11-13"
+    first_reported: "2026-11-13T03:00:00Z"
+    platform_updated: "2026-11-13T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-ogyaaa.com/episode/12207421984504089428"
+    author: "深海 紺"
+    free_term_start: "2026-11-13T03:00:00Z"
+    advances_narrative: true
+  - release_id: "comic_ogyaaa:episode:12207421984504089432"
+    work_title: "まるせっせんす"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第9話 庇護"
+    release_type: "chapter"
+    date: "2026-11-13"
+    date_basis: "observed"
+    first_seen: "2026-11-13"
+    first_reported: "2026-11-13T03:00:00Z"
+    platform_updated: "2026-11-13T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-ogyaaa.com/episode/12207421984504089432"
+    author: "畳ゆか"
+    free_term_start: "2026-11-13T03:00:00Z"
+    advances_narrative: true
   - release_id: "comic_ogyaaa:episode:12207421984374790245"
     in_current_window: false
     work_title: "あの子とふたりで。"

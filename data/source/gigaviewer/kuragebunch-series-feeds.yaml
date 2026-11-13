@@ -13,8 +13,8 @@ publisher: "新潮社"
 retrieved: 2026-11-13
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 15
-series_held: 15
+series_resolved: 16
+series_held: 16
 works:
   - work_title: "さえちゃんのとなり"
     series_id: "2550912964605789737"
@@ -187,6 +187,18 @@ works:
         author: "壱弎ハルヒト"
         url: "https://kuragebunch.com/episode/14079602755594905097"
         free_from: 2023-12-26
+        access_modes: ["free"]
+  - work_title: "剣×薙"
+    series_id: "12207421984513253016"
+    url: "https://kuragebunch.com/atom/series/12207421984513253016"
+    chapter_count: 1
+    chapters:
+      - title: "剣×薙"
+        updated: 2026-11-13
+        content_id: "kennagi_yomikiri"
+        author: "ながれで"
+        url: "https://kuragebunch.com/episode/12207421984513254028"
+        free_from: 2026-11-13
         access_modes: ["free"]
   - work_title: "友達からでもいいですか"
     series_id: "12207421984030241994"

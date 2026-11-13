@@ -15,7 +15,7 @@ works:
     author: "佐藤36,煮豆シューター"
     url: "https://manga-zegra.com/series/f34aa93530b90"
     read: "2026-11-13"
-    chapter_count: 67
+    chapter_count: 68
     chapters:
       - title: "1"
         updated: "2025-07-07"
@@ -214,7 +214,10 @@ works:
         access_modes: ["free-timed"]
       - title: "23(2)"
         updated: "2026-10-30"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "23(3)"
         updated: "2026-11-06"
+        access_modes: ["free"]
+      - title: "24(1)"
+        updated: "2026-11-13"
         access_modes: ["purchase"]

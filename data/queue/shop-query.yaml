@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-12
+retrieved: 2026-11-13
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 260
+  hits_agreeing_on_a_creator: 261
   hits_on_the_title_alone: 116
-  hits_stating_a_print_edition_date: 218
-  works_asked: 926
-  works_with_a_hit: 281
+  hits_stating_a_print_edition_date: 219
+  works_asked: 929
+  works_with_a_hit: 282
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
@@ -2688,6 +2688,22 @@ works:
         printed: "2025/12/23"
         agreement: "creator"
         volumes_stated: 2
+        completed_marker: false
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984504089432"
+    id: "w00192"
+    work: "まるせっせんす"
+    author: "畳ゆか"
+    platform: "COMIC OGYAAA!!"
+    query: "author"
+    retrieved: "2026-11-13"
+    hits:
+      - series_url: null
+        title_listed: "まるせっせんす 1"
+        shop_author: "畳ゆか"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        printed: "2026/9/22"
+        agreement: "creator"
         completed_marker: false
   - work_url: "https://comic-ogyaaa.com/episode/2550689798875510910"
     id: "w00681"
@@ -6393,6 +6409,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://magcomi.com/episode/12207421984482234310"
+    id: "w03539"
+    work: "織りゆけサルデーニャ"
+    author: "今井 蓬"
+    platform: "MAGCOMI"
+    retrieved: "2026-11-13"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://magcomi.com/episode/2550689798372256224"
     id: "w00717"
     work: "【今日の10ページ】世界の終わりにエロ本と先生と。"
@@ -9166,6 +9192,16 @@ works:
     hits: []
     notes:
       - "author query answered nothing"
+      - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984475668997"
+    id: "w03541"
+    work: "あのこの冷蔵庫"
+    author: "藤原ハル"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-11-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
   - work_url: "https://tonarinoyj.jp/episode/13933686331772859580"
     id: "w00982"

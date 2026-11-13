@@ -11,7 +11,7 @@ role: provisional-claims
 retrieved: 2026-11-13
 record_type: update_claims
 window_days: 60
-claims: 414
+claims: 419
 updates:
   - work: "超かぐや姫！ 米田タロウ"
     platform: "カドコミ"
@@ -19,25 +19,192 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "超かぐや姫!"
+    platform: "カドコミ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_008281_S"
+    listing_tags: ["百合", "コミカライズ"]
   - work: "超かぐやメシ！ テルヤ / 山下清悟 / フジヤマルリ"
     platform: "ビビビコミック"
     date: 2026-11-13
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "誰が駒鳥逃がしたの?"
+    platform: "COMIC ポルタ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-porta.com/series/8449/"
+    listing_tags: ["百合"]
+  - work: "見える子ちゃん"
+    platform: "ニコニコ漫画"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga.nicovideo.jp/comic/37662"
+    listing_tags: ["女子高生", "オカルト", "ホラー", "幽霊", "百合"]
+  - work: "球詠"
+    platform: "COMIC FUZ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/441"
+    listing_tags: ["野球", "女子高生", "アニメ化", "百合"]
+  - work: "猫に白鳥、蛍に小判"
+    platform: "カドコミ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_006798_S"
+    listing_tags: ["百合", "女子高生"]
+  - work: "春雷卓球"
+    platform: "少年ジャンプ+"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://shonenjumpplus.com/episode/17107094912913096422"
+    listing_tags: ["最近のコメント数"]
+  - work: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します"
+    platform: "カドコミ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_019660_S"
+    listing_tags: ["百合", "筋肉", "ファンタジー", "転生", "ギャグ・コメディ"]
+  - work: "悪役令嬢のお嫁さま"
+    platform: "Seasons"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-seasons.com/episode/2550912965184704375"
+    listing_tags: ["悪役令嬢", "婚約破棄", "百合", "異種族・人外"]
   - work: "恋より青く 深海 紺"
     platform: "コミックオギャー!!"
     date: 2026-11-13
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "恋より青く"
+    platform: "COMIC OGYAAA!!"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-ogyaaa.com/episode/4856001361171643976"
+    listing_tags: ["百合", "現代", "女子高生"]
+  - work: "志乃と恋"
+    platform: "カドコミ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_000076_S"
+    listing_tags: ["百合"]
+  - work: "天地運輸が運んでやる!"
+    platform: "カドコミ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_021599_S"
+    listing_tags: ["百合", "読み切り"]
+  - work: "回って避ける"
+    platform: "Seasons"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-seasons.com/episode/12207421984513315666"
+    listing_tags: ["百合", "読み切り"]
+  - work: "君となら、明日を歌えるの 葛城かなで"
+    platform: "カドコミ"
+    date: 2026-11-13
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "君となら、明日を歌えるの"
+    platform: "カドコミ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_007138_S"
+    listing_tags: ["百合"]
+  - work: "剣×薙"
+    platform: "くらげバンチ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://kuragebunch.com/episode/12207421984513254028"
+    listing_tags: ["百合", "読み切り"]
+  - work: "付き合ってあげてもいいかな"
+    platform: "マンガワン"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-one.com/viewer/70173"
+    listing_tags: ["百合", "大学生", "実写化"]
+  - work: "イジめてイジられて"
+    platform: "ニコニコ漫画"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga.nicovideo.jp/comic/83472"
+    listing_tags: ["百合", "ラブコメ"]
+  - work: "まるせっせんす"
+    platform: "COMIC OGYAAA!!"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-ogyaaa.com/episode/12207421983372421766"
+    listing_tags: ["百合", "サスペンス", "姉妹", "犯罪"]
+  - work: "はぐれアイドル地獄変"
+    platform: "ゴラクエッグ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://gorakuweb.com/episode/4632579990158199795"
+    listing_tags: ["アニメ化", "百合", "格闘技"]
+  - work: "てくのぱにっくゆにばーす"
+    platform: "サンデーうぇぶり"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.sunday-webry.com/episode/2551460909679507683"
+    listing_tags: ["百合", "SF", "ギャグ・コメディ", "ロボ・人造人間", "発明", "大学生", "教師"]
+  - work: "さざめとりお"
+    platform: "カドコミ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_019937_S"
+    listing_tags: ["百合"]
+  - work: "かわいい同盟"
+    platform: "裏サンデー"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://urasunday.com/title/26962"
+    listing_tags: ["百合", "学園", "女子高生", "女装", "社会派"]
+  - work: "お嬢様、懺悔する。"
+    platform: "コミックトレイル"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-trail.com/episode/2551460909758971055"
+    listing_tags: ["百合"]
+  - work: "うさぎはかく語りき"
+    platform: "COMIC FUZ"
+    date: 2026-11-13
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3572"
+    listing_tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
   - work: "魔女とくゅらす"
     platform: "HERO'S Web"
     date: 2026-11-12
     source: "webcomics.jp"
     provenance: claimed
     url: "https://heros-web.com/series/2b64bc0622a2a"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
   - work: "運命は役に立たない"
     platform: "花とゆめ+"
     date: 2026-11-12
@@ -72,13 +239,6 @@ updates:
     provenance: claimed
     url: "https://g-comi.jp/series/7e3c698bca968"
     listing_tags: ["百合", "エロ"]
-  - work: "球詠"
-    platform: "COMIC FUZ"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/441"
-    listing_tags: ["野球", "女子高生", "アニメ化", "百合"]
   - work: "海のみちるごはん 花宮みぃ"
     platform: "きららベース"
     date: 2026-11-12
@@ -91,13 +251,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "春雷卓球"
-    platform: "少年ジャンプ+"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://shonenjumpplus.com/episode/17107094912913096422"
-    listing_tags: ["女子高生", "運動系部活", "百合", "スポーツ", "卓球"]
   - work: "拝啓、在りし日に咲く花たちへ 五十嵐純"
     platform: "カドコミ"
     date: 2026-11-12
@@ -118,13 +271,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_020017_S"
     listing_tags: ["百合", "ホラー"]
-  - work: "付き合ってあげてもいいかな"
-    platform: "マンガワン"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-one.com/viewer/70173"
-    listing_tags: ["百合", "大学生", "実写化"]
   - work: "今日はカノジョがいないから 岩見樹代子"
     platform: "一迅プラス"
     date: 2026-11-12
@@ -164,20 +310,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "はぐれアイドル地獄変"
-    platform: "ゴラクエッグ"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://gorakuweb.com/episode/4632579990158199795"
-    listing_tags: ["アニメ化", "百合", "格闘技"]
-  - work: "てくのぱにっくゆにばーす"
-    platform: "サンデーうぇぶり"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.sunday-webry.com/episode/2551460909679507683"
-    listing_tags: ["百合", "SF", "ギャグ・コメディ", "ロボ・人造人間", "発明", "大学生", "教師"]
   - work: "ぜんぶ壊して地獄で愛して くわばらたもつ"
     platform: "一迅プラス"
     date: 2026-11-12
@@ -197,21 +329,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/03349"
-    listing_tags: ["最近のコメント数"]
-  - work: "かわいい同盟"
-    platform: "裏サンデー"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://urasunday.com/title/26962"
-    listing_tags: ["百合", "学園", "女子高生", "女装", "社会派"]
-  - work: "うさぎはかく語りき"
-    platform: "COMIC FUZ"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3572"
-    listing_tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
+    listing_tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - work: "あのこの冷蔵庫"
     platform: "ヤンジャン+"
     date: 2026-11-12
@@ -267,7 +385,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/02758"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
   - work: "サタノファニ"
     platform: "ヤンマガWeb"
     date: 2026-11-11
@@ -363,14 +481,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-days.com/episode/12207421984435356104"
-    listing_tags: ["最近のコメント数"]
-  - work: "志乃と恋"
-    platform: "カドコミ"
-    date: 2026-11-10
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_000076_S"
-    listing_tags: ["百合"]
+    listing_tags: ["百合", "怪獣", "推し活"]
   - work: "彩純ちゃんはレズ風俗に興味があります!"
     platform: "ニコニコ漫画"
     date: 2026-11-10
@@ -419,7 +530,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://kuragebunch.com/episode/12207421984481017713"
-    listing_tags: ["百合"]
+    listing_tags: ["最近のコメント数"]
   - work: "バクガタリzzZ 鰤尾みちる"
     platform: "カドコミ"
     date: 2026-11-10
@@ -753,13 +864,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021486_S"
     listing_tags: ["百合"]
-  - work: "悪役令嬢覇王伝 転生したら身長245cm体重210kgの恵体でした。だから無双します"
-    platform: "カドコミ"
-    date: 2026-11-06
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_019660_S"
-    listing_tags: ["百合", "筋肉", "ファンタジー", "転生", "ギャグ・コメディ"]
   - work: "夢でフラれてはじまる百合"
     platform: "ニコニコ漫画"
     date: 2026-11-06
@@ -814,13 +918,6 @@ updates:
     provenance: claimed
     url: "https://g-comi.jp/series/58238b3987c11"
     listing_tags: ["百合", "ファンタジー", "エルフ・ハーフエルフ", "魔女", "料理・グルメ"]
-  - work: "イジめてイジられて"
-    platform: "ニコニコ漫画"
-    date: 2026-11-06
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/83472"
-    listing_tags: ["百合", "ラブコメ"]
   - work: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     platform: "webアクション"
     date: 2026-11-06
@@ -828,13 +925,6 @@ updates:
     provenance: claimed
     url: "https://comic-action.com/episode/2550912964579811935"
     listing_tags: ["百合", "ギャグ・コメディ", "宇宙人"]
-  - work: "さざめとりお"
-    platform: "カドコミ"
-    date: 2026-11-06
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_019937_S"
-    listing_tags: ["百合"]
   - work: "かわいい同盟"
     platform: "マンガワン"
     date: 2026-11-06
@@ -1333,13 +1423,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "猫に白鳥、蛍に小判"
-    platform: "カドコミ"
-    date: 2026-10-30
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_006798_S"
-    listing_tags: ["百合", "女子高生"]
   - work: "狼の皮をかぶった羊姫"
     platform: "竹コミ‎‏‎"
     date: 2026-10-30
@@ -1905,13 +1988,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "超かぐや姫!"
-    platform: "カドコミ"
-    date: 2026-10-23
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_008281_S"
-    listing_tags: ["百合", "コミカライズ"]
   - work: "暗殺組合の山田さん"
     platform: "キミコミ"
     date: 2026-10-23
@@ -1919,13 +1995,6 @@ updates:
     provenance: claimed
     url: "https://kimicomi.com/series/397963f4f9cfd"
     listing_tags: ["百合", "暗殺者・殺し屋"]
-  - work: "悪役令嬢のお嫁さま"
-    platform: "Seasons"
-    date: 2026-10-23
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-seasons.com/episode/2550912965184704375"
-    listing_tags: ["悪役令嬢", "婚約破棄", "百合", "異種族・人外"]
   - work: "君とは一緒に死ねない～警視庁怪異調査室～"
     platform: "MAGCOMI"
     date: 2026-10-23
@@ -1961,13 +2030,6 @@ updates:
     provenance: claimed
     url: "https://g-comi.jp/series/fef424c168c44"
     listing_tags: ["百合", "先輩と後輩", "大学生"]
-  - work: "お嬢様、懺悔する。"
-    platform: "コミックトレイル"
-    date: 2026-10-23
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-trail.com/episode/2551460909758971055"
-    listing_tags: ["百合"]
   - work: "骨に願いを、星に呪いを"
     platform: "一迅プラス"
     date: 2026-10-22
@@ -2388,33 +2450,12 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/67095"
     listing_tags: ["百合"]
-  - work: "見える子ちゃん"
-    platform: "ニコニコ漫画"
-    date: 2026-10-09
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/37662"
-    listing_tags: ["女子高生", "オカルト", "ホラー", "幽霊", "百合"]
   - work: "白き乙女の人狼"
     platform: "竹コミ‎‏‎"
     date: 2026-10-09
     source: "webcomics.jp"
     provenance: claimed
     url: "https://takecomic.jp/series/d8e8c084c4c6c"
-    listing_tags: ["百合"]
-  - work: "恋より青く"
-    platform: "COMIC OGYAAA!!"
-    date: 2026-10-09
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-ogyaaa.com/episode/4856001361171643976"
-    listing_tags: ["百合", "現代", "女子高生"]
-  - work: "君となら、明日を歌えるの"
-    platform: "カドコミ"
-    date: 2026-10-09
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_007138_S"
     listing_tags: ["百合"]
   - work: "七限目は忍者修行です!"
     platform: "カドコミ"
@@ -2423,13 +2464,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_007122_S"
     listing_tags: ["百合", "忍者", "ギャグ・コメディ", "女子高生", "完結"]
-  - work: "まるせっせんす"
-    platform: "COMIC OGYAAA!!"
-    date: 2026-10-09
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-ogyaaa.com/episode/12207421983372421766"
-    listing_tags: ["百合", "サスペンス", "姉妹", "犯罪"]
   - work: "ぷれいめ～と"
     platform: "カドコミ"
     date: 2026-10-09

@@ -39,11 +39,11 @@ sources:
     consecutive: 0
   cmoa-shelf:
     stage: stage-print
-    consecutive: 64
+    consecutive: 65
     last_failed: '2026-11-13'
     failing_since: '2026-10-16'
     error: 'net.Refused: www.cmoa.jp refused https://www.cmoa.jp/search/result/?genre_id=0000037&sort=14&page=1: HTTP 503 after 5 attempt(s)'
-    last_run: https://github.com/yurarium/yurison/actions/runs/43314745208
+    last_run: https://github.com/yurarium/yurison/actions/runs/43412326001
   cmoa-volumes:
     stage: stage-print
     last_ok: '2026-11-13'
@@ -77,6 +77,10 @@ sources:
     last_ok: '2026-11-13'
     consecutive: 0
   fieldaudit:COMIC OGYAAA!!:
+    stage: checks
+    last_ok: '2026-11-13'
+    consecutive: 0
+  fieldaudit:COMICリュウ:
     stage: checks
     last_ok: '2026-11-13'
     consecutive: 0
@@ -484,13 +488,10 @@ sources:
     consecutive: 0
   shopquery:
     stage: stage-post
-    consecutive: 2
+    consecutive: 0
     last_failed: '2026-11-13'
     last_run: https://github.com/yurarium/yurison/actions/runs/43314745208
-    last_ok: '2026-11-12'
-    failing_since: '2026-11-12'
-    error: 'HEALTH: 1 of 1 works had every query answer nothing (over the 35% ceiling). This shop says ''no results'' with a 404, so a run being refused looks exactly like a shop with no stock. Refusing
-      to write.'
+    last_ok: '2026-11-13'
   sitemap:
     stage: stage-a
     last_ok: '2026-11-13'
@@ -665,18 +666,18 @@ sources:
     consecutive: 0
   stale:stage-print:cmoa-shelf:
     stage: freshness
-    consecutive: 64
+    consecutive: 65
     last_failed: '2026-11-13'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-yuri.yaml dated 2026-08-04
-    last_run: https://github.com/yurarium/yurison/actions/runs/43314745208
+    last_run: https://github.com/yurarium/yurison/actions/runs/43412326001
   stale:stage-print:cmoa-volumes:
     stage: freshness
-    consecutive: 64
+    consecutive: 65
     last_failed: '2026-11-13'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-volumes.yaml dated 2026-08-05
-    last_run: https://github.com/yurarium/yurison/actions/runs/43314745208
+    last_run: https://github.com/yurarium/yurison/actions/runs/43412326001
   stale:stage-print:madb-*:
     stage: freshness
     last_ok: '2026-11-13'
@@ -699,11 +700,11 @@ sources:
     consecutive: 0
   stale:stage-print:shop-volume-names:
     stage: freshness
-    consecutive: 12
+    consecutive: 13
     last_failed: '2026-11-13'
     failing_since: '2026-11-09'
     error: 1 file(s) past their age, e.g. data/source/comparators/shop-volume-names.yaml dated 2026-08-05
-    last_run: https://github.com/yurarium/yurison/actions/runs/43314745208
+    last_run: https://github.com/yurarium/yurison/actions/runs/43412326001
   webcomics-coverage:
     stage: stage-0
     last_ok: '2026-11-13'

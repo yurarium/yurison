@@ -13,8 +13,8 @@ publisher: ""
 retrieved: 2026-11-13
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 2
-series_held: 3
+series_resolved: 3
+series_held: 4
 works:
   - work_title: "今夜、エーテルで待ちあわせ"
     series_id: "12207421983858392884"
@@ -45,22 +45,34 @@ works:
         url: "https://comic-seasons.com/episode/12207421983858404523"
         free_from: 2026-07-17
         access_modes: ["free"]
+  - work_title: "回って避ける"
+    series_id: "12207421984513305450"
+    url: "https://comic-seasons.com/atom/series/12207421984513305450"
+    chapter_count: 1
+    chapters:
+      - title: "読み切り"
+        updated: 2026-11-13
+        content_id: "mawatteyokeru"
+        author: "路田行"
+        url: "https://comic-seasons.com/episode/12207421984513315666"
+        free_from: 2026-11-13
+        access_modes: ["free"]
   - work_title: "悪役令嬢のお嫁さま"
     series_id: "2550912965184685912"
     url: "https://comic-seasons.com/atom/series/2550912965184685912"
     chapter_count: 22
     chapters:
+      - title: "第19話 後編"
+        updated: 2026-11-13
+        author: "かわのあきこ"
+        url: "https://comic-seasons.com/episode/12207421984340714671"
+        free_from: 2026-11-13
+        access_modes: ["free"]
       - title: "第19話 前編"
         updated: 2026-10-23
         author: "かわのあきこ"
         url: "https://comic-seasons.com/episode/12207421984340714666"
         free_from: 2026-10-23
-        access_modes: ["free"]
-      - title: "第18話 後編"
-        updated: 2026-10-09
-        author: "かわのあきこ"
-        url: "https://comic-seasons.com/episode/12207421984340714654"
-        free_from: 2026-10-09
         access_modes: ["free"]
       - title: "第10話 後編"
         updated: 2025-12-26

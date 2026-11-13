@@ -6,11 +6,43 @@ source: gigaviewer
 platform: comic-seasons
 platform_name: "Seasons"
 publisher: ""
-retrieved: 2026-11-12
+retrieved: 2026-11-13
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "seasons:episode:12207421984340714671"
+    work_title: "悪役令嬢のお嫁さま"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第19話 後編"
+    release_type: "chapter"
+    date: "2026-11-13"
+    date_basis: "observed"
+    first_seen: "2026-11-13"
+    first_reported: "2026-11-13T03:00:00Z"
+    platform_updated: "2026-11-13T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-seasons.com/episode/12207421984340714671"
+    author: "かわのあきこ"
+    free_term_start: "2026-11-13T03:00:00Z"
+    advances_narrative: true
+  - release_id: "seasons:episode:12207421984513315666"
+    work_title: "回って避ける"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "読み切り"
+    release_type: "oneshot"
+    date: "2026-11-13"
+    date_basis: "observed"
+    first_seen: "2026-11-13"
+    first_reported: "2026-11-13T03:00:00Z"
+    platform_updated: "2026-11-13T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-seasons.com/episode/12207421984513315666"
+    author: "路田行"
+    free_term_start: "2026-11-13T03:00:00Z"
+    advances_narrative: true
   - release_id: "seasons:episode:12207421984340714666"
     in_current_window: false
     work_title: "悪役令嬢のお嫁さま"

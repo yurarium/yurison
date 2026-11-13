@@ -353,7 +353,7 @@ works:
     author: "喜月かこ"
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
     read: "2026-11-13"
-    chapter_count: 12
+    chapter_count: 13
     chapters:
       - title: "第1話"
         updated: "2026-09-17"
@@ -387,7 +387,10 @@ works:
         access_modes: ["free-timed"]
       - title: "第11話"
         updated: "2026-09-17"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "番外編"
         updated: "2026-09-17"
+        access_modes: ["free"]
+      - title: "第12話"
+        updated: "2026-11-13"
         access_modes: ["purchase"]

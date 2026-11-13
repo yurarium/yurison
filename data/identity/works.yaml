@@ -23136,6 +23136,18 @@ works:
     title: "あのこの冷蔵庫"
     anchors:
       - "web:https://ynjn.jp/title/41277"
+  - id: w03542
+    title: null
+    anchors:
+      - "madb:bw-8dccbb25-d5cb-4964-8628-cc915225506d"
+  - id: w03543
+    title: null
+    anchors:
+      - "madb:bw-cc675702-a98e-4ecf-8ef4-0da070189565"
+  - id: w03544
+    title: null
+    anchors:
+      - "madb:bw-e252d0b3-c5ff-4ad6-9a51-8fa69b259c0f"
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a
@@ -23157,6 +23169,28 @@ works:
       - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984475668612"
         basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984475668997 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984475668612, so the platform places this chapter in series 12207421984475668612"
         retrieved: 2026-11-12
+  - id: w03545
+    title: "回って避ける"
+    anchors:
+      - "web:https://comic-seasons.com/episode/12207421984513315666"
+      - "web:https://comic-seasons.com/atom/series/12207421984513305450"
+    attached:
+      - anchor: "web:https://comic-seasons.com/atom/series/12207421984513305450"
+        basis: "the chapter page at https://comic-seasons.com/episode/12207421984513315666 links its own series feed at https://comic-seasons.com/atom/series/12207421984513305450, so the platform places this chapter in series 12207421984513305450"
+        retrieved: 2026-11-13
+  - id: w03546
+    title: "剣×薙"
+    anchors:
+      - "web:https://kuragebunch.com/episode/12207421984513254028"
+      - "web:https://kuragebunch.com/atom/series/12207421984513253016"
+    attached:
+      - anchor: "web:https://kuragebunch.com/atom/series/12207421984513253016"
+        basis: "the chapter page at https://kuragebunch.com/episode/12207421984513254028 links its own series feed at https://kuragebunch.com/atom/series/12207421984513253016, so the platform places this chapter in series 12207421984513253016"
+        retrieved: 2026-11-13
+  - id: w03547
+    title: "天地運輸が運んでやる！"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_021599_S"
 related:
   - a: w00156
     b: w00486

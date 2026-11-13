@@ -1,4 +1,4 @@
-generated: '2026-11-12'
+generated: '2026-11-13'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -51516,6 +51516,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  剣×薙:
+    basis: romaji
+    reading: ケン × テイ
+    reading_at: '2026-11-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   剣と魔法と愛しい君と:
     basis: translated
     en: Swords, Magic, and You, My Love
@@ -55364,6 +55375,27 @@ names:
     reading_source: yurarium
     reading_source_kind: derived
     verified: false
+  回って避ける:
+    basis: romaji
+    furigana_spans:
+    - - 回
+      - まわ
+    - - って
+      - null
+    - - 避
+      - さ
+    - - ける
+      - null
+    reading: マワッテ サケル
+    reading_at: '2026-11-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   因縁の対決と天狗の弟子:
     basis: translated
     en: The Fated Showdown and the Tengu's Apprentice
@@ -57421,6 +57453,28 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  天地運輸が運んでやる！:
+    basis: romaji
+    furigana_spans:
+    - - 天地
+      - てんち
+    - - 運輸
+      - うんゆ
+    - - が
+      - null
+    - - 運
+      - はこ
+    - - んでやる！
+      - null
+    reading: テンチ ウンユ ガ ハコンデ ヤル！
+    reading_at: '2026-11-13'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   天才を描く:

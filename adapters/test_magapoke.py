@@ -185,6 +185,13 @@ def main(s):
     ])
     s.eq(ids, {"195": "将来的に死んでくれ", "3125": "怨霊日和"},
          "targets come from the URLs we already hold, and only from this platform's")
+    cand = {"source": "x", "candidates": [
+        {"title": "瑠夏と杏珠の逃避行", "urls": ["https://pocket.shonenmagazine.com/title/03368"]}]}
+    s.eq(magapoke.title_ids(magapoke.listed(cand)), {"3368": "瑠夏と杏珠の逃避行"},
+         "a series the candidate list names is a target before any source file names it")
+    s.eq(len(magapoke.listed({"works": [{"url": "a"}], "candidates": [{"url": "b"}]})), 2,
+         "and a file holding both lists gives both")
+    s.eq(magapoke.listed(["not", "a", "file"]), [], "a file of another shape names nothing")
 
 
 if __name__ == "__main__":

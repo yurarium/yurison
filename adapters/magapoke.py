@@ -354,6 +354,20 @@ def carry_over(path, fetched_ids):
     return keep
 
 
+def listed(doc):
+    """The work records a target file holds: a source file's `works`, or the candidate list's.
+
+    THE CANDIDATE LIST IS READ BECAUSE STAGE 0 WRITES IT AND STAGE A RUNS ITS ADAPTERS SIDE BY SIDE.
+    The source files only name a new series once another Stage A adapter has written it, which is
+    a race this adapter loses. 瑠夏と杏珠の逃避行 arrived on 2026-11-14 through the sitemap with
+    第2話 alone, and its 第1話, which is what makes a reader see a new series, waited ten hours
+    for the next run. The candidates were written before Stage A started and named the series.
+    """
+    if not isinstance(doc, dict):
+        return []
+    return (doc.get("works") or []) + (doc.get("candidates") or [])
+
+
 def chapters_main(argv=None):
     """Fetch each マガポケ series feed and write the chapters the platform lists for it."""
     import argparse, datetime, glob, json, pathlib, time, urllib.request
@@ -361,7 +375,8 @@ def chapters_main(argv=None):
 
     ap = argparse.ArgumentParser(description="マガポケ series feeds: titles and dates per episode")
     ap.add_argument("--targets", nargs="*", default=["data/source/webpages/*.yaml",
-                                                     "data/coverage/magapoke-lengths.yaml"],
+                                                     "data/coverage/magapoke-lengths.yaml",
+                                                     "data/coverage/candidates.yaml"],
                     help="glob patterns of files whose works name マガポケ series URLs")
     ap.add_argument("--out", default="data/source/webpages/magapoke-feeds.yaml")
     ap.add_argument("--retrieved", default=datetime.date.today().isoformat())
@@ -376,9 +391,8 @@ def chapters_main(argv=None):
                 d = yaml.safe_load(pathlib.Path(f).read_text())
             except Exception:                                                    # noqa: BLE001
                 continue
-            if isinstance(d, dict):
-                for tid, name in title_ids(d.get("works")).items():
-                    wanted.setdefault(tid, name)
+            for tid, name in title_ids(listed(d)).items():
+                wanted.setdefault(tid, name)
 
     ua = "yurarium/0.1 (bibliographic database; +https://yurarium.github.io/)"
     works, failed, corrected = [], [], 0

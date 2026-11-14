@@ -26,7 +26,7 @@
 # `credits sharing a reading nobody has ruled on`, so a newly sourced reading that puts two credits
 # together arrives as a number that has risen.
 retrieved: 2026-08-09
-count: 270
+count: 271
 rulings:
   - reading: "4kaエンピツ"
     surfaces:
@@ -453,6 +453,14 @@ rulings:
     decision: "merge"
     keep: "得能正太郎"
     basis: "トクノウショウタロウ is the whole of that reading written in kana, and it credits no work of its own. A source states both forms in one credit field, `得能正太郎 / トクノウショウタロウ`, where the slash is also what separates two people, so the store kept each half as a credit of its own. `credits.dedupe` already keeps the second form out of the credit a reader is shown. 得能正太郎 credits 1 work(s), among them IDOL×IDOL STORY！. Nothing was minted for the second spelling, so it is attached to the identifier the first holds and any later run that meets it in a credit field resolves to the same address."
+  - reading: "トヨダガク"
+    surfaces:
+      - "とよだ伽玖"
+      - "トヨダガク"
+    shape: "kana-reading"
+    decision: "merge"
+    keep: "とよだ伽玖"
+    basis: "One artist under two spellings of one pen name, by the artist's own account: their Pixiv page lists both works, as the project owner found on 2026-11-14. とよだ伽玖 credits 唯一無二の天使たち (ナンバーナイン, 百合コレ), and まんが王国 files that name under the kana トヨダガク. トヨダガク credits the カドコミ one-shot 天地運輸が運んでやる！, first seen 2026-11-13. The two houses share nothing, so the reading alone would not have settled it; the artist's page does. とよだ伽玖 survives because it holds the older identifier, c02053, and トヨダガク's c02473 is retired into it and keeps resolving."
   - reading: "ドクタペパコ"
     surfaces:
       - "毒田ぺパ子"

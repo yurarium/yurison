@@ -16,123 +16,6 @@ identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
-  - work_title: "アイ・ヘイ・チュー!"
-    url: "https://pocket.shonenmagazine.com/title/03273"
-    stated_schedule:
-      cadence: "毎月第2土曜"
-    chapter_count: 7
-    chapters:
-      - title: "【第7話】餅の焼く先"
-        updated: 2026-11-09
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第6話】今に木阿弥"
-        updated: 2026-10-08
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第5話】罪のお味は"
-        updated: 2026-09-09
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第4話】水泡にすら帰さず"
-        updated: 2026-08-07
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第3話】手も品も変えるな"
-        updated: 2026-08-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】悪夢にも勝る"
-        updated: 2026-07-09
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】垂涎に反吐"
-        updated: 2026-06-09
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "オカルトタイムズ"
-    author: "いどんち"
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    stated_schedule:
-      cadence: "毎週土曜"
-      next_update: "2026-11-21"
-    chapter_count: 10
-    chapters:
-      - title: "【第27話】百人一首がおにあいどす"
-        updated: 2026-11-11
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第26.5話】キョンシー・アンド・トリート"
-        updated: 2026-10-14
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第26話】化けの皮切り"
-        updated: 2026-09-30
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第25話】厄立たずの新聞 後編"
-        updated: 2026-09-02
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第24.5話】メイド・イン・学園祭！"
-        updated: 2026-08-05
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第5話】UMAい話にご用心"
-        updated: 2026-06-30
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第4話】山に潜む獣"
-        updated: 2026-06-30
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話】空からの侵略者"
-        updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】暗闇に響く声"
-        updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】ハザマ学園怪奇新聞部"
-        updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "御贖事処 煮るばあな"
-    author: "城生"
-    url: "https://pocket.shonenmagazine.com/title/03292"
-    stated_schedule:
-      cadence: "毎月第2土曜"
-    chapter_count: 5
-    chapters:
-      - title: "【四膳目(2)】覚醒"
-        updated: 2026-11-09
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【四膳目(1)】覚醒"
-        updated: 2026-11-09
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【三膳目】拉致られっ娘!?"
-        updated: 2026-10-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【二膳目】てんやわんやの初出勤♪"
-        updated: 2026-09-09
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【一膳目】御贖事処にご案内～"
-        updated: 2026-08-07
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "将来的に死んでくれ"
     author: "長門知大"
     url: "https://pocket.shonenmagazine.com/title/00195"
@@ -1711,6 +1594,94 @@ works:
         updated: 2026-07-09
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "アイ・ヘイ・チュー!"
+    url: "https://pocket.shonenmagazine.com/title/03273"
+    stated_schedule:
+      cadence: "毎月第2土曜"
+    chapter_count: 7
+    chapters:
+      - title: "【第7話】餅の焼く先"
+        updated: 2026-11-09
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第6話】今に木阿弥"
+        updated: 2026-10-08
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第5話】罪のお味は"
+        updated: 2026-09-09
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第4話】水泡にすら帰さず"
+        updated: 2026-08-07
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【第3話】手も品も変えるな"
+        updated: 2026-08-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】悪夢にも勝る"
+        updated: 2026-07-09
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】垂涎に反吐"
+        updated: 2026-06-09
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "オカルトタイムズ"
+    author: "いどんち"
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    stated_schedule:
+      cadence: "毎週土曜"
+      next_update: "2026-11-21"
+    chapter_count: 10
+    chapters:
+      - title: "【第27話】百人一首がおにあいどす"
+        updated: 2026-11-11
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第26.5話】キョンシー・アンド・トリート"
+        updated: 2026-10-14
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第26話】化けの皮切り"
+        updated: 2026-09-30
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【第25話】厄立たずの新聞 後編"
+        updated: 2026-09-02
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【第24.5話】メイド・イン・学園祭！"
+        updated: 2026-08-05
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第5話】UMAい話にご用心"
+        updated: 2026-06-30
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第4話】山に潜む獣"
+        updated: 2026-06-30
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話】空からの侵略者"
+        updated: 2026-06-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】暗闇に響く声"
+        updated: 2026-06-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】ハザマ学園怪奇新聞部"
+        updated: 2026-06-30
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "ぎるてぃらいぶらり"
     author: "閉伊川広輔"
     url: "https://pocket.shonenmagazine.com/title/03349"
@@ -1755,6 +1726,35 @@ works:
     chapters:
       - title: "【特別読み切り】"
         updated: 2026-08-18
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "御贖事処 煮るばあな"
+    author: "城生"
+    url: "https://pocket.shonenmagazine.com/title/03292"
+    stated_schedule:
+      cadence: "毎月第2土曜"
+    chapter_count: 5
+    chapters:
+      - title: "【四膳目(2)】覚醒"
+        updated: 2026-11-09
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【四膳目(1)】覚醒"
+        updated: 2026-11-09
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【三膳目】拉致られっ娘!?"
+        updated: 2026-10-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【二膳目】てんやわんやの初出勤♪"
+        updated: 2026-09-09
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【一膳目】御贖事処にご案内～"
+        updated: 2026-08-07
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "魔法少女は嘘をつく"

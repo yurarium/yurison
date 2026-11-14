@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 261
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 219
-  works_asked: 932
+  works_asked: 934
   works_with_a_hit: 282
 works:
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
@@ -4202,6 +4202,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_021601_S"
+    id: "w03548"
+    work: "夜海とハロゲン灯"
+    author: "西山西子"
+    platform: "カドコミ"
+    retrieved: "2026-11-14"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://comic-walker.com/detail/KC_021614_S"
     id: "w03524"
     work: "私の可愛いボーイッシュちゃん"
@@ -4212,6 +4222,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_021644_S"
+    id: "w03549"
+    work: "パラレル床下収納"
+    author: "倉成 里緒"
+    platform: "カドコミ"
+    retrieved: "2026-11-14"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
   - work_url: "https://comic-y-ours.com/episode/12207421983394553051"
     id: "w03296"
     work: "アンラッキースケベ"

@@ -1,4 +1,4 @@
-generated: '2026-11-13'
+generated: '2026-11-14'
 names:
   '*sow*':
     basis: stated
@@ -30662,6 +30662,22 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/10191
+    verified: false
+  清水幸:
+    basis: romaji
+    furigana_spans:
+    - - 清水
+      - しみず
+    - - 幸
+      - みゆき
+    reading: シミズミユキ
+    reading_at: '2026-11-14'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   清田哲平:
     basis: romaji

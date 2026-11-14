@@ -12,17 +12,21 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-11-14
+retrieved: 2026-11-15
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
   - work_title: "瑠夏と杏珠の逃避行"
     author: "清水幸"
-    url: "https://pocket.shonenmagazine.com/title/03368/episode/446347"
+    url: "https://pocket.shonenmagazine.com/title/03368/episode/446346"
     platform_name: "マガポケ"
     route: "magapoke-episode"
-    chapter_count: 1
+    chapter_count: 2
     chapters:
+      - title: "【第1話】"
+        updated: 2026-11-14
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03368/episode/446346"
       - title: "【第2話】"
         updated: 2026-11-14
         access_modes: ["purchase"]

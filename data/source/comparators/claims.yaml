@@ -8,10 +8,10 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-14
+retrieved: 2026-11-15
 record_type: update_claims
 window_days: 60
-claims: 422
+claims: 420
 updates:
   - work: "雨夜の月"
     platform: "コミックDAYS"
@@ -41,6 +41,13 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_003258_S"
     listing_tags: ["異種族・人外", "百合", "女子高生", "妖怪", "アニメ化"]
+  - work: "百合SMでふたりの気持ちはつながりますか?"
+    platform: "COMIC FUZ"
+    date: 2026-11-14
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/2391"
+    listing_tags: ["百合", "フェチ・性癖"]
   - work: "瑠夏と杏珠の逃避行"
     platform: "マガポケ"
     date: 2026-11-14
@@ -48,13 +55,20 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/03368"
     listing_tags: ["百合"]
+  - work: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
+    date: 2026-11-14
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3776"
+    listing_tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
   - work: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     date: 2026-11-14
     source: "webcomics.jp"
     provenance: claimed
     url: "https://heros-web.com/series/ec09a10dc9490"
-    listing_tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
+    listing_tags: ["最近のコメント数"]
   - work: "怪獣ロマンティクス"
     platform: "pixivコミック"
     date: 2026-11-14
@@ -89,6 +103,20 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/72638"
     listing_tags: ["ドラゴン・竜", "義理の兄弟姉妹", "ギャグ・コメディ", "4コマ", "百合"]
+  - work: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
+    date: 2026-11-14
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/4133"
+    listing_tags: ["百合"]
+  - work: "ロックは淑女の嗜みでして"
+    platform: "マンガPark"
+    date: 2026-11-14
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-park.com/title/67724"
+    listing_tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
   - work: "メイド&ロイドはお嬢様のお役に立ちたい!"
     platform: "マンガワン"
     date: 2026-11-14
@@ -216,7 +244,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-ogyaaa.com/episode/4856001361171643976"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "現代", "女子高生"]
   - work: "志乃と恋"
     platform: "カドコミ"
     date: 2026-11-13
@@ -646,7 +674,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://kuragebunch.com/episode/12207421984481017713"
-    listing_tags: ["百合"]
+    listing_tags: ["最近のコメント数"]
   - work: "バクガタリzzZ 鰤尾みちる"
     platform: "カドコミ"
     date: 2026-11-10
@@ -817,13 +845,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/11080"
     listing_tags: ["百合", "ファンタジー", "異世界"]
-  - work: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    date: 2026-11-08
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3776"
-    listing_tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
   - work: "平良深姉妹はどっちもヤんでる"
     platform: "pixivコミック"
     date: 2026-11-08
@@ -831,20 +852,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/9380"
     listing_tags: ["百合", "姉妹", "ヤンデレ"]
-  - work: "君が一等星に光るまで"
-    platform: "COMIC FUZ"
-    date: 2026-11-08
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/4133"
-    listing_tags: ["百合"]
-  - work: "ロックは淑女の嗜みでして"
-    platform: "マンガPark"
-    date: 2026-11-08
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-park.com/title/67724"
-    listing_tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
   - work: "ファタールゲーム"
     platform: "マガポケ"
     date: 2026-11-08
@@ -1395,13 +1402,6 @@ updates:
     provenance: claimed
     url: "https://comic-days.com/episode/2550689798616042670"
     listing_tags: ["推し活", "やり直し", "百合", "タイムループ"]
-  - work: "百合SMでふたりの気持ちはつながりますか?"
-    platform: "COMIC FUZ"
-    date: 2026-11-01
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/2391"
-    listing_tags: ["百合", "フェチ・性癖"]
   - work: "灼熱の卓球娘 REBURN!!"
     platform: "竹コミ‎‏‎"
     date: 2026-11-01
@@ -2860,17 +2860,3 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421984151786084"
     listing_tags: ["百合", "いじめ"]
-  - work: "今日はカノジョがいないから"
-    platform: "ニコニコ漫画"
-    date: 2026-09-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/56450"
-    listing_tags: ["百合", "浮気・不倫", "三角関係", "女子高生", "お色気・微エロ"]
-  - work: "ささやくように恋を唄う"
-    platform: "ニコニコ漫画"
-    date: 2026-09-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/56012"
-    listing_tags: ["百合", "アニメ化"]

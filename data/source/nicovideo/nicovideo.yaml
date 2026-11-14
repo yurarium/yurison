@@ -9,12 +9,94 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-11-14
+retrieved: 2026-11-15
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 498
 works:
+  - work_title: "このままモブじゃ終われない!"
+    author: "優しい内臓"
+    url: "https://manga.nicovideo.jp/comic/67095"
+    comic_id: "67095"
+    updated: "2026-11-14"
+    started: "2024-03-09"
+    episode_count: 5
+    free_episodes: 5
+    channel: "きららベース"
+    channel_slug: "kirara"
+    latest_episode: "第32話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1171606"
+  - work_title: "子供部屋ドラゴン"
+    author: "*sow*"
+    url: "https://manga.nicovideo.jp/comic/72638"
+    comic_id: "72638"
+    updated: "2026-11-14"
+    started: "2025-07-12"
+    episode_count: 4
+    free_episodes: 4
+    channel: "きららベース"
+    channel_slug: "kirara"
+    latest_episode: "第18話　ぎゃおと真夏の決戦"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1171611"
+  - work_title: "私を喰べたい、ひとでなし"
+    author: "苗川采(著者)"
+    url: "https://manga.nicovideo.jp/comic/49677"
+    comic_id: "49677"
+    updated: "2026-11-14"
+    started: "2020-09-26"
+    episode_count: 26
+    free_episodes: 26
+    channel: "電撃マオウ"
+    channel_slug: "maoh"
+    latest_episode: "第61話➁"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173763"
+  - work_title: "見える子ちゃん"
+    author: "泉朝樹(著者)"
+    url: "https://manga.nicovideo.jp/comic/37662"
+    comic_id: "37662"
+    updated: "2026-11-14"
+    started: "2018-11-02"
+    episode_count: 35
+    free_episodes: 35
+    channel: "アパンダ"
+    channel_slug: "apanta"
+    latest_episode: "単行本15巻情報公開！"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1175859"
+  - work_title: "エルフ先生のトイレはどこですか？"
+    author: "中嶋ちずな(著者)"
+    url: "https://manga.nicovideo.jp/comic/67557"
+    comic_id: "67557"
+    updated: "2026-11-14"
+    started: "2024-02-26"
+    episode_count: 3
+    free_episodes: 3
+    channel: "ニコニコキューン"
+    channel_slug: "comiccune"
+    latest_episode: "第27話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1171154"
+  - work_title: "はるか咲きそふ、刻どきの"
+    author: "ぴらそん"
+    url: "https://manga.nicovideo.jp/comic/68749"
+    comic_id: "68749"
+    updated: "2026-11-14"
+    started: "2024-09-14"
+    episode_count: 4
+    free_episodes: 4
+    channel: "きららベース"
+    channel_slug: "kirara"
+    latest_episode: "第24話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1171607"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-11-14"
+    started: "2022-08-31"
+    episode_count: 176
+    free_episodes: 176
+    latest_episode: "第17話の4"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1176506"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"
@@ -27,18 +109,6 @@ works:
     channel_slug: "youngaceup"
     latest_episode: "第17話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173620"
-  - work_title: "見える子ちゃん"
-    author: "泉朝樹(著者)"
-    url: "https://manga.nicovideo.jp/comic/37662"
-    comic_id: "37662"
-    updated: "2026-11-13"
-    started: "2018-11-02"
-    episode_count: 34
-    free_episodes: 34
-    channel: "アパンダ"
-    channel_slug: "apanta"
-    latest_episode: "第74話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1175300"
   - work_title: "死亡遊戯で飯を食う。"
     author: "万歳寿大宴会(漫画) 鵜飼有志(原作) ねこめたる(キャラクター原案)"
     url: "https://manga.nicovideo.jp/comic/64181"
@@ -59,16 +129,6 @@ works:
     started: "2018-05-10"
     channel: "もっとやわらかスピリッツ"
     channel_slug: "yawaspi"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-11-13"
-    started: "2022-08-31"
-    episode_count: 175
-    free_episodes: 175
-    latest_episode: "第17話の3"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1176065"
   - work_title: "明日香と美咲"
     author: "あんじんねこ@創作"
     url: "https://manga.nicovideo.jp/comic/70721"
@@ -279,18 +339,6 @@ works:
     started: "2016-06-30"
     channel: "もっとやわらかスピリッツ"
     channel_slug: "yawaspi"
-  - work_title: "私を喰べたい、ひとでなし"
-    author: "苗川采(著者)"
-    url: "https://manga.nicovideo.jp/comic/49677"
-    comic_id: "49677"
-    updated: "2026-11-07"
-    started: "2020-09-26"
-    episode_count: 25
-    free_episodes: 25
-    channel: "電撃マオウ"
-    channel_slug: "maoh"
-    latest_episode: "第61話①"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173762"
   - work_title: "男子高校生だけどギャルにTSしました"
     author: "太陽まりい(著者)"
     url: "https://manga.nicovideo.jp/comic/67976"
@@ -785,18 +833,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第57話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1160253"
-  - work_title: "エルフ先生のトイレはどこですか？"
-    author: "中嶋ちずな(著者)"
-    url: "https://manga.nicovideo.jp/comic/67557"
-    comic_id: "67557"
-    updated: "2026-10-24"
-    started: "2024-02-26"
-    episode_count: 3
-    free_episodes: 3
-    channel: "ニコニコキューン"
-    channel_slug: "comiccune"
-    latest_episode: "第26話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1164170"
   - work_title: "ほのぼの呪詛ライフ"
     author: "ふぁゆ瀬"
     url: "https://manga.nicovideo.jp/comic/82942"
@@ -1023,42 +1059,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第19話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1160073"
-  - work_title: "このままモブじゃ終われない!"
-    author: "優しい内臓"
-    url: "https://manga.nicovideo.jp/comic/67095"
-    comic_id: "67095"
-    updated: "2026-10-10"
-    started: "2024-03-09"
-    episode_count: 5
-    free_episodes: 5
-    channel: "きららベース"
-    channel_slug: "kirara"
-    latest_episode: "第31話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1160015"
-  - work_title: "子供部屋ドラゴン"
-    author: "*sow*"
-    url: "https://manga.nicovideo.jp/comic/72638"
-    comic_id: "72638"
-    updated: "2026-10-10"
-    started: "2025-07-12"
-    episode_count: 4
-    free_episodes: 4
-    channel: "きららベース"
-    channel_slug: "kirara"
-    latest_episode: "第17話　ぎゃおと真夏のドラゴン？"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1160019"
-  - work_title: "はるか咲きそふ、刻どきの"
-    author: "ぴらそん"
-    url: "https://manga.nicovideo.jp/comic/68749"
-    comic_id: "68749"
-    updated: "2026-10-10"
-    started: "2024-09-14"
-    episode_count: 4
-    free_episodes: 4
-    channel: "きららベース"
-    channel_slug: "kirara"
-    latest_episode: "第23話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1160016"
   - work_title: "アルバート家の令嬢は没落をご所望です"
     author: "彩月つかさ(著者) さき(原作) 双葉はづき(キャラクター原案)"
     url: "https://manga.nicovideo.jp/comic/34789"

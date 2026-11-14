@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-14
+retrieved: 2026-11-15
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -21,9 +21,9 @@ platforms_missing:
     works: 3
   - platform: "COMICリュウライブ"
     works: 3
-  - platform: "COMIC ポルタ"
-    works: 2
   - platform: "マンガPark"
+    works: 2
+  - platform: "COMIC ポルタ"
     works: 2
   - platform: "comicブースト"
     works: 2
@@ -36,6 +36,21 @@ platforms_missing:
   - platform: "ドリコミ+"
     works: 1
 works_missing:
+  - title: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/4133"
+    antenna_id: "212772"
+    tags: ["百合"]
+  - title: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3776"
+    antenna_id: "209939"
+    tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
+  - title: "百合SMでふたりの気持ちはつながりますか?"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/2391"
+    antenna_id: "102691"
+    tags: ["百合", "フェチ・性癖"]
   - title: "うさぎはかく語りき"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3572"
@@ -61,26 +76,11 @@ works_missing:
     url: "https://comic-fuz.com/manga/3108"
     antenna_id: "166358"
     tags: ["百合", "学園", "料理・グルメ", "女子高生"]
-  - title: "君が一等星に光るまで"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/4133"
-    antenna_id: "212772"
-    tags: ["百合"]
-  - title: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3776"
-    antenna_id: "209939"
-    tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
   - title: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3700"
     antenna_id: "203870"
     tags: ["百合", "サキュバス"]
-  - title: "百合SMでふたりの気持ちはつながりますか?"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/2391"
-    antenna_id: "102691"
-    tags: ["百合", "フェチ・性癖"]
   - title: "6億年の博物旅"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3818"
@@ -160,7 +160,7 @@ works_missing:
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
     antenna_id: "174744"
-    tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
+    tags: ["最近のコメント数"]
   - title: "魔女とくゅらす"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
@@ -976,16 +976,16 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03292"
     antenna_id: "213072"
     tags: ["百合"]
-  - title: "私のブルーガーネット"
-    platform: "マンガPark"
-    url: "https://manga-park.com/title/98459"
-    antenna_id: "197977"
-    tags: ["百合", "エロ"]
   - title: "ロックは淑女の嗜みでして"
     platform: "マンガPark"
     url: "https://manga-park.com/title/67724"
     antenna_id: "148272"
     tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
+  - title: "私のブルーガーネット"
+    platform: "マンガPark"
+    url: "https://manga-park.com/title/98459"
+    antenna_id: "197977"
+    tags: ["百合", "エロ"]
   - title: "女にはそれぞれ裏がある"
     platform: "マンガよもんが"
     url: "https://www.yomonga.com/titles/2571/"

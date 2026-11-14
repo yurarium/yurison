@@ -23,13 +23,13 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-11-14
+retrieved: 2026-11-15
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
 date_confidence: reported
-series_fetched: 42
-series_held: 42
+series_fetched: 43
+series_held: 43
 works:
   - work_title: "CUTE vs. COOL"
     title_id: "3099"
@@ -6141,6 +6141,20 @@ works:
         updated: 2021-10-07
         author: "サスケ"
         url: "https://pocket.shonenmagazine.com/title/01509/episode/329037"
+  - work_title: "瑠夏と杏珠の逃避行"
+    title_id: "3368"
+    url: "https://pocket.shonenmagazine.com/title/03368"
+    feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3368/feed.xml"
+    chapter_count: 2
+    chapters:
+      - title: "【第2話】"
+        updated: 2026-11-14
+        author: "清水幸"
+        url: "https://pocket.shonenmagazine.com/title/03368/episode/446347"
+      - title: "【第1話】"
+        updated: 2026-11-14
+        author: "清水幸"
+        url: "https://pocket.shonenmagazine.com/title/03368/episode/446346"
   - work_title: "甘えさせて雛森さん！"
     title_id: "2043"
     url: "https://pocket.shonenmagazine.com/title/02043"

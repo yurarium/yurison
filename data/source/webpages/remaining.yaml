@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-11-14
+retrieved: 2026-11-15
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -132,6 +132,15 @@ works:
         updated: 2026-06-17
         author: "深水たろー"
         date_basis: heuristic
+  - work_title: "バトル・ウィッチーズ"
+    url: "http://neetsha.jp/inside/comic.php?id=24919"
+    platform_name: "新都社"
+    route: "rendered"
+    chapter_count: 1
+    chapters:
+      - title: "第17話"
+        updated: 2026-08-13
+        date_basis: rendered
   - work_title: "パワハラ魔王様と社畜魔女ちゃん"
     author: "カモトタツヤ"
     url: "https://kirapo.jp/meteor/titles/pawahara"

@@ -433,10 +433,11 @@ class NameStore:
         superseding = fact.pop("supersede", None)
         if superseding:
             self._supersede(cur, fact)
-        self._merge_group(cur, fact, "en", "basis", EN_RANK, "en_conflicts")
+        self._merge_group(cur, fact, "en", "basis", EN_RANK, "en_conflicts",
+                          decision=bool(superseding))
         _reading_was = cur.get("reading")
         self._merge_group(cur, fact, "reading", "reading_basis", READING_RANK, "reading_conflicts",
-                          equiv=same_reading)
+                          equiv=same_reading, decision=bool(superseding))
         # SPANS BELONG TO THE READING THEY WERE CUT FROM. pass 4 writes furigana_spans beside the
         # reading it derived them from, and nothing dropped them when a better reading replaced it,
         # so 193 records held ruby spelling something their own reading no longer said. build.py
@@ -596,7 +597,8 @@ class NameStore:
                    for e in lst):
             lst.append(entry)
 
-    def _merge_group(self, cur, fact, value_key, basis_key, ranks, conflict_key, equiv=None):
+    def _merge_group(self, cur, fact, value_key, basis_key, ranks, conflict_key, equiv=None,
+                     decision=False):
         """Merge one competing claim (an English rendering, or a reading) under the rank rule.
 
         A claim may carry a basis with NO value, and that is the normal case for an author: §8.1
@@ -611,6 +613,12 @@ class NameStore:
         new_val = fact.get(value_key)
         new_rank = ranks.get(new_basis, -1)
         agrees = equiv or (lambda a, b: a == b)
+        # WHO MAKES THIS CLAIM is the claim's own source where the fact names one, as `_stamp`
+        # already has it. Asking the entry's `source` instead filed every curated reading that cites
+        # its own page under `yurarium`, the source of the entry's translation: 瑠夏と杏珠の逃避行
+        # states its reading from 講談社's banner, and re-applying it compared `yurarium` with
+        # `講談社`, found two sources agreeing, and recorded the entry as corroborating itself.
+        source = fact.get(f"{value_key}_source") or fact.get("source")
         if basis_key not in cur:
             if new_val is not None:
                 cur[value_key] = new_val
@@ -646,7 +654,7 @@ class NameStore:
             # "where a work has both an official-jp and a licensed title and they differ, keep both
             # and prefer official-jp for display. Do not silently discard the loser." A licensor's
             # title is a real fact about the work even when the work's own English name outranks it.
-            self._push(cur, conflict_key, new_val, new_basis, fact.get("source"))
+            self._push(cur, conflict_key, new_val, new_basis, source)
         elif new_rank == old_rank and old_val is None and new_val is not None:
             # Same rank, but the existing claim was a bare basis with no string — an author marked
             # `romaji` because their reading is known. A source now offering an actual string is
@@ -656,15 +664,19 @@ class NameStore:
             self._stamp(cur, fact, value_key)
         elif (new_rank == old_rank and new_val is not None and old_val is not None
               and not agrees(new_val, old_val)):
-            self._push(cur, conflict_key, new_val, new_basis, fact.get("source"))
+            self._push(cur, conflict_key, new_val, new_basis, source)
         elif (new_val is not None and old_val is not None and agrees(new_val, old_val)
-              and fact.get("source")
-              and fact["source"] != cur.get(f"{value_key}_source")):
+              and source and not decision
+              and source != cur.get(f"{value_key}_source")):
             # §1: corroboration from a second source is what lifts a name out of "one database says
             # so". Recorded rather than counted, so which sources agreed stays visible.
+            #
+            # A DECISION RE-STATED IS NOT A SECOND SOURCE. The curated file is applied on every run,
+            # so each entry meets the record it wrote last time, and agreeing with yourself is not
+            # evidence. 32 records named `yurarium` as a source corroborating them.
             corro = cur.setdefault(f"{value_key}_corroborated", [])
-            if fact["source"] not in corro:
-                corro.append(fact["source"])
+            if source not in corro:
+                corro.append(source)
 
     def _stamp(self, cur, fact, value_key):
         """Attach provenance to the CLAIM, not to the record.

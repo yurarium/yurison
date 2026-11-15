@@ -241,6 +241,28 @@ def main(s):
         s.eq(rec.get("en_conflicts"), None,
              "and nothing is filed as a conflict: one claim was rebased, not replaced")
 
+    # A DECISION RE-STATED IS NOT A SECOND SOURCE, and a claim is filed under its own source. A
+    # curated reading cited to 講談社 inside an entry whose translation is ours was compared as
+    # `yurarium` against `講談社`, so every re-apply recorded the entry corroborating itself.
+    with tempfile.TemporaryDirectory() as d6:
+        st6 = store.NameStore(d6)
+        decided = dict(reading="ルカ ト アンジュ ノ エスケープ", reading_basis="stated",
+                       reading_source="講談社", en="Ruka and Anju's Escape", basis="translated",
+                       source="yurarium", supersede=True)
+        st6.record("titles", "瑠夏と杏珠の逃避行", **decided)
+        st6.record("titles", "瑠夏と杏珠の逃避行", **decided)
+        rec = st6.records["titles"]["瑠夏と杏珠の逃避行"]
+        s.eq(rec.get("reading_corroborated"), None, "applying a decision twice corroborates nothing")
+        s.eq(rec.get("corroborated") or rec.get("en_corroborated"), None, "for either claim")
+        st6.record("titles", "瑠夏と杏珠の逃避行", reading="ルカトアンジュノエスケープ",
+                   reading_basis="stated", source="shop")
+        s.eq(rec.get("reading_corroborated"), ["shop"],
+             "while a second source agreeing is still recorded")
+        st6.record("titles", "瑠夏と杏珠の逃避行", reading="ルカ ト アンジュ ノ トウヒコウ",
+                   reading_basis="analyser", reading_source="SudachiPy", source="yurarium")
+        s.eq([c.get("source") for c in rec.get("reading_conflicts") or []], ["SudachiPy"],
+             "and a losing reading is filed under the source that gave it")
+
 
 
 def _foreign_page(s):

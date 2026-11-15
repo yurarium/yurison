@@ -38384,15 +38384,15 @@ names:
     en_source_kind: derived
     note: The title is katakana English, so it is spelled as the English it borrows. The 新都社 page only
       redirected and would not load, so nothing beyond the title itself was read.
-    reading: バトル・ ウィッチーズ
-    reading_at: '2026-11-14'
-    reading_basis: analyser
+    reading: バトル・ウィッチーズ
+    reading_at: '2026-11-15'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   バナナのナナ:
     basis: translated
     en: Nana of the Banana

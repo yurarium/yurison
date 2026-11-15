@@ -43,9 +43,17 @@ counts:
   hits_agreeing_on_a_creator: 261
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 219
-  works_asked: 934
+  works_asked: 936
   works_with_a_hit: 282
 works:
+  - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
+    id: "w03552"
+    work: "バトル・ウィッチーズ"
+    platform: "新都社"
+    retrieved: "2026-11-15"
+    hits: []
+    notes:
+      - "title query returned no title this database recognises"
   - work_url: "https://bibibi-comic.com/series/41de76fc8df5f"
     id: "w03278"
     work: "超かぐやメシ！"
@@ -8099,6 +8107,16 @@ works:
     author: "閉伊川広輔"
     platform: "マガポケ"
     retrieved: "2026-11-12"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://pocket.shonenmagazine.com/title/03368/episode/446347"
+    id: "w03550"
+    work: "瑠夏と杏珠の逃避行"
+    author: "清水幸"
+    platform: "マガポケ"
+    retrieved: "2026-11-15"
     hits: []
     notes:
       - "author query returned no title this database recognises"

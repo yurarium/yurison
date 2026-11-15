@@ -52,6 +52,23 @@ def main(s):
     agrees = {"reading": "ワタシ", "reading_basis": "stated", "furigana_spans": [["私", "わたし"]]}
     s.eq(ruby.spans("私", agrees), [["私", "わたし"]], "and spans that do are kept as they are")
 
+    # ── RUBY THE SOURCE SETS IN KATAKANA STAYS IN KATAKANA ────────────────────────────────────
+    #
+    # マガポケ's banner prints エスケープ over 逃避行, and the reading cannot say so, because the
+    # store writes every reading in katakana. Shown as えすけーぷ, it was a spelling nobody printed.
+    escape = {"reading": "ルカ ト アンジュ ノ エスケープ", "reading_basis": "stated"}
+    plain = ruby.spans("瑠夏と杏珠の逃避行", escape)
+    s.eq(plain[-1], ["逃避行", "えすけーぷ"], "ruby is hiragana unless somebody says otherwise")
+    marked = ruby.spans("瑠夏と杏珠の逃避行", dict(escape, ruby_katakana=["逃避行"]))
+    s.eq(marked[-1], ["逃避行", "エスケープ"], "and the word a person marked keeps its katakana")
+    s.eq(marked[:-1], plain[:-1], "while the rest of the title stays in hiragana")
+    parted = {"reading": "エスケープ", "reading_basis": "stated",
+              "furigana_spans": [["逃避", "えす"], ["行", "けーぷ"]]}
+    s.eq(ruby.spans("逃避行", dict(parted, ruby_katakana=["逃避行"])), [["逃避行", "エスケープ"]],
+         "as one span over the word, however the aligner parted it")
+    s.eq(ruby.spans("逃避行", dict(parted, ruby_katakana=["逃亡"])), parted["furigana_spans"],
+         "and a word that is not there changes nothing")
+
     # ── AND A STRING WITH NOTHING TO READ TAKES NONE ──────────────────────────────────────────
     s.eq(ruby.spans("ナカタニ", {"reading": "ナカタニ", "reading_basis": "surface"}), None,
          "a surface already in kana carries no furigana, because there is nothing over it to say")

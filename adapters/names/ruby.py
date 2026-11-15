@@ -49,4 +49,34 @@ def spans(spelling, rec, is_person=False):
     # typesetting rules distinguish from jukugo-ruby and do not prefer for a compound, and the split
     # was a claim nobody made: 総選挙 is one word read ソウセンキョ, and そう over 総 with きょ over
     # 挙 came from a table of per-character readings the analyser never consulted.
+    got = _katakana(got, rec.get("ruby_katakana"))
     return got if got and any(x[1] for x in got) else None
+
+
+def _katakana(got, words):
+    """The spans with each word in `words` carrying its ruby in katakana, as one span.
+
+    RUBY IS SET IN HIRAGANA EXCEPT WHERE THE SOURCE SETS IT IN KATAKANA, and a reading cannot say
+    which: the store writes every reading in katakana, so トウヒコウ and エスケープ look alike in it.
+    The difference is that エスケープ is a loanword the title puts over 逃避行 in place of its
+    reading, and マガポケ's banner prints it in katakana, as ruby of that kind is printed. Converting
+    it to えすけーぷ is a spelling nobody printed. So `ruby_katakana` names the words, written by a
+    person who looked at the ruby, and no rule guesses them.
+
+    ONE SPAN PER WORD, because ruby of this kind belongs to the word: the aligner may part 逃避行
+    and still spell the reading, and エス over 逃避 with ケープ over 行 is a division nobody set.
+    """
+    if not got or not words:
+        return got
+    out = [list(x) for x in got]
+    for word in words:
+        for i in range(len(out)):
+            text, j = "", i
+            while j < len(out) and len(text) < len(word):
+                text += out[j][0]
+                j += 1
+            if text == word and all(x[1] for x in out[i:j]):
+                read = _kana.to_katakana("".join(x[1] for x in out[i:j]))
+                out[i:j] = [[word, read]]
+                break
+    return out

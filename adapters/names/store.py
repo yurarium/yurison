@@ -458,7 +458,7 @@ class NameStore:
         # spelling or alone, and it competes with nothing.
         for k in ("ja_family", "ja_given", "reading_family", "reading_given",
                   "script", "note", "translation_note", "suspect_logo_title", "transliterates",
-                  "translation_refused"):
+                  "translation_refused", "ruby_katakana"):
             if fact.get(k) is not None:
                 cur[k] = fact[k]
         for k in ("handles",):

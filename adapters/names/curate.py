@@ -174,7 +174,13 @@ KEYS = {"en", "candidate", "basis", "source", "source_kind", "source_url", "revi
         # form a work has is recorded and the reader's EN_ORDER picks one, so neither may displace
         # the other here. Valid only beside a `licensed` en; anywhere else it is just the `en`.
         "official", "official_source", "official_source_kind", "official_url", "official_shown",
-        "official_note"}
+        "official_note",
+        # RUBY THE SOURCE SETS IN KATAKANA, by the words it sits over. Furigana is shown in
+        # hiragana, and the reading cannot say where it should not be, because the store writes
+        # every reading in katakana: エスケープ over 逃避行 in 瑠夏と杏珠の逃避行 is a loanword the
+        # title gives in place of the word's reading, and its banner prints it in katakana. Written
+        # by a person who looked at the ruby; names/ruby.py keeps those spans in katakana.
+        "ruby_katakana"}
 
 #: The keys that describe `official` and are meaningless without it.
 OFFICIAL_KEYS = ("official_source", "official_source_kind", "official_url", "official_shown",
@@ -347,6 +353,20 @@ def problems(kind, ja, e):
     unknown = set(e) - KEYS
     if unknown:
         out.append(f"{where}: unknown key(s) {sorted(unknown)}")
+
+    # KATAKANA RUBY NAMES WORDS OF THIS TITLE, and rides on a reading the entry states. A word the
+    # title does not contain would be kept quietly and change nothing, which is a ruling that looks
+    # applied and is not.
+    kk = e.get("ruby_katakana")
+    if kk is not None:
+        if not (isinstance(kk, list) and kk and all(isinstance(w, str) and w for w in kk)):
+            out.append(f"{where}: `ruby_katakana` is a list of the words the ruby sits over")
+        else:
+            missing = [w for w in kk if w not in ja]
+            if missing:
+                out.append(f"{where}: `ruby_katakana` names {missing}, which the title does not contain")
+        if not e.get("reading"):
+            out.append(f"{where}: `ruby_katakana` needs the reading it is ruby for")
 
     # A REFUSAL IS ALSO SOMETHING THE ENTRY SAYS. `translation_refused` rules that the form the
     # record already ships is the only one there is, which is a decision about the title and needs
@@ -730,7 +750,7 @@ def apply(store, doc):
                      "en_source", "en_url", "en_source_kind",
                      "candidate_note", "reading", "reading_basis", "reading_note",
                      "reading_source_kind", "reading_source", "reading_url", "reading_boundary",
-                     "transliterates", "translation_refused", "reviewed")}
+                     "transliterates", "translation_refused", "ruby_katakana", "reviewed")}
             # `at` is the day the decision was reviewed, not the day this ran. Re-applying the file
             # after a rebuild must not restamp a name as freshly decided.
             fact["at"] = str(e.get("reviewed"))

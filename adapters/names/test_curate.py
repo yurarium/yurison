@@ -188,6 +188,26 @@ def main(s):
         s.eq(rec["ワインガールズ"]["en"], "Wine Girls", "and does not disturb an applied name")
         st.close()
 
+    # KATAKANA RUBY IS A RULING ABOUT WORDS OF THE TITLE, and it reaches the record.
+    escape = dict(OURS, en="Ruka and Anju's Escape", reading="ルカ ト アンジュ ノ エスケープ",
+                  reading_basis="stated", reading_source_kind="publisher-jp",
+                  reading_url="https://example.invalid/banner.png", ruby_katakana=["逃避行"])
+    s.eq(curate.problems("titles", "瑠夏と杏珠の逃避行", escape), [],
+         "a word of the title whose ruby the source sets in katakana")
+    s.check(curate.problems("titles", "瑠夏と杏珠の逃避行", dict(escape, ruby_katakana=["逃亡"])),
+            "a word the title does not contain is refused, since it would change nothing")
+    s.check(curate.problems("titles", "瑠夏と杏珠の逃避行", dict(escape, ruby_katakana="逃避行")),
+            "and so is a bare string where the words are listed")
+    s.check(curate.problems("titles", "瑠夏と杏珠の逃避行",
+                            {k: v for k, v in escape.items() if not k.startswith("reading")}),
+            "and katakana ruby with no reading to be ruby for")
+    with tempfile.TemporaryDirectory() as d:
+        st = NameStore(d)
+        curate.apply(st, {"titles": {"瑠夏と杏珠の逃避行": escape}})
+        s.eq(st.records["titles"]["瑠夏と杏珠の逃避行"].get("ruby_katakana"), ["逃避行"],
+             "the ruling is recorded on the name, where names/ruby.py reads it")
+        st.close()
+
     # OUR RENDERING BESIDE THE NAME THE WORK ALREADY HAS. The entry holds one `en`, so a title
     # carrying a licensor's English had nowhere to put a translation of the meaning, and 225 titles
     # offered a reader who moves `licensed` down EN_ORDER nothing to fall through to.

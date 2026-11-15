@@ -17766,15 +17766,18 @@ titles:
       東戸塚 is a station in Yokohama, and the title reads as 『エデンの東』, East of Eden, until the last two characters arrive. English cannot hold both readings and keeps the place.
 
   "エルフ先生のトイレはどこですか？":
-    en: where is the erf teacher's toilet ?
+    en: where is the elf teacher's toilet ?
     basis: official-jp
-    source: series-art
-    source_kind: platform
-    source_url: https://deliver.cdn.nicomanga.jp/ogp-images/comics/67557
+    source: KADOKAWA
+    source_kind: publisher-jp
+    source_url: https://comic-walker.com/detail/KC_005377_S
     en_shown: artwork
-    reviewed: '2026-11-11'
-    note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title.
+    reviewed: '2026-11-15'
+    note: The work's own Latin title, set along the foot of the logo in the series art on KADOKAWA's
+      カドコミ page, as the project owner read it there on 2026-11-15. The ニコニコ漫画 share image
+      (https://deliver.cdn.nicomanga.jp/ogp-images/comics/67557) prints the same line with erf for elf,
+      which was recorded here until the publisher's own page was read; the publisher's spelling is the
+      title. The space before the question mark is the artwork's.
     translation: Where Is the Toilet, Miss Elf?
     translation_note: Our own rendering, which stood here until the series art was read. The sentence is the
       phrasebook question, which is why it is funny in a fantasy setting.

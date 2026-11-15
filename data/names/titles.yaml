@@ -1,4 +1,4 @@
-generated: '2026-11-14'
+generated: '2026-11-15'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -28347,16 +28347,19 @@ names:
     verified: false
   エルフ先生のトイレはどこですか？:
     basis: official-jp
-    en: where is the erf teacher's toilet ?
-    en_at: '2026-11-11'
+    en: where is the elf teacher's toilet ?
+    en_at: '2026-11-15'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: Where Is the Toilet, Miss Elf?
-    en_reviewed: '2026-11-11'
-    en_source: series-art
-    en_source_kind: platform
-    en_url: https://deliver.cdn.nicomanga.jp/ogp-images/comics/67557
+    - basis: official-jp
+      source: series-art
+      value: where is the erf teacher's toilet ?
+    en_reviewed: '2026-11-15'
+    en_source: KADOKAWA
+    en_source_kind: publisher-jp
+    en_url: https://comic-walker.com/detail/KC_005377_S
     furigana_spans:
     - - エルフ
       - null
@@ -28364,8 +28367,10 @@ names:
       - せんせい
     - - のトイレはどこですか？
       - null
-    note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
-      where it was decided to take it as the title.
+    note: The work's own Latin title, set along the foot of the logo in the series art on KADOKAWA's カドコミ
+      page, as the project owner read it there on 2026-11-15. The ニコニコ漫画 share image (https://deliver.cdn.nicomanga.jp/ogp-images/comics/67557)
+      prints the same line with erf for elf, which was recorded here until the publisher's own page was
+      read; the publisher's spelling is the title. The space before the question mark is the artwork's.
     reading: エルフ センセイ ノ トイレ ワ ドコデス カ？
     reading_at: '2026-08-06'
     reading_basis: analyser

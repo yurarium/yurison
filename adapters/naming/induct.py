@@ -31,6 +31,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import feedgap                                                          # noqa: E402
+from facts import identity                                              # noqa: E402
 from mint import ID                                                     # noqa: E402
 
 EPISODE = re.compile(r"^(https://[^/]+)/episode/\d+")
@@ -80,16 +81,45 @@ def series_feed(address, page):
     return None
 
 
+def work_addresses(addresses):
+    """`[(chapter address, work-level address)]` for each address `identity.stable_url` reduces.
+
+    THE BUILD LOOKS A WORK UP BY THE REDUCED ADDRESS, so an entry anchored on the chapter alone is
+    one no row can reach. 瑠夏と杏珠の逃避行 was minted on 2026-11-14 under its 第2話 address
+    `…/title/03368/episode/446347`, the build asked for `…/title/03368`, and the work stayed waiting
+    for an identifier it already had. The evening run then minted it a second one under 第1話.
+    """
+    out = []
+    for a in addresses:
+        w = identity.stable_url(a)
+        if w and w != a and w not in {x for _, x in out}:
+            out.append((a, w))
+    return out
+
+
+def anchors_of(addresses):
+    """Every anchor a row with these addresses would be found under, chapter and work level."""
+    return {f"web:{a}" for a in addresses} | {f"web:{w}" for _, w in work_addresses(addresses)}
+
+
 def entry(wid, row, feeds, today):
     """One registry entry for `row`; `feeds` is `{chapter address: (feed url, series id)}`."""
     anchors = sorted(row["addresses"])
     lines = [f"  - id: {wid}", f"    title: {json.dumps(row['work'], ensure_ascii=False)}",
              "    anchors:"]
     extra = [(a, *feeds[a]) for a in anchors if a in feeds]
+    levels = [(a, w) for a, w in work_addresses(anchors) if w not in anchors]
     lines += [f'      - "web:{a}"' for a in anchors]
+    lines += [f'      - "web:{w}"' for _, w in levels]
     lines += [f'      - "web:{f}"' for _, f, _ in extra if f not in anchors]
-    if extra:
+    if levels or extra:
         lines.append("    attached:")
+    for a, w in levels:
+        basis = (f"the work-level address of {a}, which is the same serialisation at an address "
+                 f"that does not change when it publishes")
+        lines += [f'      - anchor: "web:{w}"', f"        basis: {json.dumps(basis)}",
+                  f"        retrieved: {today}"]
+    if extra:
         for a, f, sid in extra:
             basis = (f"the chapter page at {a} links its own series feed at {f}, so the platform "
                      f"places this chapter in series {sid}")
@@ -111,7 +141,10 @@ def induct(text, rows, held, pages, today):
         if like:
             doubts.append((r["work"], "; ".join(f"{i} {t!r}, {why}" for i, t, why in like)))
             continue
-        if any(f"web:{a}" in taken for a in r["addresses"]):
+        # THE WORK-LEVEL ADDRESS COUNTS AS TAKEN TOO, so a second chapter of a work already minted
+        # is not a second work. Each run reports the newest chapter address, and comparing chapter
+        # against chapter is how 瑠夏と杏珠の逃避行 came to hold two identifiers.
+        if anchors_of(r["addresses"]) & taken:
             doubts.append((r["work"], "an address is already another work's anchor"))
             continue
         feeds = {a: f for a in r["addresses"] if (f := series_feed(a, pages.get(a)))}
@@ -121,7 +154,7 @@ def induct(text, rows, held, pages, today):
         n += 1
         wid = f"w{n:05d}"
         block.append(entry(wid, r, feeds, today))
-        taken.update(f"web:{a}" for a in r["addresses"])
+        taken.update(anchors_of(r["addresses"]))
         taken.update(f"web:{f}" for f, _ in feeds.values())
         made.append((wid, r["work"]))
     if not block:

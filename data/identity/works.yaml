@@ -23203,8 +23203,15 @@ works:
     title: "瑠夏と杏珠の逃避行"
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03368/episode/446347"
+      - "web:https://pocket.shonenmagazine.com/title/03368"
+    attached:
+      - anchor: "web:https://pocket.shonenmagazine.com/title/03368"
+        basis: "the work-level address of https://pocket.shonenmagazine.com/title/03368/episode/446347, which is the same serialisation at an address that does not change when it publishes"
+        retrieved: 2026-11-15
   - id: w03551
     title: "瑠夏と杏珠の逃避行"
+    merged_into: w03550
+    merge_basis: "the same work minted twice: induct.py anchored each run's newest chapter address, 第2話 on 2026-11-14 as w03550 and 第1話 the same evening as this, both under マガポケ's series https://pocket.shonenmagazine.com/title/03368. Neither identifier was ever published, since no row could reach either."
     anchors:
       - "web:https://pocket.shonenmagazine.com/title/03368/episode/446346"
   - id: w03552

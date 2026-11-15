@@ -53,6 +53,23 @@ def main(s):
     taken = {**new, "addresses": ["https://ichicomi.com/episode/1"]}
     s.eq(ni.induct(REG, [taken], [], {}, "2026-10-16")[1], [],
          "an address already another work's anchor is refused")
+
+    # A CHAPTER ADDRESS UNDER ITS WORK'S OWN is anchored at both, since the build asks the second.
+    ep2 = "https://pocket.shonenmagazine.com/title/03368/episode/446347"
+    ep1 = "https://pocket.shonenmagazine.com/title/03368/episode/446346"
+    mp = {"work": "瑠夏と杏珠の逃避行", "author": "清水幸", "addresses": [ep2]}
+    text, made, _ = ni.induct(REG, [mp], [], {}, "2026-11-14")
+    w = yaml.safe_load(text)["works"][-1]
+    s.eq(w["anchors"], [f"web:{ep2}", "web:https://pocket.shonenmagazine.com/title/03368"],
+         "a マガポケ chapter is anchored at the work's own address as well")
+    s.eq((w.get("attached") or [{}])[0].get("anchor"), "web:https://pocket.shonenmagazine.com/title/03368",
+         "with the reduction stated as its basis")
+    from facts import identity
+    s.eq(identity.for_row({"url": ep1, "work": mp["work"]}, identity.index(yaml.safe_load(text)["works"])),
+         made[0][0], "so the build finds the work from any of its chapters")
+    s.eq(ni.induct(text, [{**mp, "addresses": [ep1]}], [], {}, "2026-11-15")[1], [],
+         "and the next chapter of a work minted already is not minted again")
+    s.eq(ni.work_addresses([EP]), [], "an address with no work inside it is left as it is")
     s.eq(ni.series_feed(EP, PAGE.replace("ichicomi.com/atom", "other.com/atom")), None,
          "a feed on another host is not this chapter's series")
     s.eq(ni.series_feed("https://ichicomi.com/title/1", PAGE), None,

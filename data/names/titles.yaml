@@ -77931,29 +77931,26 @@ names:
     en_reviewed: '2026-11-15'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 瑠夏
-      - るか
-    - - と
-      - null
-    - - 杏珠
-      - あんじゅ
-    - - の
-      - null
-    - - 逃避行
-      - とうひこう
-    note: 逃避行 means a flight or elopement, and the Magazine Pocket page describes two girls in a closed
-      world, a new transfer student Ruka and the outsider Anju. The title is rendered directly with the
-      names kept as names. The page carries no English title.
-    reading: ルカ ト アンジュ ノ トウヒコウ
-    reading_at: '2026-11-14'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
-    verified: false
+    note: The series banner on マガポケ, 講談社's own platform, sets エスケープ as ruby under 逃避行, so the title's
+      own word is escape, the English loanword, where 逃避行 alone would be a flight or an elopement. The
+      page describes two girls in a closed world, Ruka, a new transfer student, and Anju, who does not
+      fit in with her class. The names are kept as names.
+    reading: ルカ ト アンジュ ノ エスケープ
+    reading_at: '2026-11-15'
+    reading_basis: stated
+    reading_conflicts:
+    - basis: analyser
+      source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+      value: ルカ ト アンジュ ノ トウヒコウ
+    reading_note: エスケープ is printed as ruby under 逃避行 on the series banner, read off it on 2026-11-15 at
+      the project owner's pointing. The analyser had taken 逃避行 at its dictionary value, トウヒコウ. The banner
+      sets no ruby over 瑠夏 or 杏珠, and the synopsis writes both in kanji only, so ルカ and アンジュ are the analyser's
+      readings, kept because they are the names' usual ones.
+    reading_reviewed: '2026-11-15'
+    reading_source: 講談社
+    reading_source_kind: publisher-jp
+    reading_url: https://mgpk-cdn.magazinepocket.com/static/titles/3368/banner_20260910114307d7f448cb34180386cf9f3269a7492889.png
+    verified: true
   瑠東さんには敵いません!:
     basis: romaji
     furigana_spans:

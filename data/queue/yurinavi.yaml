@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-15
+retrieved: 2026-11-16
 record_type: discovery_queue
 candidates:
   - work_title: "織りゆけサルデーニャ"
@@ -34,14 +34,14 @@ candidates:
     platform_host: "cycomi.com"
     headline: "気弱な女の子がつよつよギャル3人に甘やかされるガールズコメディ「カースト上位に遊ばれて!!」WEBでスタート"
     status: unconfirmed
-  - work_title: "是騒騒"
-    signal: "new-serial"
-    announced: "Thu, 05 Nov 2026 11:00:42 +0000"
-    url: "https://yurinavi.com/2026/11/05/koresaisai-start/"
-    platform: "comic-days"
-    platform_code: "12207421984407366672"
-    work_url: "https://comic-days.com/episode/12207421984407366672"
-    headline: "大学生と謎の淑女の出会いを描く妖艶ガールミーツガール「是騒騒」WEBで連載スタート"
+  - work_title: "回って避ける"
+    signal: "oneshot"
+    announced: "Sun, 15 Nov 2026 11:00:42 +0000"
+    url: "https://yurinavi.com/2026/11/15/mawattesakeru-yomikiri/"
+    platform: "seasons"
+    platform_code: "12207421984513315666"
+    work_url: "https://comic-seasons.com/episode/12207421984513315666"
+    headline: "嬉しいのに怖くて消える、回避型の女性との関係を描いた読み切り漫画「回って避ける」WEBで公開"
     status: unconfirmed
   - work_title: "私の可愛いボーイッシュちゃん"
     signal: "new-serial"
@@ -60,6 +60,15 @@ candidates:
     platform_code: "12207421984447306235"
     work_url: "https://tonarinoyj.jp/episode/12207421984447306235"
     headline: "相性最悪な女子高生バディが怪異に挑む読み切り漫画「燕のあやかし画帳」WEBで公開"
+    status: unconfirmed
+  - work_title: "是騒騒"
+    signal: "new-serial"
+    announced: "2026-11-05"
+    url: "https://yurinavi.com/2026/11/05/koresaisai-start/"
+    platform: "comic-days"
+    platform_code: "12207421984407366672"
+    work_url: "https://comic-days.com/episode/12207421984407366672"
+    headline: "大学生と謎の淑女の出会いを描く妖艶ガールミーツガール「是騒騒」WEBで連載スタート"
     status: unconfirmed
   - work_title: "いばら姫とおやすみ。"
     signal: "new-serial"

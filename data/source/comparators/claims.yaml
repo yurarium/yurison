@@ -8,11 +8,30 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-15
+retrieved: 2026-11-16
 record_type: update_claims
 window_days: 60
-claims: 420
+claims: 421
 updates:
+  - work: "ボイタボイネ 夏草"
+    platform: "pixivコミック"
+    date: 2026-11-16
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "ケイヤクシマイ ヒジキ"
+    platform: "カドコミ"
+    date: 2026-11-16
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "私のブルーガーネット"
+    platform: "マンガPark"
+    date: 2026-11-15
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-park.com/title/98459"
+    listing_tags: ["百合", "エロ"]
   - work: "百合のはじまりは奴隷から"
     platform: "pixivコミック"
     date: 2026-11-15
@@ -41,6 +60,13 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/4133"
     listing_tags: ["百合"]
+  - work: "今日はカノジョがいないから"
+    platform: "マガポケ"
+    date: 2026-11-15
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/01839"
+    listing_tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
   - work: "ロックは淑女の嗜みでして"
     platform: "マンガPark"
     date: 2026-11-15
@@ -61,7 +87,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-days.com/episode/3269632237276869027"
-    listing_tags: ["音楽", "女子高生", "百合", "障害者"]
+    listing_tags: ["最近のコメント数"]
   - work: "見える子ちゃん"
     platform: "ニコニコ漫画"
     date: 2026-11-14
@@ -89,14 +115,14 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/03368"
-    listing_tags: ["百合"]
+    listing_tags: ["百合", "女子中学生"]
   - work: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     date: 2026-11-14
     source: "webcomics.jp"
     provenance: claimed
     url: "https://heros-web.com/series/ec09a10dc9490"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
   - work: "怪獣ロマンティクス"
     platform: "pixivコミック"
     date: 2026-11-14
@@ -688,7 +714,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://kuragebunch.com/episode/12207421984481017713"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合"]
   - work: "バクガタリzzZ 鰤尾みちる"
     platform: "カドコミ"
     date: 2026-11-10
@@ -735,7 +761,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://www.sunday-webry.com/episode/12207421983745504350"
-    listing_tags: ["百合", "女子高生", "運動系部活", "柔道"]
+    listing_tags: ["最近のコメント数"]
   - work: "しゅがー・みーつ・がーる!"
     platform: "COMIC FUZ"
     date: 2026-11-10
@@ -763,13 +789,6 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/de0a74a9b5715"
     listing_tags: ["百合", "自転車", "女子高生", "サトリ"]
-  - work: "私のブルーガーネット"
-    platform: "マンガPark"
-    date: 2026-11-09
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-park.com/title/98459"
-    listing_tags: ["百合", "エロ"]
   - work: "優等生がアダルトグッズを買いに来た"
     platform: "コミックガルド"
     date: 2026-11-09
@@ -2209,13 +2228,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_004197_S"
     listing_tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
-  - work: "今日はカノジョがいないから"
-    platform: "マガポケ"
-    date: 2026-10-19
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/01839"
-    listing_tags: ["百合", "女子高生", "三角関係", "浮気・不倫", "お色気・微エロ"]
   - work: "ボイタボイネ"
     platform: "pixivコミック"
     date: 2026-10-19
@@ -2853,10 +2865,3 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421984222943969"
     listing_tags: ["百合", "読み切り"]
-  - work: "いじめてくれる君がすき"
-    platform: "一迅プラス"
-    date: 2026-09-16
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/12207421984151786084"
-    listing_tags: ["百合", "いじめ"]

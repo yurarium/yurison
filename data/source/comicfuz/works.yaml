@@ -2,7 +2,7 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-11-15
+retrieved: 2026-11-16
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -29,8 +29,11 @@ works:
       - chapter_id: 81019
         title: "episode9（2）"
         updated: 2026-11-15
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-16"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 81016
         title: "episode9（1）"
         updated: 2026-11-08
@@ -131,8 +134,11 @@ works:
       - chapter_id: 78638
         title: "２巻 第２３話"
         updated: 2026-11-15
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-16"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78635
         title: "２巻 第２２話"
         updated: 2026-11-08
@@ -4920,7 +4926,7 @@ works:
   - work_title: "星屑テレパス"
     yomi: "ほしくずてれぱす"
     url: "https://comic-fuz.com/manga/2062"
-    latest_updated: "2026-11-09"
+    latest_updated: "2026-11-16"
     authors: ["大熊らすこ"]
     tags: ["月曜日", "男性向け", "４コマ", "SF・ファンタジー", "メディア化", "まんがタイムきらら", "まんがタイムKRコミックス"]
     chapter_count: 73
@@ -4999,10 +5005,9 @@ works:
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 64803
         title: "５巻 第５２話「宙想マーメイド」"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-11-16
+        updated: 2026-11-16
         access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 64800
         title: "５巻 第５１話「好敵ロケッティア」"
         updated: 2026-11-09
@@ -11418,8 +11423,11 @@ works:
       - chapter_id: 48193
         title: "３巻 第７話"
         updated: 2026-11-15
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-16"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 48190
         title: "３巻 第６話"
         updated: 2026-11-08

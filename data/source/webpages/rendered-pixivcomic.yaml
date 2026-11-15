@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-15
+retrieved: 2026-11-16
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -66,21 +66,25 @@ works:
         updated: 2025-03-08
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "まるせっせんす"
-    author: "畳ゆか"
-    url: "https://comic.pixiv.net/works/12886"
-    chapter_count: 3
+  - work_title: "ボイタボイネ"
+    author: "夏草"
+    url: "https://comic.pixiv.net/works/12194"
+    chapter_count: 4
     chapters:
-      - title: "3 発見"
-        updated: 2026-05-08
+      - title: "第23話 シュガー＆ソルト withバニラ"
+        updated: 2026-10-19
         access_modes: ["free"]
         date_basis: rendered
-      - title: "2 解体"
-        updated: 2026-04-17
+      - title: "第22話 決闘スタンバイ(後編)"
+        updated: 2026-09-21
         access_modes: ["free"]
         date_basis: rendered
-      - title: "1 原罪"
-        updated: 2026-03-20
+      - title: "第2話 男子制服の理由"
+        updated: 2025-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 最強のボーイッシュ女子"
+        updated: 2025-09-15
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -729,27 +733,6 @@ works:
         updated: 2025-07-28
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "ボイタボイネ"
-    author: "夏草"
-    url: "https://comic.pixiv.net/works/12194"
-    chapter_count: 4
-    chapters:
-      - title: "第23話 シュガー＆ソルト withバニラ"
-        updated: 2026-10-19
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第22話 決闘スタンバイ(後編)"
-        updated: 2026-09-21
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 男子制服の理由"
-        updated: 2025-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 最強のボーイッシュ女子"
-        updated: 2025-09-15
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "いちこえ、にふり、タチアオイ"
     author: "ヨドカワ"
     url: "https://comic.pixiv.net/works/12328"
@@ -774,6 +757,23 @@ works:
         date_basis: rendered
       - title: "Episode.1"
         updated: 2026-02-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "まるせっせんす"
+    author: "畳ゆか"
+    url: "https://comic.pixiv.net/works/12886"
+    chapter_count: 3
+    chapters:
+      - title: "3 発見"
+        updated: 2026-05-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "2 解体"
+        updated: 2026-04-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "1 原罪"
+        updated: 2026-03-20
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "たゆたう恋の散り際に"

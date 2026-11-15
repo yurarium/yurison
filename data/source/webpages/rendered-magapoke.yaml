@@ -10,12 +10,65 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-11-15
+retrieved: 2026-11-16
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
+  - work_title: "今日はカノジョがいないから"
+    author: "岩見樹代子"
+    url: "https://pocket.shonenmagazine.com/title/01839"
+    stated_schedule:
+      cadence: "毎月第3月曜"
+      next_update: "2026-12-21"
+    chapter_count: 10
+    chapters:
+      - title: "【第40話】「柔難」(3)"
+        updated: 2026-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第40話】「柔難」(2)"
+        updated: 2026-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第40話】「柔難」(1)"
+        updated: 2026-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第39話】「空同」(3)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第39話】「空同」(2)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第2話(1)】「懐柔」"
+        updated: 2022-07-22
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第1話(4)】「接触」"
+        updated: 2022-07-22
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話(3)】「接触」"
+        updated: 2022-07-22
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話(2)】「接触」"
+        updated: 2022-07-22
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話(1)】「接触」"
+        updated: 2022-07-22
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "将来的に死んでくれ"
     author: "長門知大"
     url: "https://pocket.shonenmagazine.com/title/00195"
@@ -735,59 +788,6 @@ works:
         date_basis: rendered
       - title: "【1日目(1)】"
         updated: 2022-08-02
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "今日はカノジョがいないから"
-    author: "岩見樹代子"
-    url: "https://pocket.shonenmagazine.com/title/01839"
-    stated_schedule:
-      cadence: "毎月第3月曜"
-      next_update: "2026-11-16"
-    chapter_count: 10
-    chapters:
-      - title: "【第40話】「柔難」(3)"
-        updated: 2026-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第40話】「柔難」(2)"
-        updated: 2026-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第40話】「柔難」(1)"
-        updated: 2026-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第39話】「空同」(3)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第39話】「空同」(2)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第2話(1)】「懐柔」"
-        updated: 2022-07-22
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第1話(4)】「接触」"
-        updated: 2022-07-22
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話(3)】「接触」"
-        updated: 2022-07-22
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話(2)】「接触」"
-        updated: 2022-07-22
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話(1)】「接触」"
-        updated: 2022-07-22
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "甘えさせて雛森さん!"

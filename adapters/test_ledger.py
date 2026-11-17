@@ -56,6 +56,11 @@ def main(s):
     s.eq(len(runs), 1, "the first run is recorded")
     runs = ledger.append(runs, BEFORE, at="2026-08-05T00:00:00+00:00")
     s.eq([r["at"][:10] for r in runs], ["2026-08-04", "2026-08-05"], "and the next is appended")
+    timed = ledger.append([], BEFORE, at="2026-11-17T16:05:00+00:00",
+                          started="2026-11-17T15:20:00+00:00")
+    s.eq(timed[0].get("started"), "2026-11-17T15:20:00+00:00",
+         "a run records when it began, which is what decides the slot it covers")
+    s.check("started" not in runs[0], "and an entry given no start states none")
     s.eq(runs[0]["sources"]["magapoke"]["rows"], 1952,
          "a run already written is never rewritten, or the comparison means nothing")
     s.eq(len(ledger.append(runs * 40, BEFORE, keep=3)), 3, "and the window drops the oldest")

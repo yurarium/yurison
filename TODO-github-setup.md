@@ -3,7 +3,8 @@
 ## Where it stands, 2026-10-15
 
 Most of what follows the line below is history. The update runs on a schedule, twice a day at 00:37
-and 12:07 JST. The site builds itself from the store each run publishes, so no deploy key exists
+and 12:07 JST, from ticks every three hours that stop when their planned time is covered
+(RUNBOOK-github.md §6). The site builds itself from the store each run publishes, so no deploy key exists
 any more, and both repositories are public, so Actions minutes cost nothing. A source that keeps
 failing opens its own issue, and a digest discussion is posted each Monday. docs/LAUNCH-PLAN.md has the
 rest.

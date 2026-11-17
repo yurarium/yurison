@@ -5,10 +5,29 @@ name: update
 # ON A SCHEDULE, TWICE A DAY, from 2026-10-15. It was manual-only from August, waiting for one
 # watched run, and was never switched on: every run since was dispatched by hand. The owner chose
 # two runs (docs/LAUNCH-PLAN.md), the two largest release clusters measured below.
+#
+# TICKING EVERY THREE HOURS, RUNNING TWICE, from 2026-11-17. GitHub began each scheduled run 6 to
+# 10 hours late through November, on every workflow in both repositories, so the run planned for
+# 00:37 JST began between 05:30 and 08:50 JST. Whatever the delay, some tick of eight lands within
+# about three hours of each planned time. The `due` job asks `adapters/runslot.py` whether the
+# latest planned time has had a run that began after it, and a tick that finds it has stops there,
+# commits nothing and asks no source. The planned times are runslot.SLOTS: 03:07 and 15:37 UTC.
+# Minutes differ from tick to tick and none is :00 or :30, where everything else on GitHub queues.
+#
+# A PUBLIC REPOSITORY'S SCHEDULES ARE DISABLED AFTER 60 DAYS WITHOUT ACTIVITY. The real runs keep
+# this one active, since each commits its ledger entry, and the site repository is kept active by
+# the store each run publishes to it. A tick that stops commits nothing, so if the real runs ever
+# stop for 60 days the schedule goes with them and has to be re-enabled from the Actions tab.
 on:
   schedule:
-    - cron: "37 15 * * *"   # 00:37 JST, after the midnight batch. The most valuable single run.
+    - cron: "23 0 * * *"
     - cron: "07 3 * * *"    # 12:07 JST, catching the 11:00 and 12:00 clusters together.
+    - cron: "44 6 * * *"
+    - cron: "19 9 * * *"
+    - cron: "52 12 * * *"
+    - cron: "37 15 * * *"   # 00:37 JST, after the midnight batch. The most valuable single run.
+    - cron: "11 18 * * *"
+    - cron: "46 21 * * *"
   workflow_dispatch:
     inputs:
       skip_browser:
@@ -30,6 +49,8 @@ concurrency:
 
 permissions:
   contents: write
+  # The `due` job counts this workflow's earlier runs for the current slot.
+  actions: read
   # `runhealth.py sync` opens and closes one issue per source that keeps failing.
   issues: write
 
@@ -47,10 +68,51 @@ env:
   REPORT: ${{ github.workspace }}/../run-report.json
 
 jobs:
+  # WHETHER THIS TICK IS THE PLANNED RUN. See the schedule above and adapters/runslot.py. A run
+  # dispatched by hand is always due.
+  due:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      due: ${{ steps.decide.outputs.due }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            adapters/runslot.py
+            data/ledger/runs.yaml
+          sparse-checkout-cone-mode: false
+      - name: Decide
+        id: decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "dispatched by hand: due"; echo "due=yes" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          pip install --quiet pyyaml
+          slot=$(python3 adapters/runslot.py slot)
+          # Runs for this slot whose `update` job ran and wrote no ledger entry: the ones that
+          # failed or were cancelled. A run that succeeded is in the ledger already.
+          attempts=0
+          for id in $(gh api "repos/${{ github.repository }}/actions/workflows/update.yml/runs?created=>=$slot&per_page=50" \
+                        --jq ".workflow_runs[] | select(.id != ${{ github.run_id }}) | .id"); do
+            c=$(gh api "repos/${{ github.repository }}/actions/runs/$id/jobs" \
+                  --jq '[.jobs[] | select(.name == "update") | .conclusion] | first // ""')
+            case "$c" in failure|cancelled|timed_out) attempts=$((attempts+1));; esac
+          done
+          python3 adapters/runslot.py due --attempts "$attempts"
+
   update:
+    needs: due
+    if: ${{ needs.due.outputs.due == 'yes' }}
     runs-on: ubuntu-latest
     timeout-minutes: 110
     steps:
+      # WHEN THIS RUN BEGAN, which the ledger records and `runslot.py` reads to decide whether the
+      # planned time it ran for has been covered.
+      - name: Record the start
+        run: echo "RUN_STARTED=$(date -u +%Y-%m-%dT%H:%M:%S+00:00)" >> "$GITHUB_ENV"
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:

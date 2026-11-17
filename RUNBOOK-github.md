@@ -248,7 +248,18 @@ Daily is right. The feed window is 60 days and most platforms update weekly, so 
 pure load on the sources for no new rows. Effective dates are locked at first sighting (§5), so a
 missed day is recovered by the next run rather than lost.
 
-Pin `schedule:` off the hour — every scheduled workflow on GitHub fires at :00 and is queued.
+Pin `schedule:` off the hour: every scheduled workflow on GitHub fires at :00 and is queued.
+
+The update workflow ticks eight times a day and runs twice. GitHub began scheduled runs 6 to 10
+hours late through November 2026, so the cron times alone no longer decide when a run happens. Its
+first job, `due`, asks `adapters/runslot.py` whether the latest planned time (03:07 or 15:37 UTC)
+has had a run that began after it. A tick that finds it covered stops there and commits nothing; a
+planned time whose run failed is retried by the next tick, twice at most. A run dispatched by hand
+always runs.
+
+Schedules in a public repository are disabled after 60 days with no activity. The real runs keep
+`yurison` active with their ledger commits and the site repository with the store they publish, so
+this bites only if the runs themselves stop. Re-enable from the Actions tab if it does.
 
 ## 7. Caching
 

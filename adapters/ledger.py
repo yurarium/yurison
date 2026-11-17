@@ -21,6 +21,7 @@ well-formed rows carrying wrong values, and no count will ever see that. GAPS §
 landmark declaration as the answer to it.
 """
 import datetime
+import os
 import pathlib
 import sys
 
@@ -103,14 +104,20 @@ def compare(now, before):
     return sorted(out, key=lambda x: -x["share"])
 
 
-def append(runs, snap, at=None, keep=KEEP):
+def append(runs, snap, at=None, keep=KEEP, started=None):
     """The run history with this run on the end, oldest dropped past `keep`.
 
     Append-only within the window. A run is a record of what was true once and rewriting one would
     make the comparison meaningless, which is the same rule the feed archives keep.
+
+    `started` IS WHEN THE RUN BEGAN, and `at` when this entry was written near its end. The update
+    workflow ticks more often than it runs, and `runslot.py` asks whether a planned slot has had a
+    run that began after it, which `at` cannot answer for a run that straddled the slot.
     """
-    row = {"at": at or datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
-           "sources": snap}
+    row = {"at": at or datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}
+    if started:
+        row["started"] = started
+    row["sources"] = snap
     return ((runs or []) + [row])[-keep:]
 
 
@@ -124,6 +131,8 @@ def main(argv=None):
     # THE SAME FLAG `build.py` AND `check.py` CARRY. The drops go in the store; this writes the
     # file only where a person asked for one.
     ap.add_argument("--emit-json", action="store_true", help="also write --out")
+    ap.add_argument("--started", default=os.environ.get("RUN_STARTED"),
+                    help="when this run began, ISO UTC; the update workflow sets RUN_STARTED")
     a = ap.parse_args(argv)
 
     p = pathlib.Path(a.file)
@@ -133,7 +142,7 @@ def main(argv=None):
     previous = runs[-1]["sources"] if runs else None
     drops = compare(snap, previous)
 
-    runs = append(runs, snap)
+    runs = append(runs, snap, started=a.started)
     # THE DAYS OUTLAST THE WINDOW. `latefind` decides whether a chapter was found late from the
     # days an update ran, and a decision read from forty runs would change as the oldest left:
     # a row filed under the day it was found would move back two weeks later.

@@ -10,27 +10,35 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-16
+retrieved: 2026-11-17
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
-  - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
-    author: "中村カンコ"
-    url: "https://comic.pixiv.net/works/11081"
-    chapter_count: 3
+  - work_title: "ステラ・ステップ"
+    author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
+    url: "https://comic.pixiv.net/works/10790"
+    chapter_count: 5
     chapters:
-      - title: "第3話"
-        updated: 2025-01-04
+      - title: "Step.15② 光の向こうへ"
+        updated: 2026-10-27
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第2話"
-        updated: 2024-12-07
+      - title: "Step.15① 光の向こうへ"
+        updated: 2026-10-13
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第1話"
-        updated: 2024-11-02
+      - title: "Step.1② 砂漠に降る雨"
+        updated: 2024-11-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "Step.1① 砂漠に降る雨"
+        updated: 2024-10-18
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "Step.0 星が堕ちた日"
+        updated: 2024-08-09
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "超深宇宙より愛をこめて"
@@ -66,25 +74,83 @@ works:
         updated: 2025-03-08
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "ボイタボイネ"
-    author: "夏草"
-    url: "https://comic.pixiv.net/works/12194"
+  - work_title: "ふたりべや"
+    author: "雪子"
+    url: "https://comic.pixiv.net/works/5364"
     chapter_count: 4
     chapters:
-      - title: "第24話 感情迷路"
-        updated: 2026-11-16
+      - title: "第７０話"
+        updated: 2026-10-20
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第23話 シュガー＆ソルト withバニラ"
-        updated: 2026-10-19
+      - title: "第３話"
+        updated: 2018-12-18
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第2話 男子制服の理由"
-        updated: 2025-10-06
+      - title: "第２話"
+        updated: 2018-12-18
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第1話 最強のボーイッシュ女子"
-        updated: 2025-09-15
+      - title: "第１話"
+        updated: 2018-12-18
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "作りたい女と食べたい女"
+    author: "ゆざきさかおみ"
+    url: "https://comic.pixiv.net/works/7182"
+    chapter_count: 8
+    chapters:
+      - title: "第52話 常に共に"
+        updated: 2026-11-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第41話 受け入れてくれる場所"
+        updated: 2026-08-25
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第40話 互いを確認すること"
+        updated: 2023-07-05
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第39話 良い家"
+        updated: 2023-06-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第4話 この世に同じ女はいない"
+        updated: 2021-02-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話 あなたの食費はどのくらい"
+        updated: 2021-02-03
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 唐揚げ定食とカレー"
+        updated: 2021-01-27
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 二人の女"
+        updated: 2021-01-20
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "姫騎士と姫巫女"
+    author: "真くん"
+    url: "https://comic.pixiv.net/works/13609"
+    chapter_count: 4
+    chapters:
+      - title: "第12話"
+        updated: 2026-11-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話"
+        updated: 2026-09-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話"
+        updated: 2026-09-01
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2026-08-25
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -272,31 +338,6 @@ works:
         date_basis: rendered
       - title: "TARGET.1 ① ピンクのヤバいやつ"
         updated: 2024-08-02
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ステラ・ステップ"
-    author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
-    url: "https://comic.pixiv.net/works/10790"
-    chapter_count: 5
-    chapters:
-      - title: "Step.15② 光の向こうへ"
-        updated: 2026-10-27
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.15① 光の向こうへ"
-        updated: 2026-10-13
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.1② 砂漠に降る雨"
-        updated: 2024-11-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.1① 砂漠に降る雨"
-        updated: 2024-10-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.0 星が堕ちた日"
-        updated: 2024-08-09
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "不死犠コネクト"
@@ -494,6 +535,23 @@ works:
         date_basis: rendered
       - title: "第1話 田村七夕"
         updated: 2024-11-08
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
+    author: "中村カンコ"
+    url: "https://comic.pixiv.net/works/11081"
+    chapter_count: 3
+    chapters:
+      - title: "第3話"
+        updated: 2025-01-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話"
+        updated: 2024-12-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2024-11-02
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "カナリアは綺羅星の夢をみる"
@@ -731,6 +789,27 @@ works:
         date_basis: rendered
       - title: "第1話 好きです、フッてください！"
         updated: 2025-07-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ボイタボイネ"
+    author: "夏草"
+    url: "https://comic.pixiv.net/works/12194"
+    chapter_count: 4
+    chapters:
+      - title: "第24話 感情迷路"
+        updated: 2026-11-16
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第23話 シュガー＆ソルト withバニラ"
+        updated: 2026-10-19
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 男子制服の理由"
+        updated: 2025-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 最強のボーイッシュ女子"
+        updated: 2025-09-15
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "いちこえ、にふり、タチアオイ"
@@ -1116,27 +1195,6 @@ works:
         updated: 2018-10-08
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "ふたりべや"
-    author: "雪子"
-    url: "https://comic.pixiv.net/works/5364"
-    chapter_count: 4
-    chapters:
-      - title: "第７０話"
-        updated: 2026-10-20
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第３話"
-        updated: 2018-12-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第２話"
-        updated: 2018-12-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第１話"
-        updated: 2018-12-18
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "惑星クローゼット"
     author: "つばな"
     url: "https://comic.pixiv.net/works/5365"
@@ -1442,43 +1500,6 @@ works:
         date_basis: rendered
       - title: "1日目"
         updated: 2020-12-28
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "作りたい女と食べたい女"
-    author: "ゆざきさかおみ"
-    url: "https://comic.pixiv.net/works/7182"
-    chapter_count: 8
-    chapters:
-      - title: "第52話 常に共に"
-        updated: 2026-11-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第41話 受け入れてくれる場所"
-        updated: 2026-08-25
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第40話 互いを確認すること"
-        updated: 2023-07-05
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第39話 良い家"
-        updated: 2023-06-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4話 この世に同じ女はいない"
-        updated: 2021-02-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 あなたの食費はどのくらい"
-        updated: 2021-02-03
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 唐揚げ定食とカレー"
-        updated: 2021-01-27
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 二人の女"
-        updated: 2021-01-20
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "百合SMでふたりの気持ちはつながりますか?"
@@ -2260,27 +2281,6 @@ works:
         date_basis: rendered
       - title: "ep01 夜明けの光"
         updated: 2023-11-28
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "姫騎士と姫巫女"
-    author: "真くん"
-    url: "https://comic.pixiv.net/works/13609"
-    chapter_count: 4
-    chapters:
-      - title: "第12話"
-        updated: 2026-11-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話"
-        updated: 2026-09-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2026-09-01
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2026-08-25
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "壊していいよ、すいかちゃん"

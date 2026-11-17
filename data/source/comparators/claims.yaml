@@ -8,11 +8,17 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-16
+retrieved: 2026-11-17
 record_type: update_claims
 window_days: 60
-claims: 421
+claims: 418
 updates:
+  - work: "ラブかライクか分からない！ sasa熊"
+    platform: "きららベース"
+    date: 2026-11-17
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "魔王城デート大作戦!"
     platform: "キミコミ"
     date: 2026-11-16
@@ -20,6 +26,20 @@ updates:
     provenance: claimed
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     listing_tags: ["百合"]
+  - work: "雨夜の月"
+    platform: "マガポケ"
+    date: 2026-11-16
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02202"
+    listing_tags: ["障害者", "女子高生", "百合"]
+  - work: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
+    platform: "ガンガンONLINE"
+    date: 2026-11-16
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.ganganonline.com/title/2349"
+    listing_tags: ["百合", "ヤンデレ"]
   - work: "私のブルーガーネット"
     platform: "マンガPark"
     date: 2026-11-16
@@ -60,7 +80,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://hanayume.com/series/f3ce082d639de"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
   - work: "ケイヤクシマイ ヒジキ"
     platform: "カドコミ"
     date: 2026-11-16
@@ -74,6 +94,13 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_001277_S"
     listing_tags: ["百合", "社会人", "女子高生", "同棲"]
+  - work: "ささやくように恋を唄う"
+    platform: "マガポケ"
+    date: 2026-11-16
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/01045"
+    listing_tags: ["百合", "女子高生", "音楽", "アニメ化"]
   - work: "百合のはじまりは奴隷から"
     platform: "pixivコミック"
     date: 2026-11-15
@@ -122,7 +149,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-days.com/episode/3269632237276869027"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["音楽", "女子高生", "百合", "障害者"]
   - work: "見える子ちゃん"
     platform: "ニコニコ漫画"
     date: 2026-11-14
@@ -721,7 +748,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
-    listing_tags: ["エロ", "女子高生", "日常", "ギャグ・コメディ", "百合", "フェチ・性癖"]
+    listing_tags: ["最近のコメント数"]
   - work: "ライバルアライバル"
     platform: "pixivコミック"
     date: 2026-11-10
@@ -782,7 +809,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://www.sunday-webry.com/episode/12207421983745504350"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "女子高生", "運動系部活", "柔道"]
   - work: "しゅがー・みーつ・がーる!"
     platform: "COMIC FUZ"
     date: 2026-11-10
@@ -1278,20 +1305,6 @@ updates:
     provenance: claimed
     url: "https://www.yomonga.com/titles/2558/"
     listing_tags: ["百合"]
-  - work: "雨夜の月"
-    platform: "マガポケ"
-    date: 2026-11-03
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02202"
-    listing_tags: ["障害者", "女子高生", "百合"]
-  - work: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
-    platform: "ガンガンONLINE"
-    date: 2026-11-03
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.ganganonline.com/title/2349"
-    listing_tags: ["百合", "ヤンデレ"]
   - work: "謎のユリイカ"
     platform: "マンガよもんが"
     date: 2026-11-03
@@ -1388,13 +1401,6 @@ updates:
     provenance: claimed
     url: "https://kuragebunch.com/episode/12207421984452460688"
     listing_tags: ["百合", "読み切り"]
-  - work: "ささやくように恋を唄う"
-    platform: "マガポケ"
-    date: 2026-11-03
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/01045"
-    listing_tags: ["百合", "女子高生", "音楽", "アニメ化"]
   - work: "このままモブじゃ終われない!"
     platform: "COMIC FUZ"
     date: 2026-11-03
@@ -2837,31 +2843,3 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/8e32550d65684"
     listing_tags: ["百合", "恋愛", "ラブコメ", "うぶ恋・ピュア恋", "カップル", "片思い"]
-  - work: "誰かオオカミさんのしつけ方知りませんか!?"
-    platform: "一迅プラス"
-    date: 2026-09-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/12207421983347947242"
-    listing_tags: ["百合", "女子高生", "ラブコメ"]
-  - work: "腹割るウチらの秘密ごと!"
-    platform: "pixivコミック"
-    date: 2026-09-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/11664"
-    listing_tags: ["百合", "運動・筋トレ"]
-  - work: "ホテルの外でもあいたいよ"
-    platform: "一迅プラス"
-    date: 2026-09-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/12207421984222944066"
-    listing_tags: ["百合", "読み切り"]
-  - work: "キミに触れて、感じたい"
-    platform: "一迅プラス"
-    date: 2026-09-17
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/12207421984222943969"
-    listing_tags: ["百合", "読み切り"]

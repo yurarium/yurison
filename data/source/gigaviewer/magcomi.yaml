@@ -6,12 +6,13 @@ source: gigaviewer
 platform: magcomi
 platform_name: "MAGCOMI"
 publisher: "マッグガーデン"
-retrieved: 2026-11-16
+retrieved: 2026-11-17
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "magcomi:episode:12207421984482234304"
+    in_current_window: false
     work_title: "シアワセとりかえばや"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -28,6 +29,7 @@ releases:
     free_term_start: "2026-11-10T03:00:00Z"
     advances_narrative: true
   - release_id: "magcomi:episode:12207421984482234310"
+    in_current_window: false
     work_title: "織りゆけサルデーニャ"
     web_status: "serialised"
     identified_via: "discovery-candidate"

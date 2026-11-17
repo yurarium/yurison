@@ -16,59 +16,6 @@ identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
-  - work_title: "ささやくように恋を唄う"
-    author: "竹嶋えく"
-    url: "https://pocket.shonenmagazine.com/title/01045"
-    stated_schedule:
-      cadence: "隔週火曜"
-      next_update: "2026-12-01"
-    chapter_count: 10
-    chapters:
-      - title: "【第65話】ごまかしと、練習と、不和と。(3)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【第65話】ごまかしと、練習と、不和と。(2)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【第65話】ごまかしと、練習と、不和と。(1)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【第64話】出会いと、別れと、後悔と。(6)"
-        updated: 2026-07-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【第64話】出会いと、別れと、後悔と。(5)"
-        updated: 2026-07-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【第5話】好き、デート、そして…(1)"
-        updated: 2020-02-21
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第4話】雨の日、教室で。"
-        updated: 2020-02-21
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話】放課後、2人の時間。"
-        updated: 2020-02-21
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第2話】初恋と、桜と、後輩と。"
-        updated: 2020-02-21
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】屋上と、ギターと、先輩と。"
-        updated: 2020-02-21
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "今日はカノジョがいないから"
     author: "岩見樹代子"
     url: "https://pocket.shonenmagazine.com/title/01839"
@@ -223,6 +170,59 @@ works:
         date_basis: rendered
       - title: "【第1話】「あなたのためなら、いくらでも」"
         updated: 2016-12-30
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ささやくように恋を唄う"
+    author: "竹嶋えく"
+    url: "https://pocket.shonenmagazine.com/title/01045"
+    stated_schedule:
+      cadence: "隔週火曜"
+      next_update: "2026-12-01"
+    chapter_count: 10
+    chapters:
+      - title: "【第65話】ごまかしと、練習と、不和と。(3)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【第65話】ごまかしと、練習と、不和と。(2)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【第65話】ごまかしと、練習と、不和と。(1)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【第64話】出会いと、別れと、後悔と。(6)"
+        updated: 2026-07-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【第64話】出会いと、別れと、後悔と。(5)"
+        updated: 2026-07-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【第5話】好き、デート、そして…(1)"
+        updated: 2020-02-21
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第4話】雨の日、教室で。"
+        updated: 2020-02-21
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話】放課後、2人の時間。"
+        updated: 2020-02-21
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第2話】初恋と、桜と、後輩と。"
+        updated: 2020-02-21
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】屋上と、ギターと、先輩と。"
+        updated: 2020-02-21
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "きみが死ぬまで恋をしたい"

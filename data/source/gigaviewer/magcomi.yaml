@@ -11,6 +11,21 @@ record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "magcomi:episode:12207421984374937414"
+    work_title: "ボイタボイネ"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第23話「シュガー＆ソルト withバニラ」"
+    release_type: "chapter"
+    date: "2026-11-17"
+    date_basis: "observed"
+    first_seen: "2026-11-17"
+    first_reported: "2026-11-17T03:00:00Z"
+    platform_updated: "2026-11-17T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984374937414"
+    author: "夏草"
+    advances_narrative: true
   - release_id: "magcomi:episode:12207421984482234304"
     in_current_window: false
     work_title: "シアワセとりかえばや"

@@ -10,6 +10,22 @@ names:
     note: already Latin on the platform's own page; no romanisation involved
     script: latin
     verified: true
+  2222楠:
+    basis: romaji
+    furigana_spans:
+    - - '2222'
+      - null
+    - - 楠
+      - くすのき
+    reading: 2222クスノキ
+    reading_at: '2026-11-17'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   2C=がろあ:
     basis: romaji
     furigana_spans:

@@ -6,16 +6,16 @@ source: yurinavi-webyuri
 role: coverage-yardstick
 retrieved: 2026-11-17
 record_type: coverage_gap
-works_listed: 129
+works_listed: 131
 platforms_total: 25
 platforms_watched: 17
-works_on_watched_platforms: 94
+works_on_watched_platforms: 95
 platforms:
   - platform: "カドコミ"
-    works: 55
+    works: 56
     watched: true
   - platform: "きららベース"
-    works: 23
+    works: 24
     watched: false
   - platform: "一迅プラス"
     works: 10
@@ -207,6 +207,12 @@ works:
     watched_platform: false
     title: "十字トンボは空を飛ばない"
     url: "https://manga.nicovideo.jp/comic/71834"
+  - raw: "夢路あかりと魔法の本 2222楠"
+    platform: "きららベース"
+    last_update_seen: 11-17
+    watched_platform: false
+    title: "夢路あかりと魔法の本"
+    url: "https://manga.nicovideo.jp/comic/72636"
   - raw: "好都合セミフレンド 千種みのり"
     platform: "きららベース"
     last_update_seen: 11-19
@@ -573,6 +579,12 @@ works:
     watched_platform: true
     title: "真夜中に愛してよ"
     url: "https://comic-walker.com/detail/KC_020158_S"
+  - raw: "私の可愛いボーイッシュちゃん 奥一"
+    platform: "カドコミ"
+    last_update_seen: 11-17
+    watched_platform: true
+    title: "私の可愛いボーイッシュちゃん"
+    url: "https://comic-walker.com/detail/KC_021614_S"
   - raw: "私を喰べたい、ひとでなし 苗川采"
     platform: "カドコミ"
     last_update_seen: 10-24

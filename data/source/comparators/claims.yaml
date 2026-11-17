@@ -8,10 +8,10 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-17
+retrieved: 2026-11-18
 record_type: update_claims
 window_days: 60
-claims: 420
+claims: 417
 updates:
   - work: "黒の世界は白墨に染まる"
     platform: "マンガよもんが"
@@ -82,6 +82,13 @@ updates:
     provenance: claimed
     url: "https://www.yomonga.com/titles/2571/"
     listing_tags: ["百合"]
+  - work: "大室家"
+    platform: "一迅プラス"
+    date: 2026-11-17
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ichicomi.com/episode/2550912965923203895"
+    listing_tags: ["スピンオフ・外伝", "日常", "癒やし・ほっこり", "姉妹", "百合"]
   - work: "夢路あかりと魔法の本 2222楠"
     platform: "きららベース"
     date: 2026-11-17
@@ -129,6 +136,27 @@ updates:
     provenance: claimed
     url: "https://magcomi.com/episode/2551460909687451648"
     listing_tags: ["百合"]
+  - work: "ドリーム☆ジャンボ☆ガール"
+    platform: "マガポケ"
+    date: 2026-11-17
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02758"
+    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
+  - work: "アイドラトリィ"
+    platform: "マガポケ"
+    date: 2026-11-17
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02901"
+    listing_tags: ["百合", "アイドル", "推し活"]
+  - work: "ゆるゆり"
+    platform: "一迅プラス"
+    date: 2026-11-17
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ichicomi.com/episode/2550912965923204125"
+    listing_tags: ["日常", "癒やし・ほっこり", "女子中学生", "架空の部活", "百合"]
   - work: "ふたりべや"
     platform: "pixivコミック"
     date: 2026-11-17
@@ -728,13 +756,6 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/3397"
     listing_tags: ["百合", "女子高生", "4コマ"]
-  - work: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
-    platform: "ヤンチャンWeb"
-    date: 2026-11-11
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://youngchampion.jp/series/86c1162f34a04"
-    listing_tags: ["ファンタジー", "令嬢", "百合"]
   - work: "ワインガールズ"
     platform: "キミコミ"
     date: 2026-11-11
@@ -742,13 +763,6 @@ updates:
     provenance: claimed
     url: "https://kimicomi.com/series/f42014b3e7df6"
     listing_tags: ["百合", "擬人化"]
-  - work: "ドリーム☆ジャンボ☆ガール"
-    platform: "マガポケ"
-    date: 2026-11-11
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02758"
-    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
   - work: "サタノファニ"
     platform: "ヤンマガWeb"
     date: 2026-11-11
@@ -763,13 +777,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021488_S"
     listing_tags: ["百合"]
-  - work: "アイドラトリィ"
-    platform: "マガポケ"
-    date: 2026-11-11
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02901"
-    listing_tags: ["百合", "アイドル", "推し活"]
   - work: "らぶぶいっ!"
     platform: "カドコミ"
     date: 2026-11-11
@@ -2337,13 +2344,6 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/02257"
     listing_tags: ["百合", "姉妹", "ヤンデレ"]
-  - work: "大室家"
-    platform: "一迅プラス"
-    date: 2026-10-16
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2550912965923203895"
-    listing_tags: ["スピンオフ・外伝", "日常", "癒やし・ほっこり", "姉妹", "百合"]
   - work: "壊していいよ、すいかちゃん"
     platform: "pixivコミック"
     date: 2026-10-16
@@ -2365,13 +2365,6 @@ updates:
     provenance: claimed
     url: "https://feelweb.jp/episode/3269754496401056068"
     listing_tags: ["百合"]
-  - work: "ゆるゆり"
-    platform: "一迅プラス"
-    date: 2026-10-16
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2550912965923204125"
-    listing_tags: ["日常", "癒やし・ほっこり", "女子中学生", "架空の部活", "百合"]
   - work: "だって恋は月夜に灯るから"
     platform: "一迅プラス"
     date: 2026-10-16
@@ -2841,17 +2834,3 @@ updates:
     provenance: claimed
     url: "https://kimicomi.com/series/617d2958d4953"
     listing_tags: ["百合"]
-  - work: "貴女へささげるサディスティック"
-    platform: "竹コミ‎‏‎"
-    date: 2026-09-18
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://takecomic.jp/series/ae1cf555c8b01"
-    listing_tags: ["百合", "エロ", "女子高生", "教師", "先生と生徒・師弟", "完結"]
-  - work: "夢でフラれてはじまる百合"
-    platform: "竹コミ‎‏‎"
-    date: 2026-09-18
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://takecomic.jp/series/8e32550d65684"
-    listing_tags: ["百合", "恋愛", "ラブコメ", "うぶ恋・ピュア恋", "カップル", "片思い"]

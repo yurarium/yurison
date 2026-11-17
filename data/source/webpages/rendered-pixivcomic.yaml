@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-17
+retrieved: 2026-11-18
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -41,46 +41,13 @@ works:
         updated: 2024-08-09
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "超深宇宙より愛をこめて"
-    author: "アシダカヲズ"
-    url: "https://comic.pixiv.net/works/11521"
-    chapter_count: 7
-    chapters:
-      - title: "第15話 残光"
-        updated: 2026-10-16
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第14話 愛のかたち"
-        updated: 2026-09-16
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第13話 嫌われたくない"
-        updated: 2026-08-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第12話 恋願う"
-        updated: 2026-07-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第11話 満ちては欠けて"
-        updated: 2026-06-16
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 その目映さに"
-        updated: 2025-04-16
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 宇宙からの来訪者"
-        updated: 2025-03-08
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "ふたりべや"
     author: "雪子"
     url: "https://comic.pixiv.net/works/5364"
     chapter_count: 4
     chapters:
-      - title: "第７０話"
-        updated: 2026-10-20
+      - title: "第７１話 前編"
+        updated: 2026-11-17
         access_modes: ["free"]
         date_basis: rendered
       - title: "第３話"
@@ -100,8 +67,8 @@ works:
     url: "https://comic.pixiv.net/works/7182"
     chapter_count: 8
     chapters:
-      - title: "第52話 常に共に"
-        updated: 2026-11-10
+      - title: "第53話 虹鱒と木陰"
+        updated: 2026-11-17
         access_modes: ["free"]
         date_basis: rendered
       - title: "第41話 受け入れてくれる場所"
@@ -137,8 +104,8 @@ works:
     url: "https://comic.pixiv.net/works/13609"
     chapter_count: 4
     chapters:
-      - title: "第12話"
-        updated: 2026-11-10
+      - title: "第13話"
+        updated: 2026-11-17
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3話"
@@ -699,6 +666,39 @@ works:
         updated: 2025-01-20
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "超深宇宙より愛をこめて"
+    author: "アシダカヲズ"
+    url: "https://comic.pixiv.net/works/11521"
+    chapter_count: 7
+    chapters:
+      - title: "第15話 残光"
+        updated: 2026-10-16
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第14話 愛のかたち"
+        updated: 2026-09-16
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第13話 嫌われたくない"
+        updated: 2026-08-18
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第12話 恋願う"
+        updated: 2026-07-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第11話 満ちては欠けて"
+        updated: 2026-06-16
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 その目映さに"
+        updated: 2025-04-16
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 宇宙からの来訪者"
+        updated: 2025-03-08
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "オカワリいただけただろうか?"
     author: "U-temo"
     url: "https://comic.pixiv.net/works/11565"
@@ -1048,8 +1048,12 @@ works:
   - work_title: "新米姉妹のふたりごはん"
     author: "柊ゆたか"
     url: "https://comic.pixiv.net/works/3287"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "72品目 アボカドチーズインハンバーグ"
+        updated: 2026-11-10
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "3品目 ネギソーセージ"
         updated: 2017-06-06
         access_modes: ["free"]

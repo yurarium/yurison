@@ -1815,6 +1815,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  Envy:
+    basis: translated
+    en: Envy
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is the volume title of the Qualia anthology and is already an English word. It is kept
+      as 'Envy' so that it reads under Qualia without repeating it.
+    verified: false
   Epicurean:
     basis: official-jp
     en: Epicurean
@@ -4260,6 +4270,16 @@ names:
     en_source_kind: derived
     note: SP is the usual abbreviation for a special (bonus) volume attached to the main series. It is
       rendered as Special so it reads under the work's English title. No page was available for this record.
+    verified: false
+  SQ 1 君の名前から始まる:
+    basis: translated
+    en: 'SQ: It Starts with Your Name 1'
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'The work is titled SQ: It Starts with Your Name, and this is its first volume. 君の名前から始まる means
+      ''begins with your name''.'
     verified: false
   SQ 君の名前から始まる:
     basis: romaji
@@ -8081,6 +8101,16 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  あかりファミリー:
+    basis: translated
+    en: Akari Family
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title combines the name Akari with ファミリー, the English word 'family'. It is one book of The
+      Akari Trilogy, so the rendering is kept short.
+    verified: false
   あかり三部作:
     basis: translated
     en: The Akari Trilogy
@@ -16693,6 +16723,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  さよならオルタ:
+    basis: translated
+    en: Goodbye, Orta
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: さよなら is 'goodbye'. オルタ is not explained on the BOOK WALKER page, which describes this as the
+      debut one-shot in Nio Nakatani's short story collection, so it is kept as a name.
+    verified: false
   さよならクローゼット:
     basis: translated
     en: Goodbye, Closet
@@ -17955,6 +17995,16 @@ names:
     note: The title means 'and after becoming Hifuu', with Hifuu referring to the Touhou fan pairing Hifuu
       Club. The BOOK WALKER series page tags it as Touhou Project fan work and lists it as the third volume
       of the series.
+    verified: false
+  そして秘封へと至る。3 怪雨:
+    basis: translated
+    en: 'And Thus We Arrive at Hifuu 3: Eerie Rain'
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is a volume of the Hifuu series, whose related title そして秘封になった後 is already named 'And After
+      We Became Hifuu'. 秘封 is the Touhou duo Hifuu Club, and 怪雨 means 'eerie rain'.
     verified: false
   そのポニテ、おなやみにつき:
     basis: translated
@@ -26523,6 +26573,18 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  んねこん:
+    basis: romaji
+    en: Nnekon
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK WALKER page describes this as Kouhei Shibata's first collection, with a title story
+      about a cat and a schoolgirl. The title is a coinage, so the work's romanised English is kept.
+    translation_refused: Rendered it would still come out as 'Nnekon', because it is a playful invented
+      word blending cats and girls and nothing in it can be translated.
+    verified: false
   んねこん（ビームコミックス（ハルタ））:
     basis: romaji
     en: Nnekon
@@ -29392,6 +29454,18 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  カノハナ:
+    basis: romaji
+    en: Kanohana
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK WALKER series page lists カノハナ。 as the free book of 彼女と彼女の話。 and it looks like a shortened
+      form of that title. It is kept as a coinage.
+    translation_refused: Rendered it would still come out as 'Kanohana', since it is a coined short form
+      of 彼女と彼女の話 (The Story of Her and Her) with no separate translatable word.
     verified: false
   カフェモカ、トール、ホイップ多め。:
     basis: translated
@@ -40005,6 +40079,16 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  フランVSこいし:
+    basis: translated
+    en: Flandre vs. Koishi
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: フラン and こいし are the Touhou Project characters Flandre Scarlet and Koishi Komeiji. VS is 'versus',
+      so the title is rendered 'Flandre vs. Koishi'.
+    verified: false
   フランドールとコイゴコロ:
     basis: translated
     en: Flandre and Feelings of Love
@@ -57761,7 +57845,12 @@ names:
       Renaissance in katakana, by way of the French.
     verified: false
   夢路あかりと魔法の本:
-    basis: romaji
+    basis: translated
+    en: Akari Yumeji and the Magic Book
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 夢路
       - ゆめじ
@@ -57773,6 +57862,9 @@ names:
       - null
     - - 本
       - ほん
+    note: The title reads 'Yumeji Akari and the Magic Book'. The Nico Nico Manga page shows no English
+      title and describes a girl summoned to another world, so the title is rendered directly with the
+      name kept as a name.
     reading: ユメジ アカリ ト マホウ ノ ホン
     reading_at: '2026-11-17'
     reading_basis: analyser
@@ -89818,6 +89910,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  自由研究編:
+    basis: translated
+    en: Summer Project Edition
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 自由研究 is the Japanese school holiday free research assignment, and 編 means 'edition'. It is a
+      volume of The Yuri Drill, whose title plays on school workbooks, so it is rendered to fit under
+      that name.
+    verified: false
   自販機:
     basis: translated
     en: Vending Machine
@@ -90765,6 +90868,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  薫る闇:
+    basis: translated
+    en: Fragrant Darkness
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 薫る is 'to be fragrant' and 闇 is 'darkness'. The BOOK WALKER series page for 燃える氷 (Burning Ice)
+      lists it as one book, and the rendering follows the literal meaning.
     verified: false
   薫風モラトリアム:
     basis: translated
@@ -93654,6 +93767,16 @@ names:
     reading_reviewed: '2026-08-03'
     reading_source: yurarium
     reading_source_kind: derived
+    verified: false
+  遠石紫の実録♥社会人百合 -Saturday:
+    basis: translated
+    en: 'Murasaki Toishi''s True Account ♥ Office Worker Yuri: Saturday'
+    en_at: '2026-11-17'
+    en_reviewed: '2026-11-17'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 実録 means a true account, and 社会人百合 means yuri between working adults. Murasaki Toishi is the
+      name of the protagonist or narrator, and Saturday is kept from the work's English title.
     verified: false
   部長に終りはありません:
     basis: translated

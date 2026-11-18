@@ -859,6 +859,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  3.25のねぼけた世界 -Saturday:
+    basis: translated
+    en: The Groggy World of 3.25 -Saturday
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker series page gives no English. ねぼけた世界 is a half-asleep, groggy world, and 3.25
+      reads as a date or number kept as written. The Saturday subtitle is already English.
+    verified: false
   30まで独りだったら一緒に暮らそうって言ったよね?:
     basis: translated
     en: You Said If We're Still Single at 30, We'd Live Together, Remember?
@@ -2665,6 +2675,16 @@ names:
     en_source_kind: derived
     note: The BOOK☆WALKER page shows L side as the companion collection to R side under maimaimaimai mind!.
       The title is the English letter and word, written as L Side.
+    verified: false
+  LINGERIE:
+    basis: translated
+    en: Lingerie
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker series page for 放課後 gives no English title. The Latin-letter title is the English
+      word, so it is spelled as the word.
     verified: false
   LOVE CUBIC:
     basis: official-jp
@@ -4883,6 +4903,24 @@ names:
     note: Already English. The comma is set full-width in the Japanese text, which is a typographic artefact
       and not part of the name.
     verified: false
+  White Lilies in Love 茜さす恋心を、紅く染めてほしいの貴方に。 社会人百合アンソロジー:
+    basis: official-jp
+    en: 'White Lilies in Love: Dye My Sunset-Red Heart Crimson, for You'
+    en_at: '2026-11-18'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: 'White Lilies in Love: I Want You to Dye My Glowing Love Crimson'
+    en_reviewed: '2026-11-18'
+    en_source: bookwalker.jp
+    en_source_kind: platform
+    en_url: https://bookwalker.jp/series/158910/
+    note: The BookWalker page gives White Lilies in Love as the book's English, followed by a Japanese
+      subtitle. The subtitle speaks of love glowing like the sunset and asks the other woman to dye it
+      crimson. The adult yuri anthology tag is dropped, as the series English covers it.
+    translation_note: The BookWalker listing gives the English White Lilies in Love, and the Japanese
+      subtitle is rendered on its own.
+    verified: true
   'Wildrose Re: mix':
     basis: official-jp
     en: 'Wildrose Re: mix'
@@ -8466,6 +8504,17 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  あつい目蓋の裏側:
+    basis: translated
+    en: Hot Behind the Eyelids
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker series page lists this as a short volume of the 秘封シリーズ with no English title.
+      目蓋の裏側 is the inside of the eyelids and あつい is hot. The title is rendered directly under the series
+      English.
+    verified: false
   あとで姉妹ます。:
     basis: translated
     en: We'll Be Sisters Later
@@ -12816,6 +12865,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  お昼のメガネさん:
+    basis: translated
+    en: Miss Glasses at Lunchtime
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker page for the メガネさんシリーズ gives no English title. お昼 is midday or lunchtime, and
+      メガネさん follows the series English Miss Glasses.
     verified: false
   お母さん二人いてもいいかな！？:
     basis: translated
@@ -25859,7 +25918,12 @@ names:
     reading_source_kind: analyser
     verified: true
   りのちゃんの好きなこと/よみきり:
-    basis: romaji
+    basis: translated
+    en: Rino-chan's Favorite Things (One-Shot)
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - りのちゃんの
       - null
@@ -25867,6 +25931,8 @@ names:
       - す
     - - きなこと/よみきり
       - null
+    note: The Hana to Yume+ page shows no English title. The title means what Rino-chan likes, and よみきり
+      marks a one-shot. The honorific stays after a hyphen as Rino-chan.
     reading: リ ノチャン ノ スキナ コト / ヨミ キリ
     reading_at: '2026-11-18'
     reading_basis: analyser
@@ -27301,6 +27367,16 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  アメを2個食べるメガネさん:
+    basis: translated
+    en: Miss Glasses Eats Two Candies
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker page for the メガネさんシリーズ gives no English title. メガネさん is the bespectacled girl,
+      matching the series English Miss Glasses. The rest of the title says she eats two candies.
+    verified: false
   アラサー美女は地味女に餌付けされる:
     basis: official-jp
     en: Around 30 beauty is fed by plain woman
@@ -44054,6 +44130,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ルーミアの人喰い卒業記念日:
+    basis: translated
+    en: Rumia's Graduation-from-Eating-People Day
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker page lists this Touhou fan work with no official English. It marks the day Rumia
+      graduates from eating people. Rumia is the Touhou character.
+    verified: false
   ルーム・フォー・ハニーズ:
     basis: translated
     en: Room for Honeys
@@ -49975,6 +50061,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  個人指導:
+    basis: translated
+    en: Private Tutoring
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker page for 女子更衣室 gives no English title. 個人指導 means individual instruction, which
+      is private tutoring in English.
     verified: false
   倒錯少女症候群:
     basis: translated
@@ -58080,6 +58176,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  大妖精の隠しきれない恋心:
+    basis: translated
+    en: Daiyousei's Unhideable Crush
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker page lists this Touhou fan work with no official English. 大妖精 is the Touhou character
+      Daiyousei (Great Fairy). The title says her love cannot be hidden.
+    verified: false
   大室家:
     basis: translated
     en: The Ōmuro Family
@@ -65898,6 +66004,26 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  恋の話しか、したくない。上 天野しゅにんた創作百合再録集2:
+    basis: translated
+    en: I Only Want to Talk About Love. Shuninta Amano's Original Yuri Reprints 2, First Half
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker series page gives no English. 上 means the first half of the book, so it is added
+      to the English already given for the collection.
+    verified: false
+  恋の話しか、したくない。下 天野しゅにんた創作百合再録集2:
+    basis: translated
+    en: I Only Want to Talk About Love. Shuninta Amano's Original Yuri Reprints 2, Second Half
+    en_at: '2026-11-18'
+    en_reviewed: '2026-11-18'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BookWalker series page gives no English. 下 means the second half of the book, so it is added
+      to the English already given for the collection.
     verified: false
   恋ははれものさわるべからず:
     basis: translated

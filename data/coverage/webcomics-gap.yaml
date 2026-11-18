@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-18
+retrieved: 2026-11-19
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -29,13 +29,18 @@ platforms_missing:
     works: 2
   - platform: "きら星ポータル"
     works: 2
-  - platform: "ゴラクエッグ"
-    works: 1
   - platform: "pixivコミックマガジン"
+    works: 1
+  - platform: "ゴラクエッグ"
     works: 1
   - platform: "ドリコミ+"
     works: 1
 works_missing:
+  - title: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3140"
+    antenna_id: "138856"
+    tags: ["百合", "アイドル"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -61,11 +66,6 @@ works_missing:
     url: "https://comic-fuz.com/manga/441"
     antenna_id: "88071"
     tags: ["野球", "女子高生", "アニメ化", "百合"]
-  - title: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3140"
-    antenna_id: "138856"
-    tags: ["百合", "アイドル"]
   - title: "好都合セミフレンド"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3397"
@@ -611,6 +611,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019452_S"
     antenna_id: "213446"
     tags: ["百合", "読み切り"]
+  - title: "私がモテないのはどう考えてもお前らが悪い!"
+    platform: "ガンガンONLINE"
+    url: "https://www.ganganonline.com/title/29"
+    antenna_id: "745"
+    tags: ["最近のコメント数"]
   - title: "限界社会人さんを救えるのはクソデカ感情ストーカーちゃんだけでした"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2349"
@@ -621,11 +626,6 @@ works_missing:
     url: "https://www.ganganonline.com/title/2286"
     antenna_id: "189564"
     tags: ["百合", "読み切り", "サトリ"]
-  - title: "私がモテないのはどう考えてもお前らが悪い!"
-    platform: "ガンガンONLINE"
-    url: "https://www.ganganonline.com/title/29"
-    antenna_id: "745"
-    tags: ["アニメ化", "女子高生", "日常", "学園", "百合", "ギャグ・コメディ", "現代", "ボーイミーツガール"]
   - title: "裏世界ピクニック"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/38"
@@ -696,16 +696,16 @@ works_missing:
     url: "https://ddnavi.com/sazametorio/"
     antenna_id: "213473"
     tags: ["百合"]
+  - title: "ガールズ×ヴァンパイア"
+    platform: "チャンピオンクロス"
+    url: "https://championcross.jp/series/f30e2f58bbbdf"
+    antenna_id: "200285"
+    tags: ["最近のコメント数"]
   - title: "Killer♡Twinkle～アンチはステージに上がれません♡～"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/21fe5b3d50300"
     antenna_id: "199771"
     tags: ["百合", "アイドル"]
-  - title: "ガールズ×ヴァンパイア"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/f30e2f58bbbdf"
-    antenna_id: "200285"
-    tags: ["百合", "吸血鬼・ヴァンパイア"]
   - title: "上伊那ぼたん、酔へる姿は百合の花"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/ae4257e66bab5"
@@ -926,16 +926,16 @@ works_missing:
     url: "https://flowercomics.jp/title/6162"
     antenna_id: "217483"
     tags: ["百合"]
-  - title: "瑠夏と杏珠の逃避行"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03368"
-    antenna_id: "218095"
-    tags: ["百合", "女子中学生"]
   - title: "ぎるてぃらいぶらり"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
     antenna_id: "216326"
     tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
+  - title: "瑠夏と杏珠の逃避行"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03368"
+    antenna_id: "218095"
+    tags: ["百合", "女子中学生"]
   - title: "私に天使が舞い降りた!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01052"
@@ -1000,7 +1000,7 @@ works_missing:
     platform: "マンガよもんが"
     url: "https://www.yomonga.com/titles/2532/"
     antenna_id: "200569"
-    tags: ["最近のコメント数"]
+    tags: ["百合"]
   - title: "付き合ってあげてもいいかな"
     platform: "マンガワン"
     url: "https://manga-one.com/viewer/70173"
@@ -1180,7 +1180,7 @@ works_missing:
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/e8423800e9e02"
     antenna_id: "218328"
-    tags: ["百合", "読み切り"]
+    tags: ["最近のコメント数"]
   - title: "フレンドガールフレンド"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"

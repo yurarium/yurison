@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-18
+retrieved: 2026-11-19
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 264
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 219
-  works_asked: 946
+  works_asked: 948
   works_with_a_hit: 285
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
@@ -4942,6 +4942,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://hanayume.com/series/e8423800e9e02"
+    id: "w03554"
+    work: "りのちゃんの好きなこと/よみきり"
+    author: "千野なこ"
+    platform: "花とゆめ+"
+    retrieved: "2026-11-19"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://hanayume.com/series/f3ce082d639de"
     id: "w00007"
     work: "フレンドガールフレンド"
@@ -8207,6 +8217,16 @@ works:
     author: "閉伊川広輔"
     platform: "マガポケ"
     retrieved: "2026-11-12"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://pocket.shonenmagazine.com/title/03349/episode/446744"
+    id: "w03309"
+    work: "ぎるてぃらいぶらり"
+    author: "閉伊川広輔"
+    platform: "マガポケ"
+    retrieved: "2026-11-19"
     hits: []
     notes:
       - "author query returned no title this database recognises"

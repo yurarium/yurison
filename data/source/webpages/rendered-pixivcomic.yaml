@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-18
+retrieved: 2026-11-19
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -39,6 +39,23 @@ works:
         date_basis: rendered
       - title: "Step.0 星が堕ちた日"
         updated: 2024-08-09
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "腹割るウチらの秘密ごと!"
+    author: "夏村東和"
+    url: "https://comic.pixiv.net/works/11664"
+    chapter_count: 3
+    chapters:
+      - title: "第１９話"
+        updated: 2026-09-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第２話"
+        updated: 2025-05-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第１話"
+        updated: 2025-04-24
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -635,23 +652,6 @@ works:
         date_basis: rendered
       - title: "第1話 運命のきつねうどん　前編"
         updated: 2025-04-05
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "腹割るウチらの秘密ごと!"
-    author: "夏村東和"
-    url: "https://comic.pixiv.net/works/11664"
-    chapter_count: 3
-    chapters:
-      - title: "第１９話"
-        updated: 2026-09-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第２話"
-        updated: 2025-05-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第１話"
-        updated: 2025-04-24
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "冷たくて 柔らか"

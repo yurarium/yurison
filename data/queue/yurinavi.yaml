@@ -6,9 +6,17 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-18
+retrieved: 2026-11-19
 record_type: discovery_queue
 candidates:
+  - work_title: "りのちゃんの好きなこと"
+    signal: "oneshot"
+    announced: "Wed, 18 Nov 2026 10:49:15 +0000"
+    url: "https://yurinavi.com/2026/11/18/rinochan-yomikiri/"
+    platform: "hanayume-plus"
+    work_url: "https://hanayume.com/episodes/be6d25f129323"
+    headline: "美形女子高生と純朴小学生のピュア百合読み切り「りのちゃんの好きなこと」WEBで公開"
+    status: unconfirmed
   - work_title: "織りゆけサルデーニャ"
     signal: "oneshot"
     announced: "Wed, 11 Nov 2026 11:27:11 +0000"
@@ -43,15 +51,6 @@ candidates:
     work_url: "https://comic-seasons.com/episode/12207421984513315666"
     headline: "嬉しいのに怖くて消える、回避型の女性との関係を描いた読み切り漫画「回って避ける」WEBで公開"
     status: unconfirmed
-  - work_title: "私の可愛いボーイッシュちゃん"
-    signal: "new-serial"
-    announced: "Sat, 07 Nov 2026 11:00:58 +0000"
-    url: "https://yurinavi.com/2026/11/07/watashinokawaii-boyishchan-start/"
-    platform: "kadokomi"
-    platform_code: "KC_021614_S"
-    work_url: "https://comic-walker.com/detail/KC_021614_S"
-    headline: "ボーイッシュ女子×ドSお嬢様の百合漫画「私の可愛いボーイッシュちゃん」WEBでスタート"
-    status: unconfirmed
   - work_title: "燕のあやかし画帳"
     signal: "oneshot"
     announced: "Mon, 09 Nov 2026 10:30:26 +0000"
@@ -60,6 +59,15 @@ candidates:
     platform_code: "12207421984447306235"
     work_url: "https://tonarinoyj.jp/episode/12207421984447306235"
     headline: "相性最悪な女子高生バディが怪異に挑む読み切り漫画「燕のあやかし画帳」WEBで公開"
+    status: unconfirmed
+  - work_title: "私の可愛いボーイッシュちゃん"
+    signal: "new-serial"
+    announced: "2026-11-07"
+    url: "https://yurinavi.com/2026/11/07/watashinokawaii-boyishchan-start/"
+    platform: "kadokomi"
+    platform_code: "KC_021614_S"
+    work_url: "https://comic-walker.com/detail/KC_021614_S"
+    headline: "ボーイッシュ女子×ドSお嬢様の百合漫画「私の可愛いボーイッシュちゃん」WEBでスタート"
     status: unconfirmed
   - work_title: "是騒騒"
     signal: "new-serial"

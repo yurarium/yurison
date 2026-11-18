@@ -10,13 +10,13 @@ pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 310
-works_on_watched_platform: 281
+works_on_watched_platform: 282
 platforms_total: 51
 platforms_watched: 39
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
-    works: 12
+    works: 11
   - platform: "ヤンジャン+"
     works: 3
   - platform: "COMICリュウライブ"
@@ -271,6 +271,21 @@ works_missing:
     url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
     antenna_id: "213409"
     tags: ["読み切り", "百合"]
+  - title: "アウトサイダーパラダイス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_021488_S"
+    antenna_id: "217263"
+    tags: ["百合"]
+  - title: "人妻教師が教え子の女子高生にドはまりする話"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006978_S"
+    antenna_id: "194591"
+    tags: ["百合", "教師", "女子高生", "人妻", "コミカライズ"]
+  - title: "咲きそめコンプレックス"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_006662_S"
+    antenna_id: "188908"
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "堕天使そぷらのちゃんの復讐"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006778_S"
@@ -336,11 +351,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006092_S"
     antenna_id: "178772"
     tags: ["百合", "オムニバス・短編集"]
-  - title: "アウトサイダーパラダイス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_021488_S"
-    antenna_id: "217263"
-    tags: ["百合"]
   - title: "らぶぶいっ!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008372_S"
@@ -381,11 +391,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008317_S"
     antenna_id: "200532"
     tags: ["百合", "アイドル", "入れ替わり"]
-  - title: "咲きそめコンプレックス"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006662_S"
-    antenna_id: "188908"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生", "年の差"]
   - title: "リリィズコンプレックス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_005531_S"
@@ -526,11 +531,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_020132_S"
     antenna_id: "216023"
     tags: ["百合", "読み切り"]
-  - title: "人妻教師が教え子の女子高生にドはまりする話"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_006978_S"
-    antenna_id: "194591"
-    tags: ["百合", "教師", "女子高生", "人妻", "コミカライズ"]
   - title: "彼女のカノジョと不純な初恋"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_009359_S"
@@ -721,6 +721,16 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "咲きそめコンプレックス"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72944"
+    antenna_id: "188893"
+    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
+  - title: "人妻教師が教え子の女子高生にドはまりする話"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/74091"
+    antenna_id: "194580"
+    tags: ["百合", "教師", "女子高生", "人妻", "コミカライズ"]
   - title: "ラブかライクか分からない!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/70757"
@@ -781,11 +791,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/58368"
     antenna_id: "134462"
     tags: ["百合", "女子高生"]
-  - title: "咲きそめコンプレックス"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/72944"
-    antenna_id: "188893"
-    tags: ["百合", "おねロリ", "女子高生", "女子小学生"]
   - title: "私に天使が舞い降りた!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/56284"
@@ -881,11 +886,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/53909"
     antenna_id: "121533"
     tags: ["百合", "アイドル", "アニメ化", "4コマ"]
-  - title: "人妻教師が教え子の女子高生にドはまりする話"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/74091"
-    antenna_id: "194580"
-    tags: ["百合", "教師", "女子高生", "人妻", "コミカライズ"]
   - title: "彼なんかより、私のほうがいいでしょ?"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/71625"
@@ -971,11 +971,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03301"
     antenna_id: "213683"
     tags: ["百合", "読み切り"]
-  - title: "御贖事処 煮るばあな"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03292"
-    antenna_id: "213072"
-    tags: ["百合"]
   - title: "私のブルーガーネット"
     platform: "マンガPark"
     url: "https://manga-park.com/title/98459"
@@ -1050,7 +1045,7 @@ works_missing:
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
     antenna_id: "148792"
-    tags: ["アクション", "ミリタリー", "幽霊", "残酷・グロテスク", "ディストピア", "百合"]
+    tags: ["最近のコメント数"]
   - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/e95df2815bad1"
@@ -1181,6 +1176,11 @@ works_missing:
     url: "https://takecomic.jp/series/e060f5eef826c"
     antenna_id: "165592"
     tags: ["百合"]
+  - title: "りのちゃんの好きなこと/よみきり"
+    platform: "花とゆめ+"
+    url: "https://hanayume.com/series/e8423800e9e02"
+    antenna_id: "218328"
+    tags: ["百合", "読み切り"]
   - title: "フレンドガールフレンド"
     platform: "花とゆめ+"
     url: "https://hanayume.com/series/f3ce082d639de"

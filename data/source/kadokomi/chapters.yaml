@@ -294,8 +294,6 @@ works:
       - code: "KC_0000760005600011_E"
         title: "目隠し"
         updated: "2026-11-13"
-        access_modes: ["free"]
-        free_until: "2026-11-17"
       - code: "KC_0000760005500011_E"
         title: "梅雨"
         updated: "2026-11-10"
@@ -5952,6 +5950,7 @@ works:
         title: "第33話-1"
         updated: "2026-10-20"
         access_modes: ["free"]
+        free_until: "2026-12-20"
       - code: "KC_0032400004300021_E"
         title: "第32話-2"
         updated: "2026-09-20"
@@ -14161,7 +14160,7 @@ works:
     url: "https://comic-walker.com/detail/KC_005978_S"
     status: "finished"
     marketing_label: "yuri"
-    tags: ["現代", "ドラマ", "転生", "切ない", "シリアス", "百合", "異能力", "社会", "ダーク", "ギャップ女子", "群像劇", "考えさせられる", "妹", "ヤンデレ", "地味女子", "配信者"]
+    tags: ["現代", "ドラマ", "転生", "切ない", "シリアス", "百合", "異能力", "社会", "ダーク", "ギャップ女子", "考えさせられる", "群像劇", "妹", "ヤンデレ", "地味女子", "配信者"]
     authors: ["江ノ内愛"]
     marketing_label_basis:
       source: kadokomi
@@ -14235,7 +14234,7 @@ works:
     url: "https://comic-walker.com/detail/KC_005982_S"
     status: "finished"
     marketing_label: "yuri"
-    tags: ["異世界", "日常系", "ドラマ", "イケメン", "大人向け", "切ない", "シリアス", "百合", "ダーク", "クセになる", "群像劇", "考えさせられる"]
+    tags: ["異世界", "日常系", "ドラマ", "イケメン", "大人向け", "切ない", "シリアス", "百合", "ダーク", "クセになる", "考えさせられる", "群像劇"]
     authors: ["赤川左岸"]
     marketing_label_basis:
       source: kadokomi
@@ -16053,14 +16052,16 @@ works:
       retrieved: "2026-11-18"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-18"
-    chapter_count: 28
+      next_update: "2026-12-02"
+    chapter_count: 29
     chapters:
+      - code: "KC_0066620001600011_E"
+        title: "第15話-1"
+        updated: "2026-11-18"
+        access_modes: ["free"]
       - code: "KC_0066620001500021_E"
         title: "第14話-2"
         updated: "2026-11-04"
-        access_modes: ["free"]
-        free_until: "2026-11-18"
       - code: "KC_0066620001500011_E"
         title: "第14話-1"
         updated: "2026-10-21"
@@ -16764,7 +16765,7 @@ works:
       retrieved: "2026-11-18"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-27"
+      next_update: "2026-12-11"
     chapter_count: 31
     chapters:
       - code: "KC_0067980002000021_E"
@@ -17048,9 +17049,13 @@ works:
       retrieved: "2026-11-18"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-18"
-    chapter_count: 20
+      next_update: "2026-11-28"
+    chapter_count: 21
     chapters:
+      - code: "KC_0069780001300011_E"
+        title: "第11話前半"
+        updated: "2026-11-18"
+        access_modes: ["free"]
       - code: "KC_0069780001200021_E"
         title: "第10話後半"
         updated: "2026-09-28"
@@ -18330,7 +18335,7 @@ works:
       retrieved: "2026-11-18"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-18"
+      next_update_undecided: true
     chapter_count: 9
     chapters:
       - code: "KC_0086540000600021_E"
@@ -19979,17 +19984,21 @@ works:
       retrieved: "2026-11-18"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-18"
-    chapter_count: 6
+      next_update: "2026-11-25"
+    chapter_count: 7
     chapters:
+      - code: "KC_0214880000800011_E"
+        title: "第7話"
+        updated: "2026-11-18"
+        access_modes: ["free"]
       - code: "KC_0214880000700011_E"
         title: "第6話"
         updated: "2026-11-11"
         access_modes: ["free"]
+        free_until: "2026-11-25"
       - code: "KC_0214880000600011_E"
         title: "第5話"
         updated: "2026-11-11"
-        access_modes: ["free"]
       - code: "KC_0214880000500011_E"
         title: "第4話"
         updated: "2026-11-04"
@@ -20076,9 +20085,13 @@ works:
       retrieved: "2026-11-18"
       note: "Publisher applies the tag 百合 on カドコミ."
     stated_schedule:
-      next_update: "2026-11-17"
-    chapter_count: 1
+      next_update_undecided: true
+    chapter_count: 2
     chapters:
+      - code: "KC_0216140000300011_E"
+        title: "第2話"
+        updated: "2026-11-17"
+        access_modes: ["free"]
       - code: "KC_0216140000200011_E"
         title: "第1話"
         updated: "2026-11-03"
@@ -26352,7 +26365,7 @@ works:
     url: "https://comic-walker.com/detail/KC_007125_S"
     status: "ongoing"
     marketing_label: "none"
-    tags: ["日常系", "学園モノ", "女主人公", "ドキドキハラハラ", "大人向け", "笑える", "アニメ化", "ショート", "社会", "おっぱい", "群像劇", "考えさせられる", "生活・ライフスタイル"]
+    tags: ["日常系", "学園モノ", "女主人公", "ドキドキハラハラ", "大人向け", "笑える", "アニメ化", "ショート", "社会", "おっぱい", "考えさせられる", "群像劇", "生活・ライフスタイル"]
     authors: ["鈴木健也"]
     stated_schedule:
       next_update_undecided: true

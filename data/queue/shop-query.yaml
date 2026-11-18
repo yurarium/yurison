@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-11-18
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 261
+  hits_agreeing_on_a_creator: 264
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 219
-  works_asked: 937
-  works_with_a_hit: 282
+  works_asked: 946
+  works_with_a_hit: 285
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
     id: "w03552"
@@ -1040,6 +1040,16 @@ works:
     author: "羅川真里茂"
     platform: "コミックDAYS"
     retrieved: "2026-11-05"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-days.com/episode/12207421984407366690"
+    id: "w03525"
+    work: "是騒騒"
+    author: "羅川真里茂"
+    platform: "コミックDAYS"
+    retrieved: "2026-11-18"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -5521,6 +5531,61 @@ works:
         completed_marker: false
     notes:
       - "author query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984514053275"
+    id: "w03440"
+    work: "だって恋は月夜に灯るから"
+    author: "meji"
+    platform: "一迅プラス"
+    retrieved: "2026-11-18"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984514053281"
+    id: "w03275"
+    work: "聖なる姫のかくしごと"
+    author: "葵季むつみ"
+    platform: "一迅プラス"
+    retrieved: "2026-11-18"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984514053285"
+    id: "w03252"
+    work: "バリキャリJKモネ先輩"
+    author: "椋木ななつ"
+    platform: "一迅プラス"
+    retrieved: "2026-11-18"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984514053289"
+    id: "w03263"
+    work: "神は私を撮りたいって言ってます！"
+    author: "散葉ちんみ"
+    platform: "一迅プラス"
+    retrieved: "2026-11-18"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://ichicomi.com/episode/12207421984514053296"
+    id: "w00171"
+    work: "残骸少女、きらきらな世界の底"
+    author: "うさみみき"
+    platform: "一迅プラス"
+    query: "author"
+    retrieved: "2026-11-18"
+    hits:
+      - series_url: null
+        title_listed: "残骸少女、きらきらな世界の底: 1【イラスト特典付】"
+        shop_author: "うさみみき"
+        imprint: "百合姫コミックス"
+        publisher: "一迅社"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://ichicomi.com/episode/2550912965913104445"
     id: "w00481"
     work: "今宵、悪役令嬢の手をとれたら"
@@ -6273,6 +6338,16 @@ works:
     author: "春露彗"
     platform: "くらげバンチ"
     retrieved: "2026-11-11"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://kuragebunch.com/episode/12207421984481017739"
+    id: "w03537"
+    work: "ヒモお姉さん、餌付け中。"
+    author: "春露彗"
+    platform: "くらげバンチ"
+    retrieved: "2026-11-18"
     hits: []
     notes:
       - "author query returned no title this database recognises"
@@ -7463,6 +7538,21 @@ works:
         imprint: "まんがタイムKRコミックス"
         publisher: "芳文社"
         agreement: "title-only"
+        completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/72636"
+    id: "w03553"
+    work: "夢路あかりと魔法の本"
+    author: "2222楠"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-11-18"
+    hits:
+      - series_url: null
+        title_listed: "夢路あかりと魔法の本 １巻"
+        shop_author: "2222楠(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
         completed_marker: false
   - work_url: "https://manga.nicovideo.jp/comic/72637"
     id: "w03212"
@@ -9253,6 +9343,21 @@ works:
     platform: "となりのヤングジャンプ"
     query: "author"
     retrieved: "2026-11-04"
+    hits:
+      - series_url: null
+        title_listed: "英雄少女と呪われの銀姫 1"
+        shop_author: "アルト(Story) 絵本奈央(Comic)"
+        imprint: "ヤングジャンプコミックスDIGITAL"
+        publisher: "集英社"
+        agreement: "creator"
+        completed_marker: false
+  - work_url: "https://tonarinoyj.jp/episode/12207421984454510612"
+    id: "w00130"
+    work: "英雄少女と呪われの銀姫"
+    author: "アルト / 絵本奈央"
+    platform: "となりのヤングジャンプ"
+    query: "author"
+    retrieved: "2026-11-18"
     hits:
       - series_url: null
         title_listed: "英雄少女と呪われの銀姫 1"

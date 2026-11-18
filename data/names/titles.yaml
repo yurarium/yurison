@@ -1,4 +1,4 @@
-generated: '2026-11-17'
+generated: '2026-11-18'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -25858,6 +25858,25 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  りのちゃんの好きなこと/よみきり:
+    basis: romaji
+    furigana_spans:
+    - - りのちゃんの
+      - null
+    - - 好
+      - す
+    - - きなこと/よみきり
+      - null
+    reading: リ ノチャン ノ スキナ コト / ヨミ キリ
+    reading_at: '2026-11-18'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   るっく・あっと・みー/ひとつのケーキにイチゴはひとつ:
     basis: translated
     en: '#1 Look at Me / One Strawberry per Cake'

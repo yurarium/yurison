@@ -11,6 +11,21 @@ record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421984407366690"
+    work_title: "是騒騒"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第２話②"
+    release_type: "chapter"
+    date: "2026-11-18"
+    date_basis: "observed"
+    first_seen: "2026-11-18"
+    first_reported: "2026-11-18T03:00:00Z"
+    platform_updated: "2026-11-18T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421984407366690"
+    author: "羅川真里茂"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587332"
     work_title: "ささやくように恋を唄う"
     web_status: "serialised"

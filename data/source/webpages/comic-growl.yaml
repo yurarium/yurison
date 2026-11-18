@@ -216,7 +216,7 @@ works:
     author: "猫にゃん"
     url: "https://comic-growl.com/series/aa1ae7d41e228"
     read: "2026-11-18"
-    chapter_count: 30
+    chapter_count: 31
     chapters:
       - title: "1"
         updated: "2025-05-20"
@@ -301,10 +301,13 @@ works:
         access_modes: ["free-timed"]
       - title: "14-②"
         updated: "2026-09-01"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "15-①"
         updated: "2026-09-15"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "15-②"
         updated: "2026-10-06"
+        access_modes: ["purchase"]
+      - title: "16-①"
+        updated: "2026-11-17"
         access_modes: ["purchase"]

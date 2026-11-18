@@ -109,7 +109,7 @@ works:
     author: "古部亮"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
     read: "2026-11-18"
-    chapter_count: 95
+    chapter_count: 96
     chapters:
       - title: "第1話"
         updated: "2022-08-16"
@@ -386,22 +386,25 @@ works:
         access_modes: ["free-timed"]
       - title: "第50話①"
         updated: "2026-09-16"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第50話②"
         updated: "2026-09-30"
         access_modes: ["free"]
       - title: "第51話①"
         updated: "2026-10-21"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第51話②"
         updated: "2026-11-04"
+        access_modes: ["purchase"]
+      - title: "第52話①"
+        updated: "2026-11-18"
         access_modes: ["purchase"]
   - work_title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です！…って、魔王が女の子の場合はどうすればいいのですか！？～"
     status: "連載中"
     author: "りんご飴サード,川田暁生"
     url: "https://youngchampion.jp/series/86c1162f34a04"
     read: "2026-11-18"
-    chapter_count: 38
+    chapter_count: 39
     chapters:
       - title: "第1話①"
         updated: "2025-11-05"
@@ -513,9 +516,12 @@ works:
         access_modes: ["free-timed"]
       - title: "第13話①"
         updated: "2026-11-04"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第13話②"
         updated: "2026-11-11"
+        access_modes: ["free"]
+      - title: "第13話③"
+        updated: "2026-11-18"
         access_modes: ["purchase"]
   - work_title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     status: "連載中"

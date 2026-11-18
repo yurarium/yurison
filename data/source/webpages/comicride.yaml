@@ -15,7 +15,7 @@ works:
     author: "南方純,kiki,キンタ"
     url: "https://comicride.jp/series/7b86cbca64ebe"
     read: "2026-11-18"
-    chapter_count: 76
+    chapter_count: 77
     chapters:
       - title: "第1話"
         updated: "2023-11-30"
@@ -226,7 +226,7 @@ works:
         access_modes: ["free-timed"]
       - title: "第37話中編"
         updated: "2026-06-17"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第37話後編①"
         updated: "2026-07-15"
         access_modes: ["free"]
@@ -235,7 +235,7 @@ works:
         access_modes: ["free"]
       - title: "第38話前編"
         updated: "2026-08-19"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第38話中編"
         updated: "2026-09-23"
         access_modes: ["purchase"]
@@ -244,6 +244,9 @@ works:
         access_modes: ["purchase"]
       - title: "第38話後編②"
         updated: "2026-10-28"
+        access_modes: ["purchase"]
+      - title: "第39話前編"
+        updated: "2026-11-18"
         access_modes: ["purchase"]
   - work_title: "『人斬り』少女、公爵令嬢の護衛になる"
     status: "完結"

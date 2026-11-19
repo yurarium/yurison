@@ -86311,13 +86311,16 @@ names:
     verified: false
   '私の百合はお仕事です! : 公式コミックアンソロジー':
     basis: translated
-    en: 'My Yuri Is My Job!: The Official Comic Anthology'
-    en_at: '2026-09-02'
+    en: 'Schwestern in Liebe!: The Official Comic Anthology'
+    en_at: '2026-11-19'
     en_conflicts:
     - basis: translated
       source: yurarium
       value: 'Yuri Is My Job!: The Official Comic Anthology'
-    en_reviewed: '2026-09-02'
+    - basis: translated
+      source: yurarium
+      value: 'My Yuri Is My Job!: The Official Comic Anthology'
+    en_reviewed: '2026-11-19'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -86337,16 +86340,20 @@ names:
       - こうしき
     - - コミックアンソロジー
       - null
-    note: 'OURS HAS TO AGREE WITH ITSELF FIRST. This read Yuri Is My Job! on 2026-08-05, on the ground
-      that the parent series is published in English under that name, while the parent''s own entry of
-      2026-08-04 renders the same Japanese phrase My Yuri Is My Job!. Two rows of one work spelled one
-      phrase two ways, which `one work named two ways across its rows` is the measure for, and it went
-      to 1 the day the anthology gained a row. THE PUBLISHED ENGLISH IS PROBABLY THE OTHER ONE and this
-      is not the entry that can say so. A `licensed` form needs the licensor''s own catalogue page, kodansha.us
-      answers 403 behind a challenge, and the 2026-08-05 note asserted the published name without citing
-      anything. So the claim stays at the basis its evidence supports: both rows now render OUR translation,
-      which keeps 私の, and the licensed form is left to be recorded when somebody can reach the page that
-      states it. The subtitle is ours either way.'
+    note: 'FOLLOWS THE PARENT''S NAME, ruled by the owner on 2026-11-19. The parent took Schwestern in
+      Liebe!, the German title 一迅社 prints on its volume 1 cover, under ruling four of data/queue/cover-names.yaml
+      (2026-08-12), and this kept the translation the parent had before, so the two rows named one work
+      two ways again. The subtitle is still ours. The history below is the earlier round of the same agreement.
+      OURS HAS TO AGREE WITH ITSELF FIRST. This read Yuri Is My Job! on 2026-08-05, on the ground that
+      the parent series is published in English under that name, while the parent''s own entry of 2026-08-04
+      renders the same Japanese phrase My Yuri Is My Job!. Two rows of one work spelled one phrase two
+      ways, which `one work named two ways across its rows` is the measure for, and it went to 1 the day
+      the anthology gained a row. THE PUBLISHED ENGLISH IS PROBABLY THE OTHER ONE and this is not the
+      entry that can say so. A `licensed` form needs the licensor''s own catalogue page, kodansha.us answers
+      403 behind a challenge, and the 2026-08-05 note asserted the published name without citing anything.
+      So the claim stays at the basis its evidence supports: both rows now render OUR translation, which
+      keeps 私の, and the licensed form is left to be recorded when somebody can reach the page that states
+      it. The subtitle is ours either way.'
     reading: 'ワタシ ノ ユリ ワ オ シゴトデス !   :   コウシキ コミックアンソロジー'
     reading_at: '2026-08-05'
     reading_basis: analyser

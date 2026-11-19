@@ -9240,6 +9240,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  あの夜がきこえる:
+    basis: translated
+    en: I Can Hear That Night
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: A direct rendering of the title, which means 'I can hear that night'. It is one book in the
+      Yonurime collection and no English title was found on the BookWalker page.
+    verified: false
   あの娘と目が合うたび私は:
     basis: translated
     en: Every Time Our Eyes Meet
@@ -10376,6 +10386,16 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  いずみと葵・総集編:
+    basis: translated
+    en: 'Izumi and Aoi: Compilation'
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The book is a compilation (総集編) of the Izumi and Aoi stories in the Yuri Maiden Supremacism
+      series. The names are kept as names.
+    verified: false
   いちこえ、にふり、タチアオイ:
     basis: translated
     en: One Call, Two Waves, Hollyhock
@@ -13128,6 +13148,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  お金で買う××はシンジツですか:
+    basis: translated
+    en: Is What Money Buys Real?
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is the counterpart of the related title お金で買う××はニセモノですか ('Is What Money Buys Fake?'), with
+      シンジツ (truth, real) in place of ニセモノ (fake). The English keeps the same frame.
     verified: false
   お金で買う××はニセモノですか:
     basis: translated
@@ -20929,6 +20959,15 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
+    verified: false
+  はじまり:
+    basis: translated
+    en: The Beginning
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: はじまり means 'the beginning'. It is the first book in the After School series.
     verified: false
   はじめてのキャンプさん:
     basis: translated
@@ -37424,6 +37463,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  ドSさんはヤキモチちゃんが大好き:
+    basis: translated
+    en: Miss Sadist Loves Little Miss Jealous
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: ドS is a sadist type and ヤキモチ means jealousy, and the title says the former loves the jealous-natured
+      girl. Both are rendered as character labels.
+    verified: false
   ドキュンサーガ:
     basis: translated
     en: Thug Saga
@@ -53531,6 +53580,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  午前5時の永遠:
+    basis: translated
+    en: Eternity at 5 A.M.
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: A direct rendering of the title, which means 'eternity at 5 a.m.'. It is one book in the Yonurime
+      collection and no English title was found on the BookWalker page.
     verified: false
   午前二時は食卓で:
     basis: official-jp
@@ -70342,6 +70401,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  新体操部:
+    basis: translated
+    en: Rhythmic Gymnastics Club
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 新体操部 means the rhythmic gymnastics club. It is one chapter-book in the Girls' Changing Room
+      series.
+    verified: false
   新入社員と先輩さん:
     basis: translated
     en: The New Hire and the Senpai
@@ -79984,6 +80053,16 @@ names:
     translation_note: でも is too, carrying over from a life before the isekai, and やってみた is trying a thing
       rather than being it. Call Girl in Another World names an occupation and drops both.
     verified: false
+  異世界に召喚されたメガネさん:
+    basis: translated
+    en: Miss Glasses Summoned to Another World
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The title means 'Miss Glasses, who was summoned to another world'. The English follows the series
+      name The Miss Glasses Series.
+    verified: false
   異世界の牧場を相続しました　～スタァストリームファーム～:
     basis: translated
     en: I Inherited a Ranch in Another World ~Starstream Farm~
@@ -81155,9 +81234,13 @@ names:
     verified: false
   百合(レズ)合コンと迷い込んだノンケの娘:
     basis: translated
-    en: A Yuri Group Date and the Straight Girl Who Wandered In
-    en_at: '2026-08-06'
-    en_reviewed: '2026-08-06'
+    en: A Yuri (Lesbian) Group Date and the Straight Girl Who Wandered In
+    en_at: '2026-11-19'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: A Yuri Group Date and the Straight Girl Who Wandered In
+    en_reviewed: '2026-11-19'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -81177,6 +81260,8 @@ names:
       - null
     - - 娘
       - むすめ
+    note: The title is the parent work's title with レズ written as a ruby gloss on 百合. The English matches
+      the work's title, keeping the parenthetical (Lesbian).
     reading: レズ ゴウコン ト マヨイコンダ ノンケ ノ ムスメ
     reading_at: '2026-08-10'
     reading_basis: stated
@@ -95263,7 +95348,15 @@ names:
     reading_source_kind: derived
     verified: false
   陰キャ女子でも春したいッ！:
-    basis: romaji
+    basis: translated
+    en: Even a Loner Girl Wants Her Spring!
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 陰キャ is a loner or gloomy otaku type, and 春 is spring, with the sense of a springtime of romance.
+      The Comic Walker synopsis follows a shy otaku freshman, Haru, who wants a love life, and her name
+      also means spring.
     reading: インキャ ジョシ デ モ ハル シタイッ！
     reading_at: '2026-11-19'
     reading_basis: analyser
@@ -95497,6 +95590,15 @@ names:
     en_source_kind: derived
     note: This is a short story in the BCf Anthology Micro Series on BOOK☆WALKER, a collection of fantasy
       romance yuri stories adapted from novels. The long web-novel style title is translated directly.
+    verified: false
+  難問編:
+    basis: translated
+    en: Hard Questions Edition
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 難問編 means the 'difficult problems' volume. It suits the Yuri Drill, which is framed as a workbook.
     verified: false
   雨。のち、晴れ！:
     basis: translated
@@ -96073,7 +96175,12 @@ names:
     reading_source_kind: analyser
     verified: false
   青春には遅すぎる:
-    basis: romaji
+    basis: translated
+    en: Too Late for Youth
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 青春
       - せいしゅん
@@ -96083,6 +96190,8 @@ names:
       - おそ
     - - すぎる
       - null
+    note: The title reads literally as 'too late for youth' (seishun ni wa ososugiru). The Sunday Webry
+      page gives no English title or synopsis, so this is a direct rendering.
     reading: セイシュン ニ ワ オソ スギル
     reading_at: '2026-11-19'
     reading_basis: analyser

@@ -18424,6 +18424,23 @@ names:
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/13809
     verified: false
+  堤　りん:
+    basis: romaji
+    furigana_spans:
+    - - 堤
+      - つつみ
+    - - 　りん
+      - null
+    reading: ツツミ リン
+    reading_at: '2026-11-19'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   塀:
     basis: romaji
     en: Hey
@@ -30032,6 +30049,23 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000137-I09Y240840000d0000000
     verified: true
+  浅岡しゅく:
+    basis: romaji
+    furigana_spans:
+    - - 浅岡
+      - あさおか
+    - - しゅく
+      - null
+    reading: アサオカ シュク
+    reading_at: '2026-11-19'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   浅月のりと:
     basis: romaji
     reading: アサズキ ノリト

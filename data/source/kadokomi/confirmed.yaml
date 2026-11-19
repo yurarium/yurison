@@ -1,9 +1,30 @@
 # Confirmed against カドコミ work pages. Discovery named these; the publisher attests them.
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: kadokomi
-retrieved: 2026-11-19
+retrieved: 2026-11-20
 record_type: web_work_confirmation
 works:
+  - work_title: "陰キャ女子でも春したいッ！"
+    platform_code: "KC_021577_S"
+    url: "https://comic-walker.com/detail/KC_021577_S"
+    genre: {"code": "0201", "id": "018a178c-a906-7b25-bb70-4cba748efdfa", "name": "少年"}
+    sub_genre: {"code": "0201", "id": "018a262f-985e-7472-957c-58e0f4cd9d23", "name": "青春・学園"}
+    serialization_status: "ongoing"
+    is_oneshot: false
+    is_original: false
+    rating_level: "adult"
+    rating_level_note: "Platform field of undetermined meaning; NOT treated as a DEFINITIONS §7 adult marker. Needs a maintenance pass."
+    label: "ドラドラしゃーぷ#"
+    marketing_label: "none"
+    marketing_label_note: "No yuri tag applied by the publisher. Confirmed as a real work; content_tier needs a human (DEFINITIONS §4)."
+    tags: ["日常系", "現代", "学園モノ", "美少女", "女主人公", "女子高校生(JK)", "ハーレム", "ギャップ女子", "ギャル", "地味女子"]
+    authors:
+      - name: "沼地どろまる"
+        role: "著者"
+    discovered_via:
+      source: null
+      signal: "new-serial"
+      url: "https://yurinavi.com/2026/11/19/inkyajyoshidemo-start/"
   - work_title: "私の可愛いボーイッシュちゃん"
     platform_code: "KC_021614_S"
     url: "https://comic-walker.com/detail/KC_021614_S"
@@ -23,7 +44,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_021614_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -52,7 +73,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_021576_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -77,7 +98,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_021486_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -102,7 +123,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_021305_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -127,7 +148,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_020158_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -152,7 +173,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_020017_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -177,7 +198,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_019973_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -202,7 +223,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_016898_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -231,7 +252,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_019658_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -258,7 +279,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_019740_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -283,7 +304,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_011927_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -312,7 +333,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_019475_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -337,7 +358,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_019052_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -364,7 +385,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_016982_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -389,7 +410,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_014260_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null
@@ -414,7 +435,7 @@ works:
     marketing_label_basis:
       source: "kadokomi"
       url: "https://comic-walker.com/detail/KC_016896_S"
-      retrieved: "2026-11-19"
+      retrieved: "2026-11-20"
       note: "Publisher applies the tag 百合 on カドコミ. Platform-side labelling under DEFINITIONS §4."
     discovered_via:
       source: null

@@ -6,7 +6,7 @@ source: gigaviewer
 platform: kuragebunch
 platform_name: "くらげバンチ"
 publisher: "新潮社"
-retrieved: 2026-11-19
+retrieved: 2026-11-20
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
@@ -27,6 +27,7 @@ releases:
     author: "春露彗"
     advances_narrative: true
   - release_id: "kuragebunch:episode:12207421984513254028"
+    in_current_window: false
     work_title: "剣×薙"
     web_status: "serialised"
     identified_via: "discovery-candidate"

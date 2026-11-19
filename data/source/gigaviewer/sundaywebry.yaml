@@ -6,12 +6,47 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-11-19
+retrieved: 2026-11-20
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984543441444"
+    work_title: "てくのぱにっくゆにばーす"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "ショートショート ケモノ化ふたたび！"
+    release_type: "unclassified"
+    date: "2026-11-20"
+    date_basis: "observed"
+    first_seen: "2026-11-20"
+    first_reported: "2026-11-19T15:00:00Z"
+    platform_updated: "2026-11-19T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984543441444"
+    author: "伏見ダイキ"
+    free_term_start: "2026-11-19T15:00:00Z"
+    raw_title: "ショートショート ケモノ化ふたたび！"
+    advances_narrative: false
+  - release_id: "sunday_webry:episode:12207421984535360459"
+    work_title: "青春には遅すぎる"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "青春には遅すぎる"
+    release_type: "unclassified"
+    date: "2026-11-19"
+    date_basis: "observed"
+    first_seen: "2026-11-20"
+    first_reported: "2026-11-18T15:00:00Z"
+    platform_updated: "2026-11-18T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984535360459"
+    author: "とや"
+    free_term_start: "2026-11-18T15:00:00Z"
+    raw_title: "青春には遅すぎる"
+    advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984508897408"
+    in_current_window: false
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -29,6 +64,7 @@ releases:
     raw_title: "ショートショート 阿久津君の怖い話"
     advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984508901483"
+    in_current_window: false
     work_title: "メイド＆ロイドはお嬢様のお役に立ちたい！"
     web_status: "serialised"
     identified_via: "discovery-candidate"

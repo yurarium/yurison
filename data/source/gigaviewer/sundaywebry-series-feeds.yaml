@@ -10,11 +10,11 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-11-19
+retrieved: 2026-11-20
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 70
-series_held: 70
+series_resolved: 71
+series_held: 71
 works:
   - work_title: "contact"
     series_id: "3270296674373045696"
@@ -2253,6 +2253,18 @@ works:
         author: "光莉"
         url: "https://www.sunday-webry.com/episode/14079602755607769324"
         free_from: 2024-01-07
+        access_modes: ["free"]
+  - work_title: "青春には遅すぎる"
+    series_id: "12207421984535356818"
+    url: "https://www.sunday-webry.com/atom/series/12207421984535356818"
+    chapter_count: 1
+    chapters:
+      - title: "青春には遅すぎる"
+        updated: 2026-11-19
+        content_id: "251541"
+        author: "とや"
+        url: "https://www.sunday-webry.com/episode/12207421984535360459"
+        free_from: 2026-11-18
         access_modes: ["free"]
   - work_title: "高井さんの見える世界"
     series_id: "12207421983909941207"

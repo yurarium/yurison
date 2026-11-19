@@ -16,34 +16,179 @@
 # Written by adapters/gigaviewer/workaddress.py. READ BY: identity.py --attachments.
 source: data/build/series.json
 role: address-stabilise
-retrieved: 2026-11-12
+retrieved: 2026-11-19
 record_type: stable_address
 joins:
-  - id: w00054
-    title: "サタノファニ"
-    url: "https://comic-days.com/episode/12207421983566481778"
-    anchor: "web:https://comic-days.com/atom/series/13932016480029395540"
-    basis: "the chapter page at https://comic-days.com/episode/12207421983566481778 links its own series feed at https://comic-days.com/atom/series/13932016480029395540, so the platform places this chapter in series 13932016480029395540, and the og:title there names the work: サタノファニ - 山田恵庸 / 第３４５話　「戦争」　 | コミックDAYS"
-  - id: w00054
-    title: "サタノファニ"
-    url: "https://comic-days.com/episode/12207421983566481778"
-    anchor: "web:https://comic-days.com/series/13932016480029395540/first_episode"
-    basis: "the chapter page at https://comic-days.com/episode/12207421983566481778 links its own series feed at https://comic-days.com/atom/series/13932016480029395540, so the platform places this chapter in series 13932016480029395540, and the og:title there names the work: サタノファニ - 山田恵庸 / 第３４５話　「戦争」　 | コミックDAYS. https://comic-days.com/series/13932016480029395540/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00716
+    title: "魔法少女201"
+    url: "https://shonenjumpplus.com/episode/9253191257203124518"
+    anchor: "web:https://shonenjumpplus.com/atom/series/17106371853064301974"
+    basis: "the chapter page at https://shonenjumpplus.com/episode/9253191257203124518 links its own series feed at https://shonenjumpplus.com/atom/series/17106371853064301974, so the platform places this chapter in series 17106371853064301974, and the og:title there names the work: [第45話]魔法少女201 - むちゃ | 少年ジャンプ＋"
+  - id: w00716
+    title: "魔法少女201"
+    url: "https://shonenjumpplus.com/episode/9253191257203124518"
+    anchor: "web:https://shonenjumpplus.com/series/17106371853064301974/first_episode"
+    basis: "the chapter page at https://shonenjumpplus.com/episode/9253191257203124518 links its own series feed at https://shonenjumpplus.com/atom/series/17106371853064301974, so the platform places this chapter in series 17106371853064301974, and the og:title there names the work: [第45話]魔法少女201 - むちゃ | 少年ジャンプ＋. https://shonenjumpplus.com/series/17106371853064301974/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00167
+    title: "新刊100億冊ください"
+    url: "https://comic-days.com/episode/12207421983484134482"
+    anchor: "web:https://comic-days.com/atom/series/2550912965415291249"
+    basis: "the chapter page at https://comic-days.com/episode/12207421983484134482 links its own series feed at https://comic-days.com/atom/series/2550912965415291249, so the platform places this chapter in series 2550912965415291249, and the og:title there names the work: 新刊１００億冊ください - 破賀ミチル / ３９冊目：計画的原稿進行のススメ | モーニング・ツー"
+  - id: w00167
+    title: "新刊100億冊ください"
+    url: "https://comic-days.com/episode/12207421983484134482"
+    anchor: "web:https://comic-days.com/series/2550912965415291249/first_episode"
+    basis: "the chapter page at https://comic-days.com/episode/12207421983484134482 links its own series feed at https://comic-days.com/atom/series/2550912965415291249, so the platform places this chapter in series 2550912965415291249, and the og:title there names the work: 新刊１００億冊ください - 破賀ミチル / ３９冊目：計画的原稿進行のススメ | モーニング・ツー. https://comic-days.com/series/2550912965415291249/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w03555
+    title: "どこへでも行けるなら宇宙に行きたい"
+    url: "https://comic-days.com/episode/12207421984453651455"
+    anchor: "web:https://comic-days.com/atom/series/12207421984453650563"
+    basis: "the chapter page at https://comic-days.com/episode/12207421984453651455 links its own series feed at https://comic-days.com/atom/series/12207421984453650563, so the platform places this chapter in series 12207421984453650563, and the og:title there names the work: どこへでも行けるなら宇宙に行きたい - Zense / 【コミックDAYS読み切り】どこへでも行けるなら宇宙に行きたい | コミックDAYS"
+  - id: w03555
+    title: "どこへでも行けるなら宇宙に行きたい"
+    url: "https://comic-days.com/episode/12207421984453651455"
+    anchor: "web:https://comic-days.com/series/12207421984453650563/first_episode"
+    basis: "the chapter page at https://comic-days.com/episode/12207421984453651455 links its own series feed at https://comic-days.com/atom/series/12207421984453650563, so the platform places this chapter in series 12207421984453650563, and the og:title there names the work: どこへでも行けるなら宇宙に行きたい - Zense / 【コミックDAYS読み切り】どこへでも行けるなら宇宙に行きたい | コミックDAYS. https://comic-days.com/series/12207421984453650563/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00174
+    title: "ゆるゆり"
+    url: "https://ichicomi.com/episode/12207421984514053377"
+    anchor: "web:https://ichicomi.com/atom/series/2550912965923183706"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053377 links its own series feed at https://ichicomi.com/atom/series/2550912965923183706, so the platform places this chapter in series 2550912965923183706, and the og:title there names the work: ゆるゆり - なもり / 第240話 | 一迅プラス"
+  - id: w00150
+    title: "大室家"
+    url: "https://ichicomi.com/episode/12207421984514053373"
+    anchor: "web:https://ichicomi.com/atom/series/2550912965923183988"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053373 links its own series feed at https://ichicomi.com/atom/series/2550912965923183988, so the platform places this chapter in series 2550912965923183988, and the og:title there names the work: 大室家 - なもり / 第140話 | 一迅プラス"
+  - id: w00164
+    title: "私の百合はお仕事です!"
+    url: "https://comic-days.com/episode/12207421984421587362"
+    anchor: "web:https://comic-days.com/atom/series/3269754496319980855"
+    basis: "the chapter page at https://comic-days.com/episode/12207421984421587362 links its own series feed at https://comic-days.com/atom/series/3269754496319980855, so the platform places this chapter in series 3269754496319980855, and the og:title there names the work: 私の百合はお仕事です！ - 未幡 / シフト.77 目指せ、完璧な姉妹(3) | コミックDAYS"
+  - id: w00164
+    title: "私の百合はお仕事です!"
+    url: "https://comic-days.com/episode/12207421984421587362"
+    anchor: "web:https://comic-days.com/series/3269754496319980855/first_episode"
+    basis: "the chapter page at https://comic-days.com/episode/12207421984421587362 links its own series feed at https://comic-days.com/atom/series/3269754496319980855, so the platform places this chapter in series 3269754496319980855, and the og:title there names the work: 私の百合はお仕事です！ - 未幡 / シフト.77 目指せ、完璧な姉妹(3) | コミックDAYS. https://comic-days.com/series/3269754496319980855/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00145
+    title: "ささやくように恋を唄う"
+    url: "https://ichicomi.com/episode/12207421984514053365"
+    anchor: "web:https://ichicomi.com/atom/series/2550912965923184113"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053365 links its own series feed at https://ichicomi.com/atom/series/2550912965923184113, so the platform places this chapter in series 2550912965923184113, and the og:title there names the work: ささやくように恋を唄う - 竹嶋えく / 第67話 | 一迅プラス"
+  - id: w00165
+    title: "私の推しは悪役令嬢。"
+    url: "https://ichicomi.com/episode/12207421984514053359"
+    anchor: "web:https://ichicomi.com/atom/series/2550912965923183996"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053359 links its own series feed at https://ichicomi.com/atom/series/2550912965923183996, so the platform places this chapter in series 2550912965923183996, and the og:title there names the work: 私の推しは悪役令嬢。 - 青乃下/いのり。/花ヶ田 / 第66話 | 一迅プラス"
+  - id: w00166
+    title: "小春と湊 わたしのパートナーは女の子"
+    url: "https://ichicomi.com/episode/12207421984514053348"
+    anchor: "web:https://ichicomi.com/atom/series/2550912965923184269"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053348 links its own series feed at https://ichicomi.com/atom/series/2550912965923184269, so the platform places this chapter in series 2550912965923184269, and the og:title there names the work: 小春と湊 わたしのパートナーは女の子 - ひあるろん＆達磨 / 第41話 | 一迅プラス"
+  - id: w00051
+    title: "バカ女26時"
+    url: "https://tonarinoyj.jp/episode/12207421984516805784"
+    anchor: "web:https://tonarinoyj.jp/atom/series/14079602755420764820"
+    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984516805784 links its own series feed at https://tonarinoyj.jp/atom/series/14079602755420764820, so the platform places this chapter in series 14079602755420764820, and the og:title there names the work: [第34話] バカ女26時 - 遠野めざ/彩乃浦助 | となりのヤングジャンプ"
+  - id: w00051
+    title: "バカ女26時"
+    url: "https://tonarinoyj.jp/episode/12207421984516805784"
+    anchor: "web:https://tonarinoyj.jp/series/14079602755420764820/first_episode"
+    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984516805784 links its own series feed at https://tonarinoyj.jp/atom/series/14079602755420764820, so the platform places this chapter in series 14079602755420764820, and the og:title there names the work: [第34話] バカ女26時 - 遠野めざ/彩乃浦助 | となりのヤングジャンプ. https://tonarinoyj.jp/series/14079602755420764820/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00243
+    title: "彩純ちゃんはレズ風俗に興味があります！"
+    url: "https://ichicomi.com/episode/12207421984514053340"
+    anchor: "web:https://ichicomi.com/atom/series/2550912965923183967"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053340 links its own series feed at https://ichicomi.com/atom/series/2550912965923183967, so the platform places this chapter in series 2550912965923183967, and the og:title there names the work: 彩純ちゃんはレズ風俗に興味があります！ - 伊月クロ / 第36話 | 一迅プラス"
+  - id: w00246
+    title: "キミが吠えるための歌を、"
+    url: "https://ichicomi.com/episode/12207421984514053336"
+    anchor: "web:https://ichicomi.com/atom/series/2550912965923184070"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053336 links its own series feed at https://ichicomi.com/atom/series/2550912965923184070, so the platform places this chapter in series 2550912965923184070, and the og:title there names the work: キミが吠えるための歌を、 - 樫風 / 第23話 | 一迅プラス"
+  - id: w00169
+    title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
+    url: "https://ichicomi.com/episode/12207421984514053331"
+    anchor: "web:https://ichicomi.com/atom/series/2550912965923184114"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053331 links its own series feed at https://ichicomi.com/atom/series/2550912965923184114, so the platform places this chapter in series 2550912965923184114, and the og:title there names the work: 無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～ - 玉崎たま / 第22話 | 一迅プラス"
   - id: w00623
     title: "アウトサイダーパラダイス"
     url: "https://comic-action.com/episode/2550912964668507941"
     anchor: "web:https://comic-action.com/atom/series/14079602755364365918"
     basis: "the chapter page at https://comic-action.com/episode/2550912964668507941 links its own series feed at https://comic-action.com/atom/series/14079602755364365918, so the platform places this chapter in series 14079602755364365918, and the og:title there names the work: 第18話 シャネルが勝ったら… / アウトサイダーパラダイス - 涼川りん | webアクション"
-  - id: w00243
-    title: "彩純ちゃんはレズ風俗に興味があります！"
-    url: "https://ichicomi.com/episode/2550912965923218552"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923183967"
-    basis: "the chapter page at https://ichicomi.com/episode/2550912965923218552 links its own series feed at https://ichicomi.com/atom/series/2550912965923183967, so the platform places this chapter in series 2550912965923183967, and the og:title there names the work: 彩純ちゃんはレズ風俗に興味があります！ - 伊月クロ / 第23話 | 一迅プラス"
-  - id: w00244
-    title: "陰キャギャルでもイキがりたい！"
-    url: "https://ichicomi.com/episode/12207421984374441860"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923183908"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441860 links its own series feed at https://ichicomi.com/atom/series/2550912965923183908, so the platform places this chapter in series 2550912965923183908, and the og:title there names the work: 陰キャギャルでもイキがりたい！ - かしわぎつきこ / 第33話 | 一迅プラス"
+  - id: w00247
+    title: "マユノウタ"
+    url: "https://ichicomi.com/episode/12207421984514053323"
+    anchor: "web:https://ichicomi.com/atom/series/2550912966077785022"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053323 links its own series feed at https://ichicomi.com/atom/series/2550912966077785022, so the platform places this chapter in series 2550912966077785022, and the og:title there names the work: マユノウタ - シクシク / 第13話 | 一迅プラス"
+  - id: w00067
+    title: "君のせいなんだから、責任とってよね。"
+    url: "https://ichicomi.com/episode/12207421984514053319"
+    anchor: "web:https://ichicomi.com/atom/series/2551460909791966658"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053319 links its own series feed at https://ichicomi.com/atom/series/2551460909791966658, so the platform places this chapter in series 2551460909791966658, and the og:title there names the work: 君のせいなんだから、責任とってよね。 - 当麻 / 第11話 | 一迅プラス"
+  - id: w00068
+    title: "骨に願いを、星に呪いを"
+    url: "https://ichicomi.com/episode/12207421984514053315"
+    anchor: "web:https://ichicomi.com/atom/series/2551460909961393327"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053315 links its own series feed at https://ichicomi.com/atom/series/2551460909961393327, so the platform places this chapter in series 2551460909961393327, and the og:title there names the work: 骨に願いを、星に呪いを - いくたはな / 第10話 | 一迅プラス"
+  - id: w00223
+    title: "私だって青春したいですよ、本当は。"
+    url: "https://ichicomi.com/episode/12207421984514053308"
+    anchor: "web:https://ichicomi.com/atom/series/2550912966077785019"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053308 links its own series feed at https://ichicomi.com/atom/series/2550912966077785019, so the platform places this chapter in series 2550912966077785019, and the og:title there names the work: 私だって青春したいですよ、本当は。 - 尾野凛 / 第9話 | 一迅プラス"
+  - id: w00070
+    title: "たゆたう恋の散り際に"
+    url: "https://ichicomi.com/episode/12207421984514053304"
+    anchor: "web:https://ichicomi.com/atom/series/2551460909671366556"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053304 links its own series feed at https://ichicomi.com/atom/series/2551460909671366556, so the platform places this chapter in series 2551460909671366556, and the og:title there names the work: たゆたう恋の散り際に - ゆあま / 第9話 | 一迅プラス"
+  - id: w00161
+    title: "晴れた日のドレスコード"
+    url: "https://ichicomi.com/episode/12207421984514053300"
+    anchor: "web:https://ichicomi.com/atom/series/2551460909761988777"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053300 links its own series feed at https://ichicomi.com/atom/series/2551460909761988777, so the platform places this chapter in series 2551460909761988777, and the og:title there names the work: 晴れた日のドレスコード - あげはる / 第8話 | 一迅プラス"
+  - id: w00171
+    title: "残骸少女、きらきらな世界の底"
+    url: "https://ichicomi.com/episode/12207421984514053296"
+    anchor: "web:https://ichicomi.com/atom/series/12207421983455891616"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053296 links its own series feed at https://ichicomi.com/atom/series/12207421983455891616, so the platform places this chapter in series 12207421983455891616, and the og:title there names the work: 残骸少女、きらきらな世界の底 - うさみみき / 第6話 | 一迅プラス"
+  - id: w03263
+    title: "神は私を撮りたいって言ってます！"
+    url: "https://ichicomi.com/episode/12207421984514053289"
+    anchor: "web:https://ichicomi.com/atom/series/12207421984038648337"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053289 links its own series feed at https://ichicomi.com/atom/series/12207421984038648337, so the platform places this chapter in series 12207421984038648337, and the og:title there names the work: 神は私を撮りたいって言ってます！ - 散葉ちんみ / 第5話 | 一迅プラス"
+  - id: w03252
+    title: "バリキャリJKモネ先輩"
+    url: "https://ichicomi.com/episode/12207421984514053285"
+    anchor: "web:https://ichicomi.com/atom/series/12207421984038648336"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053285 links its own series feed at https://ichicomi.com/atom/series/12207421984038648336, so the platform places this chapter in series 12207421984038648336, and the og:title there names the work: バリキャリJKモネ先輩 - 椋木ななつ / 第5話 | 一迅プラス"
+  - id: w03275
+    title: "聖なる姫のかくしごと"
+    url: "https://ichicomi.com/episode/12207421984514053281"
+    anchor: "web:https://ichicomi.com/atom/series/12207421984115848531"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053281 links its own series feed at https://ichicomi.com/atom/series/12207421984115848531, so the platform places this chapter in series 12207421984115848531, and the og:title there names the work: 聖なる姫のかくしごと - 葵季むつみ / 第4話 | 一迅プラス"
+  - id: w03525
+    title: "是騒騒"
+    url: "https://comic-days.com/episode/12207421984407366690"
+    anchor: "web:https://comic-days.com/atom/series/12207421984407366164"
+    basis: "the chapter page at https://comic-days.com/episode/12207421984407366690 links its own series feed at https://comic-days.com/atom/series/12207421984407366164, so the platform places this chapter in series 12207421984407366164, and the og:title there names the work: 是騒騒 - 羅川真里茂 / 第２話② | 月マガ基地"
+  - id: w03525
+    title: "是騒騒"
+    url: "https://comic-days.com/episode/12207421984407366690"
+    anchor: "web:https://comic-days.com/series/12207421984407366164/first_episode"
+    basis: "the chapter page at https://comic-days.com/episode/12207421984407366690 links its own series feed at https://comic-days.com/atom/series/12207421984407366164, so the platform places this chapter in series 12207421984407366164, and the og:title there names the work: 是騒騒 - 羅川真里茂 / 第２話② | 月マガ基地. https://comic-days.com/series/12207421984407366164/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w03440
+    title: "だって恋は月夜に灯るから"
+    url: "https://ichicomi.com/episode/12207421984514053275"
+    anchor: "web:https://ichicomi.com/atom/series/12207421984241417494"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984514053275 links its own series feed at https://ichicomi.com/atom/series/12207421984241417494, so the platform places this chapter in series 12207421984241417494, and the og:title there names the work: だって恋は月夜に灯るから - meji / 第3話 | 一迅プラス"
+  - id: w03537
+    title: "ヒモお姉さん、餌付け中。"
+    url: "https://kuragebunch.com/episode/12207421984481017739"
+    anchor: "web:https://kuragebunch.com/atom/series/12207421984481011289"
+    basis: "the chapter page at https://kuragebunch.com/episode/12207421984481017739 links its own series feed at https://kuragebunch.com/atom/series/12207421984481011289, so the platform places this chapter in series 12207421984481011289, and the og:title there names the work: ヒモお姉さん、餌付け中。 - 春露彗 / 第2話②　飼い猫契約とトマトリゾット | くらげバンチ"
+  - id: w03537
+    title: "ヒモお姉さん、餌付け中。"
+    url: "https://kuragebunch.com/episode/12207421984481017739"
+    anchor: "web:https://kuragebunch.com/series/12207421984481011289/first_episode"
+    basis: "the chapter page at https://kuragebunch.com/episode/12207421984481017739 links its own series feed at https://kuragebunch.com/atom/series/12207421984481011289, so the platform places this chapter in series 12207421984481011289, and the og:title there names the work: ヒモお姉さん、餌付け中。 - 春露彗 / 第2話②　飼い猫契約とトマトリゾット | くらげバンチ. https://kuragebunch.com/series/12207421984481011289/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w00060
     title: "#ギャルとギャルの百合"
     url: "https://www.sunday-webry.com/episode/12207421984500100363"
@@ -54,6 +199,156 @@ joins:
     url: "https://www.sunday-webry.com/episode/12207421984500100363"
     anchor: "web:https://www.sunday-webry.com/series/2550912965813599150/first_episode"
     basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984500100363 links its own series feed at https://www.sunday-webry.com/atom/series/2550912965813599150, so the platform places this chapter in series 2550912965813599150, and the og:title there names the work: #30 #うちらも / #ギャルとギャルの百合 - イノウエ | サンデーうぇぶり. https://www.sunday-webry.com/series/2550912965813599150/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00128
+    title: "ボイタボイネ"
+    url: "https://magcomi.com/episode/12207421984374937414"
+    anchor: "web:https://magcomi.com/atom/series/2551460909687430106"
+    basis: "the chapter page at https://magcomi.com/episode/12207421984374937414 links its own series feed at https://magcomi.com/atom/series/2551460909687430106, so the platform places this chapter in series 2551460909687430106, and the og:title there names the work: ボイタボイネ - 夏草 / 第23話「シュガー＆ソルト withバニラ」 | マグコミ"
+  - id: w00130
+    title: "英雄少女と呪われの銀姫"
+    url: "https://tonarinoyj.jp/episode/12207421984454510612"
+    anchor: "web:https://tonarinoyj.jp/atom/series/2551460910044574466"
+    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984454510612 links its own series feed at https://tonarinoyj.jp/atom/series/2551460910044574466, so the platform places this chapter in series 2551460910044574466, and the og:title there names the work: [第9話 後編] 英雄少女と呪われの銀姫 - アルト/絵本奈央 | となりのヤングジャンプ"
+  - id: w00130
+    title: "英雄少女と呪われの銀姫"
+    url: "https://tonarinoyj.jp/episode/12207421984454510612"
+    anchor: "web:https://tonarinoyj.jp/series/2551460910044574466/first_episode"
+    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984454510612 links its own series feed at https://tonarinoyj.jp/atom/series/2551460910044574466, so the platform places this chapter in series 2551460910044574466, and the og:title there names the work: [第9話 後編] 英雄少女と呪われの銀姫 - アルト/絵本奈央 | となりのヤングジャンプ. https://tonarinoyj.jp/series/2551460910044574466/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00016
+    title: "雨夜の月"
+    url: "https://comic-days.com/episode/12207421983645810078"
+    anchor: "web:https://comic-days.com/atom/series/3269632237268447047"
+    basis: "the chapter page at https://comic-days.com/episode/12207421983645810078 links its own series feed at https://comic-days.com/atom/series/3269632237268447047, so the platform places this chapter in series 3269632237268447047, and the og:title there names the work: 雨夜の月 - くずしろ / 第５２−３話　相愛 | コミックDAYS"
+  - id: w00016
+    title: "雨夜の月"
+    url: "https://comic-days.com/episode/12207421983645810078"
+    anchor: "web:https://comic-days.com/series/3269632237268447047/first_episode"
+    basis: "the chapter page at https://comic-days.com/episode/12207421983645810078 links its own series feed at https://comic-days.com/atom/series/3269632237268447047, so the platform places this chapter in series 3269632237268447047, and the og:title there names the work: 雨夜の月 - くずしろ / 第５２−３話　相愛 | コミックDAYS. https://comic-days.com/series/3269632237268447047/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00157
+    title: "明日ちゃんのセーラー服"
+    url: "https://tonarinoyj.jp/episode/12207421984486492593"
+    anchor: "web:https://tonarinoyj.jp/atom/series/13932016480028984534"
+    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984486492593 links its own series feed at https://tonarinoyj.jp/atom/series/13932016480028984534, so the platform places this chapter in series 13932016480028984534, and the og:title there names the work: [第93話] 明日（あけび）ちゃんのセーラー服 - 博（ひろ） | となりのヤングジャンプ"
+  - id: w00157
+    title: "明日ちゃんのセーラー服"
+    url: "https://tonarinoyj.jp/episode/12207421984486492593"
+    anchor: "web:https://tonarinoyj.jp/series/13932016480028984534/first_episode"
+    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984486492593 links its own series feed at https://tonarinoyj.jp/atom/series/13932016480028984534, so the platform places this chapter in series 13932016480028984534, and the og:title there names the work: [第93話] 明日（あけび）ちゃんのセーラー服 - 博（ひろ） | となりのヤングジャンプ. https://tonarinoyj.jp/series/13932016480028984534/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00029
+    title: "春雷卓球"
+    url: "https://shonenjumpplus.com/episode/9253191257737710703"
+    anchor: "web:https://shonenjumpplus.com/atom/series/17107094912912919707"
+    basis: "the chapter page at https://shonenjumpplus.com/episode/9253191257737710703 links its own series feed at https://shonenjumpplus.com/atom/series/17107094912912919707, so the platform places this chapter in series 17107094912912919707, and the og:title there names the work: [第28打]春雷卓球 - 平方昌宏 | 少年ジャンプ＋"
+  - id: w00029
+    title: "春雷卓球"
+    url: "https://shonenjumpplus.com/episode/9253191257737710703"
+    anchor: "web:https://shonenjumpplus.com/series/17107094912912919707/first_episode"
+    basis: "the chapter page at https://shonenjumpplus.com/episode/9253191257737710703 links its own series feed at https://shonenjumpplus.com/atom/series/17107094912912919707, so the platform places this chapter in series 17107094912912919707, and the og:title there names the work: [第28打]春雷卓球 - 平方昌宏 | 少年ジャンプ＋. https://shonenjumpplus.com/series/17107094912912919707/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00102
+    title: "てくのぱにっくゆにばーす"
+    url: "https://www.sunday-webry.com/episode/12207421984508897408"
+    anchor: "web:https://www.sunday-webry.com/atom/series/2551460909679434702"
+    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984508897408 links its own series feed at https://www.sunday-webry.com/atom/series/2551460909679434702, so the platform places this chapter in series 2551460909679434702, and the og:title there names the work: ショートショート 阿久津君の怖い話 / てくのぱにっくゆにばーす - 伏見ダイキ | サンデーうぇぶり"
+  - id: w00102
+    title: "てくのぱにっくゆにばーす"
+    url: "https://www.sunday-webry.com/episode/12207421984508897408"
+    anchor: "web:https://www.sunday-webry.com/series/2551460909679434702/first_episode"
+    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984508897408 links its own series feed at https://www.sunday-webry.com/atom/series/2551460909679434702, so the platform places this chapter in series 2551460909679434702, and the og:title there names the work: ショートショート 阿久津君の怖い話 / てくのぱにっくゆにばーす - 伏見ダイキ | サンデーうぇぶり. https://www.sunday-webry.com/series/2551460909679434702/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00188
+    title: "恋より青く"
+    url: "https://comic-ogyaaa.com/episode/12207421984504089428"
+    anchor: "web:https://comic-ogyaaa.com/atom/series/4856001361171639719"
+    basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984504089428 links its own series feed at https://comic-ogyaaa.com/atom/series/4856001361171639719, so the platform places this chapter in series 4856001361171639719, and the og:title there names the work: 『恋より青く』第44話 - 深海 紺 | COMIC OGYAAA!!"
+  - id: w00188
+    title: "恋より青く"
+    url: "https://comic-ogyaaa.com/episode/12207421984504089428"
+    anchor: "web:https://comic-ogyaaa.com/series/4856001361171639719/first_episode"
+    basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984504089428 links its own series feed at https://comic-ogyaaa.com/atom/series/4856001361171639719, so the platform places this chapter in series 4856001361171639719, and the og:title there names the work: 『恋より青く』第44話 - 深海 紺 | COMIC OGYAAA!!. https://comic-ogyaaa.com/series/4856001361171639719/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00106
+    title: "悪役令嬢のお嫁さま"
+    url: "https://comic-seasons.com/episode/12207421984340714671"
+    anchor: "web:https://comic-seasons.com/atom/series/2550912965184685912"
+    basis: "the chapter page at https://comic-seasons.com/episode/12207421984340714671 links its own series feed at https://comic-seasons.com/atom/series/2550912965184685912, so the platform places this chapter in series 2550912965184685912, and the og:title there names the work: 悪役令嬢のお嫁さま - かわのあきこ / 第19話 後編 | Seasons"
+  - id: w00106
+    title: "悪役令嬢のお嫁さま"
+    url: "https://comic-seasons.com/episode/12207421984340714671"
+    anchor: "web:https://comic-seasons.com/series/2550912965184685912/first_episode"
+    basis: "the chapter page at https://comic-seasons.com/episode/12207421984340714671 links its own series feed at https://comic-seasons.com/atom/series/2550912965184685912, so the platform places this chapter in series 2550912965184685912, and the og:title there names the work: 悪役令嬢のお嫁さま - かわのあきこ / 第19話 後編 | Seasons. https://comic-seasons.com/series/2550912965184685912/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00155
+    title: "お嬢様、懺悔する。"
+    url: "https://comic-trail.com/episode/12207421984313523424"
+    anchor: "web:https://comic-trail.com/atom/series/2551460909751842548"
+    basis: "the chapter page at https://comic-trail.com/episode/12207421984313523424 links its own series feed at https://comic-trail.com/atom/series/2551460909751842548, so the platform places this chapter in series 2551460909751842548, and the og:title there names the work: 第14話〈１〉  / お嬢様、懺悔する。 - しる | コミックトレイル｜漫画とつながるフェス空間！"
+  - id: w00155
+    title: "お嬢様、懺悔する。"
+    url: "https://comic-trail.com/episode/12207421984313523424"
+    anchor: "web:https://comic-trail.com/series/2551460909751842548/first_episode"
+    basis: "the chapter page at https://comic-trail.com/episode/12207421984313523424 links its own series feed at https://comic-trail.com/atom/series/2551460909751842548, so the platform places this chapter in series 2551460909751842548, and the og:title there names the work: 第14話〈１〉  / お嬢様、懺悔する。 - しる | コミックトレイル｜漫画とつながるフェス空間！. https://comic-trail.com/series/2551460909751842548/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w03101
+    title: "きょうもバレずに過ごせた！"
+    url: "https://www.sunday-webry.com/episode/12207421984508899426"
+    anchor: "web:https://www.sunday-webry.com/atom/series/2551460910093832609"
+    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984508899426 links its own series feed at https://www.sunday-webry.com/atom/series/2551460910093832609, so the platform places this chapter in series 2551460910093832609, and the og:title there names the work: 19にちめ：コワすぎる…？ / きょうもバレずに過ごせた！ - はづき | サンデーうぇぶり"
+  - id: w03101
+    title: "きょうもバレずに過ごせた！"
+    url: "https://www.sunday-webry.com/episode/12207421984508899426"
+    anchor: "web:https://www.sunday-webry.com/series/2551460910093832609/first_episode"
+    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984508899426 links its own series feed at https://www.sunday-webry.com/atom/series/2551460910093832609, so the platform places this chapter in series 2551460910093832609, and the og:title there names the work: 19にちめ：コワすぎる…？ / きょうもバレずに過ごせた！ - はづき | サンデーうぇぶり. https://www.sunday-webry.com/series/2551460910093832609/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00192
+    title: "まるせっせんす"
+    url: "https://comic-ogyaaa.com/episode/12207421984504089432"
+    anchor: "web:https://comic-ogyaaa.com/atom/series/12207421983372417929"
+    basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984504089432 links its own series feed at https://comic-ogyaaa.com/atom/series/12207421983372417929, so the platform places this chapter in series 12207421983372417929, and the og:title there names the work: 『まるせっせんす』第9話 庇護 - 畳ゆか | COMIC OGYAAA!!"
+  - id: w00192
+    title: "まるせっせんす"
+    url: "https://comic-ogyaaa.com/episode/12207421984504089432"
+    anchor: "web:https://comic-ogyaaa.com/series/12207421983372417929/first_episode"
+    basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984504089432 links its own series feed at https://comic-ogyaaa.com/atom/series/12207421983372417929, so the platform places this chapter in series 12207421983372417929, and the og:title there names the work: 『まるせっせんす』第9話 庇護 - 畳ゆか | COMIC OGYAAA!!. https://comic-ogyaaa.com/series/12207421983372417929/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w03545
+    title: "回って避ける"
+    url: "https://comic-seasons.com/episode/12207421984513315666"
+    anchor: "web:https://comic-seasons.com/atom/series/12207421984513305450"
+    basis: "the chapter page at https://comic-seasons.com/episode/12207421984513315666 links its own series feed at https://comic-seasons.com/atom/series/12207421984513305450, so the platform places this chapter in series 12207421984513305450, and the og:title there names the work: 回って避ける - 路田行 / 読み切り | Seasons"
+  - id: w03545
+    title: "回って避ける"
+    url: "https://comic-seasons.com/episode/12207421984513315666"
+    anchor: "web:https://comic-seasons.com/series/12207421984513305450/first_episode"
+    basis: "the chapter page at https://comic-seasons.com/episode/12207421984513315666 links its own series feed at https://comic-seasons.com/atom/series/12207421984513305450, so the platform places this chapter in series 12207421984513305450, and the og:title there names the work: 回って避ける - 路田行 / 読み切り | Seasons. https://comic-seasons.com/series/12207421984513305450/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w03546
+    title: "剣×薙"
+    url: "https://kuragebunch.com/episode/12207421984513254028"
+    anchor: "web:https://kuragebunch.com/atom/series/12207421984513253016"
+    basis: "the chapter page at https://kuragebunch.com/episode/12207421984513254028 links its own series feed at https://kuragebunch.com/atom/series/12207421984513253016, so the platform places this chapter in series 12207421984513253016, and the og:title there names the work: 剣×薙 - ながれで / 剣×薙 | コミックバンチKai"
+  - id: w03546
+    title: "剣×薙"
+    url: "https://kuragebunch.com/episode/12207421984513254028"
+    anchor: "web:https://kuragebunch.com/series/12207421984513253016/first_episode"
+    basis: "the chapter page at https://kuragebunch.com/episode/12207421984513254028 links its own series feed at https://kuragebunch.com/atom/series/12207421984513253016, so the platform places this chapter in series 12207421984513253016, and the og:title there names the work: 剣×薙 - ながれで / 剣×薙 | コミックバンチKai. https://kuragebunch.com/series/12207421984513253016/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w03541
+    title: "あのこの冷蔵庫"
+    url: "https://tonarinoyj.jp/episode/12207421984475668997"
+    anchor: "web:https://tonarinoyj.jp/atom/series/12207421984475668612"
+    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984475668997 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984475668612, so the platform places this chapter in series 12207421984475668612, and the og:title there names the work: [特別読切] あのこの冷蔵庫 - 藤原ハル | となりのヤングジャンプ"
+  - id: w03541
+    title: "あのこの冷蔵庫"
+    url: "https://tonarinoyj.jp/episode/12207421984475668997"
+    anchor: "web:https://tonarinoyj.jp/series/12207421984475668612/first_episode"
+    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984475668997 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984475668612, so the platform places this chapter in series 12207421984475668612, and the og:title there names the work: [特別読切] あのこの冷蔵庫 - 藤原ハル | となりのヤングジャンプ. https://tonarinoyj.jp/series/12207421984475668612/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00054
+    title: "サタノファニ"
+    url: "https://comic-days.com/episode/12207421983566481778"
+    anchor: "web:https://comic-days.com/atom/series/13932016480029395540"
+    basis: "the chapter page at https://comic-days.com/episode/12207421983566481778 links its own series feed at https://comic-days.com/atom/series/13932016480029395540, so the platform places this chapter in series 13932016480029395540, and the og:title there names the work: サタノファニ - 山田恵庸 / 第３４５話　「戦争」　 | コミックDAYS"
+  - id: w00054
+    title: "サタノファニ"
+    url: "https://comic-days.com/episode/12207421983566481778"
+    anchor: "web:https://comic-days.com/series/13932016480029395540/first_episode"
+    basis: "the chapter page at https://comic-days.com/episode/12207421983566481778 links its own series feed at https://comic-days.com/atom/series/13932016480029395540, so the platform places this chapter in series 13932016480029395540, and the og:title there names the work: サタノファニ - 山田恵庸 / 第３４５話　「戦争」　 | コミックDAYS. https://comic-days.com/series/13932016480029395540/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+  - id: w00244
+    title: "陰キャギャルでもイキがりたい！"
+    url: "https://ichicomi.com/episode/12207421984374441860"
+    anchor: "web:https://ichicomi.com/atom/series/2550912965923183908"
+    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441860 links its own series feed at https://ichicomi.com/atom/series/2550912965923183908, so the platform places this chapter in series 2550912965923183908, and the og:title there names the work: 陰キャギャルでもイキがりたい！ - かしわぎつきこ / 第33話 | 一迅プラス"
   - id: w00059
     title: "病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～"
     url: "https://comic-gardo.com/episode/12207421984483962840"
@@ -69,21 +364,6 @@ joins:
     url: "https://www.sunday-webry.com/episode/12207421984486227239"
     anchor: "web:https://www.sunday-webry.com/series/12207421983745469823/first_episode"
     basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984486227239 links its own series feed at https://www.sunday-webry.com/atom/series/12207421983745469823, so the platform places this chapter in series 12207421983745469823, and the og:title there names the work: 第11話 らしさ / なとりとしずは - 鮎川あお | サンデーうぇぶり. https://www.sunday-webry.com/series/12207421983745469823/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00068
-    title: "骨に願いを、星に呪いを"
-    url: "https://ichicomi.com/episode/12207421984222532920"
-    anchor: "web:https://ichicomi.com/atom/series/2551460909961393327"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984222532920 links its own series feed at https://ichicomi.com/atom/series/2551460909961393327, so the platform places this chapter in series 2551460909961393327, and the og:title there names the work: 骨に願いを、星に呪いを - いくたはな / 第9話 | 一迅プラス"
-  - id: w03537
-    title: "ヒモお姉さん、餌付け中。"
-    url: "https://kuragebunch.com/episode/12207421984481017713"
-    anchor: "web:https://kuragebunch.com/atom/series/12207421984481011289"
-    basis: "the chapter page at https://kuragebunch.com/episode/12207421984481017713 links its own series feed at https://kuragebunch.com/atom/series/12207421984481011289, so the platform places this chapter in series 12207421984481011289, and the og:title there names the work: ヒモお姉さん、餌付け中。 - 春露彗 / 第1話　月見うどんとふたりの秘密 | くらげバンチ"
-  - id: w03537
-    title: "ヒモお姉さん、餌付け中。"
-    url: "https://kuragebunch.com/episode/12207421984481017713"
-    anchor: "web:https://kuragebunch.com/series/12207421984481011289/first_episode"
-    basis: "the chapter page at https://kuragebunch.com/episode/12207421984481017713 links its own series feed at https://kuragebunch.com/atom/series/12207421984481011289, so the platform places this chapter in series 12207421984481011289, and the og:title there names the work: ヒモお姉さん、餌付け中。 - 春露彗 / 第1話　月見うどんとふたりの秘密 | くらげバンチ. https://kuragebunch.com/series/12207421984481011289/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w03539
     title: "織りゆけサルデーニャ"
     url: "https://magcomi.com/episode/12207421984482234310"
@@ -99,11 +379,6 @@ joins:
     url: "https://comic-gardo.com/episode/12207421984483962794"
     anchor: "web:https://comic-gardo.com/atom/series/12207421983996994170"
     basis: "the chapter page at https://comic-gardo.com/episode/12207421984483962794 links its own series feed at https://comic-gardo.com/atom/series/12207421983996994170, so the platform places this chapter in series 12207421983996994170, and the og:title there names the work: 優等生がアダルトグッズを買いに来た - コナタエル/4kaえんぴつ/千種みのり / 第5話「常磐咲良です、１年Ａ組の。」(1) | コミックガルド"
-  - id: w00165
-    title: "私の推しは悪役令嬢。"
-    url: "https://ichicomi.com/episode/12207421984374441877"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923183996"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441877 links its own series feed at https://ichicomi.com/atom/series/2550912965923183996, so the platform places this chapter in series 2550912965923183996, and the og:title there names the work: 私の推しは悪役令嬢。 - 青乃下/いのり。/花ヶ田 / 第65話 | 一迅プラス"
   - id: w00105
     title: "オカワリいただけただろうか?"
     url: "https://comic-action.com/episode/12207421984252214207"
@@ -114,11 +389,6 @@ joins:
     url: "https://ichicomi.com/episode/12207421984222532954"
     anchor: "web:https://ichicomi.com/atom/series/2550912965923183598"
     basis: "the chapter page at https://ichicomi.com/episode/12207421984222532954 links its own series feed at https://ichicomi.com/atom/series/2550912965923183598, so the platform places this chapter in series 2550912965923183598, and the og:title there names the work: 現実世界でも幸せにしてくださいね？ - しぼりかすこ / 第22話 | 一迅プラス"
-  - id: w00169
-    title: "無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～"
-    url: "https://ichicomi.com/episode/12207421984374441838"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923184114"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441838 links its own series feed at https://ichicomi.com/atom/series/2550912965923184114, so the platform places this chapter in series 2550912965923184114, and the og:title there names the work: 無力聖女と無能王女～魔力ゼロで召喚された聖女の異世界救国記～ - 玉崎たま / 第21話 | 一迅プラス"
   - id: w00033
     title: "上杉くんは女の子をやめたい"
     url: "https://www.sunday-webry.com/episode/12207421984485539224"
@@ -129,26 +399,6 @@ joins:
     url: "https://www.sunday-webry.com/episode/12207421984485539224"
     anchor: "web:https://www.sunday-webry.com/series/2550912964699074885/first_episode"
     basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984485539224 links its own series feed at https://www.sunday-webry.com/atom/series/2550912964699074885, so the platform places this chapter in series 2550912964699074885, and the og:title there names the work: 第37話 / 上杉くんは女の子をやめたい - やぶうち優 | サンデーうぇぶり. https://www.sunday-webry.com/series/2550912964699074885/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00029
-    title: "春雷卓球"
-    url: "https://shonenjumpplus.com/episode/9253191257689746096"
-    anchor: "web:https://shonenjumpplus.com/atom/series/17107094912912919707"
-    basis: "the chapter page at https://shonenjumpplus.com/episode/9253191257689746096 links its own series feed at https://shonenjumpplus.com/atom/series/17107094912912919707, so the platform places this chapter in series 17107094912912919707, and the og:title there names the work: [おまけ19]春雷卓球 - 平方昌宏 | 少年ジャンプ＋"
-  - id: w00029
-    title: "春雷卓球"
-    url: "https://shonenjumpplus.com/episode/9253191257689746096"
-    anchor: "web:https://shonenjumpplus.com/series/17107094912912919707/first_episode"
-    basis: "the chapter page at https://shonenjumpplus.com/episode/9253191257689746096 links its own series feed at https://shonenjumpplus.com/atom/series/17107094912912919707, so the platform places this chapter in series 17107094912912919707, and the og:title there names the work: [おまけ19]春雷卓球 - 平方昌宏 | 少年ジャンプ＋. https://shonenjumpplus.com/series/17107094912912919707/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00102
-    title: "てくのぱにっくゆにばーす"
-    url: "https://www.sunday-webry.com/episode/12207421984476416025"
-    anchor: "web:https://www.sunday-webry.com/atom/series/2551460909679434702"
-    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984476416025 links its own series feed at https://www.sunday-webry.com/atom/series/2551460909679434702, so the platform places this chapter in series 2551460909679434702, and the og:title there names the work: 第１７話 真夏の怪 / てくのぱにっくゆにばーす - 伏見ダイキ | サンデーうぇぶり"
-  - id: w00102
-    title: "てくのぱにっくゆにばーす"
-    url: "https://www.sunday-webry.com/episode/12207421984476416025"
-    anchor: "web:https://www.sunday-webry.com/series/2551460909679434702/first_episode"
-    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984476416025 links its own series feed at https://www.sunday-webry.com/atom/series/2551460909679434702, so the platform places this chapter in series 2551460909679434702, and the og:title there names the work: 第１７話 真夏の怪 / てくのぱにっくゆにばーす - 伏見ダイキ | サンデーうぇぶり. https://www.sunday-webry.com/series/2551460909679434702/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w00020
     title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
     url: "https://comic-action.com/episode/12207421984476675562"
@@ -174,26 +424,6 @@ joins:
     url: "https://tonarinoyj.jp/episode/12207421984447306235"
     anchor: "web:https://tonarinoyj.jp/series/12207421984447279309/first_episode"
     basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984447306235 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984447279309, so the platform places this chapter in series 12207421984447279309, and the og:title there names the work: [特別読切] 燕のあやかし画帳 - サスケ | となりのヤングジャンプ. https://tonarinoyj.jp/series/12207421984447279309/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00716
-    title: "魔法少女201"
-    url: "https://shonenjumpplus.com/episode/9253191257203124518"
-    anchor: "web:https://shonenjumpplus.com/atom/series/17106371853064301974"
-    basis: "the chapter page at https://shonenjumpplus.com/episode/9253191257203124518 links its own series feed at https://shonenjumpplus.com/atom/series/17106371853064301974, so the platform places this chapter in series 17106371853064301974, and the og:title there names the work: [第45話]魔法少女201 - むちゃ | 少年ジャンプ＋"
-  - id: w00716
-    title: "魔法少女201"
-    url: "https://shonenjumpplus.com/episode/9253191257203124518"
-    anchor: "web:https://shonenjumpplus.com/series/17106371853064301974/first_episode"
-    basis: "the chapter page at https://shonenjumpplus.com/episode/9253191257203124518 links its own series feed at https://shonenjumpplus.com/atom/series/17106371853064301974, so the platform places this chapter in series 17106371853064301974, and the og:title there names the work: [第45話]魔法少女201 - むちゃ | 少年ジャンプ＋. https://shonenjumpplus.com/series/17106371853064301974/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00167
-    title: "新刊100億冊ください"
-    url: "https://comic-days.com/episode/12207421983484134468"
-    anchor: "web:https://comic-days.com/atom/series/2550912965415291249"
-    basis: "the chapter page at https://comic-days.com/episode/12207421983484134468 links its own series feed at https://comic-days.com/atom/series/2550912965415291249, so the platform places this chapter in series 2550912965415291249, and the og:title there names the work: 新刊１００億冊ください - 破賀ミチル / ３８冊目：萌えるには本棚ひとつあればいい | モーニング・ツー"
-  - id: w00167
-    title: "新刊100億冊ください"
-    url: "https://comic-days.com/episode/12207421983484134468"
-    anchor: "web:https://comic-days.com/series/2550912965415291249/first_episode"
-    basis: "the chapter page at https://comic-days.com/episode/12207421983484134468 links its own series feed at https://comic-days.com/atom/series/2550912965415291249, so the platform places this chapter in series 2550912965415291249, and the og:title there names the work: 新刊１００億冊ください - 破賀ミチル / ３８冊目：萌えるには本棚ひとつあればいい | モーニング・ツー. https://comic-days.com/series/2550912965415291249/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w03526
     title: "ナイーブ・リザーブド"
     url: "https://tonarinoyj.jp/episode/12207421984467777208"
@@ -204,36 +434,11 @@ joins:
     url: "https://tonarinoyj.jp/episode/12207421984467777208"
     anchor: "web:https://tonarinoyj.jp/series/12207421984467761498/first_episode"
     basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984467777208 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984467761498, so the platform places this chapter in series 12207421984467761498, and the og:title there names the work: ナイーブ・リザーブド - 不飽和デザ | となりのヤングジャンプ. https://tonarinoyj.jp/series/12207421984467761498/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w03525
-    title: "是騒騒"
-    url: "https://comic-days.com/episode/12207421984407366672"
-    anchor: "web:https://comic-days.com/atom/series/12207421984407366164"
-    basis: "the chapter page at https://comic-days.com/episode/12207421984407366672 links its own series feed at https://comic-days.com/atom/series/12207421984407366164, so the platform places this chapter in series 12207421984407366164, and the og:title there names the work: 是騒騒 - 羅川真里茂 / 第１話 | 月マガ基地"
-  - id: w03525
-    title: "是騒騒"
-    url: "https://comic-days.com/episode/12207421984407366672"
-    anchor: "web:https://comic-days.com/series/12207421984407366164/first_episode"
-    basis: "the chapter page at https://comic-days.com/episode/12207421984407366672 links its own series feed at https://comic-days.com/atom/series/12207421984407366164, so the platform places this chapter in series 12207421984407366164, and the og:title there names the work: 是騒騒 - 羅川真里茂 / 第１話 | 月マガ基地. https://comic-days.com/series/12207421984407366164/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w00205
     title: "小林さんちのメイドラゴン"
     url: "https://comic-action.com/episode/12207421984374006900"
     anchor: "web:https://comic-action.com/atom/series/13933686331613280406"
     basis: "the chapter page at https://comic-action.com/episode/12207421984374006900 links its own series feed at https://comic-action.com/atom/series/13933686331613280406, so the platform places this chapter in series 13933686331613280406, and the og:title there names the work: 第195話 ファフニールとフラゲ / 小林さんちのメイドラゴン - クール教信者 | webアクション"
-  - id: w00130
-    title: "英雄少女と呪われの銀姫"
-    url: "https://tonarinoyj.jp/episode/12207421984454510608"
-    anchor: "web:https://tonarinoyj.jp/atom/series/2551460910044574466"
-    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984454510608 links its own series feed at https://tonarinoyj.jp/atom/series/2551460910044574466, so the platform places this chapter in series 2551460910044574466, and the og:title there names the work: [第9話 前編] 英雄少女と呪われの銀姫 - アルト/絵本奈央 | となりのヤングジャンプ"
-  - id: w00130
-    title: "英雄少女と呪われの銀姫"
-    url: "https://tonarinoyj.jp/episode/12207421984454510608"
-    anchor: "web:https://tonarinoyj.jp/series/2551460910044574466/first_episode"
-    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984454510608 links its own series feed at https://tonarinoyj.jp/atom/series/2551460910044574466, so the platform places this chapter in series 2551460910044574466, and the og:title there names the work: [第9話 前編] 英雄少女と呪われの銀姫 - アルト/絵本奈央 | となりのヤングジャンプ. https://tonarinoyj.jp/series/2551460910044574466/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00247
-    title: "マユノウタ"
-    url: "https://ichicomi.com/episode/12207421984222532924"
-    anchor: "web:https://ichicomi.com/atom/series/2550912966077785022"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984222532924 links its own series feed at https://ichicomi.com/atom/series/2550912966077785022, so the platform places this chapter in series 2550912966077785022, and the og:title there names the work: マユノウタ - シクシク / 第12話 | 一迅プラス"
   - id: w03285
     title: "東京つけものがたり"
     url: "https://magcomi.com/episode/12207421984304225733"
@@ -254,41 +459,11 @@ joins:
     url: "https://kuragebunch.com/episode/12207421984452460688"
     anchor: "web:https://kuragebunch.com/series/12207421984452459649/first_episode"
     basis: "the chapter page at https://kuragebunch.com/episode/12207421984452460688 links its own series feed at https://kuragebunch.com/atom/series/12207421984452459649, so the platform places this chapter in series 12207421984452459649, and the og:title there names the work: タマさんの猥談原稿 - 戦上まい子 / タマさんの猥談原稿 | くらげバンチ. https://kuragebunch.com/series/12207421984452459649/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00016
-    title: "雨夜の月"
-    url: "https://comic-days.com/episode/12207421983645810064"
-    anchor: "web:https://comic-days.com/atom/series/3269632237268447047"
-    basis: "the chapter page at https://comic-days.com/episode/12207421983645810064 links its own series feed at https://comic-days.com/atom/series/3269632237268447047, so the platform places this chapter in series 3269632237268447047, and the og:title there names the work: 雨夜の月 - くずしろ / 第５２−２話　相愛 | コミックDAYS"
-  - id: w00016
-    title: "雨夜の月"
-    url: "https://comic-days.com/episode/12207421983645810064"
-    anchor: "web:https://comic-days.com/series/3269632237268447047/first_episode"
-    basis: "the chapter page at https://comic-days.com/episode/12207421983645810064 links its own series feed at https://comic-days.com/atom/series/3269632237268447047, so the platform places this chapter in series 3269632237268447047, and the og:title there names the work: 雨夜の月 - くずしろ / 第５２−２話　相愛 | コミックDAYS. https://comic-days.com/series/3269632237268447047/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w03101
-    title: "きょうもバレずに過ごせた！"
-    url: "https://www.sunday-webry.com/episode/12207421984447629065"
-    anchor: "web:https://www.sunday-webry.com/atom/series/2551460910093832609"
-    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984447629065 links its own series feed at https://www.sunday-webry.com/atom/series/2551460910093832609, so the platform places this chapter in series 2551460910093832609, and the og:title there names the work: 18にちめ：あこがれの!? / きょうもバレずに過ごせた！ - はづき | サンデーうぇぶり"
-  - id: w03101
-    title: "きょうもバレずに過ごせた！"
-    url: "https://www.sunday-webry.com/episode/12207421984447629065"
-    anchor: "web:https://www.sunday-webry.com/series/2551460910093832609/first_episode"
-    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984447629065 links its own series feed at https://www.sunday-webry.com/atom/series/2551460910093832609, so the platform places this chapter in series 2551460910093832609, and the og:title there names the work: 18にちめ：あこがれの!? / きょうもバレずに過ごせた！ - はづき | サンデーうぇぶり. https://www.sunday-webry.com/series/2551460910093832609/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w03473
     title: "APPLE"
     url: "https://ichicomi.com/episode/12207421984387218979"
     anchor: "web:https://ichicomi.com/atom/series/12207421984387217482"
     basis: "the chapter page at https://ichicomi.com/episode/12207421984387218979 links its own series feed at https://ichicomi.com/atom/series/12207421984387217482, so the platform places this chapter in series 12207421984387217482, and the og:title there names the work: APPLE - Ayster / 読み切り作品 | 一迅プラス"
-  - id: w00051
-    title: "バカ女26時"
-    url: "https://tonarinoyj.jp/episode/12207421984401387506"
-    anchor: "web:https://tonarinoyj.jp/atom/series/14079602755420764820"
-    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984401387506 links its own series feed at https://tonarinoyj.jp/atom/series/14079602755420764820, so the platform places this chapter in series 14079602755420764820, and the og:title there names the work: [第33話] バカ女26時 - 遠野めざ/彩乃浦助 | となりのヤングジャンプ"
-  - id: w00051
-    title: "バカ女26時"
-    url: "https://tonarinoyj.jp/episode/12207421984401387506"
-    anchor: "web:https://tonarinoyj.jp/series/14079602755420764820/first_episode"
-    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984401387506 links its own series feed at https://tonarinoyj.jp/atom/series/14079602755420764820, so the platform places this chapter in series 14079602755420764820, and the og:title there names the work: [第33話] バカ女26時 - 遠野めざ/彩乃浦助 | となりのヤングジャンプ. https://tonarinoyj.jp/series/14079602755420764820/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w00066
     title: "ひなちゃんが生きてるなら"
     url: "https://ichicomi.com/episode/12207421984374441760"
@@ -334,36 +509,6 @@ joins:
     url: "https://comic-days.com/episode/12207421983484134843"
     anchor: "web:https://comic-days.com/series/10834108156652406186/first_episode"
     basis: "the chapter page at https://comic-days.com/episode/12207421983484134843 links its own series feed at https://comic-days.com/atom/series/10834108156652406186, so the platform places this chapter in series 10834108156652406186, and the og:title there names the work: 笑顔のたえない職場です。 - くずしろ / 第１２５話　黙って寝ろ！！ | コミックDAYS. https://comic-days.com/series/10834108156652406186/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00095
-    title: "メイド&ロイドはお嬢様のお役に立ちたい!"
-    url: "https://www.sunday-webry.com/episode/12207421984411790033"
-    anchor: "web:https://www.sunday-webry.com/atom/series/12207421983529006653"
-    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984411790033 links its own series feed at https://www.sunday-webry.com/atom/series/12207421983529006653, so the platform places this chapter in series 12207421983529006653, and the og:title there names the work: Memory8 ふろキャンお嬢様 (1) / メイド＆ロイドはお嬢様のお役に立ちたい！ - みやしろ | サンデーうぇぶり"
-  - id: w00095
-    title: "メイド&ロイドはお嬢様のお役に立ちたい!"
-    url: "https://www.sunday-webry.com/episode/12207421984411790033"
-    anchor: "web:https://www.sunday-webry.com/series/12207421983529006653/first_episode"
-    basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984411790033 links its own series feed at https://www.sunday-webry.com/atom/series/12207421983529006653, so the platform places this chapter in series 12207421983529006653, and the og:title there names the work: Memory8 ふろキャンお嬢様 (1) / メイド＆ロイドはお嬢様のお役に立ちたい！ - みやしろ | サンデーうぇぶり. https://www.sunday-webry.com/series/12207421983529006653/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00106
-    title: "悪役令嬢のお嫁さま"
-    url: "https://comic-seasons.com/episode/12207421984340714666"
-    anchor: "web:https://comic-seasons.com/atom/series/2550912965184685912"
-    basis: "the chapter page at https://comic-seasons.com/episode/12207421984340714666 links its own series feed at https://comic-seasons.com/atom/series/2550912965184685912, so the platform places this chapter in series 2550912965184685912, and the og:title there names the work: 悪役令嬢のお嫁さま - かわのあきこ / 第19話 前編 | Seasons"
-  - id: w00106
-    title: "悪役令嬢のお嫁さま"
-    url: "https://comic-seasons.com/episode/12207421984340714666"
-    anchor: "web:https://comic-seasons.com/series/2550912965184685912/first_episode"
-    basis: "the chapter page at https://comic-seasons.com/episode/12207421984340714666 links its own series feed at https://comic-seasons.com/atom/series/2550912965184685912, so the platform places this chapter in series 2550912965184685912, and the og:title there names the work: 悪役令嬢のお嫁さま - かわのあきこ / 第19話 前編 | Seasons. https://comic-seasons.com/series/2550912965184685912/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00155
-    title: "お嬢様、懺悔する。"
-    url: "https://comic-trail.com/episode/12207421984222624857"
-    anchor: "web:https://comic-trail.com/atom/series/2551460909751842548"
-    basis: "the chapter page at https://comic-trail.com/episode/12207421984222624857 links its own series feed at https://comic-trail.com/atom/series/2551460909751842548, so the platform places this chapter in series 2551460909751842548, and the og:title there names the work: 第13話〈２〉  / お嬢様、懺悔する。 - しる | コミックトレイル｜漫画とつながるフェス空間！"
-  - id: w00155
-    title: "お嬢様、懺悔する。"
-    url: "https://comic-trail.com/episode/12207421984222624857"
-    anchor: "web:https://comic-trail.com/series/2551460909751842548/first_episode"
-    basis: "the chapter page at https://comic-trail.com/episode/12207421984222624857 links its own series feed at https://comic-trail.com/atom/series/2551460909751842548, so the platform places this chapter in series 2551460909751842548, and the og:title there names the work: 第13話〈２〉  / お嬢様、懺悔する。 - しる | コミックトレイル｜漫画とつながるフェス空間！. https://comic-trail.com/series/2551460909751842548/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w00109
     title: "ニセアイホンアイ"
     url: "https://mangatime-square.com/episode/12207421984001577957"
@@ -389,11 +534,6 @@ joins:
     url: "https://comic-earthstar.com/episode/12207421984388736593"
     anchor: "web:https://comic-earthstar.com/series/12207421984388735830/first_episode"
     basis: "the chapter page at https://comic-earthstar.com/episode/12207421984388736593 links its own series feed at https://comic-earthstar.com/atom/series/12207421984388735830, so the platform places this chapter in series 12207421984388735830, and the og:title there names the work: 【読切】おみかんジュースと、レモネード / おみかんジュースと、レモネード - 漫画：海雄ロック | コミック アース・スター. https://comic-earthstar.com/series/12207421984388735830/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00128
-    title: "ボイタボイネ"
-    url: "https://magcomi.com/episode/12207421984304225723"
-    anchor: "web:https://magcomi.com/atom/series/2551460909687430106"
-    basis: "the chapter page at https://magcomi.com/episode/12207421984304225723 links its own series feed at https://magcomi.com/atom/series/2551460909687430106, so the platform places this chapter in series 2551460909687430106, and the og:title there names the work: ボイタボイネ - 夏草 / 第22話「決闘スタンバイ（後編）」 | マグコミ"
   - id: w00137
     title: "オタクには人生を積むことしかできない"
     url: "https://comic-days.com/episode/2550689798616042974"
@@ -404,11 +544,6 @@ joins:
     url: "https://comic-days.com/episode/2550689798616042974"
     anchor: "web:https://comic-days.com/series/2550689798585566346/first_episode"
     basis: "the chapter page at https://comic-days.com/episode/2550689798616042974 links its own series feed at https://comic-days.com/atom/series/2550689798585566346, so the platform places this chapter in series 2550689798585566346, and the og:title there names the work: オタクには人生を積むことしかできない - 天野しゅにんた / 第１６話「STAR」 | コミックDAYS. https://comic-days.com/series/2550689798585566346/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00150
-    title: "大室家"
-    url: "https://ichicomi.com/episode/12207421984374441892"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923183988"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441892 links its own series feed at https://ichicomi.com/atom/series/2550912965923183988, so the platform places this chapter in series 2550912965923183988, and the og:title there names the work: 大室家 - なもり / 第139話 | 一迅プラス"
   - id: w03442
     title: "つるこさん"
     url: "https://www.sunday-webry.com/episode/12207421984388028467"
@@ -419,36 +554,11 @@ joins:
     url: "https://www.sunday-webry.com/episode/12207421984388028467"
     anchor: "web:https://www.sunday-webry.com/series/12207421984388025661/first_episode"
     basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984388028467 links its own series feed at https://www.sunday-webry.com/atom/series/12207421984388025661, so the platform places this chapter in series 12207421984388025661, and the og:title there names the work: つるこさん / つるこさん - 馬頭ゆずお | サンデーうぇぶり. https://www.sunday-webry.com/series/12207421984388025661/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00174
-    title: "ゆるゆり"
-    url: "https://ichicomi.com/episode/12207421984374441896"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923183706"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441896 links its own series feed at https://ichicomi.com/atom/series/2550912965923183706, so the platform places this chapter in series 2550912965923183706, and the og:title there names the work: ゆるゆり - なもり / 第239話 | 一迅プラス"
-  - id: w00164
-    title: "私の百合はお仕事です！"
-    url: "https://ichicomi.com/episode/12207421984374441885"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923183893"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441885 links its own series feed at https://ichicomi.com/atom/series/2550912965923183893, so the platform places this chapter in series 2550912965923183893, and the og:title there names the work: 私の百合はお仕事です！ - 未幡 / 第77話 | 一迅プラス"
-  - id: w00145
-    title: "ささやくように恋を唄う"
-    url: "https://ichicomi.com/episode/12207421984374441881"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923184113"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441881 links its own series feed at https://ichicomi.com/atom/series/2550912965923184113, so the platform places this chapter in series 2550912965923184113, and the og:title there names the work: ささやくように恋を唄う - 竹嶋えく / 第66話 | 一迅プラス"
-  - id: w00166
-    title: "小春と湊 わたしのパートナーは女の子"
-    url: "https://ichicomi.com/episode/12207421984374441866"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923184269"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441866 links its own series feed at https://ichicomi.com/atom/series/2550912965923184269, so the platform places this chapter in series 2550912965923184269, and the og:title there names the work: 小春と湊 わたしのパートナーは女の子 - ひあるろん＆達磨 / 第40話 | 一迅プラス"
   - id: w00245
     title: "映しちゃダメな顔"
     url: "https://ichicomi.com/episode/12207421984374441848"
     anchor: "web:https://ichicomi.com/atom/series/2550912965919360561"
     basis: "the chapter page at https://ichicomi.com/episode/12207421984374441848 links its own series feed at https://ichicomi.com/atom/series/2550912965919360561, so the platform places this chapter in series 2550912965919360561, and the og:title there names the work: 映しちゃダメな顔 - FLOWERCHILD / 第23話 | 一迅プラス"
-  - id: w00246
-    title: "キミが吠えるための歌を、"
-    url: "https://ichicomi.com/episode/12207421984374441842"
-    anchor: "web:https://ichicomi.com/atom/series/2550912965923184070"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441842 links its own series feed at https://ichicomi.com/atom/series/2550912965923184070, so the platform places this chapter in series 2550912965923184070, and the og:title there names the work: キミが吠えるための歌を、 - 樫風 / 第22話 | 一迅プラス"
   - id: w00156
     title: "超深宇宙より愛をこめて"
     url: "https://ichicomi.com/episode/12207421984374441816"
@@ -464,11 +574,6 @@ joins:
     url: "https://comic-ogyaaa.com/episode/12207421984374790245"
     anchor: "web:https://comic-ogyaaa.com/series/2550912965818312577/first_episode"
     basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984374790245 links its own series feed at https://comic-ogyaaa.com/atom/series/2550912965818312577, so the platform places this chapter in series 2550912965818312577, and the og:title there names the work: 『あの子とふたりで。』番外編③ - 当麻 | COMIC OGYAAA!!. https://comic-ogyaaa.com/series/2550912965818312577/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00067
-    title: "君のせいなんだから、責任とってよね。"
-    url: "https://ichicomi.com/episode/12207421984374441754"
-    anchor: "web:https://ichicomi.com/atom/series/2551460909791966658"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441754 links its own series feed at https://ichicomi.com/atom/series/2551460909791966658, so the platform places this chapter in series 2551460909791966658, and the og:title there names the work: 君のせいなんだから、責任とってよね。 - 当麻 / 第10話 | 一迅プラス"
   - id: w00108
     title: "壊していいよ、すいかちゃん"
     url: "https://comic-ogyaaa.com/episode/12207421984374790241"
@@ -479,11 +584,6 @@ joins:
     url: "https://comic-ogyaaa.com/episode/12207421984374790241"
     anchor: "web:https://comic-ogyaaa.com/series/12207421983608475749/first_episode"
     basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984374790241 links its own series feed at https://comic-ogyaaa.com/atom/series/12207421983608475749, so the platform places this chapter in series 12207421983608475749, and the og:title there names the work: 『壊していいよ、すいかちゃん』第9話 かっこよすぎてどうしよう - 虫歯 | COMIC OGYAAA!!. https://comic-ogyaaa.com/series/12207421983608475749/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00070
-    title: "たゆたう恋の散り際に"
-    url: "https://ichicomi.com/episode/12207421984374441740"
-    anchor: "web:https://ichicomi.com/atom/series/2551460909671366556"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441740 links its own series feed at https://ichicomi.com/atom/series/2551460909671366556, so the platform places this chapter in series 2551460909671366556, and the og:title there names the work: たゆたう恋の散り際に - ゆあま / 第8話 | 一迅プラス"
   - id: w00286
     title: "誰かオオカミさんのしつけ方知りませんか！？"
     url: "https://ichicomi.com/episode/12207421984374441730"
@@ -499,26 +599,6 @@ joins:
     url: "https://comic-seasons.com/episode/12207421984209200929"
     anchor: "web:https://comic-seasons.com/series/12207421983858392884/first_episode"
     basis: "the chapter page at https://comic-seasons.com/episode/12207421984209200929 links its own series feed at https://comic-seasons.com/atom/series/12207421983858392884, so the platform places this chapter in series 12207421983858392884, and the og:title there names the work: 今夜、エーテルで待ちあわせ - ヨン / 番外編 | Seasons. https://comic-seasons.com/series/12207421983858392884/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w03263
-    title: "神は私を撮りたいって言ってます！"
-    url: "https://ichicomi.com/episode/12207421984374441713"
-    anchor: "web:https://ichicomi.com/atom/series/12207421984038648337"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441713 links its own series feed at https://ichicomi.com/atom/series/12207421984038648337, so the platform places this chapter in series 12207421984038648337, and the og:title there names the work: 神は私を撮りたいって言ってます！ - 散葉ちんみ / 第4話 | 一迅プラス"
-  - id: w03252
-    title: "バリキャリJKモネ先輩"
-    url: "https://ichicomi.com/episode/12207421984374441717"
-    anchor: "web:https://ichicomi.com/atom/series/12207421984038648336"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441717 links its own series feed at https://ichicomi.com/atom/series/12207421984038648336, so the platform places this chapter in series 12207421984038648336, and the og:title there names the work: バリキャリJKモネ先輩 - 椋木ななつ / 第4話 | 一迅プラス"
-  - id: w03275
-    title: "聖なる姫のかくしごと"
-    url: "https://ichicomi.com/episode/12207421984374441709"
-    anchor: "web:https://ichicomi.com/atom/series/12207421984115848531"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984374441709 links its own series feed at https://ichicomi.com/atom/series/12207421984115848531, so the platform places this chapter in series 12207421984115848531, and the og:title there names the work: 聖なる姫のかくしごと - 葵季むつみ / 第3話 | 一迅プラス"
-  - id: w03440
-    title: "だって恋は月夜に灯るから"
-    url: "https://ichicomi.com/episode/12207421984336824147"
-    anchor: "web:https://ichicomi.com/atom/series/12207421984241417494"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984336824147 links its own series feed at https://ichicomi.com/atom/series/12207421984241417494, so the platform places this chapter in series 12207421984241417494, and the og:title there names the work: だって恋は月夜に灯るから - meji / 第1話 | 一迅プラス"
   - id: w03276
     title: "いじめてくれる君がすき"
     url: "https://ichicomi.com/episode/12207421984374441699"
@@ -544,26 +624,6 @@ joins:
     url: "https://magcomi.com/episode/12207421984355613624"
     anchor: "web:https://magcomi.com/atom/series/12207421984355613315"
     basis: "the chapter page at https://magcomi.com/episode/12207421984355613624 links its own series feed at https://magcomi.com/atom/series/12207421984355613315, so the platform places this chapter in series 12207421984355613315, and the og:title there names the work: 忍者アシスタントとアナログ漫画家 - 音橋りた / 特別読切 | マグコミ"
-  - id: w00188
-    title: "恋より青く"
-    url: "https://comic-ogyaaa.com/episode/12207421984341976244"
-    anchor: "web:https://comic-ogyaaa.com/atom/series/4856001361171639719"
-    basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984341976244 links its own series feed at https://comic-ogyaaa.com/atom/series/4856001361171639719, so the platform places this chapter in series 4856001361171639719, and the og:title there names the work: 『恋より青く』第43話 - 深海 紺 | COMIC OGYAAA!!"
-  - id: w00188
-    title: "恋より青く"
-    url: "https://comic-ogyaaa.com/episode/12207421984341976244"
-    anchor: "web:https://comic-ogyaaa.com/series/4856001361171639719/first_episode"
-    basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984341976244 links its own series feed at https://comic-ogyaaa.com/atom/series/4856001361171639719, so the platform places this chapter in series 4856001361171639719, and the og:title there names the work: 『恋より青く』第43話 - 深海 紺 | COMIC OGYAAA!!. https://comic-ogyaaa.com/series/4856001361171639719/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00192
-    title: "まるせっせんす"
-    url: "https://comic-ogyaaa.com/episode/12207421984341976248"
-    anchor: "web:https://comic-ogyaaa.com/atom/series/12207421983372417929"
-    basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984341976248 links its own series feed at https://comic-ogyaaa.com/atom/series/12207421983372417929, so the platform places this chapter in series 12207421983372417929, and the og:title there names the work: 『まるせっせんす』第8話 裂痕 - 畳ゆか | COMIC OGYAAA!!"
-  - id: w00192
-    title: "まるせっせんす"
-    url: "https://comic-ogyaaa.com/episode/12207421984341976248"
-    anchor: "web:https://comic-ogyaaa.com/series/12207421983372417929/first_episode"
-    basis: "the chapter page at https://comic-ogyaaa.com/episode/12207421984341976248 links its own series feed at https://comic-ogyaaa.com/atom/series/12207421983372417929, so the platform places this chapter in series 12207421983372417929, and the og:title there names the work: 『まるせっせんす』第8話 裂痕 - 畳ゆか | COMIC OGYAAA!!. https://comic-ogyaaa.com/series/12207421983372417929/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w03302
     title: "はるは巡る"
     url: "https://comic-earthstar.com/episode/12207421984241521945"
@@ -584,16 +644,6 @@ joins:
     url: "https://tonarinoyj.jp/episode/12207421984252566649"
     anchor: "web:https://tonarinoyj.jp/series/12207421984252565950/first_episode"
     basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984252566649 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984252565950, so the platform places this chapter in series 12207421984252565950, and the og:title there names the work: [10Pショート読切] GOOD HUNT - 森数機 | となりのヤングジャンプ. https://tonarinoyj.jp/series/12207421984252565950/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00157
-    title: "明日ちゃんのセーラー服"
-    url: "https://tonarinoyj.jp/episode/12207421984250783481"
-    anchor: "web:https://tonarinoyj.jp/atom/series/13932016480028984534"
-    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984250783481 links its own series feed at https://tonarinoyj.jp/atom/series/13932016480028984534, so the platform places this chapter in series 13932016480028984534, and the og:title there names the work: [第92話] 明日（あけび）ちゃんのセーラー服 - 博（ひろ） | となりのヤングジャンプ"
-  - id: w00157
-    title: "明日ちゃんのセーラー服"
-    url: "https://tonarinoyj.jp/episode/12207421984250783481"
-    anchor: "web:https://tonarinoyj.jp/series/13932016480028984534/first_episode"
-    basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984250783481 links its own series feed at https://tonarinoyj.jp/atom/series/13932016480028984534, so the platform places this chapter in series 13932016480028984534, and the og:title there names the work: [第92話] 明日（あけび）ちゃんのセーラー服 - 博（ひろ） | となりのヤングジャンプ. https://tonarinoyj.jp/series/13932016480028984534/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
   - id: w00415
     title: "ゆりゾン"
     url: "https://comic-ogyaaa.com/episode/12207421984276173446"
@@ -614,16 +664,6 @@ joins:
     url: "https://ichicomi.com/episode/12207421984222944066"
     anchor: "web:https://ichicomi.com/atom/series/12207421984222943473"
     basis: "the chapter page at https://ichicomi.com/episode/12207421984222944066 links its own series feed at https://ichicomi.com/atom/series/12207421984222943473, so the platform places this chapter in series 12207421984222943473, and the og:title there names the work: ホテルの外でもあいたいよ - らぱ☆ / 読み切り作品 | 一迅プラス"
-  - id: w00161
-    title: "晴れた日のドレスコード"
-    url: "https://ichicomi.com/episode/12207421984222532905"
-    anchor: "web:https://ichicomi.com/atom/series/2551460909761988777"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984222532905 links its own series feed at https://ichicomi.com/atom/series/2551460909761988777, so the platform places this chapter in series 2551460909761988777, and the og:title there names the work: 晴れた日のドレスコード - あげはる / 第7話 | 一迅プラス"
-  - id: w00171
-    title: "残骸少女、きらきらな世界の底"
-    url: "https://ichicomi.com/episode/12207421984222532901"
-    anchor: "web:https://ichicomi.com/atom/series/12207421983455891616"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984222532901 links its own series feed at https://ichicomi.com/atom/series/12207421983455891616, so the platform places this chapter in series 12207421983455891616, and the og:title there names the work: 残骸少女、きらきらな世界の底 - うさみみき / 第5話 | 一迅プラス"
   - id: w03279
     title: "天使なんかにならないで"
     url: "https://magcomi.com/episode/12207421984187016919"
@@ -694,11 +734,6 @@ joins:
     url: "https://ichicomi.com/episode/12207421984115855223"
     anchor: "web:https://ichicomi.com/atom/series/12207421984115848533"
     basis: "the chapter page at https://ichicomi.com/episode/12207421984115855223 links its own series feed at https://ichicomi.com/atom/series/12207421984115848533, so the platform places this chapter in series 12207421984115848533, and the og:title there names the work: 幼馴染の方程式 - 三谷てぃつ丸 / 読み切り作品 | 一迅プラス"
-  - id: w00223
-    title: "私だって青春したいですよ、本当は。"
-    url: "https://ichicomi.com/episode/12207421984089197901"
-    anchor: "web:https://ichicomi.com/atom/series/2550912966077785019"
-    basis: "the chapter page at https://ichicomi.com/episode/12207421984089197901 links its own series feed at https://ichicomi.com/atom/series/2550912966077785019, so the platform places this chapter in series 2550912966077785019, and the og:title there names the work: 私だって青春したいですよ、本当は。 - 尾野凛 / 第8話 | 一迅プラス"
   - id: w03289
     title: "【今日の10ページ】女子高生VS首切り地蔵"
     url: "https://magcomi.com/episode/12207421984065499859"
@@ -4679,23 +4714,3 @@ joins:
     url: "https://www.sunday-webry.com/episode/3269754496551508625"
     anchor: "web:https://www.sunday-webry.com/series/3269754496548915374/first_episode"
     basis: "the chapter page at https://www.sunday-webry.com/episode/3269754496551508625 links its own series feed at https://www.sunday-webry.com/atom/series/3269754496548915374, so the platform places this chapter in series 3269754496548915374, and the og:title there names the work: 2. 第2話 駄犬マリア / ガンバレッド×シスターズ - ミトガワワタル | サンデーうぇぶり. https://www.sunday-webry.com/series/3269754496548915374/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w01226
-    title: "オカルトタイムズ"
-    url: "https://comic-days.com/episode/12207421984440227169"
-    anchor: "web:https://comic-days.com/atom/series/2551460909866728947"
-    basis: "the chapter page at https://comic-days.com/episode/12207421984440227169 links its own series feed at https://comic-days.com/atom/series/2551460909866728947, so the platform places this chapter in series 2551460909866728947, and the og:title there names the work: オカルトタイムズ - いどんち / 第１７話　清廉アイドル！　前編 | コミックDAYS"
-  - id: w01226
-    title: "オカルトタイムズ"
-    url: "https://comic-days.com/episode/12207421984440227169"
-    anchor: "web:https://comic-days.com/series/2551460909866728947/first_episode"
-    basis: "the chapter page at https://comic-days.com/episode/12207421984440227169 links its own series feed at https://comic-days.com/atom/series/2551460909866728947, so the platform places this chapter in series 2551460909866728947, and the og:title there names the work: オカルトタイムズ - いどんち / 第１７話　清廉アイドル！　前編 | コミックDAYS. https://comic-days.com/series/2551460909866728947/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
-  - id: w00198
-    title: "怪獣ロマンティクス"
-    url: "https://comic-days.com/episode/12207421984435363797"
-    anchor: "web:https://comic-days.com/atom/series/12207421984435236457"
-    basis: "the chapter page at https://comic-days.com/episode/12207421984435363797 links its own series feed at https://comic-days.com/atom/series/12207421984435236457, so the platform places this chapter in series 12207421984435236457, and the og:title there names the work: 怪獣ロマンティクス - じぃと / 第４話　地獄の特訓！たえＦｌｙ　Ｈｉｇｈ！ | コミックDAYS"
-  - id: w00198
-    title: "怪獣ロマンティクス"
-    url: "https://comic-days.com/episode/12207421984435363797"
-    anchor: "web:https://comic-days.com/series/12207421984435236457/first_episode"
-    basis: "the chapter page at https://comic-days.com/episode/12207421984435363797 links its own series feed at https://comic-days.com/atom/series/12207421984435236457, so the platform places this chapter in series 12207421984435236457, and the og:title there names the work: 怪獣ロマンティクス - じぃと / 第４話　地獄の特訓！たえＦｌｙ　Ｈｉｇｈ！ | コミックDAYS. https://comic-days.com/series/12207421984435236457/first_episode returns a page naming the same series, which is the platform's own reader address for the work"

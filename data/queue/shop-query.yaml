@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-19
+retrieved: 2026-11-20
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 264
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 219
-  works_asked: 948
+  works_asked: 949
   works_with_a_hit: 285
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
@@ -1053,6 +1053,16 @@ works:
     hits: []
     notes:
       - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-days.com/episode/12207421984453651455"
+    id: "w03555"
+    work: "どこへでも行けるなら宇宙に行きたい"
+    author: "Zense"
+    platform: "コミックDAYS"
+    retrieved: "2026-11-20"
+    hits: []
+    notes:
+      - "author query answered nothing"
       - "title query returned no title this database recognises"
   - work_url: "https://comic-days.com/episode/14079602755122004379"
     id: "w00821"

@@ -9,9 +9,9 @@
 #
 # Still data/queue/: these are candidates. Admission into data/source/ needs the joins
 # and the volume histories that give a work its dates.
-retrieved: 2026-11-12
-admitted: 4513
-by_shop: {"bookwalker.jp": 2669, "cmoa.jp": 1844}
+retrieved: 2026-11-19
+admitted: 4521
+by_shop: {"bookwalker.jp": 2677, "cmoa.jp": 1844}
 excluded: {"published on ヤングアンリアルコミックス, an adult imprint": 5, "published on 秋水社ORIGINAL, an adult imprint": 16}
 works:
   - title: "#ふれない"
@@ -540,6 +540,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "349064"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "Craniumクレイニアム"
+    authors: ["綺月るり 他"]
+    publisher: null
+    imprint: "リリアンミューズコミックス"
+    url: "https://bookwalker.jp/series/637765/"
+    shop: "bookwalker.jp"
+    shop_id: "637765"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -1501,6 +1512,17 @@ works:
     shop_id: "7ceef84e-c9d3-4899-af55-a6d7af84546b"
     completed: false
     doujin: true
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "Re:ステージ!プリズムステップ"
+    authors: ["琴慈"]
+    publisher: null
+    imprint: "百合コレ"
+    url: "https://bookwalker.jp/series/637422/"
+    shop: "bookwalker.jp"
+    shop_id: "637422"
+    completed: false
+    doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "Rest in Peace -総集編-"
@@ -9839,6 +9861,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "イジめてイジられて"
+    authors: []
+    publisher: null
+    imprint: "角川コミックス・エース"
+    url: "https://bookwalker.jp/series/637987/"
+    shop: "bookwalker.jp"
+    shop_id: "637987"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "イノウエさんとアベさん。"
     authors: ["うん仔"]
     publisher: null
@@ -17549,7 +17582,7 @@ works:
     url: "https://bookwalker.jp/series/563507/"
     shop: "bookwalker.jp"
     shop_id: "563507"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -17869,6 +17902,17 @@ works:
     url: "https://bookwalker.jp/series/240277/"
     shop: "bookwalker.jp"
     shop_id: "240277"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "君のせいなんだから、責任とってよね。"
+    authors: []
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/series/598057/"
+    shop: "bookwalker.jp"
+    shop_id: "598057"
     completed: false
     doujin: false
     explicit_content: false
@@ -18553,6 +18597,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "268603"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "夢の続きで待ってて 単行本版 1"
+    authors: ["著者: 仲藤ぬい"]
+    publisher: null
+    imprint: "マーガレットコミックスDIGITAL"
+    url: "https://bookwalker.jp/de4735758b-9792-487b-b86f-a67ccebb504b/"
+    shop: "bookwalker.jp"
+    shop_id: "4735758b-9792-487b-b86f-a67ccebb504b"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -23086,6 +23141,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "残骸少女、きらきらな世界の底: 1【イラスト特典付】"
+    authors: ["著者: うさみみき"]
+    publisher: null
+    imprint: "百合姫コミックス"
+    url: "https://bookwalker.jp/dec17614e3-7645-40e7-9e8a-84daf00ed3c9/"
+    shop: "bookwalker.jp"
+    shop_id: "c17614e3-7645-40e7-9e8a-84daf00ed3c9"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "殺し屋やめたい"
     authors: []
     publisher: null
@@ -24394,7 +24460,7 @@ works:
     url: "https://bookwalker.jp/series/385950/"
     shop: "bookwalker.jp"
     shop_id: "385950"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -25001,6 +25067,17 @@ works:
     url: "https://bookwalker.jp/deba093b74-39d7-4cf5-b5c8-baaa7b3e958d/"
     shop: "bookwalker.jp"
     shop_id: "ba093b74-39d7-4cf5-b5c8-baaa7b3e958d"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "百合神さまの言うとおり!"
+    authors: []
+    publisher: null
+    imprint: "バンブーコミックス"
+    url: "https://bookwalker.jp/series/563248/"
+    shop: "bookwalker.jp"
+    shop_id: "563248"
     completed: false
     doujin: false
     explicit_content: false
@@ -29129,6 +29206,17 @@ works:
     url: "https://bookwalker.jp/series/54063/"
     shop: "bookwalker.jp"
     shop_id: "54063"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "魔法少女に復讐を 1"
+    authors: ["浅岡しゅく 他"]
+    publisher: null
+    imprint: "電撃コミックスNEXT"
+    url: "https://bookwalker.jp/dec571098c-1231-4ec3-b893-1d32d9cf5888/"
+    shop: "bookwalker.jp"
+    shop_id: "c571098c-1231-4ec3-b893-1d32d9cf5888"
     completed: false
     doujin: false
     explicit_content: false

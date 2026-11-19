@@ -23240,6 +23240,15 @@ works:
     title: "りのちゃんの好きなこと/よみきり"
     anchors:
       - "web:https://hanayume.com/series/e8423800e9e02"
+  - id: w03555
+    title: "どこへでも行けるなら宇宙に行きたい"
+    anchors:
+      - "web:https://comic-days.com/episode/12207421984453651455"
+      - "web:https://comic-days.com/atom/series/12207421984453650563"
+    attached:
+      - anchor: "web:https://comic-days.com/atom/series/12207421984453650563"
+        basis: "the chapter page at https://comic-days.com/episode/12207421984453651455 links its own series feed at https://comic-days.com/atom/series/12207421984453650563, so the platform places this chapter in series 12207421984453650563"
+        retrieved: 2026-11-19
 related:
   - a: w00156
     b: w00486

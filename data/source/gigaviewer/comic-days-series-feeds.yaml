@@ -13,8 +13,8 @@ publisher: "講談社"
 retrieved: 2026-11-19
 record_type: web_work_chapters
 identification_mode: platform-genre
-series_resolved: 113
-series_held: 113
+series_resolved: 114
+series_held: 114
 works:
   - work_title: "14gの逃避行"
     series_id: "4856001361139111458"
@@ -4755,6 +4755,19 @@ works:
         author: "朝霧咲/おにぎり"
         url: "https://comic-days.com/episode/2550912964610793102"
         free_from: 2024-09-19
+        access_modes: ["free"]
+  - work_title: "どこへでも行けるなら宇宙に行きたい"
+    series_id: "12207421984453650563"
+    url: "https://comic-days.com/atom/series/12207421984453650563"
+    chapter_count: 1
+    chapters:
+      - title: "【コミックDAYS読み切り】どこへでも行けるなら宇宙に行きたい"
+        updated: 2026-11-19
+        citation: "【モーニング月例賞2026年9月期】奨励賞受賞作品"
+        content_id: "19495_0001"
+        author: "Zense"
+        url: "https://comic-days.com/episode/12207421984453651455"
+        free_from: 2026-11-18
         access_modes: ["free"]
   - work_title: "はなぢの思い"
     series_id: "2550689798871387636"
@@ -11775,14 +11788,26 @@ works:
   - work_title: "新刊100億冊ください"
     series_id: "2550912965415291249"
     url: "https://comic-days.com/atom/series/2550912965415291249"
-    chapter_count: 41
+    chapter_count: 43
     chapters:
+      - title: "３９冊目：計画的原稿進行のススメ"
+        updated: 2026-11-19
+        author: "破賀ミチル"
+        url: "https://comic-days.com/episode/12207421983484134482"
+        free_from: 2026-12-03
+        access_modes: ["purchase"]
+      - title: "4巻発売記念描き下ろし"
+        updated: 2026-11-19
+        author: "破賀ミチル"
+        url: "https://comic-days.com/episode/12207421984485182765"
+        free_from: 2026-11-19
+        access_modes: ["free"]
       - title: "３８冊目：萌えるには本棚ひとつあればいい"
         updated: 2026-11-05
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/12207421983484134468"
         free_from: 2026-11-19
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "３７冊目：エデンの外へ..."
         updated: 2026-10-15
         author: "破賀ミチル"
@@ -11793,8 +11818,7 @@ works:
         updated: 2026-10-01
         author: "破賀ミチル"
         url: "https://comic-days.com/episode/12207421983484134435"
-        free_from: 2026-10-15
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "３５冊目：オタクライフハック3選"
         updated: 2026-09-17
         author: "破賀ミチル"

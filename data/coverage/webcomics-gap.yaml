@@ -11,8 +11,8 @@ record_type: coverage_gap
 listings: 400
 distinct_works: 310
 works_on_watched_platform: 282
-platforms_total: 51
-platforms_watched: 39
+platforms_total: 50
+platforms_watched: 38
 # ranked by works reachable on NO watched platform
 platforms_missing:
   - platform: "マガポケ"
@@ -271,6 +271,16 @@ works_missing:
     url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
     antenna_id: "213409"
     tags: ["読み切り", "百合"]
+  - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007220_S"
+    antenna_id: "198866"
+    tags: ["百合"]
+  - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002994_S"
+    antenna_id: "102702"
+    tags: ["最近のコメント数"]
   - title: "アウトサイダーパラダイス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021488_S"
@@ -471,21 +481,11 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_003240_S"
     antenna_id: "128693"
     tags: ["転生", "異種族・人外", "百合", "アウトロー", "障害者", "反社・ヤクザ", "残酷・グロテスク", "チートなし", "ファンタジー", "タイムスリップ"]
-  - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_002994_S"
-    antenna_id: "102702"
-    tags: ["学園", "ゲーム・eスポーツ", "令嬢", "女子高生", "百合", "アニメ化", "ギャグ・コメディ", "青春", "動画配信者", "メスガキ"]
   - title: "安達としまむら"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_004197_S"
     antenna_id: "90973"
     tags: ["アニメ化", "百合", "コミカライズ", "女子高生"]
-  - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007220_S"
-    antenna_id: "198866"
-    tags: ["百合"]
   - title: "ノスフェルワイス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021441_S"
@@ -631,16 +631,16 @@ works_missing:
     url: "https://www.ganganonline.com/title/38"
     antenna_id: "77857"
     tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
-  - title: "魔王城デート大作戦!"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/0cd32d6a7efc2"
-    antenna_id: "212084"
-    tags: ["百合"]
   - title: "ワインガールズ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/f42014b3e7df6"
     antenna_id: "205919"
     tags: ["百合", "擬人化"]
+  - title: "魔王城デート大作戦!"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/0cd32d6a7efc2"
+    antenna_id: "212084"
+    tags: ["百合"]
   - title: "見えてますよ! 愛沢さん"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/330f3ad1270c8"
@@ -676,6 +676,11 @@ works_missing:
     url: "https://kimicomi.com/series/f7db55fffae10"
     antenna_id: "192717"
     tags: ["百合"]
+  - title: "どこへでも行けるなら宇宙に行きたい"
+    platform: "コミックDAYS"
+    url: "https://comic-days.com/episode/12207421984453651455"
+    antenna_id: "218427"
+    tags: ["百合", "読み切り"]
   - title: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
@@ -721,6 +726,21 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/47294"
+    antenna_id: "103430"
+    tags: ["百合", "女子高生", "ゲーム・eスポーツ", "青春", "ギャグ・コメディ", "アニメ化"]
+  - title: "好都合セミフレンド"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/63674"
+    antenna_id: "152986"
+    tags: ["百合", "女子高生", "エロ", "同性愛・LGBTQ+"]
+  - title: "運命のヤマダダダダダダダダダダ"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/72312"
+    antenna_id: "189669"
+    tags: ["百合", "ギャグ・コメディ"]
   - title: "咲きそめコンプレックス"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/72944"
@@ -851,11 +871,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/74044"
     antenna_id: "198457"
     tags: ["百合", "お色気・微エロ", "異種族・人外", "4コマ"]
-  - title: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/47294"
-    antenna_id: "103430"
-    tags: ["百合", "女子高生", "ゲーム・eスポーツ", "青春", "ギャグ・コメディ", "アニメ化"]
   - title: "安達としまむら"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/41839"
@@ -871,16 +886,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/40675"
     antenna_id: "89771"
     tags: ["お色気・微エロ", "バトル", "魔法少女", "百合", "アニメ化"]
-  - title: "好都合セミフレンド"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/63674"
-    antenna_id: "152986"
-    tags: ["百合", "女子高生", "エロ", "同性愛・LGBTQ+"]
-  - title: "運命のヤマダダダダダダダダダダ"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/72312"
-    antenna_id: "189669"
-    tags: ["百合", "ギャグ・コメディ"]
   - title: "おちこぼれフルーツタルト"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/53909"
@@ -916,11 +921,6 @@ works_missing:
     url: "https://bigcomics.jp/series/2c1db177ce231"
     antenna_id: "181120"
     tags: ["百合", "バトル", "ファンタジー", "残酷・グロテスク"]
-  - title: "㊙のライラ"
-    platform: "ビビビコミック"
-    url: "https://bibibi-comic.com/series/e889bd092d08d"
-    antenna_id: "213150"
-    tags: ["百合"]
   - title: "私の焦がれる彼女"
     platform: "フラコミlike!"
     url: "https://flowercomics.jp/title/6162"
@@ -1036,16 +1036,16 @@ works_missing:
     url: "https://ynjn.jp/title/6108"
     antenna_id: "173220"
     tags: ["百合", "ロボ・人造人間"]
-  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
-    platform: "ヤンチャンWeb"
-    url: "https://youngchampion.jp/series/86c1162f34a04"
-    antenna_id: "197348"
-    tags: ["ファンタジー", "令嬢", "百合"]
   - title: "スカベンジャーズアナザースカイ"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/81d9b296d7bc7"
     antenna_id: "148792"
     tags: ["最近のコメント数"]
+  - title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
+    platform: "ヤンチャンWeb"
+    url: "https://youngchampion.jp/series/86c1162f34a04"
+    antenna_id: "197348"
+    tags: ["ファンタジー", "令嬢", "百合"]
   - title: "週に一度クラスメイトを買う話 ～ふたりの時間、言い訳の五千円～"
     platform: "ヤンチャンWeb"
     url: "https://youngchampion.jp/series/e95df2815bad1"

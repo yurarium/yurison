@@ -36,6 +36,7 @@ def main(s):
     s.ne(wc.norm("少年ジャンプ+"), wc.norm("少年ジャンプ"), "so the platform is distinct from the magazine")
 
     the_container_carries_its_own_attributes(s)
+    a_carried_label_heals_and_merges(s)
     the_health_check_fires_on_nothing(s)
 
 
@@ -65,6 +66,28 @@ def the_container_carries_its_own_attributes(s):
     # next time the attribute went away.
     plain = '<div class="entry">' + body
     s.eq(len(wc.parse(plain)), 1, "and the form without the attribute is read the same way")
+
+    # THE ONE-SHOT LABEL COMES OFF AT THE PARSE, the one place the antenna's titles enter.
+    labelled = '<div class="entry">' + body.replace(">T1<", ">りのちゃんの好きなこと/よみきり<")
+    s.eq(wc.parse(labelled)[0]["title"], "りのちゃんの好きなこと",
+         "a one-shot's title is read without its label")
+
+
+def a_carried_label_heals_and_merges(s):
+    """The previous run's file keeps both spellings until it is read back through the label rule."""
+    got = wc.carried([
+        {"title": "りのちゃんの好きなこと", "platforms": ["花とゆめ+"],
+         "urls": ["https://x.test/episodes/1"]},
+        {"title": "りのちゃんの好きなこと/よみきり", "platforms": ["花とゆめ+"],
+         "urls": ["https://x.test/series/1"], "tags": ["読み切り"]},
+        {"title": "", "urls": ["https://x.test/none"]}])
+    s.eq(len(got), 1, "the two spellings are one work")
+    c = next(iter(got.values()))
+    s.eq(c["title"], "りのちゃんの好きなこと", "under the bare title")
+    s.eq(c["urls"], ["https://x.test/episodes/1", "https://x.test/series/1"],
+         "and neither address is lost")
+    s.eq(c["platforms"], ["花とゆめ+"], "the platform once")
+    s.eq(c["tags"], ["読み切り"], "and the tags the second carried")
 
     # AND A DIV THAT MERELY CONTAINS THE WORD IS NOT AN ENTRY, which is what the word boundary
     # on the class is for.

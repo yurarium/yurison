@@ -100,7 +100,18 @@ def at(url, html, site):
     ビッコミ's canonical is `/series/X/new` and HERO'S Web's is on another host, so every row moved
     address, `carry_over` kept the old row beside it, and the build read thirty works as sixty
     and published neither. The row keeps the address it was asked for.
+
+    A COMICI EPISODE PAGE IS KEYED AT THE SERIES IT LINKS. 百合ナビ linked りのちゃんの好きなこと at
+    `/episodes/be6d25f129323` and the antenna at `/series/e8423800e9e02`, and the episode page names
+    itself as its canonical, so the two targets were two rows and the feed carried the one-shot
+    twice. The episode page's own link to its series is what ties it to the work (`comici.
+    series_link`), and the duplicate set then keeps the row asked for at the series address. A work
+    held only at an episode address keeps that address, because the key never moves a row.
     """
+    if site.get("engine") == "comici" and "/episodes/" in (url or ""):
+        h = comici.series_link(html)
+        if h:
+            return comici.series_address(site["host"], h)
     c = _htmlbits.canonical(html)
     return c if c and site["host"] in c else url
 
@@ -457,6 +468,10 @@ def main():
                 row["author"] = au
             works.append(row)
 
+        # EVERY ADDRESS READ, before the duplicate set drops any. `carry_over` keeps a held row
+        # this run did not reach, and a row dropped as another target's duplicate WAS reached, so
+        # counting only the survivors wrote the dropped row back from the old file every run.
+        reached = [x["url"] for x in works]
         works = one_per_address(works)
 
         # The floor exists to catch a site redesign silently emptying a parser. It has to scale
@@ -490,7 +505,7 @@ def main():
              "works:"]
         # Everything this run did not reach, written back unchanged. See carry_over.
         _path = out / f"{site['id']}.yaml"
-        for w in works + carry_over(_path, [x["url"] for x in works]):
+        for w in works + carry_over(_path, reached):
             L.append(f"  - work_title: {js(w['work_title'])}")
             if w.get("status"):
                 L.append(f"    status: {js(w['status'])}")

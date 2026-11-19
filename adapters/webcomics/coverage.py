@@ -21,6 +21,7 @@ from collections import Counter, defaultdict
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 import textnorm
+from facts.worktitle import bare_title
 
 import yaml
 
@@ -44,6 +45,27 @@ def fetch(n, cache, force=False):
     return t
 
 
+def carried(candidates):
+    """`{folded title: candidate}` for the previous run's candidates, keyed as this run keys them.
+
+    A title written before the one-shot label was taken off is taken off the same way, so the file
+    heals instead of keeping both spellings. Two entries can then share a key, and they are one
+    work, so their platforms, addresses and tags are merged and none is dropped.
+    """
+    out = {}
+    for c in candidates:
+        if not c.get("title"):
+            continue
+        c = dict(c, title=bare_title(c["title"]))
+        k = norm(c["title"])
+        if k in out:
+            was = out[k]
+            c = dict(was, **{f: list(dict.fromkeys((was.get(f) or []) + (c.get(f) or [])))
+                             for f in ("platforms", "urls", "tags")})
+        out[k] = c
+    return out
+
+
 def parse(html):
     """One dict per entry. Blocks are split on class="entry" so nothing leaks across boundaries."""
     out = []
@@ -64,8 +86,11 @@ def parse(html):
         # ampersands inside work titles. Left encoded they travel into titles, platform names and
         # every comparison built on them, so a platform never matches its registry entry.
         u = _html.unescape
+        # THE ONE-SHOT LABEL COMES OFF HERE, where the antenna's titles enter. Every capture's
+        # target list and the comparator claims are built from this, so a label left on put
+        # りのちゃんの好きなこと in the feed twice. See `facts.worktitle.bare_title`.
         out.append({
-            "title": u(title.group(2)),
+            "title": bare_title(u(title.group(2))),
             "work_url": title.group(1),
             "platform": u(site.group(1)) if site else "",
             "updated_text": u(date.group(1)) if date else "",
@@ -244,9 +269,7 @@ def main():
     prev = {}
     _pf = out / "webcomics-works.yaml"
     if _pf.exists():
-        for c in (yaml.safe_load(_pf.read_text()) or {}).get("candidates") or []:
-            if c.get("title"):
-                prev[norm(c["title"])] = c
+        prev = carried((yaml.safe_load(_pf.read_text()) or {}).get("candidates") or [])
 
     titles, urls, tags = {}, {}, {}
     for e in entries:

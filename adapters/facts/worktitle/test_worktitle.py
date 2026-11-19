@@ -15,6 +15,23 @@ import testkit                                                          # noqa: 
 from facts import worktitle                                             # noqa: E402
 
 
+def one_shot_labels_come_off(s):
+    """A trailing one-shot label is the kind of publication, not part of its name."""
+    bare = worktitle.bare_title
+    for got, want in (("りのちゃんの好きなこと/よみきり", "りのちゃんの好きなこと"),
+                      ("ガラスノキック/読み切り", "ガラスノキック"),
+                      ("海は荒れども、風は吹く/読み切り", "海は荒れども、風は吹く"),
+                      ("隣人 / 読切", "隣人"),
+                      ("隣人／読み切り", "隣人")):
+        s.eq(bare(got), want, f"{got} is the one-shot {want}")
+    # THE VERSION IS A DIFFERENT THING, and is how a one-shot is told from its serialisation.
+    s.eq(bare("白妙様、秘密ですよ/読切版"), "白妙様、秘密ですよ/読切版", "a 読切版 keeps its mark")
+    s.eq(bare("読み切りの話"), "読み切りの話", "the word inside a title stays")
+    s.eq(bare("足羽さん/読み切り短編集"), "足羽さん/読み切り短編集", "and so does a longer tail")
+    s.eq(bare("/読み切り"), "/読み切り", "a label with no title is left as it was")
+    s.eq(bare(None), None, "None passes through")
+
+
 def main(s):
     fold = worktitle.norm_work
 
@@ -38,6 +55,8 @@ def main(s):
     # THE LONG VOWEL MARK IS A LETTER, not punctuation: removing it merges genuinely different
     # titles.
     s.ne(fold("ゆるゆり"), fold("ゆるゆりー"), "and a long vowel mark is part of the word")
+
+    one_shot_labels_come_off(s)
 
     # ── A DIRECTION MARK IS NOT A CHARACTER A READER SEES ─────────────────────────────────────
     s.eq(fold("やがて君になる​"), fold("やがて君になる"),

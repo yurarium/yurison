@@ -9515,7 +9515,7 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  あの子のスカート/よみきり:
+  あの子のスカート:
     basis: translated
     en: That Girl's Skirt
     en_at: '2026-09-01'
@@ -9527,17 +9527,17 @@ names:
       - null
     - - 子
       - こ
-    - - のスカート/よみきり
+    - - のスカート
       - null
     note: あの子 is that girl, の marks possession, スカート is the English skirt in katakana.
-    reading: アノ コ ノ スカート / ヨミ キリ
-    reading_at: '2026-08-24'
+    reading: アノ コ ノ スカート
+    reading_at: '2026-11-19'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
     reading_ordinary: true
     reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   あの子の恩返し:
@@ -11140,7 +11140,7 @@ names:
     reading_source: https://bookwalker.jp/de692a528e-f035-408a-a9a8-62ac9785851d/
     reading_source_kind: derived
     verified: false
-  うまいものだけ食べて生きます。/読み切り:
+  うまいものだけ食べて生きます。:
     basis: translated
     en: I'll Live Eating Only Good Things
     en_at: '2026-09-01'
@@ -11156,26 +11156,18 @@ names:
       - null
     - - 生
       - い
-    - - きます。/
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
+    - - きます。
       - null
     note: うまいもの is good food, だけ is only, and 生きます is the polite I will live. The full stop is the author'
       s and is kept.
-    reading: ウマイ モノ ダケ タベテ イキマス。 / ヨミキリ
-    reading_at: '2026-08-15'
+    reading: ウマイ モノ ダケ タベテ イキマス。
+    reading_at: '2026-11-19'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
     reading_ordinary: true
     reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   うみねこには負けない!:
@@ -13234,7 +13226,7 @@ names:
     note: The title means Please, don't say you like me. It is a volume of 恋愛ショートアンソロジーコミック, listed on
       the BookWalker series page.
     verified: false
-  お風呂で○○する人は、美容室で大変な目に遭うらしい/読み切り:
+  お風呂で○○する人は、美容室で大変な目に遭うらしい:
     basis: translated
     en: People Who ○○ in the Bath Apparently Have a Terrible Time at the Hairdresser's
     en_at: '2026-09-01'
@@ -13266,26 +13258,18 @@ names:
       - null
     - - 遭
       - あ
-    - - うらしい/
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
+    - - うらしい
       - null
     note: "大変な目に遭う is to have a rough time of it and らしい is the hearsay ending, so the title is reporting\
       \ a\n rumour. The ○○ is the author's own censoring and is kept as printed."
-    reading: オ フロ デ ○ ○ スル ヒト ワ、 ビヨウシツ デ タイヘンナ メ ニ アウラシイ / ヨミキリ
-    reading_at: '2026-08-15'
+    reading: オ フロ デ ○ ○ スル ヒト ワ、 ビヨウシツ デ タイヘンナ メ ニ アウラシイ
+    reading_at: '2026-11-19'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
     reading_ordinary: true
     reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   お風呂のメガネさん:
@@ -26124,29 +26108,10 @@ names:
     reading_source_kind: analyser
     verified: true
   りのちゃんの好きなこと:
-    basis: romaji
-    furigana_spans:
-    - - りのちゃんの
-      - null
-    - - 好
-      - す
-    - - きなこと
-      - null
-    reading: リ ノチャン ノ スキナ コト
-    reading_at: '2026-11-18'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
-    verified: false
-  りのちゃんの好きなこと/よみきり:
     basis: translated
-    en: Rino-chan's Favorite Things (One-Shot)
-    en_at: '2026-11-18'
-    en_reviewed: '2026-11-18'
+    en: Rino-chan's Favorite Things
+    en_at: '2026-11-19'
+    en_reviewed: '2026-11-19'
     en_source: yurarium
     en_source_kind: derived
     furigana_spans:
@@ -26154,11 +26119,13 @@ names:
       - null
     - - 好
       - す
-    - - きなこと/よみきり
+    - - きなこと
       - null
-    note: The Hana to Yume+ page shows no English title. The title means what Rino-chan likes, and よみきり
-      marks a one-shot. The honorific stays after a hyphen as Rino-chan.
-    reading: リ ノチャン ノ スキナ コト / ヨミ キリ
+    note: The Hana to Yume+ page shows no English title. The title means what Rino-chan likes. The honorific
+      stays after a hyphen as Rino-chan. The work was first filed as りのちゃんの好きなこと/よみきり, the label the platform
+      puts on a one-shot's series page, and the English carried (One-Shot) for it; the label is now taken
+      off the title where it enters.
+    reading: リ ノチャン ノ スキナ コト
     reading_at: '2026-11-18'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
@@ -29595,7 +29562,7 @@ names:
     note: This is the story arc of an ocean ferry escape, in the series More! Futari Escape. 編 marks a
       story arc or chapter. Translated from the title alone, not from the BookWalker page.
     verified: false
-  オートクチュールの果たし状/読み切り:
+  オートクチュールの果たし状:
     basis: official-jp
     en: Haute Couture Challenge
     en_at: '2026-11-11'
@@ -29616,24 +29583,16 @@ names:
       - null
     - - 状
       - じょう
-    - - /
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
-      - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
       where it was decided to take it as the title.
-    reading: オートクチュール ノ ハタシジョウ / ヨミキリ
-    reading_at: '2026-08-05'
+    reading: オートクチュール ノ ハタシジョウ
+    reading_at: '2026-11-19'
     reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_ordinary: true
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     translation_note: Our own rendering, which stood here until the series art was read. The suffix is
       Champion Cross's own oneshot marker, present in the page's own title tag; dropped as promotional
@@ -30200,31 +30159,22 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  ガラスノキック/読み切り:
+  ガラスノキック:
     basis: translated
     en: Glass Kick
     en_at: '2026-08-04'
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - ガラスノキック/
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
-      - null
     note: The suffix is Champion Cross's own oneshot marker, present in the page's own title tag; dropped
       as promotional framing rather than part of the title.
-    reading: ガラスノキック / ヨミキリ
-    reading_at: '2026-08-05'
+    reading: ガラスノキック
+    reading_at: '2026-11-19'
     reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   ガラティアは知ってる:
@@ -36513,32 +36463,23 @@ names:
     translation_refused: Our rendering was Duffle Coat Army, which is the publisher's name in different
       letters, spacing or punctuation rather than a second form. English in katakana.
     verified: true
-  ダブルピース/読み切り:
+  ダブルピース:
     basis: translated
     en: Double Peace
     en_at: '2026-08-04'
     en_reviewed: '2026-08-04'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - ダブルピース/
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
-      - null
     note: The suffix is Champion Cross's own oneshot marker, present in the page's own title tag; dropped
       as promotional framing rather than part of the title.
-    reading: ダブルピース / ヨミキリ
-    reading_at: '2026-08-05'
+    reading: ダブル ピース
+    reading_at: '2026-11-19'
     reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_ordinary: true
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   ダメ犬彼女:
@@ -42665,7 +42606,7 @@ names:
       letters, spacing or punctuation rather than a second form. ロマネスコ is the Romanesque, and it is also
       the fractal cauliflower. The dagger is the work's own and is kept.
     verified: true
-  モダンドラキュラの堅実な生き方/読み切り:
+  モダンドラキュラの堅実な生き方:
     basis: translated
     en: The Modern Dracula's Steady Way of Living
     en_at: '2026-09-01'
@@ -42685,25 +42626,15 @@ names:
       - null
     - - 方
       - かた
-    - - /
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
-      - null
     note: モダンドラキュラ is the English words in katakana, 堅実な is steady or sound, and 生き方 is a way of living.
       T he /読み切り the platform appends is its own marker for a one-shot and not part of the title.
-    reading: モダン ドラキュラ ノ ケンジツナ イキカタ / ヨミキリ
-    reading_at: '2026-08-15'
+    reading: モダン ドラキュラ ノ ケンジツナ イキカタ
+    reading_at: '2026-11-19'
     reading_basis: analyser
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
     reading_pass: 4
-    reading_source: SudachiPy 0.6.11, SudachiDict-core 20260723
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   モデルちゃんと地味マネさん:
@@ -55790,7 +55721,7 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  吸えない吸血鬼の蔵書票/読み切り:
+  吸えない吸血鬼の蔵書票:
     basis: translated
     en: The Bookplate of the Vampire Who Can't Suck Blood
     en_at: '2026-08-04'
@@ -55808,23 +55739,15 @@ names:
       - null
     - - 蔵書票
       - ぞうしょひょう
-    - - /
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
-      - null
     note: /読み切り, the platform's one-shot tag, dropped.
-    reading: スエナイ キュウケツキ ノ ゾウショヒョウ / ヨミキリ
-    reading_at: '2026-08-05'
+    reading: スエナイ キュウケツキ ノ ゾウショヒョウ
+    reading_at: '2026-11-19'
     reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_ordinary: true
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   吸血少女とウンディーネ:
@@ -76470,7 +76393,7 @@ names:
     translation_note: みちる is a given name and also the verb for the tide coming in, and the title leaves
       both standing. ごはん is cooked rice and by extension the meal built round it.
     verified: false
-  海は荒れども、風は吹く/読み切り:
+  海は荒れども、風は吹く:
     basis: translated
     en: Though the Sea Rages, the Wind Still Blows
     en_at: '2026-08-04'
@@ -76492,25 +76415,19 @@ names:
       - null
     - - 吹
       - ふ
-    - - く/
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
+    - - く
       - null
     note: Classical grammar (荒れども) rather than plain speech, kept in the same elevated register. The synopsis
       is a pink-haired girl others read as living freely, quietly unsettled by that perception, who meets
       someone behind the school building. /読み切り, the platform's one-shot tag, dropped.
-    reading: ウミ ワ アレドモ、 カゼ ワ フク / ヨミキリ
-    reading_at: '2026-08-05'
+    reading: ウミ ワ アレドモ、 カゼ ワ フク
+    reading_at: '2026-11-19'
     reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_ordinary: true
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   海猫荘days:
@@ -88941,7 +88858,7 @@ names:
     reading_source_kind: analyser
     translation_note: 組長 heads a gang, and なかよし is being on good terms with no feud behind it.
     verified: false
-  結ばれる日/読み切り:
+  結ばれる日:
     basis: translated
     en: The Day We're Bound Together
     en_at: '2026-08-04'
@@ -88955,25 +88872,17 @@ names:
       - null
     - - 日
       - ひ
-    - - /
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
-      - null
     note: 結ばれる is the passive of 結ぶ, to tie, used idiomatically for a couple coming together; the series
       blurb is a childhood promise and years of missed connection. /読み切り, the platform's one-shot tag,
       dropped.
-    reading: ムスバレル ヒ / ヨミキリ
-    reading_at: '2026-08-05'
+    reading: ムスバレル ヒ
+    reading_at: '2026-11-19'
     reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_ordinary: true
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   結城友奈は勇者である 勇者部びより Party♪:
@@ -93317,7 +93226,7 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  足が大好き足羽さん/読み切り:
+  足が大好き足羽さん:
     basis: translated
     en: Feet-Loving Asuwa
     en_at: '2026-08-03'
@@ -93335,25 +93244,19 @@ names:
       - null
     - - 足羽
       - あすわ
-    - - さん/
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
+    - - さん
       - null
     note: 足羽 (Asuwa) is the protagonist's surname and happens to start with 足, foot, which is the joke
       the Japanese title is making by pairing it with 足が大好き, loves feet; English cannot reproduce the
       shared kanji, only the content, which the synopsis backs plainly. Honorific dropped and /読み切り, the
       platform's one-shot tag, dropped.
-    reading: アシ ガ ダイスキ アスワサン / ヨミキリ
-    reading_at: '2026-08-05'
+    reading: アシ ガ ダイスキ アスワサン
+    reading_at: '2026-11-19'
     reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   踊り場にスカートが鳴る:
@@ -95499,11 +95402,10 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
-  隣人/読み切り:
+  隣人:
     basis: official-jp
     en: neighbor
     en_at: '2026-11-11'
-    en_conflicts: []
     en_reviewed: '2026-11-11'
     en_source: series-art
     en_source_kind: platform
@@ -95511,24 +95413,16 @@ names:
     furigana_spans:
     - - 隣人
       - りんじん
-    - - /
-      - null
-    - - 読
-      - よ
-    - - み
-      - null
-    - - 切
-      - き
-    - - り
-      - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
       where it was decided to take it as the title.
-    reading: リンジン / ヨミキリ
-    reading_at: '2026-08-05'
+    reading: リンジン
+    reading_at: '2026-11-19'
     reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_ordinary: true
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     translation_refused: 'Our rendering was Neighbor, which is the publisher''s name in different letters,
       spacing or punctuation rather than a second form. The synopsis calls a school friendship a "neighbour":
@@ -97631,7 +97525,7 @@ names:
     en_source_kind: derived
     note: The English subtitle is the work's own and is kept.
     verified: false
-  魔法使いの作庭/よみきり:
+  魔法使いの作庭:
     basis: official-jp
     en: The Wizard's Garden
     en_at: '2026-11-11'
@@ -97652,15 +97546,15 @@ names:
       - null
     - - 作庭
       - さくてい
-    - - /よみきり
-      - null
     note: The work's own Latin title, set on its series art. Read off the artwork and recorded in data/queue/cover-names.yaml,
       where it was decided to take it as the title.
-    reading: マホウ ツカイ ノ サクテイ / ヨミ キリ
-    reading_at: '2026-08-05'
+    reading: マホウ ツカイ ノ サクテイ
+    reading_at: '2026-11-19'
     reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
     reading_pass: 4
-    reading_source: sudachi
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     translation_note: Our own rendering, which stood here until the series art was read. 作庭 is the specific
       word for laying out a garden, not gardening in general. Only one chapter is out — two princesses

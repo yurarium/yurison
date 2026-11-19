@@ -14,6 +14,27 @@ and a name map is looked up with the string a row carries.
 import re
 import unicodedata
 
+#: A one-shot label written after the title, as comici platforms name a one-shot's series page and
+#: Web漫画アンテナ copies it: りのちゃんの好きなこと/よみきり. Only at the end, and only the bare
+#: label: 白妙様、秘密ですよ/読切版 names the one-shot VERSION of a serialised work, and that is how
+#: the two are told apart.
+ONESHOT_LABEL = re.compile(r"\s*[/／]\s*(?:読み切り|よみきり|読切)\s*$")
+
+
+def bare_title(s):
+    """The work's title without a trailing one-shot label.
+
+    THE LABEL SAYS WHAT KIND OF PUBLICATION IT IS, and the kind is recorded elsewhere: the
+    platform states 読み切り as the serialisation status and the build reads it there. Kept in the
+    title, it made two works of one. 百合ナビ linked りのちゃんの好きなこと at its episode page
+    and the antenna linked りのちゃんの好きなこと/よみきり at its series page, so the feed carried
+    both, and the English name curated for one never reached the other.
+    """
+    if not s:
+        return s
+    t = ONESHOT_LABEL.sub("", s)
+    return t if t.strip() else s
+
 
 def norm_work(s):
     """Normalise a work title for comparison.

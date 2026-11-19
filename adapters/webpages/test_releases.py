@@ -56,6 +56,32 @@ def moved(s):
     s.eq([r["url"] for r in wp.one_per_address(one)], ["https://bigcomics.jp/series/a"],
          "a row keeps the address it was asked for")
 
+    an_episode_is_keyed_at_its_series(s)
+
+
+def an_episode_is_keyed_at_its_series(s):
+    """A comici episode target and its series target are one work and one row.
+
+    The addresses are the ones 花とゆめ+ served りのちゃんの好きなこと at on 2026-11-17.
+    """
+    site = {"engine": "comici", "host": "hanayume.com"}
+    ep, series = ("https://hanayume.com/episodes/be6d25f129323",
+                  "https://hanayume.com/series/e8423800e9e02")
+    page = ('<link rel="canonical" href="https://hanayume.com/episodes/be6d25f129323"/>'
+            '<a href="/series/e8423800e9e02">作品</a>')
+    s.eq(wp.at(ep, page, site), series, "an episode page is keyed at the series it links")
+    s.eq(wp.at(ep, page, {"engine": "gigaviewer", "host": "hanayume.com"}), ep,
+         "only on comici, whose link is the one read")
+    s.eq(wp.at(ep, page + '<a href="/series/0123456789abc">他</a>', site), ep,
+         "a page linking two series is not evidence about one work")
+    rows = [{"url": ep, "_at": wp.at(ep, page, site), "episodes": [1]},
+            {"url": series, "_at": series, "episodes": [1]}]
+    s.eq([r["url"] for r in wp.one_per_address(rows)], [series],
+         "so the two targets are one row, the one asked for at the series address")
+    alone = [{"url": ep, "_at": wp.at(ep, page, site), "episodes": [1]}]
+    s.eq([r["url"] for r in wp.one_per_address(alone)], [ep],
+         "and a work held only at its episode address keeps it")
+
 
 def maintenance(s):
     """A site refusing every page with its maintenance notice is reported as that, not a redesign."""

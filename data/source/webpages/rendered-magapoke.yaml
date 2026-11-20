@@ -10,62 +10,61 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-11-20
+retrieved: 2026-11-21
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
-  - work_title: "きみが死ぬまで恋をしたい"
-    author: "あおのなち"
-    url: "https://pocket.shonenmagazine.com/title/01049"
+  - work_title: "オカルトタイムズ"
+    author: "いどんち"
+    url: "https://pocket.shonenmagazine.com/title/03282"
     stated_schedule:
-      cadence: "隔週月曜"
+      cadence: "毎週土曜"
+      next_update: "2026-11-28"
     chapter_count: 10
     chapters:
-      - title: "【第42話】わたしの恋(3)"
-        updated: 2026-09-18
+      - title: "【第27話】百人一首がおにあいどす"
+        updated: 2026-11-11
         access_modes: ["purchase"]
-        access_note: "point price 120"
+        access_note: "point price 90"
         date_basis: rendered
-      - title: "【第42話】わたしの恋(2)"
-        updated: 2026-09-18
+      - title: "【第26.5話】キョンシー・アンド・トリート"
+        updated: 2026-10-14
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第26話】化けの皮切り"
+        updated: 2026-09-30
         access_modes: ["purchase"]
-        access_note: "point price 120"
+        access_note: "point price 65"
         date_basis: rendered
-      - title: "【第42話】わたしの恋(1)"
-        updated: 2026-09-18
+      - title: "【第25話】厄立たずの新聞 後編"
+        updated: 2026-09-02
         access_modes: ["purchase"]
-        access_note: "point price 120"
+        access_note: "point price 65"
         date_basis: rendered
-      - title: "【第41話】うそつき(3)"
-        updated: 2026-08-18
-        access_modes: ["purchase"]
-        access_note: "point price 120"
+      - title: "【第24.5話】メイド・イン・学園祭！"
+        updated: 2026-08-05
+        access_modes: ["free"]
         date_basis: rendered
-      - title: "【第41話】うそつき(2)"
-        updated: 2026-08-18
-        access_modes: ["purchase"]
-        access_note: "point price 120"
-        date_basis: rendered
-      - title: "【第4話】ちゃんと痛いよ(1)"
-        updated: 2020-03-04
+      - title: "【第5話】UMAい話にご用心"
+        updated: 2026-06-30
         access_modes: ["free-timed"]
         date_basis: rendered
-      - title: "【第3話】わたしはわたし"
-        updated: 2020-03-04
+      - title: "【第4話】山に潜む獣"
+        updated: 2026-06-30
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話】空からの侵略者"
+        updated: 2026-06-30
         access_modes: ["free"]
         date_basis: rendered
-      - title: "【第2話】キス(2)"
-        updated: 2020-03-04
+      - title: "【第2話】暗闇に響く声"
+        updated: 2026-06-30
         access_modes: ["free"]
         date_basis: rendered
-      - title: "【第2話】キス(1)"
-        updated: 2020-03-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】はじめまして"
-        updated: 2020-03-04
+      - title: "【第1話】ハザマ学園怪奇新聞部"
+        updated: 2026-06-30
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "将来的に死んでくれ"
@@ -171,6 +170,58 @@ works:
         date_basis: rendered
       - title: "【第1話】屋上と、ギターと、先輩と。"
         updated: 2020-02-21
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "きみが死ぬまで恋をしたい"
+    author: "あおのなち"
+    url: "https://pocket.shonenmagazine.com/title/01049"
+    stated_schedule:
+      cadence: "隔週月曜"
+    chapter_count: 10
+    chapters:
+      - title: "【第42話】わたしの恋(3)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第42話】わたしの恋(2)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第42話】わたしの恋(1)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第41話】うそつき(3)"
+        updated: 2026-08-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第41話】うそつき(2)"
+        updated: 2026-08-18
+        access_modes: ["purchase"]
+        access_note: "point price 120"
+        date_basis: rendered
+      - title: "【第4話】ちゃんと痛いよ(1)"
+        updated: 2020-03-04
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話】わたしはわたし"
+        updated: 2020-03-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】キス(2)"
+        updated: 2020-03-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】キス(1)"
+        updated: 2020-03-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】はじめまして"
+        updated: 2020-03-04
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "私の百合はお仕事です!"
@@ -532,7 +583,7 @@ works:
   - work_title: "ハロー、メランコリック!"
     url: "https://pocket.shonenmagazine.com/title/01544"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【track14】ハロー、メランコリック！(2)"
@@ -958,7 +1009,7 @@ works:
     author: "シクシク"
     url: "https://pocket.shonenmagazine.com/title/02260"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎週水曜"
     chapter_count: 10
     chapters:
       - title: "【第15話】終着点（３）"
@@ -1261,7 +1312,7 @@ works:
     author: "やとさきはる"
     url: "https://pocket.shonenmagazine.com/title/02709"
     stated_schedule:
-      cadence: "毎週木曜"
+      cadence: "毎週金曜"
     chapter_count: 10
     chapters:
       - title: "【最終回(2)】聖夜の天使たち"
@@ -1479,7 +1530,7 @@ works:
     author: "陣ノ内康暉"
     url: "https://pocket.shonenmagazine.com/title/03068"
     stated_schedule:
-      cadence: "毎週火曜"
+      cadence: "隔週金曜"
     chapter_count: 10
     chapters:
       - title: "【単行本宣伝話】"
@@ -1629,57 +1680,6 @@ works:
         date_basis: rendered
       - title: "【第1話】垂涎に反吐"
         updated: 2026-06-09
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "オカルトタイムズ"
-    author: "いどんち"
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    stated_schedule:
-      cadence: "毎週土曜"
-      next_update: "2026-11-21"
-    chapter_count: 10
-    chapters:
-      - title: "【第27話】百人一首がおにあいどす"
-        updated: 2026-11-11
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第26.5話】キョンシー・アンド・トリート"
-        updated: 2026-10-14
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第26話】化けの皮切り"
-        updated: 2026-09-30
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第25話】厄立たずの新聞 後編"
-        updated: 2026-09-02
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第24.5話】メイド・イン・学園祭！"
-        updated: 2026-08-05
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第5話】UMAい話にご用心"
-        updated: 2026-06-30
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第4話】山に潜む獣"
-        updated: 2026-06-30
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話】空からの侵略者"
-        updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】暗闇に響く声"
-        updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】ハザマ学園怪奇新聞部"
-        updated: 2026-06-30
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "ぎるてぃらいぶらり"

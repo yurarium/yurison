@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comicborder
 platform_name: "コミックボーダー"
 publisher: ""
-retrieved: 2026-11-20
+retrieved: 2026-11-21
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 2
@@ -102,8 +102,14 @@ works:
   - work_title: "侵略のプリマステラ!"
     series_id: "12207421983750427652"
     url: "https://comicborder.com/atom/series/12207421983750427652"
-    chapter_count: 2
+    chapter_count: 3
     chapters:
+      - title: "第3侵略　え　侵略者って"
+        updated: 2026-11-20
+        author: "藤崎ろと"
+        url: "https://comicborder.com/episode/12207421983978154180"
+        free_from: 2026-11-20
+        access_modes: ["free"]
       - title: "第2侵略　気がついたときには生命が"
         updated: 2026-07-17
         author: "藤崎ろと"

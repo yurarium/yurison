@@ -10,7 +10,7 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-11-20
+retrieved: 2026-11-21
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 71
@@ -186,8 +186,14 @@ works:
   - work_title: "てくのぱにっくゆにばーす"
     series_id: "2551460909679434702"
     url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
-    chapter_count: 46
+    chapter_count: 47
     chapters:
+      - title: "ショートショート ケモノ化ふたたび！"
+        updated: 2026-11-20
+        author: "伏見ダイキ"
+        url: "https://www.sunday-webry.com/episode/12207421984543441444"
+        free_from: 2026-11-19
+        access_modes: ["free"]
       - title: "ショートショート 阿久津君の怖い話"
         updated: 2026-11-13
         author: "伏見ダイキ"
@@ -1715,8 +1721,14 @@ works:
   - work_title: "上杉くんは女の子をやめたい"
     series_id: "2550912964699074885"
     url: "https://www.sunday-webry.com/atom/series/2550912964699074885"
-    chapter_count: 16
+    chapter_count: 17
     chapters:
+      - title: "イラスト"
+        updated: 2026-11-21
+        author: "やぶうち優"
+        url: "https://www.sunday-webry.com/episode/12207421984548071628"
+        free_from: 2026-11-20
+        access_modes: ["free"]
       - title: "第37話"
         updated: 2026-11-07
         author: "やぶうち優"

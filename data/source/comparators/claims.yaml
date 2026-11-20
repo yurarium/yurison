@@ -8,11 +8,17 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-20
+retrieved: 2026-11-21
 record_type: update_claims
 window_days: 60
-claims: 438
+claims: 439
 updates:
+  - work: "聖女先生の魔法は進んでる！ しまづ/鴉ぴえろ"
+    platform: "カドコミ"
+    date: 2026-11-21
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "魔法少女にあこがれて 小野中彰大"
     platform: "竹コミ！"
     date: 2026-11-20
@@ -61,6 +67,13 @@ updates:
     provenance: claimed
     url: "https://shonenjumpplus.com/episode/17107094912913096422"
     listing_tags: ["女子高生", "運動系部活", "百合", "スポーツ", "卓球"]
+  - work: "新刊100億冊ください"
+    platform: "コミックDAYS"
+    date: 2026-11-20
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550912965415315207"
+    listing_tags: ["オタク", "同人活動", "百合", "漫画家・絵描き", "中二病", "ブロ・シスマンス"]
   - work: "平良深姉妹はどっちもヤんでる"
     platform: "マガポケ"
     date: 2026-11-20
@@ -74,6 +87,13 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "夢でフラれてはじまる百合"
+    platform: "竹コミ‎‏‎"
+    date: 2026-11-20
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://takecomic.jp/series/8e32550d65684"
+    listing_tags: ["最近のコメント数"]
   - work: "君となら、明日を歌えるの"
     platform: "カドコミ"
     date: 2026-11-20
@@ -102,12 +122,6 @@ updates:
     provenance: claimed
     url: "https://urasunday.com/title/603"
     listing_tags: ["百合", "現代", "大学生", "完結", "実写化"]
-  - work: "今夜、エーテルで待ちあわせ ヨン"
-    platform: "Seasons"
-    date: 2026-11-20
-    source: "yurinavi"
-    provenance: claimed
-    raw_cell: true   # title and author unsplit
   - work: "バカ女26時"
     platform: "ヤンジャン+"
     date: 2026-11-20
@@ -115,6 +129,13 @@ updates:
     provenance: claimed
     url: "https://ynjn.jp/title/12102"
     listing_tags: ["百合"]
+  - work: "オカルトタイムズ"
+    platform: "マガポケ"
+    date: 2026-11-20
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    listing_tags: ["百合", "オカルト"]
   - work: "イジめてイジられて"
     platform: "ニコニコ漫画"
     date: 2026-11-20
@@ -176,7 +197,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-fuz.com/manga/3572"
-    listing_tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
+    listing_tags: ["最近のコメント数"]
   - work: "あめのひもがも～八百屋お七炎上図 葛飾応為筆～"
     platform: "カドコミ"
     date: 2026-11-20
@@ -229,7 +250,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421984151786081"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "エロ", "ファンタジー", "聖女", "女騎士・姫騎士"]
   - work: "私がモテないのはどう考えてもお前らが悪い!"
     platform: "ガンガンONLINE"
     date: 2026-11-19
@@ -249,14 +270,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421984038651597"
-    listing_tags: ["最近のコメント数"]
-  - work: "新刊100億冊ください"
-    platform: "コミックDAYS"
-    date: 2026-11-19
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-days.com/episode/2550912965415315207"
-    listing_tags: ["オタク", "同人活動", "百合", "漫画家・絵描き", "中二病", "ブロ・シスマンス"]
+    listing_tags: ["百合", "コスプレ"]
   - work: "対ありでした。 ～お嬢さまは格闘ゲームなんてしない～ 江島絵理"
     platform: "カドコミ"
     date: 2026-11-19
@@ -348,7 +362,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421984336824147"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合"]
   - work: "ぎるてぃらいぶらり"
     platform: "マガポケ"
     date: 2026-11-19
@@ -381,7 +395,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comicride.jp/series/7b86cbca64ebe"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
   - work: "IDOL×IDOL STORY!"
     platform: "COMIC FUZ"
     date: 2026-11-19
@@ -830,13 +844,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_009488_S"
     listing_tags: ["百合"]
-  - work: "オカルトタイムズ"
-    platform: "マガポケ"
-    date: 2026-11-14
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    listing_tags: ["百合", "オカルト"]
   - work: "アイ・ヘイ・チュー 長門知大"
     platform: "マガポケ"
     date: 2026-11-14

@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-20
+retrieved: 2026-11-21
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 264
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 219
-  works_asked: 951
+  works_asked: 953
   works_with_a_hit: 285
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
@@ -4613,6 +4613,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://comicborder.com/episode/12207421983978154180"
+    id: "w00162"
+    work: "侵略のプリマステラ!"
+    author: "藤崎ろと"
+    platform: "コミックボーダー"
+    retrieved: "2026-11-21"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comicborder.com/episode/316112896941774091"
     id: "w00888"
     work: "ハナちゃん匂いかがせて"
@@ -8257,6 +8267,16 @@ works:
     author: "清水幸"
     platform: "マガポケ"
     retrieved: "2026-11-15"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://pocket.shonenmagazine.com/title/03368/episode/446762"
+    id: "w03550"
+    work: "瑠夏と杏珠の逃避行"
+    author: "清水幸"
+    platform: "マガポケ"
+    retrieved: "2026-11-21"
     hits: []
     notes:
       - "author query returned no title this database recognises"

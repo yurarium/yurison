@@ -9,12 +9,66 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-11-20
+retrieved: 2026-11-21
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 500
 works:
+  - work_title: "イジめてイジられて"
+    author: "千田大輔(著者)"
+    url: "https://manga.nicovideo.jp/comic/83472"
+    comic_id: "83472"
+    updated: "2026-11-20"
+    started: "2026-07-17"
+    episode_count: 19
+    free_episodes: 19
+    channel: "ヤングエースUP"
+    channel_slug: "youngaceup"
+    latest_episode: "第18話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173630"
+  - work_title: "魔法少女にあこがれて"
+    author: "小野中彰大"
+    url: "https://manga.nicovideo.jp/comic/40675"
+    comic_id: "40675"
+    updated: "2026-11-20"
+    started: "2019-04-26"
+    episode_count: 8
+    free_episodes: 8
+    channel: "竹コミ！"
+    channel_slug: "takecomic"
+    latest_episode: "Episode65"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1174971"
+  - work_title: "柚子森さん"
+    author: "江島絵理"
+    url: "https://manga.nicovideo.jp/comic/22191"
+    comic_id: "22191"
+    updated: "2026-11-20"
+    started: "2016-06-30"
+    channel: "もっとやわらかスピリッツ"
+    channel_slug: "yawaspi"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-11-20"
+    started: "2022-08-31"
+    episode_count: 182
+    free_episodes: 182
+    latest_episode: "第18話の2"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1178420"
+  - work_title: "転生して成長チートを手に入れたら、最凶スキルもついたのですが!?"
+    author: "やま ゆずもと 我美蘭"
+    url: "https://manga.nicovideo.jp/comic/71212"
+    comic_id: "71212"
+    updated: "2026-11-20"
+    started: "2025-04-30"
+    episode_count: 5
+    free_episodes: 5
+    channel: "ニコニコボックス"
+    channel_slug: "niconicobox"
+    latest_episode: "第32話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173208"
   - work_title: "好都合セミフレンド"
     author: "千種みのり"
     url: "https://manga.nicovideo.jp/comic/63674"
@@ -99,16 +153,6 @@ works:
     channel_slug: "comicpash"
     latest_episode: "第43話　歌作り②"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1112095"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-11-19"
-    started: "2022-08-31"
-    episode_count: 181
-    free_episodes: 181
-    latest_episode: "第18話の1"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1178007"
   - work_title: "えろいことするために巨乳美少女奴隷を買ったはずが、お師匠さまと慕われて思った通りにいかなくなる話"
     author: "佐藤36(作画) 煮豆シューター(原作)"
     url: "https://manga.nicovideo.jp/comic/73501"
@@ -299,18 +343,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第24話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1171607"
-  - work_title: "イジめてイジられて"
-    author: "千田大輔(著者)"
-    url: "https://manga.nicovideo.jp/comic/83472"
-    comic_id: "83472"
-    updated: "2026-11-13"
-    started: "2026-07-17"
-    episode_count: 18
-    free_episodes: 18
-    channel: "ヤングエースUP"
-    channel_slug: "youngaceup"
-    latest_episode: "第17話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1173620"
   - work_title: "死亡遊戯で飯を食う。"
     author: "万歳寿大宴会(漫画) 鵜飼有志(原作) ねこめたる(キャラクター原案)"
     url: "https://manga.nicovideo.jp/comic/64181"
@@ -521,14 +553,6 @@ works:
     channel_slug: "comiccune"
     latest_episode: "第99話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1162796"
-  - work_title: "柚子森さん"
-    author: "江島絵理"
-    url: "https://manga.nicovideo.jp/comic/22191"
-    comic_id: "22191"
-    updated: "2026-11-09"
-    started: "2016-06-30"
-    channel: "もっとやわらかスピリッツ"
-    channel_slug: "yawaspi"
   - work_title: "男子高校生だけどギャルにTSしました"
     author: "太陽まりい(著者)"
     url: "https://manga.nicovideo.jp/comic/67976"
@@ -963,18 +987,6 @@ works:
     channel_slug: "regulus"
     latest_episode: "第14話④：女の恥"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1168292"
-  - work_title: "転生して成長チートを手に入れたら、最凶スキルもついたのですが!?"
-    author: "やま ゆずもと 我美蘭"
-    url: "https://manga.nicovideo.jp/comic/71212"
-    comic_id: "71212"
-    updated: "2026-10-23"
-    started: "2025-04-30"
-    episode_count: 4
-    free_episodes: 4
-    channel: "ニコニコボックス"
-    channel_slug: "niconicobox"
-    latest_episode: "第31話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1161713"
   - work_title: "押しかけ女房、コドモ付き！"
     author: "とめきち"
     url: "https://manga.nicovideo.jp/comic/67280"
@@ -1083,18 +1095,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第21話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1160074"
-  - work_title: "魔法少女にあこがれて"
-    author: "小野中彰大"
-    url: "https://manga.nicovideo.jp/comic/40675"
-    comic_id: "40675"
-    updated: "2026-10-16"
-    started: "2019-04-26"
-    episode_count: 8
-    free_episodes: 8
-    channel: "竹コミ！"
-    channel_slug: "takecomic"
-    latest_episode: "Episode64"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1164758"
   - work_title: "アルバート家の令嬢は没落をご所望です"
     author: "彩月つかさ(著者) さき(原作) 双葉はづき(キャラクター原案)"
     url: "https://manga.nicovideo.jp/comic/34789"

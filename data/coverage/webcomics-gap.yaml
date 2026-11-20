@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-20
+retrieved: 2026-11-21
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -40,7 +40,7 @@ works_missing:
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/3572"
     antenna_id: "173581"
-    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
+    tags: ["最近のコメント数"]
   - title: "球詠"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/441"
@@ -676,11 +676,6 @@ works_missing:
     url: "https://comic-gardo.com/episode/2550912966011803878"
     antenna_id: "191960"
     tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
-  - title: "侵略のプリマステラ!"
-    platform: "コミックボーダー"
-    url: "https://comicborder.com/episode/12207421983750440973"
-    antenna_id: "210510"
-    tags: ["百合"]
   - title: "DOUBLE HELIX BLOSSOM"
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/65"
@@ -1060,7 +1055,7 @@ works_missing:
     platform: "ライコミ"
     url: "https://comicride.jp/series/7b86cbca64ebe"
     antenna_id: "84661"
-    tags: ["最近のコメント数"]
+    tags: ["ファンタジー", "追放", "コミカライズ", "魔王", "勇者", "バトル", "ホラー", "残酷・グロテスク", "百合", "アニメ化"]
   - title: "転性魔王さまは勇者に勝てない!"
     platform: "ライコミ"
     url: "https://comicride.jp/series/0ff97eb531021"
@@ -1081,6 +1076,11 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "夢でフラれてはじまる百合"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/8e32550d65684"
+    antenna_id: "133566"
+    tags: ["最近のコメント数"]
   - title: "魔法少女にあこがれて"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/0d7dee548d547"
@@ -1161,11 +1161,6 @@ works_missing:
     url: "https://takecomic.jp/series/ae1cf555c8b01"
     antenna_id: "189230"
     tags: ["百合", "エロ", "女子高生", "教師", "先生と生徒・師弟", "完結"]
-  - title: "夢でフラれてはじまる百合"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/8e32550d65684"
-    antenna_id: "133566"
-    tags: ["百合", "恋愛", "ラブコメ", "うぶ恋・ピュア恋", "カップル", "片思い"]
   - title: "私だけが宮地美雪を愛している"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/e060f5eef826c"

@@ -12,10 +12,29 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-11-20
+retrieved: 2026-11-21
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "瑠夏と杏珠の逃避行"
+    author: "清水幸"
+    url: "https://pocket.shonenmagazine.com/title/03368/episode/446346"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 3
+    chapters:
+      - title: "【第1話】"
+        updated: 2026-11-14
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03368/episode/446346"
+      - title: "【第2話】"
+        updated: 2026-11-14
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03368/episode/446347"
+      - title: "【第3話】"
+        updated: 2026-11-21
+        access_modes: ["purchase"]
+        url: "https://pocket.shonenmagazine.com/title/03368/episode/446762"
   - work_title: "あの子とふたりで。"
     author: "当麻"
     url: "https://comic-ogyaaa.com/episode/12207421984535542087"
@@ -2506,21 +2525,6 @@ works:
       - title: "[第1話] 英雄少女と呪われの銀姫"
         updated: 2026-01-19
         access_modes: ["free"]
-  - work_title: "瑠夏と杏珠の逃避行"
-    author: "清水幸"
-    url: "https://pocket.shonenmagazine.com/title/03368/episode/446346"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 2
-    chapters:
-      - title: "【第1話】"
-        updated: 2026-11-14
-        access_modes: ["free"]
-        url: "https://pocket.shonenmagazine.com/title/03368/episode/446346"
-      - title: "【第2話】"
-        updated: 2026-11-14
-        access_modes: ["purchase"]
-        url: "https://pocket.shonenmagazine.com/title/03368/episode/446347"
   - work_title: "雨夜の月"
     author: "くずしろ"
     url: "https://comic-days.com/episode/12207421983645810078"
@@ -3207,8 +3211,11 @@ works:
     url: "https://www.sunday-webry.com/episode/12207421984485539224"
     platform_name: "サンデーうぇぶり"
     route: "gigaviewer-feed"
-    chapter_count: 16
+    chapter_count: 17
     chapters:
+      - title: "イラスト"
+        updated: 2026-11-21
+        access_modes: ["free"]
       - title: "第37話"
         updated: 2026-11-07
         access_modes: ["free"]

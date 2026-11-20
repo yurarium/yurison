@@ -23253,6 +23253,14 @@ works:
       - anchor: "web:https://comic-days.com/series/12207421984453650563/first_episode"
         basis: "the chapter page at https://comic-days.com/episode/12207421984453651455 links its own series feed at https://comic-days.com/atom/series/12207421984453650563, so the platform places this chapter in series 12207421984453650563, and the og:title there names the work: どこへでも行けるなら宇宙に行きたい - Zense / 【コミックDAYS読み切り】どこへでも行けるなら宇宙に行きたい | コミックDAYS. https://comic-days.com/series/12207421984453650563/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
         retrieved: 2026-11-19
+  - id: w03558
+    title: null
+    anchors:
+      - "madb:bw-4735758b-9792-487b-b86f-a67ccebb504b"
+  - id: w03559
+    title: null
+    anchors:
+      - "madb:bw-c571098c-1231-4ec3-b893-1d32d9cf5888"
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a

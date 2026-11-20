@@ -132,15 +132,6 @@ works:
         updated: 2026-06-17
         author: "深水たろー"
         date_basis: heuristic
-  - work_title: "バトル・ウィッチーズ"
-    url: "http://neetsha.jp/inside/comic.php?id=24919"
-    platform_name: "新都社"
-    route: "rendered"
-    chapter_count: 1
-    chapters:
-      - title: "第17話"
-        updated: 2026-08-13
-        date_basis: rendered
   - work_title: "パワハラ魔王様と社畜魔女ちゃん"
     author: "カモトタツヤ"
     url: "https://kirapo.jp/meteor/titles/pawahara"
@@ -246,7 +237,7 @@ works:
     chapter_count: 1
     chapters:
       - title: "特別読切"
-        updated: 2026-11-19
+        updated: 2026-11-20
         access_modes: ["free"]
         date_basis: read
   - work_title: "公爵令嬢の籠絡ミッション～魔王との政略結婚が、人類最後の切り札です!…って、魔王が女の子の場合はどう..."
@@ -527,6 +518,41 @@ works:
       - title: "第1話-1 春と桜 作品インフォメーション 『春綴る、"
         updated: 2022-10-12
         date_basis: heuristic
+  - work_title: "最恐呪物令嬢"
+    url: "https://younganimal.com/episodes/24a3e6bcb998e"
+    platform_name: "ヤングアニマルWeb"
+    route: "comici"
+    chapter_count: 8
+    chapters:
+      - title: "第一話"
+        updated: 2026-07-28
+        access_modes: ["free"]
+      - title: "第ニ話"
+        updated: 2026-08-11
+        access_modes: ["free"]
+      - title: "第三話"
+        updated: 2026-08-25
+        access_modes: ["free"]
+      - title: "第四話"
+        updated: 2026-09-08
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第五話"
+        updated: 2026-09-22
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第六話"
+        updated: 2026-10-13
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第七話"
+        updated: 2026-10-27
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第八話"
+        updated: 2026-11-10
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
   - work_title: "横槍メンゴ新作読切シリーズ"
     url: "https://ynjn.jp/title/30352"
     platform_name: "ヤンジャン+"
@@ -534,11 +560,11 @@ works:
     chapter_count: 2
     chapters:
       - title: "Vol.1"
-        updated: 2026-11-19
+        updated: 2026-11-20
         access_modes: ["free"]
         date_basis: read
       - title: "Vol.2"
-        updated: 2026-11-19
+        updated: 2026-11-20
         access_modes: ["free"]
         date_basis: read
   - work_title: "灼熱の魔女様の楽しい温泉領地経営 ～魔力ゼロで辺境に追放されましたが、災厄級のあたためスキルで温泉帝..."

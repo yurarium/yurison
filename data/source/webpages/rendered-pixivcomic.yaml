@@ -902,12 +902,8 @@ works:
   - work_title: "晴れた日のドレスコード"
     author: "あげはる"
     url: "https://comic.pixiv.net/works/13425"
-    chapter_count: 3
+    chapter_count: 2
     chapters:
-      - title: "第5話"
-        updated: 2026-09-08
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "第2話"
         updated: 2026-07-17
         access_modes: ["free"]
@@ -2285,6 +2281,23 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2026-08-25
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "この関西人がウザすぎる!!〜なにわギャルとイケズ京男に振り回されています〜"
+    author: "ささみりせ"
+    url: "https://comic.pixiv.net/works/13903"
+    chapter_count: 3
+    chapters:
+      - title: "第1話（3）"
+        updated: 2026-11-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話（2）"
+        updated: 2026-11-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話（1）"
+        updated: 2026-11-01
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "壊していいよ、すいかちゃん"

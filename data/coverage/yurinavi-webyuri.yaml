@@ -6,10 +6,10 @@ source: yurinavi-webyuri
 role: coverage-yardstick
 retrieved: 2026-11-20
 record_type: coverage_gap
-works_listed: 133
+works_listed: 135
 platforms_total: 25
 platforms_watched: 17
-works_on_watched_platforms: 95
+works_on_watched_platforms: 97
 platforms:
   - platform: "カドコミ"
     works: 56
@@ -20,10 +20,10 @@ platforms:
   - platform: "一迅プラス"
     works: 10
     watched: true
-  - platform: "ガンガンONLINE"
-    works: 4
-    watched: true
   - platform: "竹コミ！"
+    works: 6
+    watched: true
+  - platform: "ガンガンONLINE"
     works: 4
     watched: true
   - platform: "コミックDAYS"
@@ -89,7 +89,7 @@ platforms:
 works:
   - raw: "壊していいよ、すいかちゃん 虫歯"
     platform: "COMIC OGYAAA!!"
-    last_update_seen: 11-20
+    last_update_seen: 11-27
     watched_platform: true
     title: "壊していいよ、すいかちゃん"
     url: "https://comic-ogyaaa.com/episode/12207421983608495081"
@@ -855,6 +855,12 @@ works:
     watched_platform: true
     title: "ウは宇宙ヤバイのウ！"
     url: "https://takecomic.jp/series/135220287d820"
+  - raw: "夢でフラれてはじまる百合 ヒジキ"
+    platform: "竹コミ！"
+    last_update_seen: 11-20
+    watched_platform: true
+    title: "夢でフラれてはじまる百合"
+    url: "https://takecomic.jp/series/0d7dee548d547"
   - raw: "百合神さまの言うとおり！ 橘まなり"
     platform: "竹コミ！"
     last_update_seen: 11-06
@@ -867,6 +873,12 @@ works:
     watched_platform: true
     title: "銀輪ボイス"
     url: "https://takecomic.jp/series/de0a74a9b5715"
+  - raw: "魔法少女にあこがれて 小野中彰大"
+    platform: "竹コミ！"
+    last_update_seen: 11-20
+    watched_platform: true
+    title: "魔法少女にあこがれて"
+    url: "https://takecomic.jp/series/0d7dee548d547"
   - raw: "フレンドガールフレンド 瑠夏子"
     platform: "花とゆめ＋"
     last_update_seen: 10-26

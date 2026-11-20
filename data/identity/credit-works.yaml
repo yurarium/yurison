@@ -8,7 +8,7 @@
 # this pass: the works list carries credit fields with the notation already taken off, so
 # 3,076 of its 3,077 rows name nobody's job. The labels come from the release rows, which
 # keep the field as the platform wrote it. See docs/GAPS.md.
-generated: 2026-11-19
+generated: 2026-11-20
 count: 2443
 credits:
   - id: c00001
@@ -2303,6 +2303,7 @@ credits:
   - id: c00491
     works:
       - id: w00369
+      - id: w03556
   - id: c00492
     works:
       - id: w00370
@@ -3110,6 +3111,7 @@ credits:
   - id: c00687
     works:
       - id: w02236
+        roles: ["著者"]
   - id: c00688
     works:
       - id: w00573
@@ -5401,6 +5403,7 @@ credits:
       - id: w02314
       - id: w02706
       - id: w02847
+      - id: w03557
   - id: c01271
     works:
       - id: w02203

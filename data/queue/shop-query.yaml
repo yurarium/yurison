@@ -43,7 +43,7 @@ counts:
   hits_agreeing_on_a_creator: 264
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 219
-  works_asked: 949
+  works_asked: 951
   works_with_a_hit: 285
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
@@ -4219,6 +4219,16 @@ works:
     hits: []
     notes:
       - "author query answered nothing"
+      - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_021577_S"
+    id: "w03557"
+    work: "陰キャ女子でも春したいッ！"
+    author: "沼地どろまる"
+    platform: "カドコミ"
+    retrieved: "2026-11-20"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
   - work_url: "https://comic-walker.com/detail/KC_021599_S"
     id: "w03547"
@@ -11193,6 +11203,16 @@ works:
         agreement: "creator"
         volumes_stated: 2
         completed_marker: false
+  - work_url: "https://www.sunday-webry.com/episode/12207421984535360459"
+    id: "w03556"
+    work: "青春には遅すぎる"
+    author: "とや"
+    platform: "サンデーうぇぶり"
+    retrieved: "2026-11-20"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://www.sunday-webry.com/episode/14079602755180542200"
     id: "w00815"
     work: "君に惹かれた理由"

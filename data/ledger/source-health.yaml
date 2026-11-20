@@ -39,11 +39,11 @@ sources:
     consecutive: 0
   cmoa-shelf:
     stage: stage-print
-    consecutive: 78
+    consecutive: 79
     last_failed: '2026-11-20'
     failing_since: '2026-10-16'
     error: 'net.Refused: www.cmoa.jp refused https://www.cmoa.jp/search/result/?genre_id=0000037&sort=14&page=1: HTTP 503 after 5 attempt(s)'
-    last_run: https://github.com/yurarium/yurison/actions/runs/44562024331
+    last_run: https://github.com/yurarium/yurison/actions/runs/44694861968
   cmoa-volumes:
     stage: stage-print
     last_ok: '2026-11-20'
@@ -173,6 +173,10 @@ sources:
     last_ok: '2026-11-20'
     consecutive: 0
   fieldaudit:コミックトレイル:
+    stage: checks
+    last_ok: '2026-11-20'
+    consecutive: 0
+  fieldaudit:コミックボーダー:
     stage: checks
     last_ok: '2026-11-20'
     consecutive: 0
@@ -666,18 +670,18 @@ sources:
     consecutive: 0
   stale:stage-print:cmoa-shelf:
     stage: freshness
-    consecutive: 78
+    consecutive: 79
     last_failed: '2026-11-20'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-yuri.yaml dated 2026-08-04
-    last_run: https://github.com/yurarium/yurison/actions/runs/44562024331
+    last_run: https://github.com/yurarium/yurison/actions/runs/44694861968
   stale:stage-print:cmoa-volumes:
     stage: freshness
-    consecutive: 78
+    consecutive: 79
     last_failed: '2026-11-20'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-volumes.yaml dated 2026-08-05
-    last_run: https://github.com/yurarium/yurison/actions/runs/44562024331
+    last_run: https://github.com/yurarium/yurison/actions/runs/44694861968
   stale:stage-print:madb-*:
     stage: freshness
     last_ok: '2026-11-20'
@@ -700,15 +704,19 @@ sources:
     consecutive: 0
   stale:stage-print:shop-volume-names:
     stage: freshness
-    consecutive: 26
+    consecutive: 27
     last_failed: '2026-11-20'
     failing_since: '2026-11-09'
     error: 1 file(s) past their age, e.g. data/source/comparators/shop-volume-names.yaml dated 2026-08-05
-    last_run: https://github.com/yurarium/yurison/actions/runs/44562024331
+    last_run: https://github.com/yurarium/yurison/actions/runs/44694861968
   webcomics-coverage:
     stage: stage-0
     last_ok: '2026-11-20'
-    consecutive: 0
+    consecutive: 1
+    last_failed: '2026-11-20'
+    failing_since: '2026-11-20'
+    error: 'UnboundLocalError: cannot access local variable ''carried'' where it is not associated with a value'
+    last_run: https://github.com/yurarium/yurison/actions/runs/44694861968
   webpages:
     stage: stage-a
     last_ok: '2026-11-20'

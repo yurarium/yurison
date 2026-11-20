@@ -1,4 +1,4 @@
-generated: '2026-11-19'
+generated: '2026-11-20'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -15839,6 +15839,38 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  この関西人がウザすぎる!!〜なにわギャルとイケズ京男に振り回されています〜:
+    basis: romaji
+    furigana_spans:
+    - - この
+      - null
+    - - 関西
+      - かんさい
+    - - 人
+      - にん
+    - - がウザすぎる!!〜なにわギャルとイケズ
+      - null
+    - - 京男
+      - きょうなん
+    - - に
+      - null
+    - - 振
+      - ふ
+    - - り
+      - null
+    - - 回
+      - まわ
+    - - されています〜
+      - null
+    reading: コノ カンサイニン ガ ウザ スギル!! 〜 ナニワ ギャル ト イケズ キョウナン ニ フリマワサレテ イマス 〜
+    reading_at: '2026-11-20'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   この関西人がウザすぎる!!～なにわギャルとイケズ京男に振り回されています～:
     basis: translated
     en: 'This Kansai Girl Is Too Much!!: Run Ragged by a Naniwa Gyaru and a Sly Kyoto Boy'
@@ -30169,14 +30201,14 @@ names:
     note: The suffix is Champion Cross's own oneshot marker, present in the page's own title tag; dropped
       as promotional framing rather than part of the title.
     reading: ガラスノキック
-    reading_at: '2026-11-19'
-    reading_basis: analyser
+    reading_at: '2026-11-20'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ガラティアは知ってる:
     basis: translated
     en: Galatea Knows
@@ -36472,16 +36504,15 @@ names:
     en_source_kind: derived
     note: The suffix is Champion Cross's own oneshot marker, present in the page's own title tag; dropped
       as promotional framing rather than part of the title.
-    reading: ダブル ピース
-    reading_at: '2026-11-19'
-    reading_basis: analyser
+    reading: ダブルピース
+    reading_at: '2026-11-20'
+    reading_basis: surface
     reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
       weakest on pen names and coinages
-    reading_ordinary: true
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_pass: 1
+    reading_source: surface
     reading_source_kind: analyser
-    verified: false
+    verified: true
   ダメ犬彼女:
     basis: translated
     en: My No-Good Dog of a Girlfriend

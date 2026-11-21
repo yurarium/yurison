@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-21
+retrieved: 2026-11-22
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -36,21 +36,6 @@ platforms_missing:
   - platform: "ドリコミ+"
     works: 1
 works_missing:
-  - title: "うさぎはかく語りき"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3572"
-    antenna_id: "173581"
-    tags: ["最近のコメント数"]
-  - title: "球詠"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/441"
-    antenna_id: "88071"
-    tags: ["野球", "女子高生", "アニメ化", "百合"]
-  - title: "IDOL×IDOL STORY!"
-    platform: "COMIC FUZ"
-    url: "https://comic-fuz.com/manga/3140"
-    antenna_id: "138856"
-    tags: ["百合", "アイドル"]
   - title: "君が一等星に光るまで"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/4133"
@@ -61,6 +46,21 @@ works_missing:
     url: "https://comic-fuz.com/manga/3776"
     antenna_id: "209939"
     tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
+  - title: "うさぎはかく語りき"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3572"
+    antenna_id: "173581"
+    tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
+  - title: "球詠"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/441"
+    antenna_id: "88071"
+    tags: ["野球", "女子高生", "アニメ化", "百合"]
+  - title: "IDOL×IDOL STORY!"
+    platform: "COMIC FUZ"
+    url: "https://comic-fuz.com/manga/3140"
+    antenna_id: "138856"
+    tags: ["百合", "アイドル"]
   - title: "百合SMでふたりの気持ちはつながりますか?"
     platform: "COMIC FUZ"
     url: "https://comic-fuz.com/manga/2391"
@@ -270,7 +270,7 @@ works_missing:
     platform: "となりのヤングジャンプ"
     url: "https://tonarinoyj.jp/episode/12207421984537962117"
     antenna_id: "218504"
-    tags: ["百合", "読み切り"]
+    tags: ["最近のコメント数"]
   - title: "血も涙もある‼︎"
     platform: "となりのヤングジャンプ"
     url: "https://tonarinoyj.jp/episode/12207421984537962123"
@@ -320,7 +320,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020389_S"
     antenna_id: "215767"
-    tags: ["最近のコメント数"]
+    tags: ["ゲーム世界", "転生", "ファンタジー", "百合", "チート"]
   - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007220_S"
@@ -735,7 +735,7 @@ works_missing:
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/63674"
     antenna_id: "152986"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "女子高生", "エロ", "同性愛・LGBTQ+"]
   - title: "運命のヤマダダダダダダダダダダ"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/72312"
@@ -966,16 +966,16 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03301"
     antenna_id: "213683"
     tags: ["百合", "読み切り"]
-  - title: "私のブルーガーネット"
-    platform: "マンガPark"
-    url: "https://manga-park.com/title/98459"
-    antenna_id: "197977"
-    tags: ["百合", "エロ"]
   - title: "ロックは淑女の嗜みでして"
     platform: "マンガPark"
     url: "https://manga-park.com/title/67724"
     antenna_id: "148272"
     tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
+  - title: "私のブルーガーネット"
+    platform: "マンガPark"
+    url: "https://manga-park.com/title/98459"
+    antenna_id: "197977"
+    tags: ["百合", "エロ"]
   - title: "女にはそれぞれ裏がある"
     platform: "マンガよもんが"
     url: "https://www.yomonga.com/titles/2571/"
@@ -1085,7 +1085,7 @@ works_missing:
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/8e32550d65684"
     antenna_id: "133566"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "恋愛", "ラブコメ", "うぶ恋・ピュア恋", "カップル", "片思い"]
   - title: "魔法少女にあこがれて"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/0d7dee548d547"

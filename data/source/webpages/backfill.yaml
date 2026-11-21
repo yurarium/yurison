@@ -12,10 +12,30 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-11-21
+retrieved: 2026-11-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "百音と四季"
+    author: "栄太"
+    url: "https://tonarinoyj.jp/episode/12207421984537962117"
+    platform_name: "となりのヤングジャンプ"
+    route: "gigaviewer-feed"
+    chapter_count: 1
+    chapters:
+      - title: "百音と四季"
+        updated: 2026-11-20
+        access_modes: ["free"]
+  - work_title: "血も涙もある‼︎"
+    author: "ヤマグチ"
+    url: "https://tonarinoyj.jp/episode/12207421984537962123"
+    platform_name: "となりのヤングジャンプ"
+    route: "gigaviewer-feed"
+    chapter_count: 1
+    chapters:
+      - title: "血も涙もある‼︎"
+        updated: 2026-11-20
+        access_modes: ["free"]
   - work_title: "瑠夏と杏珠の逃避行"
     author: "清水幸"
     url: "https://pocket.shonenmagazine.com/title/03368/episode/446346"

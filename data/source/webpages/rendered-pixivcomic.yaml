@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-21
+retrieved: 2026-11-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -33,23 +33,6 @@ works:
         updated: 2024-11-02
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "腹割るウチらの秘密ごと!"
-    author: "夏村東和"
-    url: "https://comic.pixiv.net/works/11664"
-    chapter_count: 3
-    chapters:
-      - title: "第１９話"
-        updated: 2026-09-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第２話"
-        updated: 2025-05-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第１話"
-        updated: 2025-04-24
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "まるせっせんす"
     author: "畳ゆか"
     url: "https://comic.pixiv.net/works/12886"
@@ -65,6 +48,23 @@ works:
         date_basis: rendered
       - title: "1 原罪"
         updated: 2026-03-20
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "この関西人がウザすぎる!!〜なにわギャルとイケズ京男に振り回されています〜"
+    author: "ささみりせ"
+    url: "https://comic.pixiv.net/works/13903"
+    chapter_count: 3
+    chapters:
+      - title: "第1話（3）"
+        updated: 2026-11-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話（2）"
+        updated: 2026-11-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話（1）"
+        updated: 2026-11-01
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -669,6 +669,23 @@ works:
         date_basis: rendered
       - title: "第1話 運命のきつねうどん　前編"
         updated: 2025-04-05
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "腹割るウチらの秘密ごと!"
+    author: "夏村東和"
+    url: "https://comic.pixiv.net/works/11664"
+    chapter_count: 3
+    chapters:
+      - title: "第１９話"
+        updated: 2026-09-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第２話"
+        updated: 2025-05-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第１話"
+        updated: 2025-04-24
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "冷たくて 柔らか"
@@ -2268,23 +2285,6 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2026-08-25
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "この関西人がウザすぎる!!〜なにわギャルとイケズ京男に振り回されています〜"
-    author: "ささみりせ"
-    url: "https://comic.pixiv.net/works/13903"
-    chapter_count: 3
-    chapters:
-      - title: "第1話（3）"
-        updated: 2026-11-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話（2）"
-        updated: 2026-11-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話（1）"
-        updated: 2026-11-01
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "彼氏の女友達がぐいぐい来る(私に)"

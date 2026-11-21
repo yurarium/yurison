@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
-retrieved: "2026-11-21"
+retrieved: "2026-11-22"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -49,7 +49,7 @@ works:
   - work_title: "笑顔のたえない職場です。"
     series_id: "10834108156652406186"
     url: "https://comic-days.com/atom/series/10834108156652406186"
-    chapter_count: 126
+    chapter_count: 127
     chapters:
       - title: "第１話　嫌われたらどうする!!"
         updated: "2019-05-18"
@@ -546,7 +546,7 @@ works:
       - title: "第１２３話　懸ける思いは"
         updated: "2026-09-19"
         url: "https://comic-days.com/episode/12207421983484134836"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第１２４話　色んなものが進んで始まって"
         updated: "2026-10-10"
         url: "https://comic-days.com/episode/12207421983484134839"
@@ -554,6 +554,10 @@ works:
       - title: "第１２５話　黙って寝ろ！！"
         updated: "2026-10-24"
         url: "https://comic-days.com/episode/12207421983484134843"
+        access_modes: ["free"]
+      - title: "第１２６話　なんかお祭りみたい..."
+        updated: "2026-11-21"
+        url: "https://comic-days.com/episode/12207421983484134850"
         access_modes: ["purchase"]
   - work_title: "おとなになっても"
     series_id: "10834108156680164519"

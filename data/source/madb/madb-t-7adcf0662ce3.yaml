@@ -1,8 +1,8 @@
 # Source-layer record. Stored as fetched; never hand-edited (REQUIREMENTS §5).
 # Curation and content classification belong in the overlay layer.
 source: madb
-source_version: "1.2.21"
-retrieved: 2026-11-01
+source_version: "1.2.22"
+retrieved: 2026-11-21
 work_id: madb-t-7adcf0662ce3
 route: shop-query
 grouping: title-only
@@ -16,9 +16,9 @@ title:
 creator: "むちゃ"
 publisher: "集英社"
 imprint: "ヤングジャンプコミックス・ウルトラ"
-volume_count: 4
+volume_count: 5
 first_published: 2024-04
-last_published: 2026-02-16
+last_published: 2026-09-19
 volumes:
   - madb_id: M967938
     number: "1"
@@ -36,13 +36,17 @@ volumes:
     number: "5"
     isbn: "9784088940410"
     published: 2026-02-16
+  - madb_id: M1123437
+    number: "6"
+    isbn: "9784088943589"
+    published: 2026-09-19
 identified_by:
   route: shop-query
   shop: bookwalker.jp
   query: "author"
   url: "https://bookwalker.jp/series/460795/list/"
   serialisation: "少年ジャンプ+"
-  retrieved: 2026-11-01
+  retrieved: 2026-11-21
   note: >-
     The shop was asked what it stocks for a work this database already held, and its
     answer agreed on the title and on a person. A shop is discovery only
@@ -52,7 +56,7 @@ marketing_label: none
 marketing_label_basis:
   source: madb
   url: 
-  retrieved: 2026-11-01
+  retrieved: 2026-11-21
   note: >-
     Identified by asking a licensed retailer what it stocks for a work this database
     already held. A shop's stock is not publisher-side labelling (§4), so this

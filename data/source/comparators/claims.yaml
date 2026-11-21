@@ -8,10 +8,10 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-21
+retrieved: 2026-11-22
 record_type: update_claims
 window_days: 60
-claims: 442
+claims: 440
 updates:
   - work: "聖女先生の魔法は進んでる！ しまづ/鴉ぴえろ"
     platform: "カドコミ"
@@ -26,13 +26,13 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/03368"
     listing_tags: ["百合", "女子中学生"]
-  - work: "新刊100億冊ください"
-    platform: "コミックDAYS"
+  - work: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
     date: 2026-11-21
     source: "webcomics.jp"
     provenance: claimed
-    url: "https://comic-days.com/episode/2550912965415315207"
-    listing_tags: ["オタク", "同人活動", "百合", "漫画家・絵描き", "中二病", "ブロ・シスマンス"]
+    url: "https://comic-fuz.com/manga/3776"
+    listing_tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
   - work: "怨霊日和"
     platform: "pixivコミック"
     date: 2026-11-21
@@ -40,13 +40,20 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/13946"
     listing_tags: ["百合"]
-  - work: "夢でフラれてはじまる百合"
-    platform: "竹コミ‎‏‎"
+  - work: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
     date: 2026-11-21
     source: "webcomics.jp"
     provenance: claimed
-    url: "https://takecomic.jp/series/8e32550d65684"
-    listing_tags: ["最近のコメント数"]
+    url: "https://comic-fuz.com/manga/4133"
+    listing_tags: ["百合"]
+  - work: "上杉くんは女の子をやめたい"
+    platform: "コロコロオンライン"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.corocoro.jp/title/515"
+    listing_tags: ["BL", "女装", "三角関係", "TS", "同性愛・LGBTQ+", "幼なじみ", "現代", "恋愛", "青春", "百合"]
   - work: "七限目は忍者修行です!"
     platform: "カドコミ"
     date: 2026-11-21
@@ -54,6 +61,20 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_007122_S"
     listing_tags: ["百合", "忍者", "ギャグ・コメディ", "女子高生", "完結"]
+  - work: "ロックは淑女の嗜みでして"
+    platform: "マンガPark"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-park.com/title/67724"
+    listing_tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
+  - work: "ファタールゲーム"
+    platform: "マガポケ"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03056"
+    listing_tags: ["百合", "漫画家・絵描き"]
   - work: "オカルトタイムズ"
     platform: "マガポケ"
     date: 2026-11-21
@@ -101,14 +122,14 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_020389_S"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ゲーム世界", "転生", "ファンタジー", "百合", "チート"]
   - work: "百音と四季"
     platform: "となりのヤングジャンプ"
     date: 2026-11-20
     source: "webcomics.jp"
     provenance: claimed
     url: "https://tonarinoyj.jp/episode/12207421984537962117"
-    listing_tags: ["百合", "読み切り"]
+    listing_tags: ["最近のコメント数"]
   - work: "球詠"
     platform: "COMIC FUZ"
     date: 2026-11-20
@@ -130,6 +151,13 @@ updates:
     provenance: claimed
     url: "https://shonenjumpplus.com/episode/17107094912913096422"
     listing_tags: ["女子高生", "運動系部活", "百合", "スポーツ", "卓球"]
+  - work: "新刊100億冊ください"
+    platform: "コミックDAYS"
+    date: 2026-11-20
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550912965415315207"
+    listing_tags: ["オタク", "同人活動", "百合", "漫画家・絵描き", "中二病", "ブロ・シスマンス", "姪", "推し活"]
   - work: "平良深姉妹はどっちもヤんでる"
     platform: "マガポケ"
     date: 2026-11-20
@@ -143,6 +171,13 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "夢でフラれてはじまる百合"
+    platform: "竹コミ‎‏‎"
+    date: 2026-11-20
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://takecomic.jp/series/8e32550d65684"
+    listing_tags: ["百合", "恋愛", "ラブコメ", "うぶ恋・ピュア恋", "カップル", "片思い"]
   - work: "君となら、明日を歌えるの"
     platform: "カドコミ"
     date: 2026-11-20
@@ -239,7 +274,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-fuz.com/manga/3572"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["現代ファンタジー", "バトル", "獣人", "百合"]
   - work: "あめのひもがも～八百屋お七炎上図 葛飾応為筆～"
     platform: "カドコミ"
     date: 2026-11-20
@@ -338,7 +373,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/63674"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "女子高生", "エロ", "同性愛・LGBTQ+"]
   - work: "ワインガールズ"
     platform: "キミコミ"
     date: 2026-11-19
@@ -761,27 +796,6 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/2391"
     listing_tags: ["百合", "フェチ・性癖"]
-  - work: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    date: 2026-11-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3776"
-    listing_tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
-  - work: "君が一等星に光るまで"
-    platform: "COMIC FUZ"
-    date: 2026-11-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/4133"
-    listing_tags: ["百合"]
-  - work: "ロックは淑女の嗜みでして"
-    platform: "マンガPark"
-    date: 2026-11-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-park.com/title/67724"
-    listing_tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
   - work: "Killer♡Twinkle～アンチはステージに上がれません♡～"
     platform: "チャンピオンクロス"
     date: 2026-11-15
@@ -1404,13 +1418,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/9380"
     listing_tags: ["百合", "姉妹", "ヤンデレ"]
-  - work: "ファタールゲーム"
-    platform: "マガポケ"
-    date: 2026-11-08
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03056"
-    listing_tags: ["百合", "漫画家・絵描き"]
   - work: "オカワリいただけただろうか?"
     platform: "がうがうモンスター"
     date: 2026-11-08
@@ -1418,13 +1425,6 @@ updates:
     provenance: claimed
     url: "https://gaugau.futabanet.jp/list/work/EnQ4mmd2IQQHmeBN3H2KsMU5P"
     listing_tags: ["百合", "妖怪", "現代", "女子高生"]
-  - work: "上杉くんは女の子をやめたい"
-    platform: "コロコロオンライン"
-    date: 2026-11-07
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.corocoro.jp/title/515"
-    listing_tags: ["BL", "女装", "三角関係", "TS", "同性愛・LGBTQ+", "幼なじみ", "現代", "恋愛", "青春", "百合"]
   - work: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     platform: "コミックDAYS"
     date: 2026-11-07
@@ -2978,17 +2978,3 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_019740_S"
     listing_tags: ["百合", "温泉・サウナ"]
-  - work: "性悪天才幼馴染との勝負に負けて初体験を全部奪われる話"
-    platform: "カドコミ"
-    date: 2026-09-22
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_005405_S"
-    listing_tags: ["百合"]
-  - work: "世が夜なら!"
-    platform: "マガポケ"
-    date: 2026-09-22
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/01147"
-    listing_tags: ["お色気・微エロ", "百合", "異種族・人外", "ギャグ・コメディ", "吸血鬼・ヴァンパイア", "完結"]

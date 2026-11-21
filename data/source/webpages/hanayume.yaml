@@ -6,7 +6,7 @@ platform: hanayume
 platform_name: "花とゆめ+"
 publisher: "白泉社"
 engine: comici
-retrieved: 2026-11-21
+retrieved: 2026-11-22
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,7 +14,7 @@ works:
     status: "読み切り"
     author: "伊田いつき"
     url: "https://hanayume.com/series/dcaacd8b4831f"
-    read: "2026-11-21"
+    read: "2026-11-22"
     chapter_count: 1
     chapters:
       - title: "あの子のスカート"
@@ -24,7 +24,7 @@ works:
     status: "読み切り"
     author: "千野なこ"
     url: "https://hanayume.com/series/e8423800e9e02"
-    read: "2026-11-21"
+    read: "2026-11-22"
     chapter_count: 1
     chapters:
       - title: "りのちゃんの好きなこと"
@@ -34,7 +34,7 @@ works:
     status: "連載中"
     author: "瑠夏子"
     url: "https://hanayume.com/series/f3ce082d639de"
-    read: "2026-11-21"
+    read: "2026-11-22"
     chapter_count: 45
     chapters:
       - title: "#1"
@@ -176,7 +176,7 @@ works:
     status: "完結"
     author: "瑠夏子"
     url: "https://hanayume.com/series/1191c17a3f374"
-    read: "2026-11-21"
+    read: "2026-11-22"
     chapter_count: 7
     chapters:
       - title: "1話"
@@ -204,8 +204,8 @@ works:
     status: "連載中"
     author: "まめ魚"
     url: "https://hanayume.com/series/ca4ef0eb47ea3"
-    read: "2026-11-21"
-    chapter_count: 21
+    read: "2026-11-22"
+    chapter_count: 22
     chapters:
       - title: "1話"
         updated: "2026-04-20"
@@ -263,18 +263,21 @@ works:
         access_modes: ["free-timed"]
       - title: "16話"
         updated: "2026-10-11"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "おまけ"
         updated: "2026-10-25"
         access_modes: ["free"]
       - title: "17話"
         updated: "2026-11-08"
+        access_modes: ["free"]
+      - title: "18話"
+        updated: "2026-11-22"
         access_modes: ["purchase"]
   - work_title: "魔法使いの作庭"
     status: "読み切り"
     author: "勇魚とり"
     url: "https://hanayume.com/series/96cd6ffadb9ee"
-    read: "2026-11-21"
+    read: "2026-11-22"
     chapter_count: 1
     chapters:
       - title: "魔法使いの作庭"

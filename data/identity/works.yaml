@@ -17219,6 +17219,11 @@ works:
     title: null
     anchors:
       - "madb:bw-525638"
+      - "web:https://comic.pixiv.net/works/13903"
+    attached:
+      - anchor: "web:https://comic.pixiv.net/works/13903"
+        basis: "creator ささみりせ is named on the platform page"
+        retrieved: 2026-11-20
   - id: w02347
     title: "神仙桃娘 宮廷の贄"
     anchors:

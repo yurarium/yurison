@@ -77,6 +77,7 @@ def main(s):
 
 
     a_one_shot_states_one_date(s)
+    a_failed_read_keeps_the_last_one(s)
 
 
 def a_one_shot_states_one_date(s):
@@ -209,6 +210,52 @@ def a_one_shot_states_one_date(s):
     s.eq(rm.from_oneshot('読み切り 2026年6月17日 と 2026年7月1日'), [],
          "two dates are a page this may not read")
     s.eq(rm.from_oneshot('第1話 2026年6月17日'), [], "and a page with no 読み切り on it is not one")
+
+
+def a_failed_read_keeps_the_last_one(s):
+    # バトル・ウィッチーズ left the corpus on 2026-11-20 because one render of 新都社's page came
+    # back empty and the writer kept only what the run reached. A target that fails is written
+    # back as it was last read; a work no longer targeted is not, since another capture holds it.
+    import tempfile
+    import yaml
+    d = pathlib.Path(tempfile.mkdtemp())
+    (d / "remaining.yaml").write_text("\n".join([
+        "source: webpages", "platform: remaining", "retrieved: 2026-11-19", "works:",
+        '  - work_title: "失敗する作品"', '    url: "http://x.jp/fails"', '    platform_name: "新都社"',
+        '    route: "rendered"', "    chapter_count: 1", "    chapters:",
+        '      - title: "第17話"', "        updated: 2026-08-13", "        date_basis: rendered",
+        '  - work_title: "外れた作品"', '    url: "http://x.jp/dropped"', '    route: "markup"',
+        "    chapter_count: 1", "    chapters:",
+        '      - title: "第1話"', "        updated: 2026-08-01", "        date_basis: read", ""]))
+    got = rm.carried(d / "remaining.yaml", ["http://x.jp/fails"])
+    s.eq([r["work_title"] for r in got], ["失敗する作品"], "only a target that failed this run is carried")
+    s.eq(got[0]["read"], "2026-11-19", "and it keeps the day it was read, not the new file's")
+    s.eq(got[0]["platform"], "新都社", "with the platform it was read under")
+    got = rm.carried(d / "remaining.yaml", ["http://x.jp/dropped"])
+    s.check(got[0]["episodes"][0].get("read") is True,
+            "a chapter dated by the reading stays marked as one")
+    s.eq(rm.carried(d / "absent.yaml", ["http://x.jp/fails"]), [], "no file means nothing to carry")
+
+    # THROUGH THE WRITER: a run where every page fails still holds the failed target, and says when.
+    (d / "targets.yaml").write_text('works:\n  - title: "失敗する作品"\n    url: "http://x.jp/fails"\n')
+    real = rm.get, rm.render, sys.argv
+    rm.get, rm.render = (lambda *a, **k: None), (lambda *a, **k: None)
+    sys.argv = ["releases.py", "--works", str(d / "targets.yaml"), "--out", str(d),
+                "--cache", str(d / "cache"), "--retrieved", "2026-11-21"]
+    try:
+        import contextlib, io
+        with contextlib.redirect_stdout(io.StringIO()):
+            rm.main()
+    finally:
+        rm.get, rm.render, sys.argv = real
+    doc = yaml.safe_load((d / "remaining.yaml").read_text())
+    s.eq([w["work_title"] for w in doc["works"]], ["失敗する作品"],
+         "the failed target is written back and the untargeted work is not")
+    w = doc["works"][0]
+    s.eq((str(w.get("read")), str(doc["retrieved"])), ("2026-11-19", "2026-11-21"),
+         "under its own read date beside the file's new one")
+    s.eq([(c["title"], c["date_basis"]) for c in w["chapters"]], [("第17話", "rendered")],
+         "with its chapters and their date basis unchanged")
 
 
 if __name__ == "__main__":

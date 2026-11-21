@@ -337,6 +337,44 @@ def from_oneshot(html, title=None):
     return [{"title": "読み切り", "updated": TODAY, "oneshot": True, "read": True}]
 
 
+def carried(path, urls):
+    """The rows this file already holds for targets that failed this run, in the run's shape.
+
+    A WORK THIS ROUTE FAILED TO READ WAS DROPPED FROM THE FILE. バトル・ウィッチーズ is held only
+    through 新都社's page, read here by rendering, and on 2026-11-20 the render returned nothing.
+    The writer replaced the file with what the run reached, so the work left the corpus and its
+    curated English was left naming a title nothing held. Failing to read a page is not a finding
+    about it, which is the rule `webpages/releases.carry_over` already follows.
+
+    ONLY A TARGET STILL ASKED FOR AND STILL FAILING. `urls` is the addresses this run tried and
+    could not read; a work that left the target list was left because another capture holds it,
+    and carrying it would put a second, older answer beside that one.
+
+    AND IT KEEPS THE DAY IT WAS READ, as `read`, so a carried row does not sit under the file's
+    newer `retrieved` looking freshly read.
+    """
+    p = pathlib.Path(path)
+    if not p.exists():
+        return []
+    old = yaml.safe_load(p.read_text()) or {}
+    urls = set(urls)
+    keep = []
+    for w in old.get("works") or []:
+        if w.get("url") not in urls:
+            continue
+        eps = []
+        for c in w.get("chapters") or []:
+            e = {k: v for k, v in c.items() if k != "date_basis"}
+            if c.get("date_basis") == "read":
+                e["read"] = True
+            eps.append(e)
+        keep.append({"work_title": w.get("work_title"), "url": w.get("url"),
+                     "platform": w.get("platform_name"), "route": w.get("route"),
+                     "author": w.get("author"), "episodes": eps,
+                     "read": str(w.get("read") or old.get("retrieved") or "")[:10] or None})
+    return keep
+
+
 def js(v):
     return json.dumps(v, ensure_ascii=False)
 
@@ -357,7 +395,7 @@ def main():
     out = pathlib.Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
 
-    rows, how, failed = [], Counter(), []
+    rows, how, failed, unread = [], Counter(), [], []
     for w in (yaml.safe_load(open(a.works)) or {}).get("works") or []:
         url = w.get("url")
         if not url:
@@ -417,6 +455,7 @@ def main():
             failed.append((w.get("title"),
                            DIAG.get(url) or ("page did not load" if not html else
                                              "no route yielded a dated chapter list")))
+            unread.append(url)
             continue
         how[route] += 1
         if page_author:
@@ -425,6 +464,9 @@ def main():
         rows.append({"work_title": w.get("title"), "url": url, "platform": w.get("platform"),
                      "route": route, "author": page_author, "episodes": eps})
 
+    # Everything this run tried and could not read, written back as it was. See carried.
+    kept = carried(out / f"{a.name}.yaml", unread)
+    rows += kept
     if rows:
         L = ["# Series reached individually after every platform pass had left them out.",
              "#",
@@ -444,6 +486,8 @@ def main():
             if r.get("platform"):
                 L.append(f"    platform_name: {js(r['platform'])}")
             L.append(f"    route: {js(r['route'])}")
+            if r.get("read"):
+                L.append(f"    read: {js(r['read'])}")
             L.append(f"    chapter_count: {len(r['episodes'])}")
             L.append("    chapters:")
             for e in r["episodes"]:
@@ -469,8 +513,10 @@ def main():
         L.append("")
         (out / f"{a.name}.yaml").write_text("\n".join(L))
 
-    print(f"works attempted : {len(rows) + len(failed)}")
-    print(f"reached         : {len(rows)}  {dict(how)}")
+    print(f"works attempted : {len(rows) - len(kept) + len(failed)}")
+    print(f"reached         : {len(rows) - len(kept)}  {dict(how)}")
+    if kept:
+        print(f"carried         : {len(kept)} kept from their last reading")
     if failed:
         print(f"unreached       : {len(failed)}")
         for t, r in failed:

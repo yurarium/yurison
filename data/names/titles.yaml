@@ -662,6 +662,16 @@ names:
     reading_source_kind: platform
     reading_url: https://bookwalker.jp/de34d4351a-0c3b-4fce-a5bd-6a66ad21b04d/
     verified: true
+  1限目:
+    basis: translated
+    en: Period 1
+    en_at: '2026-11-21'
+    en_reviewed: '2026-11-21'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 限目 counts school class periods, so 1限目 is the first period. The BOOK☆WALKER series page for
+      ALL YOU!! lists it as a numbered book, so it reads as Period 1 under the series name.
+    verified: false
   '2332':
     basis: official-jp
     en: '2332'
@@ -899,6 +909,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  2限目:
+    basis: translated
+    en: Period 2
+    en_at: '2026-11-21'
+    en_reviewed: '2026-11-21'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 限目 counts school class periods, so 2限目 is the second period. The BOOK☆WALKER series page for
+      ALL YOU!! lists it as a numbered book, so it reads as Period 2 under the series name.
     verified: false
   3.25のねぼけた世界 -Saturday:
     basis: translated
@@ -4475,6 +4495,16 @@ names:
     note: The BOOK☆WALKER series page lists this as Act.12 of the series, with the English words SWEET
       DAYS as the chapter title. It is katakana-free English, so it is kept as English and given the act
       number, without repeating the series title.
+    verified: false
+  Saturday -Introduction:
+    basis: translated
+    en: Introduction
+    en_at: '2026-11-21'
+    en_reviewed: '2026-11-21'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists this as Saturday -Introduction-, the eighth book of the series. Without
+      the series name repeated, the book reads as Introduction under Saturday (Manga).
     verified: false
   Saturday(漫画):
     basis: translated
@@ -16804,6 +16834,17 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  さくらと加瀬さん:
+    basis: translated
+    en: Kase-san and Cherry Blossoms
+    en_at: '2026-11-21'
+    en_reviewed: '2026-11-21'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists さくらと加瀬さん。 as the sixth book of the 加瀬さんシリーズ. The related title さくらと加瀬さん。
+      is already named Kase-san and Cherry Blossoms, so this entry takes the same name. The English order
+      follows the Kase-san and... pattern.
+    verified: false
   さくらと加瀬さん。:
     basis: licensed
     en: Kase-san and Cherry Blossoms
@@ -19090,6 +19131,16 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  たぶん、好き:
+    basis: translated
+    en: Maybe I Like You
+    en_at: '2026-11-21'
+    en_reviewed: '2026-11-21'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists たぶん、好き。-Wednesday- with no English title. The Japanese is a hesitant
+      confession, maybe I like you, and it sits under the series name Wednesday.
+    verified: false
   たゆたうふたり:
     basis: licensed
     en: A Couple Drifting in the Wind
@@ -19764,6 +19815,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  では、また式場で:
+    basis: translated
+    en: See You at the Wedding Venue, Then
+    en_at: '2026-11-21'
+    en_reviewed: '2026-11-21'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists this book as では、また式場で。-Wednesday- with no English. 式場 is a wedding
+      or ceremony hall, so the title is a parting line meaning see you at the venue. It is named to sit
+      under the series name Wednesday.
     verified: false
   とある魔術の禁書目録外伝　とある科学の心理掌握:
     basis: official-jp
@@ -66946,6 +67008,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  恋心と星:
+    basis: translated
+    en: Feelings of Love and Stars
+    en_at: '2026-11-21'
+    en_reviewed: '2026-11-21'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 恋心 means romantic feelings and 星 means star. The BOOK☆WALKER page lists this as the second book
+      of the poprication collection with no English title, so the rendering is a plain translation.
+    verified: false
   恋愛エコロケーション:
     basis: translated
     en: Love Echolocation
@@ -92087,7 +92159,12 @@ names:
     reading_source_kind: analyser
     verified: false
   血も涙もある‼︎:
-    basis: romaji
+    basis: translated
+    en: Blood and Tears, I've Got Both!!
+    en_at: '2026-11-21'
+    en_reviewed: '2026-11-21'
+    en_source: yurarium
+    en_source_kind: derived
     furigana_spans:
     - - 血
       - ち
@@ -92097,6 +92174,9 @@ names:
       - なみだ
     - - もある‼︎
       - null
+    note: The title turns the set phrase 血も涙もない (heartless, literally having neither blood nor tears)
+      into its positive form, so the speaker is claiming to be warm and compassionate. The となりのヤングジャンプ
+      episode page gives no English title or synopsis, so the rendering rests on the phrase itself.
     reading: チ モ ナミダ モ アル ‼!︎
     reading_at: '2026-11-21'
     reading_basis: analyser

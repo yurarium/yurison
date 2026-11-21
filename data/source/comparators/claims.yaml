@@ -11,7 +11,7 @@ role: provisional-claims
 retrieved: 2026-11-21
 record_type: update_claims
 window_days: 60
-claims: 439
+claims: 442
 updates:
   - work: "聖女先生の魔法は進んでる！ しまづ/鴉ぴえろ"
     platform: "カドコミ"
@@ -19,6 +19,55 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "瑠夏と杏珠の逃避行"
+    platform: "マガポケ"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03368"
+    listing_tags: ["百合", "女子中学生"]
+  - work: "新刊100億冊ください"
+    platform: "コミックDAYS"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550912965415315207"
+    listing_tags: ["オタク", "同人活動", "百合", "漫画家・絵描き", "中二病", "ブロ・シスマンス"]
+  - work: "怨霊日和"
+    platform: "pixivコミック"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/13946"
+    listing_tags: ["百合"]
+  - work: "夢でフラれてはじまる百合"
+    platform: "竹コミ‎‏‎"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://takecomic.jp/series/8e32550d65684"
+    listing_tags: ["最近のコメント数"]
+  - work: "七限目は忍者修行です!"
+    platform: "カドコミ"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_007122_S"
+    listing_tags: ["百合", "忍者", "ギャグ・コメディ", "女子高生", "完結"]
+  - work: "オカルトタイムズ"
+    platform: "マガポケ"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    listing_tags: ["百合", "オカルト"]
+  - work: "けもみみ巫女の異世界神社再興記 神様がくれた奇跡の力のせいで祀られすぎて困ってます。"
+    platform: "カドコミ"
+    date: 2026-11-21
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_021699_S"
+    listing_tags: ["百合"]
   - work: "魔法少女にあこがれて 小野中彰大"
     platform: "竹コミ！"
     date: 2026-11-20
@@ -39,6 +88,13 @@ updates:
     provenance: claimed
     url: "https://www.ganganonline.com/title/2286"
     listing_tags: ["百合", "読み切り", "サトリ"]
+  - work: "血も涙もある‼︎"
+    platform: "となりのヤングジャンプ"
+    date: 2026-11-20
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://tonarinoyj.jp/episode/12207421984537962123"
+    listing_tags: ["百合", "読み切り"]
   - work: "盗賊少女に転生したけど、周回ボーナスで楽勝です! 100%盗む&逃げるでラクラク冒険者生活"
     platform: "カドコミ"
     date: 2026-11-20
@@ -46,6 +102,13 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_020389_S"
     listing_tags: ["最近のコメント数"]
+  - work: "百音と四季"
+    platform: "となりのヤングジャンプ"
+    date: 2026-11-20
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://tonarinoyj.jp/episode/12207421984537962117"
+    listing_tags: ["百合", "読み切り"]
   - work: "球詠"
     platform: "COMIC FUZ"
     date: 2026-11-20
@@ -67,13 +130,6 @@ updates:
     provenance: claimed
     url: "https://shonenjumpplus.com/episode/17107094912913096422"
     listing_tags: ["女子高生", "運動系部活", "百合", "スポーツ", "卓球"]
-  - work: "新刊100億冊ください"
-    platform: "コミックDAYS"
-    date: 2026-11-20
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-days.com/episode/2550912965415315207"
-    listing_tags: ["オタク", "同人活動", "百合", "漫画家・絵描き", "中二病", "ブロ・シスマンス"]
   - work: "平良深姉妹はどっちもヤんでる"
     platform: "マガポケ"
     date: 2026-11-20
@@ -87,13 +143,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "夢でフラれてはじまる百合"
-    platform: "竹コミ‎‏‎"
-    date: 2026-11-20
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://takecomic.jp/series/8e32550d65684"
-    listing_tags: ["最近のコメント数"]
   - work: "君となら、明日を歌えるの"
     platform: "カドコミ"
     date: 2026-11-20
@@ -129,13 +178,6 @@ updates:
     provenance: claimed
     url: "https://ynjn.jp/title/12102"
     listing_tags: ["百合"]
-  - work: "オカルトタイムズ"
-    platform: "マガポケ"
-    date: 2026-11-20
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    listing_tags: ["百合", "オカルト"]
   - work: "イジめてイジられて"
     platform: "ニコニコ漫画"
     date: 2026-11-20
@@ -775,13 +817,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_003258_S"
     listing_tags: ["異種族・人外", "百合", "女子高生", "妖怪", "アニメ化"]
-  - work: "瑠夏と杏珠の逃避行"
-    platform: "マガポケ"
-    date: 2026-11-14
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03368"
-    listing_tags: ["百合", "女子中学生"]
   - work: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     date: 2026-11-14
@@ -795,13 +830,6 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic.pixiv.net/works/13457"
-    listing_tags: ["百合"]
-  - work: "怨霊日和"
-    platform: "pixivコミック"
-    date: 2026-11-14
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/13946"
     listing_tags: ["百合"]
   - work: "彼氏の女友達がぐいぐい来る(私に)"
     platform: "pixivコミック"
@@ -2656,13 +2684,6 @@ updates:
     provenance: claimed
     url: "https://takecomic.jp/series/d8e8c084c4c6c"
     listing_tags: ["百合"]
-  - work: "七限目は忍者修行です!"
-    platform: "カドコミ"
-    date: 2026-10-09
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_007122_S"
-    listing_tags: ["百合", "忍者", "ギャグ・コメディ", "女子高生", "完結"]
   - work: "ぷれいめ～と"
     platform: "カドコミ"
     date: 2026-10-09

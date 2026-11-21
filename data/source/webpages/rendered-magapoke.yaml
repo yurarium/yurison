@@ -16,6 +16,56 @@ identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
+  - work_title: "GURU"
+    author: "陣ノ内康暉"
+    url: "https://pocket.shonenmagazine.com/title/03068"
+    stated_schedule:
+      cadence: "隔週火曜"
+    chapter_count: 10
+    chapters:
+      - title: "【単行本宣伝話】"
+        updated: 2026-08-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【23.】Never See Me Again"
+        updated: 2026-07-02
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【22.】水上のガンマン"
+        updated: 2026-06-18
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【21.】過ぎ去りし思い出"
+        updated: 2026-06-04
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【20.】それが黒魔女"
+        updated: 2026-05-21
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【5.】close to you"
+        updated: 2026-01-08
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【4.】遥かなる影"
+        updated: 2026-01-01
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【3.】ファタールたちの前夜祭"
+        updated: 2025-12-25
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【2.】杖とファタール達"
+        updated: 2025-12-18
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【1.】月と太陽の日々"
+        updated: 2025-12-18
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "オカルトタイムズ"
     author: "いどんち"
     url: "https://pocket.shonenmagazine.com/title/03282"
@@ -1162,7 +1212,7 @@ works:
     author: "ひの宙子"
     url: "https://pocket.shonenmagazine.com/title/02390"
     stated_schedule:
-      cadence: "毎月7日前後"
+      cadence: "毎週月曜"
     chapter_count: 10
     chapters:
       - title: "【第20話(2)】"
@@ -1524,56 +1574,6 @@ works:
         date_basis: rendered
       - title: "【1話】地獄だっていけるんです"
         updated: 2025-12-11
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "GURU"
-    author: "陣ノ内康暉"
-    url: "https://pocket.shonenmagazine.com/title/03068"
-    stated_schedule:
-      cadence: "隔週金曜"
-    chapter_count: 10
-    chapters:
-      - title: "【単行本宣伝話】"
-        updated: 2026-08-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【23.】Never See Me Again"
-        updated: 2026-07-02
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【22.】水上のガンマン"
-        updated: 2026-06-18
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【21.】過ぎ去りし思い出"
-        updated: 2026-06-04
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【20.】それが黒魔女"
-        updated: 2026-05-21
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【5.】close to you"
-        updated: 2026-01-08
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【4.】遥かなる影"
-        updated: 2026-01-01
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【3.】ファタールたちの前夜祭"
-        updated: 2025-12-25
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【2.】杖とファタール達"
-        updated: 2025-12-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【1.】月と太陽の日々"
-        updated: 2025-12-18
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "CUTE vs. COOL"

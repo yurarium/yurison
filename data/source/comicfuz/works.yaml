@@ -43,9 +43,6 @@ works:
         title: "第22話(2)"
         updated: 2026-11-20
         access_modes: ["free"]
-        access_changed: "purchase -> free"
-        access_changed_on: "2026-11-21"
-        became_free: true
       - chapter_id: 80707
         title: "第22話(1)"
         updated: 2026-11-06
@@ -62,8 +59,6 @@ works:
         title: "第21話(1)"
         updated: 2026-09-25
         access_modes: ["free-timed"]
-        access_changed: "free -> free-timed"
-        access_changed_on: "2026-11-21"
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 79577
         title: "3巻発売フェア"
@@ -637,9 +632,6 @@ works:
         title: "１５巻 第８７球 「顔面に当ててでも」（２）"
         updated: 2026-11-20
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-21"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 53762
         title: "１５巻 第８７球 「顔面に当ててでも」（１）"
@@ -12350,9 +12342,6 @@ works:
         title: "１５巻 第１９３話"
         updated: 2026-11-19
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-21"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 59802
         title: "１５巻 第１９２話"

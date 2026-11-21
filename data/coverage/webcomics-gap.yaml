@@ -9,8 +9,8 @@ retrieved: 2026-11-21
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 312
-works_on_watched_platform: 284
+distinct_works: 313
+works_on_watched_platform: 286
 platforms_total: 51
 platforms_watched: 39
 # ranked by works reachable on NO watched platform
@@ -27,11 +27,11 @@ platforms_missing:
     works: 2
   - platform: "comicブースト"
     works: 2
-  - platform: "きら星ポータル"
-    works: 2
   - platform: "ゴラクエッグ"
     works: 1
   - platform: "pixivコミックマガジン"
+    works: 1
+  - platform: "きら星ポータル"
     works: 1
   - platform: "ドリコミ+"
     works: 1
@@ -176,6 +176,11 @@ works_missing:
     url: "https://comic-boost.com/content/01780001"
     antenna_id: "216014"
     tags: ["百合", "読み切り"]
+  - title: "怨霊日和"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13946"
+    antenna_id: "217762"
+    tags: ["百合"]
   - title: "姫騎士と姫巫女"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13609"
@@ -205,11 +210,6 @@ works_missing:
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13537"
     antenna_id: "213216"
-    tags: ["百合"]
-  - title: "怨霊日和"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13946"
-    antenna_id: "217762"
     tags: ["百合"]
   - title: "彼氏の女友達がぐいぐい来る(私に)"
     platform: "pixivコミック"
@@ -266,11 +266,26 @@ works_missing:
     url: "https://kirapo.jp/ambre/titles/kimimeku"
     antenna_id: "192477"
     tags: ["百合", "不良・ヤンキー"]
-  - title: "たっぷりお嬢様とちょっぴりギャルの幸せシェアごはん"
-    platform: "きら星ポータル"
-    url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
-    antenna_id: "213409"
-    tags: ["読み切り", "百合"]
+  - title: "百音と四季"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/12207421984537962117"
+    antenna_id: "218504"
+    tags: ["百合", "読み切り"]
+  - title: "血も涙もある‼︎"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/12207421984537962123"
+    antenna_id: "218502"
+    tags: ["百合", "読み切り"]
+  - title: "けもみみ巫女の異世界神社再興記 神様がくれた奇跡の力のせいで祀られすぎて困ってます。"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_021699_S"
+    antenna_id: "218587"
+    tags: ["百合"]
+  - title: "七限目は忍者修行です!"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_007122_S"
+    antenna_id: "196622"
+    tags: ["百合", "忍者", "ギャグ・コメディ", "女子高生", "完結"]
   - title: "さざめとりお"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_019937_S"
@@ -315,7 +330,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002994_S"
     antenna_id: "102702"
-    tags: ["最近のコメント数"]
+    tags: ["学園", "ゲーム・eスポーツ", "令嬢", "女子高生", "百合", "アニメ化", "ギャグ・コメディ", "青春", "動画配信者", "メスガキ"]
   - title: "アウトサイダーパラダイス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021488_S"
@@ -501,11 +516,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_008613_S"
     antenna_id: "210824"
     tags: ["百合", "ギャグ・コメディ", "お色気・微エロ"]
-  - title: "七限目は忍者修行です!"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_007122_S"
-    antenna_id: "196622"
-    tags: ["百合", "忍者", "ギャグ・コメディ", "女子高生", "完結"]
   - title: "バカに告白"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006660_S"
@@ -706,11 +716,6 @@ works_missing:
     url: "https://championcross.jp/series/ae4257e66bab5"
     antenna_id: "87443"
     tags: ["百合", "大学生", "アニメ化"]
-  - title: "お葉花を愛でる"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/46c8d0a17ed62"
-    antenna_id: "192556"
-    tags: ["百合"]
   - title: "勇者の旅の裏側で"
     platform: "ドリコミ+"
     url: "https://drecomi-plus.jp/series/CD00038"
@@ -916,16 +921,16 @@ works_missing:
     url: "https://flowercomics.jp/title/6162"
     antenna_id: "217483"
     tags: ["百合"]
-  - title: "ぎるてぃらいぶらり"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03349"
-    antenna_id: "216326"
-    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - title: "瑠夏と杏珠の逃避行"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03368"
     antenna_id: "218095"
     tags: ["百合", "女子中学生"]
+  - title: "ぎるてぃらいぶらり"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03349"
+    antenna_id: "216326"
+    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - title: "私に天使が舞い降りた!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01052"

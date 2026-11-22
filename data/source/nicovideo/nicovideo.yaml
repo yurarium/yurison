@@ -9,12 +9,42 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-11-22
+retrieved: 2026-11-23
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
 works_resolved: 500
 works:
+  - work_title: "おやすみシェヘラザード"
+    author: "篠房六郎"
+    url: "https://manga.nicovideo.jp/comic/34558"
+    comic_id: "34558"
+    updated: "2026-11-23"
+    started: "2018-05-10"
+    channel: "もっとやわらかスピリッツ"
+    channel_slug: "yawaspi"
+  - work_title: "魔法少女イナバ"
+    author: "猫にゃん(漫画)"
+    url: "https://manga.nicovideo.jp/comic/75854"
+    comic_id: "75854"
+    updated: "2026-11-22"
+    started: "2025-12-19"
+    episode_count: 3
+    free_episodes: 3
+    channel: "コミックグロウル"
+    channel_slug: "bushiroad"
+    latest_episode: "第10話"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1169995"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-11-22"
+    started: "2022-08-31"
+    episode_count: 184
+    free_episodes: 184
+    latest_episode: "第18話の4"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1179145"
   - work_title: "男子高校生だけどギャルにTSしました"
     author: "太陽まりい(著者)"
     url: "https://manga.nicovideo.jp/comic/67976"
@@ -27,16 +57,6 @@ works:
     channel_slug: "dradrasharp"
     latest_episode: "第31話前編"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1176812"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-11-21"
-    started: "2022-08-31"
-    episode_count: 183
-    free_episodes: 183
-    latest_episode: "第18話の3"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1179005"
   - work_title: "イジめてイジられて"
     author: "千田大輔(著者)"
     url: "https://manga.nicovideo.jp/comic/83472"
@@ -367,14 +387,6 @@ works:
     channel_slug: "compace"
     latest_episode: "第31話-3"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1113332"
-  - work_title: "おやすみシェヘラザード"
-    author: "篠房六郎"
-    url: "https://manga.nicovideo.jp/comic/34558"
-    comic_id: "34558"
-    updated: "2026-11-13"
-    started: "2018-05-10"
-    channel: "もっとやわらかスピリッツ"
-    channel_slug: "yawaspi"
   - work_title: "明日香と美咲"
     author: "あんじんねこ@創作"
     url: "https://manga.nicovideo.jp/comic/70721"
@@ -1023,18 +1035,6 @@ works:
     channel_slug: "kirara"
     latest_episode: "第21話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1160192"
-  - work_title: "魔法少女イナバ"
-    author: "猫にゃん(漫画)"
-    url: "https://manga.nicovideo.jp/comic/75854"
-    comic_id: "75854"
-    updated: "2026-10-22"
-    started: "2025-12-19"
-    episode_count: 3
-    free_episodes: 3
-    channel: "コミックグロウル"
-    channel_slug: "bushiroad"
-    latest_episode: "第9話"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1164217"
   - work_title: "愛焦がれキャラメリゼ"
     author: "杉谷エコ"
     url: "https://manga.nicovideo.jp/comic/73172"

@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-22
+retrieved: 2026-11-23
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -31,44 +31,6 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2024-11-02
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "まるせっせんす"
-    author: "畳ゆか"
-    url: "https://comic.pixiv.net/works/12886"
-    chapter_count: 3
-    chapters:
-      - title: "3 発見"
-        updated: 2026-05-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "2 解体"
-        updated: 2026-04-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "1 原罪"
-        updated: 2026-03-20
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "この関西人がウザすぎる!!〜なにわギャルとイケズ京男に振り回されています〜"
-    author: "ささみりせ"
-    url: "https://comic.pixiv.net/works/13903"
-    chapter_count: 4
-    chapters:
-      - title: "第2話（1）"
-        updated: 2026-11-22
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話（3）"
-        updated: 2026-11-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話（2）"
-        updated: 2026-11-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話（1）"
-        updated: 2026-11-01
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -795,6 +757,23 @@ works:
         date_basis: rendered
       - title: "Episode.1"
         updated: 2026-02-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "まるせっせんす"
+    author: "畳ゆか"
+    url: "https://comic.pixiv.net/works/12886"
+    chapter_count: 3
+    chapters:
+      - title: "3 発見"
+        updated: 2026-05-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "2 解体"
+        updated: 2026-04-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "1 原罪"
+        updated: 2026-03-20
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "たゆたう恋の散り際に"
@@ -2289,6 +2268,27 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2026-08-25
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "この関西人がウザすぎる!!〜なにわギャルとイケズ京男に振り回されています〜"
+    author: "ささみりせ"
+    url: "https://comic.pixiv.net/works/13903"
+    chapter_count: 4
+    chapters:
+      - title: "第2話（1）"
+        updated: 2026-11-22
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話（3）"
+        updated: 2026-11-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話（2）"
+        updated: 2026-11-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話（1）"
+        updated: 2026-11-01
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "彼氏の女友達がぐいぐい来る(私に)"

@@ -5,12 +5,12 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-22
+retrieved: 2026-11-23
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 313
-works_on_watched_platform: 286
+works_on_watched_platform: 285
 platforms_total: 51
 platforms_watched: 39
 # ranked by works reachable on NO watched platform
@@ -27,11 +27,11 @@ platforms_missing:
     works: 2
   - platform: "comicブースト"
     works: 2
+  - platform: "きら星ポータル"
+    works: 2
   - platform: "ゴラクエッグ"
     works: 1
   - platform: "pixivコミックマガジン"
-    works: 1
-  - platform: "きら星ポータル"
     works: 1
   - platform: "ドリコミ+"
     works: 1
@@ -266,11 +266,16 @@ works_missing:
     url: "https://kirapo.jp/ambre/titles/kimimeku"
     antenna_id: "192477"
     tags: ["百合", "不良・ヤンキー"]
+  - title: "たっぷりお嬢様とちょっぴりギャルの幸せシェアごはん"
+    platform: "きら星ポータル"
+    url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
+    antenna_id: "213409"
+    tags: ["読み切り", "百合"]
   - title: "百音と四季"
     platform: "となりのヤングジャンプ"
     url: "https://tonarinoyj.jp/episode/12207421984537962117"
     antenna_id: "218504"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "読み切り"]
   - title: "血も涙もある‼︎"
     platform: "となりのヤングジャンプ"
     url: "https://tonarinoyj.jp/episode/12207421984537962123"
@@ -310,7 +315,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_003240_S"
     antenna_id: "128693"
-    tags: ["最近のコメント数"]
+    tags: ["転生", "異種族・人外", "百合", "アウトロー", "障害者", "反社・ヤクザ", "残酷・グロテスク", "チートなし", "ファンタジー", "タイムスリップ"]
   - title: "あめのひもがも～八百屋お七炎上図 葛飾応為筆～"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020142_S"
@@ -925,7 +930,7 @@ works_missing:
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03368"
     antenna_id: "218095"
-    tags: ["百合", "女子中学生"]
+    tags: ["百合", "女子中学生", "障害者"]
   - title: "ぎるてぃらいぶらり"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
@@ -966,16 +971,16 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03301"
     antenna_id: "213683"
     tags: ["百合", "読み切り"]
-  - title: "ロックは淑女の嗜みでして"
-    platform: "マンガPark"
-    url: "https://manga-park.com/title/67724"
-    antenna_id: "148272"
-    tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
   - title: "私のブルーガーネット"
     platform: "マンガPark"
     url: "https://manga-park.com/title/98459"
     antenna_id: "197977"
     tags: ["百合", "エロ"]
+  - title: "ロックは淑女の嗜みでして"
+    platform: "マンガPark"
+    url: "https://manga-park.com/title/67724"
+    antenna_id: "148272"
+    tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
   - title: "女にはそれぞれ裏がある"
     platform: "マンガよもんが"
     url: "https://www.yomonga.com/titles/2571/"

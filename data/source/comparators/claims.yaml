@@ -8,11 +8,18 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-22
+retrieved: 2026-11-23
 record_type: update_claims
 window_days: 60
-claims: 440
+claims: 439
 updates:
+  - work: "私のブルーガーネット"
+    platform: "マンガPark"
+    date: 2026-11-22
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-park.com/title/98459"
+    listing_tags: ["百合", "エロ"]
   - work: "百合のはじまりは奴隷から"
     platform: "pixivコミック"
     date: 2026-11-22
@@ -41,13 +48,6 @@ updates:
     provenance: claimed
     url: "https://comic-fuz.com/manga/4133"
     listing_tags: ["百合"]
-  - work: "上杉くんは女の子をやめたい"
-    platform: "コロコロオンライン"
-    date: 2026-11-22
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.corocoro.jp/title/515"
-    listing_tags: ["BL", "女装", "三角関係", "TS", "同性愛・LGBTQ+", "幼なじみ", "現代", "恋愛", "青春", "百合"]
   - work: "ロックは淑女の嗜みでして"
     platform: "マンガPark"
     date: 2026-11-22
@@ -55,6 +55,13 @@ updates:
     provenance: claimed
     url: "https://manga-park.com/title/67724"
     listing_tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
+  - work: "ベイビー車中ハッカーズ"
+    platform: "ヤンジャン+"
+    date: 2026-11-22
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ynjn.jp/title/16787"
+    listing_tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
   - work: "ファタールゲーム"
     platform: "マガポケ"
     date: 2026-11-22
@@ -74,7 +81,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/03368"
-    listing_tags: ["百合", "女子中学生"]
+    listing_tags: ["百合", "女子中学生", "障害者"]
   - work: "怨霊日和"
     platform: "pixivコミック"
     date: 2026-11-21
@@ -143,7 +150,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://tonarinoyj.jp/episode/12207421984537962117"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合", "読み切り"]
   - work: "球詠"
     platform: "COMIC FUZ"
     date: 2026-11-20
@@ -275,7 +282,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_003240_S"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["転生", "異種族・人外", "百合", "アウトロー", "障害者", "反社・ヤクザ", "残酷・グロテスク", "チートなし", "ファンタジー", "タイムスリップ"]
   - work: "お姉さまと巨人 ～お嬢さまが異世界転生～ Be-con"
     platform: "カドコミ"
     date: 2026-11-20
@@ -742,13 +749,6 @@ updates:
     provenance: claimed
     url: "https://kimicomi.com/series/0cd32d6a7efc2"
     listing_tags: ["百合"]
-  - work: "私のブルーガーネット"
-    platform: "マンガPark"
-    date: 2026-11-16
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-park.com/title/98459"
-    listing_tags: ["百合", "エロ"]
   - work: "堕天使そぷらのちゃんの復讐"
     platform: "カドコミ"
     date: 2026-11-16
@@ -1343,13 +1343,6 @@ updates:
     provenance: claimed
     url: "https://comic-gardo.com/episode/12207421984094260425"
     listing_tags: ["百合"]
-  - work: "ベイビー車中ハッカーズ"
-    platform: "ヤンジャン+"
-    date: 2026-11-09
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ynjn.jp/title/16787"
-    listing_tags: ["百合", "ブロ・シスマンス", "女子高生", "車", "旅・紀行", "青春"]
   - work: "わたしのために脱ぎなさいっ！ 九郎"
     platform: "カドコミ"
     date: 2026-11-09

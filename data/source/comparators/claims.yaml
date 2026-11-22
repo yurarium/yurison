@@ -13,6 +13,55 @@ record_type: update_claims
 window_days: 60
 claims: 440
 updates:
+  - work: "百合のはじまりは奴隷から"
+    platform: "pixivコミック"
+    date: 2026-11-22
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/13537"
+    listing_tags: ["百合"]
+  - work: "江口さんちの純情サキュバス"
+    platform: "COMIC FUZ"
+    date: 2026-11-22
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3776"
+    listing_tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
+  - work: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
+    platform: "HERO'S Web"
+    date: 2026-11-22
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://heros-web.com/series/ec09a10dc9490"
+    listing_tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
+  - work: "君が一等星に光るまで"
+    platform: "COMIC FUZ"
+    date: 2026-11-22
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/4133"
+    listing_tags: ["百合"]
+  - work: "上杉くんは女の子をやめたい"
+    platform: "コロコロオンライン"
+    date: 2026-11-22
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.corocoro.jp/title/515"
+    listing_tags: ["BL", "女装", "三角関係", "TS", "同性愛・LGBTQ+", "幼なじみ", "現代", "恋愛", "青春", "百合"]
+  - work: "ロックは淑女の嗜みでして"
+    platform: "マンガPark"
+    date: 2026-11-22
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga-park.com/title/67724"
+    listing_tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
+  - work: "ファタールゲーム"
+    platform: "マガポケ"
+    date: 2026-11-22
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03056"
+    listing_tags: ["百合", "漫画家・絵描き"]
   - work: "聖女先生の魔法は進んでる！ しまづ/鴉ぴえろ"
     platform: "カドコミ"
     date: 2026-11-21
@@ -26,13 +75,6 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/03368"
     listing_tags: ["百合", "女子中学生"]
-  - work: "江口さんちの純情サキュバス"
-    platform: "COMIC FUZ"
-    date: 2026-11-21
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3776"
-    listing_tags: ["百合", "サキュバス", "お色気・微エロ", "ギャグ・コメディ"]
   - work: "怨霊日和"
     platform: "pixivコミック"
     date: 2026-11-21
@@ -40,20 +82,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/13946"
     listing_tags: ["百合"]
-  - work: "君が一等星に光るまで"
-    platform: "COMIC FUZ"
-    date: 2026-11-21
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/4133"
-    listing_tags: ["百合"]
-  - work: "上杉くんは女の子をやめたい"
-    platform: "コロコロオンライン"
-    date: 2026-11-21
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.corocoro.jp/title/515"
-    listing_tags: ["BL", "女装", "三角関係", "TS", "同性愛・LGBTQ+", "幼なじみ", "現代", "恋愛", "青春", "百合"]
   - work: "七限目は忍者修行です!"
     platform: "カドコミ"
     date: 2026-11-21
@@ -61,20 +89,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_007122_S"
     listing_tags: ["百合", "忍者", "ギャグ・コメディ", "女子高生", "完結"]
-  - work: "ロックは淑女の嗜みでして"
-    platform: "マンガPark"
-    date: 2026-11-21
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga-park.com/title/67724"
-    listing_tags: ["百合", "音楽", "女子高生", "青春", "アニメ化"]
-  - work: "ファタールゲーム"
-    platform: "マガポケ"
-    date: 2026-11-21
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03056"
-    listing_tags: ["百合", "漫画家・絵描き"]
   - work: "オカルトタイムズ"
     platform: "マガポケ"
     date: 2026-11-21
@@ -782,13 +796,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_001277_S"
     listing_tags: ["百合", "社会人", "女子高生", "同棲"]
-  - work: "百合のはじまりは奴隷から"
-    platform: "pixivコミック"
-    date: 2026-11-15
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/13537"
-    listing_tags: ["百合"]
   - work: "百合SMでふたりの気持ちはつながりますか?"
     platform: "COMIC FUZ"
     date: 2026-11-15
@@ -831,13 +838,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_003258_S"
     listing_tags: ["異種族・人外", "百合", "女子高生", "妖怪", "アニメ化"]
-  - work: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
-    platform: "HERO'S Web"
-    date: 2026-11-14
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://heros-web.com/series/ec09a10dc9490"
-    listing_tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
   - work: "怪獣ロマンティクス"
     platform: "pixivコミック"
     date: 2026-11-14

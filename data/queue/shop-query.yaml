@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-21
+retrieved: 2026-11-22
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 264
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 219
-  works_asked: 953
+  works_asked: 956
   works_with_a_hit: 285
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
@@ -4266,6 +4266,16 @@ works:
     author: "倉成 里緒"
     platform: "カドコミ"
     retrieved: "2026-11-14"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_021699_S"
+    id: "w03560"
+    work: "けもみみ巫女の異世界神社再興記 神様がくれた奇跡の力のせいで祀られすぎて困ってます。"
+    author: "もずくず / いつきみずほ / risumi"
+    platform: "カドコミ"
+    retrieved: "2026-11-22"
     hits: []
     notes:
       - "author query answered nothing"
@@ -9442,6 +9452,26 @@ works:
     author: "藤原ハル"
     platform: "となりのヤングジャンプ"
     retrieved: "2026-11-13"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984537962117"
+    id: "w03561"
+    work: "百音と四季"
+    author: "栄太"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-11-22"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984537962123"
+    id: "w03562"
+    work: "血も涙もある‼︎"
+    author: "ヤマグチ"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-11-22"
     hits: []
     notes:
       - "author query returned no title this database recognises"

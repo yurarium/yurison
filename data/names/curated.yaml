@@ -40656,14 +40656,21 @@ titles:
       book of the poprication collection with no English title, so the rendering is a plain
       translation.
   "百音と四季":
-    en: "Momone and Shiki"
+    reading: "モネ ト シキ"
+    reading_basis: researched
+    reading_source_kind: derived
+    reading_note: >-
+      百音 is the character Mone, read モネ, as the project owner pointed out on 2026-11-22. The
+      analyser had read it ヒャクオン and the rendering had guessed Momone.
+    en: "Mone and Shiki"
     basis: translated
     source: yurarium
     source_kind: derived
     reviewed: '2026-11-22'
     note: >-
-      The title is two character names joined by と (and). The series page on となりのヤングジャンプ shows no
-      official English title or synopsis. The names are kept as names, with 'and' translated.
+      The title is two character names joined by と (and), and the names are kept as names. Read
+      aloud it is also モネと四季, Monet and the four seasons, which the English cannot carry while
+      keeping the names. The series page on となりのヤングジャンプ shows no official English title.
   "スターライトパレード":
     en: "Starlight Parade"
     basis: translated

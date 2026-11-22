@@ -83494,30 +83494,30 @@ names:
     verified: false
   百音と四季:
     basis: translated
-    en: Momone and Shiki
+    en: Mone and Shiki
     en_at: '2026-11-22'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: Momone and Shiki
     en_reviewed: '2026-11-22'
     en_source: yurarium
     en_source_kind: derived
-    furigana_spans:
-    - - 百
-      - ひゃく
-    - - 音
-      - おん
-    - - と
-      - null
-    - - 四季
-      - しき
-    note: The title is two character names joined by と (and). The series page on となりのヤングジャンプ shows no
-      official English title or synopsis. The names are kept as names, with 'and' translated.
-    reading: ヒャク オン ト シキ
-    reading_at: '2026-11-21'
-    reading_basis: analyser
-    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
-      weakest on pen names and coinages
-    reading_pass: 4
-    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
-    reading_source_kind: analyser
+    note: The title is two character names joined by と (and), and the names are kept as names. Read aloud
+      it is also モネと四季, Monet and the four seasons, which the English cannot carry while keeping the names.
+      The series page on となりのヤングジャンプ shows no official English title.
+    reading: モネ ト シキ
+    reading_at: '2026-11-22'
+    reading_basis: researched
+    reading_conflicts:
+    - basis: analyser
+      source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+      value: ヒャク オン ト シキ
+    reading_note: 百音 is the character Mone, read モネ, as the project owner pointed out on 2026-11-22. The
+      analyser had read it ヒャクオン and the rendering had guessed Momone.
+    reading_reviewed: '2026-11-22'
+    reading_source: yurarium
+    reading_source_kind: derived
     verified: false
   盗撮:
     basis: translated

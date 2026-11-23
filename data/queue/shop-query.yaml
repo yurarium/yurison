@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-23
+retrieved: 2026-11-24
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 264
+  hits_agreeing_on_a_creator: 266
   hits_on_the_title_alone: 116
-  hits_stating_a_print_edition_date: 219
-  works_asked: 956
-  works_with_a_hit: 285
+  hits_stating_a_print_edition_date: 221
+  works_asked: 958
+  works_with_a_hit: 287
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
     id: "w03552"
@@ -2521,6 +2521,22 @@ works:
         printed: "2026/1/25"
         agreement: "creator"
         volumes_stated: 2
+        completed_marker: false
+  - work_url: "https://comic-gardo.com/episode/12207421984544858489"
+    id: "w03270"
+    work: "優等生がアダルトグッズを買いに来た"
+    author: "コナタエル"
+    platform: "コミックガルド"
+    query: "author"
+    retrieved: "2026-11-24"
+    hits:
+      - series_url: null
+        title_listed: "優等生がアダルトグッズを買いに来た 1"
+        shop_author: "コナタエル"
+        imprint: "ガルドコミックス"
+        publisher: "オーバーラップ"
+        printed: "2026/11/20"
+        agreement: "creator"
         completed_marker: false
   - work_url: "https://comic-growl.com/series/3b60fbd61d3f8"
     id: "w03419"
@@ -11263,6 +11279,23 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://www.sunday-webry.com/episode/12207421984549118480"
+    id: "w00060"
+    work: "#ギャルとギャルの百合"
+    author: "イノウエ"
+    platform: "サンデーうぇぶり"
+    query: "author"
+    retrieved: "2026-11-24"
+    hits:
+      - series_url: "https://bookwalker.jp/series/568145/list/"
+        title_listed: "＃ギャルとギャルの百合（サンデーうぇぶりコミックス）"
+        shop_author: "イノウエ(著)"
+        imprint: "サンデーうぇぶりコミックス"
+        publisher: "小学館"
+        printed: "2025/12/31"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://www.sunday-webry.com/episode/14079602755180542200"
     id: "w00815"
     work: "君に惹かれた理由"

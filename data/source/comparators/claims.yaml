@@ -8,11 +8,41 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-23
+retrieved: 2026-11-24
 record_type: update_claims
 window_days: 60
 claims: 421
 updates:
+  - work: "新米姉妹のふたりごはん 柊ゆたか"
+    platform: "カドコミ"
+    date: 2026-11-24
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "姉妹傭兵 坂南加/三河ごーすと"
+    platform: "カドコミ"
+    date: 2026-11-24
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "保健室の鍵閉めてっ 蕗屋文字"
+    platform: "きららベース"
+    date: 2026-11-24
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "上伊那ぼたん、酔へる姿は百合の花 塀"
+    platform: "チャンピオンクロス"
+    date: 2026-11-24
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "ファーストペンギン・レクイエム タダノなつ"
+    platform: "くらげバンチ"
+    date: 2026-11-24
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
   - work: "運命は役に立たない"
     platform: "花とゆめ+"
     date: 2026-11-23
@@ -27,13 +57,27 @@ updates:
     provenance: claimed
     url: "https://manga-park.com/title/98459"
     listing_tags: ["百合", "エロ"]
+  - work: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
+    platform: "ヤングアニマルWeb"
+    date: 2026-11-23
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://younganimal.com/series/060a6130e55b2"
+    listing_tags: ["オカルト", "女子高生", "百合"]
   - work: "優等生がアダルトグッズを買いに来た"
     platform: "コミックガルド"
     date: 2026-11-23
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-gardo.com/episode/12207421984094260425"
-    listing_tags: ["百合"]
+    listing_tags: ["最近のコメント数"]
+  - work: "ワインガールズ"
+    platform: "キミコミ"
+    date: 2026-11-23
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    listing_tags: ["百合", "擬人化"]
   - work: "ベイビー車中ハッカーズ"
     platform: "ヤンジャン+"
     date: 2026-11-23
@@ -48,12 +92,26 @@ updates:
     provenance: claimed
     url: "https://hanayume.com/series/f3ce082d639de"
     listing_tags: ["百合", "女子高生", "うぶ恋・ピュア恋"]
+  - work: "しゅがー・みーつ・がーる!"
+    platform: "COMIC FUZ"
+    date: 2026-11-23
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-fuz.com/manga/3108"
+    listing_tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - work: "きょうはなにしよう？ サスケ"
     platform: "カドコミ"
     date: 2026-11-23
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "#ギャルとギャルの百合"
+    platform: "サンデーうぇぶり"
+    date: 2026-11-23
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://www.sunday-webry.com/episode/2550912965814192510"
+    listing_tags: ["百合", "女子高生", "恋愛"]
   - work: "百合のはじまりは奴隷から"
     platform: "pixivコミック"
     date: 2026-11-22
@@ -434,13 +492,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/63674"
     listing_tags: ["百合", "女子高生", "エロ", "同性愛・LGBTQ+"]
-  - work: "ワインガールズ"
-    platform: "キミコミ"
-    date: 2026-11-19
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    listing_tags: ["百合", "擬人化"]
   - work: "バリキャリJKモネ先輩 椋木ななつ"
     platform: "一迅プラス"
     date: 2026-11-19
@@ -1325,13 +1376,6 @@ updates:
     provenance: claimed
     url: "https://manga.nicovideo.jp/comic/22768"
     listing_tags: ["アニメ化", "スポーツ", "百合", "野球", "女子高生"]
-  - work: "最恐呪物令嬢 〜彼女は呪物を愛しすぎている〜"
-    platform: "ヤングアニマルWeb"
-    date: 2026-11-10
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://younganimal.com/series/060a6130e55b2"
-    listing_tags: ["オカルト", "女子高生", "百合"]
   - work: "新米姉妹のふたりごはん"
     platform: "pixivコミック"
     date: 2026-11-10
@@ -1418,13 +1462,6 @@ updates:
     provenance: claimed
     url: "https://www.sunday-webry.com/episode/12207421983745504350"
     listing_tags: ["百合", "女子高生", "運動系部活", "柔道"]
-  - work: "しゅがー・みーつ・がーる!"
-    platform: "COMIC FUZ"
-    date: 2026-11-10
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-fuz.com/manga/3108"
-    listing_tags: ["百合", "学園", "料理・グルメ", "女子高生"]
   - work: "ごきげんよう、一局いかが? 卯花つかさ"
     platform: "きららベース"
     date: 2026-11-10
@@ -1437,13 +1474,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "#ギャルとギャルの百合"
-    platform: "サンデーうぇぶり"
-    date: 2026-11-10
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://www.sunday-webry.com/episode/2550912965814192510"
-    listing_tags: ["百合", "女子高生", "恋愛"]
   - work: "銀輪ボイス"
     platform: "竹コミ‎‏‎"
     date: 2026-11-09
@@ -2828,38 +2858,3 @@ updates:
     provenance: claimed
     url: "https://comic-ogyaaa.com/episode/2550912965728497650"
     listing_tags: ["百合", "SF", "AI", "ギャグ・コメディ"]
-  - work: "私だって青春したいですよ、本当は。"
-    platform: "一迅プラス"
-    date: 2026-09-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2550912966077881812"
-    listing_tags: ["百合"]
-  - work: "君のせいなんだから、責任とってよね。"
-    platform: "一迅プラス"
-    date: 2026-09-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2551460909807196614"
-    listing_tags: ["百合", "社会人"]
-  - work: "ひなちゃんが生きてるなら"
-    platform: "一迅プラス"
-    date: 2026-09-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2551460909885349908"
-    listing_tags: ["百合", "ホラー", "幼なじみ", "田舎"]
-  - work: "たゆたう恋の散り際に"
-    platform: "一迅プラス"
-    date: 2026-09-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2551460909671541131"
-    listing_tags: ["百合"]
-  - work: "この湯で、あなたと"
-    platform: "カドコミ"
-    date: 2026-09-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_019740_S"
-    listing_tags: ["百合", "温泉・サウナ"]

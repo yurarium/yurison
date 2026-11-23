@@ -8,7 +8,7 @@
 source: webpages
 platform: remaining
 platform_name: ""
-retrieved: 2026-11-23
+retrieved: 2026-11-24
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -522,7 +522,7 @@ works:
     url: "https://younganimal.com/episodes/24a3e6bcb998e"
     platform_name: "ヤングアニマルWeb"
     route: "comici"
-    chapter_count: 8
+    chapter_count: 9
     chapters:
       - title: "第一話"
         updated: 2026-07-28
@@ -551,6 +551,10 @@ works:
         access_note: "作品チケット — one free chapter per series per day, per account"
       - title: "第八話"
         updated: 2026-11-10
+        access_modes: ["free-timed"]
+        access_note: "作品チケット — one free chapter per series per day, per account"
+      - title: "第九話"
+        updated: 2026-11-24
         access_modes: ["free-timed"]
         access_note: "作品チケット — one free chapter per series per day, per account"
   - work_title: "横槍メンゴ新作読切シリーズ"

@@ -2,10 +2,408 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-11-23
+retrieved: 2026-11-24
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "しゅがー・みーつ・がーる！"
+    yomi: "しゅがーみーつがーる"
+    url: "https://comic-fuz.com/manga/3108"
+    latest_updated: "2026-11-24"
+    authors: ["白野アキヒロ"]
+    tags: ["火曜日", "男性向け", "学園", "グルメ", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "百合", "日常"]
+    chapter_count: 79
+    chapters:
+      - chapter_id: 82213
+        title: "第34皿(2)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-22
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 82210
+        title: "第34皿(1)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-08
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 80983
+        title: "第33皿(2)"
+        updated: 2026-11-24
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+      - chapter_id: 80980
+        title: "第33皿(1)"
+        updated: 2026-11-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 80977
+        title: "第32皿(2)"
+        updated: 2026-10-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 80974
+        title: "第32皿(1)"
+        updated: 2026-10-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 80071
+        title: "特別編5"
+        updated: 2026-09-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 79439
+        title: "第31皿(2)"
+        updated: 2026-08-25
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 79436
+        title: "第31皿(1)"
+        updated: 2026-08-11
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 78974
+        title: "特別編4"
+        updated: 2026-07-14
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 77821
+        title: "第30皿(2)"
+        updated: 2026-06-23
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 77818
+        title: "第30皿(1)"
+        updated: 2026-06-09
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 77932
+        title: "コミックス第5巻・書店特典情報！"
+        updated: 2026-05-01
+        access_modes: ["free"]
+      - chapter_id: 77140
+        title: "第29皿(2)"
+        updated: 2026-05-26
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 77137
+        title: "第29皿(1)"
+        updated: 2026-05-12
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 77104
+        title: "第28皿(2)"
+        updated: 2026-04-28
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 77101
+        title: "第28皿(1)"
+        updated: 2026-04-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 75328
+        title: "第27皿(2)"
+        updated: 2026-03-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 75325
+        title: "第27皿(1)"
+        updated: 2026-03-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 74253
+        title: "第26皿(2)"
+        updated: 2026-01-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 74250
+        title: "第26皿(1)"
+        updated: 2026-01-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 72831
+        title: "第25皿(2)"
+        updated: 2025-12-23
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 72828
+        title: "第25皿(1)"
+        updated: 2025-12-09
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 72161
+        title: "特別編3"
+        updated: 2025-11-11
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 71405
+        title: "第24皿(2)"
+        updated: 2025-10-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 71402
+        title: "第24皿(1)"
+        updated: 2025-10-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 70838
+        title: "コミックス第4巻・書店特典情報！"
+        updated: 2025-09-09
+        access_modes: ["free"]
+      - chapter_id: 69986
+        title: "第23皿(2)"
+        updated: 2025-09-23
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 69983
+        title: "第23皿(1)"
+        updated: 2025-09-09
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 69845
+        title: "第22皿(2)"
+        updated: 2025-08-26
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 69842
+        title: "第22皿(1)"
+        updated: 2025-08-12
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 68216
+        title: "第21皿(2)"
+        updated: 2025-07-22
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 68213
+        title: "第21皿(1)"
+        updated: 2025-07-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 68096
+        title: "第20皿(2)"
+        updated: 2025-06-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 68093
+        title: "第20皿(1)"
+        updated: 2025-06-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 65895
+        title: "第19皿(2)"
+        updated: 2025-05-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 65892
+        title: "第19皿(1)"
+        updated: 2025-05-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 63858
+        title: "第18皿(2)"
+        updated: 2025-03-25
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 63855
+        title: "第18皿(1)"
+        updated: 2025-03-11
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 63555
+        title: "コミックス第3巻・書店特典情報！"
+        updated: 2025-02-11
+        access_modes: ["free"]
+      - chapter_id: 62413
+        title: "第17皿(2)"
+        updated: 2025-02-25
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 62410
+        title: "第17皿(1)"
+        updated: 2025-02-11
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 61648
+        title: "第16皿(2)"
+        updated: 2025-01-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 61645
+        title: "第16皿(1)"
+        updated: 2025-01-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 61060
+        title: "第15皿(2)"
+        updated: 2024-12-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 61048
+        title: "第15皿(1)"
+        updated: 2024-12-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 60498
+        title: "特別編2"
+        updated: 2024-11-26
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 58608
+        title: "第14皿(2)"
+        updated: 2024-10-08
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 58605
+        title: "第14皿(1)"
+        updated: 2024-10-01
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 57410
+        title: "第13皿(2)"
+        updated: 2024-09-24
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 57407
+        title: "第13皿(1)"
+        updated: 2024-09-17
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 56552
+        title: "コミックス第2巻・書店特典情報！"
+        updated: 2024-07-06
+        access_modes: ["free"]
+      - chapter_id: 55187
+        title: "第12皿(2)"
+        updated: 2024-09-10
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 55184
+        title: "第12皿(1)"
+        updated: 2024-09-03
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 55181
+        title: "第11皿(2)"
+        updated: 2024-08-27
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 55178
+        title: "第11皿(1)"
+        updated: 2024-08-20
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 53867
+        title: "第10皿(2)"
+        updated: 2024-08-13
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 53864
+        title: "第10皿(1)"
+        updated: 2024-08-06
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52769
+        title: "第9皿(2)"
+        updated: 2024-07-30
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52766
+        title: "第9皿(1)"
+        updated: 2024-07-23
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52874
+        title: "特別編1(2)"
+        updated: 2024-07-16
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52871
+        title: "特別編1(1)"
+        updated: 2024-07-09
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52763
+        title: "第8皿(2)"
+        updated: 2024-07-02
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52760
+        title: "第8皿(1)"
+        updated: 2024-06-25
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52757
+        title: "第7皿(2)"
+        updated: 2024-06-18
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52754
+        title: "第7皿(1)"
+        updated: 2024-06-11
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52751
+        title: "第6皿(2)"
+        updated: 2024-06-04
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52748
+        title: "第6皿(1)"
+        updated: 2024-05-28
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52745
+        title: "第5皿(2)"
+        updated: 2024-05-21
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52742
+        title: "第5皿(1)"
+        updated: 2024-05-14
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52739
+        title: "第4皿(2)"
+        updated: 2024-05-07
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52736
+        title: "第4皿(1)"
+        updated: 2024-04-30
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52733
+        title: "第3皿(2)"
+        updated: 2024-04-23
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52730
+        title: "第3皿(1)"
+        updated: 2024-04-16
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52727
+        title: "第2皿(2)"
+        updated: 2024-04-09
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52724
+        title: "第2皿(1)"
+        updated: 2024-04-02
+        access_modes: ["free-timed"]
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
+      - chapter_id: 52721
+        title: "第1皿(2)"
+        updated: 2024-03-26
+        access_modes: ["free"]
+      - chapter_id: 52718
+        title: "第1皿(1)"
+        updated: 2024-03-26
+        access_modes: ["free"]
+      - chapter_id: 37458
+        title: "第0皿"
+        updated: 2024-03-26
+        access_modes: ["free"]
   - work_title: "君が一等星に光るまで"
     yomi: "きみがでねぶにひかるまで"
     url: "https://comic-fuz.com/manga/4133"
@@ -23,8 +421,11 @@ works:
       - chapter_id: 81022
         title: "episode10（1）"
         updated: 2026-11-22
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-24"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 81019
         title: "episode9（2）"
         updated: 2026-11-15
@@ -1784,7 +2185,10 @@ works:
       - chapter_id: 81136
         title: "第98話"
         updated: 2026-10-15
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 81097
         title: "SSSオフショット98"
         updated: 2026-10-08
@@ -1792,7 +2196,10 @@ works:
       - chapter_id: 81073
         title: "第97話"
         updated: 2026-10-01
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80812
         title: "SSSオフショット97"
         updated: 2026-09-24
@@ -1804,7 +2211,10 @@ works:
       - chapter_id: 80350
         title: "第96話"
         updated: 2026-09-10
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80347
         title: "SSSオフショット95"
         updated: 2026-09-03
@@ -1812,7 +2222,10 @@ works:
       - chapter_id: 80299
         title: "第95話"
         updated: 2026-08-27
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 79721
         title: "SSSオフショット94"
         updated: 2026-08-20
@@ -1820,7 +2233,10 @@ works:
       - chapter_id: 79595
         title: "第94話"
         updated: 2026-08-13
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 79718
         title: "SSSオフショット93"
         updated: 2026-08-06
@@ -1828,7 +2244,10 @@ works:
       - chapter_id: 79514
         title: "第93話"
         updated: 2026-07-30
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 79511
         title: "第11巻　特典情報"
         updated: 2026-07-23
@@ -1848,7 +2267,10 @@ works:
       - chapter_id: 78929
         title: "第92話"
         updated: 2026-07-02
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78833
         title: "コミックス発売のお知らせ"
         updated: 2026-07-02
@@ -1860,7 +2282,10 @@ works:
       - chapter_id: 78737
         title: "第91話"
         updated: 2026-06-18
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78391
         title: "SSSオフショット89"
         updated: 2026-06-11
@@ -1868,7 +2293,10 @@ works:
       - chapter_id: 78431
         title: "第90話"
         updated: 2026-06-04
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 78388
         title: "SSSオフショット88"
         updated: 2026-05-28
@@ -1876,7 +2304,10 @@ works:
       - chapter_id: 78292
         title: "第89話"
         updated: 2026-05-21
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 77743
         title: "SSSオフショット87"
         updated: 2026-05-14
@@ -1884,7 +2315,10 @@ works:
       - chapter_id: 77806
         title: "第88話"
         updated: 2026-05-07
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 77740
         title: "SSSオフショット86"
         updated: 2026-04-30
@@ -1892,7 +2326,10 @@ works:
       - chapter_id: 77191
         title: "第87話"
         updated: 2026-04-23
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 77188
         title: "第86.5話"
         updated: 2026-04-16
@@ -1904,7 +2341,10 @@ works:
       - chapter_id: 76276
         title: "第86話"
         updated: 2026-04-02
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 76324
         title: "第10巻　特典情報"
         updated: 2026-03-26
@@ -1916,7 +2356,10 @@ works:
       - chapter_id: 75916
         title: "第85話"
         updated: 2026-03-19
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 75529
         title: "コミックス発売のおしらせ"
         updated: 2026-03-05
@@ -1928,7 +2371,10 @@ works:
       - chapter_id: 75397
         title: "第84話"
         updated: 2026-03-05
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 75255
         title: "SSSオフショット82"
         updated: 2026-02-26
@@ -1936,7 +2382,10 @@ works:
       - chapter_id: 75231
         title: "第83話"
         updated: 2026-02-19
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 74865
         title: "SSSオフショット81"
         updated: 2026-02-12
@@ -1944,7 +2393,10 @@ works:
       - chapter_id: 74963
         title: "第82話"
         updated: 2026-02-05
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 74862
         title: "SSSオフショット80"
         updated: 2026-01-29
@@ -1952,7 +2404,10 @@ works:
       - chapter_id: 74784
         title: "第81話"
         updated: 2026-01-22
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 74721
         title: "SSSオフショット79"
         updated: 2026-01-15
@@ -1968,7 +2423,10 @@ works:
       - chapter_id: 74442
         title: "Episode.80"
         updated: 2025-12-25
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 73086
         title: "SSSオフショット77"
         updated: 2025-12-18
@@ -1976,7 +2434,10 @@ works:
       - chapter_id: 73083
         title: "Episode.79"
         updated: 2025-12-11
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 73080
         title: "SSSオフショット76"
         updated: 2025-12-04
@@ -1984,7 +2445,10 @@ works:
       - chapter_id: 72846
         title: "Episode.78"
         updated: 2025-11-27
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 72768
         title: "第9巻　特典情報"
         updated: 2025-11-20
@@ -1996,7 +2460,10 @@ works:
       - chapter_id: 72566
         title: "Episode.77"
         updated: 2025-11-13
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 72563
         title: "コミックス発売のお知らせ"
         updated: 2025-11-06
@@ -2012,7 +2479,10 @@ works:
       - chapter_id: 72302
         title: "Episode.76"
         updated: 2025-10-23
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 71492
         title: "SSSオフショット73"
         updated: 2025-10-16
@@ -2020,7 +2490,10 @@ works:
       - chapter_id: 71489
         title: "Episode.75"
         updated: 2025-10-09
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 71486
         title: "SSSオフショット72"
         updated: 2025-10-02
@@ -2028,7 +2501,10 @@ works:
       - chapter_id: 70985
         title: "Episode.74"
         updated: 2025-09-25
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 70658
         title: "SSSオフショット71"
         updated: 2025-09-18
@@ -2036,7 +2512,10 @@ works:
       - chapter_id: 70655
         title: "Episode.73"
         updated: 2025-09-11
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 70652
         title: "SSSオフショット70"
         updated: 2025-09-04
@@ -2044,7 +2523,10 @@ works:
       - chapter_id: 70523
         title: "Episode.72"
         updated: 2025-08-28
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 70121
         title: "SSSオフショット69"
         updated: 2025-08-21
@@ -2052,7 +2534,10 @@ works:
       - chapter_id: 70118
         title: "Episode.71"
         updated: 2025-08-14
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 70115
         title: "SSSオフショット68"
         updated: 2025-08-07
@@ -2060,7 +2545,10 @@ works:
       - chapter_id: 70016
         title: "Episode.70"
         updated: 2025-07-31
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 69611
         title: "SSSオフショット67"
         updated: 2025-07-24
@@ -2072,7 +2560,10 @@ works:
       - chapter_id: 69608
         title: "Episode.69"
         updated: 2025-07-17
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 69605
         title: "コミックス発売のお知らせ"
         updated: 2025-07-10
@@ -2084,7 +2575,10 @@ works:
       - chapter_id: 69233
         title: "Episode.68"
         updated: 2025-07-03
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 69029
         title: "SSSオフショット65"
         updated: 2025-06-26
@@ -2096,7 +2590,10 @@ works:
       - chapter_id: 68294
         title: "Episode.67"
         updated: 2025-06-12
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 68291
         title: "SSSオフショット63"
         updated: 2025-06-05
@@ -2104,7 +2601,10 @@ works:
       - chapter_id: 68153
         title: "Episode.66"
         updated: 2025-05-29
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 67802
         title: "SSSオフショット62"
         updated: 2025-05-22
@@ -2112,7 +2612,10 @@ works:
       - chapter_id: 67757
         title: "Episode.65"
         updated: 2025-05-15
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 66294
         title: "SSSオフショット61"
         updated: 2025-05-08
@@ -2120,7 +2623,10 @@ works:
       - chapter_id: 66291
         title: "Episode.64"
         updated: 2025-05-01
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 66288
         title: "SSSオフショット60"
         updated: 2025-04-24
@@ -2128,7 +2634,10 @@ works:
       - chapter_id: 65970
         title: "Episode.63"
         updated: 2025-04-17
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 65226
         title: "SSSオフショット59"
         updated: 2025-04-10
@@ -2136,11 +2645,17 @@ works:
       - chapter_id: 65514
         title: "Episode.62"
         updated: 2025-04-03
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 65223
         title: "Episode.61.5"
         updated: 2025-03-27
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 65235
         title: "第7巻　特典情報"
         updated: 2025-03-20
@@ -2152,7 +2667,10 @@ works:
       - chapter_id: 65172
         title: "Episode.61"
         updated: 2025-03-13
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 64083
         title: "SSSオフショット57"
         updated: 2025-03-06
@@ -2164,7 +2682,10 @@ works:
       - chapter_id: 64080
         title: "Episode.60"
         updated: 2025-02-27
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 64077
         title: "SSSオフショット56"
         updated: 2025-02-20
@@ -2172,7 +2693,10 @@ works:
       - chapter_id: 62973
         title: "Episode.59"
         updated: 2025-02-13
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 62596
         title: "SSSオフショット55"
         updated: 2025-02-06
@@ -2180,7 +2704,10 @@ works:
       - chapter_id: 62593
         title: "Episode.58"
         updated: 2025-01-30
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 62590
         title: "SSSオフショット54"
         updated: 2025-01-23
@@ -2188,7 +2715,10 @@ works:
       - chapter_id: 62323
         title: "Episode.57"
         updated: 2025-01-16
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 61573
         title: "SSSオフショット53"
         updated: 2025-01-09
@@ -2200,7 +2730,10 @@ works:
       - chapter_id: 61897
         title: "Episode.56"
         updated: 2025-01-02
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 61570
         title: "SSSオフショット52"
         updated: 2024-12-26
@@ -2212,7 +2745,10 @@ works:
       - chapter_id: 61252
         title: "Episode.55"
         updated: 2024-12-19
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 61132
         title: "SSSオフショット51"
         updated: 2024-12-12
@@ -2220,7 +2756,10 @@ works:
       - chapter_id: 61249
         title: "Episode.54"
         updated: 2024-12-05
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 61129
         title: "SSSオフショット50"
         updated: 2024-11-28
@@ -2228,7 +2767,10 @@ works:
       - chapter_id: 61123
         title: "Episode.53"
         updated: 2024-11-21
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 60994
         title: "コミックス発売のお知らせ"
         updated: 2024-11-14
@@ -2240,7 +2782,10 @@ works:
       - chapter_id: 60549
         title: "Episode.52"
         updated: 2024-11-07
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 60546
         title: "SSSオフショット㊽"
         updated: 2024-10-31
@@ -2248,7 +2793,10 @@ works:
       - chapter_id: 60276
         title: "Episode.51"
         updated: 2024-10-24
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 59895
         title: "SSSオフショット㊼"
         updated: 2024-10-17
@@ -2256,7 +2804,10 @@ works:
       - chapter_id: 59772
         title: "Episode.50"
         updated: 2024-10-10
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 59892
         title: "SSSオフショット㊻"
         updated: 2024-10-03
@@ -2272,7 +2823,10 @@ works:
       - chapter_id: 58433
         title: "Episode.49"
         updated: 2024-09-12
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 59010
         title: "SSSオフショット㊹"
         updated: 2024-09-05
@@ -2280,7 +2834,10 @@ works:
       - chapter_id: 57782
         title: "Episode.48"
         updated: 2024-08-29
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 57533
         title: "SSSオフショット㊸"
         updated: 2024-08-22
@@ -2288,7 +2845,10 @@ works:
       - chapter_id: 57272
         title: "Episode.47"
         updated: 2024-08-15
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 57530
         title: "SSSオフショット㊷"
         updated: 2024-08-08
@@ -2296,7 +2856,10 @@ works:
       - chapter_id: 57269
         title: "Episode.46"
         updated: 2024-08-01
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 57266
         title: "第5巻　特典情報"
         updated: 2024-07-25
@@ -2308,7 +2871,10 @@ works:
       - chapter_id: 55919
         title: "Episode.45"
         updated: 2024-07-18
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 56576
         title: "SSSオフショット㊵"
         updated: 2024-07-11
@@ -2316,7 +2882,10 @@ works:
       - chapter_id: 55916
         title: "Episode.44"
         updated: 2024-07-04
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 55610
         title: "コミックス発売のお知らせ"
         updated: 2024-06-20
@@ -2328,7 +2897,10 @@ works:
       - chapter_id: 55514
         title: "Episode.43"
         updated: 2024-06-20
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 55568
         title: "SSSオフショット㊳"
         updated: 2024-06-13
@@ -2336,7 +2908,10 @@ works:
       - chapter_id: 55034
         title: "Episode.42"
         updated: 2024-06-06
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 54659
         title: "SSSオフショット㊲"
         updated: 2024-05-30
@@ -2344,7 +2919,10 @@ works:
       - chapter_id: 54056
         title: "Episode.41"
         updated: 2024-05-23
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 54656
         title: "SSSオフショット㊱"
         updated: 2024-05-16
@@ -2352,7 +2930,10 @@ works:
       - chapter_id: 53804
         title: "Episode.40"
         updated: 2024-05-09
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 53801
         title: "SSSオフショット㉟"
         updated: 2024-05-02
@@ -2364,7 +2945,10 @@ works:
       - chapter_id: 53222
         title: "Episode.39"
         updated: 2024-04-25
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 53798
         title: "SSSオフショット㉞"
         updated: 2024-04-18
@@ -2376,7 +2960,10 @@ works:
       - chapter_id: 52814
         title: "Episode.38"
         updated: 2024-04-11
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 52505
         title: "SSSオフショット㉝"
         updated: 2024-04-04
@@ -2384,7 +2971,10 @@ works:
       - chapter_id: 52331
         title: "Episode.37"
         updated: 2024-03-28
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 52502
         title: "SSSオフショット㉜"
         updated: 2024-03-21
@@ -2400,7 +2990,10 @@ works:
       - chapter_id: 52130
         title: "Episode.36"
         updated: 2024-02-29
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 52004
         title: "SSSオフショット㉚"
         updated: 2024-02-22
@@ -2412,7 +3005,10 @@ works:
       - chapter_id: 51819
         title: "Episode.35"
         updated: 2024-02-15
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 51171
         title: "SSSオフショット㉙"
         updated: 2024-02-08
@@ -2420,7 +3016,10 @@ works:
       - chapter_id: 51168
         title: "Episode.34"
         updated: 2024-02-01
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 51165
         title: "SSSオフショット㉘"
         updated: 2024-01-25
@@ -2428,7 +3027,10 @@ works:
       - chapter_id: 50736
         title: "Episode.33"
         updated: 2024-01-18
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 50733
         title: "SSSオフショット㉗"
         updated: 2024-01-11
@@ -2436,7 +3038,10 @@ works:
       - chapter_id: 50730
         title: "Episode.32"
         updated: 2024-01-04
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 50727
         title: "おまけ"
         updated: 2023-12-28
@@ -2448,7 +3053,10 @@ works:
       - chapter_id: 49014
         title: "Episode.31"
         updated: 2023-12-21
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 49497
         title: "SSSオフショット㉕"
         updated: 2023-12-14
@@ -2456,7 +3064,10 @@ works:
       - chapter_id: 49011
         title: "Episode.30"
         updated: 2023-12-07
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 49005
         title: "SSSオフショット㉔"
         updated: 2023-11-30
@@ -2464,7 +3075,10 @@ works:
       - chapter_id: 48559
         title: "Episode.29"
         updated: 2023-11-23
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 48556
         title: "SSSオフショット㉓"
         updated: 2023-11-16
@@ -2472,7 +3086,10 @@ works:
       - chapter_id: 48553
         title: "Episode.28"
         updated: 2023-11-09
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 48550
         title: "SSSオフショット㉒"
         updated: 2023-11-02
@@ -2484,7 +3101,10 @@ works:
       - chapter_id: 48283
         title: "Episode.27"
         updated: 2023-10-26
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 47866
         title: "SSSオフショット㉑"
         updated: 2023-10-19
@@ -2492,7 +3112,10 @@ works:
       - chapter_id: 47863
         title: "Episode.26"
         updated: 2023-10-12
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 47761
         title: "SSSオフショット⑳"
         updated: 2023-10-05
@@ -2504,7 +3127,10 @@ works:
       - chapter_id: 46909
         title: "Episode.25"
         updated: 2023-09-28
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 46786
         title: "SSSオフショット⑲"
         updated: 2023-09-21
@@ -2512,7 +3138,10 @@ works:
       - chapter_id: 46744
         title: "Episode.24"
         updated: 2023-09-14
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 46579
         title: "SSSオフショット⑱"
         updated: 2023-09-07
@@ -2520,7 +3149,10 @@ works:
       - chapter_id: 46156
         title: "Episode.23"
         updated: 2023-08-31
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 45565
         title: "SSSオフショット⑯⑰"
         updated: 2023-08-24
@@ -2536,7 +3168,10 @@ works:
       - chapter_id: 45559
         title: "Episode.22"
         updated: 2023-08-03
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 45366
         title: "SSSオフショット⑭"
         updated: 2023-07-27
@@ -2544,7 +3179,10 @@ works:
       - chapter_id: 45363
         title: "Episode.21"
         updated: 2023-07-20
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 45138
         title: "SSSオフショット⑬"
         updated: 2023-07-13
@@ -2552,7 +3190,10 @@ works:
       - chapter_id: 45135
         title: "Episode.20"
         updated: 2023-07-06
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 44973
         title: "SSSオフショット⑫"
         updated: 2023-06-29
@@ -2560,7 +3201,10 @@ works:
       - chapter_id: 44910
         title: "Episode.19"
         updated: 2023-06-22
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 44823
         title: "SSSオフショット⑪"
         updated: 2023-06-15
@@ -2568,7 +3212,10 @@ works:
       - chapter_id: 44796
         title: "Episode.18"
         updated: 2023-06-08
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 44724
         title: "SSSオフショット⑩"
         updated: 2023-06-01
@@ -2580,7 +3227,10 @@ works:
       - chapter_id: 44649
         title: "Episode.17"
         updated: 2023-05-25
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 44565
         title: "SSSオフショット⑨"
         updated: 2023-05-18
@@ -2588,7 +3238,10 @@ works:
       - chapter_id: 44454
         title: "Episode.16"
         updated: 2023-05-11
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 44299
         title: "SSSオフショット⑧"
         updated: 2023-05-04
@@ -2596,7 +3249,10 @@ works:
       - chapter_id: 44272
         title: "Episode.15"
         updated: 2023-04-27
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 44143
         title: "第1巻 特典情報"
         updated: 2023-04-20
@@ -2608,7 +3264,10 @@ works:
       - chapter_id: 43906
         title: "Episode.14"
         updated: 2023-04-13
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 43549
         title: "SSSオフショット⑥"
         updated: 2023-04-06
@@ -2616,7 +3275,10 @@ works:
       - chapter_id: 42937
         title: "Episode.13"
         updated: 2023-03-30
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 42916
         title: "SSSオフショット⑤"
         updated: 2023-03-23
@@ -2628,7 +3290,10 @@ works:
       - chapter_id: 42685
         title: "Episode.12"
         updated: 2023-03-16
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 42625
         title: "SSSオフショット④"
         updated: 2023-03-09
@@ -2636,7 +3301,10 @@ works:
       - chapter_id: 42217
         title: "Episode.11"
         updated: 2023-03-02
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 41902
         title: "SSSオフショット③"
         updated: 2023-02-23
@@ -2648,7 +3316,10 @@ works:
       - chapter_id: 41851
         title: "Episode.10"
         updated: 2023-02-16
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 41790
         title: "SSSオフショット②"
         updated: 2023-02-09
@@ -2656,7 +3327,10 @@ works:
       - chapter_id: 41772
         title: "Episode.9"
         updated: 2023-02-02
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 41049
         title: "SSSオフショット①"
         updated: 2023-01-26
@@ -2668,43 +3342,73 @@ works:
       - chapter_id: 41043
         title: "Episode.8"
         updated: 2023-01-19
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 40467
         title: "Episode.7（2）"
         updated: 2023-01-05
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 40464
         title: "Episode.7（1）"
         updated: 2022-12-22
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 40413
         title: "Episode.6（2）"
         updated: 2022-12-08
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 40410
         title: "Episode.6（1）"
         updated: 2022-11-24
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 40110
         title: "Episode.5"
         updated: 2022-11-10
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 39857
         title: "Episode.4（2）"
         updated: 2022-10-27
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 39854
         title: "Episode.4（1）"
         updated: 2022-10-13
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 39227
         title: "Episode.3（2）"
         updated: 2022-09-29
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 39224
         title: "Episode.3（1）"
         updated: 2022-09-15
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
+        access_changed: "free -> free-timed"
+        access_changed_on: "2026-11-24"
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 37754
         title: "Episode.2"
         updated: 2022-09-01
@@ -3493,393 +4197,6 @@ works:
       - chapter_id: 48577
         title: "第１話"
         updated: 2023-11-08
-        access_modes: ["free"]
-  - work_title: "しゅがー・みーつ・がーる！"
-    yomi: "しゅがーみーつがーる"
-    url: "https://comic-fuz.com/manga/3108"
-    latest_updated: "2026-11-10"
-    authors: ["白野アキヒロ"]
-    tags: ["火曜日", "男性向け", "学園", "グルメ", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "百合", "日常"]
-    chapter_count: 77
-    chapters:
-      - chapter_id: 80983
-        title: "第33皿(2)"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-11-24
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
-      - chapter_id: 80980
-        title: "第33皿(1)"
-        updated: 2026-11-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 80977
-        title: "第32皿(2)"
-        updated: 2026-10-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 80974
-        title: "第32皿(1)"
-        updated: 2026-10-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 80071
-        title: "特別編5"
-        updated: 2026-09-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 79439
-        title: "第31皿(2)"
-        updated: 2026-08-25
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 79436
-        title: "第31皿(1)"
-        updated: 2026-08-11
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 78974
-        title: "特別編4"
-        updated: 2026-07-14
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 77821
-        title: "第30皿(2)"
-        updated: 2026-06-23
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 77818
-        title: "第30皿(1)"
-        updated: 2026-06-09
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 77932
-        title: "コミックス第5巻・書店特典情報！"
-        updated: 2026-05-01
-        access_modes: ["free"]
-      - chapter_id: 77140
-        title: "第29皿(2)"
-        updated: 2026-05-26
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 77137
-        title: "第29皿(1)"
-        updated: 2026-05-12
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 77104
-        title: "第28皿(2)"
-        updated: 2026-04-28
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 77101
-        title: "第28皿(1)"
-        updated: 2026-04-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 75328
-        title: "第27皿(2)"
-        updated: 2026-03-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 75325
-        title: "第27皿(1)"
-        updated: 2026-03-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 74253
-        title: "第26皿(2)"
-        updated: 2026-01-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 74250
-        title: "第26皿(1)"
-        updated: 2026-01-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 72831
-        title: "第25皿(2)"
-        updated: 2025-12-23
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 72828
-        title: "第25皿(1)"
-        updated: 2025-12-09
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 72161
-        title: "特別編3"
-        updated: 2025-11-11
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 71405
-        title: "第24皿(2)"
-        updated: 2025-10-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 71402
-        title: "第24皿(1)"
-        updated: 2025-10-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 70838
-        title: "コミックス第4巻・書店特典情報！"
-        updated: 2025-09-09
-        access_modes: ["free"]
-      - chapter_id: 69986
-        title: "第23皿(2)"
-        updated: 2025-09-23
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 69983
-        title: "第23皿(1)"
-        updated: 2025-09-09
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 69845
-        title: "第22皿(2)"
-        updated: 2025-08-26
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 69842
-        title: "第22皿(1)"
-        updated: 2025-08-12
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 68216
-        title: "第21皿(2)"
-        updated: 2025-07-22
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 68213
-        title: "第21皿(1)"
-        updated: 2025-07-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 68096
-        title: "第20皿(2)"
-        updated: 2025-06-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 68093
-        title: "第20皿(1)"
-        updated: 2025-06-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 65895
-        title: "第19皿(2)"
-        updated: 2025-05-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 65892
-        title: "第19皿(1)"
-        updated: 2025-05-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 63858
-        title: "第18皿(2)"
-        updated: 2025-03-25
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 63855
-        title: "第18皿(1)"
-        updated: 2025-03-11
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 63555
-        title: "コミックス第3巻・書店特典情報！"
-        updated: 2025-02-11
-        access_modes: ["free"]
-      - chapter_id: 62413
-        title: "第17皿(2)"
-        updated: 2025-02-25
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 62410
-        title: "第17皿(1)"
-        updated: 2025-02-11
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 61648
-        title: "第16皿(2)"
-        updated: 2025-01-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 61645
-        title: "第16皿(1)"
-        updated: 2025-01-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 61060
-        title: "第15皿(2)"
-        updated: 2024-12-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 61048
-        title: "第15皿(1)"
-        updated: 2024-12-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 60498
-        title: "特別編2"
-        updated: 2024-11-26
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 58608
-        title: "第14皿(2)"
-        updated: 2024-10-08
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 58605
-        title: "第14皿(1)"
-        updated: 2024-10-01
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 57410
-        title: "第13皿(2)"
-        updated: 2024-09-24
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 57407
-        title: "第13皿(1)"
-        updated: 2024-09-17
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 56552
-        title: "コミックス第2巻・書店特典情報！"
-        updated: 2024-07-06
-        access_modes: ["free"]
-      - chapter_id: 55187
-        title: "第12皿(2)"
-        updated: 2024-09-10
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 55184
-        title: "第12皿(1)"
-        updated: 2024-09-03
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 55181
-        title: "第11皿(2)"
-        updated: 2024-08-27
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 55178
-        title: "第11皿(1)"
-        updated: 2024-08-20
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 53867
-        title: "第10皿(2)"
-        updated: 2024-08-13
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 53864
-        title: "第10皿(1)"
-        updated: 2024-08-06
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52769
-        title: "第9皿(2)"
-        updated: 2024-07-30
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52766
-        title: "第9皿(1)"
-        updated: 2024-07-23
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52874
-        title: "特別編1(2)"
-        updated: 2024-07-16
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52871
-        title: "特別編1(1)"
-        updated: 2024-07-09
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52763
-        title: "第8皿(2)"
-        updated: 2024-07-02
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52760
-        title: "第8皿(1)"
-        updated: 2024-06-25
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52757
-        title: "第7皿(2)"
-        updated: 2024-06-18
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52754
-        title: "第7皿(1)"
-        updated: 2024-06-11
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52751
-        title: "第6皿(2)"
-        updated: 2024-06-04
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52748
-        title: "第6皿(1)"
-        updated: 2024-05-28
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52745
-        title: "第5皿(2)"
-        updated: 2024-05-21
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52742
-        title: "第5皿(1)"
-        updated: 2024-05-14
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52739
-        title: "第4皿(2)"
-        updated: 2024-05-07
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52736
-        title: "第4皿(1)"
-        updated: 2024-04-30
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52733
-        title: "第3皿(2)"
-        updated: 2024-04-23
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52730
-        title: "第3皿(1)"
-        updated: 2024-04-16
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52727
-        title: "第2皿(2)"
-        updated: 2024-04-09
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52724
-        title: "第2皿(1)"
-        updated: 2024-04-02
-        access_modes: ["free-timed"]
-        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
-      - chapter_id: 52721
-        title: "第1皿(2)"
-        updated: 2024-03-26
-        access_modes: ["free"]
-      - chapter_id: 52718
-        title: "第1皿(1)"
-        updated: 2024-03-26
-        access_modes: ["free"]
-      - chapter_id: 37458
-        title: "第0皿"
-        updated: 2024-03-26
         access_modes: ["free"]
   - work_title: "このままモブじゃ終われない！"
     yomi: "このままもぶじゃおわれない"
@@ -4903,8 +5220,11 @@ works:
       - chapter_id: 64806
         title: "５巻 第５３話「決心イグニッション」"
         updated: 2026-11-23
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-24"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 64803
         title: "５巻 第５２話「宙想マーメイド」"
         updated: 2026-11-16
@@ -22465,17 +22785,28 @@ works:
   - work_title: "あまねくシグナル"
     yomi: "あまねくしぐなる"
     url: "https://comic-fuz.com/manga/3896"
-    latest_updated: "2026-11-10"
+    latest_updated: "2026-11-24"
     authors: ["はうあゆ"]
     tags: ["火曜日", "男性向け", "SF・ファンタジー", "まんがタイムきららフォワード", "まんがタイムKRコミックス"]
-    chapter_count: 32
+    chapter_count: 34
     chapters:
-      - chapter_id: 81004
-        title: "第16話（2）"
+      - chapter_id: 82228
+        title: "第17話（2）"
         advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-11-24
+        free_from: 2026-12-22
         access_modes: ["purchase"]
         access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 82225
+        title: "第17話（1）"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-08
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 81004
+        title: "第16話（2）"
+        updated: 2026-11-24
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 81001
         title: "第16話（1）"
         updated: 2026-11-10

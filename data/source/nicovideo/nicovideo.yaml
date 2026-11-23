@@ -9,7 +9,7 @@
 source: webpages
 platform: nicovideo
 platform_name: ニコニコ漫画
-retrieved: 2026-11-23
+retrieved: 2026-11-24
 record_type: work_update_dates
 identification_mode: discovery-candidate
 granularity: work
@@ -23,6 +23,16 @@ works:
     started: "2018-05-10"
     channel: "もっとやわらかスピリッツ"
     channel_slug: "yawaspi"
+  - work_title: "ハッピーシュート！"
+    author: "とりから"
+    url: "https://manga.nicovideo.jp/comic/60084"
+    comic_id: "60084"
+    updated: "2026-11-23"
+    started: "2022-08-31"
+    episode_count: 185
+    free_episodes: 185
+    latest_episode: "第18話の5（完結）"
+    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1179277"
   - work_title: "魔法少女イナバ"
     author: "猫にゃん(漫画)"
     url: "https://manga.nicovideo.jp/comic/75854"
@@ -35,16 +45,6 @@ works:
     channel_slug: "bushiroad"
     latest_episode: "第10話"
     latest_episode_url: "https://manga.nicovideo.jp/watch/mg1169995"
-  - work_title: "ハッピーシュート！"
-    author: "とりから"
-    url: "https://manga.nicovideo.jp/comic/60084"
-    comic_id: "60084"
-    updated: "2026-11-22"
-    started: "2022-08-31"
-    episode_count: 184
-    free_episodes: 184
-    latest_episode: "第18話の4"
-    latest_episode_url: "https://manga.nicovideo.jp/watch/mg1179145"
   - work_title: "男子高校生だけどギャルにTSしました"
     author: "太陽まりい(著者)"
     url: "https://manga.nicovideo.jp/comic/67976"

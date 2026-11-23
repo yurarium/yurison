@@ -4,12 +4,12 @@
 # criterion. `raw` holds title+author unsplit; separating them needs the platform page.
 source: yurinavi-webyuri
 role: coverage-yardstick
-retrieved: 2026-11-23
+retrieved: 2026-11-24
 record_type: coverage_gap
-works_listed: 133
+works_listed: 134
 platforms_total: 25
 platforms_watched: 17
-works_on_watched_platforms: 95
+works_on_watched_platforms: 96
 platforms:
   - platform: "カドコミ"
     works: 55
@@ -56,6 +56,9 @@ platforms:
   - platform: "コミックオギャー!!"
     works: 2
     watched: true
+  - platform: "チャンピオンクロス"
+    works: 2
+    watched: true
   - platform: "となりのヤングジャンプ"
     works: 1
     watched: true
@@ -72,9 +75,6 @@ platforms:
     works: 1
     watched: false
   - platform: "ビビビコミック"
-    works: 1
-    watched: true
-  - platform: "チャンピオンクロス"
     works: 1
     watched: true
   - platform: "pixivコミック"
@@ -699,6 +699,12 @@ works:
     watched_platform: false
     title: "春雷卓球"
     url: "https://shonenjumpplus.com/episode/17107094912913096422"
+  - raw: "上伊那ぼたん、酔へる姿は百合の花 塀"
+    platform: "チャンピオンクロス"
+    last_update_seen: 11-24
+    watched_platform: true
+    title: "上伊那ぼたん、酔へる姿は百合の花"
+    url: "https://championcross.jp/episodes/773c9878f071f"
   - raw: "阿佐ヶ谷サキュバス同人物語 縁山"
     platform: "チャンピオンクロス"
     last_update_seen: 11-14

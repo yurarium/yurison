@@ -682,6 +682,26 @@ names:
     note: 限目 counts school class periods, so 1限目 is the first period. The BOOK☆WALKER series page for
       ALL YOU!! lists it as a numbered book, so it reads as Period 1 under the series name.
     verified: false
+  2013winter:
+    basis: translated
+    en: 2013 Winter
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page for トランススイッチ lists this issue by its season label. It is already English,
+      so it is kept as 2013 Winter under the work's English title Trans Switch.
+    verified: false
+  2014spring:
+    basis: translated
+    en: 2014 Spring
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page for トランススイッチ lists this issue by its season label. It is already English,
+      so it is kept as 2014 Spring under the work's English title Trans Switch.
+    verified: false
   '2332':
     basis: official-jp
     en: '2332'
@@ -3771,6 +3791,26 @@ names:
     reading_source_kind: analyser
     translation_refused: The subtitle expands the acronym in English already and the licensor prints SHWD,
       so ours is the same four letters.
+    verified: false
+  SIDE A もうひとつのユリトピア:
+    basis: translated
+    en: 'Side A: Another Yuritopia'
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists this as the Side A book of 屋上の百合霊さん, with no English title. ユリトピア
+      joins 百合 (yuri) with utopia, so the coinage Yuritopia is kept. もうひとつの means 'another'.
+    verified: false
+  SIDE B 仲良しクイズ:
+    basis: translated
+    en: 'Side B: Friendship Quiz'
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page lists this as the Side B book of 屋上の百合霊さん, with no English title. 仲良しクイズ
+      means a quiz about how well friends know each other, so it is rendered as Friendship Quiz.
     verified: false
   SIDE:宝多六花:
     basis: translated
@@ -8873,6 +8913,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  あなたと私の二人ぼっち計画:
+    basis: translated
+    en: Our Two-Person Loneliness Plan
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER page titles the book オンリー☆ユー ～あなたと私の二人ぼっち計画～(1) and gives no English. 二人ぼっち
+      is a play on 一人ぼっち (all alone), so it is rendered as a two-person loneliness. The synopsis has a
+      lonely girl placed in a cohabitation program with a classmate, which fits this reading.
+    verified: false
   あなたと私の周波数:
     basis: translated
     en: Your Frequency and Mine
@@ -11041,6 +11092,17 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  いま神にめされて:
+    basis: translated
+    en: Called Away by God Now
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is volume 2 of 従姉ヴァレリア, listed on its BOOK☆WALKER series page. 神にめされる means being called
+      to God's side, which is a euphemism for dying or entering religious life. The English keeps that
+      ambiguity.
+    verified: false
   いらない男を捨てました:
     basis: translated
     en: 'The Short Romance Anthology Comic: I Dumped the Man I Didn''t Need'
@@ -12221,6 +12283,16 @@ names:
     reading_source: surface
     reading_source_kind: analyser
     verified: true
+  おべんとうと加瀬さん:
+    basis: translated
+    en: Kase-san and Bento
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER series page lists it under the 加瀬さん series, and the related title おべんとうと加瀬さん。
+      is already named Kase-san and Bento. This book follows that name.
+    verified: false
   おべんとうと加瀬さん。:
     basis: licensed
     en: Kase-san and Bento
@@ -34682,6 +34754,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  ショートケーキと加瀬さん:
+    basis: translated
+    en: Kase-san and Shortcake
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The BOOK☆WALKER series page lists it under the 加瀬さん series, and the related title ショートケーキと加瀬さん。
+      is already named Kase-san and Shortcake. This book follows that name. The Japanese order puts the
+      food first, but the English series convention puts Kase-san first.
     verified: false
   ショートケーキと加瀬さん。:
     basis: licensed
@@ -93148,6 +93231,16 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  許されぬ愛ゆえに:
+    basis: translated
+    en: For Forbidden Love
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: This is volume 1 of 従姉ヴァレリア, listed on its BOOK☆WALKER series page. 許されぬ愛ゆえに means 'because
+      of a love that is not permitted'. It is rendered as a short English phrase.
     verified: false
   誕プレなしでもキスはほしい:
     basis: translated

@@ -4895,6 +4895,16 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  Third Party:
+    basis: translated
+    en: Third Party
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'The volume title is the English phrase ''Third Party'', and the record marks it as volume 3
+      of Naoko-san, the Yuri Alien. It is kept as written. Page read: BOOK WALKER series page.'
+    verified: false
   Ticking away with the second hand:
     basis: official-jp
     en: Ticking away with the second hand
@@ -5601,6 +5611,17 @@ names:
     note: already Latin on the platform's own page; no romanisation involved
     script: latin
     verified: true
+  inDeep:
+    basis: translated
+    en: inDeep
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'The title is the English phrase ''in deep'', which the Japanese page lists as くされ女子inDeep,
+      the second book of Rotten Girls!. It is kept as the English words it borrows, so the book reads
+      as Rotten Girls! inDeep. Page read: BOOK WALKER series page.'
+    verified: false
   interlude:
     basis: translated
     en: Interlude
@@ -5906,6 +5927,17 @@ names:
     en_source_kind: derived
     note: The title is already the English word 'time', so it is kept as is. The BOOK☆WALKER series page
       for Frag lists other volumes, and this one was not clearly shown there.
+    verified: false
+  v.:
+    basis: translated
+    en: Vol. 1
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: The key 'v.' is an abbreviation for 'volume', and the record calls the book v.1, the first book
+      of Octave. It reads under the work's English as Vol. 1. The CMOA page returned a server error, so
+      this rests on the record's volume label.
     verified: false
   webまとめ:
     basis: translated
@@ -8575,6 +8607,17 @@ names:
     reading_pass: 4
     reading_source: sudachi
     reading_source_kind: analyser
+    verified: false
+  あさがおと加瀬さん:
+    basis: translated
+    en: Kase-san and Morning Glories
+    en_at: '2026-11-23'
+    en_reviewed: '2026-11-23'
+    en_source: yurarium
+    en_source_kind: derived
+    note: 'The title means ''Morning Glories and Kase-san''. The related title あさがおと加瀬さん。 is already named
+      Kase-san and Morning Glories, and this is the same story under the Kase-san and... series, so it
+      takes the same name. Page read: BOOK WALKER series page.'
     verified: false
   あさがおと加瀬さん。:
     basis: licensed

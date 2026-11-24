@@ -23331,6 +23331,10 @@ works:
       - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984537953027"
         basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984537962123 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984537953027, so the platform places this chapter in series 12207421984537953027"
         retrieved: 2026-11-21
+  - id: w03563
+    title: "夜にひまわり～お姉ちゃんとヤンキーちゃん～"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_021657_S"
 related:
   - a: w00156
     b: w00486

@@ -10,7 +10,7 @@ pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 313
-works_on_watched_platform: 285
+works_on_watched_platform: 286
 platforms_total: 51
 platforms_watched: 39
 # ranked by works reachable on NO watched platform
@@ -27,11 +27,11 @@ platforms_missing:
     works: 2
   - platform: "comicブースト"
     works: 2
-  - platform: "きら星ポータル"
-    works: 2
   - platform: "ゴラクエッグ"
     works: 1
   - platform: "pixivコミックマガジン"
+    works: 1
+  - platform: "きら星ポータル"
     works: 1
   - platform: "ドリコミ+"
     works: 1
@@ -176,16 +176,6 @@ works_missing:
     url: "https://comic-boost.com/content/01780001"
     antenna_id: "216014"
     tags: ["百合", "読み切り"]
-  - title: "百合のはじまりは奴隷から"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13537"
-    antenna_id: "213216"
-    tags: ["百合"]
-  - title: "怨霊日和"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/13946"
-    antenna_id: "217762"
-    tags: ["百合"]
   - title: "姫騎士と姫巫女"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13609"
@@ -196,6 +186,11 @@ works_missing:
     url: "https://comic.pixiv.net/works/13605"
     antenna_id: "214042"
     tags: ["百合"]
+  - title: "バクガタリzzZ"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/12795"
+    antenna_id: "202751"
+    tags: ["百合", "不動産", "擬人化", "女子高生"]
   - title: "ひとりみです"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13604"
@@ -206,6 +201,16 @@ works_missing:
     url: "https://comic.pixiv.net/works/7182"
     antenna_id: "113830"
     tags: ["百合", "料理・グルメ"]
+  - title: "百合のはじまりは奴隷から"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13537"
+    antenna_id: "213216"
+    tags: ["百合"]
+  - title: "怨霊日和"
+    platform: "pixivコミック"
+    url: "https://comic.pixiv.net/works/13946"
+    antenna_id: "217762"
+    tags: ["百合"]
   - title: "ふたりべや"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/5364"
@@ -246,11 +251,6 @@ works_missing:
     url: "https://comic.pixiv.net/works/13608"
     antenna_id: "214045"
     tags: ["百合"]
-  - title: "バクガタリzzZ"
-    platform: "pixivコミック"
-    url: "https://comic.pixiv.net/works/12795"
-    antenna_id: "202751"
-    tags: ["百合", "不動産", "擬人化", "女子高生"]
   - title: "ロリースイートロリー"
     platform: "pixivコミック"
     url: "https://comic.pixiv.net/works/13522"
@@ -266,11 +266,6 @@ works_missing:
     url: "https://kirapo.jp/ambre/titles/kimimeku"
     antenna_id: "192477"
     tags: ["百合", "不良・ヤンキー"]
-  - title: "たっぷりお嬢様とちょっぴりギャルの幸せシェアごはん"
-    platform: "きら星ポータル"
-    url: "https://kirapo.jp/meteor/titles/tappurichoppiri"
-    antenna_id: "213409"
-    tags: ["読み切り", "百合"]
   - title: "百音と四季"
     platform: "となりのヤングジャンプ"
     url: "https://tonarinoyj.jp/episode/12207421984537962117"
@@ -281,6 +276,16 @@ works_missing:
     url: "https://tonarinoyj.jp/episode/12207421984537962123"
     antenna_id: "218502"
     tags: ["百合", "読み切り"]
+  - title: "新米姉妹のふたりごはん"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_002743_S"
+    antenna_id: "36257"
+    tags: ["レシピ", "料理・グルメ", "日常", "雑学・豆知識", "実写化", "百合", "ホームドラマ", "義理の兄弟姉妹", "継母・継父"]
+  - title: "夜にひまわり～お姉ちゃんとヤンキーちゃん～"
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_021657_S"
+    antenna_id: "218750"
+    tags: ["百合"]
   - title: "けもみみ巫女の異世界神社再興記 神様がくれた奇跡の力のせいで祀られすぎて困ってます。"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021699_S"
@@ -481,11 +486,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_006431_S"
     antenna_id: "185280"
     tags: ["ファンタジー", "異世界", "ダンジョン", "百合", "手芸・工作・DIY", "召喚", "犬", "猫"]
-  - title: "新米姉妹のふたりごはん"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_002743_S"
-    antenna_id: "36257"
-    tags: ["レシピ", "料理・グルメ", "日常", "雑学・豆知識", "実写化", "百合", "ホームドラマ", "義理の兄弟姉妹", "継母・継父"]
   - title: "紅魔館の女たち"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002973_S"
@@ -646,6 +646,11 @@ works_missing:
     url: "https://www.ganganonline.com/title/38"
     antenna_id: "77857"
     tags: ["ホラー", "コミカライズ", "アニメ化", "オカルト", "百合", "恋愛", "同性愛・LGBTQ+", "現代ファンタジー"]
+  - title: "新米錬金術師の店舗経営"
+    platform: "キミコミ"
+    url: "https://kimicomi.com/series/3e22b763a1c0f"
+    antenna_id: "112400"
+    tags: ["アニメ化", "スローライフ", "ファンタジー", "仕事", "錬金術師", "店舗経営", "百合"]
   - title: "ワインガールズ"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/f42014b3e7df6"
@@ -676,11 +681,6 @@ works_missing:
     url: "https://kimicomi.com/series/397963f4f9cfd"
     antenna_id: "213718"
     tags: ["百合", "暗殺者・殺し屋"]
-  - title: "新米錬金術師の店舗経営"
-    platform: "キミコミ"
-    url: "https://kimicomi.com/series/3e22b763a1c0f"
-    antenna_id: "112400"
-    tags: ["アニメ化", "スローライフ", "ファンタジー", "仕事", "錬金術師", "店舗経営", "百合"]
   - title: "さきゅりふぁいす!"
     platform: "キミコミ"
     url: "https://kimicomi.com/series/617d2958d4953"
@@ -726,6 +726,21 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "球詠"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/22768"
+    antenna_id: "52268"
+    tags: ["アニメ化", "スポーツ", "百合", "野球", "女子高生"]
+  - title: "ばっどがーる"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/53991"
+    antenna_id: "121994"
+    tags: ["百合", "女子高生", "4コマ", "アニメ化"]
+  - title: "新米姉妹のふたりごはん"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/18981"
+    antenna_id: "36070"
+    tags: ["料理・グルメ", "女子高生", "実写化", "百合", "レシピ", "ホームドラマ", "義理の兄弟姉妹"]
   - title: "魔法少女にあこがれて"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/40675"
@@ -786,16 +801,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/70738"
     antenna_id: "178754"
     tags: ["百合", "女子高生"]
-  - title: "ばっどがーる"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/53991"
-    antenna_id: "121994"
-    tags: ["百合", "女子高生", "4コマ", "アニメ化"]
-  - title: "球詠"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/22768"
-    antenna_id: "52268"
-    tags: ["アニメ化", "スポーツ", "百合", "野球", "女子高生"]
   - title: "わたしのために脱ぎなさいっ!"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/34328"
@@ -851,11 +856,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/54592"
     antenna_id: "123953"
     tags: ["忍者", "百合", "暗殺者・殺し屋", "シュール", "アニメ化"]
-  - title: "新米姉妹のふたりごはん"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/18981"
-    antenna_id: "36070"
-    tags: ["料理・グルメ", "女子高生", "実写化", "百合", "レシピ", "ホームドラマ", "義理の兄弟姉妹"]
   - title: "モブヘブン"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/73164"

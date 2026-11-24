@@ -1,4 +1,4 @@
-generated: '2026-11-23'
+generated: '2026-11-24'
 names:
   '*sow*':
     basis: stated
@@ -15006,6 +15006,27 @@ names:
     reading_source_kind: national-library
     reading_url: https://ndlsearch.ndl.go.jp/books/R100000136-I1970867909773172271
     verified: true
+  佐崎いま＋高瀬ろく:
+    basis: romaji
+    furigana_spans:
+    - - 佐崎
+      - ささき
+    - - いま＋
+      - null
+    - - 高瀬
+      - たかせ
+    - - ろく
+      - null
+    reading: ササキイマ＋タカセ ロク
+    reading_at: '2026-11-24'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   佐藤:
     basis: romaji
     furigana_spans:

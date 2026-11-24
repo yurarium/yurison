@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-11-24
+retrieved: 2026-11-25
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -2513,8 +2513,12 @@ works:
     title_id: "2901"
     url: "https://pocket.shonenmagazine.com/title/02901"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/2901/feed.xml"
-    chapter_count: 66
+    chapter_count: 67
     chapters:
+      - title: "【#61】ワカレミチ"
+        updated: 2026-11-25
+        author: "原作/大鷹シン 漫画/ホマレ"
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/446958"
       - title: "【#60】Blossom"
         updated: 2026-11-18
         author: "原作/大鷹シン 漫画/ホマレ"
@@ -3573,8 +3577,16 @@ works:
     title_id: "3056"
     url: "https://pocket.shonenmagazine.com/title/03056"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3056/feed.xml"
-    chapter_count: 31
+    chapter_count: 33
     chapters:
+      - title: "【18話(2)】あたしが恋に落ちるには充分な時間だった"
+        updated: 2026-11-25
+        author: "ばったん"
+        url: "https://pocket.shonenmagazine.com/title/03056/episode/447275"
+      - title: "【18話(1)】あたしが恋に落ちるには充分な時間だった"
+        updated: 2026-11-25
+        author: "ばったん"
+        url: "https://pocket.shonenmagazine.com/title/03056/episode/447274"
       - title: "【17話(2)】やっぱり叩き潰します!!  漫画で"
         updated: 2026-10-23
         author: "ばったん"
@@ -5725,8 +5737,12 @@ works:
     title_id: "3338"
     url: "https://pocket.shonenmagazine.com/title/03338"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3338/feed.xml"
-    chapter_count: 11
+    chapter_count: 12
     chapters:
+      - title: "【第12話】オナカスイタ"
+        updated: 2026-11-25
+        author: "イマイ悠"
+        url: "https://pocket.shonenmagazine.com/title/03338/episode/447363"
       - title: "【第11話】呪いの着信"
         updated: 2026-11-18
         author: "イマイ悠"

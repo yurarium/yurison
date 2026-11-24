@@ -12,10 +12,76 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-11-24
+retrieved: 2026-11-25
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "アイドラトリィ"
+    author: "原作/大鷹シン 漫画/ホマレ"
+    url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 9
+    chapters:
+      - title: "【#51】princess"
+        updated: 2026-08-26
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
+      - title: "【#52】Midnight"
+        updated: 2026-09-09
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/443443"
+      - title: "【単行本宣伝話】"
+        updated: 2026-09-16
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/444080"
+      - title: "【#53】Cuteness"
+        updated: 2026-09-23
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/444087"
+      - title: "【#54】ニセモノ　ト　ホンモノ"
+        updated: 2026-09-30
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/444543"
+      - title: "【#55】dodger"
+        updated: 2026-10-14
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/445008"
+      - title: "【#56】ドロップアウト"
+        updated: 2026-10-21
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/445512"
+      - title: "【#57】Shoes"
+        updated: 2026-10-28
+        access_modes: ["free-timed"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/445733"
+      - title: "【#58】lgnite"
+        updated: 2026-11-04
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/02901/episode/446072"
+  - work_title: "怨霊日和"
+    author: "イマイ悠"
+    url: "https://pocket.shonenmagazine.com/title/03338/episode/445065"
+    platform_name: "マガポケ"
+    route: "magapoke-episode"
+    chapter_count: 4
+    chapters:
+      - title: "【第6話】怖がりと幽霊さん"
+        updated: 2026-10-07
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03338/episode/445065"
+      - title: "【第7話】幽霊さんとデート"
+        updated: 2026-10-14
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03338/episode/445457"
+      - title: "【第8話】続・幽霊さんとデート"
+        updated: 2026-10-21
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03338/episode/445801"
+      - title: "【第9話】ギャルとバイト"
+        updated: 2026-11-04
+        access_modes: ["free"]
+        url: "https://pocket.shonenmagazine.com/title/03338/episode/446299"
   - work_title: "ファーストペンギン・レクイエム"
     author: "タダノなつ"
     url: "https://kuragebunch.com/episode/12207421984447442950"
@@ -1303,45 +1369,6 @@ works:
       - title: "第1話"
         updated: 2025-08-08
         access_modes: ["free"]
-  - work_title: "アイドラトリィ"
-    author: "原作/大鷹シン 漫画/ホマレ"
-    url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 8
-    chapters:
-      - title: "【#51】princess"
-        updated: 2026-08-26
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/442798"
-      - title: "【#52】Midnight"
-        updated: 2026-09-09
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/443443"
-      - title: "【単行本宣伝話】"
-        updated: 2026-09-16
-        access_modes: ["free"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/444080"
-      - title: "【#53】Cuteness"
-        updated: 2026-09-23
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/444087"
-      - title: "【#54】ニセモノ　ト　ホンモノ"
-        updated: 2026-09-30
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/444543"
-      - title: "【#55】dodger"
-        updated: 2026-10-14
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/445008"
-      - title: "【#56】ドロップアウト"
-        updated: 2026-10-21
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/445512"
-      - title: "【#58】lgnite"
-        updated: 2026-11-04
-        access_modes: ["free"]
-        url: "https://pocket.shonenmagazine.com/title/02901/episode/446072"
   - work_title: "ドリーム☆ジャンボ☆ガール"
     author: "ヒロユキ"
     url: "https://pocket.shonenmagazine.com/title/02758/episode/443143"
@@ -1375,7 +1402,7 @@ works:
         url: "https://pocket.shonenmagazine.com/title/02758/episode/444741"
       - title: "【第60話】信じて☆スゴスゴ☆ガール"
         updated: 2026-10-14
-        access_modes: ["free"]
+        access_modes: ["purchase"]
         url: "https://pocket.shonenmagazine.com/title/02758/episode/445472"
       - title: "【第61話】最強☆親友☆ガール"
         updated: 2026-10-21
@@ -1383,7 +1410,7 @@ works:
         url: "https://pocket.shonenmagazine.com/title/02758/episode/445807"
       - title: "【第63話】先輩は☆過去の女☆ガール"
         updated: 2026-11-04
-        access_modes: ["purchase"]
+        access_modes: ["free"]
         url: "https://pocket.shonenmagazine.com/title/02758/episode/446290"
   - work_title: "今日はカノジョがいないから"
     author: "岩見樹代子"
@@ -2456,25 +2483,6 @@ works:
       - title: "第1話"
         updated: 2025-08-08
         access_modes: ["free"]
-  - work_title: "怨霊日和"
-    author: "イマイ悠"
-    url: "https://pocket.shonenmagazine.com/title/03338/episode/445065"
-    platform_name: "マガポケ"
-    route: "magapoke-episode"
-    chapter_count: 3
-    chapters:
-      - title: "【第6話】怖がりと幽霊さん"
-        updated: 2026-10-07
-        access_modes: ["free-timed"]
-        url: "https://pocket.shonenmagazine.com/title/03338/episode/445065"
-      - title: "【第8話】続・幽霊さんとデート"
-        updated: 2026-10-21
-        access_modes: ["free"]
-        url: "https://pocket.shonenmagazine.com/title/03338/episode/445801"
-      - title: "【第9話】ギャルとバイト"
-        updated: 2026-11-04
-        access_modes: ["purchase"]
-        url: "https://pocket.shonenmagazine.com/title/03338/episode/446299"
   - work_title: "私の百合はお仕事です！"
     author: "未幡"
     url: "https://pocket.shonenmagazine.com/title/01050/episode/446926"
@@ -5495,7 +5503,7 @@ works:
     chapters:
       - title: "【17話(1)】やっぱり叩き潰します!!  漫画で"
         updated: 2026-10-23
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
         url: "https://pocket.shonenmagazine.com/title/03056/episode/445876"
       - title: "【17話(2)】やっぱり叩き潰します!!  漫画で"
         updated: 2026-10-23

@@ -10,7 +10,7 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-24
+retrieved: 2026-11-25
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -19,16 +19,8 @@ works:
   - work_title: "ステラ・ステップ"
     author: "漫画：りんご水,原作：林星悟,キャラクター原案：餡こたく"
     url: "https://comic.pixiv.net/works/10790"
-    chapter_count: 5
+    chapter_count: 3
     chapters:
-      - title: "Step.15② 光の向こうへ"
-        updated: 2026-10-27
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "Step.15① 光の向こうへ"
-        updated: 2026-10-13
-        access_modes: ["free"]
-        date_basis: rendered
       - title: "Step.1② 砂漠に降る雨"
         updated: 2024-11-15
         access_modes: ["free"]
@@ -41,13 +33,26 @@ works:
         updated: 2024-08-09
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "晴れた日のドレスコード"
+    author: "あげはる"
+    url: "https://comic.pixiv.net/works/13425"
+    chapter_count: 2
+    chapters:
+      - title: "第2話"
+        updated: 2026-07-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2026-07-17
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "作りたい女と食べたい女"
     author: "ゆざきさかおみ"
     url: "https://comic.pixiv.net/works/7182"
     chapter_count: 8
     chapters:
-      - title: "第53話 虹鱒と木陰"
-        updated: 2026-11-17
+      - title: "第54話 ピザパ"
+        updated: 2026-11-24
         access_modes: ["free"]
         date_basis: rendered
       - title: "第41話 受け入れてくれる場所"
@@ -78,13 +83,30 @@ works:
         updated: 2021-01-20
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "バカ女26時"
+    author: "原作：遠野めざ, 作画：彩乃浦助"
+    url: "https://comic.pixiv.net/works/9913"
+    chapter_count: 3
+    chapters:
+      - title: "EPISODE 33"
+        updated: 2026-10-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "EPISODE 02①"
+        updated: 2023-11-22
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "EPISODE 01"
+        updated: 2023-11-15
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "姫騎士と姫巫女"
     author: "真くん"
     url: "https://comic.pixiv.net/works/13609"
     chapter_count: 4
     chapters:
-      - title: "第13話"
-        updated: 2026-11-17
+      - title: "第14話"
+        updated: 2026-11-24
         access_modes: ["free"]
         date_basis: rendered
       - title: "第3話"
@@ -942,19 +964,6 @@ works:
         date_basis: rendered
       - title: "第1片"
         updated: 2026-06-28
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "晴れた日のドレスコード"
-    author: "あげはる"
-    url: "https://comic.pixiv.net/works/13425"
-    chapter_count: 2
-    chapters:
-      - title: "第2話"
-        updated: 2026-07-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2026-07-17
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "怪獣ロマンティクス"
@@ -2238,23 +2247,6 @@ works:
         date_basis: rendered
       - title: "♥1 「映画オタクはめんどくさい」"
         updated: 2023-11-08
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "バカ女26時"
-    author: "原作：遠野めざ, 作画：彩乃浦助"
-    url: "https://comic.pixiv.net/works/9913"
-    chapter_count: 3
-    chapters:
-      - title: "EPISODE 33"
-        updated: 2026-10-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE 02①"
-        updated: 2023-11-22
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "EPISODE 01"
-        updated: 2023-11-15
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "嫌われ魔女令嬢と男装皇子の婚約"

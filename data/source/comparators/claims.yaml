@@ -8,10 +8,10 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-24
+retrieved: 2026-11-25
 record_type: update_claims
 window_days: 60
-claims: 422
+claims: 418
 updates:
   - work: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platform: "コミックガルド"
@@ -19,7 +19,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-gardo.com/episode/2550912966011803878"
-    listing_tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
+    listing_tags: ["最近のコメント数"]
   - work: "球詠"
     platform: "ニコニコ漫画"
     date: 2026-11-24
@@ -68,6 +68,13 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_002743_S"
     listing_tags: ["レシピ", "料理・グルメ", "日常", "雑学・豆知識", "実写化", "百合", "ホームドラマ", "義理の兄弟姉妹", "継母・継父"]
+  - work: "怨霊日和"
+    platform: "マガポケ"
+    date: 2026-11-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    listing_tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - work: "姫騎士と姫巫女"
     platform: "pixivコミック"
     date: 2026-11-24
@@ -121,13 +128,13 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "ワインガールズ"
-    platform: "キミコミ"
+  - work: "上伊那ぼたん、酔へる姿は百合の花"
+    platform: "チャンピオンクロス"
     date: 2026-11-24
     source: "webcomics.jp"
     provenance: claimed
-    url: "https://kimicomi.com/series/f42014b3e7df6"
-    listing_tags: ["百合", "擬人化"]
+    url: "https://championcross.jp/series/ae4257e66bab5"
+    listing_tags: ["百合", "大学生", "アニメ化"]
   - work: "ライバルアライバル"
     platform: "pixivコミック"
     date: 2026-11-24
@@ -147,14 +154,14 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://kuragebunch.com/episode/12207421983893652478"
-    listing_tags: ["ホラー", "異能・超能力", "現代ファンタジー", "百合", "残酷・グロテスク", "バディ"]
+    listing_tags: ["最近のコメント数"]
   - work: "ヒモお姉さん、餌付け中。"
     platform: "くらげバンチ"
     date: 2026-11-24
     source: "webcomics.jp"
     provenance: claimed
     url: "https://kuragebunch.com/episode/12207421984481017713"
-    listing_tags: ["百合"]
+    listing_tags: ["最近のコメント数"]
   - work: "バクガタリzzZ"
     platform: "pixivコミック"
     date: 2026-11-24
@@ -169,6 +176,20 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_019658_S"
     listing_tags: ["百合", "現代ファンタジー", "バトル"]
+  - work: "ドリーム☆ジャンボ☆ガール"
+    platform: "マガポケ"
+    date: 2026-11-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02758"
+    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
+  - work: "アイドラトリィ"
+    platform: "マガポケ"
+    date: 2026-11-24
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02901"
+    listing_tags: ["百合", "アイドル", "推し活"]
   - work: "ひなちゃんが生きてるなら"
     platform: "ニコニコ漫画"
     date: 2026-11-24
@@ -231,7 +252,14 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-gardo.com/episode/12207421984094260425"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合"]
+  - work: "ワインガールズ"
+    platform: "キミコミ"
+    date: 2026-11-23
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://kimicomi.com/series/f42014b3e7df6"
+    listing_tags: ["百合", "擬人化"]
   - work: "ベイビー車中ハッカーズ"
     platform: "ヤンジャン+"
     date: 2026-11-23
@@ -374,7 +402,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_020389_S"
-    listing_tags: ["ゲーム世界", "転生", "ファンタジー", "百合", "チート"]
+    listing_tags: ["最近のコメント数"]
   - work: "百音と四季"
     platform: "となりのヤングジャンプ"
     date: 2026-11-20
@@ -779,13 +807,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_006978_S"
     listing_tags: ["百合", "教師", "女子高生", "人妻", "コミカライズ"]
-  - work: "ドリーム☆ジャンボ☆ガール"
-    platform: "マガポケ"
-    date: 2026-11-18
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02758"
-    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
   - work: "ガールズ×ヴァンパイア"
     platform: "チャンピオンクロス"
     date: 2026-11-18
@@ -800,13 +821,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_021488_S"
     listing_tags: ["百合"]
-  - work: "アイドラトリィ"
-    platform: "マガポケ"
-    date: 2026-11-18
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02901"
-    listing_tags: ["百合", "アイドル", "推し活"]
   - work: "りのちゃんの好きなこと"
     platform: "花とゆめ+"
     date: 2026-11-18
@@ -1407,13 +1421,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "怨霊日和"
-    platform: "マガポケ"
-    date: 2026-11-11
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03125"
-    listing_tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - work: "好都合セミフレンド"
     platform: "COMIC FUZ"
     date: 2026-11-11
@@ -2249,13 +2256,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_007014_S"
     listing_tags: ["百合"]
-  - work: "上伊那ぼたん、酔へる姿は百合の花"
-    platform: "チャンピオンクロス"
-    date: 2026-10-27
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://championcross.jp/series/ae4257e66bab5"
-    listing_tags: ["百合", "大学生", "アニメ化"]
   - work: "モブヘブン"
     platform: "カドコミ"
     date: 2026-10-27
@@ -2837,31 +2837,3 @@ updates:
     provenance: claimed
     url: "https://tonarinoyj.jp/episode/12207421984252566649"
     listing_tags: ["百合", "読み切り"]
-  - work: "私の魂を食べて下さい!"
-    platform: "COMICリュウライブ"
-    date: 2026-09-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-ryu.jp/series/faa2bad81d17a"
-    listing_tags: ["百合", "獣人", "お色気・微エロ"]
-  - work: "ロリースイートロリー"
-    platform: "pixivコミック"
-    date: 2026-09-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/13522"
-    listing_tags: ["百合"]
-  - work: "オカワリいただけただろうか?"
-    platform: "webアクション"
-    date: 2026-09-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-action.com/episode/2550912964909179818"
-    listing_tags: ["百合", "妖怪", "現代", "女子高生"]
-  - work: "ゆりゾン"
-    platform: "COMIC OGYAAA!!"
-    date: 2026-09-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-ogyaaa.com/episode/2550912965728497650"
-    listing_tags: ["百合", "SF", "AI", "ギャグ・コメディ"]

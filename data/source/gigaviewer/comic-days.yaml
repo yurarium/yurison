@@ -6,11 +6,59 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-11-24
+retrieved: 2026-11-25
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421984544292401"
+    work_title: "ファタールゲーム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "１８話　あたしが恋に落ちるには充分な時間だった（３）"
+    release_type: "chapter"
+    date: "2026-11-25"
+    date_basis: "observed"
+    first_seen: "2026-11-25"
+    first_reported: "2026-11-24T15:00:00Z"
+    platform_updated: "2026-11-24T15:00:00Z"
+    date_confidence: "low"
+    date_note: "3 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
+    url: "https://comic-days.com/episode/12207421984544292401"
+    author: "ばったん"
+    advances_narrative: true
+  - release_id: "comicdays:episode:12207421984544292396"
+    work_title: "ファタールゲーム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "１８話　あたしが恋に落ちるには充分な時間だった（２）"
+    release_type: "chapter"
+    date: "2026-11-25"
+    date_basis: "observed"
+    first_seen: "2026-11-25"
+    first_reported: "2026-11-24T15:00:00Z"
+    platform_updated: "2026-11-24T15:00:00Z"
+    date_confidence: "low"
+    date_note: "3 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
+    url: "https://comic-days.com/episode/12207421984544292396"
+    author: "ばったん"
+    advances_narrative: true
+  - release_id: "comicdays:episode:12207421984544292388"
+    work_title: "ファタールゲーム"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "１８話　あたしが恋に落ちるには充分な時間だった（１）"
+    release_type: "chapter"
+    date: "2026-11-25"
+    date_basis: "observed"
+    first_seen: "2026-11-25"
+    first_reported: "2026-11-24T15:00:00Z"
+    platform_updated: "2026-11-24T15:00:00Z"
+    date_confidence: "low"
+    date_note: "3 releases of this work share this timestamp — consistent with a metadata refresh or a series import, not same-day publication"
+    url: "https://comic-days.com/episode/12207421984544292388"
+    author: "ばったん"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421983484134482"
     work_title: "新刊１００億冊ください"
     web_status: "serialised"
@@ -61,6 +109,7 @@ releases:
     free_term_start: "2026-11-18T15:00:00Z"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984407366690"
+    in_current_window: false
     work_title: "是騒騒"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -76,6 +125,7 @@ releases:
     author: "羅川真里茂"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587332"
+    in_current_window: false
     work_title: "ささやくように恋を唄う"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -92,6 +142,7 @@ releases:
     author: "竹嶋えく"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587328"
+    in_current_window: false
     work_title: "ささやくように恋を唄う"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -108,6 +159,7 @@ releases:
     author: "竹嶋えく"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587323"
+    in_current_window: false
     work_title: "ささやくように恋を唄う"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -124,6 +176,7 @@ releases:
     author: "竹嶋えく"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587316"
+    in_current_window: false
     work_title: "ささやくように恋を唄う"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -140,6 +193,7 @@ releases:
     author: "竹嶋えく"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587362"
+    in_current_window: false
     work_title: "私の百合はお仕事です！"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -157,6 +211,7 @@ releases:
     raw_title: "シフト.77 目指せ、完璧な姉妹(3)"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984421587359"
+    in_current_window: false
     work_title: "私の百合はお仕事です！"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -174,6 +229,7 @@ releases:
     raw_title: "シフト.77 目指せ、完璧な姉妹(2)"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984421587351"
+    in_current_window: false
     work_title: "私の百合はお仕事です！"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -191,6 +247,7 @@ releases:
     raw_title: "シフト.77 目指せ、完璧な姉妹(1)"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984421587291"
+    in_current_window: false
     work_title: "大室家"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -207,6 +264,7 @@ releases:
     raw_title: "大室家の139"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984421587347"
+    in_current_window: false
     work_title: "私の推しは悪役令嬢。"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -223,6 +281,7 @@ releases:
     author: "青乃下/いのり。/花ヶ田"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587339"
+    in_current_window: false
     work_title: "私の推しは悪役令嬢。"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -239,6 +298,7 @@ releases:
     author: "青乃下/いのり。/花ヶ田"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587335"
+    in_current_window: false
     work_title: "私の推しは悪役令嬢。"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -255,6 +315,7 @@ releases:
     author: "青乃下/いのり。/花ヶ田"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587288"
+    in_current_window: false
     work_title: "今日はカノジョがいないから"
     web_status: "serialised"
     identified_via: "known-work-match"
@@ -270,6 +331,7 @@ releases:
     author: "岩見樹代子"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421984421587282"
+    in_current_window: false
     work_title: "今日はカノジョがいないから"
     web_status: "serialised"
     identified_via: "known-work-match"

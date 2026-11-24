@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-24
+retrieved: 2026-11-25
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 266
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 221
-  works_asked: 958
+  works_asked: 960
   works_with_a_hit: 287
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
@@ -4286,6 +4286,16 @@ works:
     notes:
       - "author query answered nothing"
       - "title query answered nothing"
+  - work_url: "https://comic-walker.com/detail/KC_021657_S"
+    id: "w03563"
+    work: "夜にひまわり～お姉ちゃんとヤンキーちゃん～"
+    author: "佐崎いま＋高瀬ろく"
+    platform: "カドコミ"
+    retrieved: "2026-11-25"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://comic-walker.com/detail/KC_021699_S"
     id: "w03560"
     work: "けもみみ巫女の異世界神社再興記 神様がくれた奇跡の力のせいで祀られすぎて困ってます。"
@@ -8213,6 +8223,16 @@ works:
     author: "イマイ悠"
     platform: "マガポケ"
     retrieved: "2026-11-18"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://pocket.shonenmagazine.com/title/03338/episode/447363"
+    id: "w03314"
+    work: "怨霊日和"
+    author: "イマイ悠"
+    platform: "マガポケ"
+    retrieved: "2026-11-25"
     hits: []
     notes:
       - "author query returned no title this database recognises"

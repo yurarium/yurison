@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-24
+retrieved: 2026-11-25
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -330,7 +330,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020389_S"
     antenna_id: "215767"
-    tags: ["ゲーム世界", "転生", "ファンタジー", "百合", "チート"]
+    tags: ["最近のコメント数"]
   - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007220_S"
@@ -690,7 +690,7 @@ works_missing:
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
     antenna_id: "191960"
-    tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
+    tags: ["最近のコメント数"]
   - title: "DOUBLE HELIX BLOSSOM"
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/65"
@@ -706,6 +706,11 @@ works_missing:
     url: "https://ddnavi.com/sazametorio/"
     antenna_id: "213473"
     tags: ["百合"]
+  - title: "上伊那ぼたん、酔へる姿は百合の花"
+    platform: "チャンピオンクロス"
+    url: "https://championcross.jp/series/ae4257e66bab5"
+    antenna_id: "87443"
+    tags: ["百合", "大学生", "アニメ化"]
   - title: "ガールズ×ヴァンパイア"
     platform: "チャンピオンクロス"
     url: "https://championcross.jp/series/f30e2f58bbbdf"
@@ -716,11 +721,6 @@ works_missing:
     url: "https://championcross.jp/series/21fe5b3d50300"
     antenna_id: "199771"
     tags: ["百合", "アイドル"]
-  - title: "上伊那ぼたん、酔へる姿は百合の花"
-    platform: "チャンピオンクロス"
-    url: "https://championcross.jp/series/ae4257e66bab5"
-    antenna_id: "87443"
-    tags: ["百合", "大学生", "アニメ化"]
   - title: "勇者の旅の裏側で"
     platform: "ドリコミ+"
     url: "https://drecomi-plus.jp/series/CD00038"
@@ -926,6 +926,11 @@ works_missing:
     url: "https://flowercomics.jp/title/6162"
     antenna_id: "217483"
     tags: ["百合"]
+  - title: "怨霊日和"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    antenna_id: "202785"
+    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "瑠夏と杏珠の逃避行"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03368"
@@ -941,11 +946,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/01052"
     antenna_id: "101434"
     tags: ["4コマ", "百合", "アニメ化", "日常", "女子小学生"]
-  - title: "怨霊日和"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03125"
-    antenna_id: "202785"
-    tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - title: "踊り場にスカートが鳴る"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01646"

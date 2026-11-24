@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-24
+retrieved: 2026-11-25
 record_type: discovery_queue
 candidates:
   - work_title: "りのちゃんの好きなこと"
@@ -17,14 +17,14 @@ candidates:
     work_url: "https://hanayume.com/episodes/be6d25f129323"
     headline: "美形女子高生と純朴小学生のピュア百合読み切り「りのちゃんの好きなこと」WEBで公開"
     status: unconfirmed
-  - work_title: "織りゆけサルデーニャ"
-    signal: "oneshot"
-    announced: "Wed, 11 Nov 2026 11:27:11 +0000"
-    url: "https://yurinavi.com/2026/11/11/oriyuke-yomikiri/"
-    platform: "magcomi"
-    platform_code: "12207421984482234310"
-    work_url: "https://magcomi.com/episode/12207421984482234310"
-    headline: "島で織物を受け継ぐ少女と大人の女性との出会いを描く読み切り漫画「織りゆけサルデーニャ」WEBで公開"
+  - work_title: "けもみみ巫女の異世界神社再興記"
+    signal: "new-serial"
+    announced: "Tue, 24 Nov 2026 11:00:04 +0000"
+    url: "https://yurinavi.com/2026/11/24/kemomimimikono-comic/"
+    platform: "kadokomi"
+    platform_code: "KC_021699_S"
+    work_url: "https://comic-walker.com/detail/KC_021699_S"
+    headline: "元女子高生の狐巫女が異世界で信仰を集める百合ファンタジー「けもみみ巫女の異世界神社再興記」WEBで連載開始"
     status: unconfirmed
   - work_title: "陰キャ女子でも春したいッ！"
     signal: "new-serial"
@@ -59,6 +59,15 @@ candidates:
     platform_code: "12207421984513315666"
     work_url: "https://comic-seasons.com/episode/12207421984513315666"
     headline: "嬉しいのに怖くて消える、回避型の女性との関係を描いた読み切り漫画「回って避ける」WEBで公開"
+    status: unconfirmed
+  - work_title: "織りゆけサルデーニャ"
+    signal: "oneshot"
+    announced: "2026-11-11"
+    url: "https://yurinavi.com/2026/11/11/oriyuke-yomikiri/"
+    platform: "magcomi"
+    platform_code: "12207421984482234310"
+    work_url: "https://magcomi.com/episode/12207421984482234310"
+    headline: "島で織物を受け継ぐ少女と大人の女性との出会いを描く読み切り漫画「織りゆけサルデーニャ」WEBで公開"
     status: unconfirmed
   - work_title: "ヒモお姉さん、餌付け中。"
     signal: "new-serial"

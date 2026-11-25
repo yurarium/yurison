@@ -39,11 +39,11 @@ sources:
     consecutive: 0
   cmoa-shelf:
     stage: stage-print
-    consecutive: 88
+    consecutive: 89
     last_failed: '2026-11-25'
     failing_since: '2026-10-16'
     error: 'net.Refused: www.cmoa.jp refused https://www.cmoa.jp/search/result/?genre_id=0000037&sort=14&page=1: HTTP 503 after 5 attempt(s)'
-    last_run: https://github.com/yurarium/yurison/actions/runs/45458502412
+    last_run: https://github.com/yurarium/yurison/actions/runs/45547924150
   cmoa-volumes:
     stage: stage-print
     last_ok: '2026-11-20'
@@ -527,11 +527,11 @@ sources:
   stale:stage-0:webcomics-coverage:
     stage: freshness
     last_ok: '2026-11-23'
-    consecutive: 3
+    consecutive: 4
     last_failed: '2026-11-25'
     failing_since: '2026-11-24'
     error: 1 file(s) past their age, e.g. data/coverage/webcomics-works.yaml dated 2026-11-20
-    last_run: https://github.com/yurarium/yurison/actions/runs/45458502412
+    last_run: https://github.com/yurarium/yurison/actions/runs/45547924150
   stale:stage-0:yurinavi-discover:
     stage: freshness
     last_ok: '2026-11-25'
@@ -674,18 +674,18 @@ sources:
     consecutive: 0
   stale:stage-print:cmoa-shelf:
     stage: freshness
-    consecutive: 88
+    consecutive: 89
     last_failed: '2026-11-25'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-yuri.yaml dated 2026-08-04
-    last_run: https://github.com/yurarium/yurison/actions/runs/45458502412
+    last_run: https://github.com/yurarium/yurison/actions/runs/45547924150
   stale:stage-print:cmoa-volumes:
     stage: freshness
-    consecutive: 88
+    consecutive: 89
     last_failed: '2026-11-25'
     failing_since: '2026-10-16'
     error: 1 file(s) past their age, e.g. data/queue/cmoa-volumes.yaml dated 2026-08-05
-    last_run: https://github.com/yurarium/yurison/actions/runs/45458502412
+    last_run: https://github.com/yurarium/yurison/actions/runs/45547924150
   stale:stage-print:madb-*:
     stage: freshness
     last_ok: '2026-11-25'
@@ -708,19 +708,19 @@ sources:
     consecutive: 0
   stale:stage-print:shop-volume-names:
     stage: freshness
-    consecutive: 36
+    consecutive: 37
     last_failed: '2026-11-25'
     failing_since: '2026-11-09'
     error: 1 file(s) past their age, e.g. data/source/comparators/shop-volume-names.yaml dated 2026-08-05
-    last_run: https://github.com/yurarium/yurison/actions/runs/45458502412
+    last_run: https://github.com/yurarium/yurison/actions/runs/45547924150
   webcomics-coverage:
     stage: stage-0
     last_ok: '2026-11-20'
-    consecutive: 10
+    consecutive: 11
     last_failed: '2026-11-25'
     failing_since: '2026-11-20'
     error: 'UnboundLocalError: cannot access local variable ''carried'' where it is not associated with a value'
-    last_run: https://github.com/yurarium/yurison/actions/runs/45458502412
+    last_run: https://github.com/yurarium/yurison/actions/runs/45547924150
   webpages:
     stage: stage-a
     last_ok: '2026-11-25'

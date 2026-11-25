@@ -73,13 +73,14 @@ works:
         updated: 2026-11-18
         author: "春露彗"
         url: "https://kuragebunch.com/episode/12207421984481017739"
+        free_from: 2026-12-08
         access_modes: ["purchase"]
       - title: "第2話①　飼い猫契約とトマトリゾット"
         updated: 2026-11-10
         author: "春露彗"
         url: "https://kuragebunch.com/episode/12207421984481017724"
         free_from: 2026-11-24
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第1話　月見うどんとふたりの秘密"
         updated: 2026-11-10
         author: "春露彗"
@@ -89,8 +90,14 @@ works:
   - work_title: "ファーストペンギン・レクイエム"
     series_id: "12207421983893646743"
     url: "https://kuragebunch.com/atom/series/12207421983893646743"
-    chapter_count: 6
+    chapter_count: 7
     chapters:
+      - title: "間話② ヤバガキとチビガキ"
+        updated: 2026-11-24
+        author: "タダノなつ"
+        url: "https://kuragebunch.com/episode/12207421984447442950"
+        free_from: 2026-11-24
+        access_modes: ["free"]
       - title: "間話① 初めての支給服"
         updated: 2026-10-27
         author: "タダノなつ"

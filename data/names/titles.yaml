@@ -1,4 +1,4 @@
-generated: '2026-11-24'
+generated: '2026-11-25'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -6076,6 +6076,29 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  ♡劇薬お姉さん♡:
+    basis: romaji
+    furigana_spans:
+    - - ♡
+      - null
+    - - 劇薬
+      - げきやく
+    - - お
+      - null
+    - - 姉
+      - ねえ
+    - - さん♡
+      - null
+    reading: ♡ ゲキヤク オネエサン ♡
+    reading_at: '2026-11-25'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   〆切前には百合が捗る:
@@ -33222,6 +33245,17 @@ names:
     reading_source: surface
     translation_note: Our own rendering, which stood here until the series art was read. ココロメイク is a magical-girl
       transformation phrase, so it stays a phrase rather than becoming a sentence.
+    verified: true
+  ココロメイクコスメティカ:
+    basis: romaji
+    reading: ココロメイクコスメティカ
+    reading_at: '2026-11-25'
+    reading_basis: surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 1
+    reading_source: surface
+    reading_source_kind: analyser
     verified: true
   コスプレ百合えっちアンソロジー:
     basis: translated

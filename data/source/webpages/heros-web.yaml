@@ -492,7 +492,7 @@ works:
     author: "柴田康平"
     url: "https://heros-web.com/series/2b64bc0622a2a"
     read: "2026-11-25"
-    chapter_count: 44
+    chapter_count: 45
     chapters:
       - title: "第一服「魔女と再会」"
         updated: "2026-05-18"
@@ -616,13 +616,16 @@ works:
         access_modes: ["free-timed"]
       - title: "第二十一服「魔女と背信」前編"
         updated: "2026-10-14"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第二十一服「魔女と背信」後編"
         updated: "2026-10-28"
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "単行本3巻発売記念イラスト"
         updated: "2026-11-04"
         access_modes: ["free"]
       - title: "第二十二服「魔女と崩壊」前編"
         updated: "2026-11-11"
+        access_modes: ["purchase"]
+      - title: "第二十二服「魔女と崩壊」後編"
+        updated: "2026-11-25"
         access_modes: ["purchase"]

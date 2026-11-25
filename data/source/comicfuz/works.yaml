@@ -29,8 +29,11 @@ works:
       - chapter_id: 80983
         title: "第33皿(2)"
         updated: 2026-11-24
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-25"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80980
         title: "第33皿(1)"
         updated: 2026-11-10
@@ -17239,21 +17242,32 @@ works:
   - work_title: "花唄メモワール"
     yomi: "はなうためもわーる"
     url: "https://comic-fuz.com/manga/3274"
-    latest_updated: "2026-11-18"
+    latest_updated: "2026-11-25"
     authors: ["一ノ瀬けい"]
     tags: ["水曜日", "男性向け", "SF・ファンタジー", "お仕事・趣味", "まんがタイムきららフォワード", "まんがタイムKRコミックス", "日常"]
-    chapter_count: 92
+    chapter_count: 94
     chapters:
+      - chapter_id: 82207
+        title: "第三十七唄(2)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-23
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+      - chapter_id: 82204
+        title: "第三十七唄(1)"
+        advance_paid: true   # published and paid; free from free_from
+        free_from: 2026-12-09
+        access_modes: ["purchase"]
+        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
       - chapter_id: 82129
         title: "コミックス第捌巻・店舗特典情報！"
         updated: 2026-11-18
         access_modes: ["free"]
       - chapter_id: 80971
         title: "特別編4(2)"
-        advance_paid: true   # published and paid; free from free_from
-        free_from: 2026-11-25
+        updated: 2026-11-25
         access_modes: ["purchase"]
-        access_note: "pointConsumption type=1 amount=60 badge=2 — 先行, free from its stated date"
+        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
       - chapter_id: 80968
         title: "特別編4(1)"
         updated: 2026-11-11
@@ -22597,8 +22611,11 @@ works:
       - chapter_id: 81004
         title: "第16話（2）"
         updated: 2026-11-24
-        access_modes: ["purchase"]
-        access_note: "pointConsumption type=None amount=30 badge=1 — coin"
+        access_modes: ["free-timed"]
+        access_changed: "purchase -> free-timed"
+        access_changed_on: "2026-11-25"
+        became_free: true
+        access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 81001
         title: "第16話（1）"
         updated: 2026-11-10

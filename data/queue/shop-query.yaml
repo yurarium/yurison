@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-11-25
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 266
+  hits_agreeing_on_a_creator: 268
   hits_on_the_title_alone: 116
-  hits_stating_a_print_edition_date: 221
-  works_asked: 960
-  works_with_a_hit: 287
+  hits_stating_a_print_edition_date: 222
+  works_asked: 962
+  works_with_a_hit: 289
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
     id: "w03552"
@@ -2537,6 +2537,23 @@ works:
         publisher: "オーバーラップ"
         printed: "2026/11/20"
         agreement: "creator"
+        completed_marker: false
+  - work_url: "https://comic-gardo.com/episode/12207421984544858555"
+    id: "w00059"
+    work: "病弱少女、転生して健康な肉体（最強）を手に入れる　～友達が欲しくて魔境から旅立ったのですが、どうやら私の魔法は少しおかしいようです！？～"
+    author: "あらた伊里 / アトハ / 狐印"
+    platform: "コミックガルド"
+    query: "author"
+    retrieved: "2026-11-25"
+    hits:
+      - series_url: "https://bookwalker.jp/series/572180/list/"
+        title_listed: "病弱少女、転生して健康な肉体（最強）を手に入れる（ガルドコミックス）"
+        shop_author: "あらた伊里"
+        imprint: "ガルドコミックス"
+        publisher: "オーバーラップ"
+        printed: "2026/1/25"
+        agreement: "creator"
+        volumes_stated: 2
         completed_marker: false
   - work_url: "https://comic-growl.com/series/3b60fbd61d3f8"
     id: "w03419"
@@ -6398,6 +6415,21 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query answered nothing"
+  - work_url: "https://kuragebunch.com/episode/12207421984447442950"
+    id: "w00073"
+    work: "ファーストペンギン・レクイエム"
+    author: "タダノなつ"
+    platform: "くらげバンチ"
+    query: "author"
+    retrieved: "2026-11-25"
+    hits:
+      - series_url: null
+        title_listed: "ファーストペンギン・レクイエム 1巻"
+        shop_author: "タダノなつ(著)"
+        imprint: "バンチコミックス"
+        publisher: "新潮社"
+        agreement: "creator"
+        completed_marker: false
   - work_url: "https://kuragebunch.com/episode/12207421984452460688"
     id: "w03523"
     work: "タマさんの猥談原稿"

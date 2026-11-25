@@ -11,8 +11,64 @@ role: provisional-claims
 retrieved: 2026-11-25
 record_type: update_claims
 window_days: 60
-claims: 418
+claims: 419
 updates:
+  - work: "怨霊日和"
+    platform: "マガポケ"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03125"
+    listing_tags: ["最近のコメント数"]
+  - work: "上伊那ぼたん、酔へる姿は百合の花"
+    platform: "チャンピオンクロス"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://championcross.jp/series/ae4257e66bab5"
+    listing_tags: ["百合", "大学生", "アニメ化"]
+  - work: "バカ女26時"
+    platform: "pixivコミック"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic.pixiv.net/works/9913"
+    listing_tags: ["百合", "海外", "現代"]
+  - work: "ドリーム☆ジャンボ☆ガール"
+    platform: "マガポケ"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02758"
+    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
+  - work: "アウトサイダーパラダイス"
+    platform: "カドコミ"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_021488_S"
+    listing_tags: ["百合"]
+  - work: "アイドラトリィ"
+    platform: "マガポケ"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/02901"
+    listing_tags: ["百合", "アイドル", "推し活"]
+  - work: "らぶぶいっ!"
+    platform: "カドコミ"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_008372_S"
+    listing_tags: ["百合", "お色気・微エロ", "異種族・人外"]
+  - work: "♡劇薬お姉さん♡"
+    platform: "となりのヤングジャンプ"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://tonarinoyj.jp/episode/12207421984544056494"
+    listing_tags: ["百合", "読み切り"]
   - work: "病弱少女、転生して健康な肉体(最強)を手に入れる ～友達が欲しくて魔境から旅立ったのですが、どうやら..."
     platform: "コミックガルド"
     date: 2026-11-24
@@ -68,13 +124,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_002743_S"
     listing_tags: ["レシピ", "料理・グルメ", "日常", "雑学・豆知識", "実写化", "百合", "ホームドラマ", "義理の兄弟姉妹", "継母・継父"]
-  - work: "怨霊日和"
-    platform: "マガポケ"
-    date: 2026-11-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03125"
-    listing_tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - work: "姫騎士と姫巫女"
     platform: "pixivコミック"
     date: 2026-11-24
@@ -121,20 +170,13 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://yanmaga.jp/comics/%E4%B9%99%E5%A5%B3%E3%81%AE%E3%81%8A%E3%81%8B%E3%81%9A"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["エロ", "女子高生", "日常", "ギャグ・コメディ", "百合", "フェチ・性癖"]
   - work: "上伊那ぼたん、酔へる姿は百合の花 塀"
     platform: "チャンピオンクロス"
     date: 2026-11-24
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "上伊那ぼたん、酔へる姿は百合の花"
-    platform: "チャンピオンクロス"
-    date: 2026-11-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://championcross.jp/series/ae4257e66bab5"
-    listing_tags: ["百合", "大学生", "アニメ化"]
   - work: "ライバルアライバル"
     platform: "pixivコミック"
     date: 2026-11-24
@@ -176,20 +218,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_019658_S"
     listing_tags: ["百合", "現代ファンタジー", "バトル"]
-  - work: "ドリーム☆ジャンボ☆ガール"
-    platform: "マガポケ"
-    date: 2026-11-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02758"
-    listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
-  - work: "アイドラトリィ"
-    platform: "マガポケ"
-    date: 2026-11-24
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/02901"
-    listing_tags: ["百合", "アイドル", "推し活"]
   - work: "ひなちゃんが生きてるなら"
     platform: "ニコニコ漫画"
     date: 2026-11-24
@@ -814,13 +842,6 @@ updates:
     provenance: claimed
     url: "https://championcross.jp/series/f30e2f58bbbdf"
     listing_tags: ["百合", "吸血鬼・ヴァンパイア"]
-  - work: "アウトサイダーパラダイス"
-    platform: "カドコミ"
-    date: 2026-11-18
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_021488_S"
-    listing_tags: ["百合"]
   - work: "りのちゃんの好きなこと"
     platform: "花とゆめ+"
     date: 2026-11-18
@@ -1441,13 +1462,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "らぶぶいっ!"
-    platform: "カドコミ"
-    date: 2026-11-11
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_008372_S"
-    listing_tags: ["百合", "お色気・微エロ", "異種族・人外"]
   - work: "なーんもうまくいかん！ ミナミト"
     platform: "きららベース"
     date: 2026-11-11
@@ -2200,13 +2214,6 @@ updates:
     provenance: claimed
     url: "https://comic.pixiv.net/works/12673"
     listing_tags: ["百合", "ホラー"]
-  - work: "バカ女26時"
-    platform: "pixivコミック"
-    date: 2026-10-28
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic.pixiv.net/works/9913"
-    listing_tags: ["百合", "海外", "現代"]
   - work: "ステラ・ステップ"
     platform: "キミコミ"
     date: 2026-10-28

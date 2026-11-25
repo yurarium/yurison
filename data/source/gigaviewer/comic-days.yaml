@@ -6,11 +6,26 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-11-25
+retrieved: 2026-11-26
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comicdays:episode:12207421984565861008"
+    work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第２７話　特別なイベント２"
+    release_type: "chapter"
+    date: "2026-11-26"
+    date_basis: "observed"
+    first_seen: "2026-11-26"
+    first_reported: "2026-11-25T15:00:00Z"
+    platform_updated: "2026-11-25T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-days.com/episode/12207421984565861008"
+    author: "空山トキ/五色安未/泉乃せん/伍長"
+    advances_narrative: true
   - release_id: "comicdays:episode:12207421984544292401"
     work_title: "ファタールゲーム"
     web_status: "serialised"
@@ -60,6 +75,7 @@ releases:
     author: "ばったん"
     advances_narrative: true
   - release_id: "comicdays:episode:12207421983484134482"
+    in_current_window: false
     work_title: "新刊１００億冊ください"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -76,6 +92,7 @@ releases:
     raw_title: "３９冊目：計画的原稿進行のススメ"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984485182765"
+    in_current_window: false
     work_title: "新刊１００億冊ください"
     web_status: "serialised"
     identified_via: "discovery-candidate"
@@ -93,6 +110,7 @@ releases:
     raw_title: "4巻発売記念描き下ろし"
     advances_narrative: false
   - release_id: "comicdays:episode:12207421984453651455"
+    in_current_window: false
     work_title: "どこへでも行けるなら宇宙に行きたい"
     web_status: "serialised"
     identified_via: "discovery-candidate"

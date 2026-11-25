@@ -5,7 +5,7 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-25
+retrieved: 2026-11-26
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
@@ -156,16 +156,16 @@ works_missing:
     url: "https://g-comi.jp/series/5448ec9f6077b"
     antenna_id: "200185"
     tags: ["百合", "異世界", "サキュバス", "お色気・微エロ"]
+  - title: "魔女とくゅらす"
+    platform: "HERO'S Web"
+    url: "https://heros-web.com/series/2b64bc0622a2a"
+    antenna_id: "186534"
+    tags: ["最近のコメント数"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
     antenna_id: "174744"
     tags: ["ギャグ・コメディ", "やり直し", "百合", "お色気・微エロ", "ハーレム", "タイムリープ"]
-  - title: "魔女とくゅらす"
-    platform: "HERO'S Web"
-    url: "https://heros-web.com/series/2b64bc0622a2a"
-    antenna_id: "186534"
-    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
   - title: "聖騎士様のお気に入り"
     platform: "comicブースト"
     url: "https://comic-boost.com/content/01840001"
@@ -290,7 +290,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008372_S"
     antenna_id: "201618"
-    tags: ["百合", "お色気・微エロ", "異種族・人外"]
+    tags: ["最近のコメント数"]
   - title: "新米姉妹のふたりごはん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002743_S"
@@ -340,7 +340,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_020389_S"
     antenna_id: "215767"
-    tags: ["最近のコメント数"]
+    tags: ["ゲーム世界", "転生", "ファンタジー", "百合", "チート"]
   - title: "アフタヌーンティーはいかがですか? 私と先輩の、不純で一途なふたり暮らし"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_007220_S"
@@ -690,7 +690,7 @@ works_missing:
     platform: "コミックガルド"
     url: "https://comic-gardo.com/episode/2550912966011803878"
     antenna_id: "191960"
-    tags: ["最近のコメント数"]
+    tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
   - title: "DOUBLE HELIX BLOSSOM"
     platform: "コロコロオンライン"
     url: "https://www.corocoro.jp/title/65"
@@ -926,6 +926,11 @@ works_missing:
     url: "https://flowercomics.jp/title/6162"
     antenna_id: "217483"
     tags: ["百合"]
+  - title: "ぎるてぃらいぶらり"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03349"
+    antenna_id: "216326"
+    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - title: "怨霊日和"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03125"
@@ -936,11 +941,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03368"
     antenna_id: "218095"
     tags: ["百合", "女子中学生", "障害者"]
-  - title: "ぎるてぃらいぶらり"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03349"
-    antenna_id: "216326"
-    tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - title: "私に天使が舞い降りた!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01052"

@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-25
+retrieved: 2026-11-26
 record_type: discovery_queue
 candidates:
   - work_title: "りのちゃんの好きなこと"
@@ -35,13 +35,6 @@ candidates:
     work_url: "https://comic-walker.com/detail/KC_021577_S"
     headline: "理想のヒロインそっくりなギャルと出会う陰キャ女子の百合漫画「陰キャ女子でも春したいッ！」WEBで連載開始"
     status: unconfirmed
-  - work_title: "カースト上位に遊ばれて!!"
-    signal: "new-serial"
-    announced: "Thu, 12 Nov 2026 11:57:31 +0000"
-    url: "https://yurinavi.com/2026/11/12/ka-sutozyouini-start/"
-    platform_host: "cycomi.com"
-    headline: "気弱な女の子がつよつよギャル3人に甘やかされるガールズコメディ「カースト上位に遊ばれて!!」WEBでスタート"
-    status: unconfirmed
   - work_title: "弟子入り厨娘ごはん日記"
     signal: "new-serial"
     announced: "Sun, 22 Nov 2026 13:14:11 +0000"
@@ -59,6 +52,13 @@ candidates:
     platform_code: "12207421984513315666"
     work_url: "https://comic-seasons.com/episode/12207421984513315666"
     headline: "嬉しいのに怖くて消える、回避型の女性との関係を描いた読み切り漫画「回って避ける」WEBで公開"
+    status: unconfirmed
+  - work_title: "カースト上位に遊ばれて!!"
+    signal: "new-serial"
+    announced: "2026-11-12"
+    url: "https://yurinavi.com/2026/11/12/ka-sutozyouini-start/"
+    platform_host: "cycomi.com"
+    headline: "気弱な女の子がつよつよギャル3人に甘やかされるガールズコメディ「カースト上位に遊ばれて!!」WEBでスタート"
     status: unconfirmed
   - work_title: "織りゆけサルデーニャ"
     signal: "oneshot"

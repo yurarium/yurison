@@ -2,7 +2,7 @@
 # FUZ applies NO 百合 tag, so nothing here establishes marketing_label (DEFINITIONS §4).
 # No synopsis and no image URLs are stored (REQUIREMENTS §2).
 source: comicfuz
-retrieved: 2026-11-25
+retrieved: 2026-11-26
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -30,9 +30,6 @@ works:
         title: "第33皿(2)"
         updated: 2026-11-24
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-25"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 80980
         title: "第33皿(1)"
@@ -22612,9 +22609,6 @@ works:
         title: "第16話（2）"
         updated: 2026-11-24
         access_modes: ["free-timed"]
-        access_changed: "purchase -> free-timed"
-        access_changed_on: "2026-11-25"
-        became_free: true
         access_note: "pointConsumption type=None amount=30 badge=None — チャージ, one per series per day"
       - chapter_id: 81001
         title: "第16話（1）"

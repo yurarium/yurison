@@ -23335,6 +23335,15 @@ works:
     title: "夜にひまわり～お姉ちゃんとヤンキーちゃん～"
     anchors:
       - "web:https://comic-walker.com/detail/KC_021657_S"
+  - id: w03564
+    title: "♡劇薬お姉さん♡"
+    anchors:
+      - "web:https://tonarinoyj.jp/episode/12207421984544056494"
+      - "web:https://tonarinoyj.jp/atom/series/12207421984544055916"
+    attached:
+      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984544055916"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984544056494 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984544055916, so the platform places this chapter in series 12207421984544055916"
+        retrieved: 2026-11-25
 related:
   - a: w00156
     b: w00486

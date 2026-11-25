@@ -10,7 +10,7 @@ source: webpages
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-11-25
+retrieved: 2026-11-26
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
@@ -114,6 +114,51 @@ works:
         date_basis: rendered
       - title: "【第1話】7億円☆当たる☆ガール"
         updated: 2025-05-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ぎるてぃらいぶらり"
+    author: "閉伊川広輔"
+    url: "https://pocket.shonenmagazine.com/title/03349"
+    stated_schedule:
+      cadence: "毎週木曜"
+      next_update: "2026-12-03"
+    chapter_count: 9
+    chapters:
+      - title: "【第9話】エロい目で"
+        updated: 2026-11-26
+        access_modes: ["purchase"]
+        access_note: "point price 70"
+        date_basis: rendered
+      - title: "【第8話】溜まったモン"
+        updated: 2026-11-19
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第7話】厚さ数ミリ"
+        updated: 2026-11-12
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第6話】1年で1番多い日"
+        updated: 2026-11-05
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第5話】漫画じゃないんだから"
+        updated: 2026-10-29
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第4話】言いなり"
+        updated: 2026-10-22
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話】一緒に入ろっか"
+        updated: 2026-10-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】キスマークってなんですか？／君のナカ"
+        updated: 2026-10-08
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】フィニッシュの定義／パンツの色／窒息するなら"
+        updated: 2026-10-08
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "将来的に死んでくれ"
@@ -1679,47 +1724,6 @@ works:
         date_basis: rendered
       - title: "【第1話】ハザマ学園怪奇新聞部"
         updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ぎるてぃらいぶらり"
-    author: "閉伊川広輔"
-    url: "https://pocket.shonenmagazine.com/title/03349"
-    stated_schedule:
-      cadence: "毎週木曜"
-      next_update: "2026-11-26"
-    chapter_count: 8
-    chapters:
-      - title: "【第8話】溜まったモン"
-        updated: 2026-11-19
-        access_modes: ["purchase"]
-        access_note: "point price 70"
-        date_basis: rendered
-      - title: "【第7話】厚さ数ミリ"
-        updated: 2026-11-12
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第6話】1年で1番多い日"
-        updated: 2026-11-05
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第5話】漫画じゃないんだから"
-        updated: 2026-10-29
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第4話】言いなり"
-        updated: 2026-10-22
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話】一緒に入ろっか"
-        updated: 2026-10-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】キスマークってなんですか？／君のナカ"
-        updated: 2026-10-08
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】フィニッシュの定義／パンツの色／窒息するなら"
-        updated: 2026-10-08
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "姫野姫子の奴隷みてえな彼氏"

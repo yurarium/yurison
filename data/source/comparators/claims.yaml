@@ -8,11 +8,36 @@
 # provenance: attested, and the two are never merged.
 source: comparators
 role: provisional-claims
-retrieved: 2026-11-25
+retrieved: 2026-11-26
 record_type: update_claims
 window_days: 60
-claims: 419
+claims: 420
 updates:
+  - work: "超深宇宙より愛をこめて アシダカヲズ"
+    platform: "一迅プラス"
+    date: 2026-11-26
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "押しかけ女房、コドモ付き！ とめきち"
+    platform: "きららベース"
+    date: 2026-11-26
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "悪いが私は百合じゃない もちオーレ"
+    platform: "カドコミ"
+    date: 2026-11-26
+    source: "yurinavi"
+    provenance: claimed
+    raw_cell: true   # title and author unsplit
+  - work: "魔女とくゅらす"
+    platform: "HERO'S Web"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://heros-web.com/series/2b64bc0622a2a"
+    listing_tags: ["最近のコメント数"]
   - work: "怨霊日和"
     platform: "マガポケ"
     date: 2026-11-25
@@ -41,6 +66,13 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/02758"
     listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
+  - work: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
+    platform: "コミックDAYS"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550912964518073379"
+    listing_tags: ["暗殺者・殺し屋", "VR", "中二病", "先生と生徒・師弟", "女子高生", "忍者", "ブロ・シスマンス", "スキル制", "百合"]
   - work: "アウトサイダーパラダイス"
     platform: "カドコミ"
     date: 2026-11-25
@@ -61,7 +93,14 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_008372_S"
-    listing_tags: ["百合", "お色気・微エロ", "異種族・人外"]
+    listing_tags: ["最近のコメント数"]
+  - work: "ぎるてぃらいぶらり"
+    platform: "マガポケ"
+    date: 2026-11-25
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03349"
+    listing_tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - work: "♡劇薬お姉さん♡"
     platform: "となりのヤングジャンプ"
     date: 2026-11-25
@@ -75,7 +114,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-gardo.com/episode/2550912966011803878"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["異世界", "転生", "無自覚チート", "学園", "百合"]
   - work: "球詠"
     platform: "ニコニコ漫画"
     date: 2026-11-24
@@ -196,14 +235,14 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://kuragebunch.com/episode/12207421983893652478"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ホラー", "異能・超能力", "現代ファンタジー", "百合", "残酷・グロテスク", "バディ"]
   - work: "ヒモお姉さん、餌付け中。"
     platform: "くらげバンチ"
     date: 2026-11-24
     source: "webcomics.jp"
     provenance: claimed
     url: "https://kuragebunch.com/episode/12207421984481017713"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["百合"]
   - work: "バクガタリzzZ"
     platform: "pixivコミック"
     date: 2026-11-24
@@ -430,7 +469,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_020389_S"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ゲーム世界", "転生", "ファンタジー", "百合", "チート"]
   - work: "百音と四季"
     platform: "となりのヤングジャンプ"
     date: 2026-11-20
@@ -747,13 +786,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/12207421984336824147"
     listing_tags: ["百合"]
-  - work: "ぎるてぃらいぶらり"
-    platform: "マガポケ"
-    date: 2026-11-19
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03349"
-    listing_tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - work: "きみとボドゲが作りたい！ 赤城ナツイチ"
     platform: "きららベース"
     date: 2026-11-19
@@ -1293,13 +1325,6 @@ updates:
     provenance: claimed
     url: "https://comic-trail.com/episode/2551460909758971055"
     listing_tags: ["百合"]
-  - work: "魔女とくゅらす"
-    platform: "HERO'S Web"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://heros-web.com/series/2b64bc0622a2a"
-    listing_tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
   - work: "私の推しは悪役令嬢。 青乃下/いのり。"
     platform: "一迅プラス"
     date: 2026-11-12
@@ -1665,13 +1690,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
-    platform: "コミックDAYS"
-    date: 2026-11-07
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-days.com/episode/2550912964518073379"
-    listing_tags: ["暗殺者・殺し屋", "VR", "中二病", "先生と生徒・師弟", "女子高生", "忍者", "ブロ・シスマンス", "スキル制", "百合"]
   - work: "DOUBLE HELIX BLOSSOM アサウラ/西馬ごめゆき"
     platform: "週刊コロコロ"
     date: 2026-11-07
@@ -2830,17 +2848,3 @@ updates:
     provenance: claimed
     url: "https://comic-ryu.jp/series/b90143637a741"
     listing_tags: ["百合", "女子高生"]
-  - work: "怪異部～M県Y市の怪現象について～"
-    platform: "カドコミ"
-    date: 2026-09-26
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_006547_S"
-    listing_tags: ["オカルト", "サスペンス", "ホラー", "残酷・グロテスク", "架空の部活", "女子高生", "デスゲーム", "百合", "完結"]
-  - work: "GOOD HUNT"
-    platform: "となりのヤングジャンプ"
-    date: 2026-09-26
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://tonarinoyj.jp/episode/12207421984252566649"
-    listing_tags: ["百合", "読み切り"]

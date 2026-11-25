@@ -85,6 +85,11 @@ works:
     anchors:
       - "web:https://kimicomi.com/series/8acb58b98ca8f"
       - "madb:madb-t-1a1c62a4cedf"
+      - "web:https://comic.pixiv.net/works/10790"
+    attached:
+      - anchor: "web:https://comic.pixiv.net/works/10790"
+        basis: "creators りんご水, 林星悟 and 餡こたく are named on the platform page"
+        retrieved: 2026-11-24
   - id: w00009
     title: "魔王城デート大作戦!"
     anchors:

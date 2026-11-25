@@ -131,3 +131,42 @@ def renamed(ledger, row, index=None):
     held = (index if index is not None else by_address(ledger)).get(row["url"], ())
     got = [v for e, v in held if _subtitled(e, ep) or _subtitled(ep, e)]
     return min(got) if got else None
+
+
+def by_work(ledger, work_of):
+    """`{work: [(address, episode, date)]}` over the ledger's address keys, for `elsewhere`.
+
+    `work_of(address)` names the work an address belongs to, or None. The ledger holds addresses
+    and no works, so the registry is what says two addresses are one work's.
+    """
+    out = {}
+    for url, eps in by_address(ledger).items():
+        w = work_of(url)
+        if w:
+            out.setdefault(w, []).extend((url, e, v) for e, v in eps)
+    return out
+
+
+def elsewhere(row, work, index):
+    """The earliest date this chapter was seen at another address of the same work, or nothing.
+
+    A COPY ON ANOTHER PLATFORM IS THE SAME CHAPTER. ステラ・ステップ runs on キミコミ and on
+    pixivコミック, and its Step.15② was seen on pixiv on 2026-10-28 and stood for both copies in the
+    feed. When pixiv's page stopped listing it on 2026-11-24, the キミコミ copy became the feed's
+    row, its address had no sighting of its own, and a chapter reported four weeks earlier went to
+    the top of Updates as a late find.
+
+    THE SAME NAME, OR ONE NAME THE OTHER CONTINUES, which is `renamed`'s rule: pixiv writes
+    `Step.15② 光の向こうへ` where キミコミ writes `Step.15②`. A name that continues into a number
+    is another chapter, and an empty name, a work-level row's, matches nothing.
+
+    `work` is the registry's identifier for this row's address and `index` is `by_work`. What it
+    costs is `carried`'s cost: the answer is when we first saw the chapter, not when this platform
+    first showed it.
+    """
+    ep = norm_work(row.get("ep") or "")
+    if not work or not ep or not row.get("url"):
+        return None
+    got = [v for url, e, v in (index or {}).get(work, ())
+           if url != row["url"] and (e == ep or _subtitled(e, ep) or _subtitled(ep, e))]
+    return min(got) if got else None

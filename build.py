@@ -6097,6 +6097,13 @@ def main():
 
     carried = 0
     _by_addr = _sighting.by_address(ledger)
+    # WHICH WORK AN ADDRESS IS, from the registry, so a chapter's copy on another platform answers
+    # for it. `sighting.elsewhere` says why.
+    _reg = identity.index((yaml.safe_load(pathlib.Path("data/identity/works.yaml").read_text())
+                           or {}).get("works") or [])
+    def _work_of(u):
+        return _reg.get(identity.web_anchor(u)) if u else None
+    _by_wk = _sighting.by_work(ledger, _work_of)
     for r in releases:
         key = _sighting_key(r)
         if key not in ledger:
@@ -6112,6 +6119,12 @@ def main():
         # the new name, which is a correction toward the truth the ledger records and not a
         # revision of it: the chapter was seen on the earlier day.
         was = _sighting.renamed(ledger, r, _by_addr)
+        if was and was < ledger[key]:
+            ledger[key] = was
+            carried += 1
+        # AND A CHAPTER SEEN ON ANOTHER PLATFORM OF THE SAME WORK WAS SEEN ON THAT DAY, which mends a
+        # sighting already written for this address on the same terms as the rename above.
+        was = _sighting.elsewhere(r, _work_of(r.get("url")), _by_wk)
         if was and was < ledger[key]:
             ledger[key] = was
             carried += 1

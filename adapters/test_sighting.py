@@ -49,6 +49,7 @@ def finales(s):
 
 def main(s):
     renames(s)
+    copies(s)
     finales(s)
     # ── WHAT A RELEASE IS REMEMBERED AS ───────────────────────────────────────────────────────
     s.eq(sighting.key(ROW), "url|https://youngchampion.jp/series/86c1162f34a04|第9話1",
@@ -133,6 +134,37 @@ def renames(s):
     s.eq(sighting.renamed(ledger, {"ep": "第1話 ソラとナデシコ"}), None, "a row with no address has none")
     s.eq(sighting.renamed(ledger, {"url": "https://other/e/1", "ep": "第1話ソラとナデシコ"}), None,
          "and a name at another address is another chapter")
+
+
+def copies(s):
+    # ステラ・ステップ's Step.15② was seen on pixiv on 2026-10-28 and its キミコミ copy, which had no
+    # sighting of its own, became a late find of 2026-11-25 when pixiv stopped listing it.
+    kimi, pixiv = "https://kimicomi.com/series/8acb58b98ca8f", "https://comic.pixiv.net/works/10790"
+    ledger = {
+        f"url|{pixiv}|step152光の向こうへ": "2026-10-28",
+        f"url|{pixiv}|step151光の向こうへ": "2026-10-14",
+        f"url|{kimi}|step152": "2026-11-25",
+        "url|https://other.example/x|step152": "2026-09-01",
+        "ステラステップ|step152|どこか": "2026-08-01",
+    }
+    works = {kimi: "w00008", pixiv: "w00008", "https://other.example/x": "w09999"}
+    idx = sighting.by_work(ledger, works.get)
+    s.eq(sorted(idx), ["w00008", "w09999"], "the ledger's addresses are grouped by the work they belong to")
+    row = {"url": kimi, "ep": "Step.15②"}
+    s.eq(sighting.elsewhere(row, "w00008", idx), "2026-10-28",
+         "a chapter seen on another platform of the same work was seen on that day")
+    s.eq(sighting.elsewhere({"url": kimi, "ep": "Step.15"}, "w00008", idx), None,
+         "a name that continues into a number is another chapter")
+    s.eq(sighting.elsewhere({"url": kimi, "ep": "Step.16①"}, "w00008", idx), None,
+         "a chapter no other address holds finds nothing")
+    s.check("2026-09-01" < sighting.elsewhere(row, "w00008", idx),
+            "and another work's earlier step152 is not this chapter")
+    s.eq(sighting.elsewhere(row, None, idx), None, "an address the registry does not know finds nothing")
+    s.eq(sighting.elsewhere({"url": kimi, "ep": ""}, "w00008", idx), None,
+         "an empty name, a work-level row's, matches nothing")
+    s.eq(sighting.elsewhere({"url": pixiv, "ep": "Step.15② 光の向こうへ"}, "w00008",
+                            sighting.by_work({f"url|{pixiv}|step152光の向こうへ": "2026-10-28"}, works.get)),
+         None, "its own address is `renamed`'s question, not this one's")
 
 
 if __name__ == "__main__":

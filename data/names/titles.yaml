@@ -8551,6 +8551,13 @@ names:
       explain the Japanese rather than as the work's name; あきらかに is plainly, in the open, which clearly
       does not quite carry.
     verified: false
+  あくまじょグリモワール:
+    reading: アクマジョグリモワール
+    reading_at: '2026-11-26'
+    reading_basis: surface
+    reading_pass: 1
+    reading_source: surface
+    verified: true
   あくまで!アットホームな職場です。:
     basis: translated
     en: We're a Demonically Friendly Workplace!
@@ -47158,6 +47165,28 @@ names:
     reading_source: sudachi
     reading_source_kind: analyser
     verified: false
+  不倫男殺す同盟:
+    basis: romaji
+    furigana_spans:
+    - - 不倫
+      - ふりん
+    - - 男
+      - おとこ
+    - - 殺
+      - ころ
+    - - す
+      - null
+    - - 同盟
+      - どうめい
+    reading: フリン オトコ コロス ドウメイ
+    reading_at: '2026-11-26'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   不即不離の従犯:
     basis: translated
     en: The Accomplice Neither Close Nor Distant
@@ -72374,6 +72403,23 @@ names:
     en_source_kind: derived
     note: 春の夜に香る means 'fragrant on a spring night'. It is volume 2 of 桜の下で逢いましょう (Let's Meet Under the
       Cherry Trees), so the volume number is kept in front.
+    verified: false
+  春はめぐる:
+    basis: romaji
+    furigana_spans:
+    - - 春
+      - はる
+    - - はめぐる
+      - null
+    reading: ハル ワ メグル
+    reading_at: '2026-11-26'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   春へ、:
     basis: translated

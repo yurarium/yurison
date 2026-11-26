@@ -23294,10 +23294,14 @@ works:
     anchors:
       - "web:https://www.sunday-webry.com/episode/12207421984535360459"
       - "web:https://www.sunday-webry.com/atom/series/12207421984535356818"
+      - "web:https://www.sunday-webry.com/series/12207421984535356818/first_episode"
     attached:
       - anchor: "web:https://www.sunday-webry.com/atom/series/12207421984535356818"
         basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984535360459 links its own series feed at https://www.sunday-webry.com/atom/series/12207421984535356818, so the platform places this chapter in series 12207421984535356818"
         retrieved: 2026-11-19
+      - anchor: "web:https://www.sunday-webry.com/series/12207421984535356818/first_episode"
+        basis: "the chapter page at https://www.sunday-webry.com/episode/12207421984535360459 links its own series feed at https://www.sunday-webry.com/atom/series/12207421984535356818, so the platform places this chapter in series 12207421984535356818, and the og:title there names the work: 青春には遅すぎる / 青春には遅すぎる - とや | サンデーうぇぶり. https://www.sunday-webry.com/series/12207421984535356818/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-11-26
   - id: w03557
     title: "陰キャ女子でも春したいッ！"
     anchors:
@@ -23306,6 +23310,49 @@ works:
     title: "けもみみ巫女の異世界神社再興記 神様がくれた奇跡の力のせいで祀られすぎて困ってます。"
     anchors:
       - "web:https://comic-walker.com/detail/KC_021699_S"
+  - id: w03561
+    title: "百音と四季"
+    anchors:
+      - "web:https://tonarinoyj.jp/episode/12207421984537962117"
+      - "web:https://tonarinoyj.jp/atom/series/12207421984537953026"
+      - "web:https://tonarinoyj.jp/series/12207421984537953026/first_episode"
+    attached:
+      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984537953026"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984537962117 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984537953026, so the platform places this chapter in series 12207421984537953026"
+        retrieved: 2026-11-21
+      - anchor: "web:https://tonarinoyj.jp/series/12207421984537953026/first_episode"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984537962117 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984537953026, so the platform places this chapter in series 12207421984537953026, and the og:title there names the work: 百音と四季 - 栄太 | となりのヤングジャンプ. https://tonarinoyj.jp/series/12207421984537953026/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-11-26
+  - id: w03562
+    title: "血も涙もある‼︎"
+    anchors:
+      - "web:https://tonarinoyj.jp/episode/12207421984537962123"
+      - "web:https://tonarinoyj.jp/atom/series/12207421984537953027"
+      - "web:https://tonarinoyj.jp/series/12207421984537953027/first_episode"
+    attached:
+      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984537953027"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984537962123 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984537953027, so the platform places this chapter in series 12207421984537953027"
+        retrieved: 2026-11-21
+      - anchor: "web:https://tonarinoyj.jp/series/12207421984537953027/first_episode"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984537962123 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984537953027, so the platform places this chapter in series 12207421984537953027, and the og:title there names the work: 血も涙もある‼︎ - ヤマグチ | となりのヤングジャンプ. https://tonarinoyj.jp/series/12207421984537953027/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-11-26
+  - id: w03563
+    title: "夜にひまわり～お姉ちゃんとヤンキーちゃん～"
+    anchors:
+      - "web:https://comic-walker.com/detail/KC_021657_S"
+  - id: w03564
+    title: "♡劇薬お姉さん♡"
+    anchors:
+      - "web:https://tonarinoyj.jp/episode/12207421984544056494"
+      - "web:https://tonarinoyj.jp/atom/series/12207421984544055916"
+      - "web:https://tonarinoyj.jp/series/12207421984544055916/first_episode"
+    attached:
+      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984544055916"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984544056494 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984544055916, so the platform places this chapter in series 12207421984544055916"
+        retrieved: 2026-11-25
+      - anchor: "web:https://tonarinoyj.jp/series/12207421984544055916/first_episode"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984544056494 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984544055916, so the platform places this chapter in series 12207421984544055916, and the og:title there names the work: [テーマ読切：おねえさん] ♡劇薬お姉さん♡ - 間瀬もえ | となりのヤングジャンプ. https://tonarinoyj.jp/series/12207421984544055916/first_episode returns a page naming the same series, which is the platform's own reader address for the work"
+        retrieved: 2026-11-26
 
 # Related works. A relation and not a merge: whether a one-shot beside a
 # serialisation is a distinct work, an instalment the run absorbed, or a story a
@@ -23318,37 +23365,24 @@ works:
 # 一迅プラス imported its catalogue, while the serialisation's real start of
 # 2025-03-08 comes from pixivコミック. Ordering those by first date would put the
 # one-shot after the run it came before.
-  - id: w03561
-    title: "百音と四季"
+  - id: w03565
+    title: "不倫男殺す同盟"
     anchors:
-      - "web:https://tonarinoyj.jp/episode/12207421984537962117"
-      - "web:https://tonarinoyj.jp/atom/series/12207421984537953026"
+      - "web:https://shonenjumpplus.com/episode/9253191257982514778"
+      - "web:https://shonenjumpplus.com/atom/series/9253191257982298110"
     attached:
-      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984537953026"
-        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984537962117 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984537953026, so the platform places this chapter in series 12207421984537953026"
-        retrieved: 2026-11-21
-  - id: w03562
-    title: "血も涙もある‼︎"
+      - anchor: "web:https://shonenjumpplus.com/atom/series/9253191257982298110"
+        basis: "the chapter page at https://shonenjumpplus.com/episode/9253191257982514778 links its own series feed at https://shonenjumpplus.com/atom/series/9253191257982298110, so the platform places this chapter in series 9253191257982298110"
+        retrieved: 2026-11-26
+  - id: w03566
+    title: "春はめぐる"
     anchors:
-      - "web:https://tonarinoyj.jp/episode/12207421984537962123"
-      - "web:https://tonarinoyj.jp/atom/series/12207421984537953027"
+      - "web:https://tonarinoyj.jp/episode/12207421984544056504"
+      - "web:https://tonarinoyj.jp/atom/series/12207421984544055922"
     attached:
-      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984537953027"
-        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984537962123 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984537953027, so the platform places this chapter in series 12207421984537953027"
-        retrieved: 2026-11-21
-  - id: w03563
-    title: "夜にひまわり～お姉ちゃんとヤンキーちゃん～"
-    anchors:
-      - "web:https://comic-walker.com/detail/KC_021657_S"
-  - id: w03564
-    title: "♡劇薬お姉さん♡"
-    anchors:
-      - "web:https://tonarinoyj.jp/episode/12207421984544056494"
-      - "web:https://tonarinoyj.jp/atom/series/12207421984544055916"
-    attached:
-      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984544055916"
-        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984544056494 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984544055916, so the platform places this chapter in series 12207421984544055916"
-        retrieved: 2026-11-25
+      - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984544055922"
+        basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984544056504 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984544055922, so the platform places this chapter in series 12207421984544055922"
+        retrieved: 2026-11-26
 related:
   - a: w00156
     b: w00486

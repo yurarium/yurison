@@ -6400,6 +6400,23 @@ names:
     reading_pass: 1
     reading_source: surface
     verified: true
+  はまち乃藍:
+    basis: romaji
+    furigana_spans:
+    - - はまち
+      - null
+    - - 乃藍
+      - のあ
+    reading: ハマチ ノア
+    reading_at: '2026-11-26'
+    reading_basis: analyser
+    reading_boundary: the kana in its own surface
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   はみ:
     basis: romaji
     reading: ハミ
@@ -14451,6 +14468,24 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/31520
+    verified: false
+  仮死亡殺:
+    basis: romaji
+    furigana_spans:
+    - - 仮
+      - かり
+    - - 死亡
+      - しぼう
+    - - 殺
+      - さつ
+    reading: カリシボウサツ
+    reading_at: '2026-11-26'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   仲原椿:
     basis: romaji
@@ -34923,6 +34958,22 @@ names:
     reading_source_kind: national-library
     reading_url: https://mediaarts-db.artmuseums.go.jp/id/M1110692
     verified: true
+  篠崎もちめ:
+    basis: romaji
+    furigana_spans:
+    - - 篠崎
+      - しのざき
+    - - もちめ
+      - null
+    reading: シノザキモチメ
+    reading_at: '2026-11-26'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
+    verified: false
   篠房六郎:
     basis: romaji
     en: Rokurō Shinofusa

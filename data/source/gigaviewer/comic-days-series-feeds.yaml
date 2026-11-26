@@ -10,7 +10,7 @@ source: gigaviewer
 platform: comic-days
 platform_name: "コミックDAYS"
 publisher: "講談社"
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 114
@@ -5436,8 +5436,13 @@ works:
   - work_title: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
     series_id: "2550912964454042523"
     url: "https://comic-days.com/atom/series/2550912964454042523"
-    chapter_count: 26
+    chapter_count: 27
     chapters:
+      - title: "第２７話　特別なイベント２"
+        updated: 2026-11-26
+        author: "空山トキ/五色安未/泉乃せん/伍長"
+        url: "https://comic-days.com/episode/12207421984565861008"
+        access_modes: ["purchase"]
       - title: "第２６話　特別なイベント"
         updated: 2026-10-26
         author: "空山トキ/五色安未/泉乃せん/伍長"
@@ -5452,13 +5457,13 @@ works:
         updated: 2026-08-26
         author: "空山トキ/五色安未/泉乃せん/伍長"
         url: "https://comic-days.com/episode/12207421984143919173"
-        access_modes: ["purchase"]
+        free_from: 2026-11-25
+        access_modes: ["free"]
       - title: "第２３話　襲撃２"
         updated: 2026-07-24
         author: "空山トキ/五色安未/泉乃せん/伍長"
         url: "https://comic-days.com/episode/12207421984000540113"
-        free_from: 2026-10-25
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第２２話　襲撃"
         updated: 2026-06-25
         author: "空山トキ/五色安未/泉乃せん/伍長"
@@ -12238,49 +12243,49 @@ works:
         author: "ひの宙子"
         url: "https://comic-days.com/episode/4856001361071324315"
         free_from: 2024-02-15
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第５話①"
         updated: 2023-03-25
         author: "ひの宙子"
         url: "https://comic-days.com/episode/4856001361071324308"
         free_from: 2024-02-08
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第４話②"
         updated: 2023-02-25
         author: "ひの宙子"
         url: "https://comic-days.com/episode/4855956445114370631"
         free_from: 2024-02-01
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第４話①"
         updated: 2023-02-25
         author: "ひの宙子"
         url: "https://comic-days.com/episode/4855956445114370624"
         free_from: 2024-01-25
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第３話②"
         updated: 2023-01-25
         author: "ひの宙子"
         url: "https://comic-days.com/episode/316190247118283904"
         free_from: 2024-01-18
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第３話①"
         updated: 2023-01-25
         author: "ひの宙子"
         url: "https://comic-days.com/episode/316190247118283899"
         free_from: 2024-01-11
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第２話②"
         updated: 2022-12-23
         author: "ひの宙子"
         url: "https://comic-days.com/episode/316190247042279775"
         free_from: 2024-01-04
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第２話①"
         updated: 2022-12-23
         author: "ひの宙子"
         url: "https://comic-days.com/episode/316190247042279770"
         free_from: 2023-12-28
-        access_modes: ["free-timed"]
+        access_modes: ["free"]
       - title: "第１話"
         updated: 2022-11-25
         author: "ひの宙子"
@@ -16307,134 +16312,112 @@ works:
         updated: 2021-03-20
         author: "くずしろ"
         url: "https://comic-days.com/episode/13933686331681057472"
-        free_from: 2021-04-17
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第２３話　いいことありますように"
         updated: 2021-02-20
         author: "くずしろ"
         url: "https://comic-days.com/episode/13933686331681057467"
-        free_from: 2021-03-20
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第２２話　好きだから やってる"
         updated: 2021-01-16
         author: "くずしろ"
         url: "https://comic-days.com/episode/13933686331681057457"
-        free_from: 2021-02-20
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第２１話　さっ 散歩の時間だ"
         updated: 2020-12-19
         author: "くずしろ"
         url: "https://comic-days.com/episode/13933686331681057450"
-        free_from: 2021-01-16
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第２０話　まるでモテ期"
         updated: 2020-11-21
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777333"
-        free_from: 2020-12-19
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１９話　おいしいごはん食べるためには"
         updated: 2020-10-17
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777328"
-        free_from: 2020-11-21
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１８話　想定の範囲外です!!"
         updated: 2020-09-19
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777322"
-        free_from: 2020-10-17
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１７話　ぜんっぜん ねむくないわ"
         updated: 2020-08-15
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777316"
-        free_from: 2020-09-19
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１６話　あくまで個人的なことだから"
         updated: 2020-07-18
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777311"
-        free_from: 2020-08-15
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１５話　何で こうも色々うまくいかないんだ"
         updated: 2020-06-20
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777306"
-        free_from: 2020-07-18
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１４話　せめてネタにしないと"
         updated: 2020-05-30
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777301"
-        free_from: 2021-06-14
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１３話　ライバル関係"
         updated: 2020-05-09
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777296"
-        free_from: 2021-06-13
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１２話　どんな仕事でもプロって"
         updated: 2020-03-21
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777291"
-        free_from: 2021-06-12
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１１話　私だって嬉しい"
         updated: 2020-02-15
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156713777284"
-        free_from: 2021-06-11
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第１０話　覚えてますよ"
         updated: 2020-01-18
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156652412360"
-        free_from: 2021-06-10
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第９話　一人で成立する仕事なんてないよ"
         updated: 2019-12-28
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156652412355"
-        free_from: 2021-06-09
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第８話　これからも頑張ろう"
         updated: 2019-11-16
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156652412350"
-        free_from: 2021-06-08
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第７話　全力で私を応援するように"
         updated: 2019-10-19
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156652412345"
-        free_from: 2021-06-07
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第６話　猫の手も借りたい"
         updated: 2019-09-21
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156652412340"
-        free_from: 2021-06-06
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第５話　天才だと思っています"
         updated: 2019-08-24
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156652412335"
-        free_from: 2021-06-05
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第４話　気づいたんですよね"
         updated: 2019-07-20
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156652412330"
-        free_from: 2021-06-04
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第３話　はずかしい…"
         updated: 2019-06-15
         author: "くずしろ"
         url: "https://comic-days.com/episode/10834108156652412325"
-        free_from: 2021-06-03
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "第２話　面倒くさいやつだと思われたくないだろ!!"
         updated: 2019-05-18
         author: "くずしろ"

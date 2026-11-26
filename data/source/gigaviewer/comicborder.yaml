@@ -6,12 +6,13 @@ source: gigaviewer
 platform: comicborder
 platform_name: "コミックボーダー"
 publisher: ""
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
   - release_id: "border:episode:12207421983978154180"
+    in_current_window: false
     work_title: "侵略のプリマステラ！"
     web_status: "serialised"
     identified_via: "discovery-candidate"

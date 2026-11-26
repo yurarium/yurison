@@ -6,11 +6,45 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "sunday_webry:episode:12207421984575086146"
+    work_title: "てくのぱにっくゆにばーす"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "ショートショート 知られざるセミの生態"
+    release_type: "unclassified"
+    date: "2026-11-27"
+    date_basis: "observed"
+    first_seen: "2026-11-27"
+    first_reported: "2026-11-26T15:00:00Z"
+    platform_updated: "2026-11-26T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984575086146"
+    author: "伏見ダイキ"
+    free_term_start: "2026-11-26T15:00:00Z"
+    raw_title: "ショートショート 知られざるセミの生態"
+    advances_narrative: false
+  - release_id: "sunday_webry:episode:12207421984575090230"
+    work_title: "メイド＆ロイドはお嬢様のお役に立ちたい！"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "Memory9 さなの開花予想 (1)"
+    release_type: "unclassified"
+    date: "2026-11-27"
+    date_basis: "observed"
+    first_seen: "2026-11-27"
+    first_reported: "2026-11-26T15:00:00Z"
+    platform_updated: "2026-11-26T15:00:00Z"
+    date_confidence: "reported"
+    url: "https://www.sunday-webry.com/episode/12207421984575090230"
+    author: "みやしろ"
+    free_term_start: "2026-11-26T15:00:00Z"
+    raw_title: "Memory9 さなの開花予想 (1)"
+    advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984549118480"
     work_title: "#ギャルとギャルの百合"
     web_status: "serialised"
@@ -45,6 +79,7 @@ releases:
     raw_title: "イラスト"
     advances_narrative: false
   - release_id: "sunday_webry:episode:12207421984543441444"
+    in_current_window: false
     work_title: "てくのぱにっくゆにばーす"
     web_status: "serialised"
     identified_via: "discovery-candidate"

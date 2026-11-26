@@ -10,7 +10,7 @@ source: gigaviewer
 platform: sundaywebry
 platform_name: "サンデーうぇぶり"
 publisher: "小学館"
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 record_type: web_work_chapters
 identification_mode: platform-genre
 series_resolved: 71
@@ -186,8 +186,14 @@ works:
   - work_title: "てくのぱにっくゆにばーす"
     series_id: "2551460909679434702"
     url: "https://www.sunday-webry.com/atom/series/2551460909679434702"
-    chapter_count: 47
+    chapter_count: 48
     chapters:
+      - title: "ショートショート 知られざるセミの生態"
+        updated: 2026-11-27
+        author: "伏見ダイキ"
+        url: "https://www.sunday-webry.com/episode/12207421984575086146"
+        free_from: 2026-11-26
+        access_modes: ["free"]
       - title: "ショートショート ケモノ化ふたたび！"
         updated: 2026-11-20
         author: "伏見ダイキ"

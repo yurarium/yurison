@@ -4,7 +4,7 @@
 # shop says is all there is. Joined presumptively on its title, and a title that
 # already names a work we hold went to data/queue/bw-review.yaml instead of here.
 source: bookwalker
-retrieved: 2026-10-29
+retrieved: 2026-11-26
 work_id: "bw-527095"
 record_type: retailer_work_record
 shop_id: "527095"
@@ -14,7 +14,7 @@ title:
 creator: "ヘリオ"
 publisher: "ナンバーナイン"
 imprint: "ナンバーナイン"
-volume_count: 5
+volume_count: 6
 date_basis: "no-print-edition"
 venue: "ナンバーナイン"
 completed: false
@@ -34,10 +34,13 @@ volumes:
   - title: "【最新刊】幻夢都市の朱蘭　超天魔王大戦 ５ 月に還る妹　後編　真・さよなら姉さん"
     designation: "5 月に還る妹 後編 真・さよなら姉さん"
     delivered: "2026-04-10"
+  - title: "【最新刊】幻夢都市の朱蘭　超天魔王大戦 ６ 帰って来た姉妹　前編　姉は修行中、妹はお出かけ"
+    designation: "6 帰って来た姉妹 前編 姉は修行中、妹はお出かけ"
+    delivered: "2026-11-20"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
-    retrieved: 2026-10-29
+    retrieved: 2026-11-26
     note: >-
       A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
       rebuttable, and never a marketing_label (§4).
@@ -45,7 +48,7 @@ marketing_label: none
 marketing_label_basis:
   source: bookwalker
   url: "https://bookwalker.jp/series/527095/"
-  retrieved: 2026-10-29
+  retrieved: 2026-11-26
   note: >-
     Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
     labelling (§4), so this axis stays `none`, which says nothing about content.

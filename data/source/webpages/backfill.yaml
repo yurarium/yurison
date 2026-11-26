@@ -12,10 +12,35 @@
 source: webpages
 platform: backfill
 platform_name: ""
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
+  - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
+    author: "みやしろ"
+    url: "https://www.sunday-webry.com/episode/12207421984575090230"
+    platform_name: "サンデーうぇぶり"
+    route: "gigaviewer-feed"
+    chapter_count: 6
+    chapters:
+      - title: "Memory9 さなの開花予想 (1)"
+        updated: 2026-11-27
+        access_modes: ["free"]
+      - title: "単行本第１集発売PR！！"
+        updated: 2026-08-14
+        access_modes: ["free"]
+      - title: "Memory2 栄養満点！アンドロイドごはん (2)"
+        updated: 2026-05-08
+        access_modes: ["free"]
+      - title: "Memory2 栄養満点！アンドロイドごはん (1)"
+        updated: 2026-04-24
+        access_modes: ["free"]
+      - title: "おまけ"
+        updated: 2026-04-10
+        access_modes: ["free"]
+      - title: "Memory1 彼女の居場所"
+        updated: 2026-03-27
+        access_modes: ["free"]
   - work_title: "♡劇薬お姉さん♡"
     author: "間瀬もえ"
     url: "https://tonarinoyj.jp/episode/12207421984544056494"
@@ -347,8 +372,11 @@ works:
     url: "https://www.sunday-webry.com/episode/12207421984543441444"
     platform_name: "サンデーうぇぶり"
     route: "gigaviewer-feed"
-    chapter_count: 47
+    chapter_count: 48
     chapters:
+      - title: "ショートショート 知られざるセミの生態"
+        updated: 2026-11-27
+        access_modes: ["free"]
       - title: "ショートショート ケモノ化ふたたび！"
         updated: 2026-11-20
         access_modes: ["free"]
@@ -495,8 +523,11 @@ works:
     url: "https://shonenjumpplus.com/episode/9253191257982514141"
     platform_name: "少年ジャンプ+"
     route: "gigaviewer-feed"
-    chapter_count: 48
+    chapter_count: 49
     chapters:
+      - title: "[第29打]春雷卓球"
+        updated: 2026-11-27
+        access_modes: ["free"]
       - title: "[おまけ20]春雷卓球"
         updated: 2026-11-20
         access_modes: ["free"]
@@ -514,7 +545,7 @@ works:
         access_modes: ["free"]
       - title: "[第26打]春雷卓球"
         updated: 2026-10-16
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "[おまけ17]春雷卓球"
         updated: 2026-10-09
         access_modes: ["free"]
@@ -3119,31 +3150,6 @@ works:
         updated: 2026-11-14
         access_modes: ["purchase"]
         url: "https://pocket.shonenmagazine.com/title/02202/episode/446842"
-  - work_title: "メイド&ロイドはお嬢様のお役に立ちたい!"
-    author: "みやしろ"
-    url: "https://www.sunday-webry.com/episode/12207421984508901483"
-    platform_name: "サンデーうぇぶり"
-    route: "gigaviewer-feed"
-    chapter_count: 6
-    chapters:
-      - title: "Memory8 ふろキャンお嬢様 (2)"
-        updated: 2026-11-13
-        access_modes: ["free"]
-      - title: "単行本第１集発売PR！！"
-        updated: 2026-08-14
-        access_modes: ["free"]
-      - title: "Memory2 栄養満点！アンドロイドごはん (2)"
-        updated: 2026-05-08
-        access_modes: ["free"]
-      - title: "Memory2 栄養満点！アンドロイドごはん (1)"
-        updated: 2026-04-24
-        access_modes: ["free"]
-      - title: "おまけ"
-        updated: 2026-04-10
-        access_modes: ["free"]
-      - title: "Memory1 彼女の居場所"
-        updated: 2026-03-27
-        access_modes: ["free"]
   - work_title: "あのこの冷蔵庫"
     author: "藤原ハル"
     url: "https://tonarinoyj.jp/episode/12207421984475668997"
@@ -5622,8 +5628,11 @@ works:
     url: "https://www.sunday-webry.com/episode/12207421984063808660"
     platform_name: "サンデーうぇぶり"
     route: "gigaviewer-feed"
-    chapter_count: 17
+    chapter_count: 18
     chapters:
+      - title: "おまけ"
+        updated: 2026-11-27
+        access_modes: ["free"]
       - title: "19にちめ：コワすぎる…？"
         updated: 2026-11-13
         access_modes: ["free"]
@@ -6642,31 +6651,31 @@ works:
     route: "gigaviewer-feed"
     chapter_count: 9
     chapters:
-      - title: "第9話 かっこよすぎてどうしよう"
+      - title: "EPISODE 9「かっこよすぎてどうしよう」"
         updated: 2026-10-16
         access_modes: ["purchase"]
-      - title: "第8話 ありがちな感情"
+      - title: "EPISODE 8「ありがちな感情」"
         updated: 2026-09-18
         access_modes: ["purchase"]
-      - title: "第7話 屈しない！"
+      - title: "EPISODE 7「屈しない！」"
         updated: 2026-08-21
         access_modes: ["purchase"]
-      - title: "第6話 アカツキ"
+      - title: "EPISODE 6「アカツキ」"
         updated: 2026-07-17
         access_modes: ["purchase"]
-      - title: "第5話 絶対そうだ！"
+      - title: "EPISODE 5「絶対そうだ！」"
         updated: 2026-06-19
         access_modes: ["purchase"]
-      - title: "第4話 うそみたいな日"
+      - title: "EPISODE 4「うそみたいな日」"
         updated: 2026-05-15
         access_modes: ["purchase"]
-      - title: "第3話 覚悟は決まった"
+      - title: "EPISODE 3「覚悟は決まった」"
         updated: 2026-04-17
         access_modes: ["free"]
-      - title: "第2話 なんで私なの"
+      - title: "EPISODE 2「なんで私なの」"
         updated: 2026-04-17
         access_modes: ["free"]
-      - title: "第1話 かくして二人は出会った"
+      - title: "EPISODE 1「かくして二人は出会った」"
         updated: 2026-04-17
         access_modes: ["free"]
   - work_title: "映しちゃダメな顔"
@@ -7322,17 +7331,20 @@ works:
     url: "https://comic-earthstar.com/episode/12207421984317645213"
     platform_name: "コミック アース・スター"
     route: "gigaviewer-feed"
-    chapter_count: 30
+    chapter_count: 31
     chapters:
+      - title: "第16話①"
+        updated: 2026-11-26
+        access_modes: ["purchase"]
       - title: "第15話②"
         updated: 2026-10-15
-        access_modes: ["purchase"]
+        access_modes: ["free"]
       - title: "第15話①"
         updated: 2026-10-01
         access_modes: ["free"]
       - title: "第14話②"
         updated: 2026-08-13
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第14話①"
         updated: 2026-07-30
         access_modes: ["purchase"]

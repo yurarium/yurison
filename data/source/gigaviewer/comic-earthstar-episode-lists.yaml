@@ -4,7 +4,7 @@
 source: gigaviewer
 platform: comic-earthstar
 platform_name: "コミック アース・スター"
-retrieved: "2026-11-26"
+retrieved: "2026-11-27"
 record_type: web_work_chapters
 identification_mode: known-works
 date_basis: stated
@@ -188,7 +188,7 @@ works:
   - work_title: "ガイド役の天使を殴り倒したら、死霊術師になりました ～激カワゴスロリ魔神様、サイコー!～"
     series_id: "2550912965247410451"
     url: "https://comic-earthstar.com/atom/series/2550912965247410451"
-    chapter_count: 30
+    chapter_count: 31
     chapters:
       - title: "第1話①"
         updated: "2025-02-20"
@@ -301,7 +301,7 @@ works:
       - title: "第14話②"
         updated: "2026-08-13"
         url: "https://comic-earthstar.com/episode/12207421984034840843"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "第15話①"
         updated: "2026-10-01"
         url: "https://comic-earthstar.com/episode/12207421984094164648"
@@ -309,4 +309,8 @@ works:
       - title: "第15話②"
         updated: "2026-10-15"
         url: "https://comic-earthstar.com/episode/12207421984317645213"
+        access_modes: ["free"]
+      - title: "第16話①"
+        updated: "2026-11-26"
+        url: "https://comic-earthstar.com/episode/12207421984383092176"
         access_modes: ["purchase"]

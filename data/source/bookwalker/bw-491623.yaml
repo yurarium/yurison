@@ -4,7 +4,7 @@
 # shop says is all there is. Joined presumptively on its title, and a title that
 # already names a work we hold went to data/queue/bw-review.yaml instead of here.
 source: bookwalker
-retrieved: 2026-10-22
+retrieved: 2026-11-26
 work_id: "bw-491623"
 record_type: retailer_work_record
 shop_id: "491623"
@@ -14,7 +14,7 @@ title:
 creator: "鴒 / アンブル編集部"
 publisher: "ライブコミックス"
 imprint: "COMICアンブル"
-volume_count: 3
+volume_count: 5
 date_basis: "no-print-edition"
 venue: "ライブコミックス"
 completed: false
@@ -28,10 +28,16 @@ volumes:
   - title: "【最新刊】【合本版】君めく夜に焦がれて（3）（描き下ろしおまけ付き）"
     designation: "君めく夜に焦がれて(3)(描き下ろしおまけ付き)"
     delivered: "2025-09-12"
+  - title: "【合本版】君めく夜に焦がれて（描き下ろしおまけ付き）（4）"
+    designation: "君めく夜に焦がれて(描き下ろしおまけ付き)(4)"
+    delivered: "2026-11-13"
+  - title: "【最新刊】【合本版】君めく夜に焦がれて（描き下ろしおまけ付き）（5）"
+    designation: "君めく夜に焦がれて(描き下ろしおまけ付き)(5)"
+    delivered: "2026-11-13"
 admitted_by:
   - comparator: "bookwalker.jp"
     shelf: "tag 14 (百合)"
-    retrieved: 2026-10-22
+    retrieved: 2026-11-26
     note: >-
       A licensed retailer's yuri shelf is a comparator (DEFINITIONS §2). Presumptive and
       rebuttable, and never a marketing_label (§4).
@@ -39,7 +45,7 @@ marketing_label: none
 marketing_label_basis:
   source: bookwalker
   url: "https://bookwalker.jp/series/491623/"
-  retrieved: 2026-10-22
+  retrieved: 2026-11-26
   note: >-
     Admitted on BOOK☆WALKER's yuri shelf. A shop's shelf is never publisher-side
     labelling (§4), so this axis stays `none`, which says nothing about content.

@@ -5,12 +5,12 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
-distinct_works: 313
-works_on_watched_platform: 286
+distinct_works: 315
+works_on_watched_platform: 287
 platforms_total: 51
 platforms_watched: 39
 # ranked by works reachable on NO watched platform
@@ -18,7 +18,7 @@ platforms_missing:
   - platform: "マガポケ"
     works: 11
   - platform: "ヤンジャン+"
-    works: 3
+    works: 4
   - platform: "COMICリュウライブ"
     works: 3
   - platform: "マンガPark"
@@ -160,7 +160,7 @@ works_missing:
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/2b64bc0622a2a"
     antenna_id: "186534"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "魔女", "現代ファンタジー", "お色気・微エロ", "ギャグ・コメディ", "日常", "群像劇"]
   - title: "死に戻り王女は生き延びるために百合ハーレムを作ることにした"
     platform: "HERO'S Web"
     url: "https://heros-web.com/series/ec09a10dc9490"
@@ -266,6 +266,11 @@ works_missing:
     url: "https://kirapo.jp/ambre/titles/kimimeku"
     antenna_id: "192477"
     tags: ["百合", "不良・ヤンキー"]
+  - title: "春はめぐる"
+    platform: "となりのヤングジャンプ"
+    url: "https://tonarinoyj.jp/episode/12207421984544056504"
+    antenna_id: "218835"
+    tags: ["読み切り", "百合"]
   - title: "♡劇薬お姉さん♡"
     platform: "となりのヤングジャンプ"
     url: "https://tonarinoyj.jp/episode/12207421984544056494"
@@ -285,7 +290,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006092_S"
     antenna_id: "178772"
-    tags: ["百合", "オムニバス・短編集"]
+    tags: ["最近のコメント数"]
   - title: "アウトサイダーパラダイス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021488_S"
@@ -295,7 +300,7 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_008372_S"
     antenna_id: "201618"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "お色気・微エロ", "異種族・人外"]
   - title: "新米姉妹のふたりごはん"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002743_S"
@@ -616,16 +621,6 @@ works_missing:
     url: "https://comic-walker.com/detail/KC_019946_S"
     antenna_id: "213569"
     tags: ["百合", "読み切り"]
-  - title: "百合のはじまりは奴隷から"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_005678_S"
-    antenna_id: "175110"
-    tags: ["百合", "三角関係", "女子高生"]
-  - title: "メイドinお嬢さま"
-    platform: "カドコミ"
-    url: "https://comic-walker.com/detail/KC_019452_S"
-    antenna_id: "213446"
-    tags: ["百合", "読み切り"]
   - title: "香り屋さんの纏さん"
     platform: "ガンガンONLINE"
     url: "https://www.ganganonline.com/title/2286"
@@ -921,6 +916,11 @@ works_missing:
     url: "https://bigcomics.jp/series/2c1db177ce231"
     antenna_id: "181120"
     tags: ["百合", "バトル", "ファンタジー", "残酷・グロテスク"]
+  - title: "銀の河に星の城"
+    platform: "フラコミlike!"
+    url: "https://flowercomics.jp/title/2780"
+    antenna_id: "193062"
+    tags: ["百合"]
   - title: "私の焦がれる彼女"
     platform: "フラコミlike!"
     url: "https://flowercomics.jp/title/6162"
@@ -1081,6 +1081,11 @@ works_missing:
     url: "https://ichicomi.com/episode/12207421983584564641"
     antenna_id: "200994"
     tags: ["百合", "女子高生"]
+  - title: "不倫男殺す同盟"
+    platform: "少年ジャンプ+"
+    url: "https://shonenjumpplus.com/episode/9253191257982514778"
+    antenna_id: "218864"
+    tags: ["百合", "読み切り"]
   - title: "バトル・ウィッチーズ"
     platform: "新都社"
     url: "http://neetsha.jp/inside/comic.php?id=24919"
@@ -1196,16 +1201,16 @@ works_missing:
     url: "https://hanayume.com/series/dcaacd8b4831f"
     antenna_id: "213961"
     tags: ["百合", "読み切り"]
-  - title: "付き合ってあげてもいいかな"
-    platform: "裏サンデー"
-    url: "https://urasunday.com/title/603"
-    antenna_id: "80449"
-    tags: ["百合", "現代", "大学生", "完結", "実写化"]
   - title: "かわいい同盟"
     platform: "裏サンデー"
     url: "https://urasunday.com/title/26962"
     antenna_id: "188987"
     tags: ["百合", "学園", "女子高生", "女装", "社会派"]
+  - title: "付き合ってあげてもいいかな"
+    platform: "裏サンデー"
+    url: "https://urasunday.com/title/603"
+    antenna_id: "80449"
+    tags: ["百合", "現代", "大学生", "完結", "実写化"]
   - title: "妖怪殲滅のサイコリリー"
     platform: "裏サンデー"
     url: "https://urasunday.com/title/2565"

@@ -6,7 +6,7 @@ platform: manga-zegra
 platform_name: "マンガゼグラ"
 publisher: "スターツ出版"
 engine: comici
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 works:
@@ -14,8 +14,8 @@ works:
     status: "連載中"
     author: "佐藤36,煮豆シューター"
     url: "https://manga-zegra.com/series/f34aa93530b90"
-    read: "2026-11-26"
-    chapter_count: 69
+    read: "2026-11-27"
+    chapter_count: 70
     chapters:
       - title: "1"
         updated: "2025-07-07"
@@ -220,7 +220,10 @@ works:
         access_modes: ["free-timed"]
       - title: "24(1)"
         updated: "2026-11-13"
-        access_modes: ["free"]
+        access_modes: ["free-timed"]
       - title: "24(2)"
         updated: "2026-11-20"
+        access_modes: ["free"]
+      - title: "24(3)"
+        updated: "2026-11-27"
         access_modes: ["purchase"]

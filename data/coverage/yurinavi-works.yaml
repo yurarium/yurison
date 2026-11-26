@@ -2,7 +2,7 @@
 # links them. Tier C, discovery only, like webcomics-works.yaml and kept apart from it.
 source: yurinavi.com
 role: discovery-only
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 record_type: candidate_works
 candidates:
   - title: "壊していいよ、すいかちゃん"
@@ -23,6 +23,9 @@ candidates:
   - title: "ボイタボイネ"
     platforms: ["pixivコミック"]
     urls: ["https://comic.pixiv.net/works/12194"]
+  - title: "あくまじょグリモワール"
+    platforms: ["きららベース"]
+    urls: ["https://manga.nicovideo.jp/comic/76545"]
   - title: "きみとボドゲが作りたい！"
     platforms: ["きららベース"]
     urls: ["https://manga.nicovideo.jp/comic/72637"]
@@ -212,9 +215,6 @@ candidates:
   - title: "志乃と恋"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_000076_S"]
-  - title: "悪いが私は百合じゃない"
-    platforms: ["カドコミ"]
-    urls: ["https://comic-walker.com/detail/KC_004432_S"]
   - title: "或いは、私の名探偵"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_007014_S"]
@@ -266,6 +266,9 @@ candidates:
   - title: "超かぐや姫！"
     platforms: ["カドコミ"]
     urls: ["https://comic-walker.com/detail/KC_008281_S"]
+  - title: "エデンの塔 ルルチカクーニャと塔の迷宮"
+    platforms: ["ガンガンONLINE"]
+    urls: ["https://www.ganganonline.com/title/2768"]
   - title: "スライム倒して300年、知らないうちにレベルMAXになってました"
     platforms: ["ガンガンONLINE"]
     urls: ["https://www.ganganonline.com/title/11"]
@@ -347,6 +350,12 @@ candidates:
   - title: "ぜんぶ壊して地獄で愛して"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984222532958"]
+  - title: "たゆたう恋の散り際に"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984374441740"]
+  - title: "ひなちゃんが生きてるなら"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984374441760"]
   - title: "キミが吠えるための歌を、"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984222532942"]
@@ -356,6 +365,9 @@ candidates:
   - title: "今日はカノジョがいないから"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984222532962"]
+  - title: "君のせいなんだから、責任とってよね。"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984374441754"]
   - title: "平良深姉妹はどっちもヤんでる"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984039246741"]
@@ -368,6 +380,9 @@ candidates:
   - title: "私の推しは悪役令嬢。"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984222532973"]
+  - title: "誰かオオカミさんのしつけ方知りませんか！？"
+    platforms: ["一迅プラス"]
+    urls: ["https://ichicomi.com/episode/12207421984374441730"]
   - title: "超深宇宙より愛をこめて"
     platforms: ["一迅プラス"]
     urls: ["https://ichicomi.com/episode/12207421984374441816"]

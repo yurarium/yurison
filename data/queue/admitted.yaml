@@ -9,9 +9,9 @@
 #
 # Still data/queue/: these are candidates. Admission into data/source/ needs the joins
 # and the volume histories that give a work its dates.
-retrieved: 2026-11-19
-admitted: 4521
-by_shop: {"bookwalker.jp": 2677, "cmoa.jp": 1844}
+retrieved: 2026-11-26
+admitted: 4529
+by_shop: {"bookwalker.jp": 2685, "cmoa.jp": 1844}
 excluded: {"published on ヤングアンリアルコミックス, an adult imprint": 5, "published on 秋水社ORIGINAL, an adult imprint": 16}
 works:
   - title: "#ふれない"
@@ -13040,6 +13040,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "バカに告白"
+    authors: []
+    publisher: null
+    imprint: "カドコミ"
+    url: "https://bookwalker.jp/series/560339/"
+    shop: "bookwalker.jp"
+    shop_id: "560339"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "バカに告白 1【電子限定特典付き】"
     authors: ["著者: 矢坂しゅう"]
     publisher: null
@@ -14405,6 +14416,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "ライバルアライバル"
+    authors: []
+    publisher: null
+    imprint: "カドコミ"
+    url: "https://bookwalker.jp/series/599874/"
+    shop: "bookwalker.jp"
+    shop_id: "599874"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "ライバルアライバル 1"
     authors: ["著者: 永田 さんずい"]
     publisher: null
@@ -15218,6 +15240,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "61611119-b1ef-44c0-aea6-aa02df3bbb7b"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "七限目は忍者修行です!"
+    authors: []
+    publisher: null
+    imprint: "ドラゴンコミックスエイジ"
+    url: "https://bookwalker.jp/series/590783/"
+    shop: "bookwalker.jp"
+    shop_id: "590783"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -18336,6 +18369,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "壊していいよ、すいかちゃん"
+    authors: []
+    publisher: null
+    imprint: "マーガレットコミックスDIGITAL"
+    url: "https://bookwalker.jp/series/632474/"
+    shop: "bookwalker.jp"
+    shop_id: "632474"
+    completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "声優ラジオのウラオモテ"
     authors: []
     publisher: null
@@ -19446,6 +19490,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "285406"
     completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "姫虐が止まらない白桃さん: 1【イラスト特典付】"
+    authors: ["著者: 斉藤 りょーパー"]
+    publisher: null
+    imprint: "REXコミックス"
+    url: "https://bookwalker.jp/de9af7b2c3-5a71-4fed-9146-98c9a1600aa2/"
+    shop: "bookwalker.jp"
+    shop_id: "9af7b2c3-5a71-4fed-9146-98c9a1600aa2"
+    completed: false
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -20826,6 +20881,17 @@ works:
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "怪異部~M県Y市の怪現象について~"
+    authors: []
+    publisher: null
+    imprint: "カドコミ"
+    url: "https://bookwalker.jp/series/539424/"
+    shop: "bookwalker.jp"
+    shop_id: "539424"
+    completed: true
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
   - title: "恋い初め"
     authors: ["著者: 7"]
     publisher: null
@@ -21552,6 +21618,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "9de4f28b-5c1b-4ab0-baa5-a25fe89cf673"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "愛焦がれキャラメリゼ"
+    authors: []
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/series/580931/"
+    shop: "bookwalker.jp"
+    shop_id: "580931"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -28018,7 +28095,7 @@ works:
     url: "https://bookwalker.jp/series/486042/"
     shop: "bookwalker.jp"
     shop_id: "486042"
-    completed: false
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}
@@ -28217,6 +28294,17 @@ works:
     shop: "bookwalker.jp"
     shop_id: "af32d960-c9c6-4120-9fb7-8b840f7a5050"
     completed: false
+    doujin: false
+    explicit_content: false
+    age_gated: {"shop": "bookwalker.jp", "state": "open"}
+  - title: "運命のヤマダダダダダダダダダダ"
+    authors: []
+    publisher: null
+    imprint: "まんがタイムKRコミックス"
+    url: "https://bookwalker.jp/series/575102/"
+    shop: "bookwalker.jp"
+    shop_id: "575102"
+    completed: true
     doujin: false
     explicit_content: false
     age_gated: {"shop": "bookwalker.jp", "state": "open"}

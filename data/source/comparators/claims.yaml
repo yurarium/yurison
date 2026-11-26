@@ -11,32 +11,116 @@ role: provisional-claims
 retrieved: 2026-11-26
 record_type: update_claims
 window_days: 60
-claims: 420
+claims: 424
 updates:
+  - work: "魔女とくゅらす"
+    platform: "HERO'S Web"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://heros-web.com/series/2b64bc0622a2a"
+    listing_tags: ["最近のコメント数"]
   - work: "超深宇宙より愛をこめて アシダカヲズ"
     platform: "一迅プラス"
     date: 2026-11-26
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "超深宇宙より愛をこめて"
+    platform: "一迅プラス"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ichicomi.com/episode/2550912965923204780"
+    listing_tags: ["百合", "学園", "宇宙人", "女子高生"]
+  - work: "誰かオオカミさんのしつけ方知りませんか⁉"
+    platform: "ニコニコ漫画"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga.nicovideo.jp/comic/76631"
+    listing_tags: ["百合", "女子高生", "現代"]
+  - work: "桃色カンパネラ"
+    platform: "ニコニコ漫画"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga.nicovideo.jp/comic/74044"
+    listing_tags: ["百合", "お色気・微エロ", "異種族・人外", "4コマ"]
+  - work: "拝啓、在りし日に咲く花たちへ"
+    platform: "カドコミ"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-walker.com/detail/KC_006092_S"
+    listing_tags: ["百合", "オムニバス・短編集"]
   - work: "押しかけ女房、コドモ付き！ とめきち"
     platform: "きららベース"
     date: 2026-11-26
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
+  - work: "押しかけ女房、コドモ付き!"
+    platform: "ニコニコ漫画"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://manga.nicovideo.jp/comic/67280"
+    listing_tags: ["百合", "同居人・居候", "日常", "娘", "4コマ"]
   - work: "悪いが私は百合じゃない もちオーレ"
     platform: "カドコミ"
     date: 2026-11-26
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "魔女とくゅらす"
-    platform: "HERO'S Web"
-    date: 2026-11-25
+  - work: "彼岸でランデヴー"
+    platform: "カドコミ"
+    date: 2026-11-26
     source: "webcomics.jp"
     provenance: claimed
-    url: "https://heros-web.com/series/2b64bc0622a2a"
+    url: "https://comic-walker.com/detail/KC_020017_S"
+    listing_tags: ["百合", "ホラー"]
+  - work: "君のせいなんだから、責任とってよね。"
+    platform: "一迅プラス"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ichicomi.com/episode/2551460909807196614"
+    listing_tags: ["百合", "社会人"]
+  - work: "ファタールゲーム"
+    platform: "コミックDAYS"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550912965726740557"
+    listing_tags: ["百合", "漫画家・絵描き"]
+  - work: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
+    platform: "コミックDAYS"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://comic-days.com/episode/2550912964518073379"
+    listing_tags: ["暗殺者・殺し屋", "VR", "中二病", "先生と生徒・師弟", "女子高生", "忍者", "ブロ・シスマンス", "スキル制", "百合"]
+  - work: "ひなちゃんが生きてるなら"
+    platform: "一迅プラス"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ichicomi.com/episode/2551460909885349908"
+    listing_tags: ["百合", "ホラー", "幼なじみ", "田舎"]
+  - work: "たゆたう恋の散り際に"
+    platform: "一迅プラス"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://ichicomi.com/episode/2551460909671541131"
+    listing_tags: ["百合"]
+  - work: "ぎるてぃらいぶらり"
+    platform: "マガポケ"
+    date: 2026-11-26
+    source: "webcomics.jp"
+    provenance: claimed
+    url: "https://pocket.shonenmagazine.com/title/03349"
     listing_tags: ["最近のコメント数"]
   - work: "怨霊日和"
     platform: "マガポケ"
@@ -44,7 +128,7 @@ updates:
     source: "webcomics.jp"
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/03125"
-    listing_tags: ["最近のコメント数"]
+    listing_tags: ["ホラー", "幽霊", "百合", "女子高生"]
   - work: "上伊那ぼたん、酔へる姿は百合の花"
     platform: "チャンピオンクロス"
     date: 2026-11-25
@@ -66,13 +150,6 @@ updates:
     provenance: claimed
     url: "https://pocket.shonenmagazine.com/title/02758"
     listing_tags: ["ギャグ・コメディ", "マネー", "百合"]
-  - work: "シャドウ・アサシンズ・ワールド ～影は薄いけど、最強忍者やってます～"
-    platform: "コミックDAYS"
-    date: 2026-11-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-days.com/episode/2550912964518073379"
-    listing_tags: ["暗殺者・殺し屋", "VR", "中二病", "先生と生徒・師弟", "女子高生", "忍者", "ブロ・シスマンス", "スキル制", "百合"]
   - work: "アウトサイダーパラダイス"
     platform: "カドコミ"
     date: 2026-11-25
@@ -94,13 +171,6 @@ updates:
     provenance: claimed
     url: "https://comic-walker.com/detail/KC_008372_S"
     listing_tags: ["最近のコメント数"]
-  - work: "ぎるてぃらいぶらり"
-    platform: "マガポケ"
-    date: 2026-11-25
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://pocket.shonenmagazine.com/title/03349"
-    listing_tags: ["お色気・微エロ", "百合", "カップル", "ギャグ・コメディ"]
   - work: "♡劇薬お姉さん♡"
     platform: "となりのヤングジャンプ"
     date: 2026-11-25
@@ -1370,26 +1440,12 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "拝啓、在りし日に咲く花たちへ"
-    platform: "ニコニコ漫画"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/70738"
-    listing_tags: ["百合", "女子高生"]
   - work: "彼岸でランデヴー 臼井ともみ"
     platform: "カドコミ"
     date: 2026-11-12
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "彼岸でランデヴー"
-    platform: "カドコミ"
-    date: 2026-11-12
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-walker.com/detail/KC_020017_S"
-    listing_tags: ["百合", "ホラー"]
   - work: "今日はカノジョがいないから 岩見樹代子"
     platform: "一迅プラス"
     date: 2026-11-12
@@ -2079,13 +2135,6 @@ updates:
     source: "yurinavi"
     provenance: claimed
     raw_cell: true   # title and author unsplit
-  - work: "ファタールゲーム"
-    platform: "コミックDAYS"
-    date: 2026-11-02
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://comic-days.com/episode/2550912965726740557"
-    listing_tags: ["百合", "漫画家・絵描き"]
   - work: "オタクには人生を積むことしかできない"
     platform: "コミックDAYS"
     date: 2026-11-02
@@ -2407,20 +2456,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2551460909961555949"
     listing_tags: ["百合", "サスペンス"]
-  - work: "超深宇宙より愛をこめて"
-    platform: "一迅プラス"
-    date: 2026-10-22
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://ichicomi.com/episode/2550912965923204780"
-    listing_tags: ["百合", "学園", "宇宙人", "女子高生"]
-  - work: "桃色カンパネラ"
-    platform: "ニコニコ漫画"
-    date: 2026-10-22
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/74044"
-    listing_tags: ["百合", "お色気・微エロ", "異種族・人外", "4コマ"]
   - work: "晴れた日のドレスコード"
     platform: "一迅プラス"
     date: 2026-10-22
@@ -2428,13 +2463,6 @@ updates:
     provenance: claimed
     url: "https://ichicomi.com/episode/2551460909807196609"
     listing_tags: ["百合", "女子高生"]
-  - work: "押しかけ女房、コドモ付き!"
-    platform: "ニコニコ漫画"
-    date: 2026-10-22
-    source: "webcomics.jp"
-    provenance: claimed
-    url: "https://manga.nicovideo.jp/comic/67280"
-    listing_tags: ["百合", "同居人・居候", "日常", "娘", "4コマ"]
   - work: "悪いが私は百合じゃない"
     platform: "カドコミ"
     date: 2026-10-22

@@ -284,14 +284,14 @@ def main():
         # something can read it. It is a claim by an aggregator and not an attestation, which is
         # for the consumer to weigh.
         tags.setdefault(norm(e["title"]), set()).update(e.get("tags") or [])
-    carried = 0
+    n_carried = 0
     for k, c in prev.items():
         if k not in platforms_of:
             platforms_of[k] = set(c.get("platforms") or [])
             titles.setdefault(k, c.get("title"))
             urls.setdefault(k, list(c.get("urls") or []))
             tags.setdefault(k, set(c.get("tags") or []))
-            carried += 1
+            n_carried += 1
         else:
             platforms_of[k] |= set(c.get("platforms") or [])
             urls.setdefault(k, []).extend(c.get("urls") or [])
@@ -330,7 +330,7 @@ def main():
     W.append("")
     (out / "webcomics-works.yaml").write_text("\n".join(W))
 
-    print(f"carried forward   : {carried} works no longer listed but still tracked")
+    print(f"carried forward   : {n_carried} works no longer listed but still tracked")
     print(f"admitted          : {admitted} announced work(s) a platform this reads serves openly")
     for title, why in _admit.refused(queues):
         print(f"   not admitted   : {title} — {why}")

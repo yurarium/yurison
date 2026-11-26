@@ -108,17 +108,27 @@ def the_health_check_fires_on_nothing(s):
     here = pathlib.Path(__file__).resolve()
     root = here.parents[2]
 
-    def run(pages):
-        """The CLI against a seeded cache, which `fetch` reads instead of the network."""
+    def run(pages, prev=None):
+        """The CLI against a seeded cache, which `fetch` reads instead of the network.
+
+        `prev` is the previous run's candidate file, which every scheduled run has and which the
+        carry-forward reads.
+        """
         with tempfile.TemporaryDirectory() as d:
             cache, out = pathlib.Path(d) / "c", pathlib.Path(d) / "out"
             cache.mkdir()
             for n, body in pages.items():
                 (cache / f"page{n}.html").write_text(body)
-            return subprocess.run(
+            if prev is not None:
+                out.mkdir()
+                (out / "webcomics-works.yaml").write_text(prev)
+            r = subprocess.run(
                 [sys.executable, str(here.parent / "coverage.py"), "--out", str(out),
                  "--cache", str(cache), "--retrieved", "2026-08-10", "--pages", "3"],
                 capture_output=True, text=True, cwd=str(root), timeout=120)
+            r.works = ((out / "webcomics-works.yaml").read_text()
+                       if (out / "webcomics-works.yaml").exists() else "")
+            return r
 
     empty = "<html><body>nothing here</body></html>"
     r = run({1: empty, 2: empty, 3: empty})
@@ -135,6 +145,16 @@ def the_health_check_fires_on_nothing(s):
     full = "".join(entry.format(i=i) for i in range(12))
     r2 = run({1: full, 2: empty, 3: empty})
     s.eq(r2.returncode, 0, "a full first page and an empty second is the end of the list")
+
+    # WITH THE PREVIOUS RUN'S FILE IN PLACE, which is how every scheduled run starts and the one
+    # path the case above never took. A counter in `main` shared its name with `carried`, so the
+    # function call raised UnboundLocalError and the pass failed every run from 2026-11-20.
+    prev = ('candidates:\n  - title: "もう載っていない作品"\n    platforms: ["どこか"]\n'
+            '    urls: ["https://x.test/gone"]\n')
+    r3 = run({1: full, 2: empty, 3: empty}, prev)
+    s.eq(r3.returncode, 0, f"a run with a previous file completes: {r3.stderr.strip()[-200:]}")
+    s.check("もう載っていない作品" in r3.works, "and a work the listing no longer shows is carried forward")
+    s.check("carried forward   : 1 " in r3.stdout, "and counted as carried")
 
 
 if __name__ == "__main__":

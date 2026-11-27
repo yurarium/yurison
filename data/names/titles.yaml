@@ -4520,7 +4520,17 @@ names:
     reading_source_kind: analyser
     verified: false
   SRG!! My sister is a reincarnated elf from a game!?～ゲームから転生してきたエルフが私のお姉ちゃん!?～:
-    basis: romaji
+    basis: official-jp
+    en: SRG!! My sister is a reincarnated elf from a game!?
+    en_at: '2026-11-27'
+    en_conflicts:
+    - basis: translated
+      source: yurarium
+      value: My Sister Is an Elf Reincarnated from a Game!?
+    en_reviewed: '2026-11-27'
+    en_source: Comic Walker
+    en_source_kind: platform
+    en_url: https://comic-walker.com/detail/KC_021620_S
     furigana_spans:
     - - SRG!! My sister is a reincarnated elf from a game!?～ゲームから
       - null
@@ -4536,6 +4546,10 @@ names:
       - ねえ
     - - ちゃん!?～
       - null
+    note: 'The Comic Walker page gives the English title "SRG!! My sister is a reincarnated elf from a
+      game!?" for this one-shot. The Japanese subtitle says the same thing: an elf reincarnated from a
+      game is the narrator''s older sister. The English comes from the platform page, with the Japanese
+      subtitle dropped from the name.'
     reading: SRG!!   My   sister   is   a   reincarnated   elf   from   a   game!? ～ ゲーム カラ テンショウ シテ キタ
       エルフ ガ ワタシ ノ オネエチャン!? ～
     reading_at: '2026-11-27'
@@ -4545,6 +4559,7 @@ names:
     reading_pass: 4
     reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
+    translation_note: Rendered from the Japanese subtitle ゲームから転生してきたエルフが私のお姉ちゃん!?.
     verified: false
   SSSS.GRIDMAN コミックアンソロジー:
     basis: translated

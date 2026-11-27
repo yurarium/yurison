@@ -6,12 +6,30 @@ source: gigaviewer
 platform: comic-ogyaaa
 platform_name: "COMIC OGYAAA!!"
 publisher: "一迅社"
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "comic_ogyaaa:episode:12207421984571693526"
+    work_title: "壊していいよ、すいかちゃん"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "EPISODE 10「ゆあ」"
+    release_type: "unclassified"
+    date: "2026-11-27"
+    date_basis: "observed"
+    first_seen: "2026-11-27"
+    first_reported: "2026-11-27T03:00:00Z"
+    platform_updated: "2026-11-27T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://comic-ogyaaa.com/episode/12207421984571693526"
+    author: "虫歯"
+    free_term_start: "2026-11-27T03:00:00Z"
+    raw_title: "EPISODE 10「ゆあ」"
+    advances_narrative: false
   - release_id: "comic_ogyaaa:episode:12207421984535542087"
+    in_current_window: false
     work_title: "あの子とふたりで。"
     web_status: "serialised"
     identified_via: "discovery-candidate"

@@ -37,13 +37,13 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-26
+retrieved: 2026-11-27
 key: work_url
 counts:
   hits_agreeing_on_a_creator: 268
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 222
-  works_asked: 963
+  works_asked: 966
   works_with_a_hit: 289
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
@@ -8951,6 +8951,16 @@ works:
         printed: "2026/3/9"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://shonenjumpplus.com/episode/9253191257982514778"
+    id: "w03565"
+    work: "不倫男殺す同盟"
+    author: "はまち乃藍"
+    platform: "少年ジャンプ+"
+    retrieved: "2026-11-27"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
   - work_url: "https://shonenjumpplus.com/episode/9324074615352868474"
     id: "w00746"
     work: "友達100人できるかな"
@@ -9550,6 +9560,26 @@ works:
     author: "ヤマグチ"
     platform: "となりのヤングジャンプ"
     retrieved: "2026-11-22"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query returned no title this database recognises"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984544056494"
+    id: "w03564"
+    work: "♡劇薬お姉さん♡"
+    author: "間瀬もえ"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-11-27"
+    hits: []
+    notes:
+      - "author query answered nothing"
+      - "title query answered nothing"
+  - work_url: "https://tonarinoyj.jp/episode/12207421984544056504"
+    id: "w03566"
+    work: "春はめぐる"
+    author: "篠崎もちめ"
+    platform: "となりのヤングジャンプ"
+    retrieved: "2026-11-27"
     hits: []
     notes:
       - "author query returned no title this database recognises"

@@ -108,73 +108,6 @@ days:
 - '2026-11-26'
 - '2026-11-27'
 runs:
-- at: '2026-11-08T21:20:31+00:00'
-  sources:
-    bookwalker:
-      files: 1796
-      works: 0
-      rows: 0
-      retrieved: '2026-11-05'
-    comicfuz:
-      files: 2
-      works: 130
-      rows: 6293
-      retrieved: '2026-11-09'
-    comparators:
-      files: 6
-      works: 8
-      rows: 0
-      retrieved: '2026-11-09'
-    editions:
-      files: 1
-      works: 4
-      rows: 0
-      retrieved: '2026-11-01'
-    gigaviewer:
-      files: 86
-      works: 1272
-      rows: 17263
-      retrieved: '2026-11-09'
-    ichijinsha:
-      files: 364
-      works: 0
-      rows: 0
-      retrieved: '2026-08-08'
-    kadokomi:
-      files: 5
-      works: 1021
-      rows: 7161
-      retrieved: '2026-11-09'
-    madb:
-      files: 983
-      works: 0
-      rows: 0
-      retrieved: '2026-11-01'
-    madb-title:
-      files: 68
-      works: 0
-      rows: 0
-      retrieved: '2026-11-07'
-    nicovideo:
-      files: 3
-      works: 1343
-      rows: 10790
-      retrieved: '2026-11-09'
-    openbd:
-      files: 881
-      works: 0
-      rows: 0
-      retrieved: '2026-11-09'
-    reachable:
-      files: 1
-      works: 246
-      rows: 0
-      retrieved: '2026-08-02'
-    webpages:
-      files: 52
-      works: 694
-      rows: 10098
-      retrieved: '2026-11-09'
 - at: '2026-11-09T12:35:14+00:00'
   sources:
     bookwalker:
@@ -2806,4 +2739,72 @@ runs:
       files: 52
       works: 715
       rows: 10530
+      retrieved: '2026-11-27'
+- at: '2026-11-27T04:10:29+00:00'
+  started: '2026-11-27T03:47:45+00:00'
+  sources:
+    bookwalker:
+      files: 1801
+      works: 0
+      rows: 0
+      retrieved: '2026-11-26'
+    comicfuz:
+      files: 2
+      works: 130
+      rows: 6319
+      retrieved: '2026-11-27'
+    comparators:
+      files: 6
+      works: 8
+      rows: 0
+      retrieved: '2026-11-27'
+    editions:
+      files: 1
+      works: 4
+      rows: 0
+      retrieved: '2026-11-21'
+    gigaviewer:
+      files: 86
+      works: 1305
+      rows: 17495
+      retrieved: '2026-11-27'
+    ichijinsha:
+      files: 364
+      works: 0
+      rows: 0
+      retrieved: '2026-08-08'
+    kadokomi:
+      files: 5
+      works: 1035
+      rows: 7242
+      retrieved: '2026-11-27'
+    madb:
+      files: 989
+      works: 0
+      rows: 0
+      retrieved: '2026-11-21'
+    madb-title:
+      files: 69
+      works: 0
+      rows: 0
+      retrieved: '2026-11-21'
+    nicovideo:
+      files: 3
+      works: 1349
+      rows: 10838
+      retrieved: '2026-11-27'
+    openbd:
+      files: 887
+      works: 0
+      rows: 0
+      retrieved: '2026-11-27'
+    reachable:
+      files: 1
+      works: 246
+      rows: 0
+      retrieved: '2026-08-02'
+    webpages:
+      files: 52
+      works: 717
+      rows: 10552
       retrieved: '2026-11-27'

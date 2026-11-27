@@ -11,6 +11,21 @@ record_type: web_releases
 identification_mode: known-works
 yuri_series_count: 0
 releases:
+  - release_id: "magcomi:episode:12207421984406812449"
+    work_title: "君とは一緒に死ねない～警視庁怪異調査室～"
+    web_status: "serialised"
+    identified_via: "discovery-candidate"
+    episode_title: "第3話「夢見鬼①」"
+    release_type: "chapter"
+    date: "2026-11-27"
+    date_basis: "observed"
+    first_seen: "2026-11-27"
+    first_reported: "2026-11-27T03:00:00Z"
+    platform_updated: "2026-11-27T03:00:00Z"
+    date_confidence: "reported"
+    url: "https://magcomi.com/episode/12207421984406812449"
+    author: "森"
+    advances_narrative: true
   - release_id: "magcomi:episode:12207421984374937414"
     in_current_window: false
     work_title: "ボイタボイネ"

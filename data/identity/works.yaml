@@ -23383,6 +23383,10 @@ works:
       - anchor: "web:https://tonarinoyj.jp/atom/series/12207421984544055922"
         basis: "the chapter page at https://tonarinoyj.jp/episode/12207421984544056504 links its own series feed at https://tonarinoyj.jp/atom/series/12207421984544055922, so the platform places this chapter in series 12207421984544055922"
         retrieved: 2026-11-26
+  - id: w03567
+    title: "あくまじょグリモワール"
+    anchors:
+      - "web:https://manga.nicovideo.jp/comic/76545"
 related:
   - a: w00156
     b: w00486

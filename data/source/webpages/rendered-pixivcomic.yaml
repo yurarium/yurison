@@ -10,12 +10,29 @@ source: webpages
 platform: pixivcomic
 platform_name: "pixivコミック"
 publisher: "ピクシブ"
-retrieved: 2026-11-27
+retrieved: 2026-11-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: rendered
 date_confidence: reported
 works:
+  - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
+    author: "中村カンコ"
+    url: "https://comic.pixiv.net/works/11081"
+    chapter_count: 3
+    chapters:
+      - title: "第3話"
+        updated: 2025-01-04
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話"
+        updated: 2024-12-07
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2024-11-02
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "腹割るウチらの秘密ごと!"
     author: "夏村東和"
     url: "https://comic.pixiv.net/works/11664"
@@ -31,6 +48,31 @@ works:
         date_basis: rendered
       - title: "第１話"
         updated: 2025-04-24
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "冷たくて 柔らか"
+    author: "ウオズミアミ"
+    url: "https://comic.pixiv.net/works/11800"
+    chapter_count: 5
+    chapters:
+      - title: "18-②"
+        updated: 2026-10-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "18-①"
+        updated: 2026-10-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "1-③"
+        updated: 2025-05-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "1-②"
+        updated: 2025-05-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "1-①"
+        updated: 2025-05-28
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "まるせっせんす"
@@ -50,17 +92,164 @@ works:
         updated: 2026-03-20
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "晴れた日のドレスコード"
-    author: "あげはる"
-    url: "https://comic.pixiv.net/works/13425"
+  - work_title: "たゆたう恋の散り際に"
+    author: "ゆあま"
+    url: "https://comic.pixiv.net/works/13224"
     chapter_count: 2
     chapters:
+      - title: "第2話 失恋の穴"
+        updated: 2026-06-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 金木犀"
+        updated: 2026-05-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "君のせいなんだから、責任とってよね。"
+    author: "当麻"
+    url: "https://comic.pixiv.net/works/13225"
+    chapter_count: 3
+    chapters:
+      - title: "第5話"
+        updated: 2026-09-28
+        access_modes: ["free"]
+        date_basis: rendered
       - title: "第2話"
-        updated: 2026-07-17
+        updated: 2026-06-28
         access_modes: ["free"]
         date_basis: rendered
       - title: "第1話"
-        updated: 2026-07-17
+        updated: 2026-05-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ひなちゃんが生きてるなら"
+    author: "紬めめ"
+    url: "https://comic.pixiv.net/works/13226"
+    chapter_count: 3
+    chapters:
+      - title: "第5話"
+        updated: 2026-10-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話"
+        updated: 2026-06-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話"
+        updated: 2026-05-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "アイ・ヘイ・チュー"
+    author: "長門知大"
+    url: "https://comic.pixiv.net/works/13324"
+    chapter_count: 5
+    chapters:
+      - title: "第7話 餅の焼く先"
+        updated: 2026-11-14
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第6話 今に木阿弥"
+        updated: 2026-10-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第3話 手も品も変えるな"
+        updated: 2026-08-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 悪夢にも勝る"
+        updated: 2026-07-18
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 垂涎に反吐"
+        updated: 2026-06-13
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "骨に願いを、星に呪いを"
+    author: "いくたはな"
+    url: "https://comic.pixiv.net/works/13345"
+    chapter_count: 4
+    chapters:
+      - title: "第5片"
+        updated: 2026-10-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第4片"
+        updated: 2026-09-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2片"
+        updated: 2026-07-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1片"
+        updated: 2026-06-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "怪獣ロマンティクス"
+    author: "じぃと"
+    url: "https://comic.pixiv.net/works/13457"
+    chapter_count: 6
+    chapters:
+      - title: "第5-1話 ふれっしゅ初陣！これが私のステージデビュー⁉"
+        updated: 2026-11-14
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第4-2話 地獄の特訓！たえFly High!"
+        updated: 2026-10-31
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第4-1話 地獄の特訓！たえFly High!"
+        updated: 2026-10-17
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2-2話 Totsuzenタンデム!? ドギマギ山頂でぇと"
+        updated: 2026-08-29
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2-1話 Totsuzenタンデム!? ドギマギ山頂でぇと"
+        updated: 2026-08-15
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 ぐっすん！ ドキドキ! 別れは出会いのシグナル"
+        updated: 2026-07-18
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "今日はカノジョがいないから"
+    author: "岩見樹代子"
+    url: "https://comic.pixiv.net/works/9018"
+    chapter_count: 3
+    chapters:
+      - title: "第37話 「姦穽」"
+        updated: 2026-09-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 「懐柔」"
+        updated: 2023-02-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 「接触」"
+        updated: 2023-01-28
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ぜんぶ壊して地獄で愛して"
+    author: "くわばらたもつ"
+    url: "https://comic.pixiv.net/works/9628"
+    chapter_count: 4
+    chapters:
+      - title: "第30話 薄日の下で"
+        updated: 2026-10-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第29話 記憶の檻"
+        updated: 2026-09-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第2話 逃げ場なんてない"
+        updated: 2023-09-28
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "第1話 悪い子だね"
+        updated: 2023-08-28
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "酒と鬼は二合まで"
@@ -464,23 +653,6 @@ works:
         updated: 2024-11-08
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "ゆりゆりぱにっく～尊すぎる事案が発生しています!～"
-    author: "中村カンコ"
-    url: "https://comic.pixiv.net/works/11081"
-    chapter_count: 3
-    chapters:
-      - title: "第3話"
-        updated: 2025-01-04
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2024-12-07
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2024-11-02
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "カナリアは綺羅星の夢をみる"
     author: "sheepD"
     url: "https://comic.pixiv.net/works/11180"
@@ -676,31 +848,6 @@ works:
         updated: 2025-04-05
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "冷たくて 柔らか"
-    author: "ウオズミアミ"
-    url: "https://comic.pixiv.net/works/11800"
-    chapter_count: 5
-    chapters:
-      - title: "18-②"
-        updated: 2026-10-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "18-①"
-        updated: 2026-10-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "1-③"
-        updated: 2025-05-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "1-②"
-        updated: 2025-05-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "1-①"
-        updated: 2025-05-28
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "彼なんかより、私のほうがいいでしょ?"
     url: "https://comic.pixiv.net/works/11817"
     chapter_count: 4
@@ -781,53 +928,6 @@ works:
         updated: 2026-02-28
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "たゆたう恋の散り際に"
-    author: "ゆあま"
-    url: "https://comic.pixiv.net/works/13224"
-    chapter_count: 2
-    chapters:
-      - title: "第2話 失恋の穴"
-        updated: 2026-06-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 金木犀"
-        updated: 2026-05-28
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "君のせいなんだから、責任とってよね。"
-    author: "当麻"
-    url: "https://comic.pixiv.net/works/13225"
-    chapter_count: 3
-    chapters:
-      - title: "第5話"
-        updated: 2026-09-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2026-06-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2026-05-28
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ひなちゃんが生きてるなら"
-    author: "紬めめ"
-    url: "https://comic.pixiv.net/works/13226"
-    chapter_count: 3
-    chapters:
-      - title: "第5話"
-        updated: 2026-10-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話"
-        updated: 2026-06-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話"
-        updated: 2026-05-28
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "犬も歩けば姫に当たる"
     author: "観乃ふみ"
     url: "https://comic.pixiv.net/works/13322"
@@ -845,79 +945,17 @@ works:
         updated: 2026-06-26
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "アイ・ヘイ・チュー"
-    author: "長門知大"
-    url: "https://comic.pixiv.net/works/13324"
-    chapter_count: 5
+  - work_title: "晴れた日のドレスコード"
+    author: "あげはる"
+    url: "https://comic.pixiv.net/works/13425"
+    chapter_count: 2
     chapters:
-      - title: "第7話 餅の焼く先"
-        updated: 2026-11-14
+      - title: "第2話"
+        updated: 2026-07-17
         access_modes: ["free"]
         date_basis: rendered
-      - title: "第6話 今に木阿弥"
-        updated: 2026-10-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第3話 手も品も変えるな"
-        updated: 2026-08-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 悪夢にも勝る"
-        updated: 2026-07-18
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 垂涎に反吐"
-        updated: 2026-06-13
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "骨に願いを、星に呪いを"
-    author: "いくたはな"
-    url: "https://comic.pixiv.net/works/13345"
-    chapter_count: 4
-    chapters:
-      - title: "第5片"
-        updated: 2026-10-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4片"
-        updated: 2026-09-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2片"
-        updated: 2026-07-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1片"
-        updated: 2026-06-28
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "怪獣ロマンティクス"
-    author: "じぃと"
-    url: "https://comic.pixiv.net/works/13457"
-    chapter_count: 6
-    chapters:
-      - title: "第5-1話 ふれっしゅ初陣！これが私のステージデビュー⁉"
-        updated: 2026-11-14
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4-2話 地獄の特訓！たえFly High!"
-        updated: 2026-10-31
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第4-1話 地獄の特訓！たえFly High!"
-        updated: 2026-10-17
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2-2話 Totsuzenタンデム!? ドギマギ山頂でぇと"
-        updated: 2026-08-29
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2-1話 Totsuzenタンデム!? ドギマギ山頂でぇと"
-        updated: 2026-08-15
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 ぐっすん！ ドキドキ! 別れは出会いのシグナル"
-        updated: 2026-07-18
+      - title: "第1話"
+        updated: 2026-07-17
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "紅殻のパンドラ"
@@ -1956,23 +1994,6 @@ works:
         updated: 2023-02-15
         access_modes: ["free"]
         date_basis: rendered
-  - work_title: "今日はカノジョがいないから"
-    author: "岩見樹代子"
-    url: "https://comic.pixiv.net/works/9018"
-    chapter_count: 3
-    chapters:
-      - title: "第37話 「姦穽」"
-        updated: 2026-09-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 「懐柔」"
-        updated: 2023-02-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 「接触」"
-        updated: 2023-01-28
-        access_modes: ["free"]
-        date_basis: rendered
   - work_title: "君としらない夏になる"
     author: "きぃやん"
     url: "https://comic.pixiv.net/works/9019"
@@ -2109,27 +2130,6 @@ works:
         date_basis: rendered
       - title: "第1話"
         updated: 2023-08-02
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ぜんぶ壊して地獄で愛して"
-    author: "くわばらたもつ"
-    url: "https://comic.pixiv.net/works/9628"
-    chapter_count: 4
-    chapters:
-      - title: "第30話 薄日の下で"
-        updated: 2026-10-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第29話 記憶の檻"
-        updated: 2026-09-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第2話 逃げ場なんてない"
-        updated: 2023-09-28
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "第1話 悪い子だね"
-        updated: 2023-08-28
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "フツーと化け物"

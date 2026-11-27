@@ -23,7 +23,7 @@ source: magapoke
 platform: magapoke
 platform_name: "マガポケ"
 publisher: "講談社"
-retrieved: 2026-11-27
+retrieved: 2026-11-28
 record_type: web_work_chapters
 identification_mode: discovery-candidate
 date_basis: platform-stated
@@ -6205,8 +6205,12 @@ works:
     title_id: "3368"
     url: "https://pocket.shonenmagazine.com/title/03368"
     feed: "https://mgpk-cdn.magazinepocket.com/static/rss/3368/feed.xml"
-    chapter_count: 3
+    chapter_count: 4
     chapters:
+      - title: "【第4話】"
+        updated: 2026-11-28
+        author: "清水幸"
+        url: "https://pocket.shonenmagazine.com/title/03368/episode/446981"
       - title: "【第3話】"
         updated: 2026-11-21
         author: "清水幸"

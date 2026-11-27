@@ -37,14 +37,14 @@
 source: bookwalker.jp
 role: print-edition-discovery
 record_type: shop_work_query
-retrieved: 2026-11-27
+retrieved: 2026-11-28
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 268
+  hits_agreeing_on_a_creator: 269
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 222
-  works_asked: 966
-  works_with_a_hit: 289
+  works_asked: 968
+  works_with_a_hit: 290
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
     id: "w03552"
@@ -7754,6 +7754,22 @@ works:
         publisher: "芳文社"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://manga.nicovideo.jp/comic/76545"
+    id: "w03567"
+    work: "あくまじょグリモワール"
+    author: "仮死亡殺"
+    platform: "ニコニコ漫画"
+    query: "author"
+    retrieved: "2026-11-28"
+    hits:
+      - series_url: "https://bookwalker.jp/series/632404/list/"
+        title_listed: "あくまじょグリモワール（まんがタイムKRコミックス）"
+        shop_author: "仮死亡殺(著)"
+        imprint: "まんがタイムKRコミックス"
+        publisher: "芳文社"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://manga.nicovideo.jp/comic/77287"
     id: "w03226"
     work: "タイムトラベル少女 ～ミライのサキ～"
@@ -8365,6 +8381,16 @@ works:
     author: "清水幸"
     platform: "マガポケ"
     retrieved: "2026-11-21"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://pocket.shonenmagazine.com/title/03368/episode/446981"
+    id: "w03550"
+    work: "瑠夏と杏珠の逃避行"
+    author: "清水幸"
+    platform: "マガポケ"
+    retrieved: "2026-11-28"
     hits: []
     notes:
       - "author query returned no title this database recognises"

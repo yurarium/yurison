@@ -5,12 +5,12 @@
 # acceptance criterion in §5 — every listed update eventually appearing in our feed.
 source: webcomics.jp
 role: coverage-yardstick
-retrieved: 2026-11-27
+retrieved: 2026-11-28
 pages_sampled: 8
 record_type: coverage_gap
 listings: 400
 distinct_works: 315
-works_on_watched_platform: 287
+works_on_watched_platform: 288
 platforms_total: 51
 platforms_watched: 39
 # ranked by works reachable on NO watched platform
@@ -18,7 +18,7 @@ platforms_missing:
   - platform: "マガポケ"
     works: 11
   - platform: "ヤンジャン+"
-    works: 4
+    works: 3
   - platform: "COMICリュウライブ"
     works: 3
   - platform: "COMIC ポルタ"
@@ -121,11 +121,6 @@ works_missing:
     url: "https://comic-ryu.jp/series/faa2bad81d17a"
     antenna_id: "161471"
     tags: ["百合", "獣人", "お色気・微エロ"]
-  - title: "まとう君、ほころぶ私"
-    platform: "FEEL web"
-    url: "https://feelweb.jp/episode/2550689798763776115"
-    antenna_id: "174064"
-    tags: ["百合"]
   - title: "百合フェチLIFE"
     platform: "Gコミ"
     url: "https://g-comi.jp/series/7e3c698bca968"
@@ -285,12 +280,17 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_002798_S"
     antenna_id: "113349"
-    tags: ["料理・グルメ", "百合", "実写化", "ぽっちゃり"]
+    tags: ["最近のコメント数"]
   - title: "ニニンがシノブ伝ぷらす"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_003297_S"
     antenna_id: "108614"
     tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
+  - title: "SRG!! My sister is a reincarnated elf from a game!..."
+    platform: "カドコミ"
+    url: "https://comic-walker.com/detail/KC_021620_S"
+    antenna_id: "218895"
+    tags: ["百合", "読み切り"]
   - title: "紫蘭さまにはなびきません!"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021516_S"
@@ -325,12 +325,12 @@ works_missing:
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006725_S"
     antenna_id: "190110"
-    tags: ["女子高生", "青春", "転生", "百合"]
+    tags: ["最近のコメント数"]
   - title: "拝啓、在りし日に咲く花たちへ"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_006092_S"
     antenna_id: "178772"
-    tags: ["最近のコメント数"]
+    tags: ["百合", "オムニバス・短編集", "女子高生"]
   - title: "アウトサイダーパラダイス"
     platform: "カドコミ"
     url: "https://comic-walker.com/detail/KC_021488_S"
@@ -716,6 +716,11 @@ works_missing:
     url: "https://drecomi-plus.jp/series/CD00038"
     antenna_id: "186551"
     tags: ["百合", "剣士", "ヒーラー・神官", "ファンタジー"]
+  - title: "ニニンがシノブ伝ぷらす"
+    platform: "ニコニコ漫画"
+    url: "https://manga.nicovideo.jp/comic/49574"
+    antenna_id: "108870"
+    tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
   - title: "モブヘブン"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/73164"
@@ -846,11 +851,6 @@ works_missing:
     url: "https://manga.nicovideo.jp/comic/60277"
     antenna_id: "141380"
     tags: ["百合", "アイドル", "幽霊"]
-  - title: "ニニンがシノブ伝ぷらす"
-    platform: "ニコニコ漫画"
-    url: "https://manga.nicovideo.jp/comic/49574"
-    antenna_id: "108870"
-    tags: ["ギャグ・コメディ", "忍者", "百合", "お色気・微エロ"]
   - title: "負けませんからと言い張る顔のいい女の子を、全力で屈服させる百合のお話"
     platform: "ニコニコ漫画"
     url: "https://manga.nicovideo.jp/comic/73060"
@@ -921,6 +921,11 @@ works_missing:
     url: "https://flowercomics.jp/title/6162"
     antenna_id: "217483"
     tags: ["百合"]
+  - title: "瑠夏と杏珠の逃避行"
+    platform: "マガポケ"
+    url: "https://pocket.shonenmagazine.com/title/03368"
+    antenna_id: "218095"
+    tags: ["百合", "女子中学生", "障害者"]
   - title: "ぎるてぃらいぶらり"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/03349"
@@ -931,11 +936,6 @@ works_missing:
     url: "https://pocket.shonenmagazine.com/title/03125"
     antenna_id: "202785"
     tags: ["ホラー", "幽霊", "百合", "女子高生"]
-  - title: "瑠夏と杏珠の逃避行"
-    platform: "マガポケ"
-    url: "https://pocket.shonenmagazine.com/title/03368"
-    antenna_id: "218095"
-    tags: ["百合", "女子中学生", "障害者"]
   - title: "私に天使が舞い降りた!"
     platform: "マガポケ"
     url: "https://pocket.shonenmagazine.com/title/01052"
@@ -1081,6 +1081,16 @@ works_missing:
     url: "http://neetsha.jp/inside/comic.php?id=24919"
     antenna_id: "161864"
     tags: ["魔法少女", "エロ", "百合"]
+  - title: "狼の皮をかぶった羊姫"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/edb5080d3a3a1"
+    antenna_id: "201879"
+    tags: ["最近のコメント数"]
+  - title: "百合神さまの言うとおり!"
+    platform: "竹コミ‎‏‎"
+    url: "https://takecomic.jp/series/5b8e11d2274cc"
+    antenna_id: "189396"
+    tags: ["百合"]
   - title: "夢でフラれてはじまる百合"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/8e32550d65684"
@@ -1106,11 +1116,6 @@ works_missing:
     url: "https://takecomic.jp/series/4ad31024142fd"
     antenna_id: "198990"
     tags: ["百合", "現代", "同居人・居候"]
-  - title: "百合神さまの言うとおり!"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/5b8e11d2274cc"
-    antenna_id: "189396"
-    tags: ["百合"]
   - title: "シュナイダーラリー"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/86a4f1e41d627"
@@ -1121,11 +1126,6 @@ works_missing:
     url: "https://takecomic.jp/series/b3efcd5f3a6a7"
     antenna_id: "146783"
     tags: ["百合", "スポーツ"]
-  - title: "狼の皮をかぶった羊姫"
-    platform: "竹コミ‎‏‎"
-    url: "https://takecomic.jp/series/edb5080d3a3a1"
-    antenna_id: "201879"
-    tags: ["百合", "糖度高め"]
   - title: "今年注目のエースちゃん"
     platform: "竹コミ‎‏‎"
     url: "https://takecomic.jp/series/b53a116d9f0e7"

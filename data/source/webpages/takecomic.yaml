@@ -951,7 +951,7 @@ works:
     author: "ミト"
     url: "https://takecomic.jp/series/edb5080d3a3a1"
     read: "2026-11-28"
-    chapter_count: 10
+    chapter_count: 11
     chapters:
       - title: "1話"
         updated: "2026-01-30"
@@ -967,7 +967,7 @@ works:
         access_modes: ["free-timed"]
       - title: "5話"
         updated: "2026-05-22"
-        access_modes: ["purchase"]
+        access_modes: ["free-timed"]
       - title: "6話"
         updated: "2026-06-26"
         access_modes: ["purchase"]
@@ -979,9 +979,12 @@ works:
         access_modes: ["purchase"]
       - title: "9話"
         updated: "2026-09-25"
-        access_modes: ["free"]
+        access_modes: ["purchase"]
       - title: "10話"
         updated: "2026-10-30"
+        access_modes: ["free"]
+      - title: "11話"
+        updated: "2026-11-27"
         access_modes: ["purchase"]
   - work_title: "白き乙女の人狼"
     status: "連載中"
@@ -1145,7 +1148,7 @@ works:
     author: "橘まなり"
     url: "https://takecomic.jp/series/5b8e11d2274cc"
     read: "2026-11-28"
-    chapter_count: 17
+    chapter_count: 18
     chapters:
       - title: "1話"
         updated: "2025-10-17"
@@ -1198,6 +1201,9 @@ works:
       - title: "14話"
         updated: "2026-11-06"
         access_modes: ["purchase"]
+      - title: "単行本告知イラスト"
+        updated: "2026-11-27"
+        access_modes: ["free"]
   - work_title: "私だけが宮地美雪を愛している"
     status: "連載中"
     author: "スズオ"

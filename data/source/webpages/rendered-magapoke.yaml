@@ -76,28 +76,28 @@ works:
       next_update: "2026-12-01"
     chapter_count: 10
     chapters:
+      - title: "【第66話】お風呂と、本音と、その先と。(4)"
+        updated: 2026-11-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【第66話】お風呂と、本音と、その先と。(3)"
+        updated: 2026-11-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【第66話】お風呂と、本音と、その先と。(2)"
+        updated: 2026-11-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
+      - title: "【第66話】お風呂と、本音と、その先と。(1)"
+        updated: 2026-11-18
+        access_modes: ["purchase"]
+        access_note: "point price 100"
+        date_basis: rendered
       - title: "【第65話】ごまかしと、練習と、不和と。(3)"
         updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【第65話】ごまかしと、練習と、不和と。(2)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【第65話】ごまかしと、練習と、不和と。(1)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【第64話】出会いと、別れと、後悔と。(6)"
-        updated: 2026-07-18
-        access_modes: ["purchase"]
-        access_note: "point price 100"
-        date_basis: rendered
-      - title: "【第64話】出会いと、別れと、後悔と。(5)"
-        updated: 2026-07-18
         access_modes: ["purchase"]
         access_note: "point price 100"
         date_basis: rendered
@@ -327,7 +327,7 @@ works:
     author: "田口囁一"
     url: "https://pocket.shonenmagazine.com/title/01357"
     stated_schedule:
-      cadence: "毎週日曜"
+      cadence: "毎月25日前後"
     chapter_count: 10
     chapters:
       - title: "【その32】ふたりエスケープ(2)"
@@ -379,7 +379,7 @@ works:
     author: "樫風"
     url: "https://pocket.shonenmagazine.com/title/01376"
     stated_schedule:
-      cadence: "毎週月曜"
+      cadence: "毎月25日前後"
     chapter_count: 10
     chapters:
       - title: "【第32話(3)】"
@@ -431,7 +431,7 @@ works:
     author: "戌井だいじ"
     url: "https://pocket.shonenmagazine.com/title/01418"
     stated_schedule:
-      cadence: "毎週月曜"
+      cadence: "毎月25日前後"
     chapter_count: 10
     chapters:
       - title: "【最終話】「彼女は彼女が好き」"
@@ -481,7 +481,7 @@ works:
     author: "サスケ"
     url: "https://pocket.shonenmagazine.com/title/01509"
     stated_schedule:
-      cadence: "毎週月曜"
+      cadence: "毎月25日前後"
     chapter_count: 10
     chapters:
       - title: "【最終話(3)】"
@@ -629,6 +629,59 @@ works:
         access_modes: ["free"]
         date_basis: rendered
       - title: "【act.1(1)】"
+        updated: 2022-03-10
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "踊り場にスカートが鳴る"
+    author: "うたたね游"
+    url: "https://pocket.shonenmagazine.com/title/01646"
+    stated_schedule:
+      cadence: "毎月第3火曜"
+      next_update: "2026-12-15"
+    chapter_count: 10
+    chapters:
+      - title: "【Episode 31】踊り場にスカートが鳴る(4)"
+        updated: 2025-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 80"
+        date_basis: rendered
+      - title: "【Episode 31】踊り場にスカートが鳴る(3)"
+        updated: 2025-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 80"
+        date_basis: rendered
+      - title: "【Episode 31】踊り場にスカートが鳴る(2)"
+        updated: 2025-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 80"
+        date_basis: rendered
+      - title: "【Episode 31】踊り場にスカートが鳴る(1)"
+        updated: 2025-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 80"
+        date_basis: rendered
+      - title: "【Episode 30】春一番(3)"
+        updated: 2025-07-18
+        access_modes: ["purchase"]
+        access_note: "point price 80"
+        date_basis: rendered
+      - title: "【Episode 2】胸に秘めれば(1)"
+        updated: 2022-03-10
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【Episode 1】少女たちは踊り場に(4)"
+        updated: 2022-03-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【Episode 1】少女たちは踊り場に(3)"
+        updated: 2022-03-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【Episode 1】少女たちは踊り場に(2)"
+        updated: 2022-03-10
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【Episode 1】少女たちは踊り場に(1)"
         updated: 2022-03-10
         access_modes: ["free"]
         date_basis: rendered
@@ -999,6 +1052,59 @@ works:
         date_basis: rendered
       - title: "【第1話】悪役令嬢の身体を手に入れたぞ"
         updated: 2023-10-20
+        access_modes: ["free"]
+        date_basis: rendered
+  - work_title: "ぜんぶ壊して地獄で愛して"
+    author: "くわばらたもつ"
+    url: "https://pocket.shonenmagazine.com/title/02367"
+    stated_schedule:
+      cadence: "毎週土曜"
+      next_update: "2026-11-28"
+    chapter_count: 10
+    chapters:
+      - title: "【第34話】嘘(3)"
+        updated: 2026-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第34話】嘘(2)"
+        updated: 2026-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第34話】嘘(1)"
+        updated: 2026-10-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第33話】朱くて空っぽ(3)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第33話】朱くて空っぽ(2)"
+        updated: 2026-09-18
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第2話(1)】逃げ場なんてない"
+        updated: 2023-10-06
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第1話(4)】悪い子だね"
+        updated: 2023-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話(3)】悪い子だね"
+        updated: 2023-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話(2)】悪い子だね"
+        updated: 2023-10-06
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話(1)】悪い子だね"
+        updated: 2023-10-06
         access_modes: ["free"]
         date_basis: rendered
   - work_title: "最果てのセレナード"
@@ -1524,6 +1630,57 @@ works:
         updated: 2026-06-09
         access_modes: ["free"]
         date_basis: rendered
+  - work_title: "オカルトタイムズ"
+    author: "いどんち"
+    url: "https://pocket.shonenmagazine.com/title/03282"
+    stated_schedule:
+      cadence: "毎週土曜"
+      next_update: "2026-11-28"
+    chapter_count: 10
+    chapters:
+      - title: "【第27話】百人一首がおにあいどす"
+        updated: 2026-11-11
+        access_modes: ["purchase"]
+        access_note: "point price 90"
+        date_basis: rendered
+      - title: "【第26.5話】キョンシー・アンド・トリート"
+        updated: 2026-10-14
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第26話】化けの皮切り"
+        updated: 2026-09-30
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【第25話】厄立たずの新聞 後編"
+        updated: 2026-09-02
+        access_modes: ["purchase"]
+        access_note: "point price 65"
+        date_basis: rendered
+      - title: "【第24.5話】メイド・イン・学園祭！"
+        updated: 2026-08-05
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第5話】UMAい話にご用心"
+        updated: 2026-06-30
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第4話】山に潜む獣"
+        updated: 2026-06-30
+        access_modes: ["free-timed"]
+        date_basis: rendered
+      - title: "【第3話】空からの侵略者"
+        updated: 2026-06-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第2話】暗闇に響く声"
+        updated: 2026-06-30
+        access_modes: ["free"]
+        date_basis: rendered
+      - title: "【第1話】ハザマ学園怪奇新聞部"
+        updated: 2026-06-30
+        access_modes: ["free"]
+        date_basis: rendered
   - work_title: "ぎるてぃらいぶらり"
     author: "閉伊川広輔"
     url: "https://pocket.shonenmagazine.com/title/03349"
@@ -1662,153 +1819,5 @@ works:
         date_basis: rendered
       - title: "【第1話】呪い髪の女"
         updated: 2026-09-09
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "踊り場にスカートが鳴る"
-    author: "うたたね游"
-    url: "https://pocket.shonenmagazine.com/title/01646"
-    chapter_count: 10
-    chapters:
-      - title: "【Episode 31】踊り場にスカートが鳴る(4)"
-        updated: 2025-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 80"
-        date_basis: rendered
-      - title: "【Episode 31】踊り場にスカートが鳴る(3)"
-        updated: 2025-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 80"
-        date_basis: rendered
-      - title: "【Episode 31】踊り場にスカートが鳴る(2)"
-        updated: 2025-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 80"
-        date_basis: rendered
-      - title: "【Episode 31】踊り場にスカートが鳴る(1)"
-        updated: 2025-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 80"
-        date_basis: rendered
-      - title: "【Episode 30】春一番(3)"
-        updated: 2025-07-18
-        access_modes: ["purchase"]
-        access_note: "point price 80"
-        date_basis: rendered
-      - title: "【Episode 2】胸に秘めれば(1)"
-        updated: 2022-03-10
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【Episode 1】少女たちは踊り場に(4)"
-        updated: 2022-03-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【Episode 1】少女たちは踊り場に(3)"
-        updated: 2022-03-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【Episode 1】少女たちは踊り場に(2)"
-        updated: 2022-03-10
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【Episode 1】少女たちは踊り場に(1)"
-        updated: 2022-03-10
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "ぜんぶ壊して地獄で愛して"
-    author: "くわばらたもつ"
-    url: "https://pocket.shonenmagazine.com/title/02367"
-    chapter_count: 10
-    chapters:
-      - title: "【第34話】嘘(3)"
-        updated: 2026-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第34話】嘘(2)"
-        updated: 2026-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第34話】嘘(1)"
-        updated: 2026-10-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第33話】朱くて空っぽ(3)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第33話】朱くて空っぽ(2)"
-        updated: 2026-09-18
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第2話(1)】逃げ場なんてない"
-        updated: 2023-10-06
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第1話(4)】悪い子だね"
-        updated: 2023-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話(3)】悪い子だね"
-        updated: 2023-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話(2)】悪い子だね"
-        updated: 2023-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話(1)】悪い子だね"
-        updated: 2023-10-06
-        access_modes: ["free"]
-        date_basis: rendered
-  - work_title: "オカルトタイムズ"
-    author: "いどんち"
-    url: "https://pocket.shonenmagazine.com/title/03282"
-    chapter_count: 10
-    chapters:
-      - title: "【第27話】百人一首がおにあいどす"
-        updated: 2026-11-11
-        access_modes: ["purchase"]
-        access_note: "point price 90"
-        date_basis: rendered
-      - title: "【第26.5話】キョンシー・アンド・トリート"
-        updated: 2026-10-14
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第26話】化けの皮切り"
-        updated: 2026-09-30
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第25話】厄立たずの新聞 後編"
-        updated: 2026-09-02
-        access_modes: ["purchase"]
-        access_note: "point price 65"
-        date_basis: rendered
-      - title: "【第24.5話】メイド・イン・学園祭！"
-        updated: 2026-08-05
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第5話】UMAい話にご用心"
-        updated: 2026-06-30
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第4話】山に潜む獣"
-        updated: 2026-06-30
-        access_modes: ["free-timed"]
-        date_basis: rendered
-      - title: "【第3話】空からの侵略者"
-        updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第2話】暗闇に響く声"
-        updated: 2026-06-30
-        access_modes: ["free"]
-        date_basis: rendered
-      - title: "【第1話】ハザマ学園怪奇新聞部"
-        updated: 2026-06-30
         access_modes: ["free"]
         date_basis: rendered

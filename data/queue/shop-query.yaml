@@ -40,11 +40,11 @@ record_type: shop_work_query
 retrieved: 2026-11-28
 key: work_url
 counts:
-  hits_agreeing_on_a_creator: 269
+  hits_agreeing_on_a_creator: 271
   hits_on_the_title_alone: 116
   hits_stating_a_print_edition_date: 222
-  works_asked: 968
-  works_with_a_hit: 290
+  works_asked: 972
+  works_with_a_hit: 292
 works:
   - work_url: "http://neetsha.jp/inside/comic.php?id=24919"
     id: "w03552"
@@ -2766,6 +2766,22 @@ works:
         printed: "2026/9/22"
         agreement: "creator"
         completed_marker: false
+  - work_url: "https://comic-ogyaaa.com/episode/12207421984571693526"
+    id: "w00108"
+    work: "壊していいよ、すいかちゃん"
+    author: "虫歯"
+    platform: "COMIC OGYAAA!!"
+    query: "author"
+    retrieved: "2026-11-28"
+    hits:
+      - series_url: "https://bookwalker.jp/series/632474/list/"
+        title_listed: "壊していいよ、すいかちゃん（マーガレットコミックスDIGITAL）"
+        shop_author: "虫歯"
+        imprint: "マーガレットコミックスDIGITAL"
+        publisher: "集英社"
+        agreement: "creator"
+        volumes_stated: 2
+        completed_marker: false
   - work_url: "https://comic-ogyaaa.com/episode/2550689798875510910"
     id: "w00681"
     work: "サバーキ"
@@ -4293,6 +4309,16 @@ works:
     notes:
       - "author query returned no title this database recognises"
       - "title query returned no title this database recognises"
+  - work_url: "https://comic-walker.com/detail/KC_021620_S"
+    id: "w03568"
+    work: "SRG!! My sister is a reincarnated elf from a game!?～ゲームから転生してきたエルフが私のお姉ちゃん!?～"
+    author: "しる"
+    platform: "カドコミ"
+    retrieved: "2026-11-28"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
   - work_url: "https://comic-walker.com/detail/KC_021644_S"
     id: "w03549"
     work: "パラレル床下収納"
@@ -4728,6 +4754,22 @@ works:
         publisher: "ドリコム"
         printed: "2025/10/20"
         agreement: "title-only"
+        volumes_stated: 3
+        completed_marker: true
+  - work_url: "https://feelweb.jp/episode/12207421983615871296"
+    id: "w00669"
+    work: "まとう君、ほころぶ私"
+    author: "犬井あゆ"
+    platform: "FEEL web"
+    query: "author"
+    retrieved: "2026-11-28"
+    hits:
+      - series_url: "https://bookwalker.jp/series/510630/list/"
+        title_listed: "まとう君、ほころぶ私（FC Jam）"
+        shop_author: "犬井あゆ"
+        imprint: "FC Jam"
+        publisher: "祥伝社"
+        agreement: "creator"
         volumes_stated: 3
         completed_marker: true
   - work_url: "https://feelweb.jp/episode/2550689798763776115"
@@ -6636,6 +6678,16 @@ works:
     author: "森"
     platform: "MAGCOMI"
     retrieved: "2026-10-24"
+    hits: []
+    notes:
+      - "author query returned no title this database recognises"
+      - "title query answered nothing"
+  - work_url: "https://magcomi.com/episode/12207421984406812449"
+    id: "w03451"
+    work: "君とは一緒に死ねない～警視庁怪異調査室～"
+    author: "森"
+    platform: "MAGCOMI"
+    retrieved: "2026-11-28"
     hits: []
     notes:
       - "author query returned no title this database recognises"

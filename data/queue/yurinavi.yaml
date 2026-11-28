@@ -6,7 +6,7 @@
 # and require a human content_tier call — that is the whole reason the queue exists.
 source: yurinavi
 role: discovery-only
-retrieved: 2026-11-27
+retrieved: 2026-11-28
 record_type: discovery_queue
 candidates:
   - work_title: "りのちゃんの好きなこと"
@@ -46,7 +46,7 @@ candidates:
     status: unconfirmed
   - work_title: "回って避ける"
     signal: "oneshot"
-    announced: "Sun, 15 Nov 2026 11:00:42 +0000"
+    announced: "2026-11-15"
     url: "https://yurinavi.com/2026/11/15/mawattesakeru-yomikiri/"
     platform: "seasons"
     platform_code: "12207421984513315666"

@@ -1,4 +1,4 @@
-generated: '2026-11-27'
+generated: '2026-11-28'
 names:
   '*sow*':
     basis: stated
@@ -36042,6 +36042,22 @@ names:
     reading_source: まんが王国
     reading_source_kind: derived
     reading_url: https://comic.k-manga.jp/search/author/11460
+    verified: false
+  織田樹:
+    basis: romaji
+    furigana_spans:
+    - - 織田
+      - おだ
+    - - 樹
+      - いつき
+    reading: オダイツキ
+    reading_at: '2026-11-28'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
+    reading_source_kind: analyser
     verified: false
   缶乃:
     basis: romaji

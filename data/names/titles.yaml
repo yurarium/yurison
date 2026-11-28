@@ -1,4 +1,4 @@
-generated: '2026-11-27'
+generated: '2026-11-28'
 names:
   '#うちらが最強 ～陰キャ除霊師とギャルJK～':
     basis: translated
@@ -50877,6 +50877,23 @@ names:
     reading_basis: analyser
     reading_pass: 4
     reading_source: sudachi
+    reading_source_kind: analyser
+    verified: false
+  保健室とふたり:
+    basis: romaji
+    furigana_spans:
+    - - 保健室
+      - ほけんしつ
+    - - とふたり
+      - null
+    reading: ホケンシツ ト フタリ
+    reading_at: '2026-11-28'
+    reading_basis: analyser
+    reading_note: reading guessed by a morphological analyser, not stated by any source; analysers are
+      weakest on pen names and coinages
+    reading_ordinary: true
+    reading_pass: 4
+    reading_source: SudachiPy 0.7.0, SudachiDict-core 20260723.1
     reading_source_kind: analyser
     verified: false
   保健室のあの女:
